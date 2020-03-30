@@ -1,6 +1,6 @@
 ---
-title: Tabela de limites de Site Recovery
-description: Descreve os limites do sistema para Site Recovery.
+title: Tabela de limites de recuperação do site
+description: Descreve os limites do sistema para a recuperação do site.
 services: site recovery
 documentationcenter: NA
 author: csilauraa
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 4d4e68d99585522e773e71430b4e4f37ad7b1580
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 7a241d3144b6220d0084b61de2dde7c36a68c257
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67184661"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334664"
 ---
-Os limites a seguir se aplicam a Azure Site Recovery.
+Os seguintes limites aplicam-se à Recuperação do Sítio Azure.
 
-| Identificador de limite | Limite predefinido |
+| Identificador de limite | Limite |
 | --- | --- |
-| Número de cofres por assinatura |500 |     
-| Número de servidores por cofre do Azure |250 |
-| Número de grupos de proteção por cofre do Azure |Sem limite |
-| Número de planos de recuperação por cofre do Azure |Sem limite |
+| Número de cofres por subscrição |500 |     
+| Número de servidores por cofre Azure |250 |
+| Número de grupos de proteção por cofre Azure |Sem limite |
+| Número de planos de recuperação por cofre Azure |Sem limite |
 | Número de servidores por grupo de proteção |Sem limite |
 | Número de servidores por plano de recuperação |50 |
 

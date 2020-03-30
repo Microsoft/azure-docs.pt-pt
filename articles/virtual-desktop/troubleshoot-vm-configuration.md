@@ -9,10 +9,10 @@ ms.date: 12/03/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127596"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
@@ -81,7 +81,7 @@ A forma recomendada de fornecer VMs é usar o Modelo de Conjunto de Conjuntos de
 
 Siga estas instruções para confirmar que os componentes estão instalados e para verificar se existem mensagens de erro.
 
-1. Confirme que os dois componentes são instalados verificando no Painel de **Controlo** > Programas > **Programas e Funcionalidades**. Se o **Windows Virtual Desktop Agent** e o Windows Virtual Desktop Agent Boot **Loader** não estiverem visíveis, não estão instalados no VM.
+1. Confirme que os dois componentes são instalados verificando os**programas e funcionalidades**dos Programas e**Funcionalidades** >  **do Painel** > de Controlo . Se o **Windows Virtual Desktop Agent** e o Windows Virtual Desktop Agent Boot **Loader** não estiverem visíveis, não estão instalados no VM.
 2. Abra o Explorador de **Ficheiros** e navegue para **C:\Windows\Temp\ScriptLog.log**. Se o ficheiro estiver em falta, indica que o DSC PowerShell que instalou os dois componentes não foi capaz de ser executado no contexto de segurança fornecido.
 3. Se o ficheiro **C:\Windows\Temp\ScriptLog.log** estiver presente, abra-o e verifique se existem mensagens de erro.
 
@@ -234,7 +234,7 @@ O VM utilizado para executar a reparação deve estar na mesma sub-rede e domín
 Siga estas instruções para executar a reparação a partir da mesma subnete e domínio:
 
 1. Ligue-se ao Protocolo de Ambiente de Trabalho Remoto (RDP) padrão ao VM a partir do local onde será aplicada a correção.
-2. Baixe o PsExec a partir de https://docs.microsoft.com/sysinternals/downloads/psexec.
+2. Baixar PsExec https://docs.microsoft.com/sysinternals/downloads/psexeca partir de .
 3. Desaperte o ficheiro descarregado.
 4. Inicie o pedido de comando como administrador local.
 5. Navegue para pasta onde o PsExec foi desapertado.
@@ -310,7 +310,7 @@ Se vir alguma destas mensagens, isto significa que a imagem não tem as mais rec
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Desative a definição de política do modo de licenciamento do ambiente de trabalho remoto
 
-Verifique a definição da política do grupo abrindo o Editor de Política do Grupo no VM e navegando para **modelos administrativos** > componentes do Windows > **Serviços remotos** de **ambiente** de trabalho > **anfitrião** de sessão de ambiente de trabalho remoto >  ** > ** definir o modo de licenciamento de ambiente de **trabalho remoto**. Se a definição de política do grupo estiver **ativada,** altere-a para **Desativada**. Se já está desativado, então deixe como está.
+Verifique a definição da política do grupo abrindo o Editor de Política do Grupo no VM e navegando para **modelos administrativos** > **Windows Components** > Os componentes do Windows**Remote Desktop Services** > **Remote Desktop Session Hosting** > set the Remote Desktop**Licensing** > **Mode**. Se a definição de política do grupo estiver **ativada,** altere-a para **Desativada**. Se já está desativado, então deixe como está.
 
 >[!NOTE]
 >Se definir a política de grupo através do seu domínio, desative esta definição em políticas que visam estes VMs multissessões do Windows 10 Enterprise.

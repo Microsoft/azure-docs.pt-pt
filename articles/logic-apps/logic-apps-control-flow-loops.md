@@ -1,19 +1,19 @@
 ---
 title: Adicione loops para repetir ações
-description: Crie loops que repitam ações de fluxo de trabalho ou matrizes de processos em Aplicações Lógicas Azure
+description: Criar ciclos que repetem as ações do fluxo de trabalho e processam as matrizes no Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270579"
 ---
-# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crie loops que repitam ações de fluxo de trabalho ou matrizes de processos em Aplicações Lógicas Azure
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetem as ações do fluxo de trabalho e processam as matrizes no Azure Logic Apps
 
 Para processar uma matriz na sua aplicação lógica, pode criar um [loop "Foreach".](#foreach-loop) Este loop repete uma ou mais ações em cada item da matriz. Para limites no número de itens de matriz que os loops "Foreach" podem processar, ver [Limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
 
@@ -40,7 +40,7 @@ Aqui ficam algumas considerações quando utiliza loops "Foreach":
 
 * Para obter resultados previsíveis de operações em variáveis durante cada iteração de loop, executar esses loops sequencialmente. Por exemplo, quando um ciclo de execução em simultâneo termina, o incremento, o decreamento e o apêndice a operações variáveis retornam resultados previsíveis. No entanto, durante cada iteração no ciclo de execução em simultâneo, estas operações podem dar resultados imprevisíveis. 
 
-* As ações num ciclo "Foreach" utilizam o [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+* As ações num loop "Foreach" usam o[`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 expressão para referência e processar cada item na matriz. Se especificar dados que não estão numa matriz, o fluxo de trabalho da aplicação lógica falha. 
 
 Esta aplicação lógica de exemplo envia um resumo diário para um feed RSS do site. A aplicação usa um loop "Foreach" que envia um e-mail para cada novo item.
@@ -50,7 +50,7 @@ Esta aplicação lógica de exemplo envia um resumo diário para um feed RSS do 
 2. Entre o gatilho RSS e a ação de e-mail, adicione um loop "Foreach". 
 
    1. Para adicionar um laço entre passos, mova o ponteiro sobre a seta entre esses degraus. 
-   Escolha o **sinal plus** **(+)** que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal**+** de **mais** () que aparece e, em seguida, selecione Adicionar uma **ação**.
 
       ![Selecione "Adicionar uma ação"](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -81,7 +81,7 @@ Esta aplicação lógica de exemplo envia um resumo diário para um feed RSS do 
 
 ## <a name="foreach-loop-definition-json"></a>Definição de loop "Foreach" (JSON)
 
-Se estiver a trabalhar em vista de código para a sua aplicação lógica, pode definir o loop `Foreach` na definição JSON da sua aplicação lógica, por exemplo:
+Se estiver a trabalhar em vista de código para `Foreach` a sua aplicação lógica, pode definir o loop na definição JSON da sua aplicação lógica, por exemplo:
 
 ``` json
 "actions": {
@@ -122,7 +122,7 @@ Se estiver a trabalhar em vista de código para a sua aplicação lógica, pode 
 
 Por padrão, os ciclos num ciclo "Foreach" funcionam em paralelo. Para executar cada ciclo sequencialmente, detete a opção **sequencial** do loop. Os laços "Foreach" devem ser executados sequencialmente quando se tem laços ou variáveis aninhados dentro de loops onde se espera resultados previsíveis. 
 
-1. No canto superior direito do loop, escolha **elipses** ( **...** ) > **Definições**.
+1. No canto superior direito do loop, escolha **elipses** (**...**) > **Definições**.
 
    ![No loop "Foreach", escolha "..." > "Definições"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -130,7 +130,7 @@ Por padrão, os ciclos num ciclo "Foreach" funcionam em paralelo. Para executar 
 
    ![Ligue o controlo da concurrency](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-Se estiver a trabalhar com a definição JSON da sua aplicação lógica, pode utilizar a opção `Sequential` adicionando o parâmetro `operationOptions`, por exemplo:
+Se estiver a trabalhar com a definição JSON da `Sequential` sua aplicação lógica, pode utilizar a opção adicionando o `operationOptions` parâmetro, por exemplo:
 
 ``` json
 "actions": {
@@ -232,9 +232,9 @@ A partir das 8:00 da manhã de cada dia, esta aplicação lógica de exemplo inc
 
       | Propriedade | Valor | Descrição |
       | -------- | ----- | ----------- | 
-      | **Para** | *\<endereço de e-mail\@domínio>* | O endereço de e-mail do destinatário. Para testes, utilize o seu próprio endereço de e-mail. | 
+      | **Para** | *\<>de\@domínio de endereço de e-mail* | O endereço de e-mail do destinatário. Para testes, utilize o seu próprio endereço de e-mail. | 
       | **Assunto** | Valor atual para "Limite" é **Limite** | Especifique o assunto do e-mail. Para este exemplo, certifique-se de que inclui a variável **Limite.** | 
-      | **Corpo** | <> *de e-mail-conteúdo* | Especifique o conteúdo da mensagem de e-mail que pretende enviar. Para este exemplo, insira o texto que quiser. | 
+      | **Corpo** | <*e-mail-conteúdo*> | Especifique o conteúdo da mensagem de e-mail que pretende enviar. Para este exemplo, insira o texto que quiser. | 
       |||| 
 
 1. Guarde a aplicação lógica. Para testar manualmente a sua aplicação lógica, na barra de ferramentas de design, escolha **Run**.
@@ -259,7 +259,7 @@ Para alterar estes limites predefinidos, escolha **Mostrar opções avançadas**
 
 ## <a name="until-definition-json"></a>Definição "Até" (JSON)
 
-Se estiver a trabalhar em vista de código para a sua aplicação lógica, pode definir um `Until` loop na definição JSON da sua aplicação lógica, por exemplo:
+Se estiver a trabalhar em vista de código para `Until` a sua aplicação lógica, pode definir um loop na definição JSON da sua aplicação lógica, por exemplo:
 
 ``` json
 "actions": {
@@ -297,11 +297,11 @@ Se estiver a trabalhar em vista de código para a sua aplicação lógica, pode 
 }
 ```
 
-Este ciclo de exemplo "Até" chama um ponto final HTTP, que cria um recurso. O laço para quando o corpo de resposta HTTP retorna com `Completed` estado. Para evitar laços intermináveis, o laço também para se alguma destas condições acontecer:
+Este ciclo de exemplo "Até" chama um ponto final HTTP, que cria um recurso. O laço para quando o corpo `Completed` de resposta HTTP retorna com o estado. Para evitar laços intermináveis, o laço também para se alguma destas condições acontecer:
 
-* O loop correu 10 vezes mais do que especificado pelo atributo `count`. O padrão é 60 vezes. 
+* O loop correu 10 vezes `count` mais especificado pelo atributo. O padrão é 60 vezes. 
 
-* O loop funcionou durante duas horas, conforme especificado pelo `timeout` atributo no formato ISO 8601. O padrão é de uma hora.
+* O loop funcionou durante duas `timeout` horas, conforme especificado pelo atributo no formato ISO 8601. O padrão é de uma hora.
   
 ``` json
 "actions": {

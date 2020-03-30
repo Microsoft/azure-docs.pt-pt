@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: 080b0bc53b2058bd186e90f354b8f5bcda510414
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197085"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho de backup offline para DPM e Servidor de Backup Azure
@@ -67,7 +67,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 ## <a name="prepare-the-server-for-the-offline-backup-process"></a>Prepare o servidor para o processo de backup offline
 
 >[!NOTE]
-> Se não encontrar os utilitários listados, como *o AzureOfflineBackupCertGen.exe*, na sua instalação do Agente MARS, escreva para AskAzureBackupTeam@microsoft.com para ter acesso aos mesmos.
+> Se não encontrar os utilitários listados, como *o AzureOfflineBackupCertGen.exe*, na sua AskAzureBackupTeam@microsoft.com instalação do Agente MARS, escreva para ter acesso aos mesmos.
 
 * Abra um pedido de comando elevado no servidor e execute o seguinte comando:
 
@@ -88,36 +88,36 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
     AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
     ```
 
-* O comando anterior cria o ficheiro `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`.
+* O comando anterior `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`cria o ficheiro .
 
 ## <a name="manually-upload-an-offline-backup-certificate"></a>Faça upload manual de um certificado de backup offline
 
 Siga estes passos para carregar manualmente o certificado de backup offline para uma aplicação de Diretório Ativo Azure previamente criada, destinada a cópia de segurança offline.
 
 1. Inicie sessão no Portal do Azure.
-1. Vá ao **Azure Ative Directory** > **Inscrições de Apps.**
-1. No separador **de aplicações Owned,** localize uma aplicação com o formato de nome do ecrã `AzureOfflineBackup _<Azure User Id`.
+1. Vá às > **inscrições**da App de **Diretório Ativo Azure.**
+1. No separador **de aplicações Owned,** localize `AzureOfflineBackup _<Azure User Id`uma aplicação com o formato de nome do ecrã .
 
     ![Localizar aplicação no separador de aplicações próprias](./media/backup-azure-backup-import-export/owned-applications.png)
 
-1. Selecione a aplicação. Sob **a Gestão** no painel esquerdo, vá a **Certificados e segredos.**
+1. Selecione a aplicação. Sob **a Gestão** no painel esquerdo, vá a **Certificados & segredos.**
 1. Verifique se existem certificados pré-existentes ou chaves públicas. Se não houver nenhuma, pode eliminar a aplicação com segurança selecionando o botão **Eliminar** na página **de visão geral** da aplicação. Em seguida, pode voltar a tentar os passos para [preparar o servidor para o](#prepare-the-server-for-the-offline-backup-process) processo de backup offline e saltar os seguintes passos. Caso contrário, continue a seguir estes passos a partir da instância DPM ou do servidor de backup Azure, onde pretende configurar a cópia de segurança offline.
-1. Selecione a **aplicação de certificado** de computador > separador **pessoal.** Procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Selecione o separador > **pessoal** de formulário de `CB_AzureADCertforOfflineSeeding_<ResourceId>` **computador Gerir.** Procure o certificado com o nome .
 1. Selecione o certificado, clique à direita **em Todas as Tarefas,** e, em seguida, selecione **Exportação,** sem chave privada, no formato .cer.
 1. Vá à aplicação de backup offline Azure no portal Azure.
-1. Selecione **Gerir** **certificados e segredos** >  > **certificado de upload**. Faça o upload do certificado exportado no passo anterior.
+1. Selecione **Gerir** > **Certificados & segredos** > **Enviar certificado**. Faça o upload do certificado exportado no passo anterior.
 
-    ![Faça upload do certificado](./media/backup-azure-backup-import-export/upload-certificate.png)
+    ![Carregar o certificado](./media/backup-azure-backup-import-export/upload-certificate.png)
 
 1. No servidor, abra o registo entrando em **regedite** na janela de execução.
 1. Vá para a entrada de registo *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
-1. Clique no **CloudBackupProvider**e adicione um novo valor de cadeia com o nome `AzureADAppCertThumbprint_<Azure User Id>`.
+1. Clique no **CloudBackupProvider**e adicione um novo `AzureADAppCertThumbprint_<Azure User Id>`valor de cadeia com o nome .
 
     >[!NOTE]
     > Para encontrar o ID do utilizador Azure, faça um dos seguintes passos:
     >
-    >* A partir da PowerShell ligada ao Azure, execute o comando `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”`.
-    >* Vá para o caminho do registo `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`.
+    >* A partir da PowerShell ligada `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”` ao Azure, executar o comando.
+    >* Vá para o `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`caminho do registo.
 
 1. Clique na corda adicionada no passo anterior e selecione **Modificar**. No valor, forneça a impressão digital do certificado que exportou no passo 7. Em seguida, selecione **OK**.
 1. Para obter o valor da impressão digital, clique duas vezes no certificado. Selecione o separador **Detalhes** e desloque-se para baixo até ver o campo de impressão digital. Selecione **Impressão Digital**e copie o valor.
@@ -184,11 +184,11 @@ O utilitário *AzureOfflineBackupDiskPrep* é utilizado para preparar as unidade
 
     | Parâmetro | Descrição |
     | --- | --- |
-    | s:&lt;percurso de *localização de encenação*&gt; |Esta entrada obrigatória é utilizada para fornecer o caminho para o local de paragem que inseriu no fluxo de trabalho na secção "Iniciar backup offline". |
-    | p: *&lt;Caminho para publicarDefiniçõesFile*&gt; |Esta entrada opcional é utilizada para fornecer o caminho para o ficheiro de definições de publicação do Azure que introduziu no fluxo de trabalho na secção "Iniciar backup offline". |
+    | s:&lt;*Caminho de Localização de Encenação*&gt; |Esta entrada obrigatória é utilizada para fornecer o caminho para o local de paragem que inseriu no fluxo de trabalho na secção "Iniciar backup offline". |
+    | p:&lt;*Caminho para publicarDefiniçõesFile*&gt; |Esta entrada opcional é utilizada para fornecer o caminho para o ficheiro de definições de publicação do Azure que introduziu no fluxo de trabalho na secção "Iniciar backup offline". |
 
     > [!NOTE]
-    > O &lt;Caminho para o AzurePublishSettingFile&gt; valor é obrigatório quando o computador de cópia e o computador de origem são diferentes.
+    > O &lt;valor Do Caminho&gt; para o AzurePublishSettingFile é obrigatório quando o computador de cópia e o computador de origem são diferentes.
     >
     >
 
@@ -226,8 +226,8 @@ O utilitário *AzureOfflineBackupDiskPrep* é utilizado para preparar as unidade
     | Parâmetro | Descrição |
     | --- | --- |
     | u: | Esta entrada obrigatória é usada para atualizar detalhes de envio para um trabalho de importação azure. |
-    | s:&lt;percurso de *localização de encenação*&gt; | Esta entrada obrigatória é usada quando o comando não é executado no computador de origem. É usado para fornecer o caminho para o local de paragem que você entrou no fluxo de trabalho na secção "Iniciar backup offline". |
-    | p: *&lt;Caminho para publicarDefiniçõesFile*&gt; | Esta entrada obrigatória é usada quando o comando não é executado no computador de origem. É utilizado para fornecer o caminho para o ficheiro de definições de publicação do Azure que introduziu no fluxo de trabalho na secção "Iniciar backup offline". |
+    | s:&lt;*Caminho de Localização de Encenação*&gt; | Esta entrada obrigatória é usada quando o comando não é executado no computador de origem. É usado para fornecer o caminho para o local de paragem que você entrou no fluxo de trabalho na secção "Iniciar backup offline". |
+    | p:&lt;*Caminho para publicarDefiniçõesFile*&gt; | Esta entrada obrigatória é usada quando o comando não é executado no computador de origem. É utilizado para fornecer o caminho para o ficheiro de definições de publicação do Azure que introduziu no fluxo de trabalho na secção "Iniciar backup offline". |
 
     O utilitário deteta automaticamente o trabalho de importação que o computador-fonte aguarda ou os postos de importação associados ao local de paragem quando o comando é executado num computador diferente. Em seguida, fornece a opção de atualizar informações de envio através de uma série de inputs.
 

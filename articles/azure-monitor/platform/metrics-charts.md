@@ -1,5 +1,5 @@
 ---
-title: Características avançadas do Azure Metrics Explorer
+title: Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
 description: Saiba mais sobre as funcionalidades avançadas do Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c754f33ab5f4346413b6603ca2cd404acac5443f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248791"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371606"
 ---
-# <a name="advanced-features-of-azure-metrics-explorer"></a>Características avançadas do Azure Metrics Explorer
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
 
 > [!NOTE]
 > Este artigo assume que está familiarizado com as características básicas do Metrics Explorer. Se é um novo utilizador e quer aprender a criar o seu primeiro gráfico métrico, consulte [Getting started with Azure Metrics Explorer](metrics-getting-started.md).
@@ -110,6 +110,19 @@ Para controlar a gama do eixo y, use o "..." menu de gráficos e **selecione gr�
 
 > [!WARNING]
 > O bloqueio dos limites do eixo y para os gráficos que acompanham várias contagens ou somas durante um período de tempo (e, portanto, utilização de contagem, soma, mínima ou máxima agregação) geralmente requer especificar uma granularidade de tempo fixo em vez de depender dos incumprimentos automáticos. Isto é necessário porque os valores nos gráficos mudam quando a granularidade do tempo é automaticamente modificada pelo utilizador redimensionando a janela do navegador ou passando de uma resolução de ecrã para outra. A variação resultante da granularidade do tempo afeta o aspeto do gráfico, invalidando a seleção atual da gama y-eixo.
+
+## <a name="change-colors-of-chart-lines"></a>Alterar as cores das linhas de gráfico
+
+Depois de configurar os gráficos, as linhas de gráfico são automaticamente atribuídas a uma cor a partir de uma paleta padrão. Podes mudar essas cores.
+
+Para alterar a cor de uma linha de gráfico, clique na barra colorida na legenda que corresponde ao gráfico. O diálogo do apanhador de cores abre-se. Utilize o apanhador de cores para configurar a cor para a linha.
+
+Depois de configuradas as cores do gráfico, permanecerão assim quando fixar o gráfico num dashboard. A secção seguinte mostra-lhe como fixar um gráfico.
+
+> [!NOTE]
+> Devido aos constrangimentos do nosso calendário de lançamento e publicação, mudar de cor das linhas de gráfico requer passar temporariamente [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true)um parâmetro especial **?feature.colorpicker=true** ao iniciar o portal Azure . Esta limitação será removida em breve. 
+
+![imagem da métrica](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Gráficos de pin para dashboards
 

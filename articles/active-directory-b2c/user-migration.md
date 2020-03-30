@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90ef9402e0891915be4ed6bb89573eced546c59a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b3ee069985fd39288a562d3caafc50b12290c060
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183147"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332340"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar utilizadores para Azure AD B2C
 
@@ -43,7 +43,7 @@ Utilize o fluxo de migração sem emenda se as palavras-passe de texto simples n
 - A palavra-passe é armazenada num formato encriptado de ida, como por exemplo com uma função hash.
 - A palavra-passe é armazenada pelo fornecedor de identidade legado de uma forma a que não pode aceder. Por exemplo, quando o fornecedor de identidade valida credenciais ligando para um serviço web.
 
-O fluxo de migração sem emenda ainda requer migração a granel das contas dos utilizadores, mas depois usa uma [política personalizada](restful-technical-profile.md) para consultar uma [API REST](rest-api-claims-exchange-dotnet.md) (que cria) para definir a palavra-passe de cada utilizador no primeiro início de sessão.
+O fluxo de migração sem emenda ainda requer migração a granel das contas dos utilizadores, mas depois usa uma [política personalizada](custom-policy-get-started.md) para consultar uma [API REST](custom-policy-rest-api-intro.md) (que cria) para definir a palavra-passe de cada utilizador no primeiro início de sessão.
 
 O fluxo de migração sem emenda tem, assim, duas fases: importação a *granel* e *credenciais definidas.*
 
@@ -58,14 +58,14 @@ Após a migração a granel das contas estar completa, a sua política personali
 
 1. Leia a conta de utilizador Azure AD B2C correspondente ao endereço de e-mail introduzido.
 1. Verifique se a conta está sinalizada para a migração avaliando um atributo de extensão booleana.
-    - Se o atributo de extensão for `True`, ligue para a Sua API REST para validar a palavra-passe contra o fornecedor de identidade legado.
+    - Se o atributo `True`de extensão for retornado, ligue para a Sua API REST para validar a palavra-passe contra o fornecedor de identidade legado.
       - Se a API REST determinar que a palavra-passe está incorreta, devolva um erro amigável ao utilizador.
-      - Se a API REST determinar que a palavra-passe está correta, escreva a palavra-passe na conta Azure AD B2C e altere o atributo de extensão booleana para `False`.
-    - Se o atributo de extensão booleana voltar `False`, continue o processo de entrada normal.
+      - Se a API REST determinar que a palavra-passe está correta, escreva a palavra-passe na `False`conta Azure AD B2C e altere o atributo de extensão booleana para .
+    - Se o atributo de `False`extensão booleana voltar, continue o processo de entrada normal.
 
 Para ver uma política personalizada de exemplo e API REST, consulte a amostra de [migração de utilizadores sem emenda](https://aka.ms/b2c-account-seamless-migration) no GitHub.
 
-![diagrama de Flowchart da abordagem de migração perfeita para a migração dos utilizadores](./media/user-migration/diagram-01-seamless-migration.png)<br />*Diagrama: Fluxo de migração sem emenda*
+![Diagrama de fluxograma da abordagem de migração perfeita para a migração do utilizador](./media/user-migration/diagram-01-seamless-migration.png)<br />*Diagrama: Fluxo de migração sem emenda*
 
 ## <a name="best-practices"></a>Melhores práticas
 
@@ -73,7 +73,7 @@ Para ver uma política personalizada de exemplo e API REST, consulte a amostra d
 
 A abordagem de migração sem emenda usa a sua própria API REST personalizada para validar as credenciais de um utilizador contra o fornecedor de identidade legado.
 
-**Tens de proteger a tua API do REST contra ataques de força bruta.** Um intruso pode enviar várias palavras-passe na esperança de eventualmente adivinhar as credenciais de um utilizador. Para ajudar a derrotar tais ataques, pare de servir pedidos à sua API REST quando o número de tentativas de inscrição passar um determinado limiar. Além disso, proteja a comunicação entre o Azure AD B2C e o seu REST API utilizando um certificado de [cliente](secure-rest-api-dotnet-certificate-auth.md).
+**Tens de proteger a tua API do REST contra ataques de força bruta.** Um intruso pode enviar várias palavras-passe na esperança de eventualmente adivinhar as credenciais de um utilizador. Para ajudar a derrotar tais ataques, pare de servir pedidos à sua API REST quando o número de tentativas de inscrição passar um determinado limiar. Além disso, proteja a comunicação entre o Azure AD B2C e a sua API REST. Para aprender a proteger as suas APIs RESTful para produção, consulte [Secure RESTful API](secure-rest-api.md).
 
 ### <a name="user-attributes"></a>Atributos do utilizador
 
@@ -103,4 +103,4 @@ Se as contas que está a migrar tiverem uma força de senha mais fraca do que a 
 
 O repositório [azure-ad-b2c/user-migração](https://github.com/azure-ad-b2c/user-migration) no GitHub contém um exemplo de política de migração sem emenda e amostra de código REST API:
 
-[Política personalizada de migração de utilizadores sem emenda e amostra de código API REST](https://aka.ms/b2c-account-seamless-migration)
+[Política personalizada de migração de utilizadores sem emenda & amostra de código REST API](https://aka.ms/b2c-account-seamless-migration)

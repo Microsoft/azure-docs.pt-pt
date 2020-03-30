@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f4560a514ddb9949c8cc07864b2319a5878b245e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263299"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295347"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Boas práticas para acesso condicional em Diretório Ativo Azure
 
@@ -35,7 +35,7 @@ Quando cria uma nova política, não existem utilizadores, grupos, apps ou contr
 
 Para que a sua política funcione, tem de configurar:
 
-| O quê           | como como                                  | Por que |
+| O quê           | Como                                  | Por que |
 | :--            | :--                                  | :-- |
 | **Aplicativos em nuvem** |Selecione uma ou mais aplicações.  | O objetivo de uma política de Acesso Condicional é permitir-lhe controlar como os utilizadores autorizados podem aceder a aplicações na nuvem.|
 | **Utilizadores e grupos** | Selecione pelo menos um utilizador ou grupo autorizado a aceder às suas aplicações na nuvem selecionadas. | Uma política de Acesso Condicional que não tenha utilizadores e grupos atribuídos, nunca é desencadeada. |
@@ -141,7 +141,7 @@ Considere migrar as políticas que não criou no portal Azure porque:
 - Você pode gerir todas as suas políticas de Acesso Condicional em um local central.
 - O portal clássico azure foi retirado.   
 
-Para mais informações, consulte [as políticas clássicas de migrar no portal Azure.](policy-migration.md)
+Para obter mais informações, veja [Migrate classic policies in the Azure portal](policy-migration.md) (Migrar políticas clássicas no portal do Azure).
 
 ## <a name="next-steps"></a>Passos seguintes
 

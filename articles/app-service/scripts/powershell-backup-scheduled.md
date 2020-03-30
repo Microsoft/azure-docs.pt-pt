@@ -1,21 +1,21 @@
 ---
-title: 'PowerShell: criar um backup agendado'
-description: Saiba como usar Azure PowerShell para automatizar a implantação e o gerenciamento do serviço de aplicativo. Este exemplo mostra como criar um backup agendado para um aplicativo.
+title: 'PowerShell: Criar uma cópia de segurança programada'
+description: Aprenda a usar o Azure PowerShell para automatizar a implementação e gestão do App Service. Esta amostra mostra como criar um backup programado para uma aplicação.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: b20627dbeae722e31b042cf58ba4029ac8225555
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 24723d442cdc684e109dee3270cdfbc217fd4f4c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685784"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044612"
 ---
-# <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>Criar um backup agendado para um aplicativo Web usando o PowerShell
+# <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>Criar uma cópia de segurança programada para uma aplicação web usando powerShell
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança agendada para o mesmo. 
 
@@ -43,11 +43,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Cria uma Conta de armazenamento. |
-| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Cria um contentor de armazenamento do Azure. |
+| [Recipiente de armazenamento novo](/powershell/module/az.storage/new-AzStoragecontainer) | Cria um contentor de armazenamento do Azure. |
 | [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Gera um token SAS para um contentor de armazenamento do Azure. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
-| [Editar-AzWebAppBackupConfiguration](/powershell/module/az.websites/edit-azwebappbackupconfiguration) | Edita a configuração de cópia de segurança para a aplicação Web. |
+| [Novo AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
+| [Novo AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
+| [Editar-AzWebAppBackupConfiguração](/powershell/module/az.websites/edit-azwebappbackupconfiguration) | Edita a configuração de cópia de segurança para a aplicação Web. |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
 | [Get-AzWebAppBackupConfiguration](/powershell/module/az.websites/get-azwebappbackupconfiguration) | Obtém a configuração de cópia de segurança para a aplicação Web. |
 

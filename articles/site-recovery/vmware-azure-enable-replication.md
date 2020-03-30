@@ -7,10 +7,10 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257319"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação ao Azure para VMware VMs
@@ -25,7 +25,7 @@ Este artigo descreve como permitir a replicação de VMware VMs no local para Az
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que tem:
+Este artigo assume que tem:
 
 - [Instale o seu ambiente de origem no local.](vmware-azure-set-up-source.md)
 - [Instale o seu ambiente alvo em Azure.](vmware-azure-set-up-target.md)
@@ -55,33 +55,33 @@ Antes de seguir os passos nesta secção, tenha em atenção as seguintes inform
 * A replicação às contas de armazenamento de uma nova máquina virtual só está disponível através de uma API e Powershell de Transferência estatal representativa (REST). Utilize a versão API Azure REST 2016-08-10 ou 2018-01-10 para replicar contas de armazenamento.
 
 Por favor, siga os passos abaixo para ativar a replicação:
-1. Ir para o **Passo 2: Replicar a aplicação** > **Fonte**. Depois de ativar a replicação pela primeira vez, selecione **+Replicate** no cofre para permitir a replicação de máquinas virtuais adicionais.
-2. Na página **Fonte** > **Source,** selecione o servidor de configuração.
+1. Ir para o **Passo 2: Replicar aplicação** > **Fonte**. Depois de ativar a replicação pela primeira vez, selecione **+Replicate** no cofre para permitir a replicação de máquinas virtuais adicionais.
+2. Na página **Fonte** > **Fonte,** selecione o servidor de configuração.
 3. Para **o tipo de máquina,** selecione **Máquinas Virtuais** ou **Máquinas Físicas**.
 4. Em **vCenter/vSphere Hypervisor**, selecione o servidor vCenter que gere o anfitrião vSphere ou selecione o anfitrião. Esta definição não é relevante se estivera a replicar computadores físicos.
 5. Selecione o servidor de processos. Se não houver servidores de processo adicionais criados, o servidor de processo incorporado do servidor de configuração estará disponível no dropdown. O estado de saúde de cada servidor de processo é indicado de acordo com os limites recomendados e outros parâmetros. Escolha um servidor de processo saudável. Um servidor de processo [crítico](vmware-physical-azure-monitor-process-server.md#process-server-alerts) não pode ser escolhido. Pode [resolver problemas e resolver](vmware-physical-azure-troubleshoot-process-server.md) os erros **ou** configurar um servidor de [processo sem escalas](vmware-azure-set-up-process-server-scale.md).
-    ![Ativar a janela da fonte de replicação](media/vmware-azure-enable-replication/ps-selection.png)
+    ![Ativar a janela de origem de replicação](media/vmware-azure-enable-replication/ps-selection.png)
 
 > [!NOTE]
 > A partir de [9.24 versões,](service-updates-how-to.md#links-to-currently-supported-update-rollups)são introduzidos alertas adicionais para melhorar os alertas de saúde do servidor de processos. Upgrade De formação de componentes de recuperação do site para 9.24 versões ou acima para todos os alertas a serem gerados.
 
-6. Paratarget , selecione o grupo de subscrição e recursos onde pretende criar as máquinas virtuais falhadas. Escolha o modelo de implementação que pretende utilizar em Azure para os VMs falhados.
+6. Para **Target**target , selecione o grupo de subscrição e recursos onde pretende criar as máquinas virtuais falhadas. Escolha o modelo de implementação que pretende utilizar em Azure para os VMs falhados.
 2. Selecione a rede Azure e a sub-rede a que os VMs Azure se ligarão após a falha. A rede deve estar na mesma região que o cofre de serviço de recuperação do local.
 
    **Selecione configurar agora para máquinas selecionadas** para aplicar a definição de rede em todas as máquinas virtuais que seleciona para proteção. **Selecione Configurar mais tarde** para selecionar a rede Azure por máquina virtual. Se não tem uma rede, tem de criar uma. Para criar uma rede utilizando o Gestor de Recursos Azure, selecione **Criar nova**. Selecione uma sub-rede se aplicável e, em seguida, selecione **OK**.
    
    ![Ativar a janela-alvo de replicação](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-1. Para **máquinas virtuais** > **Selecione máquinas virtuais,** selecione cada máquina virtual que pretende replicar. Só é possível selecionar máquinas virtuais para as quais a replicação pode ser ativada. Em seguida, selecione **OK**. Se não conseguir ver ou selecionar qualquer máquina virtual em particular, consulte que [a máquina Source não está listada no portal Azure](https://aka.ms/doc-plugin-VM-not-showing) para resolver o problema.
+1. Para **máquinas** > virtuais**Selecione máquinas virtuais,** selecione cada máquina virtual que pretende replicar. Só é possível selecionar máquinas virtuais para as quais a replicação pode ser ativada. Em seguida, selecione **OK**. Se não conseguir ver ou selecionar qualquer máquina virtual em particular, consulte que [a máquina Source não está listada no portal Azure](https://aka.ms/doc-plugin-VM-not-showing) para resolver o problema.
 
     ![Ativar a replicação Selecione a janela das máquinas virtuais](./media/vmware-azure-enable-replication/enable-replication5.png)
 
-1. Para **propriedades** > **Configurar propriedades,** selecione a conta que o servidor de processo utiliza para instalar automaticamente o serviço de Mobilidade de Recuperação do Site na máquina virtual. Além disso, escolha o tipo de disco gerido pelo alvo para replicar com base nos padrões de recolha de dados.
+1. Para **configurar propriedades,** > **selecione**a conta que o servidor de processo utiliza para instalar automaticamente o serviço de Mobilidade de Recuperação do Site na máquina virtual. Além disso, escolha o tipo de disco gerido pelo alvo para replicar com base nos padrões de recolha de dados.
 10. Por padrão, todos os discos de uma máquina virtual de origem são replicados. Para excluir discos de replicação, limpe a caixa de verificação **Incluir** quaisquer discos que não queira replicar. Em seguida, selecione **OK**. Pode definir as propriedades adicionais mais tarde. Saiba mais sobre [a exclusão dos discos](vmware-azure-exclude-disk.md).
 
     ![Ativar a janela de configuração de propriedades de replicação](./media/vmware-azure-enable-replication/enable-replication6.png)
 
-1. Nas definições de **replicação** > **configurar as definições de replicação,** verifique se a política de replicação correta é selecionada. Pode modificar as definições de política de replicação em **Definições** > políticas de **replicação** > nome de ***política*** > **Definições de Edição**. As alterações que se aplicam a uma política aplicam-se também à replicação e às novas máquinas virtuais.
+1. Nas **definições** > de replicação**Configure as definições de replicação,** verifique se a política de replicação correta é selecionada. Pode modificar as definições de política de replicação nas >  **definições** > de regras de**replicação*****nome*** > **editar Definições**. As alterações que se aplicam a uma política aplicam-se também à replicação e às novas máquinas virtuais.
 1. Ative a **consistência multi-VM** se quiser reunir máquinas virtuais num grupo de replicação. Especifique um nome para o grupo e, em seguida, selecione **OK**.
 
     > [!NOTE]
@@ -90,15 +90,15 @@ Por favor, siga os passos abaixo para ativar a replicação:
 
     ![Ativar a janela de replicação](./media/vmware-azure-enable-replication/enable-replication7.png)
     
-1. Selecione **Ativar Replicação**. Pode acompanhar o progresso do trabalho de **Proteção ativa** em **Definições** > **Empregos** > Empregos de **Recuperação**do Local . Após o trabalho de **Proteção final,** a máquina virtual está pronta para a falha.
+1. Selecione **Ativar a replicação**. Pode acompanhar o progresso do trabalho de **Proteção ativa** em **Cenários** > **Empregos** > **De Recuperação**de Locais de Trabalho . Após o trabalho de **Proteção final,** a máquina virtual está pronta para a falha.
 
 ## <a name="view-and-manage-vm-properties"></a>Ver e gerir propriedades da VM
 
 Em seguida, verifique as propriedades da máquina virtual de origem. Lembre-se que o nome Azure VM precisa de estar em conformidade com [os requisitos da máquina virtual Azure](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-1. Vá a **Definições** > **itens replicados**e, em seguida, selecione a máquina virtual. A página **Essentials** mostra informações sobre as definições e o estado do VM.
-1. Em **Propriedades**, pode ver as informações de replicação e de ativação pós-falha da VM.
-1. Nas propriedades **computacionais e** de > **Compute,** pode alterar várias propriedades VM. 
+1. Vá a **Definições** > **Itens Replicados**e, em seguida, selecione a máquina virtual. A página **Essentials** mostra informações sobre as definições e o estado do VM.
+1. Em **Propriedades,** pode ver informações de replicação e failover para o VM.
+1. Nas propriedades **computadas e** > **computadas**de rede, pode alterar várias propriedades VM. 
 
     ![Janela de propriedades computacionais e de rede](./media/vmware-azure-enable-replication/vmproperties.png)
 

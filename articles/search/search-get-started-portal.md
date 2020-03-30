@@ -1,35 +1,35 @@
 ---
 title: Crie um índice de pesquisa no portal Azure
 titleSuffix: Azure Cognitive Search
-description: Neste portal, aprenda a usar o assistente de Dados de Importação para criar, carregar e consultar o seu primeiro índice de pesquisa em Pesquisa Cognitiva Azure.
+description: Neste portal Azure quickstart, use o assistente de Dados de Importação para criar, carregar e consultar o seu primeiro índice de pesquisa em Pesquisa Cognitiva Azure.
 author: tchristiani
 manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 8324ca0184c508591fa4568175bad0f606f952a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241585"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369462"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure no portal Azure
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
-> * [C#](search-get-started-dotnet.md)
+> * [C #](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
-> * [Node.js](search-get-started-nodejs.md)
+> * [Nó.js](search-get-started-nodejs.md)
 > * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
-> * [python](search-get-started-python.md)
+> * [Pitão](search-get-started-python.md)
 
 Utilize as ferramentas de explorador de **dados de importação** do portal e **pesquisa** para acelerar rapidamente os conceitos e escrever consultas interessantes contra um índice em poucos minutos.
 
 Se as ferramentas forem demasiado limitadas, pode considerar uma [introdução baseada em código para programar a Pesquisa Cognitiva Azure em .NET](search-howto-dotnet-sdk.md) ou utilizar o Carteiro para fazer chamadas REST [API](search-get-started-postman.md). 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ As secções no painel de instrumentos de serviço mostram quantos índices, ind
 
 ![Listas de índices, indexadores e fontes de dados](media/search-get-started-portal/tiles-indexers-datasources.png)
 
-## <a name="create-index"></a> Criar um índice e carregar dados
+## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Criar um índice e carregar dados
 
 As consultas de pesquisa iteram num [*índice*](search-what-is-an-index.md) que contém dados pesquisáveis, metadados e construções adicionais que otimizam determinados comportamentos de pesquisa.
 
@@ -55,7 +55,7 @@ Para este tutorial, utilizamos um conjunto de dados de amostra incorporado que p
 
    ![Comando de importação de dados](media/search-get-started-portal/import-data-cmd.png)
 
-2. No assistente, clique em **Ligar aos seus dados** > **Amostras** > **da amostra de hotéis**. Esta fonte de dados está incorporada. Se estivesse a criar a sua própria fonte de dados, teria de especificar um nome, tipo e informações de ligação. Depois de criada, torna-se uma “origem de dados existente”, que pode ser reutilizada noutras operações de importação.
+2. No assistente, clique em **Ligar aos seus dados** > **Amostras** > **de hotéis-sample**. Esta fonte de dados está incorporada. Se estivesse a criar a sua própria fonte de dados, teria de especificar um nome, tipo e informações de ligação. Depois de criada, torna-se uma “origem de dados existente”, que pode ser reutilizada noutras operações de importação.
 
    ![Selecionar o conjunto de dados de exemplo](media/search-get-started-portal/import-datasource-sample.png)
 
@@ -132,7 +132,7 @@ Outras construções, como a classificação de perfis e as opções de CORS, po
 
 Para compreender claramente o que pode e não pode editar durante o design do índice, dispense um minuto para ver as opções de definição do índice. As opções desativadas são um indicador de que um valor não pode ser alterado nem eliminado. 
 
-## <a name="query-index"></a>Consulta usando explorador de pesquisa
+## <a name="query-using-search-explorer"></a><a name="query-index"></a>Consulta usando explorador de pesquisa
 
 Mais adiante, já deve ter um índice de pesquisa pronto para consultar com a página de consulta [**Explorador de procura**](search-explorer.md) incorporada. Fornece uma caixa de pesquisa para que possa testar as cadeias de consulta arbitrária.
 
@@ -160,7 +160,7 @@ Pode introduzir termos e frases, semelhantes ao que pode fazer numa pesquisa de 
 
 ### <a name="simple-query-with-top-n-results"></a>Consulta simples com N principais resultados
 
-#### <a name="example-string-query-searchspa"></a>Exemplo (consulta de cordas): `search=spa`
+#### <a name="example-string-query-searchspa"></a>Exemplo (consulta de cordas):`search=spa`
 
 * O parâmetro de **pesquisa** é utilizado para inserir uma pesquisa de palavras-chave para pesquisa completa de texto, neste caso, devolvendo dados do hotel para aqueles que contêm *spa* em qualquer campo pesquisável no documento.
 
@@ -168,15 +168,15 @@ Pode introduzir termos e frases, semelhantes ao que pode fazer numa pesquisa de 
 
 * Os documentos são compostos por todos os campos marcados como "recuperáveis" no índice. Para ver os atributos de índice no portal, clique em *hotéis-sample* na lista de **Índices.**
 
-#### <a name="example-parameterized-query-searchspacounttruetop10"></a>Exemplo (consulta parametrizada): `search=spa&$count=true&$top=10`
+#### <a name="example-parameterized-query-searchspacounttruetop10"></a>Exemplo (consulta parametrizada):`search=spa&$count=true&$top=10`
 
-* O símbolo **&** é utilizado para acrescentar os parâmetros da pesquisa, que podem ser especificados por qualquer ordem.
+* O **&** símbolo é utilizado para anexar parâmetros de pesquisa, que podem ser especificados em qualquer ordem.
 
 * O **parâmetro $count=verdadeiro** devolve a contagem total de todos os documentos devolvidos. Este valor é apresentado junto à parte superior dos resultados da pesquisa. Pode verificar as consultas de filtro através da monitorização das alterações comunicadas por **$count=true**. As contagens mais pequenas indicam que o filtro está a funcionar.
 
 * O **$top=10** devolve os 10 documentos mais bem classificados do total. Por padrão, a Pesquisa Cognitiva Azure devolve os primeiros 50 melhores jogos. Pode aumentar ou diminuir a quantidade através de **$top**.
 
-### <a name="filter-query"></a>Filtrar a consulta
+### <a name="filter-the-query"></a><a name="filter-query"></a>Filtrar a consulta
 
 Os filtros são incluídos nos pedidos de pesquisa se acrescentar o parâmetro **$filter**. 
 
@@ -186,18 +186,18 @@ Os filtros são incluídos nos pedidos de pesquisa se acrescentar o parâmetro *
 
 * A sintaxe do filtro é uma construção OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
-### <a name="facet-query"></a> Facetar a consulta
+### <a name="facet-the-query"></a><a name="facet-query"></a> Facetar a consulta
 
 Os filtros de faceta são incluídos nos resultados da pesquisa. Pode utilizar o parâmetro de faceta para devolver uma contagem agregada dos documentos que correspondam a um valor de faceta que indicar.
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exemplo (por facetas com redução de âmbito): `search=*&facet=Category&$top=2`
 
-* **search=** * é uma consulta vazia. As pesquisas em branco pesquisam em tudo. Uma das razões para submeter uma consulta em branco é para filtrar ou especificar facetas no conjunto completo de documentos. Por exemplo, você quer uma estrutura de navegação facetada para consistir em todos os hotéis no índice.
-* **facet** devolve uma estrutura de navegação que pode ser transmitida a um controlo de IU. Devolve categorias e uma contagem. Neste caso, as categorias baseiam-se num campo convenientemente chamado *categoria*. Não há agregação na Pesquisa Cognitiva Azure, mas pode aproximar-se da agregação através de `facet`, o que dá uma contagem de documentos em cada categoria.
+* **search=*** é uma consulta vazia. As pesquisas em branco pesquisam em tudo. Uma das razões para submeter uma consulta em branco é para filtrar ou especificar facetas no conjunto completo de documentos. Por exemplo, você quer uma estrutura de navegação facetada para consistir em todos os hotéis no índice.
+* **facet** devolve uma estrutura de navegação que pode ser transmitida a um controlo de IU. Devolve categorias e uma contagem. Neste caso, as categorias baseiam-se num campo convenientemente chamado *categoria*. Não há agregação na Pesquisa Cognitiva Azure, mas pode `facet`aproximar-se da agregação via , o que dá uma contagem de documentos em cada categoria.
 
 * **$top=2** devolve dois documentos, o que exemplifica que pode utilizar `top` para reduzir ou aumentar os resultados.
 
-#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Exemplo (faceta sobre valores numéricos): `search=spa&facet=Rating`
+#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Exemplo (faceta em valores numéricos): `search=spa&facet=Rating`
 
 * Esta consulta é faceta para classificação, em uma pesquisa de texto para *spa*. O termo *Rating* pode ser especificado como uma faceta porque o campo é marcado como recuperável, filterável e facetable no índice, e os valores que contém (numérico, 1 a 5), são adequados para categorizar listas em grupos.
 
@@ -206,7 +206,7 @@ Os filtros de faceta são incluídos nos resultados da pesquisa. Pode utilizar o
 * O campo *rating* é um ponto flutuante de dupla precisão e o agrupamento será por um valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "classificações de 3 estrelas", "classificações de 4 estrelas", etc.), consulte [Como implementar a navegação facetada na Pesquisa Cognitiva azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
-### <a name="highlight-query"></a> Realçar os resultados de pesquisa
+### <a name="highlight-search-results"></a><a name="highlight-query"></a> Realçar os resultados de pesquisa
 
 O detetor de ocorrências refere-se à formatação no texto que corresponde à palavra-chave, tendo em conta que as correspondências são encontradas num determinado campo. Se o termo da sua pesquisa estiver embrenhado numa descrição, pode adicionar o detetor de ocorrências para que seja mais fácil encontrá-lo.
 
@@ -220,7 +220,7 @@ O detetor de ocorrências refere-se à formatação no texto que corresponde à 
 
 * A Azure Cognitive Search suporta 56 analisadores tanto da Lucene como da Microsoft. O padrão usado pela Azure Cognitive Search é o analisador lucene padrão.
 
-### <a name="fuzzy-search"></a> Experimentar a pesquisa difusa
+### <a name="try-fuzzy-search"></a><a name="fuzzy-search"></a> Experimentar a pesquisa difusa
 
 Por defeito, termos de consulta mal escritos, como *seatle* para "Seattle", não devolvem os jogos na pesquisa típica. O exemplo seguinte não devolve nenhum resultado.
 
@@ -238,9 +238,9 @@ A pesquisa difusa e a pesquisa com carateres universais têm implicações no re
 
 Para obter mais informações sobre cenários de consulta habilitados pelo parser de consulta completa, consulte a [sintaxe de consulta Lucene em Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-### <a name="geo-search"></a> Experimentar a pesquisa geoespacial
+### <a name="try-geospatial-search"></a><a name="geo-search"></a> Experimentar a pesquisa geoespacial
 
-A pesquisa geoespacial é suportada através do [tipo de dados edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em campos que contenham coordenadas. A pesquisa geográfica é um tipo de filtros especificado em [Filter OData syntax (Sintaxe de Filtros OData)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+ A pesquisa geoespacial é suportada através do [tipo de dados edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em campos que contenham coordenadas. A pesquisa geográfica é um tipo de filtros especificado em [Filter OData syntax (Sintaxe de Filtros OData)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 #### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Exemplo (filtros de coordenadas geográficas): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -260,7 +260,7 @@ Também aprendeu a encontrar índices, indexadores e fontes de dados no portal. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando está a trabalhar na sua própria subscrição, é uma boa ideia no final de um projeto identificar se ainda precisa dos recursos que criou. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
 

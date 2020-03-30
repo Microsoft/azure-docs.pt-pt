@@ -1,18 +1,18 @@
 ---
 title: Permitir a partilha de chumbo no Azure Marketplace [ Azure
 description: Saiba como permitir a partilha de chumbo para o Azure Marketplace e AppSource, para editores de aplicações e serviços.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: 09282f3a54eeded52c63fab6bfe13528eaace48a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b41a29fb3548937e9071cfb9f065dd46f63df83e
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286307"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387619"
 ---
 # <a name="enable-lead-sharing"></a>Ativar a partilha de oportunidades potenciais
 Garantir que a gestão de chumbo está ativada para a sua listagem no [Azure Marketplace](https://azuremarketplace.microsoft.com) ou [microsoft AppSource](https://appsource.microsoft.com) pode ajudá-lo a receber informações de contacto para as seguintes audiências:

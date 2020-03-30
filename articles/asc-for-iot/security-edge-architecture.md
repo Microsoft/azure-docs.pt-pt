@@ -1,6 +1,6 @@
 ---
-title: Entendendo a central de segurança do Azure para o módulo de segurança de IoT para IoT Edge | Microsoft Docs
-description: Entenda a arquitetura e os recursos da central de segurança do Azure para o módulo de segurança de IoT para IoT Edge.
+title: Compreender o Centro de Segurança Azure para módulo de segurança IoT para IoT Edge Microsoft Docs
+description: Compreenda a arquitetura e as capacidades do Azure Security Center para módulo de segurança IoT para IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,52 +16,52 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71315898"
 ---
-# <a name="azure-iot-edge-security-module"></a>Azure IoT Edge módulo de segurança
+# <a name="azure-iot-edge-security-module"></a>Módulo de segurança Azure IoT Edge
 
-[Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/) fornece recursos poderosos para gerenciar e executar fluxos de trabalho de negócios na borda.
-A parte importante que IoT Edge desempenha em ambientes de IoT o torna particularmente atraente para atores mal-intencionados.
+[O Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) oferece capacidades poderosas para gerir e realizar fluxos de trabalho de negócios no limite.
+A parte-chave que o IoT Edge desempenha em ambientes IoT torna-o particularmente atraente para atores mal-intencionados.
 
-A central de segurança do Azure para o módulo de segurança de IoT fornece uma solução de segurança abrangente para seus dispositivos IoT Edge.
-A central de segurança do Azure para o módulo IoT coleta, agrega e analisa dados de segurança brutos do sistema operacional e do sistema de contêiner em alertas e recomendações de segurança acionáveis.
+O Azure Security Center para o módulo de segurança IoT fornece uma solução de segurança abrangente para os seus dispositivos IoT Edge.
+O Azure Security Center for IoT module recolhe, agrega e analisa dados de segurança bruta do seu Sistema Operativo e sistema de contentores em recomendações e alertas de segurança acionáveis.
 
-Semelhante à central de segurança do Azure para agentes de segurança de IoT para dispositivos IoT, a central de segurança do Azure para IoT Edge módulo é altamente personalizável por meio de seu módulo.
-Consulte [configurar seu agente](how-to-agent-configuration.md) para saber mais.
+À semelhança do Azure Security Center para agentes de segurança IoT para dispositivos IoT, o Azure Security Center for IoT Edge módulo é altamente personalizável através do seu módulo twin.
+Consulte [a Configuração do seu agente](how-to-agent-configuration.md) para saber mais.
 
-A central de segurança do Azure para o módulo de segurança de IoT para IoT Edge oferece os seguintes recursos:
+O Azure Security Center para módulo de segurança IoT para IoT Edge oferece as seguintes funcionalidades:
 
-- Coleta eventos de segurança brutos do sistema operacional subjacente (Linux) e os sistemas de contêineres IoT Edge.
+- Recolhe eventos de segurança bruta do Sistema Operativo subjacente (Linux) e dos sistemas IoT Edge Container.
   
-  Consulte a [central de segurança do Azure para configuração do agente de IOT](how-to-agent-configuration.md) para saber mais sobre os coletores de dados de segurança disponíveis.
+  Consulte o Azure Security Center para a configuração do [agente IoT](how-to-agent-configuration.md) para saber mais sobre os colecionadores de dados de segurança disponíveis.
 
-- Análise de manifestos de implantação do IoT Edge.
+- Análise dos manifestos de implantação do IoT Edge.
 
-- Agrega eventos de segurança brutos em mensagens enviadas por meio do [Hub IOT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Agrega eventos de segurança bruta em mensagens enviadas através [do IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
-- Remova a configuração por meio do uso do módulo de segurança.
+- Remova a configuração através da utilização do módulo de segurança twin.
 
-  Consulte [Configurar uma central de segurança do Azure para o agente de IOT](how-to-agent-configuration.md) para saber mais.
+  Consulte o Configure um Centro de Segurança Azure para o [agente IoT](how-to-agent-configuration.md) para saber mais.
 
-A central de segurança do Azure para o módulo de segurança de IoT para IoT Edge é executada em um modo privilegiado em IoT Edge.
-O modo privilegiado é necessário para permitir que o módulo monitore o sistema operacional e outros módulos IoT Edge.
+O Azure Security Center para módulo de segurança IoT para IoT Edge funciona em modo privilegiado sob IoT Edge.
+É necessário um modo privilegiado para permitir que o módulo monitorize o Sistema Operativo e outros módulos IoT Edge.
 
-## <a name="module-supported-platforms"></a>Plataformas com suporte do módulo
+## <a name="module-supported-platforms"></a>Plataformas suportadas por módulos
 
-A central de segurança do Azure para o módulo de segurança de IoT para IoT Edge está disponível no momento apenas para Linux. 
+O Azure Security Center para módulo de segurança IoT para IoT Edge está atualmente disponível apenas para Linux. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre a arquitetura e os recursos da central de segurança do Azure para o módulo de segurança de IoT para IoT Edge.
+Neste artigo, você aprendeu sobre a arquitetura e capacidades do Azure Security Center para módulo de segurança IoT para IoT Edge.
 
-Para continuar a introdução à central de segurança do Azure para implantação de IoT, use os seguintes artigos:
+Para continuar a começar com o Azure Security Center para a implantação de IoT, use os seguintes artigos:
 
-- Implantar o [módulo de segurança para IOT Edge](how-to-deploy-edge.md)
-- Saiba como [configurar seu módulo de segurança](how-to-agent-configuration.md)
-- Examine os pré-requisitos da central de segurança do Azure para [Serviços](service-prerequisites.md) de IOT
-- Saiba como [habilitar a central de segurança do Azure para o serviço de IOT em seu hub IOT](quickstart-onboard-iot-hub.md)
-- Saiba mais sobre o serviço da [central de segurança do Azure para as perguntas frequentes sobre IOT](resources-frequently-asked-questions.md)
+- Implementar [módulo de segurança para IoT Edge](how-to-deploy-edge.md)
+- Saiba como [configurar o seu módulo](how-to-agent-configuration.md) de segurança
+- Reveja os [pré-requisitos](service-prerequisites.md) do Azure Security Center for IoT Service
+- Saiba como ativar o Centro de [Segurança Azure para o serviço IoT no seu Hub IoT](quickstart-onboard-iot-hub.md)
+- Saiba mais sobre o serviço do Centro de [Segurança Azure para as FAQ IoT](resources-frequently-asked-questions.md)

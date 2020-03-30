@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ms.openlocfilehash: 8094d64eab1a4b25a76554bf9eb6848c2e4d3493
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204244"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retre e implemente um clássico serviço web Studio (clássico)
@@ -49,7 +49,7 @@ Pode adicionar pontos finais de pontuação utilizando o código de amostra forn
 1. No Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em Web Services.
 1. Na parte inferior do painel de instrumentos do serviço web, clique em **Gerir a pré-visualização de pontos finais**.
 1. Clique em **Adicionar**.
-1. Escreva um nome e descrição para o novo ponto final. Selecione o nível de registo e se os dados de exemplo estão ativados. Para obter mais informações sobre a exploração madeireira, consulte [A exploração de login para serviços web de aprendizagem automática](web-services-logging.md).
+1. Digite um nome e descrição para o novo ponto final. Selecione o nível de registo e se os dados da amostra estão ativados. Para obter mais informações sobre a exploração madeireira, consulte [A exploração de login para serviços web de aprendizagem automática](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Atualizar o modelo treinado do ponto final
 
@@ -120,10 +120,10 @@ O *apiKey* e o *endpointUrl* para a chamada podem ser obtidos a partir do painel
 
 O valor do parâmetro *nome* em *Recursos* deve coincidir com o Nome de Recurso do Modelo Treinado salvo na experiência preditiva. Para obter o nome do recurso:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No menu esquerdo, clique em **Machine Learning**.
 1. Em Nome, clique no seu espaço de trabalho e, em seguida, clique em **Web Services**.
-1. Em nome, clique **no Census Model [exp preditivo.]** .
+1. Em nome, clique **no Census Model [exp preditivo.]**.
 1. Clique no novo ponto final que adicionou.
 1. No painel de instrumentos de ponto final, clique em **Atualizar Recurso**.
 1. Na página de Documentação API de Recurso atualizado para o serviço web, pode encontrar o Nome de **Recurso** em **Recursos Updatable**.
@@ -137,4 +137,4 @@ Quando o código tiver sido executado com sucesso, o novo ponto final deve come�
 Para saber mais sobre como gerir os serviços web ou acompanhar as várias experiências, consulte os seguintes artigos:
 
 * [Explore o portal de Serviços Web](manage-new-webservice.md)
-* [Gerir iterações de experimentação](manage-experiment-iterations.md)
+* [Gerir iterações das experimentações](manage-experiment-iterations.md)

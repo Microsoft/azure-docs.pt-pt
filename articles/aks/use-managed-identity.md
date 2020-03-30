@@ -5,16 +5,16 @@ services: container-service
 author: saudas
 manager: saudas
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 03/10/2019
 ms.author: saudas
-ms.openlocfilehash: 6d00fd72c338fc101420bf78b5608516715d44ad
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 85efc6d9d203ca06c5f7566376993b4c13950788
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592973"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369959"
 ---
-# <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>Pré-visualização - Utilize identidades geridas no Serviço Azure Kubernetes
+# <a name="use-managed-identities-in-azure-kubernetes-service"></a>Use identidades geridas no Serviço Azure Kubernetes
 
 Atualmente, um cluster azure Kubernetes Service (AKS) (especificamente, o fornecedor de nuvem Kubernetes) requer um *principal de serviço* para criar recursos adicionais como equilibradores de carga e discos geridos em Azure. Ou deve fornecer um diretor de serviço ou aks cria um em seu nome. Os diretores de serviço normalmente têm uma data de validade. Os agrupamentos acabam por chegar a um estado em que o diretor de serviço deve ser renovado para manter o cluster a funcionar. Gerir os diretores de serviços adiciona complexidade.
 
@@ -23,48 +23,15 @@ Atualmente, um cluster azure Kubernetes Service (AKS) (especificamente, o fornec
 AKS cria duas identidades geridas:
 
 - **Identidade gerida atribuída pelo sistema**: A identidade que o fornecedor de nuvem Kubernetes utiliza para criar recursos Azure em nome do utilizador. O ciclo de vida da identidade atribuída ao sistema está ligado ao do cluster. A identidade é eliminada quando o cluster é eliminado.
-- **Identidade gerida atribuída ao utilizador**: A identidade que é usada para autorização no cluster. Por exemplo, a identidade atribuída ao utilizador é usada para autorizar o AKS a utilizar registos de controlo de acesso (ACRs), ou para autorizar o kubelet a obter metadados do Azure.
+- **Identidade gerida atribuída ao utilizador**: A identidade que é usada para autorização no cluster. Por exemplo, a identidade atribuída ao utilizador é usada para autorizar aks a utilizar registos de contentores Azure (ACRs), ou para autorizar o kubelet a obter metadados do Azure.
 
-Neste período de pré-visualização, ainda é necessário um diretor de serviço. É usado para autorização de complementos como monitorização, nós virtuais, Política Azure e encaminhamento de aplicações HTTP. Estão em curso trabalhos para eliminar a dependência de complementos no nome principal do serviço (SPN). Eventualmente, a exigência de um SPN em AKS será completamente removida.
-
-> [!IMPORTANT]
-> As funcionalidades de pré-visualização AKS estão disponíveis numa base de autosserviço, opt-in. As pré-visualizações são fornecidas "as-is" e "conforme disponível", e estão excluídas dos Acordos de Nível de Serviço e da garantia limitada. As pré-visualizações do AKS são parcialmente cobertas pelo apoio ao cliente na base do melhor esforço. Como tal, estas características não se destinam à utilização da produção. Para mais informações, consulte os seguintes artigos de apoio:
->
-> - [Políticas de apoio aks](support-policies.md)
-> - [FaQ de suporte azure](faq.md)
+Os addons também autenticam usando uma identidade gerida. Para cada complemento, uma identidade gerida é criada pela AKS e dura a vida do addon. Para criar e utilizar o seu próprio VNet, endereço IP estático ou disco Azure anexado onde os recursos estão fora do grupo de recursos MC_*, utilize o PrincipalID do cluster para executar uma atribuição de funções. Para obter mais informações sobre a atribuição de funções, consulte o [acesso do Delegado a outros recursos Do IA.](kubernetes-service-principal.md#delegate-access-to-other-azure-resources)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Deve ter os seguintes recursos instalados:
+Deve ter o seguinte recurso instalado:
 
-- O Azure CLI, versão 2.0.70 ou mais tarde
-- A extensão de 0.4.14 das aks
-
-Para instalar a extensão de pré-visualização de aks 0.4.14 ou posteriormente, utilize os seguintes comandos Azure CLI:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-> [!CAUTION]
-> Depois de registar uma funcionalidade numa subscrição, não pode atualmente desregistar essa funcionalidade. Quando ativa algumas funcionalidades de pré-visualização, podem ser utilizadas predefinições para todos os clusters AKS criados posteriormente na subscrição. Não ative funcionalidades de pré-visualização nas subscrições de produção. Em vez disso, utilize uma subscrição separada para testar funcionalidades de pré-visualização e recolher feedback.
-
-```azurecli-interactive
-az feature register --name MSIPreview --namespace Microsoft.ContainerService
-```
-
-Pode levar vários minutos para o estado mostrar como **Registado**. Pode verificar o estado de registo utilizando o comando da [lista de características az:](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list)
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MSIPreview')].{Name:name,State:properties.state}"
-```
-
-Quando o estado mostrar como registado, atualização do registo do fornecedor de recursos `Microsoft.ContainerService` utilizando o comando de registo do [fornecedor az:](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register)
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+- O Azure CLI, versão 2.2.0 ou posterior
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades geridas
 
@@ -81,6 +48,15 @@ Em seguida, criar um cluster AKS:
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
+```
+
+Uma criação de cluster bem sucedida usando identidades geridas contém esta informação de perfil principal do serviço:
+
+```json
+"servicePrincipalProfile": {
+    "clientId": "msi",
+    "secret": null
+  }
 ```
 
 Finalmente, obtenha credenciais para aceder ao cluster:

@@ -1,6 +1,6 @@
 ---
-title: Excluir atividade no Azure Data Factory
-description: Saiba como excluir arquivos em vários repositórios de arquivos com a atividade excluir no Azure Data Factory.
+title: Atividade de Eliminação no Azure Data Factory
+description: Saiba como eliminar ficheiros em várias lojas de ficheiros com a Atividade de Eliminar na Fábrica de Dados Azure.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,45 +13,45 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927527"
 ---
-# <a name="delete-activity-in-azure-data-factory"></a>Excluir atividade no Azure Data Factory
+# <a name="delete-activity-in-azure-data-factory"></a>Atividade de Eliminação no Azure Data Factory
 
-Você pode usar a atividade excluir em Azure Data Factory para excluir arquivos ou pastas de repositórios de armazenamento locais ou armazenamentos em nuvem. Use essa atividade para limpar ou arquivar arquivos quando eles não forem mais necessários.
+Pode utilizar a Atividade de Exclusão na Fábrica de Dados Azure para eliminar ficheiros ou pastas de lojas de armazenamento no local ou lojas de armazenamento em nuvem. Utilize esta atividade para limpar ou arquivar ficheiros quando já não forem necessários.
 
 > [!WARNING]
 > Os ficheiros ou as pastas eliminadas não podem ser restaurados. Tenha cuidado ao utilizar a ação Eliminar para eliminar ficheiros ou pastas.
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Aqui estão algumas recomendações para usar a atividade de exclusão:
+Aqui ficam algumas recomendações para a utilização da atividade Delete:
 
--   Faça backup dos arquivos antes de excluí-los com a atividade excluir caso precise restaurá-los no futuro.
+-   Faça cópias de tempo dos seus ficheiros antes de os eliminar com a atividade Delete, caso necessite de os restaurar no futuro.
 
--   Verifique se Data Factory tem permissões de gravação para excluir pastas ou arquivos do armazenamento de armazenamento.
+-   Certifique-se de que a Data Factory tem permissões de escrita para eliminar pastas ou ficheiros do armazém.
 
--   Verifique se você não está excluindo os arquivos que estão sendo gravados ao mesmo tempo. 
+-   Certifique-se de que não está a apagar ficheiros que estão a ser escritos ao mesmo tempo. 
 
--   Se você quiser excluir arquivos ou pastas de um sistema local, verifique se está usando um tempo de execução de integração auto-hospedado com uma versão maior que 3,14.
+-   Se pretender eliminar ficheiros ou pastas de um sistema no local, certifique-se de que está a utilizar um tempo de funcionação de integração auto-hospedado com uma versão superior a 3.14.
 
 ## <a name="supported-data-stores"></a>Arquivos de dados suportados
 
--   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
+-   [Armazenamento Azure Blob](connector-azure-blob-storage.md)
 -   [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2)
 -   [Armazenamento de Ficheiros do Azure](connector-azure-file-storage.md)
 
-### <a name="file-system-data-stores"></a>Armazenamentos de dados do sistema de arquivos
+### <a name="file-system-data-stores"></a>Lojas de dados do sistema de ficheiros
 
 -   [Sistema de Ficheiros](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
--   [Amazon S3](connector-amazon-simple-storage-service.md)
--   [Armazenamento em nuvem do Google](connector-google-cloud-storage.md)
+-   [Amazónia S3](connector-amazon-simple-storage-service.md)
+-   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -78,25 +78,25 @@ Aqui estão algumas recomendações para usar a atividade de exclusão:
 }
 ```
 
-## <a name="type-properties"></a>Propriedades do tipo
+## <a name="type-properties"></a>Propriedades de tipo
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| DataSet | Fornece a referência do conjunto de consulta para determinar quais arquivos ou pastas serão excluídos | Sim |
-| recursive | Indica se os arquivos são excluídos recursivamente das subpastas ou somente da pasta especificada.  | Não. A predefinição é `false`. |
-| maxConcurrentConnections | O número de conexões para se conectar ao armazenamento de armazenamento ao mesmo tempo para excluir pastas ou arquivos.   |  Não. A predefinição é `1`. |
-| enablelogging | Indica se você precisa registrar os nomes de pasta ou arquivo que foram excluídos. Se for verdadeiro, você precisará fornecer uma conta de armazenamento para salvar o arquivo de log, para que possa acompanhar os comportamentos da atividade de exclusão lendo o arquivo de log. | Não |
-| logStorageSettings | Aplicável somente quando EnableLogging = true.<br/><br/>Um grupo de propriedades de armazenamento que pode ser especificado onde você deseja salvar o arquivo de log que contém os nomes de pasta ou arquivo que foram excluídos pela atividade de exclusão. | Não |
-| linkedServiceName | Aplicável somente quando EnableLogging = true.<br/><br/>O serviço vinculado do [armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)ou [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o arquivo de log que contém os nomes de pasta ou arquivo que foram excluídos pela atividade de exclusão. Lembre-se de que ele deve ser configurado com o mesmo tipo de Integration Runtime de um usado pela atividade de exclusão para excluir arquivos. | Não |
-| Caminho | Aplicável somente quando EnableLogging = true.<br/><br/>O caminho para salvar o arquivo de log em sua conta de armazenamento. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não |
+| conjunto de dados | Fornece a referência do conjunto de dados para determinar quais ficheiros ou pasta a eliminar | Sim |
+| recursivo | Indica se os ficheiros são eliminados recursivamente das subpastas ou apenas da pasta especificada.  | Não. A predefinição é `false`. |
+| maxConcurrentConnections | O número das ligações para ligar simultaneamente à loja de armazenamento para apagar pasta ou ficheiros.   |  Não. A predefinição é `1`. |
+| habilitação de exploração | Indica se precisa de gravar a pasta ou os nomes de ficheiros que tenham sido eliminados. Se for verdade, é necessário fornecer ainda mais uma conta de armazenamento para guardar o ficheiro de registo, para que possa acompanhar os comportamentos da atividade do Delete através da leitura do ficheiro de registo. | Não |
+| logStorageSettings | Só aplicável quando ativar = verdadeiro.<br/><br/>Um grupo de propriedades de armazenamento que podem ser especificadas onde pretende guardar o ficheiro de registo contendo a pasta ou os nomes de ficheiros que tenham sido eliminados pela atividade Delete. | Não |
+| linkedServiceName | Só aplicável quando ativar = verdadeiro.<br/><br/>O serviço ligado ao [Armazenamento Azure,](connector-azure-blob-storage.md#linked-service-properties) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o ficheiro de registo que contém a pasta ou nomes de ficheiros que tenham sido eliminados pela atividade Delete. Esteja ciente de que deve ser configurado com o mesmo tipo de Tempo de Funcionação de Integração a partir do utilizado por eliminar a atividade para eliminar ficheiros. | Não |
+| path | Só aplicável quando ativar = verdadeiro.<br/><br/>O caminho para guardar o ficheiro de registo na sua conta de armazenamento. Se não fornecer um caminho, o serviço cria um recipiente para si. | Não |
 
 ## <a name="monitoring"></a>Monitorização
 
-Há dois locais em que você pode ver e monitorar os resultados da atividade de exclusão: 
--   Da saída da atividade de exclusão.
--   Do arquivo de log.
+Existem dois locais onde pode ver e monitorizar os resultados da atividade Desativação: 
+-   A partir da saída da atividade Delete.
+-   Do ficheiro de registo.
 
-### <a name="sample-output-of-the-delete-activity"></a>Exemplo de saída da atividade de exclusão
+### <a name="sample-output-of-the-delete-activity"></a>Saída da amostra da atividade Delete
 
 ```json
 { 
@@ -114,37 +114,37 @@ Há dois locais em que você pode ver e monitorar os resultados da atividade de 
 }
 ```
 
-### <a name="sample-log-file-of-the-delete-activity"></a>Arquivo de log de exemplo da atividade de exclusão
+### <a name="sample-log-file-of-the-delete-activity"></a>Arquivo de registo de amostras da atividade de Eliminar
 
 | Nome | Categoria | Estado | Erro |
 |:--- |:--- |:--- |:--- |
-| test1/yyy.json | Ficheiros | Eliminada |  |
-| test2/hello789.txt | Ficheiros | Eliminada |  |
-| test2/test3/hello000.txt | Ficheiros | Eliminada |  |
-| test2/test3/zzz.json | Ficheiros | Eliminada |  |
+| test1/yyy.json | Ficheiro | Eliminado |  |
+| test2/hello789.txt | Ficheiro | Eliminado |  |
+| test2/test3/hello000.txt | Ficheiro | Eliminado |  |
+| test2/test3/zzz.json | Ficheiro | Eliminado |  |
 
-## <a name="examples-of-using-the-delete-activity"></a>Exemplos de como usar a atividade de exclusão
+## <a name="examples-of-using-the-delete-activity"></a>Exemplos de utilização da atividade Delete
 
-### <a name="delete-specific-folders-or-files"></a>Excluir arquivos ou pastas específicas
+### <a name="delete-specific-folders-or-files"></a>Eliminar pastas ou ficheiros específicos
 
-O repositório tem a seguinte estrutura de pastas:
+A loja tem a seguinte estrutura de pasta:
 
-Básica<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. txt
+Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt
 
-Agora você está usando a atividade excluir para excluir pastas ou arquivos pela combinação de valor de propriedade diferente do conjunto de e da atividade de exclusão:
+Agora está a utilizar a atividade Delete para eliminar pastas ou ficheiros pela combinação de diferentes valores de propriedade do conjunto de dados e da atividade de Eliminar:
 
-| folderPath (do DataSet) | Nome do arquivo (do conjunto de um) | recursivo (da atividade de exclusão) | Saída |
+| folderPath (a partir de dataset) | nome de ficheiro (a partir de dataset) | recursivo (da atividade Eliminar) | Saída |
 |:--- |:--- |:--- |:--- |
-| Raiz/Folder_A_2 | NULL | Falso | Básica<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. txt |
-| Raiz/Folder_A_2 | NULL | Verdadeiro | Básica<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8. txt</strike> |
-| Raiz/Folder_A_2 | *. txt | Falso | Básica<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. txt |
-| Raiz/Folder_A_2 | *. txt | Verdadeiro | Básica<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8. txt</strike> |
+| Raiz/ Folder_A_2 | NULL | Falso | Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
+| Raiz/ Folder_A_2 | NULL | Verdadeiro | Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
+| Raiz/ Folder_A_2 | *.txt | Falso | Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
+| Raiz/ Folder_A_2 | *.txt | Verdadeiro | Raiz/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
 
-### <a name="periodically-clean-up-the-time-partitioned-folder-or-files"></a>Limpar periodicamente a pasta ou os arquivos particionados
+### <a name="periodically-clean-up-the-time-partitioned-folder-or-files"></a>Limpe periodicamente a pasta ou ficheiros com divisórias de tempo
 
-Você pode criar um pipeline para limpar periodicamente a pasta ou os arquivos particionados.  Por exemplo, a estrutura de pastas é semelhante a: `/mycontainer/2018/12/14/*.csv`.  Você pode aproveitar a variável de sistema do ADF do gatilho de agendamento para identificar quais pastas ou arquivos devem ser excluídos em cada execução de pipeline. 
+Pode criar um pipeline para limpar periodicamente a pasta ou ficheiros divididos pelo tempo.  Por exemplo, a estrutura da `/mycontainer/2018/12/14/*.csv`pasta é semelhante a: .  Pode alavancar a variável do sistema ADF a partir do gatilho de agenda para identificar qual a pasta ou ficheiros que devem ser eliminados em cada execução do pipeline. 
 
-#### <a name="sample-pipeline"></a>Pipeline de exemplo
+#### <a name="sample-pipeline"></a>Gasoduto de amostra
 
 ```json
 {
@@ -194,7 +194,7 @@ Você pode criar um pipeline para limpar periodicamente a pasta ou os arquivos p
 }
 ```
 
-#### <a name="sample-dataset"></a>Conjunto de exemplo
+#### <a name="sample-dataset"></a>Conjunto de dados da amostra
 
 ```json
 {
@@ -221,7 +221,7 @@ Você pode criar um pipeline para limpar periodicamente a pasta ou os arquivos p
 }
 ```
 
-#### <a name="sample-trigger"></a>Gatilho de exemplo
+#### <a name="sample-trigger"></a>Gatilho da amostra
 
 ```json
 {
@@ -260,11 +260,11 @@ Você pode criar um pipeline para limpar periodicamente a pasta ou os arquivos p
 }
 ```
 
-### <a name="clean-up-the-expired-files-that-were-last-modified-before-201811"></a>Limpar os arquivos expirados que foram modificados pela última vez antes de 2018.1.1
+### <a name="clean-up-the-expired-files-that-were-last-modified-before-201811"></a>Limpe os ficheiros expirados que foram modificados pela última vez antes de 2018.1.1
 
-Você pode criar um pipeline para limpar os arquivos antigos ou expirados, aproveitando o filtro de atributo de arquivo: "LastModified" no DataSet.  
+Pode criar um pipeline para limpar os ficheiros antigos ou expirados, aproveitando o filtro de atributo supor ficheiros: "LastModificadod" no conjunto de dados.  
 
-#### <a name="sample-pipeline"></a>Pipeline de exemplo
+#### <a name="sample-pipeline"></a>Gasoduto de amostra
 
 ```json
 {
@@ -302,7 +302,7 @@ Você pode criar um pipeline para limpar os arquivos antigos ou expirados, aprov
 }
 ```
 
-#### <a name="sample-dataset"></a>Conjunto de exemplo
+#### <a name="sample-dataset"></a>Conjunto de dados da amostra
 
 ```json
 {
@@ -322,14 +322,14 @@ Você pode criar um pipeline para limpar os arquivos antigos ou expirados, aprov
 }
 ```
 
-### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Mover arquivos encadeando a atividade de cópia e a atividade de exclusão
+### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Mover ficheiros acorrentando a atividade da Cópia e a atividade de Eliminar
 
-Você pode mover um arquivo usando uma atividade de cópia para copiar um arquivo e, em seguida, uma atividade de exclusão para excluir um arquivo em um pipeline.  Quando desejar mover vários arquivos, você poderá usar a atividade de GetMetadata atividade + filtro atividade + atividade ForEach + copiar atividade + excluir como no exemplo a seguir:
+Pode mover um ficheiro utilizando uma atividade de cópia para copiar um ficheiro e, em seguida, eliminar uma atividade para eliminar um ficheiro num pipeline.  Quando pretender mover vários ficheiros, pode utilizar a atividade GetMetadata + Atividade de filtragem + Atividade foreach + Atividade de cópia + Eliminar a atividade como na seguinte amostra:
 
 > [!NOTE]
-> Se você quiser mover a pasta inteira definindo um conjunto de um DataSet que contém apenas um caminho de pasta e, em seguida, usando uma atividade de cópia e uma atividade de exclusão para fazer referência ao mesmo conjunto de um que representa uma pasta, precisará ser muito cuidadoso. É porque você precisa certificar-se de que não haverá novos arquivos chegando à pasta entre a operação de cópia e a operação de exclusão.  Se houver novos arquivos chegando à pasta no momento em que a atividade de cópia acabou de concluir o trabalho de cópia, mas a atividade de exclusão não tiver sido feita, é possível que a atividade de exclusão exclua esse novo arquivo de chegada que não foi copiado para o destinati no entanto, excluindo a pasta inteira. 
+> Se pretender mover toda a pasta definindo um conjunto de dados que contenha apenas um caminho de pasta e, em seguida, utilizando uma atividade de cópia e uma atividade de Eliminar para referência ao mesmo conjunto de dados que representa uma pasta, tem de ter muito cuidado. É porque tem de se certificar de que não haverá novos ficheiros que chegam à pasta entre a operação de cópia e a eliminação da operação.  Se houver novos ficheiros que chegam à pasta no momento em que a sua atividade de cópia acabou de completar a função de cópia, mas a atividade de Eliminar não foi encarada, é possível que a atividade do Delete apague este novo ficheiro de chegada que NÃO foi copiado para o destino ainda, apagando toda a pasta. 
 
-#### <a name="sample-pipeline"></a>Pipeline de exemplo
+#### <a name="sample-pipeline"></a>Gasoduto de amostra
 
 ```json
 {
@@ -486,7 +486,7 @@ Você pode mover um arquivo usando uma atividade de cópia para copiar um arquiv
 
 #### <a name="sample-datasets"></a>Conjuntos de dados de exemplo
 
-DataSet usado pela atividade GetMetadata para enumerar a lista de arquivos.
+Conjunto de dados utilizado pela atividade getMetadata para enumerar a lista de ficheiros.
 
 ```json
 {
@@ -505,7 +505,7 @@ DataSet usado pela atividade GetMetadata para enumerar a lista de arquivos.
 }
 ```
 
-DataSet para fonte de dados usada pela atividade de cópia e a atividade de exclusão.
+Conjunto de dados para fonte de dados utilizado pela atividade de cópia e pela atividade de Eliminar.
 
 ```json
 {
@@ -538,7 +538,7 @@ DataSet para fonte de dados usada pela atividade de cópia e a atividade de excl
 }
 ```
 
-DataSet para destino de dados usado pela atividade de cópia.
+Conjunto de dados para destino de dados utilizado pela atividade de cópia.
 
 ```json
 {
@@ -565,16 +565,16 @@ DataSet para destino de dados usado pela atividade de cópia.
 }
 ```
 
-Você também pode obter o modelo para mover os arquivos [aqui](solution-template-move-files.md).
+Também pode obter o modelo para mover ficheiros a partir [daqui](solution-template-move-files.md).
 
 ## <a name="known-limitation"></a>Limitação conhecida
 
--   A atividade de exclusão não dá suporte à exclusão da lista de pastas descritas por curinga.
+-   Eliminar atividade não suporta a eliminação da lista de pastas descritas por wildcard.
 
--   Ao usar o filtro de atributo de arquivo: modifiedDatetimeStart e modifiedDatetimeEnd para selecionar os arquivos a serem excluídos, certifique-se de definir "fileName": "*" no DataSet.
+-   Quando utilizar o filtro de atributo de ficheiro: modificadoDatetimeStart e modificadoDatetimeEnd para selecionar ficheiros a eliminar, certifique-se de definir "fileName": "*" no conjunto de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre como mover arquivos no Azure Data Factory.
+Saiba mais sobre a movimentação de ficheiros na Azure Data Factory.
 
 -   [Ferramenta Copiar Dados no Azure Data Factory](copy-data-tool.md)

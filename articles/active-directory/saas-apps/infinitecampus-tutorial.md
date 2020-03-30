@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Campus infinito | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e no Campus infinito.
+title: 'Tutorial: Integração do Diretório Ativo Azure com o Campus Infinito [ Campus Infinito] Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Infinite Campus.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,199 +16,199 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: d54769c1f3265e2cee619520044313fca46855a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100358"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Active Directory do Azure com o Campus infinita
+# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração de Diretório Ativo Azure com Campus Infinito
 
-Neste tutorial, saiba como integrar o Campus infinita com o Azure Active Directory (Azure AD).
-Integrar o Campus infinita com o Azure AD fornece as seguintes vantagens:
+Neste tutorial, aprende-se a integrar o Infinite Campus com o Azure Ative Directory (Azure AD).
+Integrar o Infinite Campus com a Azure AD proporciona-lhe os seguintes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Campus infinito.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada ao Campus infinito (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Você pode controlar em Azure AD que tem acesso ao Campus Infinito.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Infinite Campus (Single Sign-On) com as suas contas Azure AD.
+* Você pode gerir suas contas em um local central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com infinito Campus, terá dos seguintes itens:
+Para configurar a integração da AD Azure com o Infinite Campus, precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
-* Infinito Campus logon único habilitado subscrição
-* No mínimo, tem de ser um administrador do Azure Active Directory e ter uma função de segurança de produto no Campus de "estudante informações SIS (sistema)" para concluir a configuração.
+* Uma subscrição da AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
+* Assinatura de inscrição única do Campus Infinito
+* No mínimo, é necessário ser administrador de Diretório Ativo Azure e ter uma função de Segurança de Produto do Campus do "Sistema de Informação de Estudantes (SIS)" para completar a configuração.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
 
-* Suporta Campus infinito **SP** iniciada SSO
+* Infinite Campus apoia **SP** iniciado SSO
 
-## <a name="adding-infinite-campus-from-the-gallery"></a>Adicionando Campus infinito da Galeria
+## <a name="adding-infinite-campus-from-the-gallery"></a>Adicionar o Campus Infinito da galeria
 
-Para configurar a integração do Campus infinita com o Azure AD, terá de adicionar Campus infinito a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Infinite Campus em Azure AD, você precisa adicionar Infinite Campus da galeria à sua lista de aplicações saaS geridas.
 
-**Para adicionar Campus infinito a partir da galeria, execute os seguintes passos:**
+**Para adicionar o Campus Infinito da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar uma nova aplicação, clique a **nova aplicação** botão na parte superior da caixa de diálogo.
+3. Para adicionar uma nova aplicação, clique no novo botão de **aplicação** na parte superior do diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Campus infinito**, selecione **Campus infinito** a partir do painel de resultados, em seguida, clique nas **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **Infinite Campus,** selecione **Infinite Campus** a partir do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
-    ![Campus infinito na lista de resultados](common/search-new-app.png)
+    ![Campus Infinito na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
 
-Nesta secção, configure e teste do Azure AD início de sessão único com infinito Campus, com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Campus infinito deve ser estabelecido.
+Nesta secção, configura e testa um único sign-on azure com o Infinite Campus com base num utilizador de teste chamado **Britta Simon**.
+Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Infinite Campus.
 
-Para configurar e testar o Azure AD início de sessão único com infinito Campus, terá de concluir os seguintes blocos de construção:
+Para configurar e testar o único sign-on azure ad com o Infinite Campus, você precisa completar os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar infinito Campus início de sessão único](#configure-infinite-campus-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste do Campus infinito](#create-infinite-campus-test-user)**  - para ter um equivalente da Eduarda Almeida no Campus infinito que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o Single Sign-On](#configure-infinite-campus-single-sign-on)** do Campus Infinito - para configurar as definições de início de sessão simples no lado da aplicação.
+3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
+4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
+5. **[Create Infinite Campus test user](#create-infinite-campus-test-user)** - para ter uma contrapartida de Britta Simon no Infinite Campus que está ligada à representação da AD Azure do utilizador.
+6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
 
-Para configurar o Azure AD início de sessão único com Campus infinito, execute os seguintes passos:
+Para configurar o single sign-on azure com o Infinite Campus, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Campus infinito** página de integração de aplicações, selecione **início de sessão único**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações do **Campus Infinito,** selecione **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configurar um único link de sinalização](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Modo de seleção de sinal único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Editar Configuração Básica do SAML](common/edit-urls.png)
 
-4. Na secção de configuração básica de SAML, execute os seguintes passos (tenha em atenção que o domínio irão variar consoante o modelo de hospedagem, mas a **completamente-QUALIFICADO-domínio** valor tem de corresponder à sua instalação do Campus infinito):
+4. Na secção de Configuração SAML Básica, execute os seguintes passos (note que o domínio variará com o Modelo de Hospedagem, mas o valor **DOMÍNIO TOTALMENTE QUALIFICADO** deve corresponder à sua instalação do Campus Infinito):
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    a. Na caixa de texto **"Sign-on URL",** escreva um URL utilizando o seguinte padrão:`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
+    b. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
 
-    c. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>`
 
-    ![Infinito Campus domínio e URLs único informações de início de sessão](common/sp-identifier-reply.png)
+    ![Infinita Campus Domain e URLs informações únicas de inscrição](common/sp-identifier-reply.png)
 
-5. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
+5. Na configuração do Single Sign-On com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique no botão de cópia para copiar o Url de **Metadados da Federação** da Aplicação e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/copy-metadataurl.png)
+    ![O link de descarregamento do Certificado](common/copy-metadataurl.png)
 
-### <a name="configure-infinite-campus-single-sign-on"></a>Configurar Campus infinito início de sessão único
+### <a name="configure-infinite-campus-single-sign-on"></a>Configure Infinite Campus Single Sign-On
 
-1. Numa janela do browser web diferente, inicie sessão no Campus infinito como um administrador de segurança.
+1. Numa janela de navegador web diferente, inscreva-se no Infinite Campus como administrador de segurança.
 
-2. No lado esquerdo do menu, clique em **de administração do sistema**.
+2. No lado esquerdo do menu, clique em **Administração**do Sistema .
 
-    ![O administrador](./media/infinitecampus-tutorial/tutorial_infinitecampus_admin.png)
+    ![O Administrador](./media/infinitecampus-tutorial/tutorial_infinitecampus_admin.png)
 
-3. Navegue para **segurança de usuário** > **gestão de SAML** > **configuração do fornecedor de serviço SSO**.
+3. Navegue **para** > a configuração do prestador de > **serviços SAML****Management SAML**management SSO .
 
     ![O saml](./media/infinitecampus-tutorial/tutorial_infinitecampus_saml.png)
 
-4. Sobre o **configuração do fornecedor de serviço de SSO** página, execute os seguintes passos:
+4. Na página de Configuração do Prestador de **Serviços SSO,** execute os seguintes passos:
 
     ![O sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
-    a. Selecione **ativar SAML início de sessão único**.
+    a. **Selecione ativar o sinal único SAML .**
 
-    b. Editar a **nome de atributo opcional** para conter **nome**
+    b. Editar o **nome do atributo opcional** para conter o **nome**
 
-    c. Na **Selecione uma opção para recuperar dados de servidor do fornecedor de identidade (IDP)** secção, selecione **URL de metadados**, cole o **Url de metadados de Federação de aplicação** valor, que tem copiado do portal do Azure, na caixa e, em seguida, clique em **sincronização**.
+    c. Na secção de dados do Servidor Do Fornecedor de **Identidade (IDP),** selecione URL de **Metadados,** colá o valor de Url de Metadados da Federação de **Aplicações,** que copiou do portal Azure na caixa e, em seguida, clique em **Sync**.
 
-    d. Depois de clicar em **sincronização** os valores ficam preenchidos automaticamente na **configuração do fornecedor de serviço de SSO** página. Estes valores podem ser verificados de acordo com os valores que viu no passo 4 acima.
+    d. Depois de **clicar, os** valores ficam povoados automaticamente na página de Configuração do Fornecedor de **Serviços SSO.** Estes valores podem ser verificados para corresponder aos valores observados no Passo 4 acima.
 
     e. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **Novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo do Utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. No campo **Nome** entrar **BrittaSimon.**
   
-    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
+    b. No **User name** tipo `brittasimon@yourcompanydomain.extension`de campo do nome do utilizador . Por exemplo, BrittaSimon@contoso.com.
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
 
 > [!NOTE]
-> Se pretender que todos os utilizadores do Azure para início de sessão único de ter acesso ao Campus infinita e dependem do sistema de permissões interna do Campus infinita para controlar o acesso, pode definir o **pedido ao utilizador atribuição** propriedade do aplicativo para não e ignore os passos seguintes.
+> Se quiser que todos os seus utilizadores do Azure tenham acesso único ao Infinite Campus e confie no sistema de permissões internas do Infinite Campus para controlar o acesso, pode definir a propriedade necessária à **atribuição** de utilizador da aplicação para Não e saltar os seguintes passos.
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso ao Campus infinito.
+Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso ao Infinite Campus.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Campus infinito**.
+1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Infinite Campus**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Campus infinito**.
+2. Na lista de candidaturas, selecione **Infinite Campus**.
 
-    ![A ligação do Campus infinito na lista de aplicações](common/all-applications.png)
+    ![O link do Campus Infinito na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição adicionar](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
 
-### <a name="create-infinite-campus-test-user"></a>Criar utilizador de teste do Campus infinita
+### <a name="create-infinite-campus-test-user"></a>Criar utilizador de teste do Campus Infinito
 
-Campus infinito tem uma arquitetura de dados demográficos centralizados. Entre em contato com [equipa de suporte do Campus infinito](mailto:sales@infinitecampus.com) para adicionar os utilizadores na plataforma do Campus infinito.
+O Infinite Campus tem uma arquitetura centrada na demografia. Contacte a equipa de suporte do [Infinite Campus](mailto:sales@infinitecampus.com) para adicionar os utilizadores à plataforma Infinite Campus.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
 
-Quando clica no mosaico do Campus infinito no painel de acesso, deve ser automaticamente sessão iniciada no Campus da infinita para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no azulejo Infinite Campus no Painel de Acesso, deve ser automaticamente inscrito no Campus Infinito para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

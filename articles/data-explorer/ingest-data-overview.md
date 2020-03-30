@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246399"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Explorador de Dados azure
@@ -64,13 +64,13 @@ Kusto oferece sDK ao cliente que pode ser usado para ingerir e consultar dados c
 
 * [Python SDK](/azure/kusto/api/python/kusto-python-client-library)
 
-* [SDK do .NET](/azure/kusto/api/netfx/about-the-sdk)
+* [.NET SDK](/azure/kusto/api/netfx/about-the-sdk)
 
-* [SDK Java](/azure/kusto/api/java/kusto-java-client-library)
+* [Java SDK](/azure/kusto/api/java/kusto-java-client-library)
 
-* [SDK do nó](/azure/kusto/api/node/kusto-node-client-library)
+* [SDK de Node](/azure/kusto/api/node/kusto-node-client-library)
 
-* [API REST](/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Técnicas programáticas de ingestão:**
 
@@ -90,7 +90,7 @@ Kusto oferece sDK ao cliente que pode ser usado para ingerir e consultar dados c
 
 | Método | Latência |
 | --- | --- |
-| **Ingestão inline** | Imediata |
+| **Ingestão inline** | Imediato |
 | **Ingest de consulta** | Tempo de consulta + tempo de processamento |
 | **Ingestão a partir do armazenamento** | Tempo de descarregamento + tempo de processamento |
 | **Ingestão em fila** | Tempo de loteamento + tempo de processamento |
@@ -136,7 +136,7 @@ O mapeamento de schema ajuda a ligar os campos de dados de origem às colunas de
 * [O Mapeamento CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona com todos os formatos baseados em ordinal. Pode ser realizado utilizando o parâmetro de comando ingerir ou [pré-criado na mesa](/azure/kusto/management/create-ingestion-mapping-command) e referenciado a partir do parâmetro de comando ingerir.
 * O [Mapeamento JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e o [mapeamento Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) podem ser realizados utilizando o parâmetro de comando ingerir. Também podem ser [pré-criados na mesa](/azure/kusto/management/create-ingestion-mapping-command) e referenciados a partir do parâmetro de comando ingerir.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ingerir dados do Event Hub no Azure Data Explorer](ingest-data-event-hub.md)

@@ -1,18 +1,18 @@
 ---
 title: Comparar appSource e o Azure Marketplace Azure
 description: Este artigo descreve as montras no Microsoft AppSource e no Azure Marketplace.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: c07bba7340a1934fc422598c798022602e7c046a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd6c375231facc3d7afb35df74210d26b5f50ba8
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281617"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387789"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparar o AppSource e o Azure Marketplace
 As lojas no [Azure Marketplace](https://azuremarketplace.microsoft.com) e [microsoft AppSource](https://appsource.microsoft.com) servem requisitos únicos do cliente. Utilize montras para direcionar os clientes por função. Pode oferecer a solução ou serviço certo com base no seu cliente.

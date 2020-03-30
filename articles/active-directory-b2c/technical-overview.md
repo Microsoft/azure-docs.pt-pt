@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1aed1b0a13482bc932024a9d2a131ec5f1d948ba
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78186901"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80332539"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e característica do Diretório Ativo Azure B2C
 
@@ -48,7 +48,7 @@ O Azure AD B2C define vários tipos de contas de utilizador. O Azure Ative Direc
 * **Conta de hóspedes** - Utilizadores externos convida para o seu inquilino como hóspedes. Um cenário típico para convidar um utilizador convidado para o seu inquilino Azure AD B2C é partilhar responsabilidades administrativas.
 * **Conta** de consumo - As contas de consumo são as contas criadas no seu diretório Azure AD B2C quando os utilizadores completam a viagem de utilizador de inscrição numa aplicação que registou no seu inquilino.
 
-![página de gestão de utilizadores do Azure AD B2C no portal Azure](media/technical-overview/portal-01-users.png)<br/>*Figura: Diretório de utilizadores dentro de um inquilino Azure AD B2C no portal Azure*
+![Página de gestão de utilizadores do Azure AD B2C no portal Azure](media/technical-overview/portal-01-users.png)<br/>*Figura: Diretório de utilizadores dentro de um inquilino Azure AD B2C no portal Azure*
 
 ### <a name="consumer-accounts"></a>Contas de consumo
 
@@ -61,7 +61,7 @@ Uma conta de consumo pode ser associada a estes tipos de identidade:
 
 Um utilizador com uma conta de consumo pode iniciar sessão com múltiplas identidades, por exemplo nome de utilizador, e-mail, ID do empregado, ID do governo, entre outros. Uma única conta pode ter múltiplas identidades, tanto locais como sociais.
 
-![identidades da conta de consumo](media/technical-overview/identities.png)<br/>*Figura: Uma única conta de consumidor com múltiplas identidades em Azure AD B2C*
+![Identidades da conta de consumo](media/technical-overview/identities.png)<br/>*Figura: Uma única conta de consumidor com múltiplas identidades em Azure AD B2C*
 
 O Azure AD B2C permite-lhe gerir atributos comuns de perfis de conta de consumo como nome de exibição, apelido, nome próprio, cidade e outros. Também pode estender o esquema Azure AD para armazenar informações adicionais sobre os seus utilizadores. Por exemplo, o seu país ou residência, a linguagem preferida e as preferências como se querem subscrever uma newsletter ou permitir a autenticação de vários fatores.
 
@@ -101,7 +101,7 @@ Pode configurar configurações de fluxo do utilizador como estas para controlar
 
 * Tipos de conta utilizados para iniciar sessão, tais como contas sociais como um Facebook, ou contas locais que usam um endereço de e-mail e senha para iniciar sessão
 * Atributos a recolher junto do consumidor, tais como primeiro nome, código postal ou país de residência
-* Autenticação Azure Multi-Factor (MFA)
+* Azure Multi-Factor Authentication (MFA)
 * Personalização da interface do utilizador
 * Conjunto de reclamações num símbolo que a sua aplicação recebe após o utilizador completar o fluxo do utilizador
 * Gestão de sessões
@@ -136,7 +136,7 @@ Saiba mais sobre políticas personalizadas [em políticas personalizadas no Dire
 
 O Azure AD B2C suporta os [protocolos OpenID Connect e OAuth 2.0](protocols-overview.md) para viagens de utilizador. Na implementação do OpenID Connect do Azure AD B2C, a sua aplicação começa o percurso do utilizador através da emissão de pedidos de autenticação para o Azure AD B2C.
 
-O resultado de um pedido ao Azure AD B2C é um símbolo de segurança, como um símbolo de [identificação ou ficha](tokens-overview.md)de acesso . Este símbolo de segurança define a identidade do utilizador. Os tokens são recebidos de pontos finais Azure AD B2C como o `/token` ou `/authorize` ponto final. Com estas fichas, pode aceder a reclamações que podem ser usadas para validar uma identidade e permitir o acesso a recursos seguros.
+O resultado de um pedido ao Azure AD B2C é um símbolo de segurança, como um símbolo de [identificação ou ficha](tokens-overview.md)de acesso . Este símbolo de segurança define a identidade do utilizador. Os tokens são recebidos de pontos finais Azure AD B2C como o `/token` ponto final ou `/authorize` o ponto final. Com estas fichas, pode aceder a reclamações que podem ser usadas para validar uma identidade e permitir o acesso a recursos seguros.
 
 Para identidades externas, o Azure AD B2C apoia a federação com qualquer Fornecedor de identidade OAuth 1.0, OAuth 2.0, OpenID Connect, SAML e WS-Fed.
 
@@ -195,7 +195,7 @@ Pode adicionar uma chamada REST API em qualquer passo da viagem de utilizador de
 * Depois do Azure AD B2C cria uma nova conta no diretório
 * Antes de Azure AD B2C emitir um sinal de acesso
 
-Para ver como utilizar políticas personalizadas para integração restful API em Azure AD B2C, consulte [Integrar rest API reclama trocas de reclamações na sua viagem de utilizador Azure AD B2C](rest-api-claims-exchange-dotnet.md).
+Para ver como utilizar políticas personalizadas para integração restful API em Azure AD B2C, consulte [Integrar rest API reclama trocas de reclamações na sua política personalizada Azure AD B2C.](custom-policy-rest-api-intro.md)
 
 ## <a name="protect-customer-identities"></a>Proteger as identidades dos clientes
 
@@ -267,4 +267,4 @@ Saiba mais sobre a análise de utilização no [comportamento do utilizador da P
 Agora que tem uma visão mais profunda das características e aspetos técnicos do Azure Ative Directory B2C, inicie-se com o serviço criando um inquilino B2C:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar um Azure Ative Directory B2C inquilino >](tutorial-create-tenant.md)
+> [Tutorial: Criar um inquilino Azure Ative Directory B2C >](tutorial-create-tenant.md)

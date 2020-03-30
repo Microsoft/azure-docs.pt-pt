@@ -1,5 +1,5 @@
 ---
-title: 'Solução de problemas: dados ausentes nos logs de atividades baixados | Microsoft Docs'
+title: 'Resolução de problemas: Dados em falta nos registos de atividades descarregados / Microsoft Docs'
 description: Fornece uma resolução para os dados em falta nos registos de atividades transferidos do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee07fdb6f8a4e69600297bdb16b6ad74793f10c9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74007726"
 ---
-# <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Não consigo localizar todos os dados no Azure Active Directory logs de atividades que baixei
+# <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Não encontro todos os dados nos registos de atividade do Diretório Ativo Azure que descarreguei
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -34,7 +34,7 @@ Transferi os registos de atividades (auditorias ou inícios de sessão) e não v
  
 ## <a name="cause"></a>Causa
 
-Quando você baixa os logs de atividade no portal do Azure, limitamos a escala a 250.000 registros, classificados por mais recentes primeiro. 
+Ao descarregar registos de atividade sintetizados no portal Azure, limitamos a escala a 250.000 discos, classificados pela primeira vez. 
 
 ## <a name="resolution"></a>Resolução
 
@@ -42,5 +42,5 @@ Pode tirar partido das [APIs de Relatórios do Azure AD](concept-reporting-api.m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Perguntas frequentes sobre relatórios de Azure Active Directory](reports-faq.md)
+* [Azure Ative Directory reporta FAQ](reports-faq.md)
 

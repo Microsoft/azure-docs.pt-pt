@@ -1,72 +1,72 @@
 ---
-title: Mover uma rede virtual do Azure para outra região do Azure usando Azure PowerShell
-description: Mova uma rede virtual do Azure de uma região do Azure para outra usando um modelo do Resource Manager e Azure PowerShell.
+title: Mova uma rede virtual Azure para outra região do Azure usando o Azure PowerShell
+description: Mova uma rede virtual Azure de uma região azure para outra usando um modelo de Gestor de Recursos e Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
 ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646715"
 ---
-# <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Mover uma rede virtual do Azure para outra região usando Azure PowerShell
+# <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Mova uma rede virtual Azure para outra região usando o Azure PowerShell
 
-Há vários cenários para mover uma rede virtual do Azure existente de uma região para outra. Por exemplo, talvez você queira criar uma rede virtual com a mesma configuração para teste e disponibilidade como sua rede virtual existente. Ou talvez você queira mover uma rede virtual de produção para outra região como parte de seu planejamento de recuperação de desastre.
+Existem vários cenários para mover uma rede virtual Azure existente de uma região para outra. Por exemplo, pode querer criar uma rede virtual com a mesma configuração para testes e disponibilidade que a sua rede virtual existente. Ou talvez queira mover uma rede virtual de produção para outra região como parte do seu planeamento de recuperação de desastres.
 
-Você pode usar um modelo de Azure Resource Manager para concluir a movimentação da rede virtual para outra região. Você faz isso exportando a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantando o modelo na nova região. Para obter mais informações sobre modelos do Resource Manager, consulte [Exportar grupos de recursos para modelos](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+Você pode usar um modelo de Gestor de Recursos Azure para completar a mudança da rede virtual para outra região. Faz-o exportando a rede virtual para um modelo, modificando os parâmetros para combinar com a região de destino e, em seguida, implantando o modelo para a nova região. Para obter mais informações sobre os modelos do Gestor de Recursos, consulte grupos de [recursos de exportação para modelos](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Verifique se sua rede virtual está na região do Azure da qual você deseja mover.
+- Certifique-se de que a sua rede virtual está na região de Azure da qual pretende mudar-se.
 
-- Para exportar uma rede virtual e implantar um modelo para criar uma rede virtual em outra região, você precisa ter a função de colaborador de rede ou superior.
+- Para exportar uma rede virtual e implementar um modelo para criar uma rede virtual noutra região, é necessário ter o papel de Colaborador de Rede ou superior.
 
-- Os emparelhamentos de rede virtual não serão recriados, e eles falharão se ainda estiverem presentes no modelo. Antes de exportar o modelo, você precisa remover os pares de rede virtual. Em seguida, você pode reestabelecer esses itens após a movimentação da rede virtual.
+- Os pares de rede virtuais não serão recriados, e falharão se ainda estiverem presentes no modelo. Antes de exportar o modelo, tem de remover quaisquer pares de rede virtual. Em seguida, pode restabelece-los após o movimento da rede virtual.
     
-- Identifique o layout de rede de origem e todos os recursos que você está usando no momento. Esse layout inclui, mas não se limita a balanceadores de carga, NSGs (grupos de segurança de rede) e IPs públicos.
+- Identifique o layout de rede de origem e todos os recursos que está a utilizar. Este layout inclui, mas não se limita a equilibradores de carga, grupos de segurança de rede (NSGs) e IPs públicos.
 
-- Verifique se sua assinatura do Azure permite que você crie redes virtuais na região de destino. Para habilitar a cota necessária, contate o suporte.
+- Verifique se a sua subscrição Azure permite criar redes virtuais na região alvo. Para ativar a quota necessária, contacte o suporte.
 
-- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de redes virtuais para esse processo. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Certifique-se de que a sua subscrição dispõe de recursos suficientes para apoiar a adição de redes virtuais para este processo. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
-## <a name="prepare-for-the-move"></a>Preparar para a movimentação
-Nesta seção, você prepara a rede virtual para a movimentação usando um modelo do Resource Manager. Em seguida, mova a rede virtual para a região de destino usando os comandos Azure PowerShell.
+## <a name="prepare-for-the-move"></a>Prepare-se para a mudança
+Nesta secção, prepara a rede virtual para o movimento utilizando um modelo de Gestor de Recursos. Em seguida, move a rede virtual para a região alvo utilizando comandos Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para exportar a rede virtual e implantar a rede virtual de destino usando o PowerShell, faça o seguinte:
+Para exportar a rede virtual e implantar a rede virtual alvo utilizando o PowerShell, faça o seguinte:
 
-1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
+1. Inscreva-se na subscrição do Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e, em seguida, siga as instruções no ecrã:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-1. Obtenha a ID de recurso da rede virtual que você deseja mover para a região de destino e coloque-a em uma variável usando [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+1. Obtenha o ID de recurso da rede virtual que pretende mover-se para a região alvo e, em seguida, colocá-lo numa variável utilizando [get-AzVirtualNetwork:](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)
 
     ```azurepowershell-interactive
     $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
     ```
 
-1. Exporte a rede virtual de origem para um arquivo. JSON no diretório em que você executa o comando [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+1. Exporte a rede virtual de origem para um ficheiro .json no diretório onde executa o comando [Export-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. O arquivo baixado tem o mesmo nome que o grupo de recursos do qual o recurso foi exportado. Localize o *\<nome do grupo de recursos > arquivo. JSON* , que você exportou com o comando e, em seguida, abra-o em seu editor:
+1. O ficheiro descarregado tem o mesmo nome que o grupo de recursos de onde o recurso foi exportado. Localize o * \<ficheiro>.json* de nome de grupo de recursos, que exportou com o comando, e abra-o no seu editor:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
    ```
 
-1. Para editar o parâmetro do nome da rede virtual, altere a propriedade **DefaultValue** do nome da rede virtual de origem para o nome da sua rede virtual de destino. Certifique-se de colocar o nome entre aspas.
+1. Para editar o parâmetro do nome de rede virtual, altere a propriedade **padrãoValue** do nome de rede virtual fonte para o nome da sua rede virtual alvo. Certifique-se de que encerra o nome em aspas.
     
     ```json
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentmyResourceGroupVNET.json#",
@@ -78,7 +78,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
         }
     ```
 
-1. Para editar a região de destino em que a rede virtual será movida, altere a propriedade **local** em recursos:
+1. Para editar a região alvo onde a rede virtual será deslocada, altere a propriedade de **localização** sob recursos:
 
     ```json
     "resources": [
@@ -98,16 +98,16 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
 
     ```
   
-1. Para obter códigos de localização de região, você pode usar o cmdlet Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) executando o seguinte comando:
+1. Para obter códigos de localização da região, pode utilizar o cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) do Azure PowerShell executando o seguinte comando:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     ```
 
-1. Adicional Você também pode alterar outros parâmetros no *\<Resource-Group-name > arquivo. JSON* , dependendo dos seus requisitos:
+1. (Opcional) Também pode alterar outros parâmetros no * \<ficheiro>.json* de nome de grupo de recursos, dependendo dos seus requisitos:
 
-    * **Espaço de endereço**: antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando **os recursos** > seção **addressSpace** e alterando a propriedade **addressPrefixes** :
+    * **Espaço de endereço**: Antes de guardar o ficheiro, pode alterar o espaço de endereço da rede virtual modificando a secção de **endereços de** > **recursosSpace** e alterando a propriedade **de endereçoPrefixos:**
 
         ```json
                 "resources": [
@@ -126,7 +126,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
                     },
         ```
 
-    * **Sub-rede**: você pode alterar ou adicionar o nome da sub-rede e o espaço de endereço da sub-rede alterando a seção **sub-redes** do arquivo. Você pode alterar o nome da sub-rede alterando a propriedade **Name** . E você pode alterar o espaço de endereço de sub-rede alterando a propriedade **addressPrefix** :
+    * **Sub-rede**: Pode alterar ou adicionar ao nome da sub-rede e ao espaço de endereço da sub-rede alterando a secção de **sub-redes** do ficheiro. Pode alterar o nome da subnet alterando a propriedade do **nome.** E pode alterar o espaço de endereço da subnet alterando a propriedade **addressPrefix:**
 
         ```json
                 "subnets": [
@@ -157,7 +157,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
                 ]
         ```
 
-        Para alterar o prefixo de endereço, edite o arquivo em dois locais: no código da seção anterior e na seção **tipo** do código a seguir. Altere a propriedade **addressPrefix** no código a seguir para corresponder à propriedade **addressPrefix** no código da seção anterior.
+        Para alterar o prefixo de endereço, edite o ficheiro em dois locais: no código na secção anterior e na secção do **tipo** do seguinte código. Altere a propriedade **de endereçoPrefix** no seguinte código para combinar com a propriedade **addressPrefix** no código na secção anterior.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -193,22 +193,22 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
          ]
         ```
 
-1. Salve o *\<nome do grupo de recursos > arquivo. JSON* .
+1. Guarde o * \<ficheiro>.json de nome de grupo de recursos.*
 
-1. Crie um grupo de recursos na região de destino para a rede virtual de destino a ser implantada usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
+1. Criar um grupo de recursos na região alvo para a rede virtual alvo a ser implantada utilizando o [New-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Implante o\<edited *Resource-Group-name > arquivo. JSON* no grupo de recursos que você criou na etapa anterior usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Implemente o ficheiro * \<>.json* de nome de grupo de recursos editado para o grupo de recursos que criou no passo anterior utilizando a [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     ```
 
-1. Para verificar se os recursos foram criados na região de destino, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+1. Para verificar se os recursos foram criados na região alvo, utilize o [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [o Get-AzVirtualNetwork:](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)
     
     ```azurepowershell-interactive
 
@@ -220,11 +220,11 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
     Get-AzVirtualNetwork -Name <target-virtual-network-name> -ResourceGroupName <target-resource-group-name>
     ```
 
-## <a name="delete-the-virtual-network-or-resource-group"></a>Excluir a rede virtual ou o grupo de recursos 
+## <a name="delete-the-virtual-network-or-resource-group"></a>Eliminar a rede virtual ou o grupo de recursos 
 
-Depois de implantar a rede virtual, para iniciar ou descartar a rede virtual na região de destino, exclua o grupo de recursos que você criou na região de destino e a rede virtual movida será excluída. 
+Depois de ter implantado a rede virtual, para recomeçar ou descartar a rede virtual na região alvo, eliminar o grupo de recursos que criou na região alvo, e a rede virtual móvel será eliminada. 
 
-Para remover o grupo de recursos, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Para remover o grupo de recursos, utilize [o Remove-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)
 
 ```azurepowershell-interactive
 
@@ -233,16 +233,16 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ## <a name="clean-up"></a>Limpeza
 
-Para confirmar as alterações e concluir a movimentação da rede virtual, siga um destes procedimentos:
+Para comprometer as suas alterações e completar o movimento de rede virtual, faça qualquer uma das seguintes:
 
-* Exclua o grupo de recursos usando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+* Elimine o grupo de recursos utilizando o [Remove-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)
 
     ```azurepowershell-interactive
 
     Remove-AzResourceGroup -Name <source-resource-group-name>
     ```
 
-* Exclua a rede virtual de origem usando [Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0):  
+* Elimine a rede virtual de origem utilizando [remove-AzVirtualNetwork:](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0)  
     ``` azurepowershell-interactive
 
     Remove-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>
@@ -250,7 +250,7 @@ Para confirmar as alterações e concluir a movimentação da rede virtual, siga
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você moveu uma rede virtual de uma região para outra usando o PowerShell e, em seguida, limpou os recursos de origem desnecessários. Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte:
+Neste tutorial, você mudou uma rede virtual de uma região para outra usando powerShell e, em seguida, limpou os recursos de origem desnecessários. Para saber mais sobre a movimentação de recursos entre regiões e a recuperação de desastres em Azure, consulte:
 
 - [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) (Mover recursos para um grupo de recursos ou uma subscrição nova)
-- [Mover máquinas virtuais do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mova as máquinas virtuais Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

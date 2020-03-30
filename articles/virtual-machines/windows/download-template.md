@@ -1,6 +1,6 @@
 ---
-title: Baixar o modelo para uma VM do Azure
-description: Baixar a VM modelo a para ajudar na automatização de implantações no modelo de implantação do Resource Manager
+title: Descarregue o modelo para um Azure VM
+description: Descarregue o modelo de um VM para ajudar a automatizar implementações no modelo de implementação do Gestor de Recursos
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,35 +15,35 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: c73026515f0d7fde4e2f82838696700b1bb17c77
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033553"
 ---
 # <a name="download-the-template-for-a-vm"></a>Transferir o modelo para uma VM
-Quando você cria uma VM no Azure usando o portal ou o PowerShell, um modelo do Resource Manager é criado automaticamente para você. Você pode usar esse modelo para duplicar rapidamente uma implantação. O modelo contém informações sobre todos os recursos em um grupo de recursos. Para uma máquina virtual, isso significa que o modelo contém tudo o que é criado para dar suporte à VM nesse grupo de recursos, incluindo os recursos de rede.
+Quando cria um VM em Azure utilizando o portal ou powerShell, um modelo de Gestor de Recursos é automaticamente criado para si. Pode usar este modelo para duplicar rapidamente uma implementação. O modelo contém informações sobre todos os recursos de um grupo de recursos. Para uma máquina virtual, isto significa que o modelo contém tudo o que é criado para apoiar o VM nesse grupo de recursos, incluindo os recursos de rede.
 
-## <a name="download-the-template-using-the-portal"></a>Baixar o modelo usando o portal
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda, selecione **máquinas virtuais**.
+## <a name="download-the-template-using-the-portal"></a>Descarregue o modelo usando o portal
+1. Faça login no [portal Azure.](https://portal.azure.com/)
+2. Um menu esquerdo, selecione **Máquinas Virtuais**.
 3. Selecione a máquina virtual na lista.
-4. Selecione **Exportar modelo**.
-5. Selecione **baixar** no menu na parte superior e salve o arquivo. zip em seu computador local.
-6. Abra o arquivo. zip e extraia os arquivos para uma pasta. O arquivo. zip contém:
+4. Selecione **modelo de exportação**.
+5. Selecione **Baixar** a partir do menu na parte superior e guardar o ficheiro .zip para o seu computador local.
+6. Abra o ficheiro .zip e extrai os ficheiros para uma pasta. O ficheiro .zip contém:
    
-   * parameters.json
-   * template.json
+   * parâmetros.json
+   * modelo.json
 
-O arquivo template. JSON é o modelo.
+O ficheiro modelo.json é o modelo.
 
-## <a name="download-the-template-using-powershell"></a>Baixar o modelo usando o PowerShell
-Você também pode baixar o arquivo de modelo. JSON usando o cmdlet [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) . Você pode usar o parâmetro `-path` para fornecer o nome de arquivo e o caminho para o arquivos. JSON. Este exemplo mostra como baixar o modelo para o grupo de recursos chamado **MyResource** Group para a pasta **C:\users\public\downloads** em seu computador local.
+## <a name="download-the-template-using-powershell"></a>Descarregue o modelo usando powerShell
+Também pode descarregar o ficheiro de modelo .json utilizando o cmdlet [Export-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) Pode utilizar `-path` o parâmetro para fornecer o nome de ficheiro e o caminho para o ficheiro .json. Este exemplo mostra como descarregar o modelo para o grupo de recursos chamado **myResourceGroup** para a pasta **c:\users\public\downloads** no seu computador local.
 
 ```powershell
     Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre a implantação de recursos usando modelos, confira [explicação do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Para saber mais sobre a implementação de recursos usando modelos, consulte o [modelo de](../../azure-resource-manager/resource-manager-template-walkthrough.md)gestor de recursos .
 

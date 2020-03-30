@@ -15,10 +15,10 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 01b923e0d013fab1815456e55eac6036ded772bb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701846"
 ---
 # <a name="single-page-application-move-to-production"></a>Aplicação de página única: Passar para a produção
@@ -31,7 +31,7 @@ Agora que sabe como adquirir um símbolo para ligar para a Web APIs, aprenda a m
 
 ## <a name="test-your-integration"></a>Teste a sua integração
 
-Teste sua integração seguindo a [lista de verificação de integração da plataforma de identidade da Microsoft](identity-platform-integration-checklist.md).
+Teste a sua integração seguindo a lista de verificação de [integração](identity-platform-integration-checklist.md)da plataforma de identidade da Microsoft .
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -14,19 +14,19 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 90189a1d7fd6421b7a24940e8c6ed615fa0df6d6
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084831"
 ---
 # <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Obtenha um símbolo da cache simbólica usando MSAL.NET
 
-Quando adquire um sinal de acesso utilizando a Microsoft Authentication Library para .NET (MSAL.NET), o token está em cache. Quando o pedido precisa de um símbolo, deve primeiro chamar o método `AcquireTokenSilent` para verificar se um token aceitável está na cache. Em muitos casos, é possível adquirir outro símbolo com mais âmbitos baseados num símbolo na cache. Também é possível refrescar um símbolo quando está perto da expiração (como a cache token também contém um token refrescante).
+Quando adquire um sinal de acesso utilizando a Microsoft Authentication Library para .NET (MSAL.NET), o token está em cache. Quando o pedido precisa de um símbolo, deve primeiro chamar o `AcquireTokenSilent` método para verificar se um token aceitável está na cache. Em muitos casos, é possível adquirir outro símbolo com mais âmbitos baseados num símbolo na cache. Também é possível refrescar um símbolo quando está perto da expiração (como a cache token também contém um token refrescante).
 
-O padrão recomendado é chamar primeiro o método `AcquireTokenSilent`.  Se `AcquireTokenSilent` falhar, em seguida, adquira um símbolo usando outros métodos.
+O padrão recomendado é `AcquireTokenSilent` chamar o método primeiro.  Se `AcquireTokenSilent` falhar, adquira um símbolo utilizando outros métodos.
 
-No exemplo seguinte, a aplicação tenta primeiro adquirir um símbolo da cache simbólica.  Se for lançada uma exceção `MsalUiRequiredException`, a aplicação adquire um símbolo interactivamente. 
+No exemplo seguinte, a aplicação tenta primeiro adquirir um símbolo da cache simbólica.  Se `MsalUiRequiredException` for aberta uma exceção, a aplicação adquire um símbolo interactivamente. 
 
 ```csharp
 AuthenticationResult result = null;

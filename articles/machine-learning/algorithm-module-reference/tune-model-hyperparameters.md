@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 112a7f7aa61984b2ce9bd8400c629fe62db55584
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137904"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064166"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar hiperparâmetros do modelo
 
 Este artigo descreve como utilizar o módulo de hiperparâmetros do Modelo tune em azure machine learning designer (pré-visualização). O objetivo é determinar os hiperparâmetros ideais para um modelo de aprendizagem automática. O módulo constrói e testa vários modelos utilizando diferentes combinações de configurações. Compara métricas em todos os modelos para obter as combinações de configurações. 
 
-Os termos *parâmetro* e *hiperparâmetro* podem ser confusos. Os *parâmetros* do modelo são o que se define no painel de propriedades. Basicamente, este módulo executa uma varredura de *parâmetro* sobre as definições especificadas do parâmetro. Aprende um conjunto ideal de _hiperparâmetros,_ que podem ser diferentes para cada árvore de decisão específica, conjunto de dados ou método de regressão. O processo de encontrar a configuração ideal é por vezes chamado *de afinação.* 
+Os termos *parâmetro* e *hiperparâmetro* podem ser confusos. Os *parâmetros* do modelo são o que se define no painel direito do módulo. Basicamente, este módulo executa uma varredura de *parâmetro* sobre as definições especificadas do parâmetro. Aprende um conjunto ideal de _hiperparâmetros,_ que podem ser diferentes para cada árvore de decisão específica, conjunto de dados ou método de regressão. O processo de encontrar a configuração ideal é por vezes chamado *de afinação.* 
 
 O módulo suporta o seguinte método para encontrar as configurações ideais para um modelo: *comboio integrado e melodia.* Neste método, configura um conjunto de parâmetros para utilizar. Em seguida, deixe o módulo iterar sobre várias combinações. O módulo mede a precisão até encontrar um modelo "melhor". Com a maioria dos módulos de aprendizagem, pode escolher quais os parâmetros que devem ser alterados durante o processo de treino, e quais devem permanecer fixos.
 
@@ -69,7 +69,7 @@ Esta secção descreve como realizar uma varredura de parâmetros básicos, que 
 
 9.  Para **sementes aleatórias,** introduza um número a utilizar para iniciar a varredura do parâmetro. 
 
-10. Executar o pipeline.
+10. Submeta o oleoduto.
 
 ## <a name="results-of-hyperparameter-tuning"></a>Resultados da afinação do hiperparâmetro
 
@@ -140,7 +140,7 @@ No entanto, durante o treino, deve escolher uma *única* métrica para utilizar 
 
 -   **Erro quadrado relativo** normaliza o erro quadrado total dividindo-se pelo erro quadrado total dos valores previstos.  
 
--   **O coeficiente de determinação** é um único número que indica o quão bem os dados se encaixam num modelo. Um valor de um significa que o modelo corresponde exatamente aos dados. Um valor de zero significa que os dados são aleatórios ou não podem ser adequados ao modelo. É frequentemente chamado *r<sup>2</sup>* , *R<sup>2</sup>* , ou *r-quadrado*.  
+-   **O coeficiente de determinação** é um único número que indica o quão bem os dados se encaixam num modelo. Um valor de um significa que o modelo corresponde exatamente aos dados. Um valor de zero significa que os dados são aleatórios ou não podem ser adequados ao modelo. É frequentemente chamado *r<sup>2</sup>*, *R<sup>2</sup>*, ou *r-quadrado*.  
 
 ### <a name="modules-that-dont-support-a-parameter-sweep"></a>Módulos que não suportam uma varredura de parâmetros
 

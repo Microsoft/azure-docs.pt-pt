@@ -13,16 +13,18 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 7dfd12729c5697d1935d098cbd4ed863a4551acd
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 0bb3abc7b7102da55c9ededcadd7a301f74065ab
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719879"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349328"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Trabalhar com dados R e SQL nos Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)
 
 Este artigo discute algumas das questões comuns que pode encontrar ao mover dados entre a Base de Dados R e SQL em Serviços de [Aprendizagem Automática (com R) na Base de Dados Azure SQL](sql-database-machine-learning-services-overview.md). A experiência que ganha através deste exercício fornece um fundo essencial ao trabalhar com dados no seu próprio script.
+
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 Questões comuns que pode encontrar incluem:
 
@@ -30,8 +32,6 @@ Questões comuns que pode encontrar incluem:
 - Conversões implícitas podem ocorrer
 - As operações de elenco e conversão são por vezes necessárias
 - R e SQL usam diferentes objetos de dados
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,9 +69,9 @@ EXECUTE sp_execute_external_script @language = N'R'
 
 Por que os resultados são tão diferentes?
 
-A resposta pode geralmente ser encontrada usando o comando R `str()`. Adicione a função `str(object_name)` em qualquer lugar do seu script R para que o esquema de dados do objeto R especificado fosse devolvido como uma mensagem informativa. Pode ver as mensagens no separador **Mensagens** no SSMS.
+A resposta pode geralmente ser `str()` encontrada usando o comando R. Adicione a `str(object_name)` função em qualquer lugar do seu script R para que o esquema de dados do objeto R especificado fosse devolvido como uma mensagem informativa. Pode ver as mensagens no separador **Mensagens** no SSMS.
 
-Para descobrir por que exemplo 1 e exemplo 2 têm resultados tão diferentes, insira a linha `str(OutputDataSet)` no final da definição variável `@script` em cada declaração, como esta:
+Para descobrir por que exemplo 1 e exemplo 2 `str(OutputDataSet)` têm resultados `@script` tão diferentes, insira a linha no final da definição variável em cada declaração, como esta:
 
 **Exemplo 1 com função str adicionada**
 
@@ -102,7 +102,7 @@ Agora, reveja o texto em **Mensagens** para ver por que a saída é diferente.
 
 ```text
 STDOUT message(s) from external script:
-'data.frame':   3 obs. of  1 variable:
+'data.frame':    3 obs. of  1 variable:
 $ mytextvariable: Factor w/ 3 levels " ","hello","world": 2 1 3
 ```
 
@@ -110,7 +110,7 @@ $ mytextvariable: Factor w/ 3 levels " ","hello","world": 2 1 3
 
 ```text
 STDOUT message(s) from external script:
-'data.frame':   1 obs. of  3 variables:
+'data.frame':    1 obs. of  3 variables:
 $ c..hello..: Factor w/ 1 level "hello": 1
 $ X...      : Factor w/ 1 level " ": 1
 $ c..world..: Factor w/ 1 level "world": 1
@@ -121,7 +121,7 @@ Como pode ver, uma ligeira alteração na sintaxe r teve um grande efeito no esq
 Por enquanto, esteja ciente de que precisa de verificar os resultados esperados ao coagir objetos R em quadros de dados.
 
 > [!TIP]
-> Também pode utilizar funções de identidade R, como `is.matrix`, `is.vector`, para devolver informações sobre a estrutura interna de dados.
+> Também pode utilizar funções de `is.matrix`identidade `is.vector`R, tais como, para devolver informações sobre a estrutura interna de dados.
 
 ## <a name="implicit-conversion-of-data-objects"></a>Conversão implícita de objetos de dados
 
@@ -163,7 +163,7 @@ WITH RESULT SETS((
             ));
 ```
 
-Sob as coberturas, a coluna de três valores é convertida para uma matriz de coluna única. Como uma matriz é apenas um caso especial de uma matriz em R, a matriz `y` é implicitamente coagida a uma matriz de uma coluna única para que os dois argumentos se conformem.
+Sob as coberturas, a coluna de três valores é convertida para uma matriz de coluna única. Como uma matriz é apenas um caso `y` especial de uma matriz em R, a matriz é implicitamente coagida a uma matriz de uma coluna única para fazer os dois argumentos se conformarem.
 
 **Resultados**
 
@@ -173,7 +173,7 @@ Sob as coberturas, a coluna de três valores é convertida para uma matriz de co
 |120|130|140|150|
 |1200|1300|1400|1500|
 
-No entanto, note o que acontece quando muda o tamanho da matriz `y`.
+No entanto, note o que acontece `y`quando muda o tamanho da matriz .
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -200,7 +200,7 @@ Porquê? Neste caso, como os dois argumentos podem ser tratados como vetores do 
 
 R proporciona uma grande flexibilidade para trabalhar com vetores de diferentes tamanhos, e para combinar estas estruturas semelhantes a colunas em quadros de dados. Listas de vetores podem parecer uma mesa, mas não seguem todas as regras que regem as tabelas de bases de dados.
 
-Por exemplo, o seguinte script define uma matriz numérica de comprimento 6 e armazena-o na variável R `df1`. A matriz numérica é então combinada com os inteiros da tabela RTestData (criada acima) que contém três (3) valores, para fazer um novo quadro de dados, `df2`.
+Por exemplo, o seguinte script define uma matriz numérica `df1`de comprimento 6 e armazena-o na variável R . A matriz numérica é então combinada com os inteiros da tabela RTestData (criada acima) que `df2`contém três (3) valores, para fazer um novo quadro de dados, .
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -216,7 +216,7 @@ WITH RESULT SETS((
             ));
 ```
 
-Para preencher o quadro de dados, R repete os elementos recuperados do RTestData quantas vezes for necessário para corresponder ao número de elementos da matriz `df1`.
+Para preencher o quadro de dados, R repete os elementos recuperados do RTestData quantas vezes for necessário para corresponder ao número de elementos na matriz `df1`.
 
 **Resultados**
     
@@ -277,7 +277,7 @@ WITH RESULT SETS undefined;
 
 Se tiver um erro, provavelmente terá de fazer algumas edificações no texto de consulta. Por exemplo, o predicado de cadeia na cláusula WHERE deve ser incluído por dois conjuntos de aspas únicas.
 
-Depois de obter a consulta funcionando, reveja os resultados da função `str` para ver como R trata os dados de entrada.
+Depois de obter a consulta funcionando, `str` reveja os resultados da função para ver como R trata os dados de entrada.
 
 **Resultados**
 
@@ -296,7 +296,7 @@ STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 1
 A partir destes exemplos curtos, pode ver a necessidade de verificar os efeitos da conversão de dados ao passar consultas SQL como entrada. Como alguns tipos de dados SQL não são suportados por R, considere estas formas de evitar erros:
 
 - Teste antecipadamente os seus dados e verifique colunas ou valores no seu esquema que podem ser um problema quando passados para código R.
-- Especifique as colunas na fonte de dados de entrada individualmente, em vez de utilizar `SELECT *`, e saiba como cada coluna será manuseada.
+- Especifique as colunas na fonte `SELECT *`de dados de entrada individualmente, em vez de utilizar, e saiba como cada coluna será manuseada.
 - Execute moldes explícitos conforme necessário ao preparar os seus dados de entrada, para evitar surpresas.
 - Evite passar colunas de dados (como GUIDS ou rowguids) que causam erros e não são úteis para modelar.
 

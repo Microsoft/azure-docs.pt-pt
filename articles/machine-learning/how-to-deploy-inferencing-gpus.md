@@ -11,10 +11,10 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78398338"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementar um modelo de aprendizagem profunda para inferência com GPU
@@ -47,7 +47,7 @@ Inferência, ou pontuação do modelo, é a fase em que o modelo implantado é u
 
 * Uma compreensão geral de [Como e onde implementar modelos.](how-to-deploy-and-where.md)
 
-## <a name="connect-to-your-workspace"></a>Ligue-se ao seu espaço de trabalho
+## <a name="connect-to-your-workspace"></a>Ligar à sua área de trabalho
 
 Para se ligar a um espaço de trabalho existente, utilize o seguinte código:
 
@@ -135,11 +135,11 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Este ficheiro chama-se `score.py`. Para obter mais informações sobre os scripts de entrada, consulte [Como e onde implementar](how-to-deploy-and-where.md).
+Este ficheiro `score.py`chama-se . Para obter mais informações sobre os scripts de entrada, consulte [Como e onde implementar](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Defina o ambiente de condomínio
 
-O arquivo ambiental do condomínio especifica as dependências do serviço. Inclui dependências exigidas tanto pelo modelo como pelo script de entrada. Por favor, note que deve indicar incumprimentos em azureml com verion >= 1.0.45 como dependência de pip, porque contém a funcionalidade necessária para hospedar o modelo como um serviço web. O Seguinte YAML define o ambiente para um modelo Tensorflow. Especifica `tensorflow-gpu`, que utilizará a GPU utilizada nesta implantação:
+O arquivo ambiental do condomínio especifica as dependências do serviço. Inclui dependências exigidas tanto pelo modelo como pelo script de entrada. Por favor, note que deve indicar incumprimentos em azureml com verion >= 1,0,45 como dependência do pip, porque contém a funcionalidade necessária para hospedar o modelo como um serviço web. O Seguinte YAML define o ambiente para um modelo Tensorflow. `tensorflow-gpu`Especifica, que utilizará a GPU utilizada nesta implantação:
 
 ```yaml
 name: project_environment
@@ -157,7 +157,7 @@ channels:
 - conda-forge
 ```
 
-Para este exemplo, o ficheiro é guardado como `myenv.yml`.
+Para este exemplo, o `myenv.yml`ficheiro é guardado como .
 
 ## <a name="define-the-deployment-configuration"></a>Definir a configuração de implementação
 
@@ -176,7 +176,7 @@ Para mais informações, consulte a documentação de referência para [AksServi
 
 ## <a name="define-the-inference-configuration"></a>Definir a configuração de inferência
 
-A configuração da inferência aponta para o script de entrada e um objeto de ambiente, que usa uma imagem de estivador com suporte de GPU. Por favor, note que o ficheiro YAML utilizado para a definição de ambiente deve listar os incumprimentos em azureml com a versão >= 1.0.45 como dependência do pip, porque contém a funcionalidade necessária para hospedar o modelo como um serviço web.
+A configuração da inferência aponta para o script de entrada e um objeto de ambiente, que usa uma imagem de estivador com suporte de GPU. Por favor, note que o ficheiro YAML utilizado para a definição de ambiente deve listar os incumprimentos em azul com a versão >= 1.0.45 como dependência do pip, porque contém a funcionalidade necessária para hospedar o modelo como um serviço web.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -214,7 +214,7 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Se o `InferenceConfig` objeto tiver `enable_gpu=True`, então o parâmetro `deployment_target` deve fazer referência a um cluster que forneça uma GPU. Caso contrário, o destacamento falhará.
+> Se `InferenceConfig` o `enable_gpu=True`objeto tiver, então o parâmetro deve fazer referência a `deployment_target` um cluster que forneça uma GPU. Caso contrário, o destacamento falhará.
 
 Para mais informações, consulte a documentação de referência para [o Modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

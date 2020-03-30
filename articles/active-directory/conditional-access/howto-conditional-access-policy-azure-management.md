@@ -1,63 +1,64 @@
 ---
-title: Acesso condicional-exigir MFA para gerenciamento do Azure-Azure Active Directory
-description: Criar uma política de acesso condicional personalizada para exigir autenticação multifator para tarefas de gerenciamento do Azure
+title: Acesso Condicional - Exigir MFA para gestão Azure - Diretório Ativo Azure
+description: Criar uma política personalizada de acesso condicional para exigir a autenticação de vários fatores para tarefas de gestão do Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6c4e5d90704e847b3bcd033a20311cc6c69cfe7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c90566006868c817d977699c35f2213895f3fe70
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424903"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295230"
 ---
-# <a name="conditional-access-require-mfa-for-azure-management"></a>Acesso condicional: exigir MFA para o gerenciamento do Azure
+# <a name="conditional-access-require-mfa-for-azure-management"></a>Acesso Condicional: Exigir MFA para gestão do Azure
 
-As organizações usam uma variedade de serviços do Azure e os gerenciam de ferramentas baseadas em Azure Resource Manager como:
+As organizações utilizam uma variedade de serviços Azure e gerem-nos a partir de ferramentas baseadas em Gestor de Recursos Azure, como:
 
 * Portal do Azure
 * Azure PowerShell
 * CLI do Azure
 
-Essas ferramentas podem fornecer acesso altamente privilegiado a recursos, que podem alterar configurações de toda a assinatura, configurações de serviço e cobrança de assinatura. Para proteger esses recursos privilegiados, a Microsoft recomenda exigir a autenticação multifator para que qualquer usuário acesse esses recursos.
+Estas ferramentas podem fornecer acesso altamente privilegiado a recursos, que podem alterar configurações de subscrição, configurações de serviço e faturação de subscrição. Para proteger estes recursos privilegiados, a Microsoft recomenda a necessidade de autenticação multifactor para qualquer utilizador que aceda a esses recursos.
 
-## <a name="user-exclusions"></a>Exclusões de usuário
+## <a name="user-exclusions"></a>Exclusões de utilizadores
 
-As políticas de acesso condicional são ferramentas poderosas, recomendamos excluir as seguintes contas da sua política:
+As políticas de Acesso Condicional são ferramentas poderosas, recomendamos excluir as seguintes contas da sua política:
 
-* Contas de **acesso de emergência** ou de **vidro** para impedir o bloqueio de conta em todo o locatário. No cenário improvável, todos os administradores são bloqueados de seu locatário, sua conta administrativa de acesso de emergência pode ser usada para fazer logon no locatário. siga as etapas para recuperar o acesso.
-   * Mais informações podem ser encontradas no artigo [gerenciar contas de acesso de emergência no Azure ad](../users-groups-roles/directory-emergency-access.md).
-* **Contas de serviço** e **princípios de serviço**, como a conta de sincronização de Azure ad Connect. As contas de serviço são contas não interativas que não estão ligadas a nenhum usuário específico. Normalmente, eles são usados por serviços de back-end e permitem acesso programático a aplicativos. As contas de serviço devem ser excluídas, pois a MFA não pode ser concluída programaticamente.
-   * Se sua organização tiver essas contas em uso em scripts ou código, considere substituí-las por [identidades gerenciadas](../managed-identities-azure-resources/overview.md). Como solução alternativa temporária, você pode excluir essas contas específicas da política de linha de base.
+* **Acesso de emergência** ou contas **de vidro para** evitar o bloqueio da conta em todo o inquilino. No cenário improvável, todos os administradores estão bloqueados fora do seu inquilino, a sua conta administrativa de acesso de emergência pode ser usada para iniciar sessão no inquilino, tomando medidas para recuperar o acesso.
+   * Mais informações podem ser encontradas no artigo, Gerir contas de [acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md).
+* **Contas de serviço** e princípios de **serviço,** como a Conta Sincronizada Azure AD Connect. As contas de serviço são contas não interativas que não estão ligadas a nenhum utilizador em particular. São normalmente utilizados por serviços de back-end e permitem o acesso programático a aplicações. As contas de serviço devem ser excluídas, uma vez que o MFA não pode ser concluído programáticamente.
+   * Se a sua organização tiver estas contas em uso em scripts ou código, considere substituí-las por [identidades geridas](../managed-identities-azure-resources/overview.md). Como uma sutição temporária, pode excluir estas contas específicas da política de base.
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de acesso condicional
 
-As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas executem a autenticação multifator.
+Os seguintes passos ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas realizem a autenticação de vários fatores.
 
-1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
-1. Selecione **nova política**.
-1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **atribuições**, selecione **usuários e grupos**
-   1. Em **incluir**, selecione **todos os usuários**.
-   1. Em **excluir**, selecione **usuários e grupos** e escolha o acesso de emergência da sua organização ou contas de vidro. 
+1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
+1. Navegue até ao**Acesso Condicional**de**Segurança** >  **do Diretório** > Ativo do Azure.
+1. Selecione **Nova política.**
+1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
+1. Em **Atribuições**, selecione **Utilizadores e grupos**
+   1. Em **Incluir,** selecione **Todos os utilizadores**.
+   1. Em **Excluir,** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou de vidro de emergência da sua organização. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicativos de nuvem ou ações** > **incluir**, selecione **selecionar aplicativos**, escolha **Gerenciamento de Microsoft Azure**e selecione **selecionar** e **concluído**.
-1. Em **controles de acesso** > **concessão**, selecione **conceder acesso**, **exigir autenticação multifator**e selecione **selecionar**.
-1. Confirme suas configurações e defina **habilitar política** como **ativado**.
-1. Selecione **criar** para criar para habilitar a política.
+1. Em **aplicações ou ações** > cloud**Inclua**, **selecione aplicações, escolha**a Microsoft **Azure Management**, e selecione **Select** then **Done**.
+1. Em **condições,** > **as aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim,** e selecionar **Feito**.
+1. Sob **controlos** > de acesso**Grant**, selecione Acesso **ao Grant,** **exija a autenticação de vários fatores,** e selecione **Select**.
+1. Confirme as suas definições e ajuste **a política de ativação** para **On**.
+1. Selecione **Criar** para criar para ativar a sua política.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto usando o modo somente relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determine o impacto utilizando o modo apenas de relatório de acesso condicional](howto-conditional-access-report-only.md)
 
-[Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
+[Simular o sinal de comportamento usando a ferramenta de acesso condicional O que se a ferramenta](troubleshoot-conditional-access-what-if.md)

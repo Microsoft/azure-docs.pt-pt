@@ -1,6 +1,6 @@
 ---
-title: Compilar um aplicativo Web Python Flask usando a API do Azure Cosmos DB para MongoDB
-description: Apresenta um exemplo de código do Python Flask que você pode usar para se conectar e consultar usando a API do Azure Cosmos DB para MongoDB.
+title: Construa uma aplicação web Python Flask utilizando a API do Azure Cosmos DB para o MongoDB
+description: Apresenta uma amostra de código Python Flask que pode usar para ligar e consultar usando a API do Azure Cosmos DB para MongoDB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,19 +9,19 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.openlocfilehash: 43f4cf7e4008aa01a26c48a8e99f7465eeeb234b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77061748"
 ---
-# <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Início rápido: compilar um aplicativo Python usando a API do Azure Cosmos DB para MongoDB
+# <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Construa uma app Python utilizando a API da Azure Cosmos DB para o MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
-> * [Node.js](create-mongodb-nodejs.md)
-> * [python](create-mongodb-flask.md)
+> * [Nó.js](create-mongodb-nodejs.md)
+> * [Pitão](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-golang.md)
 >  
@@ -36,7 +36,7 @@ Neste arranque rápido, você usa um Azure Cosmos DB para a conta Mongo DB API o
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos clonar um aplicativo Flask-MongoDB do GitHub, definir a cadeia de conexão e executá-lo. Vai ver como é fácil trabalhar com dados programaticamente.
+Agora vamos clonar uma aplicação Flask-MongoDB do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente.
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 
@@ -96,9 +96,9 @@ Os seguintes cortes são todos retirados do ficheiro *app.py* e usam a corda de 
 
 2. Abra uma janela de terminal e `cd` para o diretório onde a aplicação está guardada.
 
-3. Em seguida, detete a variável ambiental para a aplicação Do Flask com `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` para editores PowerShell, ou `export FLASK_APP=app.py` se estiver a usar um Mac. 
+3. Em seguida, detete a `set FLASK_APP=app.py`variável ambiental para a aplicação Flask com , `$env:FLASK_APP = app.py` para os editores PowerShell, ou `export FLASK_APP=app.py` se estiver a usar um Mac. 
 
-4. Executar a aplicação com `flask run` e navegar para *http:\//127.0.0.1.5000/* .
+4. Executar a `flask run` aplicação com e navegar para *http:\//127.0.0.1:5000/*.
 
 5. Adicione e remova tarefas e veja-as adicionadas e alteradas na coleção.
 
@@ -126,7 +126,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 
 ## <a name="deploy-to-azure"></a>Implementar no Azure
 
-Para implantar esse aplicativo, você pode criar um novo aplicativo Web no Azure e habilitar a implantação contínua com uma bifurcação deste repositório GitHub. Siga este [tutorial](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) para configurar uma implantação contínua com o GitHub em Azure.
+Para implementar esta aplicação, pode criar uma nova aplicação web no Azure e permitir a implementação contínua com uma bifurcação deste repo GitHub. Siga este [tutorial](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) para configurar uma implantação contínua com o GitHub em Azure.
 
 Ao implementar no Azure, deve remover as chaves da aplicação e certificar-se de que a secção abaixo não está comentada:
 
@@ -145,7 +145,7 @@ Se não quiser criar uma bifurcação deste repo, também pode selecionar o bot�
 </a>
 
 > [!NOTE]
-> Se você planeja armazenar seu código no GitHub ou outras opções de controle do código-fonte, certifique-se de remover as cadeias de conexão do código. Em alternativa, podem ser definidas com as definições da aplicação para a aplicação Web.
+> Se planeia armazenar o seu código no GitHub ou noutras opções de controlo de fonte, certifique-se de remover as cordas de ligação do código. Em alternativa, podem ser definidas com as definições da aplicação para a aplicação Web.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
@@ -160,4 +160,4 @@ Se não quiser criar uma bifurcação deste repo, também pode selecionar o bot�
 Neste arranque rápido, aprendeu a criar um Azure Cosmos DB para a conta Mongo DB API, e usou o Emulador Db Azure Cosmos para executar uma aplicação web Python Flask To-Do clonada do GitHub. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar dados da MongoDB para o Azure Cosmos DB](mongodb-migrate.md)
+> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md) (Importar dados do MongoDB para o Azure Cosmos DB)

@@ -8,15 +8,15 @@ ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: conceptual
 ms.openlocfilehash: f351f14796ec736bd5525f139a518c9a0dd3d19f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162111"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminar um portal de rede virtual usando o PowerShell
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Portal Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (clássico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
@@ -56,7 +56,7 @@ Se tiver mais de uma subscrição, especifique a subscrição que pretende utili
 Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="S2S"></a>Eliminar um gateway VPN site-to-site
+## <a name="delete-a-site-to-site-vpn-gateway"></a><a name="S2S"></a>Eliminar um gateway VPN site-to-site
 
 Para eliminar um portal de rede virtual para uma configuração S2S, tem primeiro de eliminar cada recurso que se refere ao portal de rede virtual. Os recursos devem ser suprimidos numa determinada ordem devido a dependências. Ao trabalhar com os exemplos abaixo, alguns dos valores devem ser especificados, enquanto outros valores são um resultado de saída. Utilizamos os seguintes valores específicos nos exemplos para efeitos de demonstração:
 
@@ -139,7 +139,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="v2v"></a>Eliminar um gateway VNet-to-VNet VPN
+## <a name="delete-a-vnet-to-vnet-vpn-gateway"></a><a name="v2v"></a>Eliminar um gateway VNet-to-VNet VPN
 
 Para eliminar um portal de rede virtual para uma configuração V2V, tem primeiro de eliminar cada recurso que diz respeito ao portal de rede virtual. Os recursos devem ser suprimidos numa determinada ordem devido a dependências. Ao trabalhar com os exemplos abaixo, alguns dos valores devem ser especificados, enquanto outros valores são um resultado de saída. Utilizamos os seguintes valores específicos nos exemplos para efeitos de demonstração:
 
@@ -227,7 +227,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="deletep2s"></a>Eliminar um gateway VPN ponto-a-site
+## <a name="delete-a-point-to-site-vpn-gateway"></a><a name="deletep2s"></a>Eliminar um gateway VPN ponto-a-site
 
 Para eliminar um portal de rede virtual para uma configuração P2S, tem primeiro de eliminar cada recurso que se refere ao portal de rede virtual. Os recursos devem ser suprimidos numa determinada ordem devido a dependências. Ao trabalhar com os exemplos abaixo, alguns dos valores devem ser especificados, enquanto outros valores são um resultado de saída. Utilizamos os seguintes valores específicos nos exemplos para efeitos de demonstração:
 
@@ -286,7 +286,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="delete"></a>Eliminar um gateway VPN eliminando o grupo de recursos
+## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="delete"></a>Eliminar um gateway VPN eliminando o grupo de recursos
 
 Se não está preocupado em manter nenhum dos seus recursos no grupo de recursos e apenas quer recomeçar, pode eliminar todo um grupo de recursos. Esta é uma maneira rápida de remover tudo. Os seguintes passos aplicam-se apenas ao modelo de implementação do Gestor de Recursos.
 

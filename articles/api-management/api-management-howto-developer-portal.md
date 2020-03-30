@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: b6b11242831e68787fe225d4d0b66638f1388de6
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79297990"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335899"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal de desenvolvimento da Azure API Management
 
@@ -30,11 +30,11 @@ Este artigo descreve as diferenças entre versões auto-hospedadas e geridas do 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="managed-vs-self-hosted"></a>Versões geridas e auto-hospedadas
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Versões geridas e auto-hospedadas
 
 Pode construir o seu portal de desenvolvimento de duas formas:
 
-- **Versão gerida** - editando e personalizando o portal, que está integrado na sua instância de Gestão API e é acessível através do URL `<your-api-management-instance-name>.developer.azure-api.net`. Consulte [este artigo de documentação](api-management-howto-developer-portal-customize.md) para saber como aceder e personalizar o portal gerido.
+- **Versão gerida** - editando e personalizando o portal, que está integrado na `<your-api-management-instance-name>.developer.azure-api.net`sua instância de Gestão API e é acessível através do URL . Consulte [este artigo de documentação](api-management-howto-developer-portal-customize.md) para saber como aceder e personalizar o portal gerido.
 - **Versão auto-hospedada** - implantando e auto-hospedando o seu portal fora de uma instância de Gestão API. Esta abordagem permite-lhe editar a base de códigos do portal e alargar a funcionalidade central fornecida - por exemplo, implementar widgets personalizados para integrações com sistemas de terceiros. Neste cenário, é o responsável pela atualização do portal para a versão mais recente. Para mais detalhes e instruções, consulte o [repositório GitHub com o código fonte do portal][1] e o tutorial sobre a [implementação de um widget][3]. O [tutorial para a versão gerida](api-management-howto-developer-portal-customize.md) percorre o painel administrativo do portal, que é comum para as versões geridas e auto-hospedadas.
 
 ## <a name="portal-architectural-concepts"></a>Conceitos arquitetónicos do portal
@@ -64,11 +64,11 @@ O conteúdo da *API Management* inclui entidades como APIs, Operações, Produto
 
 O portal baseia-se numa bifurcação adaptada da [estrutura dos Paperbits.](https://paperbits.io/) A funcionalidade original dos Paperbits foi alargada para fornecer widgets específicos de Gestão API (por exemplo, uma lista de APIs, uma lista de Produtos) e um conector ao serviço de Gestão API para poupar e recuperar conteúdos.
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a><a name="faq"></a>Perguntas frequentes
 
 Nesta secção, respondemos a perguntas comuns sobre o portal de desenvolvimento, que são de natureza geral. Para questões específicas da versão auto-hospedada, consulte [a secção wiki do repositório GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> Como posso migrar da versão de pré-visualização do portal?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/>Como posso migrar da versão de pré-visualização do portal?
 
 Ao utilizar a versão de pré-visualização do portal de desenvolvimento, disponibilizou o conteúdo de pré-visualização no seu serviço de Gestão API. O conteúdo predefinido foi significativamente modificado na versão geralmente disponível para uma melhor experiência do utilizador. Também inclui novos widgets.
 
@@ -76,7 +76,7 @@ Se estiver a utilizar a versão gerida, redefinir o conteúdo do portal clicando
 
 ![Redefinir conteúdo do portal](media/api-management-howto-developer-portal/reset-content.png)
 
-Se estiver a utilizar a versão auto-hospedada, utilize o `scripts/cleanup.bat` e `scripts/generate.bat` do repositório GitHub para remover o conteúdo existente e fornecer novos conteúdos. Certifique-se de atualizar previamente o código do seu portal para a versão mais recente do repositório GitHub.
+Se estiver a utilizar a versão auto-hospedada, utilize o `scripts/cleanup.bat` `scripts/generate.bat` repositório GitHub para remover o conteúdo existente e fornecer novos conteúdos. Certifique-se de atualizar previamente o código do seu portal para a versão mais recente do repositório GitHub.
 
 Se não quiser redefinir o conteúdo do portal, poderá considerar utilizar widgets recém-disponíveis ao longo das suas páginas. Os widgets existentes foram automaticamente atualizados para as versões mais recentes.
 
@@ -88,7 +88,7 @@ Os portais são incompatíveis e é necessário migrar o conteúdo manualmente.
 
 ### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>O portal tem todas as características do antigo portal?
 
-O portal de desenvolvimento já não suporta Aplicações e *Problemas.*
+O portal de desenvolvimento já não suporta Aplicações e *Problemas.* *Issues*
 
 A autenticação com o OAuth na consola de desenvolvimento interativo ainda não é suportada. Pode acompanhar o progresso através [da edição do GitHub.](https://github.com/Azure/api-management-developer-portal/issues/208)
 
@@ -116,7 +116,7 @@ Não.
 
 Na maioria dos casos- não.
 
-Se o seu serviço de Gestão API estiver num VNet interno, o portal de desenvolvimento só está acessível a partir da rede. O nome de anfitrião do ponto final da gestão deve ser resolvido com o VIP interno do serviço a partir da máquina que utiliza para aceder à interface administrativa do portal. Certifique-se de que o ponto final da gestão está registado no DNS. Em caso de configuração errada, verá um erro: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+Se o seu serviço de Gestão API estiver num VNet interno, o portal de desenvolvimento só está acessível a partir da rede. O nome de anfitrião do ponto final da gestão deve ser resolvido com o VIP interno do serviço a partir da máquina que utiliza para aceder à interface administrativa do portal. Certifique-se de que o ponto final da gestão está registado no DNS. Em caso de configuração errada, verá `Unable to start the portal. See if settings are specified correctly in the configuration (...)`um erro: .
 
 Se o seu serviço de Gestão API estiver num VNet interno e estiver a aceder-lhe através do Gateway de Aplicação a partir da Internet, certifique-se de permitir a conectividade ao portal de desenvolvimento e aos pontos finais de gestão da API Management.
 
@@ -136,32 +136,22 @@ Depois de configurar a delegação, precisa de [reeditar o portal](api-managemen
 
 A maioria das alterações de configuração (por exemplo, VNet, sign-in e termos do produto) exigem [a republicação do portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="cors"></a>Estou a ter um erro cors ao usar a consola interativa.
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>Estou a ter um erro cors ao usar a consola interativa.
 
-A consola interativa faz um pedido de API do lado do cliente do navegador. Pode resolver o problema do CORS adicionando [uma política CORS](api-management-cross-domain-policies.md#CORS) nos seus API(s). Pode especificar todos os parâmetros manualmente ou utilizar valores de `*` wildcard. Por exemplo:
+A consola interativa faz um pedido de API do lado do cliente do navegador. Resolva o problema do CORS adicionando [uma política CORS](api-management-cross-domain-policies.md#CORS) nas suas API(s).
 
-```XML
-<cors allow-credentials="true">
-    <allowed-origins>
-        <origin>https://contoso.com</origin>
-    </allowed-origins>
-    <allowed-methods preflight-result-max-age="300">
-        <method>*</method>
-    </allowed-methods>
-    <allowed-headers>
-        <header>*</header>
-    </allowed-headers>
-    <expose-headers>
-        <header>*</header>
-    </expose-headers>
-</cors>
-```
+Pode verificar o estado da política CORS na secção **de visão geral** do Portal do seu serviço de Gestão API no portal Azure. Uma caixa de aviso indica uma política ausente ou mal configurada.
 
-Aplique o CORS no âmbito global para garantir que está ativado para todas as APIs.
+![Portal de desenvolvimento de gestão api](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
-1. Navegue para **todas as APIs** na secção **APIs** do seu serviço de Gestão API no portal Azure.
-2. Clique no ícone **</>** na secção de **processamento de entrada.**
-3. Insira a política na secção **<inbound>** do ficheiro XML. Certifique-se de que o valor **<origin>** corresponde ao domínio do seu portal de desenvolvimento.
+Aplique automaticamente a política CORS clicando no botão **Enable CORS.**
+
+Também pode ativar o CORS manualmente.
+
+1. Clique no **manualmente aplique-o no** link de nível global para ver o código de política gerado.
+2. Navegue para **todas as APIs** na secção **APIs** do seu serviço de Gestão API no portal Azure.
+3. Clique no **</>** ícone na secção de **processamento de Entrada.**
+4. Insira a **<inbound>** política na secção do ficheiro XML. Certifique-se **<origin>** de que o valor corresponde ao domínio do seu portal de desenvolvimento.
 
 > [!NOTE]
 > 
@@ -173,11 +163,11 @@ Aplique o CORS no âmbito global para garantir que está ativado para todas as A
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Que permissões preciso para editar o portal de desenvolvimento?
 
-Se estiver a ver o erro `Oops. Something went wrong. Please try again later.` quando abrir o portal no modo administrativo, poderá não ter as permissões necessárias (RBAC).
+Se estiver a `Oops. Something went wrong. Please try again later.` ver o erro ao abrir o portal no modo administrativo, poderá não ter as permissões necessárias (RBAC).
 
-Os portais legados exigiam a permissão `Microsoft.ApiManagement/service/getssotoken/action` no âmbito do serviço (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) para permitir o acesso do administrador utilizador aos portais. O novo portal requer a autorização `Microsoft.ApiManagement/service/users/token/action` no âmbito `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+Os portais legados `Microsoft.ApiManagement/service/getssotoken/action` exigiam a`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`permissão no âmbito do serviço para permitir o acesso do administrador utilizador aos portais. O novo portal requer `Microsoft.ApiManagement/service/users/token/action` a `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`permissão no âmbito.
 
-Pode utilizar o seguinte script PowerShell para criar um papel com a permissão necessária. Lembre-se de mudar o parâmetro `<subscription-id>`. 
+Pode utilizar o seguinte script PowerShell para criar um papel com a permissão necessária. Lembre-se `<subscription-id>` de mudar o parâmetro. 
 
 ```PowerShell
 #New Portals Admin Role 
@@ -195,7 +185,7 @@ $customRole.AssignableScopes.Add('/subscriptions/<subscription-id>')
 New-AzRoleDefinition -Role $customRole 
 ```
  
-Uma vez criada a função, pode ser concedida a qualquer utilizador da secção de Controlo de **Acesso (IAM)** no portal Azure. Atribuir esta função a um utilizador atribuirá a permissão no âmbito do serviço. O utilizador poderá gerar tokens SAS em nome de *qualquer* utilizador do serviço. No mínimo, este papel tem de ser atribuído ao administrador do serviço. O seguinte comando PowerShell demonstra como atribuir a função a um utilizador `user1` no âmbito mais baixo para evitar a concessão de permissões desnecessárias ao utilizador: 
+Uma vez criada a função, pode ser concedida a qualquer utilizador da secção de Controlo de **Acesso (IAM)** no portal Azure. Atribuir esta função a um utilizador atribuirá a permissão no âmbito do serviço. O utilizador poderá gerar tokens SAS em nome de *qualquer* utilizador do serviço. No mínimo, este papel tem de ser atribuído ao administrador do serviço. O seguinte comando PowerShell demonstra como atribuir a `user1` função a um utilizador no âmbito mais baixo para evitar a concessão de permissões desnecessárias ao utilizador: 
 
 ```PowerShell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
@@ -203,17 +193,17 @@ New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM N
 
 Depois de as permissões terem sido concedidas a um utilizador, o utilizador deve assinar e voltar a entrar no portal Azure para que as novas permissões entrem em vigor.
 
-### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>Estou a ver o erro `Unable to start the portal. See if settings are specified correctly (...)`
+### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>Estou a ver `Unable to start the portal. See if settings are specified correctly (...)` o erro.
 
-Este erro é demonstrado quando uma chamada `GET` para `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` falha. A chamada é emitida a partir do navegador pela interface administrativa do portal.
+Este erro é mostrado `GET` quando `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` uma chamada falha. A chamada é emitida a partir do navegador pela interface administrativa do portal.
 
 Se o seu serviço de Gestão API estiver num VNet - consulte a questão da conectividade VNet acima.
 
-A falha de chamada também pode ser causada por um certificado SSL, que é atribuído a um domínio personalizado e não é confiável pelo navegador. Como mitigação, pode remover o domínio personalizado de ponto final de gestão - a API Management voltará ao ponto final padrão com um certificado de confiança.
+A falha de chamada também pode ser causada por um certificado TLS/SSL, que é atribuído a um domínio personalizado e não é confiável pelo navegador. Como mitigação, pode remover o domínio personalizado de ponto final de gestão - a API Management voltará ao ponto final padrão com um certificado de confiança.
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual é o suporte do navegador para o portal?
 
-| Browser                     | Suportadas       |
+| Browser                     | Suportado       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
@@ -223,7 +213,7 @@ A falha de chamada também pode ser causada por um certificado SSL, que é atrib
 
  <small><sup>1</sup> Suportado nas duas versões de produção mais recentes.</small>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o novo portal de desenvolvimento:
 

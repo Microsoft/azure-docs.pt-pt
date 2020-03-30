@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 3e10c23aaaef6315e072348d879d5f077e16382a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 3/27/2020
+ms.openlocfilehash: c4d5a9ca85237bde1277904a478a0b8828fc2b08
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623664"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369228"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauro na Base de Dados Azure para MariaDB
 
@@ -21,7 +21,7 @@ A Base de Dados Azure para MariaDB cria automaticamente cópias de segurança do
 
 A Base de Dados Azure para MariaDB tem cópias de segurança completas, diferenciais e de registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto-a-tempo dentro do período de retenção de cópia de segurança configurado. O período de retenção de reserva padrão é de sete dias. Pode configurá-lo opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
 
-Estes ficheiros de reserva não podem ser exportados. As cópias de segurança só podem ser utilizadas para restaurar as operações na Base de Dados Azure para o MariaDB. Pode usar [mysqldump](howto-migrate-dump-restore.md) para copiar uma base de dados.
+Estes ficheiros de backup não são expostos ao utilizador e não podem ser exportados. Estas cópias de segurança só podem ser utilizadas para restaurar as operações na Base de Dados Azure para o MariaDB. Pode usar [mysqldump](howto-migrate-dump-restore.md) para copiar uma base de dados.
 
 ### <a name="backup-frequency"></a>Frequência de cópia de segurança
 
@@ -32,7 +32,7 @@ Normalmente, as cópias de segurança completas ocorrem semanalmente, as cópias
 A Base de Dados Azure para MariaDB proporciona a flexibilidade para escolher entre armazenamento de reserva localmente redundante ou geo-redundante nos níveis geral de propósito e memória otimizados. Quando as cópias de segurança são armazenadas num armazenamento de backup geo-redundante, não são apenas armazenadas na região em que o seu servidor está hospedado, como também são replicadas para um centro de [dados emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isto proporciona uma melhor proteção e capacidade de restaurar o seu servidor numa região diferente em caso de desastre. O nível Básico apenas oferece armazenamento de reserva redundante localmente.
 
 > [!IMPORTANT]
-> A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Depois de aprovisionado o servidor você não pode alterar a opção de redundância do armazenamento de backup.
+> Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é aprovisionado, não pode alterar a opção de redundância de armazenamento de reserva.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de reserva
 
@@ -44,12 +44,12 @@ Para mais informações sobre o custo de armazenamento de backup, visite a [pág
 
 ## <a name="restore"></a>Restauro
 
-Na Base de Dados Azure para O MariaDB, a realização de um restauro cria um novo servidor a partir das cópias de segurança do servidor original.
+Na Base de Dados Azure para O MariaDB, a realização de um restauro cria um novo servidor a partir das cópias de segurança do servidor original e restaura todas as bases de dados contidas no servidor.
 
 Existem dois tipos de restauro disponíveis:
 
-- **O restauro** pontual está disponível com a opção de redundância de reserva e cria um novo servidor na mesma região que o seu servidor original.
-- **A Geo-restore** só está disponível se configurar o seu servidor para armazenamento geo-redundante e permite-lhe restaurar o seu servidor para uma região diferente.
+- **O restauro** pontual está disponível com a opção de redundância de reserva e cria um novo servidor na mesma região que o seu servidor original utilizando a combinação de backups de registo completos e transações.
+- **A Geo-restore** só está disponível se configurar o seu servidor para armazenamento geo-redundante e permite restaurar o seu servidor para uma região diferente utilizando a mais recente cópia de segurança tomada.
 
 O tempo estimado de recuperação depende de vários fatores, incluindo o tamanho da base de dados, o tamanho do registo de transações, a largura de banda da rede e o número total de bases de dados que se recuperam na mesma região ao mesmo tempo. O tempo de recuperação é geralmente inferior a 12 horas.
 
@@ -66,7 +66,7 @@ Poderá ter de esperar que o próximo backup de registo de transações seja fei
 
 ### <a name="geo-restore"></a>Georrestauro
 
-Pode restaurar um servidor para outra região do Azure onde o serviço está disponível se tiver configurado o seu servidor para cópias de segurança georedundantes. A geo-restauração é a opção de recuperação padrão quando o servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança georedundantes para um servidor em qualquer outra região. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode chegar a uma hora, por isso, se ocorrer um desastre, pode haver até uma hora de perda de dados.
+Pode restaurar um servidor para outra região do Azure onde o serviço está disponível se tiver configurado o seu servidor para cópias de segurança georedundantes. A geo-restauração é a opção de recuperação padrão quando o servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança georedundantes para um servidor em qualquer outra região. A geo-restauração utiliza a cópia de segurança mais recente do servidor. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode chegar a uma hora, por isso, se ocorrer um desastre, pode haver até uma hora de perda de dados.
 
 Durante a geo-restauração, as configurações do servidor que podem ser alteradas incluem geração de cálculo, vCore, período de retenção de backup e opções de redundância de backup. Não é suportado o nível de alteração dos preços (Básico, Propósito Geral ou Otimização da Memória) ou o tamanho do armazenamento durante a geo-restauração.
 
@@ -75,14 +75,12 @@ Durante a geo-restauração, as configurações do servidor que podem ser altera
 Após um restauro de qualquer mecanismo de recuperação, deverá executar as seguintes tarefas para que os seus utilizadores e aplicações voltem a funcionar:
 
 - Se o novo servidor se destina restar o servidor original, redirecione os clientes e as aplicações do cliente para o novo servidor
-- Certifique-se de que estão em vigor regras de firewall adequadas para os utilizadores se conectarem
+- Certifique-se de que estão em vigor regras vnet adequadas para os utilizadores se conectarem. Estas regras não são copiadas do servidor original.
 - Certifique-se de que estão em vigor logins apropriados e permissões de nível de base de dados
 - Configurar alertas, conforme adequado
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a continuidade do negócio, consulte a visão geral da continuidade do [negócio.](concepts-business-continuity.md)
-- Para restaurar a um ponto no tempo utilizando o portal Azure, consulte restaurar a base de [dados a um ponto no tempo utilizando o portal Azure](howto-restore-server-portal.md).
- 
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).-->
+- Para restaurar um ponto-a-tempo utilizando o portal Azure, consulte restaurar o [servidor para um ponto-a-tempo utilizando o portal Azure](howto-restore-server-portal.md).
+- Para restaurar um ponto no tempo utilizando o Azure CLI, consulte restaurar o [servidor num ponto-a-tempo utilizando o CLI](howto-restore-server-cli.md).

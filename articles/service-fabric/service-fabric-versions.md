@@ -3,12 +3,12 @@ title: Versões de cluster suportadas em Tecido de Serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa service Fabric.
 ms.topic: troubleshooting
 ms.date: 03/02/2020
-ms.openlocfilehash: 76a8137bbe42d8f693ac807f640a78fc4ec87c2e
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 1158266857f0864ed2f442edb100032c70063719
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370428"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385049"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões de Tecido de Serviço Suportado
 
@@ -36,8 +36,11 @@ A tabela seguinte lista as versões do Tecido de Serviço e as suas datas finais
 | 6.2.* | 6.0.232.* |Menos ou igual à versão 3.1 |26 de outubro de 2018   |
 | 6.3.* | 6.1.480.* |Menos ou igual à versão 3.2 |31 de março de 2019  |
 | 6.4.* | 6.2.301.* |Menos ou igual à versão 3.3 |15 de setembro de 2019 |
-| 6.5.* | 6.4.617.* |Menos ou igual à versão 3.4 |1 de maio de 2020 |
-| 7.0.* | 7.0.466.* |Menos ou igual à versão 4.0 |Versão atual, por isso não há data de fim |
+| 6.5.* | 6.4.617.* |Menos ou igual à versão 3.4 |1 de agosto de 2020 |
+| 7.0.466.* | 6.4.664.* |Menos ou igual à versão 4.0|Versão atual, por isso não há data de fim |
+| 7.0.466.* | 6.5.* |Menos ou igual à versão 4.0|Versão atual, por isso não há data de fim |
+| 7.0.470.* | 7.0.466.* |Menos ou igual à versão 4.0 |Versão atual, por isso não há data de fim |
+
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
 A tabela seguinte lista os sistemas operativos suportados para as versões de Tecido de Serviço suportado.
@@ -47,7 +50,7 @@ A tabela seguinte lista os sistemas operativos suportados para as versões de Te
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
 | Windows Server 1709 | 6.0 |
-| Windows Server versão 1803 | 6.4 |
+| Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |

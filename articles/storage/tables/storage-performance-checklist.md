@@ -1,6 +1,6 @@
 ---
-title: Lista de verificação de desempenho e escalabilidade para armazenamento de tabelas-armazenamento do Azure
-description: Uma lista de verificação de práticas comprovadas para uso com o armazenamento de tabelas no desenvolvimento de aplicativos de alto desempenho.
+title: Lista de verificação de desempenho e escalabilidade para armazenamento de mesa - Armazenamento Azure
+description: Uma lista de práticas comprovadas para utilização com armazenamento de mesa no desenvolvimento de aplicações de alto desempenho.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,286 +9,286 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75749547"
 ---
-# <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para o armazenamento de tabelas
+# <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de mesa
 
-A Microsoft desenvolveu várias práticas comprovadas para o desenvolvimento de aplicativos de alto desempenho com o armazenamento de tabelas. Esta lista de verificação identifica as principais práticas que os desenvolvedores podem seguir para otimizar o desempenho. Tenha essas práticas em mente enquanto estiver projetando seu aplicativo e durante todo o processo.
+A Microsoft desenvolveu uma série de práticas comprovadas para desenvolver aplicações de alto desempenho com armazenamento de mesa. Esta lista de verificação identifica práticas-chave que os desenvolvedores podem seguir para otimizar o desempenho. Tenha em mente estas práticas enquanto está a desenhar a sua aplicação e durante todo o processo.
 
-O armazenamento do Azure tem metas de desempenho e escalabilidade para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre destinos de escalabilidade de armazenamento do Azure, consulte [metas de escalabilidade e desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json) e [escalabilidade e metas de desempenho para o armazenamento de tabelas](scalability-targets.md).
+O Azure Storage tem metas de escalabilidade e desempenho para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre os objetivos de escalabilidade do Armazenamento Azure, consulte os objetivos de [escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json) e metas de escalabilidade e desempenho para armazenamento de [mesas.](scalability-targets.md)
 
 ## <a name="checklist"></a>Lista de Verificação
 
-Este artigo organiza as práticas comprovadas de desempenho em uma lista de verificação que você pode seguir ao desenvolver seu aplicativo de armazenamento de tabelas.
+Este artigo organiza práticas comprovadas para o desempenho numa lista de verificação que pode seguir enquanto desenvolve a sua aplicação de armazenamento de mesa.
 
-| Concluído | Categoria | Considerações de design |
+| Concluído | Categoria | Consideração de design |
 | --- | --- | --- |
-| &nbsp; |Metas de escalabilidade |[Você pode projetar seu aplicativo para não usar mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Metas de escalabilidade |[Você está evitando a abordagem de limites de capacidade e transação?](#capacity-and-transaction-targets) |
-| &nbsp; |Metas de escalabilidade |[Você está se aproximando das metas de escalabilidade para entidades por segundo?](#targets-for-data-operations) |
-| &nbsp; |Funcionamento em Rede |[Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
-| &nbsp; |Funcionamento em Rede |[Os dispositivos do lado do cliente têm um link de rede de alta qualidade?](#link-quality) |
-| &nbsp; |Funcionamento em Rede |[O aplicativo cliente está na mesma região que a conta de armazenamento?](#location) |
-| &nbsp; |Acesso direto do cliente |[Você está usando SAS (assinaturas de acesso compartilhado) e CORS (compartilhamento de recursos entre origens) para habilitar o acesso direto ao armazenamento do Azure?](#sas-and-cors) |
-| &nbsp; |Lotes |[O aplicativo está enviando atualizações por lote usando transações de grupo de entidades?](#batch-transactions) |
-| &nbsp; |Configuração do .NET |[Você está usando o .NET Core 2,1 ou posterior para obter um desempenho ideal?](#use-net-core) |
-| &nbsp; |Configuração do .NET |[Você configurou seu cliente para usar um número suficiente de conexões simultâneas?](#increase-default-connection-limit) |
-| &nbsp; |Configuração do .NET |[Para aplicativos .NET, você configurou o .NET para usar um número suficiente de threads?](#increase-minimum-number-of-threads) |
-| &nbsp; |Paralelismo |[Você assegurou que o paralelismo está limitado adequadamente para que você não sobrecarregar os recursos do cliente ou abordar as metas de escalabilidade?](#unbounded-parallelism) |
-| &nbsp; |Ferramentas |[Você está usando as versões mais recentes das bibliotecas e ferramentas de cliente fornecidas pela Microsoft?](#client-libraries-and-tools) |
-| &nbsp; |Tentativas |[Você está usando uma política de repetição com uma retirada exponencial para limitação de erros e tempos limite?](#timeout-and-server-busy-errors) |
-| &nbsp; |Tentativas |[Seu aplicativo está evitando repetições para erros sem nova tentativa?](#non-retryable-errors) |
-| &nbsp; |Configuração |[Você está usando JSON para suas solicitações de tabela?](#use-json) |
-| &nbsp; |Configuração |[Você desligou o algoritmo Nagle para melhorar o desempenho de pequenas solicitações?](#disable-nagle) |
-| &nbsp; |Tabelas e partições |[Você particionou corretamente os dados?](#schema) |
-| &nbsp; |Partições ativas |[Você está evitando padrões somente de acréscimo e somente para preceder?](#append-only-and-prepend-only-patterns) |
-| &nbsp; |Partições ativas |[Suas inserções/atualizações se espalham por várias partições?](#high-traffic-data) |
-| &nbsp; |Âmbito de consulta |[Você criou seu esquema para permitir que as consultas de ponto sejam usadas na maioria dos casos e as consultas de tabela sejam usadas com moderação?](#query-scope) |
-| &nbsp; |Densidade da consulta |[Suas consultas normalmente só verificam e retornam linhas que seu aplicativo usará?](#query-density) |
-| &nbsp; |Limitando dados retornados |[Você está usando a filtragem para evitar o retorno de entidades que não são necessárias?](#limiting-the-amount-of-data-returned) |
-| &nbsp; |Limitando dados retornados |[Você está usando a projeção para evitar o retorno de propriedades que não são necessárias?](#limiting-the-amount-of-data-returned) |
-| &nbsp; |Desnormalização |[Você desnormalizou seus dados de forma a evitar consultas ineficientes ou várias solicitações de leitura ao tentar obter dados?](#denormalization) |
-| &nbsp; |Inserir, atualizar e excluir |[Você está em lotes de solicitações que precisam ser transacionais ou podem ser feitas ao mesmo tempo para reduzir viagens de ida e volta?](#batching) |
-| &nbsp; |Inserir, atualizar e excluir |[Você está evitando a recuperação de uma entidade apenas para determinar se deve chamar INSERT ou Update?](#upsert) |
-| &nbsp; |Inserir, atualizar e excluir |[Você considerou o armazenamento de uma série de dados que frequentemente serão recuperados juntos em uma única entidade como propriedades em vez de várias entidades?](#storing-data-series-in-a-single-entity) |
-| &nbsp; |Inserir, atualizar e excluir |[Para entidades que sempre serão recuperadas juntas e podem ser gravadas em lotes (por exemplo, dados de série temporal), você considerou o uso de BLOBs em vez de tabelas?](#storing-structured-data-in-blobs) |
+| &nbsp; |Metas de escalabilidade |[Pode projetar a sua aplicação para usar não mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
+| &nbsp; |Metas de escalabilidade |[Está a evitar aproximar-se dos limites de capacidade e transação?](#capacity-and-transaction-targets) |
+| &nbsp; |Metas de escalabilidade |[Está a aproximar-se dos objetivos de escalabilidade das entidades por segundo?](#targets-for-data-operations) |
+| &nbsp; |Redes |[Os dispositivos do lado do cliente têm largura de banda suficientemente elevada e baixa latência para alcançar o desempenho necessário?](#throughput) |
+| &nbsp; |Redes |[Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
+| &nbsp; |Redes |[A aplicação do cliente está na mesma região que a conta de armazenamento?](#location) |
+| &nbsp; |Acesso direto ao Cliente |[Está a utilizar assinaturas de acesso partilhado (SAS) e partilha de recursos de origem cruzada (CORS) para permitir o acesso direto ao Armazenamento Azure?](#sas-and-cors) |
+| &nbsp; |Lotes |[A sua aplicação está a atualizar-se utilizando as transações do grupo de entidades?](#batch-transactions) |
+| &nbsp; |configuração .NET |[Está a utilizar .NET Core 2.1 ou mais tarde para um desempenho ótimo?](#use-net-core) |
+| &nbsp; |configuração .NET |[Já configurou o seu cliente para utilizar um número suficiente de ligações simultâneas?](#increase-default-connection-limit) |
+| &nbsp; |configuração .NET |[Para aplicações .NET, configurou .NET para utilizar um número suficiente de fios?](#increase-minimum-number-of-threads) |
+| &nbsp; |Paralelismo |[Assegurou que o paralelismo está devidamente limitado para que não sobrecarregue as capacidades do seu cliente ou se aproxime dos alvos de escalabilidade?](#unbounded-parallelism) |
+| &nbsp; |Ferramentas |[Está a utilizar as versões mais recentes das bibliotecas e ferramentas fornecidas pela Microsoft?](#client-libraries-and-tools) |
+| &nbsp; |Tentativas |[Estás a usar uma política de retry com um recuo exponencial para erros de estrangulamento e intervalos?](#timeout-and-server-busy-errors) |
+| &nbsp; |Tentativas |[A sua aplicação está a evitar tentativas de erros não retáveis?](#non-retryable-errors) |
+| &nbsp; |Configuração |[Está a usar a JSON para os seus pedidos de mesa?](#use-json) |
+| &nbsp; |Configuração |[Desligou o algoritmo de Nagle para melhorar o desempenho de pequenos pedidos?](#disable-nagle) |
+| &nbsp; |Mesas e divisórias |[Dividiu devidamente os seus dados?](#schema) |
+| &nbsp; |Divisórias quentes |[Estáa evitar padrões só para apêndices e preparações?](#append-only-and-prepend-only-patterns) |
+| &nbsp; |Divisórias quentes |[As suas inserções/atualizações estão espalhadas por muitas divisórias?](#high-traffic-data) |
+| &nbsp; |Âmbito de consulta |[Já desenhou o seu esquema para permitir que consultas de pontos sejam usadas na maioria dos casos, e consultas de mesa para serem usadas com moderação?](#query-scope) |
+| &nbsp; |Densidade de consulta |[As suas consultas normalmente só digitalizam e devolvem linhas que a sua aplicação irá utilizar?](#query-density) |
+| &nbsp; |Limitação dos dados devolvidos |[Está a usar a filtragem para evitar o regresso de entidades que não são necessárias?](#limiting-the-amount-of-data-returned) |
+| &nbsp; |Limitação dos dados devolvidos |[Está a usar a projeção para evitar a devolução de propriedades que não são necessárias?](#limiting-the-amount-of-data-returned) |
+| &nbsp; |Desnormalização |[Desnormalizou os seus dados de forma a evitar consultas ineficientes ou pedidos de leitura múltiplas ao tentar obter dados?](#denormalization) |
+| &nbsp; |Inserir, atualizar e eliminar |[Está a fazer pedidos que precisam de ser transacionais ou que podem ser feitos ao mesmo tempo para reduzir as viagens de ida e volta?](#batching) |
+| &nbsp; |Inserir, atualizar e eliminar |[Está a evitar recuperar uma entidade apenas para determinar se deve ou não ligar para inserir ou atualizar?](#upsert) |
+| &nbsp; |Inserir, atualizar e eliminar |[Já considerou armazenar uma série de dados que serão frequentemente recuperados numa única entidade como propriedades em vez de várias entidades?](#storing-data-series-in-a-single-entity) |
+| &nbsp; |Inserir, atualizar e eliminar |[Para entidades que serão sempre recuperadas em conjunto e que podem ser escritas em lotes (por exemplo, dados da série time), já considerou usar bolhas em vez de tabelas?](#storing-structured-data-in-blobs) |
 
 ## <a name="scalability-targets"></a>Metas de escalabilidade
 
-Se seu aplicativo se aproximar ou exceder qualquer um dos destinos de escalabilidade, ele poderá encontrar maiores latências ou limitação de transação. Quando o armazenamento do Azure limita seu aplicativo, o serviço começa a retornar os códigos de erro 503 (servidor ocupado) ou 500 (tempo limite da operação). Evitar esses erros ao permanecer dentro dos limites das metas de escalabilidade é uma parte importante do aprimoramento do desempenho do seu aplicativo.
+Se a sua aplicação se aproximar ou exceder qualquer um dos alvos de escalabilidade, poderá encontrar tardios de transação acrescidos ou estrangulamentos. Quando o Azure Storage acelera a sua aplicação, o serviço começa a devolver 503 códigos de erro (Servidor ocupado) ou 500 (tempo de funcionamento). Evitar estes erros mantendo-se dentro dos limites dos objetivos de escalabilidade é uma parte importante para melhorar o desempenho da sua aplicação.
 
-Para obter mais informações sobre metas de escalabilidade para o serviço tabela, consulte [escalabilidade e metas de desempenho para o armazenamento de tabelas](scalability-targets.md).
+Para obter mais informações sobre os objetivos de escalabilidade para o serviço de mesa, consulte os objetivos de [escalabilidade e desempenho para o armazenamento](scalability-targets.md)de mesas .
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
-Se estiver se aproximando do número máximo de contas de armazenamento permitidas para uma combinação de assinatura/região específica, você usará várias contas de armazenamento para fragmentar para aumentar a entrada, a saída, as operações de e/s por segundo (IOPS) ou a capacidade? Nesse cenário, a Microsoft recomenda que você aproveite os limites maiores de contas de armazenamento para reduzir o número de contas de armazenamento necessárias para sua carga de trabalho, se possível. Contate o [suporte do Azure](https://azure.microsoft.com/support/options/) para solicitar limites maiores para sua conta de armazenamento. Para obter mais informações, consulte [anunciando contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+Se se aproximar do número máximo de contas de armazenamento permitidas para uma determinada combinação de subscrição/região, está a usar várias contas de armazenamento para aumentar a entrada, a saída, as operações de I/S por segundo (IOPS) ou a capacidade? Neste cenário, a Microsoft recomenda que aproveite os limites acrescidos para as contas de armazenamento para reduzir o número de contas de armazenamento necessárias para a sua carga de trabalho, se possível. Contacte o [Suporte Azure](https://azure.microsoft.com/support/options/) para solicitar limites acrescidos para a sua conta de armazenamento. Para mais informações, consulte Anunciar contas de [armazenamento maiores e de maior escala.](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)
 
-### <a name="capacity-and-transaction-targets"></a>Metas de capacidade e de transação
+### <a name="capacity-and-transaction-targets"></a>Metas de capacidade e transação
 
-Se seu aplicativo estiver se aproximando das metas de escalabilidade de uma única conta de armazenamento, considere a adoção de uma das seguintes abordagens:  
+Se a sua aplicação estiver a aproximar-se dos objetivos de escalabilidade para uma única conta de armazenamento, considere adotar uma das seguintes abordagens:  
 
-- Reconsidere a carga de trabalho que faz com que seu aplicativo aborde ou exceda a meta de escalabilidade. Você pode criá-lo de forma diferente para usar menos largura de banda ou capacidade, ou menos transações?
-- Se seu aplicativo deve exceder um dos destinos de escalabilidade, crie várias contas de armazenamento e Particione os dados do aplicativo entre essas várias contas de armazenamento. Se você usar esse padrão, certifique-se de projetar seu aplicativo para que você possa adicionar mais contas de armazenamento no futuro para o balanceamento de carga. As próprias contas de armazenamento não têm nenhum custo além do uso em termos de dados armazenados, transações feitas ou dados transferidos.
-- Se seu aplicativo estiver se aproximando das metas de largura de banda, considere compactar dados no lado do cliente para reduzir a largura de banda necessária para enviar os dados para o armazenamento do Azure.
-    Embora a compactação de dados possa economizar largura de banda e melhorar o desempenho da rede, ela também pode ter efeitos negativos no desempenho. Avalie o impacto no desempenho dos requisitos de processamento adicionais para compactação e descompactação de dados no lado do cliente. Tenha em mente que armazenar dados compactados pode dificultar a solução de problemas, pois pode ser mais desafiador exibir os dados usando ferramentas padrão.
-- Se seu aplicativo estiver se aproximando das metas de escalabilidade, verifique se você está usando uma retirada exponencial para novas tentativas. É melhor tentar evitar o alcance das metas de escalabilidade implementando as recomendações descritas neste artigo. No entanto, o uso de uma retirada exponencial para novas tentativas impedirá que seu aplicativo seja repetido rapidamente, o que poderia tornar a limitação pior. Para obter mais informações, consulte a seção intitulada [tempo limite e erros de servidor ocupado](#timeout-and-server-busy-errors).
+- Reconsidere a carga de trabalho que faz com que a sua aplicação se aproxime ou exceda o alvo de escalabilidade. Pode desenhá-lo de forma diferente para usar menos largura de banda ou capacidade, ou menos transações?
+- Se a sua aplicação tiver de exceder um dos alvos de escalabilidade, crie várias contas de armazenamento e partifique os seus dados de aplicação através dessas várias contas de armazenamento. Se utilizar este padrão, certifique-se de que projeta a sua aplicação para que possa adicionar mais contas de armazenamento no futuro para equilibrar a carga. As próprias contas de armazenamento não têm qualquer custo que não seja a sua utilização em termos de dados armazenados, transações efetuadas ou dados transferidos.
+- Se a sua aplicação estiver a aproximar-se dos alvos da largura de banda, considere comprimir os dados do lado do cliente para reduzir a largura de banda necessária para enviar os dados para o Armazenamento Azure.
+    Embora os dados comprimidos possam poupar a largura de banda e melhorar o desempenho da rede, também pode ter efeitos negativos no desempenho. Avaliar o impacto do desempenho dos requisitos adicionais de processamento para a compressão de dados e descompressão do lado do cliente. Tenha em mente que armazenar dados comprimidos pode dificultar a resolução de problemas porque pode ser mais desafiante ver os dados usando ferramentas padrão.
+- Se a sua aplicação estiver a aproximar-se dos alvos de escalabilidade, certifique-se de que está a utilizar um backoff exponencial para repetições. É melhor tentar evitar atingir os objetivos de escalabilidade implementando as recomendações descritas neste artigo. No entanto, usar um backoff exponencial para repetições impedirá a sua aplicação de retentar rapidamente, o que pode piorar o estrangulamento. Para mais informações, consulte a secção intitulada [Timeout e Server Busy errors](#timeout-and-server-busy-errors).
 
-### <a name="targets-for-data-operations"></a>Destinos para operações de dados
+### <a name="targets-for-data-operations"></a>Metas para operações de dados
 
-O balanceamento de carga do armazenamento do Azure como o tráfego para sua conta de armazenamento aumenta, mas se o tráfego exibir picos repentinos, talvez você não consiga obter esse volume de taxa de transferência imediatamente. Espere ver a limitação e/ou os tempos limite durante a intermitência, uma vez que o armazenamento do Azure balanceia automaticamente a tabela. Aumentar lentamente geralmente fornece resultados melhores, pois o sistema tem tempo para balancear a carga adequadamente.
+A carga de armazenamento azure equilibra à medida que o tráfego para a sua conta de armazenamento aumenta, mas se o tráfego apresentar rajadas repentinas, poderá não conseguir obter imediatamente este volume de entrada. Espere ver estrangulamentos e/ou intervalos durante a explosão, uma vez que o Armazenamento Azure carrega automaticamente os saldos da sua tabela. O aumento lenta geralmente proporciona melhores resultados, uma vez que o sistema tem tempo para carregar o equilíbrio adequadamente.
 
 #### <a name="entities-per-second-storage-account"></a>Entidades por segundo (conta de armazenamento)
 
-O limite de escalabilidade para acessar tabelas é de até 20.000 entidades (1 KB cada) por segundo para uma conta. Em geral, cada entidade que é inserida, atualizada, excluída ou verificada conta para esse destino. Portanto, uma inserção em lote que contém 100 entidades contaria como 100 entidades. Uma consulta que examina as entidades de 1000 e retorna 5 conta como 1000 entidades.
+O limite de escalabilidade para aceder às tabelas é de até 20.000 entidades (1 KB cada) por segundo para uma conta. Em geral, cada entidade inserida, atualizada, eliminada ou digitalizada conta para este alvo. Assim, um encaixe de lote que contém 100 entidades contaria como 100 entidades. Uma consulta que digitaliza 1000 entidades e devolve 5 contaria como 1000 entidades.
 
 #### <a name="entities-per-second-partition"></a>Entidades por segundo (partição)
 
-Em uma única partição, a meta de escalabilidade para acessar tabelas é de 2.000 entidades (1 KB cada) por segundo, usando a mesma contagem, conforme descrito na seção anterior.
+Dentro de uma única divisória, o objetivo de escalabilidade para aceder às tabelas é de 2.000 entidades (1 KB cada) por segundo, utilizando a mesma contagem descrita na secção anterior.
 
-## <a name="networking"></a>Funcionamento em Rede
+## <a name="networking"></a>Redes
 
-As restrições de rede física do aplicativo podem ter um impacto significativo no desempenho. As seções a seguir descrevem algumas das limitações que os usuários podem encontrar.  
+Os constrangimentos físicos da rede da aplicação podem ter um impacto significativo no desempenho. As seguintes secções descrevem algumas das limitações que os utilizadores podem encontrar.  
 
-### <a name="client-network-capability"></a>Funcionalidade de rede do cliente
+### <a name="client-network-capability"></a>Capacidade de rede de clientes
 
-A largura de banda e a qualidade do link de rede desempenham funções importantes no desempenho do aplicativo, conforme descrito nas seções a seguir.
+A largura de banda e a qualidade da ligação de rede desempenham papéis importantes no desempenho da aplicação, conforme descrito nas seguintes secções.
 
 #### <a name="throughput"></a>Débito
 
-Para largura de banda, o problema costuma ser os recursos do cliente. Instâncias maiores do Azure têm NICs com maior capacidade, portanto, você deve considerar usar uma instância maior ou mais VMs se precisar de limites de rede maiores de um único computador. Se você estiver acessando o armazenamento do Azure de um aplicativo local, a mesma regra se aplicará: compreenda os recursos de rede do dispositivo cliente e a conectividade de rede com o local de armazenamento do Azure e melhore-os conforme necessário ou crie seu aplicativo para trabalhar em seus recursos.
+Para a largura de banda, o problema é muitas vezes as capacidades do cliente. As instâncias azure maiores têm NICs com maior capacidade, por isso deve considerar a utilização de uma instância maior ou mais VMs se precisar de limites de rede mais elevados a partir de uma única máquina. Se estiver a aceder ao Armazenamento Azure a partir de uma aplicação no local, então a mesma regra aplica-se: compreender as capacidades de rede do dispositivo cliente e a conectividade da rede com a localização do Armazenamento Azure e melhorá-las conforme necessário ou projetar o seu aplicação para trabalhar dentro das suas capacidades.
 
-#### <a name="link-quality"></a>Qualidade do link
+#### <a name="link-quality"></a>Qualidade de ligação
 
-Assim como acontece com qualquer uso de rede, tenha em mente que as condições de rede que resultam em erros e perda de pacotes atrasarão a taxa de transferência efetiva.  Usar o WireShark ou o NetMon pode ajudar a diagnosticar esse problema.  
+Como em qualquer utilização da rede, lembre-se que as condições de rede que resultam em erros e perda de pacotes irão retardar a entrada eficaz.  A utilização da WireShark ou da NetMon pode ajudar a diagnosticar este problema.  
 
 ### <a name="location"></a>Localização
 
-Em qualquer ambiente distribuído, colocar o cliente perto do servidor proporciona o melhor desempenho. Para acessar o armazenamento do Azure com a menor latência, o melhor local para o cliente está dentro da mesma região do Azure. Por exemplo, se você tiver um aplicativo Web do Azure que usa o armazenamento do Azure, localize-os em uma única região, como oeste dos EUA ou sudeste asiático. A colocalização de recursos reduz a latência e o custo, pois o uso de largura de banda em uma única região é gratuito.  
+Em qualquer ambiente distribuído, colocar o cliente perto do servidor proporciona o melhor desempenho. Para aceder ao Azure Storage com a latência mais baixa, a melhor localização para o seu cliente encontra-se dentro da mesma região azure. Por exemplo, se tiver uma aplicação web Azure que utiliza o Armazenamento Azure, localize-as ambas numa única região, como o Us West ou a Ásia Southeast. A co-localização de recursos reduz a latência e o custo, uma vez que a utilização da largura de banda numa única região é gratuita.  
 
-Se os aplicativos cliente acessarem o armazenamento do Azure, mas não estiverem hospedados no Azure, como aplicativos de dispositivos móveis ou serviços corporativos locais, a localização da conta de armazenamento em uma região perto desses clientes poderá reduzir a latência. Se os clientes forem amplamente distribuídos (por exemplo, alguns em América do Norte e outros na Europa), considere o uso de uma conta de armazenamento por região. Essa abordagem é mais fácil de implementar se os dados que o aplicativo armazena são específicos para usuários individuais e não requer a replicação de dados entre contas de armazenamento.
+Se as aplicações dos clientes acederem ao Armazenamento Azure, mas não estiverem alojadas no Azure, como aplicações de dispositivos móveis ou em serviços empresariais no local, a localização da conta de armazenamento numa região próxima desses clientes pode reduzir a latência. Se os seus clientes forem amplamente distribuídos (por exemplo, alguns na América do Norte, e alguns na Europa), então considere usar uma conta de armazenamento por região. Esta abordagem é mais fácil de implementar se os dados que as lojas de aplicação são específicos dos utilizadores individuais, e não requer a replicação de dados entre contas de armazenamento.
 
 ## <a name="sas-and-cors"></a>SAS e CORS
 
-Suponha que você precise autorizar um código como o JavaScript que está sendo executado no navegador da Web de um usuário ou em um aplicativo de telefone celular para acessar dados no armazenamento do Azure. Uma abordagem é criar um aplicativo de serviço que atue como um proxy. O dispositivo do usuário é autenticado com o serviço que, por sua vez, autoriza o acesso aos recursos de armazenamento do Azure. Dessa forma, você pode evitar expor suas chaves de conta de armazenamento em dispositivos não seguros. No entanto, essa abordagem coloca uma sobrecarga significativa no aplicativo de serviço, pois todos os dados transferidos entre o dispositivo do usuário e o armazenamento do Azure devem passar pelo aplicativo de serviço.
+Suponha que precisa autorizar códigos como o JavaScript que está a ser gerido no navegador web de um utilizador ou numa aplicação para telemóvel para aceder a dados no Armazenamento Do Azure. Uma abordagem é construir uma aplicação de serviço que atue como um representante. O dispositivo do utilizador autentica-se com o serviço, que por sua vez autoriza o acesso aos recursos de Armazenamento Azure. Desta forma, pode evitar expor as chaves da sua conta de armazenamento em dispositivos inseguros. No entanto, esta abordagem coloca uma sobrecarga significativa na aplicação de serviço, uma vez que todos os dados transferidos entre o dispositivo do utilizador e o Armazenamento Azure devem passar pela aplicação de serviço.
 
-Você pode evitar o uso de um aplicativo de serviço como proxy para o armazenamento do Azure usando SAS (assinaturas de acesso compartilhado). Usando a SAS, você pode habilitar o dispositivo do usuário para fazer solicitações diretamente no armazenamento do Azure usando um token de acesso limitado. Por exemplo, se um usuário quiser carregar uma foto em seu aplicativo, o aplicativo de serviço poderá gerar uma SAS e enviá-la para o dispositivo do usuário. O token SAS pode conceder permissão para gravar em um recurso de armazenamento do Azure por um intervalo de tempo especificado, após o qual o token SAS expira. Para obter mais informações sobre SAS, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).  
+Pode evitar utilizar uma aplicação de serviço como procuração para o Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS). Utilizando o SAS, pode ativar o dispositivo do utilizador para fazer pedidos diretamente ao Armazenamento Azure, utilizando um sinal de acesso limitado. Por exemplo, se um utilizador quiser enviar uma fotografia para a sua aplicação, então a sua aplicação de serviço pode gerar um SAS e enviá-la para o dispositivo do utilizador. O token SAS pode conceder permissão para escrever a um recurso de armazenamento Azure por um intervalo de tempo especificado, após o qual expira o token SAS. Para obter mais informações sobre o SAS, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).  
 
-Normalmente, um navegador da Web não permitirá o JavaScript em uma página hospedada por um site em um domínio para executar determinadas operações, como operações de gravação, em outro domínio. Conhecida como a política de mesma origem, essa política impede que um script mal-intencionado em uma página obtenha acesso a dados em outra página da Web. No entanto, a política de mesma origem pode ser uma limitação ao criar uma solução na nuvem. O CORS (compartilhamento de recursos entre origens) é um recurso de navegador que permite que o domínio de destino se comunique com o navegador que confia nas solicitações originadas no domínio de origem.
+Normalmente, um navegador web não permitirá o JavaScript numa página que é hospedada por um site num domínio para realizar determinadas operações, como operações de escrita, para outro domínio. Conhecida como a política de origem mesma, esta política impede que um script malicioso numa página obtenha acesso a dados noutra página web. No entanto, a política de origem pode ser uma limitação na construção de uma solução na nuvem. A partilha de recursos de origem cruzada (CORS) é uma funcionalidade de navegador que permite ao domínio alvo comunicar ao navegador que confia em pedidos originários do domínio de origem.
 
-Por exemplo, suponha que um aplicativo Web em execução no Azure faça uma solicitação de um recurso para uma conta de armazenamento do Azure. O aplicativo Web é o domínio de origem e a conta de armazenamento é o domínio de destino. Você pode configurar o CORS para qualquer um dos serviços de armazenamento do Azure para se comunicar com o navegador da Web que as solicitações do domínio de origem são confiáveis pelo armazenamento do Azure. Para obter mais informações sobre CORS, consulte [suporte ao compartilhamento de recursos entre origens (CORS) para o armazenamento do Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
+Por exemplo, suponha que uma aplicação web em funcionamento em Azure faz um pedido de um recurso para uma conta de Armazenamento Azure. A aplicação web é o domínio de origem, e a conta de armazenamento é o domínio alvo. Pode configurar o CORS para qualquer um dos serviços de Armazenamento Azure para comunicar ao navegador web que os pedidos do domínio de origem são confiáveis pelo Armazenamento Azure. Para obter mais informações sobre o CORS, consulte o suporte de [partilha de recursos de origem cruzada (CORS) para o Armazenamento Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
   
-SAS e CORS podem ajudá-lo a evitar a carga desnecessária em seu aplicativo Web.  
+Tanto o SAS como o CORS podem ajudá-lo a evitar cargas desnecessárias na sua aplicação web.  
 
-## <a name="batch-transactions"></a>Transações em lotes
+## <a name="batch-transactions"></a>Transações de lotes
 
-O serviço tabela dá suporte a transações em lotes em entidades que estão na mesma tabela e pertencem ao mesmo grupo de partições. Para obter mais informações, consulte [executando transações de grupo de entidades](/rest/api/storageservices/performing-entity-group-transactions).
+O serviço de Mesa suporta transações de lotes em entidades que estão na mesma mesa e pertencem ao mesmo grupo de partição. Para mais informações, consulte as transações do [grupo de entidades Perform.](/rest/api/storageservices/performing-entity-group-transactions)
 
-## <a name="net-configuration"></a>Configuração do .NET
+## <a name="net-configuration"></a>configuração .NET
 
-Se estiver usando o .NET Framework, esta seção listará várias definições de configuração rápida que você pode usar para fazer melhorias significativas no desempenho.  Se estiver usando outras linguagens, verifique se conceitos semelhantes se aplicam à linguagem escolhida.  
+Se utilizar a .NET Framework, esta secção lista várias configurações de configuração rápida que pode utilizar para fazer melhorias significativas de desempenho.  Se utilizar outras línguas, verifique se conceitos semelhantes se aplicam na sua língua escolhida.  
 
-### <a name="use-net-core"></a>Usar o .NET Core
+### <a name="use-net-core"></a>Use .NET Core
 
-Desenvolva seus aplicativos de armazenamento do Azure com o .NET Core 2,1 ou posterior para aproveitar os aprimoramentos de desempenho. O uso do .NET Core 3. x é recomendado quando possível.
+Desenvolva as suas aplicações de Armazenamento Azure com .NET Core 2.1 ou mais tarde para tirar partido das melhorias de desempenho. Recomenda-se a utilização do Núcleo 3.x .NET 3.x quando possível.
 
-Para obter mais informações sobre melhorias de desempenho no .NET Core, consulte as postagens de blog a seguir:
+Para obter mais informações sobre melhorias de desempenho em .NET Core, consulte as seguintes publicações de blog:
 
-- [Melhorias de desempenho no .NET Core 3,0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
-- [Melhorias de desempenho no .NET Core 2,1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
+- [Melhorias de desempenho em .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
+- [Melhorias de desempenho em .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
 
-### <a name="increase-default-connection-limit"></a>Aumentar limite de conexão padrão
+### <a name="increase-default-connection-limit"></a>Aumentar o limite de ligação por defeito
 
-No .NET, o código a seguir aumenta o limite de conexão padrão (que geralmente é 2 em um ambiente de cliente ou 10 em um ambiente de servidor) para 100. Normalmente, você deve definir o valor para aproximadamente o número de threads usados pelo seu aplicativo.  
+Em .NET, o seguinte código aumenta o limite de ligação padrão (que normalmente é 2 em ambiente de cliente ou 10 em ambiente de servidor) para 100. Normalmente, deve definir o valor para aproximadamente o número de fios utilizados pela sua aplicação.  
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Defina o limite de conexão antes de abrir qualquer conexão.  
+Detete o limite de ligação antes de abrir quaisquer ligações.  
 
-Para outras linguagens de programação, consulte a documentação dessa linguagem para determinar como definir o limite de conexão.  
+Para outras linguagens de programação, consulte a documentação dessa linguagem para determinar como definir o limite de ligação.  
 
-Para obter mais informações, consulte a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para mais informações, consulte o blog post [Web Services: Conexões Simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
 
-### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de threads
+### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de fios
 
-Se você estiver usando chamadas síncronas junto com tarefas assíncronas, talvez queira aumentar o número de threads no pool de threads:
+Se estiver a utilizar chamadas sincronizadas juntamente com tarefas assíncronas, pode querer aumentar o número de fios na piscina de fios:
 
 ```csharp
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Para obter mais informações, consulte o método [ThreadPool. SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads) .  
+Para mais informações, consulte o método [ThreadPool.SetMinThreads.](/dotnet/api/system.threading.threadpool.setminthreads)  
 
-## <a name="unbounded-parallelism"></a>Paralelismo não associado
+## <a name="unbounded-parallelism"></a>Paralelismo ilimitado
 
-Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar paralelismo não associado, o que significa que não há nenhum limite imposto sobre o número de threads ou solicitações paralelas. Certifique-se de limitar as solicitações paralelas para carregar ou baixar dados, para acessar várias partições na mesma conta de armazenamento ou para acessar vários itens na mesma partição. Se o paralelismo não estiver associado, seu aplicativo poderá exceder os recursos do dispositivo cliente ou as metas de escalabilidade da conta de armazenamento, resultando em latências mais longas e limitação.  
+Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado com o uso do paralelismo ilimitado, o que significa que não há limite imposto sobre o número de fios ou pedidos paralelos. Certifique-se de limitar pedidos paralelos para fazer upload ou descarregamento de dados, para aceder a várias divisórias na mesma conta de armazenamento ou para aceder a vários itens na mesma divisória. Se o paralelismo não estiver limitado, a sua aplicação pode exceder as capacidades do dispositivo cliente ou os alvos de escalabilidade da conta de armazenamento, resultando em tardios mais longos e estrangulamentos.  
 
-## <a name="client-libraries-and-tools"></a>Bibliotecas e ferramentas de cliente
+## <a name="client-libraries-and-tools"></a>Bibliotecas e ferramentas de clientes
 
-Para obter o melhor desempenho, sempre use as bibliotecas e ferramentas de cliente mais recentes fornecidas pela Microsoft. As bibliotecas de cliente de armazenamento do Azure estão disponíveis para uma variedade de idiomas. O armazenamento do Azure também dá suporte ao PowerShell e CLI do Azure. A Microsoft desenvolve ativamente essas bibliotecas e ferramentas de cliente com o desempenho em mente, mantém-as atualizadas com as versões de serviço mais recentes e garante que elas manipulem muitas das práticas de desempenho comprovadas internamente. Para obter mais informações, consulte a [documentação de referência do armazenamento do Azure](/azure/storage/#reference).
+Para um melhor desempenho, utilize sempre as mais recentes bibliotecas e ferramentas de clientes fornecidas pela Microsoft. As bibliotecas de clientes do Azure Storage estão disponíveis para uma variedade de idiomas. O Azure Storage também suporta a PowerShell e o Azure CLI. A Microsoft desenvolve ativamente estas bibliotecas e ferramentas de clientes com desempenho em mente, mantém-nas atualizadas com as versões de serviço mais recentes, e garante que lidam com muitas das práticas de desempenho comprovadas internamente. Para mais informações, consulte a documentação de referência do [Armazenamento Azure.](/azure/storage/#reference)
 
-## <a name="handle-service-errors"></a>Manipular erros de serviço
+## <a name="handle-service-errors"></a>Lidar com erros de serviço
 
-O armazenamento do Azure retorna um erro quando o serviço não pode processar uma solicitação. Entender os erros que podem ser retornados pelo armazenamento do Azure em um determinado cenário é útil para otimizar o desempenho.
+O Armazenamento Azure devolve um erro quando o serviço não pode processar um pedido. Compreender os erros que podem ser devolvidos pelo Azure Storage num determinado cenário é útil para otimizar o desempenho.
 
-### <a name="timeout-and-server-busy-errors"></a>Tempo limite e erros de servidor ocupado
+### <a name="timeout-and-server-busy-errors"></a>Timeout e Servidor Erros ocupados
 
-O armazenamento do Azure pode limitar seu aplicativo se ele se aproximar dos limites de escalabilidade. Em alguns casos, o armazenamento do Azure pode não ser capaz de lidar com uma solicitação devido a alguma condição transitória. Em ambos os casos, o serviço pode retornar um erro 503 (servidor ocupado) ou 500 (tempo limite). Esses erros também podem ocorrer se o serviço estiver reequilibrando partições de dados para permitir uma maior taxa de transferência. O aplicativo cliente normalmente deve repetir a operação que causa um desses erros. No entanto, se o armazenamento do Azure estiver limitando seu aplicativo porque ele está excedendo destinos de escalabilidade ou, mesmo que o serviço não tenha sido capaz de atender à solicitação por algum outro motivo, as tentativas agressivas podem dificultar o problema. É recomendável usar uma política de repetição de retirada exponencial e as bibliotecas de cliente usam como padrão esse comportamento. Por exemplo, seu aplicativo pode tentar novamente após 2 segundos, depois de 4 segundos, 10 segundos, 30 segundos e, em seguida, desistir completamente. Dessa forma, seu aplicativo reduz significativamente sua carga no serviço, em vez de exacerbar o comportamento que pode levar à limitação.  
+O Armazenamento Azure pode acelerar a sua aplicação se se aproximar dos limites de escalabilidade. Em alguns casos, o Armazenamento Azure pode não conseguir lidar com um pedido devido a alguma condição transitória. Em ambos os casos, o serviço pode devolver um erro de 503 (Server Busy) ou 500 (Timeout). Estes erros também podem ocorrer se o serviço estiver a reequilibrar as divisórias de dados para permitir uma maior entrada. A aplicação do cliente deve normalmente voltar a tentar a operação que causa um destes erros. No entanto, se o Armazenamento Azure estiver a estrangular a sua aplicação porque está a exceder os objetivos de escalabilidade, ou mesmo se o serviço não foi capaz de servir o pedido por outra razão, as tentativas agressivas podem piorar o problema. Recomenda-se a utilização de uma política exponencial de back off de retry, e as bibliotecas dos clientes não se adenam a este comportamento. Por exemplo, a sua aplicação pode voltar a tentar após 2 segundos, depois 4 segundos, depois 10 segundos, depois 30 segundos, e depois desistir completamente. Desta forma, a sua aplicação reduz significativamente a sua carga no serviço, em vez de exacerbar comportamentos que podem levar a estrangulamentos.  
 
-Os erros de conectividade podem ser repetidos imediatamente, porque eles não são o resultado da limitação e devem ser transitórios.  
+Os erros de conectividade podem ser reexperimentados imediatamente, porque não são o resultado da aceleração e espera-se que sejam transitórios.  
 
-### <a name="non-retryable-errors"></a>Erros sem nova tentativa
+### <a name="non-retryable-errors"></a>Erros não retáveis
 
-As bibliotecas de cliente tratam repetições com um reconhecimento de quais erros podem ser repetidos e quais não podem. No entanto, se você estiver chamando a API REST do armazenamento do Azure diretamente, há alguns erros que você não deve tentar novamente. Por exemplo, um erro 400 (solicitação inválida) indica que o aplicativo cliente enviou uma solicitação que não pôde ser processada porque não estava no formato esperado. Reenviar essa solicitação resulta na mesma resposta a cada vez, portanto, não há nenhum ponto em tentar novamente. Se você estiver chamando a API REST do armazenamento do Azure diretamente, lembre-se de possíveis erros e se eles devem ser repetidos.
+As bibliotecas dos clientes lidam com repetições com uma consciência de quais os erros que podem ser novamente julgados e que não podem. No entanto, se estiver a chamar diretamente a API de Rest de Armazenamento Azure, existem alguns erros que não deve voltar a tentar. Por exemplo, um erro de 400 (Pedido De Mau Pedido) indica que a aplicação do cliente enviou um pedido que não podia ser processado por não estar na forma esperada. A reenvio deste pedido resulta sempre na mesma resposta, pelo que não faz sentido reejá-lo. Se estiver a ligar diretamente para a API de Depósito Azure, esteja ciente de potenciais erros e se devem ser novamente julgados.
 
-Para obter mais informações sobre os códigos de erro do armazenamento do Azure, consulte [status e códigos de erro](/rest/api/storageservices/status-and-error-codes2).
+Para obter mais informações sobre os códigos de erro do Armazenamento Azure, consulte [códigos de estado e erro](/rest/api/storageservices/status-and-error-codes2).
 
 ## <a name="configuration"></a>Configuração
 
-Esta seção lista várias definições de configuração rápida que você pode usar para fazer melhorias significativas de desempenho no serviço tabela:
+Esta secção lista várias configurações de configuração rápida que pode utilizar para fazer melhorias significativas de desempenho no serviço Tabela:
 
-### <a name="use-json"></a>Usar JSON
+### <a name="use-json"></a>Use JSON
 
-A partir do serviço de armazenamento versão 2013-08-15, o serviço tabela dá suporte ao uso de JSON em vez do formato AtomPub baseado em XML para transferir dados da tabela. O uso do JSON pode reduzir os tamanhos de carga em até 75% e pode melhorar significativamente o desempenho do seu aplicativo.
+Começando com a versão do serviço de armazenamento 2013-08-15, o serviço Table suporta a utilização de JSON em vez do formato AtomPub baseado em XML para a transferência de dados de tabela. A utilização do JSON pode reduzir os tamanhos de carga útil em até 75% e pode melhorar significativamente o desempenho da sua aplicação.
 
-Para obter mais informações, consulte as [tabelas post Microsoft Azure: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Para mais informações, consulte as [tabelas post Microsoft Azure: Introdução do Formato JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [da Carga Útil para Operações](https://msdn.microsoft.com/library/azure/dn535600.aspx)de Serviço de Mesa .
 
-### <a name="disable-nagle"></a>Desabilitar Nagle
+### <a name="disable-nagle"></a>Desativar Nagle
 
-O algoritmo do Nagle é amplamente implementado em redes TCP/IP como um meio para melhorar o desempenho da rede. No entanto, não é ideal em todas as circunstâncias (como ambientes altamente interativos). O algoritmo do Nagle tem um impacto negativo sobre o desempenho das solicitações para o serviço tabela do Azure e você deve desabilitá-la, se possível.
+O algoritmo de Nagle é amplamente implementado através das redes TCP/IP como um meio para melhorar o desempenho da rede. No entanto, não é o ideal em todas as circunstâncias (como ambientes altamente interativos). O algoritmo de Nagle tem um impacto negativo no desempenho dos pedidos para o serviço De Mesa Azure, e deve desativá-lo se possível.
 
 ## <a name="schema"></a>Esquema
 
-A maneira como você representa e consulta seus dados é o maior fator único que afeta o desempenho do serviço tabela. Embora cada aplicativo seja diferente, esta seção descreve algumas práticas comprovadas gerais relacionadas a:
+A forma como representa e consulta os seus dados é o maior fator único que afeta o desempenho do serviço Tabela. Embora cada aplicação seja diferente, esta secção descreve algumas práticas comprovadas gerais que se relacionam com:
 
-- Design de tabela
+- Design de mesa
 - Consultas eficientes
-- Atualizações de dados eficientes
+- Atualizações eficientes de dados
 
-### <a name="tables-and-partitions"></a>Tabelas e partições
+### <a name="tables-and-partitions"></a>Mesas e divisórias
 
-As tabelas são divididas em partições. Cada entidade armazenada em uma partição compartilha a mesma chave de partição e tem uma chave de linha exclusiva para identificá-la nessa partição. As partições fornecem benefícios, mas também apresentam limites de escalabilidade.
+As mesas dividem-se em divisórias. Todas as entidades armazenadas numa divisória partilham a mesma chave de partição e têm uma chave de linha única para identificá-la dentro dessa divisória. As divisórias proporcionam benefícios, mas também introduzem limites de escalabilidade.
 
-- Benefícios: você pode atualizar entidades na mesma partição em uma única transação atômica, em lote que contém até 100 operações de armazenamento separadas (limite de 4 MB de tamanho total). Supondo que o mesmo número de entidades a serem recuperadas, você também pode consultar dados em uma única partição de forma mais eficiente do que os dados que abrangem partições (embora continue lendo para obter mais recomendações sobre como consultar os dados da tabela).
-- Limite de escalabilidade: o acesso a entidades armazenadas em uma única partição não pode ter balanceamento de carga porque as partições dão suporte a transações em lote atômicas. Por esse motivo, a meta de escalabilidade para uma partição de tabela individual é menor do que para o serviço tabela como um todo.
+- Benefícios: Pode atualizar as entidades na mesma partilha numa única transação de lote, atómica, que contém até 100 operações de armazenamento separadas (limite de 4 MB de tamanho total). Assumindo o mesmo número de entidades a serem recuperadas, também pode consultar dados dentro de uma única divisória de forma mais eficiente do que os dados que abrangem divisórias (embora lidos para mais recomendações sobre dados de tabelas de consulta).
+- Limite de escalabilidade: O acesso a entidades armazenadas numa única divisória não pode ser equilibrado em carga porque as divisórias suportam transações atómicas de lotes. Por esta razão, o objetivo de escalabilidade para uma divisória individual é inferior ao do serviço de Mesa no seu conjunto.
 
-Devido a essas características de tabelas e partições, você deve adotar os seguintes princípios de design:
+Devido a estas características das tabelas e divisórias, deve adotar os seguintes princípios de conceção:
 
-- Localize os dados que o aplicativo cliente atualiza frequentemente ou consultas na mesma unidade lógica de trabalho na mesma partição. Por exemplo, localize dados na mesma partição se seu aplicativo estiver agregando gravações ou se você estiver executando operações de lote atômicas. Além disso, os dados em uma única partição podem ser consultados de forma mais eficiente em uma única consulta do que os dados entre partições.
-- Localize os dados que o aplicativo cliente não insere, atualiza ou consulta na mesma unidade lógica de trabalho (ou seja, em uma única consulta ou atualização em lote) em partições separadas. Tenha em mente que não há nenhum limite para o número de chaves de partição em uma única tabela, portanto, ter milhões de chaves de partição não é um problema e não afetará o desempenho. Por exemplo, se seu aplicativo for um site popular com logon de usuário, usar a ID de usuário como a chave de partição pode ser uma boa opção.
+- Localize dados que a sua aplicação cliente atualiza ou questiona frequentemente na mesma unidade lógica de trabalho na mesma divisória. Por exemplo, localize dados na mesma divisória se a sua aplicação estiver a agregar as escritas ou se estiver a realizar operações de lote atómico. Além disso, os dados de uma única divisória podem ser mais eficientemente consultados numa única consulta do que dados em divisórias.
+- Localize os dados que a sua aplicação cliente não insere, atualize ou consulta na mesma unidade lógica de trabalho (isto é, numa única consulta ou atualização de lote) em divisórias separadas. Tenha em mente que não há limite para o número de chaves de partição numa única mesa, pelo que ter milhões de chaves de partição não é um problema e não terá impacto no desempenho. Por exemplo, se a sua aplicação for um site popular com login do utilizador, usar o ID do utilizador como chave de partição pode ser uma boa escolha.
 
-#### <a name="hot-partitions"></a>Partições ativas
+#### <a name="hot-partitions"></a>Divisórias quentes
 
-Uma partição ativa é aquela que está recebendo uma porcentagem desproporcional do tráfego para uma conta e não pode ter balanceamento de carga porque é uma única partição. Em geral, as partições ativas são criadas de duas maneiras:
+Uma partição quente é uma que está a receber uma percentagem desproporcional do tráfego para uma conta, e não pode ser equilibrada por ser uma única divisória. Em geral, as divisórias quentes são criadas de duas formas:
 
-#### <a name="append-only-and-prepend-only-patterns"></a>Somente acrescentar e preceder padrões
+#### <a name="append-only-and-prepend-only-patterns"></a>Apêndice Apenas e Prepend Apenas padrões
 
-O padrão "acrescentar somente" é aquele em que todos (ou quase todos) do tráfego para uma determinada chave de partição aumentam e diminuem de acordo com a hora atual. Por exemplo, suponha que seu aplicativo use a data atual como uma chave de partição para dados de log. Esse design resulta em todas as inserções indo para a última partição em sua tabela, e o sistema não pode balancear a carga corretamente. Se o volume de tráfego para essa partição exceder o destino de escalabilidade no nível da partição, isso resultará em limitação. É melhor garantir que o tráfego seja enviado para várias partições, a fim de habilitar o balanceamento de carga das solicitações em sua tabela.
+O padrão "Apêndice Apenas" é aquele em que todo (ou quase todo) do tráfego para uma determinada chave de partição aumenta e diminui de acordo com o tempo atual. Por exemplo, suponha que a sua aplicação utiliza a data atual como chave de partição para dados de registo. Este design resulta em todas as inserções que vão para a última partição da sua tabela, e o sistema não consegue carregar o equilíbrio corretamente. Se o volume de tráfego para essa divisória exceder o objetivo de escalabilidade ao nível da divisória, então resultará em estrangulamento. É melhor garantir que o tráfego é enviado para várias divisórias, para permitir o equilíbrio de carga dos pedidos em toda a sua mesa.
 
-#### <a name="high-traffic-data"></a>Dados de tráfego alto
+#### <a name="high-traffic-data"></a>Dados de tráfego elevado
 
-Se o esquema de particionamento resultar em uma única partição que tem apenas dados que são muito mais usados do que outras partições, você também poderá ver a limitação, pois essa partição se aproximará da meta de escalabilidade para uma única partição. É melhor garantir que o esquema de partição não resulte em nenhuma partição única que se aproxima das metas de escalabilidade.
+Se o seu esquema de partição resultar numa única partição que apenas tenha dados muito mais utilizados do que outras divisórias, também pode ver estrangulamento à medida que essa divisória se aproxima do alvo de escalabilidade para uma única divisória. É melhor certificar-se de que o seu esquema de partição resulta em nenhuma divisão que se aproxime dos alvos de escalabilidade.
 
 ### <a name="querying"></a>A consultar
 
-Esta seção descreve as práticas comprovadas para consultar o serviço tabela.
+Esta secção descreve práticas comprovadas para consulta do serviço de Mesa.
 
 #### <a name="query-scope"></a>Âmbito de consulta
 
-Há várias maneiras de especificar o intervalo de entidades a serem consultadas. A lista a seguir descreve cada opção para o escopo de consulta.
+Existem várias formas de especificar o leque de entidades para consultar. A lista seguinte descreve cada opção para consulta.
 
-- **Consultas de ponto:** -uma consulta de ponto recupera exatamente uma entidade especificando a chave de partição e a chave de linha da entidade a ser recuperada. Essas consultas são eficientes e você deve usá-las sempre que possível.
-- **Consultas de partição:** Uma consulta de partição é uma consulta que recupera um conjunto de dados que compartilha uma chave de partição comum. Normalmente, a consulta especifica um intervalo de valores de chave de linha ou um intervalo de valores para alguma propriedade de entidade, além de uma chave de partição. Essas consultas são menos eficientes do que as consultas de ponto e devem ser usadas com moderação.
-- **Consultas de tabela:** Uma consulta de tabela é uma consulta que recupera um conjunto de entidades que não compartilha uma chave de partição comum. Essas consultas não são eficientes e você deve evitá-las, se possível.
+- Consultas de **ponto:**- Uma consulta de ponto recupera exatamente uma entidade especificando tanto a chave de partição como a chave de linha da entidade para recuperar. Estas consultas são eficientes, e deve usá-las sempre que possível.
+- **Consultas de partição:** Uma consulta de partição é uma consulta que recupera um conjunto de dados que partilha uma chave de partição comum. Tipicamente, a consulta especifica uma gama de valores-chave de linha ou uma gama de valores para alguma propriedade de entidade, além de uma chave de partição. Estas consultas são menos eficientes do que consultas de pontos, e devem ser usadas com moderação.
+- **Consultas de mesa:** Uma consulta de mesa é uma consulta que recupera um conjunto de entidades que não partilham uma chave de partição comum. Estas consultas não são eficientes e deve evitá-las se possível.
 
-Em geral, evite verificações (consultas maiores que uma única entidade), mas se você precisar verificar, tente organizar seus dados para que suas verificações recuperem os dados necessários sem verificar ou retornar quantidades significativas de entidades que você não precisa.
+Em geral, evite exames (consultas maiores do que uma única entidade), mas se tiver de digitalizar, tente organizar os seus dados para que os seus exames recuperem os dados de que necessita sem digitalizar ou devolver quantidades significativas de entidades de que não precisa.
 
-#### <a name="query-density"></a>Densidade da consulta
+#### <a name="query-density"></a>Densidade de consulta
 
-Outro fator importante na eficiência da consulta é o número de entidades retornadas em comparação com o número de entidades verificadas para localizar o conjunto retornado. Se seu aplicativo executar uma consulta de tabela com um filtro para um valor de propriedade que apenas 1% dos compartilhamentos de dados, a consulta examinará 100 entidades para cada entidade que retornar. As metas de escalabilidade de tabela discutidas anteriormente se relacionam com o número de entidades verificadas e não o número de entidades retornadas: uma densidade de consulta baixa pode facilmente fazer com que o serviço tabela limite seu aplicativo, pois ele deve verificar tantas entidades para Recupere a entidade que você está procurando. Para obter mais informações sobre como evitar a limitação, consulte a seção intitulada [desnormalização](#denormalization).
+Outro fator chave na eficiência da consulta é o número de entidades devolvidas em comparação com o número de entidades digitalizadas para encontrar o conjunto devolvido. Se a sua aplicação realizar uma consulta de tabela com um filtro para um valor de propriedade que apenas 1% das ações de dados, a consulta irá digitalizar 100 entidades por cada entidade que devolve. Os objetivos de escalabilidade do quadro discutidos anteriormente todos dizem respeito ao número de entidades digitalizadas, e não ao número de entidades devolvidas: uma baixa densidade de consulta pode facilmente fazer com que o serviço de Mesa acelere a sua aplicação porque deve digitalizar tantas entidades para recuperar a entidade que procura. Para obter mais informações sobre como evitar o estrangulamento, consulte a secção intitulada [Desnormalização](#denormalization).
 
-#### <a name="limiting-the-amount-of-data-returned"></a>Limitando a quantidade de dados retornados
+#### <a name="limiting-the-amount-of-data-returned"></a>Limitando a quantidade de dados devolvidos
 
-Quando você sabe que uma consulta retornará entidades que você não precisa no aplicativo cliente, considere usar um filtro para reduzir o tamanho do conjunto retornado. Embora as entidades não retornadas ao cliente ainda sejam contadas para os limites de escalabilidade, o desempenho do aplicativo será melhorado devido ao tamanho reduzido da carga de rede e ao número reduzido de entidades que seu aplicativo cliente deve processar. Lembre-se de que as metas de escalabilidade se relacionam com o número de entidades verificadas, portanto, uma consulta que filtra muitas entidades ainda pode resultar em limitação, mesmo que poucas entidades sejam retornadas. Para obter mais informações sobre como tornar as consultas eficientes, consulte a seção intitulada [densidade de consulta](#query-density).
+Quando souber que uma consulta devolverá as entidades de que não precisa na aplicação do cliente, considere usar um filtro para reduzir o tamanho do conjunto devolvido. Embora as entidades não devolvidas ao cliente ainda contem para os limites de escalabilidade, o desempenho da sua aplicação melhorará devido à redução do tamanho da carga útil da rede e ao reduzido número de entidades que a sua aplicação cliente deve processar. Tenha em mente que os alvos de escalabilidade dizem respeito ao número de entidades digitalizadas, pelo que uma consulta que filtra muitas entidades pode ainda resultar em estrangulamento, mesmo que poucas entidades sejam devolvidas. Para obter mais informações sobre como tornar as consultas eficientes, consulte a secção intitulada [Densidade de Consulta](#query-density).
 
-Se o aplicativo cliente precisar apenas de um conjunto limitado de propriedades das entidades em sua tabela, você poderá usar a projeção para limitar o tamanho do conjunto de dados retornado. Assim como na filtragem, a projeção ajuda a reduzir a carga de rede e o processamento do cliente.
+Se a sua aplicação de cliente necessitar apenas de um conjunto limitado de propriedades das entidades da sua tabela, pode utilizar a projeção para limitar o tamanho do conjunto de dados devolvido. Tal como na filtragem, a projeção ajuda a reduzir a carga de rede e o processamento do cliente.
 
 #### <a name="denormalization"></a>Desnormalização
 
-Ao contrário do trabalho com bancos de dados relacionais, as práticas comprovadas para consultar com eficiência o dado da tabela levam à desnormalização dos dados. Ou seja, duplicar os mesmos dados em várias entidades (um para cada chave que você pode usar para localizar os dados) para minimizar o número de entidades que uma consulta deve verificar para localizar os dados de que o cliente precisa, em vez de ter que verificar grandes números de entidades para localizar os dados de seu aplicativo licativo necessidades. Por exemplo, em um site de comércio eletrônico, talvez você queira encontrar um pedido tanto pela ID do cliente (fornecer pedidos deste cliente) e pela data (fornecer pedidos em uma data). No armazenamento de tabelas, é melhor armazenar a entidade (ou uma referência a ela) duas vezes – uma vez com o nome da tabela, CP e r para facilitar a localização pela ID do cliente, uma vez para facilitar sua localização até a data.  
+Ao contrário de trabalhar com bases de dados relacionais, as práticas comprovadas para consulta eficiente dos dados da tabela levam à desnormalização dos seus dados. Ou seja, duplicar os mesmos dados em várias entidades (uma para cada chave que pode utilizar para encontrar os dados) para minimizar o número de entidades que uma consulta deve digitalizar para encontrar os dados de que o cliente precisa, em vez de ter de digitalizar um grande número de entidades para encontrar os dados que o seu necessidades de aplicação. Por exemplo, num site de e-commerce, pode querer encontrar uma encomenda tanto pelo ID do cliente (dê-me as encomendas deste cliente) e até à data (dê-me encomendas numa data). No Armazenamento de Mesa, o melhor é armazenar a entidade (ou uma referência a ela) duas vezes – uma vez com Nome de Mesa, PK e RK para facilitar a procura pelo ID do cliente, uma vez para facilitar a sua encontrá-la até à data.  
 
-### <a name="insert-update-and-delete"></a>Inserir, atualizar e excluir
+### <a name="insert-update-and-delete"></a>Inserir, atualizar e eliminar
 
-Esta seção descreve as práticas comprovadas para modificar entidades armazenadas no serviço tabela.  
+Esta secção descreve práticas comprovadas para modificar entidades armazenadas no serviço Mesa.  
 
 #### <a name="batching"></a>Lotes
 
-As transações em lote são conhecidas como transações de grupo de entidades no armazenamento do Azure. Todas as operações em uma transação de grupo de entidades devem estar em uma única partição em uma única tabela. Sempre que possível, use as transações do grupo de entidades para executar inserções, atualizações e exclusões em lotes. O uso de transações de grupo de entidades reduz o número de viagens de ida e volta de seu aplicativo cliente para o servidor, reduz o número de transações faturáveis (uma transação de grupo de entidades conta como uma única transação para fins de cobrança e pode conter até 100 operações de armazenamento) e habilita atualizações atômicas (todas as operações são bem sucedidas ou todas falham em uma transação de grupo de entidades). Ambientes com latências altas como dispositivos móveis se beneficiarão muito do uso de transações de grupo de entidades.  
+As transações de lotes são conhecidas como transações de grupo de entidades no Armazenamento Azure. Todas as operações no âmbito de uma transação de grupo de entidades devem estar numa única divisória numa única tabela. Sempre que possível, utilize as transações do grupo de entidades para efetuar inserções, atualizações e eliminações em lotes. A utilização de transações de grupos de entidades reduz o número de viagens de ida e volta da sua aplicação de cliente para o servidor, reduz o número de transações faturadas (uma transação de grupo de entidades conta como uma única transação para fins de faturação e pode conter até 100 operações de armazenamento), e permite atualizações atómicas (todas as operações têm sucesso ou falham no âmbito de uma transação de grupo de entidades). Ambientes com altas lupas, como dispositivos móveis, beneficiarão muito da utilização de transações de grupos de entidades.  
 
 #### <a name="upsert"></a>Upsert
 
-Use as operações **Upsert** de tabela sempre que possível. Há dois tipos de **Upsert**, os quais podem ser mais eficientes do que as operações tradicionais de **inserção** e **atualização** :  
+Utilize as operações **upsert** tabela sempre que possível. Existem dois tipos de **Upsert,** ambos mais eficientes do que as operações tradicionais de **inserção** e **atualização:**  
 
-- **InsertOrMerge**: Use essa operação quando desejar carregar um subconjunto das propriedades da entidade, mas não tiver certeza se a entidade já existe. Se a entidade existir, essa chamada atualizará as propriedades incluídas na operação **Upsert** e deixará todas as propriedades existentes como estão, se a entidade não existir, ela inserirá a nova entidade. Isso é semelhante ao uso de projeção em uma consulta, pois você só precisa carregar as propriedades que estão sendo alteradas.
-- **InsertOrReplace**: Use essa operação quando desejar carregar uma entidade totalmente nova, mas não tiver certeza se ela já existe. Use essa operação quando souber que a entidade carregada recentemente está totalmente correta porque substitui completamente a antiga entidade. Por exemplo, você deseja atualizar a entidade que armazena o local atual de um usuário, independentemente de o aplicativo ter armazenado previamente os dados de localização para o usuário; a nova entidade local está concluída e você não precisa de nenhuma informação de nenhuma entidade anterior.
+- **InsertOrMerge**: Utilize esta operação quando pretender fazer o upload de um subconjunto das propriedades da entidade, mas não tem a certeza se a entidade já existe. Se a entidade existir, esta chamada atualiza os imóveis incluídos na operação **Upsert,** e deixa todos os imóveis existentes tal como estão, se a entidade não existir, insere a nova entidade. Isto é semelhante ao uso da projeção numa consulta, na medida em que só precisa carregar as propriedades que estão a mudar.
+- **InsertOrSubstitua**: Utilize esta operação quando pretender carregar uma entidade inteiramente nova, mas não tem a certeza se já existe. Utilize esta operação quando souber que a entidade recém-carregada está inteiramente correta porque substitui completamente a antiga entidade. Por exemplo, pretende atualizar a entidade que armazena a localização atual de um utilizador, independentemente de a aplicação ter ou não armazenado previamente dados de localização para o utilizador; a nova entidade de localização está completa, e não precisa de nenhuma informação de nenhuma entidade anterior.
 
-#### <a name="storing-data-series-in-a-single-entity"></a>Armazenando séries de dados em uma única entidade
+#### <a name="storing-data-series-in-a-single-entity"></a>Armazenar séries de dados numa única entidade
 
-Às vezes, um aplicativo armazena uma série de dados que freqüentemente precisa recuperar de uma só vez: por exemplo, um aplicativo pode controlar o uso da CPU ao longo do tempo para plotar um gráfico de rolagem dos dados das últimas 24 horas. Uma abordagem é ter uma entidade de tabela por hora, com cada entidade representando uma hora específica e armazenando o uso da CPU para essa hora. Para plotar esses dados, o aplicativo precisa recuperar as entidades que contêm os dados das 24 horas mais recentes.  
+Por vezes, uma aplicação armazena uma série de dados que frequentemente precisa para recuperar tudo de uma vez: por exemplo, uma aplicação pode rastrear o uso do CPU ao longo do tempo, de modo a traçar um gráfico de rolo dos dados das últimas 24 horas. Uma abordagem é ter uma entidade de mesa por hora, com cada entidade representando uma hora específica e armazenando o uso do CPU para essa hora. Para traçar estes dados, a aplicação precisa de recuperar as entidades que detêm os dados das 24 horas mais recentes.  
 
-Como alternativa, seu aplicativo pode armazenar o uso da CPU para cada hora como uma propriedade separada de uma única entidade: para atualizar a cada hora, seu aplicativo pode usar uma única chamada **InsertOrMerge Upsert** para atualizar o valor da hora mais recente. Para plotar os dados, o aplicativo precisa apenas recuperar uma única entidade em vez de 24, fazendo uma consulta eficiente. Para obter mais informações sobre a eficiência da consulta, consulte a seção [escopo da consulta](#query-scope)intitulada.
+Em alternativa, a sua aplicação poderia armazenar o uso do CPU por cada hora como uma propriedade separada de uma única entidade: para atualizar a cada hora, a sua aplicação pode utilizar uma única chamada **InsertOrMerge Upsert** para atualizar o valor para a hora mais recente. Para traçar os dados, a aplicação só precisa de recuperar uma única entidade em vez de 24, tornando-se uma consulta eficiente. Para obter mais informações sobre a eficiência da consulta, consulte a secção intitulada [Âmbito de consulta).](#query-scope)
 
-#### <a name="storing-structured-data-in-blobs"></a>Armazenando dados estruturados em BLOBs
+#### <a name="storing-structured-data-in-blobs"></a>Armazenar dados estruturados em bolhas
 
-Se você estiver executando inserções em lotes e, em seguida, recuperando intervalos de entidades, considere o uso de BLOBs em vez de tabelas. Um bom exemplo é um arquivo de log. Você pode fazer o lote de vários minutos de logs e inseri-los e, em seguida, recuperar vários minutos de logs por vez. Nesse caso, o desempenho será melhor se você usar BLOBs em vez de tabelas, já que você pode reduzir significativamente o número de objetos gravados ou lidos e, possivelmente, o número de solicitações que precisam ser feitas.  
+Se estiver a realizar inserções de lote e, em seguida, a recuperar gamas de entidades em conjunto, considere usar bolhas em vez de tabelas. Um bom exemplo é um ficheiro de registo. Pode emulhe vários minutos de troncos e insira-os e, em seguida, recupere vários minutos de troncos de cada vez. Neste caso, o desempenho é melhor se utilizar bolhas em vez de mesas, uma vez que pode reduzir significativamente o número de objetos escritos ou lidos, e também possivelmente o número de pedidos que precisam de ser feitos.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Escalabilidade e metas de desempenho para o armazenamento de tabelas](scalability-targets.md)
-- [Escalabilidade e metas de desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
-- [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)
+- [Metas de escalabilidade e desempenho para armazenamento de mesa](scalability-targets.md)
+- [Metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Códigos de estado e erro](/rest/api/storageservices/Status-and-Error-Codes2)

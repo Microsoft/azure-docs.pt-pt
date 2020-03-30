@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
 ms.openlocfilehash: f18672b9e3a368a833fc8cba279d748dfe3c2a9e
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366773"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Utilização de pontos finais privados para configuração de aplicações do Azure
@@ -36,7 +36,7 @@ Embora a Configuração da Aplicação não suporte pontos finais do serviço, o
 
 Quando cria um ponto final privado para um serviço no seu VNet, é enviado um pedido de consentimento para aprovação ao proprietário da conta de serviço. Se o utilizador que solicita a criação do ponto final privado for também proprietário da conta, este pedido de consentimento é automaticamente aprovado.
 
-Os proprietários de conta de serviço podem gerir pedidos de consentimento e pontos finais privados através do separador `Private Endpoints` da loja config no [portal Azure.](https://portal.azure.com)
+Os proprietários de conta de serviço podem `Private Endpoints` gerir pedidos de consentimento e pontos finais privados através do separador da loja de config no [portal Azure](https://portal.azure.com).
 
 ### <a name="private-endpoints-for-app-configuration"></a>Pontos finais privados para configuração de apps 
 
@@ -44,14 +44,14 @@ Ao criar um ponto final privado, deve especificar a loja de configuração da ap
 
 ### <a name="connecting-to-private-endpoints"></a>Ligação a pontos finais privados
 
-O Azure conta com a resolução do DNS para encaminhar as ligações da VNet para a loja de configuração sobre um link privado. Pode encontrar rapidamente cordas de ligações no portal Azure selecionando a sua loja de configuração de aplicações e, em seguida, selecionando **Definições** > **Teclas**de acesso .  
+O Azure conta com a resolução do DNS para encaminhar as ligações da VNet para a loja de configuração sobre um link privado. Pode encontrar rapidamente cordas de ligações no portal Azure selecionando a sua loja de configuração de aplicações e, em seguida, selecionando**As Teclas**de Acesso de **Definições** > .  
 
 > [!IMPORTANT]
-> Utilize a mesma cadeia de ligação para se ligar à sua loja de configuração de aplicações utilizando pontos finais privados como utilizaria para um ponto final público. Não se conecto à conta de armazenamento utilizando o seu URL de subdomínio `privatelink`.
+> Utilize a mesma cadeia de ligação para se ligar à sua loja de configuração de aplicações utilizando pontos finais privados como utilizaria para um ponto final público. Não se conecto à `privatelink` conta de armazenamento utilizando o URL do subdomínio.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos finais privados
 
-Quando cria um ponto final privado, o registo de recursos DNS CNAME para a loja de configuração é atualizado para um pseudónimo num subdomínio com o prefixo `privatelink`. O Azure também cria uma [zona privada de DNS](../dns/private-dns-overview.md) correspondente ao subdomínio `privatelink`, com os registos de recursos DNS A para os pontos finais privados.
+Quando cria um ponto final privado, o registo de recursos DNS CNAME para a loja `privatelink`de configuração é atualizado para um pseudónimo num subdomínio com o prefixo . O Azure também cria uma zona `privatelink` privada de [DNS](../dns/private-dns-overview.md) correspondente ao subdomínio, com os registos de recursos DNS A para os pontos finais privados.
 
 Quando resolve o URL de ponto final de fora da VNet, resolve-se até ao ponto final da loja. Quando resolvido a partir do VNet que acolhe o ponto final privado, o URL de ponto final resolve-se até ao ponto final privado.
 
@@ -59,10 +59,10 @@ Pode controlar o acesso a clientes fora do VNet através do ponto final público
 
 Esta abordagem permite o acesso à loja utilizando a mesma cadeia de **ligação** para clientes no VNet que acolhe os pontos finais privados, bem como clientes fora do VNet.
 
-Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes devem ser capazes de resolver o nome de domínio totalmente qualificado (FQDN) para o ponto final do serviço para o endereço IP do ponto final privado. Configure o seu servidor DNS para delegar o seu subdomínio de ligação privada na zona privada de DNS para o VNet, ou configurar os registos A para `AppConfigInstanceA.privatelink.azconfig.io` com o endereço IP final do ponto final privado.
+Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes devem ser capazes de resolver o nome de domínio totalmente qualificado (FQDN) para o ponto final do serviço para o endereço IP do ponto final privado. Configure o seu servidor DNS para delegar o seu subdomínio de ligação privada `AppConfigInstanceA.privatelink.azconfig.io` na zona privada de DNS para o VNet, ou configurar os registos A com o endereço IP final do ponto final privado.
 
 > [!TIP]
-> Ao utilizar um servidor DNS personalizado ou no local, deve configurar o seu servidor DNS para resolver o nome da loja no subdomínio `privatelink` para o endereço IP do ponto final privado. Pode fazê-lo delegando o subdomínio `privatelink` para a zona privada de DNS do VNet, ou configurando a zona DNS no seu servidor DNS e adicionando os registos DNS A.
+> Ao utilizar um servidor DNS personalizado ou no local, deve configurar o seu `privatelink` servidor DNS para resolver o nome da loja no subdomínio para o endereço IP do ponto final privado. Pode fazê-lo delegando o `privatelink` subdomínio na zona privada de DNS do VNet, ou configurando a zona DNS no seu servidor DNS e adicionando os registos DNS A.
 
 ## <a name="pricing"></a>Preços
 

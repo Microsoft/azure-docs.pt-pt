@@ -5,24 +5,24 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b7a86963c657524fa91c4eb824ced1a495391f3f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184453"
 ---
-#### <a name="to-delete-a-storsimple-backup-policy"></a>Para eliminar uma política de cópia de segurança do StorSimple
+#### <a name="to-delete-a-storsimple-backup-policy"></a>Para eliminar uma política de backup StorSimple
 
 1. Aceda ao seu dispositivo StorSimple e clique em **Política de cópias de segurança**.
 
-2. Na lista tabular de políticas de cópia de segurança, selecione a política que pretende eliminar. Com o botão direito e no menu de contexto, selecione **eliminar**.
+2. Na listagem tabular das políticas de backup, selecione a política que pretende eliminar. Clique à direita e a partir do menu de contexto, **selecione Eliminar**.
 
-    ![Selecione uma política de cópia de segurança para eliminar](./media/storsimple-8000-delete-backup-policy/deletebupol1.png)
+    ![Selecione uma política de backup para eliminar](./media/storsimple-8000-delete-backup-policy/deletebupol1.png)
 
-3. Será solicitado para confirmação. Tenha em atenção que a eliminação de uma política de cópia de segurança irá eliminar todas as cópias de segurança associadas. Clique em **Sim** para eliminar.
+3. Ser-lhe-á pedido que confirme. Tenha em mente que a eliminação de uma política de backup irá eliminar todos os backups associados. Clique em **Sim** para apagar.
 
     ![Confirmar eliminação](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
 
-A lista de políticas de cópia de segurança será atualizada para apresentar a nova lista de políticas.
+A lista de políticas de backup será atualizada para apresentar a nova lista de políticas.
 
-![Lista de política de cópia de segurança atualizada](./media/storsimple-8000-delete-backup-policy/deletebupol5.png)
+![Lista de política de backup atualizada](./media/storsimple-8000-delete-backup-policy/deletebupol5.png)

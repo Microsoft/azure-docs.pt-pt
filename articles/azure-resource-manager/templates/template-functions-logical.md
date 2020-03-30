@@ -3,16 +3,16 @@ title: Funções do modelo - lógica
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para determinar valores lógicos.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f058baa32e5f93a4177913287a5e9873fa7a9acb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248687"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156315"
 ---
-# <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos de Gestor de Recursos Azure
+# <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
-O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos.
+O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos de Gestor de Recursos Azure (ARM).
 
 * [e](#and)
 * [bool](#bool)
@@ -34,7 +34,7 @@ Verifica se todos os valores dos parâmetros são verdadeiros.
 | arg2 |Sim |boolean |O segundo valor para verificar se é verdade. |
 | argumentos adicionais |Não |boolean |Argumentos adicionais para verificar se são verdadeiros. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devoluções **Verdadeiras** se todos os valores forem verdadeiros; caso contrário, **Falso.**
 
@@ -68,9 +68,9 @@ A saída do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Verdadeiro |
-| notExampleOutput | Bool | Falso |
+| andExampleOutput | Booleano | Falso |
+| orExampleOutput | Booleano | Verdadeiro |
+| notExampleOutput | Booleano | Falso |
 
 ## <a name="bool"></a>bool
 
@@ -84,7 +84,7 @@ Converte o parâmetro para um booleano.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |corda ou int |O valor para converter-se em boolean. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 Uma booleana do valor convertido.
 
 ### <a name="examples"></a>Exemplos
@@ -117,16 +117,16 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| trueString | Bool | Verdadeiro |
-| falseString | Bool | Falso |
-| trueInt | Bool | Verdadeiro |
-| falseInt | Bool | Falso |
+| trueString | Booleano | Verdadeiro |
+| falsoString | Booleano | Falso |
+| trueInt | Booleano | Verdadeiro |
+| falsoInt | Booleano | Falso |
 
-## <a name="if"></a>se
+## <a name="if"></a>if
 
 `if(condition, trueValue, falseValue)`
 
@@ -136,11 +136,11 @@ Devolve um valor baseado em se uma condição é verdadeira ou falsa.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| condition |Sim |boolean |O valor para verificar se é verdade ou falso. |
+| condição |Sim |boolean |O valor para verificar se é verdade ou falso. |
 | trueValue |Sim | corda, int, objeto ou matriz |O valor para devolver quando a condição é verdadeira. |
 | falsoValor |Sim | corda, int, objeto ou matriz |O valor a devolver quando a condição é falsa. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devolve o segundo parâmetro quando o primeiro parâmetro for **verdadeiro;** caso contrário, devolve o terceiro parâmetro.
 
@@ -150,7 +150,7 @@ Quando a condição é **Verdadeira,** apenas o verdadeiro valor é avaliado. Qu
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) de exemplo que se segue mostra como usar a função `if`.
+O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) de exemplo seguinte `if` mostra como usar a função.
 
 ```json
 {
@@ -179,9 +179,9 @@ A saída do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| simOutput | String | sim |
-| noOutput | String | não |
-| objectOutput | Object | { "teste": "value1" } |
+| simOutput | Cadeia | sim |
+| noOutput | Cadeia | não |
+| objetoSaída | Objeto | { "teste": "value1" } |
 
 O [seguinte modelo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) de exemplo mostra como usar esta função com expressões que são apenas condicionalmente válidas.
 
@@ -231,7 +231,7 @@ O [seguinte modelo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deploy
 }
 ```
 
-## <a name="not"></a>não
+## <a name="not"></a>not
 
 `not(arg1)`
 
@@ -243,7 +243,7 @@ Converte o valor booleano para o seu valor oposto.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O valor para converter. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devoluções **Verdadeiras** quando o parâmetro é **falso**. Devoluções **Falsas** quando o parâmetro é **verdadeiro**.
 
@@ -277,9 +277,9 @@ A saída do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Verdadeiro |
-| notExampleOutput | Bool | Falso |
+| andExampleOutput | Booleano | Falso |
+| orExampleOutput | Booleano | Verdadeiro |
+| notExampleOutput | Booleano | Falso |
 
 O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) de exemplo seguinte **não** utiliza com [iguais](template-functions-comparison.md#equals).
 
@@ -301,7 +301,7 @@ A saída do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Verdadeiro |
+| checkNotEquals | Booleano | Verdadeiro |
 
 ## <a name="or"></a>ou
 
@@ -317,7 +317,7 @@ Verifica se qualquer valor de parâmetro é verdadeiro.
 | arg2 |Sim |boolean |O segundo valor para verificar se é verdade. |
 | argumentos adicionais |Não |boolean |Argumentos adicionais para verificar se são verdadeiros. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devoluções **Verdadeiras** se algum valor for verdadeiro; caso contrário, **Falso.**
 
@@ -351,9 +351,9 @@ A saída do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Verdadeiro |
-| notExampleOutput | Bool | Falso |
+| andExampleOutput | Booleano | Falso |
+| orExampleOutput | Booleano | Verdadeiro |
+| notExampleOutput | Booleano | Falso |
 
 ## <a name="next-steps"></a>Passos seguintes
 

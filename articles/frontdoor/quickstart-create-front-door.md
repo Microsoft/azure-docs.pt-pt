@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar perfil de porta frontal para alta disponibilidade de aplicativos'
+title: 'Quickstart: Criar perfil porta da frente para alta disponibilidade de aplicações'
 description: Este artigo de início rápido descreve como criar um Front Door para a sua aplicação Web global de elevada disponibilidade e elevado desempenho.
 services: front-door
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a98a933113322509f6fda8678350e9415d0b4058
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184505"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471426"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: criar um Front Door para uma aplicação Web global de elevada disponibilidade
 
@@ -26,7 +26,7 @@ Este início rápido descreve como criar um perfil do Front Door que proporciona
 
 O cenário descrito no início rápido inclui duas instâncias de uma aplicação Web em execução em regiões do Azure diferentes. Uma configuração do Front Door com base em [back-ends ponderados iguais e com a mesma prioridade](front-door-routing-methods.md) é criada para ajudar a direcionar o tráfego para o conjunto mais próximo de back-ends locais que executam a aplicação. O Front Door monitoriza continuamente a aplicação Web e proporciona ativação pós-falha automática ao próximo back-end disponível quando o local mais próximo não está disponível.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 Inicie sessão no portal do Azure em https://portal.azure.com.
@@ -34,14 +34,14 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 ## <a name="prerequisites"></a>Pré-requisitos
 Este início rápido requer que tenha implementado duas instâncias de uma aplicação Web em execução em regiões do Azure diferentes (*E.U.A. Leste* e *Europa Ocidental*). As duas instâncias da aplicação Web são executadas no modo Ativo/Ativo, ou seja, qualquer uma delas pode passar o tráfego em qualquer altura, ao contrário de uma configuração Ativo/Modo de espera, em que uma delas funciona como uma ativação pós-falha.
 
-1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Web** > **Aplicação Web** > **Criar**.
+1. No lado superior esquerdo do ecrã, selecione **Criar uma** > **aplicação** > **web** > de recursos**Criar**.
 2. Em **Aplicação Web**, introduza ou selecione as informações seguintes e introduza predefinições nas definições que estão vazias:
 
      | Definição         | Valor     |
      | ---              | ---  |
      | Nome           | Introduza um nome exclusivo para a aplicação Web  |
      | Grupo de recursos          | Selecione **Novo** e escreva *myResourceGroupFD1* |
-     | Plano do Serviço de Aplicações/Localização         | Selecione **Novo**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanEastUS* e selecione **OK**. 
+     | Plano do Serviço de Aplicações/Localização         | Selecione **New**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanEastUS* e selecione **OK**. 
      |      Localização  |   E.U.A. Leste        |
     |||
 
@@ -53,16 +53,16 @@ Este início rápido requer que tenha implementado duas instâncias de uma aplic
      | ---              | ---  |
      | Nome           | Introduza um nome exclusivo para a aplicação Web  |
      | Grupo de recursos          | Selecione **Novo** e escreva *myResourceGroupFD2* |
-     | Plano do Serviço de Aplicações/Localização         | Selecione **Novo**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanWestEurope* e selecione **OK**. 
+     | Plano do Serviço de Aplicações/Localização         | Selecione **New**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanWestEurope* e selecione **OK**. 
      |      Localização  |   Europa ocidental      |
     |||
 
 
 ## <a name="create-a-front-door-for-your-application"></a>Criar um Front Door para a sua aplicação
-### <a name="a-add-a-frontend-host-for-front-door"></a>A. Adicionar um anfitrião de front-end ao Front Door
+### <a name="a-add-a-frontend-host-for-front-door"></a>R. Adicionar um anfitrião de front-end ao Front Door
 Crie uma configuração do Front Door que direciona o tráfego de utilizador com base na latência mais baixa entre os dois back-ends.
 
-1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Front Door** > **Criar**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > **Networking** > **Front Door** > **Create**.
 2. Em **Criar um Front Door**, comece por adicionar as informações básicas e indique a subscrição onde pretende que o Front Door seja configurado. Da mesma forma, como qualquer outro recurso do Azure, também tem de fornecer um ResourceGroup e uma região do Grupo de Recursos, se estiver a criar um novo. Por último, tem de fornecer um nome para o Front Door.
 3. Assim que as informações básicas estiverem preenchidas, o primeiro passo a definir é o **anfitrião de front-end** para a configuração. O resultado deve ser um nome de domínio válido como `myappfrontend.azurefd.net`. Este nome de anfitrião tem de ser globalmente exclusivo, mas o Front Door encarrega-se dessa validação. 
 
@@ -75,7 +75,7 @@ Em seguida, terá de configurar os back-ends da aplicação num conjunto de back
 3. Selecione **Tipo de anfitrião de destino** como "Serviço de Aplicações", selecione a subscrição na qual criou o site e, em seguida, escolha o primeiro site do **Nome do anfitrião de destino**, ou seja, *myAppServicePlanEastUS.azurewebsites.net*.
 4. Por enquanto, deixe os restantes campos na predefinição e clique em **Adicionar**.
 5. Repita os passos 2 a 4 para adicionar o outro site, ou seja, *myAppServicePlanWestEurope.azurewebsites.net*
-6. Pode optar por atualizar as definições de Sondas do Estado de Funcionamento e Balanceamento de Carga do conjunto de back-ends, mas os valores predefinidos também devem funcionar. Clique em **Adicionar**.
+6. Pode optar opcionalmente por atualizar as sondas de saúde e as definições de equilíbrio de carga para o pool backend, mas os valores predefinidos também devem funcionar. Clique em **Adicionar**.
 
 
 ### <a name="c-add-a-routing-rule"></a>C. Adicionar uma regra de encaminhamento

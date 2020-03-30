@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: c7e98c31c0db1db3051ad66df6526dcbddb265c5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560427"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Dados de consulta no Monitor Azure utilizando o Azure Data Explorer (Pré-visualização)
@@ -34,12 +34,12 @@ O fluxo de procuração do Explorador de Dados Azure:
 
     ![Aglomerado nativo ADX](media/adx-proxy/web-ui-help-cluster.png)
 
-1. No Azure Data Explorer UI (https://dataexplorer.azure.com/clusters), **selecione Add Cluster**.
+1. No Azure Data Explorerhttps://dataexplorer.azure.com/clusters)UI (, selecione **Adicionar Cluster**.
 
 1. Na janela **Adicionar Cluster,** adicione o URL ao cluster LA ou IA. 
     
-    * Para LA: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
-    * Para AI: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+    * Para LA:`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * Para a IA:`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
     * Selecione **Adicionar**.
 
@@ -59,7 +59,7 @@ Você pode executar as consultas usando ferramentas de cliente que suportam cons
 > * O nome da base de dados deve ter o mesmo nome que o recurso especificado no cluster proxy. Os nomes são sensíveis ao caso.
 > * Em consultas de cluster seletiva, certifique-se de que o nome de aplicações De Insights de Aplicação e espaços de trabalho de Log Analytics está correto.
 >     * Se os nomes contiverem caracteres especiais, são substituídos por codificação de URL no nome do cluster proxy. 
->     * Se os nomes incluem caracteres que não cumprem as regras de [identificação kQL,](/azure/kusto/query/schema-entities/entity-names)são substituídos pelo traço **-** personagem.
+>     * Se os nomes incluirem caracteres que não cumprem as regras **-** de [identificação kQL,](/azure/kusto/query/schema-entities/entity-names)são substituídos pelo carácter do traço.
 
 ### <a name="direct-query-from-your-la-or-ai-adx-proxy-cluster"></a>Consulta direta do seu cluster de Procuração ADX DE LA ou AI
 
@@ -73,7 +73,7 @@ Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 
 ### <a name="cross-query-of-your-la-or-ai-adx-proxy-cluster-and-the-adx-native-cluster"></a>Consulta cruzada do seu cluster de Procuração AI ou AI ADX e do cluster nativo ADX 
 
-Quando executar consultas de cluster cruzada sacar em conjunto a partir do proxy, verifique se o seu cluster nativo ADX é selecionado no painel esquerdo. Os exemplos seguintes demonstram combinar tabelas de cluster ADX (utilizando `union`) com espaço de trabalho de LA.
+Quando executar consultas de cluster cruzada sacar em conjunto a partir do proxy, verifique se o seu cluster nativo ADX é selecionado no painel esquerdo. Os exemplos seguintes demonstram combinar tabelas `union`de cluster ADX (utilizando) com espaço de trabalho de LA.
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
@@ -85,9 +85,9 @@ let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourceg
 union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 
-   [consulta de cruz de ![do proxy do Explorador de Dados do Azure](media/adx-proxy/cross-query-adx-proxy.png)](media/adx-proxy/cross-query-adx-proxy.png#lightbox)
+   [![Consulta cruzada do proxy do Explorador de Dados do Azure](media/adx-proxy/cross-query-adx-proxy.png)](media/adx-proxy/cross-query-adx-proxy.png#lightbox)
 
-A utilização do [operador`join`](/azure/kusto/query/joinoperator), em vez de união, pode exigir uma [`hint`](/azure/kusto/query/joinoperator#join-hints) para o executar num cluster nativo do Azure Data Explorer (e não no proxy). 
+A [ `join` ](/azure/kusto/query/joinoperator)utilização do operador , [`hint`](/azure/kusto/query/joinoperator#join-hints) em vez de união, pode exigir um para executá-lo num cluster nativo do Azure Data Explorer (e não no proxy). 
 
 ## <a name="additional-syntax-examples"></a>Exemplos adicionais de sintaxe
 
@@ -95,10 +95,10 @@ As seguintes opções de sintaxe estão disponíveis quando se ligam para os clu
 
 |Descrição da Sintaxe  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Base de dados dentro de um cluster que contém apenas o recurso definido nesta subscrição **(recomendado para consultas de cluster seletivas)** |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
-| Cluster que contém todas as aplicações/espaços de trabalho nesta subscrição    |     cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
-|Cluster que contém todas as aplicações/espaços de trabalho na subscrição e são membros deste grupo de recursos    |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
-|Cluster que contém apenas o recurso definido nesta subscrição      |    cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
+| Base de dados dentro de um cluster que contém apenas o recurso definido nesta subscrição **(recomendado para consultas de cluster seletivas)** |   cluster.`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>` | cluster.`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`     |
+| Cluster que contém todas as aplicações/espaços de trabalho nesta subscrição    |     cluster.`https://ade.applicationinsights.io/subscriptions/<subscription-id>`    |    cluster.`https://ade.loganalytics.io/subscriptions/<subscription-id>`     |
+|Cluster que contém todas as aplicações/espaços de trabalho na subscrição e são membros deste grupo de recursos    |   cluster.`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`      |    cluster.`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`      |
+|Cluster que contém apenas o recurso definido nesta subscrição      |    cluster.`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`    |  cluster.`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`     |
 
 ## <a name="next-steps"></a>Passos seguintes
 

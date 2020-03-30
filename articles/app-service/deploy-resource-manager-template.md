@@ -7,10 +7,10 @@ ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77211704"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Orientação sobre a implementação de aplicações web utilizando modelos de Gestor de Recursos Azure
@@ -34,7 +34,7 @@ Desdobre recursos na seguinte ordem:
 * Plano de Serviço de Aplicações.
 * Quaisquer outros recursos relacionados, como bases de dados ou contas de armazenamento.
 
-**Nível 2**
+**Camada 2**
 * A aplicação web depende do plano do Serviço de Aplicações.
 * A instância Azure Application Insights que visa a exploração do servidor depende do plano de Serviço de Aplicações.
 
@@ -125,9 +125,9 @@ No Governo azure, o diretor de serviço seletiva tem a identificação de **6a02
 
 No seu Cofre-Chave, selecione **Certificados** e **Gera/Import** para fazer o upload do certificado.
 
-![Importar certificado](media/web-sites-rm-template-guidance/import-certificate.png)
+![Importar o certificado](media/web-sites-rm-template-guidance/import-certificate.png)
 
-No seu modelo, forneça o nome do certificado para o `keyVaultSecretName`.
+No seu modelo, forneça o nome `keyVaultSecretName`do certificado para o .
 
 Para um modelo de exemplo, consulte [a implementação de um certificado de aplicação web a partir do segredo key vault e use-o para criar a ligação SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 

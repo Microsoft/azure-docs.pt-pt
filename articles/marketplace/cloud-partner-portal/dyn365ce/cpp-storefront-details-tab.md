@@ -1,22 +1,21 @@
 ---
-title: Guia de detalhes da vitrine da oferta do Dynamics 365 for Customer Engagement | Azure Marketplace
-description: Este artigo da CPP foi preterido, artigo vinculado ao PC. Was "Use a guia detalhes da vitrine para especificar informações de vendas e marketing para uma oferta de compromisso do Dynamics 365 para o cliente."
-services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+title: Dynamics 365 para Customer Engagement oferecem separador de detalhes da montra [ Mercado Azure
+description: Depreciou este artigo do CPP, ligado ao artigo do PC. Foi "Use o separador Storefront Details para especificar informações de vendas e marketing para uma oferta de Envolvimento com o Cliente Da Dynamics 365."
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 1121a021b580d23006e3aaff5da4c6a2a58dca73
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4b5a927b227b2f4b39d9b964219eb3fd50b07406
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824705"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279934"
 ---
-# <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Guia de detalhes da vitrine do Dynamics 365 for Customer Engagement
+# <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 para separador de detalhes da loja de envolvimento com o cliente
 
-O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento de ofertas do engajamento do cliente do Dynamics 365. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
+O [Portal do Parceiro cloud](https://cloudpartner.azure.com/) já não suporta a criação e gestão das ofertas de Envolvimento com o Cliente Da Dynamics 365. Em vez disso, esta funcionalidade foi transferida para o portal Microsoft [Partner Center](https://partner.microsoft.com/). Para mais informações, consulte [Criar uma nova Dinâmica 365 para o envolvimento com o cliente & oferta powerApps.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer)
 
-Antes de criar uma nova oferta do Dynamics 365 for Customer Engagement, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para criar sua oferta.
+Antes de criar uma nova oferta de Participação do Cliente Da Dynamics 365, deve ler [Criar uma conta partner center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o dashboard do Mercado [Comercial](https://partner.microsoft.com/dashboard/directory) com a página **'Overview'** selecionada. Siga as instruções em [Create a new Dynamics 365 for Customer Engagement & PowerApps oferecem](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para criar a sua oferta.

@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
 ms.openlocfilehash: 4f30bf112175742566c2957d78154e5a7abd1733
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096863"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
@@ -63,7 +63,7 @@ Se o período máximo de retenção de backup suportado para restauro pontual (P
 
 |                                              | Georreplicação | Grupos de ativação pós-falha  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Falha automática                           |     Não          |      Sim         |
+| Ativação pós-falha automática                           |     Não          |      Sim         |
 | Falhar sobre várias bases de dados simultaneamente  |     Não          |      Sim         |
 | O utilizador deve atualizar a cadeia de ligação após a falha      |     Sim         |      Não          |
 | Instância gerida apoiada                   |     Não          |      Sim         |
@@ -128,7 +128,7 @@ Se estiver a utilizar grupos de geo-replicação ou falha automática ativas com
 > [!NOTE]
 > Quando o centro de dados volta a funcionar, as primárias antigas reconectam-se automaticamente com as novas primárias e tornam-se bases de dados secundárias. Se precisar de realojar a primária de volta para a região original, pode iniciar uma falha planeada manualmente (failback).
 
-### <a name="perform-a-geo-restore"></a>Realizar um geo-restauro
+### <a name="perform-a-geo-restore"></a>Efetuar um georrestauro
 
 Se estiver a utilizar as cópias de segurança automatizadas com armazenamento geo-redundante (ativado por padrão), pode recuperar a base de dados utilizando [geo-restauro](sql-database-disaster-recovery.md#recover-using-geo-restore). A recuperação ocorre geralmente dentro de 12 horas - com perda de dados até uma hora determinada pelo momento em que a última cópia de segurança de registo foi tomada e replicada. Até concluir a recuperação, a base de dados não consegue registar quaisquer transações nem responder a consultas. Nota: o georestauro apenas restaura a base de dados até ao último ponto disponível no tempo.
 

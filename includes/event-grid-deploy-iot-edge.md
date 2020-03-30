@@ -9,45 +9,45 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b453a04a170764a037eed7415eaf71e5a4d37526
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844598"
 ---
-## <a name="deploy-event-grid-iot-edge-module"></a>Implantar o módulo de IoT Edge da grade de eventos
+## <a name="deploy-event-grid-iot-edge-module"></a>Implementar módulo De Borda da Grelha de Eventos IoT
 
-Há várias maneiras de implantar módulos em um dispositivo IoT Edge e todos eles funcionam para a grade de eventos do Azure no IoT Edge. Este artigo descreve as etapas para implantar a grade de eventos em IoT Edge do portal do Azure.
+Existem várias formas de implementar módulos para um dispositivo IoT Edge e todos eles trabalham para a Grelha de Eventos Azure em IoT Edge. Este artigo descreve os passos para implantar a Grelha de Eventos na Borda IoT do portal Azure.
 
 >[!NOTE]
-> Neste tutorial, você implantará o módulo de grade de eventos sem persistência. Isso significa que todos os tópicos e assinaturas criados neste tutorial serão excluídos quando você reimplantar o módulo. Para obter mais informações sobre como configurar a persistência, consulte os seguintes artigos: [persistir estado no Linux](../articles/event-grid/edge/persist-state-linux.md) ou [persistir o estado no Windows](../articles/event-grid/edge/persist-state-windows.md). Para cargas de trabalho de produção, recomendamos que você instale o módulo de grade de eventos com persistência.
+> Neste tutorial, irá implantar o módulo Da Grelha de Eventos sem persistência. Significa que quaisquer tópicos e subscrições que criar neste tutorial serão eliminados quando reimplantar o módulo. Para obter mais informações sobre como configurar a persistência, consulte os seguintes artigos: [Persistir no estado de Linux](../articles/event-grid/edge/persist-state-linux.md) ou Persistir no [Windows](../articles/event-grid/edge/persist-state-windows.md). Para cargas de trabalho de produção, recomendamos que instale o módulo Da Grelha de Eventos com persistência.
 
 >[!IMPORTANT]
-> Neste tutorial, o módulo Event Grid será implantado com a autenticação do cliente desligada e permitirá aos subscritores http. Para cargas de trabalho de produção, recomendamos que apenas permita pedidos HTTPS e assinantes com autenticação do cliente ativado. Para obter mais informações sobre como configurar o módulo de grade de eventos com segurança, consulte [segurança e autenticação](../articles/event-grid/edge/security-authentication.md).
+> Neste tutorial, o módulo Event Grid será implantado com a autenticação do cliente desligada e permitirá aos subscritores http. Para cargas de trabalho de produção, recomendamos que apenas permita pedidos HTTPS e assinantes com autenticação do cliente ativado. Para obter mais informações sobre como configurar o módulo de Rede de Eventos de forma segura, consulte [segurança e autenticação.](../articles/event-grid/edge/security-authentication.md)
  
-### <a name="select-your-iot-edge-device"></a>Selecione seu dispositivo IoT Edge
+### <a name="select-your-iot-edge-device"></a>Selecione o seu dispositivo IoT Edge
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Navegue até o Hub IoT.
-1. Selecione **IOT Edge** no menu da seção **Gerenciamento de dispositivo automático** . 
-1. Clique na ID do dispositivo de destino na lista de dispositivos
-1. Selecione **Definir Módulos**. Mantenha a página aberta. Você continuará com as etapas na próxima seção.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Navegue para o seu Hub IoT.
+1. Selecione **IoT Edge** do menu na secção De Gestão automática de **Dispositivos.** 
+1. Clique na identificação do dispositivo alvo a partir da lista de dispositivos
+1. Selecione **Módulos de Conjunto**. Mantenha a página aberta. Continuará com os passos na próxima secção.
 
 ### <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais os módulos para implementar, como os dados fluem entre os módulos e propriedades pretendidas do duplos de módulo. O portal do Azure tem um assistente que o orienta na criação de um manifesto de implantação, em vez de criar o documento JSON manualmente.  Ele tem três passos: **adicionar módulos**, **especificar rotas**, e **rever implementação**.
+Um manifesto de implantação é um documento JSON que descreve quais os módulos a implantar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação, em vez de construir manualmente o documento JSON.  Tem três **passos: Adicionar módulos,** **especificar rotas,** e **rever a implementação**.
 
 ### <a name="add-modules"></a>Adicionar módulos
 
-1. Na seção **módulos de implantação** , selecione **Adicionar**
-1. Nos tipos de módulos na lista suspensa, selecione **IOT Edge módulo**
-1. Forneça as opções nome, imagem e contêiner criar do contêiner:
+1. Na secção Módulos de **Implementação,** selecione **Adicionar**
+1. A partir dos tipos de módulos na lista de drop-down, selecione **IoT Edge Module**
+1. Forneça o nome, imagem, recipiente criar opções do recipiente:
 
 [!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
 
    * **Nome**: eventgridmodule
-   * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
-   * **Opções de criação de contêiner**:
+   * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **O recipiente cria opções:**
 
     ```json
         {
@@ -67,26 +67,26 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
         }
     ```
 
- 1. Clicar em **Guardar**
- 1. Clique em **Avançar** para continuar na seção rotas
+ 1. Clique em **Guardar**
+ 1. Clique **em próximo** para continuar na secção rotas
 
     > [!NOTE]
-    > Se estiver a utilizar um VM Azure como dispositivo de borda, adicione uma regra de entrada para permitir o tráfego de entrada na porta 4438. Para obter instruções sobre como adicionar a regra, consulte [como abrir portas para uma VM](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
+    > Se estiver a utilizar um VM Azure como dispositivo de borda, adicione uma regra de entrada para permitir o tráfego de entrada na porta 4438. Para obter instruções sobre a adição da regra, consulte [Como abrir portas a um VM](../articles/virtual-machines/windows/nsg-quickstart-portal.md).
 
 
-### <a name="setup-routes"></a>Rotas de instalação
+### <a name="setup-routes"></a>Rotas de configuração
 
- Mantenha as rotas padrão e selecione **Avançar** para continuar na seção revisão
+ Mantenha as rotas predefinidas e selecione **Next** para continuar na secção de revisão
 
-### <a name="review-deployment"></a>Implementação de revisão
+### <a name="review-deployment"></a>Revisão da implantação
 
-1. A revisão de seção mostra que a implementação de JSON de manifesto que foi criado com base nas suas seleções nas duas secções anteriores. Confirme que vê os dois módulos na lista: **$edgeAgent** e **$edgeHub**. Estes dois módulos compõem o tempo de funcionamento do IoT Edge e são exigidos predefinidos em todas as implementações.
-1. Reveja as suas informações de implantação, em seguida, selecione **submeter**.
+1. A secção de revisão mostra-lhe o manifesto de implantação jSON que foi criado com base nas suas seleções nas duas secções anteriores. Confirme que vê os dois módulos na lista: **$edgeAgent** e **$edgeHub**. Estes dois módulos compõem o tempo de funcionamento do IoT Edge e são exigidos predefinidos em todas as implementações.
+1. Reveja as informações de implementação e, em seguida, selecione **Enviar**.
 
-### <a name="verify-your-deployment"></a>Verificar sua implantação
+### <a name="verify-your-deployment"></a>Verifique a sua implantação
 
-1. Depois de enviar a implantação, você retornará para a página IoT Edge do Hub IoT.
-1. Selecione o **dispositivo de IOT Edge** de destino com a implantação para abrir seus detalhes.
+1. Depois de submeter a implementação, volte à página IoT Edge do seu hub IoT.
+1. Selecione o **dispositivo IoT Edge** que apontou com a implementação para abrir os seus detalhes.
 1. Nos detalhes do dispositivo, verifique se o módulo De Rede de Eventos está listado como **especificado na implementação** e **reportado pelo dispositivo**.
 
-Pode levar alguns minutos para que o módulo seja iniciado no dispositivo e reportado de volta ao Hub IoT. Atualize a página para ver um status atualizado.
+Pode levar alguns momentos para o módulo ser iniciado no dispositivo e depois reportado de volta ao IoT Hub. Refresque a página para ver um estado atualizado.

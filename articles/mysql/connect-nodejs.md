@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 96590faae26892771ce27c539bb6e71c84b65b10
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 3/18/2020
+ms.openlocfilehash: a8c4f84fe958c1b2762509432596fea772e39d7e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938951"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067940"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Node.js para ligar e consultar dados na Base de Dados Azure para MySQL
 
@@ -34,7 +34,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
 
 1. Visite a [página de transferências do Node. js](https://nodejs.org/en/download/) e, em seguida, selecione a opção de instalador Windows que pretende.
 2. Crie uma pasta de projeto local , como `nodejsmysql`. 
-3. Abra o pedido de comando e, em seguida, mude o diretório para a pasta do projeto, como `cd c:\nodejsmysql\`
+3. Abra o pedido de comando e, em seguida, mude diretório na pasta do projeto, como`cd c:\nodejsmysql\`
 4. Executar a ferramenta NPM para instalar a biblioteca mysql na pasta do projeto.
 
    ```cmd
@@ -43,7 +43,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    "C:\Program Files\nodejs\npm" list
    ```
 
-5. Verifique a instalação verificando o texto de saída `npm list`. O número da versão pode variar à medida que forem sendo lançados patches novos.
+5. Verifique a instalação `npm list` verificando o texto de saída. O número da versão pode variar à medida que forem sendo lançados patches novos.
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 
@@ -53,7 +53,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    sudo apt-get install -y nodejs npm
    ```
 
-2. Execute os seguintes comandos para criar uma pasta de projeto `mysqlnodejs` e instale o pacote mysql nessa pasta.
+2. Execute os seguintes comandos `mysqlnodejs` para criar uma pasta de projeto e instale o pacote mysql nessa pasta.
 
    ```bash
    mkdir nodejsmysql
@@ -71,7 +71,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-2. Execute os seguintes comandos para criar uma pasta de projeto `mysqlnodejs` e instale o pacote mysql nessa pasta.
+2. Execute os seguintes comandos `mysqlnodejs` para criar uma pasta de projeto e instale o pacote mysql nessa pasta.
 
    ```bash
    mkdir nodejsmysql
@@ -80,13 +80,13 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    npm list
    ```
 
-3. Verifique a instalação verificando o texto de saída `npm list`. O número da versão pode variar à medida que forem sendo lançados patches novos.
+3. Verifique a instalação `npm list` verificando o texto de saída. O número da versão pode variar à medida que forem sendo lançados patches novos.
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure.](https://portal.azure.com/)
 2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos**, e depois procure o servidor que criou (como o **mydemoserver).**
 3. Selecione o nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
@@ -95,13 +95,13 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 ## <a name="running-the-javascript-code-in-nodejs"></a>Executar o código JavaScript no Node.js
 
 1. Cole o código JavaScript em ficheiros de texto e, em seguida, guarde-o numa pasta de projeto com a extensão de ficheiro .js, tal como (C:\nodejsmysql\createtable.js ou /home/username/nodejsmysql/createtable.js).
-2. Abra o pedido de comando ou a concha de bater e, em seguida, mude o diretório para a sua pasta de projeto `cd nodejsmysql`.
-3. Para executar a aplicação, insira o comando do nó seguido pelo nome do ficheiro, como `node createtable.js`.
+2. Abra o pedido de comando ou a concha de `cd nodejsmysql`bater e, em seguida, mude o diretório para a pasta do projeto .
+3. Para executar a aplicação, insira o comando `node createtable.js`do nó seguido pelo nome do ficheiro, como .
 4. No Windows, se a aplicação node não estiver no caminho de variável do seu ambiente, poderá ter de utilizar o caminho completo para iniciá-la, como, por exemplo, `"C:\Program Files\nodejs\node.exe" createtable.js`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ligar, criar tabela e inserir dados
 
-Utilize o seguinte código para se ligar e carregar os dados com as instruções SQL **CREATE TABLE** e **INSERT INTO**.
+Utilize o seguinte código para ligar e carregar os dados utilizando a **CREATE TABLE** e **insira as** declarações SQL.
 
 O método [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) é utilizado para fazer a interface com o servidor MySQL. A função [connect()](https://github.com/mysqljs/mysql#establishing-connections) é utilizada para estabelecer a ligação ao servidor. A função [query()](https://github.com/mysqljs/mysql#performing-queries) é utilizada para executar a consulta SQL na base de dados MySQL. 
 

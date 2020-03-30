@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 03/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785242a2cf51571a6d13b2b4691d33e46369bf94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7400c8288d8901460e462ce43b69815e178a718c
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977916"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384012"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Tutorial: Azure Ative Directory integração individual de assinatura com citrix NetScaler (autenticação baseada em Kerberos)
 
@@ -31,7 +30,7 @@ Neste tutorial, você vai aprender a integrar citrix NetScaler com o Azure Ative
 * Ative que os seus utilizadores sejam automaticamente inscritos no Citrix NetScaler com as suas contas Azure AD.
 * Gerencie as suas contas num local central - o portal Azure.
 
-Para saber mais sobre software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,6 +50,8 @@ Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste. O tutori
 * [Autenticação baseada em Kerberos para Citrix NetScaler](#publish-the-web-server)
 
 * [Autenticação baseada em cabeçalho para Citrix NetScaler](header-citrix-netscaler-tutorial.md#publish-the-web-server)
+
+* Assim que configurar o Citrix NetScaler, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)da sessão com o Microsoft Cloud App Security .
 
 ## <a name="add-citrix-netscaler-from-the-gallery"></a>Adicione Citrix NetScaler da galeria
 
@@ -102,7 +103,7 @@ Para ativar o Azure AD SSO utilizando o portal Azure, complete estes passos:
 
     1. Na caixa de texto **identificador,** introduza um URL que tenha o seguinte padrão:`https://<Your FQDN>`
 
-    1. Na caixa de texto **URL resposta,** introduza um URL que tenha o seguinte padrão:`https://<Your FQDN>/CitrixAuthService/AuthService.asmx`
+    1. Na caixa de texto **URL resposta,** introduza um URL que tenha o seguinte padrão:`http(s)://<Your FQDN>.of.vserver/cgi/samlauth`
 
 1. Para configurar a aplicação no modo **iniciado por SP,** selecione **Definir URLs adicionais** e completar o seguinte passo:
 
@@ -456,10 +457,14 @@ Quando selecionar o azulejo Citrix NetScaler no Painel de Acesso, deve ser autom
 
 - [Lista de tutoriais sobre como integrar aplicações do SaaS com diretório ativo azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente citrix NetScaler com Azure AD](https://aad.portal.azure.com/)
 
 - [Configure Citrix NetScaler único sinal para autenticação baseada em cabeçalho](header-citrix-netscaler-tutorial.md)
+
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger o Citrix NetScaler com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f2703994d3fe8765662e6a0205d63cef9327e17a
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 4ff6972e2f7ea219a1c8c8dbabbf9fe12a8fa59e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080189"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369477"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de análise de imagem
 
@@ -30,19 +30,19 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
-Os parâmetros são sensíveis aos casos.
+Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| defaultLanguageCode   |  Uma corda indicando a linguagem para voltar. O serviço devolve o reconhecimento numa linguagem especificada. Se este parâmetro não for especificado, o valor predefinido é "en". <br/><br/>As línguas apoiadas são: <br/>*en* - Inglês (padrão) <br/> *es* - Espanhol <br/> *ja* - Japonês <br/> *pt* - Português <br/> *zh* - Chinês simplificado|
+| código de idioma padrão   |  Uma corda indicando a linguagem para voltar. O serviço devolve o reconhecimento numa linguagem especificada. Se este parâmetro não for especificado, o valor predefinido é "en". <br/><br/>As línguas apoiadas são: <br/>*en* - Inglês (padrão) <br/> *es* - Espanhol <br/> *ja* - Japonês <br/> *pt* - Português <br/> *zh* - Chinês simplificado|
 | recursos visuais |  Uma série de cordas que indicam os tipos de características visuais para regressar. Os tipos de funcionalidades visuais válidos incluem:  <ul><li>*adulto* - deteta se a imagem é de natureza pornográfica (retrata nudez ou um ato sexual), ou é sangrenta (retrata violência extrema ou sangue). Também é detetado conteúdo sexualmente sugestivo (aka conteúdo picante).</li><li>*marcas* - deteta várias marcas dentro de uma imagem, incluindo a localização aproximada. A funcionalidade visual das *marcas* só está disponível em inglês.</li><li> *categorias* - categoriza o conteúdo da imagem de acordo com uma taxonomia definida na [documentação](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)cognitive Services Computer Vision . </li><li>*descrição* - descreve o conteúdo da imagem com uma frase completa em línguas apoiadas.</li><li>*faces* - deteta se os rostos estão presentes. Se presente, gera coordenadas, sexo e idade.</li><li> *objetos* - deteta vários objetos dentro de uma imagem, incluindo a localização aproximada. A funcionalidade visual *dos objetos* só está disponível em inglês.</li><li> *tags* - marca a imagem com uma lista detalhada de palavras relacionadas com o conteúdo da imagem.</li></ul> Os nomes das características visuais são sensíveis aos casos. Note que as funcionalidades visuais *de cor* e *imagemType* foram depreciadas, mas esta funcionalidade ainda pode ser acedida através de uma [habilidade personalizada](https://go.microsoft.com/fwlink/?linkid=2121117).|
-| details   | Uma série de cordas indicando quais detalhes específicos de domínio para devolver. Os tipos de funcionalidades visuais válidos incluem: <ul><li>*celebridades* - identifica celebridades se detetadas na imagem.</li><li>*marcos* - identifica marcos se detetados na imagem. </li></ul> |
+| detalhes   | Uma série de cordas indicando quais detalhes específicos de domínio para devolver. Os tipos de funcionalidades visuais válidos incluem: <ul><li>*celebridades* - identifica celebridades se detetadas na imagem.</li><li>*marcos* - identifica marcos se detetados na imagem. </li></ul> |
 
 ## <a name="skill-inputs"></a>Inputs de habilidade
 
 | Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
-| image         | Tipo complexo. Atualmente, apenas funciona com o campo "/documento/normalized_images", produzido pelo indexante Azure Blob quando ```imageAction``` se fixa num valor diferente do ```none```. Consulte a [amostra](#sample-output) para mais informações.|
+| image         | Tipo complexo. Atualmente, apenas funciona com o campo "/documento/normalized_images", produzido ```imageAction``` pelo indexante Azure ```none```Blob quando é fixado para um valor diferente de . Consulte a [amostra](#sample-output) para mais informações.|
 
 
 
@@ -55,10 +55,11 @@ Os parâmetros são sensíveis aos casos.
             "context": "/document/normalized_images/*",
             "defaultLanguageCode": "en",
             "visualFeatures": [
-                "Tags",
-                "Categories",
-                "Description",
-                "Faces"
+                "tags",
+                "categories",
+                "description",
+                "faces",
+                "brands"
             ],
             "inputs": [
                 {
@@ -78,6 +79,9 @@ Os parâmetros são sensíveis aos casos.
                 },
                 {
                     "name": "faces"
+                },
+                {
+                    "name": "brands"
                 }
             ]
         }
@@ -312,6 +316,10 @@ Os parâmetros são sensíveis aos casos.
         {
             "sourceFieldName": "/document/normalized_images/*/faces/*",
             "targetFieldName": "faces"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/brands/*/name",
+            "targetFieldName": "brands"
         }
 ```
 ### <a name="variation-on-output-field-mappings-nested-properties"></a>Variação dos mapeamentos de campos de saída (propriedades aninhadas)
@@ -485,6 +493,7 @@ Você pode definir mapeamentos de campo de saída para propriedades de nível in
         "brands":[  
            {  
               "name":"Microsoft",
+              "confidence": 0.903,
               "rectangle":{  
                  "x":20,
                  "y":97,
@@ -507,13 +516,13 @@ Nos seguintes casos de erro, não são extraídos elementos.
 |------------|-------------|
 | Linguagem Não Suportada | A linguagem fornecida não é suportada. |
 | InvalidImageUrl | O URL de imagem está mal formatado ou não está acessível.|
-| InvalidImageFormat | Os dados de entrada não são uma imagem válida. |
-| InvalidImageSize | A imagem de entrada é muito grande. |
+| Formato De Imagem Inválido | Os dados de entrada não são uma imagem válida. |
+| Tamanho de Imagem Inválida | A imagem de entrada é muito grande. |
 | Recurso Visual Não Suportado  | O tipo de característica especificado não é válido. |
-| NotSupportedImage | Imagem não suportada, por exemplo, pornografia infantil. |
+| Não SupportedImage | Imagem não suportada, por exemplo, pornografia infantil. |
 | InválidosDetalhes | Modelo específico de domínio não suportado. |
 
-Se tiver o erro semelhante ao `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`, verifique o caminho. Tanto celebridades como marcos são propriedades sob `detail`.
+Se tiver o erro `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`semelhante ao, verifique o caminho. Tanto celebridades como marcos são `detail`propriedades sob .
 
 ```json
 "categories":[  
@@ -533,4 +542,4 @@ Se tiver o erro semelhante ao `"One or more skills are invalid. Details: Error i
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
-+ [Criar Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

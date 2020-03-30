@@ -1,5 +1,5 @@
 ---
-title: Como integrar-se com o Diretório Ativo Azure  Microsoft Docs
+title: Como integrar-se com o Diretório Ativo Azure [ Microsoft Docs
 description: Conheça os benefícios de integrar a sua aplicação com o Azure Ative Directory e obtenha recursos para funcionalidades como entrada simplificada, gestão de identidade, autenticação multifactor e controlo de acesso.
 services: active-directory
 author: rwike77
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: 5e4c6fb91b93b1035c68350a5f77a3c16db7323f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300117"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração com Diretório Ativo Azure

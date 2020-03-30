@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: aschhab
 ms.openlocfilehash: 6a78e4d81921fae8dcb325e9d72df1eee7b99a3b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259295"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar uma candidatura com o Diretório Ativo azure para aceder às entidades da Azure Service Bus
@@ -21,7 +21,7 @@ O Azure Service Bus suporta a utilização do Azure Ative Directory (Azure AD) p
 ## <a name="overview"></a>Descrição geral
 Quando um diretor de segurança (utilizador, grupo ou aplicação) tenta aceder a uma entidade do Ônibus de serviço, o pedido deve ser autorizado. Com a AD Azure, o acesso a um recurso é um processo em duas etapas. 
 
- 1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para solicitar um símbolo é `https://servicebus.azure.net`.
+ 1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para `https://servicebus.azure.net`pedir um símbolo é .
  1. Em seguida, o símbolo é passado como parte de um pedido ao serviço de ônibus de serviço para autorizar o acesso ao recurso especificado.
 
 A etapa de autenticação requer que um pedido de pedido contenha um sinal de acesso OAuth 2.0 no prazo de execução. Se uma aplicação estiver a funcionar dentro de uma entidade Azure, como um Azure VM, um conjunto de escala de máquina virtual ou uma aplicação Azure Function, pode usar uma identidade gerida para aceder aos recursos. Para saber autenticar pedidos feitos por uma identidade gerida para o serviço de ônibus de serviço, consulte o [acesso authenticado aos recursos do Azure Service Bus com o Azure Ative Directory e identidades geridas para a Azure Resources.](service-bus-managed-service-identity.md) 
@@ -93,7 +93,7 @@ As seguintes secções mostram-lhe como configurar a sua aplicação nativa ou a
 
 Para uma visão geral do fluxo de concessão de código OAuth 2.0, consulte [Autorizar o acesso às aplicações web do Azure Ative Directory utilizando o fluxo de subvenção de código OAuth 2.0](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-### <a name="register-your-application-with-an-azure-ad-tenant"></a>Registar a aplicação com um inquilino do Azure AD
+### <a name="register-your-application-with-an-azure-ad-tenant"></a>Registe a sua candidatura com um inquilino da AD Azure
 O primeiro passo na utilização da Azure AD para autorizar entidades de ônibus de serviço é registar a sua aplicação de cliente com um inquilino Azure AD do [portal Azure](https://portal.azure.com/). Ao registar a sua aplicação de cliente, fornece informações sobre a aplicação à AD. A Azure AD fornece então um ID do cliente (também chamado de ID de aplicação) que pode utilizar para associar a sua aplicação ao tempo de execução da AD Azure. Para saber mais sobre o ID do cliente, consulte [os objetos principais de aplicação e serviço no Diretório Ativo Azure](../active-directory/develop/app-objects-and-service-principals.md). 
 
 As seguintes imagens mostram passos para registar uma aplicação web:
@@ -116,7 +116,7 @@ Para obter mais informações sobre o registo de uma aplicação com a Azure AD,
 O pedido precisa de um segredo de cliente para provar a sua identidade ao solicitar um símbolo. Para adicionar o segredo do cliente, siga estes passos.
 
 1. Navegue para o registo da sua aplicação no portal Azure se ainda não estiver na página.
-1. Selecione **Certificados e segredos** no menu esquerdo.
+1. Selecione **Certificados & segredos** no menu esquerdo.
 1. Sob **os segredos do Cliente,** selecione **novo segredo de cliente** para criar um novo segredo.
 
     ![Novo segredo do cliente - botão](./media/authenticate-application/new-client-secret-button.png)
@@ -144,12 +144,12 @@ Utilize a opção **de login do Segredo do Cliente,** e não a opção **de logi
 
 Antes de poder executar a amostra, edite o ficheiro **app.config** e, dependendo do seu cenário, detete os seguintes valores:
 
-- `tenantId`: Definido para o valor **Do Arrendatário.**
-- `clientId`: Definir para o valor **applicationId.**
-- `clientSecret`: Se quiser assinar com o segredo do cliente, crie-o em Azure AD. Além disso, utilize uma aplicação web ou a API em vez de uma aplicação nativa. Além disso, adicione a aplicação no **Access Control (IAM)** no espaço de nome que criou anteriormente.
+- `tenantId`: Definido para o valor **Do Id inquilino.**
+- `clientId`: Definir para o valor **ApplicationId.**
+- `clientSecret`: Se quiser assinar com o segredo do cliente, crie-o em Azure AD. Além disso, utilize uma aplicação web ou API em vez de uma aplicação nativa. Além disso, adicione a aplicação no **Access Control (IAM)** no espaço de nome que criou anteriormente.
 - `serviceBusNamespaceFQDN`: Definir o nome DNS completo do seu recém-criado espaço de nome service bus; por exemplo, `example.servicebus.windows.net`.
-- `queueName`: Desloque-se para o nome da fila que criou.
-- O URI de redirecionamento que especificou na sua aplicação nos passos anteriores.
+- `queueName`: Definir o nome da fila que criou.
+- O URI redirecionado que especificou na sua aplicação nos passos anteriores.
 
 Quando executa a aplicação da consola, é-lhe solicitado que selecione um cenário. Selecione **Login de utilizador interativo** digitando o seu número e premindo ENTER. A aplicação exibe uma janela de login, pede o seu consentimento para aceder ao Service Bus e, em seguida, utiliza o serviço para executar através do cenário de envio/receção usando a identidade de login.
 
@@ -166,5 +166,5 @@ Para mais informações sobre mensagens do Service Bus, consulte os seguintes t�
 
 - [Amostras rBAC de ônibus de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
 - [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-- [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+- [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 - [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

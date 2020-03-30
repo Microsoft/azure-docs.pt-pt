@@ -1,19 +1,19 @@
 ---
-title: Analise os dados do dispositivo na sua aplicação Azure IoT Central  Microsoft Docs
+title: Analise os dados do dispositivo na sua aplicação Azure IoT Central [ Microsoft Docs
 description: Analise os dados do dispositivo na sua aplicação Azure IoT Central.
-author: ankitgup
+author: ankitscribbles
 ms.author: ankitgup
 ms.date: 11/27/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7627421317458eb0ff9637b3497df11dacfddbff
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40460b58ede0ca0da8fe25475906bdbe41bfffe0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023859"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158287"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Como usar a análise para analisar dados do dispositivo
 
@@ -56,16 +56,16 @@ Depois de questionado sobre os seus dados, pode começar a visualizá-lo na tabe
 
     ![Editor de Tempo](media/howto-create-analytics/timeeditorpanel.png)
 
-    - Ferramenta de deslize de alcance de **data interior:** Utilize os dois comandos de ponto final arrastando-os durante o período de tempo que desejar. Esse intervalo de datas interna é restrito pelo controle deslizante de intervalo de datas externa.
+    - Ferramenta de deslize de alcance de **data interior:** Utilize os dois comandos de ponto final arrastando-os durante o período de tempo que desejar. Esta gama de datas interiores é limitada pelo controlo de slider de intervalo de data exterior.
     
    
-    - **Controle deslizante de intervalo de datas externas**: Use os controles de ponto de extremidade para selecionar o intervalo de datas externas, que estará disponível para o controle de intervalo de datas interna.
+    - Controlo de **slider**de intervalo de data externa : Utilize os comandos de ponto final para selecionar o intervalo de data exterior, que estará disponível para o seu controlo de alcance de data interior.
 
-    - **Aumentar e diminuir os botões de intervalo de datas**: aumento ou diminuição span de seu tempo ao selecionar o botão para o intervalo que pretende.
+    - **Aumentar e diminuir os botões**de intervalo de datas : Aumente ou diminua o seu tempo selecionando qualquer um dos botões para o intervalo que desejar.
 
-    - **Deslizador de intervalos:** Utilize-o para ampliar para dentro e para fora de intervalos ao longo do mesmo período de tempo. Esta ação fornece um controle mais preciso de movimento entre os setores de grandes dimensões de tempo. Pode usá-lo para ver vistas granulares e de alta resolução dos seus dados, mesmo até milissegundos. O ponto de partida padrão do slider é definido como a visão mais ideal dos dados da sua seleção, que equilibra a resolução, a velocidade de consulta e a granularidade.
+    - **Deslizador de intervalos:** Utilize-o para ampliar para dentro e para fora de intervalos ao longo do mesmo período de tempo. Esta ação proporciona um controlo mais preciso do movimento entre grandes fatias de tempo. Pode usá-lo para ver vistas granulares e de alta resolução dos seus dados, mesmo até milissegundos. O ponto de partida padrão do slider é definido como a visão mais ideal dos dados da sua seleção, que equilibra a resolução, a velocidade de consulta e a granularidade.
     
-    - **Picker**de gama de datas: Com este controlo web, pode selecionar facilmente as gamas de data e hora que deseja. Também pode utilizar o controlo de alternar entre diferentes fusos horários. Depois de efazer as alterações para se aplicar ao seu espaço de trabalho atual, selecione Save.
+    - **Picker**de gama de datas: Com este controlo web, pode selecionar facilmente as gamas de data e hora que deseja. Também pode utilizar o comando para alternar entre diferentes fusos horários. Depois de efazer as alterações para se aplicar ao seu espaço de trabalho atual, selecione Save.
 
     > [!TIP]
     > O tamanho do intervalo é determinado dinamicamente com base no tempo selecionado. Períodos de tempo mais pequenos permitirão agregar os dados em intervalos muito granulares de até alguns segundos.

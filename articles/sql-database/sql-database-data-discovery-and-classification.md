@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: eb4e7907c3dcffed035307c2084160ce6051be13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98b21969ce86f84b20fbe78dbdf3002769ef65f5
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409954"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387874"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Data Discovery & Classificação para Base de Dados Azure SQL e Azure Synapse Analytics
 
@@ -89,17 +89,11 @@ Uma vez definida a política em todo o arrendamento, pode continuar com a classi
 
 4. Para fazer o download de um relatório em formato Excel, clique na opção **Export** no menu superior da janela.
 
-   ![Exportar para o Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
-
 5. <a id="step-5"></a>Para começar a classificar os seus dados, clique no **separador Classificação** na parte superior da janela.
-
-    ![Classificar os seus dados](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. O motor de classificação verifica a sua base de dados para colunas que contenham dados potencialmente sensíveis e fornece uma lista de **classificações recomendadas**de colunas . Ver e aplicar recomendações de classificação:
 
-   - Para visualizar a lista de classificações recomendadas da coluna, clique no painel de recomendações na parte inferior da janela:
-
-      ![Classificar os dados](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
+   - Para ver a lista de classificações recomendadas da coluna, clique no painel de recomendações na parte inferior da janela
 
    - Reveja a lista de recomendações – para aceitar uma recomendação para uma coluna específica, verifique a caixa de verificação na coluna esquerda da linha relevante. Também pode marcar *todas as recomendações aceites,* verificando a caixa de verificação no cabeçalho da tabela de recomendações.
 
@@ -107,21 +101,15 @@ Uma vez definida a política em todo o arrendamento, pode continuar com a classi
 
    - Para aplicar as recomendações selecionadas, clique no botão de **recomendações do Aceito** azul.
 
-      ![Aplicar recomendações](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
-
 7. Também pode **classificar manualmente** as colunas como uma alternativa, ou além disso, à classificação baseada em recomendações:
 
    - Clique em **Adicionar classificação** no menu superior da janela.
-
-      ![Adicionar manualmente classificação](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
    - Na janela de contexto que se abre, selecione o esquema > tabela > coluna que pretende classificar, e o tipo de informação e etiqueta de sensibilidade. Em seguida, clique no botão de **classificação** azul Adicionar na parte inferior da janela de contexto.
 
       ![Selecione coluna para classificar](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
 8. Para completar a sua classificação e rotular persistentemente (etiquetar) as colunas de base de dados com os novos metadados de classificação, clique em **Guardar** no menu superior da janela.
-
-   ![Guardar](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a name="auditing-access-to-sensitive-data"></a><a id="subheading-3"></a>Auditoria ao acesso a dados sensíveis
 
@@ -183,7 +171,7 @@ Pode utilizar o PowerShell para gerir classificações e recomendações para a 
 
 ## <a name="next-steps"></a><a id="subheading-6"></a>Passos seguintes
 
-- Saiba mais sobre [a segurança avançada de dados.](sql-database-advanced-data-security.md)
+- Saiba mais sobre [a Segurança avançada de dados.](sql-database-advanced-data-security.md)
 - Considere configurar a Auditoria de Base de [Dados Azure SQL](sql-database-auditing.md) para monitorização e auditoria de acesso aos seus dados confidenciais confidenciais.
 - Para uma apresentação no YouTube que inclui data Discovery & Classification, consulte [Descobrir, classificar, rotular & proteger dados SQL [ Dados Expostos](https://www.youtube.com/watch?v=itVi9bkJUNc).
 

@@ -20,13 +20,13 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77153881"
 ---
-# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Visão geral da linguagem OData para `$filter`, `$orderby`e `$select` na Pesquisa Cognitiva Azure
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Visão geral da `$filter`linguagem `$orderby`OData para, e `$select` em Pesquisa Cognitiva Azure
 
 A Azure Cognitive Search suporta um subconjunto da sintaxe de expressão OData para **$filter**, **$orderby**e **$select** expressões. As expressões de filtro são avaliadas durante a consulta, limitando a pesquisa a campos específicos ou adicionando critérios de correspondência usados durante as análises de índice. As expressões por encomenda são aplicadas como um passo pós-processamento sobre um resultado definido para classificar os documentos que são devolvidos. As expressões selecionadas determinam quais os campos de documentos incluídos no conjunto de resultados. A sintaxe destas expressões é distinta da sintaxe de consulta [simples](query-simple-syntax.md) ou [completa](query-lucene-syntax.md) que é usada no parâmetro de **pesquisa,** embora haja alguma sobreposição na sintaxe para campos de referenciação.
 
@@ -66,26 +66,26 @@ Um diagrama de sintaxe interativa também está disponível:
 
 Um percurso de campo é composto por um ou mais **identificadores separados** por cortes. Cada identificador é uma sequência de caracteres que deve começar com uma letra ASCII ou sublinhar, e conter apenas letras, dígitos ou sublinhados ASCII. As letras podem ser maiúsculas ou inferiores.
 
-Um identificador pode referir-se quer ao nome de um campo, quer a uma **variável** de gama no contexto de uma expressão de [recolha](search-query-odata-collection-operators.md) (`any` ou `all`) num filtro. Uma variável de gama é como uma variável de loop que representa o elemento atual da coleção. Para coleções complexas, essa variável representa um objeto, razão pela qual você pode usar caminhos de campo para se referir a sub-campos da variável. Isto é análogo a notar pontos em muitas linguagens de programação.
+Um identificador pode referir-se quer ao nome de um campo, quer`any` a `all`uma **variável** de gama no contexto de uma expressão de [recolha](search-query-odata-collection-operators.md) ( ou ) num filtro. Uma variável de gama é como uma variável de loop que representa o elemento atual da coleção. Para coleções complexas, essa variável representa um objeto, razão pela qual você pode usar caminhos de campo para se referir a sub-campos da variável. Isto é análogo a notar pontos em muitas linguagens de programação.
 
 Exemplos de percursos de campo são mostrados na tabela seguinte:
 
 | Caminho de campo | Descrição |
 | --- | --- |
 | `HotelName` | Refere-se a um campo de alto nível do índice |
-| `Address/City` | Refere-se ao subcampo `City` de um campo complexo no índice; `Address` é de tipo `Edm.ComplexType` neste exemplo |
-| `Rooms/Type` | Refere-se ao subcampo `Type` de um complexo campo de recolha no índice; `Rooms` é de tipo `Collection(Edm.ComplexType)` neste exemplo |
-| `Stores/Address/Country` | Refere-se ao subcampo `Country` do subcampo `Address` de um complexo campo de recolha no índice; `Stores` é de tipo `Collection(Edm.ComplexType)` e `Address` é de tipo `Edm.ComplexType` neste exemplo |
-| `room/Type` | Refere-se ao subcampo `Type` da variável de gama `room`, por exemplo, na expressão do filtro `Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Refere-se ao subcampo `Country` do subcampo `Address` variável de alcance `store`, por exemplo, na expressão do filtro `Stores/any(store: store/Address/Country eq 'Canada')` |
+| `Address/City` | Refere-se `City` ao subcampo de um campo complexo no índice; `Address` é de `Edm.ComplexType` tipo neste exemplo |
+| `Rooms/Type` | Refere-se `Type` ao subcampo de um complexo campo de recolha no índice; `Rooms` é de `Collection(Edm.ComplexType)` tipo neste exemplo |
+| `Stores/Address/Country` | Refere-se `Country` ao subcampo `Address` do subcampo de um complexo campo de recolha no índice; `Stores` é de `Collection(Edm.ComplexType)` `Address` tipo e `Edm.ComplexType` é de tipo neste exemplo |
+| `room/Type` | Refere-se `Type` ao sub-campo `room` da variável gama, por exemplo na expressão do filtro`Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Refere-se `Country` ao subcampo `Address` do subcampo `store` da variável gama, por exemplo na expressão do filtro`Stores/any(store: store/Address/Country eq 'Canada')` |
 
 O significado de um caminho de campo difere dependendo do contexto. Nos filtros, um caminho de campo refere-se ao valor de uma *única instância* de um campo no documento atual. Noutros contextos, como **$orderby**, **$select**, ou em [busca em campo na sintaxe lucene completa](query-lucene-syntax.md#bkmk_fields), um percurso de campo refere-se ao próprio campo. Esta diferença tem algumas consequências para a forma como utiliza os caminhos de campo nos filtros.
 
-Considere o caminho de campo `Address/City`. Num filtro, isto refere-se a uma única cidade para o documento atual, como "São Francisco". Em contraste, `Rooms/Type` refere-se ao sub-campo `Type` para muitas salas (como "standard" para a primeira sala, "deluxe" para o segundo quarto, e assim por diante). Uma vez que `Rooms/Type` não se refere a uma *única instância* do sub-campo `Type`, não pode ser usado diretamente num filtro. Em vez disso, para filtrar no tipo de quarto, você usaria uma [expressão lambda](search-query-odata-collection-operators.md) com uma variável de gama, como esta:
+Considere o `Address/City`caminho de campo. Num filtro, isto refere-se a uma única cidade para o documento atual, como "São Francisco". Em contraste, `Rooms/Type` refere-se ao `Type` sub-campo para muitas salas (como "standard" para a primeira sala, "deluxe" para o segundo quarto, e assim por diante). Uma `Rooms/Type` vez que não se refere a `Type`uma única *instância* do sub-campo, não pode ser usado diretamente num filtro. Em vez disso, para filtrar no tipo de quarto, você usaria uma [expressão lambda](search-query-odata-collection-operators.md) com uma variável de gama, como esta:
 
     Rooms/any(room: room/Type eq 'deluxe')
 
-Neste exemplo, a variável de alcance `room` aparece no caminho de campo `room/Type`. Dessa forma, `room/Type` refere-se ao tipo de sala atual no documento atual. Esta é uma instância única do subcampo `Type`, para que possa ser utilizado diretamente no filtro.
+Neste exemplo, a `room` variável de `room/Type` alcance aparece no caminho de campo. Desta forma, `room/Type` refere-se ao tipo de sala atual no documento atual. Esta é uma instância `Type` única do subcampo, por isso pode ser utilizado diretamente no filtro.
 
 ### <a name="using-field-paths"></a>Usando caminhos de campo
 
@@ -96,10 +96,10 @@ Os percursos de campo são utilizados em muitos parâmetros das APIs de [REPOUSO
 | [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) Índice | `suggesters/sourceFields` | Nenhuma |
 | [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) Índice | `scoringProfiles/text/weights` | Só pode se referir a campos **pesquisáveis** |
 | [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) Índice | `scoringProfiles/functions/fieldName` | Só pode se referir a campos **filtrados** |
-| [Pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` quando `queryType` é `full` | Só pode se referir a campos **pesquisáveis** |
-| [Pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Só pode se referir a campos **de facetable** |
-| [Pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Só pode se referir a campos **pesquisáveis** |
-| [Pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Só pode se referir a campos **pesquisáveis** |
+| [Procurar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`quando `queryType` é`full` | Só pode se referir a campos **pesquisáveis** |
+| [Procurar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Só pode se referir a campos **de facetable** |
+| [Procurar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Só pode se referir a campos **pesquisáveis** |
+| [Procurar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Só pode se referir a campos **pesquisáveis** |
 | [Sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Só pode se referir a campos que fazem parte de um [sugestor](index-add-suggesters.md) |
 | [Pesquisa,](https://docs.microsoft.com/rest/api/searchservice/search-documents) [Sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions)e [Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Só pode se referir a campos **filtrados** |
 | [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) e [Sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Só pode se referir a campos **classificados** |
@@ -126,7 +126,7 @@ A tabela que se segue apresenta exemplos de constantes para cada um dos tipos de
 
 As constantes de cordas no OData são delimitadas por citações individuais. Se precisar de construir uma consulta com uma constante de cordas que possa conter citações únicas, pode escapar às citações incorporadas duplicando-as.
 
-Por exemplo, uma frase com um apóstrofe não formado como "O carro de Alice" seria representada no OData como a constante de cordas `'Alice''s car'`.
+Por exemplo, uma frase com um apóstrofe não formado como "O carro de `'Alice''s car'`Alice" seria representada no OData como a constante de cordas .
 
 > [!IMPORTANT]
 > Ao construir filtros programáticamente, é importante lembrar-se de escapar às constantes de cordas que vêm da entrada do utilizador. Isto é para mitigar a possibilidade de ataques de [injeção](https://wikipedia.org/wiki/SQL_injection), especialmente quando se utilizam filtros para implementar [o aparador](search-security-trimming-for-azure-search.md)de segurança .
@@ -205,7 +205,7 @@ Um diagrama de sintaxe interativa também está disponível:
 
 ## <a name="building-expressions-from-field-paths-and-constants"></a>Construindo expressões de caminhos de campo e constantes
 
-Os caminhos de campo e as constantes são a parte mais básica de uma expressão OData, mas já são expressões completas. Na verdade, o parâmetro **$select** em Azure Cognitive Search não passa de uma lista separada de caminhos de campo separados, e **$orderby** não é muito mais complicado do que **$select**. Se por acaso tiver um campo de `Edm.Boolean` no seu índice, pode até escrever um filtro que não passa de um caminho desse campo. As constantes `true` e `false` são também filtros válidos.
+Os caminhos de campo e as constantes são a parte mais básica de uma expressão OData, mas já são expressões completas. Na verdade, o parâmetro **$select** em Azure Cognitive Search não passa de uma lista separada de caminhos de campo separados, e **$orderby** não é muito mais complicado do que **$select**. Se por acaso tiver `Edm.Boolean` um campo de tipo no seu índice, pode até escrever um filtro que não passa de um caminho desse campo. As `true` constantes `false` e são filtros igualmente válidos.
 
 No entanto, na maior parte do tempo vai precisar de expressões mais complexas que se referem a mais do que um campo e constante. Estas expressões são construídas de diferentes maneiras dependendo do parâmetro.
 
@@ -229,7 +229,7 @@ Um diagrama de sintaxe interativa também está disponível:
 > [!NOTE]
 > Consulte a [referência sintaxe de expressão OData para a Pesquisa Cognitiva Azure](search-query-odata-syntax-reference.md) para o EBNF completo.
 
-Os parâmetros **$orderby** e **$select** são listas separadas pela vírposta de expressões mais simples. O parâmetro **$filter** é uma expressão booleana que é composta por subexpressões mais simples. Estas subexpressões são combinadas utilizando operadores lógicos como [`and`, `or`e `not`](search-query-odata-logical-operators.md), operadores de comparação como [`eq`, `lt`, `gt`, e por diante](search-query-odata-comparison-operators.md), e operadores de recolha como`any` e [`all`. ](search-query-odata-collection-operators.md)
+Os parâmetros **$orderby** e **$select** são listas separadas pela vírposta de expressões mais simples. O parâmetro **$filter** é uma expressão booleana que é composta por subexpressões mais simples. Estas subexpressões são combinadas utilizando operadores lógicos [ `and` `or`como, `not`e ](search-query-odata-logical-operators.md)operadores de comparação, [ `eq`como, `lt` `gt`e por diante,](search-query-odata-comparison-operators.md)e operadores de recolha, tais como [ `any` e `all` ](search-query-odata-collection-operators.md).
 
 Os parâmetros **$filter**, **$orderby**e **$select** são explorados mais detalhadamente nos seguintes artigos:
 
@@ -237,10 +237,10 @@ Os parâmetros **$filter**, **$orderby**e **$select** são explorados mais detal
 - [OData $orderby sintaxe na Pesquisa Cognitiva azure](search-query-odata-orderby.md)
 - [OData $select sintaxe na Pesquisa Cognitiva de Azure](search-query-odata-select.md)
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Consulte também  
 
 - [Navegação facetada na Pesquisa Cognitiva Azure](search-faceted-navigation.md)
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
-- [Documentos &#40;de pesquisa Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Documentos de pesquisa &#40;pesquisa cognitiva azure REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Sintaxe de consulta Lucene](query-lucene-syntax.md)
 - [Sintaxe de consulta simples em Pesquisa Cognitiva Azure](query-simple-syntax.md)

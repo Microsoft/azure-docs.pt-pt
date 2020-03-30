@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7f3825a2d87d5948de4bb4a9b86be8e3050f2100
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6e1c9aa5c2e049d5fc1ebd8bf745417f56d232ec
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79251521"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366583"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificação de vídeo e áudio com serviços de mídia
 
@@ -36,17 +36,17 @@ O diagrama seguinte mostra o fluxo de trabalho para codificação a pedido com e
 
 ![Fluxo de trabalho para codificação a pedido com embalagem dinâmica](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-Este tópico fornece orientações sobre como codificar o conteúdo com serviços de multimédia v3.
+Este tópico dá-lhe orientação sobre como codificar o seu conteúdo com o Media Services v3.
 
 ## <a name="transforms-and-jobs"></a>Transformações e tarefas
 
 Para codificar com os Media Services v3, é necessário criar um [Transform](https://docs.microsoft.com/rest/api/media/transforms) and [a Job.](https://docs.microsoft.com/rest/api/media/jobs) A transformação define uma receita para as suas definições e saídas de codificação; o trabalho é um exemplo da receita. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
 
-Quando o encoding com Media Services, vai utilizar configurações predefinidas para informar ao codificador, como os ficheiros de suporte de dados de entrada devem ser processados. Por exemplo, pode especificar a resolução de vídeo e/ou o número de canais de áudio que pretende no conteúdo codificado.
+Ao codificar com os Serviços de Media, utilize predefinições para dizer ao codificador como os ficheiros de mídia de entrada devem ser processados. Nos Serviços de Media v3, utiliza o Standard Encoder para codificar os seus ficheiros. Por exemplo, pode especificar a resolução de vídeo e/ou o número de canais de áudio que deseja no conteúdo codificado.
 
-Pode começar a utilizar rapidamente com um dos pré-visualizando incorporada recomendado com base nas práticas recomendadas do setor ou pode optar por criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino. Para mais informações, consulte [o Encode com um Transform personalizado](customize-encoder-presets-how-to.md).
+Pode começar rapidamente com uma das predefinições incorporadas recomendadas com base nas melhores práticas da indústria ou pode optar por construir um preset personalizado para direcionar os seus requisitos específicos para o seu cenário ou dispositivo. Para mais informações, consulte [o Encode com um Transform personalizado](customize-encoder-presets-how-to.md).
 
-A partir de janeiro de 2019, quando a codificação com a Media Encoder Standard para produzir ficheiros MP4(s), é gerado e adicionado ao Ativo de saída um novo ficheiro .mpi. Este ficheiro MPI destina-se a melhorar o desempenho das [embalagens dinâmicas](dynamic-packaging-overview.md) e cenários de streaming.
+A partir de janeiro de 2019, quando codificar com o Standard Encoder para produzir ficheiros MP4(s), é gerado e adicionado ao Ativo de saída um novo ficheiro .mpi. Este ficheiro MPI destina-se a melhorar o desempenho das [embalagens dinâmicas](dynamic-packaging-overview.md) e cenários de streaming.
 
 > [!NOTE]
 > Não deve modificar ou remover o ficheiro MPI, nem tomar qualquer dependência do seu serviço sobre a existência (ou não) de tal ficheiro.
@@ -86,7 +86,7 @@ Ver exemplos:
 * [Subclipe um vídeo com .NET](subclip-video-dotnet-howto.md)
 * [Subclipe um vídeo com REST](subclip-video-rest-howto.md)
 
-## <a name="built-in-presets"></a>Configurações predefinidas incorporadas
+## <a name="built-in-presets"></a>Presets incorporados
 
 A Media Services suporta as seguintes predefinições de codificação incorporadas:  
 
@@ -94,14 +94,14 @@ A Media Services suporta as seguintes predefinições de codificação incorpora
 
 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) é utilizado para definir um preset incorporado para codificar o vídeo de entrada com o Codificador Standard.
 
-Atualmente são suportadas as seguintes predefinições:
+As seguintes predefinições são atualmente suportadas:
 
 - **EncoderNamedPreset.AACGoodQualityAudio**: produz um único ficheiro MP4 contendo apenas áudio estéreo codificado a 192 kbps.
 - **EncoderNamedPreset.AdaptiveStreaming** (recomendado): Para obter mais informações, consulte a [geração automática de uma escada bitrate](autogen-bitrate-ladder.md).
 - **EncoderNamedPreset.ContentAwareEncodingExperimental**: expõe um preconjunto experimental para codificação consciente do conteúdo. Dado qualquer conteúdo de entrada, o serviço tenta determinar automaticamente o número ideal de camadas e configurações adequadas de bitrate e resolução para entrega através de streaming adaptativo. Os algoritmos subjacentes continuarão a evoluir ao longo do tempo. A saída conterá ficheiros MP4 com vídeo e áudio interleaved. Para mais informações, consulte [o predefinido experimental para codificação consciente do conteúdo](content-aware-encoding.md).
-- **EncoderNamedPreset.H264MultipleBitrate1080p**: produz um conjunto de oito ficheiros MP4 alinhados com GOP, que variam entre 6000 kbps e 400 kbps e áudio AAC estéreo. Resolução começa em 1080p e vai até 360p.
-- **EncoderNamedPreset.H264MultipleBitrate720p**: produz um conjunto de seis ficheiros MP4 alinhados com GOP, que variam entre 3400 kbps e 400 kbps e áudio AAC estéreo. Resolução é iniciada à 720p e vai até 360p.
-- **EncoderNamedPreset.H264MultipleBitrateSD**: produz um conjunto de cinco ficheiros MP4 alinhados com GOP, que variam entre 1600 kbps e 400 kbps e áudio AAC estéreo. Resolução é iniciada à 480p e vai até 360p.
+- **EncoderNamedPreset.H264MultipleBitrate1080p**: produz um conjunto de oito ficheiros MP4 alinhados com GOP, que variam entre 6000 kbps e 400 kbps e áudio AAC estéreo. A resolução começa a 1080p e desce para 360p.
+- **EncoderNamedPreset.H264MultipleBitrate720p**: produz um conjunto de seis ficheiros MP4 alinhados com GOP, que variam entre 3400 kbps e 400 kbps e áudio AAC estéreo. A resolução começa a 720p e desce para 360p.
+- **EncoderNamedPreset.H264MultipleBitrateSD**: produz um conjunto de cinco ficheiros MP4 alinhados com GOP, que variam entre 1600 kbps e 400 kbps e áudio AAC estéreo. A resolução começa a 480p e desce para 360p.
 - **EncoderNamedPreset.H264SingleBitrate1080p**: produz um ficheiro MP4 onde o vídeo é codificado com código H.264 a 6750 kbps e uma altura de imagem de 1080 pixels, e o áudio estéreo é codificado com codec AAC-LC a 64 kbps.
 - **EncoderNamedPreset.H264SingleBitrate720p**: produz um ficheiro MP4 onde o vídeo é codificado com código H.264 a 4500 kbps e uma altura de imagem de 720 pixels, e o áudio estéreo é codificado com codec AAC-LC a 64 kbps.
 - **EncoderNamedPreset.H264SingleBitrateSD**: produz um ficheiro MP4 onde o vídeo é codificado com código H.264 a 2200 kbps e uma altura de imagem de 480 pixels, e o áudio estéreo é codificado com codec AAC-LC a 64 kbps.
@@ -112,7 +112,7 @@ Para ver como as predefinições são utilizadas, consulte [ficheiros de upload,
 
 ### <a name="standardencoderpreset"></a>StandardEncoderPreset
 
-[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) descreve definições a utilizar ao codificar o vídeo de entrada com o Codificador Standard. Utilize esta configuração predefinida ao personalizar as configurações predefinidas de transformação.
+[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) descreve definições a utilizar ao codificar o vídeo de entrada com o Codificador Standard. Utilize este predefinido ao personalizar as predefinições Transform.
 
 #### <a name="considerations"></a>Considerações
 
@@ -123,7 +123,7 @@ Ao criar predefinições personalizadas, aplicam-se as seguintes considerações
 
 ### <a name="customizing-presets"></a>Personalizando predefinições
 
-Serviços de multimédia suporta totalmente a personalizar todos os valores nas predefinições para atender às suas necessidades específicas de codificação e requisitos. Por exemplo, que mostram como personalizar predefinições codificadoras, consulte a lista abaixo:
+A Media Services suporta totalmente a personalização de todos os valores em predefinições para satisfazer as suas necessidades e requisitos específicos de codificação. Por exemplo, que mostram como personalizar predefinições codificadoras, consulte a lista abaixo:
 
 #### <a name="examples"></a>Exemplos
 
@@ -135,7 +135,7 @@ Serviços de multimédia suporta totalmente a personalizar todos os valores nas 
 
 Nos Serviços de Media v3, as predefinições são entidades fortemente digitadas na própria API. Pode encontrar a definição "schema" para estes objetos em [Especificação API Aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode visualizar as definições predefinidas (como **StandardEncoderPreset)** no [REST API,](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou outra documentação de referência de Media Services v3 SDK).
 
-## <a name="scaling-encoding-in-v3"></a>Dimensionar codificação da v3
+## <a name="scaling-encoding-in-v3"></a>Codificação de escalonamento em v3
 
 Para escalar o processamento dos meios de comunicação, consulte [Escala com CLI](media-reserved-units-cli-how-to.md).
 

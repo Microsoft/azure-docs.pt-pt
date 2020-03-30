@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086321"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Use identidade gerida para autenticar o seu trabalho de Analytics Azure Stream para Power BI
@@ -172,7 +172,7 @@ Agora que o trabalho do Stream Analytics foi criado, pode ter acesso a um espaç
 
 ### <a name="use-the-power-bi-powershell-cmdlets"></a>Utilize os cmdlets Power BI PowerShell
 
-1. Instale os cmdlets Power BI `MicrosoftPowerBIMgmt` PowerShell.
+1. Instale os `MicrosoftPowerBIMgmt` cmdlets Power BI PowerShell.
 
    > [!Important]
    > Certifique-se de que está a utilizar a versão 1.0.821 ou mais tarde dos cmdlets.

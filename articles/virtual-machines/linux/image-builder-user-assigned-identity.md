@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: f3990037d75f9f77eaedc7ec4049f14814216d9c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 27f4073efc8647d331faa14afbda0e15f92b8d50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944967"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060737"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Crie uma imagem e utilize uma identidade gerida atribuída ao utilizador para aceder a ficheiros no Armazenamento Azure 
 
@@ -26,7 +26,7 @@ No exemplo abaixo, você vai criar dois grupos de recursos, um será usado para 
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="register-the-features"></a>Registe as características
 Para utilizar o Azure Image Builder durante a pré-visualização, é necessário registar a nova funcionalidade.
@@ -63,7 +63,7 @@ az provider register -n Microsoft.Storage
 Vamos usar algumas peças de informação repetidamente, por isso vamos criar algumas variáveis para armazenar essa informação.
 
 
-```azurecli-interactive
+```console
 # Image resource group name 
 imageResourceGroup=aibmdimsi
 # storage resource group
@@ -76,15 +76,15 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-Crie uma variável para o seu ID de subscrição. Pode obter isto usando `az account show | grep id`.
+Crie uma variável para o seu ID de subscrição. Pode obter isto `az account show | grep id`usando.
 
-```azurecli-interactive
+```console
 subscriptionID=<Your subscription ID>
 ```
 
 Crie os grupos de recursos tanto para a imagem como para o armazenamento do script.
 
-```azurecli-interactive
+```console
 # create resource group for image template
 az group create -n $imageResourceGroup -l $location
 # create resource group for the script storage
@@ -119,7 +119,7 @@ az storage blob copy start \
 
 
 
-Dê permissão ao Image Builder para criar recursos no grupo de recursos de imagem. O valor `--assignee` é o ID de registo de aplicações para o serviço Image Builder. 
+Dê permissão ao Image Builder para criar recursos no grupo de recursos de imagem. O `--assignee` valor é o ID de registo de aplicações para o serviço Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -152,7 +152,7 @@ imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/p
 
 Descarregue o exemplo .json file e configure-o com as variáveis que criou.
 
-```azurecli-interactive
+```console
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateMsi.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateMsi.json
@@ -192,7 +192,7 @@ Espere que a construção termine. Isto pode levar cerca de 15 minutos.
 
 Crie um VM a partir da imagem. 
 
-```bash
+```azurecli
 az vm create \
   --resource-group $imageResourceGroup \
   --name aibImgVm00 \
@@ -204,13 +204,13 @@ az vm create \
 
 Depois de criado o VM, inicie uma sessão de SSH com o VM.
 
-```azurecli-interactive
+```console
 ssh aibuser@<publicIp>
 ```
 
 Deve ver que a imagem foi personalizada com uma Mensagem do Dia assim que a sua ligação SSH estiver estabelecida!
 
-```console
+```output
 
 *******************************************************
 **            This VM was built from the:            **
@@ -233,6 +233,6 @@ az group delete -n $imageResourceGroup
 az group delete -n $strResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver algum problema em trabalhar com o Azure Image Builder, consulte [a Resolução de Problemas.](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json)

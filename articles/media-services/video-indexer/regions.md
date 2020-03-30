@@ -1,7 +1,7 @@
 ---
-title: Regiões nas quais Video Indexer está disponível-Azure
+title: Regiões em que o Indexer de Vídeo está disponível - Azure
 titleSuffix: Azure Media Services
-description: Este artigo fala sobre regiões do Azure nas quais os serviços de mídia do Azure Video Indexer estão disponíveis.
+description: Este artigo fala sobre as regiões azure nas quais o Azure Media Services Video Indexer está disponível.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,28 +10,28 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 6ba6f189f4290bb2751adf9b44135eeda7266ca0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c91b38fcbfb9b517651adead010408425e519a82
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892758"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382754"
 ---
-# <a name="azure-regions-in-which-video-indexer-exists"></a>Regiões do Azure nas quais Video Indexer existe
+# <a name="azure-regions-in-which-video-indexer-exists"></a>Regiões azure em que existe Indexer de Vídeo
 
-As APIs de Video Indexer contêm um parâmetro de **local** que você deve definir para a região do Azure para a qual a chamada deve ser roteada. Essa deve ser uma [região do Azure na qual Video indexer está disponível](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
+As APIs do Indexer de Vídeo contêm um parâmetro de **localização** que deve definir para a região de Azure para onde a chamada deve ser encaminhada. Esta deve ser uma [região azure na qual o Video Indexer está disponível.](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)
 
 ## <a name="locations"></a>Localizações
 
-O parâmetro **Location** deve receber o nome do código de região do Azure como seu valor. Se você estiver usando Video Indexer no modo de visualização, deverá colocar *"avaliação"* como o valor. Caso contrário, para obter o nome do código da região do Azure em que sua conta está e para a qual sua chamada deve ser roteada, você pode executar a seguinte linha no [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+O parâmetro de **localização** deve ser dado como valor ao nome de código da região de Azure. Se estiver a utilizar o Indexer de Vídeo no modo de pré-visualização, deve colocar *"trial"* como o valor. Caso contrário, para obter o nome de código da região azure em que a sua conta está e que a sua chamada deve ser encaminhada para, pode executar a seguinte linha em [Azure CLI:](/cli/azure)
 
-```bash
+```azurecli-interactive
 az account list-locations
 ```
 
-Depois de executar a linha mostrada acima, você obterá uma lista de todas as regiões do Azure. Navegue até a região do Azure que tem o *DisplayName* que você está procurando e use seu valor de *nome* para o parâmetro **Location** .
+Uma vez que você executa a linha mostrada acima, você obtém uma lista de todas as regiões Azure. Navegue para a região de Azure que tenha o nome de *exibição* que procura e use o seu valor de *nome* para o parâmetro de **localização.**
 
-Por exemplo, para a região do Azure oeste dos EUA 2 (exibido abaixo), você usará "westus2" para o parâmetro **Location** .
+Por exemplo, para a região de Azure West US 2 (exibida abaixo), você usará "westus2" para o parâmetro de **localização.**
 
 ```json
    {
@@ -46,6 +46,6 @@ Por exemplo, para a região do Azure oeste dos EUA 2 (exibido abaixo), você usa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Personalizar o modelo de linguagem usando APIs](customize-language-model-with-api.md)
-- [Personalizar o modelo de marcas usando APIs](customize-brands-model-with-api.md)
-- [Personalizar o modelo Person usando APIs](customize-person-model-with-api.md)
+- [Personalizar modelo de idioma usando APIs](customize-language-model-with-api.md)
+- [Personalizar modelo de marcas usando APIs](customize-brands-model-with-api.md)
+- [Personalizar modelo pessoa usando APIs](customize-person-model-with-api.md)

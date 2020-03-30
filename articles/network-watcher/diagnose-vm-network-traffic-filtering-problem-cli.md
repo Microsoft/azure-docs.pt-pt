@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: diagnosticar um problema de filtro de tráfego de rede VM-CLI do Azure'
+title: 'Quickstart: Diagnosticar um problema de filtro de tráfego de rede VM - Azure CLI'
 titleSuffix: Azure Network Watcher
-description: Neste guia de início rápido, saiba como diagnosticar um problema de filtro de tráfego de rede de máquina virtual ao utilizar a capacidade de verificação do fluxo IP do Observador de Rede do Azure.
+description: Neste início rápido, vai aprender a diagnosticar um problema de filtro de tráfego de rede numa máquina virtual com a capacidade de verificação do fluxo IP do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -18,32 +18,32 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 251f72ab4f4d53fc2c836f06c78a1faa291b3a8a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b3919a016613da2470c14995663acc9c5415e483
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276082"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382856"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual - CLI do Azure
 
-Neste início rápido, vai implementar uma máquina virtual (VM) e, em seguida, verificar as comunicações para um endereço IP e URL e de um endereço IP. Determine a causa de uma falha de comunicação e como pode resolvê-la.
+Neste início rápido, vai implementar uma máquina virtual (VM) e, em seguida, verificar as comunicações para um endereço IP e URL e de um endereço IP. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este início rápido requer a execução da versão 2.0.28 ou posterior da CLI do Azure. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão da CLI, execute `az login` para criar uma ligação com o Azure. Os comandos da CLI neste início rápido estão formatados para serem executados numa shell do Bash.
+Se optar por instalar e utilizar o Azure CLI localmente, este quickstart requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão Azure CLI, corra `az login` para criar uma ligação com o Azure. Os comandos Azure CLI neste arranque rápido são formatados para correr em uma concha bash.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Antes de criar uma VM, tem de criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Antes de criar uma VM, tem de criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma VM com [az vm create](/cli/azure/vm). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O exemplo seguinte cria uma VM com o nome *myVm*:
+Crie uma VM com [az vm create](/cli/azure/vm). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O exemplo seguinte cria um VM chamado *myVm:*
 
 ```azurecli-interactive
 az vm create \
@@ -53,7 +53,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-A criação da VM demora alguns minutos. Não continue com os restantes passos até que a VM seja criada e a CLI devolva um resultado.
+A criação da VM demora alguns minutos. Não continue com os passos restantes até que o VM seja criado e o Azure CLI retorne a saída.
 
 ## <a name="test-network-communication"></a>Testar a comunicação de rede
 
@@ -72,7 +72,7 @@ az network watcher configure \
 
 ### <a name="use-ip-flow-verify"></a>Utilizar a verificação do fluxo IP
 
-Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Posteriormente, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos de tráfego adicionais. Para testar se o tráfego é permitido ou recusado para destinos diferentes e a partir de um endereço IP de origem, utilize o comando [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow).
+Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Mais tarde, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos adicionais de tráfego. Para testar se o tráfego é permitido ou recusado para destinos diferentes e a partir de um endereço IP de origem, utilize o comando [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow).
 
 Teste a comunicação de saída a partir da VM para um dos endereços IP para www.bing.com:
 
@@ -134,7 +134,7 @@ az network nic list-effective-nsg \
 
 O resultado devolvido inclui o seguinte texto para a regra **AllowInternetOutbound** que permitiu o acesso de saída para www.bing.com num passo anterior em [Utilizar a verificação do fluxo IP](#use-ip-flow-verify):
 
-```azurecli
+```
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -171,11 +171,11 @@ O resultado devolvido inclui o seguinte texto para a regra **AllowInternetOutbou
 },
 ```
 
-No resultado anterior, pode ver que **destinationAddressPrefix** é **Internet**. No entanto, não é claro de que forma 13.107.21.200 se relaciona com **Internet**. Pode ver vários prefixos de endereço listados em **expandedDestinationAddressPrefix**. Um dos prefixos na lista é **12.0.0.0/6**, que abrange o intervalo 12.0.0.1-15.255.255.254 de endereços IP. Uma vez que 13.107.21.200 está dentro desse intervalo de endereços, a regra **AllowInternetOutBound** permite o tráfego de saída. Além disso, não existem regras com prioridade superior (número inferior) apresentadas no resultado anterior que substituam esta regra. Para recusar comunicações de saída para um endereço IP, pode adicionar uma regra de segurança com uma prioridade mais elevada, que recusa a saída da porta 80 para o endereço IP.
+No resultado anterior, pode ver que **destinationAddressPrefix** é **Internet**. No entanto, não é claro de que forma 13.107.21.200 se relaciona com **Internet**. Vê vários prefixos de endereçolistados em **expandidoDestinationAddressPrefix**. Um dos prefixos na lista é **12.0.0.0/6**, que abrange o intervalo 12.0.0.1-15.255.255.254 de endereços IP. Uma vez que 13.107.21.200 está dentro desse intervalo de endereços, a regra **AllowInternetOutBound** permite o tráfego de saída. Além disso, não existem regras com prioridade superior (número inferior) apresentadas no resultado anterior que substituam esta regra. Para recusar comunicações de saída para um endereço IP, pode adicionar uma regra de segurança com uma prioridade mais elevada, que recusa a saída da porta 80 para o endereço IP.
 
-Quando executou o comando `az network watcher test-ip-flow` para testar a comunicação de saída para 172.131.0.100 em [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), o resultado informou-o de que a regra **DefaultOutboundDenyAll** recusou a comunicação. A regra **DefaultOutboundDenyAll** equivale à regra **DenyAllOutBound** apresentada no seguinte resultado do comando `az network nic list-effective-nsg`:
+Quando executou o comando `az network watcher test-ip-flow` para testar a comunicação de saída para 172.131.0.100 em [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), o resultado informou-o de que a regra **DefaultOutboundDenyAll** recusou a comunicação. A regra **DefaultOutboundDenyAll** equivale à regra **DenyAllOutBound** apresentada no resultado seguinte do comando `az network nic list-effective-nsg`:
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -204,11 +204,11 @@ Quando executou o comando `az network watcher test-ip-flow` para testar a comuni
 }
 ```
 
-A regra apresenta **0.0.0.0/0** como o **destinationAddressPrefix**. A regra recusa a comunicação de saída para 172.131.0.100, porque o endereço não se encontra dentro do **destinationAddressPrefix** de qualquer uma das outras regras de saída no resultado do comando `az network nic list-effective-nsg`. Para permitir a comunicação de saída, pode adicionar uma regra de segurança com uma prioridade mais elevada, que permite o tráfego de saída para a porta 80 em 172.131.0.100.
+A regra lista **0.0.0.0/0** como **destinoAddressPrefix**. A regra nega a comunicação de saída a 172.131.0.100, porque o endereço não está dentro do **destinoAddressPrefix** de qualquer uma das outras regras de saída na saída do `az network nic list-effective-nsg` comando. Para permitir a comunicação de saída, pode adicionar uma regra de segurança com uma prioridade mais elevada, que permite o tráfego de saída para a porta 80 em 172.131.0.100.
 
-Quando executou o comando `az network watcher test-ip-flow` em [Utilizar a verificação do fluxo IP](#use-ip-flow-verify) para testar a comunicação de entrada de 172.131.0.100, o resultado informou-o de que a regra **DefaultInboundDenyAll** recusou a comunicação. A regra **DefaultInboundDenyAll** equivale à regra **DenyAllInBound** apresentada no seguinte resultado do comando `az network nic list-effective-nsg`:
+Quando executou o comando `az network watcher test-ip-flow` em [Utilizar a verificação do fluxo IP](#use-ip-flow-verify) para testar a comunicação de entrada de 172.131.0.100, o resultado informou-o de que a regra **DefaultInboundDenyAll** recusou a comunicação. A regra **DefaultInboundDenyAll** equivale à regra **DenyAllInBound** apresentada no resultado seguinte do comando `az network nic list-effective-nsg`:
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},

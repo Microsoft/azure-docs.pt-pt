@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/06/2020
+ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: ad3289d9b93421df6776c685325f388d552bdba4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 242fc115c5b2324c770de480fb19985e8b874893
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279237"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371252"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicação
 
@@ -95,6 +95,10 @@ Consulte considerações de tamanho da [subnet Gateway](https://docs.microsoft.c
 Sim. Além de múltiplos casos de uma determinada implementação do Application Gateway, pode fornecer outro recurso exclusivo do Application Gateway a uma subnet existente que contém um recurso gateway de aplicação diferente.
 
 Uma única sub-rede não suporta tanto Standard_v2 como Gateway de Aplicação Padrão juntos.
+
+### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>O Gateway de aplicação v2 suporta rotas definidas pelo utilizador (UDR)?
+
+Sim, mas apenas cenários específicos. Para mais informações, consulte a visão geral da [configuração do Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)de aplicação .
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>O Application Gateway suporta cabeçalhos x-forward-for?
 
@@ -190,7 +194,7 @@ Consulte [as regras de processamento da Ordem.](https://docs.microsoft.com/azure
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>Para sondas personalizadas, o que significa o campo host?
 
-O campo anfitrião especifica o nome para enviar a sonda quando configurar o multisite no Gateway da Aplicação. Caso contrário, utilize '127.0.0.1'. Este valor é diferente do nome de anfitrião da máquina virtual. O seu formato é \<protocolo\>://\<\>anfitrião :\<porto\>\<caminho\>.
+O campo anfitrião especifica o nome para enviar a sonda quando configurar o multisite no Gateway da Aplicação. Caso contrário, utilize '127.0.0.1'. Este valor é diferente do nome de anfitrião da máquina virtual. O seu \<\>formato\>\<é\>\<\>protocolo ://\<anfitrião : caminho portuário .
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Posso permitir o acesso do Application Gateway a apenas alguns endereços IP de origem?
 
@@ -334,8 +338,8 @@ Sim. Para mais detalhes, [Migrate Azure Application Gateway e Web Application Fi
 
 ### <a name="what-is-an-ingress-controller"></a>O que é um Controlador de Ingress?
 
-Kubernetes permite a criação de `deployment` e `service` recursos para expor um grupo de cápsulas internamente no cluster. Para expor o mesmo serviço externamente, é definido um recurso [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) que proporciona o equilíbrio de carga, a rescisão de SSL e o alojamento virtual baseado em nomes.
-Para satisfazer este recurso `Ingress`, é necessário um Controlador De Ingress que ouça quaisquer alterações aos recursos `Ingress` e configura as políticas de equilíbrio de carga.
+Kubernetes permite `deployment` a `service` criação e recurso para expor um grupo de cápsulas internamente no cluster. Para expor o mesmo serviço [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) externamente, é definido um recurso que proporciona o equilíbrio de carga, a rescisão de SSL e o alojamento virtual baseado em nomes.
+Para satisfazer `Ingress` este recurso, é necessário um Controlador De `Ingress` Ingress que ouça quaisquer alterações aos recursos e configura as políticas de equilíbrio de carga.
 
 O controlador de entrada de entrada de gateway de aplicação permite que o Portal de [Aplicações Azure](https://azure.microsoft.com/services/application-gateway/) seja usado como entrada para um [Serviço Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) também conhecido como cluster AKS.
 
@@ -357,7 +361,7 @@ Para mais informações, consulte [backend saúde, registos de diagnóstico e m�
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Como sei se os meus membros da piscina são saudáveis?
 
-Verifique a saúde utilizando o cmdlet PowerShell `Get-AzApplicationGatewayBackendHealth` ou o portal. Para mais informações, consulte [diagnósticos de Gateway](application-gateway-diagnostics.md)de aplicação .
+Verifique a saúde utilizando o `Get-AzApplicationGatewayBackendHealth` cmdlet PowerShell ou o portal. Para mais informações, consulte [diagnósticos de Gateway](application-gateway-diagnostics.md)de aplicação .
 
 ### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>Qual é a política de retenção dos registos de diagnóstico?
 
@@ -396,20 +400,20 @@ O Gateway V2 da aplicação não suporta atualmente apenas o modo IP privado. Su
 
 Mas se quiser utilizar o Application Gateway V2 apenas com IP privado, pode seguir o processo abaixo:
 1. Criar um Gateway de Aplicação com endereço IP frontend público e privado
-2. Não forneça os seus ouvintes para o endereço IP frontal público. Application Gateway não ouvirá qualquer tráfego no endereço IP público se não forem criados ouvintes para o mesmo.
+2. Não crie nenhum ouvinte para o endereço IP frontal público. Application Gateway não ouvirá qualquer tráfego no endereço IP público se não forem criados ouvintes para o mesmo.
 3. Criar e anexar um Grupo de Segurança de [Rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para a sub-rede gateway de aplicação com a seguinte configuração na ordem de prioridade:
     
     a. Permita o tráfego da Source como etiqueta de serviço **GatewayManager** e Destino como porta **De qualquer** e Destino como **65200-65535**. Esta gama portuária é necessária para a comunicação da infraestrutura Azure. Estas portas estão protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de utilizadores gateway, não podem iniciar alterações nesses pontos finais sem certificados apropriados em vigor
     
-    b. Permitir o tráfego da Source como etiqueta de serviço **AzureLoadBalancer** e destino e porta de destino como **qualquer**
+    b. Permitir o tráfego da Source como etiqueta de serviço **AzureLoadBalancer** e porta de destino como **Qualquer**
     
-    c. Negue todo o tráfego de entrada da Fonte como etiqueta de serviço de **Internet** e destino e porta de destino como **Qualquer**. Dar a esta regra a *menor prioridade* nas regras de entrada
+    c. Negue todo o tráfego de entrada da Fonte como etiqueta de serviço de **Internet** e porta de destino como **Qualquer**. Dar a esta regra a *menor prioridade* nas regras de entrada
     
     d. Mantenha as regras padrão como permitir a entrada da VirtualNetwork para que o acesso no endereço IP privado não seja bloqueado
     
-    e. A conectividade da Internet não pode ser bloqueada. Caso contrário, enfrentará problemas com a exploração madeireira, métricas, etc.
+    e. A conectividade da Internet não pode ser bloqueada. Caso contrário, enfrentará problemas com a exploração madeireira, métricas, e assim por diante.
 
-A configuração NSG da amostra para acesso ip privado apenas: ![Aplicação Gateway V2 NSG Configuração para acesso IP privado apenas](./media/application-gateway-faq/appgw-privip-nsg.png)
+Configuração DE NSG de ![amostra para acesso IP privado apenas: Configuração NSG do Gateway de aplicação para acesso IP privado apenas](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade Gateway application suporta o atributo sameSite?
 Sim, a [atualização v80](https://chromiumdash.appspot.com/schedule) do [navegador Chromium](https://www.chromium.org/Home) introduziu um mandato em cookies HTTP sem atributo sameSite para ser tratado como SameSite=Lax. Isto significa que o cookie de afinidade Do Gateway da Aplicação não será enviado pelo navegador num contexto de terceiros. Para suportar este cenário, o Application Gateway injeta outro cookie chamado *ApplicationGatewayAffinityCORS* para além do cookie *ApplicationGatewayAffinity* existente.  Estes cookies são similares, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados: *SameSite=None; Seguro.* Estes atributos mantêm sessões pegajosas mesmo para pedidos de origem cruzada. Consulte a secção de [afinidade baseada em cookies](configuration-overview.md#cookie-based-affinity) para obter mais informações.

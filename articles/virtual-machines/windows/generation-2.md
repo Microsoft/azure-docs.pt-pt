@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: f9567238e4bb025fad41e7db33613a63d2fc25dd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ed7d62ef5c1c4837b3eb6d02f301085178fe5e0b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77911768"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528222"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Apoio à geração 2 VMs em Azure
 
@@ -33,12 +33,12 @@ Os VMs da geração 2 utilizam a nova arquitetura de botas baseada na UEFI em ve
 Os VMs da geração 1 são suportados por todos os tamanhos vm em Azure (exceto para VMs série Mv2). O Azure oferece agora suporte à geração 2 para as seguintes séries VM selecionadas:
 
 * [Série B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
-* [SÉRIE DC](../dcv2-series.md)
+* [Série DC](../dcv2-series.md)
 * [Série DSv2](../dv2-dsv2-series.md) e [série Dsv3](../dv3-dsv3-series.md)
 * [Série Esv3](../ev3-esv3-series.md)
 * [Série Fsv2](../fsv2-series.md)
 * [Série GS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
-* [HB-series](../hb-series.md)
+* [Série HB](../hb-series.md)
 * [Série HC](../hc-series.md)
 * [Série Ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) e [lsv2](../lsv2-series.md)
 * [Série Mv2](../mv2-series.md)
@@ -54,7 +54,7 @@ Os VMs da geração 1 são suportados por todos os tamanhos vm em Azure (exceto 
 Os VMs da Geração 2 suportam as seguintes imagens do Marketplace:
 
 * Windows Server 2019, 2016, 2012 R2, 2012
-* Windows 10
+* Windows 10 Pro, Windows 10 Enterprise
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
@@ -66,10 +66,10 @@ Os VMs da Geração 2 suportam as seguintes imagens do Marketplace:
 
 A Tualmente, o Azure não suporta algumas das funcionalidades que o Hyper-V suporta no local para os VMs da geração 2.
 
-| Característica da Geração 2                | No local Hiper-V | Azure |
+| Característica da Geração 2                | Hyper-V no local | Azure |
 |-------------------------------------|---------------------|-------|
 | Bota segura                         | :heavy_check_mark:  | :x:   |
-| VM blindado                         | :heavy_check_mark:  | :x:   |
+| VM Blindada                         | :heavy_check_mark:  | :x:   |
 | vTPM                                | :heavy_check_mark:  | :x:   |
 | Segurança baseada em virtualização (VBS) | :heavy_check_mark:  | :x:   |
 | Formato VHDX                         | :heavy_check_mark:  | :x:   |
@@ -88,7 +88,7 @@ A Tualmente, o Azure não suporta algumas das funcionalidades que o Hyper-V supo
 
 | Capacidade | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
-| Disco OS > 2 TB                    | :x:                | :heavy_check_mark: |
+| Disco osso > 2 TB                    | :x:                | :heavy_check_mark: |
 | Sistema de disco/imagem/swap personalizado         | :heavy_check_mark: | :heavy_check_mark: |
 | Suporte de conjunto de escala de máquina virtual | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
@@ -122,7 +122,7 @@ Abaixo estão os passos para criar uma geração 2 (Gen2) VM no portal Azure.
 
 Também pode usar o PowerShell para criar um VM, referindo-se diretamente à geração 1 ou geração 2 SKU.
 
-Por exemplo, utilize o seguinte cmdlet PowerShell para obter uma lista das SKUs na oferta `WindowsServer`.
+Por exemplo, utilize o seguinte cmdlet PowerShell para obter `WindowsServer` uma lista das SKUs na oferta.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer

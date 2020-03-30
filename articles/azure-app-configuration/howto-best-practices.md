@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas de configuração do Azure App | Microsoft Docs
-description: Saiba como usar melhor a configuração de Azure App
+title: As melhores práticas de configuração de aplicações do Azure Microsoft Docs
+description: Saiba como utilizar melhor a configuração da app Azure
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -12,39 +12,39 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 37f93099027f810e8089119536e089e07080d0bc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898630"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348668"
 ---
-# <a name="azure-app-configuration-best-practices"></a>Práticas recomendadas de configuração do Azure App
+# <a name="azure-app-configuration-best-practices"></a>As melhores práticas de configuração de aplicações do Azure
 
-Este artigo aborda padrões comuns e práticas recomendadas quando você estiver usando Azure App configuração.
+Este artigo discute padrões comuns e boas práticas quando está a usar a Configuração de Aplicações Azure.
 
-## <a name="key-groupings"></a>Agrupamentos de chaves
+## <a name="key-groupings"></a>Agrupamentos-chave
 
-A configuração do aplicativo fornece duas opções para organizar as chaves:
+A Configuração da Aplicação fornece duas opções para a organização de chaves:
 
-* Prefixos de chave
+* Principais prefixos
 * Etiquetas
 
-Você pode usar uma ou ambas as opções para agrupar suas chaves.
+Pode utilizar uma ou ambas as opções para agrupar as suas chaves.
 
-Os *prefixos de chave* são as partes iniciais das chaves. Você pode agrupar logicamente um conjunto de chaves usando o mesmo prefixo em seus nomes. Os prefixos podem conter vários componentes conectados por um delimitador, como `/`, semelhante a um caminho de URL, para formar um namespace. Essas hierarquias são úteis quando você está armazenando chaves para muitos aplicativos, serviços de componentes e ambientes em um repositório de configurações de aplicativo.
+*Os principais prefixos* são as partes iniciantes das teclas. Pode agrupar logicamente um conjunto de chaves usando o mesmo prefixo nos seus nomes. Os prefixos podem conter múltiplos componentes ligados `/`por um delimitador, tais como, semelhante a um caminho DEURL, para formar um espaço de nome. Tais hierarquias são úteis quando você está armazenando chaves para muitas aplicações, serviços de componentes e ambientes em uma loja de Configuração de Aplicações.
 
-Uma coisa importante a ter em mente é que as chaves são as referências do código do aplicativo para recuperar os valores das configurações correspondentes. As chaves não devem ser alteradas ou, caso contrário, você precisará modificar seu código sempre que isso acontecer.
+Uma coisa importante a ter em mente é que as chaves são o que o seu código de aplicação refere para recuperar os valores das definições correspondentes. As chaves não devem mudar, senão terás de modificar o teu código sempre que isso acontecer.
 
-Os *Rótulos* são um atributo nas chaves. Eles são usados para criar variantes de uma chave. Por exemplo, você pode atribuir rótulos a várias versões de uma chave. Uma versão pode ser uma iteração, um ambiente ou algumas outras informações contextuais. Seu aplicativo pode solicitar um conjunto totalmente diferente de valores de chave especificando outro rótulo. Como resultado, todas as referências de chave permanecem inalteradas no seu código.
+*As etiquetas* são um atributo nas teclas. São usados para criar variantes de uma chave. Por exemplo, pode atribuir etiquetas a várias versões de uma chave. Uma versão pode ser uma iteração, um ambiente, ou alguma outra informação contextual. A sua aplicação pode solicitar um conjunto de valores-chave completamente diferentes, especificando outra etiqueta. Como resultado, todas as referências-chave permanecem inalteradas no seu código.
 
 ## <a name="key-value-compositions"></a>Composições de valor-chave
 
-A configuração de aplicativo trata todas as chaves armazenadas com ela como entidades independentes. A configuração do aplicativo não tenta inferir nenhuma relação entre as chaves ou para herdar valores de chave com base em sua hierarquia. Você pode agregar vários conjuntos de chaves, no entanto, usando rótulos acoplados ao empilhamento de configuração adequado no código do aplicativo.
+A Configuração da Aplicação trata todas as chaves armazenadas com ela como entidades independentes. A Configuração da Aplicação não tenta inferir qualquer relação entre chaves ou herdar valores-chave com base na sua hierarquia. No entanto, pode agregar vários conjuntos de teclas utilizando etiquetas associadas a um empilhamento de configuração adequado no seu código de aplicação.
 
-Vamos examinar um exemplo. Suponha que você tenha uma configuração chamada **Asset1**, cujo valor pode variar com base no ambiente de desenvolvimento. Você cria uma chave chamada "Asset1" com um rótulo vazio e um rótulo chamado "desenvolvimento". No primeiro rótulo, você coloca o valor padrão para **Asset1**e coloca um valor específico para "desenvolvimento" no último.
+Vejamos um exemplo. Suponha que tenha uma definição chamada **Asset1,** cujo valor pode variar em função do ambiente de desenvolvimento. Cria-se uma chave chamada "Asset1" com uma etiqueta vazia e uma etiqueta chamada "Desenvolvimento". Na primeira etiqueta, coloca-se o valor predefinido para **o Ativo1**e coloca-se um valor específico para "Desenvolvimento" neste último.
 
-No seu código, você primeiro recupera os valores de chave sem rótulos e, em seguida, recupera o mesmo conjunto de valores de chave pela segunda vez com o rótulo "desenvolvimento". Quando você recupera os valores da segunda vez, os valores anteriores das chaves são substituídos. O sistema de configuração do .NET Core permite que você "empilhe" vários conjuntos de dados de configuração em cima um do outro. Se existir uma chave em mais de um conjunto, o último conjunto que a contém será usado. Com uma estrutura de programação moderna, como o .NET Core, você obterá essa capacidade de empilhamento gratuitamente se usar um provedor de configuração nativo para acessar a configuração do aplicativo. O trecho de código a seguir mostra como você pode implementar o empilhamento em um aplicativo .NET Core:
+No seu código, primeiro recupera os valores-chave sem etiquetas e, em seguida, recupera o mesmo conjunto de valores-chave uma segunda vez com a etiqueta "Desenvolvimento". Quando recupera os valores da segunda vez, os valores anteriores das teclas são substituídos. O sistema de configuração .NET Core permite -lhe "empilhar" múltiplos conjuntos de dados de configuração em cima uns dos outros. Se existe uma chave em mais de um conjunto, o último conjunto que a contém é utilizado. Com um quadro de programação moderno, como .NET Core, obtém-se gratuitamente esta capacidade de empilhamento se utilizar um fornecedor de configuração nativo para aceder à Configuração da App. O seguinte código de corte mostra como pode implementar o empilhamento numa aplicação .NET Core:
 
 ```csharp
 // Augment the ConfigurationBuilder with Azure App Configuration
@@ -56,20 +56,36 @@ configBuilder.AddAzureAppConfiguration(options => {
 });
 ```
 
-## <a name="app-configuration-bootstrap"></a>Inicialização da configuração do aplicativo
+[Utilize etiquetas para permitir configurações diferentes para diferentes ambientes,](./howto-labels-aspnet-core.md) fornece um exemplo completo.
 
-Para acessar um repositório de configuração de aplicativo, você pode usar sua cadeia de conexão, que está disponível no portal do Azure. Como as cadeias de conexão contêm informações de credenciais, elas são consideradas segredos. Esses segredos precisam ser armazenados em Azure Key Vault e seu código deve se autenticar no Key Vault para recuperá-los.
+## <a name="app-configuration-bootstrap"></a>Armadilha de configuração de aplicativos
 
-Uma opção melhor é usar o recurso identidades gerenciadas no Azure Active Directory. Com identidades gerenciadas, você precisa apenas da URL de ponto de extremidade de configuração de aplicativo para inicializar o acesso ao seu repositório de configuração de aplicativo. Você pode inserir a URL no código do aplicativo (por exemplo, no arquivo *appSettings. JSON* ). Consulte [integrar com identidades gerenciadas do Azure](howto-integrate-azure-managed-service-identity.md) para obter detalhes.
+Para aceder a uma loja de Configuração de Aplicações, pode utilizar a sua cadeia de ligação, que está disponível no portal Azure. Como as cordas de ligação contêm informação credencial, são considerados segredos. Estes segredos precisam de ser guardados no Cofre de Chaves Azure, e o seu código tem de autenticar o Cofre chave para os recuperar.
 
-## <a name="app-or-function-access-to-app-configuration"></a>Acesso de aplicativo ou função à configuração de aplicativo
+Uma melhor opção é usar a funcionalidade de identidades geridas no Diretório Ativo Azure. Com identidades geridas, só precisa do URL final de configuração da aplicação para o acesso à sua loja de configuração de aplicações. Pode incorporar o URL no seu código de aplicação (por exemplo, no ficheiro *appsettings.json).* Consulte a Integração com o [Azure gerido identidades](howto-integrate-azure-managed-service-identity.md) para mais detalhes.
 
-Você pode fornecer acesso à configuração de aplicativo para aplicativos Web ou funções usando qualquer um dos seguintes métodos:
+## <a name="app-or-function-access-to-app-configuration"></a>App ou acesso de função à configuração de apps
 
-* Por meio do portal do Azure, insira a cadeia de conexão para o repositório de configurações do aplicativo nas configurações do aplicativo do serviço de aplicativo.
-* Armazene a cadeia de conexão em seu repositório de configuração de aplicativo no Key Vault e [referencie-a do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
-* Use identidades gerenciadas do Azure para acessar o repositório de configuração de aplicativo. Para obter mais informações, consulte [integrar com identidades gerenciadas do Azure](howto-integrate-azure-managed-service-identity.md).
-* Enviar por push a configuração de aplicativo para o serviço de aplicativo. A configuração de aplicativo fornece uma função de exportação (em portal do Azure e a CLI do Azure) que envia dados diretamente para o serviço de aplicativo. Com esse método, você não precisa alterar o código do aplicativo.
+Pode fornecer acesso à Configuração de Aplicações para aplicações ou funções web utilizando qualquer um dos seguintes métodos:
+
+* Através do portal Azure, introduza a cadeia de ligação à sua loja de configuração de aplicações nas definições de Aplicação do Serviço de Aplicações.
+* Guarde a cadeia de ligação à sua loja de configuração de aplicações no Cofre de Chaves e [remecite-a a partir do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Utilize identidades geridas pelo Azure para aceder à loja de configuração de aplicações. Para mais informações, consulte [Integrar com identidades geridas do Azure.](howto-integrate-azure-managed-service-identity.md)
+* Flexão de impulso da configuração da app para o serviço de aplicações. A Configuração de Aplicações fornece uma função de exportação (no portal Azure e no Azure CLI) que envia dados diretamente para o Serviço de Aplicações. Com este método, não precisa de alterar o código de aplicação.
+
+## <a name="reduce-requests-made-to-app-configuration"></a>Reduzir os pedidos feitos para a configuração de apps
+
+Pedidos excessivos à Configuração de Aplicações podem resultar em taxas de estrangulamento ou excesso de idade. Para reduzir o número de pedidos feitos:
+
+* Aumente o tempo de atualização, especialmente se os valores de configuração não mudarem frequentemente. Especifique um novo [ `SetCacheExpiration` ](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration)tempo de atualização utilizando o método .
+
+* Assista a uma única *tecla sentinela,* em vez de ver as teclas individuais. Refresque todas as configurações apenas se a tecla sentinela mudar. Consulte a [configuração dinâmica use numa aplicação ASP.NET Core,](enable-dynamic-configuration-aspnet-core.md) por exemplo.
+
+* Utilize a Grelha de Eventos Azure para receber notificações quando a configuração muda, em vez de votar constantemente para quaisquer alterações. Consulte os eventos de configuração de [aplicações route Azure para um ponto final web](./howto-app-configuration-event.md) para mais informações
+
+## <a name="importing-configuration-data-into-app-configuration"></a>Importar dados de configuração para a configuração de apps
+
+A Configuração da Aplicação oferece a opção de [importar](https://aka.ms/azconfig-importexport1) a granel as definições de configuração a partir dos seus ficheiros de configuração atuais, utilizando o portal Azure ou o CLI. Também pode utilizar as mesmas opções para exportar valores a partir da Configuração de Aplicações, por exemplo entre lojas relacionadas. Se quiser configurar uma sincronização contínua com o seu repo GitHub, pode utilizar a nossa [Ação GitHub](https://aka.ms/azconfig-gha2) para que possa continuar a utilizar as suas práticas de controlo de fonte existentes enquanto recebe os benefícios da Configuração da App.
 
 ## <a name="next-steps"></a>Passos seguintes
 

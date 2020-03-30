@@ -1,16 +1,16 @@
 ---
-title: Publique uma oferta de serviços geridos ao Azure Marketplace
+title: Publicar uma oferta de serviços geridos no Azure Marketplace
 description: Saiba como publicar uma oferta de serviço gerida que a bordo dos clientes para a gestão de recursos delegados do Azure.
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.openlocfilehash: 6ae93759073be6b05d118ccf46f6b6367fff5fc6
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78328947"
 ---
-# <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publique uma oferta de serviços geridos ao Azure Marketplace
+# <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicar uma oferta de serviços geridos no Azure Marketplace
 
 Neste artigo, você aprenderá a publicar uma oferta de serviços geridos públicos ou privados para o [Azure Marketplace](https://azuremarketplace.microsoft.com) usando o [Portal do Parceiro cloud](https://cloudpartner.azure.com/), permitindo a um cliente que adquira a oferta a recursos a bordo para a gestão de recursos delegados do Azure.
 
@@ -38,7 +38,7 @@ Na secção **de definições de Oferta,** forneça o seguinte:
 
 |Campo  |Descrição  |
 |---------|---------|
-|**Id oferta**     | Um identificador único para a sua oferta (dentro do perfil da sua editora). Este ID só pode conter caracteres alfanuméricos minúsculos, traços e sublinhados, com um máximo de 50 caracteres. Tenha em mente que o ID da Oferta pode ser visível para os clientes em locais como urLs de produto e relatórios de faturação. Uma vez publicada a oferta, não pode alterar este valor.        |
+|**ID da oferta**     | Um identificador único para a sua oferta (dentro do perfil da sua editora). Este ID só pode conter caracteres alfanuméricos minúsculos, traços e sublinhados, com um máximo de 50 caracteres. Tenha em mente que o ID da Oferta pode ser visível para os clientes em locais como urLs de produto e relatórios de faturação. Uma vez publicada a oferta, não pode alterar este valor.        |
 |**ID da editora**     | O ID da editora que será associado à oferta. Se tiver mais de um ID de editor, pode selecionar o que deseja utilizar para esta oferta.       |
 |**Nome**     | O nome (até 50 caracteres) que os clientes vão ver para a sua oferta no Azure Marketplace e no portal Azure. Use uma marca reconhecível que os clientes compreenderão — se estiver a promover esta oferta através do seu próprio website, certifique-se de usar exatamente o mesmo nome aqui.        |
 
@@ -56,7 +56,7 @@ Complete as seguintes secções na secção Detalhes do **Plano:**
 
 |Campo  |Descrição  |
 |---------|---------|
-|**Title** (Título)     | Nome amigável para o plano de exibição. Comprimento máximo de 50 caracteres.        |
+|**Título**     | Nome amigável para o plano de exibição. Comprimento máximo de 50 caracteres.        |
 |**Resumo**     | Descrição sucinta do plano de exibição sob o título. Comprimento máximo de 100 caracteres.        |
 |**Descrição**     | Texto de descrição que fornece uma explicação mais detalhada do plano.         |
 |**Modelo de faturação**     | Existem 2 modelos de faturação mostrados aqui, mas você deve escolher **Trazer a sua própria licença** para ofertas de serviços geridos. Isto significa que irá cobrar diretamente aos seus clientes os custos relacionados com esta oferta, e a Microsoft não cobra quaisquer taxas a si.   |
@@ -103,22 +103,22 @@ Complete os seguintes campos na secção **Visão Geral:**
 
 |Campo  |Descrição  |
 |---------|---------|
-|**Title** (Título)     |  Título da oferta, muitas vezes o nome longo e formal. Este título será exibido de forma proeminente no mercado. Comprimento máximo de 50 caracteres. Na maioria dos casos, este deve ser o mesmo que o **Nome** que inseriu na secção Definições de **Oferta.**       |
+|**Título**     |  Título da oferta, muitas vezes o nome longo e formal. Este título será exibido de forma proeminente no mercado. Comprimento máximo de 50 caracteres. Na maioria dos casos, este deve ser o mesmo que o **Nome** que inseriu na secção Definições de **Oferta.**       |
 |**Resumo**     | Breve propósito ou função da sua oferta. Isto é geralmente exibido sob o título. Comprimento máximo de 100 caracteres.        |
 |**Resumo longo**     | Um resumo mais longo do propósito ou função da sua oferta. Comprimento máximo de 256 caracteres.        |
 |**Descrição**     | Mais informações sobre a sua oferta. Este campo tem um comprimento máximo de 3000 caracteres e suporta formatação HTML simples. Deve incluir as palavras "serviço gerido" ou "serviços geridos" algures na sua descrição.       |
-|**Identificador de Marketing**     | Um identificador único e amigável com URL. Este identificador só pode conter caracteres alfanuméricos minúsculos e traços. Será utilizado em URLs de Marketplace para esta oferta. Por exemplo, se o seu ID da editora for *contoso* e o seu identificador de marketing for *sampleApp*, o URL para a sua oferta no Azure Marketplace será *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp* .        |
+|**Identificador de Marketing**     | Um identificador único e amigável com URL. Este identificador só pode conter caracteres alfanuméricos minúsculos e traços. Será utilizado em URLs de Marketplace para esta oferta. Por exemplo, se o seu ID da editora for *contoso* e o seu identificador *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp*de marketing for *sampleApp*, o URL para a sua oferta no Azure Marketplace será .        |
 |**IDs de subscrição de pré-visualização**     | Adicione um a 100 identificadores de subscrição. Os clientes associados a estas subscrições poderão ver a oferta no Azure Marketplace antes de entrar em funcionar. Sugerimos que inclua as suas próprias subscrições aqui para que possa pré-visualizar como a sua oferta aparece no Mercado Azure antes de a disponibilizar aos clientes.  (As equipas de suporte e engenharia da Microsoft também poderão ver a sua oferta durante este período de pré-visualização.)   |
 |**Links úteis**     | URLs relacionados com a sua oferta, tais como documentação, notas de lançamento, PERGUNTAS, etc.        |
 |**Categorias Sugeridas (Max 5)**     | Uma ou mais categorias (até cinco) que se aplicam à sua oferta. Estas categorias ajudam os clientes a descobrir a sua oferta no Azure Marketplace e no portal Azure.        |
 
 Na secção Artefactos de **Marketing,** pode fazer upload de logotipos e outros ativos para serem mostrados com a sua oferta. Pode fazer o upload opcional de imagens ou links para vídeos que possam ajudar os clientes a compreender a sua oferta.
 
-São necessários quatro tamanhos de logotipo: **Pequeno (40x40)** , **Médio (90x90)** , **Grande (115x115)** e **Largo (255x115)** . Siga estas orientações para os seus logotipos:
+São necessários quatro tamanhos de logotipo: **Pequeno (40x40)**, **Médio (90x90)**, **Grande (115x115)** e **Largo (255x115)**. Siga estas orientações para os seus logotipos:
 
 - O design do Azure tem uma paleta de cores simples. Limite o número de cores primárias e secundárias no logótipo.
 - As cores do tema do portal são preto e branco. Não utilize estas cores como cor de fundo do logótipo. Utilize uma cor que realce o logótipo no portal. Recomendamos cores primárias simples.
-- Se utilizar um fundo transparente, certifique-se de que o logotipo e o texto não são brancos, pretos ou azuis.
+- Se utilizar um fundo transparente, certifique-se de que o logótipo e o texto não são brancos, pretos ou azuis.
 - O aspeto e funcionalidade do logótipo deve ser simples e evitar gradações. Não utilize um fundo de gradação no logótipo.
 - Não coloque texto no logótipo, nem mesmo o nome da empresa ou da marca.
 - Certifique-se que o logótipo não está ampliado.

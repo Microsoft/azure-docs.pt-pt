@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 6130c934f9a718baab840dae714222e4153bfcf6
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 0d28469820f63f63089d9b91d57ccd7fe75c8b95
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126354"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348645"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Remova TLS 1.0 e 1.1 da utilização com Azure Cache for Redis
 
@@ -31,12 +31,12 @@ Este artigo fornece orientações gerais sobre como detetar dependências destas
 
 As datas em que estas alterações entrem em vigor são:
 
-| Cloud               | Data de início da fase 1 | Data de início da fase 2 |
-|---------------------|--------------------|--------------------|
-| Azure (global)      |  13 de janeiro de 2020  | 31 de março de 2020     |
-| Azure Government    |  13 de março de 2020    | 11 de maio de 2020       |
-| Azure Alemanha       |  13 de março de 2020    | 11 de maio de 2020       |
-| Azure China         |  13 de março de 2020    | 11 de maio de 2020       |
+| Nuvem               | Data de início da fase 1 | Data de início da fase 2      |
+|---------------------|--------------------|-------------------------|
+| Azure (global)      |  13 de janeiro de 2020  | 11 de maio de 2020 (estendido) |
+| Azure Government    |  13 de março de 2020    | 11 de maio de 2020            |
+| Azure Alemanha       |  13 de março de 2020    | 11 de maio de 2020            |
+| Azure China         |  13 de março de 2020    | 11 de maio de 2020            |
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Verifique se a sua aplicação já está em conformidade
 
@@ -50,7 +50,7 @@ A maioria das aplicações usa bibliotecas de clientes Redis para lidar com a co
 
 Os clientes Redis .NET utilizam a versão TLS mais antiga por defeito no .NET Framework 4.5.2 ou anterior, e utilizam a versão TLS mais recente no .NET Framework 4.6 ou posterior. Se estiver a utilizar uma versão mais antiga do .NET Framework, pode ativar manualmente o TLS 1.2:
 
-* **StackExchange.Redis:** Coloque `ssl=true` e `sslprotocols=tls12` na corda de ligação.
+* **StackExchange.Redis:** Definir `ssl=true` `sslprotocols=tls12` e na corda de ligação.
 * **ServiceStack.Redis:** Siga as [instruções ServiceStack.Redis](https://github.com/ServiceStack/ServiceStack.Redis/pull/247).
 
 ### <a name="net-core"></a>.NET Core

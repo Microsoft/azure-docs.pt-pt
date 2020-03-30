@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 4caa248f6972609ecb6bf71dd521c68d78cebd70
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79266484"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383961"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Deteção de risco de Diretório Ativo Azure
 
@@ -37,12 +37,12 @@ Além disso, pode utilizar a API de deteção de risco de [Proteção de Identid
 
 Atualmente, o Azure Ative Directory deteta seis tipos de deteções de risco:
 
-- [Utilizadores com credenciais vazadas](#leaked-credentials) 
-- [Inscrições a partir de endereços IP anónimos](#sign-ins-from-anonymous-ip-addresses) 
-- [Viagem impossível para locais atípicos](#impossible-travel-to-atypical-locations) 
-- [Inscrições de dispositivos infetados](#sign-ins-from-infected-devices) 
-- [Inscrições a partir de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Inscrições em locais desconhecidos](#sign-in-from-unfamiliar-locations) 
+- [Utilizadores com fuga de credenciais](#leaked-credentials) 
+- [Inícios de sessão de endereços IP anónimos](#sign-ins-from-anonymous-ip-addresses) 
+- [Deslocação impossível para localizações atípicas](#impossible-travel-to-atypical-locations) 
+- [Inícios de sessão de dispositivos infetados](#sign-ins-from-infected-devices) 
+- [Inícios de sessão de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) 
+- [Inícios de sessão de localizações desconhecidas](#sign-in-from-unfamiliar-locations) 
 
 ![Deteção de riscos](./media/concept-risk-events/91.png)
 
@@ -54,7 +54,7 @@ A perceção que obtém para uma deteção de risco detetada está ligada à sua
 * Com a **edição Azure AD Premium P2,** obtém-se a informação mais detalhada sobre todas as deteções subjacentes. 
 * Com a **edição Azure AD Premium P1,** as deteções avançadas (tais como propriedades de entrada desconhecida) não estão cobertas pela sua licença, e aparecerão sob o nome **Sign-in com risco adicional detetado.** Além disso, o nível de risco e os campos de detalhes de risco estão escondidos.
 
-Embora a deteção de deteções de risco já represente um aspeto importante de proteção das suas identidades, também tem a opção de as abordar manualmente ou implementar respostas automatizadas através da configuração de políticas de Acesso Condicional. Para mais informações, consulte [Azure Ative Directory Identity Protection](../active-directory-identityprotection.md).
+Embora a deteção de deteções de risco já represente um aspeto importante de proteção das suas identidades, também tem a opção de as abordar manualmente ou implementar respostas automatizadas através da configuração de políticas de Acesso Condicional. Para obter mas informações, veja [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="risk-detection-types"></a>Tipos de deteção de riscos
 
@@ -78,7 +78,7 @@ Quando o serviço adquire pares de nomes de utilizador/palavra-passe, são verif
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inícios de sessão de endereços IP anónimos
 
-Este tipo de deteção de risco identifica utilizadores que assinaram com sucesso a partir de um endereço IP que foi identificado como um endereço IP de procuração anónimo. Estes proxies são utilizados por pessoas que pretendem ocultar o endereço IP do seu dispositivo e podem ser utilizadas para más intenções.
+Este tipo de deteção de risco identifica utilizadores que assinaram com sucesso a partir de um endereço IP que foi identificado como um endereço IP de procuração anónimo. Estes proxies são usados por pessoas que querem esconder o endereço IP do seu dispositivo, e podem ser usados para intenções maliciosas.
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Deslocação impossível para localizações atípicas
 
@@ -91,6 +91,9 @@ O algoritmo ignora "falsos positivos" óbvios que contribuem para as condições
 Este tipo de deteção de risco considera locais de inscrição passados (IP, Latitude / Longitude e ASN) para determinar locais novos/desconhecidos. O sistema armazena informações sobre locais anteriores utilizados por um utilizador, e considera estas localizações "familiares". A deteção de risco é desencadeada quando o sinal de sessão ocorre a partir de um local que ainda não está na lista de locais familiares. O sistema tem um período inicial de aprendizagem de 30 dias, durante o qual não sinaliza novos locais como locais desconhecidos. O sistema também ignora os sign-ins de dispositivos familiares, e locais que estão geograficamente perto de um local familiar. 
 
 A Proteção de Identidade deteta inscrições de locais desconhecidos também para protocolos básicos de autenticação/legado. Como estes protocolos não têm características familiares modernas, como a identificação do cliente, não há telemetria suficiente para reduzir falsos positivos. Para reduzir o número de deteções de risco detetadas, deve passar para a autenticação moderna.   
+
+> [!NOTE]
+> Se o nome de utilizador de login e a palavra-passe não corresponderem, o login falhará e a deteção de risco não ocorre. O registo de deteções de risco de localização desconhecidas só é desencadeado em logins succesful.
 
 ### <a name="sign-ins-from-infected-devices"></a>Inícios de sessão de dispositivos infetados
 
@@ -108,19 +111,19 @@ A tabela que se segue enumera o tempo que um tipo de deteção demora a aparecer
 | Tipo de Deteção | Reportagem Latência |
 | --- | --- |
 | Tempo real | 5 a 10 minutos |
-| Banda | 2 a 4 horas |
+| Offline | 2 a 4 horas |
 
 
 Para os tipos de deteção de risco detetados pelo Diretório Ativo Azure, os tipos de deteção são:
 
 | Tipo de Deteção de Risco | Tipo de Deteção |
 | :-- | --- | 
-| [Utilizadores com credenciais vazadas](#leaked-credentials) | Banda |
-| [Inscrições a partir de endereços IP anónimos](#sign-ins-from-anonymous-ip-addresses) | Tempo real |
-| [Viagem impossível para locais atípicos](#impossible-travel-to-atypical-locations) | Banda |
-| [Inscrições em locais desconhecidos](#sign-in-from-unfamiliar-locations) | Tempo real |
-| [Inscrições de dispositivos infetados](#sign-ins-from-infected-devices) | Banda |
-| [Inscrições a partir de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Banda|
+| [Utilizadores com fuga de credenciais](#leaked-credentials) | Offline |
+| [Inícios de sessão de endereços IP anónimos](#sign-ins-from-anonymous-ip-addresses) | Tempo real |
+| [Deslocação impossível para localizações atípicas](#impossible-travel-to-atypical-locations) | Offline |
+| [Inícios de sessão de localizações desconhecidas](#sign-in-from-unfamiliar-locations) | Tempo real |
+| [Inícios de sessão de dispositivos infetados](#sign-ins-from-infected-devices) | Offline |
+| [Inícios de sessão de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 
 
 ## <a name="risk-level"></a>Nível de risco

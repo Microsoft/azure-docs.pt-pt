@@ -3,12 +3,12 @@ title: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do 
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: d9d10e38885ba814045d8476b83671153feb7b8c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a46c4d6cccc00452a56567880400ef5779e6aed4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919690"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155397"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes – Back up SAP HANA bases de dados em VMs Azure
 
@@ -20,7 +20,7 @@ Este artigo responde a perguntas comuns sobre o backup das bases de dados SAP HA
 
 Apoiamos apenas um reforço completo por dia. Não pode ter reforço diferencial e cópia de segurança completa desencadeada no mesmo dia.
 
-### <a name="do-successful-backup-jobs-create-alerts"></a>Os trabalhos de apoio bem sucedidos criam alertas?
+### <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
 Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) No entanto, se estiver interessado em ter alertas mesmo para empregos bem sucedidos, pode utilizar o [Azure Monitor.](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
 
@@ -28,7 +28,7 @@ Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são envia
 
 O menu Backup Job só mostrará trabalhos de apoio ad-hoc. Para trabalhos regulares, utilize [o Monitor Azure.](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
 
-### <a name="are-future-databases-automatically-added-for-backup"></a>As futuras bases de dados são adicionadas automaticamente para cópia de segurança?
+### <a name="are-future-databases-automatically-added-for-backup"></a>As bases de dados futuras são adicionadas automaticamente para cópia de segurança?
 
 Não, isto não é apoiado atualmente.
 
@@ -52,6 +52,14 @@ A execução do script de pré-registo define as permissões necessárias para p
 ### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>Os backups funcionarão depois de migrarem o SAP HANA de 1,0 para 2.0?
 
 Consulte [esta secção](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) do guia de resolução de problemas.
+
+### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>Pode o Azure HANA Backup ser configurado contra um IP virtual (equilibrador de carga) e não uma máquina virtual?
+
+Atualmente não temos a capacidade de configurar a solução apenas contra um IP virtual. Precisamos de uma máquina virtual para executar a solução.
+
+### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>Tenho uma replicação do sistema SAP HANA (HSR), como devo configurar cópias de segurança para esta configuração?
+
+Os nós primários e secundários do HSR serão tratados como dois VMs individuais e não relacionados. Você precisa configurar backup no nó principal e quando o fail-over acontece, você precisa configurar backup no nó secundário (que agora se torna o nó principal). Não existe uma "falha" automática de cópia seleções para o outro nó.
 
 ## <a name="restore"></a>Restauro
 

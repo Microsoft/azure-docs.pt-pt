@@ -1,10 +1,9 @@
 ---
-title: Como ativar o SSO de aplicação cruzada no iOS utilizando o ADAL  Microsoft Docs
+title: Como ativar o SSO de aplicação cruzada no iOS utilizando o ADAL [ Microsoft Docs
 description: Como utilizar as funcionalidades do ADAL SDK para ativar o Single Sign On através das suas aplicações.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
@@ -15,12 +14,13 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 00ec2d328265e8d301b9f54b9a6a2013072f1ed4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ROBOTS: NOINDEX
+ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190284"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154785"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Ativar o SSO de aplicação cruzada no iOS utilizando o ADAL
 
@@ -36,7 +36,7 @@ Este como se aplica a:
 
 * Diretório Ativo Azure (Diretório Ativo Azure)
 * Azure Active Directory B2C
-* Azure Active Directory B2B
+* Diretório Ativo Azure B2B
 * Acesso Condicional do Diretório Ativo Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -175,11 +175,11 @@ Para que a plataforma de identidade saiba que é permitido partilhar fichas nas 
 
 Redirecione os URIs que lhe permitem identificar diferentes aplicações para o serviço de identidade da Microsoft se utilizar o mesmo ID de aplicação. Cada aplicação pode ter vários URIs Redirecionados registados no portal de embarque. Cada aplicação na sua suite terá um URI de redirecionamento diferente. Um exemplo de como isto parece está abaixo:
 
-App1 Redirecionamento URI: `x-msauth-mytestiosapp://com.myapp.mytestapp`
+App1 Redirecione URI:`x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-App2 Redirecione URI: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
+App2 Redirecione URI:`x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
-App3 Redirecione URI: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
+App3 Redirecione URI:`x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 
@@ -214,7 +214,7 @@ O formato destes URIs redirecionados é explicado abaixo. Você pode usar qualqu
 
 Permitir a partilha de porta-chaves está fora do âmbito deste documento e coberto pela Apple no seu documento [Adicionando Capacidades.](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) O que é importante é que decida o que quer que o seu porta-chaves seja chamado e adicione essa capacidade em todas as suas aplicações.
 
-Quando tiver direitos configurados corretamente, deve ver um ficheiro no seu diretório de projeto intitulado `entitlements.plist` que contenha algo que se pareça com o seguinte:
+Quando tiver direitos configurados corretamente, deve ver um ficheiro `entitlements.plist` no seu diretório de projeto intitulado que contém algo que se parece com o seguinte:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -230,7 +230,7 @@ Quando tiver direitos configurados corretamente, deve ver um ficheiro no seu dir
 </plist>
 ```
 
-Assim que tiver o direito do porta-chaves ativado em cada uma das suas aplicações, e estiver pronto a utilizar o SSO, informe a identidade SDK sobre o seu porta-chaves utilizando a seguinte definição no seu `ADAuthenticationSettings` com a seguinte definição:
+Assim que tiver o direito do porta-chaves ativado em cada uma das suas aplicações, e estiver pronto a utilizar `ADAuthenticationSettings` o SSO, informe a identidade SDK sobre o seu porta-chaves utilizando a seguinte definição no seu seguinte ajuste com a seguinte definição:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -260,7 +260,7 @@ A capacidade de utilização do corretor da sua aplicação é ligada quando cri
 /*! See the ADCredentialsType enumeration definition for details */
 @propertyADCredentialsType credentialsType;
 ```
-A definição `AD_CREDENTIALS_AUTO` permitirá ao SDK tentar chamar o corretor, `AD_CREDENTIALS_EMBEDDED` impedirá o SDK de ligar para o corretor.
+A `AD_CREDENTIALS_AUTO` definição permitirá ao SDK tentar chamar `AD_CREDENTIALS_EMBEDDED` o corretor, impedirá o SDK de ligar para o corretor.
 
 #### <a name="step-2-registering-a-url-scheme"></a>Passo 2: Registar um esquema de URL
 
@@ -309,7 +309,7 @@ ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Passo 4: Adicione um parâmetro de configuração à sua aplicação
 
-O ADAL utiliza –canOpenURL: para verificar se o corretor está instalado no dispositivo. No iOS 9 on, a Apple bloqueou quais os esquemas que uma aplicação pode consultar. Terá de adicionar "msauth" à secção LSApplicationQueriesSchemes do seu `info.plist file`.
+O ADAL utiliza –canOpenURL: para verificar se o corretor está instalado no dispositivo. No iOS 9 on, a Apple bloqueou quais os esquemas que uma aplicação pode consultar. Terá de adicionar "msauth" à secção LSApplicationQueriesSchemes da sua `info.plist file`.
 
 ```
     <key>LSApplicationQueriesSchemes</key>

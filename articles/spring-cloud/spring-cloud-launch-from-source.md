@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
-ms.openlocfilehash: b506fdcdec1ae3e98c1a4afe9c5124e284ed4d99
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3ab4b1729ea380671b72a9bb01740930a186d5c3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589016"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470799"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Quickstart: Lance a sua aplicação Spring Cloud a partir do código fonte
 
@@ -38,7 +38,7 @@ Antes de começar, certifique-se de que a sua subscrição Azure tem as dependê
 1. [Instalar o Git](https://git-scm.com/)
 2. [Instalar JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Instale Maven 3.0 ou acima](https://maven.apache.org/download.cgi)
-4. [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Inscreva-se para uma subscrição do Azure](https://azure.microsoft.com/free/)
 
 > [!TIP]
@@ -48,7 +48,7 @@ Antes de começar, certifique-se de que a sua subscrição Azure tem as dependê
 
 Instale a extensão Azure Spring Cloud para o Azure CLI com o seguinte comando
 
-```Azure CLI
+```azurecli
 az extension add --name spring-cloud
 ```
 
@@ -56,7 +56,7 @@ az extension add --name spring-cloud
 
 Inicie sessão no Azure CLI e escolha a sua subscrição ativa. Certifique-se de escolher a subscrição ativa que está listada para Azure Spring Cloud
 
-```Azure CLI
+```azurecli
 az login
 az account list -o table
 az account set --subscription
@@ -119,7 +119,7 @@ az spring-cloud app deployment create --app <app-name> -n <deployment-name> --ja
 A Azure Spring Cloud usa [kpack](https://github.com/pivotal/kpack) para construir o seu projeto.  Pode utilizar o Azure CLI para carregar o seu código fonte, construir o seu projeto utilizando kpack e implantá-lo na aplicação-alvo.
 
 > [!WARNING]
-> O projeto deve produzir apenas um ficheiro JAR com uma entrada `main-class` no `MANIFEST.MF` em `target` (para implantações maven ou `build/libs` (para implantações gradle).  Vários ficheiros JAR com entradas `main-class` farão com que a implementação falhe.
+> O projeto deve produzir apenas `main-class` um `MANIFEST.MF` ficheiro `target` JAR com uma entrada `build/libs` no in (para implantações Maven ou (para implantações gradle).  Vários ficheiros JAR com `main-class` entradas causarão a falha da implementação.
 
 Para projetos maven / gradle de módulo único:
 
@@ -152,7 +152,7 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Atribuir um ponto final público ao gateway
 
 1. Abra a página do Painel de **Aplicações.**
-2. Selecione a aplicação `gateway` para mostrar a página Detalhes da **Aplicação.**
+2. Selecione a `gateway` aplicação para mostrar a página Detalhes da **Aplicação.**
 3. **Selecione Domínio de Atribuição** para atribuir um ponto final público ao gateway. Isto pode fazer alguns minutos. 
 4. Insira o IP público atribuído no seu navegador para ver a sua aplicação de execução.
 

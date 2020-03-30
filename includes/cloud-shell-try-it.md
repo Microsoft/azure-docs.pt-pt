@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
 ms.openlocfilehash: 7da122465c9842ad580808ff713b75e775bde96b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76766477"
 ---
 ## <a name="use-azure-cloud-shell"></a>Utilizar o Azure Cloud Shell
@@ -19,8 +19,8 @@ Para iniciar a Casca de Nuvem Azure:
 
 | Opção | Exemplo/Ligação |
 |-----------------------------------------------|---|
-| Selecione **Experimentar** no canto superior direito de um bloco de código. Selecionar **Tente Não** copia automaticamente o código para Cloud Shell. | ![Exemplo de teste para Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Vá para [https://shell.azure.com](https://shell.azure.com), ou selecione o botão **Launch Cloud Shell** para abrir cloud Shell no seu navegador. | [![lançar Cloud Shell numa nova janela](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Selecione **Experimentar** no canto superior direito de um bloco de código. Selecionar **Tente Não** copia automaticamente o código para Cloud Shell. | ![Exemplo de Try It for Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Vá [https://shell.azure.com](https://shell.azure.com)a , ou selecione o botão **Launch Cloud Shell** para abrir cloud Shell no seu navegador. | [![Lançar Cloud Shell em uma nova janela](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
 | Selecione o botão **Cloud Shell** na barra de menu na parte superior direita no [portal Azure](https://portal.azure.com). | ![Botão Cloud Shell no portal do Azure](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
 Para executar o código neste artigo em Azure Cloud Shell:
@@ -29,6 +29,6 @@ Para executar o código neste artigo em Azure Cloud Shell:
 
 1. Selecione o botão **Copiar** num bloco de código para copiar o código.
 
-1. Colhe o código na sessão Cloud Shell selecionando **Ctrl**+**Shift**+**V** no Windows e Linux ou selecionando **cmd**+**Shift**+**V** no macOS.
+1. Colhe o código na sessão Cloud Shell selecionando O**Turno**+**V** **do Ctrl**+no Windows e linux ou selecionando **cmd**+**Shift**+**V** no macOS.
 
 1. Selecione **Entrar** para executar o código.

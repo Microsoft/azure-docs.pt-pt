@@ -12,10 +12,10 @@ ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
 ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299078"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configure replicação numa base de dados de instância gerida por Azure SQL
@@ -45,7 +45,7 @@ Configurar uma instância gerida para funcionar como editor e/ou distribuidor re
 - Que a instância gerida pela editora está na mesma rede virtual que o distribuidor e o assinante, ou [peering vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) foi estabelecido entre as redes virtuais das três entidades. 
 - A conectividade utiliza a Autenticação SQL entre os participantes da replicação.
 - Uma conta de armazenamento Azure partilhada para o diretório de trabalho de replicação.
-- A porta 445 (saída de TCP) está aberta nas regras de segurança da NSG para as instâncias geridas para aceder à parte de ficheiros Azure.  Se encontrar o erro "não se ligou ao armazenamento azul \<nome da conta de armazenamento> com o erro 53, terá de adicionar uma regra de saída ao NSG da subnet de instância gerida pela SQL adequada.
+- A porta 445 (saída de TCP) está aberta nas regras de segurança da NSG para as instâncias geridas para aceder à parte de ficheiros Azure.  Se encontrar o erro "não se coatou ao nome da conta de armazenamento \<azul> com o erro 53", terá de adicionar uma regra de saída ao NSG da subnet de instância gerida pela SQL.
 
 
  > [!NOTE]
@@ -67,14 +67,14 @@ As seguintes funcionalidades não são suportadas numa instância gerida na Base
  
 ## <a name="1---create-a-resource-group"></a>1 - Criar um grupo de recursos
 
-Utilize o [portal Azure](https://portal.azure.com) para criar um grupo de recursos com o nome `SQLMI-Repl`.  
+Utilize o [portal Azure](https://portal.azure.com) para criar `SQLMI-Repl`um grupo de recursos com o nome .  
 
 ## <a name="2---create-managed-instances"></a>2 - Criar instâncias geridas
 
 Utilize o [portal Azure](https://portal.azure.com) para criar duas [instâncias geridas](sql-database-managed-instance-create-tutorial-portal.md) na mesma rede virtual e subnet. Por exemplo, diga o nome dos dois casos geridos:
 
-- `sql-mi-pub` (juntamente com alguns caracteres para aleatoriedade)
-- `sql-mi-sub` (juntamente com alguns caracteres para aleatoriedade)
+- `sql-mi-pub`(juntamente com alguns caracteres para aleatoriedade)
+- `sql-mi-sub`(juntamente com alguns caracteres para aleatoriedade)
 
 Também terá de [configurar um VM Azure para se ligar](sql-database-managed-instance-configure-vm.md) aos casos geridos pela Base de Dados Azure SQL. 
 
@@ -82,11 +82,11 @@ Também terá de [configurar um VM Azure para se ligar](sql-database-managed-ins
 
 [Crie uma Conta](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) de Armazenamento Azure para o diretório de trabalho e, em seguida, crie uma parte de [ficheiro](../storage/files/storage-how-to-create-file-share.md) dentro da conta de armazenamento. 
 
-Copie o caminho da partilha de ficheiros no formato: `\\storage-account-name.file.core.windows.net\file-share-name`
+Copiar o caminho da partilha de ficheiros no formato de:`\\storage-account-name.file.core.windows.net\file-share-name`
 
 Exemplo: `\\replstorage.file.core.windows.net\replshare`
 
-Copie as chaves de acesso ao armazenamento no formato: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Copiar as chaves de acesso ao armazenamento no formato de:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 Exemplo: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
@@ -162,7 +162,7 @@ GO
 
 ## <a name="7---configure-publisher-to-use-distributor"></a>7 - Configure o editor para usar o distribuidor 
 
-Na sua empresa gerida pela editora `sql-mi-pub`, altere a execução da consulta para o modo [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) e execute o seguinte código para registar o novo distribuidor com o seu editor. 
+Na sua empresa `sql-mi-pub`gerida pela editora, altere a execução da consulta para o modo [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) e execute o seguinte código para registar o novo distribuidor com o seu editor. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -184,7 +184,7 @@ EXEC sp_adddistpublisher
 ```
 
    > [!NOTE]
-   > Certifique-se de que utiliza apenas as pestanas traseiras (`\`) para o parâmetro file_storage. A utilização de um corte para a frente (`/`) pode causar um erro ao ligar-se à parte do ficheiro. 
+   > Certifique-se de que utiliza`\`apenas as pestanas para o parâmetro file_storage. A utilização`/`de um corte dianteiro () pode causar um erro ao ligar-se à parte do ficheiro. 
 
 Este script configura uma editora local na instância gerida, adiciona um servidor ligado, e cria um conjunto de trabalhos para o SQL Server Agent. 
 
@@ -334,10 +334,10 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-Pode limpar os seus recursos [Azure, apagando os recursos geridos do grupo de recursos](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) e, em seguida, apagando o grupo de recursos `SQLMI-Repl`. 
+Pode limpar os seus recursos Azure, [apagando os recursos geridos do grupo](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) de `SQLMI-Repl`recursos e, em seguida, apagando o grupo de recursos. 
 
    
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Veja também
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Tutorial: Configure a replicação transacional entre um editor do MI e um assinante do SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)

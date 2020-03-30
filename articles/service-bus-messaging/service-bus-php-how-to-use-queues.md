@@ -15,10 +15,10 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: fcb735d81cac587c75a133ad582f2a839551dcfa
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76760696"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Quickstart: Como usar as filas de ônibus de serviço com PHP
@@ -27,11 +27,11 @@ ms.locfileid: "76760696"
 Neste tutorial, aprende-se a criar aplicações PHP para enviar mensagens e receber mensagens de uma fila de ônibus de serviço. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se você não tiver uma fila com a qual trabalhar, siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) para criar uma fila.
-    1. Leia a **visão geral** rápida das **filas**do barramento de serviço. 
-    2. Crie um **namespace**do barramento de serviço. 
-    3. Obter a **cadeia de conexão**. 
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os benefícios do [seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se não tiver uma fila para trabalhar, siga os passos no [portal Use Azure para criar um](service-bus-quickstart-portal.md) artigo de fila de ônibus de serviço para criar uma fila.
+    1. Leia a **visão geral** rápida das filas de **ônibus**de serviço . 
+    2. Crie um espaço de **nome**de ônibus de serviço . 
+    3. Pegue a corda de **ligação**. 
 
         > [!NOTE]
         > Você vai criar uma **fila** no espaço de nome do Ônibus de serviço usando PHP neste tutorial. 
@@ -48,13 +48,13 @@ Neste guia, utilizará funcionalidades de serviço, que podem ser chamadas de de
 ## <a name="get-the-azure-client-libraries"></a>Obtenha as bibliotecas de clientes Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o barramento de serviço
+## <a name="configure-your-application-to-use-service-bus"></a>Configure a sua aplicação para utilizar o Service Bus
 Para utilizar as APIs de fila de ônibus de serviço, faça o seguinte:
 
 1. Faça referência ao ficheiro auto-carregador utilizando a declaração [de require_once.][require_once]
 2. Faça referência a todas as aulas que possa usar.
 
-O exemplo que se segue mostra como incluir o ficheiro auto-carregador e fazer referência à classe `ServicesBuilder`.
+O exemplo que se segue mostra como incluir `ServicesBuilder` o ficheiro auto-carregador e fazer referência à classe.
 
 > [!NOTE]
 > Este exemplo (e outros exemplos neste artigo) assume que instalou as Bibliotecas de Clientes PHP para o Azure via Compositor. Se instalou as bibliotecas manualmente ou como pacote PEAR, deve fazer referência ao ficheiro autoloader **WindowsAzure.php.**
@@ -66,23 +66,23 @@ require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-Nos exemplos abaixo, a declaração `require_once` será sempre mostrada, mas apenas as classes necessárias para o exemplo a executar são referenciadas.
+Nos exemplos abaixo, `require_once` a declaração será sempre mostrada, mas apenas as classes necessárias para o exemplo a executar são referenciadas.
 
-## <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do barramento de serviço
+## <a name="set-up-a-service-bus-connection"></a>Configurar uma ligação de ônibus de serviço
 Para instantaneamente um cliente de Ônibus de serviço, você deve primeiro ter uma cadeia de ligação válida neste formato:
 
 ```
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
-Onde `Endpoint` é tipicamente do formato `[yourNamespace].servicebus.windows.net`.
+Onde `Endpoint` é tipicamente `[yourNamespace].servicebus.windows.net`do formato .
 
-Para criar qualquer cliente de serviço Azure, você deve usar a classe `ServicesBuilder`. Pode:
+Para criar qualquer cliente de serviço `ServicesBuilder` Azure, você deve usar a classe. Pode:
 
 * Passe a corda de ligação diretamente para ele.
 * Utilize o **CloudConfigurationManager (CCM)** para verificar várias fontes externas para a cadeia de ligação:
   * Por defeito vem com suporte para uma fonte externa - variáveis ambientais
-  * Pode adicionar novas fontes, alargando a classe `ConnectionStringSource`
+  * Pode adicionar novas fontes `ConnectionStringSource` estendendo a classe
 
 Nos exemplos aqui descritos, a cadeia de ligação é transmitida diretamente.
 
@@ -97,9 +97,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 ```
 
 ## <a name="create-a-queue"></a>Criar uma fila
-Você pode realizar operações de gestão para filas de ônibus de serviço através da classe `ServiceBusRestProxy`. Um objeto `ServiceBusRestProxy` é construído através do método de fábrica `ServicesBuilder::createServiceBusService` com uma corda de ligação apropriada que encapsula as permissões simbólicas para geri-lo.
+Você pode realizar operações de gestão para filas de ônibus de serviço através da `ServiceBusRestProxy` classe. Um `ServiceBusRestProxy` objeto é construído `ServicesBuilder::createServiceBusService` através do método de fábrica com uma corda de ligação adequada que encapsula as permissões simbólicas para geri-lo.
 
-O exemplo que se segue mostra como instantaneamente uma `ServiceBusRestProxy` e `ServiceBusRestProxy->createQueue` para criar uma fila chamada `myqueue` dentro de um espaço de `MySBNamespace` nome de serviço:
+O exemplo que se segue `ServiceBusRestProxy` mostra `ServiceBusRestProxy->createQueue` como instantaneamente `myqueue` um `MySBNamespace` e chamada para criar uma fila nomeada dentro de um espaço de nome de serviço:
 
 ```php
 require_once 'vendor/autoload.php';
@@ -128,12 +128,12 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Pode utilizar o método `listQueues` sobre `ServiceBusRestProxy` objetos para verificar se já existe uma fila com um nome especificado dentro de um espaço de nome.
+> Pode utilizar `listQueues` o `ServiceBusRestProxy` método em objetos para verificar se já existe uma fila com um nome especificado dentro de um espaço de nome.
 > 
 > 
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Para enviar uma mensagem para uma fila de ônibus de serviço, a sua aplicação chama o método `ServiceBusRestProxy->sendQueueMessage`. O código seguinte mostra como enviar uma mensagem para a `myqueue` fila anteriormente criada dentro do espaço de nome de serviço `MySBNamespace`.
+Para enviar uma mensagem para uma fila `ServiceBusRestProxy->sendQueueMessage` de ônibus de serviço, a sua aplicação chama o método. O código seguinte mostra como enviar `myqueue` uma mensagem para `MySBNamespace` a fila anteriormente criada dentro do espaço de nome do serviço.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -169,11 +169,11 @@ As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [e
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 
-A melhor maneira de receber mensagens de uma fila é usar um método `ServiceBusRestProxy->receiveQueueMessage`. As mensagens podem ser recebidas em dois modos diferentes: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) e [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** é a predefinição.
+A melhor maneira de receber mensagens `ServiceBusRestProxy->receiveQueueMessage` de uma fila é usar um método. As mensagens podem ser recebidas em dois modos diferentes: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) e [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** é a predefinição.
 
 Ao utilizar o modo [ReceiveAndDelete,](/dotnet/api/microsoft.servicebus.messaging.receivemode) receber é uma operação de tiro único; isto é, quando o Service Bus recebe um pedido de leitura de uma mensagem numa fila, marca a mensagem como sendo consumida e devolve-a à aplicação. O modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem no caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento. Como o Service Bus terá marcado a mensagem como sendo consumida, então quando a aplicação recomeçar e começar a consumir mensagens novamente, terá perdido a mensagem que foi consumida antes do acidente.
 
-No modo [predefinido PeekLock,](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) receber uma mensagem torna-se uma operação de dois estágios, o que permite suportar aplicações que não podem tolerar mensagens em falta. Quando a Service Bus recebe um pedido, encontra a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e, em seguida, a desconere na aplicação. Após a aplicação terminar de processar a mensagem (ou armazená-la de forma fiável para processamento futuro), completa a segunda fase do processo de receção, passando a mensagem recebida para `ServiceBusRestProxy->deleteMessage`. Quando o Service Bus vir a chamada `deleteMessage`, marcará a mensagem como sendo consumida e removê-la-á da fila.
+No modo [predefinido PeekLock,](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) receber uma mensagem torna-se uma operação de dois estágios, o que permite suportar aplicações que não podem tolerar mensagens em falta. Quando a Service Bus recebe um pedido, encontra a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e, em seguida, a desconere na aplicação. Após a aplicação terminar de processar a mensagem (ou armazená-la de forma fiável para `ServiceBusRestProxy->deleteMessage`processamento futuro), completa a segunda fase do processo de receção passando a mensagem recebida para . Quando o Service `deleteMessage` Bus vir a chamada, marcará a mensagem como sendo consumida e removê-la-á da fila.
 
 O exemplo seguinte mostra como receber e processar uma mensagem utilizando o modo [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) (o modo predefinido).
 
@@ -217,14 +217,14 @@ catch(ServiceException $e){
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
 
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não conseguir processar a mensagem por alguma razão, então pode chamar o método `unlockMessage` na mensagem recebida (em vez do método `deleteMessage`). Isto fará com que a Service Bus desbloqueie a mensagem dentro da fila e a disponibilize para ser recebida novamente, quer pela mesma aplicação consumista, quer por outra aplicação consumista.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não conseguir processar a mensagem `unlockMessage` por alguma razão, então pode ligar para o método na mensagem recebida (em vez do `deleteMessage` método). Isto fará com que a Service Bus desbloqueie a mensagem dentro da fila e a disponibilize para ser recebida novamente, quer pela mesma aplicação consumista, quer por outra aplicação consumista.
 
 Há também um intervalo associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do prazo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia a mensagem automaticamente e a tornará a mensagem automaticamente. disponível para ser recebido novamente.
 
-No caso de a aplicação falhar após o processamento da mensagem, mas antes de o pedido de `deleteMessage` ser emitido, a mensagem será reentregue à aplicação quando recomeçar. Isto é frequentemente chamado de pelo *menos uma vez* processamento; ou seja, cada mensagem é processada pelo menos uma vez, mas em certas situações a mesma mensagem pode ser retransmitida. Se o cenário não puder tolerar o processamento duplicado, recomenda-se, em seguida, uma lógica adicional às aplicações para lidar com a entrega de mensagens duplicadas. Isto é muitas vezes conseguido utilizando o método `getMessageId` da mensagem, que permanece constante através das tentativas de entrega.
+No caso de a aplicação se falhar `deleteMessage` após o processamento da mensagem, mas antes de o pedido ser emitido, a mensagem será reentregue à aplicação quando recomeçar. Isto é frequentemente chamado de pelo *menos uma vez* processamento; ou seja, cada mensagem é processada pelo menos uma vez, mas em certas situações a mesma mensagem pode ser retransmitida. Se o cenário não puder tolerar o processamento duplicado, recomenda-se, em seguida, uma lógica adicional às aplicações para lidar com a entrega de mensagens duplicadas. Isto é muitas `getMessageId` vezes conseguido utilizando o método da mensagem, que permanece constante através das tentativas de entrega.
 
 > [!NOTE]
-> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
+> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu o básico das filas de ônibus de serviço, consulte [filas, tópicos e subscrições][Queues, topics, and subscriptions] para mais informações.

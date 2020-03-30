@@ -1,5 +1,5 @@
 ---
-title: Erros de autenticação de resolução de problemas quando utiliza RDP para ligar ao Azure VM  Microsoft Docs
+title: Erros de autenticação de resolução de problemas quando utiliza RDP para ligar ao Azure VM [ Microsoft Docs
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266978"
 ---
-# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Resolver problemas de autenticação quando utiliza o protocolo RDP (Remote Desktop Protocol) para se ligar à VM do Azure
+# <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Troubleshoot authentication errors when you use RDP to connect to Azure VM (Resolver problemas de autenticação quando utiliza o protocolo RDP (Remote Desktop Protocol) para se ligar à VM do Azure)
 
 Este artigo pode ajudá-lo a resolver erros de autenticação que ocorrem quando utiliza a ligação do Protocolo de Ambiente de Trabalho Remoto (RDP) para se ligar a uma máquina virtual Azure (VM).
 
@@ -124,7 +124,7 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
 ```
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="for-domain-joined-vms"></a>Para VMs unidos pelo domínio
 
@@ -246,7 +246,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 > [!Note]
 > Obtenha a versão SSH/TLS x.x a partir dos registos do OS Do Hóspede nos erros Do SCHANNEL.
 
-#### <a name="fips-compliant"></a>Verifique as ligações de algoritmos compatíveis com os FIPs
+#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a>Verifique as ligações de algoritmos compatíveis com os FIPs
 
 O ambiente de trabalho remoto pode ser aplicado para utilizar apenas ligações de algoritmo compatíveis com OSFiPs. Isto pode ser definido utilizando uma chave de registo. Para isso, abra uma janela elevada de comando pronta e, em seguida, questione as seguintes teclas:
 
@@ -274,7 +274,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP
 
 Reinicie o VM de modo a que as alterações ao registo entrem em vigor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Método de SetEncryptionLevel da classe Win32_TSGeneralSetting](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: memildin
 ms.openlocfilehash: 72f16463c7dfcd3d76db2d99e1805b0159261a55
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603712"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Políticas de segurança azure monitorizadas pelo Centro de Segurança

@@ -17,32 +17,32 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: bf4c5e364b7f18b363f9915f54e43c7ea54c33c4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ae139ea7aca7c3896fcd7b0acf2bf6673490a2f4
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834686"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382907"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de encaminhamento de rede de máquinas virtuais - Azure CLI
 
 Neste artigo, implementa uma máquina virtual (VM) e, em seguida, verifica as comunicações para um endereço IP e URL. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão da CLI, execute `az login` para criar uma ligação com o Azure. Os comandos cli neste artigo são formatados para correr em uma concha bash.
+Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão Azure CLI, corra `az login` para criar uma ligação com o Azure. Os comandos Azure CLI neste artigo são formatados para correr numa concha bash.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Antes de criar uma VM, tem de criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Antes de criar uma VM, tem de criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O exemplo seguinte cria uma VM com o nome *myVm*:
+Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O exemplo seguinte cria um VM chamado *myVm:*
 
 ```azurecli-interactive
 az vm create \
@@ -52,7 +52,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-A criação da VM demora alguns minutos. Não continue com os restantes passos até que a VM seja criada e a CLI devolva um resultado.
+A criação da VM demora alguns minutos. Não continue com os passos restantes até que o VM seja criado e o Azure CLI retorne a saída.
 
 ## <a name="test-network-communication"></a>Testar a comunicação de rede
 
@@ -113,7 +113,7 @@ az network nic show-effective-route-table \
 
 O seguinte texto está incluído na saída devolvida:
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -129,11 +129,11 @@ O seguinte texto está incluído na saída devolvida:
 },
 ```
 
-Quando utilizou o comando `az network watcher show-next-hop` para testar a comunicação de saída para 13.107.21.200 em [Utilização seguinte,](#use-next-hop)a rota com o **endereçoPrefix** 0.0.0.0/0** foi utilizada para encaminhar o tráfego para o endereço, uma vez que nenhuma outra rota na saída inclui o endereço. Por predefinição, todos os endereços não especificados no prefixo de endereço de outra rota são encaminhados para a Internet.
+Quando utilizou `az network watcher show-next-hop` o comando para testar a comunicação de saída para 13.107.21.200 em [Utilização seguinte,](#use-next-hop)a rota com o **endereçoPrefix** 0.0.0.0/0** foi utilizada para encaminhar o tráfego para o endereço, uma vez que nenhuma outra rota na saída inclui o endereço. Por predefinição, todos os endereços não especificados no prefixo de endereço de outra rota são encaminhados para a Internet.
 
-No entanto, quando usou o comando `az network watcher show-next-hop` para testar a comunicação de saída para 172.31.0.100, o resultado informou-o de que não havia um próximo tipo de lúpulo. Na saída devolvida, consulte também o seguinte texto:
+No entanto, quando usou o comando para testar a `az network watcher show-next-hop` comunicação de saída para 172.31.0.100, o resultado informou-o de que não havia um próximo tipo de lúpulo. Na saída devolvida, consulte também o seguinte texto:
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -149,7 +149,7 @@ No entanto, quando usou o comando `az network watcher show-next-hop` para testar
 },
 ```
 
-Como pode ver na saída do comando `az network watcher nic show-effective-route-table`, embora exista uma rota padrão para o prefixo 172.16.0.0.0/12, que inclui o endereço 172.31.0.100, o **próximo HopType** é **Nenhum**. O Azure cria uma rota predefinida para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo para isso. Se, por exemplo, adicionou a gama de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure muda o **próximo HopType** para **a rede Virtual** para a rota. Uma verificação mostraria então a **rede Virtual** como o **próximo HopType**.
+Como pode ver na saída `az network watcher nic show-effective-route-table` a partir do comando, embora exista uma rota padrão para o prefixo 172.16.0.0.0/12, que inclui o endereço 172.31.0.100, o **próximo HopType** é **Nenhum**. O Azure cria uma rota predefinida para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo para isso. Se, por exemplo, adicionou a gama de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure muda o **próximo HopType** para **a rede Virtual** para a rota. Uma verificação mostraria então a **rede Virtual** como o **próximo HopType**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 3c041834b9ad191817cdf1380b0a75efc7639bd0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218149"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)
@@ -58,7 +58,7 @@ Ligue as portas como mostrado abaixo na Figura 1 e coloque a coluna de etiquetad
 
 ![Avaliação de um modelo de regressão](./media/evaluate-model-performance/1.png)
 
-Figura 1. Avaliando um Modelo de Regressão.
+Figura 1: Avaliando um Modelo de Regressão.
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspeção dos Resultados da Avaliação
 Depois de executar a experiência, pode clicar na porta de saída do módulo ['Avaliar Modelo'][evaluate-model] e selecionar *Visualize* para ver os resultados da avaliação. As métricas de avaliação disponíveis para os modelos de regressão são: *Erro Absoluto Médio,* *Erro Absoluto Médio Raiz,* *Erro Absoluto Relativo,* *Erro Quadrado Relativo*e O *Coeficiente de Determinação*.
@@ -82,7 +82,7 @@ Depois de executar a experiência, pode inspecionar os resultados da avaliação
 
 ![Resultados de validação cruzada de um modelo de regressão](./media/evaluate-model-performance/4.png)
 
-Figura 4. Resultados de validação cruzada de um modelo de regressão.
+Figura 4. Resultados de validação cruzada de um modelo de regressão.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Avaliação de um modelo de classificação binária
 Num cenário de classificação binária, a variável-alvo tem apenas dois resultados possíveis, por exemplo: {0, 1} ou {falso, verdadeiro}, {negativo, positivo}. Assuma que lhe é dado um conjunto de dados de empregados adultos com algumas variáveis demográficas e de emprego, e que lhe é pedido que preveja o nível de rendimento, uma variável binária com os valores {"<=50 K", ">50 K"}. Ou seja, a classe negativa representa os empregados que ganham menos ou igual a 50 K por ano, e a classe positiva representa todos os outros colaboradores. Tal como no cenário de regressão, treinávamos um modelo, marcaríamos alguns dados e avaliaríamos os resultados. A principal diferença aqui é a escolha de métricas Azure Machine Learning Studio (clássico) computs e saídas. Para ilustrar o cenário de previsão do nível de rendimento, usaremos o conjunto de dados [adulto](https://archive.ics.uci.edu/ml/datasets/Adult) para criar uma experiência Studio (clássica) e avaliar o desempenho de um modelo de regressão logística de duas classes, um classificador binário comumente usado.
@@ -91,7 +91,7 @@ Num cenário de classificação binária, a variável-alvo tem apenas dois resul
 Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
 * Conjunto de dados de classificação binária de rendimento do recenseamento adulto
-* [Regressão Logística de duas classes][two-class-logistic-regression]
+* [Regressão Logística de Duas Classes][two-class-logistic-regression]
 * [Modelo de comboio][train-model]
 * [Modelo de pontuação][score-model]
 * [Modelo de avaliação][evaluate-model]
@@ -105,7 +105,7 @@ Figura 5. Avaliando um modelo de classificação binária.
 ### <a name="inspecting-the-evaluation-results"></a>Inspeção dos Resultados da Avaliação
 Depois de executar a experiência, pode clicar na porta de saída do módulo ['Avaliar Modelo'][evaluate-model] e selecionar *Visualize* para ver os resultados da avaliação (Figura 7). As métricas de avaliação disponíveis para os modelos de classificação binária são: *Precisão,* *Precisão,* *Recall,* *Pontuação f1*e *AUC*. Além disso, o módulo produz uma matriz de confusão mostrando o número de verdadeiros positivos, falsos negativos, falsos positivos e verdadeiros negativos, bem como *curvas ROC,* *Precisão/Recall*e *Lift.*
 
-A precisão é simplesmente a proporção de casos corretamente classificados. É normalmente a primeira métrica que se olha quando se avalia um classificador. No entanto, quando os dados do teste são desequilibrados (onde a maioria dos casos pertencem a uma das classes), ou se está mais interessado no desempenho em qualquer uma das classes, a precisão não captura realmente a eficácia de um classificador. No cenário de classificação do nível de rendimento, assuma que está a testar alguns dados onde 99% dos casos representam pessoas que ganham menos ou igual a 50K por ano. É possível obter uma precisão de 0,99, prevendo a classe "<=50K" para todos os casos. O classificador neste caso parece estar a fazer um bom trabalho em geral, mas na realidade, não classifica nenhum dos indivíduos de alto rendimento (o 1%) corretamente.
+A precisão é simplesmente a proporção de casos corretamente classificados. É normalmente a primeira métrica que se olha quando se avalia um classificador. No entanto, quando os dados do teste são desequilibrados (onde a maioria dos casos pertencem a uma das classes), ou se está mais interessado no desempenho em qualquer uma das classes, a precisão não captura realmente a eficácia de um classificador. No cenário de classificação do nível de rendimento, assuma que está a testar alguns dados onde 99% dos casos representam pessoas que ganham menos ou igual a 50K por ano. É possível obter uma precisão de 0,99 prevendo a classe "<=50K" para todos os casos. O classificador neste caso parece estar a fazer um bom trabalho em geral, mas na realidade, não classifica nenhum dos indivíduos de alto rendimento (o 1%) corretamente.
 
 Por essa razão, é útil calcular métricas adicionais que captem aspetos mais específicos da avaliação. Antes de entrar nos detalhes de tais métricas, é importante entender a matriz de confusão de uma avaliação de classificação binária. As etiquetas de classe no conjunto de formação podem assumir apenas dois valores possíveis, que normalmente chamamos de positivo ou negativo. Os casos positivos e negativos que um classificador prevê corretamente são chamados verdadeiros positivos (TP) e verdadeiros negativos (TN), respectivamente. Da mesma forma, as instâncias classificadas incorretamente são chamadas falsos positivos (FP) e falsos negativos (FN). A matriz de confusão é simplesmente uma tabela que mostra o número de casos que se enquadram em cada uma destas quatro categorias. O Azure Machine Learning Studio (clássico) decide automaticamente qual das duas classes do conjunto de dados é a classe positiva. Se as etiquetas de classe forem booleanas ou inteiros, então as instâncias rotuladas "verdadeiras" ou "1" são atribuídas à classe positiva. Se as etiquetas forem cordas, como com o conjunto de dados de rendimento, as etiquetas são ordenadas alfabeticamente e o primeiro nível é escolhido para ser a classe negativa enquanto o segundo nível é a classe positiva.
 
@@ -113,7 +113,7 @@ Por essa razão, é útil calcular métricas adicionais que captem aspetos mais 
 
 Figura 6. Matriz de confusão de classificação binária.
 
-Voltando ao problema da classificação dos rendimentos, gostaríamos de fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador utilizado. Uma questão natural é: "Dos indivíduos a quem o modelo previu estar a ganhar >50 K (TP+FP), quantos foram classificados corretamente (TP)?". Esta pergunta pode ser respondida olhando para a **precisão** do modelo, que é a proporção de positivos que são classificados corretamente: TP/(TP+FP). Outra questão comum é "De todos os trabalhadores com rendimentos >50k (TP+FN), quantos classificaram corretamente o classificador (TP)". Esta é, na verdade, a **Recolha**, ou a verdadeira taxa positiva: TP/(TP+FN) do classificador. Pode notar que há uma troca óbvia entre precisão e recordação. Por exemplo, dado um conjunto de dados relativamente equilibrado, um classificador que prevê casos maioritariamente positivos, teria uma elevada recuperação, mas uma precisão bastante baixa, uma vez que muitos dos casos negativos seriam mal classificados, resultando num grande número de falsos positivos. Para ver um enredo de como estas duas métricas variam, pode clicar na curva **PRECISION/RECALL** na página de saída do resultado de avaliação (parte superior esquerda da Figura 7).
+Voltando ao problema da classificação dos rendimentos, gostaríamos de fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador utilizado. Uma questão natural é: "Dos indivíduos que o modelo previu ganhar >50 K (TP+FP), quantos foram classificados corretamente (TP)?". Esta pergunta pode ser respondida olhando para a **precisão** do modelo, que é a proporção de positivos que são classificados corretamente: TP/(TP+FP). Outra questão comum é "De todos os trabalhadores com rendimentos >50k (TP+FN), quantos classificaram corretamente o classificador (TP)". Esta é, na verdade, a **Recolha**, ou a verdadeira taxa positiva: TP/(TP+FN) do classificador. Pode notar que há uma troca óbvia entre precisão e recordação. Por exemplo, dado um conjunto de dados relativamente equilibrado, um classificador que prevê casos maioritariamente positivos, teria uma elevada recuperação, mas uma precisão bastante baixa, uma vez que muitos dos casos negativos seriam mal classificados, resultando num grande número de falsos positivos. Para ver um enredo de como estas duas métricas variam, pode clicar na curva **PRECISION/RECALL** na página de saída do resultado de avaliação (parte superior esquerda da Figura 7).
 
 ![Resultados da avaliação da classificação binária](./media/evaluate-model-performance/7.png)
 
@@ -141,8 +141,8 @@ Nesta experiência, usaremos o popular conjunto de dados [da Íris,](https://arc
 Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
 * [Dados de Importação][import-data]
-* [Floresta de Decisão Multiclasse][multiclass-decision-forest]
-* [Dados divididos][split]
+* [Floresta de Decisão de Várias Classes][multiclass-decision-forest]
+* [Dividir Dados][split]
 * [Modelo de comboio][train-model]
 * [Modelo de pontuação][score-model]
 * [Modelo de avaliação][evaluate-model]

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7cd989d944a35af8b1fd932643826e1aedd03962
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 272188b50fe59435031a4a2fb9c252f3f358bb6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370207"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535736"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Crie um recipiente de perfil FSLogix para uma piscina de anfitriões usando ficheiros Azure NetApp
 
@@ -45,7 +45,7 @@ Antes de poder criar um recipiente de perfil FSLogix para uma piscina de acolhim
 
 Para começar, precisa de configurar uma conta Azure NetApp Files.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Certifique-se de que a sua conta tem permissões contributivas ou administradores.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Certifique-se de que a sua conta tem permissões contributivas ou administradores.
 
 2. Selecione o **ícone Azure Cloud Shell** à direita da barra de pesquisa para abrir a Azure Cloud Shell.
 
@@ -57,11 +57,11 @@ Para começar, precisa de configurar uma conta Azure NetApp Files.
 
 5. Uma vez que a Casca de Nuvem Azure carregue, corra os seguintes dois cmdlets.
 
-   ```powershell
+   ```azurecli
    az account set --subscription <subscriptionID>
    ```
 
-   ```powershell
+   ```azurecli
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
@@ -98,9 +98,9 @@ Em seguida, crie uma nova piscina de capacidade:
     - Para **o nível**de serviço, selecione o valor desejado a partir do menu suspenso. Recomendamos **Premium** para a maioria dos ambientes.
        >[!NOTE]
        >A definição Premium fornece o rendimento mínimo disponível para um nível de Serviço Premium, que é de 256 MBps. Pode ser necessário ajustar esta produção para um ambiente de produção. A entrada final baseia-se na relação descrita nos [limites de Entrada](../azure-netapp-files/azure-netapp-files-service-levels.md).
-    - Para **tamanho (TiB)** , insira o tamanho da piscina de capacidade que melhor se adapte às suas necessidades. O tamanho mínimo é 4 TiB.
+    - Para **tamanho (TiB)**, insira o tamanho da piscina de capacidade que melhor se adapte às suas necessidades. O tamanho mínimo é 4 TiB.
 
-5. Quando terminar, selecione **OK**.
+5. Quando tiver terminado, selecione **OK**.
 
 ## <a name="join-an-active-directory-connection"></a>Junte-se a uma ligação de Diretório Ativo
 
@@ -135,7 +135,7 @@ Em seguida, terá de criar um novo volume.
     - Para **a rede Virtual,** selecione uma rede virtual existente que tenha conectividade com o controlador de domínio a partir do menu suspenso.
     - Em **Subnet,** **selecione Criar novo**. Tenha em mente que esta subnet será delegada nos Ficheiros Azure NetApp.
 
-3.  Selecione **Seguinte: O protocolo \>\>** de abrir o separador Protocolo e configurar os parâmetros de acesso ao volume.
+3.  Selecione **Seguinte: Protocolo \> ** para abrir o separador Protocolo e configurar os parâmetros de acesso ao volume.
 
 ## <a name="configure-volume-access-parameters"></a>Configure parâmetros de acesso ao volume
 
@@ -161,7 +161,7 @@ Esta secção baseia-se em Criar um recipiente de [perfil para uma piscina hospe
 
 2. Desaperte o ficheiro descarregado.
 
-3. No ficheiro, aceda a **x64** > **Lançamentos** e execute **FSLogixAppsSetup.exe**. O menu de instalação será aberto.
+3. No ficheiro, aceda a**Lançamentos** **x64** > e execute **FSLogixAppsSetup.exe**. O menu de instalação será aberto.
 
 4.  Se tiver uma chave de produto, introduza-a na caixa de texto da Chave do Produto.
 
@@ -169,11 +169,11 @@ Esta secção baseia-se em Criar um recipiente de [perfil para uma piscina hospe
 
 6. Selecione **Instalar**.
 
-7. Navegue para **C:\\Ficheiros do Programa\\Aplicações de\\FSLogix** para confirmar o agente instalado.
+7. Navegar para **\\C:\\Ficheiros\\de programa FSLogix Apps** para confirmar o agente instalado.
 
 8. A partir do menu Iniciar, executar **RegEdit** como administrador.
 
-9. Navegue para **o software\\de\\HKEY_LOCAL_MACHINE de\\de computador  FSLogix**.
+9. Navegue para **software\\\\\\De HKEY_LOCAL_MACHINE De computador FSLogix**.
 
 10. Criar uma chave chamada **Perfis.**
 
@@ -213,7 +213,7 @@ Esta secção baseia-se em Criar um recipiente de [perfil para uma piscina hospe
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Certifique-se de que os utilizadores podem aceder à partilha de Ficheiros Azure NetApp
 
-1. Abra o seu navegador de Internet e vá para <https://rdweb.wvd.microsoft.com/webclient/index.html>.
+1. Abra o seu navegador <https://rdweb.wvd.microsoft.com/webclient/index.html>de internet e vá para .
 
 2. Inscreva-se com as credenciais de um utilizador atribuído ao grupo Remote Desktop.
 
@@ -225,7 +225,7 @@ Esta secção baseia-se em Criar um recipiente de [perfil para uma piscina hospe
 
 5. Aceda ao separador **Overview** e confirme que o recipiente de perfil FSLogix está a utilizar o espaço.
 
-6. Conecte-se diretamente a qualquer parte VM da piscina anfitriã utilizando o Remote Desktop e abra o **File Explorer.** Em seguida, navegue até ao caminho do **Monte** (no exemplo seguinte, o caminho do suporte é \\\\anf-SMB-3863.gt1107.onmicrosoft.com anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
+6. Conecte-se diretamente a qualquer parte VM da piscina anfitriã utilizando o Remote Desktop e abra o **File Explorer.** Em seguida, navegue até ao **caminho** do \\ \\Monte\\(no exemplo seguinte, o caminho do suporte é anf-SMB-3863.gt1107.onmicrosoft.com anf-VOL).
 
    Dentro desta pasta, deve haver um perfil VHD (ou VHDX) como o seguinte exemplo.
 

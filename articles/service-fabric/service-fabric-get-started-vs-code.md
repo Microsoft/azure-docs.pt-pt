@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258489"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Tecido de serviço para código de estúdio visual
@@ -25,8 +25,8 @@ Este artigo fornece uma visão geral dos requisitos e configuração da extensã
 
 Devem ser instalados os seguintes pré-requisitos em todos os ambientes.
 
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Node.js](https://nodejs.org/)
+* [Código de estúdio visual](https://code.visualstudio.com/)
+* [Nó.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
 * [SDK de tecido de serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
 * Yeoman Generators - instale os geradores apropriados para a sua aplicação
@@ -45,18 +45,18 @@ Devem ser instalados os seguintes pré-requisitos para o desenvolvimento de Java
 * [Gradle](https://gradle.org/install/)
 * [Debugger para extensão do Código Java VS](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Precisava de depurar os serviços de Java. Os serviços de Debugging Java são suportados apenas no Linux. Pode instalar-se clicando no ícone das Extensões na Barra de **Atividade** sem Código VS e procurando a extensão, ou a partir do Mercado de Código VS.
 
-Devem ser instalados os seguintes pré-requisitos para o .NET Core/desenvolvimento:C#
+Devem ser instalados os seguintes pré-requisitos para o desenvolvimento .NET Core/C# :
 
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) (versão 2.0.0 ou posterior)
-* [para Código de Estúdio Visual (alimentado por OmniSharp) extensão do código VS C# ](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Precisava de C# depurar serviços. Pode instalar-se clicando no ícone das Extensões na Barra de **Atividade** sem Código VS e procurando a extensão, ou a partir do Mercado de Código VS.
+* [C# para Código de Estúdio Visual (alimentado por OmniSharp) Extensão do Código VS](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Precisava de depurar os serviços C# Pode instalar-se clicando no ícone das Extensões na Barra de **Atividade** sem Código VS e procurando a extensão, ou a partir do Mercado de Código VS.
 
-## <a name="setup"></a>Configurar
+## <a name="setup"></a>Configuração
 
 1. Código VS aberto.
 2. Clique no ícone de Extensões na Barra de **Atividade** no lado esquerdo do Código VS. Pesquisa por "Tecido de Serviço". Clique em **instalar** para a extensão de serviço de serviço de serviço fiável serviços.
 
 ## <a name="commands"></a>Comandos
-A extensão de Serviço sintetizador de Serviços Fiáveis para código VS fornece muitos comandos para ajudar os desenvolvedores a criar e implementar projetos de Tecido de Serviço. Pode ligar para comandos da Paleta de **Comando,** pressionando `(Ctrl + Shift + p)`, digitando o nome de comando na barra de entrada e selecionando o comando desejado a partir da lista de pronta. 
+A extensão de Serviço sintetizador de Serviços Fiáveis para código VS fornece muitos comandos para ajudar os desenvolvedores a criar e implementar projetos de Tecido de Serviço. Pode ligar para comandos da `(Ctrl + Shift + p)`Paleta de **Comando** premindo, digitando o nome de comando na barra de entrada e selecionando o comando desejado a partir da lista de solicitação. 
 
 * Tecido de serviço: Criar aplicação 
 * Tecido de Serviço: Publicar Aplicação 
@@ -67,7 +67,7 @@ A extensão de Serviço sintetizador de Serviços Fiáveis para código VS forne
 
 ### <a name="service-fabric-create-application"></a>Tecido de serviço: Criar aplicação
 
-O **Tecido de Serviço: Criar** o comando de aplicação cria uma nova aplicação de Tecido de Serviço no seu espaço de trabalho atual. Dependendo dos geradores yeoman instalados na sua máquina de desenvolvimento, pode criar C#vários tipos de aplicação de Tecido de Serviço, incluindo Java, Contentor e Projetos De Hóspedes. 
+O **Tecido de Serviço: Criar** o comando de aplicação cria uma nova aplicação de Tecido de Serviço no seu espaço de trabalho atual. Dependendo dos geradores yeoman instalados na sua máquina de desenvolvimento, pode criar vários tipos de aplicação de Tecido de Serviço, incluindo java, C#, contentor e projetos de hóspedes. 
 
 1.  Selecione o Tecido de Serviço: Criar comando **de aplicação**
 2.  Selecione o tipo para a sua nova aplicação Service Fabric. 
@@ -98,7 +98,7 @@ O Serviço **Tecido: Publicar** o comando aplicação implanta a sua aplicação
 O Serviço **Tecido: Acionar** o comando de aplicação implementa a sua aplicação De Tecido de Serviço para o seu cluster local. Certifique-se de que o seu aglomerado local está a funcionar antes de utilizar o comando. 
 
 1. Selecione o Tecido de **Serviço: Comando de Aplicação de implementação**
-2. Consulte o cluster local com o Service Fabric Explorer (http:\//localhost:19080/Explorer) para confirmar que a aplicação foi instalada. Isto pode levar algum tempo, por isso tenha paciência.
+2. Consulte o cluster local com o\/Service Fabric Explorer (http: /localhost:19080/Explorer) para confirmar que a aplicação foi instalada. Isto pode levar algum tempo, por isso tenha paciência.
 3. Também pode utilizar **o Serviço Fabric: Publicar** o comando da aplicação sem parâmetros definidos no ficheiro Cloud.json para implantar num cluster local.
 
 > [!NOTE]
@@ -111,9 +111,9 @@ O **Tecido de Serviço: Remover** o comando de aplicação remove uma aplicaçã
 2.  Consulte o cluster com o Service Fabric Explorer para confirmar que a aplicação foi removida. Isto pode levar algum tempo, por isso tenha paciência.
 
 ### <a name="service-fabric-build-application"></a>Tecido de serviço: Aplicação de construção
-O serviço Fabric: O comando de C# **aplicação de construção** pode construir aplicações Java ou Service Fabric. 
+O serviço **Fabric: Build Application** command pode construir aplicações Java ou C# Service Fabric. 
 
-1.  Certifique-se de que está na pasta raiz da aplicação antes de executar este comando. O comando identifica o tipoC# de aplicação (ou Java) e constrói a sua aplicação em conformidade.
+1.  Certifique-se de que está na pasta raiz da aplicação antes de executar este comando. O comando identifica o tipo de aplicação (C# ou Java) e constrói a sua aplicação em conformidade.
 2.  Selecione o Tecido de **Serviço: Comando de Aplicação de Construção.**
 3.  A saída do processo de construção está escrita para o terminal integrado.
 
@@ -126,5 +126,5 @@ O comando **Service Fabric: Clean Application** elimina todos os ficheiros de fr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [desenvolver e C# depurar aplicações](./service-fabric-develop-csharp-applications-with-vs-code.md)de tecido de serviço com código VS .
+* Saiba como [desenvolver e depurar aplicações de tecido](./service-fabric-develop-csharp-applications-with-vs-code.md)de serviço C# com código VS .
 * Aprenda a [desenvolver e depurar aplicações](./service-fabric-develop-java-applications-with-vs-code.md)java service fabric com código VS .

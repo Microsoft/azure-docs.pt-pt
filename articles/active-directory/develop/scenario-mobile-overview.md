@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 6675d67299091325fcc3e12572a906716bf5b88d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132422"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: Aplicação móvel que chama APIs web
@@ -52,9 +52,9 @@ Considerações para aplicações móveis:
 
 - **A experiência**do utilizador é fundamental : Permita que os utilizadores vejam o valor da sua aplicação antes de pedir o inserição. Solicite apenas as permissões necessárias.
 - **Suporte todas as configurações do utilizador**: Muitos utilizadores de empresas móveis devem aderir a políticas de acesso condicional e políticas de conformidade com dispositivos. Certifique-se de apoiar estes cenários-chave.
-- **Implementar um único sinal (SSO)** : Ao utilizar a plataforma de identidade MSAL e Microsoft, pode ativar um único sinal através do navegador do dispositivo ou do Microsoft Authenticator (e do Portal da Empresa Intune no Android).
+- **Implementar um único sinal (SSO)**: Ao utilizar a plataforma de identidade MSAL e Microsoft, pode ativar um único sinal através do navegador do dispositivo ou do Microsoft Authenticator (e do Portal da Empresa Intune no Android).
 
-## <a name="specifics"></a>Especificações
+## <a name="specifics"></a>Especificidades
 
 Tenha em mente as seguintes considerações quando construir uma aplicação móvel na plataforma de identidade da Microsoft:
 

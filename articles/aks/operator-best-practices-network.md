@@ -5,13 +5,13 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.openlocfilehash: 93659a0891b09c83db9f63fe0756fcf4d7e87f6a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594690"
 ---
-# <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Boas práticas para conectividade e segurança de rede no Serviço Azure Kubernetes (AKS)
+# <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade e segurança da rede no Azure Kubernetes Service (AKS)
 
 À medida que cria e gere clusters no Serviço Azure Kubernetes (AKS), fornece conectividade de rede para os seus nós e aplicações. Estes recursos de rede incluem gamas de endereços IP, equilibradores de carga e controladores de ingresso. Para manter uma elevada qualidade de serviço para as suas aplicações, precisa de planear e, em seguida, configurar esses recursos.
 
@@ -70,7 +70,7 @@ Um equilibrador de carga Azure pode distribuir o tráfego do cliente a aplicaç�
  * Um *recurso*de ingresso, e
  * Um controlador de *ingresso*
 
-O recurso ingress é um manifesto YAML de `kind: Ingress` que define o hospedeiro, certificados e regras para encaminhar o tráfego para serviços que funcionam no seu cluster AKS. O seguinte exemplo manifesto YAML distribuiria tráfego por *myapp.com* a um de dois serviços, *blogservice* ou *serviço de loja.* O cliente é direcionado para um serviço ou outro com base no URL a que acede.
+O recurso ingress é um `kind: Ingress` manifesto YAML que define o hospedeiro, certificados e regras para encaminhar o tráfego para serviços que funcionam no seu cluster AKS. O seguinte exemplo manifesto YAML distribuiria tráfego por *myapp.com* a um de dois serviços, *blogservice* ou *serviço de loja.* O cliente é direcionado para um serviço ou outro com base no URL a que acede.
 
 ```yaml
 kind: Ingress

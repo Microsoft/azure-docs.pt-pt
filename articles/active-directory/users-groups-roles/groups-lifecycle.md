@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147a131eb79c74dc38c4217d167c7d65ee8a9274
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 562b551bc8a46a45135bf6a9a8e328b4b0e74f98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79366177"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80048252"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configure a política de expiração para os grupos do Office 365
 
@@ -98,7 +98,7 @@ Se os grupos não forem automaticamente renovados, notificações por e-mail com
 
 ![Notificações de e-mail de expiração](./media/groups-lifecycle/expiration-notification.png)
 
-A partir do e-mail de notificação do **grupo Renovar,** os proprietários do grupo podem aceder diretamente à página de dados do grupo no Painel de Acesso. Aí, os utilizadores podem obter mais informações sobre o grupo, como a sua descrição, quando foi renovado pela última vez, quando expirará, e também a capacidade de renovar o grupo. A página de detalhes do grupo agora também inclui links para os recursos do grupo Office 365, para que o proprietário do grupo possa ver convenientemente o conteúdo e atividade no seu grupo.
+A partir do e-mail de notificação do **grupo Renovar,** os proprietários do grupo podem aceder diretamente à página de dados do grupo no Painel de [Acesso](https://account.activedirectory.windowsazure.com/r#/applications). Aí, os utilizadores podem obter mais informações sobre o grupo, como a sua descrição, quando foi renovado pela última vez, quando expirará, e também a capacidade de renovar o grupo. A página de detalhes do grupo agora também inclui links para os recursos do grupo Office 365, para que o proprietário do grupo possa ver convenientemente o conteúdo e atividade no seu grupo.
 
 Quando um grupo expira, o grupo é eliminado um dia após a data de validade. Uma notificação por e-mail como esta é enviada ao Office 365 proprietários do grupo informando-os sobre a expiração e subsequente supressão do seu grupo Office 365.
 
@@ -134,7 +134,7 @@ Aqui estão exemplos de como pode utilizar cmdlets PowerShell para configurar as
    Connect-AzureAD
    ```
 
-1. Configurar as definições de validade Utilize o cmdlet New-AzureADMSGroupLifecycle Policy para definir o tempo de vida de todos os grupos do Office 365 na organização Azure AD para 365 dias. As notificações de renovação para os grupos do Office 365 sem proprietários serão enviadas para 'emailaddress@contoso.com'
+1. Configurar as definições de validade Utilize o cmdlet New-AzureADMSGroupLifecycle Policy para definir o tempo de vida de todos os grupos do Office 365 na organização Azure AD para 365 dias. As notificações de renovação para os gruposemailaddress@contoso.comdo Office 365 sem proprietários serão enviadas para »
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -144,7 +144,7 @@ Aqui estão exemplos de como pode utilizar cmdlets PowerShell para configurar as
 
    - A identificação da política
    - A vida útil para todos os grupos do Office 365 na organização Azure AD está marcada para 365 dias
-   - As notificações de renovação para os grupos do Office 365 sem proprietários serão enviadas para 'emailaddress@contoso.com.'
+   - As notificações de renovação para os gruposemailaddress@contoso.comdo Office 365 sem proprietários serão enviadas para «».
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy
@@ -175,12 +175,12 @@ Aqui estão exemplos de como pode utilizar cmdlets PowerShell para configurar as
 Os seguintes cmdlets podem ser usados para configurar a política mais detalhadamente. Para mais informações, consulte a [documentação do PowerShell.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups)
 
 - Get-AzureADMSGroupLifecyclePolicy
-- New-AzureADMSGroupLifecyclePolicy
+- Política de ciclode vida do New-AzureADMSGroup
 - Get-AzureADMSGroupLifecyclePolicy
 - Set-AzureADMSGroupLifecyclePolicy
-- Remove-AzureADMSGroupLifecyclePolicy
+- Remover-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup
-- Remove-AzureADMSLifecyclePolicyGroup
+- Remover-AzureADMSLifecyclePolicyGroup
 - Reset-AzureADMSLifeCycleGroup
 - Get-AzureADMSLifecyclePolicyGroup
 

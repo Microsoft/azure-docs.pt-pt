@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: a9d3d0287e7839d6396553d532ba6f293fb19b68
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647670"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371108"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integre 3270 aplicações orientadas para ecrãs nos mainframes da IBM com o Azure utilizando apps azure logic e conector IBM 3270
 
@@ -81,7 +81,7 @@ Numa aplicação orientada para o ecrã 3270, os ecrãs e os campos de dados sã
 
 * **Navegação**: Neste modo, especifica o plano ou o caminho para como navegar pelos ecrãs da sua aplicação mainframe para a tarefa específica.
 
-* **Métodos**: Neste modo, define-se o método, por exemplo, `GetBalance`, que descreve a via de navegação do ecrã. Também escolhe os campos em cada ecrã que se tornam os parâmetros de entrada e saída do método.
+* **Métodos**: Neste modo, define-se `GetBalance`o método, por exemplo, que descreve a via de navegação do ecrã. Também escolhe os campos em cada ecrã que se tornam os parâmetros de entrada e saída do método.
 
 ### <a name="unsupported-elements"></a>Elementos não apoiados
 
@@ -151,7 +151,7 @@ Para saber mais, consulte o plano de [navegação Exemplo](#example-plan) mais t
 
 ## <a name="define-navigation-plans"></a>Definir planos de navegação
 
-Neste modo, define o fluxo ou os passos para navegar através dos ecrãs da sua aplicação mainframe para a sua tarefa específica. Por exemplo, por vezes, pode ter mais do que um caminho que a sua aplicação pode tomar onde um caminho produz o resultado correto, enquanto o outro caminho produz um erro. Para cada ecrã, especifique as teclas necessárias para se deslocar para o ecrã seguinte, como `CICSPROD <enter>`.
+Neste modo, define o fluxo ou os passos para navegar através dos ecrãs da sua aplicação mainframe para a sua tarefa específica. Por exemplo, por vezes, pode ter mais do que um caminho que a sua aplicação pode tomar onde um caminho produz o resultado correto, enquanto o outro caminho produz um erro. Para cada ecrã, especifique as teclas necessárias para se deslocar para o ecrã seguinte, tais como `CICSPROD <enter>`.
 
 > [!TIP]
 > Se estiver a automatizar várias tarefas que utilizam os mesmos ecrãs de ligação e desconexão, a ferramenta de design fornece tipos especiais de planos de ligação e desconexão. Quando definir estes planos, pode adicioná-los ao início e fim do seu plano de navegação.
@@ -290,9 +290,9 @@ Neste modo, define um método associado ao seu plano de navegação. Para cada p
 
    | Nome da propriedade | Valores possíveis | 
    |---------------|-----------------|
-   | **Tipo de dados** | Byte, Hora da Data, Decimal, Int, Long, Short, String |
-   | **Técnica de enchimento de campo** | Os parâmetros suportam estes tipos de enchimento, preenchendo com espaços em branco, se necessário: <p><p>- **Tipo**: Introduza caracteres sequencialmente no campo. <p>- **Preencher**: Substitua o conteúdo do campo por caracteres, preenchendo com espaços em branco, se necessário. <p>- **AeraeofType**: Limpe o campo e, em seguida, introduza caracteres sequencialmente no campo. |
-   | **Cadeia de formato** | Alguns tipos de dados de parâmetros utilizam uma cadeia de formato, que informa o conector 3270 como converter texto do ecrã num tipo de dados .NET: <p><p>- **DataTime**: A cadeia de formato DateTime segue as cordas de data e formato de [tempo .NET.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) Por exemplo, a data `06/30/2019` utiliza a cadeia de formato `MM/dd/yyyy`. <p>- **Decimal:** A cadeia de formato decimal utiliza a [cláusula COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por exemplo, o número `100.35` utiliza a cadeia de formato `999V99`. |
+   | **Tipo de Dados** | Byte, Hora da Data, Decimal, Int, Long, Short, String |
+   | **Técnica de enchimento de campo** | Os parâmetros suportam estes tipos de enchimento, preenchendo com espaços em branco, se necessário: <p><p>- **Tipo**: Introduza caracteres sequencialmente no campo. <p>- **Enchimento**: Substitua o conteúdo do campo por caracteres, preenchendo com espaços em branco, se necessário. <p>- **AéeofType**: Limpe o campo e, em seguida, introduza caracteres sequencialmente no campo. |
+   | **Cadeia de formato** | Alguns tipos de dados de parâmetros utilizam uma cadeia de formato, que informa o conector 3270 como converter texto do ecrã num tipo de dados .NET: <p><p>- **DataTempo**: A cadeia de formato DateTime segue as cordas de data e formato de [tempo .NET.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) Por exemplo, `06/30/2019` a data `MM/dd/yyyy`utiliza a cadeia de formato . <p>- **Decimal:** A cadeia de formato decimal utiliza a [cláusula cobol Imagem](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por exemplo, `100.35` o número `999V99`utiliza a cadeia de formato . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Guardar e ver metadados
@@ -354,21 +354,21 @@ Quando terminar todos estes passos, pode utilizar a ação que cria na sua aplic
    ![Selecione ação 3270](./media/connectors-create-api-3270/select-3270-action.png)
 
    Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. 
-   Escolha o sinal plus **(+)** que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Escolha o sinal**+** de mais () que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Se ainda não existir nenhuma ligação, forneça as informações necessárias para a sua ligação e escolha **Criar**.
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome da Ligação** | Sim | < *> de nome de ligação* | O nome da sua ligação |
-   | **ID da conta de integração** | Sim | <> *de nome de conta de integração* | O nome da sua conta de integração |
-   | **URL da Conta de Integração SAS** | Sim | <> de *integração-conta-url-sas-url* | O URL de Assinatura de Acesso Partilhado (SAS) da sua conta de integração, que pode gerar a partir das definições da sua conta de integração no portal Azure. <p>1. No menu da sua conta de integração, em **Definições,** selecione **URL callback**. <br>2. No painel da direita, copie o valor **url de callback gerado.** |
-   | **Servidor** | Sim | < *> de nome tN3270* | O nome do servidor para o seu serviço TN3270 |
-   | **Porta** | Não | <> *de porta-servidor TN3270* | A porta utilizada pelo seu servidor TN3270. Se ficar em branco, o conector utiliza `23` como valor predefinido. |
-   | **Tipo de dispositivo** | Não | < *>-modelo ibm-terminal* | O nome ou número do modelo para o terminal IBM emular. Se ficar em branco, o conector utiliza valores predefinidos. |
-   | **Página de código** | Não | <> *de número de página de código* | O número da página de código para o anfitrião. Se ficar em branco, o conector utiliza `37` como valor predefinido. |
-   | **Nome de unidade lógica** | Não | < *> de nome de unidade lógica* | O nome específico da unidade lógica a solicitar ao anfitrião |
-   | **Ativar o SSL?** | Não | Dentro ou fora | Ligue ou desligue a encriptação SSL. |
+   | **Nome de ligação** | Sim | <*nome de ligação*> | O nome da sua ligação |
+   | **ID da conta de integração** | Sim | <*integração-nome de conta*> | O nome da sua conta de integração |
+   | **URL da Conta de Integração SAS** | Sim | <*conta de integração-SAS-URL*> | O URL de Assinatura de Acesso Partilhado (SAS) da sua conta de integração, que pode gerar a partir das definições da sua conta de integração no portal Azure. <p>1. No menu da sua conta de integração, em **Definições,** selecione **URL callback**. <br>2. No painel da direita, copie o valor **url de callback gerado.** |
+   | **Servidor** | Sim | <*TN3270-servidor-nome*> | O nome do servidor para o seu serviço TN3270 |
+   | **Porto** | Não | <*TN3270-servidor-porta*> | A porta utilizada pelo seu servidor TN3270. Se ficar em branco, `23` o conector utiliza-se como valor predefinido. |
+   | **Tipo de Dispositivo** | Não | <*Ibm-terminal-modelo*> | O nome ou número do modelo para o terminal IBM emular. Se ficar em branco, o conector utiliza valores predefinidos. |
+   | **Página de Códigos** | Não | <*número de página de código*> | O número da página de código para o anfitrião. Se ficar em branco, `37` o conector utiliza-se como valor predefinido. |
+   | **Nome de unidade lógica** | Não | <*nome de unidade lógica*> | O nome específico da unidade lógica a solicitar ao anfitrião |
+   | **Ativar o SSL?** | Não | Dentro ou fora | Ligue ou desligue a encriptação TLS. |
    | **Validar o certificado ssl anfitrião?** | Não | Dentro ou fora | Ligue ou desligue a validação para o certificado do servidor. |
    ||||
 
@@ -380,8 +380,8 @@ Quando terminar todos estes passos, pode utilizar a ação que cria na sua aplic
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome Hidx** | Sim | <> *de nome de ficheiro HIDX* | Selecione o ficheiro 3270 HIDX que pretende utilizar. |
-   | **Nome do método** | Sim | < *> de nome de método* | Selecione o método no ficheiro HIDX que pretende utilizar. Depois de selecionar um método, aparece a nova lista de **parâmetros Adicionar** para selecionar parâmetros para utilizar com esse método. |
+   | **Nome Hidx** | Sim | <*Nome de ficheiro HIDX*> | Selecione o ficheiro 3270 HIDX que pretende utilizar. |
+   | **Nome do método** | Sim | <*nome do método*> | Selecione o método no ficheiro HIDX que pretende utilizar. Depois de selecionar um método, aparece a nova lista de **parâmetros Adicionar** para selecionar parâmetros para utilizar com esse método. |
    ||||
 
    Por exemplo:
@@ -396,7 +396,7 @@ Quando terminar todos estes passos, pode utilizar a ação que cria na sua aplic
 
    **Selecione os parâmetros**
 
-   ![Selecione parâmetros](./media/connectors-create-api-3270/add-parameters.png)
+   ![Selecionar parâmetros](./media/connectors-create-api-3270/add-parameters.png)
 
 1. Quando terminar, guarde e execute a sua aplicação lógica.
 

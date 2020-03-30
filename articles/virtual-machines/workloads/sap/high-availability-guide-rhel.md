@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 94dc0b5da348989c60922fdd8c95e3e22d2b4a83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 73b958149d9d6d907785fe1c2c56b8198bb91f70
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264456"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351091"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux
 
@@ -27,14 +27,14 @@ ms.locfileid: "79264456"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533,]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[SAP 1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -90,17 +90,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados SAP H
 
 * Configuração frontend
   * Endereço IP 10.0.0.7
-* Configuração de backend
-  * Ligado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A)SCS/ERS
 * Porta sonda
   * Porto 620<strong>&lt;nr&gt;</strong>
 * Regras de equilíbrio de carga
   * Se utilizar o Balancer de Carga Padrão, selecione **portas HA**
   * Se utilizar o Equilíbrio de Carga Básico, crie regras de equilíbrio de carga para as seguintes portas
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 32<strong>&lt;nr&gt; </strong> TCP
+    * 36<strong>&lt;nr&gt; </strong> TCP
+    * 39<strong>&lt;nr&gt; </strong> TCP
+    * 81<strong>&lt;nr&gt; </strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
@@ -109,18 +107,19 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados SAP H
 
 * Configuração frontend
   * Endereço IP 10.0.0.8
-* Configuração de backend
-  * Ligado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A)SCS/ERS
 * Porta sonda
-  * Porto 621<strong>&lt;nr&gt;</strong>
+  * Porta 621<strong>&lt;nr&gt;</strong>
 * Regras de equilíbrio de carga
   * Se utilizar o Balancer de Carga Padrão, selecione **portas HA**
   * Se utilizar o Equilíbrio de Carga Básico, crie regras de equilíbrio de carga para as seguintes portas
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 32<strong>&lt;nr&gt; </strong> TCP
+    * 33<strong>&lt;nr&gt; </strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* Configuração de backend
+  * Ligado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A)SCS/ERS
 
 ## <a name="setting-up-glusterfs"></a>Configuração de GlusterFS
 
@@ -151,60 +150,57 @@ O Azure Marketplace contém uma imagem para red hat enterprise linux que você p
    1. Nome de utilizador de administrador, senha de administrador ou chave SSH  
       É criado um novo utilizador que pode ser usado para iniciar sessão na máquina.
    1. Id da sub-rede  
-   Se pretender implantar o VM numa VNet existente onde tem uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente parece /subscrições/ **&lt;id de subscrição&gt;** /recursosGroups/&lt;nome de grupo de recursos **&gt;** /fornecedores/Microsoft.Network/virtualNetworks/&lt;nome de rede **virtual&gt;** /subnets/&lt;nome **da sub-rede&gt;**
+   Se pretender implantar o VM numa VNet existente onde tem uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente parece /subscrições/**&lt;ID&gt;de subscrição**/recursosGroups/**&lt;nome&gt;** de grupo de recursos /fornecedores/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt; **
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar o Linux manualmente através do portal Azure
 
-Primeiro é necessário criar as máquinas virtuais para este cluster. Depois, cria-se um equilibrador de carga e utiliza as máquinas virtuais nas piscinas de backend.
+Primeiro é necessário criar as máquinas virtuais para este cluster. Depois, cria-se um equilibrador de carga e utiliza as máquinas virtuais na piscina de backend.
 
 1. Criar um Grupo de Recursos
 1. Criar uma Rede Virtual
 1. Criar um conjunto de disponibilidade  
    Definir domínio de atualização max
 1. Criar máquina virtual 1  
-   Utilize pelo menos RHEL 7, neste exemplo a imagem Da Empresa de Chapéu Vermelho Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Criar máquina virtual 2  
-   Utilize pelo menos RHEL 7, neste exemplo a imagem Da Empresa de Chapéu Vermelho Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Adicione pelo menos um disco de dados a ambas as máquinas virtuais  
-   Os discos de dados são utilizados para o #usr/seap/`<SAPSID`> diretório
+   Os discos de dados são utilizados para`<SAPSID` o diretório /usr/seap/>
 1. Criar um equilibrador de carga (interno, standard):  
    1. Crie os endereços IP frontend
       1. Endereço IP 10.0.0.7 para o ASCS
          1. Abra o equilibrador de carga, selecione pool IP frontend e clique em Adicionar
          1. Introduza o nome do novo pool IP frontend (por exemplo **nw1-ascs-frontend)**
          1. Definir a Atribuição à Estática e introduzir o endereço IP (por exemplo **10.0.0.7**)
-         1. Clique em OK
+         1. Clique OK
       1. Endereço IP 10.0.0.8 para a ASCS ERS
-         * Repita os passos acima para criar um endereço IP para o ERS (por exemplo **10.0.0.8** e **nw1-aers-backend**)
-   1. Crie as piscinas de backend
-      1. Crie uma piscina de backend para o ASCS
-         1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
-         1. Introduza o nome da nova piscina de backend (por exemplo **nw1-ascs-backend)**
-         1. Clique em Adicionar uma máquina virtual.
-         1. Selecione máquina Virtual.
-         1. Selecione as máquinas virtuais do cluster (A)SCS e os seus endereços IP.
-         1. Clique em Adicionar
-      1. Crie uma piscina de backend para o ASCS ERS
-         * Repita os passos acima para criar uma piscina de backend para o ERS (por **exemplo, nw1-aers-backend**)
+         * Repita os passos acima para criar um endereço IP para o ERS (por exemplo **10.0.0.8** e **nw1-aers-frontend)**
+   1. Criar o conjunto de back-end
+      1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
+      1. Introduza o nome da nova piscina de backend (por exemplo **nw1-backend)**
+      1. Clique em Adicionar uma máquina virtual.
+      1. Selecione Máquina virtual.
+      1. Selecione as máquinas virtuais do cluster (A)SCS e os seus endereços IP.
+      1. Clique em Adicionar
    1. Criar as sondas de saúde
       1. Porta 620**00** para ASCS
          1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Introduza o nome da nova sonda de saúde (por exemplo **nw1-ascs-hp)**
          1. Selecione TCP como protocolo, porta 620**00,** mantenha intervalo 5 e limiar insalubre 2
-         1. Clique em OK
+         1. Clique OK
       1. Porto 621**02** para ASCS ERS
          * Repita os passos acima para criar uma sonda de saúde para a ERS (por exemplo 621**02** e **nw1-aers-hp**)
    1. Regras de equilíbrio de carga
       1. Regras de equilíbrio de carga para asCS
          1. Abra o equilibrador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
          1. Introduza o nome da nova regra do equilibrador de carga (por **exemplo, nw1-lb-ascs)**
-         1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, nw1-ascs-frontend,** **nw1-ascs-backend** e **nw1-ascs-hp**)
+         1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, nw1-ascs-frontend,** **nw1-backend** e **nw1-ascs-hp**)
          1. Selecione **portas HA**
          1. Aumente o tempo inativo para 30 minutos
          1. **Certifique-se de ativar o IP flutuante**
-         1. Clique em OK
+         1. Clique OK
          * Repita os passos acima para criar regras de equilíbrio de carga para a ERS (por **exemplo, nw1-lb-ers**)
 1. Alternativamente, se o seu cenário requer um equilíbrio básico de carga (interno), siga estes passos:  
    1. Crie os endereços IP frontend
@@ -212,25 +208,22 @@ Primeiro é necessário criar as máquinas virtuais para este cluster. Depois, c
          1. Abra o equilibrador de carga, selecione pool IP frontend e clique em Adicionar
          1. Introduza o nome do novo pool IP frontend (por exemplo **nw1-ascs-frontend)**
          1. Definir a Atribuição à Estática e introduzir o endereço IP (por exemplo **10.0.0.7**)
-         1. Clique em OK
+         1. Clique OK
       1. Endereço IP 10.0.0.8 para a ASCS ERS
-         * Repita os passos acima para criar um endereço IP para o ERS (por exemplo **10.0.0.8** e **nw1-aers-backend**)
-   1. Crie as piscinas de backend
-      1. Crie uma piscina de backend para o ASCS
-         1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
-         1. Introduza o nome da nova piscina de backend (por exemplo **nw1-ascs-backend)**
-         1. Clique em Adicionar uma máquina virtual.
-         1. Selecione o Conjunto de Disponibilidade que criou anteriormente
-         1. Selecione as máquinas virtuais do cluster (A)SCS
-         1. Clique em OK
-      1. Crie uma piscina de backend para o ASCS ERS
-         * Repita os passos acima para criar uma piscina de backend para o ERS (por **exemplo, nw1-aers-backend**)
+         * Repita os passos acima para criar um endereço IP para o ERS (por exemplo **10.0.0.8** e **nw1-aers-frontend)**
+   1. Criar o conjunto de back-end
+      1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
+      1. Introduza o nome da nova piscina de backend (por exemplo **nw1-backend)**
+      1. Clique em Adicionar uma máquina virtual.
+      1. Selecione o Conjunto de Disponibilidade que criou anteriormente
+      1. Selecione as máquinas virtuais do cluster (A)SCS
+      1. Clique OK
    1. Criar as sondas de saúde
       1. Porta 620**00** para ASCS
          1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Introduza o nome da nova sonda de saúde (por exemplo **nw1-ascs-hp)**
          1. Selecione TCP como protocolo, porta 620**00,** mantenha intervalo 5 e limiar insalubre 2
-         1. Clique em OK
+         1. Clique OK
       1. Porto 621**02** para ASCS ERS
          * Repita os passos acima para criar uma sonda de saúde para a ERS (por exemplo 621**02** e **nw1-aers-hp**)
    1. Regras de equilíbrio de carga
@@ -241,7 +234,7 @@ Primeiro é necessário criar as máquinas virtuais para este cluster. Depois, c
          1. Manter o protocolo **TCP,** entrar na porta **3200**
          1. Aumente o tempo inativo para 30 minutos
          1. **Certifique-se de ativar o IP flutuante**
-         1. Clique em OK
+         1. Clique OK
       1. Portas adicionais para o ASCS
          * Repita os passos acima para os portos 36**00**, 39**00,** 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP para o ASCS
       1. Portas adicionais para a ASCS ERS
@@ -263,13 +256,13 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 1. **[A]** Configuração resolução de nome de anfitrião
 
-   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
+   Pode utilizar um servidor DNS ou modificar os /etc/anfitriões em todos os nós. Este exemplo mostra como usar o ficheiro /etc/anfitriões.
    Substitua o endereço IP e o nome de anfitrião nos seguintes comandos
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente
+   Insira as seguintes linhas para /etc/anfitriões. Altere o endereço IP e o nome de anfitrião para combinar com o seu ambiente
 
    <pre><code># IP addresses of the GlusterFS nodes
    <b>10.0.0.40 glust-0</b>
@@ -466,7 +459,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Se a instalação não criar uma subpasta em /usr/seiva/**NW1/ERS** **02**, tente configurar o proprietário e o grupo da pasta ERS**02** e voltar a tentar.
+   Se a instalação não criar uma subpasta em /usr/seiva/**NW1/ERS****02**, tente configurar o proprietário e o grupo da pasta ERS**02** e voltar a tentar.
 
    <pre><code>sudo chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    sudo chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
@@ -636,7 +629,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo firewall-cmd --zone=public --add-port=5<b>02</b>16/tcp
    </code></pre>
 
-## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparação do servidor de aplicações SAP NetWeaver
+## <a name="sap-netweaver-application-server-preparation"></a><a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparação do servidor de aplicações SAP NetWeaver
 
 Algumas bases de dados requerem que a instalação da instância de base de dados seja executada num servidor de aplicações. Prepare as máquinas virtuais do servidor de aplicação para poder utilizá-las nestes casos.
 
@@ -644,13 +637,13 @@ Os passos assumem que instala o servidor de aplicação num servidor diferente d
 
 1. Configurar resolução de nome de anfitrião
 
-   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
+   Pode utilizar um servidor DNS ou modificar os /etc/anfitriões em todos os nós. Este exemplo mostra como usar o ficheiro /etc/anfitriões.
    Substitua o endereço IP e o nome de anfitrião nos seguintes comandos
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente
+   Insira as seguintes linhas para /etc/anfitriões. Altere o endereço IP e o nome de anfitrião para combinar com o seu ambiente
 
    <pre><code># IP addresses of the GlusterFS nodes
    <b>10.0.0.40 glust-0</b>
@@ -749,7 +742,7 @@ Siga estes passos para instalar um servidor de aplicação SAP.
 
    Atualize a loja segura SAP HANA para apontar para o nome virtual da configuração de replicação do sistema SAP HANA.
 
-   Executar o seguinte comando para listar as entradas como \<sapsid>adm
+   Executar o seguinte comando para \<listar as entradas como sapsid>adm
 
    <pre><code>hdbuserstore List
    </code></pre>
@@ -902,7 +895,7 @@ Siga estes passos para instalar um servidor de aplicação SAP.
    <pre><code>[root@nw1-cl-0 ~]# pgrep ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   Se só matar o servidor de mensagens uma vez, será reiniciado por `sapstart`. Se o matarcom frequência, o Pacemaker irá eventualmente mover a instância ASCS para o outro nó. Executar os seguintes comandos como raiz para limpar o estado de recurso da instância ASCS e ERS após o teste.
+   Se só matar o servidor de mensagens `sapstart`uma vez, será reiniciado por . Se o matarcom frequência, o Pacemaker irá eventualmente mover a instância ASCS para o outro nó. Executar os seguintes comandos como raiz para limpar o estado de recurso da instância ASCS e ERS após o teste.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
@@ -988,7 +981,7 @@ Siga estes passos para instalar um servidor de aplicação SAP.
    <pre><code>[root@nw1-cl-1 ~]# pgrep er.sapNW1 | xargs kill -9
    </code></pre>
 
-   Se só executar o comando uma vez, `sapstart` reiniciará o processo. Se o executar com frequência, `sapstart` não reiniciará o processo e o recurso estará num estado de paragem. Executar os seguintes comandos como raiz para limpar o estado de recurso da instância ERS após o teste.
+   Se só executar o `sapstart` comando uma vez, reiniciará o processo. Se o executar com `sapstart` frequência, não reiniciará o processo e o recurso estará em estado de paragem. Executar os seguintes comandos como raiz para limpar o estado de recurso da instância ERS após o teste.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
    </code></pre>

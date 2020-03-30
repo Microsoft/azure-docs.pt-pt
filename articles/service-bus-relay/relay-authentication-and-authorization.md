@@ -1,6 +1,6 @@
 ---
-title: Autenticação e autorização de retransmissão do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral da autenticação SAS (assinatura de acesso compartilhado) com o serviço de retransmissão do Azure.
+title: Autenticação e autorização da Estafeta Azure Microsoft Docs
+description: Este artigo fornece uma visão geral da autenticação da Assinatura de Acesso Partilhado (SAS) com o serviço Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,41 +15,41 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: aac5c973a99b13d5918a0162feb7f1ede443463b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514583"
 ---
-# <a name="azure-relay-authentication-and-authorization"></a>Autenticação e autorização de retransmissão do Azure
+# <a name="azure-relay-authentication-and-authorization"></a>Autenticação e autorização do Relé Azure
 
-Os aplicativos podem se autenticar na retransmissão do Azure usando a autenticação SAS (assinatura de acesso compartilhado). A autenticação SAS permite que os aplicativos se autentiquem no serviço de retransmissão do Azure usando uma chave de acesso configurada no namespace de retransmissão. Você pode usar essa chave para gerar um token de assinatura de acesso compartilhado que os clientes podem usar para se autenticar no serviço de retransmissão.
+As aplicações podem autenticar o Relé Azure utilizando a autenticação da Assinatura de Acesso Partilhado (SAS). A autenticação SAS permite que as aplicações se autentiem ao serviço Azure Relay utilizando uma chave de acesso configurada no espaço de nome retransmissor. Em seguida, pode utilizar esta chave para gerar um símbolo de Assinatura de Acesso Partilhado que os clientes podem usar para autenticar o serviço de retransmissão.
 
-## <a name="shared-access-signature-authentication"></a>Autenticação de assinatura de acesso compartilhado
+## <a name="shared-access-signature-authentication"></a>Autenticação de assinatura de acesso partilhado
 
-A [autenticação SAS](../service-bus-messaging/service-bus-sas.md) permite conceder a um usuário acesso aos recursos de retransmissão do Azure com direitos específicos. A autenticação SAS envolve a configuração de uma chave criptográfica com direitos associados em um recurso. Os clientes podem obter acesso a esse recurso apresentando um token SAS, que consiste no URI do recurso que está sendo acessado e uma expiração assinada com a chave configurada.
+[A autenticação SAS](../service-bus-messaging/service-bus-sas.md) permite-lhe conceder ao utilizador acesso aos recursos da Azure Relay com direitos específicos. A autenticação SAS envolve a configuração de uma chave criptográfica com direitos associados num recurso. Os clientes podem então ter acesso a esse recurso apresentando um token SAS, que consiste no recurso URI a ser acedido e uma caducidade assinada com a chave configurada.
 
-Você pode configurar chaves para SAS em um namespace de retransmissão. Ao contrário das mensagens do barramento de serviço, a [retransmissão conexões híbridas](relay-hybrid-connections-protocol.md) dá suporte a remetentes não autorizados ou anônimos. Você pode habilitar o acesso anônimo para a entidade ao criá-la, conforme mostrado na seguinte captura de tela do portal:
+Pode configurar as teclas para SAS num espaço de nome retransmissor. Ao contrário das mensagens service Bus, a [Relay Hybrid Connections](relay-hybrid-connections-protocol.md) suporta remetentes não autorizados ou anónimos. Pode ativar o acesso anónimo à entidade quando a criar, como mostra a seguinte imagem do portal:
 
 ![][0]
 
-Para usar a SAS, você pode configurar um objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em um namespace de retransmissão que consiste no seguinte:
+Para utilizar o SAS, pode configurar um objeto [sharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) num espaço de nome relé que consiste no seguinte:
 
-* *KeyName* que identifica a regra.
-* *PrimaryKey* é uma chave de criptografia usada para assinar/validar tokens SAS.
-* *SecondaryKey* é uma chave de criptografia usada para assinar/validar tokens SAS.
-* *Direitos* que representam a coleção de direitos de escuta, envio ou gerenciamento concedidos.
+* *Nome chave* que identifica a regra.
+* *PrimaryKey* é uma chave criptográfica usada para assinar/validar tokens SAS.
+* *SecondaryKey* é uma chave criptográfica usada para assinar/validar tokens SAS.
+* *Direitos* que representam a recolha de direitos de escuta, envio ou gestão concedidos.
 
-As regras de autorização configuradas no nível de namespace podem conceder acesso a todas as conexões de retransmissão em um namespace para clientes com tokens assinados usando a chave correspondente. Até 12 regras de autorização podem ser configuradas em um namespace de retransmissão. Por padrão, um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) com todos os direitos é configurado para cada namespace quando ele é provisionado pela primeira vez.
+As regras de autorização configuradas ao nível do espaço de nome podem conceder acesso a todas as ligações de retransmissão num espaço de nome para clientes com fichas assinadas utilizando a chave correspondente. Até 12 dessas regras de autorização podem ser configuradas num espaço de nome retransmissor. Por predefinição, uma Regra de Autorização de [Acesso Partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) com todos os direitos está configurada para cada espaço de nome quando é aprovisionado pela primeira vez.
 
-Para acessar uma entidade, o cliente requer um token SAS gerado usando um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)específico. O token SAS é gerado usando o HMAC-SHA256 de uma cadeia de caracteres de recurso que consiste no URI de recurso ao qual o acesso é reivindicado e uma expiração com uma chave criptográfica associada à regra de autorização.
+Para aceder a uma entidade, o cliente requer um token SAS gerado através de uma regra específica de Autorização de [Acesso Partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). O token SAS é gerado usando o HMAC-SHA256 de uma cadeia de recursos que consiste no recurso URI a que o acesso é reivindicado, e uma expiração com uma chave criptográfica associada à regra de autorização.
 
-O suporte à autenticação SAS para retransmissão do Azure está incluído no SDK do .NET do Azure versões 2,0 e posteriores. A SAS inclui suporte para um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas as APIs que aceitam uma cadeia de conexão como um parâmetro incluem suporte para cadeias de conexão SAS.
+O suporte de autenticação SAS para O Relé Azure está incluído nas versões Azure.NET SDK 2.0 e posteriormente. O SAS inclui suporte para uma Regra de Autorização de [Acesso Partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas as APIs que aceitam uma cadeia de ligação como parâmetro incluem suporte para cordas de ligação SAS.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Continue lendo [a autenticação do barramento de serviço com assinaturas de acesso compartilhado](../service-bus-messaging/service-bus-sas.md) para obter mais detalhes sobre SAS.
-- Consulte o [Guia do protocolo conexões híbridas de retransmissão do Azure](relay-hybrid-connections-protocol.md) para obter informações detalhadas sobre a capacidade de conexões híbridas.
-- Para obter informações correspondentes sobre autenticação e autorização de mensagens do barramento de serviço, consulte [autenticação e autorização do barramento de serviço](../service-bus-messaging/service-bus-authentication-and-authorization.md). 
+- Continuar a ler [Autenticação de ônibus de serviço com Assinaturas de Acesso Partilhado](../service-bus-messaging/service-bus-sas.md) para mais detalhes sobre sas.
+- Consulte o guia de [protocolo azure Relay Hybrid Connections](relay-hybrid-connections-protocol.md) para obter informações detalhadas sobre a capacidade de Conexões Híbridas.
+- Para obter informações correspondentes sobre autenticação e autorização de mensagens de autocarro de serviço, consulte a autenticação e autorização do [Autocarro de Serviço.](../service-bus-messaging/service-bus-authentication-and-authorization.md) 
 
 [0]: ./media/relay-authentication-and-authorization/hcanon.png

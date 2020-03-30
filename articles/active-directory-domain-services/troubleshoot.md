@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
 ms.openlocfilehash: e17112cbe2a494a585cd5a09c36cfe449d3d433c
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365820"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erros comuns e passos de resolução de problemas para os Serviços de Domínio de Diretório Ativo azure
@@ -121,14 +121,14 @@ Para verificar o estado desta aplicação e capacitá-la se necessário, complet
 1. No portal Azure, selecione **Azure Ative Diretório** a partir do menu de navegação à esquerda.
 1. Selecione **aplicações Enterprise**. Escolha *todas as aplicações* do menu drop-down do Tipo de **Aplicação** e, em seguida, selecione **Aplicar**.
 1. Na caixa de pesquisa, insira *00000002-0000-0000-c000-00000000000000*. Selecione a aplicação e, em seguida, escolha **Propriedades**.
-1. Se **ativado para que os utilizadores sessãom sintetizados,** desloque o valor para *Sim,* esese selecione **Save**.
+1. Se **ativado para que os utilizadores sessãom sintetizados,** desloque o valor para *Sim,* esese selecione **Save**. *No*
 1. Depois de ativar a aplicação, tente ativar novamente o Azure AD DS.
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Os utilizadores não conseguem iniciar sessão no domínio gerido pelo Azure AD Domain Services
 
 Se um ou mais utilizadores do seu inquilino Azure AD não puder empenar no domínio gerido pela Azure AD DS, complete os seguintes passos de resolução de problemas:
 
-* **Formato de credenciais** - Tente utilizar o formato UPN para especificar credenciais, tais como `dee@aaddscontoso.onmicrosoft.com`. O formato UPN é a forma recomendada de especificar credenciais em DS AD Azure. Certifique-se de que esta UPN está corretamente configurada em Azure AD.
+* **Formato de credenciais** - Tente utilizar o `dee@aaddscontoso.onmicrosoft.com`formato UPN para especificar credenciais, tais como . O formato UPN é a forma recomendada de especificar credenciais em DS AD Azure. Certifique-se de que esta UPN está corretamente configurada em Azure AD.
 
     O *Nome SAMAccountName* para a sua conta, como *AADDSCONTOSO\driley* pode ser autogerado se houver vários utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo. Por isso, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
 
@@ -151,7 +151,7 @@ Se um ou mais utilizadores do seu inquilino Azure AD não puder empenar no domí
   * As tentativas de senha inválidas no domínio gerido pelo Azure AD DS não bloqueiam a conta de utilizador em Azure AD. A conta de utilizador está bloqueada apenas dentro do domínio gerido. Verifique o estado da conta de utilizador na *Consola Administrativa de Diretório Ativo (ADAC)* utilizando o VM de [gestão,][management-vm]não em Azure AD.
   * Também pode configurar políticas de [senha de grãos finos][password-policy] para alterar o limiar e duração do bloqueio predefinido.
 
-* **Contas externas** - Verifique se a conta de utilizador afetada não é uma conta externa no inquilino da AD Azure. Exemplos de contas externas incluem contas da Microsoft como `dee@live.com` ou contas de utilizador de um diretório externo da AD Azure. O Azure AD DS não armazena credenciais para contas de utilizadores externos, pelo que não podem iniciar sessão no domínio gerido.
+* **Contas externas** - Verifique se a conta de utilizador afetada não é uma conta externa no inquilino da AD Azure. Exemplos de contas externas incluem contas da Microsoft como `dee@live.com` ou contas de utilizador de um diretório ad ad externo. O Azure AD DS não armazena credenciais para contas de utilizadores externos, pelo que não podem iniciar sessão no domínio gerido.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Há um ou mais alertas no seu domínio gerido
 
@@ -159,13 +159,13 @@ Se existirem alertas ativos no domínio gerido pelo Azure AD DS, poderá impedir
 
 Para ver se existem alertas ativos, [verifique o estado de saúde de um domínio gerido por Azure AD DS][check-health]. Se forem mostrados alertas, [resolva-os e resolva-os.][troubleshoot-alerts]
 
-## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Os utilizadores removidos do seu inquilino Azure AD não são removidos do seu domínio gerido
+## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Os utilizadores removidos do seu inquilino do Azure AD não são removidos do seu domínio gerido
 
 A AD Azure protege contra a eliminação acidental de objetos de utilizador. Ao eliminar uma conta de utilizador de um inquilino DaD Azure, o objeto de utilizador correspondente é transferido para o caixote do lixo de reciclagem. Quando esta operação de eliminação é sincronizada com o seu domínio gerido pelo Azure AD DS, a conta de utilizador correspondente está marcada como desativada. Esta funcionalidade ajuda-o a recuperar ou a eliminar a conta de utilizador.
 
 A conta de utilizador permanece no estado dedesactivado no domínio gerido pelo Azure AD DS, mesmo que recrie uma conta de utilizador com a mesma UPN no diretório Azure AD. Para remover a conta de utilizador do domínio gerido pelo Azure AD DS, é necessário eliminá-la à força do inquilino Azure AD.
 
-Para remover totalmente uma conta de utilizador de um domínio gerido pelo Azure AD DS, elimine o utilizador permanentemente do seu inquilino Azure AD utilizando o cmdlet [Remove-MsolUser][Remove-MsolUser] PowerShell com o parâmetro `-RemoveFromRecycleBin`.
+Para remover totalmente uma conta de utilizador de um domínio gerido pelo Azure AD DS, elimine o utilizador permanentemente `-RemoveFromRecycleBin` do seu inquilino Azure AD utilizando o cmdlet [Remove-MsolUser][Remove-MsolUser] PowerShell com o parâmetro.
 
 ## <a name="next-steps"></a>Passos seguintes
 

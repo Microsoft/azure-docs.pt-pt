@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260023"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Caixa de Dados Azure Heavy
@@ -23,7 +23,7 @@ O quadro seguinte apresenta um resumo das etapas de encomenda pesadas da Caixa d
 
 | Fase da encomenda da Caixa de Dados       | Ferramenta para rastrear e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Criar ordem               | [Configurar o controlo de acesso na encomenda via RBAC](#set-up-access-control-on-the-order)                                                    |
+| Criar encomenda               | [Configurar o controlo de acesso na encomenda via RBAC](#set-up-access-control-on-the-order)                                                    |
 | Encomenda processada            | [Acompanhe a encomenda](#track-the-order) <ul><li> Portal do Azure </li><li> Website da transportadora de envio </li><li>Notificações por e-mail</ul> |
 | Configurar dispositivo              | Credenciais de dispositivo acesso a [registos](#query-activity-logs-during-setup) de atividade                                              |
 | Cópia de dados para dispositivo        | [Ver *ficheiros error.xml* ](#view-error-log-during-data-copy) para cópia de dados                                                             |
@@ -53,7 +53,7 @@ Para obter mais informações sobre a utilização sugerida do RBAC, consulte [a
 
 Pode acompanhar a sua encomenda através do portal Azure e através do site da transportadora de transporte marítimo. Estão em vigor os seguintes mecanismos para acompanhar a ordem da Caixa de Dados a qualquer momento:
 
-- Para acompanhar a encomenda quando o dispositivo estiver no Centro de Dados Azure ou nas suas instalações, vá à sua **encomenda de Data Box > Visão geral** no portal Azure.
+- Para acompanhar a encomenda quando o dispositivo estiver no Centro de Dados Azure ou nas suas instalações, vá à sua encomenda da Caixa de **Dados > visão geral** no portal Azure.
 
     ![Ver estado de encomenda e rastrear não](media/data-box-logs/overview-view-status-1.png)
 
@@ -64,7 +64,7 @@ Pode acompanhar a sua encomenda através do portal Azure e através do site da t
 
 - A sua Caixa de Dados chega às suas instalações em estado fechado. Pode utilizar as credenciais do dispositivo disponíveis no portal Azure para a sua encomenda.  
 
-    Quando uma Caixa de Dados é configurada, poderá ser necessário saber quem acedeu às credenciais do dispositivo. Para descobrir quem acedeu à lâmina de **credenciais do Dispositivo,** pode consultar os registos de Atividade.  Qualquer ação que envolva aceder aos detalhes do **Dispositivo > A** lâmina de credenciais é registada nos registos de atividade como `ListCredentials` ação.
+    Quando uma Caixa de Dados é configurada, poderá ser necessário saber quem acedeu às credenciais do dispositivo. Para descobrir quem acedeu à lâmina de **credenciais do Dispositivo,** pode consultar os registos de Atividade.  Qualquer ação que envolva aceder aos detalhes do Dispositivo > a `ListCredentials` lâmina **de credenciais** é registada nos registos de atividade como ação.
 
     ![Registos de Atividades de Consulta](media/data-box-logs/query-activity-log-1.png)
 
@@ -203,7 +203,7 @@ Para cada encomenda que é processada, o serviço Data Box cria registo de cópi
 
 Um cálculo de Verificação de Redundância Cíclica (CRC) é feito durante o upload para Azure. Os CRCs da cópia de dados e após o upload de dados são comparados. Uma incompatibilidade crc indica que os ficheiros correspondentes não foram carregados.
 
-Por predefinição, os registos são escritos num recipiente chamado `copylog`. Os registos são armazenados com a seguinte convenção de nomeação:
+Por predefinição, os registos `copylog`são escritos num recipiente chamado . Os registos são armazenados com a seguinte convenção de nomeação:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -257,7 +257,7 @@ O upload para O Azure completa com avisos se os seus dados tivessem nomes de con
 
 Aqui está um exemplo de um registo de cópiaonde os contentores que não estavam em conformidade com as convenções de nomeação do Azure foram renomeados durante o upload de dados para o Azure.
 
-Os novos nomes únicos para contentores estão no formato `DataBox-GUID` e os dados do contentor são colocados no novo recipiente renomeado. O registo de cópia especifica o antigo e o novo nome do recipiente para o recipiente.
+Os novos nomes únicos para `DataBox-GUID` contentores encontram-se no formato e os dados do contentor são colocados no novo recipiente renomeado. O registo de cópia especifica o antigo e o novo nome do recipiente para o recipiente.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -297,7 +297,7 @@ Após a eliminação dos dados dos discos data Box de acordo com as diretrizes n
 
 ### <a name="audit-logs"></a>Registos de auditoria
 
-Os registos de auditoria contêm informações sobre como ligar e aceder a ações na Caixa de Dados ou Caixa de Dados Pesadaquando está fora do centro de dados Azure. Estes registos estão localizados em: `storage-account/azuredatabox-chainofcustodylogs`
+Os registos de auditoria contêm informações sobre como ligar e aceder a ações na Caixa de Dados ou Caixa de Dados Pesadaquando está fora do centro de dados Azure. Estes registos estão localizados em:`storage-account/azuredatabox-chainofcustodylogs`
 
 Aqui está uma amostra do registo de auditoria de uma Caixa de Dados:
 

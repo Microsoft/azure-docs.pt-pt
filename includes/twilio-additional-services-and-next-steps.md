@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 8acb75f1cac83595da88a4a5ffa33102136266f2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184285"
 ---
-## <a name="AdditionalServices"></a>Como: Utilizar serviços adicionais do Twilio
-Para além dos exemplos mostrados aqui, o Twilio oferece APIs baseadas na web que pode utilizar para tirar partido das funcionalidades adicionais do Twilio através da aplicação do Azure. Para mais informações, consulte a [documentação da API do Twilio][twilio_api_documentation].
+## <a name="how-to-use-additional-twilio-services"></a><a name="AdditionalServices"></a>Como: Utilizar serviços twilio adicionais
+Além dos exemplos aqui apresentados, o Twilio oferece APIs baseados na Web que pode utilizar para alavancar funcionalidades Twilio adicionais a partir da sua aplicação Azure. Para mais detalhes, consulte a documentação da [API twilio.][twilio_api_documentation]
 
-## <a name="NextSteps"></a>Passos seguintes
-Agora que aprendeu as noções básicas do serviço Twilio, siga estas ligações para saber mais:
+## <a name="next-steps"></a><a name="NextSteps"></a>Passos seguintes
+Agora que aprendeu o básico do serviço Twilio, siga estes links para saber mais:
 
-* [Diretrizes de segurança do Twilio][twilio_security_guidelines]
-* [Twilio HowTos e código de exemplo][twilio_howtos]
-* [Tutoriais de início rápido do Twilio][twilio_quickstarts] 
+* [Diretrizes de Segurança twilio][twilio_security_guidelines]
+* [Twilio HowTos e Código de Exemplo][twilio_howtos]
+* [Tutoriais Twilio Quickstart][twilio_quickstarts] 
 * [Twilio no GitHub][twilio_on_github]
-* [Comunicar com o suporte do Twilio][twilio_support]
+* [Fale com o Apoio twilio][twilio_support]
 
 [twilio_api_documentation]: http://www.twilio.com/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security

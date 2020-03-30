@@ -3,18 +3,17 @@ title: Serviços de Consultoria Azure Marketplace e AppSource
 description: Este artigo descreve os critérios de elegibilidade e os requisitos de publicação de novas ofertas de serviços de consultoria no Mercado Azure.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: evansma
-ms.openlocfilehash: 1506a4180a5991e6f6e8ed946192bcbf10bbeac0
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.author: dsindona
+ms.openlocfilehash: 987d04a4138c37d9073e5e9925f06c93d7ebb8e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78296156"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281583"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de Consultoria para O Mercado Azure e AppSource
 Os Serviços de Consultoria no Azure Marketplace e no AppSource fornecem aos parceiros da Microsoft o objetivo de conectar os clientes com serviços de apoio e alargar o seu uso de Objetivos De Negócios e Azure. 
@@ -28,7 +27,7 @@ As lojas de marketplace estão alinhadas com o público e os produtos cloud da M
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
-|**Público**   |**Profissionais de TI e desenvolvedores de nuvem**|**Utilizadores empresariais / Decisores de linha de negócio**|
+|**Audiência**   |**Profissionais de TI e desenvolvedores de nuvem**|**Utilizadores empresariais / Decisores de linha de negócio**|
 |Relevância da solução     |Aplicativos técnicos construídos para ou construídos em Azure|Aplicativos empresariais que alavancam / Estendem D365, Power BI, O365, Azure. (Aplicações terminadas add-in ou Add-on)|
 |Opções de Publicação     |Contacte-me, Trial, Transact ou Serviços para o Azure|Contacte-me, Trial ou Serviços para a Dinâmica 365 e Power BI|
 |Na experiência do produto      |Portal de Gestão do Azure|Dinâmica 365, Office 365, Office Client Apps| 
@@ -62,10 +61,10 @@ Os parceiros são obrigados a ter uma **competência de prata ou ouro** na área
 
 |Produto Primário |Requisito de elegibilidade |
 |---------|---------|
-| Dinâmica 365 Vendas <br> Dinâmica 365 Marketing <br> Serviço ao Cliente Da Dinâmica 365 <br> Serviço de Campo 365 <br> Dinâmica 365 Recursos Humanos |   Deve ser certificado gold ou silver na [cloud business applications competência](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção de envolvimento com o cliente.    | 
+| Vendas do Dynamics 365 <br> Dinâmica 365 Marketing <br> Serviço ao Cliente Da Dinâmica 365 <br> Serviço de Campo 365 <br> Dinâmica 365 Recursos Humanos |   Deve ser certificado gold ou silver na [cloud business applications competência](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção de envolvimento com o cliente.    | 
 | Dinâmica 365 Finanças <br> Dinâmica 365 Gestão da Cadeia de Abastecimento <br> Dinâmica 365 Comércio <br> Dinâmica 365 Recursos Humanos <br> Dinâmica 365 Project Service Automation |  Deve ser certificado gold ou silver em [Cloud Business Applications competência](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção Operações Unificadas.       |
 | Dynamics 365 for Customer Insights | Deve ter pelo menos 1 implementação bem sucedida na produção da [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) com pelo menos 5 medidas e 5 segmentos. |
-| Dinâmica 365 Business Central | Deve ser certificado gold ou silver em competência de Planeamento de [Recursos Empresariais](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e deve ser o fornecedor de soluções em nuvem para pelo menos 3 clientes Business Central. <br> <br> OU <br> <br> Deve ter publicado uma [aplicação Business Central no AppSource](https://appsource.microsoft.com/) |
+| Dynamics 365 Business Central | Deve ser certificado gold ou silver em competência de Planeamento de [Recursos Empresariais](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e deve ser o fornecedor de soluções em nuvem para pelo menos 3 clientes Business Central. <br> <br> OU <br> <br> Deve ter publicado uma [aplicação Business Central no AppSource](https://appsource.microsoft.com/) |
 | Power BI | Deve estar listado na montra do [parceiro Power BI.](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=)|
 |Power Apps | Deve ser elegível para Benefícios Avançados no Programa de Parceria de [Aplicações De Energia.](https://aka.ms/PowerAppsPartner) |
 
@@ -101,8 +100,8 @@ Antes do registo, pode começar a recolher e preparar os conteúdos que ajudarã
 
 |Configuração para novos editores  |
 |---------|
-|MPN ID     |
-|Logotipos da empresa &#215; (48 48, 216 &#215; 216)     |
+|ID do MPN     |
+|Logotipos da empresa (48 &#215; 48 &#215;.     |
 |Destino principal     |
 
 
@@ -114,7 +113,7 @@ Antes do registo, pode começar a recolher e preparar os conteúdos que ajudarã
 |Duração do noivado     |
 |Indústrias, categorias e palavras-chave de pesquisa aplicáveis     |
 |Vídeo de visão geral do produto    |
-|Screenshots (máximo de 5,1280 &#215; 720)     |
+|Screenshots (máximo de 5.1280 &#215; 720)     |
 |Documentos de marketing (máximo de 3)     |
 
 

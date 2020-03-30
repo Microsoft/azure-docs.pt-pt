@@ -1,5 +1,5 @@
 ---
-title: Ver atribuições de papéis personalizados no portal Azure AD  Microsoft Docs
+title: Ver atribuições de papéis personalizados no portal Azure AD [ Microsoft Docs
 description: Agora pode ver e gerir membros de um papel de administrador da AD Azure no centro de administração da Azure AD.
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f04bd7788a9cc9657e14aedfb153182d6e53eb95
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259711"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Ver atribuições de papéis personalizados no Diretório Ativo Azure
@@ -31,7 +31,7 @@ Este artigo descreve como visualizar papéis personalizados que atribuiu no Azur
 
 Este procedimento descreve as atribuições de visualização de um papel com âmbito de organização.
 
-1. Inscreva-se no centro de [administração da AD Azure](https://aad.portal.azure.com) com administrador privilegiado ou permissões de administrador global na organização Azure AD.
+1. Inscreva-se no centro de [administração da Azure AD](https://aad.portal.azure.com)com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
 1. Selecione **Azure Ative Directory**, selecione **Funções e administradores,** e, em seguida, selecione uma função para abri-lo e ver as suas propriedades.
 1. Selecione **Atribuições** para visualizar as atribuições para o papel.
 
@@ -104,7 +104,7 @@ HTTP/1.1 200 OK
 
 Esta secção descreve atribuições de visualização de um papel com âmbito de aplicação única. Esta funcionalidade encontra-se atualmente em pré-visualização pública.
 
-1. Inscreva-se no centro de [administração da AD Azure](https://aad.portal.azure.com) com administrador privilegiado ou permissões de administrador global na organização Azure AD.
+1. Inscreva-se no centro de [administração da Azure AD](https://aad.portal.azure.com)com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
 1. Selecione **registos**de Apps e, em seguida, selecione o registo da aplicação para ver as suas propriedades. Poderá ter de selecionar **Todas as aplicações** para ver a lista completa de registos de aplicações na sua organização Azure AD.
 
     ![Criar ou editar registos de aplicações a partir da página de registos da App](./media/roles-create-custom/appreg-all-apps.png)

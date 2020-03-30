@@ -4,10 +4,10 @@ description: Neste arranque rápido, siga os passos para ativar o módulo De rec
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240661"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Azure PowerShell
@@ -18,7 +18,7 @@ No final deste processo, terá adicionado o módulo à instalação do Azure Pow
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -54,7 +54,7 @@ O módulo De Recurso Graph para PowerShell é **Az.ResourceGraph**.
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
-Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e **Tipo de Recurso** de cada recurso.
+Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e o **Tipo de Recurso** de cada recurso.
 
 1. Execute a primeira consulta do Azure Resource Graph com o cmdlet `Search-AzGraph`:
 
@@ -88,7 +88,7 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
 Quando a consulta final é executada várias vezes, partindo do princípio de que nada no seu ambiente está a mudar, os resultados devolvidos serão consistentes e conforme o esperado – ordenados pela propriedade **Nome**, mas continuam a ser limitados aos cinco resultados principais.
 
 > [!NOTE]
-> Se a consulta não devolver os resultados de uma subscrição a que já tem acesso, note que `Search-AzGraph` cmdlet predefinido sintetiza as subscrições no contexto predefinido. Para ver a lista de IDs de subscrição que fazem parte do contexto predefinido executar este `(Get-AzContext).Account.ExtendedProperties.Subscriptions` Se deseja pesquisar todas as subscrições a que tem acesso, pode definir os PSDefaultParâmetrometerValues para `Search-AzGraph` cmdlet, executando `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Se a consulta não devolver os resultados de uma subscrição `Search-AzGraph` a que já tem acesso, note que a cmdlet falha nas subscrições no contexto predefinido. Para ver a lista de IDs de subscrição `(Get-AzContext).Account.ExtendedProperties.Subscriptions` que fazem parte do contexto padrão executar isto Se desejar pesquisar em `Search-AzGraph` todas as subscrições a que tem acesso, pode definir os PSDefaultParâmetrometerValues para cmdlet executando`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 

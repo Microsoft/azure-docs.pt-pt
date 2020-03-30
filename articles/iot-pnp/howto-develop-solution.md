@@ -1,76 +1,76 @@
 ---
-title: Interagir com um dispositivo de visualização de IoT Plug and Play de uma solução de IoT do Azure | Microsoft Docs
-description: Como desenvolvedor de soluções, saiba como usar o SDK do serviço para interagir com dispositivos de Plug and Play de IoT.
+title: Interaja com um dispositivo ioT Plug e Play Preview a partir de uma solução Azure IoT [ Microsoft Docs
+description: Como um desenvolvedor de soluções, aprenda a usar o serviço SDK para interagir com dispositivos IoT Plug e Play.
 author: Philmea
 ms.author: philmea
 ms.date: 12/26/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e349aadfd629202b1c8cdb5c53a88e0a6c2e06de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531348"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159222"
 ---
-# <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Conectar-se a um dispositivo de visualização de Plug and Play IoT e interagir com ele
+# <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Ligue-se e interaja com um dispositivo de pré-visualização IoT Plug e Play
 
-Este guia de instruções mostra como usar os exemplos no SDK do serviço de nó que mostram como sua solução de IoT pode interagir com dispositivos de visualização de IoT Plug and Play.
+Este guia de como fazer mostra como utilizar as amostras no serviço Denó SDK que lhe mostram como a sua Solução IoT pode interagir com dispositivos IoT Plug e Play Preview.
 
-Se você ainda não tiver concluído o [dispositivo conectar um plug and Play IOT ao seu](quickstart-connect-pnp-device-solution-node.md) início rápido de solução, faça isso agora. O guia de início rápido mostra como baixar e instalar o SDK e executar alguns dos exemplos.
+Se ainda não tiver concluído o [dispositivo Connect a IoT Plug and Play à sua solução,](quickstart-connect-pnp-device-solution-node.md) deverá fazê-lo agora. O quickstart mostra-lhe como descarregar e instalar o SDK e executar algumas das amostras.
 
-Antes de executar os exemplos de serviço, abra um novo terminal, vá para a pasta raiz do seu repositório clonado, navegue até a pasta **digitaltwins/QuickStartES/Service** e, em seguida, execute o seguinte comando para instalar as dependências:
+Antes de executar as amostras de serviço, abra um novo terminal, vá para a pasta raiz do seu repositório clonado, navegue para as **gémeas digitais/quickstarts/pasta** de serviço, e, em seguida, executar o seguinte comando para instalar as dependências:
 
 ```cmd/sh
 npm install
 ```
 
-## <a name="run-the-service-samples"></a>Executar os exemplos de serviço
+## <a name="run-the-service-samples"></a>Executar as amostras de serviço
 
-Use os exemplos a seguir para explorar os recursos do SDK do serviço node. js. Verifique se a variável de ambiente `IOTHUB_CONNECTION_STRING` está definida no Shell que você usa:
+Utilize as seguintes amostras para explorar as capacidades do serviço Node.js SDK. Certifique-se `IOTHUB_CONNECTION_STRING` de que a variável ambiental está definida na concha que utiliza:
 
-### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Recuperar uma teledigital e listar as interfaces
+### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Recupere um gémeo digital e enumere as interfaces
 
-**get_digital_twin. js** Obtém a impressão digital associada ao seu dispositivo e imprime seu componente na linha de comando. Ele não requer um exemplo de dispositivo em execução para ter sucesso.
+**get_digital_twin.js** obtém o gémeo digital associado ao seu dispositivo e imprime o seu componente na linha de comando. Não requer uma amostra de dispositivo de corrida para ter sucesso.
 
-**get_digital_twin_interface_instance. js** Obtém uma única instância de interface de cópia digital associada ao seu dispositivo e a imprime na linha de comando. Ele não exige que o exemplo de dispositivo seja executado.
+**get_digital_twin_interface_instance.js** obtém uma única interface de gémeo digital associado ao seu dispositivo e imprime-o na linha de comando. Não requer que a amostra do dispositivo seja executada.
 
-### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Obter e definir propriedades usando o SDK do serviço de nó
+### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Obtenha e detetete propriedades usando o serviço de nó SDK
 
-o **update_digital_twin. js** atualiza uma propriedade gravável no seu dispositivo digital up usando um patch completo. Você pode atualizar várias propriedades em várias interfaces, se desejar. Para que ele tenha sucesso, o exemplo de dispositivo precisa estar em execução ao mesmo tempo. O sucesso parece que o exemplo de dispositivo está imprimindo algo sobre a atualização de uma propriedade o exemplo de serviço que está imprimindo uma atualização digital do terminal.
+**update_digital_twin.js** atualiza uma propriedade utilitável no seu dispositivo digital twin usando um patch completo. Pode atualizar várias propriedades em várias interfaces, se quiser. Para ter sucesso, a amostra do dispositivo tem de ser funcionada ao mesmo tempo. O sucesso parece que a amostra do dispositivo está a imprimir algo sobre a atualização de uma propriedade a amostra de serviço que está a imprimir um gémeo digital atualizado no terminal.
 
-### <a name="send-a-command-and-retrieve-the-response-using-the-node-service-sdk"></a>Enviar um comando e recuperar a resposta usando o SDK do serviço de nó
+### <a name="send-a-command-and-retrieve-the-response-using-the-node-service-sdk"></a>Envie um comando e recupere a resposta utilizando o serviço de nó SDK
 
-**invoke_command. js** invoca um comando síncrono no seu dispositivo digital. Para que ele tenha sucesso, o exemplo de dispositivo precisa estar em execução ao mesmo tempo. O sucesso parece que o exemplo de dispositivo está imprimindo algo sobre a confirmação de um comando e o cliente de serviço imprimindo o resultado do comando no terminal.
+**invoke_command.js** invoca um comando sincronizado no seu dispositivo de gémeo digital. Para ter sucesso, a amostra do dispositivo tem de ser funcionada ao mesmo tempo. O sucesso parece que a amostra do dispositivo está a imprimir algo sobre reconhecer um comando, e o cliente de serviço imprimir o resultado do comando no terminal.
 
-### <a name="connect-to-the-public-repository-and-retrieve-a-model-definition-using-the-node-service-sdk"></a>Conectar-se ao repositório público e recuperar uma definição de modelo usando o SDK do serviço de nó
+### <a name="connect-to-the-public-repository-and-retrieve-a-model-definition-using-the-node-service-sdk"></a>Ligue-se ao repositório público e recupere uma definição de modelo utilizando o serviço Denó SDK
 
-Usando as mesmas instruções para os exemplos de serviço e dispositivo, você precisa definir a seguinte variável de ambiente:
+Utilizando as mesmas instruções que para as amostras de serviço e dispositivo, é necessário definir a seguinte variável ambiental:
 
 * `AZURE_IOT_MODEL_REPOSITORY_CONNECTION_STRING`
 
-Você pode encontrar essa cadeia de conexão no [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com) na guia **cadeias de conexão** do **repositório da sua empresa**.
+Pode encontrar esta cadeia de ligação no [portal Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com) no separador de **cordas De ligação** para o seu **repositório da Empresa**.
 
-A cadeia de conexão é semelhante ao exemplo a seguir:
+A corda de ligação parece ser o seguinte exemplo:
 
 ```text
 HostName={repo host name};RepositoryId={repo ID};SharedAccessKeyName={repo key ID};SharedAccessKey={repo key secret}
 ```
 
-Depois de definir essas quatro variáveis de ambiente, execute o exemplo da mesma maneira que você executou os outros exemplos:
+Depois de definir estas quatro variáveis ambientais, faça a amostra da mesma forma que executou as outras amostras:
 
 ```cmd/sh
 node model_repo.js
 ```
 
-Este exemplo baixa a interface **ModelDiscovery** e imprime esse modelo no terminal.
+Esta amostra descarrega a interface **ModelDiscovery** e imprime este modelo no terminal.
 
-### <a name="run-queries-in-iot-hub-based-on-capability-models-and-interfaces"></a>Executar consultas no Hub IoT com base em modelos e interfaces de recursos
+### <a name="run-queries-in-iot-hub-based-on-capability-models-and-interfaces"></a>Executar consultas no IoT Hub com base em modelos e interfaces de capacidade
 
-A linguagem de consulta do Hub IoT dá suporte a `HAS_INTERFACE` e `HAS_CAPABILITYMODEL`, conforme mostrado nos exemplos a seguir:
+A linguagem de consulta IoT Hub apoia `HAS_INTERFACE` e, `HAS_CAPABILITYMODEL` como mostram os seguintes exemplos:
 
 ```sql
 select * from devices where HAS_INTERFACE('id without version', version)
@@ -80,20 +80,20 @@ select * from devices where HAS_INTERFACE('id without version', version)
 select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 ```
 
-### <a name="creating-digital-twin-routes"></a>Criando rotas de entrelaçamento digital
+### <a name="creating-digital-twin-routes"></a>Criação de rotas gémeas digitais
 
-Sua solução pode receber notificações de eventos de alteração de troca digital. Para assinar essas notificações, use o [recurso de roteamento do Hub IOT](../iot-hub/iot-hub-devguide-endpoints.md) para enviar as notificações para um ponto de extremidade, como armazenamento de BLOBs, hubs de eventos ou uma fila do barramento de serviço.
+A sua solução pode receber notificações de eventos de mudança de gémeos digitais. Para subscrever estas notificações, utilize a função de [encaminhamento IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md) para enviar as notificações para um ponto final, como armazenamento de blob, Hubs de Eventos ou uma fila de ônibus de serviço.
 
-Para criar uma rota de entrelaçamento digital:
+Para criar uma rota dupla digital:
 
-1. Na portal do Azure, vá para o recurso do Hub IoT.
-1. Selecione **Roteamento de mensagens**.
-1. Na guia **rotas** , selecione **Adicionar**.
-1. Insira um valor no campo **nome** e escolha um **ponto de extremidade**. Se você ainda não configurou um ponto de extremidade, selecione **Adicionar ponto de extremidade**.
-1. Na lista suspensa **fonte de dados** , selecione eventos de alteração de **troca digital**.
+1. No portal Azure, vá ao seu recurso IoT Hub.
+1. Selecione **o encaminhamento de mensagens**.
+1. No separador **Rotas** selecione **Adicionar**.
+1. Introduza um valor no campo **Nome** e escolha um **Ponto Final**. Se ainda não configurar um ponto final, **selecione Adicionar ponto final**.
+1. Na **queda** da fonte de dados, selecione **Digital Twin Change Events**.
 1. Selecione **Guardar**.
 
-O JSON a seguir mostra um exemplo de um evento de alteração de troca digital:
+O seguinte JSON mostra um exemplo de um evento de mudança de gémeos digitais:
 
 ```json
 {
@@ -140,4 +140,4 @@ O JSON a seguir mostra um exemplo de um evento de alteração de troca digital:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu sobre soluções de serviço que interagem com seus dispositivos IoT Plug and Play, uma próxima etapa sugerida é aprender sobre a [descoberta de modelo](concepts-model-discovery.md).
+Agora que aprendeu sobre soluções de serviço que interagem com os seus dispositivos IoT Plug e Play, um próximo passo sugerido é aprender sobre a descoberta do [Modelo.](concepts-model-discovery.md)

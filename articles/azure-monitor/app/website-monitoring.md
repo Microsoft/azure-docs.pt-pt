@@ -4,12 +4,12 @@ description: Fornece instruções de arranque rápido configuração de website 
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 1c581867f1e7ebc29f2aaff97124a08bec4e3b40
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 495c40ca8e383dd5a3cf3ba9e5bd42e2936ea015
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670853"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132372"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Quickstart: Comece a monitorizar o seu website com insights de aplicação do Monitor Azure
 
@@ -26,8 +26,8 @@ Com o Azure Monitor Application Insights, pode monitorizar facilmente o seu site
 
 O Application Insights pode recolher dados telemétricos de qualquer aplicação ligada à Internet, executada no local ou na cloud. Utilize os passos seguintes para começar a ver estes dados.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Criar um recurso** > **Ferramentas de gestão**  > **Application Insights**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Selecione **Criar uma** > **ferramenta de** > gestão de recursos**Aplicações Insights**.
 
    > [!NOTE]
    >Se for a primeira vez que cria um recurso de Insights de Aplicação, pode aprender mais visitando o artigo [Create a Application Insights Resource.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
@@ -62,7 +62,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 ## <a name="configure-application-insights-sdk"></a>Configure Insights de Aplicação SDK
 
-1. Selecione **Descrição geral** > **Essentials** > Copie a **Chave de Instrumentação** da sua aplicação.
+1. Selecione **visão geral** > **Essencial** > Copie a chave de **instrumentação**da sua aplicação .
 
    ![Formulário de recurso novo do Application Insights](media/website-monitoring/instrumentation-key-001.png)
 
@@ -86,7 +86,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 1. Agora pode reabrir a página de **visão geral** da Aplicação Insights no portal Azure para ver detalhes sobre a sua aplicação em execução. A página **'Overview'** é onde recuperou a chave de instrumentação. Os quatro gráficos predefinidos na página de descrição geral estão confinados aos dados da aplicação do lado do servidor. Uma vez que estamos a instrumentalar as interações cliente/navegador com o JavaScript SDK, esta vista em particular não se aplica a menos que também tenhamos um SDK do lado do servidor instalado.
 
-2. Clique no ícone do mapa de aplicações ![](media/website-monitoring/006.png) **Analytics**.  Esta ação abre o **Analytics**, que fornece uma linguagem de consulta rica para analisar todos os dados recolhidos pela Application Insights. Para ver dados relacionados com os pedidos do browser do lado do cliente, execute a seguinte consulta:
+2. Clique no ![ícone do Mapa da Aplicação](media/website-monitoring/006.png) **Analytics**.  Esta ação abre o **Analytics**, que fornece uma linguagem de consulta rica para analisar todos os dados recolhidos pela Application Insights. Para ver dados relacionados com os pedidos do browser do lado do cliente, execute a seguinte consulta:
 
     ```kusto
     // average pageView duration by name
@@ -126,7 +126,7 @@ Se pretende continuar a trabalhar com quickstarts adicionais ou com os tutoriais
 > [!NOTE]
 > Se utilizou um grupo de recursos existente, as instruções abaixo não funcionarão e terá de eliminar o recurso Individual Application Insights. Tenha em mente que sempre que eliminar um grupo de recursos, todos os recursos que são membros desse grupo serão eliminados.
 
-1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
+1. No menu esquerdo do portal Azure, clique em **grupos de recursos,** e clique no **myResourceGroup** ou no nome do seu grupo de recursos temporários.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes

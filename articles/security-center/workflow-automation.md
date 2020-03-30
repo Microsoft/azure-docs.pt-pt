@@ -1,6 +1,6 @@
 ---
-title: Automação de fluxo de trabalho (versão prévia) na central de segurança do Azure | Microsoft Docs
-description: Saiba como criar e automatizar fluxos de trabalho na central de segurança do Azure
+title: Automação de fluxo de trabalho no Centro de Segurança Azure Microsoft Docs
+description: Saiba como criar e automatizar fluxos de trabalho no Centro de Segurança Azure
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,97 +8,100 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 57351ccf0c6155a1a3532ec9e6481a724e3219aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 972b5415b85e82a5afdaf7d85d3a3bcb9e144d4d
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462436"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384947"
 ---
-# <a name="workflow-automation-preview"></a>Automação de fluxo de trabalho (visualização)
+# <a name="workflow-automation"></a>Automatização de fluxos de trabalho
 
-Cada programa de segurança inclui vários fluxos de trabalho para resposta a incidentes. Esses processos podem incluir a notificação de participantes relevantes, a inicialização de um processo de gerenciamento de alterações e a aplicação de etapas de correção específicas. Os especialistas em segurança recomendam que você automatize o máximo possível de etapas desses procedimentos. A automação reduz a sobrecarga. Ele também pode melhorar sua segurança, garantindo que as etapas do processo sejam feitas de forma rápida, consistente e de acordo com seus requisitos predefinidos.
+Todos os programas de segurança incluem múltiplos fluxos de trabalho para resposta a incidentes. Estes processos podem incluir notificar as partes interessadas relevantes, lançar um processo de gestão de alterações e aplicar medidas específicas de reparação. Os peritos em segurança recomendam que automatizar o máximo de passos possível desses procedimentos. A automação reduz a sobrecarga. Também pode melhorar a sua segurança garantindo que os passos do processo são feitos de forma rápida, consistente e de acordo com os seus requisitos predefinidos.
 
-Este artigo descreve o recurso de automação de fluxo de trabalho (versão prévia) da central de segurança do Azure. Esse recurso de visualização pode disparar aplicativos lógicos sobre alertas de segurança e recomendações. Por exemplo, talvez você queira que a central de segurança envie por email um usuário específico quando ocorrer um alerta. Você também aprenderá a criar aplicativos lógicos usando [aplicativos lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Este artigo descreve a funcionalidade de automatização de fluxos de trabalho do Azure Security Center. Esta funcionalidade pode desencadear Aplicações Lógicas em alertas de segurança e recomendações. Por exemplo, pode querer que o Security Center envie um e-mail a um utilizador específico quando ocorrer um alerta. Também aprenderá si a criar aplicações lógicas usando [aplicações lógicas do Azure.](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 
 > [!NOTE]
-> Se você usou anteriormente a exibição de guias estratégicos (versão prévia) na barra lateral, encontrará os mesmos recursos junto com a funcionalidade expandida na página nova automação de fluxo de trabalho (versão prévia).
+> Se usou previamente a vista Playbooks (Preview) na barra lateral, encontrará as mesmas funcionalidades juntamente com a funcionalidade expandida na nova página de automatização de fluxos de trabalho.
 
 
 ## <a name="requirements"></a>Requisitos
 
-* Para trabalhar com fluxos de trabalho de aplicativos lógicos do Azure, você deve ter as seguintes funções/permissões de aplicativos lógicos:
+* Para trabalhar com os fluxos de trabalho de Aplicações Lógicas Azure, deve ter as seguintes aplicações lógicas/permissões:
 
-    * Permissões de [operador de aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou acesso de leitura/gatilho do aplicativo lógico (essa função não pode criar ou editar aplicativos lógicos; *executar* apenas os existentes)
+    * São necessárias permissões do Operador de [Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) ou acesso de leitura/gatilho da Aplicação Lógica (esta função não pode criar ou editar aplicações lógicas; apenas *executar* as existentes)
 
-    * As permissões de [colaborador do aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação do aplicativo lógico
+    * São necessárias permissões do Colaborador da [Aplicação Lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) para a criação e modificação de Aplicações Lógicas
 
-* Se você quiser usar conectores de aplicativos lógicos, talvez precise de credenciais adicionais para entrar em seus respectivos serviços (por exemplo, suas instâncias de Outlook/equipes/margem de atraso)
+* Se pretender utilizar conectores de Aplicações Lógicas, poderá necessitar de credenciais adicionais para iniciar sessão nos respetivos serviços (por exemplo, as suas instâncias Outlook/Teams/Slack)
 
 
-## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Criar um aplicativo lógico e definir quando ele deve ser executado automaticamente 
+## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crie uma App Lógica e defina quando deve ser executada automaticamente 
 
-1. Na barra lateral da central de segurança, selecione **automação de fluxo de trabalho (versão prévia)** .
+1. A partir da barra lateral do Security Center, selecione **Workflow automation**.
 
-    [Lista de ![de automação de fluxo de trabalho](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
+    [![Lista de automatizações de fluxos de trabalho](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
-    Nessa página, você pode criar novas regras de automação, bem como habilitar, desabilitar ou excluir aquelas existentes.  
-1. Para definir um novo fluxo de trabalho, clique em **Adicionar automação de fluxo de trabalho**. 
+    A partir desta página pode criar novas regras de automatização, bem como ativar, desativar ou eliminar as existentes.  
+1. Para definir um novo fluxo de trabalho, clique **em Adicionar automatização de fluxo de trabalho.** 
 
-    Um painel é exibido com as opções para sua nova automação. Aqui você pode inserir:
-    1. Um nome e uma descrição para a automação.
-    1. Os gatilhos que iniciarão esse fluxo de trabalho automático. Por exemplo, talvez você queira que seu aplicativo lógico seja executado quando um alerta de segurança que contenha "SQL" for gerado.
-    1. O aplicativo lógico que será executado quando suas condições de disparo forem atendidas. 
+    Um painel aparece com as opções para a sua nova automatização. Aqui pode entrar:
+    1. Um nome e descrição para a automação.
+    1. Os gatilhos que iniciarão este fluxo de trabalho automático. Por exemplo, pode querer que a sua Aplicação Lógica seja executada quando for gerado um alerta de segurança que contenha "SQL".
+    1. A Aplicação Lógica que funcionará quando as condições do gatilho forem satisfeitas. 
 
-        [Lista de ![de automação de fluxo de trabalho](media/workflow-automation/add-workflow.png)](media/workflow-automation/add-workflow.png#lightbox)
+        [![Lista de automatizações de fluxos de trabalho](media/workflow-automation/add-workflow.png)](media/workflow-automation/add-workflow.png#lightbox)
 
-1. Na seção ações, clique em **criar um novo** para iniciar o processo de criação do aplicativo lógico.
+1. A partir da secção Ações, clique **em Criar um novo** para iniciar o processo de criação de Aplicações Lógicas.
 
-    Você será levado para os aplicativos lógicos do Azure.
+    Será levado para as Aplicações Lógicas Azure.
 
-    [![criar um novo aplicativo lógico](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
+    [![Criação de uma nova App Lógica](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
-1. Insira um nome, grupo de recursos e local e clique em **criar**.
+1. Introduza um nome, grupo de recursos e localização, e clique em **Criar**.
 
-1. Em seu novo aplicativo lógico, você pode escolher entre modelos predefinidos internos da categoria segurança. Ou você pode definir um fluxo de eventos personalizado para ocorrer quando esse processo é disparado.
+1. Na sua nova App Lógica, pode escolher entre modelos incorporados e predefinidos da categoria de segurança. Ou pode definir um fluxo personalizado de eventos a ocorrer quando este processo é desencadeado.
 
-    No designer do aplicativo lógico, há suporte para os seguintes gatilhos dos conectores da central de segurança:
+    No designer de aplicações lógicas são suportados os seguintes gatilhos dos conectores do Centro de Segurança:
 
-    * **Quando uma recomendação da central de segurança do Azure é criada ou disparada (visualização)**
-    * **Quando um alerta da central de segurança do Azure é criado ou disparado (visualização)**
+    * **Quando uma recomendação do Centro de Segurança Azure é criada ou desencadeada**
+    * **Quando um alerta do Centro de Segurança Azure é criado ou desencadeado** 
+    
+    > [!TIP]
+    > Pode personalizar o gatilho de modo a que se relacione apenas com alertas com os níveis de gravidade que lhe interessam.
     
     > [!NOTE]
-    > Se você estiver usando o gatilho herdado "quando uma resposta a um alerta da central de segurança do Azure for disparada", seus aplicativos lógicos não serão iniciados pelo recurso de automação do fluxo de trabalho. Em vez disso, use qualquer um dos gatilhos mencionados acima. 
+    > Se estiver a utilizar o gatilho do legado "Quando uma resposta a um alerta do Azure Security Center for desencadeada", as suas Aplicações Lógicas não serão lançadas pela funcionalidade Workflow Automation. Em vez disso, utilize qualquer um dos gatilhos acima mencionados. 
 
-    [![aplicativo lógico de exemplo](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
+    [![App lógica da amostra](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
-1. Depois de definir seu aplicativo lógico, retorne ao painel de definição de automação de fluxo de trabalho ("Adicionar automação de fluxo de trabalho"). Clique em **Atualizar** para garantir que seu novo aplicativo lógico esteja disponível para seleção.
+1. Depois de definir a sua App Lógica, volte ao painel de definição de automatização de fluxos de trabalho ("Adicionar automatização de fluxo de trabalho"). Clique em **Refresh** para garantir que a sua nova Aplicação Lógica está disponível para seleção.
 
     ![Atualizar](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Selecione seu aplicativo lógico e salve a automação. Observe que o menu suspenso do aplicativo lógico mostra apenas os aplicativos lógicos com suporte aos conectores da central de segurança mencionados acima.
+1. Selecione a sua App Lógica e guarde a automatização. Note que a aplicação lógica dropdown apenas mostra Aplicações Lógicas com conectores de Centro de Segurança de suporte mencionados acima.
 
 
-## <a name="manually-trigger-a-logic-app"></a>Disparar um aplicativo lógico manualmente
+## <a name="manually-trigger-a-logic-app"></a>Desencadear manualmente uma Aplicação Lógica
 
-Você também pode executar aplicativos lógicos manualmente ao exibir uma recomendação de segurança.
+Também pode executar aplicações lógicas manualmente ao visualizar um alerta de segurança ou qualquer recomendação que ofereça [remediação quick Fix](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
 
-Para executar manualmente um aplicativo lógico, abra uma recomendação e clique em disparar aplicativo lógico (versão prévia):
+Para executar manualmente uma Aplicação Lógica, abra um alerta ou uma recomendação que suporte a reparação quick Fix e clique na **App Lógica de Gatilho:**
 
-[![disparar um aplicativo lógico manualmente](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
+[![Desencadear manualmente uma Aplicação Lógica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
-## <a name="data-types-schemas"></a>Esquemas de tipos de dados
+## <a name="data-types-schemas"></a>Tipos de dados schemas
 
-Para exibir os esquemas de eventos brutos dos alertas de segurança ou eventos de recomendações passados para a instância do aplicativo lógico, visite os [esquemas de tipos de dados de automação de fluxo de trabalho](https://aka.ms/ASCAutomationSchemas). Isso pode ser útil em casos em que você não está usando conectores de aplicativos lógicos internos da central de segurança mencionados acima, mas, em vez disso, está usando o conector HTTP genérico do aplicativo lógico – você pode usar o esquema JSON de evento para analisá-lo manualmente como desejar.
+Para ver os eventos brutos dos alertas de segurança ou eventos de recomendações passados para a instância da App Lógica, visite os tipos de dados de [automação de fluxo de trabalho](https://aka.ms/ASCAutomationSchemas). Isto pode ser útil em casos em que não está a usar os conectores de aplicações lógicas incorporados do Security Center mencionados acima, mas sim usar o conector genérico HTTP da Logic App - você poderia usar o evento JSON schema para analisá-lo manualmente como você entender.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a criar aplicativos lógicos, executá-los manualmente na central de segurança e automatizar sua execução. 
+Neste artigo, aprendeu a criar Apps Lógicas, executá-las manualmente no Centro de Segurança e automatizando a sua execução. 
 
-Para obter outros materiais relacionados, consulte os seguintes artigos: 
+Para outros materiais relacionados, consulte os seguintes artigos: 
 
-- [Recomendações de segurança na central de segurança do Azure](security-center-recommendations.md)
+- [Recomendações de segurança no Centro de Segurança do Azure](security-center-recommendations.md)
 - [Alertas de segurança no Centro de Segurança do Azure](security-center-alerts-overview.md)
-- [Sobre os aplicativos lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Conectores de aplicativos lógicos](https://docs.microsoft.com/connectors/)
-- [Esquemas de tipos de dados de automação de fluxo de trabalho](https://aka.ms/ASCAutomationSchemas)
+- [Acerca do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+- [Conectores do Logic Apps](https://docs.microsoft.com/connectors/)
+- [Tipos de dados de automatização de fluxo schemas](https://aka.ms/ASCAutomationSchemas)

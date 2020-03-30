@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258697"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Clusters de tecido de serviço Azure de escala
@@ -22,12 +22,12 @@ Altera o número de nós no cluster.  Assim que os novos nós se juntam ao clust
 - Vantagens: Escala infinita, em teoria.  Se a sua aplicação for concebida para a escalabilidade, pode permitir um crescimento ilimitado adicionando mais nós.  A ferramenta em ambientes de nuvem facilita a adição ou remoção de nós, por isso é fácil ajustar a capacidade e só paga pelos recursos que utiliza.  
 - Desvantagens: As aplicações devem ser [concebidas para a escalabilidade](service-fabric-concepts-scalability.md).  As bases de dados de aplicações e a persistência podem exigir também trabalhos arquitetónicos adicionais à escala.  No entanto, as [coleções fiáveis](service-fabric-reliable-services-reliable-collections.md) em serviços de serviço saem, no entanto, facilitam muito a escala dos dados da sua aplicação.
 
-Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido num cluster Azure é [configurado como um conjunto](service-fabric-cluster-nodetypes.md)de escala separado . Cada tipo de nó, em seguida, pode ser reduzido horizontalmente ou horizontalmente de forma independente, têm conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente. 
+Os conjuntos de escala de máquinavirtual são um recurso de computação Azure que pode usar para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó definido num cluster Azure é [configurado como um conjunto](service-fabric-cluster-nodetypes.md)de escala separado . Cada tipo de nó pode então ser escalado dentro ou fora de forma independente, ter diferentes conjuntos de portas abertas, e pode ter métricas de capacidade diferentes. 
 
 Ao escalonar um cluster Azure, tenha em mente as seguintes orientações:
 - os tipos primários de nós que executam cargas de trabalho de produção devem ter sempre cinco ou mais nós.
-- Os tipos de nós não primários que executam cargas horárias de produção audais devem ter sempre cinco ou mais nós.
-- Os tipos não primários de nó que executam cargas de trabalho apátridas de produção apátrida devem ter sempre dois ou mais nós.
+- Os tipos de nó não primários que executam cargas horárias de produção audais devem ter sempre cinco ou mais nós.
+- Os tipos não primários de nó que executam cargas de trabalho apátridas de produção apátridas devem sempre ter dois ou mais nós.
 - Qualquer nó de nível de [durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Ouro ou Prata deve ter sempre cinco ou mais nós.
 - Não remova as instâncias/nós de VM aleatórios de um tipo de nó, utilize sempre a função de escala de escala de máquina virtual. A eliminação de instâncias vm aleatórias pode afetar negativamente a capacidade dos sistemas de carregar corretamente o equilíbrio.
 - Se utilizar regras de escala automática, estabeleça as regras para que a escala (remoção das instâncias VM) seja feita com um nó de cada vez. Reduzir mais do que um caso de cada vez não é seguro.
@@ -50,7 +50,7 @@ Uma abordagem para implementar esta funcionalidade de auto-escalação "caseira"
 
 A API utilizada para interações de conjuntos de máquinas virtuais (tanto para verificar o número atual de casos de máquinas virtuais como para modificá-la) é a [fluente biblioteca azure Management Compute](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). A fluente biblioteca computacional fornece uma API de fácil utilização para interagir com conjuntos de escala de máquinas virtuais.  Para interagir com o próprio cluster de tecido de serviço, utilize [system.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
-O código de escala não precisa de funcionar como um serviço no cluster para ser escalado, no entanto. Tanto `IAzure` como `FabricClient` podem ligar-se remotamente aos seus recursos Azure associados, pelo que o serviço de escalação pode facilmente ser uma aplicação de consola ou um serviço Windows que funciona fora da aplicação Service Fabric.
+O código de escala não precisa de funcionar como um serviço no cluster para ser escalado, no entanto. Ambos `IAzure` `FabricClient` podem ligar-se remotamente aos seus recursos Azure associados, pelo que o serviço de escalação pode facilmente ser uma aplicação de consola ou um serviço Windows que funciona fora da aplicação Service Fabric.
 
 Com base nestas limitações, poderá desejar [implementar modelos de escala automática mais personalizados.](service-fabric-cluster-programmatic-scaling.md)
 
@@ -59,7 +59,7 @@ Altera os recursos (CPU, memória ou armazenamento) dos nós do cluster.
 - Vantagens: A arquitetura de software e aplicação permanece a mesma.
 - Desvantagens: Escala finita, uma vez que há um limite para o quanto pode aumentar os recursos em nós individuais. Tempo de inatividade, porque terá de desligar as máquinas físicas ou virtuais para adicionar ou remover recursos.
 
-Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido num cluster Azure é [configurado como um conjunto](service-fabric-cluster-nodetypes.md)de escala separado . Cada tipo de nó pode então ser gerido separadamente.  Escalar um nó para cima ou para baixo envolve alterar o SKU das instâncias da máquina virtual no conjunto de escala. 
+Os conjuntos de escala de máquinavirtual são um recurso de computação Azure que pode usar para implantar e gerir uma coleção de máquinas virtuais como conjunto. Cada tipo de nó definido num cluster Azure é [configurado como um conjunto](service-fabric-cluster-nodetypes.md)de escala separado . Cada tipo de nó pode então ser gerido separadamente.  Escalar um nó para cima ou para baixo envolve alterar o SKU das instâncias da máquina virtual no conjunto de escala. 
 
 > [!WARNING]
 > Recomendamos que não altere o VM SKU de um tipo de conjunto/nó de escala, a menos que esteja a funcionar na [durabilidade da Prata ou superior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Mudar o tamanho VM SKU é uma operação de infraestrutura destrutiva em dados. Sem alguma capacidade de atrasar ou monitorizar esta alteração, é possível que a operação possa causar perda de dados para serviços estatais ou causar outras questões operacionais imprevistas, mesmo para cargas de trabalho apátridas. 

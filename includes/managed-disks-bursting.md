@@ -5,17 +5,17 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/28/2020
+ms.date: 03/29/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a04df7ed283a17ddad6af87cf8215ff8d39a5079
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 871a3edf70690a09d3747703e8bc999dfcce967c
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78202488"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385185"
 ---
-A rutura do disco é atualmente uma funcionalidade de pré-visualização para SSDs premium. A rajada é suportada em quaisquer tamanhos de disco SSD premium <= 512 GiB (P20 ou abaixo). Estes tamanhos de disco suportam rebentar com o melhor esforço e utilizam um sistema de crédito para gerir a explosão. Os créditos acumulam-se num balde de rutura sempre que o tráfego de discos está abaixo do objetivo de desempenho previsto para o seu tamanho de disco, e consomem créditos quando o tráfego explode para além do alvo. O tráfego do disco é rastreado contra iOPS e largura de banda no alvo provisionado. A rutura do disco não contornará as limitações de tamanho da máquina virtual (VM) no IOPS ou na entrada.
+A rutura do disco é suportada para SSDs premium. A explosão é suportada em quaisquer tamanhos de disco SSD premium <= 512 GiB (P20 ou abaixo). Estes tamanhos de disco suportam rebentar com o melhor esforço e utilizam um sistema de crédito para gerir a explosão. Os créditos acumulam-se num balde de rutura sempre que o tráfego de discos está abaixo do objetivo de desempenho previsto para o seu tamanho de disco, e consomem créditos quando o tráfego explode para além do alvo. O tráfego do disco é rastreado contra iOPS e largura de banda no alvo provisionado. A rutura do disco não contornará as limitações de tamanho da máquina virtual (VM) no IOPS ou na entrada.
 
 A rutura do disco é ativada por padrão em novas implementações dos tamanhos do disco que o suportam. Os tamanhos do disco existentes, se suportarem a rutura do disco, podem permitir a rutura de qualquer um dos seguintes métodos:
 
@@ -36,7 +36,7 @@ Os tamanhos do disco que proporcionam suporte de rutura juntamente com as especi
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-Atualmente, a rutura do disco só está disponível na região centro-oeste dos EUA.
+A explosão do disco está disponível em todas as regiões da Nuvem Pública.
 
 ## <a name="disk-sizes"></a>Tamanhos do disco
 

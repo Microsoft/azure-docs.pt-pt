@@ -1,20 +1,20 @@
 ---
 title: Métodos de autenticação Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre o Diretório Ativo Azure (Azure AD) e a autenticação de Chave Partilhada. Ambos são utilizados para serviços microsoft Azure Maps. Saiba como obter a chave de subscrição do Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 171219c001f43137a52f29b282fb1705b3d836aa
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 21d29cba85adfc147ec9deb6ab362a5da943bf10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649828"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335708"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
 
@@ -25,7 +25,7 @@ O Azure Maps suporta duas formas de autenticar pedidos: Autenticação de Chave 
 
 ## <a name="shared-key-authentication"></a>Autenticação chave partilhada
 
- As chaves primárias e secundárias são geradas após a criação da conta Azure Maps. É encorajado a usar a chave principal como chave de subscrição ao ligar para o Azure Maps usando a autenticação de chaves partilhadas. A autenticação da Chave Partilhada passa uma chave gerada por uma conta Azure Maps para um serviço Azure Maps. Para cada pedido aos serviços do Azure Maps, adicione a *chave de subscrição* como parâmetro ao URL. A chave secundária pode ser usada em cenários como mudanças de chave de rolamento.  
+ As chaves primárias e secundárias são geradas após a criação da conta Azure Maps. É encorajado a usar a chave principal como chave de subscrição ao ligar para o Azure Maps usando a autenticação de chaves partilhadas. A autenticação da Chave Partilhada passa uma chave gerada por uma conta Azure Maps para um serviço Azure Maps. Para cada pedido aos serviços do Azure Maps, adicione a *chave de subscrição* como parâmetro ao URL. A chave secundária pode ser usada em cenários como mudanças de chave de rolamento.  
 
 Para obter informações sobre a visualização das suas chaves no portal Azure, consulte [Gerir a autenticação](https://aka.ms/amauthdetails).
 
@@ -48,7 +48,7 @@ O Azure Maps gera um *identificador único (ID do cliente)* para cada conta do A
 
 | Ambiente Azure   | Ponta final simbólica azure AD |
 | --------------------|-------------------------|
-| Azure Public        | https://login.microsoftonline.com |
+| Azure Público        | https://login.microsoftonline.com |
 | Azure Government    | https://login.microsoftonline.us |
 
 
@@ -62,11 +62,11 @@ Depois de a Azure AD receber um símbolo, o Azure Maps envia um pedido com o seg
 
 | Cabeçalho do pedido    |    Valor    |
 |:------------------|:------------|
-| x-ms-client-id    | 30d7cc....9f55|
-| Autorização     | Bearer eyJ0e….HNIVN |
+| x-ms-cliente-id    | 30d7cc....9f55|
+| Autorização     | Portador eyJ0e....HNIVN |
 
 > [!Note]
-> `x-ms-client-id` é o GUID baseado em conta Azure Maps que aparece na página de autenticação do Azure Maps.
+> `x-ms-client-id`é o GUID baseado na conta Azure Maps que aparece na página de autenticação do Azure Maps.
 
 Aqui está um exemplo de um pedido de rota Do Azure Maps que usa um símbolo OAuth:
 

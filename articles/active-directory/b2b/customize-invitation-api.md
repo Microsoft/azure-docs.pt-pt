@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263468"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Ative Directory B2B colaboração API e personalização
@@ -80,7 +80,7 @@ Neste modo, quem estiver a utilizar a API precisa de ter as permissões para ser
 
 No contexto apenas da aplicação, a aplicação precisa do Utilizador.Invite.All scope for the invitation to succeed.
 
-Para mais informações, consulte: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
+Para mais informações, consulte:https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
@@ -93,9 +93,9 @@ New-AzureADMSInvitation
 
 Pode utilizar as seguintes opções:
 
-* -InvitedUserDisplayName
-* -InvitedUserEmailAddress
-* -SendInvitationMessage
+* -Nome de visualização userdisplay
+* -Endereço de email do UserUser
+* -Enviar Mensagem de Convite
 * -InvitedUserMessageInfo
 
 ### <a name="invitation-status"></a>Estatuto do convite
@@ -117,9 +117,9 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 
 ## <a name="see-also"></a>Consulte também
 
-Confira a referência a API convite em [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Confira a referência da [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)API do convite em .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 - [Os elementos do convite de colaboração B2B enviar e-mail](invitation-email-elements.md)

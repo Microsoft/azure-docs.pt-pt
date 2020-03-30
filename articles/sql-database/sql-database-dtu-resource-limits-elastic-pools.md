@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 3f6bbef8f274c5efb99d5b98961450aa7b001527
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7b7ef3b6f2d400dafb28cfb7a15cf95cbbe2c457
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79256344"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351014"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra dTU
 
@@ -39,14 +39,18 @@ Para piscinas elásticas SQL Database, as tabelas seguintes mostram os recursos 
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Armazenamento incluído por piscina (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Escolhas de armazenamento máximo por piscina (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Armazenamento OLTP Max In-Memory por piscina (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
-| Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
-| Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Armazenamento OLTP Max In-Memory por piscina (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
+| DBs max número por piscina <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Trabalhadores simultâneos max (pedidos) por piscina <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Sessões simultâneas max por piscina <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Escolhas min eDTUs por base de dados | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Escolhas max eDTUs por base de dados | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Armazenamento máximo por base de dados (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
+
+<sup>1</sup> Consulte a [gestão de recursos em piscinas elásticas densas](sql-database-elastic-pool-resource-management.md) para considerações adicionais.
+
+<sup>2</sup> Para os trabalhadores simultâneos max (pedidos) de qualquer base de dados individual, consulte os limites de [recursos de base de dados individuais](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver a utilizar a Gen5 e o vCore max por base de dados for fixado em 2, então o valor máximo dos trabalhadores simultâneos é de 200.  Se o vCore max por base de dados estiver definido para 0,5, então o valor máximo dos trabalhadores simultâneos é de 50, uma vez que na Gen5 existem um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições vCore max por base de dados que sejam menos 1 vCore ou menos, o número de trabalhadores max simultâneos é igualmente redimensionado.
 
 ### <a name="standard-elastic-pool-limits"></a>Limites do conjunto elástico padrão
 
@@ -54,29 +58,37 @@ Para piscinas elásticas SQL Database, as tabelas seguintes mostram os recursos 
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Armazenamento incluído por piscina (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Escolhas de armazenamento máximo por piscina (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
-| Armazenamento OLTP Max In-Memory por piscina (GB) | N/A | N/A | N/A | N/A | N/A | N/A |
-| Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 |
-| Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Armazenamento OLTP Max In-Memory por piscina (GB) | N/D | N/D | N/D | N/D | N/D | N/D |
+| DBs max número por piscina <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
+| Trabalhadores simultâneos max (pedidos) por piscina <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Sessões simultâneas max por piscina <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Escolhas min eDTUs por base de dados | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Escolhas max eDTUs por base de dados | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Armazenamento máximo por base de dados (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
+<sup>1</sup> Consulte a [gestão de recursos em piscinas elásticas densas](sql-database-elastic-pool-resource-management.md) para considerações adicionais.
+
+<sup>2</sup> Para os trabalhadores simultâneos max (pedidos) de qualquer base de dados individual, consulte os limites de [recursos de base de dados individuais](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver a utilizar a Gen5 e o vCore max por base de dados for fixado em 2, então o valor máximo dos trabalhadores simultâneos é de 200.  Se o vCore max por base de dados estiver definido para 0,5, então o valor máximo dos trabalhadores simultâneos é de 50, uma vez que na Gen5 existem um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições vCore max por base de dados que sejam menos 1 vCore ou menos, o número de trabalhadores max simultâneos é igualmente redimensionado.
+
 ### <a name="standard-elastic-pool-limits-continued"></a>Limites do conjunto elástico standard (continuação)
 
 | eDTUs por conjunto | **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Armazenamento incluído por piscina (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
+| Armazenamento incluído por piscina (GB) | 1200 | 1600 | 2000 | 2500 | 3.000 |
 | Escolhas de armazenamento máximo por piscina (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Armazenamento OLTP Max In-Memory por piscina (GB) | N/A | N/A | N/A | N/A | N/A |
-| Número de DBs máximo por conjunto | 500 | 500 | 500 | 500 | 500 |
-| Máximo de trabalhadores simultâneos (pedidos) por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Armazenamento OLTP Max In-Memory por piscina (GB) | N/D | N/D | N/D | N/D | N/D |
+| DBs max número por piscina <sup>1</sup> | 500 | 500 | 500 | 500 | 500 |
+| Trabalhadores simultâneos max (pedidos) por piscina <sup>2</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Sessões simultâneas max por piscina <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Escolhas min eDTUs por base de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Escolhas max eDTUs por base de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Escolhas de armazenamento máximo por base de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
+
+<sup>1</sup> Consulte a [gestão de recursos em piscinas elásticas densas](sql-database-elastic-pool-resource-management.md) para considerações adicionais.
+
+<sup>2</sup> Para os trabalhadores simultâneos max (pedidos) de qualquer base de dados individual, consulte os limites de [recursos de base de dados individuais](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver a utilizar a Gen5 e o vCore max por base de dados for fixado em 2, então o valor máximo dos trabalhadores simultâneos é de 200.  Se o vCore max por base de dados estiver definido para 0,5, então o valor máximo dos trabalhadores simultâneos é de 50, uma vez que na Gen5 existem um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições vCore max por base de dados que sejam menos 1 vCore ou menos, o número de trabalhadores max simultâneos é igualmente redimensionado.
 
 ### <a name="premium-elastic-pool-limits"></a>Limites do conjunto elástico premium
 
@@ -85,13 +97,17 @@ Para piscinas elásticas SQL Database, as tabelas seguintes mostram os recursos 
 | Armazenamento incluído por piscina (GB) | 250 | 500 | 750 | 1024 | 1536 |
 | Escolhas de armazenamento máximo por piscina (GB) | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
 | Armazenamento OLTP Max In-Memory por piscina (GB) | 1 | 2 | 4 | 10 | 12 |
-| Número de DBs máximo por conjunto | 50 | 100 | 100 | 100 | 100 |
-| Máximo de trabalhadores simultâneos por conjunto (pedidos) | 200 | 400 | 800 | 1600 | 2400 |
-| Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 |
+| DBs max número por piscina <sup>1</sup> | 50 | 100 | 100 | 100 | 100 |
+| Trabalhadores simultâneos max por piscina (pedidos) <sup>2</sup> | 200 | 400 | 800 | 1600 | 2400 |
+| Sessões simultâneas max por piscina <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Mínimo de eDTUs por base de dados | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Máximo de eDTUs por base de dados | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Armazenamento máximo por base de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
+
+<sup>1</sup> Consulte a [gestão de recursos em piscinas elásticas densas](sql-database-elastic-pool-resource-management.md) para considerações adicionais.
+
+<sup>2</sup> Para os trabalhadores simultâneos max (pedidos) de qualquer base de dados individual, consulte os limites de [recursos de base de dados individuais](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver a utilizar a Gen5 e o vCore max por base de dados for fixado em 2, então o valor máximo dos trabalhadores simultâneos é de 200.  Se o vCore max por base de dados estiver definido para 0,5, então o valor máximo dos trabalhadores simultâneos é de 50, uma vez que na Gen5 existem um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições vCore max por base de dados que sejam menos 1 vCore ou menos, o número de trabalhadores max simultâneos é igualmente redimensionado.
 
 ### <a name="premium-elastic-pool-limits-continued"></a>Limites do conjunto elástico premium (continuação)
 
@@ -100,13 +116,17 @@ Para piscinas elásticas SQL Database, as tabelas seguintes mostram os recursos 
 | Armazenamento incluído por piscina (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
 | Escolhas de armazenamento máximo por piscina (GB) | 2048 | 2560 | 3072 | 3548 | 4096|
 | Armazenamento OLTP Max In-Memory por piscina (GB) | 16 | 20 | 24 | 28 | 32 |
-| Número de DBs máximo por conjunto | 100 | 100 | 100 | 100 | 100 |
-| Máximo de trabalhadores simultâneos (pedidos) por conjunto | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 |
+| DBs max número por piscina <sup>1</sup> | 100 | 100 | 100 | 100 | 100 |
+| Trabalhadores simultâneos max (pedidos) por piscina <sup>2</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Sessões simultâneas max por piscina <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Escolhas min eDTUs por base de dados | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Escolhas max eDTUs por base de dados | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Armazenamento máximo por base de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
+
+<sup>1</sup> Consulte a [gestão de recursos em piscinas elásticas densas](sql-database-elastic-pool-resource-management.md) para considerações adicionais.
+
+<sup>2</sup> Para os trabalhadores simultâneos max (pedidos) de qualquer base de dados individual, consulte os limites de [recursos de base de dados individuais](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver a utilizar a Gen5 e o vCore max por base de dados for fixado em 2, então o valor máximo dos trabalhadores simultâneos é de 200.  Se o vCore max por base de dados estiver definido para 0,5, então o valor máximo dos trabalhadores simultâneos é de 50, uma vez que na Gen5 existem um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições vCore max por base de dados que sejam menos 1 vCore ou menos, o número de trabalhadores max simultâneos é igualmente redimensionado.
 
 > [!IMPORTANT]
 > Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China North, Alemanha Central, Alemanha Nordeste, Oeste Dos EUA, regiões do DoD dos EUA e Central do Governo dos EUA. Nestas regiões, o máximo de armazenamento no nível Premium está limitado a 1 TB.  Para mais informações, consulte as [limitações atuais p11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
@@ -114,7 +134,7 @@ Para piscinas elásticas SQL Database, as tabelas seguintes mostram os recursos 
 Se todas as DTUs de um conjunto elástico forem utilizadas, cada base de dados no conjunto recebe uma quantidade igual de recursos para processar consultas. O serviço Base de Dados SQL fornece equidade de partilha de recursos entre bases de dados, garantindo frações iguais de tempo de computação. A equidade de partilha de recursos de um conjunto elástico é adicional a qualquer quantidade de recursos garantido de outro modo a cada base de dados quando o mínimo de DTUs por base de dados está definido como um valor diferente de zero.
 
 > [!NOTE]
-> Para `tempdb` limites, consulte [os limites temporários.](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)
+> Para `tempdb` limites, consulte [os limites temporários](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ### <a name="database-properties-for-pooled-databases"></a>Propriedades de base de dados para bases de dados reunidas
 
@@ -127,7 +147,7 @@ A tabela seguinte descreve as propriedades para bases de dados reunidas.
 | Armazenamento máximo por base de dados |O tamanho máximo da base de dados definido pelo utilizador para uma base de dados numa piscina. No entanto, as bases de dados reunidas partilham o armazenamento de piscinas. Mesmo que o armazenamento total máximo *por base de dados* seja superior ao espaço total de armazenamento disponível da *piscina,* o espaço total realmente utilizado por todas as bases de dados não poderá exceder o limite de piscina disponível. O tamanho da base de dados max refere-se ao tamanho máximo dos ficheiros de dados e não inclui o espaço utilizado pelos ficheiros de registo. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para os limites de recursos vCore para uma única base de dados, consulte [os limites de recursos para bases de dados únicas utilizando o modelo](sql-database-vcore-resource-limits-single-databases.md) de compra vCore
 - Para os limites de recursos dTU para uma única base de dados, consulte [os limites de recursos para bases de dados únicas utilizando o modelo](sql-database-dtu-resource-limits-single-databases.md) de compra dTU

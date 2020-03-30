@@ -1,5 +1,5 @@
 ---
-title: Tutorial para usar referências chave de configuração de aplicativos Azure numa aplicação Java Spring Boot  Microsoft Docs
+title: Tutorial para usar referências chave de configuração de aplicativos Azure numa aplicação Java Spring Boot [ Microsoft Docs
 description: Neste tutorial, você aprende a usar referências chave de cofre de configuração de aplicativos da App Azure a partir de uma aplicação Java Spring Boot
 services: azure-app-configuration
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
 ms.openlocfilehash: b6b6d10165eed331c397e17a18e382b095e1f74f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79216748"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Use referências chave vault em uma aplicação Java Spring
@@ -82,11 +82,11 @@ Para adicionar um segredo ao cofre, precisa de dar apenas alguns passos adiciona
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicione uma referência chave vault à configuração da aplicação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). **Selecione Todos os recursos**e, em seguida, selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione Explorador de **Configuração**.
 
-1. Selecione **+ Criar** > **referência do cofre chave,** e depois especificar os seguintes valores:
+1. Selecione **+ Criar** > **referência de cofre chave,** e depois especificar os seguintes valores:
     * **Chave**: Selecione **/application/config.keyvaultmessage**
     * **Etiqueta**: Deixe este valor em branco.
     * **Subscrição,** **Grupo de Recursos**e Cofre **chave**: Introduza os valores correspondentes aos valores no cofre chave que criou na secção anterior.

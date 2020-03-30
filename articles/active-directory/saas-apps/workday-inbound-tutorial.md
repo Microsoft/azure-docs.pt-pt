@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Workday para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizador ao Dia do Trabalho.
 services: active-directory
 author: cmmdesai
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79266354"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370352"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configure workday para fornecimento automático de utilizadores
 
@@ -132,7 +132,7 @@ Utilize a tabela de conteúdos para ir à secção relevante deste tutorial.
 A solução workday to AD User Provisioning requer a implementação de um ou mais Agentes de Provisionamento em servidores que executam o Windows 2012 R2 ou superior com um tempo mínimo de 4 GB de RAM e .NET 4.7.1+. Devem ser tomadas em consideração as seguintes considerações antes da instalação do Agente de Provisionamento:
 
 * Certifique-se de que o servidor anfitrião que executa o Agente de Provisionamento tem acesso à rede ao domínio AD alvo
-* O Assistente de Configuração do Agente de Provisionamento regista o agente com o seu inquilino Azure AD e o processo de registo requer acesso a *.msappproxy.net sobre a porta SSL 443. Certifique-se de que existem regras de firewall de saída que permitam esta comunicação. O agente suporta a configuração de [procuração HTTPS de saída](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+* O Assistente de Configuração do Agente de Provisionamento regista o agente com o seu inquilino Azure AD e o processo de registo requer acesso a *.msappproxy.net sobre a porta TLS 443. Certifique-se de que existem regras de firewall de saída que permitam esta comunicação. O agente suporta a configuração de [procuração HTTPS de saída](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 * O Agente de Provisionamento utiliza uma conta de serviço para comunicar com o domínio ad(s) no local. Antes da instalação do agente, recomenda-se que crie uma conta de serviço com permissões de administrador de domínio e uma palavra-passe que não expire.  
 * Durante a configuração do Agente de Provisionamento, pode selecionar controladores de domínio que devem lidar com pedidos de provisionamento. Se tiver vários controladores de domínio distribuídos geograficamente, instale o Agente de Provisionamento no mesmo local que o seu(s) controlador de domínio preferido para melhorar a fiabilidade e desempenho da solução de ponta a ponta
 * Para uma elevada disponibilidade, pode implementar mais do que um Agente de Provisionamento e registá-lo para lidar com o mesmo conjunto de domínios ad.
@@ -147,7 +147,7 @@ A solução workday to AD User Provisioning requer a implementação de um ou ma
 
 Dependendo da sua topologia de Diretório Ativo, terá de decidir o número de aplicações de conector de fornecimento de utilizadores e o número de Agentes de Provisionamento para configurar. Listados abaixo estão alguns dos padrões comuns de implantação a que pode consultar à medida que planeia a sua implantação.
 
-#### <a name="deployment-scenario-1--single-workday-tenant---single-ad-domain"></a>Cenário de implantação #1 : Inquilino único do dia de trabalho -> domínio de Anúncio Único
+#### <a name="deployment-scenario-1--single-workday-tenant---single-ad-domain"></a>Cenário de implantação #1 : Inquilino único -> domínio único da AD
 
 Neste cenário, você tem um inquilino Workday e você gostaria de fornecer utilizadores para um domínio ad único alvo. Aqui está a configuração de produção recomendada para esta implementação.
 
@@ -158,7 +158,7 @@ Neste cenário, você tem um inquilino Workday e você gostaria de fornecer util
 
   ![Cenário 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
-#### <a name="deployment-scenario-2--single-workday-tenant---multiple-child-ad-domains"></a>Cenário de implantação #2 : Inquilino único do dia de trabalho -> Vários domínios de AD para crianças
+#### <a name="deployment-scenario-2--single-workday-tenant---multiple-child-ad-domains"></a>Cenário de implantação #2 : Inquilino único -> domínios ad várias crianças
 
 Este cenário envolve o fornecimento de utilizadores desde o Dia de Trabalho até vários domínios de crianças ad-alvo numa floresta. Aqui está a configuração de produção recomendada para esta implementação.
 
@@ -169,7 +169,7 @@ Este cenário envolve o fornecimento de utilizadores desde o Dia de Trabalho at�
 
   ![Cenário 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
-#### <a name="deployment-scenario-3--single-workday-tenant---disjoint-ad-forests"></a>Cenário de implantação #3 : Inquilino único do dia de trabalho -> Florestas disjoint AD
+#### <a name="deployment-scenario-3--single-workday-tenant---disjoint-ad-forests"></a>Cenário de implantação #3 : Inquilino único -> florestas disconjuntas
 
 Este cenário envolve o fornecimento de utilizadores do Dia do Trabalho para domínios em florestas de AD desarticuladas. Aqui está a configuração de produção recomendada para esta implementação.
 
@@ -238,7 +238,7 @@ Um requisito comum de todos os conectores de provisionamento do Dia de Trabalho 
 
 1. Inscreva-se no seu inquilino do Dia do Trabalho usando uma conta de administrador. Na **Aplicação Workday,** introduza o utilizador na caixa de pesquisa e, em seguida, clique em Criar utilizador do Sistema de **Integração**.
 
-   ![Criar o utilizador](./media/workday-inbound-tutorial/wd_isu_01.png "Criar utilizador")
+   ![Criar utilizador](./media/workday-inbound-tutorial/wd_isu_01.png "Criar utilizador")
 2. Complete a tarefa do Utilizador do **Sistema de Integração Criar** fornecendo um nome de utilizador e uma palavra-passe para um novo Utilizador do Sistema de Integração.  
   
    * Deixe a **nova palavra-passe requerida na** opção Seguinte Sinal in sem verificação, porque este utilizador irá iniciar sessão programáticamente.
@@ -345,7 +345,7 @@ Neste passo, você concederá permissões políticas de "segurança de processos
 
 1. Introduza ativar na caixa de pesquisa e, em seguida, clique no link **Ativar alterações**de política de segurança pendente .
 
-    ![Ativar](./media/workday-inbound-tutorial/wd_isu_16.png "Activate")
+    ![Ativar](./media/workday-inbound-tutorial/wd_isu_16.png "Ativar")
 
 1. Inicie a tarefa de ativação da política de segurança pendente, inserindo um comentário para fins de auditoria e, em seguida, clique em **OK**.
 1. Complete a tarefa no ecrã seguinte, verificando a caixa de verificação **Confirme,** e, em seguida, clique **em OK**.
@@ -403,7 +403,7 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
    
 1. Após a instalação estar concluída, o assistente será lançado e verá o ecrã **AD Connect Azure.** Clique no botão **Authenticate** para ligar à sua instância Azure AD.
 
-   ![Ligar AD Azure](./media/workday-inbound-tutorial/pa_install_screen_2.png "Ligar ao Azure AD")
+   ![Ligar ao Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Ligar ao Azure AD")
    
 1. Autenticar a sua instância De AD Azure usando credenciais de administrador global.
 
@@ -451,11 +451,11 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directy no port
 
 1. Complete a secção **de Credenciais de Administrador** da seguinte forma:
 
-   * **Nome** de utilizador do Administrador – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como: **nome de utilizador\@tenant_name**
+   * **Nome** de utilizador do Administrador – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como: **nome de\@utilizador tenant_name**
 
    * **Senha de administração –** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
 
-   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve parecer: https://wd3-impl-services1.workday.com/ccx/service/contoso4, onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta.
+   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4parecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta.
 
    * Floresta de **Diretório Ativo -** O "Nome" do seu domínio de Diretório Ativo, registado no agente. Utilize a queda para selecionar o domínio alvo para o fornecimento. Este valor é tipicamente uma corda como: *contoso.com*
 
@@ -490,7 +490,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 
       * Operador: Regex Match
 
-      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9]]]]
 
    * Exemplo: Apenas trabalhadores e não trabalhadores contingentes
 
@@ -549,30 +549,30 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 
 | ATRIBUIÇÃO WORKDAY | ATRIBUIÇÃO DE DIRETÓRIO ATIVO |  IDENTIFICAÇÃO CORRESPONDENTE? | CRIAR / ATUALIZAR |
 | ---------- | ---------- | ---------- | ---------- |
-| **TrabalhadorID**  |  Id de empregado | **Sim** | Escrito apenas na criação |
-| **Nome preferidoData**    |  CN    |   |   Escrito apenas na criação |
-| **SelectUniqueValue("\@join", join(".", \[Primeiro Nome\], \[LastName\], "contoso.com"), Join("\@", Join (".", Mid, mid(\[primeiro nome\], 1, 1), \[LastName\], "contoso.com"), Join("\@", "\[Nome do Primeiro Nome\], 1, 2), \[LastName\], "contoso.com")**   | userPrincipalName     |     | Escrito apenas na criação 
-| **Substitua(\[\]de utilizador, "\[\\\\/ \\\\\\ \\\]\\\\\\\\\\\[     \\\\:\\;\\\\\\=\\\|   \\ \\, \\\\\\+   \\  \\de \\\*?\\\\&lt;\\ \\&gt;\])", "1, 20"), "\\\\.]\*\$(\\file:///.) *$)", , "", , )**      |    sAMAccountName            |     |         Escrito apenas na criação |
-| **Switch,\[Ative\], "0", "True", "1", "False")** |  contaDeficientes      |     | Criar + atualização |
-| **Primeiro nome**   | givenName       |     |    Criar + atualização |
+| **TrabalhadorID**  |  EmployeeID | **Sim** | Escrito apenas na criação |
+| **Nome preferidoData**    |  cn    |   |   Escrito apenas na criação |
+| **SelectUniqueValue("Join(".",\@ \[FirstName\], \[Last\]\@contoso.comName\[\] \[\]\@\[\] \[\], "contoso.com"), Join("contoso.com.**   | userPrincipalName     |     | Escrito apenas na criação 
+| **\[\]Substituir(Mid(UserID),\[\\\\/\\\\\\\\\\\\".\[\\\\\]\\\\\\\\\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\? \\\\\\",", "", "1, 20", "[.) \\ &lt; \\ \\ &gt; \] \* \$\\ *$)", , "", , )**      |    sAMAccountName            |     |         Escrito apenas na criação |
+| **Switch,\[\]"0", "True", "1", "False")** |  contaDeficientes      |     | Criar + atualização |
+| **Primeiro nome**   | nomeDado       |     |    Criar + atualização |
 | **Apelido**   |   sn   |     |  Criar + atualização |
 | **Nome preferidoData**  |  displayName |     |   Criar + atualização |
-| **Empresa**         | Empresa   |     |  Criar + atualização |
-| **Organização de Supervisão**  | Departamento  |     |  Criar + atualização |
-| **GestorReferência**   | Manager  |     |  Criar + atualização |
-| **BusinessTitle**   |  Título     |     |  Criar + atualização | 
+| **Empresa**         | empresa   |     |  Criar + atualização |
+| **Organização de Supervisão**  | departamento  |     |  Criar + atualização |
+| **GestorReferência**   | gestor  |     |  Criar + atualização |
+| **BusinessTitle**   |  título     |     |  Criar + atualização | 
 | **Data de Endereçoline**    |  streetAddress  |     |   Criar + atualização |
 | **Município**   |   l   |     | Criar + atualização |
-| **PaísReferênciaTwoLetter**      |   Co |     |   Criar + atualização |
+| **PaísReferênciaTwoLetter**      |   co |     |   Criar + atualização |
 | **PaísReferênciaTwoLetter**    |  c  |     |         Criar + atualização |
-| **Referência countryregion** |  St     |     | Criar + atualização |
+| **Referência countryregion** |  SC     |     | Criar + atualização |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Criar + atualização |
-| **Código Postal**  |   postalCode  |     | Criar + atualização |
+| **CódigoPostal**  |   Código postal  |     | Criar + atualização |
 | **PrimaryWorkPhone**  |  telefoneNúmero   |     | Criar + atualização |
-| **Fax**      | facsimileTelephoneNumber     |     |    Criar + atualização |
-| **Móvel**  |    móvel       |     |       Criar + atualização |
+| **Fax**      | facsimilePhoneNumber     |     |    Criar + atualização |
+| **Móvel**  |    dispositivo móvel       |     |       Criar + atualização |
 | **Referência local** |  língua preferida  |     |  Criar + atualização |                                               
-| **Switch(\[Município\], "OU=Utilizadores Standard,OU=Utilizadores,OU=Default,OU=Localizações,DC=contoso,DC=com", "Dallas", "OU=Utilizadores Standard,OU=Utilizadores,OU=Utilizadores,OU=Dallas,OU=Localizações,DC=com", "Austin", "OU=Utilizadores Standard,OU=Utilizadores,OU=Austin,OU=Locations,DC=contoso,DC=com, "Seattle", "OU=Utilizadores Standard,OU=Utilizadores,OU=Utilizadores,OU=Seattle,OU=Locations,DC=contoso,DC=com", "Londres", "OU=Utilizadores Standard,OU=Utilizadores,OU=Londres,OU=Locations,DC=contoso,DC=com")**  | nome parental Distinto     |     |  Criar + atualização |
+| **Switch(\[Município,\]"OU=Utilizadores Standard,OU=Utilizadores,OU=Default,OU=Localizações,DC=contoso,DC=com", "Dallas", "OU=Utilizadores Standard,OU=Utilizadores,OU=Utilizadores,OU=Dallas,OU=Localizações,DC=contoso,DC=com", "Austin", "OU=Utilizadores Standard,OU=Utilizadores,OU=Austin,OU=Localizações,DC=contoso,DC=com, "Seattle", "OU=Utilizadores Standard,OU=Utilizadores,OU=Utilizadores,OU=Seattle,OU=Localizações,DC=contoso,DC=com", "Londres", "OU=Utilizadores Standard,OU=Utilizadores,OU=Londres,OU=Locations,DC=contoso,DC=com")**  | nome parental Distinto     |     |  Criar + atualização |
 
 Uma vez concluída a configuração de mapeamento do atributo, pode agora [ativar e lançar o serviço](#enable-and-launch-user-provisioning)de fornecimento do utilizador .
 
@@ -607,11 +607,11 @@ As seguintes secções descrevem passos para configurar o fornecimento de utiliz
 
 8. Complete a secção **de Credenciais de Administrador** da seguinte forma:
 
-   * **Nome** de utilizador do Administrador – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como: username@contoso4
+   * **Nome** de utilizador do Administrador – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como:username@contoso4
 
    * **Senha de administração –** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
 
-   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve parecer: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta. Se este URL não for conhecido, trabalhe com o seu parceiro de integração workday ou representante de suporte para determinar o URL correto a utilizar.
+   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resourcesparecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta. Se este URL não for conhecido, trabalhe com o seu parceiro de integração workday ou representante de suporte para determinar o URL correto a utilizar.
 
    * **Email de notificação –** Insira o seu endereço de e-mail e verifique a caixa de verificação "enviar e-mail se ocorrer falha".
 
@@ -633,7 +633,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 
       * Operador: Regex Match
 
-      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9]]]]
 
    * Exemplo: Apenas trabalhadores contingentes e não trabalhadores regulares
 
@@ -704,11 +704,11 @@ Siga estas instruções para configurar a redação dos endereços de e-mail do 
 
 8. Complete a secção **de Credenciais de Administrador** da seguinte forma:
 
-   * **Nome** de utilizador do Administrador – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como: *nome de utilizador\@contoso4*
+   * **Nome** de utilizador do Administrador – Introduza o nome de utilizador da conta do sistema de integração Workday, com o nome de domínio do arrendatário anexado. Deve parecer algo como: *username\@contoso4*
 
    * **Senha de administração –** Insira a palavra-passe da conta do sistema de integração do Dia de Trabalho
 
-   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve parecer: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta (se necessário).
+   * **URL do inquilino –** Insira o URL no ponto final dos serviços web workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resourcesparecer: , onde o *contoso4* é substituído pelo seu nome de inquilino correto e *wd3-impl* é substituído pela corda ambiental correta (se necessário).
 
    * **Email de notificação –** Insira o seu endereço de e-mail e verifique a caixa de verificação "enviar e-mail se ocorrer falha".
 
@@ -747,7 +747,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento Workday
 
    ![Portal do Azure](./media/workday-inbound-tutorial/wd_3.png)
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
 
 * **Questões de capacidade de solução**
   * [Ao processar uma nova contratação a partir do Workday, como é que a solução define a palavra-passe para a nova conta de utilizador no Diretório Ativo?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
@@ -845,7 +845,7 @@ Ao sugerir uma nova ideia, verifique se alguém já sugeriu uma funcionalidade s
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Como conheço a versão do meu Agente de Provisionamento?
 
 * Inscreva-se no servidor do Windows onde o Agente de Provisionamento está instalado.
-* Vá ao Painel de **Controlo** -> **Desinstalar ou Alterar um** menu de Programa
+* Vá ao **Painel** -> de Controlo**Desinstalar ou alterar um** menu de programa
 * Procure a versão correspondente à entrada **Microsoft Azure AD Connect Provisioning Agent**
 
   ![Portal do Azure](./media/workday-inbound-tutorial/pa_version.png)
@@ -864,7 +864,7 @@ Durante a configuração, o Agente de Provisionamento solicita que as credenciai
 
 #### <a name="how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication"></a>Como configurar o Agente de Provisionamento para utilizar um servidor proxy para comunicação HTTP de saída?
 
-O Agente de Provisionamento apoia a utilização de procuração de saída. Pode configurá-lo editando o ficheiro **c:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config**. Adicione as seguintes linhas, na extremidade do ficheiro, pouco antes da etiqueta de fecho `</configuration>`.
+O Agente de Provisionamento apoia a utilização de procuração de saída. Pode configurá-lo editando o ficheiro **c:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config**. Adicione as seguintes linhas, na extremidade do ficheiro, `</configuration>` pouco antes da etiqueta de fecho.
 Substitua as variáveis [proxy-server] e [proxy-port] pelo nome do servidor proxy e valores de porta.
 
 ```xml
@@ -881,12 +881,12 @@ Substitua as variáveis [proxy-server] e [proxy-port] pelo nome do servidor prox
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Como posso garantir que o Agente de Provisionamento é capaz de comunicar com o inquilino da AD Azure e que não há firewalls bloqueando portas exigidas pelo agente?
 
-Também pode verificar se tem todas as portas necessárias abertas abrindo a ferramenta de teste de portas de [conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) a partir da sua rede de instalações. Mais marcas de verificação verde significa maior resiliência.
+Também pode verificar se tem todas as portas necessárias abertas abrindo a ferramenta de teste de portas de [conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) a partir da sua rede de instalações. Mais marcas de verificação verdes significa maior resiliência.
 
-Para certificar-se de que a ferramenta dá-lhe os resultados certos, certifique-se de que para:
+Para se certificar de que a ferramenta lhe dá os resultados certos, certifique-se de:
 
 * Abra a ferramenta num browser a partir do servidor onde instalou o Agente de Provisionamento.
-* Certifique-se de que quaisquer proxies ou firewalls aplicáveis ao seu Agente de Provisionamento também são aplicados a esta página. Isto pode ser feito no Internet Explorer indo para **Definições -> Opções de Internet -> Conexões -> Definições LAN**. Nesta página, vê o campo "Use um Servidor proxy para o seu LAN". Selecione esta caixa e coloque o endereço proxy no campo "Endereço".
+* Certifique-se de que quaisquer proxies ou firewalls aplicáveis ao seu Agente de Provisionamento também são aplicados a esta página. Isto pode ser feito no Internet Explorer indo para **Definições -> Opções de Internet - ligações > - > Definições LAN**. Nesta página, vê o campo "Use um Servidor proxy para o seu LAN". Selecione esta caixa e coloque o endereço proxy no campo "Endereço".
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Um agente de provisionamento pode ser configurado para fornecer vários domínios ad?
 
@@ -897,7 +897,7 @@ Sim, um agente de provisionamento pode ser configurado para lidar com vários do
 * Do portal Azure, obtenha a *identificação* do inquilino do seu inquilino Azure AD.
 * Inscreva-se no servidor do Windows que executa o Agente de Provisionamento.
 * Abra powerShell como Administrador do Windows.
-* Mude para o diretório que contenha os scripts de inscrição e execute os seguintes comandos substituindo o id\] de identificação do inquilino \[pelo valor do seu ID de inquilino.
+* Mude para o diretório que contenha os scripts \[de\] inscrição e execute os seguintes comandos substituindo o parâmetro de identificação do inquilino pelo valor do seu ID de inquilino.
 
   ```powershell
   cd “C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder”
@@ -905,7 +905,7 @@ Sim, um agente de provisionamento pode ser configurado para lidar com vários do
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
 
-* Da lista de agentes que aparecem – copie o valor do campo `id` a partir desse recurso cujo nome de *recurso* é igual ao seu nome de domínio AD.
+* A partir da lista de agentes que `id` aparecem – copie o valor do campo a partir desse recurso cujo nome de *recurso* é igual ao seu nome de domínio AD.
 * Colar o valor de identificação neste comando e executar o comando em PowerShell.
 
   ```powershell
@@ -918,7 +918,7 @@ Sim, um agente de provisionamento pode ser configurado para lidar com vários do
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>Como desinstalar o Agente de Provisionamento?
 
 * Inscreva-se no servidor do Windows onde o Agente de Provisionamento está instalado.
-* Vá ao Painel de **Controlo** -> **Desinstalar ou Alterar um** menu de Programa
+* Vá ao **Painel** -> de Controlo**Desinstalar ou alterar um** menu de programa
 * Desinstale os seguintes programas:
   * Agente de provisionamento de ligação ad da Microsoft Azure
   * Atualização do agente de ligação ad da Microsoft Azure
@@ -960,7 +960,7 @@ A tualmente, a solução não suporta a definição de atributos binários, como
 * Clique nos Mapeamentos de Atributos 
 * Em **Mapeamentos**, **selecione Synchronize Workday Workers to On Premises Ative Directory** (ou **Synchronize Workday Workers to Azure AD**).
 * Na página de Mappings do Atributo, desloque-se e verifique a caixa "Mostrar Opções Avançadas".  Clique na lista de **atributos editar para o Dia de Trabalho**
-* Na lâmina que se abre, localize o atributo "Mobile" e clique na linha para que possa editar a **Expressão API** ![RGPD Móvel](./media/workday-inbound-tutorial/mobile_gdpr.png)
+* Na lâmina que se abre, localize o atributo "Mobile" e clique na linha para que possa editar o RGPD Móvel de **Expressão** ![API](./media/workday-inbound-tutorial/mobile_gdpr.png)
 
 * Substitua a **Expressão API** pela seguinte nova expressão, que recupera o número móvel de trabalho apenas se a "Bandeira de Uso Público" estiver definida como "Verdadeira" no Dia do Trabalho.
 
@@ -974,18 +974,18 @@ A tualmente, a solução não suporta a definição de atributos binários, como
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Como posso verpuleto nomes em AD com base nos atributos do departamento/país/cidade do utilizador e lidar com variações regionais?
 
-É um requisito comum configurar o atributo de nome de *exibição* em AD de modo a que também forneça informações sobre o departamento do utilizador e país/região. Por exemplo, se John Smith trabalhar no Departamento de Marketing dos EUA, talvez queira que o seu nome de *exibição* apareça como *Smith, John (Marketing-US)* .
+É um requisito comum configurar o atributo de nome de *exibição* em AD de modo a que também forneça informações sobre o departamento do utilizador e país/região. Por exemplo, se John Smith trabalhar no Departamento de Marketing dos EUA, talvez queira que o seu nome de *exibição* apareça como *Smith, John (Marketing-US)*.
 
 Aqui está como você pode lidar com tais requisitos para construir *CN* ou *displayName* para incluir atributos como empresa, unidade de negócio, cidade ou país/região.
 
-* Cada atributo do Dia de Trabalho é recuperado usando uma expressão API XPATH subjacente, que é configurável em **Attribute Mapping -> Secção Avançada -> Editar lista de atributos para o Dia de Trabalho**. Aqui está a expressão padrão XPATH API para o Workday *PreferredFirstName*, *PreferredLastName*, *Company* and *SupervisoryOrganization* atribui.
+* Cada atributo do Dia de Trabalho é recuperado usando uma expressão API XPATH subjacente, que é configurável em **Attribute Mapping -> Lista avançada de atributos**de Edição > Para o Dia de Trabalho . Aqui está a expressão padrão XPATH API para o Workday *PreferredFirstName*, *PreferredLastName*, *Company* and *SupervisoryOrganization* atribui.
 
      | Atributo de dia de trabalho | Expressão API XPATH |
      | ----------------- | -------------------- |
      | Nome preferido | wd:Trabalhador/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
      | Nome PreferidoLastName | wd:Trabalhador/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:Last_Name/text() |
-     | Empresa | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID [@wd:type='Organization_Type_ID'='Empresa']/wd:Organization_Reference/@wd:Descriptor |
-     | SupervisoryOrganization | wd:Trabalhador/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID'='Supervisy']/wd:Organization_Name/text() |
+     | Empresa | wd:Trabalhador/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID'='Empresa']/wd:Organization_Reference/@wd:Descriptor |
+     | Organização de Supervisão | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID'='Supervisor']/wd:Organization_Name/text() |
   
    Confirme com a sua equipa workday que a expressão API acima é válida para a configuração do seu inquilino workday. Se necessário, pode editá-los conforme descrito na secção [Personalizando a lista de atributos do utilizador do Dia](#customizing-the-list-of-workday-user-attributes)de Trabalho .
 
@@ -995,20 +995,20 @@ Aqui está como você pode lidar com tais requisitos para construir *CN* ou *dis
 
      | Atributo de dia de trabalho | Expressão API XPATH |
      | ----------------- | -------------------- |
-     | Referência do país | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID [@wd:type='ISO_3166-1_Alpha-3_Code']/text() |
+     | Referência do país | wd:Trabalhador/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID@wd:type[ ='ISO_3166-1_Alpha-3_Code']/text() |
      | CountryReferenceFriendly | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/@wd:Descriptor |
-     | CountryReferenceNumeric | wd:Trabalhador/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID [@wd:type='ISO_3166-1_Numeric-3_Code']/texto() |
-     | CountryReferenceTwoLetter | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID [@wd:type='ISO_3166-1_Alpha-2_Code']/text() |
+     | CountryReferenceNumeric | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID@wd:type[ ='ISO_3166-1_Numeric-3_Code']/text() |
+     | PaísReferênciaTwoLetter | wd:Trabalhador/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID@wd:type[ ='ISO_3166-1_Alpha-2_Code']/text() |
      | Referência countryregion | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Region_Reference/@wd:Descriptor |
 
   Confirme com a sua equipa workday que as expressões API acima são válidas para a configuração do seu inquilino workday. Se necessário, pode editá-los conforme descrito na secção [Personalizando a lista de atributos do utilizador do Dia](#customizing-the-list-of-workday-user-attributes)de Trabalho .
 
-* Para construir a expressão de mapeamento certo, identifique qual o atributo do Workday "de forma autoritária" representa o primeiro nome, apelido, país/região e departamento do utilizador. Digamos que os atributos são *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization,* respectivamente. Pode usá-lo para construir uma expressão para o atributo ad nome de *exibição* DaD da seguinte forma para obter um nome de exibição como *Smith, John (Marketing-US)* .
+* Para construir a expressão de mapeamento certo, identifique qual o atributo do Workday "de forma autoritária" representa o primeiro nome, apelido, país/região e departamento do utilizador. Digamos que os atributos são *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization,* respectivamente. Pode usá-lo para construir uma expressão para o atributo ad nome de *exibição* DaD da seguinte forma para obter um nome de exibição como *Smith, John (Marketing-US)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
     ```
-    Assim que tiver a expressão certa, edite a tabela de Mapeamentos de Atributos e modifique o mapeamento do atributo *do displayName* como mostrado abaixo: ![DisplayName Mapping](./media/workday-inbound-tutorial/wd_displayname_map.png)
+    Uma vez que tenha a expressão certa, edite a tabela de Mapeamentos ![de Atributoe e modifique o mapeamento do atributo do nome do *ecrã* como mostrado abaixo: DisplayName Mapping](./media/workday-inbound-tutorial/wd_displayname_map.png)
 
 * Estendendo o exemplo acima, digamos que gostaria de converter nomes da cidade vindos do Workday em valores abreviados e depois usá-lo para construir nomes de exibição como *Smith, John (CHI)* ou *Doe, Jane (NYC),* então este resultado pode ser alcançado usando uma expressão Switch com o *atributo do Workday Município* como a variável determinante.
 
@@ -1091,7 +1091,7 @@ Esta secção abrange os seguintes aspetos de resolução de problemas:
 
 Quando é detetada uma nova contratação no Workday (digamos com o Id *21023*do Empregado), o serviço de prestação de serviços da Azure AD tenta criar uma nova conta de utilizador aD para o trabalhador e no processo cria 4 registos de registos de auditoria conforme descrito abaixo:
 
-  [registo de auditoria ![criar operações](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![Registo de auditoria cria operações](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 Quando clica em qualquer um dos registos de registos de auditoria, a página **Dedetalhes** de Atividade sabre. Aqui está o que a página Detalhes da **Atividade** mostra para cada tipo de registo de registo.
 
@@ -1159,7 +1159,7 @@ Quando clica em qualquer um dos registos de registos de auditoria, a página **D
 
 O atributo do gestor é um atributo de referência em AD. O serviço de provisionamento não define o atributo do gestor como parte da operação de criação do utilizador. Em vez disso, o atributo do gestor é definido como parte de uma operação de *atualização* após a criação da conta AD para o utilizador. Expandindo o exemplo acima, digamos que um novo contrato com id "21451" é ativado no Workday e o novo gestor de contratação *(21023)* já tem uma conta AD. Neste cenário, pesquisar os registos da Auditoria para o utilizador 21451 mostra 5 entradas.
 
-  [Atualização do gestor de ![](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![Atualização do Gestor](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 Os primeiros 4 registos são como os que exploramos como parte da operação de criação do utilizador. O 5º recorde é a exportação associada à atualização do atributo do gestor. O registo de registo mostra o resultado da operação de atualização do gestor de conta AD, que é realizada utilizando o atributo *objectGuid* do gestor.
 
@@ -1191,7 +1191,7 @@ Esta secção cobre erros geralmente vistos com o fornecimento de utilizadores d
 |#|Cenário de erro |Causas Prováveis|Resolução Recomendada|
 |--|---|---|---|
 |1.| Erro ao instalar o agente de provisionamento com uma mensagem de erro: *O serviço 'Microsoft Azure AD Connect Provisioning Agent' (AADConnectProvisioningAgent) não começou. Verifique se tem privilégios suficientes para iniciar o sistema.* | Este erro geralmente aparece se estiver a tentar instalar o agente de provisionamento num controlador de domínio e a política de grupo impede que o serviço comece.  Também é visto se tem uma versão anterior do agente em execução e não o desinstalou antes de iniciar uma nova instalação.| Instale o agente de fornecimento num servidor não DC. Certifique-se de que as versões anteriores do agente estão desinstaladas antes de instalar o novo agente.|
-|2.| O Serviço Windows 'Microsoft Azure AD Connect Provisioning Agent' *encontra-se* em estado de arranque e não muda para o estado *de execução.* | Como parte da instalação, o assistente do agente cria uma conta local (**Serviço NT\\AADConnectProvisioningAgent**) no servidor e esta é a conta de logon utilizada para iniciar o serviço. Se uma política de segurança no seu servidor Windows impedir que as contas locais executem os serviços, irá encontrar este erro. | Abra a *consola Services.* Clique no 'Microsoft Azure AD Connect Provisioning Agent' do Serviço Windows e no separador de sessão especifique a conta de um administrador de domínio para executar o serviço. Reinicie o serviço. |
+|2.| O Serviço Windows 'Microsoft Azure AD Connect Provisioning Agent' *encontra-se* em estado de arranque e não muda para o estado *de execução.* | Como parte da instalação, o assistente do agente cria uma conta local **(NT Service\\AADConnectProvisioningAgent**) no servidor e esta é a conta de logon utilizada para iniciar o serviço. Se uma política de segurança no seu servidor Windows impedir que as contas locais executem os serviços, irá encontrar este erro. | Abra a *consola Services.* Clique no 'Microsoft Azure AD Connect Provisioning Agent' do Serviço Windows e no separador de sessão especifique a conta de um administrador de domínio para executar o serviço. Reinicie o serviço. |
 |3.| Ao configurar o agente de provisionamento com o seu domínio AD no passo *Connect Ative Directory,* o assistente demora muito tempo a tentar carregar o esquema AD e, eventualmente, vezes vezes. | Geralmente, este erro aparece se o assistente não conseguir contactar o servidor de controlador de domínio do AD devido a problemas na firewall. | No ecrã do assistente do *Diretório Ativo Connect,* ao mesmo tempo que fornece as credenciais para o seu domínio AD, existe uma opção chamada Prioridade do controlador de *domínio Select*. Utilize esta opção para selecionar um controlador de domínio que se encontre no mesmo site que o servidor do agente e certifique-se de que não existem regras de firewall que bloqueiem a comunicação. |
 
 #### <a name="connectivity-errors"></a>Erros de conectividade
@@ -1225,7 +1225,7 @@ Durante o processo de atualização da conta de utilizador aD, o serviço de pro
 Esta secção descreve como pode alargar, personalizar e gerir a configuração de fornecimento de utilizadores orientada pelo Workday. Aborda os seguintes tópicos:
 
 * [Personalizando a lista de atributos do utilizador do Dia do Trabalho](#customizing-the-list-of-workday-user-attributes)  
-* [Exportação e importação da sua configuração](#exporting-and-importing-your-configuration)
+* [Exportar e importar configuração](#exporting-and-importing-your-configuration)
 
 ### <a name="customizing-the-list-of-workday-user-attributes"></a>Personalizando a lista de atributos do utilizador do Dia do Trabalho
 
@@ -1239,21 +1239,21 @@ Para esta alteração, deve utilizar o [Workday Studio](https://community.workda
 
 1. Descarregue e instale [o Estúdio Workday.](https://community.workday.com/studio-download) Você precisará de uma conta comunitária workday para aceder ao instalador.
 
-2. Descarregue o ficheiro WSDL do Workday Human_Resources a partir deste URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+2. Descarregue o ficheiro WSDL do Workday Human_Resources a partir deste URL:https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Estúdio workday de lançamento.
 
-4. A partir da barra de comando, selecione o **Workday > Test Web Service na** opção Tester.
+4. A partir da barra de comando, selecione o Workday > Test Web Service na opção **Tester.**
 
 5. Selecione **External**, e selecione o ficheiro WSDL Human_Resources descarregado no passo 2.
 
     ![Estúdio Workday](./media/workday-inbound-tutorial/wdstudio1.png)
 
-6. Desloque o campo **de localização** para `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, mas substituindo "IMPL-CC" pelo seu tipo de instância real, e "TENANT" pelo seu nome real de inquilino.
+6. Detete o `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`campo De **Localização** para, mas substituindo "IMPL-CC" pelo seu tipo de instância real, e "TENANT" pelo seu nome real de inquilino.
 
 7. Definir **operação** para **Get_Workers**
 
-8.  Clique no pequeno link **configurado** abaixo das vidraças De Pedido/Resposta para definir as suas credenciais do Dia de Trabalho. Verifique a **Autenticação**e, em seguida, introduza o nome de utilizador e a palavra-passe para a sua conta do sistema de integração workday. Certifique-se de formatar o nome de utilizador como nome\@inquilino e deixar a opção **UsernameToken de Segurança WS** selecionada.
+8.  Clique no pequeno link **configurado** abaixo das vidraças De Pedido/Resposta para definir as suas credenciais do Dia de Trabalho. Verifique a **Autenticação**e, em seguida, introduza o nome de utilizador e a palavra-passe para a sua conta do sistema de integração workday. Certifique-se de formatar\@o nome de utilizador como inquilino de nome e deixar a opção **UsernameToken de Segurança WS** selecionada.
 
     ![Estúdio Workday](./media/workday-inbound-tutorial/wdstudio2.png)
 
@@ -1304,9 +1304,9 @@ Para esta alteração, deve utilizar o [Workday Studio](https://community.workda
 
 17. Retire o **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** prefixo da expressão copiada.
 
-18. Se o último item da expressão copiada for um nó (exemplo: "/wd: Birth_Date"), então **anexar/texto()** no final da expressão. Isto não é necessário se o último item for um atributo (exemplo: "/@wd: tipo").
+18. Se o último item da expressão copiada for um nó (exemplo: "/wd: Birth_Date"), então **anexar/texto()** no final da expressão. Isto não é necessário se o último item/@wd: for um atributo (exemplo: " tipo").
 
-19. O resultado deve ser algo como `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. Este valor é o que irá copiar no portal Azure.
+19. O resultado deve `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`ser algo como. Este valor é o que irá copiar no portal Azure.
 
 **Para adicionar o seu atributo personalizado do utilizador do Dia de Trabalho à sua configuração de provisionamento:**
 
@@ -1360,7 +1360,7 @@ O serviço de provisionamento da AD Azure insere-se na categoria de processador 
 
 No que diz respeito à retenção de dados, o serviço de provisionamento de AD Azure não gera relatórios, realiza análises ou fornece insights para além de 30 dias. Por isso, o serviço de provisionamento da Azure AD não armazena, processa ou retém quaisquer dados para além de 30 dias. Este design está em conformidade com os regulamentos do RGPD, os regulamentos de conformidade de privacidade da Microsoft e as políticas de retenção de dados da Azure AD.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre o Workday e o Azure Ative Directory](workday-tutorial.md)

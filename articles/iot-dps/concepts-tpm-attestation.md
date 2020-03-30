@@ -1,6 +1,6 @@
 ---
-title: Serviço de provisionamento de dispositivos no Hub IoT do Azure-atestado de TPM
-description: Este artigo fornece uma visão geral conceitual do fluxo de atestado do TPM usando o DPS (serviço de provisionamento de dispositivos IoT).
+title: Serviço de Provisionamento de Dispositivos Hub Azure IoT - Attestation TPM
+description: Este artigo fornece uma visão geral conceptual do fluxo de atestado TPM utilizando o Serviço de Provisionamento de Dispositivos IoT (DPS).
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -9,63 +9,63 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975283"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
 
-O serviço de provisionamento de dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que você usa para configurar o provisionamento de dispositivos sem toque para um hub IoT especificado. Com o serviço de provisionamento de dispositivos, você pode provisionar milhões de dispositivos de maneira segura.
+O Serviço de Provisionamento de Dispositivos IoT Hub é um serviço de ajuda para o IoT Hub que utiliza para configurar o fornecimento de dispositivos de toque zero a um hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, pode fornecer milhões de dispositivos de forma segura.
 
-Este artigo descreve o processo de atestado de identidade ao usar um [TPM](./concepts-device.md). TPM significa Trusted Platform Module e é um tipo de HSM (módulo de segurança de hardware). Este artigo pressupõe que você esteja usando um TPM discreto, de firmware ou integrado. Os TPMs emulados de software são adequados para protótipos ou testes, mas eles não fornecem o mesmo nível de segurança que o TPMs integrado, de firmware ou discreto. Não recomendamos o uso de TPMs de software em produção. Para obter mais informações sobre os tipos de TPMs, consulte [uma breve introdução ao TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+Este artigo descreve o processo de atesta de identidade ao utilizar um [TPM](./concepts-device.md). TPM significa Módulo de Plataforma Fidedigna e é um tipo de módulo de segurança de hardware (HSM). Este artigo assume que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados pelo software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que os TPMs discretos, firmware ou integrados. Não recomendamos a utilização de TPMs de software em produção. Para obter mais informações sobre tipos de TPMs, consulte [Uma Breve Introdução ao TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
-Este artigo só é relevante para dispositivos que usam o TPM 2,0 com suporte a chaves HMAC e suas chaves de endosso. Ele não é para dispositivos que usam certificados X. 509 para autenticação. O TPM é um padrão ISO, de todo o setor, da Trusted Computing Group, e você pode ler mais sobre o TPM na [especificação completa do tpm 2,0](https://trustedcomputinggroup.org/tpm-library-specification/) ou a [Especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também pressupõe que você esteja familiarizado com pares de chaves pública e privada e como eles são usados para criptografia.
+Este artigo só é relevante para dispositivos que utilizem TPM 2.0 com suporte de teclaHMac e suas chaves de averbamento. Não se trata de dispositivos que utilizem certificados X.509 para autenticação. TPM é um padrão ISO em toda a indústria do Grupo de Computação Fidedigno, e você pode ler mais sobre TPM na [especificação completa TPM 2.0](https://trustedcomputinggroup.org/tpm-library-specification/) ou a [especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também assume que você está familiarizado com os pares de chaves públicos e privados, e como eles são usados para encriptação.
 
-Os SDKs do dispositivo do serviço de provisionamento de dispositivos lidam com tudo o que é descrito neste artigo para você. Não há necessidade de implementar nada adicional se você estiver usando os SDKs em seus dispositivos. Este artigo ajuda você a compreender conceitualmente o que está acontecendo com o chip de segurança do TPM quando o dispositivo é provisionado e por que ele é tão seguro.
+Os SDKs do dispositivo de fornecimento de dispositivos tratam de tudo o que é descrito neste artigo para si. Não há necessidade de implementar algo adicional se estiver a utilizar os SDKs nos seus dispositivos. Este artigo ajuda-o a entender conceptualmente o que se passa com o seu chip de segurança TPM quando o seu dispositivo está disposto e por que é tão seguro.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-TPMs use algo chamado de EK (chave de endosso) como a raiz segura de confiança. O EK é exclusivo para o TPM e alterá-lo essencialmente altera o dispositivo para um novo.
+Os TPMs usam algo chamado chave de apoio (EK) como a raiz segura da confiança. O EK é exclusivo do TPM e o transforma essencialmente em novo.
 
-Há outro tipo de chave que TPMs tem, chamado de SRK (chave raiz de armazenamento). Uma SRK pode ser gerada pelo proprietário do TPM depois de se apropriar do TPM. Assumir a propriedade do TPM é a maneira específica do TPM de dizer "alguém define uma senha no HSM". Se um dispositivo TPM for vendido a um novo proprietário, o novo proprietário poderá assumir a propriedade do TPM para gerar uma nova SRK. A nova geração de SRK garante que o proprietário anterior não possa usar o TPM. Como a SRK é exclusiva do proprietário do TPM, a SRK pode ser usada para lacrar dados no próprio TPM para esse proprietário. O SRK fornece uma área restrita para o proprietário armazenar suas chaves e fornece acesso revocability se o dispositivo ou TPM for vendido. É como se mover para uma nova casa: assumir a propriedade está alterando os bloqueios nas portas e destruindo todos os móveis deixados pelos proprietários anteriores (SRK), mas você não pode alterar o endereço da casa (EK).
+Há outro tipo de chave que os TPMs têm, chamado chave raiz de armazenamento (SRK). Um SRK pode ser gerado pelo proprietário do TPM depois de tomar posse do TPM. Tomar posse do TPM é a forma específica de dizer "alguém define uma senha no HSM." Se um dispositivo TPM for vendido a um novo proprietário, o novo proprietário pode tomar posse do TPM para gerar um novo SRK. A nova geração SRK garante que o anterior proprietário não pode usar o TPM. Como o SRK é exclusivo do proprietário do TPM, o SRK pode ser usado para selar dados no próprio TPM para esse proprietário. O SRK fornece uma caixa de areia para o proprietário armazenar as suas chaves e proporciona revogabilidade de acesso se o dispositivo ou TPM forem vendidos. É como mudar-se para uma nova casa: tomar posse é mudar as fechaduras das portas e destruir todos os móveis deixados pelos proprietários anteriores (SRK), mas não se pode mudar o endereço da casa (EK).
 
-Depois que um dispositivo tiver sido configurado e estiver pronto para uso, ele terá um EK e um SRK disponíveis para uso.
+Uma vez configurado e pronto a utilizar um dispositivo, terá um EK e um SRK disponíveis para utilização.
 
-![Apropriando-se de um TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
+![Tomar posse de um TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-Uma observação sobre como assumir a propriedade do TPM: a apropriação de um TPM depende de muitas coisas, incluindo o fabricante do TPM, o conjunto de ferramentas do TPM que estão sendo usadas e o sistema operacional do dispositivo. Siga as instruções relevantes ao seu sistema para assumir a propriedade.
+Uma nota sobre a tomada de posse do TPM: A posse de um TPM depende de muitas coisas, incluindo o fabricante tpm, o conjunto de ferramentas TPM que estão a ser utilizadas, e o dispositivo OS. Siga as instruções relevantes para o seu sistema para tomar posse.
 
-O serviço de provisionamento de dispositivos usa a parte pública do EK (EK_pub) para identificar e registrar dispositivos. O fornecedor do dispositivo pode ler o EK_pub durante o teste de fabricação ou final e carregar o EK_pub no serviço de provisionamento para que o dispositivo seja reconhecido quando se conectar ao provisionar. O serviço de provisionamento de dispositivos não verifica o SRK ou o proprietário; portanto, "limpar" o TPM apaga os dados do cliente, mas o EK (e outros dados do fornecedor) é preservado e o dispositivo ainda será reconhecido pelo serviço de provisionamento de dispositivos quando ele se conectar ao provisionar.
+O Serviço de Provisionamento de Dispositivos utiliza a parte pública do EK (EK_pub) para identificar e inscrever dispositivos. O fornecedor do dispositivo pode ler o EK_pub durante o fabrico ou testes finais e enviar o EK_pub para o serviço de provisionamento para que o dispositivo seja reconhecido quando se ligar à disposição. O Serviço de Provisionamento de Dispositivos não verifica o SRK ou o proprietário, pelo que "limpar" o TPM apaga os dados dos clientes, mas o EK (e outros dados do fornecedor) é preservado e o dispositivo continuará a ser reconhecido pelo Serviço de Fornecimento de Dispositivos quando se conecta à provisão.
 
-## <a name="detailed-attestation-process"></a>Processo de atestado detalhado
+## <a name="detailed-attestation-process"></a>Processo de atestação detalhado
 
-Quando um dispositivo com um TPM se conecta pela primeira vez ao serviço de provisionamento de dispositivos, o serviço primeiro verifica o EK_pub fornecido em relação ao EK_pub armazenado na lista de registro. Se os EK_pubs não corresponderem, o dispositivo não tem permissão para provisionar. Se o EK_pubs corresponder, o serviço exigirá que o dispositivo comprove a propriedade da parte privada da EK por meio de um desafio de nonce, que é um desafio seguro usado para provar a identidade. O serviço de provisionamento de dispositivos gera um nonce e, em seguida, criptografa-o com o SRK e, em seguida, o EK_pub, ambos fornecidos pelo dispositivo durante a chamada de registro inicial. O TPM sempre mantém a parte privada da EK segura. Isso impede a falsificação e garante que os tokens SAS sejam provisionados com segurança para dispositivos autorizados.
+Quando um dispositivo com um TPM se conecta pela primeira vez ao Serviço de Provisionamento de Dispositivos, o serviço verifica primeiro o EK_pub fornecido contra o EK_pub armazenado na lista de inscrições. Se o EK_pubs não corresponder, o dispositivo não está autorizado a fornecer. Se o EK_pubs corresponder, o serviço requer então que o dispositivo prove a propriedade da parte privada do EK através de um desafio nonce, que é um desafio seguro usado para provar a identidade. O Serviço de Provisionamento de Dispositivos gera um nonce e depois encripta-o com o SRK e, em seguida, o EK_pub, ambos fornecidos pelo dispositivo durante a chamada de registo inicial. O TPM mantém sempre a parte privada do EK segura. Isto impede a contrafação e assegura que as fichas SAS são aprovisionadas de forma segura a dispositivos autorizados.
 
-Vamos examinar detalhadamente o processo de atestado.
+Vamos percorrer o processo de atestado em detalhe.
 
-### <a name="device-requests-an-iot-hub-assignment"></a>O dispositivo solicita uma atribuição de Hub IoT
+### <a name="device-requests-an-iot-hub-assignment"></a>Dispositivo solicita uma atribuição do Hub IoT
 
-Primeiro, o dispositivo se conecta ao serviço de provisionamento de dispositivos e às solicitações para provisionar. Ao fazer isso, o dispositivo fornece o serviço com sua ID de registro, um escopo de ID e o EK_pub e SRK_pub do TPM. O serviço passa o nonce criptografado de volta para o dispositivo e solicita que o dispositivo descriptografe o nonce e use-o para assinar um token SAS para se conectar novamente e concluir o provisionamento.
+Primeiro, o dispositivo liga-se ao Serviço de Provisionamento de Dispositivos e solicita a provisionamento. Ao fazê-lo, o dispositivo fornece ao serviço o seu ID de registo, um âmbito de identificação e o EK_pub e SRK_pub do TPM. O serviço passa o nonce encriptado de volta ao dispositivo e pede ao dispositivo para desencriptar o nonce e usá-lo para assinar um token SAS para voltar a ligar e terminar o fornecimento.
 
-![Provisionamento de solicitações de dispositivo](./media/concepts-tpm-attestation/step-one-request-provisioning.png)
+![Fornecimento de pedidos de dispositivos](./media/concepts-tpm-attestation/step-one-request-provisioning.png)
 
-### <a name="nonce-challenge"></a>Desafio de nonce
+### <a name="nonce-challenge"></a>Desafio Nonce
 
-O dispositivo usa o nonce e usa as partes privadas do EK e do SRK para descriptografar o nonce no TPM; a ordem de criptografia nonce delega a confiança do EK, que é imutável, para o SRK, que pode ser alterado se um novo proprietário apropriar-se do TPM.
+O dispositivo pega no nonce e utiliza as partes privadas do EK e sRK para desencriptar o nonce para o TPM; a ordem dos delegados de encriptação nonce confia do EK, que é imutável, para o SRK, que pode mudar se um novo proprietário tomar posse do TPM.
 
-![Descriptografando o nonce](./media/concepts-tpm-attestation/step-two-nonce.png)
+![Desencriptando o nonce](./media/concepts-tpm-attestation/step-two-nonce.png)
 
-### <a name="validate-the-nonce-and-receive-credentials"></a>Validar as credenciais nonce e Receive
+### <a name="validate-the-nonce-and-receive-credentials"></a>Validar o nonce e receber credenciais
 
-O dispositivo pode então assinar um token SAS usando o nonce descriptografado e restabelecer uma conexão com o serviço de provisionamento de dispositivos usando o token SAS assinado. Com o desafio de nonce concluído, o serviço permite que o dispositivo seja provisionado.
+O dispositivo pode então assinar um token SAS utilizando o nonce desencriptado e restabelecer uma ligação ao Serviço de Provisionamento de Dispositivos utilizando o token SAS assinado. Com o desafio Nonce concluído, o serviço permite que o dispositivo aprovisione.
 
-![O dispositivo restabelece a conexão com o serviço de provisionamento de dispositivos para validar a propriedade de EK](./media/concepts-tpm-attestation/step-three-validation.png)
+![Dispositivo restabelece ligação ao Serviço de Provisionamento de Dispositivos para validar a propriedade ek](./media/concepts-tpm-attestation/step-three-validation.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora, o dispositivo se conecta ao Hub IoT e você fica seguro no conhecimento de que as chaves dos dispositivos são armazenadas com segurança. Agora que você sabe como o serviço de provisionamento de dispositivos verifica com segurança a identidade de um dispositivo usando o TPM, confira os seguintes artigos para saber mais:
+Agora o dispositivo liga-se ao IoT Hub e fica seguro sabendo que as chaves dos seus dispositivos estão armazenadas de forma segura. Agora que sabe como o Serviço de Provisionamento de Dispositivos verifica de forma segura a identidade de um dispositivo através do TPM, consulte os seguintes artigos para saber mais:
 
-* [Saiba mais sobre todos os conceitos no provisionamento automático](./concepts-auto-provisioning.md)
-* Comece a [usar o provisionamento automático](./quick-setup-auto-provision.md) usando os SDKs para cuidar do fluxo.
+* [Conheça todos os conceitos de fornecimento automático](./concepts-auto-provisioning.md)
+* [Começar a usar](./quick-setup-auto-provision.md) o fornecimento automático usando os SDKs para cuidar do fluxo.

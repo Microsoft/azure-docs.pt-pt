@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ) sobre o Vigilante da Rede Azure  Microsoft Docs
+title: Perguntas frequentes (FAQ) sobre o Vigilante da Rede Azure [ Microsoft Docs
 description: Este artigo responde frequentemente a perguntas sobre o serviço Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
 ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471861"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre o Vigilante da Rede Azure
@@ -25,7 +25,7 @@ O serviço [Azure Network Watcher](https://docs.microsoft.com/azure/network-watc
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-network-watcher"></a>O que é O Observador da Rede?
+### <a name="what-is-network-watcher"></a>O que é o Observador de Rede?
 O Network Watcher foi concebido para monitorizar e reparar a saúde da rede dos componentes IaaS (Infraestrutura-as-a-Service), que inclui Máquinas Virtuais, Redes Virtuais, Gateways de Aplicação, Equilibradores de Carga e outros recursos numa rede virtual Azure. Não é uma solução para monitorizar a infraestrutura PaaS (Plataforma-as-a-Service) ou obter análises web/móveis.
 
 ### <a name="what-tools-does-network-watcher-provide"></a>Que ferramentas o Network Watcher fornece?
@@ -103,8 +103,8 @@ Pode verificar os registos de armazenamento após alguns minutos; deve ver um ca
 Os registos de fluxo NSG são compatíveis com os Pontos Finais do Serviço sem necessitar de qualquer configuração extra. Consulte o tutorial sobre a ativação de [pontos finais](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) de serviço na sua rede virtual.
 
 
-### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual é a diferença entre as versões de logs de fluxo 1 e 2?
-A versão 2 do Flow Logs introduz o conceito de *Flow State* & stores information about bytes and packets transmitidos. [Leia mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
+### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual é a diferença entre as versões de registos de fluxo 1 & 2?
+A versão 2 do Flow Logs introduz o conceito de *Flow State* & armazena informações sobre bytes e pacotes transmitidos. [Leia mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
 
 ## <a name="next-steps"></a>Passos Seguintes
  - Dirija-se à nossa página de visão geral de [documentação](https://docs.microsoft.com/azure/network-watcher/) para alguns tutoriais para começar com o Network Watcher.

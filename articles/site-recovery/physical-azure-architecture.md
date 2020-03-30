@@ -4,13 +4,13 @@ description: Este artigo fornece uma visão geral dos componentes e arquitetura 
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 089d981284986a2b6eb0ee7f1dbd401fc7ce4fcd
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162842"
 ---
-# <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Servidor físico para arquitetura de recuperação de desastres de Azure
+# <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre de servidores físicos para o Azure
 
 Este artigo descreve a arquitetura e os processos utilizados quando se replica, falha e recupera servidores físicos windows e linux entre um site no local e o Azure, utilizando o serviço de Recuperação do [Site Azure.](site-recovery-overview.md)
 
@@ -20,12 +20,12 @@ A tabela e o gráfico que se aseguir proporcionam uma visão de alto nível dos 
 
 | **Componente** | **Requisito** | **Detalhes** |
 | --- | --- | --- |
-| **Azure** | Uma subscrição Azure e uma rede Azure. | Os dados replicados de máquinas físicas no local são armazenados em discos geridos pelo Azure. As VMs do Azure são criadas com os dados replicados quando você executa um failover do local para o Azure. As VMs do Azure ligam-se à rede virtual do Azure quando são criadas. |
+| **Azure** | Uma subscrição Azure e uma rede Azure. | Os dados replicados de máquinas físicas no local são armazenados em discos geridos pelo Azure. Os VMs azure são criados com os dados replicados quando executa uma falha no local para o Azure. As VMs do Azure ligam-se à rede virtual do Azure quando são criadas. |
 | **Servidor de processos** | Instalado por padrão juntamente com o servidor de configuração. | Atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com a colocação em cache, compressão e encriptação, e envia-os para o armazenamento do Azure.<br/><br/> O servidor de processos também instala o serviço mobility nos servidores que pretende replicar.<br/><br/> À medida que a sua implementação cresce, pode adicionar servidores de processo seletos adicionais para lidar com volumes maiores de tráfego de replicação. |
 | **Servidor de destino mestre** | Instalado por padrão juntamente com o servidor de configuração. | Trata dos dados de replicação durante a falha de volta do Azure.<br/><br/> Para grandes implementações, pode adicionar um servidor de alvo principal adicional e separado para o failback. |
 | **Servidores replicados** | O serviço de Mobilidade está instalado em cada servidor que replicar. | Recomendamos que permita a instalação automática a partir do servidor de processos. Ou pode instalar o serviço manualmente ou utilizar um método de implementação automatizado, como o 'Gestor de Configuração'. |
 
-**Arquitetura física para Azure**
+**Arquitetura de replicação física para o Azure**
 
 ![Componentes](./media/physical-azure-architecture/arch-enhanced.png)
 

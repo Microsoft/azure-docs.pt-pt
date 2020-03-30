@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Saiba como executar espaços Azure Dev num aglomerado existente com contentores Windows
 keywords: Espaços Azure Dev, Espaços Dev, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, contentores, contentores windows
-ms.openlocfilehash: d376aca45778060c8913924fd2a44031109390d2
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 0b3f221c9e62343a02ba8742e4cf988c7cf26c12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538794"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240491"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interaja com recipientes Windows usando espaços Azure Dev
 
@@ -20,7 +20,7 @@ Você pode ativar espaços Azure Dev em espaços de nome kubernetes novos e exis
 
 Este artigo assume que já tem um cluster com piscinas de nó linux e Windows. Se precisar de criar um cluster com piscinas de nó linux e Windows, pode seguir as instruções [aqui][windows-container-cli].
 
-Ligue-se ao seu cluster usando [kubectl,][kubectl]o cliente da linha de comando Kubernetes. Para configurar `kubectl` para se ligar ao seu cluster Kubernetes, use o comando [az aks get-credentials.][az-aks-get-credentials] Este comando descarrega credenciais e confunde o ClI Kubernetes para usá-las.
+Ligue-se ao seu cluster usando [kubectl,][kubectl]o cliente da linha de comando Kubernetes. Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][az-aks-get-credentials]. Este comando descarrega credenciais e confunde o ClI Kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -54,14 +54,14 @@ kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 
 Execute o seu serviço Windows no seu cluster AKS e verifique se está em estado de *Execução.* Este artigo utiliza uma [aplicação de amostra][sample-application] para demonstrar um serviço Windows e Linux em execução no seu cluster.
 
-Clone a aplicação da amostra do GitHub e navegue no diretório `dev-spaces/samples/existingWindowsBackend/mywebapi-windows`:
+Clone a aplicação da amostra do `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` GitHub e navegue no diretório:
 
 ```console
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-A aplicação da amostra utiliza o [Helm 3][helm-installed] para executar o serviço Windows no seu cluster. Navegue para o diretório `charts` e use helm executar o serviço Windows:
+A aplicação da amostra utiliza o [Helm 3][helm-installed] para executar o serviço Windows no seu cluster. Navegue `charts` para o diretório e utilize o Helm executar o serviço Windows:
 
 ```console
 cd charts/
@@ -71,7 +71,7 @@ helm install windows-service . --namespace dev
 
 O comando acima utiliza o Helm para executar o seu serviço Windows no espaço de nome de *v.* Se não tiver um espaço *com*nome sinuoso, será criado.
 
-Utilize o comando `kubectl get pods` para verificar se o seu serviço Windows está a funcionar no seu cluster. 
+Utilize `kubectl get pods` o comando para verificar se o seu serviço Windows está a funcionar no seu cluster. 
 
 ```console
 $ kubectl get pods --namespace dev --watch
@@ -93,7 +93,7 @@ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 
 Quando ativar a Dev Spaces num espaço de nome existente com contentores que já estão em funcionamento, por padrão, a Dev Spaces tentará instrumentar quaisquer novos recipientes que funcionam nesse espaço de nome. A Dev Spaces também tentará instrumentar quaisquer novos recipientes criados para o serviço já em funcionamento no espaço de nome. Para evitar que a Dev Spaces ainstrumente um recipiente em funcionamento no seu espaço de nome, adicione o cabeçalho *sem procuração* ao `deployment.yaml`.
 
-Adicione `azds.io/no-proxy: "true"` ao ficheiro `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml`:
+Adicione `azds.io/no-proxy: "true"` ao `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` ficheiro:
 
 ```yaml
 apiVersion: apps/v1
@@ -112,7 +112,7 @@ spec:
         azds.io/no-proxy: "true"
 ```
 
-Utilize `helm list` para listar a implementação para o seu serviço Windows:
+Utilizar `helm list` para listar a implementação para o seu serviço Windows:
 
 ```cmd
 $ helm list --namespace dev
@@ -120,17 +120,17 @@ NAME              REVISION  UPDATED                     STATUS      CHART       
 windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-No exemplo acima, o nome da sua implementação é *serviço windows- service*. Atualize o seu serviço Windows com a nova configuração utilizando `helm upgrade`:
+No exemplo acima, o nome da sua implementação é *serviço windows- service*. Atualize o seu serviço `helm upgrade`Windows com a nova configuração utilizando:
 
 ```cmd
 helm upgrade windows-service . --namespace dev
 ```
 
-Uma vez que atualizou o seu `deployment.yaml`, a Dev Spaces não tentará instrumentalmente o seu serviço.
+Uma vez `deployment.yaml`que atualizou o seu , a Dev Spaces não tentará instrumentalmente o seu serviço.
 
 ## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Execute a sua aplicação Linux com espaços Azure Dev
 
-Navegue para o diretório `webfrontend` e use os comandos `azds prep` e `azds up` para executar a sua aplicação Linux no seu cluster.
+Navegue `webfrontend` para o diretório e use os `azds prep` e `azds up` comandos para executar a sua aplicação Linux no seu cluster.
 
 ```console
 cd ../../webfrontend-linux/
@@ -138,12 +138,12 @@ azds prep --enable-ingress
 azds up
 ```
 
-O comando `azds prep --enable-ingress` gera o gráfico Helm e os Ficheiros Docker para a sua aplicação.
+O `azds prep --enable-ingress` comando gera a tabela Helm e os Ficheiros Docker para a sua aplicação.
 
 > [!TIP]
-> O [gráfico Dockerfile e Helm](../how-dev-spaces-works.md#prepare-your-code) para o seu projeto é usado pela Azure Dev Spaces para construir e executar o seu código, mas pode modificar estes ficheiros se quiser alterar a forma como o projeto é construído e executado.
+> O [gráfico Dockerfile e Helm](../how-dev-spaces-works-prep.md#prepare-your-code) para o seu projeto é usado pela Azure Dev Spaces para construir e executar o seu código, mas pode modificar estes ficheiros se quiser alterar a forma como o projeto é construído e executado.
 
-O comando `azds up` executa o seu serviço no espaço de nome.
+O `azds up` comando executa o seu serviço no espaço de nome.
 
 ```console
 $ azds up
@@ -161,7 +161,7 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-Pode ver o serviço a funcionar abrindo o URL público, que é exibido na saída a partir do comando azds up. Neste exemplo, o URL público é `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Navegue para o serviço num browser e clique em *About* at the top. Verifique se vê uma mensagem do serviço *mywebapi* contendo a versão do Windows que o recipiente está a utilizar.
+Pode ver o serviço a funcionar abrindo o URL público, que é exibido na saída a partir do comando azds up. Neste exemplo, o URL `http://dev.webfrontend.abcdef0123.eus.azds.io/`público é . Navegue para o serviço num browser e clique em *About* at the top. Verifique se vê uma mensagem do serviço *mywebapi* contendo a versão do Windows que o recipiente está a utilizar.
 
 ![App de amostra smostra a versão do Windows a partir de mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 

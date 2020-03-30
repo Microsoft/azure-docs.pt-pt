@@ -4,10 +4,10 @@ description: Aprenda a usar a extensão da Política Azure para o Código do Est
 ms.date: 03/07/2020
 ms.topic: how-to
 ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264677"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Utilize a extensão da política azure para o Código do Estúdio Visual
@@ -25,8 +25,8 @@ A extensão da Política Azure para Código de Estúdio Visual pode ser instalad
 
 São necessários os seguintes itens para completar os passos deste artigo:
 
-- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- [Visual Studio Code](https://code.visualstudio.com).
+- Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- [Código de estúdio visual.](https://code.visualstudio.com)
 
 ## <a name="install-azure-policy-extension"></a>Instalar extensão da política do Azure
 
@@ -34,7 +34,7 @@ Depois de cumprir os pré-requisitos, pode instalar a extensão da Política Azu
 
 1. Abra o Visual Studio Code.
 
-1. A partir da barra de menus, vá **ver** ** > Extensões.**
+1. A partir da barra de menus, vá para **Ver** > **Extensões**.
 
 1. Na caixa de pesquisa, introduza a **Política Azure.**
 
@@ -68,13 +68,13 @@ Para avaliar os recursos e os pseudónimos de procura, deve ligar-se à sua cont
 
    - Paleta de Comando
 
-     A partir da barra de menus, vá **ver** > Paleta de **Comando,** e insira **Azure: Inscreva-se**.
+     A partir da barra de menus, vá **ver** > paleta de**comando,** e **insira Azure: Inscreva-se**.
 
      ![Sinal de nuvem azure para código de estúdio visual da paleta de comando](../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png)
 
 1. Siga o sinal em instruções para iniciar sessão no Azure. Depois de conectado, o nome da sua conta Azure é mostrado na barra de estado na parte inferior da janela Visual Studio Code.
 
-## <a name="select-subscriptions"></a>Selecionar subscrições
+## <a name="select-subscriptions"></a>Selecione subscrições
 
 Quando se inscreveu pela primeira vez, apenas os recursos e políticas de subscrição padrão são carregados pela extensão da Política Azure. Para adicionar ou remover subscrições da exibição de recursos e políticas, siga estes passos:
 
@@ -82,11 +82,11 @@ Quando se inscreveu pela primeira vez, apenas os recursos e políticas de subscr
 
    - Paleta de comando: 
 
-     A partir da barra de menus, vá **ver** > Paleta de **Comando,** e **introduza O Azure: Selecione Subscrições**.
+     A partir da barra de menus, vá **ver** > paleta de**comando,** e **insira Azure: Selecione Subscrições**.
 
    - Rodapé da janela
 
-     No rodapé da janela na parte inferior do ecrã, selecione o segmento que corresponde ao **Azure: \<a sua conta\>** .
+     No rodapé da janela na parte inferior do ecrã, selecione o segmento que corresponde ao **Azure: \<a sua conta\>**.
 
 1. Utilize a caixa de filtro para encontrar rapidamente subscrições pelo nome. Em seguida, verifique ou remova o cheque de cada subscrição para definir as subscrições mostradas pela extensão Política Azure. Quando terminar de adicionar ou remover subscrições para visualizar, selecione **OK**.
 
@@ -99,7 +99,7 @@ A extensão da Política Azure lista os recursos nas subscrições selecionadas 
 - **Grupos de Recursos**
   - Todos os recursos do grupo de recursos em que estão
 
-Por predefinição, a extensão filtra a parte do "Fornecedor de Recursos" através dos recursos e recursos existentes que têm pseudónimos políticos. Altere este comportamento em **Definições** > **Extensões** > **Política Azure** para ver todos os Fornecedores de Recursos sem filtragem.
+Por predefinição, a extensão filtra a parte do "Fornecedor de Recursos" através dos recursos e recursos existentes que têm pseudónimos políticos. Altere este comportamento nas **Definições** > **Extensions** > **Política Azure** para ver todos os Fornecedores de Recursos sem filtrar.
 
 Os clientes com centenas ou milhares de recursos numa única subscrição podem preferir uma forma pesquisável de localizar os seus recursos. A extensão da Política Azure permite procurar um recurso específico com os seguintes passos:
 
@@ -111,7 +111,7 @@ Os clientes com centenas ou milhares de recursos numa única subscrição podem 
 
    - Paleta de comando:
 
-     A partir da barra de menus, vá **ver** > Paleta de **Comando,** e insira **Recursos: Recursos**de Pesquisa.
+     A partir da barra de menus, vá **ver** > paleta de **comando,** e insira **Recursos: Recursos**de Pesquisa .
 
 1. Se for selecionada mais de uma subscrição para visualização, utilize o filtro para selecionar qual a subscrição a pesquisar.
 
@@ -123,7 +123,7 @@ Os clientes com centenas ou milhares de recursos numa única subscrição podem 
 
 Quando um recurso é selecionado, seja através da interface de pesquisa ou selecionando-o na vista da árvore, a extensão da Política Azure abre o ficheiro JSON representando esse recurso e todos os valores de propriedade do Gestor de Recursos.
 
-Uma vez aberto um recurso, pairando sobre o nome ou valor do Gestor de Recursos exibe o pseudónimo da Política Azure se existir. Neste exemplo, o recurso é um tipo de recurso `Microsoft.Compute/virtualMachines` e as **propriedades.storageProfile.imageReference.offer** property está sobrepairada. Pairar mostra os pseudónimos correspondentes.
+Uma vez aberto um recurso, pairando sobre o nome ou valor do Gestor de Recursos exibe o pseudónimo da Política Azure se existir. Neste exemplo, o recurso `Microsoft.Compute/virtualMachines` é um tipo de recurso e as **propriedades.storageProfile.imageReference.offer** property está sobrepairada. Pairar mostra os pseudónimos correspondentes.
 
 ![Hover de extensão da Política Azure mostra pseudónimo de Gestor de Recursos](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
 
@@ -139,7 +139,7 @@ A extensão da Política Azure lista os tipos de políticas e as atribuições p
 
    - Paleta de comando:
 
-     A partir da barra de menus, vá **ver** > Paleta de **Comando,** e insira **Políticas: Políticas**de Pesquisa.
+     A partir da barra de menus, vá **ver** > paleta de **comando,** e insira **Políticas: Políticas**de Pesquisa .
 
 1. Se for selecionada mais de uma subscrição para visualização, utilize o filtro para selecionar qual a subscrição a pesquisar.
 
@@ -151,9 +151,9 @@ Ao selecionar uma política ou atribuição, seja através da interface de pesqu
 
 ## <a name="sign-out"></a>Terminar sessão
 
-A partir da barra de menus, vá **ver** > Paleta de **Comando,** e depois entrar **em Azure: Sign out**.
+A partir da barra de menus, vá **ver** > a Paleta de**Comando,** e depois **introduza Azure: Sign out**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja exemplos nas [amostras da Política Azure.](../samples/index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
