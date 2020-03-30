@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
 ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282565"
 ---
 # <a name="scaling-in-service-fabric"></a>Escala no tecido de serviço
@@ -27,7 +27,7 @@ A escala em Tecido de Serviço é realizada de várias maneiras diferentes:
 6. Escalando usando métricas do Cluster Resource Manager
 
 ## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>Escalando criando ou removendo instâncias de serviço apátridas
-Uma das formas mais simples de escalar dentro do Service Fabric trabalha com serviços apátridas. Quando se cria um serviço apátrida, tem-se a oportunidade de definir um `InstanceCount`. `InstanceCount` define quantas cópias em execução do código desse serviço são criadas quando o serviço começa. Digamos, por exemplo, que há 100 nós no aglomerado. Digamos também que um serviço é criado com um `InstanceCount` de 10. Durante o tempo de funcionamento, essas 10 cópias em execução do código podem tornar-se demasiado ocupadas (ou não poderiam estar suficientemente ocupadas). Uma forma de escalar essa carga de trabalho é alterar o número de casos. Por exemplo, uma parte do código de monitorização ou de gestão pode alterar o número de instâncias existente para 50, ou para 5, dependendo se a carga de trabalho precisa de escalar dentro ou fora com base na carga. 
+Uma das formas mais simples de escalar dentro do Service Fabric trabalha com serviços apátridas. Quando se cria um serviço apátrida, `InstanceCount`temos a oportunidade de definir um . `InstanceCount`define quantas cópias em execução do código desse serviço são criadas quando o serviço começa. Digamos, por exemplo, que há 100 nós no aglomerado. Digamos também que um serviço é `InstanceCount` criado com um de 10. Durante o tempo de funcionamento, essas 10 cópias em execução do código podem tornar-se demasiado ocupadas (ou não poderiam estar suficientemente ocupadas). Uma forma de escalar essa carga de trabalho é alterar o número de casos. Por exemplo, uma parte do código de monitorização ou de gestão pode alterar o número de instâncias existente para 50, ou para 5, dependendo se a carga de trabalho precisa de escalar dentro ou fora com base na carga. 
 
 C#:
 
@@ -63,7 +63,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Escalando criando ou removendo novos serviços nomeados
 Uma instância de serviço nomeada é uma instância específica de um tipo de serviço (ver ciclo de vida de [aplicação service Fabric](service-fabric-application-lifecycle.md)) dentro de alguma instância de aplicação nomeada no cluster. 
 
-Novas instâncias de serviço nomeadas podem ser criadas (ou removidas) à medida que os serviços se tornam mais ou menos ocupados. Isto permite que os pedidos sejam distribuídos por mais instâncias de serviço, normalmente permitindo que a carga nos serviços existentes diminua. Ao criar serviços, o Gestor de Recursos de Cluster de Tecidos de Serviço coloca os serviços no cluster de forma distribuída. As decisões exatas regem-se pelas métricas do cluster e [outras](service-fabric-cluster-resource-manager-metrics.md) regras de colocação. Os serviços podem ser criados de várias maneiras diferentes, mas os mais comuns são através de ações administrativas como alguém que chama [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), ou por código chamando [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` podem até ser chamados de dentro de outros serviços que executam o cluster.
+Novas instâncias de serviço nomeadas podem ser criadas (ou removidas) à medida que os serviços se tornam mais ou menos ocupados. Isto permite que os pedidos sejam distribuídos por mais instâncias de serviço, normalmente permitindo que a carga nos serviços existentes diminua. Ao criar serviços, o Gestor de Recursos de Cluster de Tecidos de Serviço coloca os serviços no cluster de forma distribuída. As decisões exatas regem-se pelas métricas do cluster e [outras](service-fabric-cluster-resource-manager-metrics.md) regras de colocação. Os serviços podem ser criados de várias maneiras [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)diferentes, mas [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet)os mais comuns são através de ações administrativas como alguém que chama , ou por chamada de código. `CreateServiceAsync`pode até ser chamado de dentro de outros serviços que executam no cluster.
 
 A criação de serviços dinamicamente pode ser usada em todos os tipos de cenários, e é um padrão comum. Por exemplo, considere um serviço estatal que represente um fluxo de trabalho particular. As chamadas representativas do trabalho vão aparecer neste serviço, e este serviço vai executar os passos para esse fluxo de trabalho e registar progressos. 
 
@@ -94,17 +94,17 @@ Considere um serviço que usa um esquema de partição variado com uma tecla bai
 
 <center>
 
-![layout de partição com três nós](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+![Layout de partição com três nósos](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 Se aumentar o número de nós, o Tecido de Serviço irá mover algumas das réplicas existentes lá. Por exemplo, digamos que o número de nós aumenta para quatro e as réplicas são redistribuídas. Agora o serviço tem três réplicas em cada nó, cada uma pertencente a divisórias diferentes. Isto permite uma melhor utilização de recursos, uma vez que o novo nó não é frio. Tipicamente, também melhora o desempenho, uma vez que cada serviço tem mais recursos disponíveis para ele.
 
 <center>
 
-![layout de partição com quatro nós](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+![Layout de partição com quatro nósos](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
-## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>Escalando usando o Gestor de Recursos de Cluster de Tecido de serviço e métricas
+## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>Escalando usando o Gestor de Recursos de Cluster de Tecido sacana de serviço e métricas
 [As métricas](service-fabric-cluster-resource-manager-metrics.md) são como os serviços expressam o seu consumo de recursos ao Tecido de Serviço. A utilização de métricas dá ao Cluster Resource Manager a oportunidade de reorganizar e otimizar o layout do cluster. Por exemplo, pode haver muitos recursos no cluster, mas podem não ser afetados aos serviços que estão atualmente a fazer trabalho. A utilização de métricas permite ao Cluster Resource Manager reorganizar o cluster para garantir que os serviços têm acesso aos recursos disponíveis. 
 
 

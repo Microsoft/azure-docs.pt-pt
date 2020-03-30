@@ -8,10 +8,10 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 0b13040b39ed491ec4fee4d6922d41f086edeeb2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284918"
 ---
 # <a name="use-ip-filters"></a>Utilizar filtros de IP
@@ -26,7 +26,7 @@ Existem dois casos específicos de utilização em que é útil bloquear ligaç�
 
 * Você precisa rejeitar o tráfego de endereços IP que foram identificados como suspeitos pelo administrador do DPS.
 
-## <a name="how-filter-rules-are-applied"></a>Como são aplicadas as regras de filtro
+## <a name="how-filter-rules-are-applied"></a>Como as regras do filtro são aplicadas
 
 As regras do filtro IP são aplicadas ao nível da instância DPS. Por isso, as regras do filtro IP aplicam-se a todas as ligações de dispositivos e aplicações back-end utilizando qualquer protocolo suportado.
 
@@ -34,7 +34,7 @@ Qualquer tentativa de ligação de um endereço IP que corresponda a uma regra d
 
 ## <a name="default-setting"></a>Definição predefinida
 
-Por predefinição, a grelha do **filtro IP** no portal para DPS está vazia. Esta definição predefinida significa que o seu DPS aceita ligações a partir de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
+Por predefinição, a grelha do **filtro IP** no portal para DPS está vazia. Esta definição predefinida significa que o seu DPS aceita ligações a partir de qualquer endereço IP. Esta definição predefinida equivale a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
 
 ![Definições de filtro IP padrão IoT DPS](./media/iot-dps-ip-filtering/ip-filter-default.png)
 
@@ -48,7 +48,7 @@ Depois de selecionar a regra do **filtro IP,** preencha os campos.
 
 ![Depois de selecionar Adicionar uma regra de filtro IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Forneça um **nome** para a regra do filtro IP. Esta deve ser uma corda alfanumérica única, insensível e insensível a 128 caracteres. Apenas são aceites os caracteres alfanuméricos ascii de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Forneça um **nome** para a regra do filtro IP. Esta deve ser uma corda alfanumérica única, insensível e insensível a 128 caracteres. Apenas os caracteres alfanuméricos a7 bits ASCII plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` são aceites.
 
 * Forneça um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, no ponto CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255.
 
@@ -74,7 +74,7 @@ Para eliminar uma regra do filtro IP, selecione o ícone do caixote do lixo ness
 
 ## <a name="update-ip-filter-rules-in-code"></a>Atualizar regras de filtro IP em código
 
-Pode recuperar e modificar o filtro IP DPS utilizando o ponto final REST do Fornecedor de recursos Azure. Consulte `properties.ipFilterRules` no [método de criação ou atualização](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+Pode recuperar e modificar o filtro IP DPS utilizando o ponto final REST do Fornecedor de recursos Azure. Consulte `properties.ipFilterRules` no [método createorupdate](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
 
 Atualizar as regras de filtro IP DPS não é atualmente suportado com Azure CLI ou Azure PowerShell, mas pode ser realizado com modelos de Gestor de Recursos Azure. Veja, modelos de [Gestor de Recursos Azure](../azure-resource-manager/templates/overview.md) para orientação sobre a utilização de modelos de Gestor de Recursos. Os exemplos de modelo que se seguem mostram como criar, editar e eliminar as regras de filtro IP DPS.
 
@@ -135,8 +135,8 @@ Atualize os atributos da regra do filtro IP do modelo com base nos seus requisit
 
 | Atributo                | Descrição |
 | ------------------------ | ----------- |
-| **Nome do filtro**           | Forneça um nome para a regra do filtro IP. Esta deve ser uma corda alfanumérica única, insensível e insensível a 128 caracteres. Apenas os caracteres alfanuméricos de 7 bits ASCII mais {'',', ':', '/', '\'', '.'', '+', '%', '_', '#', '*', '?', '!', '(',',', '=', '@', '',',',''''''''''' |
-| **Ação**               | Os valores aceites são **Aceitar** ou **Rejeitar** como a ação para a regra do filtro IP. |
+| **Nome do filtro**           | Forneça um nome para a regra do filtro IP. Esta deve ser uma corda alfanumérica única, insensível e insensível a 128 caracteres. Apenas os caracteres alfanuméricos de 7 bits ASCII mais {''', ':', '/', '.'',\''+', '%', '_', '#', '*', '?',',',',',',',',',', '=', '@', '',',',''''''''''' |
+| **Ação**               | Os valores aceites são **Aceitar** ou **Rejeitar** como ação para a regra do filtro IP. |
 | **ipMask**               | Forneça um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, no ponto CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255. |
 
 
@@ -241,11 +241,11 @@ O exemplo do modelo seguinte elimina todas as regras do filtro IP para a instân
 
 
 
-## <a name="ip-filter-rule-evaluation"></a>Avaliação da regra de filtro IP
+## <a name="ip-filter-rule-evaluation"></a>Avaliação da regra do filtro IP
 
 As regras do filtro IP são aplicadas por ordem e a primeira regra que corresponde ao endereço IP determina a aceitação ou rejeita a ação.
 
-Por exemplo, se quiser aceitar endereços no intervalo 192.168.100.0/22 e rejeitar tudo o resto, a primeira regra da grelha deve aceitar o intervalo de endereços 192.168.100.0/22. A seguinte regra deve rejeitar a todos os endereços mediante a utilização do intervalo 0.0.0.0/0.
+Por exemplo, se quiser aceitar endereços no intervalo 192.168.100.0/22 e rejeitar tudo o resto, a primeira regra da grelha deve aceitar o intervalo de endereços 192.168.100.0/22. A regra seguinte deve rejeitar todos os endereços utilizando o intervalo 0.0.0.0/0.
 
 Pode alterar a ordem das suas regras de filtro IP na grelha clicando nos três pontos verticais no início de uma linha e utilizando arrasto e gota.
 
@@ -253,7 +253,7 @@ Para guardar a sua nova ordem de regra do filtro IP, clique em **Guardar**.
 
 ![Alterar a ordem das suas regras de filtro IP DPS](./media/iot-dps-ip-filtering/ip-filter-rule-order.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para explorar ainda mais o DPS de gestão, consulte:
 

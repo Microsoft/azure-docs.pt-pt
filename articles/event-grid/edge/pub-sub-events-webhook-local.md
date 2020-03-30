@@ -1,5 +1,5 @@
 ---
-title: Publique, subscreva eventos localmente - Azure Event Grid IoT Edge  Microsoft Docs
+title: Publique, subscreva eventos localmente - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Publique, subscreva eventos localmente usando Webhook com Grelha de Eventos em IoT Edge
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281005"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: Publicar, subscrever eventos localmente
@@ -39,15 +39,15 @@ Existem várias formas de implementar módulos para um dispositivo IoT Edge e to
 
 ### <a name="select-your-iot-edge-device"></a>Selecione o seu dispositivo IoT Edge
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
 1. Navegue para o seu Hub IoT.
 1. Selecione **IoT Edge** do menu na secção De Gestão automática de **Dispositivos.** 
 1. Clique na identificação do dispositivo alvo a partir da lista de dispositivos
-1. Selecione **Definir Módulos**. Mantenha a página aberta. Continuará com os passos na próxima secção.
+1. Selecione **Módulos de Conjunto**. Mantenha a página aberta. Continuará com os passos na próxima secção.
 
 ### <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais os módulos para implementar, como os dados fluem entre os módulos e propriedades pretendidas do duplos de módulo. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação, em vez de construir manualmente o documento JSON.  Tem três **passos: Adicionar módulos,** **especificar rotas,** e **rever a implementação**.
+Um manifesto de implantação é um documento JSON que descreve quais os módulos a implantar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação, em vez de construir manualmente o documento JSON.  Tem três **passos: Adicionar módulos,** **especificar rotas,** e **rever a implementação**.
 
 ### <a name="add-modules"></a>Adicionar módulos
 
@@ -56,7 +56,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
 1. Forneça o nome, imagem, recipiente criar opções do recipiente:
 
    * **Nome**: eventgridmodule
-   * **Imagem URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **O recipiente cria opções:**
 
    [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
@@ -77,7 +77,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
           }
         }
     ```    
- 1. Clicar em **Guardar**
+ 1. Clique em **Guardar**
  1. Continue na secção seguinte para adicionar o módulo de Assinante da Grelha de Eventos Azure antes de os colocar juntos.
 
     >[!IMPORTANT]
@@ -97,9 +97,9 @@ Esta secção mostra-lhe como implementar outro módulo IoT que funcionaria como
 1. Fornecer o nome, imagem e recipiente criar opções do recipiente:
 
    * **Nome**: assinante
-   * **Imagem URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Recipiente Criar opções**: Nenhum
-1. Clicar em **Guardar**
+1. Clique em **Guardar**
 1. Clique **em próximo** para continuar na secção rotas
 
  ### <a name="setup-routes"></a>Rotas de configuração
@@ -129,7 +129,7 @@ Como editor de um evento, você precisa criar um tópico de grelha de eventos. E
         }
     ```
 
-1. Executar o seguinte comando para criar um tópico de grelha de eventos. Confirme se vê que o código de estado HTTP está `200 OK`.
+1. Executar o seguinte comando para criar um tópico de grelha de eventos. Confirme se vê o `200 OK`código de estado HTTP .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -180,7 +180,7 @@ Os assinantes podem inscrever-se para eventos publicados num tópico. Para receb
 
     >[!NOTE]
     > A propriedade **endpointType** especifica que o assinante é um **Webhook**.  O **endpointUrl** especifica o URL no qual o assinante está a ouvir eventos. Este URL corresponde à amostra do Assinante Azure que implementou anteriormente.
-2. Executar o seguinte comando para criar uma subscrição para o tópico. Confirme se vê que o código de estado HTTP está `200 OK`.
+2. Executar o seguinte comando para criar uma subscrição para o tópico. Confirme se vê o `200 OK`código de estado HTTP .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview

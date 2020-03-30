@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261843"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções na gestão de direitos da AD Azure
@@ -69,7 +69,7 @@ Após a delegação, o departamento de marketing pode ter funções semelhantes 
 | --- | --- | --- | --- |
 | Hana | Administrador de TI | Administrador global ou administrador de utilizador |  |
 | Mamta | Gestor de marketing | Utilizador | Criador de catálogo e proprietário do Catálogo |
-| BOB | Chumbo de marketing | Utilizador | Proprietário do catálogo |
+| Bob | Chumbo de marketing | Utilizador | Proprietário do catálogo |
 | Jéssica | Gestor de projetos de marketing | Utilizador | Gestor de pacotes de acesso |
 
 ## <a name="entitlement-management-roles"></a>Funções de gestão de direitos
@@ -78,7 +78,7 @@ A gestão de direitos tem as seguintes funções específicas para a gestão de 
 
 | Papel de gestão de direitos | Descrição |
 | --- | --- |
-| criador de catálogo | Criar e gerir catálogos. Tipicamente um administrador de TI que não é um administrador global, ou um proprietário de recursos para uma coleção de recursos. A pessoa que cria um catálogo torna-se automaticamente a primeira proprietária do catálogo do catálogo, podendo adicionar mais proprietários de catálogos. Um criador de catálogo não consegue gerir ou ver catálogos que não possuem e não consegue adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar de gerir outro catálogo ou adicionar recursos que não possuam, pode solicitar para ser coproprietário desse catálogo ou recurso. |
+| Criador de catálogo | Criar e gerir catálogos. Tipicamente um administrador de TI que não é um administrador global, ou um proprietário de recursos para uma coleção de recursos. A pessoa que cria um catálogo torna-se automaticamente a primeira proprietária do catálogo do catálogo, podendo adicionar mais proprietários de catálogos. Um criador de catálogo não consegue gerir ou ver catálogos que não possuem e não consegue adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar de gerir outro catálogo ou adicionar recursos que não possuam, pode solicitar para ser coproprietário desse catálogo ou recurso. |
 | Proprietário do catálogo | Editar e gerir catálogos existentes. Normalmente um administrador de TI ou proprietários de recursos, ou um utilizador que o proprietário do catálogo designou. |
 | Gestor de pacotes de acesso | Editar e gerir todos os pacotes de acesso existentes dentro de um catálogo. |
 
@@ -86,15 +86,15 @@ Além disso, um aprovador designado e um solicitador de um pacote de acesso tamb
 
 | Direita | Descrição |
 | --- | --- |
-| Aprovador | Autorizados por uma política de aprovação ou negação de pedidos de acesso aos pacotes, embora não possam alterar as definições do pacote de acesso. |
-| Requestor | Autorizado por uma política de um pacote de acesso a solicitar esse pacote de acesso. |
+| Approver | Autorizados por uma política de aprovação ou negação de pedidos de acesso aos pacotes, embora não possam alterar as definições do pacote de acesso. |
+| Requerente | Autorizado por uma política de um pacote de acesso a solicitar esse pacote de acesso. |
 
 A tabela seguinte enumera as tarefas que as funções de gestão de direitos podem desempenhar.
 
-| Tarefa | Admin | criador de catálogo | Proprietário do catálogo | Gestor de pacotes de acesso |
+| Tarefa | Administrador | Criador de catálogo | Proprietário do catálogo | Gestor de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegado a um criador de catálogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
-| [Adicionar uma organização conectada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
+| [Adicionar uma organização associada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
 | [Criar um novo catálogo](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Adicione um recurso a um catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Adicione um proprietário de catálogo](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
@@ -124,8 +124,8 @@ Para um utilizador que não seja um administrador global ou um administrador de 
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Administrador global](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Administrador de utilizadores](../users-groups-roles/directory-assign-admin-roles.md) | n/d |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Administrador insinado](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Administrador de intercâmbio](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
+| [Administrador do Intune](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Administrador do Exchange](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
 | [Administrador de serviço de equipas](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
 | [Administrador do SharePoint](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Administrador de candidatura](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
@@ -134,7 +134,7 @@ Para um utilizador que não seja um administrador global ou um administrador de 
 
 Para determinar o papel menos privilegiado para uma tarefa, também pode referenciar as funções de Administrador através de [uma tarefa de administrador no Diretório Ativo azure](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Delegar governação de acesso a criadores de catálogos](entitlement-management-delegate-catalog.md)
 - [Criar e gerir um catálogo de recursos](entitlement-management-catalog-create.md)

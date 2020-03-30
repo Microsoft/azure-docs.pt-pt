@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271905"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementar e gerir topoologias da tempestade Apache no Azure HDInsight
@@ -29,7 +29,7 @@ Neste documento, aprenda os fundamentos da gestão e monitorização das topoolo
 
 ## <a name="submit-a-topology-using-visual-studio"></a>Submeta uma topologia usando o Estúdio Visual
 
-Pode utilizar as Ferramentas data lake C# para o Estúdio Visual para submeter ou topoologias híbridas ao seu cluster Storm. Os seguintes passos utilizam uma aplicação de amostragem. Para obter informações sobre a criação de topologia utilizando as Ferramentas data lake, consulte [as topoologias C#apache Storm com Visual Studio e ](apache-storm-develop-csharp-visual-studio-topology.md).
+Pode utilizar as Ferramentas data lake para o Estúdio Visual para submeter topoologias C# ou híbridas ao seu cluster Storm. Os seguintes passos utilizam uma aplicação de amostragem. Para obter informações sobre a criação de topologia utilizando as Ferramentas data lake, consulte [as topoologias apache Storm com Visual Studio e C#](apache-storm-develop-csharp-visual-studio-topology.md).
 
 1. Se ainda não instalou a versão mais recente das ferramentas data lake para estúdio visual, consulte [Use Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
@@ -74,13 +74,13 @@ Pode utilizar as Ferramentas data lake C# para o Estúdio Visual para submeter o
     Deste modo, este comando inicia a topologia do WordCount de exemplo no cluster. Esta topologia gera aleatoriamente frases, e depois conta a ocorrência de cada palavra nas frases.
 
     > [!NOTE]  
-    > Ao submeter a topologia ao cluster, deve primeiro copiar o ficheiro .jar contendo o cluster antes de utilizar o comando `storm`. Para copiar o ficheiro para o cluster, pode utilizar o comando `scp`. Por exemplo, introduza `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
+    > Ao submeter a topologia ao cluster, deve primeiro copiar o ficheiro `storm` .jar contendo o cluster antes de utilizar o comando. Para copiar o ficheiro para o `scp` cluster, pode utilizar o comando. Por exemplo, introduza `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
     >
-    > O exemplo *do WordCount,* e outros exemplos de arranque de tempestade, já estão incluídos no seu cluster em `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+    > O exemplo *do WordCount,* e outros exemplos de arranque `/usr/hdp/current/storm-client/contrib/storm-starter/`de tempestade, já estão incluídos no seu cluster em .
 
 ## <a name="submit-a-topology-programmatically"></a>Submeter uma topologia programática
 
-Pode implementar programáticamente uma topologia utilizando o serviço Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornece um exemplo de aplicação Java que demonstra como implementar e iniciar uma topologia através do serviço Nimbus.
+Pode implementar programáticamente uma topologia utilizando o serviço Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology)fornece um exemplo de aplicação Java que demonstra como implementar e iniciar uma topologia através do serviço Nimbus.
 
 ## <a name="monitor-and-manage-a-topology-in-visual-studio"></a>Monitorize e gerencie uma topologia no Estúdio Visual
 
@@ -112,7 +112,7 @@ As topoologias da tempestade continuam a funcionar até que sejam paradas ou o a
 
 ## <a name="monitor-and-manage-a-topology-using-ssh-and-the-storm-command"></a>Monitorize e gerencie uma topologia usando o Comando SSH e a Tempestade
 
-O utilitário `storm` permite-lhe trabalhar com topoologias de execução a partir da linha de comando. Use `storm -h` para uma lista completa de comandos.
+O `storm` utilitário permite-lhe trabalhar com topoologias de execução a partir da linha de comando. Utilize `storm -h` para uma lista completa de comandos.
 
 ### <a name="list-topologies"></a>Topologies de lista
 
@@ -163,7 +163,7 @@ storm rebalance TOPOLOGYNAME
 
 ## <a name="monitor-and-manage-a-topology-using-the-storm-ui"></a>Monitorize e gerencie uma topologia usando a Tempestade UI
 
-A Storm UI fornece uma interface web para trabalhar com topoologias em execução, e está incluído no seu cluster HDInsight. Para ver a Tempestade UI, utilize um navegador web para abrir `https://CLUSTERNAME.azurehdinsight.net/stormui`, onde *clusterNAME* é o nome do seu cluster.
+A Storm UI fornece uma interface web para trabalhar com topoologias em execução, e está incluído no seu cluster HDInsight. Para ver a Tempestade UI, use `https://CLUSTERNAME.azurehdinsight.net/stormui`um navegador web para abrir, onde *clusterNAME* é o nome do seu cluster.
 
 > [!NOTE]  
 > Se lhe for solicitado que forneça um nome de utilizador e uma palavra-passe, introduza o nome de utilizador do administrador do cluster e a palavra-passe que utilizou ao criar o cluster.
@@ -245,15 +245,15 @@ Para mais informações, consulte [Apache Storm UI REST API](https://storm.apach
 
 ### <a name="base-uri"></a>Base URI
 
-O URI base para o REST API em clusters HDInsight baseados em Linux está disponível no endereço URL `https://HEADNODEFQDN:8744/api/v1/`, onde substitui *headnodeFQDN* pelo nó de cabeça. O nome de domínio do nó da cabeça é gerado durante a criação do cluster e não é estático.
+O URI base para o REST API em clusters HDInsight `https://HEADNODEFQDN:8744/api/v1/`baseados em Linux está disponível no endereço URL , onde substitui *headnodeFQDN* pelo nó de cabeça. O nome de domínio do nó da cabeça é gerado durante a criação do cluster e não é estático.
 
 Pode encontrar o nome de domínio totalmente qualificado (FQDN) para o nó de cabeça de cluster de várias maneiras:
 
 | Método de descoberta FQDN | Descrição |
 | --- | --- |
-| SEssão SSH | Utilize o comando `headnode -f` de uma sessão sSH para o cluster. |
-| Teia de Ambari | Na página web do cluster Ambari (`https://CLUSTERNAME.azurehdinsight.net`), selecione **Serviços** a partir do topo da página e, em seguida, selecione **Storm**. A partir do separador **Resumo,** selecione **Storm UI Server**. O FQDN do nó que acolhe a Tempestade UI e a API REST é exibido no topo da página. |
-| Ambari REST API | Use o comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para obter informações sobre o nó que a Tempestade UI e a Rest API estão a decorrer. Substitua as duas instâncias de *CLUSTERNAME* com o nome do cluster. Quando for solicitado, introduza a palavra-passe para a conta do utilizador (administrador). Na resposta, a entrada "host_name" da saída JSON contém o FQDN do nó. |
+| SEssão SSH | Utilize o `headnode -f` comando de uma sessão SSH para o cluster. |
+| Teia de Ambari | Na página web do cluster`https://CLUSTERNAME.azurehdinsight.net`Ambari ( ), selecione **Serviços** a partir do topo da página e, em seguida, selecione **Storm**. A partir do separador **Resumo,** selecione **Storm UI Server**. O FQDN do nó que acolhe a Tempestade UI e a API REST é exibido no topo da página. |
+| Ambari REST API | Use o `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` comando para obter informações sobre o nó que a Tempestade UI e a Rest API estão a decorrer. Substitua as duas instâncias de *CLUSTERNAME* com o nome do cluster. Quando for solicitado, introduza a palavra-passe para a conta do utilizador (administrador). Na resposta, a entrada "host_name" da saída JSON contém o FQDN do nó. |
 
 ### <a name="authentication"></a>Autenticação
 

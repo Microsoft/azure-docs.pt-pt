@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265054"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos na Grelha de Eventos Azure
@@ -42,7 +42,7 @@ Se utilizar as Funções do Azure como o processador, utilize o acionador do Eve
 | [Tutorial: transmitir big data em um armazém de dados](event-grid-event-hubs-integration.md) | Quando o Event Hubs cria um ficheiro Capture, a Rede de Eventos envia um evento para uma aplicação de função. A aplicação recupera o ficheiro Capture e migra dados para um armazém de dados. |
 | [Tutorial: Ônibus de serviço azure para exemplos de integração da Rede de Eventos Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Rede de Eventos envia mensagens do tópico do Bus de Serviço para a aplicação de função e lógica. |
 
-## <a name="event-hubs"></a>Hubs de Eventos
+## <a name="event-hubs"></a>Event Hubs
 
 Use Os Centros de Eventos quando a sua solução obtém eventos mais rápido do que pode processar os eventos. A sua aplicação processa os eventos a partir de Event Hubs na sua própria agenda. Pode escalar o processamento do seu evento para lidar com os eventos que estão a chegar.
 
@@ -77,7 +77,7 @@ Use aplicações lógicas para automatizar processos de negócio para responder 
 
 ### <a name="service-bus-queues"></a>Filas do Service Bus
 
-Pode encaminhar eventos em Event Grid diretamente para as filas de ônibus de serviço para utilização em cenários de tampão ou comando e controlo em aplicações empresariais.
+Pode encaminhar eventos em Event Grid diretamente para as filas de ônibus de serviço para utilização em cenários de tampão ou comando & de controlo em aplicações empresariais.
 
 No portal Azure, ao criar uma subscrição de evento, selecione "Service Bus Queue" como tipo de ponto final e, em seguida, clique em "selecionar um ponto final" para escolher uma fila de ônibus de serviço.
 
@@ -99,7 +99,7 @@ az eventgrid event-subscription create \
 
 ### <a name="service-bus-topics"></a>Tópicos de ônibus de serviço
 
-Você pode direcionar eventos em Event Grid diretamente para tópicos de ônibus de serviço de forma a lidar com eventos do sistema Azure com tópicos de ônibus de serviço, ou para cenários de mensagens de comando e controlo.
+Você pode direcionar eventos em Event Grid diretamente para tópicos de ônibus de serviço de forma a lidar com eventos do sistema Azure com tópicos de ônibus de serviço, ou para comandar & controlar cenários de mensagens.
 
 No portal Azure, ao criar uma subscrição de evento, selecione "Service Bus Topic" como tipo de ponto final e, em seguida, clique em "selecionar e ponto final" para escolher um tópico de Ônibus de serviço.
 

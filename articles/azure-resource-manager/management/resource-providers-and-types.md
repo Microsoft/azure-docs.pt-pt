@@ -4,23 +4,23 @@ description: Descreve os fornecedores de recursos que suportam o Gestor de Recur
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.openlocfilehash: 82b8251006a1a2d4edd198eca843489d3720f8d6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273985"
 ---
-# <a name="azure-resource-providers-and-types"></a>Fornecedores e tipos de recursos Azure
+# <a name="azure-resource-providers-and-types"></a>Tipos e fornecedores de recursos do Azure
 
-Ao implementar recursos, precisa frequentemente de obter informações sobre os fornecedores e tipos de recursos. Por exemplo, se quiser armazenar chaves e segredos, trabalha com o fornecedor de recursos Microsoft.KeyVault. Este fornecedor de recursos oferece um tipo de recurso chamado cofres para criar o cofre chave.
+Ao implementar recursos, precisa frequentemente de obter informações sobre os fornecedores e tipos de recursos. Por exemplo, se pretende armazenar chaves e segredos, trabalha com o fornecedor de recursos Microsoft.KeyVault. Este fornecedor de recursos oferece um tipo de recurso denominado cofres para a criação do cofre de chaves.
 
-O nome de um tipo de recurso está no formato: **{resource-provider}/{resource-type}** . O tipo de recurso para um cofre chave é **Microsoft.KeyVault/vaults**.
+O nome de um tipo de recurso está no formato: **{resource-provider}/{resource-type}**. O tipo de recurso para um cofre chave é **Microsoft.KeyVault/vaults**.
 
 Neste artigo, vai aprender a:
 
 * Ver todos os fornecedores de recursos em Azure
 * Verifique o estado de registo de um fornecedor de recursos
-* Registe um fornecedor de recursos
+* Registar um fornecedor de recursos
 * Ver tipos de recursos para um fornecedor de recursos
 * Ver locais válidos para um tipo de recurso
 * Ver versões API válidas para um tipo de recurso
@@ -33,8 +33,8 @@ Para uma lista que mapeie os fornecedores de recursos para os serviços Azure, c
 
 Para ver todos os fornecedores de recursos e o estado de registo da sua subscrição:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No menu do portal Azure, selecione **Todos os serviços.**
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. No menu do portal do Azure, selecione **Todos os serviços**.
 
     ![selecionar subscrições](./media/resource-providers-and-types/select-all-services.png)
 
@@ -44,17 +44,17 @@ Para ver todos os fornecedores de recursos e o estado de registo da sua subscri�
 
     ![mostrar fornecedores de recursos](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, deve ter permissão para fazer a operação `/register/action` para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Para registar um fornecedor de recursos, selecione **Register**. Na imagem anterior, o link **Register** é destacado para **Microsoft.Blueprint**.
+6. Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, `/register/action` deve ter permissão para fazer a operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Para registar um fornecedor de recursos, selecione **Register**. Na imagem anterior, o link **Register** é destacado para **Microsoft.Blueprint**.
 
     Não pode desregistar um fornecedor de recursos quando ainda tem tipos de recursos desse fornecedor de recursos na sua subscrição.
 
 Para ver informações para um determinado fornecedor de recursos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No menu do portal Azure, selecione **Todos os serviços.**
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. No menu do portal do Azure, selecione **Todos os serviços**.
 3. Na caixa **de todos os serviços,** introduza o explorador de **recursos,** e, em seguida, selecione **Resource Explorer**.
 
-    ![Selecione Todos os serviços](./media/resource-providers-and-types/select-resource-explorer.png)
+    ![selecionar Todos os serviços](./media/resource-providers-and-types/select-resource-explorer.png)
 
 4. Expandir **fornecedores** selecionando a seta direita.
 
@@ -94,7 +94,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, deve ter permissão para fazer a operação `/register/action` para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
+Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, `/register/action` deve ter permissão para fazer a operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -199,7 +199,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, deve ter permissão para fazer a operação `/register/action` para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
+Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, `/register/action` deve ter permissão para fazer a operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -285,7 +285,7 @@ West US
 ...
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender sobre a criação de modelos de Gestor de Recursos, consulte [os modelos de Gestor de Recursos Do Azure.](../templates/template-syntax.md) 
 * Para ver os esquemas do modelo do fornecedor de recursos, consulte a referência do [modelo](/azure/templates/).

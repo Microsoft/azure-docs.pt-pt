@@ -9,13 +9,13 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280186"
 ---
-# <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte sSH para serviço de aplicações Azure em Linux
+# <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o Serviço de Aplicações do Azure no Linux
 
 [Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) é comumente usado para executar comandos administrativos remotamente a partir de um terminal de linha de comando. O Serviço de Aplicações no Linux fornece suporte SSH para o recipiente de aplicações. 
 
@@ -41,14 +41,14 @@ Utilizando o túnel TCP, pode criar uma ligação de rede entre a sua máquina d
 
 Para começar, é necessário instalar [o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Para ver como funciona sem instalar o Azure CLI, abra a [Azure Cloud Shell.](../../cloud-shell/overview.md) 
 
-Abra uma ligação remota à sua aplicação utilizando o comando de [criação de ligação remota az webapp.](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) Especifique _\<subscrição-id>_ _\<nome de grupo>_ e \_\<nome de aplicação>_ para a sua aplicação.
+Abra uma ligação remota à sua aplicação utilizando o comando de [criação de ligação remota az webapp.](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) Especifique \_ \< _ \<_ _ \<>_ de identificação de subscrição,>de nome de grupo e>_ de nome de aplicação para a sua aplicação.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]
-> `&` no final do comando é apenas por conveniência se estiver a usar cloud Shell. Executa o processo em segundo plano para que possa executar o próximo comando na mesma concha.
+> `&`no final do comando é apenas por conveniência se estiver a usar cloud Shell. Executa o processo em segundo plano para que possa executar o próximo comando na mesma concha.
 
 A saída de comando dá-lhe a informação necessária para abrir uma sessão de SSH.
 
@@ -64,7 +64,7 @@ Abra uma sessão de SSH com o seu recipiente com o cliente à sua escolha, utili
 ssh root@127.0.0.1 -p <port>
 ```
 
-Quando for solicitado, escreva `yes` para continuar a ligar. Em seguida, é-lhe solicitada a senha. Use `Docker!`, que foi mostrado anteriormente.
+Quando for solicitado, `yes` escreva para continuar a ligar. Em seguida, é-lhe solicitada a senha. Use `Docker!`, que foi mostrado mais cedo.
 
 ```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
@@ -87,7 +87,7 @@ A P P   S E R V I C E   O N   L I N U X
 
 Está agora ligado ao seu conector.  
 
-Tente mover o comando [superior.](https://ss64.com/bash/top.html) Deverá poder ver o processo da sua aplicação na lista de processos. Na saída de exemplo abaixo, é a que tem `PID 263`.
+Tente mover o comando [superior.](https://ss64.com/bash/top.html) Deverá poder ver o processo da sua aplicação na lista de processos. Na saída de exemplo abaixo, é `PID 263`a que tem .
 
 ```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached

@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265158"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral das zonas e registos do DNS
@@ -22,15 +22,15 @@ Esta página explica os conceitos-chave de domínios, zonas DNS e registos dNS e
 
 ## <a name="domain-names"></a>Nomes de domínio
 
-O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa a partir do domínio “raiz”, cujo nome é simplesmente “ **.** ”.  Abaixo deste domínio, surgem os domínios de nível superior, como “com”, “net”, “org”, “pt” ou “fr”.  Abaixo destes, estão os domínios de segundo nível, tais como “org.pt” ou “co.uk”. Os domínios na hierarquia do DNS são distribuídos globalmente, hospedados por servidores de nome DNS em todo o mundo.
+O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa a partir do domínio “raiz”, cujo nome é simplesmente “**.**”.  Abaixo deste domínio, surgem os domínios de nível superior, como “com”, “net”, “org”, “pt” ou “fr”.  Abaixo destes, estão os domínios de segundo nível, tais como “org.pt” ou “co.uk”. Os domínios na hierarquia do DNS são distribuídos globalmente, hospedados por servidores de nome DNS em todo o mundo.
 
-Um registo de nome de domínio é uma organização que lhe permite adquirir um nome de domínio, como `contoso.com`.  A aquisição de um nome de domínio dá-lhe o direito de controlar a hierarquia do DNS com esse nome, permitindo por exemplo direcionar o nome `www.contoso.com` para o site da sua empresa. O registrador pode hospedar o domínio em seu próprio nome servidores em seu nome, ou permitir-lhe especificar servidores de nome alternativos.
+Um registo de nome de domínio é uma organização que `contoso.com`lhe permite adquirir um nome de domínio, como .  A aquisição de um nome de domínio dá-lhe o direito de controlar a hierarquia `www.contoso.com` do DNS com esse nome, permitindo por exemplo direcionar o nome para o site da sua empresa. O registrador pode hospedar o domínio em seu próprio nome servidores em seu nome, ou permitir-lhe especificar servidores de nome alternativos.
 
 O Azure DNS fornece uma infraestrutura de servidor de nome distribuído globalmente e de alta disponibilidade, que pode usar para hospedar o seu domínio. Ao hospedar os seus domínios em DNS Azure, pode gerir os seus registos DNS com as mesmas credenciais, APIs, ferramentas, faturação e suporte como os seus outros serviços Azure.
 
 O Azure DNS não suporta atualmente a compra de nomes de domínio. Se quiser comprar um nome de domínio, tem de utilizar um registo de nome de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios podem então ser hospedados em DNS Azure para gestão de registos DNS. Veja [Delegar um Domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
 
-## <a name="dns-zones"></a>Zonas de DNS
+## <a name="dns-zones"></a>Zonas DNS
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -48,7 +48,7 @@ No Azure DNS, o TTL é especificado para o conjunto de registos, não para cada 
 
 O DNS do Azure suporta [registos de carateres universais](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Os registos wildcard são devolvidos em resposta a qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de recordes não-wildcard). O Azure DNS suporta séries de recordes wildcard para todos os tipos de discos, exceto NS e SOA.
 
-Para criar um conjunto de registos wildcard, use o nome do conjunto de discos '\*'. Em alternativa, também pode utilizar um nome com "\*" como o seu rótulo mais à esquerda, por exemplo,\*.foo'.
+Para criar um conjunto de registos\*wildcard, use o nome do conjunto de discos ' '. Em alternativa, também pode utilizar\*um nome com " como o\*seu rótulo mais à esquerda, por exemplo, ' .foo'.
 
 ### <a name="caa-records"></a>Registos da CAA
 
@@ -64,13 +64,13 @@ Os registos caa permitem que os proprietários de domínios especifiquem quais a
 
 Os conjuntos de registos CNAME não podem coexistir com outros conjuntos de registos com o mesmo nome. Por exemplo, não é possível criar um disco CNAME com o nome relativo 'www' e um registo A com o nome relativo 'www' ao mesmo tempo.
 
-Como o ápice da zona (nome = '\@') contém sempre os conjuntos de registos NS e SOA que foram criados quando a zona foi criada, não se pode criar um registo CNAME estabelecido no ápice da zona.
+Como o ápice da\@zona (nome = ' ' contém sempre os conjuntos de registos NS e SOA que foram criados quando a zona foi criada, não se pode criar um registo CNAME estabelecido no ápice da zona.
 
 Estes constrangimentos decorrem das normas DNS e não são limitações do DNS Azure.
 
 ### <a name="ns-records"></a>Registos de NS
 
-O registo NS estabelecido no ápice da zona (nome '\@') é criado automaticamente com cada zona DNS, e é eliminado automaticamente quando a zona é eliminada (não pode ser eliminada separadamente).
+O registo NS estabelecido no ápice da zona (nome ')\@é criado automaticamente com cada zona DNS, e é eliminado automaticamente quando a zona é eliminada (não pode ser eliminada separadamente).
 
 Este conjunto de registos contém os nomes dos servidores de nome SNS Azure atribuídos à zona. Pode adicionar servidores de nome adicionais a este conjunto de registos NS, para suportar domínios de co-hospedagem com mais de um fornecedor DNS. Também pode modificar o TTL e os metadados para este conjunto de registos. No entanto, não é possível remover ou modificar os servidores de nome DNS Do DNS do Azure pré-povoados. 
 
@@ -78,7 +78,7 @@ Isto aplica-se apenas ao registo nS estabelecido no ápice da zona. Outros conju
 
 ### <a name="soa-records"></a>Registos SOA
 
-Um conjunto de registos SOA é criado automaticamente no ápice de cada zona (nome = '\@'), e é eliminado automaticamente quando a zona é eliminada.  Os registos SOA não podem ser criados ou eliminados separadamente.
+Um conjunto de registos SOA é criado automaticamente no\@ápice de cada zona (nome = ' '), e é eliminado automaticamente quando a zona é eliminada.  Os registos SOA não podem ser criados ou eliminados separadamente.
 
 Pode modificar todas as propriedades do registo SOA, exceto a propriedade 'host', que está pré-configurada para se referir ao nome principal do servidor fornecido pelo Azure DNS.
 
@@ -92,7 +92,7 @@ O número de série da zona no registo SOA não é atualizado automaticamente qu
 
 [Os registos SRV](https://en.wikipedia.org/wiki/SRV_record) são utilizados por vários serviços para especificar a localização do servidor. Ao especificar um registo SRV em DNS Azure:
 
-* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registos, pré-fixado com sublinhados.  Por exemplo,\_gole.\_tcp.name'.  Para um registo no ápice da zona, não há necessidade de especificar '\@' no nome de registo, basta utilizar o serviço e o protocolo, por exemplo "\_gole.\_tcp'.
+* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registos, pré-fixado com sublinhados.  Por exemplo,\_'gole. \_tcp.name'.  Para um registo no ápice da zona,\@não há necessidade de especificar ' no nome\_de registo, basta utilizar o serviço e o protocolo, por exemplo ' gole . \_tcp'.
 * A *prioridade*, *peso,* *porta*e *alvo* são especificados como parâmetros de cada recorde no recorde estabelecido.
 
 ### <a name="txt-records"></a>Registos TXT
@@ -129,8 +129,8 @@ Ao nível da API de REPOUSO DNS Azure, os Etags são especificados utilizando ca
 
 | Cabeçalho | Comportamento |
 | --- | --- |
-| Nenhum |PUT sempre tem sucesso (sem verificações de Etag) |
-| Se estiver em jogo \<etag> |PUT só tem sucesso se o recurso existir e o Etag corresponder |
+| Nenhuma |PUT sempre tem sucesso (sem verificações de Etag) |
+| Eveado \<se-jogo> |PUT só tem sucesso se o recurso existir e o Etag corresponder |
 | Se-jogo * |PUT só tem sucesso se o recurso existir |
 | Se-nenhum-fósforo * |PUT só tem sucesso se o recurso não existir |
 
@@ -141,7 +141,7 @@ Aplicam-se os seguintes limites predefinidos ao utilizar o Azure DNS:
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar a utilizar o Azure DNS, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e [crie registos DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona DNS existente, aprenda a importar e exportar um ficheiro de [zona DNS](dns-import-export.md).

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 69686cad20bc4ce70bff2a92a216c9430522c301
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278847"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o Azure Cache para redis
@@ -76,7 +76,7 @@ A lâmina de **atualizações de Agenda** permite-lhe designar uma janela de man
 
 Para especificar uma janela de manutenção, verifique os dias desejados e especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Note que o tempo da janela de manutenção está na UTC. 
 
-A janela de manutenção padrão, e mínima, para atualizações é de cinco horas. Este valor não é configurável a partir do portal Azure, mas pode configurá-lo no PowerShell utilizando o parâmetro `MaintenanceWindow` do [cmdlet New-AzRedisCacheScheduleEntry.](/powershell/module/az.rediscache/new-azrediscachescheduleentry) Para mais informações, consulte Posso gerir as atualizações programadas utilizando powerShell, CLI ou outras ferramentas de gestão?
+A janela de manutenção padrão, e mínima, para atualizações é de cinco horas. Este valor não é configurável a partir do portal Azure, `MaintenanceWindow` mas pode configurá-lo no PowerShell utilizando o parâmetro do [cmdlet New-AzRedisCacheScheduleEntry.](/powershell/module/az.rediscache/new-azrediscachescheduleentry) Para mais informações, consulte Posso gerir as atualizações programadas utilizando powerShell, CLI ou outras ferramentas de gestão?
 
 ## <a name="schedule-updates-faq"></a>Atualizar atualizações FAQ
 * [Quando é que as atualizações ocorrem se eu não utilizar a funcionalidade de atualizações de horários?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)

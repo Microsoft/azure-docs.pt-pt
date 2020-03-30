@@ -8,13 +8,13 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259828"
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>Considerações de networking para um Ambiente de Serviço de Aplicações #
+# <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente de Serviço de Aplicações #
 
 ## <a name="overview"></a>Descrição geral ##
 
@@ -43,7 +43,7 @@ Se tiver um ILB ASE, o endereço do endereço ILB é o ponto final para HTTP/S, 
 O tamanho da sub-rede utilizada para alojar uma ASE não pode ser alterado após a implantação da ASE.  A ASE utiliza um endereço para cada função de infraestrutura, bem como para cada instância de plano de serviço de aplicações isolada.  Além disso, existem cinco endereços utilizados pela Azure Networking para cada subrede que é criada.  Um ASE sem planos de Serviço de Aplicações utilizará 12 endereços antes de criar uma aplicação.  Se for um ILB ASE, então utilizará 13 endereços antes de criar uma aplicação nesse ASE. À medida que escala a sua ASE, as funções de infraestrutura são adicionadas a cada múltiplo de 15 e 20 instâncias do seu plano de App Service.
 
    > [!NOTE]
-   > Nada mais pode estar na sub-rede a não ser a ASE. Certifique-se de escolher um espaço de endereço que permita o crescimento futuro. Não pode mudar este cenário mais tarde. Recomendamos um tamanho de `/24` com 256 endereços.
+   > Nada mais pode estar na sub-rede a não ser a ASE. Certifique-se de escolher um espaço de endereço que permita o crescimento futuro. Não pode mudar este cenário mais tarde. Recomendamos um `/24` tamanho de 256 endereços.
 
 Quando escala para cima ou para baixo, são adicionados novos papéis do tamanho apropriado e, em seguida, as suas cargas de trabalho são migradas do tamanho atual para o tamanho do alvo. Os VMs originais removidos apenas após a migração das cargas de trabalho. Se tivesse uma ASE com 100 instâncias ASP, haveria um período em que precisaria do dobro do número de VMs.  É por esta razão que recomendamos a utilização de um '/24' para acomodar quaisquer alterações que possa necessitar.  
 
@@ -53,7 +53,7 @@ Quando escala para cima ou para baixo, são adicionados novos papéis do tamanho
 
 Apenas para que a ASE funcione, a ASE exige que sejam abertas as seguintes portas:
 
-| Utilização | De | Para |
+| Utilizar | De | Para |
 |-----|------|----|
 | Gestão | Endereços de gestão de serviços de aplicações | Sub-rede ASE: 454.455 |
 |  Comunicação interna da ASE | Sub-rede ASE: Todas as portas | Sub-rede ASE: Todas as portas
@@ -69,14 +69,14 @@ Para a comunicação entre o equilibrador de carga Azure e a sub-rede ASE, as po
 
 As outras portas com as suas necessidades são as portas de aplicação:
 
-| Utilização | Portas |
+| Utilizar | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
 |  Depuração remota do Estúdio Visual  |  4020, 4022, 4024 |
 |  Serviço de implantação web | 8172 |
 
-Se bloquear as portas de aplicação, a sua ASE ainda pode funcionar, mas a sua aplicação pode não.  Se estiver a utilizar endereços IP atribuídos à aplicação com uma ASE Externa, terá de permitir o tráfego dos IPs atribuídos às suas aplicações para a sub-rede ASE nas portas mostradas na página do portal ASE > IP Addresss.
+Se bloquear as portas de aplicação, a sua ASE ainda pode funcionar, mas a sua aplicação pode não.  Se estiver a utilizar endereços IP atribuídos à aplicação com uma ASE Externa, terá de permitir o tráfego dos IPs atribuídos às suas aplicações para a sub-rede ASE nas portas mostradas no portal DaSE > página IP Addresss.
 
 ### <a name="ase-outbound-dependencies"></a>Dependências de saída da ASE ###
 
@@ -84,7 +84,7 @@ Para acesso de saída, uma ASE depende de múltiplos sistemas externos. Muitas d
 
 A ASE comunica com endereços acessíveis à Internet nas seguintes portas:
 
-| Utilizações | Portas |
+| Utiliza | Portas |
 |-----|------|
 | DNS | 53 |
 | NTP | 123 |
@@ -108,12 +108,12 @@ Se alterar a definição de DNS do VNet em que a sua ASE está, terá de reinici
 
 Além das dependências funcionais da ASE, existem alguns itens extra relacionados com a experiência do portal. Algumas das capacidades do portal Azure dependem do acesso direto ao _site SCM._ Para cada aplicação no Azure App Service, existem dois URLs. O primeiro URL é aceder à sua aplicação. O segundo URL é aceder ao site SCM, que também é chamado de _consola Kudu_. As funcionalidades que utilizam o site SCM incluem:
 
--   Trabalhos web
+-   WebJobs
 -   Funções
 -   Streaming de log
--   Rio Kudu
+-   Kudu
 -   Extensões
--   Process Explorer
+-   Explorador de processos
 -   Consola
 
 Quando se utiliza um ILB ASE, o site SCM não é acessível de fora da VNet. Algumas capacidades não funcionarão a partir do portal da aplicação porque exigem o acesso ao site SCM de uma aplicação. Pode ligar-se diretamente ao site SCM em vez de utilizar o portal. 
@@ -166,7 +166,7 @@ As entradas necessárias num NSG, para que uma ASE funcione, são para permitir 
 
 A porta DNS não precisa de ser adicionada, uma vez que o tráfego para o DNS não é afetado pelas regras do NSG. Estas portas não incluem as portas que as suas aplicações necessitam para uma utilização bem sucedida. As portas normais de acesso à aplicação são:
 
-| Utilização | Portas |
+| Utilizar | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -177,9 +177,9 @@ Quando os requisitos de entrada e saída forem tomados em consideração, os NSG
 
 ![Regras de segurança de entrada][4]
 
-Uma regra predefinida permite que os IPs no VNet falem com a sub-rede ASE. Outra regra predefinida permite ao equilibrador de carga, também conhecido como VIP público, comunicar com a ASE. Para ver as regras predefinidas, selecione **regras padrão** ao lado do ícone **Adicionar.** Se negar tudo o resto antes das regras padrão, evite o tráfego entre o VIP e a ASE. Para evitar que o tráfego venha de dentro do VNet, adicione a sua própria regra para permitir a entrada. Utilize uma fonte igual à AzureLoadBalancer com destino a **Qualquer** e uma gama de porta de **\*** . Como a regra NSG é aplicada à sub-rede ASE, não precisa de ser específica no destino.
+Uma regra predefinida permite que os IPs no VNet falem com a sub-rede ASE. Outra regra predefinida permite ao equilibrador de carga, também conhecido como VIP público, comunicar com a ASE. Para ver as regras predefinidas, selecione **regras padrão** ao lado do ícone **Adicionar.** Se negar tudo o resto antes das regras padrão, evite o tráfego entre o VIP e a ASE. Para evitar que o tráfego venha de dentro do VNet, adicione a sua própria regra para permitir a entrada. Utilize uma fonte igual à AzureLoadBalancer com um **\*** destino de **Qualquer** e uma gama de portas de . Como a regra NSG é aplicada à sub-rede ASE, não precisa de ser específica no destino.
 
-Se atribuiu um endereço IP à sua aplicação, certifique-se de que mantém as portas abertas. Para ver as portas, selecione **App Service Ambiente** > **endereços IP**.  
+Se atribuiu um endereço IP à sua aplicação, certifique-se de que mantém as portas abertas. Para ver as portas, selecione**endereços IP**do **Serviço de Aplicação Ambiente** > .  
 
 Todos os itens apresentados nas seguintes regras de saída são necessários, exceto o último item. Permitem o acesso da rede às dependências da ASE que foram notadas anteriormente neste artigo. Se bloquear algum deles, a Sua ASE deixa de funcionar. O último item da lista permite à sua ASE comunicar com outros recursos no seu VNet.
 
@@ -194,7 +194,7 @@ O túnel forçado é quando estabelece rotas no seu VNet para que o tráfego de 
 Quando se cria uma ASE no portal criamos também um conjunto de tabelas de rotas na subnet que é criada com a ASE.  Essas rotas simplesmente dizem para enviar tráfego de saída diretamente para a internet.  
 Para criar as mesmas rotas manualmente, siga estes passos:
 
-1. Aceda ao portal do Azure. Selecione **tabelas**de rota > **de rede**  .
+1. Aceda ao portal do Azure. Selecione**tabelas**de rota **de networking** > .
 
 2. Crie uma nova tabela de rotas na mesma região que o seu VNet.
 
@@ -212,7 +212,7 @@ Para criar as mesmas rotas manualmente, siga estes passos:
 
 ## <a name="service-endpoints"></a>Pontos Finais de Serviço ##
 
-Os Pontos Finais de Serviço permitem restringir o acesso aos serviços multi-inquilino a um conjunto de sub-redes e redes virtuais do Azure. Pode ler mais sobre os pontos finais do serviço na documentação de [Pontos Finais][serviceendpoints] do Serviço de Rede Virtual. 
+Os Pontos Finais de Serviço permitem restringir o acesso aos serviços multi-inquilino a um conjunto de sub-redes e redes virtuais do Azure. Pode ler mais sobre Pontos Finais de Serviço na documentação [Pontos Finais de Serviço de Rede Virtual][serviceendpoints]. 
 
 Quando ativar Pontos Finais de Serviço num recurso, são criadas rotas com uma prioridade mais alta do que todas as outras rotas. Se utilizar pontos finais de serviço em qualquer serviço Azure, com uma ASE forçada, o tráfego para esses serviços não será forçado a fazer um túnel. 
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247361"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Crie e gerencie bolhas no armazenamento de Blob Azure usando aplicações da Azure Logic
 
-Este artigo mostra como pode aceder e gerir ficheiros armazenados como bolhas na sua conta de armazenamento Azure a partir de dentro de uma aplicação lógica com o conector de armazenamento Azure Blob. Desta forma, pode criar aplicações lógicas que automatizam tarefas e fluxos de trabalho para gerir os seus ficheiros. Por exemplo, pode criar aplicações lógicas que criam, obtêm, atualizam e apagam ficheiros na sua conta de armazenamento.
+Este artigo mostra como pode aceder e gerir ficheiros armazenados como bolhas na sua conta de armazenamento Azure a partir de dentro de uma aplicação lógica com o conector de armazenamento Azure Blob. Desta forma, pode criar aplicações lógicas que automatizam tarefas e fluxos de trabalho para gerir os seus ficheiros. Por exemplo, pode criar aplicações lógicas que criam, obtêm, atualizam e eliminam ficheiros na sua conta de armazenamento.
 
 Suponha que tenha uma ferramenta que seja atualizada num site do Azure. que funciona como o gatilho para a sua aplicação lógica. Quando este evento acontecer, pode ter a sua aplicação lógica atualizar algum ficheiro no seu recipiente de armazenamento blob, o que é uma ação na sua aplicação lógica.
 
@@ -33,7 +33,7 @@ Se você é novo em aplicações lógicas, reveja [o que são As Aplicações L�
 
 * Os gatilhos de armazenamento de Blob Azure não suportam o chunking. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 50 MB ou menores. Para obter ficheiros superiores a 50 MB, siga este padrão:
 
-  * Utilize um gatilho de armazenamento de blob Azure que deredere propriedades de ficheiros, como **quando uma bolha é adicionada ou modificada (apenas propriedades)** .
+  * Utilize um gatilho de armazenamento de blob Azure que deredere propriedades de ficheiros, como **quando uma bolha é adicionada ou modificada (apenas propriedades)**.
 
   * Siga o gatilho com a ação de **conteúdo blob Blob** Azure Get, que lê o ficheiro completo e utiliza implicitamente a chunking.
 
@@ -67,7 +67,7 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
    1. Na caixa **de contentores,** selecione o ícone da pasta.
 
-   2. Na lista de pastas, escolha o suporte de ângulo reto **(>** ) e, em seguida, navegue até encontrar e selecionar a pasta que deseja.
+   2. Na lista de pastas, escolha **>** o suporte do ângulo reto e, em seguida, navegue até encontrar e selecionar a pasta que deseja.
 
       ![Selecione pasta de armazenamento para usar com gatilho](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -89,7 +89,7 @@ Nas Aplicações Lógicas Azure, uma [ação](../logic-apps/logic-apps-overview.
 
    ![Adicione um novo passo para o fluxo de trabalho de aplicações lógicas](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Para adicionar uma ação entre os passos existentes, mova o rato sobre a seta de ligação. Escolha o sinal plus **(+)** que aparece e selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre os passos existentes, mova o rato sobre a seta de ligação. Escolha o sinal**+** de mais () que aparece e selecione **Adicionar uma ação**.
 
 3. Na caixa de pesquisa, introduza "borbulh" como filtro. Na lista de ações, selecione a ação que deseja.
 
@@ -123,8 +123,8 @@ Este exemplo só recebe o conteúdo para uma bolha. Para visualizar o conteúdo,
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome da Ligação** | Sim | < *> de nome de ligação* | O nome a criar para a sua ligação |
-   | **Storage Account** | Sim | < *> de conta de armazenamento* | Selecione a sua conta de armazenamento na lista. |
+   | **Nome de ligação** | Sim | <*nome de ligação*> | O nome a criar para a sua ligação |
+   | **Conta de Armazenamento** | Sim | <*conta de armazenamento*> | Selecione a sua conta de armazenamento na lista. |
    ||||
 
    Por exemplo:
@@ -194,7 +194,7 @@ Para estabelecer a exceção e o apoio de identidade gerido, siga estes passos g
 1. No fluxo de trabalho da sua aplicação lógica, adicione e instale a ação HTTP ou desencadeie o acesso à conta de armazenamento ou entidade.
 
    > [!IMPORTANT]
-   > Para a ação de HTTP de saída ou chamadas de gatilho para contas de Armazenamento Azure, certifique-se de que o cabeçalho de pedido inclui a propriedade `x-ms-version` e a versão API para a operação que pretende executar na conta de armazenamento. Para mais informações, consulte [O acesso authenticado com identidade gerida](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) e versão para serviços de armazenamento [Azure.](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests)
+   > Para a ação de HTTP de saída ou chamadas de gatilho `x-ms-version` para contas de Armazenamento Azure, certifique-se de que o cabeçalho de pedido inclui o imóvel e a versão API para a operação que pretende executar na conta de armazenamento. Para mais informações, consulte [O acesso authenticado com identidade gerida](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) e versão para serviços de armazenamento [Azure.](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests)
 
 1. Nessa ação, [selecione a identidade gerida](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) para usar para autenticação.
 

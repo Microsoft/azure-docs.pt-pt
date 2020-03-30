@@ -1,75 +1,74 @@
 ---
-title: O que é a borda do banco de dados SQL do Azure? | Microsoft Docs
-description: Saiba mais sobre a borda do banco de dados SQL do Azure
-keywords: Introdução à borda do banco de dados SQL, o que é borda do banco de dados SQL, visão geral do SQL Database Edge
+title: O que é Azure SQL Database Edge? | Microsoft Docs
+description: Saiba mais sobre o Edge de Base de Dados Azure SQL
+keywords: introdução à borda da base de dados sql, o que é aresta de base de dados sql, visão geral da borda da base de dados sql
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 11/04/2019
-ms.openlocfilehash: 9cbfc17e7412b4d30f082354996721ee7b5d6d5b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 03/24/2020
+ms.openlocfilehash: d5c48b6036065f6182912c21c144cab80fc3cfbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514007"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246709"
 ---
-# <a name="what-is-azure-sql-database-edge-preview"></a>O que é a visualização de borda do banco de dados SQL do Azure?
+# <a name="what-is-azure-sql-database-edge-preview"></a>O que é a pré-visualização da borda da base de dados Azure SQL?
 
-A visualização de borda do banco de dados SQL do Azure é um mecanismo de banco de dados relacional otimizado para implantações de IoT e IoT Edge. Ele fornece recursos para criar uma camada de processamento e armazenamento de dados de alto desempenho para aplicativos e soluções de IoT. A borda do banco de dados SQL do Azure fornece recursos para transmitir, processar e analisar relacionais e não relacionais, como JSON, grafo e dados de série temporal, o que o torna a escolha certa para uma variedade de aplicativos IoT modernos.
+A Pré-visualização do Edge De base de dados Azure SQL é um motor de base de dados relacional otimizado, orientado para implementações IoT e IoT Edge. Fornece capacidades para criar uma camada de armazenamento e processamento de dados de alto desempenho para aplicações e soluções IoT. O Azure SQL Database Edge fornece capacidades para transmitir, processar e analisar dados relacionais e não relacionais, como jSON, gráfico e dados da série time, o que a torna a escolha certa para uma variedade de aplicações IoT modernas.
 
-A borda do banco de dados SQL do Azure se baseia nas versões mais recentes do [mecanismo de banco de dados do Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database-edge/toc.json), que fornece recursos de desempenho, segurança e processamento de consulta líderes do setor. Desde que o Azure SQL Database Edge se baseia no mesmo mecanismo que SQL Server e no banco de dados SQL do Azure, ele fornece a mesma área de superfície de programação T-SQL que torna o desenvolvimento de aplicativos ou soluções mais fácil e rápido e, ao mesmo tempo, torna o aplicativo portabilidade entre IoT Edge dispositivos, data centers e a nuvem de forma direta.
+O Azure SQL Database Edge baseia-se nas versões mais recentes do [Microsoft SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database-edge/toc.json), que fornece capacidades de desempenho, segurança e processamento de consultas líderes na indústria. Uma vez que o Azure SQL Database Edge é construído no mesmo motor que o SQL Server e o Azure SQL Database, fornece a mesma área de superfície de programação T-SQL que facilita e acelera o desenvolvimento de aplicações ou soluções e, ao mesmo tempo, torna a aplicação portabilidade entre dispositivos IoT Edge, centros de dados e a nuvem diretamente para a frente.
 
 ## <a name="deployment-models"></a>Modelos de implantação
 
-A borda do banco de dados SQL do Azure está disponível no Azure Marketplace e pode ser implantada como um módulo para [Azure IOT Edge](../iot-edge/about-iot-edge.md). Para obter mais informações, consulte [implantar a borda do banco de dados SQL do Azure](deploy-portal.md).<br>
+O Azure SQL Database Edge está disponível no Mercado Azure e pode ser implantado como um módulo para [o Azure IoT Edge](../iot-edge/about-iot-edge.md). Para mais informações, consulte A ponta de base de [dados Azure SQL](deploy-portal.md).<br>
 
-![Diagrama de visão geral da borda do banco de dados SQL](media/overview/overview.png)
+![Diagrama de visão geral da borda da base de dados SQL](media/overview/overview.png)
 
-## <a name="editions-of-sql-database-edge"></a>Edições do Edge do banco de dados SQL
+## <a name="editions-of-sql-database-edge"></a>Edições da SQL Database Edge
 
-A borda do banco de dados SQL está disponível com três diferentes edições ou planos de software. Essas edições têm conjuntos de recursos idênticos e diferem apenas em termos de seus direitos de uso e da quantidade de CPU/memória que eles dão suporte.
+A SQL Database Edge está disponível com três edições ou planos de software diferentes. Estas edições têm conjuntos de funcionalidades idênticos e só diferem em termos dos seus direitos de utilização e da quantidade de cpu/memória que suportam.
 
    |**Planear**  |**Descrição**  |
    |---------|---------|
-   |Programador  |  SKU somente para desenvolvimento, com os mesmos limites de limitação, conforme imposto pelo SKU Standard mencionado abaixo |
-   |Standard   |  O plano Standard dá suporte a até 4 CPUs e até 32 GB de memória para o contêiner de borda do banco de dados SQL. |
-   |Premium    |  O SKU Premium dá suporte a até 8 núcleos e até 64 GB de memória para o contêiner de borda do banco de dados SQL. |
+   |Desenvolvedor de borda de base de dados Azure SQL  |  Desenvolvimento apenas sku, cada recipiente SQL Database Edge está limitado a até 4 núcleos e 32 GB de memória  |
+   |Base de Dados SQL do Azure no Edge    |  Sku de produção, cada recipiente SQL Database Edge está limitado a até 8 núcleos e 64 GB de memória. |
 
-## <a name="pricing-and-availability"></a>Preços e disponibilidade
+## <a name="pricing-and-availability"></a>Preços e Disponibilidade
 
-O banco de dados SQL do Azure está atualmente em visualização. Para obter mais informações sobre os preços e a disponibilidade, consulte [borda do banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database-edge/).
+A Base de Dados Azure SQL encontra-se atualmente em pré-visualização. Para obter mais informações sobre os preços e disponibilidade, consulte [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 
 > [!IMPORTANT]
-> Para entender as diferenças de recursos entre o Edge e o SQL Server do banco de dados SQL do Azure, bem como as diferenças entre diferentes opções de borda do banco de dados SQL do Azure, consulte recursos do banco de dados SQL do [banco de dados](https://azure.microsoft.com/services/sql-database-edge/)
+> Para compreender as diferenças de funcionalidadeentre o Edge de Base de Dados Azure SQL e o Servidor SQL, bem como as diferenças entre diferentes opções de Borda de Base de Dados Azure SQL, consulte as funcionalidades da Base de Dados de Base de [Dados SQL](https://azure.microsoft.com/services/sql-database-edge/).
 
-## <a name="streaming-capabilities"></a>Recursos de streaming  
+## <a name="streaming-capabilities"></a>Capacidades de streaming  
 
-A borda do banco de dados SQL do Azure fornece recursos de streaming internos para análise em tempo real e processamento de eventos complexos. O recurso de streaming é criado usando as mesmas construções que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) e fornece recursos semelhantes aos [Azure Stream Analytics no IOT Edge](../stream-analytics/stream-analytics-edge.md).
+O Azure SQL Database Edge fornece capacidades de streaming incorporadas para análise em tempo real e processamento complexo de eventos. A capacidade de streaming é construída utilizando as mesmas construções que o [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) e fornece capacidades semelhantes às [do Azure Stream Analytics no IoT Edge](../stream-analytics/stream-analytics-edge.md).
 
-O mecanismo de streaming para a borda do banco de dados SQL do Azure foi projetado para baixa latência, resiliência, uso eficiente de largura de banda e conformidade.
+O motor de streaming do Azure SQL Database Edge foi concebido para baixa latência, resiliência, utilização eficiente da largura de banda e conformidade.
 
-## <a name="machine-learning-and-artificial-intelligence-capabilities"></a>Recursos de inteligência artificial e Machine Learning
+## <a name="machine-learning-and-artificial-intelligence-capabilities"></a>Machine Learning e Capacidades de Inteligência Artificial
 
-A borda do banco de dados SQL do Azure fornece recursos internos de aprendizado de máquina e análise, integrando o tempo de execução do Open Format ONNX (Open Neural Network Exchange), que permite o intercâmbio de modelos de rede neural e de aprendizado profundo entre diferentes estruturas. Para obter mais informações sobre o ONNX, consulte [aqui](https://onnx.ai/). O tempo de execução do ONNX fornece a flexibilidade para desenvolver modelos em uma linguagem ou ferramentas de sua escolha, que podem então ser convertidas para o formato ONNX para execução na borda do banco de dados SQL. Para obter mais informações, consulte [Machine Learning e inteligência artificial com ONNX na borda do banco de dados SQL](onnx-overview.md).
+O Azure SQL Database Edge fornece capacidades de aprendizagem automática e análise incorporadas, integrando o formato aberto ONNX (Open Neural Network Exchange), que permite o intercâmbio de modelos de deep learning e redes neurais entre diferentes estruturas. Para mais informações sobre onNX, consulte [aqui](https://onnx.ai/). O tempo de execução onNX proporciona a flexibilidade para desenvolver modelos num idioma ou ferramentas à sua escolha, que podem ser convertidos para o formato ONNX para execução dentro do SQL Database Edge. Para mais informações, consulte [Machine Learning e Inteligência Artificial com ONNX em SQL Database Edge](onnx-overview.md).
 
-## <a name="working-with-azure-sql-database-edge"></a>Trabalhando com a borda do banco de dados SQL do Azure
+## <a name="working-with-azure-sql-database-edge"></a>Trabalhar com a Borda da Base de Dados Azure SQL
 
-A borda do banco de dados SQL do Azure torna o desenvolvimento e a manutenção de aplicativos mais fáceis e produtivos. Os usuários podem usar todas as ferramentas e habilidades conhecidas para criar ótimos aplicativos e soluções para suas necessidades de IoT Edge. O usuário pode desenvolver na borda do banco de dados SQL usando ferramentas como a seguinte:
+A Azure SQL Database Edge torna o desenvolvimento e a manutenção de aplicações mais fáceis e produtivas. Os utilizadores podem usar todas as ferramentas e habilidades familiares para construir grandes apps e soluções para as suas necessidades ioT Edge. O utilizador pode desenvolver-se no SQL Database Edge utilizando ferramentas como:
 
-- [O portal do Azure](https://portal.azure.com/) -um aplicativo baseado na Web para gerenciar todos os serviços do Azure.
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) -um aplicativo cliente gratuito e que pode ser baixado para gerenciar qualquer infraestrutura do SQL, de SQL Server para o banco de dados SQL.
-- [SQL Server Data Tools no Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt/) – um aplicativo cliente gratuito e que pode ser baixado para o desenvolvimento de SQL Server bancos de dados relacionais, bancos de dados SQL, pacotes de Integration Services, modelos de Analysis Services e relatórios de Reporting Services.
-- [Azure Data Studio](/sql/azure-data-studio/what-is/) -uma ferramenta de banco de dados de plataforma cruzada gratuita, que pode ser baixada para o data Professional, usando a família de plataformas de dados locais e na nuvem da Microsoft no Windows, no MacOS e no Linux.
-- [Visual Studio Code](https://code.visualstudio.com/docs) -um editor de código aberto gratuito, que pode ser baixado para Windows, MacOS e Linux. Ele dá suporte a extensões, incluindo a [extensão MSSQL](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, banco de dados SQL do azure e SQL data warehouse do Azure.
+- [O portal Azure](https://portal.azure.com/) - Uma aplicação baseada na web para gerir todos os serviços Azure.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) - Uma aplicação de cliente gratuita e transferível para gerir qualquer infraestrutura SQL, desde o SQL Server até à Base de Dados SQL.
+- Ferramentas de dados do [Servidor SQL em Estúdio Visual](/sql/ssdt/download-sql-server-data-tools-ssdt/) - uma aplicação de cliente gratuita e transferível para o desenvolvimento de bases de dados relacionais do SQL Server, bases de dados SQL, pacotes de Serviços de Integração, modelos de dados de Serviços de Análise e Relatórios de Serviços de Informação.
+- [Azure Data Studio](/sql/azure-data-studio/what-is/) - Uma ferramenta de base de dados gratuita, transferível e transversal para o profissional de dados que utiliza a família Microsoft de plataformas de dados no local e na nuvem no Windows, MacOS e Linux.
+- [Visual Studio Code](https://code.visualstudio.com/docs) - Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure SQL Data Warehouse.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter os preços e os detalhes relacionados à disponibilidade, consulte [borda do banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database-edge/).
-- Solicitação para habilitar a borda do banco de dados SQL do Azure para sua assinatura.
+- Para obter preços e detalhes relacionados com a disponibilidade, consulte O Edge de Base de [Dados Azure SQL](https://azure.microsoft.com/services/sql-database-edge/).
+- Pedido para ativar o Limite de Base de Dados Azure SQL para a sua subscrição.
 - Para começar, consulte o seguinte:
-  - [Implantar a borda do banco de dados SQL por meio do portal do Azure](deploy-portal.md)
-  - [Machine Learning e inteligência artificial com a borda do banco de dados SQL](onnx-overview.md)
+  - [Implementar borda de base de dados SQL através do portal Azure](deploy-portal.md)
+  - [Machine Learning e Inteligência Artificial com Borda de Base de Dados SQL](onnx-overview.md)

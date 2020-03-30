@@ -1,21 +1,20 @@
 ---
 title: Criar uma nova oferta SaaS no Mercado Comercial
 description: Como criar uma nova oferta de Software como Serviço (SaaS) para listagem ou venda no Azure Marketplace, AppSource ou através do programa Cloud Solution Provider (CSP) utilizando o portal Mercado Comercial no Microsoft Partner Center.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 9d06b34b459bf1d48aa293a889af57fb6192015d
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 3f2201db4b78ba61ba15608a676a8b9f8f5e612a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208870"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286205"
 ---
-# <a name="create-a-new-saas-offer"></a>Crie uma nova oferta SaaS
+# <a name="create-a-new-saas-offer"></a>Criar uma nova oferta SaaS
 
 Para começar a criar software como um Serviço (SaaS) oferece, certifique-se de que [primeiro cria uma conta partner center](./create-account.md) e abre o dashboard do Mercado [Comercial,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)com o separador **Overview** selecionado.
 
@@ -38,11 +37,11 @@ A caixa de diálogo **new offer** é exibida.
 
 - **ID oferta**: Identificador único para cada oferta na sua conta. Este ID será visível para os clientes no endereço URL para a oferta de mercado e modelos do Gestor de Recursos Azure (se aplicável). O ID da oferta deve ser minúsculo, alfanumérico (incluindo hífenes e sublinhados, mas sem espaço branco). O **ID da Oferta** está limitado a 50 caracteres e não pode ser alterado depois de selecionar *Criar*.  
 Exemplo: oferta de teste-1
-<br>Resultando no URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
+<br>Resultando no URL:`https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
 - **Oferta pseudónimo**: O nome usado para se referir à oferta dentro do portal Partner Center. Este nome não será usado no mercado e é diferente do Nome da *Oferta* e outros valores que serão mostrados aos clientes. Este valor não pode ser alterado depois de selecionar *Criar*.
 
-<br>Exemplo: Oferta de Teste 1&#8482;
+<br>Exemplo: Oferta de teste 1&#8482;
 
 Selecione **Criar**.  É criada uma página **de visão geral** da Oferta para esta oferta.  
 
@@ -122,7 +121,7 @@ Enumere a sua oferta aos clientes com um link para um teste gratuito, fornecendo
 ##### <a name="contact-me"></a>Contacte-me
 Recolha informações de contacto com o cliente ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM). Será solicitado ao cliente permissão para partilhar as suas informações. Estes detalhes do cliente, juntamente com o nome da oferta, ID e fonte de mercado onde encontraram a sua oferta, serão enviados para o sistema CRM que configura. Para mais informações sobre a configuração do seu CRM, consulte [Connect lead management](#connect-lead-management).
 
-## <a name="example-marketplace-offer-listing"></a>Listagem de oferta de mercado de exemplo
+## <a name="example-marketplace-offer-listing"></a>Exemplo de listagem de oferta do marketplace
 
 ![Lista de ofertas de mercado de exemplo com notas](./media/marketplace-offer.svg)
 
@@ -174,7 +173,7 @@ A Microsoft fornece um modelo de Contrato Padrão.
 
 - **Usar o Contrato Padrão para o mercado comercial da Microsoft?**
 
-Para simplificar o processo de aquisição para os clientes e reduzir a complexidade jurídica dos fornecedores de software, a Microsoft oferece um Contrato Padrão para o mercado comercial da Microsoft para ajudar a facilitar transações no mercado. Em vez de elaborar em condições e condições personalizadas, os editores de marketplace comercial podem optar por oferecer o seu software ao abrigo do Contrato Padrão, que os clientes só precisam de vetar e aceitar uma vez. O Contrato Padrão pode ser consultado aqui: https://go.microsoft.com/fwlink/?linkid=2041178.
+Para simplificar o processo de aquisição para os clientes e reduzir a complexidade jurídica dos fornecedores de software, a Microsoft oferece um Contrato Padrão para o mercado comercial da Microsoft para ajudar a facilitar transações no mercado. Em vez de elaborar em condições e condições personalizadas, os editores de marketplace comercial podem optar por oferecer o seu software ao abrigo do Contrato Padrão, que os clientes só precisam de vetar e aceitar uma vez. O Contrato Padrão pode https://go.microsoft.com/fwlink/?linkid=2041178ser consultado aqui: .
 
 Pode selecionar para utilizar o Contrato Padrão em vez de fornecer os seus próprios termos e condições personalizados selecionando a caixa de verificação "Use o Contrato Padrão para o mercado comercial".
 
@@ -200,7 +199,7 @@ Termos de **alteração universal do Contrato Padrão para o mercado comercial d
 Termos de **alteração personalizados ao Contrato Padrão para o mercado comercial da Microsoft**: Comece por selecionar termos de emenda **personalizados**. Você pode fornecer até 10 termos de emenda personalizado por oferta.
 
 - Termos de **emenda personalizados**: Introduza os termos da emenda personalizada na caixa de termos de emenda personalizada. Pode introduzir um número ilimitado de caracteres nesta caixa. Apenas os clientes das IDs do inquilino que especifica para estes termos personalizados serão apresentados com os termos de alteração personalizados no fluxo de compra da oferta no portal Azure.  
-- **IDs** de inquilino (obrigatório): Cada emenda personalizada pode ser direcionada a até 20 IDs de inquilino. Se adicionar uma emenda personalizada, deve fornecer pelo menos uma identificação de inquilino. A identificação do inquilino identifica o seu cliente em Azure. Pode pedir ao seu cliente este ID e podem encontrá-lo navegando para portal.azure.com > Azure Ative Directory > Properties. O valor de ID do diretório é o ID do inquilino (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar a identificação do seu cliente com o nome de domínio da organização, utilizando o seu URL de nome de domínio no Qual é o meu Microsoft Azure e o [Office 365 tenant ID?](https://www.whatismytenantid.com)
+- **IDs** de inquilino (obrigatório): Cada emenda personalizada pode ser direcionada a até 20 IDs de inquilino. Se adicionar uma emenda personalizada, deve fornecer pelo menos uma identificação de inquilino. A identificação do inquilino identifica o seu cliente em Azure. Pode pedir ao seu cliente este ID e podem encontrá-lo navegando para portal.azure.com > Diretório Ativo azure > Properties. O valor de ID do diretório é o ID do inquilino (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar a identificação do seu cliente com o nome de domínio da organização, utilizando o seu URL de nome de domínio no Qual é o meu Microsoft Azure e o [Office 365 tenant ID?](https://www.whatismytenantid.com)
 - **Descrição** (opcional): Opcionalmente fornece uma descrição amigável para o ID do inquilino que o ajuda a identificar o cliente que está a visar com a alteração.
 
 #### <a name="terms-and-conditions"></a>Termos e condições
@@ -262,7 +261,7 @@ Utilize as seguintes instruções para utilizar o rico editor de texto:
 
      ![Usando o rico editor de texto para o travessão](./media/text-editor5.png)
 
-#### <a name="links"></a>Hiperligações
+#### <a name="links"></a>Ligações
 
 - **Política de Privacidade** (necessária): Ligação à política de privacidade da sua organização. Você é responsável por garantir que a sua aplicação cumpre as leis e regulamentos de privacidade, e por fornecer uma política de privacidade válida
 - **CSP Program Marketing Materials** (opcional): Fornecer um link para materiais de marketing se optar por estender a sua oferta ao programa [Cloud Solution Provider (CSP).](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) A CSP alarga a sua oferta a um leque mais alargado de clientes qualificados, permitindo aos parceiros da CSP agregar, comercializar e revender a sua oferta. Estes revendedores precisarão de acesso a materiais para comercializar a sua oferta. Para mais informações, consulte [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
@@ -281,7 +280,7 @@ Utilize as seguintes instruções para utilizar o rico editor de texto:
 #### <a name="files-and-images"></a>Arquivos e Imagens
 
 - **Documentos** (obrigatórios): Adicione documentos de marketing relacionados para a sua oferta, em formato PDF, fornecendo um mínimo de um (1) e máximo de três (3) documentos por oferta.
-- **Imagens** (opcional): Existem vários locais onde as imagens de logótipo da sua oferta podem aparecer em todo o mercado(s), requerendo os seguintes tamanhos -- Small: 48 x 48 pixels _(necessário),_ Médio: 90 x 90 pixels _(necessário)_ , Grande: 216 x 216 pixels _(necessários),_ Largo: 255 x 115 pixels, e Hero: 815 x 290 pixels. Todas as imagens devem estar dentro. Formato PNG.
+- **Imagens** (opcional): Existem vários locais onde as imagens de logótipo da sua oferta podem aparecer em todo o mercado(s), requerendo os seguintes tamanhos -- Small: 48 x 48 pixels _(necessário),_ Médio: 90 x 90 pixels _(necessário)_, Grande: 216 x 216 pixels _(necessários),_ Largo: 255 x 115 pixels, e Hero: 815 x 290 pixels. Todas as imagens devem estar dentro. Formato PNG.
 - **Screenshots** (necessário): Adicione imagens demonstrando a sua oferta. Um máximo de cinco (5) imagens podem ser adicionadas e devem ser dimensionadas a 1280 x 720 pixels. Todas as imagens devem estar dentro. Formato PNG.
 - **Vídeos** (opcional): Adicione links a vídeos que demonstrem a sua oferta. Pode utilizar links para vídeos do YouTube e/ou Da Vimeo, que são mostrados juntamente com a sua oferta aos clientes. Também terá de introduzir uma imagem de miniatura do vídeo, dimensionado para 1280 x 720 pixels em formato PNG. Pode exibir um máximo de quatro vídeos por oferta.
 
@@ -311,7 +310,7 @@ O separador de **configuração técnica** define os detalhes técnicos (url pat
 
 - URL da página de **aterragem** (necessário): Defina o URL do site em que os clientes irão aterrar depois de adquirir a sua oferta no mercado. Este URL será o ponto final que recebe um símbolo quando um cliente é encaminhado para a página. Esta ficha pode ser trocada por fornecer detalhes utilizando a determinação nas APIs de cumprimento. Esses detalhes e quaisquer outros que recolher podem ser usados como parte de uma página web interativa do cliente incorporada na sua experiência para completar o registo e ativar a sua compra.
 
-- **Ligação webhook** (necessário): Para todos os eventos assíncronos que a Microsoft precisa enviar-lhe em nome do cliente (exemplo: A Subscrição SaaS ficou inválida), exigimos que forneça um webhook de ligação. Se ainda não tiver um sistema de webhook no lugar, a configuração mais simples é ter uma App Lógica HTTP Endpoint que irá ouvir quaisquer eventos que lhe sejam publicados e, em seguida, manuseá-los adequadamente (por exemplo, https:\//prod-1westus.logic.azure.com:443/work). Para mais informações, consulte [Call, trigger ou nest workflows com pontos finais HTTP em aplicações lógicas](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Ligação webhook** (necessário): Para todos os eventos assíncronos que a Microsoft precisa enviar-lhe em nome do cliente (exemplo: A Subscrição SaaS ficou inválida), exigimos que forneça um webhook de ligação. Se ainda não tiver um sistema de webhook no lugar, a configuração mais simples é ter uma App Lógica HTTP Endpoint que irá\/ouvir quaisquer eventos que lhe sejam publicados e, em seguida, manuseá-los adequadamente (por exemplo, https: /prod-1westus.logic.azure.com:443/work). Para mais informações, consulte [Call, trigger ou nest workflows com pontos finais HTTP em aplicações lógicas](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Id de inquilino azure AD** (obrigatório): Dentro do portal Azure, exigimos que [crie uma app azure Ative Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que possamos validar a ligação entre os nossos dois serviços por trás de uma comunicação autenticada. Para encontrar o ID do [inquilino,](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)vá ao seu Diretório Ativo Azure e selecione **Propriedades,** em seguida, procure o número de ID do **Diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -367,7 +366,7 @@ A capacidade de configurar um teste gratuito está disponível para cada plano n
 >[!Note]
 >Uma vez que a sua oferta transactiva tenha sido publicada com um teste gratuito, não pode ser desativada para esse plano. Certifique-se de que esta definição está correta para a primeira publicação para evitar ter de recriar o plano.
 
-Para obter informações sobre subscrições de clientes atualmente participadas num teste gratuito, utilize o novo imóvel da API `isFreeTrial`, que será marcado como verdadeiro ou falso. Para mais informações, consulte a [API de Subscrição SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
+Para obter informações sobre subscrições de clientes atualmente participadas `isFreeTrial`num teste gratuito, utilize a nova propriedade API, que será marcada como verdadeira ou falsa. Para mais informações, consulte a [API de Subscrição SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
 >[!Note]
 >Os ensaios gratuitos não são suportados para planos que alavancam o serviço de medição do mercado.
@@ -397,7 +396,7 @@ Selecione a frequência que os clientes devem pagar o preço listado. Deve ser f
 - **Preço**: USD por mês ou USD por ano
 
 Os preços estabelecidos em moeda local (USD = Dólar dos Estados Unidos) são convertidos na moeda local de todos os mercados selecionados utilizando as taxas de câmbio atuais disponíveis durante a configuração. Valide estes preços antes de publicar exportando a folha de cálculo dos preços e revendo o preço em cada mercado. Se quiser definir preços personalizados num mercado individual, modifique e importe a folha de cálculo dos preços. É responsável por validar este preço e possuir estas configurações.
-*\*Primeiro tem de guardar as alterações de preços para permitir a exportação de dados de preços.*
+*\*Primeiro, tem de poupar as alterações de preços para permitir a exportação de dados de preços.*
 
 Reveja cuidadosamente os seus preços antes de publicar, uma vez que existem algumas restrições sobre o que pode mudar após a publicação de um plano:
 
@@ -419,7 +418,7 @@ Verifique esta caixa para tornar o seu plano privado e visível apenas para o p�
 
 Atribua o público que terá acesso a este plano privado. O acesso é atribuído usando iDs de inquilino com a opção de incluir uma descrição de cada ID de inquilino atribuído. Pode adicionar um máximo de 10 IDs de inquilino, ou 20.000 clientes de iDs de inquilino se importar um ficheiro de folha de cálculo .csv.
 
-Um inquilino é uma representação de uma organização, com um ID representado como GUID (Globalmente Unique Identifier, um número inteiro de 128 bits usado para identificar recursos). É uma instância dedicada do Azure AD que uma organização ou um programador de aplicações recebe quando a organização ou o programador de aplicações cria uma relação com o Microsoft – como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365. Cada inquilino do Azure AD é distinto e separado dos outros inquilinos do Azure AD. Para consultar o inquilino, inscreva-se no portal Azure com a conta que pretende utilizar para gerir a sua candidatura. Se tiver um inquilino, irá ter automaticamente sessão iniciada no mesmo e verá o nome do inquilino imediatamente por baixo do nome da sua conta. Se passar com o rato por cima do nome da sua conta, no canto superior direito do portal do Azure, verá o seu nome, e-mail, diretório e ID de inquilino (um GUID) e o seu domínio. Se a sua conta estiver associada a vários inquilinos, pode selecionar o nome da sua conta para abrir um menu onde pode alternar entre inquilinos. Cada inquilino tem o seu próprio ID de inquilino. Você também pode procurar o ID do inquilino da sua organização usando um URL de nome de domínio em: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+Um inquilino é uma representação de uma organização, com um ID representado como GUID (Globalmente Unique Identifier, um número inteiro de 128 bits usado para identificar recursos). É uma instância dedicada do Azure AD que uma organização ou um programador de aplicações recebe quando a organização ou o programador de aplicações cria uma relação com o Microsoft – como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365. Cada inquilino do Azure AD é distinto e separado dos outros inquilinos do Azure AD. Para verificar o inquilino, inicie sessão no Portal do Azure com a conta que pretende utilizar para gerir a sua aplicação. Se tiver um inquilino, irá ter automaticamente sessão iniciada no mesmo e verá o nome do inquilino imediatamente por baixo do nome da sua conta. Se passar com o rato por cima do nome da sua conta, no canto superior direito do portal do Azure, verá o seu nome, e-mail, diretório e ID de inquilino (um GUID) e o seu domínio. Se a sua conta estiver associada a vários inquilinos, pode selecionar o nome da sua conta para abrir um menu onde pode alternar entre inquilinos. Cada inquilino tem o seu próprio ID de inquilino. Você também pode procurar o ID do inquilino da [https://www.whatismytenantid.com](https://www.whatismytenantid.com)sua organização usando um URL de nome de domínio em: .
 
 Enquanto o SaaS oferece iDs de inquilino para definir um público privado, outros tipos de oferta podem usar IDs de subscrição Azure (que também são representados como GUIDs).
 

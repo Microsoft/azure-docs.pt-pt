@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: fc328c34c1543a75fdc885087d44b28e24c0850a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268681"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Nível crítico de negócios - Base de Dados Azure SQL
@@ -49,7 +49,7 @@ O nível de serviço Business Critical foi concebido para as aplicações que re
 As principais razões pelas quais deve escolher o nível de serviço Business Critical em vez do nível de Propósito Geral são:
 -   Requisitos de latência baixos da IO – a carga de trabalho que necessita da resposta rápida da camada de armazenamento (1-2 milissegundos em média) deve utilizar o nível Business Critical. 
 -   Comunicação frequente entre aplicação e base de dados. Aplicação que não pode alavancar o cache da camada de aplicação ou [solicitar lotação](sql-database-use-batching-to-improve-performance.md) e precisa enviar muitas consultas SQL que devem ser processadas rapidamente são bons candidatos para o nível Business Critical.
--   Grande número de atualizações – inserir, atualizar e eliminar operações modificam as páginas de dados na memória (página suja) que devem ser guardadas em ficheiros de dados com `CHECKPOINT` operação. A falha potencial do processo do motor da base de dados ou uma falha na base de dados com um grande número de páginas sujas pode aumentar o tempo de recuperação no nível de Propósito Geral. Utilize o nível Business Critical se tiver uma carga de trabalho que cause muitas alterações na memória. 
+-   Grande número de atualizações – inserir, atualizar e eliminar operações modificam as páginas de `CHECKPOINT` dados na memória (página suja) que devem ser guardadas em ficheiros de dados com funcionamento. A falha potencial do processo do motor da base de dados ou uma falha na base de dados com um grande número de páginas sujas pode aumentar o tempo de recuperação no nível de Propósito Geral. Utilize o nível Business Critical se tiver uma carga de trabalho que cause muitas alterações na memória. 
 -   Transações de longo prazo que modificam dados. As transações que são abertas por mais tempo impedem a truncação de ficheiros de registo que podem aumentar o tamanho do registo e o número de [ficheiros de registo virtual (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). Um elevado número de VLF pode abrandar a recuperação da base de dados após a falha.
 -   Carga de trabalho com relatórios e consultas analíticas que podem ser redirecionadas para a réplica secundária de leitura gratuita.
 - Maior resiliência e recuperação mais rápida dos fracassos. Em caso de falha do sistema, a base de dados em instância primária será desativada e uma das réplicas secundárias tornar-se-á imediatamente uma nova base de dados primária de leitura que está pronta para processar as consultas. O motor de base de dados não precisa de analisar e refazer transações a partir do ficheiro de registo e carregar todos os dados no tampão de memória.

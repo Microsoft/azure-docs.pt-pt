@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255265"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento azure
@@ -61,7 +61,7 @@ O quadro seguinte mostra quais os tipos de contas de armazenamento que suportam 
 
 |    Tipo de conta de armazenamento    |    Regiões suportadas    |    Serviços suportados    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Geral v2<sup>1</sup>    | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> África do Sul Norte<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2    |    Blobs de bloco<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (standard)<br /> Tabelas<br /> Filas<br /> |
+|    Geral v2<sup>1</sup>    | Sudeste Asiático<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> África do Sul Norte<br /> Sul do Reino Unido<br /> E.U.A. Central<br /> E.U.A Leste<br /> E.U.A. Leste 2<br /> E.U.A. Oeste 2    |    Blobs de blocos<br /> Bolhas de página<sup>2</sup><br /> Ações de ficheiros (standard)<br /> Tabelas<br /> Filas<br /> |
 |    BlockBlobStorage<sup>1</sup>    | Europa Ocidental<br /> E.U.A Leste    |    Bloco somente bolhas    |
 |    FileStorage    | Europa Ocidental<br /> E.U.A Leste    |    Apenas ficheiros Azure    |
 
@@ -118,7 +118,7 @@ GZRS e RA-GZRS estão atualmente disponíveis para pré-visualização nas segui
 
 A Microsoft continua a permitir gZRS e RA-GZRS em regiões azure adicionais. Consulte regularmente a página de Atualizações de [Serviços Azure](https://azure.microsoft.com/updates/) para obter informações sobre regiões apoiadas.
 
-Para obter informações sobre os preços de pré-visualização, consulte os preços de pré-visualização da GZRS para [Blobs,](https://azure.microsoft.com/pricing/details/storage/blobs) [Files,](https://azure.microsoft.com/pricing/details/storage/files/)Filas e [Tabelas](https://azure.microsoft.com/pricing/details/storage/queues/). [](https://azure.microsoft.com/pricing/details/storage/tables/)
+Para obter informações sobre os preços de pré-visualização, consulte os preços de pré-visualização da GZRS para [Blobs,](https://azure.microsoft.com/pricing/details/storage/blobs) [Files,](https://azure.microsoft.com/pricing/details/storage/files/)Filas e [Tabelas](https://azure.microsoft.com/pricing/details/storage/queues/). [Tables](https://azure.microsoft.com/pricing/details/storage/tables/)
 
 > [!IMPORTANT]
 > A Microsoft recomenda não utilizar funcionalidades de pré-visualização para cargas de trabalho de produção.
@@ -131,7 +131,7 @@ O armazenamento geo-redundante (com GRS ou GZRS) replica os seus dados para outr
 
 Se a sua conta de armazenamento estiver configurada para ler o acesso à região secundária, então pode projetar as suas aplicações para mudar perfeitamente para dados de leitura da região secundária se a região primária ficar indisponível por qualquer motivo. A região secundária está sempre disponível para acesso à leitura, para que possa testar a sua aplicação para se certificar de que será lida a partir do secundário em caso de paragem. Para obter mais informações sobre como projetar as suas aplicações para alta disponibilidade, consulte A conceção de [aplicações altamente disponíveis utilizando armazenamento geo-redundante de acesso de leitura.](storage-designing-ha-apps-with-ragrs.md)
 
-Ao ler o acesso ao secundário está ativado, os seus dados podem ser lidos a partir do ponto final secundário, bem como a partir do ponto final primário para a sua conta de armazenamento. O ponto final secundário afixa o sufixo *– secundário* ao nome da conta. Por exemplo, se o seu ponto final primário para o armazenamento blob for `myaccount.blob.core.windows.net`, então o ponto final secundário é `myaccount-secondary.blob.core.windows.net`. As chaves de acesso à conta para a sua conta de armazenamento são as mesmas para os pontos finais primários e secundários.
+Ao ler o acesso ao secundário está ativado, os seus dados podem ser lidos a partir do ponto final secundário, bem como a partir do ponto final primário para a sua conta de armazenamento. O ponto final secundário afixa o sufixo *– secundário* ao nome da conta. Por exemplo, se o seu principal ponto `myaccount.blob.core.windows.net`final para o armazenamento `myaccount-secondary.blob.core.windows.net`blob é , então o ponto final secundário é . As chaves de acesso à conta para a sua conta de armazenamento são as mesmas para os pontos finais primários e secundários.
 
 ### <a name="check-the-last-sync-time-property"></a>Consulte a propriedade Last Sync Time
 

@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265184"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
@@ -23,7 +23,7 @@ A Azure Digital Twins oferece capacidades avançadas de computação. Os desenvo
 
 Depois de os dispositivos enviarem dados de telemetria para as Gémeas Digitais Azure, os desenvolvedores podem processar dados em quatro fases: *validar,* *combinar,* *compute*e *despachar*.
 
-[fluxo de processamento de dados de gémeos digitais ![Azure](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[![Fluxo de processamento de dados de Gémeos Digitais Azure](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. A fase de validação transforma a mensagem de telemetria de entrada num formato de objeto de transferência de [dados](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) comumente compreendido. Esta fase também executa a validação do dispositivo e do sensor.
 1. A fase de jogo encontra as funções definidas pelo utilizador adequadas para serem executadas. Os matchers predefinidos encontram as funções definidas pelo utilizador com base no dispositivo, sensor e informações espaciais a partir da mensagem de telemetria que está a chegar.
@@ -34,17 +34,17 @@ Depois de os dispositivos enviarem dados de telemetria para as Gémeas Digitais 
 
 O processamento de dados em Gémeos Digitais Azure consiste na definição de três objetos: *matchers,* *funções definidas pelo utilizador*e atribuições de *papéis.*
 
-[objetos de processamento de dados de ![Azure Digital Twins](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[![Objetos de processamento de dados de Gémeos Digitais Azure](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Matchers
 
 Os matchers definem um conjunto de condições que avaliam que ações ocorrem com base na telemetria do sensor de entrada. As condições para determinar a correspondência podem incluir propriedades do sensor, do dispositivo principal do sensor e do espaço dos pais do sensor. As condições são expressas como comparações com um [caminho JSON,](https://jsonpath.com/) tal como descrito neste exemplo:
 
-- Todos os sensores de datatype **Temperatura** representados pelo valor de corda escapado `\"Temperature\"`
+- Todos os sensores de temperatura do **tipo** de dados representados pelo valor de corda escapado`\"Temperature\"`
 - Ter `01` no seu porto
-- Que pertencem a dispositivos com a chave de propriedade estendida **Fabricante** definido para o valor string escapado `\"Contoso\"`
-- Que pertencem a espaços do tipo especificados pela `\"Venue\"` String fugitivo
-- Que são descendentes dos pais **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- Que pertencem a dispositivos com a chave de propriedade estendida **Fabricante** definido para o valor string escapado`\"Contoso\"`
+- Que pertencem a espaços do tipo especificado pela Corda escapou`\"Venue\"`
+- Que são descendentes do pai **SpaceId**`DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {
@@ -88,9 +88,9 @@ Os matchers definem um conjunto de condições que avaliam que ações ocorrem c
 > [!IMPORTANT]
 > - Os caminhos da JSON são sensíveis ao caso.
 > - A carga útil da JSON é a mesma que a carga útil que é devolvida por:
->   - `/sensors/{id}?includes=properties,types` para o sensor.
->   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes` para o dispositivo principal do sensor.
->   - `/spaces/{id}?includes=properties,types,location,timezone` para o espaço dos pais do sensor.
+>   - `/sensors/{id}?includes=properties,types`para o sensor.
+>   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes`para o dispositivo principal do sensor.
+>   - `/spaces/{id}?includes=properties,types,location,timezone`para o espaço dos pais do sensor.
 > - As comparações são insensíveis.
 
 ### <a name="user-defined-functions"></a>Funções definidas pelo utilizador
@@ -108,7 +108,7 @@ Para mais informações, leia [Como utilizar funções definidas pelo utilizador
 
 #### <a name="examples"></a>Exemplos
 
-O [repo GitHub para C# a amostra De Gémeos Digitais](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contém alguns exemplos das funções definidas pelo utilizador:
+O [repo GitHub para a amostra Digital Twins C#](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contém alguns exemplos das funções definidas pelo utilizador:
 - [Esta função](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) procura valores de dióxido de carbono, movimento e temperatura para determinar se uma sala está disponível com estes valores ao alcance. Os [tutoriais para Gémeos Digitais](tutorial-facilities-udf.md) exploram esta função em mais detalhes. 
 - [Esta função](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) procura dados de múltiplos sensores de movimento, e determina que o espaço está disponível se nenhum deles detetar qualquer movimento. Pode substituir facilmente a função definida pelo utilizador utilizada no [quickstart](quickstart-view-occupancy-dotnet.md), ou nos [tutoriais,](tutorial-facilities-setup.md)fazendo as alterações mencionadas na secção de comentários do ficheiro. 
 

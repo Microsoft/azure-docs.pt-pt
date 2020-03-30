@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259334"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
@@ -22,8 +22,8 @@ Para obter informações sobre o restabelecimento de uma aplicação a partir de
 ## <a name="what-gets-backed-up"></a>O que é apoiado
 O Serviço de Aplicações pode fazer o backup as seguintes informações para uma conta de armazenamento e contentor Do Azure que configuraa a sua aplicação para utilizar. 
 
-* Configuração de aplicativos
-* Conteúdo dos ficheiros
+* Configuração de aplicações
+* Conteúdo do ficheiro
 * Base de dados ligada à sua aplicação
 
 As seguintes soluções de base de dados são suportadas com recurso de backup: 
@@ -118,7 +118,7 @@ As cópias de segurança parciais permitem-lhe escolher exatamente quais os fich
 > As bases de dados individuais na cópia de segurança podem ser de 4GB max, mas o tamanho máximo total da cópia de segurança é de 10GB
 
 ### <a name="exclude-files-from-your-backup"></a>Excluir ficheiros da sua cópia de segurança
-Suponha que tenha uma aplicação que contenha ficheiros de registo e imagens estáticas que tenham sido cópias de segurança uma vez e não vão mudar. Nesses casos, pode excluir que essas pastas e ficheiros sejam armazenados nas suas futuras cópias de segurança. Para excluir ficheiros e pastas das suas cópias de segurança, crie um ficheiro `_backup.filter` na pasta `D:\home\site\wwwroot` da sua aplicação. Especifique a lista de ficheiros e pastas que pretende excluir neste ficheiro. 
+Suponha que tenha uma aplicação que contenha ficheiros de registo e imagens estáticas que tenham sido cópias de segurança uma vez e não vão mudar. Nesses casos, pode excluir que essas pastas e ficheiros sejam armazenados nas suas futuras cópias de segurança. Para excluir ficheiros e pastas das `_backup.filter` suas `D:\home\site\wwwroot` cópias de segurança, crie um ficheiro na pasta da sua aplicação. Especifique a lista de ficheiros e pastas que pretende excluir neste ficheiro. 
 
 Pode aceder aos seus ficheiros navegando até `https://<app-name>.scm.azurewebsites.net/DebugConsole`. Se solicitado, inscreva-se na sua conta Azure.
 
@@ -126,7 +126,7 @@ Identifique as pastas que pretende excluir das suas cópias de segurança. Por e
 
 ![Pasta de Imagens](./media/manage-backup/kudu-images.png)
 
-Crie um ficheiro chamado `_backup.filter` e coloque a lista anterior no ficheiro, mas remova `D:\home`. Listar um diretório ou ficheiro por linha. Assim, o conteúdo do ficheiro deve ser:
+Crie um `_backup.filter` ficheiro chamado e coloque a lista `D:\home`anterior no ficheiro, mas remova . Listar um diretório ou ficheiro por linha. Assim, o conteúdo do ficheiro deve ser:
 
  ```
 \site\wwwroot\Images\brand.png
@@ -134,21 +134,21 @@ Crie um ficheiro chamado `_backup.filter` e coloque a lista anterior no ficheiro
 \site\wwwroot\Images\2013
 ```
 
-Faça o upload `_backup.filter` ficheiro para o `D:\home\site\wwwroot\` diretório do seu site utilizando [ftp](deploy-ftp.md) ou qualquer outro método. Se desejar, pode criar o ficheiro diretamente utilizando o Kudu `DebugConsole` e inserir o conteúdo lá.
+Faça `_backup.filter` upload `D:\home\site\wwwroot\` do ficheiro para o diretório do seu site utilizando [ftp](deploy-ftp.md) ou qualquer outro método. Se desejar, pode criar o ficheiro diretamente utilizando o Kudu `DebugConsole` e inserir o conteúdo lá.
 
-Executar cópias de segurança da mesma forma que normalmente o faria, [manualmente](#create-a-manual-backup) ou [automaticamente](#configure-automated-backups). Agora, quaisquer ficheiros e pastas especificados em `_backup.filter` estão excluídos das futuras cópias de segurança agendadas ou iniciadas manualmente. 
+Executar cópias de segurança da mesma forma que normalmente o faria, [manualmente](#create-a-manual-backup) ou [automaticamente](#configure-automated-backups). Agora, quaisquer ficheiros e pastas especificados `_backup.filter` estão excluídos das futuras cópias de segurança agendadas ou iniciadas manualmente. 
 
 > [!NOTE]
 > Restaure cópias parciais do seu site da mesma forma que [restauraria uma cópia de segurança regular.](web-sites-restore.md) O processo de restauro faz a coisa certa.
 > 
-> Quando uma cópia de segurança completa é restaurada, todo o conteúdo do site é substituído por qualquer coisa que esteja na cópia de segurança. Se um ficheiro estiver no site, mas não na cópia de segurança, é apagado. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios na lista de bloqueios ou em qualquer arquivo na lista de bloqueios é deixado como está.
+> Quando uma cópia de segurança completa é restaurada, todo o conteúdo do site é substituído por qualquer coisa que esteja na cópia de segurança. Se um ficheiro estiver no site, mas não na cópia de segurança, é apagado. Mas quando uma cópia de segurança parcial é restaurada, qualquer conteúdo que esteja localizado numa das listas negras, ou qualquer ficheiro na lista negra, é deixado como está.
 > 
 
 
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Como as cópias de segurança são armazenadas
-Depois de ter feito uma ou mais cópias de segurança para a sua aplicação, as cópias de segurança são visíveis na página de **Contentores** da sua conta de armazenamento e na sua aplicação. Na conta de armazenamento, cada cópia de segurança consiste num ficheiro`.zip` que contém os dados de backup e um ficheiro `.xml` que contém um manifesto do conteúdo do ficheiro `.zip`. Pode desapertar e navegar nestes ficheiros se quiser aceder às suas cópias de segurança sem realmente realizar uma restauração de aplicações.
+Depois de ter feito uma ou mais cópias de segurança para a sua aplicação, as cópias de segurança são visíveis na página de **Contentores** da sua conta de armazenamento e na sua aplicação. Na conta de armazenamento, cada`.zip` cópia de segurança consiste `.xml` num ficheiro que contém `.zip` os dados de backup e um ficheiro que contém um manifesto do conteúdo do ficheiro. Pode desapertar e navegar nestes ficheiros se quiser aceder às suas cópias de segurança sem realmente realizar uma restauração de aplicações.
 
 A cópia de segurança da base de dados da aplicação encontra-se armazenada na raiz do ficheiro .zip. Para uma base de dados SQL, este é um ficheiro BACPAC (sem extensão de ficheiros) e pode ser importado. Para criar uma base de dados SQL baseada na exportação bacpac, consulte [importar um ficheiro BACPAC para criar uma nova base de dados](https://technet.microsoft.com/library/hh710052.aspx)de utilizadores .
 
@@ -164,9 +164,9 @@ Pode automatizar a gestão de backup com scripts, utilizando o [Azure CLI](/cli/
 Para amostras, consulte:
 
 - [Exemplos da CLI do Azure](samples-cli.md)
-- [Exemplos do Azure PowerShell](samples-powershell.md)
+- [Amostras Azure PowerShell](samples-powershell.md)
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre a restauração de uma aplicação a partir de uma cópia de segurança, consulte [Restaurar uma aplicação no Azure](web-sites-restore.md). 

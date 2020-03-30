@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274349"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Gerente de Operações ao Monitor Azure
@@ -46,7 +46,7 @@ Antes de começar, reveja os seguintes requisitos.
 * Regiões Apoiadas - Apenas as seguintes regiões azure são apoiadas pelo System Center Operations Manager para se conectarem a um espaço de trabalho log Analytics:
     - E.U.A. Centro-Oeste
     - Sudeste da Austrália
-    - Europa Ocidental
+    - Europa ocidental
     - E.U.A. Leste
     - Ásia Sudeste
     - Leste do Japão
@@ -110,7 +110,7 @@ Durante o registo inicial do seu grupo de gestão de Gestão de Operações com 
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Depois de completar os seguintes passos para integrar com o Monitor Azure, pode remover a configuração executando `netsh winhttp reset proxy` e, em seguida, utilizar a opção de **servidor proxy Configure** na consola operações para especificar o servidor de gateway proxy ou Log Analytics.
+Depois de completar os seguintes passos para integrar com `netsh winhttp reset proxy` o Monitor Azure, pode remover a configuração executando e, em seguida, utilizar a opção de **servidor proxy Configure** na consola Opera para especificar o servidor proxy ou log Analytics.
 
 1. Na consola do Operations Manager, selecione a área de trabalho **Administração**.
 1. Expanda o nó Operations Management Suite e clique em **Ligação**.
@@ -157,7 +157,7 @@ Se o seu servidor proxy necessitar de autenticação, execute os seguintes passo
 1. No Assistente do Perfil Run As, clique em Adicionar para utilizar uma conta Run As. Pode criar uma [conta Run As](https://technet.microsoft.com/library/hh321655.aspx) ou utilizar uma existente. Esta conta tem de ter permissões suficientes para passar através do servidor proxy.
 1. Para configurar a conta a gerir, escolha **Uma classe, um grupo ou um objeto selecionado**, clique em **Selecionar...** e, em seguida, clique em **Grupo...** para abrir a caixa **Pesquisa de Grupo**.
 1. Pesquise e, em seguida, selecione **Microsoft System Center Advisor Monitoring Server Group**. Clique em **OK** depois de selecionar o grupo para fechar a caixa **Pesquisa de Grupo**.
-1. Clique em **OK** para fechar a caixa **Adicionar uma conta Run As**.
+1. Clique **em OK** para fechar a caixa de conta Adicionar Como **Conta.**
 1. Clique em **Guardar** para concluir o assistente e guardar as alterações.
 
 Após a criação da ligação e configurar quais os agentes que irão recolher e reportar dados de registo ao Monitor Azure, a seguinte configuração é aplicada no grupo de gestão, não necessariamente por ordem:
@@ -179,7 +179,7 @@ Para continuar a seguir o processo de controlo de alterações existente para co
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Mudar de um grupo do Operations Manager para uma nova Área de Trabalho do Log Analytics
 
-1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics** e, em seguida, crie uma área de trabalho.  
 1. Abra a consola do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager e selecione a área de trabalho **Administração**.
 1. Expandir o Log Analytics e selecionar **Ligações**.
@@ -207,7 +207,7 @@ Existem algumas formas diferentes de verificar se a integração do Azure Monito
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Para confirmar a integração na consola de Operações
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
-1. Selecione **Pacotes de Gestão** e, na caixa de texto **Procurar:** , digite **Assistente** ou **Inteligência**.
+1. Selecione **Pacotes de Gestão** e, na caixa de texto **Procurar:**, digite **Assistente** ou **Inteligência**.
 1. Consoante as soluções que tiver ativado, pode ver um pacote de gestão correspondente listado nos resultados da pesquisa.  Por exemplo, se tiver ativado a solução Gestão de Alertas, o pacote de gestão Microsoft System Center Advisor Alert Management será apresentado na lista.
 1. Na vista **Monitorização**, navegue até à vista **Operations Management Suite\Estado de Funcionamento**.  Selecione um servidor de Gestão no painel **Estado do Servidor de Gestão** e, no painel **Vista de Detalhes**, confirme se o valor da propriedade **URI do serviço de Autenticação** corresponde ao ID da Área de Trabalho do Log Analytics.
 
@@ -234,7 +234,7 @@ Os pacotes de gestão para as soluções que permitiu que se integrem com o Gest
     >  
 
 1. Abra a consola de Operações do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager.
-1. Em **Administração**, selecione o nó **Pacotes de Gestão** e, na caixa **Procurar:** , escreva **Assistente** e verifique se os seguintes pacotes de gestão ainda estão a ser importados no grupo de gestão:
+1. Em **Administração**, selecione o nó **Pacotes de Gestão** e, na caixa **Procurar:**, escreva **Assistente** e verifique se os seguintes pacotes de gestão ainda estão a ser importados no grupo de gestão:
 
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Interno
@@ -347,10 +347,10 @@ Para eliminar os dois conectores – Microsoft.SystemCenter.Advisor.DataConnecto
     Remove-Connector $connectorName
 ```
 
-No futuro, se planeia reconectar o seu grupo de gestão a um espaço de trabalho de Log Analytics, precisa de reimportar o ficheiro de pacote de gestão `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`. Consoante a versão do System Center Operations Manager implementada no seu ambiente, pode encontrar este ficheiro na seguinte localização:
+No futuro, se planeia reconectar o seu grupo de gestão a um `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` espaço de trabalho de Log Analytics, precisa de reimportar o ficheiro de pacotede gestão. Consoante a versão do System Center Operations Manager implementada no seu ambiente, pode encontrar este ficheiro na seguinte localização:
 
 * No suporte de dados de origem na pasta `\ManagementPacks` do System Center 2016 – Operations Manager e superior.
-* No rollup de atualizações mais recentes aplicado ao grupo de gestão. Para o Gestor de Operações 2012, a pasta de origem é `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e para 2012 R2, está localizada em `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* No rollup de atualizações mais recentes aplicado ao grupo de gestão. Para o Gestor de Operações 2012, a pasta de origem `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`é e para 2012 R2, está localizada em .
 
 ## <a name="next-steps"></a>Passos seguintes
 

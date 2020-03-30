@@ -1,5 +1,5 @@
 ---
-title: Compreenda os DSDs Azure IoT  Microsoft Docs
+title: Compreenda os DSDs Azure IoT [ Microsoft Docs
 description: Guia de desenvolvedores - informações sobre e links para os vários sDKs de dispositivo e serviço Azure IoT que você pode usar para construir aplicações de dispositivos e aplicações back-end.
 author: wesmc7777
 manager: philmea
@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: 419a71acbca59c00bd0ffecf39d5d1ff38833b08
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284593"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Compreenda e use Os DSDs do Hub Azure IoT
@@ -131,7 +131,7 @@ Serviço Azure IoT Hub SDK para iOS:
 
 Os **SDKs de Provisionamento Microsoft Azure** permitem-lhe fornecer dispositivos ao seu Hub IoT utilizando o Serviço de Provisionamento de [Dispositivos](../iot-dps/about-iot-dps.md).
 
-Dispositivo de provisionamento Azure e C#SDKs de serviço para:
+Dispositivo de provisionamento Azure e SDKs de serviço para C#:
 
 * Baixar a partir de [Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) e [Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) a partir de NuGet.
 * [Código fonte](https://github.com/Azure/azure-iot-sdk-csharp/)

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar um cluster e DB do Explorador de Dados Azure'
+title: 'Quickstart: Criar um cluster azure data explorer & DB'
 description: Neste início rápido, aprenderá a criar um cluster e uma base de dados do Azure Data Explorer, e dados para ingerir (carregar).
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: e97a712664a5864062fef2bba36dda76175af715
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: ed0c570449a0c21e9eace1273228539db7c208da
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199857"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80238645"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início Rápido: criar um cluster e uma base de dados do Azure Data Explorer
 
@@ -20,24 +20,24 @@ ms.locfileid: "78199857"
 > * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
-> * [C#](create-cluster-database-csharp.md)
-> * [python](create-cluster-database-python.md)
-> * [Modelo ARM](create-cluster-database-resource-manager.md)
+> * [C #](create-cluster-database-csharp.md)
+> * [Pitão](create-cluster-database-python.md)
+> * [Modelo de BRAÇO](create-cluster-database-resource-manager.md)
 
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para utilizar o Azure Data Explorer, cria-se primeiro um cluster e cria-se uma ou mais bases de dados nesse cluster. Em seguida, ingere (carregar) dados numa base de dados para que possa fazer perguntas contra ele. Neste início rápido, irá criar um cluster e uma base de dados.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para utilizar o Azure Data Explorer, primeiro crie um cluster e crie uma ou mais bases de dados nesse cluster. Em seguida, ingira (carregue) os dados para uma base de dados, de modo a poder executar consultas neles. Neste início rápido, irá criar um cluster e uma base de dados.
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
 Crie um cluster Azure Data Explorer com um conjunto definido de recursos de computação e armazenamento num grupo de recursos Azure.
 
-1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
+1. Selecione o **+ Criar um** botão de recurso no canto superior esquerdo do portal.
 
 1. Procure o *Azure Data Explorer*.
 
@@ -90,13 +90,13 @@ Está agora pronto para o segundo passo do processo: a criação da base de dado
 
 Agora que tem o cluster e a base de dados, pode executar consultas e comandos. Ainda não tem quaisquer dados na base de dados, mas pode ver como funcionam as ferramentas.
 
-1. No cluster, selecione **Consulta**. Colhe o comando `.show databases` na janela de consulta e, em seguida, selecione **Executar**.
+1. No cluster, selecione **Consulta**. Colhe o `.show databases` comando na janela de consulta e, em seguida, selecione **Executar**.
 
     ![Mostrar comando de bases de dados](media/create-cluster-database-portal/show-databases.png)
 
     O conjunto de resultados mostra **TestDatabase**, a única base de dados no cluster.
 
-1. Colhe o comando `.show tables` na janela de consulta e selecione **Executar**.
+1. Colhe o `.show tables` comando na janela de consulta e selecione **Executar**.
 
     Este comando devolve um conjunto de resultados vazio porque ainda não tem quaisquer tabelas. Vai adicionar uma tabela no próximo artigo desta série.
 
@@ -123,6 +123,6 @@ Se planeia seguir outros quickstarts e tutoriais, guarde os recursos que criou. 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Início Rápido: ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
+> [Início Rápido: Ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
 
 

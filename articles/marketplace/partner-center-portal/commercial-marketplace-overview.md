@@ -1,21 +1,20 @@
 ---
-title: Visão geral do portal Mercado Comercial no Partner Center
+title: Descrição Geral do portal do Marketplace Comercial no Centro de Parceiros
 description: Saiba mais sobre o portal Mercado Comercial no Partner Center e como listar e vender ofertas no Azure Marketplace, AppSource e através do programa Cloud Solution Provider (CSP).
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: 2e5ae90cf6ee8bccc9919c88bc695bf944f58a67
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 3c98a143dbc23d4d8e105785ab003258ab913a6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069443"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281447"
 ---
-# <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Visão geral do portal Mercado Comercial no Partner Center
+# <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Descrição Geral do portal do Marketplace Comercial no Centro de Parceiros
 
 Bem-vindo ao portal Mercado Comercial no Microsoft Partner Center. O [portal Mercado Comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/) foi concebido para o ajudar a rentabilizar os seus produtos e serviços, chegar aos clientes e fazer crescer o seu negócio.
 
@@ -32,7 +31,7 @@ Partner Center é o centro da experiência de um parceiro da Microsoft. Para as 
 O Partner Center está a evoluir para integrar melhor todos os aspetos da relação da Microsoft com editores de software. Como parte desta evolução, estamos a migrar as funções do Portal do [Parceiro cloud](https://cloudpartner.azure.com/) para o Partner Center.
 
 >[!NOTE]
->Atualmente, o Partner Center suporta a criação e gestão das ofertas de Software-as-a-Service (SaaS), ofertas de aplicação Azure, Ofertas de Ofertas de Clientes, Ofertas de Engagement & PowerApps, Dinâmica 365 para ofertas de Operações e Dinâmica 365 para Ofertas da Business Central. Mais ofertas serão apoiadas em breve.
+>Atualmente, o Partner Center suporta a criação e gestão das ofertas de Software-as-a-Service (SaaS), ofertas de aplicação Azure, Dinâmica 365 para ofertas de clientes, ofertas de Engagement & PowerApps, Dinâmica 365 para ofertas de Operações e Dinâmica 365 para ofertas Business Central. Mais ofertas serão apoiadas em breve.
 
 Os editores de marketplace existentes encontrarão uma experiência familiar mas melhorada do utilizador com uma interface intuitiva. As notificações no portal e via e-mail informarão os editores da migração. Os utilizadores serão perfeitamente direcionados para o local apropriado. Os clientes não serão afetados por esta atualização de experiência de parceiro.
 

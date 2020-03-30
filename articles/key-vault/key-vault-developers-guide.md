@@ -1,35 +1,34 @@
 ---
-title: Guia do desenvolvedor do cofre de chaves azure
+title: Guia do Programador do Azure Key Vault
 description: Os desenvolvedores podem usar o Azure Key Vault para gerir chaves criptográficas dentro do ambiente Microsoft Azure.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 331e3d5855e4ea1fc18a3b638741f6297a7a27d8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a8cb0ea9fb3c6e8388271c4274baf4ecc7282cda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184677"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247236"
 ---
-# <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do cofre de chaves azure
+# <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
 O Key Vault permite-lhe aceder de forma segura a informações sensíveis a partir das suas aplicações:
 
 - Chaves e segredos são protegidos sem ter que escrever o código por si mesmo e você é facilmente capaz de usá-los a partir das suas aplicações.
 - Você é capaz de ter os seus clientes próprios e gerir as suas próprias chaves para que você possa se concentrar em fornecer as funcionalidades de software principais. Desta forma, as suas aplicações não serão responsáveis pela responsabilidade ou potencial responsabilidade pelas chaves e segredos dos seus clientes.
 - A sua aplicação pode utilizar chaves para a assinatura e encriptação, mas mantém a gestão da chave externa da sua aplicação, permitindo que a sua solução seja adequada como uma aplicação distribuída geograficamente.
-- A partir do lançamento de setembro de 2016 do Key Vault, as suas aplicações podem agora gerir os certificados Key Vault. Para mais informações, consulte [chaves, segredos e certificados.](/rest/api/keyvault/about-keys--secrets-and-certificates)
+- Gerencie os certificados do Cofre chave. Para mais informações, consulte [chaves, segredos e certificados.](about-keys-secrets-and-certificates.md)
 
 Para obter informações mais gerais sobre o Cofre de Chaves Azure, consulte [o que é o Cofre chave.](key-vault-overview.md)
 
 ## <a name="public-previews"></a>Pré-visualizações públicas
 
-Periodicamente, lançamos uma pré-visualização pública de uma nova funcionalidade key vault. Experimente isto e deixe-nos saber o que pensa através azurekeyvault@microsoft.com, o nosso endereço de e-mail de feedback.
+Periodicamente, lançamos uma pré-visualização pública de uma nova funcionalidade key vault. Experimente isto e deixe-nos saber azurekeyvault@microsoft.como que pensa através do nosso endereço de e-mail de feedback.
 
 ## <a name="creating-and-managing-key-vaults"></a>Criação e gestão de cofres-chave
 
@@ -39,9 +38,14 @@ Para obter mais informações sobre identidades geridas para os recursos Do Azur
 
 Antes de trabalhar com chaves, segredos ou certificados no seu cofre chave, irá criar e gerir o seu cofre chave através de CLI, PowerShell, Resource Manager Templates ou REST, conforme descrito nos seguintes artigos:
 
-- [Criar e gerir cofres chave com CLI](key-vault-manage-with-cli2.md)
-- [Criar e gerir cofres chave com PowerShell](key-vault-overview.md)
-- [Crie um cofre chave e adicione um segredo através de um modelo de Gestor de Recursos Azure](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [Criar e gerir cofres chave com CLI](quick-create-cli.md)
+- [Criar e gerir cofres chave com PowerShell](quick-create-powershell.md)
+- [Crie e gerencie cofres chave com o porto Azure](quick-create-portal.md)
+- [Crie e gerencie cofres chave com Python](quick-create-python.md)
+- [Crie e gerencie cofres chave com Java](quick-create-java.md)
+- [Crie e gerencie cofres chave com Node.js](quick-create-node.md)
+- [Criar e gerir cofres chave com .NET (v4 SDK)](quick-create-net.md)
+- [Crie um cofre chave e adicione um segredo através de um modelo de Gestor de Recursos Azure](quick-create-template.md)
 - [Criar e gerir cofres chave com REST](/rest/api/keyvault/)
 
 
@@ -59,7 +63,7 @@ Todos os seus recursos Key Vault são acessíveis através da interface REST; co
 
 #### <a name="net"></a>.NET
 
-[Referência API .NET para Cofre chave](/dotnet/api/microsoft.azure.keyvault).
+[Referência API .NET para Cofre chave](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
 
 Para obter mais informações sobre a versão 2.x do .NET SDK, consulte as notas de [Lançamento](key-vault-dotnet2api-release-notes.md).
 
@@ -71,24 +75,19 @@ Para obter mais informações sobre a versão 2.x do .NET SDK, consulte as notas
 
 Em Node.js, a API de gestão do Cofre chave e o objeto chave vault API estão separados. O seguinte artigo de visão geral dá-lhe acesso a ambos. 
 
-[Módulos Azure Key Vault para Node.js](/nodejs/api/overview/azure/key-vault)
+[Módulos Azure Key Vault para Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Bibliotecas azure key vault para Python](/python/api/overview/azure/key-vault)
+[Bibliotecas azure key vault para Python](/python/api/overview/azure/key-vault?view=azure-python)
 
-#### <a name="azure-cli-2"></a>Azure CLI 2
+#### <a name="azure-cli"></a>CLI do Azure
 
-[Azure CLI para cofre chave](/cli/azure/keyvault)
+[Azure CLI para cofre chave](/cli/azure/keyvault?view=azure-cli-latest)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Azure PowerShell para cofre de chaves](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
-
-### <a name="quickstart-guides"></a>Guias quickstart
-
-- [Criar cofre chave](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Começando com Key Vault em Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
+[Azure PowerShell para cofre de chaves](/powershell/module/az.keyvault/?view=azps-3.6.1#key_vault)
 
 ### <a name="code-examples"></a>Exemplos de código
 
@@ -120,7 +119,7 @@ Estes artigos são sobre outros cenários e serviços que usam ou integram com o
 
 - [A encriptação](../security/fundamentals/encryption-overview.md) do disco Azure aproveita a funcionalidade [bitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão da indústria do Windows e a funcionalidade [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer encriptação de volume para o OS e os discos de dados. A solução está integrada com o Azure Key Vault para o ajudar a controlar e gerir as chaves e segredos de encriptação do disco na subscrição do cofre de chaves, garantindo ao mesmo tempo que todos os dados nos discos de máquinas virtuais estão encriptados em repouso no seu armazenamento Azure.
 - [A Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) oferece opção de encriptação de dados armazenados na conta. Para a gestão de chaves, a Data Lake Store fornece dois modos para gerir as suas chaves de encriptação master (MEKs), que são necessárias para desencriptar quaisquer dados que estejam armazenados na Data Lake Store. Pode deixar a Data Lake Store gerir os MEKs por si, ou optar por manter a propriedade dos MEKs utilizando a sua conta Azure Key Vault. Especifica o modo de gestão da chave enquanto cria uma conta data lake store.
-- [A Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) permite-lhe gerente da sua própria chave de inquilino. Por exemplo, em vez de a Microsoft gerir a chave do seu inquilino (o padrão), pode gerir a sua própria chave de inquilino para cumprir os regulamentos específicos aplicáveis à sua organização. Gerir a sua própria chave de inquilino também é referido como trazer a sua própria chave, ou BYOK.
+- [A Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) permite-lhe gerente da sua própria chave de inquilino. Por exemplo, em vez de a Microsoft gerir a chave do seu inquilino (o padrão), pode gerir a sua própria chave de inquilino para cumprir os regulamentos específicos aplicáveis à sua organização. A gestão da sua própria chave de inquilino também é referida como Bring Your Own Key (Traga a Sua Própria Chave) ou BYOK.
 
 ## <a name="key-vault-overviews-and-concepts"></a>Vistas e conceitos do cofre chave
 

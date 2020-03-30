@@ -1,5 +1,5 @@
 ---
-title: Utilização da Importação/Exportação Azure para transferir dados para ficheiros Azure  Microsoft Docs
+title: Utilização da Importação/Exportação Azure para transferir dados para ficheiros Azure [ Microsoft Docs
 description: Saiba como criar postos de trabalho no portal Azure para transferir dados para ficheiros Azure.
 author: alkohli
 services: storage
@@ -9,13 +9,13 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268304"
 ---
-# <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utilizar o serviço de importação/exportação azure para importar dados para ficheiros Azure
+# <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utilizar o serviço Importar/Exportar do Azure para importar dados para ficheiros do Azure
 
 Este artigo fornece instruções passo a passo sobre como utilizar o serviço de importação/exportação Azure para importar de forma segura grandes quantidades de dados em Ficheiros Azure. Para importar dados, o serviço requer que envie discos suportados contendo os seus dados para um datacenter Azure.  
 
@@ -29,8 +29,8 @@ Antes de criar um trabalho de importação para transferir dados para Ficheiros 
 - Tenha pelo menos uma conta de Armazenamento Azure. Consulte a lista de contas de armazenamento suportadas e tipos de [armazenamento para o serviço de importação/exportação](storage-import-export-requirements.md). Para obter informações sobre a criação de uma nova conta de armazenamento, consulte [Como Criar uma Conta de Armazenamento](storage-account-create.md).
 - Distenha um número adequado de discos de [tipos suportados](storage-import-export-requirements.md#supported-disks).
 - Tenha um sistema Windows executando uma [versão Sistema Operativo suportada](storage-import-export-requirements.md#supported-operating-systems).
-- Faça o download da versão 2 do [WAImportExport](https://aka.ms/waiev2) no sistema Windows. Desaperte a pasta predefinida `waimportexport`. Por exemplo, `C:\WaImportExport`.
-- Tenha uma conta FedEx/DHL. Se pretender utilizar uma transportadora que não a FedEx/DHL, contacte a equipa de Operações de Dados da Azure em `adbops@microsoft.com`.  
+- Faça o download da versão 2 do [WAImportExport](https://aka.ms/waiev2) no sistema Windows. Desapertar para `waimportexport`a pasta predefinida . Por exemplo, `C:\WaImportExport`.
+- Tenha uma conta FedEx/DHL. Se pretender utilizar uma transportadora que não a FedEx/DHL, `adbops@microsoft.com`contacte a equipa de Operações de Dados da Azure em .  
     - A conta deve ser válida, deve ter saldo, e deve ter capacidades de envio de retorno.
     - Gere um número de rastreio para o trabalho de exportação.
     - Cada trabalho deve ter um número de rastreamento separado. Não são apoiados múltiplos trabalhos com o mesmo número de rastreio.
@@ -75,7 +75,7 @@ Execute os seguintes passos para preparar as unidades.
 
 4. Modifique o ficheiro *driveset.csv* na pasta raiz onde a ferramenta reside. Adicione entradas no ficheiro *driveset.csv* semelhante aos seguintes exemplos. O ficheiro driveset tem a lista de discos e letras de acionamento correspondentes para que a ferramenta possa escolher corretamente a lista de discos a preparar.
 
-    Este exemplo pressupõe que dois discos estão ligados e os volumes básicos de NTFS G:\ e H:\ são criados. H:\não é encriptado enquanto G: já está encriptado. Os formatos da ferramenta e encriptam o disco que acolhe H:\ apenas (e não G:\).
+    Este exemplo pressupõe que dois discos estão ligados e os volumes básicos de NTFS G:\ e H:\ são criados. H:\não é encriptado enquanto G: já está encriptado. Os formatos da ferramenta e encriptam o disco que acolhe H:\ apenas (e\)não G: .
 
    - **Para um disco que não esteja encriptado:** Especifique *o Encriptar* para ativar a encriptação BitLocker no disco.
 
@@ -93,7 +93,7 @@ Execute os seguintes passos para preparar as unidades.
 
      Várias entradas podem ser feitas no mesmo ficheiro correspondente a várias unidades. Saiba mais sobre [a preparação do ficheiro CSV do conjunto de acionamento](storage-import-export-tool-preparing-hard-drives-import.md).
 
-5. Utilize a `PrepImport` opção para copiar e preparar dados para a unidade do disco. Para a primeira sessão de cópia sessão para copiar diretórios e/ou ficheiros com uma nova sessão de cópia, executar o seguinte comando:
+5. Utilize `PrepImport` a opção de copiar e preparar dados para a unidade do disco. Para a primeira sessão de cópia sessão para copiar diretórios e/ou ficheiros com uma nova sessão de cópia, executar o seguinte comando:
 
        ```
        .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -105,7 +105,7 @@ Execute os seguintes passos para preparar as unidades.
        .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
        ```
 
-6. Um ficheiro de diário com o nome que forneceu com `/j:` parâmetro, é criado para cada execução da linha de comando. Cada unidade que prepara tem um ficheiro de diário que deve ser carregado quando criar o trabalho de importação. As unidades sem ficheiros de diário não são processadas.
+6. Um ficheiro de diário `/j:` com nome que forneceu com parâmetro, é criado para cada execução da linha de comando. Cada unidade que prepara tem um ficheiro de diário que deve ser carregado quando criar o trabalho de importação. As unidades sem ficheiros de diário não são processadas.
 
     > [!IMPORTANT]
     > - Não modifique os dados das unidades do disco ou do ficheiro do diário após completar a preparação do disco.
@@ -115,8 +115,8 @@ Para obter amostras adicionais, vá a [Amostras para ficheiros de diário](#samp
 ## <a name="step-2-create-an-import-job"></a>Passo 2: Criar um emprego de importação
 
 Execute os seguintes passos para criar um trabalho de importação no portal Azure.
-1. Inicie sessão na https://portal.azure.com/.
-2. Vá a **Todos os serviços > Armazenamento > Empregos de importação/exportação.**
+1. Iniciar sessão para https://portal.azure.com/.
+2. Vá a **Todos os serviços > armazenamento > empregos de importação/exportação.**
 
     ![Ir para importar/exportar](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
@@ -145,7 +145,7 @@ Execute os seguintes passos para criar um trabalho de importação no portal Azu
 
 4. Em **Troca informações de envio:**
 
-    - Selecione o porta-aviões da lista de lançamentos. Se quiser utilizar uma transportadora que não a FedEx/DHL, escolha uma opção existente a partir do dropdown. Contacte a equipa de Operações de Caixas de Dados Azure na `adbops@microsoft.com` com as informações relativas à transportadora que pretende utilizar.
+    - Selecione o porta-aviões da lista de lançamentos. Se quiser utilizar uma transportadora que não a FedEx/DHL, escolha uma opção existente a partir do dropdown. Contacte a equipa de `adbops@microsoft.com` Operações de Caixa de Dados azure com as informações relativas à transportadora que pretende utilizar.
     - Introduza um número de conta transportadora válido que criou com essa transportadora. A Microsoft usa esta conta para enviar as unidades de volta para si assim que o seu trabalho de importação estiver completo.
     - Forneça um nome de contacto completo e válido, telefone, e-mail, endereço de rua, cidade, zip, estado/província e país/região.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 05f8430efa31b39d49025fb8456108da229d3d71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245086"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239815"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Crie uma máquina virtual Linux com Networking Acelerado usando o Azure CLI
 
@@ -35,7 +35,7 @@ Com uma rede acelerada, o tráfego de rede chega à interface de rede da máquin
 
 Os benefícios da ligação acelerada em rede aplicam-se apenas ao VM em que está ativado. Para obter os melhores resultados, é ideal permitir esta funcionalidade em pelo menos dois VMs ligados à mesma rede virtual Azure (VNet). Ao comunicar através de VNets ou ligar-se no local, esta funcionalidade tem um impacto mínimo na latência geral.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 * **Latência inferior / Pacotes mais altos por segundo (pps):** Remover o interruptor virtual da pata de dados remove o tempo que os pacotes gastam no hospedeiro para processamento de políticas e aumenta o número de pacotes que podem ser processados dentro do VM.
 * **Nervosismo reduzido:** O processamento de interruptores virtuais depende da quantidade de política que precisa de ser aplicada e da carga de trabalho da CPU que está a fazer o processamento. Descarregar a aplicação da política para o hardware remove essa variabilidade entregando pacotes diretamente ao VM, removendo o anfitrião para a comunicação VM e todas as interrupções de software e interruptores de contexto.
 * **Diminuição da utilização do CPU:** Contornar o interruptor virtual no hospedeiro leva a uma menor utilização de CPU para o tráfego da rede de processamento.
@@ -51,7 +51,7 @@ As seguintes distribuições são suportadas fora da caixa da Galeria Azure:
 * **Debian "Esticar" com núcleo de backports**
 * **Oracle Linux 7.4 e mais tarde com Kernel Compatível com Chapéu Vermelho (RHCK)**
 * **Oracle Linux 7.5 e mais tarde com versão UEK 5**
-* **FreeBSD 10.4, 11.1 e 12.0**
+* **FreeBSD 10.4, 11.1 & 12.0**
 
 ## <a name="limitations-and-constraints"></a>Limitações e Constrangimentos
 
@@ -80,7 +80,7 @@ As máquinas virtuais (clássicas) não podem ser implantadas com networking ace
 ## <a name="portal-creation"></a>Criação do portal
 Embora este artigo forneça passos para criar uma máquina virtual com networking acelerado utilizando o Azure CLI, também pode [criar uma máquina virtual com networking acelerado utilizando o portal Azure.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Ao criar uma máquina virtual no portal, na **Create a virtual machine** blade, escolha o separador **Networking.**  Neste separador, existe uma opção para **a rede Acelerada**.  Se escolheu um [sistema operativo suportado](#supported-operating-systems) e [o tamanho vm,](#supported-vm-instances)esta opção irá automaticamente povoar para "On".  Caso contrário, irá povoar a opção "Off" para a Rede Acelerada e dar ao utilizador uma razão para não estar ativado.   
 
-* *Nota:* Apenas sistemas operativos suportados podem ser ativados através do portal.  Se estiver a utilizar uma imagem personalizada e a sua imagem suportar o Networking Acelerado, por favor crie o seu VM utilizando CLI ou Powershell. 
+* *Nota:* Apenas sistemas operativos suportados podem ser ativados através do portal.  Se estiver a utilizar uma imagem personalizada e a sua imagem suportar o Networking Acelerado, por favor crie o seu VM utilizando CLI ou PowerShell. 
 
 Após a criação da máquina virtual, pode confirmar que a Rede Acelerada está ativada seguindo as instruções no [Confirmo de que a rede acelerada está ativada](#confirm-that-accelerated-networking-is-enabled).
 
@@ -158,7 +158,7 @@ az network nic create \
 ```
 
 ### <a name="create-a-vm-and-attach-the-nic"></a>Crie um VM e prenda o NIC
-Quando criar o VM, especifique o NIC que criou com `--nics`. Selecione um tamanho e distribuição listados em [rede acelerada linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+Quando criar o VM, especifique o NIC com o qual criou `--nics`. Selecione um tamanho e distribuição listados em [rede acelerada linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria um VM chamado *myVM* com a imagem UbuntuLTS e um tamanho que suporta networking acelerado *(Standard_DS4_v2):*
 
@@ -177,7 +177,7 @@ Para obter uma lista de todos os tamanhos e características vm, consulte os [ta
 
 Uma vez criado o VM, a saída semelhante à seguinte saída de exemplo é devolvida. Anote o **publicIpAddress**. Este endereço é utilizado para aceder ao VM em etapas posteriores.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -192,13 +192,13 @@ Uma vez criado o VM, a saída semelhante à seguinte saída de exemplo é devolv
 
 ### <a name="confirm-that-accelerated-networking-is-enabled"></a>Confirme que a rede acelerada está ativada
 
-Utilize o seguinte comando para criar uma sessão SSH com a VM. Substitua `<your-public-ip-address>` pelo endereço IP público atribuído à máquina virtual que criou e substitua o *azureuser* se utilizar um valor diferente para `--admin-username` quando criou o VM.
+Utilize o seguinte comando para criar uma sessão SSH com a VM. Substitua `<your-public-ip-address>` pelo endereço IP público atribuído à máquina virtual que criou e substitua `--admin-username` o *azureuser* se utilizou um valor diferente para quando criou o VM.
 
 ```bash
 ssh azureuser@<your-public-ip-address>
 ```
 
-A partir da concha bash, entre `uname -r` e confirme que a versão kernel é uma das seguintes versões, ou maior:
+A partir da `uname -r` concha bash, insira e confirme que a versão kernel é uma das seguintes versões, ou maior:
 
 * **Ubuntu 16.04**: 4.11.0-1013
 * **SLES SP3**: 4.4.92-6.18
@@ -206,9 +206,9 @@ A partir da concha bash, entre `uname -r` e confirme que a versão kernel é uma
 * **Centos**: 7.4.20171206
 
 
-Confirme que o dispositivo Mellanox VF está exposto ao VM com o comando `lspci`. A saída devolvida é semelhante à seguinte saída:
+Confirme que o dispositivo VF Mellanox `lspci` está exposto ao VM com o comando. A saída devolvida é semelhante à seguinte saída:
 
-```bash
+```output
 0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)
 0000:00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 01)
 0000:00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
@@ -217,9 +217,9 @@ Confirme que o dispositivo Mellanox VF está exposto ao VM com o comando `lspci`
 0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
 ```
 
-Verifique a atividade no VF (função virtual) com o comando `ethtool -S eth0 | grep vf_`. Se receber uma saída semelhante à seguinte saída de amostra, a ligação acelerada está ativada e a funcionar.
+Verifique a atividade no VF (função virtual) com o `ethtool -S eth0 | grep vf_` comando. Se receber uma saída semelhante à seguinte saída de amostra, a ligação acelerada está ativada e a funcionar.
 
-```bash
+```output
 vf_rx_packets: 992956
 vf_rx_bytes: 2749784180
 vf_tx_packets: 2656684
@@ -239,7 +239,7 @@ Se criou um VM sem Networking Acelerado, é possível ativar esta funcionalidade
 * O VM deve ser uma imagem suportada da Galeria Azure (e versão kernel para Linux)
 * Todos os VMs num conjunto de disponibilidade ou VMSS devem ser parados/deallocalizados antes de permitir a Rede Acelerada em qualquer NIC
 
-### <a name="individual-vms--vms-in-an-availability-set"></a>VMs e VMs individuais num conjunto de disponibilidade
+### <a name="individual-vms--vms-in-an-availability-set"></a>VMs individuais & VMs em conjunto de disponibilidade
 Primeira paragem/deslocar o VM ou, se um Conjunto de Disponibilidade, todos os VMs do conjunto:
 
 ```azurecli

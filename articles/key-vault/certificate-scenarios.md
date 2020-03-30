@@ -1,5 +1,5 @@
 ---
-title: Começar com certificados key vault
+title: Introdução aos certificados do Key Vault
 description: Os seguintes cenários descrevem vários dos principais usos do serviço de gestão de certificados da Key Vault, incluindo os passos adicionais necessários para a criação do seu primeiro certificado no seu cofre chave.
 services: key-vault
 author: msmbaldwin
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 32a453678fe3702fcb4b77f0b04a8ed5c889ef59
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271008"
 ---
-# <a name="get-started-with-key-vault-certificates"></a>Começar com certificados key vault
+# <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados do Key Vault
 Os seguintes cenários descrevem vários dos principais usos do serviço de gestão de certificados da Key Vault, incluindo os passos adicionais necessários para a criação do seu primeiro certificado no seu cofre chave.
 
 São delineados os seguintes:
@@ -64,7 +64,7 @@ Nota - Este processo, através do passo 3.1, é uma operação única.
 **Passo 4** - As seguintes descrições correspondem aos passos numerados verdes no diagrama anterior.  
   (1) - No diagrama acima, a sua aplicação está a criar um certificado que começa internamente por criar uma chave no seu cofre chave.  
   (2) - O Cofre-Chave envia um Pedido de Certificado TLS/SSL para a AC.  
-  (3) - As suas sondagens de candidatura, num processo de loop e espera, para o seu Cofre Chave para a conclusão do certificado. A criação do certificado fica completa quando a Key Vault recebe a resposta da AC com certificado x509.  
+  (3) - As suas sondagens de candidatura, num processo de loop e espera, para o seu Cofre Chave para a conclusão do certificado. A criação do certificado é concluída quando o Key Vault receber a resposta da AC com o certificado x509.  
   (4) - A AC responde ao pedido de certificado TLS/SSL da Key Vault com um Certificado X509 TLS/SSL.  
   (5) - A sua nova criação de certificado completa com a fusão do Certificado X509 para a AC.  
 
@@ -73,7 +73,7 @@ Nota - Este processo, através do passo 3.1, é uma operação única.
   -   Repita conforme necessário  
   -   Restrições políticas  
       -   Propriedades X509  
-      -   Propriedades da chave  
+      -   Propriedades principais  
       -   Referência do fornecedor - > ex. MyDigiCertIssure  
       -   Informação de renovação - > ex. 90 dias antes do termo  
 
@@ -126,6 +126,6 @@ Atualmente não suportamos chaves EC em formato PEM.
 
   (5) - O seu pedido completa a criação do novo certificado com uma fusão do Certificado X509 da sua CA.
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
 
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

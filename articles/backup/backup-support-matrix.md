@@ -4,10 +4,10 @@ description: Fornece um resumo das definições de suporte e limitações para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273270"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para Backup Azure
@@ -116,7 +116,7 @@ O Azure Backup suporta encriptação para dados em trânsito e em repouso.
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
 **No local máquinas Windows sem DPM/MABS** | ![Sim][green] | ![Sim][green]
-**Azure VMs** | ![Sim][green] | ![Sim][green]
+**VMs do Azure** | ![Sim][green] | ![Sim][green]
 **No local máquinas Windows ou VMs Azure com DPM** | ![Sim][green] | ![Sim][green]
 **No local máquinas Windows ou VMs Azure com MABS** | ![Sim][green] | ![Sim][green]
 
@@ -142,7 +142,7 @@ O backup suporta a compressão do tráfego de reserva, tal como resumido na tabe
 **Frequência máxima de backup para DPM/MABS** | A cada 15 minutos para o SQL Server<br/><br/> Uma vez por hora para outras cargas de trabalho
 **Frequência máxima de reserva para o cofre** | **No local, máquinas Windows ou VMs Azure executando MARS:** Três por dia<br/><br/> **DPM/MABS:** Dois por dia<br/><br/> **Backup Azure VM:** Um por dia
 **Retenção de pontos de recuperação** | Diariamente, semanalmente, mensalmente, anualmente
-**Período máximo de retenção** | Depende da frequência da cópia de segurança
+**Período de retenção máximo** | Depende da frequência da cópia de segurança
 **Pontos de recuperação no disco DPM/MABS** | 64 para servidores de ficheiros; 448 para servidores de aplicações <br/><br/>Pontos de recuperação ilimitados de fitas para dPM no local
 
 ## <a name="cross-region-restore"></a>Restauro da região transversal

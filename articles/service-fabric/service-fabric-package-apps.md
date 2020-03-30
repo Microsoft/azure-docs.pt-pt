@@ -4,10 +4,10 @@ description: Saiba mais sobre a embalagem de uma aplicação Azure Service Fabri
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258346"
 ---
 # <a name="package-an-application"></a>Criar pacote de uma aplicação
@@ -66,7 +66,7 @@ Quando a embalagem estiver completa, pode encontrar a localização da embalagem
 
 ### <a name="build-a-package-by-command-line"></a>Construa um pacote por linha de comando
 
-Também é possível embalar programáticamente a sua aplicação usando `msbuild.exe`. Sob o capot, o Estúdio Visual está a executá-lo para que a saída seja a mesma.
+Também é possível embalar programáticamente `msbuild.exe`a sua aplicação utilizando . Sob o capot, o Estúdio Visual está a executá-lo para que a saída seja a mesma.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -122,7 +122,7 @@ True
 
 Se a sua aplicação tiver parâmetros de [aplicação definidos,](service-fabric-manage-multiple-environment-app-configuration.md) pode passá-los no [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) para validação adequada.
 
-Se conhecer o cluster onde a aplicação será implantada, recomenda-se que passe no parâmetro `ImageStoreConnectionString`. Neste caso, o pacote também é validado em relação a versões anteriores da aplicação que já estão em execução no cluster. Por exemplo, a validação pode detetar se um pacote com a mesma versão, mas conteúdo diferente já foi implementado.  
+Se conhecer o cluster onde a aplicação será implantada, recomenda-se que passe no `ImageStoreConnectionString` parâmetro. Neste caso, o pacote também é validado em relação a versões anteriores da aplicação que já estão em execução no cluster. Por exemplo, a validação pode detetar se um pacote com a mesma versão, mas conteúdo diferente já foi implementado.  
 
 Uma vez que a aplicação seja embalada corretamente e passe a validação, considere comprimir o pacote para operações de implantação mais rápidas.
 
@@ -134,10 +134,10 @@ Para um pacote de aplicação comprimido, o upload do pacote de [aplicação](se
 O mecanismo de implantação é o mesmo para embalagens comprimidos e não comprimidos. Se a embalagem estiver comprimida, é armazenada como tal na loja de imagens do cluster e não é comprimida no nó antes da execução da aplicação.
 A compressão substitui a embalagem de tecido de serviço válida pela versão comprimido. A pasta deve permitir permissões de escrita. A compressão de funcionamento num pacote já comprimido não produz alterações.
 
-Pode comprimir uma embalagem executando o pacote de comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com `CompressPackage` interruptor. Pode descomprimir a embalagem com o mesmo comando, utilizando `UncompressPackage` interruptor.
+Pode comprimir uma embalagem executando o pacote de `CompressPackage` comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com interruptor. Pode descomprimir a embalagem com `UncompressPackage` o mesmo comando, utilizando o interruptor.
 
-O comando seguinte comprime a embalagem sem a copiar para a loja de imagens. Pode copiar uma embalagem comprimido para um ou mais clusters de Tecido de Serviço, conforme necessário, utilizando o [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sem a bandeira `SkipCopy`.
-O pacote inclui agora ficheiros com fecho para os pacotes `code`, `config`e `data`. O manifesto de candidatura e os manifestos de serviço não estão fechados, porque são necessários para muitas operações internas. Por exemplo, a partilha de pacotes, o nome do tipo de aplicação e a extração de versão para determinadas validações, todas precisam de aceder aos manifestos. Fechar os manifestos tornaria estas operações ineficientes.
+O comando seguinte comprime a embalagem sem a copiar para a loja de imagens. Pode copiar uma embalagem comprimido para um ou mais clusters de Tecido de Serviço, conforme necessário, utilizando o [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sem a `SkipCopy` bandeira.
+O pacote agora inclui ficheiros `config`com `data` fecho para os `code`pacotes e pacotes. O manifesto de candidatura e os manifestos de serviço não estão fechados, porque são necessários para muitas operações internas. Por exemplo, a partilha de pacotes, o nome do tipo de aplicação e a extração de versão para determinadas validações, todas precisam de aceder aos manifestos. Fechar os manifestos tornaria estas operações ineficientes.
 
 ```
 tree /f .\MyApplicationType
@@ -187,13 +187,13 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType
 
 Internamente, o Service Fabric calcula verificações para os pacotes de aplicação para validação. Ao utilizar a compressão, os cheques são calculados nas versões zipped de cada embalagem. Gerar um novo zip a partir do mesmo pacote de aplicações cria diferentes verificações. Para evitar erros de validação, utilize [o fornecimento difuso](service-fabric-application-upgrade-advanced.md). Com esta opção, não inclua os pacotes inalterados na nova versão. Em vez disso, remecite-os diretamente do novo manifesto de serviço.
 
-Se o fornecimento difuso não for uma opção e tiver de incluir as embalagens, gerar novas versões para os pacotes `code`, `config`e `data` para evitar a incompatibilidade de verificação. É necessário gerar novas versões para pacotes inalterados quando é utilizada uma embalagem comprimido, independentemente de a versão anterior utilizar ou não compressão.
+Se o fornecimento difuso não for uma opção e tiver `code`de `config`incluir `data` as embalagens, gerar novas versões para o , e pacotes para evitar a incompatibilidade de verificação. É necessário gerar novas versões para pacotes inalterados quando é utilizada uma embalagem comprimido, independentemente de a versão anterior utilizar ou não compressão.
 
 A embalagem está agora embalada corretamente, validada e comprimida (se necessário), pelo que está pronta para [ser implantada](service-fabric-deploy-remove-applications.md) para um ou mais clusters de Tecido de Serviço.
 
 ### <a name="compress-packages-when-deploying-using-visual-studio"></a>Comprima pacotes ao implementar usando o Estúdio Visual
 
-Pode instruir o Visual Studio a comprimir pacotes na implementação, adicionando o elemento `CopyPackageParameters` ao seu perfil de publicação e definir o atributo `CompressPackage` para `true`.
+Pode instruir o Visual Studio a comprimir `CopyPackageParameters` pacotes na implementação, `CompressPackage` adicionando `true`o elemento ao seu perfil de publicação e definir o atributo para .
 
 ``` xml
     <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
@@ -206,23 +206,23 @@ Pode instruir o Visual Studio a comprimir pacotes na implementação, adicionand
 ## <a name="create-an-sfpkg"></a>Criar um sfpkg
 
 Começando pela versão 6.1, o Service Fabric permite o fornecimento de uma loja externa.
-Com esta opção, o pacote de aplicação não tem de ser copiado para a loja de imagens. Em vez disso, pode criar uma `sfpkg` e carregá-la para uma loja externa, em seguida, fornecer o download URI para Service Fabric ao fornecer. O mesmo pacote pode ser provisionado a vários clusters. O fornecimento da loja externa poupa o tempo necessário para copiar o pacote para cada cluster.
+Com esta opção, o pacote de aplicação não tem de ser copiado para a loja de imagens. Em vez disso, `sfpkg` pode criar um e carregá-lo para uma loja externa, em seguida, fornecer o download URI para Service Fabric ao fornecer. O mesmo pacote pode ser provisionado a vários clusters. O fornecimento da loja externa poupa o tempo necessário para copiar o pacote para cada cluster.
 
-O ficheiro `sfpkg` é um fecho que contém o pacote inicial de aplicação e tem a extensão ".sfpkg".
+O `sfpkg` ficheiro é um fecho que contém o pacote inicial de aplicação e tem a extensão ".sfpkg".
 No interior do fecho, o pacote de aplicação pode ser comprimido ou descomprimido. A compressão do pacote de aplicação no interior do fecho é feita aos níveis de código, config e pacote de dados, como [mencionado anteriormente.](service-fabric-package-apps.md#compress-a-package)
 
-Para criar uma `sfpkg`, comece com uma pasta que contenha o pacote de aplicação original, comprimido ou não. Em seguida, utilize qualquer utilidade para fechar a pasta com a extensão ".sfpkg". Por exemplo, utilize [zipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+Para criar `sfpkg`um , comece com uma pasta que contenha o pacote de aplicação original, comprimido ou não. Em seguida, utilize qualquer utilidade para fechar a pasta com a extensão ".sfpkg". Por exemplo, utilize [zipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 ```
 
-O `sfpkg` deve ser enviado para a loja externa fora da banda, fora do Service Fabric. A loja externa pode ser qualquer loja que exponha um REST http ou https endpoint. Durante o provisionamento, o Service Fabric executa uma operação GET para descarregar o pacote de aplicações `sfpkg`, pelo que a loja deve permitir o acesso da READ para a embalagem.
+O `sfpkg` deve ser enviado para a loja externa fora da banda, fora do Tecido de Serviço. A loja externa pode ser qualquer loja que exponha um REST http ou https endpoint. Durante o provisionamento, o Service Fabric `sfpkg` executa uma operação GET para descarregar o pacote de aplicações, pelo que a loja deve permitir o acesso da READ para a embalagem.
 
 Para fornecer o pacote, utilize a provisão externa, que requer o download URI e as informações do tipo de aplicação.
 
 >[!NOTE]
-> O fornecimento baseado no caminho relativo da loja de imagens não suporta atualmente `sfpkg` ficheiros. Por conseguinte, o `sfpkg` não deve ser copiado para a loja de imagens.
+> O provisionamento com base no caminho relativo `sfpkg` da loja de imagens não suporta atualmente ficheiros. Portanto, o `sfpkg` não deve ser copiado para a loja de imagens.
 
 ## <a name="next-steps"></a>Passos seguintes
 

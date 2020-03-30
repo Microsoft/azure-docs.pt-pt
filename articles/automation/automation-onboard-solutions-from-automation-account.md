@@ -6,10 +6,10 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278678"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Soluções de Gestão de Atualização a bordo, Rastreio de Alterações e Inventário
@@ -106,7 +106,7 @@ Pode adicionar as Configurações de Âmbito de volta adicionando as pesquisas g
 
 Para ativar a solução para uma ou mais máquinas, **selecione Ativar as máquinas selecionadas** e clique **em Adicionar** ao lado de cada máquina que pretende adicionar à solução. Esta tarefa adiciona os nomes de máquinas selecionados ao grupo de computador que guardou a consulta de pesquisa para a solução.
 
-## <a name="unlink-workspace"></a>Espaço de trabalho desvinculado
+## <a name="unlink-workspace"></a>Unlink workspace (Desassociar a área de trabalho)
 
 As seguintes soluções dependem de um espaço de trabalho log Analytics:
 
@@ -149,7 +149,7 @@ Em alternativa, também pode desligar o seu espaço de trabalho a partir da sua 
 
 Para remover um VM da Atualização:
 
-* No seu espaço de trabalho Log Analytics, retire o VM da pesquisa guardada para a configuração de âmbito `MicrosoftDefaultScopeConfig-Updates`. Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
+* No seu espaço de trabalho Log Analytics, retire o `MicrosoftDefaultScopeConfig-Updates`VM da pesquisa guardada para a Configuração scope . Pesquisas guardadas podem ser encontradas sob **o General** no seu espaço de trabalho.
 * Remova o agente de [monitorização](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) da Microsoft ou o [agente Log Analytics para o Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes

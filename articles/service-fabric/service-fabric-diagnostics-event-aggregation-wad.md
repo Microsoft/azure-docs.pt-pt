@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282500"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação e recolha de eventos utilizando diagnósticos Windows Azure
@@ -31,7 +31,7 @@ Neste artigo são utilizadas as seguintes ferramentas:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Modelo Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos da plataforma Service Fabric
 O Tecido de Serviço configura-o com alguns [canais de registo fora da caixa,](service-fabric-diagnostics-event-generation-infra.md)dos quais os seguintes canais são pré-configurados com a extensão para enviar dados de monitorização e diagnóstico para uma tabela de armazenamento ou em qualquer outro lugar:
@@ -65,7 +65,7 @@ Para criar um cluster utilizando o Gestor de Recursos, precisa de adicionar a co
 
 Para ver a definição de Diagnósticos no modelo De Gestor de Recursos, abra o ficheiro azuredeploy.json e procure **iaaSDiagnostics**. Para criar um cluster utilizando este modelo, selecione o botão **Deploy para Azure** disponível no link anterior.
 
-Em alternativa, pode descarregar a amostra do Gestor de Recursos, fazer alterações e criar um cluster com o modelo modificado utilizando o comando `New-AzResourceGroupDeployment` numa janela Azure PowerShell. Consulte o seguinte código para os parâmetros que passa para o comando. Para obter informações detalhadas sobre como implementar um grupo de recursos utilizando o PowerShell, consulte o artigo Implementar um grupo de recursos com o modelo do Gestor de [Recursos Azure](../azure-resource-manager/templates/deploy-powershell.md).
+Em alternativa, pode descarregar a amostra do Gestor de Recursos, fazer alterações e `New-AzResourceGroupDeployment` criar um cluster com o modelo modificado utilizando o comando numa janela Azure PowerShell. Consulte o seguinte código para os parâmetros que passa para o comando. Para obter informações detalhadas sobre como implementar um grupo de recursos utilizando o PowerShell, consulte o artigo Implementar um grupo de recursos com o modelo do Gestor de [Recursos Azure](../azure-resource-manager/templates/deploy-powershell.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Adicione a extensão de diagnóstico a um cluster existente
 Se tiver um cluster existente que não tenha Diagnósticos implementados, pode adicioná-lo ou atualizá-lo através do modelo de cluster. Modifique o modelo de Gestor de Recursos que é usado para criar o cluster existente ou descarregar o modelo a partir do portal como descrito anteriormente. Modificar o ficheiro template.json executando as seguintes tarefas:
@@ -89,7 +89,7 @@ Adicione um novo recurso de armazenamento ao modelo adicionando à secção de r
 },
 ```
 
- Em seguida, adicione à secção de parâmetros logo após as definições da conta de armazenamento, entre `supportLogStorageAccountName`. Substitua o nome da conta de armazenamento de texto do espaço *reservado, com* o nome da conta de armazenamento que deseja.
+ Em seguida, adicione à secção de parâmetros logo `supportLogStorageAccountName`após as definições da conta de armazenamento, entre . Substitua o nome da conta de armazenamento de texto do espaço *reservado, com* o nome da conta de armazenamento que deseja.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -111,7 +111,7 @@ Adicione um novo recurso de armazenamento ao modelo adicionando à secção de r
       }
     },
 ```
-Em seguida, atualize a secção `VirtualMachineProfile` do ficheiro template.json adicionando o seguinte código dentro da matriz de extensões. Certifique-se de adicionar uma vírina no início ou no fim, dependendo de onde está inserida.
+Em seguida, `VirtualMachineProfile` atualize a secção do ficheiro template.json adicionando o seguinte código dentro da matriz de extensões. Certifique-se de adicionar uma vírina no início ou no fim, dependendo de onde está inserida.
 
 ```json
 {
@@ -193,7 +193,7 @@ Depois de modificar o ficheiro template.json conforme descrito, republique o mod
 
 ### <a name="update-storage-quota"></a>Quota de armazenamento de atualização
 
-Uma vez que as tabelas povoadas pela extensão crescem até que a quota seja atingida, é melhor considerar a diminuição do tamanho da quota. O valor predefinido é de 50 GB e é configurável no modelo sob o campo `overallQuotaInMB` sob `DiagnosticMonitorConfiguration`
+Uma vez que as tabelas povoadas pela extensão crescem até que a quota seja atingida, é melhor considerar a diminuição do tamanho da quota. O valor padrão é de 50 GB e `overallQuotaInMB` é configurável no modelo sob o campo sob`DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -219,7 +219,7 @@ Os registos de canais adicionais também estão disponíveis para recolha, aqui 
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* Canal de Dados e Mensagens - Detalhado: Canal Verbose que contém todos os registos não críticos a partir de dados e mensagens no cluster e no canal operacional detalhado. Para uma resolução detalhada de problemas de todos os eventos de procuração inversa, consulte o [guia de diagnóstico de procuração inversa](service-fabric-reverse-proxy-diagnostics.md).  Para ver estes eventos no visualizador de eventos de diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" à lista de fornecedores da ETW.
+* Data & Messaging Channel - Detalhado: Canal Verbose que contém todos os registos não críticos a partir de dados e mensagens no cluster e no canal operacional detalhado. Para uma resolução detalhada de problemas de todos os eventos de procuração inversa, consulte o [guia de diagnóstico de procuração inversa](service-fabric-reverse-proxy-diagnostics.md).  Para ver estes eventos no visualizador de eventos de diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" à lista de fornecedores da ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"
@@ -229,7 +229,7 @@ Os registos de canais adicionais também estão disponíveis para recolha, aqui 
 >Este canal tem um volume muito elevado de eventos, permitindo a recolha de eventos a partir deste canal detalhado resulta em muitos vestígios sendo gerados rapidamente, e pode consumir capacidade de armazenamento. Só ligue isto se for absolutamente necessário.
 
 
-Para ativar o **Canal Operacional Base** a nossa recomendação para uma exploração madeireira abrangente com a menor quantidade de ruído, o `EtwManifestProviderConfiguration` no `WadCfg` do seu modelo seria o seguinte:
+Para ativar o **Canal Operacional Base** a nossa recomendação `EtwManifestProviderConfiguration` para `WadCfg` uma exploração madeireira abrangente com a menor quantidade de ruído, o no seu modelo seria o seguinte:
 
 ```json
   "WadCfg": {
@@ -282,7 +282,7 @@ Para ativar o **Canal Operacional Base** a nossa recomendação para uma explora
 
 Para atualizar diagnósticos para recolher registos de novos canais EventSource que representam uma nova aplicação que está prestes a implementar, execute os mesmos passos descritos anteriormente para a configuração de Diagnósticos para um cluster existente.
 
-Atualize a secção `EtwEventSourceProviderConfiguration` no ficheiro template.json para adicionar entradas para os novos canais EventSource antes de aplicar a atualização de configuração utilizando o comando `New-AzResourceGroupDeployment` PowerShell. O nome da fonte do evento é definido como parte do seu código no ficheiro ServiceEventSource.cs gerado pelo Estúdio Visual.
+Atualize `EtwEventSourceProviderConfiguration` a secção no ficheiro template.json para adicionar entradas para os novos `New-AzResourceGroupDeployment` canais EventSource antes de aplicar a atualização de configuração utilizando o comando PowerShell. O nome da fonte do evento é definido como parte do seu código no ficheiro ServiceEventSource.cs gerado pelo Estúdio Visual.
 
 Por exemplo, se a sua fonte de evento for chamada My-Eventsource, adicione o seguinte código para colocar os eventos do My-Eventsource numa tabela chamada MyDestinationTableName.
 
@@ -300,7 +300,7 @@ Para recolher contadores de desempenho ou registos de eventos, modifique o model
 
 ## <a name="collect-performance-counters"></a>Colete contadores de desempenho
 
-Para recolher métricas de desempenho do seu cluster, adicione os contadores de desempenho à sua "WadCfg > DiagnosticMonitorConfiguration" no modelo De Gestor de Recursos para o seu cluster. Consulte [a monitorização do desempenho com](service-fabric-diagnostics-perf-wad.md) a WAD para obter passos na modificação do seu `WadCfg` para recolher contadores de desempenho específicos. [Balcões](service-fabric-diagnostics-event-generation-perf.md) de desempenho de tecido de serviço de referência para uma lista de contadores de desempenho que recomendamos a recolha.
+Para recolher métricas de desempenho do seu cluster, adicione os contadores de desempenho ao seu "WadCfg > DiagnosticMonitorConfiguration" no modelo de Gestor de Recursos para o seu cluster. Consulte [a monitorização do desempenho com a WAD](service-fabric-diagnostics-perf-wad.md) para obter passos na modificação do seu `WadCfg` para recolher contadores de desempenho específicos. [Balcões](service-fabric-diagnostics-event-generation-perf.md) de desempenho de tecido de serviço de referência para uma lista de contadores de desempenho que recomendamos a recolha.
   
 Se estiver a usar um afundado application Insights, como descrito na secção abaixo, e quiser que estas métricas apareçam em Insights de Aplicação, certifique-se de adicionar o nome do lavatório na secção "pias", como mostrado acima. Isto enviará automaticamente os contadores de desempenho que estão configurados individualmente para o seu recurso Application Insights.
 
@@ -324,7 +324,7 @@ Ao criar um cluster, se o Diagnóstico for ligado, um campo opcional para introd
 
 No modelo "WadCfg" do gestor de recursos, adicione um "Sink" incluindo as duas seguintes alterações:
 
-1. Adicione a configuração do lavatório diretamente após a declaração do `DiagnosticMonitorConfiguration` estiver concluída:
+1. Adicione a configuração do lavatório `DiagnosticMonitorConfiguration` diretamente após a declaração do que está concluído:
 
     ```json
     "SinksConfig": {
@@ -338,7 +338,7 @@ No modelo "WadCfg" do gestor de recursos, adicione um "Sink" incluindo as duas s
 
     ```
 
-2. Incluir o lavatório no `DiagnosticMonitorConfiguration` adicionando a seguinte linha no `DiagnosticMonitorConfiguration` do `WadCfg` (mesmo antes de declarar o `EtwProviders`):
+2. Incluir o lavatório `DiagnosticMonitorConfiguration` na adição da `DiagnosticMonitorConfiguration` seguinte `WadCfg` linha na `EtwProviders` (mesmo antes de serem declarados):
 
     ```json
     "sinks": "applicationInsights"

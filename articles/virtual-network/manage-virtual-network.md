@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280238"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
@@ -30,14 +30,14 @@ Aprenda a criar e eliminar uma rede virtual e alterar definições, como servido
 Complete as seguintes tarefas antes de completar os passos em qualquer secção deste artigo:
 
 - Se ainda não tem uma conta Azure, inscreva-se numa [conta de teste gratuita.](https://azure.microsoft.com/free)
-- Se utilizar o portal, abra https://portal.azure.come faça login na sua conta Azure.
+- Se utilizar o https://portal.azure.comportal, abra e faça login na sua conta Azure.
 - Se utilizar os comandos PowerShell para completar tarefas neste artigo, execute os comandos na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando powerShell a partir do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer a versão 1.0.0 ou posterior do módulo PowerShell Azure. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
-- Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este tutorial requer a versão Azure CLI 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa de correr `az login` para criar uma ligação com o Azure.
+- Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este tutorial requer a versão Azure CLI 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI `az login` localmente, também precisa de correr para criar uma ligação com o Azure.
 - A conta em que inicia sessão, ou liga-se ao Azure, deve ser atribuída à função de contribuinte da [rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que lhe seja atribuída as ações adequadas enumeradas nas [Permissões](#permissions).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. Selecione **+ Criar um recurso** > **rede** > **rede virtual.**
+1. Selecione **+ Criar uma** > **rede virtual**de**rede** > de recursos .
 2. Introduza ou selecione valores para as seguintes definições e, em seguida, selecione **Criar:**
    - **Nome**: O nome deve ser único no grupo de [recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) que seleciona para criar a rede virtual. Não é possível alterar o nome depois da rede virtual ser criada. Pode criar várias redes virtuais ao longo do tempo. Para nomear sugestões, consulte [convenções de nomeação.](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) Seguir uma convenção de nomeação pode ajudar a facilitar a gestão de várias redes virtuais.
    - **Espaço de endereço**: O espaço de endereço para uma rede virtual é composto por uma ou mais gamas de endereços não sobrepostas que são especificadas na notação CIDR. A gama de endereços que define pode ser pública ou privada (RFC 1918). Quer defina a gama de endereços como pública ou privada, a gama de endereços só é acessível a partir da rede virtual, a partir de redes virtuais interligadas e de quaisquer redes no local que tenha ligado à rede virtual. Não é possível adicionar as seguintes gamas de endereços:
@@ -92,7 +92,7 @@ Complete as seguintes tarefas antes de completar os passos em qualquer secção 
      - [Controlo de acesso (IAM)](../role-based-access-control/overview.md)
      - [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Fechaduras](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Roteiro de automação](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+     - [Script de automatização](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Comandos**
 
@@ -138,10 +138,10 @@ Todos os VMs que estão ligados ao registo de rede virtual com os servidores DNS
 2. A partir da lista de redes virtuais, selecione a rede virtual para a qual pretende alterar os servidores DNS.
 3. Selecione **servidores DNS**, em **DEFINIÇÕES**.
 4. Selecione uma das seguintes opções:
-   - **Predefinição (fornecido pelo Azure)** : Todos os nomes de recursos e endereços IP privados estão automaticamente registados nos servidores DNS do Azure. Pode resolver nomes entre quaisquer recursos ligados à mesma rede virtual. Não é possível utilizar esta opção para resolver nomes através de redes virtuais. Para resolver nomes em redes virtuais, deve utilizar um servidor DNS personalizado.
+   - **Predefinição (fornecido pelo Azure)**: Todos os nomes de recursos e endereços IP privados estão automaticamente registados nos servidores DNS do Azure. Pode resolver nomes entre quaisquer recursos ligados à mesma rede virtual. Não é possível utilizar esta opção para resolver nomes através de redes virtuais. Para resolver nomes em redes virtuais, deve utilizar um servidor DNS personalizado.
    - **Personalizado:** Pode adicionar um ou mais servidores, até ao limite Azure para uma rede virtual. Para saber mais sobre os limites do servidor DNS, consulte [os limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Existem as seguintes opções:
    - **Adicione um endereço**: Adiciona o servidor à lista de servidores DNS da rede virtual. Esta opção também regista o servidor DNS com o Azure. Se já registou um servidor DNS com o Azure, pode selecionar o servidor DNS na lista.
-   - **Remova um endereço**: Junto ao servidor que pretende remover, selecione **...** , em **seguida, remova**. A eliminação do servidor remove o servidor apenas desta lista de rede virtual. O servidor DNS permanece registado em Azure para as suas outras redes virtuais a utilizar.
+   - **Remova um endereço**: Junto ao servidor que pretende remover, selecione **...**, em **seguida, remova**. A eliminação do servidor remove o servidor apenas desta lista de rede virtual. O servidor DNS permanece registado em Azure para as suas outras redes virtuais a utilizar.
    - **Reencomende os endereços do servidor DNS**: É importante verificar se lista os seus servidores DNS na ordem correta para o seu ambiente. As listas de servidores DNS são utilizadas na ordem que são especificadas. Não funcionam como uma configuração de rodapé. Se o primeiro servidor DNS da lista puder ser alcançado, o cliente utiliza esse servidor DNS, independentemente de o servidor DNS estar a funcionar corretamente. Remova todos os servidores DNS listados e, em seguida, adicione-os de volta na ordem que deseja.
    - **Alterar um endereço**: Realce o servidor DNS na lista e, em seguida, introduza o novo endereço.
 5. Selecione **Guardar**.

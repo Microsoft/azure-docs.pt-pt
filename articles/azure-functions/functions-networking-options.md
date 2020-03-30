@@ -1,18 +1,18 @@
 ---
-title: Opções de networking de funções Azure
+title: Opções de rede das Funções do Azure
 description: Uma visão geral de todas as opções de networking disponíveis nas Funções Azure.
 author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.openlocfilehash: d8c3357325eadefec7bb97faba5d600e9c6793a9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276715"
 ---
-# <a name="azure-functions-networking-options"></a>Opções de networking de funções Azure
+# <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
 Este artigo descreve as funcionalidades de networking disponíveis nas opções de hospedagem para funções Azure. Todas as seguintes opções de networking dão-lhe alguma capacidade de aceder a recursos sem usar endereços de saída da Internet ou para restringir o acesso à Internet a uma aplicação de função.
 
@@ -28,9 +28,9 @@ Você pode hospedar aplicativos de função de várias maneiras:
 
 ## <a name="matrix-of-networking-features"></a>Matriz de funcionalidades de networking
 
-|                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano premium](functions-scale.md#premium-plan)|[Plano do Serviço de Aplicações](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicações](../app-service/environment/intro.md)|
+|                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano Premium](functions-scale.md#premium-plan)|[Plano de serviço de aplicações](functions-scale.md#app-service-plan)|[Ambiente de serviço de aplicativos](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Restrições ip de entrada e acesso ao site privado](#inbound-ip-restrictions)|✅Sim|✅Sim|✅Sim|✅Sim|
+|[Restrições IP de entrada & acesso ao site privado](#inbound-ip-restrictions)|✅Sim|✅Sim|✅Sim|✅Sim|
 |[Integração da rede virtual](#virtual-network-integration)|❌Não|✅Sim (Regional)|✅Sim (Regional e Gateway)|✅Sim|
 |[Gatilhos de rede virtuais (não HTTP)](#virtual-network-triggers-non-http)|❌Não| ✅Sim |✅Sim|✅Sim|
 |[Ligações híbridas](#hybrid-connections) (apenas janelas)|❌Não|✅Sim|✅Sim|✅Sim|
@@ -50,7 +50,7 @@ Para saber mais, consulte [as restrições estáticas](../app-service/app-servic
 O acesso ao site privado refere-se a tornar a sua aplicação acessível apenas a partir de uma rede privada, como uma rede virtual Azure.
 
 * O acesso ao site privado está disponível nos planos [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan)e [App Service](functions-scale.md#app-service-plan) quando os pontos finais do serviço estão configurados.
-    * Os pontos finais do serviço podem ser configurados numa base por app em **função das funcionalidades** da Plataforma > **Networking** > **Configurar restrições** de acesso > **Regra de adicionar**. As redes virtuais podem agora ser selecionadas como um tipo de regra.
+    * Os pontos finais do serviço podem ser configurados numa base por app em **funções de Plataforma de** > **Configuração** > de**Configuração De Regra**de > **Adição**de Restrições de Acesso Configurados . As redes virtuais podem agora ser selecionadas como um tipo de regra.
     * Para mais informações, consulte [os pontos finais do serviço](../virtual-network/virtual-network-service-endpoints-overview.md)de rede virtual .
     * Tenha em mente que, com pontos finais de serviço, a sua função ainda tem acesso total à internet, mesmo com a integração virtual da rede configurada.
 * O acesso ao site privado também está disponível dentro de um App Service Environment que está configurado com um equilibrista de carga interna (ILB). Para mais informações, consulte [Criar e utilizar um equilibrador de carga interno com um Ambiente de Serviço de Aplicações](../app-service/environment/create-ilb-ase.md).
@@ -144,7 +144,7 @@ Para saber mais, consulte a documentação do Serviço de [Aplicações para Lig
 
 As restrições ip de saída estão disponíveis num plano Premium, plano de serviço de aplicações ou ambiente de serviço de aplicações. Pode configurar restrições de saída para a rede virtual onde o seu Ambiente de Serviço de Aplicações está implantado.
 
-Quando integra uma aplicação de função num plano Premium ou num plano de Serviço de Aplicações com uma rede virtual, a aplicação ainda pode fazer chamadas de saída para a internet por padrão. Ao adicionar uma definição de aplicação `WEBSITE_VNET_ROUTE_ALL=1`, força todo o tráfego de saída a ser enviado para a sua rede virtual, onde as regras do grupo de segurança da rede podem ser usadas para restringir o tráfego.
+Quando integra uma aplicação de função num plano Premium ou num plano de Serviço de Aplicações com uma rede virtual, a aplicação ainda pode fazer chamadas de saída para a internet por padrão. Ao adicionar uma `WEBSITE_VNET_ROUTE_ALL=1`definição de aplicação, força todo o tráfego de saída a ser enviado para a sua rede virtual, onde as regras do grupo de segurança da rede podem ser usadas para restringir o tráfego.
 
 ## <a name="troubleshooting"></a>Resolução de problemas 
 

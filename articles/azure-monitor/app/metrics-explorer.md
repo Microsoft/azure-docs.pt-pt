@@ -1,13 +1,13 @@
 ---
-title: Explorar Métricas em Insights de Aplicação Azure  Microsoft Docs
+title: Explorar Métricas em Insights de Aplicação Azure [ Microsoft Docs
 description: Como interpretar gráficos sobre exploradormétrico e como personalizar lâminas de explorador métrico.
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275896"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas em insights de aplicação
@@ -97,7 +97,7 @@ As métricas podem ser agregadas de diferentes formas:
 * **Soma** soma os valores de todos os pontos de dados recebidos durante o intervalo de amostragem, ou o período do gráfico.
 * **A média** divide a Soma pelo número de pontos de dados recebidos ao longo do intervalo.
 * **Contagens únicas** são usadas para contagens de utilizadores e contas. Durante o intervalo de amostragem, ou durante o período do gráfico, o número mostra a contagem de diferentes utilizadores observados nesse período.
-* **%** - versões percentuais de cada agregação são usadas apenas com gráficos segmentados. O total soma sempre até 100%, e o gráfico mostra a contribuição relativa de diferentes componentes de um total.
+* **%**- as versões percentuais de cada agregação são utilizadas apenas com gráficos segmentados. O total soma sempre até 100%, e o gráfico mostra a contribuição relativa de diferentes componentes de um total.
 
     ![Agregação percentual](./media/metrics-explorer/percentage-aggregation.png)
 
@@ -115,7 +115,7 @@ Clique na caixa de verificação "Definições Avançadas" para elevar as defini
 
 ![Clique em Definições Avançadas, selecione gama Personalizada e especifique os valores min max](./media/metrics-explorer/y-axis-range.png)
 
-## <a name="filter-your-data"></a>Filtre os seus dados
+## <a name="filter-your-data"></a>Filtrar os dados
 Para ver apenas as métricas para um conjunto selecionado de valores de propriedade:
 
 ![Clique em Filtro, expanda uma propriedade e verifique alguns valores](./media/metrics-explorer/19-filter.png)
@@ -180,7 +180,7 @@ Se quiser visões ainda mais ricas dos seus dados, pode [exportar para o Power B
 
 A partir de um gráfico métrico, pode clicar no ícone Analytics para chegar diretamente à consulta equivalente ao Analytics.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 *Não vejo nenhum dado na minha ficha.*
 
 * Os filtros aplicam-se a todos os gráficos da lâmina. Certifique-se de que, enquanto está focado num gráfico, não definiu um filtro que exclui todos os dados de outro.
@@ -193,7 +193,7 @@ A partir de um gráfico métrico, pode clicar no ícone Analytics para chegar di
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Monitorização do uso com Insights de Aplicação](../../azure-monitor/app/usage-overview.md)
 * [Usando pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 

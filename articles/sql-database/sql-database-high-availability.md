@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
 ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269656"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados Azure SQL
@@ -39,7 +39,7 @@ Estes níveis de serviço alavancam a arquitetura de disponibilidade padrão. A 
 
 O modelo de disponibilidade padrão inclui duas camadas:
 
-- Uma camada de computação apátrida que executa o processo `sqlservr.exe` e contém apenas dados transitórios e cached, como TempDB, bases de dados de modelos no SSD anexado, e cache de plano, piscina tampão e piscina de colunas na memória. Este nó apátrida é operado pela Azure Service Fabric que inicializa `sqlservr.exe`, controla a saúde do nó e executa falhas em outro nó, se necessário.
+- Uma camada de cálculo apátrida que executa o `sqlservr.exe` processo e contém apenas dados transitórios e cached, como TempDB, bases de dados de modelos no SSD anexado, e cache de plano, piscina tampão e piscina de colunas na memória. Este nó apátrida é operado pela Azure Service Fabric que `sqlservr.exe`inicializa, controla a saúde do nó e executa a falha em outro nó, se necessário.
 - Uma camada de dados audaz com os ficheiros de base de dados (.mdf/.ldf) que são armazenados no armazenamento da Blob Azure. O armazenamento de blob Azure tem disponibilidade de dados incorporados e recurso de redundância. Garante que todos os registos no ficheiro de registo ou página do ficheiro de dados serão preservados mesmo que o processo do SQL Server se desfaça.
 
 Sempre que o motor de base de dados ou o sistema operativo for atualizado, ou se for detetada uma falha, o Tecido de Serviço Azure deslocará o processo apátrida do SQL Server para outro nó de cálculo apátrida com capacidade gratuita suficiente. Os dados no armazenamento do Blob Azure não são afetados pelo movimento, e os ficheiros de dados/registos estão ligados ao processo do Servidor SQL recém-inicializado. Este processo garante 99,99% de disponibilidade, mas uma carga de trabalho pesada pode experimentar alguma degradação do desempenho durante a transição desde que a nova instância do SQL Server começa com cache frio.
@@ -62,8 +62,8 @@ A arquitetura de nível de serviço Hyperscale é descrita na arquitetura de [fu
 
 O modelo de disponibilidade em Hiperescala inclui quatro camadas:
 
-- Uma camada de cálculo apátrida que executa os processos `sqlservr.exe` e contém apenas dados transitórios e cached, tais como cache RBPEX não-coberto, TempDB, base de dados de modelos, etc. no SSD anexado, e cache de plano, piscina tampão e piscina de colunas na memória. Esta camada apátrida inclui a réplica primária do cálculo e opcionalmente uma série de réplicas de computação secundária que podem servir como alvos de failover.
-- Uma camada de armazenamento apátrida formada por servidores de página. Esta camada é o motor de armazenamento distribuído para os processos `sqlservr.exe` em execução nas réplicas da computação. Cada servidor de página contém apenas dados transitórios e cached, tais como cobrir a cache RBPEX no SSD anexado, e páginas de dados em cache na memória. Cada servidor de página tem um servidor de página emparelhado numa configuração ativa para fornecer equilíbrio de carga, redundância e alta disponibilidade.
+- Uma camada de cálculo apátrida que executa os `sqlservr.exe` processos e contém apenas dados transitórios e cached, tais como cache RBPEX não-coberto, TempDB, base de dados de modelos, etc. no SSD anexado, e cache de plano, piscina tampão e piscina de colunas na memória. Esta camada apátrida inclui a réplica primária do cálculo e opcionalmente uma série de réplicas de computação secundária que podem servir como alvos de failover.
+- Uma camada de armazenamento apátrida formada por servidores de página. Esta camada é o motor `sqlservr.exe` de armazenamento distribuído para os processos em execução nas réplicas computacionais. Cada servidor de página contém apenas dados transitórios e cached, tais como cobrir a cache RBPEX no SSD anexado, e páginas de dados em cache na memória. Cada servidor de página tem um servidor de página emparelhado numa configuração ativa para fornecer equilíbrio de carga, redundância e alta disponibilidade.
 - Uma camada de armazenamento de registo de transações imponente formada pelo nó computacional que executa o processo de serviço de Registo, a zona de desembarque de registo de transações e armazenamento a longo prazo do registo de transações. Zona de desembarque e armazenamento de longo prazo Utilização Azure Storage, que fornece disponibilidade e [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para registo de transações, garantindo a durabilidade dos dados para transações comprometidas.
 - Uma camada de armazenamento de dados aguçada com os ficheiros de base de dados (.mdf/.ndf) que são armazenados no Armazenamento Azure e são atualizados por servidores de página. Esta camada utiliza funcionalidades de disponibilidade de dados e [de redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) do Armazenamento Azure. Garante que cada página de um ficheiro de dados será preservada mesmo que os processos noutras camadas de arquitetura hyperscale falhem, ou se os nós de computação falharem.
 

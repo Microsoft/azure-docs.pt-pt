@@ -3,12 +3,12 @@ title: Como gerir atribuições com a PowerShell
 description: Saiba como gerir as atribuições de plantas com o módulo oficial de PowerShell da Azure Blueprints, Az.Blueprint.
 ms.date: 09/30/2019
 ms.topic: how-to
-ms.openlocfilehash: 765ed5e1849443d6ac73fe4507327e97e4fdc4c2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: b16cf887ba8bfc51616839db5f4af87944ec686d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79280719"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247406"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerir atribuições com a PowerShell
 
@@ -37,7 +37,7 @@ O módulo Blueprints para PowerShell é **Az.Blueprint**.
    ```
 
    > [!NOTE]
-   > Se as contas já estiverem **instaladas,** poderá ser necessário utilizar `-AllowClobber` para forçar a instalação.
+   > Se as contas já estiverem **instaladas,** poderá `-AllowClobber` ser necessário utilizar para forçar a instalação.
 
 1. Validar que o módulo foi importado e é a versão correta (0.2.6):
 
@@ -49,9 +49,9 @@ O módulo Blueprints para PowerShell é **Az.Blueprint**.
 ## <a name="get-blueprint-definitions"></a>Obter definições de plantas
 
 O primeiro passo para trabalhar com uma atribuição é muitas vezes obter uma referência a uma definição de planta.
-O `Get-AzBlueprint` cmdlet obtém uma ou mais definições de plantas. O cmdlet pode obter definições de plantas de um grupo de gestão com `-ManagementGroupId {mgId}` ou uma subscrição com `-SubscriptionId {subId}`. O parâmetro **nome** obtém uma definição de planta, mas deve ser utilizado com **ManagementGroupId** ou **SubscriptionId**. **A versão** pode ser usada com **o Nome** para ser mais explícito sobre qual a definição de planta devolvida. Em vez de **Versão,** o switch `-LatestPublished` agarra a versão mais recente publicada.
+O `Get-AzBlueprint` cmdlet obtém uma ou mais definições de plantas. O cmdlet pode obter definições de `-ManagementGroupId {mgId}` plantas de `-SubscriptionId {subId}`um grupo de gestão com ou uma subscrição com . O parâmetro **nome** obtém uma definição de planta, mas deve ser utilizado com **ManagementGroupId** ou **SubscriptionId**. **A versão** pode ser usada com **o Nome** para ser mais explícito sobre qual a definição de planta devolvida. Em vez de `-LatestPublished` **Versão,** o switch agarra a versão mais recente mente publicada.
 
-O exemplo seguinte utiliza `Get-AzBlueprint` para obter todas as versões de uma definição de projeto denominada "subscrição de definição de plantas de 101 plantas" a partir de uma subscrição específica representada como `{subId}`:
+O exemplo `Get-AzBlueprint` que se segue utiliza para obter todas as versões de uma definição de `{subId}`projeto denominada "subscrição de definição de plantas de 101 plantas" a partir de uma subscrição específica representada como:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -95,9 +95,9 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 
 ## <a name="get-blueprint-assignments"></a>Obtenha tarefas de plantas
 
-Se a atribuição da planta já existir, pode obter uma referência com o `Get-AzBlueprintAssignment` cmdlet. O cmdlet toma o **SubscriptionId** e **o Nome** como parâmetros opcionais. Se o **SubscriptionId** não for especificado, o contexto de subscrição atual é utilizado.
+Se a atribuição da planta já existir, pode `Get-AzBlueprintAssignment` obter uma referência com o cmdlet. O cmdlet toma o **SubscriptionId** e **o Nome** como parâmetros opcionais. Se o **SubscriptionId** não for especificado, o contexto de subscrição atual é utilizado.
 
-O exemplo seguinte utiliza `Get-AzBlueprintAssignment` para obter uma única atribuição de projeto denominada "Grupos de recursos de bloqueio de atribuição" a partir de uma subscrição específica representada como `{subId}`:
+O exemplo `Get-AzBlueprintAssignment` seguinte utiliza-se para obter uma única atribuição de projeto denominada `{subId}`"Grupos de recursos de bloqueio de atribuição" a partir de uma subscrição específica representada como:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -125,14 +125,14 @@ ResourceGroups    : ResourceGroup
 
 ## <a name="create-blueprint-assignments"></a>Criar tarefas de plantas
 
-Se a atribuição da planta ainda não existir, pode criá-la com o `New-AzBlueprintAssignment` cmdlet. Este cmdlet utiliza os seguintes parâmetros:
+Se a atribuição da planta ainda não existir, `New-AzBlueprintAssignment` pode criá-la com o cmdlet. Este cmdlet utiliza os seguintes parâmetros:
 
 - **Nome** [obrigatório]
   - Especifica o nome da atribuição do projeto
   - Deve ser único e já não existe no **SubscriptionId**
 - **Planta** [necessária]
   - Especifica a definição de projeto para atribuir
-  - Use `Get-AzBlueprint` para obter o objeto de referência
+  - Usar `Get-AzBlueprint` para obter o objeto de referência
 - **Localização** [necessária]
   - Especifica a região para o objeto de implantação de identidade gerida e de subscrição atribuído pelo sistema a criar em
 - **Assinatura** (opcional)
@@ -168,7 +168,7 @@ Se a atribuição da planta ainda não existir, pode criá-la com o `New-AzBluep
 
 ### <a name="example-1-provide-parameters"></a>Exemplo 1: Fornecer parâmetros
 
-O exemplo seguinte cria uma nova atribuição da versão '1.1' da definição de projeto 'my-blueprint' rebuscada com `Get-AzBlueprint`, define a identidade gerida e a localização do objeto de atribuição para 'westus2', bloqueia os recursos com _allResourcesReadOnly,_ e define as tabelas de hash para **parâmetro** e **ResourceGroupParameter** em subscrição específica representada como `{subId}`:
+O exemplo seguinte cria uma nova atribuição da versão '1.1' da `Get-AzBlueprint`definição de projeto 'my-blueprint' rebuscada com, define a identidade gerida e a localização do objeto de atribuição para 'westus2', bloqueia os recursos com _allResourcesReadOnly,_ e define as tabelas de hash para **parameter** e **ResourceGroupParameter** em subscrição específica representada como: `{subId}`
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -247,11 +247,11 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
     -AssignmentFile '.\assignment.json'
 ```
 
-Por exemplo, do ficheiro de definição de atribuição JSON para uma identidade gerida atribuída pelo utilizador, consulte o organismo de pedido em [Exemplo: Atribuição com identidade gerida atribuída pelo utilizador](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity) para API REST.
+Por exemplo, do ficheiro de definição de atribuição JSON para uma identidade gerida atribuída pelo utilizador, consulte o organismo de pedido em [Exemplo: Atribuição com identidade gerida atribuída pelo utilizador](/rest/api/blueprints/assignments/createorupdate#examples) para API REST.
 
 ## <a name="update-blueprint-assignments"></a>Atualizar atribuições de plantas
 
-Às vezes é necessário atualizar uma atribuição de plantas que já foi criada. O `Set-AzBlueprintAssignment` cmdlet trata desta ação. O cmdlet leva a maior parte dos mesmos parâmetros que o `New-AzBlueprintAssignment` cmdlet faz, permitindo que tudo o que foi definido na atribuição seja atualizado. As exceções são o _Nome,_ _O Projeto_e o Id _de Subscrição._ Apenas os valores fornecidos são atualizados.
+Às vezes é necessário atualizar uma atribuição de plantas que já foi criada. O `Set-AzBlueprintAssignment` cmdlet lida com esta ação. O cmdlet leva a maior parte `New-AzBlueprintAssignment` dos mesmos parâmetros que o cmdlet faz, permitindo que tudo o que foi definido na atribuição seja atualizado. As exceções são o _Nome,_ _O Projeto_e o Id _de Subscrição._ Apenas os valores fornecidos são atualizados.
 
 Para entender o que acontece ao atualizar uma atribuição de plantas, consulte [regras para a atualização](./update-existing-assignments.md#rules-for-updating-assignments)de atribuições .
 
@@ -260,7 +260,7 @@ Para entender o que acontece ao atualizar uma atribuição de plantas, consulte 
   - Usado para localizar a atribuição para atualizar, não para alterar a atribuição
 - **Planta** [necessária]
   - Especifica a definição de projeto da atribuição do projeto
-  - Use `Get-AzBlueprint` para obter o objeto de referência
+  - Usar `Get-AzBlueprint` para obter o objeto de referência
   - Usado para localizar a atribuição para atualizar, não para alterar a atribuição
 - **Localização** (opcional)
   - Especifica a região para o objeto de implantação de identidade gerida e de subscrição atribuído pelo sistema a criar em
@@ -292,7 +292,7 @@ Para entender o que acontece ao atualizar uma atribuição de plantas, consulte 
   - Cada espaço reservado para artefactos de grupo de recursos tem pares chave/valor para definir dinamicamente **nome** e **localização** nesse artefacto do grupo de recursos
   - Se um parâmetro de grupo de recursos não for fornecido e não tiver **defaultValue,** o parâmetro do grupo de recursos não é opcional
 
-O exemplo seguinte atualiza a atribuição da versão '1.1' da definição de projeto 'my-blueprint' recolhida com `Get-AzBlueprint` alterando o modo de bloqueio:
+O exemplo seguinte atualiza a atribuição da versão '1.1' da definição `Get-AzBlueprint` de projeto 'my-blueprint' recolhida alterando o modo de bloqueio:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -321,9 +321,9 @@ ResourceGroups    : ResourceGroup
 
 ## <a name="remove-blueprint-assignments"></a>Remover tarefas de plantas
 
-Quando é hora de uma atribuição de plantas ser removida, o `Remove-AzBlueprintAssignment` cmdlet trata desta ação. O cmdlet leva **nome** ou **InputObject** para especificar qual a atribuição da planta a remover. **A Subscrição Id** é _necessária_ e deve ser fornecida em todos os casos.
+Quando é hora de uma atribuição de `Remove-AzBlueprintAssignment` plantas ser removida, o cmdlet trata desta ação. O cmdlet leva **nome** ou **InputObject** para especificar qual a atribuição da planta a remover. **A Subscrição Id** é _necessária_ e deve ser fornecida em todos os casos.
 
-O exemplo seguinte requer uma atribuição de plantas existente com `Get-AzBlueprintAssignment` e, em seguida, retira-a da subscrição específica representada como `{subId}`:
+O exemplo seguinte requer uma atribuição `Get-AzBlueprintAssignment` de plantas existente e, em `{subId}`seguida, retira-a da subscrição específica representada como:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -337,7 +337,7 @@ Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '
 
 ## <a name="end-to-end-code-example"></a>Exemplo de código de ponta a ponta
 
-Juntando todos os passos, o seguinte exemplo obtém a definição de planta, depois cria, atualiza e remove uma atribuição de plantas na subscrição específica representada como `{subId}`:
+Juntando todos os passos, o seguinte exemplo obtém a definição de planta, depois cria, atualiza e remove uma atribuição de plantas na subscrição específica representada como: `{subId}`
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -377,9 +377,9 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 #endregion
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md).
+- Conheça o ciclo de vida da [planta.](../concepts/lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).

@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 89af30788fe5129cddc6a3607b8c722549b610d1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246659"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Crie recipientes e bases de dados Azure Cosmos em modo piloto automático (Pré-visualização)
+# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Criar contentores e bases de dados do Azure Cosmos no modo Autopilot (Pré-visualização)
 
 O Azure Cosmos DB permite-lhe aprovisionar o débito nos contentores no modo manual ou Autopilot. Este artigo descreve os benefícios e casos de utilização do modo Autopilot.
 
@@ -22,9 +22,9 @@ O Azure Cosmos DB permite-lhe aprovisionar o débito nos contentores no modo ma
 
 Além do fornecimento manual de entrada, pode agora configurar os contentores Azure Cosmos em modo piloto automático. Os contentores e bases de dados configurados no modo piloto automático **irão automaticamente e instantaneamente escalar a produção aprovisionada com base nas necessidades da sua aplicação sem afetar a disponibilidade, latência, produção ou desempenho da carga de trabalho a nível global.**
 
-Ao configurar recipientes e bases de dados no modo piloto automático, é necessário especificar a entrada máxima `Tmax` não deve ser ultrapassada. Os recipientes podem então escalar a sua entrada de modo a que `0.1*Tmax < T < Tmax`. Por outras palavras, os contentores e bases de dados escalam instantaneamente com base nas necessidades de carga de trabalho, desde 10% do valor máximo de entrada que configuraste até ao valor máximo de entrada configurado. Pode alterar a regulação máxima de entrada (`Tmax`) numa base de dados ou recipiente de piloto automático em qualquer momento. Com a opção de piloto automático, o 400 RU/s de entrada mínima por recipiente ou base de dados já não é aplicável.
+Ao configurar recipientes e bases de dados no modo `Tmax` piloto automático, é necessário especificar que a potência máxima não deve ser ultrapassada. Os recipientes podem então escalar `0.1*Tmax < T < Tmax`a sua entrada de modo a que . Por outras palavras, os contentores e bases de dados escalam instantaneamente com base nas necessidades de carga de trabalho, desde 10% do valor máximo de entrada que configuraste até ao valor máximo de entrada configurado. Pode alterar a regulação`Tmax`máxima de entrada numa base de dados ou recipiente de piloto automático a qualquer momento. Com a opção de piloto automático, o 400 RU/s de entrada mínima por recipiente ou base de dados já não é aplicável.
 
-Durante a pré-visualização do piloto automático, para a potência máxima especificada no recipiente ou na base de dados, o sistema permite operar dentro do limite de armazenamento calculado. Se o limite de armazenamento for ultrapassado, a entrada máxima é automaticamente ajustada para um valor mais elevado. Ao utilizar a entrada de nível de base de dados com o modo piloto automático, o número de contentores permitidos dentro de uma base de dados é calculado como: `0.001*TMax`. Por exemplo, se fornecer 20.000 RU/s piloto automático, então a base de dados pode ter 20 contentores.
+Durante a pré-visualização do piloto automático, para a potência máxima especificada no recipiente ou na base de dados, o sistema permite operar dentro do limite de armazenamento calculado. Se o limite de armazenamento for ultrapassado, a entrada máxima é automaticamente ajustada para um valor mais elevado. Ao utilizar a entrada de nível de base de dados com `0.001*TMax`o modo piloto automático, o número de contentores permitidos dentro de uma base de dados é calculado como: . Por exemplo, se fornecer 20.000 RU/s piloto automático, então a base de dados pode ter 20 contentores.
 
 ## <a name="benefits-of-autopilot-mode"></a>Benefícios do modo piloto automático
 
@@ -82,7 +82,7 @@ Pode configurar o piloto automático para novas bases de dados ou contentores ao
 
 Pode criar uma base de dados de entrada partilhada com modo piloto automático selecionando a opção de entrada de base de **dados Provision.**
 
-## <a id="autopilot-limits"></a>Limites de entrada e armazenamento para piloto automático
+## <a name="throughput-and-storage-limits-for-autopilot"></a><a id="autopilot-limits"></a>Limites de entrada e armazenamento para piloto automático
 
 A tabela que se segue mostra os limites máximos de armazenamento e de armazenamento para diferentes opções no modo piloto automático:
 

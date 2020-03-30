@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86dbcdc24c90ba8b161b041af96cbdd0665ad827
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253315"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções da AD Azure na Gestão de Identidade Privilegiada
@@ -93,7 +93,7 @@ Esta secção lista todos os alertas de segurança para funções da AD Azure, j
 
 | | |
 | --- | --- |
-| **Gravidade** | High |
+| **Gravidade** | Alta |
 | **Por que recebo este alerta?** | As atribuições de funções privilegiadas feitas fora da Gestão de Identidade Privilegiada não são devidamente monitorizadas e podem indicar um ataque ativo. |
 | **Como consertar?** | Reveja os utilizadores da lista e remova-os das funções privilegiadas atribuídas fora da Gestão de Identidade Privilegiada. |
 | **Prevenção** | Investigue onde os utilizadores estão a ser atribuídos papéis privilegiados fora da Gestão de Identidade Privilegiada e proíba futuras atribuições a partir daí. |
@@ -186,13 +186,13 @@ Esta secção lista todos os alertas de segurança para funções da AD Azure, j
 | **Como consertar?** | Reveja as contas da lista. Se já não precisarem de acesso, retirem-nos dos seus papéis privilegiados. |
 | **Prevenção** | Certifique-se de que as contas partilhadas estão a rodar senhas fortes quando houver uma alteração nos utilizadores que conheçam a palavra-passe. </br>Reveja regularmente as contas com funções privilegiadas utilizando [avaliações](pim-how-to-start-security-review.md) de acesso e remova atribuições de funções que já não sejam necessárias. |
 | **Ação de mitigação no portal** | Remove a conta do seu papel privilegiado. |
-| **Melhores práticas** | As contas partilhadas, de serviço e de acesso de emergência que autenticam usando uma palavra-passe e que são atribuídas a funções administrativas altamente privilegiadas, como administrador global ou administrador de segurança, devem ter as suas palavras-passe rodadas para os seguintes casos:<ul><li>Após um incidente de segurança envolvendo uso indevido ou compromisso de direitos de acesso administrativo</li><li>Depois de os privilégios de qualquer utilizador serem alterados para que deixem de ser administradores (por exemplo, depois de um funcionário que foi administrador deixar a TI ou deixar a organização)</li><li>Em intervalos regulares (por exemplo, trimestral ou anual), mesmo que não tenha havido violação ou alteração do pessoal de TI</li></ul>Uma vez que várias pessoas têm acesso às credenciais destas contas, as credenciais devem ser giradas para garantir que as pessoas que abandonaram as suas funções já não possam aceder às contas. [Saiba mais](https://aka.ms/breakglass) |
+| **Melhores práticas** | As contas partilhadas, de serviço e de acesso de emergência que autenticam usando uma palavra-passe e que são atribuídas a funções administrativas altamente privilegiadas, como administrador global ou administrador de segurança, devem ter as suas palavras-passe rodadas para os seguintes casos:<ul><li>Após um incidente de segurança envolvendo uso indevido ou compromisso de direitos de acesso administrativo</li><li>Depois de os privilégios de qualquer utilizador serem alterados para que deixem de ser administradores (por exemplo, depois de um funcionário que foi administrador deixar a TI ou deixar a organização)</li><li>Em intervalos regulares (por exemplo, trimestral ou anual), mesmo que não tenha havido violação ou alteração do pessoal de TI</li></ul>Uma vez que várias pessoas têm acesso às credenciais destas contas, as credenciais devem ser giradas para garantir que as pessoas que abandonaram as suas funções já não possam aceder às contas. [Mais informações](https://aka.ms/breakglass) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>As funções estão a ser atribuídas fora da Gestão de Identidade Privilegiada
 
 | | |
 | --- | --- |
-| **Gravidade** | High |
+| **Gravidade** | Alta |
 | **Por que recebo este alerta?** | As atribuições de funções privilegiadas feitas fora da Gestão de Identidade Privilegiada não são devidamente monitorizadas e podem indicar um ataque ativo. |
 | **Como consertar?** | Reveja os utilizadores da lista e remova-os das funções privilegiadas atribuídas fora da Gestão de Identidade Privilegiada. |
 | **Prevenção** | Investigue onde os utilizadores estão a ser atribuídos papéis privilegiados fora da Gestão de Identidade Privilegiada e proíba futuras atribuições a partir daí. |
@@ -232,7 +232,7 @@ Pode personalizar alguns dos alertas de segurança na Gestão de Identidade Priv
 
 1. Selecione **funções Azure AD**.
 
-1. Selecione **Definições e,** em seguida, alertas .
+1. Selecione **Definições e,** em seguida, alertas . **Settings**
 
     ![Funções Azure AD - Definições com Alertas selecionados](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 

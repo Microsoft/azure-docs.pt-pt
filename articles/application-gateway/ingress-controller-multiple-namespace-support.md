@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279926"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Ativar suporte múltiplo namespace em um cluster AKS com controlador de entrada de gateway aplicação
@@ -21,19 +21,19 @@ Os espaços [de nome](https://kubernetes.io/docs/concepts/overview/working-with-
 
 A partir da versão 0.7 [Azure Application Gateway Kubernetes IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) pode ingerir eventos e observar vários espaços de nome. Caso o administrador da AKS decida utilizar o [App Gateway](https://azure.microsoft.com/services/application-gateway/) como entrada, todos os espaços de nome usarão a mesma instância de Gateway de Aplicação. Uma única instalação do Controlador Ingress monitorizará espaços de nome acessíveis e configurará o Gateway de Aplicação a que está associado.
 
-A versão 0.7 da AGIC continuará a observar exclusivamente o espaço de nome `default`, a menos que este seja explicitamente alterado para um ou mais espaços de nome sinuosos na configuração Helm (ver secção abaixo).
+A versão 0.7 da AGIC continuará `default` a observar exclusivamente o espaço de nome, a menos que este seja explicitamente alterado para um ou mais espaços de nome sinuosos na configuração Helm (ver secção abaixo).
 
 ## <a name="enable-multiple-namespace-support"></a>Ativar suporte de múltiplos espaços de nomes
 Para permitir o suporte de vários espaços de nome:
 1. modificar o ficheiro [helm-config.yaml](#sample-helm-config-file) de uma das seguintes formas:
-   - eliminar a chave `watchNamespace` inteiramente de [helm-config.yaml](#sample-helm-config-file) - AGIC observará todos os espaços de nome
-   - definir `watchNamespace` para uma corda vazia - AGIC observará todos os espaços de nome
+   - eliminar `watchNamespace` a chave inteiramente de [helm-config.yaml](#sample-helm-config-file) - AGIC observará todos os espaços de nome
+   - definido `watchNamespace` para uma corda vazia - AGIC observará todos os espaços de nome
    - adicionar vários espaços de nome separados por uma vírem (`watchNamespace: default,secondNamespace`) - AGIC observará estes espaços de nome exclusivamente
-2. aplicar alterações no modelo helmuos com: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
+2. aplicar alterações no modelo de leme com:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 Uma vez implantado com a capacidade de observar vários espaços de nome, a AGIC:
   - lista de recursos ingressos de todos os espaços de nome acessíveis
-  - filtro para recursos de ingresso anotadocom `kubernetes.io/ingress.class: azure/application-gateway`
+  - filtro para recursos de ingresso anotado com`kubernetes.io/ingress.class: azure/application-gateway`
   - compor conjunto [aplicação gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
   - aplicar o config ao Gateway de Aplicação associado via [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 
@@ -44,7 +44,7 @@ No topo da hierarquia - **os ouvintes** (endereço IP, porto e anfitrião) e as 
 
 Por outro lado - caminhos, piscinas de backend, definições HTTP e certificados TLS poderiam ser criados apenas por um espaço de nome e duplicados serão removidos.
 
-Por exemplo, considere os seguintes recursos de ingresso duplicados definidos espaços de nome `staging` e `production` para `www.contoso.com`:
+Por exemplo, considere os seguintes recursos `staging` `production` de `www.contoso.com`ingresso duplicados definidos espaços de nome e para:
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -81,23 +81,23 @@ spec:
               servicePort: 80
 ```
 
-Apesar dos dois recursos de ingresso que exigem tráfego para `www.contoso.com` a serem encaminhados para os respetivos espaços de nome Kubernetes, apenas um backend pode servir o tráfego. A AGIC criaria uma configuração na base "first come, first served" para um dos recursos. Se dois recursos ingressos forem criados ao mesmo tempo, o anterior no alfabeto terá precedência. Pelo exemplo acima, só seremos capazes de criar configurações para o `production` ingresso. O Gateway de aplicação será configurado com os seguintes recursos:
+Apesar dos dois recursos `www.contoso.com` de ingresso que exigem tráfego para serem encaminhados para os respetivos espaços de nome Kubernetes, apenas um backend pode servir o tráfego. A AGIC criaria uma configuração na base "first come, first served" para um dos recursos. Se dois recursos ingressos forem criados ao mesmo tempo, o anterior no alfabeto terá precedência. Pelo exemplo acima, só seremos capazes `production` de criar configurações para a entrada. O Gateway de aplicação será configurado com os seguintes recursos:
 
-  - `fl- www.contoso.com-80`
-  - Regra de encaminhamento: `rr- www.contoso.com-80`
-  - Backend Pool: `pool-production-contoso-web-service-80-bp-80`
-  - Definições HTTP: `bp-production-contoso-web-service-80-80-websocket-ingress`
-  - Sonda de Saúde: `pb-production-contoso-web-service-80-websocket-ingress`
+  - Ouvinte:`fl-www.contoso.com-80`
+  - Regra de encaminhamento:`rr-www.contoso.com-80`
+  - Piscina de backend:`pool-production-contoso-web-service-80-bp-80`
+  - Definições HTTP:`bp-production-contoso-web-service-80-80-websocket-ingress`
+  - Sonda de Saúde:`pb-production-contoso-web-service-80-websocket-ingress`
 
 Note que, com exceção da regra do *ouvinte* e do *encaminhamento,* os recursos de Gateway de Aplicação criados incluem o nome do espaço de nome (`production`) para o qual foram criados.
 
-Se os dois recursos de ingresso forem introduzidos no cluster AKS em diferentes pontos do tempo, é provável que a AGIC acabe num cenário em que reconfigure o Application Gateway e redirecione o tráfego de `namespace-B` para `namespace-A`.
+Se os dois recursos de ingresso forem introduzidos no cluster AKS em diferentes pontos do tempo, é provável `namespace-B` que `namespace-A`a AGIC acabe num cenário em que reconfigure o Gateway de Aplicação e redirecione o tráfego de .
 
-Por exemplo, se tiver adicionado `staging` primeiro, a AGIC configurará o Application Gateway para encaminhar o tráfego para a piscina de backend de preparação. Numa fase posterior, a introdução `production` ingresso, fará com que a AGIC reprograme o Application Gateway, que começará a encaminhar o tráfego para a piscina de backend `production`.
+Por exemplo, `staging` se tiver adicionado primeiro, a AGIC configurará o Application Gateway para encaminhar o tráfego para a piscina de backend de preparação. Numa fase posterior, `production` a introdução da entrada, fará com que a AGIC `production` reprograme o Application Gateway, que começará a encaminhar o tráfego para a piscina de backend.
 
 ## <a name="restrict-access-to-namespaces"></a>Restringir o acesso aos espaços de nomes
 Por padrão, a AGIC configurará o Gateway de Aplicação com base em Ingress anotado dentro de qualquer espaço de nome. Caso pretenda limitar este comportamento, tem as seguintes opções:
-  - limitar os espaços de nome, definindo explicitamente os espaços de nome AGIC deve observar através da chave YAML `watchNamespace` em [helm-config.yaml](#sample-helm-config-file)
+  - limitar os espaços de nome, definindo explicitamente `watchNamespace` os espaços de nome AGIC deve observar através da chave YAML em [helm-config.yaml](#sample-helm-config-file)
   - utilizar [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) para limitar a AGIC a espaços de nome específicos
 
 ## <a name="sample-helm-config-file"></a>Arquivo de config de leme de amostra

@@ -6,17 +6,17 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278691"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Conceitos de workflow windows PowerShell para livros de automação
 
 Os livros de execução em Automação Azure são implementados como Fluxos de Trabalho Windows PowerShell.  Um Workflow Do Windows PowerShell é semelhante a um script Windows PowerShell, mas tem algumas diferenças significativas que podem ser confusas para um novo utilizador.  Embora este artigo se destine a ajudá-lo a escrever livros de execução usando o fluxo de trabalho powerShell, recomendamos que escreva livros de execução usando powerShell, a menos que precise de pontos de verificação.  Existem várias diferenças de sintaxe quando se escreve manuais de powerShell Workflow e estas diferenças requerem um pouco mais de trabalho para escrever fluxos de trabalho eficazes.
 
-Um fluxo de trabalho é uma sequência de passos programados e ligados que efetuar tarefas de longa execução ou requerem a coordenação de vários passos em vários dispositivos ou nós geridos. As vantagens de um fluxo de trabalho ao longo de um script normal incluem a capacidade de efetuar simultaneamente uma ação em vários dispositivos e a capacidade de recuperar automaticamente de falhas. Um Windows PowerShell Workflow é um script Windows PowerShell que utiliza a Fundação Windows Workflow. Enquanto o fluxo de trabalho é escrito com a sintaxe do Windows PowerShell e lançado pelo Windows PowerShell, é processada pelo Windows Workflow Foundation.
+Um fluxo de trabalho é uma sequência de passos programados e ligados que efetuam tarefas de longa execução ou requerem a coordenação de vários passos em vários dispositivos ou nós geridos. Nas vantagens que um fluxo de trabalho tem em relação a um script normal incluem-se a capacidade de efetuar simultaneamente uma ação em vários dispositivos e a capacidade de recuperar automaticamente de falhas. Um Windows PowerShell Workflow é um script Windows PowerShell que utiliza a Fundação Windows Workflow. O fluxo de trabalho é processado pelo Windows Workflow Foundation ao mesmo tempo que está a ser escrito com a sintaxe do Windows PowerShell e lançado pelo Windows PowerShell.
 
 Para mais detalhes sobre os tópicos deste artigo, consulte [Getting Started with Windows PowerShell Workflow](https://technet.microsoft.com/library/jj134242.aspx).
 
@@ -31,7 +31,7 @@ Workflow Test-Workflow
 }
 ```
 
-O nome do fluxo de trabalho tem de corresponder ao nome do runbook de automatização. Se o livro de execução estiver a ser importado, o nome de ficheiro deve coincidir com o nome do fluxo de trabalho e deve terminar em *.ps1*.
+O nome do fluxo de trabalho deve coincidir com o nome do livro de execução automation. Se o livro de execução estiver a ser importado, o nome de ficheiro deve coincidir com o nome do fluxo de trabalho e deve terminar em *.ps1*.
 
 Para adicionar parâmetros ao fluxo de trabalho, use a palavra-chave **param** tal como faria a um script.
 
@@ -41,9 +41,9 @@ O código de fluxo de trabalho PowerShell parece quase idêntico ao código de s
 
 ### <a name="activities"></a>Atividades
 
-Uma atividade é uma tarefa específica num fluxo de trabalho. Tal como um script é composto por um ou mais comandos, um fluxo de trabalho é composta por uma ou mais atividades que são executadas numa sequência. O fluxo de trabalho do Windows PowerShell converte automaticamente muitos dos cmdlets do Windows PowerShell em atividades quando é executada um fluxo de trabalho. Quando especifica um destes cmdlets no seu livro de execução, a atividade correspondente é gerida pela Fundação Windows Workflow. Para aqueles cmdlets sem uma atividade correspondente, o Fluxo de Trabalho do Windows PowerShell executa automaticamente o cmdlet dentro de uma atividade [InlineScript.](#inlinescript) Existe um conjunto de cmdlets que são excluídos e não podem ser utilizados num fluxo de trabalho, a menos que sejam explicitamente incluídos num bloco InlineScript. Para mais detalhes sobre estes conceitos, consulte [A Utilização de Atividades em Fluxos](https://technet.microsoft.com/library/jj574194.aspx)de Trabalho de Script .
+Uma atividade é uma tarefa específica num fluxo de trabalho. Tal como um script é composto por um ou mais comandos, um fluxo de trabalho é composto por uma ou mais atividades que são executadas numa sequência. A execução de um Fluxo de Trabalho do Windows PowerShell converte automaticamente muitos dos cmdlets do Windows PowerShell em atividades. Quando especifica um destes cmdlets no seu livro de execução, a atividade correspondente é gerida pela Fundação Windows Workflow. Para aqueles cmdlets sem uma atividade correspondente, o Fluxo de Trabalho do Windows PowerShell executa automaticamente o cmdlet dentro de uma atividade [InlineScript.](#inlinescript) Existe um conjunto de cmdlets que são excluídos e não podem ser usados num fluxo de trabalho a menos que os inclua explicitamente num bloco InlineScript. Para mais detalhes sobre estes conceitos, consulte [A Utilização de Atividades em Fluxos](https://technet.microsoft.com/library/jj574194.aspx)de Trabalho de Script .
 
-Atividades de fluxo de trabalho partilham um conjunto de parâmetros comuns para configurar o funcionamento deles. Para mais detalhes sobre os parâmetros comuns do fluxo de trabalho, consulte [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
+As atividades de fluxo de trabalho partilham um conjunto de parâmetros comuns que permitem configurar o funcionamento delas. Para mais detalhes sobre os parâmetros comuns do fluxo de trabalho, consulte [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Parâmetros posicionais
 
@@ -152,7 +152,7 @@ Para obter mais informações sobre a utilização do InlineScript, consulte [ex
 
 ## <a name="parallel-processing"></a>Processamento paralelo
 
-Uma das vantagens de fluxos de trabalho do Windows PowerShell é a capacidade de executar um conjunto de comandos em paralelo em vez de sequencialmente como acontece com um script típico.
+Uma das vantagens dos Fluxos de Trabalho do Windows PowerShell é a capacidade de executar um conjunto de comandos paralelamente, em vez de sequencialmente como acontece com um script normal.
 
 Pode utilizar a palavra-chave **Paralela** para criar um bloco de scripts com vários comandos que funcionam simultaneamente. Isto utiliza a seguinte sintaxe mostrada abaixo. Neste caso, a Atividade1 e Atividade2 começa ao mesmo tempo. A atividade 3 só começa depois de a Atividade1 e a Atividade2 terem concluído.
 
@@ -189,7 +189,7 @@ Workflow Copy-Files
 }
 ```
 
-Pode utilizar a construção **ForEach -Paralela** para processar comandos para cada item numa coleção simultaneamente. Os itens na coleção são processados paralelamente enquanto os comandos no bloco de script são executados sequencialmente. Isto utiliza a seguinte sintaxe mostrada abaixo. Neste caso, a Atividade1 começa ao mesmo tempo para todos os itens da coleção. Para cada item, a Atividade2 começa após a Atividade1 estar completa. A Atividade3 só começa depois de tanto a Atividade1 como a Atividade2 terem concluído para todos os itens. Usamos o parâmetro `ThrottleLimit` para limitar o paralelismo. Uma `ThrottleLimit` demasiado alta pode causar problemas. O valor ideal para o parâmetro `ThrottleLimit` depende de muitos fatores no seu ambiente. Deve tentar começar com um valor baixo e tentar diferentes valores crescentes até encontrar um que funcione para a sua circunstância específica.
+Pode utilizar a construção **ForEach -Paralela** para processar comandos para cada item numa coleção simultaneamente. Os itens na coleção são processados paralelamente enquanto os comandos no bloco de scripts são executados sequencialmente. Isto utiliza a seguinte sintaxe mostrada abaixo. Neste caso, a Atividade1 começa ao mesmo tempo para todos os itens da coleção. Para cada item, a Atividade2 começa após a Atividade1 estar completa. A Atividade3 só começa depois de tanto a Atividade1 como a Atividade2 terem concluído para todos os itens. Usamos o `ThrottleLimit` parâmetro para limitar o paralelismo. Uma `ThrottleLimit` pessoa demasiado alta pode causar problemas. O valor ideal `ThrottleLimit` para o parâmetro depende de muitos fatores no seu ambiente. Deve tentar começar com um valor baixo e tentar diferentes valores crescentes até encontrar um que funcione para a sua circunstância específica.
 
 ```powershell
 ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
@@ -234,7 +234,7 @@ Checkpoint-Workflow
 <Activity3>
 ```
 
-Deve fixar postos de controlo num fluxo de trabalho após atividades que possam ser suscetíveis de ser excededas e não devem ser repetidas se o fluxo de trabalho for retomado. Por exemplo, o seu fluxo de trabalho pode criar uma máquina virtual. Poderia definir um ponto de verificação antes e depois os comandos para criar a máquina virtual. Se a criação falhar, os comandos serão repetidos se o fluxo de trabalho for reiniciado. Se o fluxo de trabalho falhar após o sucesso da criação, então a máquina virtual não será criada novamente quando o fluxo de trabalho for retomado.
+Deve fixar postos de controlo num fluxo de trabalho após atividades que possam ser suscetíveis de ser excededas e não devem ser repetidas se o fluxo de trabalho for retomado. Por exemplo, o seu fluxo de trabalho pode criar uma máquina virtual. É possível definir um ponto de verificação antes e depois dos comandos para criar uma máquina virtual. Se a criação falhar, os comandos serão repetidos se o fluxo de trabalho for reiniciado. Se o fluxo de trabalho falhar após o sucesso da criação, então a máquina virtual não será criada novamente quando o fluxo de trabalho for retomado.
 
 O exemplo seguinte copia vários ficheiros para uma localização da rede e define um ponto de verificação após cada ficheiro.  Se a localização da rede for perdida, o fluxo de trabalho termina por engano.  Quando for reiniciado, será retomado no último ponto de verificação, o que significa que apenas os ficheiros que já foram copiados são ignorados.
 
@@ -291,5 +291,5 @@ Para obter mais informações sobre os pontos de verificação, consulte a adiç
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
+* Para começar com os livros de workflow powerShell, consulte o meu primeiro livro de corridas de fluxo de [trabalho PowerShell](automation-first-runbook-textual.md)
 

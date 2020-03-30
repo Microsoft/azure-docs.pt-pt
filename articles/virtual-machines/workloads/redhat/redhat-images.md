@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7913cb888e1799efae0f3ecdf3391d19736cc273
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970153"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239866"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral das imagens do Red Hat Enterprise Linux
 
@@ -45,22 +45,22 @@ az vm image list --publisher RedHat --all
 
 As imagens VM em Azure são organizadas pela editora, oferta, SKU e versão. A combinação de Publisher:Offer:SKU:Version é a URN de imagem e identifica exclusivamente a imagem a ser usada.
 
-Por exemplo, `RedHat:RHEL:7-LVM:7.6.2018103108` refere-se a uma imagem com divisão RHEL 7.6 LVM construída a 31 de outubro de 2018.
+Por exemplo, `RedHat:RHEL:8-LVM:8.1.20200318` refere-se a uma imagem com divisão RHEL 8.1 LVM construída em 18 de março de 2020.
 
-Uma amostra de como criar um RHEL 7.6 VM é mostrada aqui.
+Uma amostra de como criar um RHEL 8.1 VM é mostrada aqui.
 
 ```azurecli-interactive
-az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:7.6.2018103108 --no-wait
+az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:8.1.20200318 --no-wait
 ```
 
 ### <a name="the-latest-moniker"></a>O apelido "mais recente"
 
 O Azure REST API permite a utilização do apelido "mais recente" para a versão em vez da versão específica. Utilizando as "mais recentes" disposições, a mais recente imagem disponível para o editor, oferta e SKU.
 
-Por exemplo, `RedHat:RHEL:7-LVM:latest` refere-se à mais recente imagem lLm-partition da família RHEL 7 disponível.
+Por exemplo, `RedHat:RHEL:8-LVM:latest` refere-se à mais recente imagem lLm-partition da família RHEL 8 disponível.
 
 ```azurecli-interactive
-az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:latest --no-wait
+az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:latest --no-wait
 ```
 
 >[!NOTE]
@@ -80,7 +80,7 @@ Para imagens RHEL 6.x, os tipos de imagem são mostrados na tabela seguinte.
 
 ## <a name="rhel-7-image-types"></a>Tipos de imagem RHEL 7
 
-Para imagens RHEL 7.x, existem alguns tipos de imagem diferentes. A tabela que se segue mostra os diferentes conjuntos de imagens que oferecemos. Para ver uma lista completa, utilize o comando Azure CLI `az vm image list --publisher redhat --all`.
+Para imagens RHEL 7.x, existem alguns tipos de imagem diferentes. A tabela que se segue mostra os diferentes conjuntos de imagens que oferecemos. Para ver uma lista completa, utilize `az vm image list --publisher redhat --all`o comando Azure CLI .
 
 >[!NOTE]
 > Salvo indicação em contrário, todas as imagens são divididas em LVM e conectam-se aos repositórios RHEL regulares. Ou seja, os repositórios não são Suporte de Atualização Estendida (EUS) e não são Serviços de Atualização para SAP (E4S). Daqui para a frente, estamos a avançar para a publicação apenas de imagens divididas pela LVM, mas estamos abertos a feedback sobre esta decisão. Para obter mais informações sobre suporte de atualização estendida e serviços de atualização para SAP, consulte o ciclo de [vida da Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
@@ -104,8 +104,8 @@ Os detalhes para os tipos de imagem RHEL 8 estão abaixo.
 
 |Publicador | Oferta | Valor SKU | Versão | Detalhes
 |----------|-------|------------|---------|--------
-|RedHat | RHEL | 8 | Valores concatenados da versão rHEL menor e data publicada (por exemplo, 8.0.20191023) | Estas imagens são imagens com divisão RHEL 8.0 LVM ligadas aos repositórios padrão do Chapéu Vermelho.
-|RedHat | RHEL | 8 gen2 | Valores concatenados da versão rHEL menor e data publicada (por exemplo, 8.0.20191024) | Estas imagens são imagens hiper-V Geração 2 RHEL 8.0 LVM ligadas aos repositórios padrão do Chapéu Vermelho. Para mais informações sobre os VMs da Geração 2 em Azure, consulte [Suporte para VMs da Geração 2 no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+|RedHat | RHEL | 8 | Valores concatenados da versão rHEL menor e data publicada (por exemplo, 8.0.20191023) | Estas imagens são imagens com divisão RHEL 8 LVM ligadas aos repositórios padrão do Chapéu Vermelho.
+|RedHat | RHEL | 8 gen2 | Valores concatenados da versão rHEL menor e data publicada (por exemplo, 8.0.20191024) | Estas imagens são imagens com divisão de Hiper-V Geração 2 RHEL 8 LVM ligadas aos repositórios padrão do Chapéu Vermelho. Para mais informações sobre os VMs da Geração 2 em Azure, consulte [Suporte para VMs da Geração 2 no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 ## <a name="rhel-longer-support-add-ons"></a>Add-ons de suporte mais longor RHEL
 
@@ -129,7 +129,7 @@ RedHat:RHEL:7-LVM:7.6.2019062414
 RedHat:RHEL:7.6:7.6.2019102813
 ```
 
-Neste caso, `RedHat:RHEL:7.6:7.6.2019102813` está anexado por defeito aos repositórios da UES. O valor SKU é de 7.4. E `RedHat:RHEL:7-LVM:7.6.2019062414` está anexado a repositórios não comunitários por defeito. O valor SKU é 7-LVM.
+Neste caso, `RedHat:RHEL:7.6:7.6.2019102813` está anexado por defeito aos repositórios da EUS. O valor SKU é de 7.4. E `RedHat:RHEL:7-LVM:7.6.2019062414` está ligado a repositórios não-EUS por defeito. O valor SKU é 7-LVM.
 
 Para utilizar repositórios regulares (não-EUS), utilize uma imagem que não contenha um número de versão menor no SKU.
 
@@ -138,15 +138,15 @@ Para utilizar repositórios regulares (não-EUS), utilize uma imagem que não co
 As informações no quadro seguinte aplicam-se às imagens RHEL que estão ligadas aos repositórios da EUS.
 
 >[!NOTE]
-> No momento da escrita, apenas as versões RHEL 7.4 e posteriores menores têm apoio da UES. A EUS já não é apoiada pela RHEL <=7.3.
+> No momento da escrita, apenas as versões RHEL 7.4 e posteriores menores têm apoio da UES. A UES já não é apoiada por RHEL <=7,3.
 >
 > Para obter mais informações sobre a disponibilidade do RHEL EUS, consulte o ciclo de [vida da Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 Versão menor |Exemplo de imagem da UES              |Estatuto da UES                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | As imagens publicadas abril de 2019 e posteriormente são eus por defeito.|
-RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | As imagens publicadas junho de 2019 e posteriormente são eus por defeito. |
-RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | As imagens publicadas em maio de 2019 e posteriormente são eus por defeito. |
+RHEL 7.5      |RedHat:RHEL:7.5.5.2019060305 | As imagens publicadas junho de 2019 e posteriormente são eus por defeito. |
+RHEL 7.6      |RedHat:RHEL:7.6:7.6.201905206 | As imagens publicadas em maio de 2019 e posteriormente são eus por defeito. |
 RHEL 8.0      |N/D                            | Não existe nenhum EUS disponível na Red Hat.                               |
 
 ### <a name="update-services-for-sap"></a>Serviços de Atualização para SAP

@@ -1,5 +1,5 @@
 ---
-title: Personalizar mapeamentos de atributos Azure AD  Microsoft Docs
+title: Personalizar mapeamentos de atributos Azure AD [ Microsoft Docs
 description: Saiba quais os mapeamentos de atributos para aplicações SaaS no Diretório Ativo Azure são como pode modificá-las para atender às necessidades do seu negócio.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264092"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalização de mapeamento de atributos para aplicações SaaS no Diretório Ativo Azure
@@ -231,7 +231,7 @@ Utilize os passos abaixo para fornecer funções para um utilizador na sua aplic
   - **Quando utilizar:** Utilize a expressão AppRoleAssignmentsComplex para fornecer múltiplas funções para um utilizador. 
   - **Como configurar:** Editar a lista de atributos suportados acima descritos para incluir um novo atributo para funções: 
   
-    ![Adicionar papéis](./media/customize-application-attributes/add-roles.png)<br>
+    ![Adicionar funções](./media/customize-application-attributes/add-roles.png)<br>
 
     Em seguida, utilize a expressão AppRoleAssignmentsComplex para mapear o atributo de função personalizada, como mostrado na imagem abaixo:
 
@@ -277,9 +277,9 @@ Utilize os passos abaixo para fornecer funções para um utilizador na sua aplic
 ## <a name="provisioning-a-multi-value-attribute"></a>Fornecimento de um atributo de vários valores
 Certos atributos, como números de telefone e e-mails, são atributos de vários valores onde poderá ser necessário especificar diferentes tipos de números de telefone ou e-mails. Utilize a expressão abaixo para atributos de vários valores. Permite especificar o tipo de atributo e mapear isso ao atributo correspondente do utilizador Azure AD pelo valor. 
 
-* . Value de phoneNumbers [tipo eq "trabalho"]
-* . Value de phoneNumbers [tipo eq "móvel"]
-* . Value de phoneNumbers [tipo eq "fax"]
+* telefoneNumbers[tipo eq "trabalho"].valor
+* telefoneNumbers[tipo eq "mobile"].valor
+* telefoneNumbers[tipo eq "fax"].valor
 
    ```json
    "phoneNumbers": [
@@ -313,7 +313,7 @@ A seleção desta opção forçará efetivamente uma ressincronização de todos
 - Atualizar os mapeamentos de atributos tem um impacto no desempenho de um ciclo de sincronização. Uma atualização da configuração de mapeamento de atributos requer que todos os objetos geridos sejam reavaliados.
 - Uma boa prática recomendada é manter o número de alterações consecutivas nos seus mapeamentos de atributos no mínimo.
 - A adição de um atributo fotográfico a fornecer a uma aplicação não é suportada hoje, uma vez que não pode especificar o formato para sincronizar a fotografia. Pode solicitar a funcionalidade na Voz do [Utilizador](https://feedback.azure.com/forums/169401-azure-active-directory)
-- O atributo IsSoftDeleted é frequentemente parte dos mapeamentos padrão para uma aplicação. IsSoftdeleted pode ser verdade em um de quatro cenários (o utilizador está fora de âmbito devido a não ser atribuído da aplicação, o utilizador está fora de âmbito devido ao não cumprimento de um filtro de deteção, o utilizador foi eliminado suavemente em Azure AD, ou a conta de propriedadeEnabled está definida como falsa  sobre o utilizador). 
+- O atributo IsSoftDeleted é frequentemente parte dos mapeamentos padrão para uma aplicação. IsSoftdeleted pode ser verdade em um de quatro cenários (o utilizador está fora de âmbito devido a não ser atribuído da aplicação, o utilizador está fora de âmbito devido ao não cumprimento de um filtro de deteção, o utilizador foi eliminado suavemente em Azure AD, ou a conta de propriedadeEnabled está definida como falsa sobre o utilizador). 
 - O serviço de provisionamento da AD Azure não suporta o fornecimento de valores nulos
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -322,4 +322,4 @@ A seleção desta opção forçará efetivamente uma ressincronização de todos
 - [Expressões de escrita para atributo-mapeamento](../app-provisioning/functions-for-customizing-application-data.md)
 - [Filtros de deteção para fornecimento de utilizadores](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
 - [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md)
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS](../saas-apps/tutorial-list.md)
+- [Lista de Tutoriais sobre Como Integrar Aplicações SaaS](../saas-apps/tutorial-list.md)

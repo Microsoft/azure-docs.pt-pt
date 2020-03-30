@@ -10,10 +10,10 @@ ms.service: digital-twins
 services: digital-twins
 ms.custom: mvc
 ms.openlocfilehash: 91386eaf7753f2aefada2d1423a11b366c3ee924
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79370904"
 ---
 # <a name="overview-of-azure-digital-twins-preview"></a>Visão geral da pré-visualização de gémeos digitais Azure
@@ -95,7 +95,7 @@ A Azure Digital Twins é útil para representar o mundo físico e as suas muitas
 
 O Azure Digital Twins utiliza o Hub IoT do Azure para ligar os dispositivos de IoT e os sensores que mantêm tudo atualizado com o mundo físico. O diagrama que se segue mostra como as Gémeas Digitais Azure se relacionam com outros serviços da Azure IoT.
 
-[![Azure Digital Twins é um serviço construído no topo do Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
+[![O Azure Digital Twins é um serviço criado com base no Hub IoT do Azure](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
 Para mais informações sobre ioT, leia [tecnologias e soluções Azure IoT.](../iot-fundamentals/iot-services-and-technologies.md)
 

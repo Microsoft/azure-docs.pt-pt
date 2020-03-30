@@ -4,10 +4,10 @@ description: Este artigo descreve como configurar a visão em tempo real dos tro
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275376"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
@@ -16,9 +16,9 @@ Para ver os Dados Ao Vivo (pré-visualização) com o Monitor Azure para content
 
 Esta funcionalidade suporta os seguintes métodos para controlar o acesso aos registos, eventos e métricas:
 
-- AKS sem autorização Kubernetes RBAC ativada
-- Ativado com autorização RBAC de Kubernetes do AKS
-    - AKS configurado com a função de cluster de ligação  **[clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+- AKS sem autorização RBAC kubernetes ativada
+- AKS habilitado com autorização RBAC Kubernetes
+    - AKS configurado com a função de cluster de ligação ** [clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
 - AKS habilitado com um único sinal baseado em SAML baseado em Azure Ative (AD)
 
 Estas instruções requerem tanto o acesso administrativo ao seu cluster Kubernetes, como se configurar para utilizar o Diretório Ativo Azure (AD) para autenticação do utilizador, acesso administrativo à AD Azure.  
@@ -36,15 +36,15 @@ Este artigo explica como configurar a autenticação para controlar o acesso à 
 
 ## <a name="authentication-model"></a>Modelo de autenticação
 
-As funcionalidades De Dados Ao Vivo (pré-visualização) utilizam a API Kubernetes, idêntica à ferramenta de linha de comando `kubectl`. Os pontos finais da Kubernetes API utilizam um certificado auto-assinado, que o seu navegador não poderá validar. Esta funcionalidade utiliza um proxy interno para validar o certificado com o serviço AKS, garantindo que o tráfego é confiável.
+As funcionalidades De Dados Ao Vivo (pré-visualização) `kubectl` utilizam a API Kubernetes, idêntica à ferramenta da linha de comando. Os pontos finais da Kubernetes API utilizam um certificado auto-assinado, que o seu navegador não poderá validar. Esta funcionalidade utiliza um proxy interno para validar o certificado com o serviço AKS, garantindo que o tráfego é confiável.
 
-O portal Azure solicita-lhe que valide as suas credenciais de login para um cluster de Diretório Ativo Azure, e redirecioná-lo para a configuração de registo do cliente durante a criação do cluster (e reconfigurado neste artigo). Este comportamento é semelhante ao processo de autenticação exigido pela `kubectl`. 
+O portal Azure solicita-lhe que valide as suas credenciais de login para um cluster de Diretório Ativo Azure, e redirecioná-lo para a configuração de registo do cliente durante a criação do cluster (e reconfigurado neste artigo). Este comportamento é semelhante ao processo `kubectl`de autenticação exigido por . 
 
 >[!NOTE]
->A autorização para o seu cluster é gerida pela Kubernetes e pelo modelo de segurança com o que está configurado. Os utilizadores que acedem a esta funcionalidade exigem permissão para descarregar a configuração kubernetes *(kubeconfig),* semelhante à execução `az aks get-credentials -n {your cluster name} -g {your resource group}`. Este ficheiro de configuração contém o símbolo de autorização e autenticação para a Função de Utilizador do Cluster de **Serviços Azure Kubernetes,** no caso dos clusters Azure RBAC e AKS sem autorização RBAC ativada. Contém informações sobre os detalhes do registo da AD Azure e do cliente quando o AKS está ativado com um único sinal baseado em SAML baseado em Azure Ative Directory (AD).
+>A autorização para o seu cluster é gerida pela Kubernetes e pelo modelo de segurança com o que está configurado. Os utilizadores que acedem a esta funcionalidade exigem permissão para `az aks get-credentials -n {your cluster name} -g {your resource group}`descarregar a configuração kubernetes *(kubeconfig),* semelhante à execução . Este ficheiro de configuração contém o símbolo de autorização e autenticação para a Função de Utilizador do Cluster de **Serviços Azure Kubernetes,** no caso dos clusters Azure RBAC e AKS sem autorização RBAC ativada. Contém informações sobre os detalhes do registo da AD Azure e do cliente quando o AKS está ativado com um único sinal baseado em SAML baseado em Azure Ative Directory (AD).
 
 >[!IMPORTANT]
->Os utilizadores destas funcionalidades requerem a Função de Utilizador do [Cluster Azure Kubernetes](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) para o cluster, de forma a descarregar o `kubeconfig` e utilizar esta funcionalidade. Os utilizadores **não** necessitam de acesso ao cluster para utilizar esta funcionalidade. 
+>Os utilizadores destas funcionalidades requerem a Função de Utilizador do `kubeconfig` [Cluster Azure Kubernetes](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) para o cluster, de forma a descarregar a funcionalidade e utilizar esta funcionalidade. Os utilizadores **não** necessitam de acesso ao cluster para utilizar esta funcionalidade. 
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Utilização de clusterMonitoringUser com clusters ativados por RBAC
 
@@ -54,15 +54,15 @@ Para utilizar a funcionalidade Live Data (pré-visualização) com este novo uti
 
 A AKS lançou este novo papel vinculativo em janeiro de 2020, pelo que os clusters criados antes de janeiro de 2020 não o têm. Se tiver um cluster criado antes de janeiro de 2020, o novo **clusterMonitoringUser** pode ser adicionado a um cluster existente executando uma operação PUT no cluster, ou executando qualquer outra operação no cluster tha executa uma operação PUT no cluster, como atualizar a versão cluster.
 
-## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster de Kubernetes sem RBAC ativada
+## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster Kubernetes sem RBAC habilitado
 
-Se tiver um cluster do Kubernetes que não está configurado com autorização RBAC de Kubernetes ou integrado com o Azure AD-início de sessão único, não é necessário seguir estes passos. Isto porque tem permissões administrativas por defeito numa configuração não RBAC.
+Se tiver um cluster Kubernetes que não esteja configurado com a autorização Kubernetes RBAC ou integrado com um único sinal de AD Azure, não precisa de seguir estes passos. Isto porque tem permissões administrativas por defeito numa configuração não RBAC.
 
 ## <a name="configure-kubernetes-rbac-authorization"></a>Configure a autorização RBAC da Kubernetes
 
-Quando ativa a autorização Do Kubernetes RBAC, são utilizados dois utilizadores: **clusterUser** e **clusterAdmin** para aceder à API Kubernetes. Isto é semelhante ao funcionamento `az aks get-credentials -n {cluster_name} -g {rg_name}` sem a opção administrativa. Isto significa que o **clusterUser** precisa de ter acesso aos pontos finais da API kubernetes.
+Quando ativa a autorização Do Kubernetes RBAC, são utilizados dois utilizadores: **clusterUser** e **clusterAdmin** para aceder à API Kubernetes. Isto é semelhante `az aks get-credentials -n {cluster_name} -g {rg_name}` ao funcionamento sem a opção administrativa. Isto significa que o **clusterUser** precisa de ter acesso aos pontos finais da API kubernetes.
 
-Os passos de exemplo seguintes demonstram como configurar o enlace de função de cluster partir deste modelo de configuração yaml.
+Os seguintes passos de exemplo demonstram como configurar a ligação da função do cluster a partir deste modelo de configuração do yaml.
 
 1. Copie e cole o ficheiro yaml e guarde-o como LogReaderRBAC.yaml.  
 
@@ -99,7 +99,7 @@ Os passos de exemplo seguintes demonstram como configurar o enlace de função d
 2. Para atualizar a sua configuração, execute o seguinte comando: `kubectl apply -f LogReaderRBAC.yaml`.
 
 >[!NOTE] 
-> Se tiver aplicado uma versão anterior do ficheiro `LogReaderRBAC.yaml` ao seu cluster, atualize-o copiando e colando o novo código indicado no passo 1 acima e, em seguida, execute o comando indicado no passo 2 para o aplicar ao seu cluster.
+> Se tiver aplicado uma versão `LogReaderRBAC.yaml` anterior do ficheiro ao seu cluster, atualize-o copiando e colando o novo código indicado no passo 1 acima e, em seguida, execute o comando indicado no passo 2 para o aplicar ao seu cluster.
 
 ## <a name="configure-ad-integrated-authentication"></a>Autenticação integrada em Anúncios 
 
@@ -114,19 +114,19 @@ Para obter mais informações sobre a configuração avançada de segurança em 
 
 ### <a name="client-registration-reconfiguration"></a>Reconfiguração do registo do cliente
 
-1. Localize o registo do cliente do seu cluster Kubernetes em Azure AD ao abrigo das inscrições do **Azure Ative Directory > App** no portal Azure.
+1. Localize o registo do cliente do seu cluster Kubernetes em Azure AD ao abrigo dos registos de **> de Diretório Ativo do Azure** no portal Azure.
 
 2. **Selecione Autenticação** a partir do painel da mão esquerda. 
 
-3. Adicione dois URLs redirecionais a esta lista como tipos de aplicação **Web.** O valor url da primeira base deve ser `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e o valor url da segunda base deve ser `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+3. Adicione dois URLs redirecionais a esta lista como tipos de aplicação **Web.** O valor url da `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` primeira base deve ser `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`e o valor url da segunda base deve ser .
 
     >[!NOTE]
-    >Se estiver a utilizar esta funcionalidade na Azure China, o valor url da primeira base deve ser `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e o valor de URL da segunda base deve ser `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
+    >Se estiver a utilizar esta funcionalidade na Azure China, `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` o valor url da `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`primeira base deve ser e o valor url da segunda base deve ser . 
     
 4. Depois de registar os URLs redirecionais, sob **a subvenção implícita,** selecione as opções **Fichas** de acesso e **fichas de IDENTIFICAção** e, em seguida, guarde as suas alterações.
 
 >[!NOTE]
->Configurar a autenticação com o Diretório Ativo Azure para um único sinal só pode ser realizado durante a implementação inicial de um novo cluster AKS. Não é possível configurar o início de sessão único para um cluster do AKS já implementado.
+>Configurar a autenticação com o Diretório Ativo Azure para um único sinal só pode ser realizado durante a implementação inicial de um novo cluster AKS. Não é possível configurar um único sinal para um cluster AKS já implantado.
   
 >[!IMPORTANT]
 >Se reconfigurou o Azure AD para autenticação do utilizador utilizando o URI atualizado, limpe a cache do seu navegador para garantir que o token de autenticação atualizado é descarregado e aplicado.

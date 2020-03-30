@@ -1,6 +1,6 @@
 ---
 title: Adicione uma subscrição Azure existente ao seu inquilino - Azure AD
-description: Instruções sobre como adicionar uma subscrição do Azure existente com o seu inquilino do Azure Active Directory.
+description: Instruções sobre como adicionar uma subscrição Azure existente ao seu inquilino do Diretório Ativo Azure.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,21 +14,21 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8f44e9a1e43da2b9ce6c817898c1722fba715c4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262181"
 ---
-# <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure com o seu inquilino do Azure Active Directory
+# <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
 Uma subscrição azure tem uma relação de confiança com o Azure Ative Directory (Azure AD). Uma subscrição confia na Azure AD para autenticar utilizadores, serviços e dispositivos.
 
 Várias subscrições podem confiar no mesmo diretório Azure AD. Cada subscrição só pode confiar num único diretório.
 
-Se a sua subscrição expirar, perderá o acesso a todos os outros recursos associados à subscrição. No entanto, o diretório Azure AD permanece em Azure. Pode associar e gerir o diretório utilizando uma subscrição Azure diferente.
+Se a sua subscrição expirar, perde acesso a todos os outros recursos associados à subscrição. No entanto, o diretório Azure AD permanece em Azure. Pode associar e gerir o diretório utilizando uma subscrição Azure diferente.
 
-Todos os seus utilizadores têm um único diretório *para* autenticação. Os seus utilizadores também podem ser convidados de outras direções. Pode ver os dois diretórios raiz e convidados para cada utilizador no Azure AD.
+Todos os seus utilizadores têm um único diretório *para* autenticação. Os seus utilizadores também podem ser convidados de outras direções. Pode ver os diretórios de casa e de hóspedes para cada utilizador em Azure AD.
 
 > [!Important]
 > Quando associa uma subscrição a um diretório diferente, os utilizadores que possuem funções atribuídas utilizando [o controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdem o seu acesso. Os administradores de subscrição clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
@@ -50,14 +50,14 @@ Antes de poder associar ou adicionar a sua subscrição, faça as seguintes tare
   - Se tiver alguma identidade gerida para recursos como Máquinas Virtuais ou Aplicações Lógicas, deve reativar ou recriá-las após a associação
   - Se tiver um Azure Stack registado, terá de o reregistar após associação
 
-- Inicie sessão com uma conta que:
+- Inscreva-se usando uma conta que:
 
   - Tem uma atribuição de função [de proprietário](../../role-based-access-control/built-in-roles.md#owner) para a subscrição. Para obter informações sobre como atribuir a função Proprietário, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC e o portal Azure.](../../role-based-access-control/role-assignments-portal.md)
   - Existe tanto no atual diretório como no novo diretório. O atual diretório está associado à subscrição. Associará o novo diretório à subscrição. Para obter mais informações sobre o acesso a outro diretório, consulte [add Azure Ative Directory B2B no portal Azure](../b2b/add-users-administrator.md).
 
-- Certifique-se de que não estiver a utilizar uma subscrição de fornecedores de serviços de Cloud do Azure (CSP) (MS-AZR - 0145p, MS - AZR - 0146p, MS - AZR - 159p), uma subscrição do Microsoft Internal (MS-AZR - 0015P) ou uma subscrição Microsoft Imagine (MS-AZR - 0144p).
+- Certifique-se de que não está a utilizar uma subscrição de Fornecedores de Serviços em Nuvem Azure (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), uma subscrição Interna da Microsoft (MS-AZR-0015P) ou uma subscrição da Microsoft Imagine (MS-AZR-0144P).
 
-## Associar uma subscrição a um diretório<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
+## <a name="associate-a-subscription-to-a-directory"></a>Associar uma subscrição a um diretório<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
 Para associar uma subscrição existente ao seu diretório Azure AD, siga estes passos:
 
@@ -65,13 +65,13 @@ Para associar uma subscrição existente ao seu diretório Azure AD, siga estes 
 
 1. Selecione **Diretório de Alteração**.
 
-    ![Página de subscrições, com a opção de diretório de alteração realçada](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
+    ![Página de assinaturas, com opção de diretório Alterar em destaque](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
 
 1. Reveja quaisquer avisos que apareçam e, em seguida, selecione **Alterar**.
 
-    ![Alterar a página do diretório, que mostra o diretório para alterar para](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+    ![Mude a página de diretório, mostrando o diretório a mudar para](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    O diretório é alterado para a subscrição e obtém uma mensagem de êxito.
+    O diretório é alterado para a subscrição e recebe uma mensagem de sucesso.
 
     ![Mensagem de sucesso sobre mudança de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
 
@@ -79,7 +79,7 @@ Use o **diretório da Switch** para ir ao seu novo diretório. Pode levar vária
 
 ![Página do comutador de diretório, com informações de amostra](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-Alterar o diretório de subscrição é uma operação de nível de serviço, para que não afeta a propriedade de faturação de subscrição. O Administrador de Conta ainda pode alterar o Administrador de Serviço do Centro de [Conta.](https://account.azure.com/subscriptions) Para eliminar o diretório original, deve transferir a propriedade de faturação de subscrição para um novo Administrador de Conta. Para saber mais sobre a transferência de propriedade de faturação, consulte a [propriedade da Transferência de uma subscrição Azure para outra conta](../../cost-management-billing/manage/billing-subscription-transfer.md).
+Mudar o diretório de subscrição é uma operação de nível de serviço, por isso não afeta a propriedade da faturação de assinaturas. O Administrador de Conta ainda pode alterar o Administrador de Serviço do Centro de [Conta.](https://account.azure.com/subscriptions) Para eliminar o diretório original, deve transferir a propriedade de faturação de subscrição para um novo Administrador de Conta. Para saber mais sobre a transferência de propriedade de faturação, consulte a [propriedade da Transferência de uma subscrição Azure para outra conta](../../cost-management-billing/manage/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Passos pós-associação
 

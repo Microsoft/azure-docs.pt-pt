@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1c400e41c4c10023d2595bde8c0d62e26184cf05
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79370326"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Quickstart: Consulta Apache HBase em Azure HDInsight com Apache Phoenix
 
 Neste arranque rápido, aprende-se a usar o Apache Phoenix para executar consultas De HBase em Azure HDInsight. Apache Phoenix é um motor de consulta SQL para Apache HBase. Está acessível como um controlador JDBC e permite a consulta e gestão de tabelas do HBase através de SQL. [SQLLine](http://sqlline.sourceforge.net/) é um utilitário de linha de comando para executar SQL.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="identify-a-zookeeper-node"></a>Identifique um nó ZooKeeper
 
-Quando se conecta a um cluster HBase, precisa de se ligar a um dos nós do ZooKeeper Apache. Cada cluster HDInsight tem três nós zookeeper. O caracol pode ser usado para identificar rapidamente um nó ZooKeeper. Editar o comando de caracóis abaixo substituindo `PASSWORD` e `CLUSTERNAME` pelos valores relevantes, e, em seguida, entrar no comando num pedido de comando:
+Quando se conecta a um cluster HBase, precisa de se ligar a um dos nós do ZooKeeper Apache. Cada cluster HDInsight tem três nós zookeeper. O caracol pode ser usado para identificar rapidamente um nó ZooKeeper. Editar o comando de `PASSWORD` caracóis abaixo substituindo e `CLUSTERNAME` com os valores relevantes, e, em seguida, entrar no comando num pedido de comando:
 
 ```cmd
 curl -u admin:PASSWORD -sS -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER
@@ -47,13 +47,13 @@ Uma parte da saída será semelhante a:
       }
 ```
 
-Tome nota do valor para `host_name` para utilização posterior.
+Tome nota do `host_name` valor para posterior utilização.
 
 ## <a name="create-a-table-and-manipulate-data"></a>Criar uma tabela e manipular dados
 
 Pode utilizar o SSH para se ligar aos clusters HBase e, em seguida, utilizar o Apache Phoenix para criar tabelas HBase, inserir dados e consultar dados.
 
-1. Utilize `ssh` comando para se ligar ao seu cluster HBase. Edite o comando abaixo substituindo `CLUSTERNAME` com o nome do seu cluster e, em seguida, introduza o comando:
+1. Utilize `ssh` o comando para se ligar ao seu cluster HBase. Edite o comando `CLUSTERNAME` abaixo substituindo pelo nome do seu cluster e, em seguida, introduza o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -65,7 +65,7 @@ Pode utilizar o SSH para se ligar aos clusters HBase e, em seguida, utilizar o A
     cd /usr/hdp/current/phoenix-client/bin
     ```
 
-3. Lançamento [SQLline](http://sqlline.sourceforge.net/). Editar o comando abaixo substituindo `ZOOKEEPER` com o nó ZooKeeper identificado anteriormente, em seguida, insira o comando:
+3. Lançamento [SQLline](http://sqlline.sourceforge.net/). Editar o comando abaixo `ZOOKEEPER` substituindo o nó ZooKeeper identificado anteriormente e, em seguida, entrar no comando:
 
     ```bash
     ./sqlline.py ZOOKEEPER:2181:/hbase-unsecure
@@ -108,7 +108,7 @@ Pode utilizar o SSH para se ligar aos clusters HBase e, em seguida, utilizar o A
     DROP TABLE Company;
     ```
 
-10. Utilize o comando sQLLine `!quit` para sair do SQLLine. Introduza o seguinte comando:
+10. Utilize o comando `!quit` SQLLine para sair do SQLLine. Introduza o seguinte comando:
 
     ```sqlline
     !quit
@@ -125,4 +125,4 @@ Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o s
 Neste arranque rápido, aprendeu a usar o Apache Phoenix para executar consultas De HBase em Azure HDInsight. Para saber mais sobre Apache Phoenix, o próximo artigo fornecerá um exame mais profundo.
 
 > [!div class="nextstepaction"]
-> [Apache Phoenix em HDInsight](../hdinsight-phoenix-in-hdinsight.md)
+> [Apache Phoenix no HDInsight](../hdinsight-phoenix-in-hdinsight.md)

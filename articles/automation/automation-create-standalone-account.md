@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 22efb5e94049b975780c6f6ea69aa94a71cc9992
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279016"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
@@ -32,7 +32,7 @@ Com estas contas criadas para si, pode rapidamente começar a construir e a impl
 Para criar ou atualizar uma conta de Automação, e para completar as tarefas descritas neste artigo, deve ter os seguintes privilégios e permissões:
 
 * Para criar uma conta De automação, a sua conta de utilizador Azure AD deve ser adicionada a uma função com permissões equivalentes à função Proprietário da **Microsoft. Recursos de automação.** Para mais informações, consulte [O Controlo de Acesso baseado em Funções na Automação Azure](automation-role-based-access-control.md).
-* No portal Azure, no âmbito do **Diretório Ativo do Azure** > **gerir** > **configurações**do utilizador, se as inscrições da App forem **definidas** para **Sim,** os utilizadores não administradores no seu inquilino Azure AD podem [registar aplicações de Diretório Ativo.](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) Se **as inscrições** da App estiverem definidas para **Nº,** o utilizador que executa esta ação deve ser um administrador global no Azure AD.
+* No portal Azure, sob as**definições**de**Utilizador de Manage** > do **Diretório** > Ativo do Azure, se as inscrições da App forem **definidas** para **Sim,** os utilizadores não administradores no seu inquilino Azure AD podem [registar aplicações de Diretório Ativo.](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) Se **as inscrições** da App estiverem definidas para **Nº,** o utilizador que executa esta ação deve ser um administrador global no Azure AD.
 
 Se não for membro da instância de Diretório Ativo da subscrição antes de ser adicionado ao papel de administrador/coadministrador global da subscrição, é adicionado ao Ative Directory como convidado. Neste cenário, vê esta mensagem na página **da Conta Add Automation:** "Não tem permissões para criar."
 
@@ -41,7 +41,7 @@ Se um utilizador for adicionado primeiro ao papel de administrador/coadministrad
 Para verificar as funções do utilizador:
 
 1. No portal Azure, vá ao painel de **Diretório Ativo Azure.**
-1. Selecionar **Utilizadores e grupos**.
+1. Selecione **Utilizadores e grupos**.
 1. Selecione **todos os utilizadores**.
 1. Depois de selecionar um utilizador específico, selecione **Perfil**. O valor do **atributo** do tipo Utilizador no perfil do utilizador não deve ser **o Convidado**.
 
@@ -53,7 +53,7 @@ Para criar uma conta Azure Automation no portal Azure, complete os seguintes pas
 1. Selecione **+ Criar um Recurso**.
 1. Pesquisa por **Automação**. Nos resultados da pesquisa, selecione **Automation**.
 
-   ![Pesquisar e selecionar Automação e Controlo no Mercado Azure](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
+   ![Procure e selecione Automation & Control no Mercado Azure](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. No ecrã seguinte selecione **Criar**.
 
@@ -103,7 +103,7 @@ As contas Clássicas run-As já não são criadas, por padrão, quando cria uma 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre autoria gráfica, consulte [a autoria gráfica em Automação Azure.](automation-graphical-authoring-intro.md)
-* Para começar com runbooks do PowerShell, consulte [My first PowerShell runbook (O meu primeiro runbook do PowerShell)](automation-first-runbook-textual-powershell.md).
-* Para começar com runbooks do fluxo de trabalho do PowerShell, veja [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).
+* Para começar com os livros de execução da PowerShell, veja o meu primeiro livro de [corridas PowerShell.](automation-first-runbook-textual-powershell.md)
+* Para começar com os livros de fluxo de trabalho powerShell, consulte o meu primeiro livro de execução de fluxo de [trabalho PowerShell.](automation-first-runbook-textual.md)
 * Para obter uma introdução aos runbooks Python2, veja [My first Python2 runbook](automation-first-runbook-textual-python2.md) (O meu primeiro runbook Python2).
 

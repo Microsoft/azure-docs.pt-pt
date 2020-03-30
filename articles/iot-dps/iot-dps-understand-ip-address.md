@@ -8,10 +8,10 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: f6afd5c4cc5aa0215f943979ae91389b39d449f6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284931"
 ---
 # <a name="iot-hub-dps-ip-addresses"></a>Endereços IP do IoT Hub DPS
@@ -32,7 +32,7 @@ Os prefixos de endereço IP para os pontos finais públicos de um Serviço de Pr
 
 * Os prefixos do endereço IP dos casos de DPS ioT estão sujeitos a alterações. Estas alterações são publicadas periodicamente através de etiquetas de serviço antes de produzir em vigor. Por isso, é importante que desenvolva processos para recuperar e utilizar regularmente as mais recentes etiquetas de serviço. Este processo pode ser automatizado através da descoberta de etiquetas de [serviço API](../virtual-network/service-tags-overview.md#service-tags-on-premises). A Descoberta de Etiquetas de Serviço API ainda está em pré-visualização e em alguns casos pode não produzir a lista completa de tags e endereços IP. Até que a API esteja geralmente disponível, considere utilizar as etiquetas de [serviço no formato JSON descarregado.](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 
 
-* Use o *AzureIoTHub. nome da região]* etiqueta para identificar prefixos IP utilizados por pontos finais DPS numa região específica. Para ter em conta a recuperação de desastres do datacenter, ou [falha regional,](../iot-hub/iot-hub-ha-dr.md)garantir a conectividade com os prefixos IP da região geo-par da sua instância DPS também está ativada.
+* Use o *AzureIoTHub.. nome da região]* etiqueta para identificar prefixos IP utilizados por pontos finais DPS numa região específica. Para ter em conta a recuperação de desastres do datacenter, ou [falha regional,](../iot-hub/iot-hub-ha-dr.md)garantir a conectividade com os prefixos IP da região geo-par da sua instância DPS também está ativada.
 
 * A criação de regras de firewall para uma instância de DPS pode bloquear a conectividade necessária para executar comandos Azure CLI e PowerShell contra ele. Para evitar estes problemas de conectividade, pode adicionar regras de ALLOW para os prefixos de endereço IP dos seus clientes para reativar os clientes CLI ou PowerShell para comunicar com a sua instância DPS.  
 

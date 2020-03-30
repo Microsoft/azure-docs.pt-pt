@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261076"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Sincronização azure AD Connect: Scheduler
+# <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Scheduler
 Este tópico descreve o programador incorporado no sincronizacro Azure AD Connect (motor de sincronização).
 
 Esta funcionalidade foi introduzida com a build 1.1.105.0 (lançado em fevereiro de 2016).
@@ -41,11 +41,11 @@ O programador é responsável por duas tarefas:
 O programador em si está sempre a funcionar, mas pode ser configurado apenas para executar uma ou nenhuma destas tarefas. Por exemplo, se precisar de ter o seu próprio processo de ciclo de sincronização, pode desativar esta tarefa no programador, mas ainda executar a tarefa de manutenção.
 
 ## <a name="scheduler-configuration"></a>Configuração do programador
-Para ver as definições de configuração atuais, vá ao PowerShell e execute `Get-ADSyncScheduler`. Mostra algo como esta foto:
+Para ver as definições de configuração `Get-ADSyncScheduler`atuais, vá ao PowerShell e corra . Mostra algo como esta foto:
 
 ![GetSyncScheduler](./media/how-to-connect-sync-feature-scheduler/getsynccyclesettings2016.png)
 
-Se vir o comando de sincronização ou o **cmdlet não está disponível** quando executar este cmdlet, então o módulo PowerShell não está carregado. Este problema pode acontecer se executar o Azure AD Connect num controlador de domínio ou num servidor com níveis de restrição PowerShell mais elevados do que as definições predefinidas. Se vir este erro, faça `Import-Module ADSync` para disponibilizar o cmdlet.
+Se vir o comando de sincronização ou o **cmdlet não está disponível** quando executar este cmdlet, então o módulo PowerShell não está carregado. Este problema pode acontecer se executar o Azure AD Connect num controlador de domínio ou num servidor com níveis de restrição PowerShell mais elevados do que as definições predefinidas. Se vir este erro, `Import-Module ADSync` corra para disponibilizar o cmdlet.
 
 * **Intervalo de ciclos de sincronização permitido**. O intervalo de tempo mais curto entre ciclos de sincronização permitidos pela Azure AD. Não é possível sincronizar com mais frequência do que este ajuste e ainda ser apoiado.
 * **AtualmenteEficazSyncCycleInterval**. O horário está em vigor. Tem o mesmo valor que o CustomizedSyncInterval (se definido) se não for mais frequente do que o AllowedSyncInterval. Se utilizar uma construção antes de 1.1.281 e alterar CustomizedSyncCycleInterval, esta alteração entra em vigor após o próximo ciclo de sincronização. A partir da construção 1.1.281 a mudança entra em vigor imediatamente.
@@ -60,18 +60,18 @@ Se vir o comando de sincronização ou o **cmdlet não está disponível** quand
 
 Pode alterar algumas destas definições com `Set-ADSyncScheduler`. Podem ser modificados os seguintes parâmetros:
 
-* CustomizedSyncCycleInterval
-* NextSyncCyclePolicyType
-* PurgeRunHistoryInterval
-* SyncCycleEnabled
+* SyncCycleInterval personalizado
+* Tipo de Política de Ciclo sincrasia
+* Intervalo de História de Purga
+* Sincronizado
 * ManutençãoHabilitada
 
 Em construções anteriores do Azure AD Connect, **isStagingModeEnabled** foi exposto em Set-ADSyncScheduler. Não é **suportado** para definir esta propriedade. A propriedade **SchedulerSuspended** só deve ser modificada pela Connect. Não é **suportado** para definir isto com powerShell diretamente.
 
 A configuração do programador é armazenada em Azure AD. Se tiver um servidor de encenação, qualquer alteração no servidor primário também afeta o servidor de encenação (exceto o IsStagingModeEnabled).
 
-### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
-Sintaxe: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+### <a name="customizedsynccycleinterval"></a>SyncCycleInterval personalizado
+Sintaxe:`Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d - dias, HH - horas, mm - minutos, ss - segundos
 
 Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
@@ -83,11 +83,11 @@ As alterações mudam o programador para funcionar diariamente.
 ### <a name="disable-the-scheduler"></a>Desativar o programador  
 Se precisar de fazer alterações de configuração, então pretende desativar o programador. Por exemplo, quando [configura filtrar](how-to-connect-sync-configure-filtering.md) ou [fazer alterações às regras](how-to-connect-sync-change-the-configuration.md)de sincronização .
 
-Para desativar o programador, corra `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+Para desativar `Set-ADSyncScheduler -SyncCycleEnabled $false`o programador, corra.
 
 ![Desativar o programador](./media/how-to-connect-sync-feature-scheduler/schedulerdisable.png)
 
-Quando tiver feito as suas alterações, não se esqueça de voltar a ativar o programador com `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+Quando tiver feito as suas alterações, não se `Set-ADSyncScheduler -SyncCycleEnabled $true`esqueça de permitir novamente o programador com .
 
 ## <a name="start-the-scheduler"></a>Inicie o programador
 O programador é executado por padrão a cada 30 minutos. Em alguns casos, é melhor fazer um ciclo de sincronização entre os ciclos programados ou é necessário executar um tipo diferente.
@@ -109,9 +109,9 @@ Um ciclo de sincronização completo inclui os seguintes passos:
 
 Pode ser que tenha uma mudança urgente que deve ser sincronizada imediatamente, e é por isso que precisa de fazer um ciclo manualmente. 
 
-Se precisar de executar manualmente um ciclo de sincronização, então a partir de PowerShell executar `Start-ADSyncSyncCycle -PolicyType Delta`.
+Se precisar de executar manualmente um ciclo de `Start-ADSyncSyncCycle -PolicyType Delta`sincronização, então a partir da execução PowerShell .
 
-Para iniciar um ciclo de sincronização completo, execute `Start-ADSyncSyncCycle -PolicyType Initial` a partir de um pedido powerShell.   
+Para iniciar um ciclo `Start-ADSyncSyncCycle -PolicyType Initial` de sincronização completo, corra a partir de um pedido powerShell.   
 
 Executar um ciclo de sincronização completo pode ser muito demorado, leia a secção seguinte para ler como otimizar este processo.
 
@@ -152,12 +152,12 @@ Exemplo: Se tiver alterações nas regras de sincronização do Connector "AD Fo
 ## <a name="stop-the-scheduler"></a>Pare o programador
 Se o programador estiver atualmente a executar um ciclo de sincronização, poderá ter de o parar. Por exemplo, se iniciar o assistente de instalação e tiver este erro:
 
-![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
+![Erro de corrida de ciclo de sincronização](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
 Quando um ciclo de sincronização está em execução, não é possível fazer alterações de configuração. Pode esperar até que o programador termine o processo, mas também pode detê-lo para que possa fazer as suas alterações imediatamente. Parar o ciclo atual não é prejudicial e as alterações pendentes são processadas com a próxima execução.
 
-1. Comece por dizer ao programador para parar o seu ciclo atual com o cmdlet PowerShell `Stop-ADSyncSyncCycle`.
-2. Se utilizar uma construção antes de 1.1.281, então parar o programador não impede o conector atual da sua tarefa atual. Para forçar o Conector a parar, tome as seguintes ações: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+1. Comece por dizer ao programador para parar o seu `Stop-ADSyncSyncCycle`ciclo atual com o cmdlet PowerShell .
+2. Se utilizar uma construção antes de 1.1.281, então parar o programador não impede o conector atual da sua tarefa atual. Para forçar o Conector a ![parar, tome as seguintes ações: StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Inicie o Serviço de **Sincronização** a partir do menu inicial. Vá a **Conectores,** realce o Conector com o estado **de funcionamento**, e selecione **Parar** das Ações.
 
 O programador ainda está ativo e recomeça na próxima oportunidade.
@@ -167,7 +167,7 @@ Os cmdlets documentados nesta secção só estão disponíveis na construção [
 
 Se o programador incorporado não satisfazer os seus requisitos, então pode agendar os Conectores utilizando o PowerShell.
 
-### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Perfil de intrincrécope
 Pode iniciar um perfil para um Conector desta forma:
 
 ```
@@ -204,7 +204,7 @@ Na imagem acima, a primeira linha é de um estado onde o motor de sincronizaçã
 ## <a name="scheduler-and-installation-wizard"></a>Programador e assistente de instalação
 Se ligar o assistente de instalação, o programador está temporariamente suspenso. Este comportamento deve-se ao facto de se presumir que efaz alterações de configuração e estas definições não podem ser aplicadas se o motor sincronizado estiver a funcionar ativamente. Por esta razão, não deixe o assistente de instalação aberto, uma vez que impede o motor de sincronização de realizar quaisquer ações de sincronização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a configuração de [sincronização azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

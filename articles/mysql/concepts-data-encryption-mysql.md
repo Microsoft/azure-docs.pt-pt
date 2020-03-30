@@ -7,16 +7,16 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: a97fee619858aa024ff208b72d3b2594c30d2fd5
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299129"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 
 > [!NOTE]
-> Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, contacte AskAzureDBforMySQL@service.microsoft.com.
+> Neste momento, deve solicitar o acesso à utilização desta capacidade. Para isso, contacte. AskAzureDBforMySQL@service.microsoft.com
 
 A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Azure para mySQL permite-lhe trazer a sua própria chave (BYOK) para a proteção de dados em repouso. Permite ainda que as organizações implementem a separação de deveres na gestão de chaves e dados. Com a encriptação gerida pelo cliente, é responsável e, em pleno controlo, pelo ciclo de vida de uma chave, permissões de utilização chave e auditoria de operações em chaves.
 
@@ -39,9 +39,9 @@ A encriptação de dados para a Base de Dados Azure para o MySQL fornece os segu
 
 ## <a name="terminology-and-description"></a>Terminologia e descrição
 
-Chave de encriptação de **dados (DEK)** : Uma chave Simétrica AES256 utilizada para encriptar uma partilha ou bloco de dados. Encriptar cada bloco de dados com uma tecla diferente torna os ataques de análise de cripto mais difíceis. O acesso aos DEKs é necessário pelo fornecedor de recursos ou pela instância de aplicação que está a encriptar e a desencriptar um bloco específico. Quando substituir um DEK por uma nova tecla, apenas os dados do seu bloco associado devem ser novamente encriptados com a nova tecla.
+Chave de encriptação de **dados (DEK)**: Uma chave Simétrica AES256 utilizada para encriptar uma partilha ou bloco de dados. Encriptar cada bloco de dados com uma tecla diferente torna os ataques de análise de cripto mais difíceis. O acesso aos DEKs é necessário pelo fornecedor de recursos ou pela instância de aplicação que está a encriptar e a desencriptar um bloco específico. Quando substituir um DEK por uma nova tecla, apenas os dados do seu bloco associado devem ser novamente encriptados com a nova tecla.
 
-**Chave de encriptação (KEK)** : Uma chave de encriptação usada para encriptar os DEKs. Um KEK que nunca sai do Key Vault permite que os próprios DEKs sejam encriptados e controlados. A entidade que tem acesso ao KEK pode ser diferente da entidade que requer o DEK. Uma vez que o KEK é obrigado a desencriptar os DEKs, o KEK é efetivamente um ponto único pelo qual os DEKs podem ser efetivamente eliminados por eliminação do KEK.
+**Chave de encriptação (KEK)**: Uma chave de encriptação usada para encriptar os DEKs. Um KEK que nunca sai do Key Vault permite que os próprios DEKs sejam encriptados e controlados. A entidade que tem acesso ao KEK pode ser diferente da entidade que requer o DEK. Uma vez que o KEK é obrigado a desencriptar os DEKs, o KEK é efetivamente um ponto único pelo qual os DEKs podem ser efetivamente eliminados por eliminação do KEK.
 
 Os DEKs, encriptados com os KEKs, são armazenados separadamente. Só uma entidade com acesso ao KEK pode desencriptar estes DEKs. Para mais informações, consulte [a Segurança na encriptação em repouso](../security/fundamentals/encryption-atrest.md).
 
@@ -74,7 +74,7 @@ Seguem-se os requisitos para configurar a chave gerida pelo cliente:
 * A chave gerida pelo cliente para encriptar o DEK pode ser apenas assimétrica, RSA 2028.
 * A data de ativação da chave (se definida) deve ser uma data e hora no passado. A data de validade (se definida) deve ser uma data e hora futuras.
 * A chave deve estar no estado *ativado.*
-* Se estiver a importar uma chave existente para o cofre chave, certifique-se de que a fornece nos formatos de ficheiros suportados (`.pfx`, `.byok`, `.backup`).
+* Se estiver a importar uma chave existente para o cofre da chave, certifique-se`.pfx` `.byok`de `.backup`a fornecer nos formatos de ficheiros suportados ( . . ).
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -125,6 +125,6 @@ Para evitar problemas ao configurar encriptação de dados gerida pelo cliente d
 * Mantenha o servidor recém-criado (restaurado/réplica) num estado inacessível, porque a sua identidade única ainda não foi dada permissões ao Key Vault.
 * No servidor restaurado/réplica, revvalida a chave gerida pelo cliente nas definições de encriptação de dados. Isto garante que o servidor recém-criado é dado embrulhámento e desembrulhar permissões para a chave armazenada no Cofre chave.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a configurar a encriptação de dados com uma chave gerida pelo cliente para a sua base de [dados Azure para o MySQL utilizando o portal Azure](howto-data-encryption-portal.md).

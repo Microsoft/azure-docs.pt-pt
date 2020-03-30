@@ -1,13 +1,13 @@
 ---
-title: Retenção e armazenamento de dados em Insights de Aplicação Azure  Microsoft Docs
+title: Retenção e armazenamento de dados em Insights de Aplicação Azure [ Microsoft Docs
 description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 09/29/2019
 ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276000"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
@@ -52,10 +52,10 @@ As principais categorias são:
 * [Páginas web](../../azure-monitor/app/javascript.md) - Página, utilizador e contagem de sessões. Tempos de carregamento de página. Exceções. O Ajax chama.
 * Contadores de desempenho - Memória, CPU, IO, Ocupação da Rede.
 * Contexto do cliente e servidor - OS, local, tipo de dispositivo, navegador, resolução de ecrã.
-* [Exceções](../../azure-monitor/app/asp-net-exceptions.md) e acidentes - **depósitos de pilhas,** `build id`, tipo CPU. 
+* [Exceções](../../azure-monitor/app/asp-net-exceptions.md) e acidentes - `build id` **depósitos de pilhas,** tipo CPU. 
 * [Dependências](../../azure-monitor/app/asp-net-dependencies.md) - chamadas para serviços externos como REST, SQL, AJAX. URI ou corda de ligação, duração, sucesso, comando.
 * [Testes](../../azure-monitor/app/monitor-web-app-availability.md) de disponibilidade - duração do teste e etapas, respostas.
-* [Trace logs](../../azure-monitor/app/asp-net-trace-logs.md) e [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md) - **qualquer coisa que codifique nos seus registos ou telemetria**.
+* [Trace logs](../../azure-monitor/app/asp-net-trace-logs.md) e [telemetria](../../azure-monitor/app/api-custom-events-metrics.md) - personalizada**qualquer coisa que codificar nos seus registos ou telemetria**.
 
 [Mais detalhes.](#data-sent-by-application-insights)
 
@@ -80,7 +80,7 @@ Os dados mantidos por mais de 90 dias incorrerão em encargos adicionais. Saiba 
 
 Os dados agregados (isto é, conta, médias e outros dados estatísticos que se vê no Metric Explorer) são retidos a um grão de 1 minuto durante 90 dias.
 
-[As fotos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenadas durante 15 dias. Esta política de retenção está definida numa base por aplicação. Se precisar de aumentar este valor, pode pedir um aumento ao abrir um incidente de suporte no portal do Azure.
+[As fotos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenadas durante 15 dias. Esta política de retenção é definida numa base por aplicação. Se precisar de aumentar este valor, pode solicitar um aumento abrindo um caso de suporte no portal Azure.
 
 ## <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 Os dados são visíveis para si e, se tiver uma conta de organização, os membros da sua equipa. 
@@ -128,11 +128,11 @@ Se um cliente precisar de configurar este diretório com requisitos de seguranç
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp` é utilizado para dados persistentes. Esta localização não é configurável a partir do diretório de config e as permissões para aceder a esta pasta são restritas ao utilizador específico com credenciais necessárias. (Para mais informações, consulte [a implementação](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
+`C:\Users\username\AppData\Local\Temp`é utilizado para dados persistentes. Esta localização não é configurável a partir do diretório de config e as permissões para aceder a esta pasta são restritas ao utilizador específico com credenciais necessárias. (Para mais informações, consulte [a implementação](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
 
 ###  <a name="net"></a>.Net
 
-Por predefinição, `ServerTelemetryChannel` utiliza a pasta de dados de aplicações local do utilizador atual `%localAppData%\Microsoft\ApplicationInsights` ou pasta temporária `%TMP%`. (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.)
+Por `ServerTelemetryChannel` predefinição, utiliza a pasta `%localAppData%\Microsoft\ApplicationInsights` de dados `%TMP%`de aplicação local do utilizador atual ou a pasta temporária . (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.)
 
 
 Através de ficheiro de configuração:
@@ -155,9 +155,9 @@ Via código:
 
 ### <a name="netcore"></a>NetCore
 
-Por predefinição, `ServerTelemetryChannel` utiliza a pasta de dados de aplicações local do utilizador atual `%localAppData%\Microsoft\ApplicationInsights` ou pasta temporária `%TMP%`. (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.) Num ambiente Linux, o armazenamento local será desativado a menos que seja especificada uma pasta de armazenamento.
+Por `ServerTelemetryChannel` predefinição, utiliza a pasta `%localAppData%\Microsoft\ApplicationInsights` de dados `%TMP%`de aplicação local do utilizador atual ou a pasta temporária . (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.) Num ambiente Linux, o armazenamento local será desativado a menos que seja especificada uma pasta de armazenamento.
 
-O seguinte código de corte mostra como configurar `ServerTelemetryChannel.StorageFolder` no método `ConfigureServices()` da sua classe `Startup.cs`:
+O seguinte código de corte `ServerTelemetryChannel.StorageFolder` mostra `ConfigureServices()` como definir `Startup.cs` no método da sua classe:
 
 ```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -167,21 +167,21 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 ### <a name="nodejs"></a>Node.js
 
-Por padrão, `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` é utilizado para dados persistentes. As permissões para aceder a esta pasta estão restritas ao utilizador e administradores atuais. (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) aqui.)
+Por `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` predefinição é utilizado para dados persistentes. As permissões para aceder a esta pasta estão restritas ao utilizador e administradores atuais. (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) aqui.)
 
-O prefixo da pasta `appInsights-node` pode ser ultrapassado alterando o valor de tempo de execução da variável estática `Sender.TEMPDIR_PREFIX` encontrada em [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+O prefixo `appInsights-node` da pasta pode ser ultrapassado alterando o `Sender.TEMPDIR_PREFIX` valor de tempo de execução da variável estática encontrada em [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
 ### <a name="javascript-browser"></a>JavaScript (navegador)
 
-[HTML5 Armazenamento](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) de sessão é usado para persistir dados. São utilizados dois tampão separados: `AI_buffer` e `AI_sent_buffer`. A telemetria que é lotada e à espera de ser enviada é armazenada em `AI_buffer`. A telemetria que acabou de ser enviada é colocada em `AI_sent_buffer` até que o servidor de ingestão responda que foi recebida com sucesso. Quando a telemetria é recebida com sucesso, é removida de todos os amortecedores. Em falhas transitórias (por exemplo, um utilizador perde conectividade de rede), a telemetria permanece em `AI_buffer` até que seja recebida com sucesso ou o servidor de ingestão responda que a telemetria é inválida (má schema ou demasiado velha, por exemplo).
+[HTML5 Armazenamento](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) de sessão é usado para persistir dados. São utilizados dois `AI_buffer` tampão separados: e `AI_sent_buffer`. A telemetria que é lotada e `AI_buffer`à espera de ser enviada é armazenada em . A telemetria que acabou `AI_sent_buffer` de ser enviada é colocada até que o servidor de ingestão responda que foi recebida com sucesso. Quando a telemetria é recebida com sucesso, é removida de todos os amortecedores. Em falhas transitórias (por exemplo, um utilizador perde a `AI_buffer` conectividade da rede), a telemetria permanece até ser recebida com sucesso ou o servidor de ingestão responde que a telemetria é inválida (mau esquema ou demasiado velho, por exemplo).
 
-Os amortecedores de telemetria podem ser desativados colocando [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) para `false`. Quando o armazenamento da sessão é desligado, uma matriz local é usada como armazenamento persistente. Uma vez que o JavaScript SDK funciona num dispositivo cliente, o utilizador tem acesso a este local de armazenamento através das ferramentas de desenvolvimento do seu navegador.
+Os tampão de telemetria [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) podem `false`ser desativados regulando para . Quando o armazenamento da sessão é desligado, uma matriz local é usada como armazenamento persistente. Uma vez que o JavaScript SDK funciona num dispositivo cliente, o utilizador tem acesso a este local de armazenamento através das ferramentas de desenvolvimento do seu navegador.
 
 ### <a name="opencensus-python"></a>OpenCensus Python
 
-Por padrão, o OpenCensus Python SDK utiliza a atual pasta de utilizador `%username%/.opencensus/.azure/`. As permissões para aceder a esta pasta estão restritas ao utilizador e administradores atuais. (Ver [implementação](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) aqui.) A pasta com os seus dados persistidos será nomeada em homenagem ao ficheiro Python que gerou a telemetria.
+Por padrão, o OpenCensus Python SDK utiliza a atual pasta `%username%/.opencensus/.azure/`de utilizador . As permissões para aceder a esta pasta estão restritas ao utilizador e administradores atuais. (Ver [implementação](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) aqui.) A pasta com os seus dados persistidos será nomeada em homenagem ao ficheiro Python que gerou a telemetria.
 
-Pode alterar a localização do seu ficheiro de armazenamento, passando o parâmetro `storage_path` no construtor do exportador que está a utilizar.
+Pode alterar a localização do seu ficheiro `storage_path` de armazenamento, passando o parâmetro no construtor do exportador que está a utilizar.
 
 ```python
 AzureLogHandler(
@@ -200,19 +200,19 @@ Não recomendamos que a definição explícita da sua aplicação utilize apenas
 
 ### <a name="platformlanguage-specific-guidance"></a>Orientação específica da plataforma/linguagem
 
-|Plataforma/linguagem | Suporte | Mais Informações |
+|Plataforma/Idioma | Suporte | Mais Informações |
 | --- | --- | --- |
 | Serviços de Aplicações do Azure  | Suportada, pode ser necessária uma configuração. | O apoio foi anunciado em abril de 2018. Leia o anúncio para obter detalhes de [configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Aplicativos de função Azure | Suportada, pode ser necessária uma configuração. | O apoio foi anunciado em abril de 2018. Leia o anúncio para obter detalhes de [configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Aplicações de Funções do Azure | Suportada, pode ser necessária uma configuração. | O apoio foi anunciado em abril de 2018. Leia o anúncio para obter detalhes de [configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
 |.NET | Suportada, a configuração varia consocada por versão. | Para obter informações detalhadas sobre a configuração para .NET 4.7 e versões anteriores, consulte [estas instruções](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor de Estado | Suportado, configuração necessária | O Monitor de Estado baseia-se na [configuração do OS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET configuração](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) para suportar TLS 1.2.
+|Monitor de Estado | Suportado, configuração necessária | O Monitor de Estado baseia-se na [configuração](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + dos OS[.NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) para suportar o TLS 1.2.
 |Node.js |  Suportada, em v10.5.0, pode ser necessária configuração. | Utilize a documentação oficial do [Nó.js TLS/SSL](https://nodejs.org/api/tls.html) para qualquer configuração específica da aplicação. |
 |Java | Suportado, o suporte JDK para TLS 1.2 foi adicionado na [atualização JDK 6 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 utiliza [TLS 1.2 por defeito](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | As distribuições linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte TLS 1.2.  | Verifique o [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar que a sua versão do OpenSSL está suportada.|
-| Windows 8.0 10 | Suportado e ativado por predefinição. | Para confirmar que ainda está a utilizar as [definições predefinidas](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2016 de 2012 | Suportado e ativado por predefinição. | Para confirmar que ainda está a utilizar as [definições predefinidas](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por predefinição. | Consulte a página de definições de registo de Segurança da Camada de [Transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter mais detalhes sobre como ativar.  |
-| Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Consulte [a Atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
+| Windows 8.0 - 10 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinidas](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinidas](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por padrão. | Consulte a página de definições de registo de Segurança da Camada de [Transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter mais detalhes sobre como ativar.  |
+| Windows Server 2008 SP2 | O suporte para TLS 1.2 requer uma atualização. | Consulte [a Atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
 |Windows Vista | Não suportado. | N/D
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Verifique qual a versão do OpenSSL que a sua distribuição linux está a correr
@@ -247,10 +247,10 @@ Os SDKs variam entre plataformas, existindo vários componentes que pode instala
 
 | A sua ação | Aulas de dados recolhidas (ver tabela seguinte) |
 | --- | --- |
-| [Adicione Insights de Aplicação SDK a um projeto web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Pedidos<br/>**Exceções**<br/>Sessão<br/>utilizadores |
-| [Instalar monitor de estado no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicione Insights de aplicação SDK a uma aplicação web java][java] |ServerContext<br/>Inferido<br/>Pedir<br/>Sessão<br/>utilizadores |
-| [Adicione JavaScript SDK à página web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
+| [Adicione Insights de Aplicação SDK a um projeto web .NET][greenbrown] |Contexto do servidor<br/>Inferido<br/>Contadores de desempenho<br/>Pedidos<br/>**Exceções**<br/>Sessão<br/>utilizadores |
+| [Instalar monitor de estado no IIS][redfield] |Dependências<br/>Contexto do servidor<br/>Inferido<br/>Contadores de desempenho |
+| [Adicione Insights de aplicação SDK a uma aplicação web java][java] |Contexto do servidor<br/>Inferido<br/>Pedir<br/>Sessão<br/>utilizadores |
+| [Adicione JavaScript SDK à página web][client] |Contexto de Clientes <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades por defeito][apiproperties] |**Propriedades** em todos os eventos standard e personalizados |
 | [Chamada TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
 | [Chamada Track*][api] |Nome do evento<br/>**Propriedades** |
@@ -264,10 +264,10 @@ Para [SDKs para outras plataformas,][platforms]consulte os seus documentos.
 | Classe de dados recolhida | Inclui (não uma lista exaustiva) |
 | --- | --- |
 | **Propriedades** |**Quaisquer dados - determinados pelo seu código** |
-| Contexto de dispositivos |`Id`, IP, Locale, Modelo de Dispositivo, rede, tipo de rede, nome OEM, resolução de ecrã, Role Instance, Role Name, Device Type |
-| ClientContext |S, local, linguagem, rede, resolução de janelas |
+| Contexto de dispositivos |`Id`IP, Locale, Modelo de Dispositivo, rede, tipo de rede, nome OEM, resolução de ecrã, Role Instance, Role Name, Device Type |
+| Contexto de Clientes |S, local, linguagem, rede, resolução de janelas |
 | Sessão |`session id` |
-| ServerContext |Nome da máquina, local, SO, dispositivo, sessão do utilizador, contexto do utilizador, operação |
+| Contexto do servidor |Nome da máquina, local, SO, dispositivo, sessão do utilizador, contexto do utilizador, operação |
 | Inferido |localização geo a partir de endereço IP, carimbo de tempo, OS, navegador |
 | Métricas |Nome e valor métricos |
 | Eventos |Nome e valor do evento |
@@ -276,8 +276,8 @@ Para [SDKs para outras plataformas,][platforms]consulte os seus documentos.
 | Ajax |HTTP chamadas de página web para servidor |
 | Pedidos |URL, duração, código de resposta |
 | Dependências |Tipo (SQL, HTTP, ...), cadeia de ligação ou URI, sync/async, duração, sucesso, declaração SQL (com Monitor de Estado) |
-| **Exceções** |Tipo, **mensagem,** pilhas de chamadas, ficheiro fonte, número de linha, `thread id` |
-| Acidentes |`Process id`, `parent process id`, `crash thread id`; patch de aplicação, `id`, construir;  tipo de exceção, endereço, razão; símbolos e registos obfuscados, endereços binários de início e fim, nome binário e caminho, tipo cpu |
+| **Exceções** |Tipo, **mensagem,** pilhas de chamadas, ficheiro fonte, número de linha,`thread id` |
+| Acidentes |`Process id`, `parent process id`, `crash thread id`; patch de `id`aplicação, construir;  tipo de exceção, endereço, razão; símbolos e registos obfuscados, endereços binários de início e fim, nome binário e caminho, tipo cpu |
 | Rastreio |**Mensagem** e nível de gravidade |
 | Contadores de desempenho |Tempo de processador, memória disponível, taxa de pedido, taxa de exceção, processo de bytes privados, taxa IO, duração do pedido, tempo de fila de pedidos |
 | Disponibilidade |Código de resposta do teste web, duração de cada etapa de teste, nome do teste, carimbo de tempo, sucesso, tempo de resposta, local de teste |
@@ -289,7 +289,7 @@ Pode [desligar alguns dos dados editando ApplicationInsights.config][config]
 > O IP do cliente é usado para inferir a localização geográfica, mas por padrão os dados IP já não são armazenados e todos os zeros são escritos para o campo associado. Para saber mais sobre o tratamento de dados pessoais recomendamos este [artigo.](../../azure-monitor/platform/personal-data-mgmt.md#application-data) Se precisar de armazenar dados de endereçoIP, o nosso artigo de recolha de [endereços IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) irá acompanhá-lo através das suas opções.
 
 ## <a name="credits"></a>Créditos
-Este produto inclui dados GeoLite2 criados pela MaxMind, disponíveis a partir de [https://www.maxmind.com](https://www.maxmind.com).
+Este produto inclui dados GeoLite2 criados [https://www.maxmind.com](https://www.maxmind.com)pela MaxMind, disponíveis a partir de .
 
 
 

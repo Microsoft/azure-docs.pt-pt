@@ -16,10 +16,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: db5f52c95daf4e93c140b4c93f39dad19971319d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262623"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>App Daemon que chama APIs web - mude para a produção
@@ -60,7 +60,7 @@ Aqui estão alguns links para ajudá-lo a aprender mais:
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Experimente o quickstart [Adquira um token e ligue para o Microsoft Graph API a partir de uma aplicação](./quickstart-v2-python-daemon.md)de consola Python usando a identidade da app .
 

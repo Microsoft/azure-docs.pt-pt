@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284203"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gerencie o seu ambiente de serviço de integração (ISE) em Aplicações Lógicas Azure
@@ -23,7 +23,7 @@ Este artigo mostra como executar tarefas de gestão para o seu ambiente de servi
 
 ## <a name="view-your-ise"></a>Ver o seu ISE
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Na caixa de pesquisa do portal, insira "ambientes de serviço de integração", e depois selecione Ambientes de Serviço de **Integração.**
 
@@ -103,7 +103,7 @@ Pode ver e gerir os conectores personalizados que implementou no ise.
 
 <a name="add-capacity"></a>
 
-## <a name="add-ise-capacity"></a>Adicionar capacidade ise
+## <a name="add-ise-capacity"></a>Adicionar a capacidade do ISE
 
 A unidade base Premium ISE tem capacidade fixa, por isso, se precisar de mais energia, pode adicionar mais unidades de escala, seja durante a criação ou depois. O Developer SKU não inclui a capacidade de adicionar unidades de escala.
 
@@ -172,12 +172,12 @@ Se alterar as definições do servidor DNS ou do servidor DNS, tem de reiniciar 
 
 <a name="delete-ise"></a>
 
-## <a name="delete-ise"></a>Eliminar ise
+## <a name="delete-ise"></a>Eliminar o ISE
 
 Antes de eliminar um ISE de que já não precisa ou um grupo de recursos Azure que contenha um ISE, verifique se não tem políticas ou fechaduras no grupo de recursos Azure que contenha esses recursos ou na sua rede virtual Azure porque estes itens podem bloquear a eliminação.
 
 Depois de eliminar o ise, poderá ter de esperar até 9 horas antes de tentar eliminar a rede virtual do Azure ou subredes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Adicionar recursos aos ambientes de serviçode integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)

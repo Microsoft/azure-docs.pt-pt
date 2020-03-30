@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278301"
 ---
 # <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Compreender e resolver a saúde do trabalhador do livro de corridas híbrido linux para gestão de atualizações
@@ -29,22 +29,22 @@ A lista que se segue são os três estados de prontidão em que uma máquina pod
 > [!NOTE]
 > Pode haver um ligeiro atraso entre o que o portal Azure mostra e o estado atual da máquina.
 
-## <a name="start-the-troubleshooter"></a>Iniciar a resolução de problemas
+## <a name="start-the-troubleshooter"></a>Inicie o resolução de problemas
 
 Para máquinas Azure, clique no link **Troubleshoot** sob a coluna **de prontidão** do agente de atualização no portal lança a página do Agente de Atualização de **Resolução** de Problemas. Para máquinas não-Azure, o link leva-o a este artigo. Consulte as instruções offline para filmar uma máquina não Azure.
 
-![página de lista de VM](../media/update-agent-issues-linux/vm-list.png)
+![página da lista vm](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> As verificações de exigem que a VM estar em execução. Se o VM não estiver a funcionar, é-lhe apresentado um botão para **iniciar o VM**.
+> Os cheques exigem que o VM esteja a funcionar. Se o VM não estiver a funcionar, é-lhe apresentado um botão para **iniciar o VM**.
 
-Na página do **Agente de Atualização** de Problemas, clique em **Controlos de Execução,** para iniciar o resolução de problemas. O resoluto de problemas usa o [comando run](../../virtual-machines/linux/run-command.md) para executar um script na máquina para verificar as dependências. Quando a resolução de problemas estiver concluída, ela retorna o resultado das verificações.
+Na página do **Agente de Atualização** de Problemas, clique em **Controlos de Execução,** para iniciar o resolução de problemas. O resoluto de problemas usa o [comando run](../../virtual-machines/linux/run-command.md) para executar um script na máquina para verificar as dependências. Quando o resolução de problemas estiver completo, devolve o resultado dos controlos.
 
-![Resolver problemas de página](../media/update-agent-issues-linux/troubleshoot-page.png)
+![Página de resolução de problemas](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-Quando terminar, os resultados são devolvidos na janela. As secções de verificação fornecem informações sobre o que cada cheque procura.
+Quando estiver em conclusão, os resultados são devolvidos na janela. As secções de verificação fornecem informações sobre o que cada cheque procura.
 
-![Página de verificações de atualização de agente](../media/update-agent-issues-linux/update-agent-checks.png)
+![Atualizar página de verificação de agentes](../media/update-agent-issues-linux/update-agent-checks.png)
 
 ## <a name="prerequisite-checks"></a>Verificações de pré-requisitos
 
@@ -57,9 +57,9 @@ A verificação do sistema operativo verifica se o Trabalhador do Livro híbrido
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. A correção baseada na classificação requer 'yum' para devolver dados de segurança que o CentOS não tem fora da caixa.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
-|Ubuntu 14.04 LTS e 16.04 LTS e 18.04 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
+|Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
 
-## <a name="monitoring-agent-service-health-checks"></a>Monitorização verificações de estado de funcionamento do serviço de agente
+## <a name="monitoring-agent-service-health-checks"></a>Controlos de saúde do serviço de agentes de monitorização
 
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics
 
@@ -76,15 +76,15 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### <a name="multihoming"></a>Multihoming
 
-Esta verificação determina se o agente está a comunicar para várias áreas de trabalho. Multi-homing não é suportado pelo gerenciamento de atualizações.
+Esta verificação determina se o agente está reportando a vários espaços de trabalho. A Multi-homing não é suportada pela Update Management.
 
 ### <a name="hybrid-runbook-worker"></a>Função de Trabalho de Runbook Híbrida
 
-Esta verificação verifica se o agente Log Analytics para linux tem o pacote Hybrid Runbook Worker. Este pacote é necessária para a gestão de atualização funcionar.
+Esta verificação verifica se o agente Log Analytics para linux tem o pacote Hybrid Runbook Worker. Este pacote é necessário para que a Atualização funcione.
 
-### <a name="hybrid-runbook-worker-status"></a>Estado de trabalho de Runbook híbrida
+### <a name="hybrid-runbook-worker-status"></a>Estatuto de Trabalhador de Runbook Híbrido
 
-Esta verificação torna-se de que a função de trabalho de Runbook híbrida está em execução na máquina. Os seguintes processos devem estar presentes se a função de trabalho de Runbook híbrida está a ser executado corretamente. Para saber mais, consulte a [resolução de problemas do Agente de Análise de Log para o Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+Esta verificação certifica-se de que o Trabalhador do Livro Híbrido está a funcionar na máquina. Os seguintes processos devem estar presentes se o Trabalhador do Livro híbrido estiver a funcionar corretamente. Para saber mais, consulte a [resolução de problemas do Agente de Análise de Log para o Linux](hybrid-runbook-worker.md#oms-agent-not-running).
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -94,37 +94,37 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 ## <a name="connectivity-checks"></a>Verificações de conectividade
 
-### <a name="general-internet-connectivity"></a>Conectividade internet
+### <a name="general-internet-connectivity"></a>Conectividade geral da Internet
 
-Esta verificação certifica-se de que a máquina tem acesso à internet.
+Este cheque garante que a máquina tem acesso à internet.
 
-### <a name="registration-endpoint"></a>Ponto final do registo
+### <a name="registration-endpoint"></a>Ponto final de inscrição
 
 Esta verificação determina se o Trabalhador do Livro Híbrido consegue comunicar corretamente com a Azure Automation o espaço de trabalho Log Analytics.
 
-Configurações de proxy e de firewall têm de permitir o agente de trabalho de Runbook híbrida comunicar com o ponto final do registo. Para abrir uma lista de endereços e portos, consulte [o planeamento da rede para trabalhadores híbridos](../automation-hybrid-runbook-worker.md#network-planning)
+As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker comunique com o ponto final de registo. Para abrir uma lista de endereços e portos, consulte [o planeamento da rede para trabalhadores híbridos](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### <a name="operations-endpoint"></a>Ponto final de operações
 
-Esta verificação determina se o agente corretamente pode comunicar com o serviço de dados de tempo de execução de tarefa.
+Esta verificação determina se o agente pode comunicar corretamente com o Serviço de Dados de Funcionato de Trabalho.
 
-Configurações de proxy e de firewall têm de permitir o agente de trabalho de Runbook híbrida para comunicar com o serviço de dados de tempo de execução de tarefa. Para abrir uma lista de endereços e portos, consulte [o planeamento da rede para trabalhadores híbridos](../automation-hybrid-runbook-worker.md#network-planning)
+As configurações de proxy e firewall devem permitir que o agente Hybrid Runbook Worker se comunique com o Serviço de Dados do Tempo de Execução de Emprego. Para abrir uma lista de endereços e portos, consulte [o planeamento da rede para trabalhadores híbridos](../automation-hybrid-runbook-worker.md#network-planning)
 
-### <a name="log-analytics-endpoint-1"></a>Ponto de extremidade do log Analytics 1
+### <a name="log-analytics-endpoint-1"></a>Log Analytics endpoint 1
 
-Esta verificação verifica se o seu computador tem acesso aos pontos finais necessários para o agente Log Analytics.
+Esta verificação verifica que a sua máquina tem acesso aos pontos finais necessários pelo agente Log Analytics.
 
-### <a name="log-analytics-endpoint-2"></a>Ponto de extremidade do log Analytics 2
+### <a name="log-analytics-endpoint-2"></a>Log Analytics endpoint 2
 
-Esta verificação verifica se o seu computador tem acesso aos pontos finais necessários para o agente Log Analytics.
+Esta verificação verifica que a sua máquina tem acesso aos pontos finais necessários pelo agente Log Analytics.
 
-### <a name="log-analytics-endpoint-3"></a>Ponto de extremidade do log Analytics 3
+### <a name="log-analytics-endpoint-3"></a>Log Analytics endpoint 3
 
-Esta verificação verifica se o seu computador tem acesso aos pontos finais necessários para o agente Log Analytics.
+Esta verificação verifica que a sua máquina tem acesso aos pontos finais necessários pelo agente Log Analytics.
 
-## <a name="troubleshoot-offline"></a>Resolução de problemas offline
+## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Resolução de problemas offline
 
-Pode utilizar a resolução de problemas offline numa função de trabalho de Runbook híbridas executando o script localmente. O guião python, [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) pode ser encontrado no Script Center. Um exemplo da saída deste script é mostrado no exemplo a seguir:
+Você pode usar o resoludor de problemas offline em um Hybrid Runbook Worker executando o script localmente. O guião python, [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) pode ser encontrado no Script Center. Um exemplo da saída deste script é mostrado no seguinte exemplo:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2
@@ -177,6 +177,6 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para resolver problemas adicionais com os seus Trabalhadores híbridos, consulte [Troubleshoot - Trabalhadores híbridos do runbook](hybrid-runbook-worker.md).

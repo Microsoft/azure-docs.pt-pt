@@ -1,5 +1,5 @@
 ---
-title: Configurar o servidor de configuração para recuperação de desastres de servidores físicos para o Azure utilizando a Recuperação do Site Azure  Microsoft Docs'
+title: Configurar o servidor de configuração para recuperação de desastres de servidores físicos para o Azure utilizando a Recuperação do Site Azure [ Microsoft Docs'
 description: Este artigo descreve como configurar o servidor de configuração no local para a recuperação de desastres de servidores físicos no local para o Azure.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257878"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação de desastres de servidores físicos para o Azure
@@ -36,7 +36,7 @@ A tabela seguinte lista os requisitos mínimos de hardware, software e rede para
 ## <a name="choose-your-protection-goals"></a>Escolha os seus objetivos de proteção
 
 1. No portal Azure, vá à lâmina dos **cofres dos Serviços** de Recuperação e selecione o seu cofre.
-2. No menu **de recursos** do cofre, clique em **Começar** > **Recuperação** do Site > **Passo 1: Preparar a infraestrutura** > objetivo de **proteção**.
+2. No menu **de recursos** do cofre, clique em **Iniciar** > a**Recuperação** > do Local**Passo 1: Preparar** > o objetivo de**proteção de**infraestruturas .
 
     ![Selecione os objetivos](./media/physical-azure-set-up-source/choose-goals.png)
 3. No **objetivo de Proteção**, selecione **Para Azure** e **Não virtualizado/Outros,** e, em seguida, clique **OK**.
@@ -71,6 +71,6 @@ A tabela seguinte lista os requisitos mínimos de hardware, software e rede para
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O próximo passo passa por [criar o seu ambiente alvo](physical-azure-set-up-target.md) em Azure.

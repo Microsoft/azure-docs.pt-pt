@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
 ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250182"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Pré-visualização: Atualizações de controlo com controlo de manutenção e o CLI Azure
@@ -28,7 +28,7 @@ Com controlo de manutenção, pode:
 
 > [!IMPORTANT]
 > O Controlo de Manutenção encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 >
 
 ## <a name="limitations"></a>Limitações
@@ -42,7 +42,7 @@ Com controlo de manutenção, pode:
 
 Se optar por instalar o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) localmente, precisa da versão 2.0.76 ou posterior.
 
-Instale a extensão CLI de pré-visualização `maintenance` localmente ou na Cloud Shell. 
+Instale `maintenance` a extensão CLI de pré-visualização localmente ou na Cloud Shell. 
 
 ```azurecli-interactive
 az extension add -n maintenance
@@ -66,11 +66,11 @@ az maintenance configuration create \
 
 Copie o ID de configuração da saída para utilizar mais tarde.
 
-A utilização `--maintenanceScope host` garante que o config de manutenção é utilizado para controlar as atualizações do hospedeiro.
+A `--maintenanceScope host` utilização garante que o config de manutenção é utilizado para controlar as atualizações do hospedeiro.
 
 Se tentar criar uma configuração com o mesmo nome, mas num local diferente, terá um erro. Os nomes de configuração devem ser exclusivos da sua subscrição.
 
-Pode consultar as configurações de manutenção disponíveis utilizando `az maintenance configuration list`.
+Pode consultar as configurações de `az maintenance configuration list`manutenção disponíveis utilizando .
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
@@ -82,7 +82,7 @@ Utilize `az maintenance assignment create` para atribuir a configuração ao seu
 
 ### <a name="isolated-vm"></a>VM isolado
 
-Aplique a configuração num VM utilizando o ID da configuração. Especifique `--resource-type virtualMachines` e forneça o nome do VM para `--resource-name`, e o grupo de recursos para o VM em `--resource-group`, e a localização do VM para `--location`. 
+Aplique a configuração num VM utilizando o ID da configuração. Especifique `--resource-type virtualMachines` e forneça o `--resource-name`nome do VM para , `--resource-group`e o grupo de `--location`recursos para o VM em , e a localização do VM para . 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -97,7 +97,7 @@ az maintenance assignment create \
 
 ### <a name="dedicated-host"></a>Anfitrião dedicado
 
-Para aplicar uma configuração a um anfitrião dedicado, você precisa incluir `--resource-type hosts`, `--resource-parent-name` com o nome do grupo anfitrião, e `--resource-parent-type hostGroups`. 
+Para aplicar uma configuração a um anfitrião dedicado, você precisa incluir, `--resource-type hosts` `--resource-parent-name` com o nome do grupo anfitrião, e `--resource-parent-type hostGroups`. 
 
 O parâmetro `--resource-id` é a identificação do hospedeiro. Você pode usar [az vm host get-view](/cli/azure/vm/host#az-vm-host-get-instance-view) para obter a identificação do seu anfitrião dedicado.
 
@@ -116,7 +116,7 @@ az maintenance assignment create \
 
 ## <a name="check-configuration"></a>Verificar a configuração
 
-Pode verificar se a configuração foi aplicada corretamente ou verificar qual a configuração atualmente aplicada utilizando `az maintenance assignment list`.
+Pode verificar se a configuração foi aplicada corretamente, ou verificar `az maintenance assignment list`para ver que configuração é aplicada atualmente usando .
 
 ### <a name="isolated-vm"></a>VM isolado
 
@@ -147,9 +147,9 @@ az maintenance assignment list \
 
 ## <a name="check-for-pending-updates"></a>Verifique as atualizações pendentes
 
-Utilize `az maintenance update list` para ver se existem atualizações pendentes. Atualização -- subscrição para ser o ID para a subscrição que contém o VM.
+Use `az maintenance update list` para ver se existem atualizações pendentes. Atualização -- subscrição para ser o ID para a subscrição que contém o VM.
 
-Se não houver atualizações, o comando devolverá uma mensagem de erro, que conterá o texto: `Resource not found...StatusCode: 404`.
+Se não houver atualizações, o comando devolverá uma mensagem `Resource not found...StatusCode: 404`de erro, que conterá o texto: .
 
 Se houver atualizações, apenas uma será devolvida, mesmo que existam várias atualizações pendentes. Os dados desta atualização serão devolvidos num objeto:
 
@@ -232,7 +232,7 @@ az maintenance applyupdate create \
 
 Pode verificar o progresso das atualizações utilizando `az maintenance applyupdate get`. 
 
-Pode utilizar `default` como nome de atualização para ver os resultados da última atualização, ou substituir `myUpdateName` pelo nome da atualização que foi devolvida quando fez `az maintenance applyupdate create`.
+Pode utilizar `default` como nome de atualização para ver `myUpdateName` os resultados da última atualização `az maintenance applyupdate create`ou substituir pelo nome da atualização que foi devolvida quando foi recorrido .
 
 ```text
 Status         : Completed
@@ -285,5 +285,5 @@ az maintenance configuration delete \
    --name myConfig
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais, consulte [Manutenção e atualizações.](maintenance-and-updates.md)

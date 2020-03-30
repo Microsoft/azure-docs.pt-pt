@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279510"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes VMware de nuvem privada
@@ -34,11 +34,11 @@ Uma pilha privada de VMware cloud é implementada com a seguinte versão de soft
 | ESXi | 6.7U2 | Enterprise Plus |
 | vCenter | 6.7U2 | vCenter Standard |
 | vSAN | 6.7 | Enterprise |
-| Centro de Dados NSX | 2.4.1 | Avançada |
+| Centro de Dados NSX | 2.4.1 | Avançado |
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi está instalado em nódos CloudSimple aprovisionados quando cria uma nuvem privada.  O ESXi fornece o hipervisor para a implementação de máquinas virtuais de carga de trabalho (VMs).  Os nós fornecem infraestruturas hiperconvergentes (computação e armazenamento) na sua nuvem privada.  Os nós fazem parte do aglomerado de vSphere na nuvem privada.  Cada nó tem quatro interfaces de redes físicas ligadas à rede de subposição.  Duas interfaces de rede física são usadas para criar um **VSphere Distributed Switch (VDS)** no vCenter e duas são usadas para criar um interruptor virtual distribuído virtual **gerido pelo NSX (N-VDS)** .  As interfaces de rede estão configuradas em modo ativo para alta disponibilidade.
+VMware ESXi está instalado em nódos CloudSimple aprovisionados quando cria uma nuvem privada.  O ESXi fornece o hipervisor para a implementação de máquinas virtuais de carga de trabalho (VMs).  Os nós fornecem infraestruturas hiperconvergentes (computação e armazenamento) na sua nuvem privada.  Os nós fazem parte do aglomerado de vSphere na nuvem privada.  Cada nó tem quatro interfaces de redes físicas ligadas à rede de subposição.  Duas interfaces de rede física são usadas para criar um **VSphere Distributed Switch (VDS)** no vCenter e duas são usadas para criar um interruptor virtual distribuído virtual **gerido pelo NSX (N-VDS)**.  As interfaces de rede estão configuradas em modo ativo para alta disponibilidade.
 
 Saiba mais sobre VMware ESXi
 
@@ -48,7 +48,7 @@ o aparelho de servidor vCenter (VCSA) fornece as funções de autenticação, ge
 
 ### <a name="vcenter-single-sign-on"></a>vCenter único sign-on
 
-O controlador de serviços de plataforma incorporado no VCSA está associado a um **domínio de sinal único vCenter**.  O nome de domínio é **cloudsimple.local**.  É criado um **CloudOwner@cloudsimple.com** de utilizador predefinido para aceder ao vCenter.  Pode adicionar as suas fontes de identidade de diretório ativo no local/Azure [para vCenter](set-vcenter-identity.md).
+O controlador de serviços de plataforma incorporado no VCSA está associado a um **domínio de sinal único vCenter**.  O nome de domínio é **cloudsimple.local**.  É criado **CloudOwner@cloudsimple.com** um utilizador predefinido para aceder ao vCenter.  Pode adicionar as suas fontes de identidade de diretório ativo no local/Azure [para vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>armazenamento vSAN
 
@@ -82,7 +82,7 @@ O NSX Data Center fornece virtualização da rede, micro segmentação e capacid
 
 ## <a name="vsphere-cluster"></a>aglomerado vSphere
 
-Os anfitriões ESXi são configurados como um cluster para garantir uma alta disponibilidade da nuvem privada.  Quando se cria uma nuvem privada, os componentes de gestão da vSphere são implantados no primeiro cluster.  Um conjunto de recursos é criado para componentes de gestão e todos os VMs de gestão são implantados neste conjunto de recursos. O primeiro aglomerado não pode ser apagado para encolher a nuvem privada.  o cluster vSphere proporciona uma elevada disponibilidade para VMs utilizando **vSphere HA**.  As falhas na tolerar baseiam-se no número de nós disponíveis no cluster.  Pode usar a fórmula ```Number of nodes = 2N+1``` onde ```N``` é o número de falhas a tolerar.
+Os anfitriões ESXi são configurados como um cluster para garantir uma alta disponibilidade da nuvem privada.  Quando se cria uma nuvem privada, os componentes de gestão da vSphere são implantados no primeiro cluster.  Um conjunto de recursos é criado para componentes de gestão e todos os VMs de gestão são implantados neste conjunto de recursos. O primeiro aglomerado não pode ser apagado para encolher a nuvem privada.  o cluster vSphere proporciona uma elevada disponibilidade para VMs utilizando **vSphere HA**.  As falhas na tolerar baseiam-se no número de nós disponíveis no cluster.  Pode usar a ```Number of nodes = 2N+1``` ```N``` fórmula onde está o número de falhas a tolerar.
 
 ### <a name="vsphere-cluster-limits"></a>limites de cluster vSphere
 
@@ -117,6 +117,6 @@ A CloudSimple testa um patch de segurança crítico assim que fica disponível a
 
 A CloudSimple fornece atualizações trimestrais de manutenção aos componentes do software VMware. Quando uma nova versão principal do software VMware está disponível, a CloudSimple trabalha com os clientes para coordenar uma janela de manutenção adequada para upgrade.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Manutenção e atualizações CloudSimple](cloudsimple-maintenance-updates.md)

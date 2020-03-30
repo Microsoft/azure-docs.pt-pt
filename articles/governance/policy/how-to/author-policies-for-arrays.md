@@ -4,10 +4,10 @@ description: Aprenda a trabalhar com parâmetros de matriz e expressões linguí
 ms.date: 11/26/2019
 ms.topic: how-to
 ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280667"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz sobre recursos Azure
@@ -16,7 +16,7 @@ As propriedades do Gestor de Recursos Azure são geralmente definidas como corda
 
 - O tipo de parâmetro de [definição,](../concepts/definition-structure.md#parameters)para fornecer múltiplas opções
 - Parte de uma [regra política](../concepts/definition-structure.md#policy-rule) usando as condições **dentro** ou **nãoIn**
-- Parte de uma regra política que avalia o [\[\*\] pseudónimo](../concepts/definition-structure.md#understanding-the--alias) para avaliar:
+- Parte de uma regra política [ \[ \* \] ](../concepts/definition-structure.md#understanding-the--alias) que avalia o pseudónimo para avaliar:
   - Cenários como **Nenhum,** **Nenhum,** ou **Todos**
   - Cenários complexos com **contagem**
 - No [efeito apêndice](../concepts/effects.md#append) para substituir ou adicionar a uma matriz existente
@@ -103,8 +103,8 @@ Para utilizar esta cadeia com cada SDK, utilize os seguintes comandos:
 
 ### <a name="array-conditions"></a>Condições de matriz
 
-As [condições](../concepts/definition-structure.md#conditions) de regra da política com as que um _conjunto_
-**tipo** de parâmetro podem ser utilizados limitam-se a `in` e `notIn`. Tome a seguinte definição de política com condição `equals` como exemplo:
+As [condições](../concepts/definition-structure.md#conditions) da regra da política com as que `in` `notIn`um**tipo** de parâmetro _matriz_
+pode ser utilizado limitam-se e . Tome a seguinte `equals` definição de política com condição como exemplo:
 
 ```json
 {
@@ -136,14 +136,14 @@ Tentar criar esta definição de política através do portal Azure leva a um er
 
 - "A política '{GUID}' não podia ser parametrizada devido a erros de validação. Por favor, verifique se os parâmetros da política estão devidamente definidos. A exceção interna 'Resultado de avaliação da expressão linguística '['parâmetros')' é o tipo 'Array', o tipo esperado é 'String'.".
 
-O **tipo** de condição esperado `equals` é _corda_. Uma vez **que as localizações permitidas** são definidas como _matriz_de **tipo,** o motor de política avalia a expressão linguística e lança o erro. Com a condição `in` e `notIn`, o motor de política espera a _matriz_ **tipo** na expressão linguística. Para resolver esta mensagem de erro, mude `equals` para `in` ou `notIn`.
+O **tipo** de `equals` condição esperado é _a corda._ Uma vez **que as localizações permitidas** são definidas como _matriz_de **tipo,** o motor de política avalia a expressão linguística e lança o erro. Com `in` a `notIn` condição e condição, o motor de política espera a _matriz_ **tipo** na expressão linguística. Para resolver esta mensagem `equals` de `in` `notIn`erro, mude para qualquer um ou .
 
 ### <a name="evaluating-the--alias"></a>Avaliação do pseudónimo [*]
 
-Os aliases que **\[\*\]** ligados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **\[\*\]** permite avaliar cada elemento da matriz individualmente, com lógica e entre eles. Existem três cenários padrão que esta avaliação por item é útil em: _Nenhum, qualquer_, _qualquer_ou _todos os_ elementos correspondem. Para cenários complexos, [a contagem de](../concepts/definition-structure.md#count)utilização.
+Os aliases ** \[ \* ** que se ligaram ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor ** \[ \* ** de toda a matriz, permite avaliar cada elemento da matriz individualmente, com lógica e entre eles. Existem três cenários padrão que esta avaliação por item é útil em: _Nenhum, qualquer_, _qualquer_ou _todos os_ elementos correspondem. Para cenários complexos, [a contagem de](../concepts/definition-structure.md#count)utilização.
 
 O motor de política desencadeia o **efeito** só nessa **altura** quando a regra **se** avalia como verdadeira.
-Este facto é importante de compreender no contexto da forma como **\[\*\]** avalia cada elemento individual da matriz.
+Este facto é importante de compreender ** \[ \* ** no contexto da forma como avalia cada elemento individual da matriz.
 
 A regra da política de exemplo para o quadro de cenário seguem:
 
@@ -179,31 +179,31 @@ O array **ipRules** é o seguinte para o quadro de cenário abaixo:
 ]
 ```
 
-Para cada condição exemplo abaixo, substitua `<field>` por `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
+Para cada condição exemplo `<field>` `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`abaixo, substitua por .
 
 Os seguintes resultados são o resultado da combinação da condição e da regra política de exemplo e de um conjunto de valores existentes acima:
 
-|condição |Resultado | Cenário |Explicação |
+|Condição |Resultado | Cenário |Explicação |
 |-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nada, nada. |Nenhum jogo |Um elemento matriz avalia como falso (127.0.0.1 != 127.0.0.1) e um como verdadeiro (127.0.0.1 != 192.168.1.1), pelo que a condição **de notEquals** é _falsa_ e o efeito não é desencadeado. |
+|`{<field>,"notEquals":"127.0.0.1"}` |Nenhumas |Nenhum jogo |Um elemento matriz avalia como falso (127.0.0.1 != 127.0.0.1) e um como verdadeiro (127.0.0.1 != 192.168.1.1), pelo que a condição **de notEquals** é _falsa_ e o efeito não é desencadeado. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Efeito político |Nenhum jogo |Ambos os elementos da matriz avaliam como verdadeiro (10.0.4.1 != 127,0.0.1 e 10.0.4.1 != 192.168.1.1), pelo que a condição **notEquals** é _verdadeira_ e o efeito é desencadeado. |
 |`"not":{<field>,"notEquals":"127.0.0.1" }` |Efeito político |Um ou mais fósforos |Um elemento matriz avalia como falso (127.0.0.1 != 127.0.0.1) e um como verdadeiro (127.0.0.1 != 192.168.1.1), pelo que a condição **de notEquals** é _falsa_. O operador lógico avalia como verdadeiro (**não** _falso_), pelo que o efeito é desencadeado. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nada, nada. |Um ou mais fósforos |Ambos os elementos da matriz avaliam como verdadeiro (10.0.4.1 != 127,0.0.1 e 10.0.4.1 != 192.168.1.1), pelo que a condição **não igual** é _verdadeira._ O operador lógico avalia como falso (**não** _verdadeiro_), pelo que o efeito não é desencadeado. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nenhumas |Um ou mais fósforos |Ambos os elementos da matriz avaliam como verdadeiro (10.0.4.1 != 127,0.0.1 e 10.0.4.1 != 192.168.1.1), pelo que a condição **não igual** é _verdadeira._ O operador lógico avalia como falso (**não** _verdadeiro_), pelo que o efeito não é desencadeado. |
 |`"not":{<field>,"Equals":"127.0.0.1"}` |Efeito político |Nem todos combinam. |Um elemento matriz avalia como verdadeiro (127.0.0.1 == 127,0.0.1) e um como falso (127,0.0.1 == 192.168.1.1), pelo que a condição **de Equals** é _falsa_. O operador lógico avalia como verdadeiro (**não** _falso_), pelo que o efeito é desencadeado. |
 |`"not":{<field>,"Equals":"10.0.4.1"}` |Efeito político |Nem todos combinam. |Ambos os elementos da matriz avaliam como falso (10.0.4.1 == 127,0.0.1 e 10,0.4.1 == 192.168.1.1), pelo que a condição **de Equals** é _falsa_. O operador lógico avalia como verdadeiro (**não** _falso_), pelo que o efeito é desencadeado. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nada, nada. |Todos os fósforos |Um elemento matriz avalia como verdadeiro (127.0.0.1 == 127,0.0.1) e um como falso (127,0.0.1 == 192.168.1.1), pelo que a condição **de Equals** é _falsa_ e o efeito não é desencadeado. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nada, nada. |Todos os fósforos |Ambos os elementos da matriz avaliam como falso (10.0.4.1 == 127,0.0.1 e 10.0.4.1 == 192.168.1.1), pelo que a condição **de Equals** é _falsa_ e o efeito não é desencadeado. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nenhumas |Todos os fósforos |Um elemento matriz avalia como verdadeiro (127.0.0.1 == 127,0.0.1) e um como falso (127,0.0.1 == 192.168.1.1), pelo que a condição **de Equals** é _falsa_ e o efeito não é desencadeado. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nenhumas |Todos os fósforos |Ambos os elementos da matriz avaliam como falso (10.0.4.1 == 127,0.0.1 e 10.0.4.1 == 192.168.1.1), pelo que a condição **de Equals** é _falsa_ e o efeito não é desencadeado. |
 
 ## <a name="the-append-effect-and-arrays"></a>O efeito apêndice e as matrizes
 
-O [efeito apêndice](../concepts/effects.md#append) comporta-se de forma diferente dependendo se os **detalhes.field** for um\[\* **\]** pseudónimo ou não.
+O [efeito apêndice](../concepts/effects.md#append) comporta-se de forma diferente dependendo se os **detalhes.field** são um ** \[ \* ** pseudónimo ou não.
 
-- Quando não é um **pseudónimo\[\*\],** o apêndice substitui toda a matriz pela propriedade de **valor**
-- Quando um **\[\*** \]pseudónimo, o apêndice adiciona a propriedade de **valor** à matriz existente ou cria a nova matriz
+- Quando não ** \[ \* ** é um pseudónimo, o apêndice substitui toda a matriz pela propriedade de **valor**
+- Quando ** \[ \* ** um pseudónimo, o apêndice adiciona a propriedade **de valor** à matriz existente ou cria a nova matriz
 
 Para mais informações, consulte os [exemplos do apêndice.](../concepts/effects.md#append-examples)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja exemplos nas [amostras da Política Azure.](../samples/index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

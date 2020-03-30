@@ -1,18 +1,18 @@
 ---
 title: Pré-visualização de implantação de estivador de tecido de serviço azure
-description: A Azure Service Fabric aceita o formato Docker Compose para facilitar a orquestração de contentores existentes utilizando o Tecido de Serviço. Este suporte está atualmente em pré-visualização.
+description: A Azure Service Fabric aceita o formato Docker Compose para facilitar a orquestração de contentores existentes utilizando o Tecido de Serviço. Este suporte encontra-se atualmente em pré-visualização.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282461"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte de implantação Docker Compose em Tecido de Serviço Azure (Pré-visualização)
 
-O Docker usa o ficheiro [docker-compose.yml](https://docs.docker.com/compose) para definir aplicações multi-contentores. Para facilitar aos clientes familiarizados com o Docker a orquestrar as aplicações de contentores existentes no Tecido de Serviço Azure, incluímos suporte de pré-visualização para a implantação de Docker Compose nativamente na plataforma. O Service Fabric pode aceitar a versão 3 e mais tarde dos ficheiros `docker-compose.yml`. 
+O Docker usa o ficheiro [docker-compose.yml](https://docs.docker.com/compose) para definir aplicações multi-contentores. Para facilitar aos clientes familiarizados com o Docker a orquestrar as aplicações de contentores existentes no Tecido de Serviço Azure, incluímos suporte de pré-visualização para a implantação de Docker Compose nativamente na plataforma. O Serviço Tecido pode aceitar `docker-compose.yml` a versão 3 e posterior dos ficheiros. 
 
 Uma vez que este apoio está em pré-visualização, apenas um subconjunto de diretivas compor é apoiado.
 
@@ -24,7 +24,7 @@ Para utilizar esta pré-visualização, crie o seu cluster com a versão 5.7 ou 
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Implementar um ficheiro Docker Compose no Tecido de Serviço
 
-Os seguintes comandos criam uma aplicação Service Fabric (chamada `fabric:/TestContainerApp`), que pode monitorizar e gerir como qualquer outra aplicação de Tecido de Serviço. Pode utilizar o nome de candidatura especificado para consultas de saúde.
+Os seguintes comandos criam uma `fabric:/TestContainerApp`aplicação Service Fabric (nomeada), que pode monitorizar e gerir como qualquer outra aplicação de Tecido de Serviço. Pode utilizar o nome de candidatura especificado para consultas de saúde.
 O Tecido de Serviço reconhece o "DeploymentName" como o identificador da implantação compor.
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
@@ -35,7 +35,7 @@ Crie uma implantação de composição de tecido de serviço a partir de um fich
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` e `RegistryPassword` referem-se ao nome de utilizador do registo de contentores e à palavra-passe. Depois de concluída a implantação, pode verificar o seu estado utilizando o seguinte comando:
+`RegistryUserName`e `RegistryPassword` consulte o nome de utilizador e senha do registo de contentores. Depois de concluída a implantação, pode verificar o seu estado utilizando o seguinte comando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
@@ -107,20 +107,20 @@ sfctl compose upgrade-status --deployment-name TestContainerApp
 
 Esta pré-visualização suporta um subconjunto das opções de configuração do formato compor versão 3, incluindo os seguintes primitivos:
 
-* Serviços > Deploy > Réplicas
-* Serviços > Deploy > Placement > Constrangimentos
-* Serviços > Deploy > Recursos > Limites
+* Serviços > Implementar réplicas >
+* Serviços > implementar constrangimentos > de colocação de >
+* Serviços > Implementar limites de > de recursos >
     * -cpu-shares
     * -memória
-    * -memory-swap
-* Serviços > Comandos
+    * -troca de memória
+* Comandos > de Serviços
 * Serviços > Ambiente
 * Serviços > Portos
 * Serviços > Imagem
 * Serviços > Isolamento (apenas para Windows)
-* Serviços > Logging > Driver
-* Serviços > Logging > Driver > Opções
-* Volume e Implantação e Volume
+* Serviços > Motorista de > de exploração de madeira
+* Serviços > opções de > de motorista de >
+* Volume & implantação > Volume de >
 
 Criar o cluster para a aplicação dos limites de recursos, tal como descrito na governação dos [recursos do Tecido de Serviço.](service-fabric-resource-governance.md) Todas as outras diretivas do Docker Compose não são apoiadas para esta pré-visualização.
 
@@ -135,9 +135,9 @@ Especifique o protocolo http ou https na secção Portos que será utilizado pel
 
 ## <a name="servicednsname-computation"></a>Computação ServiceDnsName
 
-Se o nome de serviço que especifica num ficheiro Compor for um nome de domínio totalmente qualificado (isto é, contém um ponto [.]), o nome DNS registado pela Service Fabric é `<ServiceName>` (incluindo o ponto). Caso contrário, cada segmento de caminho no nome da aplicação torna-se uma etiqueta de domínio no nome DNS de serviço, com o primeiro segmento de caminho a tornar-se o rótulo de domínio de nível superior.
+Se o nome de serviço que especifica num ficheiro Compor for um nome de domínio totalmente qualificado (isto é, `<ServiceName>` contém um ponto [.]), o nome DNS registado pelo Service Fabric é (incluindo o ponto). Caso contrário, cada segmento de caminho no nome da aplicação torna-se uma etiqueta de domínio no nome DNS de serviço, com o primeiro segmento de caminho a tornar-se o rótulo de domínio de nível superior.
 
-Por exemplo, se o nome de candidatura especificado for `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` seria o nome DNS registado.
+Por exemplo, se o nome `fabric:/SampleApp/MyComposeApp` `<ServiceName>.MyComposeApp.SampleApp` de pedido especificado for, seria o nome DNS registado.
 
 ## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Compor implementação (definição de exemplo) versus modelo de aplicativo de tecido de serviço (definição de tipo)
 

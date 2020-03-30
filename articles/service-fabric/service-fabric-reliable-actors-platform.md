@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
 ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282305"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como os atores confiáveis usam a plataforma De Tecido de Serviço
@@ -28,7 +28,7 @@ Como o próprio serviço de ator é um serviço fiável, todo o modelo de aplica
 
 O diagrama anterior mostra a relação entre as estruturas de aplicação do Tecido de Serviço e o código do utilizador. Os elementos azuis representam o quadro de aplicação de Serviços Fiáveis, laranja representa a estrutura do Ator Fiável, e o verde representa o código do utilizador.
 
-Em Serviços Fiáveis, o seu serviço herda a classe `StatefulService`. Esta classe é derivada de `StatefulServiceBase` (ou `StatelessService` para serviços apátridas). Em "Atores Confiáveis", usas o serviço de atores. O serviço de ator é uma implementação diferente da classe `StatefulServiceBase` que implementa o padrão de ator onde os seus atores correm. Como o próprio serviço de ator é apenas uma implementação de `StatefulServiceBase`, pode escrever o seu próprio serviço que deriva de `ActorService` e implementar funcionalidades de nível de serviço da mesma forma que quando herda `StatefulService`, tais como:
+Em Serviços Fiáveis, o `StatefulService` seu serviço herda a classe. Esta classe é derivada `StatefulServiceBase` (ou `StatelessService` para serviços apátridas). Em "Atores Confiáveis", usas o serviço de atores. O serviço de ator é `StatefulServiceBase` uma implementação diferente da classe que implementa o padrão de ator onde os seus atores correm. Como o próprio serviço de ator `StatefulServiceBase`é apenas uma implementação `ActorService` de, você pode escrever o seu próprio `StatefulService`serviço que deriva e implementar funcionalidades de nível de serviço da mesma forma que você faria ao herdar , tais como:
 
 * Apoio de serviço e restauro.
 * Funcionalidade partilhada para todos os atores, por exemplo, um disjuntor.
@@ -61,7 +61,7 @@ Os serviços de ator são serviços estatais divididos. Cada partição de um se
 Os Serviços Fiáveis podem ser criados com diferentes esquemas de partição e gamas-chave de partição. O serviço de ator usa o esquema de partição Int64 com toda a gama de chaves Int64 para mapear atores para divisórias.
 
 ### <a name="actor-id"></a>Identificação do ator
-Cada ator que é criado no serviço tem uma identificação única associada a ele, representada pela classe `ActorId`. `ActorId` é um valor de identificação opaco que pode ser usado para distribuição uniforme de atores através das divisórias de serviço, gerando iDs aleatórios:
+Cada ator que é criado no serviço tem uma identificação única `ActorId` associada a ele, representada pela classe. `ActorId`é um valor de ID opaco que pode ser usado para distribuição uniforme de atores através das divisórias de serviço, gerando iDs aleatórios:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
@@ -71,7 +71,7 @@ ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
 
-Cada `ActorId` é hashed a um Int64. É por isso que o serviço de ator deve usar um esquema de partição Int64 com toda a gama de chaves Int64. No entanto, os valores de ID personalizados podem ser usados para uma `ActorID`, incluindo GUIDs/UUIDs, cordas e Int64s.
+Cada `ActorId` um é hashed a um Int64. É por isso que o serviço de ator deve usar um esquema de partição Int64 com toda a gama de chaves Int64. No entanto, os valores `ActorID`de ID personalizados podem ser usados para um , incluindo GUIDs/UUIDs, cordas e Int64s.
 
 ```csharp
 ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
@@ -84,10 +84,10 @@ ActorProxyBase.create(MyActor.class, new ActorId("myActorId"));
 ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
-Quando se está a usar GUIDs/UUIDs e cordas, os valores são hashed a um Int64. No entanto, quando estiver a fornecer explicitamente um Int64 a uma `ActorId`, o Int64 irá mapear diretamente para uma partição sem mais hashing. Pode usar esta técnica para controlar em que divisória os atores são colocados.
+Quando se está a usar GUIDs/UUIDs e cordas, os valores são hashed a um Int64. No entanto, quando estiver a fornecer explicitamente `ActorId`um Int64 a um, o Int64 irá mapear diretamente para uma partição sem mais hashing. Pode usar esta técnica para controlar em que divisória os atores são colocados.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Gestão do Estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e recolha de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos atores](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet)

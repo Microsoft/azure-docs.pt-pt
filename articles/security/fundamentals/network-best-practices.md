@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
 ms.openlocfilehash: 3ded20f37a394e6adf726ad40c01aa36d41e4e8d
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299350"
 ---
 # <a name="azure-best-practices-for-network-security"></a>As melhores práticas do Azure para a segurança da rede
@@ -107,7 +107,7 @@ Os aparelhos de segurança da rede Azure podem oferecer uma melhor segurança do
 * Gestão de vulnerabilidades
 * Controlo de aplicações
 * Deteção de anomalias baseada em rede
-* Filtragem da web
+* Filtragem Web
 * Antivírus
 * Proteção botnet
 
@@ -175,9 +175,9 @@ Recomendamos que utilize o equilíbrio de carga sempre que puder, e conforme apr
 Por exemplo, se o utilizador fizer um pedido ao seu serviço da UE, a ligação é direcionada aos seus serviços localizados num centro de dados da UE. Esta parte do equilíbrio global de carga do Traffic Manager ajuda a melhorar o desempenho porque a ligação ao datacenter mais próximo é mais rápida do que a ligação a datacenters que estão longe.
 
 ## <a name="disable-rdpssh-access-to-virtual-machines"></a>Desativar o acesso RDP/SSH a máquinas virtuais
-É possível chegar às máquinas virtuais Azure utilizando o [Protocolo de Ambiente](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) de Trabalho Remoto (RDP) e o protocolo Secure [Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH). Estes protocolos permitem os VMs de gestão de locais remotos e são padrão na computação de datacenter.
+É possível chegar às máquinas virtuais Azure utilizando o [Protocolo de Ambiente](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) de Trabalho Remoto (RDP) e o protocolo Secure [Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH). Estes protocolos ativam as VMs de gestão a partir de localizações remotas e são o padrão na computação de datacenters.
 
-O potencial problema de segurança com a utilização destes protocolos através da internet é que os atacantes podem usar técnicas de [força bruta](https://en.wikipedia.org/wiki/Brute-force_attack) para ter acesso a máquinas virtuais Azure. Depois de os atacantes terem acesso, podem usar o seu VM como ponto de lançamento para comprometer outras máquinas na sua rede virtual ou até mesmo atacar dispositivos em rede fora do Azure.
+O potencial problema de segurança com a utilização destes protocolos através da internet é que os atacantes podem usar técnicas de [força bruta](https://en.wikipedia.org/wiki/Brute-force_attack) para ter acesso a máquinas virtuais Azure. Após os atacantes obterem acesso, podem utilizar a VM como um ponto de partida para comprometer outros computadores na rede virtual ou até mesmo atacar dispositivos em redes fora do Azure.
 
 Recomendamos que desative o acesso direto de RDP e SSH às suas máquinas virtuais Azure a partir da internet. Depois de o acesso direto de RDP e SSH a partir da internet ser desativado, tem outras opções que pode utilizar para aceder a estes VMs para gestão remota.
 
@@ -200,7 +200,7 @@ Utilize pontos finais de serviço de rede virtual para estender o espaço de end
 
 Os pontos finais de serviço oferecem as seguintes vantagens:
 
-- **Segurança dos recursos de serviço do Azure melhorada**: com os pontos finais de serviço, pode proteger os recursos de serviço do Azure na rede virtual. Garantir recursos de serviço a uma rede virtual proporciona uma maior segurança, removendo totalmente o acesso à Internet pública aos recursos, e permitindo o tráfego apenas a partir da sua rede virtual.
+- **Segurança dos recursos de serviço do Azure melhorada**: com os pontos finais de serviço, pode proteger os recursos de serviço do Azure na rede virtual. A proteção dos recursos de serviço numa rede virtual oferece segurança melhorada ao remover totalmente o acesso de Internet pública a estes recursos e ao permitir o tráfego apenas a partir da rede virtual.
 - **Encaminhamento ideal para tráfego**de serviço Azure a partir da sua rede virtual : Quaisquer rotas da sua rede virtual que forcem o tráfego de internet para os seus locais e/ou aparelhos virtuais, conhecidos como túneis forçados, também forçam o tráfego de serviço saque de serviço azure a tomar o mesmo caminho que o tráfego de internet. Os pontos finais de serviço fornecem encaminhamento ótimo para o tráfego do Azure.
 
   Os pontos finais levam sempre o tráfego de serviço diretamente da sua rede virtual para o serviço na rede de espinha dorsal Azure. Manter o tráfego na rede de espinha dorsal Azure permite-lhe continuar a auditar e monitorizar o tráfego de internet de saída das suas redes virtuais, através de túneis forçados, sem afetar o tráfego de serviços. Saiba mais sobre [rotas definidas pelo utilizador e túneis forçados.](../../virtual-network/virtual-networks-udr-overview.md)
@@ -209,5 +209,5 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 Para saber mais sobre os pontos finais de serviço e sobre os serviços e regiões azure para os quais estão disponíveis pontos finais de serviço, consulte [os pontos finais](../../virtual-network/virtual-network-service-endpoints-overview.md)do serviço de rede Virtual.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança azure para obter mais práticas de segurança para usar quando está a projetar, implementar e gerir as suas soluções em nuvem utilizando o Azure.

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278873"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizar recursos no seu datacenter ou nuvem utilizando o Trabalhador do Livro de Corridas Híbrido
@@ -33,7 +33,7 @@ Para instalar e configurar um Trabalhador do Livro híbrido do Windows, pode uti
 |SO  |Tipos de implantação  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
-|Linux     | [python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
+|Linux     | [Pitão](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
 > Para gerir a configuração dos seus servidores que suportam a função de Trabalhador do Livro de Execução Híbrido com a Configuração do Estado Desejado (DSC), precisa adicioná-los como nós DSC. Para obter mais informações sobre o seu embarque para gestão com a DSC, consulte [máquinas de embarque para gestão pela Azure Automation DSC](automation-dsc-onboarding.md).
@@ -59,7 +59,7 @@ Abra uma sessão PowerShell no modo Administrador e execute o seguinte comando. 
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
-Para remover máquinas velhas do seu grupo Hybrid Worker, utilize o parâmetro opcional `machineName`.
+Para remover máquinas velhas do seu grupo `machineName` Hybrid Worker, utilize o parâmetro opcional.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
@@ -67,7 +67,7 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 
 ### <a name="linux"></a>Linux
 
-Pode utilizar o comando `ls /var/opt/microsoft/omsagent` no Trabalhador do Livro Híbrido para obter o espaço espaço de trabalho. Há uma pasta no diretório em que o nome da pasta é o id espaço de trabalho.
+Pode utilizar o `ls /var/opt/microsoft/omsagent` comando do Trabalhador do Livro Híbrido para obter o espaço espaço de trabalho. Há uma pasta no diretório em que o nome da pasta é o id espaço de trabalho.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -76,7 +76,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 > [!NOTE]
 > Este código não remove o Agente de Monitorização da Microsoft do computador, apenas a funcionalidade e configuração da função Hybrid Runbook Worker.
 
-## <a name="remove-a-hybrid-worker-group"></a>Remova um grupo de trabalhadores híbridos
+## <a name="remove-a-hybrid-worker-group"></a>Remove a Hybrid Worker group (Remover um grupo de Função de Trabalho Híbrida)
 
 Para remover um grupo, é necessário remover primeiro o Trabalhador do Livro Híbrido de todos os computadores que é membro do grupo utilizando o procedimento mostrado anteriormente. Em seguida, utilize os seguintes passos para remover o grupo:
 
@@ -91,7 +91,7 @@ Para remover um grupo, é necessário remover primeiro o Trabalhador do Livro H�
 
    Este processo pode levar alguns segundos para terminar. Pode acompanhar o progresso em **Notificações**, no menu.
 
-## <a name="network-planning"></a>Configure a sua rede
+## <a name="configure-your-network"></a><a name="network-planning"></a>Configure a sua rede
 
 ### <a name="hybrid-worker-role"></a>Papel do Trabalhador Híbrido
 
@@ -105,8 +105,8 @@ São necessários os seguintes portes e URLs para que o trabalho híbrido do run
 
 * Porta: Só é necessário tCP 443 para acesso à Internet de saída.
 * URL global: *.azure-automation.net
-* URL global dos EUA Gov Virginia: *.azure-automation.us
-* Serviço de agente: https://\<espaço de trabalhoId\>.agentsvc.azure-automation.net
+* URL global do US Gov – Virginia: *.azure-automation.us
+* Serviço de\<agente:\>https:// workspaceId .agentsvc.azure-automation.net
 
 Recomenda-se utilizar os endereços listados na definição de exceções. Para endereços IP pode descarregar os intervalos IP do [Microsoft Azure Datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Este ficheiro é atualizado semanalmente, e tem as gamas atualmente implementadas e quaisquer alterações futuras nas gamas IP.
 
@@ -119,7 +119,7 @@ Se tiver uma conta de Automação definida para uma região específica, pode re
 | E.U.A. Leste 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | E.U.A.Oeste 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
 | Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| Europa Ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
+| Europa ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | Europa do Norte |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | Ásia Sudeste |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | Índia Central |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
@@ -143,7 +143,7 @@ Para obter uma lista de endereços IP da região em vez de nomes de região, des
 
 Além dos endereços e portas padrão que o Trabalhador do Livro híbrido necessita, são necessários os seguintes endereços especificamente para gestão de atualizações. A comunicação a estes endereços é feita sobre a porta 443.
 
-|Azure Public  |Azure Government  |
+|Azure Público  |Azure Government  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |

@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: cfa53d480120ec75623a6a372b258b63e6264f92
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 11f4005e802e2a584b21903bfead2c6b9701f065
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136048"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238743"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para a Base de Dados Azure SQL Gerido sem utilizar a Azure Data Factory
 
@@ -27,7 +27,7 @@ Este artigo descreve como utilizar a atividade de cópia na Azure Data Factory p
 Este conector de instância gerido por base de dados Azure SQL é suportado para as seguintes atividades:
 
 - [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 - [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)
 
 Pode copiar dados da Base de Dados Azure SQL Managed Instance para qualquer loja de dados de sink suportado. Também pode copiar dados de qualquer loja de dados de origem suportada para a instância gerida. Para obter uma lista de lojas de dados que são suportadas como fontes e afunda-se pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
@@ -53,22 +53,22 @@ Para aceder ao ponto final privado da Base de Dados Azure SQL, configurar um tem
 
 As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados Azure específicas do conector de instância gerida pela base de dados Azure SQL.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 As seguintes propriedades são suportadas para o serviço ligado à instância de instância gerida pela base de dados Azure SQL:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para **AzureSqlMI**. | Sim |
-| connectionString |Esta propriedade especifica a **ligação Informação** String que é necessária para ligar à instância gerida usando a autenticação SQL. Para mais informações, consulte os seguintes exemplos. <br/>A porta predefinida é 1433. Se estiver a utilizar a Base de Dados Azure SQL Gerida com um ponto final público, especifique explicitamente a porta 3342.<br> Também pode colocar uma senha no Cofre de Chaves Azure. Se for autenticação SQL, retire a configuração `password` da cadeia de ligação. Para mais informações, consulte o exemplo jSON seguindo as credenciais da tabela e [da loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
-| servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim, quando se utiliza a autenticação Azure AD com um diretor de serviço |
-| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como **SecureString** para o armazenar de forma segura na Azure Data Factory ou [referência a um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim, quando se utiliza a autenticação Azure AD com um diretor de serviço |
-| tenant | Especifique as informações do inquilino, como o nome de domínio ou identificação do inquilino, segundo a qual reside a sua candidatura. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim, quando se utiliza a autenticação Azure AD com um diretor de serviço |
+| conexãoString |Esta propriedade especifica a **ligação Informação** String que é necessária para ligar à instância gerida usando a autenticação SQL. Para mais informações, consulte os seguintes exemplos. <br/>A porta predefinida é 1433. Se estiver a utilizar a Base de Dados Azure SQL Gerida com um ponto final público, especifique explicitamente a porta 3342.<br> Também pode colocar uma senha no Cofre de Chaves Azure. Se for autenticação SQL, `password` retire a configuração da cadeia de ligação. Para mais informações, consulte o exemplo jSON seguindo as credenciais da tabela e [da loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
+| serviçoPrincipalId | Especifique a identificação do cliente do pedido. | Sim, quando se utiliza a autenticação Azure AD com um diretor de serviço |
+| serviçoPrincipalKey | Especifique a chave da aplicação. Marque este campo como **SecureString** para o armazenar de forma segura na Azure Data Factory ou [referência a um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim, quando se utiliza a autenticação Azure AD com um diretor de serviço |
+| inquilino | Especifique as informações do inquilino, como o nome de domínio ou identificação do inquilino, segundo a qual reside a sua candidatura. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim, quando se utiliza a autenticação Azure AD com um diretor de serviço |
 | connectVia | Este tempo de execução de [integração](concepts-integration-runtime.md) é utilizado para se ligar à loja de dados. Você pode usar um tempo de funcionação de integração auto-hospedado ou um tempo de funcionação de integração Azure se a sua instância gerida tiver um ponto final público e permitir que a Azure Data Factory aceda ao mesmo. Se não for especificado, o tempo de execução de integração do Azure padrão é utilizado. |Sim |
 
-Para tipos de autenticação diferentes, consulte as secções seguintes em pré-requisitos e exemplos de JSON, respectivamente:
+Para diferentes tipos de autenticação, consulte as seguintes secções em pré-requisitos e amostras JSON, respectivamente:
 
-- [Autenticação SQL](#sql-authentication)
+- [Autenticação do SQL](#sql-authentication)
 - [Autenticação simbólica da aplicação Azure AD: Diretor de serviço](#service-principal-authentication)
 - [Autenticação simbólica da aplicação Azure AD: Identidades geridas para recursos Azure](#managed-identity)
 
@@ -124,10 +124,10 @@ Para utilizar uma autenticação token de aplicação ad ida e volta do serviço
 
 1. Siga os passos para [fornecer um administrador de Diretório Ativo Azure para a sua Instância Gerida](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
-2. [Crie uma aplicação azure Ative Diretório](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) a partir do portal Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
+2. [Crie uma aplicação azure Ative Diretório](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) a partir do portal Azure. Tome nota do nome da candidatura e dos seguintes valores que definem o serviço ligado:
 
     - ID da aplicação
-    - Chave da aplicação
+    - Chave de aplicação
     - ID do inquilino
 
 3. [Crie logins](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerida da Azure Data Factory. No Estúdio de Gestão de Servidores SQL (SSMS), ligue-se à sua Instância Gerida utilizando uma conta SQL Server que é uma **sisadmina**. Na base de dados **principal,** executar o seguinte T-SQL:
@@ -142,7 +142,7 @@ Para utilizar uma autenticação token de aplicação ad ida e volta do serviço
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-5. Conceda a identidade gerida pela Data Factory necessárias permissões, como normalmente faz para utilizadores SQL e outros. Execute o seguinte código. Para mais opções, consulte [este documento.](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current)
+5. Conceda a identidade gerida pela Data Factory necessárias permissões, como normalmente faz para utilizadores SQL e outros. Executar o seguinte código. Para mais opções, consulte [este documento.](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current)
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
@@ -174,7 +174,7 @@ Para utilizar uma autenticação token de aplicação ad ida e volta do serviço
 }
 ```
 
-### <a name="managed-identity"></a>Identidades geridas para autenticação de recursos Azure
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Identidades geridas para autenticação de recursos Azure
 
 Uma fábrica de dados pode ser associada a uma [identidade gerida para os recursos Azure](data-factory-service-identity.md) que representa a fábrica de dados específica. Pode utilizar esta identidade gerida para autenticação de instância gerida por dados de dados Azure SQL. A fábrica designada pode aceder e copiar dados de ou para a sua base de dados utilizando esta identidade.
 
@@ -194,7 +194,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos.
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-4. Conceda a identidade gerida pela Data Factory necessárias permissões, como normalmente faz para utilizadores SQL e outros. Execute o seguinte código. Para mais opções, consulte [este documento.](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current)
+4. Conceda a identidade gerida pela Data Factory necessárias permissões, como normalmente faz para utilizadores SQL e outros. Executar o seguinte código. Para mais opções, consulte [este documento.](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current)
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
@@ -220,7 +220,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos.
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para utilização para definir conjuntos de dados, consulte o artigo datasets. Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados de instância gerida pela Base de Dados Azure SQL.
 
@@ -229,9 +229,9 @@ Para copiar dados de e para a Instância Gerida pela Base de Dados Azure SQL, s�
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para **AzureSqlMITable**. | Sim |
-| schema | Nome do esquema. |Não para a origem, Sim para o sink  |
-| table | Nome da mesa/vista. |Não para a origem, Sim para o sink  |
-| tableName | Nome da mesa/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para uma nova carga de trabalho, utilize `schema` e `table`. | Não para a origem, Sim para o sink |
+| schema | Nome do esquema. |Não para a fonte, sim para afundar  |
+| tabela | Nome da mesa/vista. |Não para a fonte, sim para afundar  |
+| tableName | Nome da mesa/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para uma nova `schema` `table`carga de trabalho, use e . | Não para a fonte, sim para afundar |
 
 **Exemplo**
 
@@ -266,8 +266,8 @@ Para copiar dados da Base de Dados Azure SQL Managed Instance, as seguintes prop
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **SqlMISource**. | Sim |
 | sqlReaderQuery |Esta propriedade utiliza a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Esta propriedade é o nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
-| storedProcedureParameters |Estes parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. |Não |
+| sqlReaderStoredProcedureName |Esta propriedade é o nome do procedimento armazenado que lê os dados da tabela de origem. A última declaração sQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
+| parâmetros de procedimento saqueados |Estes parâmetros são para o procedimento armazenado.<br/>Os valores permitidos são pares de nome ou valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. |Não |
 | isolamentoN | Especifica o comportamento de bloqueio de transações para a fonte SQL. Os valores permitidos são: **ReadCommitted** (predefinido), **ReadUncommitted**, **RepeatableRead,** **Serializable**, **Snapshot**. Consulte [este doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para mais detalhes. | Não |
 
 **Tenha em atenção os seguintes pontos:**
@@ -372,14 +372,14 @@ Para copiar dados para a Instância Gerida pela Base de Dados Azure SQL, as segu
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do sumidouro da atividade de cópia deve ser definida para **SqlMISink**. | Sim |
-| writeBatchSize |Número de linhas para inserir na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por padrão, a Azure Data Factory determina dinamicamente o tamanho adequado do lote com base no tamanho da linha.  |Não |
-| writeBatchTimeout |Esta propriedade especifica o tempo de espera para que a operação de inserção do lote esteja concluída antes de sair.<br/>Os valores permitidos são para o tempo. Um exemplo é "00:30:00", que é 30 minutos. |Não |
+| escreverBatchSize |Número de linhas para inserir na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por padrão, a Azure Data Factory determina dinamicamente o tamanho adequado do lote com base no tamanho da linha.  |Não |
+| escreverBatchTimeout |Esta propriedade especifica o tempo de espera para que a operação de inserção do lote esteja concluída antes de sair.<br/>Os valores permitidos são para o tempo. Um exemplo é "00:30:00", que é 30 minutos. |Não |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para que a atividade de cópia seja executada antes de escrever dados na instância gerida. É invocado apenas uma vez por cópia. Você pode usar esta propriedade para limpar dados pré-carregados. |Não |
-| sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote*. Para operações que funcionam apenas uma vez e não têm nada a ver com dados de origem, por exemplo, excluir ou truncar, utilizar a propriedade `preCopyScript`. | Não |
+| sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote*. Para operações que funcionam apenas uma vez e não têm nada a `preCopyScript` ver com dados de origem, por exemplo, excluir ou truncar, utilizar a propriedade. | Não |
 | storedProcedureTableTypeParâmetrometerName |O nome do parâmetro do tipo de mesa especificado no procedimento armazenado.  |Não |
 | sqlWriterTableType |O nome do tipo de mesa a utilizar no procedimento armazenado. A atividade de cópia disponibiliza os dados numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Não |
-| storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
-| tabelaOpção | Especifica se criar automaticamente a mesa do lavatório se não existir com base no esquema de origem. A criação de mesa automática não é suportada quando o lavatório especifica o procedimento armazenado ou a cópia encenada é configurada na atividade de cópia. Os valores permitidos são: `none` (padrão), `autoCreate`. |Não |
+| parâmetros de procedimento saqueados |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e o invólucro dos parâmetros devem coincidir com os nomes e o invólucro dos parâmetros do procedimento armazenado. | Não |
+| tabelaOpção | Especifica se criar automaticamente a mesa do lavatório se não existir com base no esquema de origem. A criação de mesa automática não é suportada quando o lavatório especifica o procedimento armazenado ou a cópia encenada é configurada na atividade de cópia. Os valores `none` permitidos `autoCreate`são: (padrão), . |Não |
 
 **Exemplo 1: Dados do apêndice**
 
@@ -512,7 +512,7 @@ Os passos para escrever dados com lógica personalizada são semelhantes aos des
 - Carregue para uma mesa temporária e, em seguida, invoque um procedimento armazenado.
 - Invoque um procedimento armazenado durante a cópia.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Invoque um procedimento armazenado a partir de um lavatório SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Invoque um procedimento armazenado a partir de um lavatório SQL
 
 Quando copia dados para a Instância Gerida pela Base de Dados Azure SQL, também pode configurar e invocar um procedimento armazenado especificado pelo utilizador com parâmetros adicionais. A função de procedimento armazenado tira partido dos [parâmetros de valor de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
 
@@ -528,7 +528,7 @@ A amostra que se segue mostra como utilizar um procedimento armazenado para faze
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
         [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL，
+        [State] [varchar](256) NOT NULL,
         [Category] [varchar](256) NOT NULL
     )
     ```
@@ -579,28 +579,28 @@ Quando os dados são copiados de e para a Instância Gerida pela Base de Dados A
 | date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
-| decimal |decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Valor de duplo |
+| Datatimeoffset |DataTimeOffset |
+| Decimal |Decimal |
+| Atributo FILESTREAM (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |decimal |
+| dinheiro |Decimal |
 | nchar |String, Char[] |
-| ntext |String, Char[] |
-| numeric |decimal |
+| ntexto |String, Char[] |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Único |
-| rowversion |Byte[] |
-| smalldatetime |DateTime |
+| linhaversão |Byte[] |
+| tempo de data pequena |DateTime |
 | smallint |Int16 |
-| smallmoney |decimal |
-| sql_variant |Object |
+| dinheiro pequeno |Decimal |
+| sql_variant |Objeto |
 | texto |String, Char[] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |

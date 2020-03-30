@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Cache para problemas do lado do cliente redis
+title: Resolver problemas do lado do cliente da Cache do Azure para Redis
 description: Saiba como resolver problemas comuns do lado do cliente com o Azure Cache para redis, tais como a pressão de memória do cliente Redis, explosão de tráfego, alta CPU, largura de banda limitada, grandes pedidos ou tamanho de resposta grande.
 author: yegu-ms
 ms.author: yegu
@@ -7,13 +7,13 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277950"
 ---
-# <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Troubleshoot Azure Cache para problemas do lado do cliente redis
+# <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Resolver problemas do lado do cliente da Cache do Azure para Redis
 
 Esta secção discute problemas de resolução de problemas que ocorrem devido a uma condição no cliente Redis que a sua aplicação utiliza.
 
@@ -30,7 +30,7 @@ A pressão de memória na máquina cliente leva a todo o tipo de problemas de de
 Para detetar pressão de memória sobre o cliente:
 
 - Monitorize o uso da memória na máquina para se certificar de que não excede a memória disponível.
-- Monitorize o balcão de desempenho `Page Faults/Sec` do cliente. Durante o funcionamento normal, a maioria dos sistemas tem algumas falhas de página. Os picos nas falhas de página correspondentes aos prazos de pedido podem indicar pressão de memória.
+- Monitorize o `Page Faults/Sec` contador de desempenho do cliente. Durante o funcionamento normal, a maioria dos sistemas tem algumas falhas de página. Os picos nas falhas de página correspondentes aos prazos de pedido podem indicar pressão de memória.
 
 A alta pressão de memória sobre o cliente pode ser atenuada de várias formas:
 
@@ -39,28 +39,28 @@ A alta pressão de memória sobre o cliente pode ser atenuada de várias formas:
 
 ## <a name="traffic-burst"></a>Explosão de trânsito
 
-Explosões de tráfego combinadas com configurações de `ThreadPool` deficientes podem resultar em atrasos no processamento de dados já enviados pelo Redis Server, mas ainda não consumidos do lado do cliente.
+Explosões de tráfego `ThreadPool` combinadas com configurações deficientes podem resultar em atrasos no processamento de dados já enviados pelo Redis Server, mas ainda não consumidos do lado do cliente.
 
-Monitorize como as suas estatísticas `ThreadPool` mudam ao longo do tempo usando [um exemplo `ThreadPoolLogger`](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Pode utilizar `TimeoutException` mensagens do StackExchange.Redis como abaixo para investigar mais aprofundadamente:
+Monitorize `ThreadPool` como as suas estatísticas mudam ao longo do tempo usando [um exemplo `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Pode utilizar `TimeoutException` mensagens de StackExchange.Redis como abaixo para investigar mais aprofundadamente:
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
 Na exceção anterior, existem várias questões interessantes:
 
-- Note que na secção `IOCP` e na secção `WORKER` tem um valor `Busy` superior ao valor `Min`. Esta diferença significa que as definições de `ThreadPool` precisam de ser ajustadas.
-- Também pode ver `in: 64221`. Este valor indica que 64.211 bytes foram recebidos na camada de tomada de núcleo do cliente, mas não foram lidos pela aplicação. Esta diferença normalmente significa que a sua aplicação (por exemplo, StackExchange.Redis) não está a ler dados da rede tão rapidamente quanto o servidor está a enviá-lo para si.
+- Note que `IOCP` na `WORKER` secção e `Busy` na secção tem `Min` um valor superior ao valor. Esta diferença `ThreadPool` significa que as suas definições precisam de ser ajustadas.
+- Também pode `in: 64221`ver. Este valor indica que 64.211 bytes foram recebidos na camada de tomada de núcleo do cliente, mas não foram lidos pela aplicação. Esta diferença normalmente significa que a sua aplicação (por exemplo, StackExchange.Redis) não está a ler dados da rede tão rapidamente quanto o servidor está a enviá-lo para si.
 
-Pode [configurar as definições de `ThreadPool`](cache-faq.md#important-details-about-threadpool-growth) para se certificar de que a sua piscina de rosca se escala rapidamente em cenários de explosão.
+Pode [configurar `ThreadPool` as definições](cache-faq.md#important-details-about-threadpool-growth) para se certificar de que a sua piscina de rosca se escala rapidamente em cenários de explosão.
 
 ## <a name="high-client-cpu-usage"></a>Alta utilização do CPU do cliente
 
 O alto uso do CPU do cliente indica que o sistema não consegue acompanhar o trabalho que lhe foi pedido. Mesmo que a cache tenha enviado a resposta rapidamente, o cliente pode não conseguir processar a resposta em tempo útil.
 
-Monitorize o uso de CPU em todo o sistema do cliente utilizando métricas disponíveis no portal Azure ou através de contadores de desempenho na máquina. Tenha cuidado para não monitorizar o CPU do *processo* porque um único processo pode ter uma utilização baixa do CPU, mas o CPU em todo o sistema pode ser elevado. Tenha em atenção os picos no uso do CPU que correspondam aos intervalos. O ALTO CPU também pode causar elevados valores `in: XXX` em mensagens de erro `TimeoutException`, conforme descrito na secção [de explosão](#traffic-burst) de tráfego.
+Monitorize o uso de CPU em todo o sistema do cliente utilizando métricas disponíveis no portal Azure ou através de contadores de desempenho na máquina. Tenha cuidado para não monitorizar o CPU do *processo* porque um único processo pode ter uma utilização baixa do CPU, mas o CPU em todo o sistema pode ser elevado. Tenha em atenção os picos no uso do CPU que correspondam aos intervalos. O CPU elevado `in: XXX` também `TimeoutException` pode causar valores elevados em mensagens de erro, tal como descrito na secção [de explosão](#traffic-burst) de tráfego.
 
 > [!NOTE]
-> StackExchange.Redis 1.1.603 e mais tarde inclui a métrica `local-cpu` em `TimeoutException` mensagens de erro. Certifique-se de que utiliza a versão mais recente do [pacote StackExchange.Redis NuGet](https://www.nuget.org/packages/StackExchange.Redis/). Existem bugs constantemente a ser corrigidos no código para torná-lo mais robusto para os intervalos de tempo, pelo que ter a versão mais recente é importante.
+> StackExchange.Redis 1.1.603 e `local-cpu` mais `TimeoutException` tarde inclui a métrica em mensagens de erro. Certifique-se de que utiliza a versão mais recente do [pacote StackExchange.Redis NuGet](https://www.nuget.org/packages/StackExchange.Redis/). Existem bugs constantemente a ser corrigidos no código para torná-lo mais robusto para os intervalos de tempo, pelo que ter a versão mais recente é importante.
 >
 
 Para mitigar o elevado uso de CPU de um cliente:
@@ -72,7 +72,7 @@ Para mitigar o elevado uso de CPU de um cliente:
 
 Dependendo da arquitetura das máquinas clientes, podem ter limitações na largura de banda da rede que têm disponível. Se o cliente exceder a largura de banda disponível sobrecarregando a capacidade da rede, os dados não são processados no lado do cliente tão rapidamente quanto o servidor está a enviá-lo. Esta situação pode levar a intervalos.
 
-Monitorize como a utilização da largura de banda muda ao longo do tempo utilizando [um exemplo `BandwidthLogger`](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Este código pode não funcionar com sucesso em alguns ambientes com permissões restritas (como web sites do Azure).
+Monitorize como a utilização da largura de banda muda ao longo do tempo utilizando [um exemplo `BandwidthLogger` ](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Este código pode não funcionar com sucesso em alguns ambientes com permissões restritas (como web sites do Azure).
 
 Para mitigar, reduza o consumo de largura de banda da rede ou aumente o tamanho do VM do cliente para um com mais capacidade de rede.
 

@@ -1,5 +1,5 @@
 ---
-title: Conector de gestão de serviços de TI em Azure Log Analytics  Microsoft Docs
+title: Conector de gestão de serviços de TI em Azure Log Analytics [ Microsoft Docs
 description: Este artigo fornece uma visão geral do Conector de Gestão de Serviços de TI (ITSMC) e informações sobre como usar esta solução para monitorizar e gerir centralmente os itens de trabalho ITSM no Azure Log Analytics, e resolver quaisquer problemas rapidamente.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274544"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços DE TI
@@ -81,13 +81,13 @@ Dependendo do produto ITSM a que está a ligar, utilize os seguintes passos:
 - [Gestor de Serviço scsm (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
 - [Provance](../../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Rio Cherwell](../../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [Cherwell](../../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 Depois de ter preparado as suas ferramentas ITSM, siga os passos abaixo para criar uma ligação:
 
-1. Ir a **Todos os Recursos**, procure **ServiceDesk(YourWorkspaceName)** .
+1. Ir a **Todos os Recursos**, procure **ServiceDesk(YourWorkspaceName)**.
 2. Em fontes de **dados workspace** no painel esquerdo, clique em **Conexões ITSM**.
-   ![ligações ITSM](media/itsmc-overview/itsm-connections.png)
+   ![Conexões ITSM](media/itsmc-overview/itsm-connections.png)
 
    Esta página apresenta a lista de ligações.
 3. Clique em **adicionar ligação**.
@@ -151,7 +151,7 @@ O painel também fornece informações sobre o estado do conector que podem ser 
 
 Também pode visualizar os incidentes sincronizados com os computadores impactados, dentro da solução Service Map.
 
-O Service Map descobre automaticamente os componentes da aplicação nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores tal como os pensa – como sistemas interligados que prestam serviços críticos. O Mapa de Serviço mostra ligações entre servidores, processos e portas em qualquer arquitetura ligada ao TCP sem qualquer configuração necessária que não seja a instalação de um agente. [Saiba mais](../../azure-monitor/insights/service-map.md).
+O Service Map descobre automaticamente os componentes da aplicação nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores, como os concebe: sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre os servidores, processos e portas em qualquer arquitetura com ligação TCP, e não requer qualquer configuração para além da instalação de um agente. [Saiba mais](../../azure-monitor/insights/service-map.md).
 
 Se estiver a utilizar a solução Service Map, pode ver os itens de balcão de serviço criados nas soluções ITSM, como mostra o seguinte exemplo:
 
@@ -172,7 +172,7 @@ As seguintes informações mostram exemplos de dados recolhidos pelo ITSMC:
 > Dependendo do tipo de artigo de trabalho importado para o Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
 
 **Artigo de trabalho:** **Incidentes**  
-ServiceDeskWorkItemType_s="Incident"
+ServiceDeskWorkItemType_s="Incidente"
 
 **Campos**
 
@@ -183,18 +183,18 @@ ServiceDeskWorkItemType_s="Incident"
 - Impacto
 - Prioridade
 - Escalamento
-- Criado por
-- Resolvido Por
+- Criada Por
+- Resolvido por
 - Fechado por
 - Origem
 - Atribuído a
 - Categoria
 - Título
 - Descrição
-- Data de criação
-- Data de fecho
-- Data de resolução
-- Data da última modificação
+- Data de Criação
+- Data de Fecho
+- Data de Resolução
+- Data da Última Modificação
 - Computador
 
 
@@ -205,7 +205,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 **Campos**
 - ServiceDeskConnectionName
 - ID do balcão de serviço
-- Criado por
+- Criada Por
 - Fechado por
 - Origem
 - Atribuído a
@@ -220,9 +220,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Risco
 - Impacto
 - Atribuído a
-- Data de criação
-- Data de fecho
-- Data da última modificação
+- Data de Criação
+- Data de Fecho
+- Data da Última Modificação
 - Data solicitada
 - Data de início planeada
 - Data final planeada
@@ -235,7 +235,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Campo de Log Analytics | Campo ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| Número |
 | IncidentState_s | Estado |
 | Urgency_s |Urgência |
 | Impact_s |Impacto|
@@ -249,7 +249,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Title_s|  Descrição curta |
 | Description_s|  Notas |
 | CreatedDate_t|  Aberto |
-| ClosedDate_t| Fechado|
+| ClosedDate_t| fechado|
 | ResolvedDate_t|Resolvido|
 | Computador  | Item de configuração |
 
@@ -257,7 +257,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | Campo ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| Número |
 | CreatedBy_s | Solicitado por |
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
@@ -270,13 +270,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Risk_s| Risco|
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por data |
-| ClosedDate_t | Data de fecho |
+| ClosedDate_t | Data fechada |
 | PlannedStartDate_t  |     Data de início planeada |
 | PlannedEndDate_t  |   Data final planeada |
 | WorkStartDate_t  | Data de início real |
-| WorkEndDate_t | Data de fim real|
+| WorkEndDate_t | Data final real|
 | Description_s | Descrição |
-| Computador  | Item de Configuração |
+| Computador  | Item de configuração |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Ligações ITSM de resolução de problemas
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="contact-us"></a>Contacte-nos
 
-Para quaisquer dúvidas ou comentários sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
+Para quaisquer dúvidas ou feedback sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
 ## <a name="next-steps"></a>Passos seguintes
 [Adicione produtos/serviços ITSM ao Conector](../../azure-monitor/platform/itsmc-connections.md)de Gestão de Serviços de TI.

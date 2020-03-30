@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268408"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de análise de armazenamento azure (Clássico)
@@ -53,21 +53,21 @@ O Storage Analytics pode armazenar métricas que incluem estatísticas de transa
 
 |Nível de Métricas|Nomes de mesa|Suportado para Versões|  
 |-------------------|-----------------|----------------------------|  
-|Métricas horárias, localização primária|- $MetricsTransactionsBlob<br />-   $MetricsTransactionsTable<br />- $MetricsTransactionsQueue|Versões anteriores apenas a 2013-08-15. Embora estes nomes ainda sejam suportados, recomenda-se que mude para a utilização das tabelas listadas abaixo.|  
-|Métricas horárias, localização primária|-   $MetricsHourPrimaryTransactionsBlob<br />-   $MetricsHourPrimaryTransactionsTable<br />-   $MetricsHourPrimaryTransactionsQueue<br />-   $MetricsHourPrimaryTransactionsFile|Todas as versões. O suporte para métricas de serviço de ficheiros só está disponível na versão 2015-04-05 e posteriormente.|  
-|Métricas minúsculas, localização primária|-   $MetricsMinutePrimaryTransactionsBlob<br />-   $MetricsMinutePrimaryTransactionsTable<br />-   $MetricsMinutePrimaryTransactionsQueue<br />-   $MetricsMinutePrimaryTransactionsFile|Todas as versões. O suporte para métricas de serviço de ficheiros só está disponível na versão 2015-04-05 e posteriormente.|  
-|Métricas horárias, localização secundária|-   $MetricsHourSecondaryTransactionsBlob<br />-   $MetricsHourSecondaryTransactionsTable<br />-   $MetricsHourSecondaryTransactionsQueue|Todas as versões. A replicação georedundantde de acesso de leitura deve ser ativada.|  
-|Métricas minúsculas, localização secundária|-   $MetricsMinuteSecondaryTransactionsBlob<br />-   $MetricsMinuteSecondaryTransactionsTable<br />-   $MetricsMinuteSecondaryTransactionsQueue|Todas as versões. A replicação georedundantde de acesso de leitura deve ser ativada.|  
+|Métricas horárias, localização primária|- $MetricsTransactionsBlob<br />- $MetricsTransactionsTable<br />- $MetricsTransactionsQueue|Versões anteriores apenas a 2013-08-15. Embora estes nomes ainda sejam suportados, recomenda-se que mude para a utilização das tabelas listadas abaixo.|  
+|Métricas horárias, localização primária|- $MetricsHourPrimaryTransactionsBlob<br />$MetricsHourPrimaryTransactionsTable<br />- $MetricsHourPrimaryTransactionsQueue<br />- $MetricsHourPrimaryTransactionsFile|Todas as versões. O suporte para métricas de serviço de ficheiros só está disponível na versão 2015-04-05 e posteriormente.|  
+|Métricas minúsculas, localização primária|- $MetricsMinutePrimaryTransactionsBlob<br />- $MetricsMinutePrimaryTransactionsTable<br />- $MetricsMinutePrimaryTransactionsQueue<br />$MetricsMinutePrimaryTransactionsFile|Todas as versões. O suporte para métricas de serviço de ficheiros só está disponível na versão 2015-04-05 e posteriormente.|  
+|Métricas horárias, localização secundária|- $MetricsHourSecondaryTransactionsBlob<br />- $MetricsHourSecondaryTransactionsTable<br />$MetricsHourSecondaryTransactionsQueue|Todas as versões. A replicação georedundantde de acesso de leitura deve ser ativada.|  
+|Métricas minúsculas, localização secundária|- $MetricsMinuteSecondaryTransactionsBlob<br />- $MetricsMinuteSecondaryTransactionsTable<br />- $MetricsMinuteSecondaryTransactionsQueue|Todas as versões. A replicação georedundantde de acesso de leitura deve ser ativada.|  
 |Capacidade (apenas serviço Blob)|$MetricsCapacityBlob|Todas as versões.|  
 
- Estas tabelas são automaticamente criadas quando o Storage Analytics está ativado para um ponto final do serviço de armazenamento. São acedidos através do espaço de nome da conta de armazenamento, por exemplo: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. As tabelas métricas não aparecem numa operação de listagem e devem ser acedidas diretamente através do nome da tabela.  
+ Estas tabelas são automaticamente criadas quando o Storage Analytics está ativado para um ponto final do serviço de armazenamento. São acedidos através do espaço de nome `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`da conta de armazenamento, por exemplo: . As tabelas métricas não aparecem numa operação de listagem e devem ser acedidas diretamente através do nome da tabela.  
 
 ## <a name="enable-metrics-using-the-azure-portal"></a>Ativar métricas usando o portal Azure
 Siga estes passos para permitir métricas no [portal Azure:](https://portal.azure.com)
 
 1. Navegue até à sua conta de armazenamento.
 1. Selecione definições de **Diagnóstico (clássica)** **do** painel menu.
-1. Certifique-se de que o **Estado** está definido para **.** .
+1. Certifique-se de que o **Estado** está definido para **.**.
 1. Selecione as métricas para os serviços que pretende monitorizar.
 1. Especifique uma política de retenção para indicar quanto tempo reter métricas e registar dados.
 1. Selecione **Guardar**.
@@ -89,7 +89,7 @@ Os cmdlets que controlam as Métricas de Armazenamento utilizam os seguintes par
 Por exemplo, os seguintes interruptores de comando em métricas minúsculas para o serviço de blob na sua conta de armazenamento com o período de retenção definido para cinco dias: 
 
 > [!NOTE]
-> Este comando pressupõe que assinou a sua assinatura Azure usando o comando `Connect-AzAccount`.
+> Este comando pressupõe que assinou a sua assinatura `Connect-AzAccount` Azure usando o comando.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -97,9 +97,9 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>
 Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
 
-* Substitua o valor `<resource-group-name>` espaço reservado pelo nome do seu grupo de recursos.
+* Substitua `<resource-group-name>` o valor do espaço reservado pelo nome do seu grupo de recursos.
         
-* Substitua o valor `<storage-account-name>` espaço reservado pelo nome da sua conta de armazenamento.
+* Substitua `<storage-account-name>` o valor do espaço reservado pelo nome da sua conta de armazenamento.
 
 
 
@@ -114,7 +114,7 @@ Para obter informações sobre como configurar os cmdlets Azure PowerShell para 
 ## <a name="enable-storage-metrics-programmatically"></a>Ativar as métricas de armazenamento programáticamente  
 Além de utilizar o portal Azure ou os cmdlets Azure PowerShell para controlar as Métricas de Armazenamento, também pode utilizar uma das APIs de Armazenamento Azure. Por exemplo, se estiver a usar um idioma .NET pode utilizar a Biblioteca do Cliente de Armazenamento.  
 
-As classes **CloudBlobClient,** **CloudQueueClient,** **CloudTableClient**e **CloudFileClient** têm métodos como **SetServiceProperties** e **SetServicePropertiesAsync** que tomam um objeto **ServiceProperties** como parâmetro. Pode utilizar o objeto **ServiceProperties** para configurar métricas de armazenamento. Por exemplo, C# o seguinte corte mostra como alterar o nível de métricas e os dias de retenção para as métricas de fila horária:  
+As classes **CloudBlobClient,** **CloudQueueClient,** **CloudTableClient**e **CloudFileClient** têm métodos como **SetServiceProperties** e **SetServicePropertiesAsync** que tomam um objeto **ServiceProperties** como parâmetro. Pode utilizar o objeto **ServiceProperties** para configurar métricas de armazenamento. Por exemplo, o seguinte corte C# mostra como alterar o nível de métricas e os dias de retenção para as métricas de fila horária:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -154,11 +154,11 @@ Pode encontrar detalhes completos dos esquemas para estas tabelas no [Storage An
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**Chave da Partilha**|**RowKey**|**Carimbo de tempo**|**Total De Pedidos**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilidade**|**MédiaE2ELatency**|**MédiaServerLatency**|**PercentSuccess**|  
-|20140522T1100|utilizador; Todos|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
-|20140522T1100|utilizador; ConsultasEntidades|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
-|20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  
-|20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.7650250Z|1|1|771|217|100|9|6|100|  
+|**PartitionKey**|**RowKey**|**Carimbo de data/hora**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilidade**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
+|2014052T1100|utilizador; Todos|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
+|2014052T1100|utilizador; ConsultasEntidades|2014-05-22T11:01:16.7640250z|5|5|2694|45951|100|143.8|7.8|100|  
+|2014052T1100|utilizador; ConsultaEntidade|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  
+|2014052T1100|utilizador; UpdateEntity|2014-05-22T11:01:16.7650250Z|1|1|771|217|100|9|6|100|  
 
 Neste exemplo, os dados das métricas minúsculas, a chave de partição utiliza o tempo em resolução minúscula. A chave da linha identifica o tipo de informação que é armazenada na linha e esta é composta por duas peças de informação, o tipo de acesso e o tipo de pedido:  
 
@@ -176,7 +176,7 @@ Deverá considerar a criação de alertas no [portal Azure](https://portal.azure
 >
 
 ## <a name="accessing-metrics-data-programmatically"></a>Aceder programaticamente aos dados das métricas  
-A listagem seguinte C# mostra o código da amostra que acede às métricas minúsculas durante uma série de minutos e exibe os resultados numa janela da consola. A amostra de código utiliza a versão 4.x ou posterior da Biblioteca de Clientes de Armazenamento Azure, que inclui a classe **CloudAnalyticsClient** que simplifica o acesso às tabelas de métricas no armazenamento.  
+A listagem seguinte mostra o código C# da amostra que acede às métricas minúsculas durante uma série de minutos e exibe os resultados numa janela da consola. A amostra de código utiliza a versão 4.x ou posterior da Biblioteca de Clientes de Armazenamento Azure, que inclui a classe **CloudAnalyticsClient** que simplifica o acesso às tabelas de métricas no armazenamento.  
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  
@@ -235,4 +235,4 @@ A capacidade utilizada pelas tabelas métricas também é faturada. Pode utiliza
 * [Como Monitorizar uma Conta de Armazenamento](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
 * [Tabela de métricas de análise de armazenamento Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
 * [Armazenamento Analytics Operações registadas e Mensagens de Estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
-* [Registo de analíticos de armazenamento](storage-analytics-logging.md)
+* [Registo da Análise de Armazenamento](storage-analytics-logging.md)

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
 ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279887"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
 
-## <a name="connecting"></a>Ligar às redes virtuais
+## <a name="connecting-to-virtual-networks"></a><a name="connecting"></a>Ligar às redes virtuais
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Posso ligar redes virtuais em diferentes regiões do Azure?
 
@@ -54,7 +54,7 @@ As configurações **Ponto a Site** (VPN sobre SSTP) permitem ligar a partir de 
 
 Pode configurar a rede virtual para utilizar o Site a Site e o Ponto a Site em simultâneo, desde que crie a ligação Site a Site através de um tipo de VPN baseado na rota do seu gateway. Os tipos de VPN com base na rota são denominados gateways dinâmicos no modelo de implementação clássica.
 
-## <a name="gateways"></a>Gateways de rede virtual
+## <a name="virtual-network-gateways"></a><a name="gateways"></a>Gateways de rede virtual
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Um gateway de VPN é um gateway de rede virtual?
 
@@ -70,10 +70,10 @@ Os gateways baseados na rota implementam as VPNs baseadas na rota. As VPNs basea
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Posso atualizar a minha porta vpn baseada em políticas para a rota?
 
-Não. Um tipo de gateway Azure Vnet não pode ser alterado de base política para baseado em rotas ou de outra forma. O gateway tem de ser eliminado e recriado, um processo que demora cerca de 60 minutos. O endereço IP do gateway não será mantido, nem a Chave Pré-partilhada (PSK).
+Não.Um tipo de gateway de Vnet do Azure não pode ser alterado de baseado em políticas para baseado na rota, ou ao contrário. O gateway tem de ser eliminado e recriado, um processo que demora cerca de 60 minutos. O endereço IP do gateway não será mantido, nem a Chave Pré-partilhada (PSK).
 1. Elimine todas as ligações associadas ao gateway a eliminar.
 1. Elimine o gateway:
-   - [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Portal Azure](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Crie uma nova porta de entrada do tipo que deseja e complete a configuração VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
@@ -131,7 +131,7 @@ Sim. Veja [Configurar a imposição do túnel](vpn-gateway-about-forced-tunnelin
 
 Sim, pode implementar os seus servidores ou gateways de VPN no Azure a partir do Azure Marketplace ou criar os seus próprios routers VPN. Tem de configurar rotas definidas pelo utilizador na rede virtual para garantir que o tráfego é encaminhado corretamente entre as redes no local e as sub-redes da rede virtual.
 
-### <a name="gatewayports"></a>Porque é que certas portas estão abertas na minha porta de entrada de rede virtual?
+### <a name="why-are-certain-ports-opened-on-my-virtual-network-gateway"></a><a name="gatewayports"></a>Porque é que certas portas estão abertas na minha porta de entrada de rede virtual?
 
 São necessárias para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados adequados, as entidades externas, incluindo os clientes desses gateways, não terão qualquer efeito nesses pontos finais.
 
@@ -141,7 +141,7 @@ Um portal de rede virtual é fundamentalmente um dispositivo multi-homed com um 
 
 Para obter mais informações, veja [About VPN Gateway configuration settings (Acerca das definições de configuração dos gateway de VPN)](vpn-gateway-about-vpn-gateway-settings.md).
 
-## <a name="s2s"></a>Ligações Site a Site e dispositivos VPN
+## <a name="site-to-site-connections-and-vpn-devices"></a><a name="s2s"></a>Ligações Site a Site e dispositivos VPN
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>O que devo considerar ao selecionar um dispositivo VPN?
 
@@ -173,19 +173,19 @@ Outras soluções de VPN de software devem funcionar com o nosso gateway, desde 
 
 Pode alterar o método de autenticação das suas ligações ponto-a-local, indo para a secção **de configuração ponto-a-local** sob o Gateway VPN e verificando o botão de rádio pretendido. As opções atuais são **certificado Azure, autenticação RADIUS e Diretório Ativo Azure.** Por favor, note que os clientes atuais **podem não ser capazes** de se conectar após a mudança até que o novo perfil seja descarregado e configurado no cliente.
 
-## <a name="P2S"></a>Ponto a Site com a autenticação de certificados nativa do Azure
+## <a name="point-to-site-using-native-azure-certificate-authentication"></a><a name="P2S"></a>Ponto a Site com a autenticação de certificados nativa do Azure
 
 Esta secção aplica-se ao Modelo de implementação Resource Manager.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Ponto a Site com a autenticação RADIUS
+## <a name="point-to-site-using-radius-authentication"></a><a name="P2SRADIUS"></a>Ponto a Site com a autenticação RADIUS
 
 Esta secção aplica-se ao Modelo de implementação Resource Manager.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="V2VMulti"></a>Ligações VNet a VNet e de Vários Sites
+## <a name="vnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Ligações VNet a VNet e de Vários Sites
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
@@ -194,7 +194,7 @@ Esta secção aplica-se ao Modelo de implementação Resource Manager.
 **Modelo de implementação Resource Manager**<br>
 Sim. Veja a secção [BGP](#bgp) para obter mais informações.
 
-**Modelo de implementação clássica**<br>
+**Modelo de implantação clássico**<br>
 É possível transitar o tráfego através do gateway de VPN do Azure com o modelo de implementação clássica, mas tal depende de espaços de endereços definidos estaticamente no ficheiro de configuração de rede. O BGP ainda não é suportado com Redes Virtuais do Azure nem gateways de VPN mediante a utilização do modelo de implementação clássica. Sem o BGP, a definição manual dos espaços de endereços de trânsito é muito propensa a erros e não se recomenda.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>O Azure gera a mesma chave pré-partilhada IPsec/IKE para todas as minhas ligações VPN para a mesma rede virtual?
@@ -217,16 +217,16 @@ Sim, as VPNs Ponto a Site (P2S) podem ser utilizadas com os gateways de VPN a li
 
 Sim, esta ação é suportada. Para obter mais informações, veja [Configurar as ligações de Rede de VPNs e o ExpressRoute que coexistem](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="ipsecike"></a>IPsec/política IKE
+## <a name="ipsecike-policy"></a><a name="ipsecike"></a>IPsec/política IKE
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
-## <a name="bgp"></a>BGP
+## <a name="bgp"></a><a name="bgp"></a>BGP
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
-## <a name="vms"></a>VMs e conectividade em vários locais
+## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>VMs e conectividade em vários locais
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Se a minha máquina virtual estiver numa rede virtual e tiver uma ligação em vários locais, como devo estabelecer ligação à VM?
 
@@ -243,11 +243,11 @@ Não. Apenas o tráfego que tem um IP de destino contido nos intervalos de ender
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="faq"></a>FAQ da Rede Virtual
+## <a name="virtual-network-faq"></a><a name="faq"></a>FAQ da Rede Virtual
 
 Pode ver informações adicionais sobre a rede virtual nas [FAQ da Rede Virtual](../virtual-network/virtual-networks-faq.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o Gateway de VPN, veja [About VPN Gateway (Acerca do Gateway de VPN)](vpn-gateway-about-vpngateways.md).
 * Para obter mais informações sobre as definições de configuração do Gateway de VPN, veja [About VPN Gateway configuration settings (Acerca das definições de configuração do gateway de VPN)](vpn-gateway-about-vpn-gateway-settings.md).

@@ -1,50 +1,49 @@
 ---
-title: Os contêineres oferecem o guia de publicação para o Azure Marketplace
-description: Este artigo descreve os requisitos para publicar contêineres no Marketplace
+title: Containers oferecem guia editorial para o Mercado Azure
+description: Este artigo descreve os requisitos para publicar contentores no Mercado
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: ffdc6b22209c1d334ac7b75c7079e755a7405154
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 882d428d7a8a9b56408aaa68964fa1e36c7cc7c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822999"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277311"
 ---
-# <a name="containers-offer-publishing-guide"></a>Guia de publicação de contêineres oferece
+# <a name="containers-offer-publishing-guide"></a>Guia de publicação de oferta de contentores
 
-O contêiner oferece ajuda para publicar sua imagem de contêiner no Azure Marketplace. Use este guia para entender os requisitos para esta oferta. 
+As ofertas de contentores ajudam-no a publicar a sua imagem de contentor no Mercado Azure. Utilize este guia para compreender os requisitos desta oferta. 
 
-Essas são ofertas de transação que são implantadas e cobradas pelo Marketplace. O plano de ação que um usuário vê é "obter agora".
+Estas são ofertas de transações que são implementadas e faturadas através do Marketplace. A chamada à ação que um utilizador vê é "Get It Now".
 
-Use o tipo de oferta de contêiner quando sua solução for uma imagem de contêiner do Docker provisionado como um serviço de contêiner do Azure baseado em kubernetes.
+Utilize o tipo de oferta do Recipiente quando a sua solução for uma imagem de contentor Docker aprovisionada como um serviço de contentores Azure baseado em Kubernetes.
 
 >[!NOTE]
->Por exemplo, um serviço de contêiner do Azure baseado em kubernetes como o serviço kubernetes do Azure ou instâncias de contêiner do Azure, a escolha de clientes do Azure para um tempo de execução de contêiner baseado em kubernetes.  
+>Por exemplo, um serviço de contentores Azure baseado em Kubernetes, como o Azure Kubernetes Service ou o Azure Container Instances, a escolha dos clientes Azure para um tempo de execução de contentores baseado em Kubernetes.  
 
-A Microsoft atualmente dá suporte a modelos de licenciamento gratuitos e BYOL (traga sua própria licença).
+A Microsoft suporta atualmente modelos de licenciamento gratuitos e de porta-a-licença (BYOL).
 
-## <a name="containers-offer"></a>Oferta de contêineres
+## <a name="containers-offer"></a>Oferta de contentores
 
 | Requisito | Detalhes |  
 |:--- |:--- |  
-| Cobrança e medição | Suporte ao modelo de cobrança gratuito ou BYOL. |  
-| Imagem criada a partir de Dockerfile | As imagens de contêiner devem ser baseadas na especificação de imagem do Docker e devem ser criadas a partir de um Dockerfile.<ul> <li>Para obter mais informações sobre a criação de imagens do Docker, visite a seção uso localizada em [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
-| Hospedagem no ACR | As imagens de contêiner devem ser hospedadas em um repositório de ACR (registro de contêiner do Azure).<ul> <li>Para obter mais informações sobre como trabalhar com o ACR, visite o guia de início rápido: criar um registro de contêiner usando a página portal do Azure localizada em [docs.Microsoft.com/Azure/container-Registry/container-Registry-Get-Started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
-| Marcação de imagem | As imagens de contêiner devem conter pelo menos uma marca (máximo de marcas: 16).<ul> <li>Para obter mais informações sobre como marcar uma imagem, visite a página de marcas do Docker localizada em [docs.Docker.com/Engine/Reference/CommandLine/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
+| Faturação e medição | Apoie o modelo de faturação gratuito ou BYOL. |  
+| Imagem construída a partir de Dockerfile | As imagens do recipiente devem basear-se na especificação de imagem do Docker e devem ser construídas a partir de um Dockerfile.<ul> <li>Para mais informações sobre imagens de estivadores de construção, visite a secção de Utilização localizada em [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
+| Hospedagem em ACR | As imagens do contentor devem ser alojadas num repositório de registo de contentores Azure (ACR).<ul> <li>Para mais informações sobre o trabalho com a ACR, visite o Quickstart: Crie um registo de contentores utilizando a página do portal Azure localizada em [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Etiquetagem de imagens | As imagens do recipiente devem conter pelo menos 1 etiqueta (etiquetas máximas: 16).<ul> <li>Para mais informações sobre a marcação de uma imagem, visite a página de marcação de estivar localizada em [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você ainda não fez isso, 
+Se ainda não o fez, 
 
-- [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.
+- [Registe-se](https://azuremarketplace.microsoft.com/sell) no mercado.
 
-Se você estiver registrado e estiver criando uma nova oferta ou trabalhando em uma existente,
+Se está registado e está a criar uma nova oferta ou a trabalhar numa já existente,
 
-- [Faça logon no portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
-- Consulte [contêineres](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) para obter mais informações.
+- [Inicie sessão no Cloud Partner Portal](https://cloudpartner.azure.com) para criar ou completar a sua oferta.
+- Consulte os [contentores](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) para mais informações.

@@ -15,10 +15,10 @@ ms.date: 06/01/2018
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 977504f41e93e37ae2c5ce9bdb1182a1cfe0a3fd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252288"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provision Linux computação nóde sintetizar em piscinas de lote
@@ -45,7 +45,7 @@ Ao configurar uma referência de imagem virtual da máquina, especifice as propr
 
 | **Propriedades de referência de imagem** | **Exemplo** |
 | --- | --- |
-| Publisher |Canónico |
+| Publicador |Canónico |
 | Oferta |UbuntuServer |
 | SKU |18.04-LTS |
 | Versão |mais recente |
@@ -59,7 +59,7 @@ Ao configurar uma referência de imagem virtual da máquina, especifice as propr
 O agente do nó batch é um programa que funciona em cada nó na piscina e fornece a interface de comando e controlo entre o nó e o serviço Batch. Existem diferentes implementações do agente do nó, conhecido como SKUs, para diferentes sistemas operativos. Essencialmente, quando cria uma Configuração virtual da máquina, primeiro especifica a referência de imagem da máquina virtual e, em seguida, especifica o agente do nó para instalar na imagem. Tipicamente, cada agente do nó SKU é compatível com múltiplas imagens de máquinas virtuais. Aqui estão alguns exemplos do agente do nó SKUs:
 
 * lote.node.ubuntu 18.04
-* batch.node.centos 7
+* lote.node.centos 7
 * lote.node.janelas amd64
 
 > [!IMPORTANT]
@@ -290,7 +290,7 @@ O Azure Batch é construído com base na tecnologia Azure Cloud Services e Azure
 
 Se implementar aplicações nos seus nós de Lote utilizando pacotes de [aplicações,](batch-application-packages.md)também é cobrado pelos recursos de Armazenamento Azure que os seus pacotes de aplicação consomem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 As [amostras][github_samples_py] de código Python no repositório [de amostras de lote azul][github_samples] no GitHub contêm scripts que mostram como realizar operações comuns do Lote, tais como pool, job, e criação de tarefas. A [README][github_py_readme] que acompanha as amostras python tem detalhes sobre como instalar os pacotes necessários.
 

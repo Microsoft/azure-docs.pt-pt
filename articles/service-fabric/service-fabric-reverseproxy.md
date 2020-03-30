@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282227"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Procuração inversa no Tecido de Serviço Azure
@@ -66,7 +66,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
 * **http(s):** O proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. Para reencaminhamento HTTPS, consulte [o Connect para um serviço seguro com o proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md) uma vez que tenha configuração de procuração inversa para ouvir em HTTPS.
-* Nome de **domínio totalmente qualificado (FQDN)  IP interno):** Para clientes externos, pode configurar o proxy inverso para que seja acessível através do domínio do cluster, como mycluster.eastus.cloudapp.azure.com. Por padrão, o proxy invertido corre em cada nó. Para o tráfego interno, o proxy inverso pode ser alcançado em local de acolhimento ou em qualquer nó interno IP, como 10.0.0.1.
+* Nome de **domínio totalmente qualificado (FQDN) [ IP interno):** Para clientes externos, pode configurar o proxy inverso para que seja acessível através do domínio do cluster, como mycluster.eastus.cloudapp.azure.com. Por padrão, o proxy invertido corre em cada nó. Para o tráfego interno, o proxy inverso pode ser alcançado em local de acolhimento ou em qualquer nó interno IP, como 10.0.0.1.
 * **Porto:** Este é o porto, como 19081, que foi especificado para o proxy inverso.
 * **Nome de caso de serviço:** Este é o nome totalmente qualificado da instância de serviço implantada que está a tentar alcançar sem o "tecido:/" esquema. Por exemplo, para chegar ao *tecido:/myapp/myservice/* serviço, você usaria *myapp/myservice*.
 
@@ -94,18 +94,18 @@ Seguem-se os recursos para o serviço:
 
 Se o serviço utilizar o regime de parto singleton, os parâmetros de cordas de consulta *PartitionKey* e *PartitionKind* não são necessários, e o serviço pode ser alcançado utilizando o gateway como:
 
-* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
-* Internamente: `http://localhost:19081/MyApp/MyService`
+* Externamente:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* Internamente:`http://localhost:19081/MyApp/MyService`
 
 Se o serviço utilizar o regime de partição Uniforme Int64, os parâmetros de corda de consulta *PartitionKey* e *PartitionKind* devem ser utilizados para alcançar uma partição do serviço:
 
-* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* Internamente: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Externamente:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Internamente:`http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 Para alcançar os recursos que o serviço expõe, basta colocar o caminho de recursos após o nome de serviço no URL:
 
-* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* Internamente: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* Externamente:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* Internamente:`http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 O portal irá então encaminhar estes pedidos para o URL do serviço:
 
@@ -139,20 +139,20 @@ Este cabeçalho de resposta HTTP indica uma situação normal http 404 em que o 
 
 ## <a name="special-handling-for-services-running-in-containers"></a>Manuseamento especial para serviços em funcionamento em contentores
 
-Para serviços que executam dentro de contentores, pode utilizar a variável ambiente, `Fabric_NodeIPOrFQDN` para construir o URL de [procuração inversa](#uri-format-for-addressing-services-by-using-the-reverse-proxy) como no seguinte código:
+Para serviços que estão dentro de `Fabric_NodeIPOrFQDN` contentores, pode utilizar a variável ambiental, para construir o URL de [procuração inversa](#uri-format-for-addressing-services-by-using-the-reverse-proxy) como no seguinte código:
 
 ```csharp
     var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
     var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
 ```
-Para o cluster local, `Fabric_NodeIPOrFQDN` está definido para "localhost" por padrão. Inicie o aglomerado local com o parâmetro `-UseMachineName` para se certificar de que os recipientes podem chegar ao proxy inverso que corre no nó. Para mais informações, consulte Configure o seu ambiente de [desenvolvimento para depurar recipientes](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
+Para o cluster `Fabric_NodeIPOrFQDN` local, está definido para "localhost" por padrão. Inicie o aglomerado `-UseMachineName` local com o parâmetro para se certificar de que os recipientes podem chegar ao proxy inverso que corre no nó. Para mais informações, consulte Configure o seu ambiente de [desenvolvimento para depurar recipientes](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
 Serviço Os serviços de tecido que funcionam dentro dos contentores Docker Compose requerem uma secção especial de docker-compose.yml *Ports* http: ou https: configuração. Para mais informações, consulte o suporte de [implantação do Docker Compose no Tecido de Serviço Azure](service-fabric-docker-compose.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Configurar e configurar procuração inversa num cluster](service-fabric-reverseproxy-setup.md).
 * [Configurar o encaminhamento para assegurar o serviço HTTP com o proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md)
-* [Diagnosticar eventos de procuração reversa](service-fabric-reverse-proxy-diagnostics.md)
+* [Diagnosticar eventos de proxy inverso](service-fabric-reverse-proxy-diagnostics.md)
 * Veja um exemplo de comunicação http entre serviços num [projeto de amostra no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Chamadas de procedimento remoto com serviços fiáveis remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API que usa OWIN em Serviços Fiáveis](service-fabric-reliable-services-communication-webapi.md)

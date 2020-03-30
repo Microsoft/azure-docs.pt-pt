@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282487"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnóstico sintetizado sintetizar tecido de serviço Azure
@@ -35,17 +35,17 @@ Um utilizador controla o que a telemetria vem da sua aplicação uma vez que um 
 
 O Service Fabric fornece um conjunto abrangente de eventos fora da caixa. Estes [eventos de Tecido de Serviço](service-fabric-diagnostics-events.md) podem ser acedidos através da EventStore ou do canal operacional (canal de evento exposto pela plataforma). 
 
-* Canais de eventos Service Fabric - No Windows, os eventos de Tecido de Serviço estão disponíveis a partir de um único fornecedor de ETW com um conjunto de `logLevelKeywordFilters` relevantes usados para escolher entre os canais Operacionais e Dados e Mensagens - é assim que separamos os eventos de fabricação de serviço de saída para serem filtrados conforme necessário. No Linux, os eventos de Tecido de Serviço passam por LTTng e são colocados numa tabela de armazenamento, de onde podem ser filtrados conforme necessário. Estes canais contêm eventos curados e estruturados que podem ser usados para entender melhor o estado do seu cluster. Os diagnósticos são ativados por padrão no tempo de criação do cluster, que criam uma tabela de Armazenamento Azure onde os eventos destes canais são enviados para que você faça consulta no futuro. 
+* Canais de eventos Service Fabric - No Windows, os eventos `logLevelKeywordFilters` de Tecido de Serviço estão disponíveis a partir de um único fornecedor de ETW com um conjunto de relevantes usados para escolher entre os canais de Mensagens Operacionais e De dados & - esta é a forma como separamos os eventos de tecido de serviço de saída para serem filtrados conforme necessário. No Linux, os eventos de Tecido de Serviço passam por LTTng e são colocados numa tabela de armazenamento, de onde podem ser filtrados conforme necessário. Estes canais contêm eventos curados e estruturados que podem ser usados para entender melhor o estado do seu cluster. Os diagnósticos são ativados por padrão no tempo de criação do cluster, que criam uma tabela de Armazenamento Azure onde os eventos destes canais são enviados para que você faça consulta no futuro. 
 
 * EventStore - A EventStore é uma funcionalidade oferecida pela plataforma que fornece eventos da plataforma Service Fabric disponíveis no Service Fabric Explorer e através da REST API. Pode ver uma visão instantânea do que se passa no seu cluster para cada entidade, por exemplo, nó, serviço, aplicação e consulta com base no tempo do evento. Também pode ler mais sobre a EventStore na visão geral da [EventStore](service-fabric-diagnostics-eventstore.md).    
 
 ![Loja de Eventos](media/service-fabric-diagnostics-overview/eventstore.png)
 
-Os diagnósticos fornecidos são sob a forma de um conjunto abrangente de eventos fora da caixa. Estes [eventos de Tecido de Serviço](service-fabric-diagnostics-events.md) ilustram ações feitas pela plataforma em diferentes entidades como Nós, Aplicações, Serviços, Divisórias, etc. No último cenário acima, se um nó cair, a plataforma emitiria um evento `NodeDown` e poderia ser notificado imediatamente pela sua ferramenta de monitorização de eleição. Outros exemplos comuns incluem `ApplicationUpgradeRollbackStarted` ou `PartitionReconfigured` durante uma falha. **Os mesmos eventos estão disponíveis tanto nos clusters Windows como Linux.**
+Os diagnósticos fornecidos são sob a forma de um conjunto abrangente de eventos fora da caixa. Estes [eventos de Tecido de Serviço](service-fabric-diagnostics-events.md) ilustram ações feitas pela plataforma em diferentes entidades como Nós, Aplicações, Serviços, Divisórias, etc. No último cenário acima, se um nó cair, a plataforma `NodeDown` emitiria um evento e poderia ser notificado imediatamente pela sua ferramenta de monitorização de eleição. Outros exemplos `ApplicationUpgradeRollbackStarted` comuns incluem ou `PartitionReconfigured` durante uma falha. **Os mesmos eventos estão disponíveis tanto nos clusters Windows como Linux.**
 
 Os eventos são enviados através de canais padrão tanto no Windows como no Linux e podem ser lidos por qualquer ferramenta de monitorização que os suporte. A solução Azure Monitor é registos Do Monitor Azure. Sinta-se livre para ler mais sobre a nossa integração de [logs Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) que inclui um dashboard operacional personalizado para o seu cluster e algumas consultas de amostra a partir das quais você pode criar alertas. Mais conceitos de monitorização de clusterestão disponíveis em evento de [nível de plataforma e geração de registos.](service-fabric-diagnostics-event-generation-infra.md)
 
-### <a name="health-monitoring"></a>Monitorização da integridade
+### <a name="health-monitoring"></a>Monitorização do estado de funcionamento
 A plataforma Service Fabric inclui um modelo de saúde, que fornece relatórios de saúde extensíveis para o estado das entidades num cluster. Cada nó, aplicação, serviço, partição, réplica ou instância, tem um estado de saúde continuamente elevado. O estado de saúde pode ser "OK", "Aviso" ou "Erro". Pense nos eventos de Tecido de Serviço como verbos feitos pelo cluster a várias entidades e saúde como um adjetivo para cada entidade. De cada vez que a saúde de uma determinada entidade transita, será também emitido um evento. Desta forma, pode configurar consultas e alertas para eventos de saúde na sua ferramenta de monitorização de eleição, como qualquer outro evento. 
 
 Além disso, até deixamos que os utilizadores sobressaem a saúde para as entidades. Se a sua aplicação estiver a passar por uma atualização e tiver testes de validação a falhar, pode escrever para a Service Fabric Health usando a API de saúde para indicar que a sua aplicação já não é saudável, e o Tecido de Serviço irá automaticamente reverter a atualização! Para mais informações sobre o modelo de saúde, consulte a introdução à monitorização da [saúde do Tecido de Serviço](service-fabric-health-introduction.md)
@@ -79,11 +79,11 @@ Também pode utilizar e modificar o modelo ARM da amostra localizado [aqui](serv
 
 ## <a name="other-logging-solutions"></a>Outras soluções de exploração madeireira
 
-Embora as duas soluções que recomendamos, [os registos](service-fabric-diagnostics-event-analysis-oms.md) do Monitor Azure e [os Insights de Aplicação](service-fabric-diagnostics-event-analysis-appinsights.md) tenham construído em integração com o Service Fabric, muitos eventos são escritos através de fornecedores de ETW e são extensíveis com outras soluções de exploração madeireira. Você também deve olhar para a [Stack Elástica](https://www.elastic.co/products) (especialmente se você estiver considerando executar um cluster em um ambiente offline), [Dynatrace](https://www.dynatrace.com/), ou qualquer outra plataforma da sua preferência. Temos aqui uma lista de [](service-fabric-diagnostics-partners.md)parceiros integrados.
+Embora as duas soluções que recomendamos, [os registos](service-fabric-diagnostics-event-analysis-oms.md) do Monitor Azure e [os Insights de Aplicação](service-fabric-diagnostics-event-analysis-appinsights.md) tenham construído em integração com o Service Fabric, muitos eventos são escritos através de fornecedores de ETW e são extensíveis com outras soluções de exploração madeireira. Você também deve olhar para a [Stack Elástica](https://www.elastic.co/products) (especialmente se você estiver considerando executar um cluster em um ambiente offline), [Dynatrace](https://www.dynatrace.com/), ou qualquer outra plataforma da sua preferência. Temos aqui uma lista de [here](service-fabric-diagnostics-partners.md)parceiros integrados.
 
 Os pontos-chave para qualquer plataforma que escolha devem incluir o quão confortável está com a interface do utilizador, as capacidades de consulta, as visualizações personalizadas e os dashboards disponíveis, e as ferramentas adicionais que eles fornecem para melhorar a sua experiência de monitorização. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar a instrumentar as suas aplicações, consulte evento de [nível de aplicação e geração de registos.](service-fabric-diagnostics-event-generation-app.md)
 * Percorra os passos para configurar os Insights de Aplicação para a sua aplicação com [o Monitor e diagnostice uma aplicação ASP.NET Core no Tecido de Serviço](service-fabric-tutorial-monitoring-aspnet.md).

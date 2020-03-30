@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: e9cdfd40a9672d19ef32dede0baadcdd56266bab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265171"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Como usar as APIs de gestão de Gémeos Digitais Azure
@@ -37,7 +37,7 @@ A lista que se segue mostra os componentes das APIs das Gémeas Digitais.
 
 * [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys): Pode utilizar estas APIs para criar propriedades personalizadas para os seus *espaços,* *dispositivos,* *utilizadores*e *sensores*. Estas propriedades são criadas como par de chaves/valor. Pode definir o tipo de dados para estas propriedades definindo o seu *PrimitivoDataType*. Por exemplo, pode definir uma propriedade denominada *BasicTemperatureDeltaProcessingRefreshTime* do tipo *uint* para os seus sensores e, em seguida, atribuir um valor para esta propriedade para cada um dos seus sensores. Também pode adicionar constrangimentos a estes valores ao mesmo tempo que cria a propriedade, como as gamas *Min* e *Max,* bem como valores permitidos como *ValidaçãoData*.
 
-* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): Estas APIs permitem especificar as condições que pretende avaliar a partir dos dados do seu dispositivo de entrada. Consulte [este artigo](concepts-user-defined-functions.md#matchers) para mais informações. 
+* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): Estas APIs permitem especificar as condições que pretende avaliar a partir dos dados do seu dispositivo de entrada. Veja [este artigo](concepts-user-defined-functions.md#matchers) para obter mais informações. 
 
 * [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): Estas APIs permitem-lhe criar, excluir ou atualizar uma função personalizada que executará quando ocorrem as condições definidas pelos *matchers,* para processar os dados provenientes da sua configuração. Consulte [este artigo](concepts-user-defined-functions.md#user-defined-functions) para obter mais informações sobre estas funções personalizadas, também chamadas *funções definidas pelo utilizador*. 
 
@@ -74,17 +74,17 @@ As APIs de suporte digital das Gémeas Digitais suportam a filtragem e navegaç�
 
 ### <a name="examples"></a>Exemplos
 
-A lista que se segue mostra alguns exemplos de navegação através das APIs [/dispositivos.](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) Note que o espaço reservado `YOUR_MANAGEMENT_API_URL` se refere ao URI das APIs das Gémeas Digitais no formato `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`, onde `YOUR_INSTANCE_NAME` é o nome da sua instância De Gémeas Digitais Azure, e `YOUR_LOCATION` é a região onde a sua instância está hospedada.
+A lista que se segue mostra alguns exemplos de navegação através das APIs [/dispositivos.](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) Note que o `YOUR_MANAGEMENT_API_URL` espaço reservado se refere ao URI das `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`APIs das Gémeas Digitais no formato , onde `YOUR_INSTANCE_NAME` está o nome da sua instância Azure Digital Twins, e `YOUR_LOCATION` é a região onde a sua instância está hospedada.
 
-- `YOUR_MANAGEMENT_API_URL/devices?maxLevel=1` devolve todos os dispositivos ligados aos espaços radiculares.
-- `YOUR_MANAGEMENT_API_URL/devices?minLevel=2&maxLevel=4` devolve todos os dispositivos ligados a espaços dos níveis 2, 3 ou 4.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId` devolve todos os dispositivos diretamente ligados ao mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down` devolve todos os dispositivos ligados ao mySpaceId ou a um dos seus descendentes.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true` devolve todos os dispositivos ligados aos descendentes do mySpaceId, excluindo o mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true&maxLevel=1&maxRelative=true` devolve todos os dispositivos ligados a crianças imediatas do mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Up&maxLevel=-1&maxRelative=true` devolve todos os dispositivos ligados a um dos ancestrais do mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&maxLevel=5` devolve todos os dispositivos ligados aos descendentes do mySpaceId que estão num nível inferior ou igual a 5.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true` devolve todos os dispositivos ligados a espaços que estão ao mesmo nível do meuSpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?maxLevel=1`devolve todos os dispositivos ligados aos espaços radiculares.
+- `YOUR_MANAGEMENT_API_URL/devices?minLevel=2&maxLevel=4`devolve todos os dispositivos ligados a espaços dos níveis 2, 3 ou 4.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId`devolve todos os dispositivos diretamente ligados ao mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down`devolve todos os dispositivos ligados ao mySpaceId ou a um dos seus descendentes.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true`devolve todos os dispositivos ligados aos descendentes do mySpaceId, excluindo o mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true&maxLevel=1&maxRelative=true`devolve todos os dispositivos ligados a crianças imediatas do mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Up&maxLevel=-1&maxRelative=true`devolve todos os dispositivos ligados a um dos ancestrais do mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&maxLevel=5`devolve todos os dispositivos ligados aos descendentes do mySpaceId que estão no nível inferior ou igual a 5.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true`devolve todos os dispositivos ligados a espaços que estão ao mesmo nível do meuSpaceId.
 
 
 ## <a name="odata-support"></a>Suporte oData

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282760"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral da importação de dados - Pesquisa Cognitiva Azure
@@ -35,7 +35,7 @@ Pode utilizar as APIs seguintes para carregar um ou múltiplos documentos para u
 
 Atualmente não existe qualquer suporte de ferramentas para o envio de dados através do portal.
 
-Para uma introdução a cada metodologia, consulte [Quickstart: Crie um índice de pesquisa cognitiva Azure utilizando powerShell](search-create-index-rest-api.md) ou [ C# Quickstart: Crie um índice de pesquisa cognitiva azure utilizando .NET SDK](search-get-started-dotnet.md).
+Para uma introdução a cada metodologia, consulte [Quickstart: Crie um índice de pesquisa cognitiva azure utilizando PowerShell](search-create-index-rest-api.md) ou [C# Quickstart: Crie um índice de pesquisa cognitiva azure utilizando .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -45,13 +45,13 @@ Pode controlar o tipo de ação de indexação numa base por documento, especifi
 
 Na API REST, emita pedidos HTTP POST com organismos de pedido jSON para o URL final do seu índice de pesquisa cognitiva Azure. Cada objeto JSON na matriz de "valor" contém a chave do documento e especifica se uma ação de indexação adiciona, atualiza ou elimina conteúdo documental. Para um exemplo de código, consulte [os documentos de carga](search-get-started-dotnet.md#load-documents).
 
-No .NET SDK, embaas os seus dados num objeto `IndexBatch`. Um `IndexBatch` engloba uma coleção de objetos `IndexAction`, cada um dos quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a realizar nesse documento. Para um exemplo de código, consulte o [ C# Quickstart](search-get-started-dotnet.md).
+No .NET SDK, embale `IndexBatch` os seus dados num objeto. Um `IndexBatch` encapsula uma `IndexAction` coleção de objetos, cada um dos quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar nesse documento. Para um exemplo de código, consulte o [C# Quickstart](search-get-started-dotnet.md).
 
 
 | @search.action | Descrição | Campos necessários para cada documento | Notas |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Um ação `upload` é semelhante a um "upsert" onde o documento será inserido se for novo e atualizado/substituído se já existir. |chave, juntamente com quaisquer outros campos que pretende definir |Quando atualizar/substituir um documento existente, qualquer campo que não está especificado no pedido terá o respetivo campo definido como `null`. Isto ocorre mesmo quando o campo foi anteriormente definido para um valor não nulo. |
-| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. No SDK .NET, isto inclui campos de tipo `DataType.Collection(DataType.String)`. Na API REST, isto inclui campos de tipo `Collection(Edm.String)`. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
+| `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. No .NET SDK, isto inclui `DataType.Collection(DataType.String)`campos de tipo . Na API REST, isto inclui `Collection(Edm.String)`campos de tipo. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Esta ação tem o mesmo comportamento de `merge` caso um documento com a chave especificada já exista no índice. Se o documento não existir, tem um comportamento semelhante `upload` a um novo documento. |chave, juntamente com quaisquer outros campos que pretende definir |- |
 | `delete` |Remove o documento especificado do índice. |apenas chave |Quaisquer campos que especificar diferentes do campo de chave serão ignorados. Se pretender remover um campo individual de um documento, utilize `merge` em vez disso e simplesmente defina o campo explicitamente como nulo. |
 
@@ -88,7 +88,7 @@ Uma vantagem para usar o portal é que a Pesquisa Cognitiva Azure pode geralment
 
 ## <a name="verify-data-import-with-search-explorer"></a>Verificar a importação de dados com o explorador de pesquisa
 
-Uma forma rápida de efetuar uma verificação preliminar no upload do documento é utilizar o **explorador de pesquisa** no portal. O explorador permite-lhe consultar índices sem ter de escrever qualquer código. A experiência de pesquisa baseia-se em predefinições, como a [sintaxe simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) e o [parâmetro de consulta searchMode](/rest/api/searchservice/search-documents) predefinido. Os resultados são devolvidos em JSON, de modo a que possa inspecionar todo o documento.
+Uma forma rápida de efetuar uma verificação preliminar no upload do documento é utilizar o **explorador de pesquisa** no portal. O explorador permite-lhe consultar índices sem ter de escrever qualquer código. A experiência de pesquisa baseia-se em definições predefinidas, tais como a [simples sintaxe](/rest/api/searchservice/simple-query-syntax-in-azure-search) e o parâmetro de consulta padrão Do modo de [pesquisa](/rest/api/searchservice/search-documents). Os resultados são devolvidos em JSON, de modo a que possa inspecionar todo o documento.
 
 > [!TIP]
 > Numerosas amostras de código de [pesquisa cognitiva Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de dados incorporados ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Quando executa o indexador pré-configurado na fonte de dados da amostra, é criado e carregado com documentos que podem ser consultados no explorador de Pesquisa ou por código que escreve.
