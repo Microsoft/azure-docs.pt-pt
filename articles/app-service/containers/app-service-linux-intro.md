@@ -7,13 +7,13 @@ ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 65352b8f8f85f5e7a2e25ae99d5ca3368ad78711
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 27f085543869b1a77db9c97ca2e7ae7d3d3b7b88
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126526"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046406"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -21,7 +21,7 @@ ms.locfileid: "79126526"
 
 ## <a name="languages"></a>Linguagens
 
-O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas para aumentar a produtividade do programador. As línguas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Execute [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para ver as últimas línguas e versões suportadas. Se o runtime pedido pela sua aplicação não for suportado nas imagens incorporadas, existem instruções sobre como [criar a sua própria imagem do Docker](tutorial-custom-docker-image.md) para implementar a Aplicação Web para Contentores.
+O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas para aumentar a produtividade do programador. As línguas incluem: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Corra [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para ver as últimas línguas e versões suportadas. Se o runtime pedido pela sua aplicação não for suportado nas imagens incorporadas, existem instruções sobre como [criar a sua própria imagem do Docker](tutorial-custom-docker-image.md) para implementar a Aplicação Web para Contentores.
 
 ## <a name="deployments"></a>Implementações
 
@@ -65,7 +65,7 @@ Com base numa limitação atual, para o mesmo grupo de recursos não é possíve
 >
 >
 
-Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Para registar o `stdout` e `stderr` a partir do seu recipiente, é necessário ativar o **registo de registos de serviços** de aplicações em termos de serviços de **aplicações**. A regulação entra em vigor imediatamente. O Serviço de Aplicações deteta a alteração e reinicia automaticamente o recipiente.
+Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Para registar `stdout` `stderr` o e a partir do seu recipiente, é necessário ativar o **registo de registos de aplicações** em registos de serviços de **aplicações**. A regulação entra em vigor imediatamente. O Serviço de Aplicações deteta a alteração e reinicia automaticamente o recipiente.
 
 Pode aceder ao site do SCM através das **Ferramentas Avançadas** no menu **Ferramentas de Desenvolvimento**.
 
@@ -77,11 +77,11 @@ Os artigos seguintes ajudam-no a começar a utilizar o Serviço de Aplicações 
 
 * [.NET Core](quickstart-dotnetcore.md)
 * [PHP](https://docs.microsoft.com/azure/app-service/containers/quickstart-php)
-* [Node.js](quickstart-nodejs.md)
+* [Nó.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
-* [python](quickstart-python.md)
+* [Pitão](quickstart-python.md)
 * [Ruby](quickstart-ruby.md)
-* [Go](quickstart-docker-go.md)
+* [Ir](quickstart-docker-go.md)
 * [Aplicação com vários contentores](quickstart-multi-container.md)
 
 Para mais informações sobre o Serviço de Aplicações no Linux, consulte:

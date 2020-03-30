@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
 ms.openlocfilehash: 980ed1e54de30ec8a2dc0c1fdac6546d31f48a00
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218207"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Crie pontos finais para serviços web azure machine learning (clássicos)
@@ -29,7 +29,7 @@ Cada ponto final do serviço web é dirigido de forma independente, estrangulado
 
 ## <a name="add-endpoints-to-a-web-service"></a>Adicione pontos finais a um serviço web
 
-Pode adicionar um ponto final a um serviço web utilizando o portal Azure Machine Learning Web Services. Assim que o ponto final for criado, pode consumi-lo através de APIs síncronas, APIs, do batch e folhas de cálculo do excel.
+Pode adicionar um ponto final a um serviço web utilizando o portal Azure Machine Learning Web Services. Uma vez criado o ponto final, pode consumi-lo através de APIs sincronizados, APIs de lote e folhas de cálculo de excel.
 
 > [!NOTE]
 > Se tiver adicionado pontos finais adicionais ao serviço web, não pode eliminar o ponto final predefinido.
@@ -37,9 +37,9 @@ Pode adicionar um ponto final a um serviço web utilizando o portal Azure Machin
 1. No Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em Web Services.
 2. Na parte inferior do painel de instrumentos do serviço web, clique em **Gerir pontos finais**. O portal Azure Machine Learning Web Services abre para a página de pontos finais para o serviço web.
 3. Clique em **Novo**.
-4. Escreva um nome e descrição para o novo ponto final. Nomes de ponto final tem de ser 24 carateres ou menos de comprimento e devem ser constituídos por letras do alfabeto em minúsculas ou números. Selecione o nível de registo e se os dados de exemplo estão ativados. Para obter mais informações sobre a exploração madeireira, consulte [A exploração de login para serviços web de aprendizagem automática](web-services-logging.md).
+4. Digite um nome e descrição para o novo ponto final. Os nomes de pontofinal devem ter 24 caracteres ou menos de comprimento, e devem ser compostos por alfabetos ou números minúsculos. Selecione o nível de registo e se os dados da amostra estão ativados. Para obter mais informações sobre a exploração madeireira, consulte [A exploração de login para serviços web de aprendizagem automática](web-services-logging.md).
 
-## <a id="scaling"></a>Escala um serviço web adicionando pontos finais adicionais
+## <a name="scale-a-web-service-by-adding-additional-endpoints"></a><a id="scaling"></a>Escala um serviço web adicionando pontos finais adicionais
 
 Por padrão, cada serviço web publicado está configurado para suportar 20 pedidos simultâneos e pode ser até 200 pedidos simultâneos. O Azure Machine Learning Studio (clássico) otimiza automaticamente a configuração para proporcionar o melhor desempenho para o seu serviço web e o valor do portal é ignorado.
 

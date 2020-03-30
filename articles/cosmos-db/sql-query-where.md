@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898788"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>ONDE a cláusula em Azure Cosmos DB
 
-A cláusula opcional WHERE (`WHERE <filter_condition>`) especifica condição(s) que os itens JSON de origem devem satisfazer para que a consulta os inclua nos resultados. Um item JSON deve avaliar as condições especificadas para `true` a considerar para o resultado. A camada de índice utiliza a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
+A cláusula opcional`WHERE <filter_condition>`WHERE () especifica condição(s) que os itens JSON de origem devem satisfazer para que a consulta os inclua nos resultados. Um item JSON deve avaliar `true` as condições especificadas a considerar para o resultado. A camada de índice utiliza a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,21 +29,21 @@ WHERE <filter_condition>
 
 - `<filter_condition>`  
   
-   Especifica as condições para ser atendidas para que os documentos a serem retornados.  
+   Especifica a condição a cumprir para que os documentos sejam devolvidos.  
   
 - `<scalar_expression>`  
   
-   Expressão que representa o valor a ser calculada. Consulte [expressões scalar](sql-query-scalar-expressions.md) para mais detalhes.  
+   Expressão que representa o valor a calcular. Consulte [expressões scalar](sql-query-scalar-expressions.md) para mais detalhes.  
   
 ## <a name="remarks"></a>Observações
   
-  Para que o documento a ser devolvida uma expressão especificada como filtro de condição deve ser avaliado como true. Apenas o valor booleano `true` satisfizerá a condição, qualquer outro valor: indefinido, nulo, falso, número, matriz ou objeto não satisfará a condição.
+  Para que o documento seja devolvido, uma expressão especificada como condição do filtro deve avaliar com a verdade. Apenas o `true` valor booleano satisfará a condição, qualquer outro valor: indefinido, nulo, falso, número, matriz ou objeto não satisfará a condição.
 
-  Se incluir a sua chave de partição na cláusula `WHERE` como parte de um filtro de igualdade, a sua consulta filtrará automaticamente apenas para as divisórias relevantes.
+  Se incluir a sua `WHERE` chave de partição na cláusula como parte de um filtro de igualdade, a sua consulta filtrará automaticamente apenas para as divisórias relevantes.
 
 ## <a name="examples"></a>Exemplos
 
-A consulta seguinte solicita itens que contenham uma propriedade `id` cujo valor é `AndersenFamily`. Exclui qualquer item que não tenha uma propriedade `id` ou cujo valor não corresponda `AndersenFamily`.
+A seguinte consulta solicita itens que `id` contenham um `AndersenFamily`imóvel cujo valor é . Exclui qualquer item que não `id` tenha uma propriedade ou `AndersenFamily`cujo valor não corresponda.
 
 ```sql
     SELECT f.address
@@ -65,17 +65,17 @@ Os resultados são:
 
 ### <a name="scalar-expressions-in-the-where-clause"></a>Expressões escalar na cláusula WHERE
 
-O exemplo anterior mostrou uma consulta simples de igualdade. A API SQL também suporta [várias expressões escalar.](sql-query-scalar-expressions.md) O uso mais comum é expressões binário e unário. Referências de propriedade do objeto JSON de origem também são as expressões válidas.
+O exemplo anterior mostrou uma simples consulta de igualdade. A API SQL também suporta [várias expressões escalar.](sql-query-scalar-expressions.md) Os mais utilizados são expressões binárias e não-secundárias. Referências de propriedade do objeto JSON fonte também são expressões válidas.
 
 Pode utilizar os seguintes operadores binários suportados:  
 
-|**Tipo de operador**  | **Valores** |
+|**Tipo de operadores**  | **Valores** |
 |---------|---------|
-|Operações aritméticas | +,-,*,/,% |
-|bit a bit    | \|, &, ^, <<, >>, >>> (turno direito de preenchimento zero) |
-|Lógica    | E, EM ALTERNATIVA, NÃO      |
-|Comparação | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|String     |  \|\| (concatenato) |
+|Aritmética | +,-,*,/,% |
+|Bitwise    | \|, &,  <<, >>, >>>  (turno direito de preenchimento zero) |
+|Lógico    | E, OU, NÃO      |
+|Comparação | =, &lt;!=, &gt; &lt;=, &gt;=, <> |
+|Cadeia     |  \|\|(concatenato) |
 
 As seguintes consultas utilizam operadores binários:
 
@@ -105,10 +105,10 @@ Também pode utilizar os operadores não-,-, ~, e NÃO em consultas, como mostra
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` devolve o item JSON contendo o `isRegistered` de propriedade com valor igual a `true`. Qualquer outro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`ou `<array>`, exclui o item do resultado.
+Também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` devolve o item JSON contendo o imóvel `isRegistered` com valor igual a `true`. Qualquer outro valor, `false` `null`como, `<number>` `<string>`, `<object>` `Undefined`, `<array>`, ou , exclui o item do resultado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução](sql-query-getting-started.md)
+- [Começar](sql-query-getting-started.md)
 - [Na palavra-chave](sql-query-keywords.md#in)
-- [Da cláusula](sql-query-from.md)
+- [Cláusula FROM](sql-query-from.md)

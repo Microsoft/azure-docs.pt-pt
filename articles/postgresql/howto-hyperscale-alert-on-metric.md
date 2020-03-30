@@ -5,13 +5,13 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 2/18/2020
-ms.openlocfilehash: 0e2eb4ab13319779ae209e58253c6a5f2ccb75da
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 3/16/2020
+ms.openlocfilehash: 80c061f72ce827df8f8354a5881c032c6f874fe1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462433"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063149"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utilize o portal Azure para configurar alertas sobre métricas para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -25,9 +25,9 @@ Pode configurar um alerta para fazer as seguintes ações quando dispara:
 * Chame um gancho de teia.
 
 Pode configurar e obter informações sobre as regras de alerta usando:
-* [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Portal Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica do portal Azure
 1. No [portal Azure,](https://portal.azure.com/)selecione a Base de Dados Azure para o servidor PostgreSQL que pretende monitorizar.
@@ -46,7 +46,7 @@ Pode configurar e obter informações sobre as regras de alerta usando:
 
 6. Selecione uma métrica da lista de sinais a alertar. Neste exemplo, selecione "Storage percent".
    
-   ![Selecione métrica](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
+   ![Selecionar métrica](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
 
 7. Configure a lógica de alerta:
 
@@ -57,13 +57,13 @@ Pode configurar e obter informações sobre as regras de alerta usando:
    
    Selecione **Feito** quando estiver completo.
 
-   ![Selecione métrica](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
+   ![Selecionar métrica](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
 
 8. Dentro da secção **Grupos de Ação,** selecione **Create New** para criar um novo grupo para receber notificações no alerta.
 
 9. Preencha o formulário "Adicionar grupo de ação" com um nome, nome curto, subscrição e grupo de recursos.
 
-    ![Grupo de ação](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
+    ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
 
 10. Configure um tipo de ação de **e-mail/SMS/Push/Voice.**
     
@@ -71,17 +71,17 @@ Pode configurar e obter informações sobre as regras de alerta usando:
    
     Selecione **OK** quando estiver concluído.
 
-    ![Grupo de ação](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
+    ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
 
 11. Especifique um nome de regra de alerta, descrição e gravidade.
 
-    ![Grupo de ação](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
+    ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
 
 12. Selecione **Criar a regra** de alerta para criar o alerta.
 
-    Em alguns minutos, o alerta está ativo e é disparado conforme descrito anteriormente.
+    Dentro de poucos minutos, o alerta está ativo e dispara como descrito anteriormente.
 
-### <a name="managing-alerts"></a>Gestão de alertas
+### <a name="managing-alerts"></a>Gerir alertas
 
 Uma vez criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 
@@ -101,9 +101,9 @@ Recomendamos a definição de alertas de espaço em disco em cada nó de cada gr
 
 * Reveja a política de retenção de dados. Mova dados mais antigos para armazenamento frio, se possível.
 * Considere [adicionar nós](howto-hyperscale-scaling.md#add-worker-nodes) ao grupo do servidor e reequilibrar fragmentos. O reequilíbrio distribui os dados por mais computadores.
-* Considere [aumentar a capacidade](howto-hyperscale-scaling.md#increase-vcores) dos nódosos dos trabalhadores. Cada trabalhador pode ter até 2 TiB de armazenamento. No entanto, a adição de nódosos deve ser tentada antes de redimensionar os nódosos porque a adição de nódosos completa-se mais rapidamente.
+* Considere [aumentar a capacidade](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) dos nódosos dos trabalhadores. Cada trabalhador pode ter até 2 TiB de armazenamento. No entanto, a adição de nódosos deve ser tentada antes de redimensionar os nódosos porque a adição de nódosos completa-se mais rapidamente.
 
-### <a name="cpu-usage"></a>Utilização do CPU
+### <a name="cpu-usage"></a>Utilização da CPU
 
 A monitorização da utilização do CPU é útil para estabelecer uma linha de base para o desempenho. Por exemplo, pode notar que o uso de CPU costuma rondar os 40-60%. Se o uso de CPU começar subitamente a rondar os 95%, pode reconhecer uma anomalia. O uso do CPU pode refletir o crescimento orgânico, mas também pode revelar uma consulta perdida. Ao criar um alerta de CPU, delineie uma granularidade de agregação longa para capturar aumentos prolongados e ignorar picos momentâneos.
 

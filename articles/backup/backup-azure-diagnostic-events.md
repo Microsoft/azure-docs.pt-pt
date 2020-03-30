@@ -4,10 +4,10 @@ description: Um artigo que descreve como usar os eventos de diagnóstico antigos
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: e3919d120e5f741af6cd30dd27e5a1dfa2b06cf2
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136944"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Utilizar Definições de Diagnóstico para os Cofres dos Serviços de Recuperação
@@ -86,6 +86,6 @@ A imagem abaixo mostra um exemplo de um utilizador com três configurações de 
 
 ![Três Configurações](./media/backup-azure-diagnostics-events/three-settings-example.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Conheça o Modelo de Dados de Análise de Log para os Eventos de Diagnóstico](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)

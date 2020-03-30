@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 02/05/2020
 ms.author: dobett
 ms.openlocfilehash: 046116addf643d6c0eb0faf2f821b6ef78d440c6
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77050341"
 ---
 # <a name="choose-the-right-iot-solution"></a>Escolha a solução IoT certa
@@ -75,4 +75,4 @@ Para uma explicação mais abrangente dos diferentes serviços e plataformas, e 
 
 Para saber mais sobre os principais atributos de soluções IoT bem sucedidas, consulte os [8 atributos de soluções ioT bem sucedidas](https://aka.ms/8attributes) em papel branco.
 
-Para um debate aprofundado da arquitetura do IoT, veja [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Arquitetura de Referência do Microsoft Azure IoT).
+Para um debate aprofundado da arquitetura do IoT, veja [Microsoft Azure IoT Reference Architecture (Arquitetura de Referência do Microsoft Azure IoT)](https://aka.ms/iotrefarchitecture).

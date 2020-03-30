@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b9b536def2aa7da25fef9f3baa5efdd8b0ed6f7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944619"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066638"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Armazenamento de ficheiros Mount Azure em VMs Linux usando SMB
 
@@ -29,15 +29,15 @@ Este guia requer que esteja a executar a versão Azure CLI 2.0.4 ou posterior. E
 
 Crie um grupo de recursos chamado *myResourceGroup* na localização *dos EUA Orientais.*
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
-Crie uma nova conta de armazenamento, dentro do grupo de recursos que criou, utilizando a conta de [armazenamento az criar](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento chamada *mySTORAGEACCT\<número aleatório>* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes das contas de armazenamento devem ser únicos, utilizando `$RANDOM` anexa um número até ao fim para torná-lo único.
+Crie uma nova conta de armazenamento, dentro do grupo de recursos que criou, utilizando a conta de [armazenamento az criar](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento chamada *mySTORAGEACCT\<random number>* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes das contas `$RANDOM` de armazenamento devem ser únicos, utilizando anexações um número até ao fim para torná-lo único.
 
-```bash
+```azurecli
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageacct$RANDOM" \
@@ -52,7 +52,7 @@ Quando cria uma conta de armazenamento, as chaves da conta são criadas em pares
 
 Ver as chaves da conta de armazenamento utilizando a lista de [chaves da conta de armazenamento az](/cli/azure/storage/account/keys). Este exemplo armazena o valor da chave 1 na variável **STORAGEKEY.**
 
-```bash
+```azurecli
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
@@ -67,7 +67,7 @@ Os nomes de partilha têm de ser letras minúsculas, números e hífens individu
 
 Este exemplo cria uma quota chamada *myshare* com uma quota de 10 GiB. 
 
-```bash
+```azurecli
 az storage share create --name myshare \
     --quota 10 \
     --account-name $STORAGEACCT \
@@ -93,7 +93,7 @@ Monte o arquivo Azure partilha para o diretório local.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
-O comando acima utiliza o comando de [montagem](https://linux.die.net/man/8/mount) para montar a partilha de ficheiros Azure e opções específicas aos [cifs](https://linux.die.net/man/8/mount.cifs). Especificamente, as opções de file_mode e dir_mode definir ficheiros e diretórios para autorizar `0777`. A permissão `0777` dá leitura, escrita e executa permissões a todos os utilizadores. Pode alterar estas permissões substituindo os valores por [outras permissões chmod](https://en.wikipedia.org/wiki/Chmod). Também pode utilizar outras opções [cifs,](https://linux.die.net/man/8/mount.cifs) tais como gid ou uid. 
+O comando acima utiliza o comando de [montagem](https://linux.die.net/man/8/mount) para montar a partilha de ficheiros Azure e opções específicas aos [cifs](https://linux.die.net/man/8/mount.cifs). Especificamente, as opções de file_mode e `0777`dir_mode definir ficheiros e diretórios para permissão . A `0777` permissão dá leitura, escrita e executa permissões a todos os utilizadores. Pode alterar estas permissões substituindo os valores por [outras permissões chmod](https://en.wikipedia.org/wiki/Chmod). Também pode utilizar outras opções [cifs,](https://linux.die.net/man/8/mount.cifs) tais como gid ou uid. 
 
 
 ## <a name="persist-the-mount"></a>Persistir no monte
@@ -103,9 +103,10 @@ Quando reiniciar o VM Linux, a parte SMB montada é desmontada durante a paragem
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+
 Para uma maior segurança em ambientes de produção, deve armazenar as suas credenciais fora da fstab.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Usando cloud-init para personalizar um VM Linux durante a criação](using-cloud-init.md)
 - [Adicionar um disco a uma VM do Linux](add-disk.md)

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/12/2020
 ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127243"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos da Rede Virtual Azure a partir de Aplicações Lógicas Azure utilizando ambientes de serviçode integração (ISEs)
@@ -32,7 +32,7 @@ Quando cria um ISE, o Azure *injeta* ou implanta o ISE na sua rede virtual Azure
 
 As aplicações lógicas podem aceder a recursos que estão dentro ou ligados à sua rede virtual utilizando estes itens, que funcionam no mesmo ISE que as suas aplicações lógicas:
 
-* Umgatilho ou ação incorporado core-rotulado, como o gatilho ou ação HTTP
+* Um **CORE**gatilho ou ação incorporado core-rotulado, como o gatilho ou ação HTTP
 * Um conector com etiqueta **ISE**para esse sistema ou serviço
 * Um conector personalizado
 

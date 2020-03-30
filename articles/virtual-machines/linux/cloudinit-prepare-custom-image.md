@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: 73df3a12ebea3b94563d02eda8f1211401d1ae3f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: fef41f4dc90c03e3efbe4c8a75e495c26eec64b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969185"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066807"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Prepare uma imagem VM Linux Azure existente para uso com cloud-init
 Este artigo mostra-lhe como pegar numa máquina virtual Azure existente e prepará-la para ser reimplantada e pronta para usar cloud-init. A imagem resultante pode ser usada para implantar uma nova máquina virtual ou conjuntos de escala de máquinavirtual - qualquer um dos quais poderia ser mais personalizado por cloud-init no momento de implantação.  Estes scripts de cloud-init funcionam na primeira bota uma vez que os recursos foram aprovisionados pelo Azure. Para mais informações sobre como o cloud-init funciona nativamente em Azure e os distros linux suportados, consulte a [visão geral cloud-init](using-cloud-init.md)
@@ -28,13 +28,15 @@ sudo yum install -y gdisk cloud-utils-growpart
 sudo yum install - y cloud-init 
 ```
 
-Atualize a secção `cloud_init_modules` em `/etc/cloud/cloud.cfg` para incluir os seguintes módulos:
+Atualize `cloud_init_modules` a `/etc/cloud/cloud.cfg` secção para incluir os seguintes módulos:
+
 ```bash
 - disk_setup
 - mounts
 ```
 
-Aqui está uma amostra do que uma secção de `cloud_init_modules` de propósito geral parece.
+Aqui está uma amostra de `cloud_init_modules` como uma secção de propósito geral se parece.
+
 ```bash
 cloud_init_modules:
  - migrator
@@ -51,7 +53,9 @@ cloud_init_modules:
  - users-groups
  - ssh
 ```
-Uma série de tarefas relativas ao fornecimento e manuseamento de discos efémeros devem ser atualizadas em `/etc/waagent.conf`. Executar os seguintes comandos para atualizar as definições apropriadas. 
+
+É necessário atualizar uma série de tarefas relativas ao fornecimento e `/etc/waagent.conf`manuseamento de discos efémeros . Executar os seguintes comandos para atualizar as definições apropriadas.
+
 ```bash
 sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
@@ -60,7 +64,7 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 cloud-init clean
 ```
 
-Permitir apenas o Azure como fonte de dados para o Agente Azure Linux, criando um novo ficheiro `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` utilizando um editor da sua escolha com a seguinte linha:
+Permitir apenas o Azure como fonte de dados para `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` o Agente Azure Linux, criando um novo ficheiro utilizando um editor à sua escolha com a seguinte linha:
 
 ```bash
 # Azure Data Source config
@@ -72,12 +76,14 @@ Se a sua imagem Azure existente tiver um ficheiro de swap configurado e pretende
 Para imagens baseadas em Chapéu Vermelho - siga as instruções no seguinte documento do Chapéu Vermelho explicando como [remover o ficheiro de troca](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
 Para imagens CentOS com swapfile ativado, pode executar o seguinte comando para desligar o swapfile:
+
 ```bash
 sudo swapoff /mnt/resource/swapfile
 ```
 
-Certifique-se de que a referência do swap file é removida de `/etc/fstab` - deve parecer algo como a seguinte saída:
-```text
+Certifique-se de que `/etc/fstab` a referência do swap file é removida - deve parecer algo como a seguinte saída:
+
+```output
 # /etc/fstab
 # Accessible filesystems, by reference, are maintained under '/dev/disk'
 # See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
@@ -87,9 +93,11 @@ UUID=7c473048-a4e7-4908-bad3-a9be22e9d37d /boot xfs defaults 0 0
 ```
 
 Para poupar espaço e remover o ficheiro de troca pode executar o seguinte comando:
+
 ```bash
 rm /mnt/resource/swapfile
 ```
+
 ## <a name="extra-step-for-cloud-init-prepared-image"></a>Passo extra para imagem preparada em nuvem
 > [!NOTE]
 > Se a sua imagem foi previamente uma imagem preparada e configurada em **nuvem,** tem de fazer os seguintes passos.
@@ -110,9 +118,9 @@ sudo waagent -deprovision+user -force
 
 Para mais informações sobre os comandos de deprovisionamento do Agente Azure Linux, consulte o [Agente Azure Linux](../extensions/agent-linux.md) para obter mais detalhes.
 
-Saia da sessão SSH, depois da sua concha de bash, execute os seguintes comandos AzureCLI para desalocar, generalizar e criar uma nova imagem Azure VM.  Substitua `myResourceGroup` e `sourceVmName` com as informações apropriadas que reflitam a sua fonteVM.
+Saia da sessão SSH, depois da sua concha de bash, execute os seguintes comandos AzureCLI para desalocar, generalizar e criar uma nova imagem Azure VM.  `myResourceGroup` Substitua `sourceVmName` e com as informações apropriadas que reflitam a sua fonteVM.
 
-```bash
+```azurecli
 az vm deallocate --resource-group myResourceGroup --name sourceVmName
 az vm generalize --resource-group myResourceGroup --name sourceVmName
 az image create --resource-group myResourceGroup --name myCloudInitImage --source sourceVmName

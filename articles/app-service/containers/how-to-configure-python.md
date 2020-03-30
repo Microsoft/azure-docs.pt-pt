@@ -4,19 +4,19 @@ description: Aprenda a configurar um recipiente Python pré-construído para a s
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: seodec18
-ms.openlocfilehash: d2c5a094c45eeca779a33a39261bd3fc17d53d1a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 8a9276f73c1d9bdf0289f41bb59340b29f5a2575
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913859"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046029"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure um aplicativo Linux Python para o Azure App Service
 
 Este artigo descreve como o [Azure App Service](app-service-linux-intro.md) executa aplicações Python e como pode personalizar o comportamento do App Service quando necessário. As aplicações Python devem ser implantadas com todos os módulos de [pip](https://pypi.org/project/pip/) necessários.
 
-O motor de implantação do Serviço de Aplicações ativa automaticamente um ambiente virtual e executa `pip install -r requirements.txt` para si quando implementa um [repositório Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), ou um [pacote Zip](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) com processos de construção ligados.
+O motor de implantação do Serviço de `pip install -r requirements.txt` Aplicações ativa automaticamente um ambiente virtual e funciona para si quando implementa um [repositório Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), ou um [pacote Zip](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) com processos de construção ligados.
 
 Este guia fornece conceitos e instruções fundamentais para os desenvolvedores de Python que usam um recipiente Linux incorporado no Serviço de Aplicações. Se nunca usou o Azure App Service, deve seguir primeiro o [Python quickstart](quickstart-python.md) e python com o [tutorial PostgreSQL.](tutorial-python-postgresql-app.md)
 
@@ -52,12 +52,12 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 Se implementar a sua aplicação utilizando pacotes Git ou zip com automatização de construção ligada, o Serviço de Aplicações constrói passos de automação através da seguinte sequência:
 
-1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH`.
+1. Executar script personalizado se `PRE_BUILD_SCRIPT_PATH`especificado por .
 1. Execute `pip install -r requirements.txt`.
-1. Se *manage.py* for encontrado na raiz do repositório, execute *manage.py coletas.* No entanto, se `DISABLE_COLLECTSTATIC` está definido para `true`, este passo é ignorado.
-1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
+1. Se *manage.py* for encontrado na raiz do repositório, execute *manage.py coletas.* No entanto, `DISABLE_COLLECTSTATIC` `true`se for definido, este passo é ignorado.
+1. Executar script personalizado se `POST_BUILD_SCRIPT_PATH`especificado por .
 
-`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`e `DISABLE_COLLECTSTATIC` são variáveis ambientais que estão vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-construção, defina `POST_BUILD_COMMAND`. Para desativar a recolha de corrente seletática ao construir aplicações Django, detete `DISABLE_COLLECTSTATIC=true`.
+`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`e `DISABLE_COLLECTSTATIC` são variáveis ambientais que são vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-construção, defina `POST_BUILD_COMMAND`. Para desativar a recolha de corrente `DISABLE_COLLECTSTATIC=true`seletática ao construir aplicações Django, coloque .
 
 O exemplo seguinte especifica as duas variáveis a uma série de comandos, separados por vírgulas.
 
@@ -131,7 +131,7 @@ Pode controlar o comportamento de arranque do contentor ao fornecer um comando d
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
-Por exemplo, se tiver uma aplicação Flask cujo módulo principal é *hello.py* e o objeto de aplicação Flask nesse ficheiro é chamado `myapp`, então\<comando *personalizado>* é o seguinte:
+Por exemplo, se tiver uma aplicação *hello.py* Flask cujo módulo principal é hello.py `myapp`e o objeto de aplicação Flask nesse ficheiro for nomeado , então * \<* o comando personalizado>é o seguinte:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -143,9 +143,9 @@ Se o seu módulo principal estiver numa subpasta, como `website`, especifique es
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Também pode adicionar quaisquer argumentos adicionais para o Gunicorn\<comando *personalizado>* como `--workers=4`. Para obter mais informações, veja [Executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Também pode adicionar quaisquer argumentos adicionais para gunicorn `--workers=4`para * \<>de comando personalizado, *tais como . Para obter mais informações, veja [Executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-Para utilizar um servidor não Gunicorn, como o [aiohttp,](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)pode substituir *\<comando personalizado>* por algo assim:
+Para utilizar um servidor não Gunicorn, como o [aiohttp,](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)pode substituir * \<>de comando personalizado* por algo assim:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -156,7 +156,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
-No Serviço de Aplicações, pode [definir as definições](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) de aplicações fora do seu código de aplicações. Depois pode acessá-los usando o padrão [os.environ](https://docs.python.org/3/library/os.html#os.environ) padrão. Por exemplo, para aceder a uma definição de aplicação chamada `WEBSITE_SITE_NAME`, utilize o seguinte código:
+No Serviço de Aplicações, pode [definir as definições](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) de aplicações fora do seu código de aplicações. Depois pode acessá-los usando o padrão [os.environ](https://docs.python.org/3/library/os.html#os.environ) padrão. Por exemplo, para aceder `WEBSITE_SITE_NAME`a uma definição de aplicação chamada , use o seguinte código:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -164,14 +164,14 @@ os.environ['WEBSITE_SITE_NAME']
 
 ## <a name="detect-https-session"></a>Detetar sessão HTTPS
 
-No Serviço de Aplicações, a rescisão do [SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibradores de carga da rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação necessitar de verificar se os pedidos do utilizador estão encriptados ou não, inspecione o cabeçalho `X-Forwarded-Proto`.
+No Serviço de Aplicações, a rescisão do [SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibradores de carga da rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação necessitar de verificar se `X-Forwarded-Proto` os pedidos do utilizador estão encriptados ou não, inspecione o cabeçalho.
 
 ```python
 if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto'] == 'https':
 # Do something when HTTPS is used
 ```
 
-Os quadros web populares permitem-lhe aceder à informação `X-Forwarded-*` no padrão padrão de aplicações. No [CodeIgniter,](https://codeigniter.com/)o [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) verifica o valor da `X_FORWARDED_PROTO` por defeito.
+Os quadros web populares permitem-lhe aceder à `X-Forwarded-*` informação no padrão padrão da sua aplicação. No [CodeIgniter,](https://codeigniter.com/)o [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) `X_FORWARDED_PROTO` verifica o valor por defeito.
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 

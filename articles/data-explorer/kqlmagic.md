@@ -8,16 +8,16 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 83902ea5a3e73603311a0c469126ed603d0ebd16
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064874"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Use um Caderno Jupyter e uma extensão Kqlmagic para analisar dados no Azure Data Explorer
 
 Jupyter Notebook é uma aplicação web de código aberto que permite criar e partilhar documentos contendo código vivo, equações, visualizações e texto narrativo. O uso inclui limpeza e transformação de dados, simulação numérica, modelação estatística, visualização de dados e machine learning.
-[Jupyter Notebook](https://jupyter.org/) suporta funções mágicas que estendem as capacidades do núcleo suportando comandos adicionais. A magia KQL é um comando que estende as capacidades do kernel Python em Jupyter Notebook para que você possa executar consultas linguísticas Kusto de forma nativa. Você pode facilmente combinar linguagem de consulta Python e Kusto para consultar e visualizar dados usando biblioteca rica Plot.ly integrada com comandos `render`. São suportadas fontes de dados para consultas de execução. Estas fontes de dados incluem o Azure Data Explorer, um serviço de exploração rápida e altamente escalável de dados para dados de log e telemetria, bem como registos do Monitor Azure e Insights de Aplicação. A magia KQL também trabalha com cadernos Azure, Jupyter Lab e visual studio code jupyter extensão.
+[Jupyter Notebook](https://jupyter.org/) suporta funções mágicas que estendem as capacidades do núcleo suportando comandos adicionais. A magia KQL é um comando que estende as capacidades do kernel Python em Jupyter Notebook para que você possa executar consultas linguísticas Kusto de forma nativa. Você pode facilmente combinar linguagem de consulta Python e Kusto para consultar `render` e visualizar dados usando biblioteca de Plot.ly rica integrada com comandos. São suportadas fontes de dados para consultas de execução. Estas fontes de dados incluem o Azure Data Explorer, um serviço de exploração rápida e altamente escalável de dados para dados de log e telemetria, bem como registos do Monitor Azure e Insights de Aplicação. A magia KQL também trabalha com cadernos Azure, Jupyter Lab e visual studio code jupyter extensão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Jupyter Notebook é uma aplicação web de código aberto que permite criar e pa
     
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Ligue-se ao cluster de ajuda do Explorador de Dados Azure
 
-Utilize o seguinte comando para ligar à base de dados *de amostras* alojada no cluster *Ajuda.* Para utilizadores aad não microsoft, substitua o nome do inquilino `Microsoft.com` com o seu Inquilino AAD.
+Utilize o seguinte comando para ligar à base de dados *de amostras* alojada no cluster *Ajuda.* Para utilizadores não Microsoft AAD, `Microsoft.com` substitua o nome do inquilino pelo seu Inquilino AAD.
 
 ```python
 %kql AzureDataExplorer://tenant="Microsoft.com";code;cluster='help';database='Samples'
@@ -52,7 +52,7 @@ Utilize o seguinte comando para ligar à base de dados *de amostras* alojada no 
 
 ## <a name="query-and-visualize"></a>Consulta e visualização
 
-Consulta de dados utilizando o operador de [renderização](/azure/kusto/query/renderoperator) e visualizar dados utilizando a biblioteca ploy.ly. Esta consulta e visualização fornece uma experiência integrada que utiliza kQL nativo. A Kqlmagic suporta a maioria das tabelas, exceto `timepivot`, `pivotchart`e `ladderchart`. O render é suportado com todos os atributos exceto `kind`, `ysplit`e `accumulate`. 
+Consulta de dados utilizando o operador de [renderização](/azure/kusto/query/renderoperator) e visualizar dados utilizando a biblioteca ploy.ly. Esta consulta e visualização fornece uma experiência integrada que utiliza kQL nativo. Kqlmagic suporta a `timepivot`maioria `pivotchart`das `ladderchart`tabelas exceto, e . Render é suportado com `kind` `ysplit`todos `accumulate`os atributos exceto , e . 
 
 ### <a name="query-and-render-piechart"></a>Consulta e render gráfico
 
@@ -87,7 +87,7 @@ Se não gostar da paleta de cores padrão, personalize os gráficos utilizando o
     %kql --palettes -popup_window
     ```
 
-1. Selecione a paleta de cores `cool` e volte a tornar a consulta:
+1. Selecione a `cool` paleta de cores e volte a tornar a consulta:
 
     ```python
     %%kql -palette_name "cool"
@@ -121,7 +121,7 @@ StormEvents
 
 ### <a name="convert-query-results-to-pandas-dataframe"></a>Converter resultados de consulta para Pandas DataFrame
 
-Pode aceder aos resultados de uma consulta KQL no Pandas DataFrame. Aceda aos resultados da última consulta executada por `_kql_raw_result_` variáveis e facilmente converta os resultados em Pandas DataFrame da seguinte forma:
+Pode aceder aos resultados de uma consulta KQL no Pandas DataFrame. Aceda aos resultados da `_kql_raw_result_` última consulta executada por variável e facilmente converta os resultados em Pandas DataFrame da seguinte forma:
 
 ```python
 df = _kql_raw_result_.to_dataframe()
@@ -130,9 +130,9 @@ df.head(10)
 
 ### <a name="example"></a>Exemplo
 
-Em muitos cenários de análise, você pode querer criar cadernos reutilizáveis que contêm muitas consultas e alimentar os resultados de uma consulta em consultas subsequentes. O exemplo abaixo utiliza a variável Python `statefilter` para filtrar os dados.
+Em muitos cenários de análise, você pode querer criar cadernos reutilizáveis que contêm muitas consultas e alimentar os resultados de uma consulta em consultas subsequentes. O exemplo abaixo utiliza `statefilter` a variável Python para filtrar os dados.
 
-1. Execute uma consulta para ver os 10 estados do top 10 com `DamageProperty`máxima:
+1. Execute uma consulta para ver os `DamageProperty`10 estados do top 10 com o máximo:
 
     ```python
     %%kql
@@ -150,7 +150,7 @@ Em muitos cenários de análise, você pode querer criar cadernos reutilizáveis
     statefilter
     ```
 
-1. Execute uma consulta usando a declaração `let` e a variável Python:
+1. Execute uma consulta `let` usando a declaração e a variável Python:
 
     ```python
     %%kql
@@ -168,7 +168,7 @@ Em muitos cenários de análise, você pode querer criar cadernos reutilizáveis
     ```
 
 > [!TIP]
-> Para receber informações sobre todas as configurações disponíveis, use `%config Kqlmagic`. Para resolver problemas e capturar erros de Kusto, tais como problemas de ligação e consultas incorretas, use `%config Kqlmagic.short_errors=False`
+> Para receber informações sobre `%config Kqlmagic`todas as configurações disponíveis. Para resolver problemas e capturar erros de Kusto, tais como problemas de ligação e consultas incorretas, use`%config Kqlmagic.short_errors=False`
 
 ## <a name="next-steps"></a>Passos seguintes
 

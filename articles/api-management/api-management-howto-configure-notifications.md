@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244072"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de e-mail na API Management do Azure
@@ -30,7 +30,7 @@ Se não tiver uma instância de serviço de Gestão API, complete o seguinte qui
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="publisher-notifications"> </a>Configurar notificações
+## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>Configurar notificações
 
 1.  Selecione a sua instância **de GESTÃO API.**
 2.  Clique em **Notificações** para ver as notificações disponíveis.
@@ -58,7 +58,7 @@ Se não tiver uma instância de serviço de Gestão API, complete o seguinte qui
 
 4.  Prima **Adicionar**.
 
-## <a name="email-templates"> </a>Configurar modelos de notificação
+## <a name="configure-notification-templates"></a><a name="email-templates"> </a>Configurar modelos de notificação
 
 A API Management fornece modelos de notificação para as mensagens de correio eletrónico que são enviadas no decurso da administração e utilização do serviço. Os seguintes modelos de e-mail são fornecidos.
 

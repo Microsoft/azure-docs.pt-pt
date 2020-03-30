@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o provisionamento de sucessoFactors no Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configurar o provisionamento de sucessoFactors no Diretório Ativo Azure [ Microsoft Docs'
 description: Saiba como configurar o fornecimento de entrada a partir de SuccessFactors
 services: active-directory
 author: cmmdesai
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249688"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: Configure SAP SuccessFactors para o fornecimento de utilizadores de directórioactivo ativo (Pré-visualização)
@@ -100,19 +100,19 @@ Trabalhe com a sua equipa de administração do SuccessFactors ou parceiro de im
 
 * Inicie sessão no SAP SuccessFactors com uma conta de utilizador que tenha acesso ao Centro De Administração.
 * Procure *funções*de permissão de gestão e, em seguida, selecione **'Gerir funções de permissão'** a partir dos resultados da pesquisa.
-  ![gerir papéis de permissão](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
+  ![Gerir funções de permissão](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
 * A partir da Lista de Papéis de Permissão, clique em **Criar Novo**.
   > [!div class="mx-imgBorder"]
-  > ![criar novos](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png) de permissão
+  > ![Criar novo papel de permissão](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 * Adicione um **nome** e **descrição** para o novo papel de permissão. O nome e a descrição devem indicar que o papel é para permissões de utilização da API.
   > [!div class="mx-imgBorder"]
-  > ![permissão detalhe](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+  > ![Detalhe de papel de permissão](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
 * Sob as definições de Permissão, clique em **Permissão...** em seguida, percorra a lista de permissão e clique em **Gerir Ferramentas**de Integração . Verifique a caixa para permitir que o **Administrador aceda à API OData através**da autenticação básica .
   > [!div class="mx-imgBorder"]
   > ![Gerir ferramentas de integração](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
 * Desloque-se para baixo na mesma caixa e selecione **API Central do Empregado**. Adicione permissões como mostrado abaixo para ler usando ODATA API e edite usando API ODATA. Selecione a opção de edição se planeia utilizar a mesma conta para o cenário Writeback to SuccessFactors. 
   > [!div class="mx-imgBorder"]
-  > ![Ler permissões](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+  > ![Ler permissões de escrita](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
   >Para a lista completa de atributos recuperados por esta app de provisionamento, consulte a Referência do [Atributo SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
@@ -126,10 +126,10 @@ Trabalhe com a sua equipa de administração do SuccessFactors ou parceiro de im
   > ![Gerir grupos de permissão](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
 * A partir da janela 'Gerir grupos de permissão', clique em **Criar Novo**.
   > [!div class="mx-imgBorder"]
-  > ![Adicionar novos](./media/sap-successfactors-inbound-provisioning/create-new-group.png) de grupo
+  > ![Adicionar novo grupo](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * Adicione um Nome de Grupo para o novo grupo. O nome do grupo deve indicar que o grupo é para utilizadores de API.
   > [!div class="mx-imgBorder"]
-  > ![nome do grupo de permissão](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+  > ![Nome de grupo de permissão](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
 * Adicione membros ao grupo. Por exemplo, pode selecionar o **username** do menu de entrega do People Pool e, em seguida, introduzir o nome de utilizador da conta API que será usada para a integração. 
   > [!div class="mx-imgBorder"]
   > ![Adicionar membros do grupo](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
@@ -139,13 +139,13 @@ Trabalhe com a sua equipa de administração do SuccessFactors ou parceiro de im
 
 * No SuccessFactors Admin Center, procure funções de permissão de *gestão*e, em seguida, selecione **'Gerir funções de permissão'** a partir dos resultados da pesquisa.
 * A partir da Lista de Papéis de **Permissão,** selecione o papel que criou para permissões de utilização da API.
-* Sob **o Grant este papel para...** , clique em **Adicionar...** botão.
+* Sob **o Grant este papel para...**, clique em **Adicionar...** botão.
 * Selecione **Grupo de Permissões...** a partir do menu suspenso e, em seguida, clique em **Select...** para abrir a janela Grupos para pesquisar e selecionar o grupo acima criado. 
   > [!div class="mx-imgBorder"]
-  > ![Adicionar](./media/sap-successfactors-inbound-provisioning/add-permission-group.png) de grupo de permissão
+  > ![Adicionar grupo de permissão](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
 * Reveja a concessão de funções de permissão ao Grupo de Permissão. 
   > [!div class="mx-imgBorder"]
-  > ![Papel de Permissão e](./media/sap-successfactors-inbound-provisioning/permission-role-group.png) de pormenor do Grupo
+  > ![Papel de permissão e detalhe do grupo](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
 * Clique em **Guardar Alterações**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Configurar o fornecimento de utilizadores de SuccessFactors para Diretório Ativo
@@ -199,7 +199,7 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
    
 1. Após a instalação estar concluída, o assistente será lançado e verá o ecrã **AD Connect Azure.** Clique no botão **Authenticate** para ligar à sua instância Azure AD.
 
-   ![Ligar AD Azure](./media/workday-inbound-tutorial/pa_install_screen_2.png "Ligar ao Azure AD")
+   ![Ligar ao Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Ligar ao Azure AD")
    
 1. Autenticar a sua instância De AD Azure usando credenciais de administrador global.
 
@@ -247,11 +247,11 @@ Neste passo, estabelecemos conectividade com SuccessFactors e Ative Directy no p
 
 1. Complete a secção **de Credenciais de Administrador** da seguinte forma:
 
-   * Nome de **utilizador da Administração** – Introduza o nome de utilizador da conta de utilizador da API SuccessFactors, com o ID da empresa anexado. Tem o formato: **username\@companyID**
+   * Nome de **utilizador da Administração** – Introduza o nome de utilizador da conta de utilizador da API SuccessFactors, com o ID da empresa anexado. Tem o formato: **\@username companyID**
 
    * **Senha de administração –** Introduza a palavra-passe da conta de utilizador da API SuccessFactors. 
 
-   * **URL do inquilino –** Insira o nome dos serviços SuccessFactors OData API endpoint. Basta introduzir o nome de anfitrião do servidor sem http ou https. Este valor deve parecer: **<api-server-name>.successfactors.com**.
+   * **URL do inquilino –** Insira o nome dos serviços SuccessFactors OData API endpoint. Basta introduzir o nome de anfitrião do servidor sem http ou https. Este valor deve parecer:<nome **do servidor>.successfactors.com**.
 
    * Floresta de **Diretório Ativo -** O "Nome" do seu domínio de Diretório Ativo, registado no agente. Utilize a queda para selecionar o domínio alvo para o fornecimento. Este valor é tipicamente uma corda como: *contoso.com*
 
@@ -284,7 +284,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem de SuccessF
 
       * Operador: Regex Match
 
-      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9]]]]
 
    * Exemplo: Apenas trabalhadores e não trabalhadores contingentes
 
@@ -355,9 +355,9 @@ Uma vez concluídas as configurações de aplicações de provisionamento Succes
 5. Uma vez concluída a sincronização inicial, escreverá um relatório resumo de auditoria no separador **Provisioning,** como mostrado abaixo.
 
    > [!div class="mx-imgBorder"]
-   > ![provisionamento de](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png) de progresso
+   > ![Fornecimento de barra de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre os Atributos de Sucesso suportados para o fornecimento de entrada](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Saiba como configurar a redação de e-mail para SuccessFactors](sap-successfactors-writeback-tutorial.md)

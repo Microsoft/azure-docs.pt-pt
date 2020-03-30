@@ -5,20 +5,20 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68857470"
 ---
-Nesta seção, você atualiza o código em seu projeto de back-end de aplicativos móveis existente para enviar uma notificação por push sempre que um novo item for adicionado. Esse processo é alimentado pelo recurso de [modelo](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) dos hubs de notificação do Azure, que permite envios por push de plataforma cruzada. Os vários clientes são registrados para notificações por push usando modelos e um único Push universal pode chegar a todas as plataformas de cliente.
+Nesta secção, atualiza o código no seu projeto back-end das Aplicações Móveis existente para enviar uma notificação push sempre que um novo item é adicionado. Este processo é alimentado pela funcionalidade de [modelo](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) dos Hubs de Notificação Azure, que permite empurrões de plataformas cruzadas. Os vários clientes estão registados para notificações push usando modelos, e um único impulso universal pode chegar a todas as plataformas de clientes.
 
-Escolha um dos procedimentos a seguir que corresponda ao seu tipo&mdash;de projeto de back-end ou back-end do [node. js](#nodejs)do [.net](#dotnet) .
+Escolha um dos seguintes procedimentos que corresponda ao seu tipo&mdash;de projeto de back-end ou [.NET back back back](#dotnet) end ou [Node.js back end](#nodejs).
 
-### <a name="dotnet"></a>Projeto de back-end do .NET
+### <a name="net-back-end-project"></a><a name="dotnet"></a>Projeto de back-end .NET
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor. Em seguida, selecione **gerenciar pacotes NuGet**. Procure e selecione **instalar.** `Microsoft.Azure.NotificationHubs` Esse processo instala a biblioteca de hubs de notificação para enviar notificações do back-end.
-2. No projeto do servidor, abra **controladores** > **TodoItemController.cs**. Em seguida, adicione as seguintes instruções using:
+1. No Estúdio Visual, clique no projeto do servidor. Em seguida, selecione **Gerir pacotes NuGet**. Procure, e depois **selecione Instalar**. `Microsoft.Azure.NotificationHubs` Este processo instala a biblioteca Notification Hubs para envio de notificações a partir da parte de trás.
+2. No projeto do servidor, os **Controladores abertos** > **TodoItemController.cs**. Em seguida, adicione as seguintes declarações utilizando:
 
     ```csharp
     using System.Collections.Generic;
@@ -26,7 +26,7 @@ Escolha um dos procedimentos a seguir que corresponda ao seu tipo&mdash;de proje
     using Microsoft.Azure.Mobile.Server.Config;
     ```
 
-3. No método **PostTodoItem** , adicione o seguinte código após a chamada para **InsertAsync**:  
+3. No método **PostTodoItem,** adicione o seguinte código após a chamada para **InsertAsync:**  
 
     ```csharp
     // Get the settings for the server project.
@@ -64,14 +64,14 @@ Escolha um dos procedimentos a seguir que corresponda ao seu tipo&mdash;de proje
     }
     ```
 
-    Esse processo envia uma notificação de modelo que contém o item. Texto quando um novo item é inserido.
+    Este processo envia uma notificação de modelo que contém o item. Envie sMS quando um novo item estiver inserido.
 
 4. Republique o projeto do servidor.
 
-### <a name="nodejs"></a>Projeto de back-end do node. js
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Projeto de back-end node.js
 
-1. Configure seu projeto de back-end.
-2. Substitua o código existente em todoitem. js pelo seguinte código:
+1. Prepara o teu projeto de backend.
+2. Substitua o código existente em todoitem.js pelo seguinte código:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -114,6 +114,6 @@ Escolha um dos procedimentos a seguir que corresponda ao seu tipo&mdash;de proje
     module.exports = table;  
     ```
 
-    Esse processo envia uma notificação de modelo que contém o item. Text quando um novo item é inserido.
+    Este processo envia uma notificação de modelo que contém o item.text quando um novo item é inserido.
 
-3. Quando você editar o arquivo no computador local, Republique o projeto do servidor.
+3. Quando editar o ficheiro no seu computador local, republique o projeto do servidor.

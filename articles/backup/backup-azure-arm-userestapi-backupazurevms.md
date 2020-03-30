@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248167"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup num Azure VM utilizando o Azure Backup via REST API
@@ -29,7 +29,7 @@ Primeiro, o cofre deve ser capaz de identificar o VM Azure. Isto é acionado com
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-O POST URI tem `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` parâmetros. O `{fabricName}` é "Azure". De acordo com o nosso exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
+O POST `{subscriptionId}`URI `{vaultName}` `{vaultresourceGroupName}`tem, `{fabricName}` parâmetros. O `{fabricName}` é "Azure". De acordo com `{vaultName}` o nosso exemplo, é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -102,13 +102,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 O *GET* URI tem todos os parâmetros necessários. Não é necessário nenhum corpo de pedido adicional.
 
-#### <a name="responses-1"></a>Respostas
+#### <a name="responses"></a><a name="responses-1"></a>Respostas
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [Lista de Recursos DeItemProtectable de Carga de Carga](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-#### <a name="example-responses-1"></a>Respostas de exemplo
+#### <a name="example-responses"></a><a name="example-responses-1"></a>Respostas de exemplo
 
 Uma vez que o pedido *GET* é submetido, uma resposta de 200 (OK) é devolvida.
 
@@ -149,15 +149,15 @@ X-Powered-By: ASP.NET
 > [!TIP]
 > O número de valores numa resposta *GET* é limitado a 200 para uma 'página'. Utilize o campo 'nextLink' para obter o URL para o próximo conjunto de respostas.
 
-A resposta contém a lista de todos os VMs Azure desprotegidos e cada `{value}` contém todas as informações necessárias pelo Serviço de Recuperação do Azure para configurar a cópia de segurança. Para configurar a cópia de segurança, note o campo `{name}` e o campo `{virtualMachineId}` na secção `{properties}`. Construa duas variáveis a partir destes valores de campo, como mencionado abaixo.
+A resposta contém a lista de todos os VMs Azure desprotegidos e cada um `{value}` contém todas as informações necessárias pelo Serviço de Recuperação do Azure para configurar a cópia de segurança. Para configurar a cópia `{name}` de `{virtualMachineId}` segurança, `{properties}` note o campo e o campo na secção. Construa duas variáveis a partir destes valores de campo, como mencionado abaixo.
 
 - nome do recipiente = "iaasvmcontainer;" +`{name}`
-- protectedItemName = "vm;" + `{name}`
-- `{virtualMachineId}` é usado mais tarde [no corpo de pedido](#example-request-body)
+- protectedItemName = "vm;" +`{name}`
+- `{virtualMachineId}`é usado mais tarde [no corpo de pedido](#example-request-body)
 
 No exemplo, os valores acima traduzidos para:
 
-- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
+- nome do recipiente = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
 - protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Habilitar a proteção para o Azure VM
@@ -170,7 +170,7 @@ Permitir a proteção é uma operação *put* assíncrona que cria um "item prot
 https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-Os `{containerName}` e `{protectedItemName}` são construídos acima. O `{fabricName}` é "Azure". Para o nosso exemplo, isto traduz-se em:
+Os `{containerName}` `{protectedItemName}` e são construídos acima. O `{fabricName}` é "Azure". Para o nosso exemplo, isto traduz-se em:
 
 ```http
 PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
@@ -182,7 +182,7 @@ Para criar um item protegido, seguem-se os componentes do organismo de pedido.
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|propriedades     | AzureIaaSVMProtectedItem        |Propriedades de recursos ProtegidosItem         |
+|propriedades     | Item AzureIaASVMProtectedItem        |Propriedades de recursos ProtegidosItem         |
 
 Para a lista completa de definições do organismo de pedido e outros detalhes, consulte a criação do [documento rest API do artigo protegido](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body).
 
@@ -200,7 +200,7 @@ O seguinte órgão de pedido define as propriedades necessárias para criar um i
 }
 ```
 
-O `{sourceResourceId}` é o `{virtualMachineId}` acima mencionado da [resposta dos itens protegidos da lista.](#example-responses-1)
+Estes `{sourceResourceId}` são `{virtualMachineId}` os acima mencionados da [resposta dos itens protegidos da lista.](#example-responses-1)
 
 #### <a name="responses"></a>Respostas
 
@@ -284,7 +284,7 @@ Desencadear uma cópia de segurança a pedido é uma operação *POST.*
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-Os `{containerName}` e `{protectedItemName}` são tão construídos [acima.](#responses-1) O `{fabricName}` é "Azure". Para o nosso exemplo, isto traduz-se em:
+Os `{containerName}` `{protectedItemName}` e são construídos [acima.](#responses-1) O `{fabricName}` é "Azure". Para o nosso exemplo, isto traduz-se em:
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
@@ -323,7 +323,7 @@ Devolve duas respostas: 202 (Aceite) quando outra operação é criada e depois 
 |---------|---------|---------|
 |202 Aceite     |         |     Aceite    |
 
-#### <a name="example-responses-3"></a>Respostas de exemplo
+#### <a name="example-responses"></a><a name="example-responses-3"></a>Respostas de exemplo
 
 Uma vez apresentado o pedido *de post* para um backup a pedido, a resposta inicial é 202 (Aceito) com um cabeçalho de localização ou cabeçalho Azure-async.
 
@@ -427,13 +427,13 @@ Parar a proteção e eliminar dados é uma operação *DELETE.*
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-Os `{containerName}` e `{protectedItemName}` são tão construídos [acima.](#responses-1) `{fabricName}` é "Azure". Para o nosso exemplo, isto traduz-se em:
+Os `{containerName}` `{protectedItemName}` e são construídos [acima.](#responses-1) `{fabricName}`é "Azure". Para o nosso exemplo, isto traduz-se em:
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses-2"></a>Respostas
+#### <a name="responses"></a><a name="responses-2"></a>Respostas
 
 *A* proteção DELETE é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136539"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Diretório Ativo do Azure
@@ -51,7 +51,7 @@ A Microsoft oferece três opções de autenticação sem palavras-passe que cobr
 
 Os métodos de autenticação sem palavras-passe da Microsoft permitem diferentes cenários. Considere as suas necessidades organizacionais, pré-requisitos e as capacidades de cada método de autenticação para selecionar a sua estratégia de autenticação sem palavras-passe. Recomendamos que todas as organizações que utilizam dispositivos Windows 10 utilizem o Windows Hello for Business. Em seguida, adicione o registo do telefone (com a aplicação Microsoft Authenticator) ou as chaves de segurança para cenários adicionais.
 
-| Cenário | Autenticação do telefone | Chaves de segurança | Windows Hello para Empresas |
+| Cenário | Autenticação do telefone | Chaves de segurança | Windows Hello para empresas |
 | --- | --- | --- | --- |
 | **Sinal de computador em:** <br> Do dispositivo windows 10 atribuído | **Não** | **Sim** <br> Com biométrico, PIN | **Sim**<br>com reconhecimento biométrico e ou PIN |
 | **Sinal de computador em:** <br> A partir do dispositivo Partilhado Windows 10 | **Não** | **Sim** <br> Com biométrico, PIN  | **Não** |
@@ -65,7 +65,7 @@ Para obter informações sobre a seleção do melhor método para a sua organiza
 
 As organizações devem cumprir os seguintes pré-requisitos antes de iniciar uma implementação sem palavras-passe:
 
-| Pré-requisito | Aplicação autenticadora | Chaves de segurança FIDO2 |
+| Pré-requisito | Aplicação de autenticação | Chaves de segurança FIDO2 |
 | --- | --- | --- |
 | O registo combinado para a autenticação de [multifactores Azure e o reset de palavra-passe self-service (SSPR)](howto-registration-mfa-sspr-combined.md) está ativado (função de pré-visualização) | √ | √ |
 | [Os utilizadores podem realizar a autenticação de multifactor Azure](howto-mfa-getstarted.md) | √ | √ |
@@ -99,7 +99,7 @@ A tabela que se segue descreve os casos de utilização a implementar durante es
 | **Auditoria** | Os dados de utilização estão disponíveis para os administradores auditarem em tempo real. <br> Os dados de utilização são descarregados em sistemas corporativos pelo menos a cada 29 dias, ou a ferramenta SIEM é usada. |
 | **Governação** | O ciclo de vida das atribuições do utilizador ao método de autenticação adequado e aos grupos associados é definido e monitorizado. |
 | **Segurança** | O acesso ao método de autenticação adequado é controlado através de atribuições de utilizador e grupo. <br> Apenas os utilizadores autorizados podem utilizar o sessão sem palavras-passe. |
-| **Performance** (Desempenho) | Os prazos de propagação da atribuição de acesso são documentados e monitorizados. <br> O sinal nos tempos é medido para facilitar a utilização. |
+| **Desempenho** | Os prazos de propagação da atribuição de acesso são documentados e monitorizados. <br> O sinal nos tempos é medido para facilitar a utilização. |
 | **Experiência do Utilizador** | Os utilizadores estão cientes da compatibilidade móvel. <br> Os utilizadores podem configurar a aplicação Authenticator sem palavras-passe. |
 | **Suporte** | Os utilizadores estão cientes de como encontrar suporte para problemas de entrada sem palavras-passe. |
 
@@ -107,7 +107,7 @@ A tabela que se segue descreve os casos de utilização a implementar durante es
 
 Quando os projetos tecnológicos falham, é tipicamente devido a expectativas desajustadas sobre impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders) de que está a envolver as partes interessadas certas e que os papéis das partes interessadas no projeto são bem compreendidos.
 
-### <a name="plan-communications"></a>Plan communications
+### <a name="plan-communications"></a>Planear as comunicações
 
 A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunicar proativamente como a experiência dos utilizadores vai mudar, quando irá mudar, e como obter suporte se experimentarem problemas.
 
@@ -118,7 +118,7 @@ As suas comunicações para utilizadores finais devem incluir as seguintes infor
 - [Registo na aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Inscreva-se com o seu telefone](../user-help/user-help-auth-app-sign-in.md)
 
-A Microsoft fornece modelos de [comunicação](https://aka.ms/mfatemplates)de autenticação multifactor, [modelos](https://www.microsoft.com/download/details.aspx?id=56768)de comunicação de reset de palavra-passe self-service (SSPR) e [documentação de utilizador final](../user-help/security-info-setup-signin.md) para ajudar a redesenhar as suas comunicações. Pode enviar utilizadores para [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) para se registarem diretamente selecionando os links **de Informação** de Segurança nessa página.
+A Microsoft fornece modelos de [comunicação](https://aka.ms/mfatemplates)de autenticação multifactor, [modelos](https://www.microsoft.com/download/details.aspx?id=56768)de comunicação de reset de palavra-passe self-service (SSPR) e [documentação de utilizador final](../user-help/security-info-setup-signin.md) para ajudar a redesenhar as suas comunicações. Pode enviar os [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) utilizadores para se registarem diretamente selecionando os links **de Informação** de Segurança nessa página.
 
 ### <a name="plan-to-pilot"></a>Plano para pilotar
 
@@ -172,7 +172,7 @@ Para obter uma lista completa de requisitos, consulte [Enable passwords security
 As chaves de segurança permitem o acesso aos seus recursos, e deve planear a gestão desses dispositivos físicos.
 
 1. **Distribuição chave**: Planeie como fornecer chaves à sua organização. Pode ter um processo de provisionamento centralizado ou permitir que os utilizadores finais comprem chaves compatíveis com OFIDO 2.0.
-1. **Ativação da chave**: Os utilizadores finais devem autoactivar a chave de segurança. Os utilizadores finais registam as suas chaves de segurança em [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e ativam o segundo fator (PIN ou biométrico) na primeira utilização.
+1. **Ativação da chave**: Os utilizadores finais devem autoactivar a chave de segurança. Os utilizadores finais [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) registam as suas chaves de segurança e ativam o segundo fator (PIN ou biométrico) na primeira utilização.
 1. **Desativar uma tecla**: Enquanto a funcionalidade da chave de segurança está na fase de pré-visualização, não há forma de um administrador remover uma chave de uma conta de utilizador. O utilizador deve removê-lo. Se uma chave for perdida ou roubada:
    1. Retire o utilizador de qualquer grupo habilitado para autenticação sem palavras-passe.
    1. Verifique se removeram a chave como um método de autenticação.
@@ -180,7 +180,7 @@ As chaves de segurança permitem o acesso aos seus recursos, e deve planear a ge
 
 ### <a name="enable-windows-10-support"></a>Ativar suporte ao Windows 10
 
-Ativar o acesso ao Windows 10 utilizando chaves de segurança FIDO2 requer que permita a funcionalidade do fornecedor credencial no Windows 10. Escolha um dos seguintes:
+Ativar o acesso ao Windows 10 utilizando chaves de segurança FIDO2 requer que permita a funcionalidade do fornecedor credencial no Windows 10. Escolha uma das seguintes opções:
 
 - [Ativar provedor de credenciais com Intune](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
    - A implementação intonizada é a opção recomendada.
@@ -228,9 +228,9 @@ A tabela que se segue fornece alguns exemplos de cenários típicos de reporte:
 
 A **Azure AD mantém** a maioria dos dados de auditoria durante 30 dias e disponibiliza os dados através do portal Azure Admin ou da API para que possa descarregar nos seus sistemas de análise. Se necessitar de retenção mais longa, exportar e consumir troncos numa ferramenta SIEM como [O Sentinela,](../../sentinel/connect-azure-active-directory.md)Splunk ou Sumo Logic. [Saiba mais sobre visualizar os seus relatórios de acesso e utilização.](../reports-monitoring/overview-reports.md)
 
-Os utilizadores podem registar-se e gerir as suas credenciais navegando para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Este link direciona os utilizadores para a experiência de gestão da credencial do utilizador final que foi ativada através da experiência combinada de registo de autenticação SSPR/Multifactor. A Azure AD regista o registo de dispositivos de segurança FIDO2 e altera-se nos métodos de autenticação por parte de um utilizador.
+Os utilizadores podem registar-se e [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)gerir as suas credenciais navegando até . Este link direciona os utilizadores para a experiência de gestão da credencial do utilizador final que foi ativada através da experiência combinada de registo de autenticação SSPR/Multifactor. A Azure AD regista o registo de dispositivos de segurança FIDO2 e altera-se nos métodos de autenticação por parte de um utilizador.
 
-### <a name="plan-security"></a>Planear a segurança
+### <a name="plan-security"></a>Segurança do plano
 Como parte deste plano de lançamento, a Microsoft recomenda que a autenticação sem palavras-passe seja ativada para todas as contas de administração privilegiadas.
 
 Quando os utilizadores ativam ou desativam a conta numa chave de segurança, ou reiniciam o segundo fator para a chave de segurança nas suas máquinas Windows 10, uma entrada é adicionada ao registo de segurança e estão sob os seguintes IDs do evento: *4670* e *5382*.
@@ -259,10 +259,10 @@ Seguem-se os casos de teste da amostra para a autenticação sem palavras-passe 
 
 | Cenário | Resultados esperados |
 | --- | --- |
-| O utilizador pode registar o dispositivo FIDO2 (1809) | O utilizador pode registar o dispositivo FIDO2 utilizando em Definições > Contas > iniciar sessão em opções > Chave de Segurança |
+| O utilizador pode registar o dispositivo FIDO2 (1809) | O utilizador pode registar o dispositivo FIDO2 utilizando em Definições > Contas > iniciar sessão nas opções > Chave de Segurança |
 | O utilizador pode redefinir o dispositivo FIDO2 (1809) | O utilizador pode redefinir o dispositivo FIDO2 utilizando o software do fabricante |
 | O utilizador pode iniciar sessão com o dispositivo FIDO2 (1809) | O utilizador pode selecionar a Chave de Segurança a partir da janela de iniciar sessão e iniciar sessão com sucesso. |
-| O utilizador pode registar o dispositivo FIDO2 (1903) | O utilizador pode registar o dispositivo FIDO2 em Definições > Contas > iniciar sessão nas opções > Chave de Segurança |
+| O utilizador pode registar o dispositivo FIDO2 (1903) | O utilizador pode registar o dispositivo FIDO2 nas Definições > Contas > iniciar sessão em opções > Chave de Segurança |
 | O utilizador pode redefinir o dispositivo FIDO2 (1903) | O utilizador pode redefinir o dispositivo FIDO2 em Definições > Contas > iniciar sessão em opções > Chave de Segurança |
 | O utilizador pode iniciar sessão com o dispositivo FIDO2 (1903) | O utilizador pode selecionar a Chave de Segurança a partir da janela de iniciar sessão e iniciar sessão com sucesso. |
 
@@ -324,11 +324,11 @@ Siga os passos do artigo, Ative o sinal de chave de [segurança sem palavras-pas
 | **Mensagem de erro**: Detetámos que este navegador ou SISTEMA não suporta as chaves de segurança FIDO2. | Os dispositivos de segurança FIDO2 sem palavras-passe só podem ser registados em navegadores suportados (Microsoft Edge, versão 67 do Firefox) na versão 1809 do Windows 10 ou superior. |
 | **Mensagem de erro**: A sua política da empresa requer que utilize um método diferente para iniciar sessão. | As chaves de segurança inseguras estão ativadas no inquilino. |
 | Utilizador incapaz de gerir a minha chave de segurança na versão 1809 do Windows 1809 | A versão 1809 requer que utilize o software de gestão da chave de segurança fornecido pelo fornecedor chave FIDO2. Contacte o fornecedor para obter apoio. |
-| Acho que a minha chave de segurança FIDO2 pode estar defeituosa, como posso testá-la. | Navegue para [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), introduza credenciais para uma conta de teste, ligue a chave de segurança do suspeito, selecione o botão **+** na parte superior direita do ecrã, clique em criar e passe pelo processo de criação. Se este cenário falhar, o seu dispositivo poderá estar defeituoso. |
+| Acho que a minha chave de segurança FIDO2 pode estar defeituosa, como posso testá-la. | Navegue [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)para , insira credenciais para uma conta **+** de teste, ligue a chave de segurança do suspeito, selecione o botão na parte superior direita do ecrã, clique em criar e passar pelo processo de criação. Se este cenário falhar, o seu dispositivo poderá estar defeituoso. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar chaves de segurança sem palavras-passe para iniciar sessão para AD Azure](howto-authentication-passwordless-security-key.md)
 - [Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md)
-- [Saiba mais sobre o uso e insights dos métodos de autenticação](howto-authentication-methods-usage-insights.md)
+- [Saiba mais sobre o uso de métodos de autenticação & insights](howto-authentication-methods-usage-insights.md)
 

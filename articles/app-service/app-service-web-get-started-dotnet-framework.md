@@ -1,16 +1,16 @@
 ---
-title: 'QuickStart: Criar C# uma aplicação ASP.NET'
-description: Saiba como executar aplicações web no Azure C# App Service implementando o padrão ASP.NET modelo de aplicação web do Visual Studio.
+title: 'QuickStart: Criar uma app C# ASP.NET'
+description: Saiba como executar aplicações web no Azure App Service implementando o modelo de aplicação web Padrão C# ASP.NET do Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 10/21/2019
-ms.custom: seodec18
-ms.openlocfilehash: f2e31723dc2761007994f652d9d6c28ab3f7d47d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: mvc, devcenter, seodec18
+ms.openlocfilehash: 4688cc358ec6ff792be58254b0607f5416422a21
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241487"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047663"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Framework no Azure
 
@@ -26,10 +26,10 @@ Para completar este tutorial, instale o <a href="https://www.visualstudio.com/do
 
 Se já instalou o Visual Studio 2019:
 
-- Instale as últimas atualizações no Estúdio Visual selecionando **ajuda** > **verificar se há atualizações**.
+- Instale as últimas atualizações no Estúdio Visual selecionando **A Verificação de Ajuda** > **para Atualizações**.
 - Adicione a carga de trabalho selecionando **ferramentas** > **obter ferramentas e funcionalidades**.
 
-## Criar uma aplicação web ASP.NET<a name="create-and-publish-the-web-app"></a>
+## <a name="create-an-aspnet-web-app"></a>Criar uma aplicação web ASP.NET<a name="create-and-publish-the-web-app"></a>
 
 Crie uma aplicação web ASP.NET seguindo estes passos:
 
@@ -51,7 +51,7 @@ Crie uma aplicação web ASP.NET seguindo estes passos:
 
    ![Executar a aplicação localmente](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
-## Publique a sua aplicação web<a name="launch-the-publish-wizard"></a>
+## <a name="publish-your-web-app"></a>Publique a sua aplicação web<a name="launch-the-publish-wizard"></a>
 
 1. No **Solution Explorer,** clique à direita no projeto **myFirstAzureWebApp** e selecione **Publish**.
 
@@ -83,12 +83,12 @@ Crie uma aplicação web ASP.NET seguindo estes passos:
    | Definição | Valor sugerido | Descrição |
    |-|-|-|
    |Plano do Serviço de Aplicações| myAppServicePlan | Nome do plano de serviço de aplicações. |
-   | Localização | Europa Ocidental | O centro de dados onde o a aplicação Web está alojada. |
+   | Localização | Europa ocidental | O centro de dados onde o a aplicação Web está alojada. |
    | Tamanho | Gratuito | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina as funcionalidades do alojamento. |
 
    ![Criar plano do App Service](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)
 
-1. Em **Nome**, insira um nome de aplicação único que inclua apenas os caracteres válidos são `a-z`, `A-Z`, `0-9`e `-`. Pode aceitar o nome único gerado automaticamente. O URL da aplicação Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
+1. Em **Nome,** introduza um nome de aplicação `A-Z` `0-9`único `-`que inclua apenas os caracteres válidos, `a-z`e . Pode aceitar o nome único gerado automaticamente. O URL da aplicação Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
 
 2. Selecione **Criar** para começar a criar os recursos do Azure.
 
@@ -104,14 +104,14 @@ O nome da aplicação especificado no **Serviço de Aplicações Criar nova** p�
 
 ## <a name="update-the-app-and-redeploy"></a>Atualizar a aplicação e reimplementar
 
-1. No **Solution Explorer,** no âmbito do seu projeto, abra **vistas** > **Home** > **Index.cshtml**.
+1. No **Solution Explorer,** no âmbito do seu projeto, abra **views** > **home** > **index.cshtml**.
 
 1. Localize a etiqueta HTML `<div class="jumbotron">` na parte superior e substitua todo o elemento pelo código seguinte:
 
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 

@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
 ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240339"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Recolher dados de uma máquina virtual Azure com o Monitor Azure
@@ -22,11 +22,11 @@ Este início rápido pressupõe que tem uma máquina virtual do Azure. Se não f
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em . 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-1. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
+1. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
 
     ![Portal do Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
@@ -48,7 +48,7 @@ Enquanto as informações são confirmadas e a área de trabalho criada, pode ac
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Para máquinas virtuais do Windows e Linux já implementadas no Azure, instale o agente do Log Analytics com a Extensão de VM do Log Analytics. A utilização da extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para a área de trabalho do Log Analytics que especificar. O agente também é atualizado automaticamente quando uma versão mais recente é lançada, garantindo que tem as mais recentes funcionalidades e correções. Antes de prosseguir, verifique se a VM está a ser executado caso contrário, o processo falhará concluir com êxito.  
+Para máquinas virtuais do Windows e Linux já implementadas no Azure, instale o agente do Log Analytics com a Extensão de VM do Log Analytics. A utilização da extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para a área de trabalho do Log Analytics que especificar. O agente também é atualizado automaticamente quando uma versão mais recente é lançada, garantindo que tem as mais recentes funcionalidades e correções. Antes de prosseguir, verifique se o VM está em execução, caso contrário o processo não estará concluído com sucesso.  
 
 >[!NOTE]
 >O agente do Log Analytics para Linux não pode ser configurado para reportar a mais do que uma área de trabalho do Log Analytics. 
@@ -77,7 +77,7 @@ O Azure Monitor pode recolher eventos a partir dos registos de eventos do Window
 
 2. Selecione **Dados** e, em seguida, selecione **Registos de Eventos do Windows**.
 
-3. Adicione um registo de eventos ao escrever o nome do registo.  Digite **o Sistema** e, em seguida, selecione o sinal de mais **+** .
+3. Adicione um registo de eventos ao escrever o nome do registo.  Digite **o Sistema** e, em seguida, selecione o sinal **+** de mais .
 
 4. Na tabela, verifique as gravidades **Erro** e **Aviso**.
 
@@ -97,7 +97,7 @@ O Azure Monitor pode recolher eventos a partir dos registos de eventos do Window
 
 1. Selecione **Syslog**.  
 
-2. Adicione um registo de eventos ao escrever o nome do registo.  Digite **syslog** e, em seguida, selecione o sinal de mais **+** .  
+2. Adicione um registo de eventos ao escrever o nome do registo.  Digite **syslog** e, **+** em seguida, selecione o sinal de mais .  
 
 3. Na tabela, desmarque as severidades **Info,** **Notice** e **Debug**. 
 
@@ -119,7 +119,7 @@ Agora que ativou a recolha de dados, vamos executar um exemplo de pesquisa de re
 
 1. No espaço de trabalho selecionado, a partir do painel da esquerda, selecione **Logs**.
 
-2. Na página de consulta de Registos, digite `Perf` no editor de consulta e selecione **Executar**.
+2. Na página de consulta de `Perf` Registos, digite no editor de consulta e selecione **Executar**.
 
     ![Exemplo de consulta de pesquisa de registos do Log Analytics](./media/quick-collect-windows-computer/log-analytics-portal-queryexample.png) 
 

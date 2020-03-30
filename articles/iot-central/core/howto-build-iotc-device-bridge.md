@@ -1,19 +1,19 @@
 ---
-title: Construa a ponte de dispositivos Azure IoT Central  Microsoft Docs
+title: Construa a ponte de dispositivos Azure IoT Central [ Microsoft Docs
 description: Construa a ponte do dispositivo IoT Central para ligar outras nuvens IoT (Sigfox, Particle, The Things Network, etc.) à sua aplicação IoT Central.
 services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 07/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 manager: peterpr
-ms.openlocfilehash: b79020b4da08eeade0af885b4a6ca9f01c81c526
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6499c9c29d10a2056b0af5499b68b5edd67d82cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023213"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158423"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Construa a ponte de dispositivos IoT Central para ligar outras nuvens IoT à IoT Central
 
@@ -23,10 +23,10 @@ A ponte do dispositivo IoT Central é uma solução de código aberto que liga o
 
 ## <a name="what-is-it-and-how-does-it-work"></a>O que é e como funciona?
 A ponte de dispositivos IoT Central é uma solução de código aberto no GitHub. Está pronto para ir com um botão "Deploy to Azure" que implementa um modelo personalizado do Gestor de Recursos Azure com vários recursos Azure na sua subscrição Azure. Os recursos incluem:
--   App Função Azure
--   Conta de Armazenamento do Azure
--   Plano de Consumo
--   Azure Key Vault
+-    App Função Azure
+-    Conta de Armazenamento do Azure
+-    Plano de Consumo
+-    Azure Key Vault
 
 A aplicação de funções é a peça crítica da ponte do dispositivo. Recebe pedidos HTTP POST de outras plataformas IoT ou quaisquer plataformas personalizadas através de uma simples integração webhook. Fornecemos exemplos que mostram como ligar-se às nuvens de Sigfox, Particle e TTN. Pode facilmente estender esta solução para se ligar à sua nuvem IoT personalizada se a sua plataforma puder enviar pedidos HTTP POST para a sua aplicação de função.
 A aplicação Fun transforma os dados num formato aceite pela IoT Central e reencaminha-os através de APIs DPS.
@@ -45,4 +45,4 @@ Os recursos Azure serão hospedados na sua subscrição Azure. Pode saber mais s
 Agora que aprendeu a construir a ponte de dispositivos IoT Central, aqui está o próximo passo sugerido:
 
 > [!div class="nextstepaction"]
-> [Gerir os seus dispositivos](howto-manage-devices.md)
+> [Faça a gestão dos seus dispositivos](howto-manage-devices.md)

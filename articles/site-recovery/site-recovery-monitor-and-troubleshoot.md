@@ -1,6 +1,6 @@
 ---
-title: Monitorar Azure Site Recovery | Microsoft Docs
-description: Monitorar e solucionar problemas de Azure Site Recovery de replicação e operações usando o portal
+title: Monitorizar a recuperação do site azure [ Microsoft Docs
+description: Monitorizar e resolver problemas Problemas De recuperação de sítios azure problemas e operações usando o portal
 author: raynew
 manager: carmonm
 ms.service: site-recovery
@@ -8,177 +8,177 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68717356"
 ---
-# <a name="monitor-site-recovery"></a>Site Recovery de monitor
+# <a name="monitor-site-recovery"></a>Monitorizar o Site Recovery
 
-Neste artigo, saiba como monitorar o Azure [site Recovery](site-recovery-overview.md), usando site Recovery monitoramento embutido.  Você pode monitorar:
+Neste artigo, saiba como monitorizar a [Recuperação](site-recovery-overview.md)do Site Azure, utilizando a monitorização incorporada da Recuperação do Site.  Pode monitorizar:
 
-- A integridade e o status dos computadores replicados por Site Recovery
-- Status do failover de teste de computadores.
+- A saúde e o estado das máquinas replicadas pela Recuperação do Site
+- Teste de falha no estado das máquinas.
 - Problemas e erros que afetam a configuração e a replicação.
-- Componentes de infraestrutura, como servidores locais.
+- Componentes de infraestrutura, tais como servidores no local.
 
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Talvez você queira examinar as [perguntas comuns de monitoramento](monitoring-common-questions.md) antes de começar.
+Talvez queira rever [questões comuns](monitoring-common-questions.md) de monitorização antes de começar.
 
-## <a name="monitor-in-the-dashboard"></a>Monitorar no painel
+## <a name="monitor-in-the-dashboard"></a>Monitor no painel de instrumentos
 
-1. No cofre, clique em **visão geral**. O painel dos serviços de recuperação consolida todas as informações de monitoramento do cofre em um único local. Há páginas para Site Recovery e o serviço de backup do Azure, e você pode alternar entre elas.
+1. No cofre, clique em **Visão Geral**. O painel de serviços de recuperação consolida todas as informações de monitorização do cofre num único local. Existem páginas tanto para a Recuperação do Site como para o serviço de backup Azure, e pode alternar entre elas.
 
-    ![Painel do Site Recovery](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
+    ![Painel de recuperação do site](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
-2. No painel, faça uma busca detalhada em áreas diferentes. 
+2. A partir do tablier, faça uma perfuração em diferentes áreas. 
 
-    ![Painel do Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+    ![Painel de recuperação do site](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
-3. Em **itens replicados**, clique em **Exibir tudo** para ver todos os servidores no cofre.
-4. Clique nos detalhes de status em cada seção para fazer drill down.
-5. No **modo de exibição de infraestrutura**, classifique as informações de monitoramento pelo tipo de máquinas que você está replicando.
+3. Em **itens replicados,** clique em **Ver Tudo** para ver todos os servidores no cofre.
+4. Clique nos detalhes do estado em cada secção para perfurar.
+5. Na **vista da Infraestrutura,** separe a informação de monitorização pelo tipo de máquinas que está a replicar.
 
-## <a name="monitor-replicated-items"></a>Monitorar itens replicados
+## <a name="monitor-replicated-items"></a>Monitorizar itens replicados
 
-Em **itens replicados**, monitore a integridade de todos os computadores no cofre que têm a replicação habilitada.
+Em **itens replicados,** monitorize a saúde de todas as máquinas do cofre que tenham replicação ativada.
 
-**Status** | **Detalhes**
+**Estado** | **Detalhes**
 --- | ---
-Bom estado de funcionamento | A replicação está progredindo normalmente. Nenhum sintoma de erro ou aviso detectado.
-Aviso | Um ou mais sintomas de aviso que podem afetar a replicação são detectados.
-Crítico | Um ou mais sintomas críticos de erro de replicação foram detectados.<br/><br/> Esses sintomas de erro normalmente são indicadores de que a replicação travou ou que não está progredindo tão rápido quanto a taxa de alteração de dados.
-Não aplicável | Servidores que atualmente não são esperados para replicação. Isso pode incluir computadores com failover.
+Bom estado de funcionamento | A replicação está a progredir normalmente. Não são detetados erros ou sintomas de alerta.
+Aviso | Um ou mais sintomas de alerta que podem ter impacto na replicação são detetados.
+Crítica | Um ou mais sintomas críticos de erro de replicação foram detetados.<br/><br/> Estes sintomas de erro são tipicamente indicadores de que a replicação ficou presa, ou não progredindo tão rápido quanto a taxa de mudança de dados.
+Não aplicável | Servidores que não se espera que estejam a replicar-se. Isto pode incluir máquinas que foram chumbadas.
 
-## <a name="monitor-test-failovers"></a>Monitorar failovers de teste
+## <a name="monitor-test-failovers"></a>Falhas no teste do monitor
 
-Em **teste de failover com êxito**, monitore o status de failover para computadores no cofre.
+No sucesso do **teste Failover,** monitorize o estado de falha das máquinas no cofre.
 
-- Recomendamos que você execute um failover de teste em máquinas replicadas pelo menos uma vez a cada seis meses. É uma maneira de verificar se o failover está funcionando conforme o esperado, sem interromper o ambiente de produção. 
-- Um failover de teste é considerado com êxito somente depois que o failover e a limpeza após o failover forem concluídos com êxito.
+- Recomendamos que faça um teste de falha em máquinas replicadas pelo menos uma vez a cada seis meses. É uma forma de verificar se a falha está a funcionar como esperado, sem perturbar o ambiente de produção. 
+- Um failover de teste só é considerado bem sucedido após a limpeza de failover e pós-falha ter concluído com sucesso.
 
-**Status** | **Detalhes**
+**Estado** | **Detalhes**
 --- | ---
-Teste recomendado | Computadores que não tinham um failover de teste desde que a proteção foi habilitada.
-Executado com êxito | Computadores com ou mais failovers de teste bem-sucedidos.
-Não aplicável | Computadores que atualmente não estão qualificados para um failover de teste. Por exemplo, máquinas que passaram por failover, têm failover inicial de replicação/teste/failover em andamento.
+Teste recomendado | Máquinas que não tiveram um teste falhado desde que a proteção foi ativada.
+Realizado com sucesso | Máquinas com ou mais falhas de teste bem sucedidas.
+Não aplicável | Máquinas que não são elegíveis para um teste falhado. Por exemplo, as máquinas que são falhadas, têm a replicação inicial/falha de teste/falha em curso.
 
-## <a name="monitor-configuration-issues"></a>Monitorar problemas de configuração
+## <a name="monitor-configuration-issues"></a>Monitorizar problemas de configuração
 
-Em **problemas de configuração**, monitore quaisquer problemas que possam afetar a sua capacidade de fazer failover com êxito.
+Em questões de **Configuração,** monitorize quaisquer problemas que possam afetar a sua capacidade de falhar com sucesso.
 
-- Os problemas de configuração (exceto para a disponibilidade de atualização de software) são detectados por uma operação de validador periódica que é executada a cada 12 horas por padrão. Você pode forçar a execução imediata da operação do validador clicando no ícone de atualização ao lado do título da seção **problemas de configuração** .
-- Clique nos links para obter mais detalhes. Para problemas que afetam computadores específicos, clique em **requer atenção** na coluna **configurações de destino** . Os detalhes incluem recomendações de correção.
+- Os problemas de configuração (exceto a disponibilidade de atualização de software), são detetados por uma operação validadora periódica que funciona a cada 12 horas por padrão. Pode forçar a operação validador a funcionar imediatamente clicando no ícone de atualização ao lado da rubrica de problemas de **configuração.**
+- Clique nos links para obter mais detalhes. Para problemas que impactam máquinas específicas, clique **precisa de atenção** na coluna de configurações do **Target.** Os detalhes incluem recomendações de reparação.
 
-**Status** | **Detalhes**
+**Estado** | **Detalhes**
 --- | ---
-Configurações ausentes | Uma configuração necessária está ausente, como uma rede de recuperação ou um grupo de recursos.
-Recursos ausentes | Um recurso especificado não pode ser encontrado ou não está disponível na assinatura. Por exemplo, o recurso foi excluído ou migrado. Os recursos monitorados incluíam o grupo de recursos de destino, VNet/sub-rede de destino, conta de armazenamento de log/destino, conjunto de disponibilidade de destino, endereço IP de destino.
-Cota de assinatura |  O saldo de cota de recursos de assinatura disponível é comparado com o saldo necessário para fazer failover de todos os computadores no cofre.<br/><br/> Se não houver recursos suficientes, um saldo de cota insuficiente será relatado.<br/><br/> As cotas estão monitorando a contagem de núcleos de VM, contagem de núcleos da família de VMs, contagem de NIC (placa de interface de rede).
+Configurações em falta | Falta uma definição necessária, como uma rede de recuperação ou um grupo de recursos.
+Recursos em falta | Um recurso especificado não pode ser encontrado ou não está disponível na subscrição. Por exemplo, o recurso foi apagado ou migrado. Os recursos monitorizados incluíam o grupo de recursos-alvo, o target VNet/subnet, a conta de armazenamento de registo/alvo, o conjunto de disponibilidade do alvo, o endereço IP alvo.
+Quota de subscrição |  O saldo disponível das quotas de subscrição é comparado com o saldo necessário para falhar em todas as máquinas do cofre.<br/><br/> Se não houver recursos suficientes, é reportado um saldo de quota insuficiente.<br/><br/> As quotas são monitorização para a contagem de núcleos vM, contagem de núcleos familiares VM, contagem de cartão de interface de rede (NIC).
 Atualizações de software | A disponibilidade de novas atualizações de software e informações sobre a expiração de versões de software.
 
 
-## <a name="monitor-errors"></a>Monitorar erros
+## <a name="monitor-errors"></a>Monitorizar erros
 
-Em **Resumo de erros**, monitore os sintomas de erro ativos no momento que podem afetar a replicação de servidores no cofre e monitore o número de máquinas afetadas.
+No **resumo do Erro,** monitorize atualmente sintomas de erro ativos que podem afetar a replicação dos servidores no cofre e monitorize o número de máquinas afetadas.
 
-- Os erros que afetam os componentes da infraestrutura local são mostrados no início da seção. Por exemplo, não receber uma pulsação do provedor de Azure Site Recovery no servidor de configuração local ou host do Hyper-V.
-- Em seguida, os sintomas de erro de replicação que afetam os servidores replicados são mostrados.
-- As entradas de tabela são classificadas por ordem decrescente da gravidade do erro e, em seguida, por meio da redução da ordem de contagem dos computadores afetados.
-- A contagem de servidores impactados é uma maneira útil de entender se um único problema subjacente pode afetar vários computadores. Por exemplo, uma falha de rede pode afetar potencialmente todos os computadores que replicam para o Azure. 
-- Vários erros de replicação podem ocorrer em um único servidor. Nesse caso, cada sintoma de erro conta esse servidor na lista de seus servidores afetados. Depois que o problema for corrigido, os parâmetros de replicação melhorarão e o erro será removido do computador.
+- Os erros com impacto nos componentes da infraestrutura no local são o início da secção. Por exemplo, não receber um batimento cardíaco do Fornecedor de Recuperação do Site Azure no servidor de configuração no local ou no hospedeiro Hyper-V.
+- Em seguida, são apresentados sintomas de erro de replicação que impactam os servidores replicados.
+- As entradas de tabela são ordenadas pela ordem decrescente da gravidade do erro e, em seguida, diminuindo a ordem de contagem das máquinas impactadas.
+- A contagem de servidores impactada é uma forma útil de entender se um único problema subjacente pode afetar várias máquinas. Por exemplo, uma falha de rede pode potencialmente afetar todas as máquinas que se replicam para O Azure. 
+- Vários erros de replicação podem ocorrer num único servidor. Neste caso, cada sintoma de erro conta esse servidor na lista dos seus servidores com impacto. Após a questão ser corrigida, os parâmetros de replicação melhoram e o erro é eliminado da máquina.
 
-## <a name="monitor-the-infrastructure"></a>Monitore a infraestrutura.
+## <a name="monitor-the-infrastructure"></a>Monitorize a infraestrutura.
 
-No **modo de exibição de infraestrutura**, monitore os componentes de infraestrutura envolvidos na replicação e a integridade da conectividade entre os servidores e os serviços do Azure.
+Na **visão da Infraestrutura,** monitorize os componentes de infraestrutura envolvidos na replicação e a saúde de conectividade entre servidores e os serviços Azure.
 
-- Uma linha verde indica que a conexão está íntegra.
-- Uma linha vermelha com o ícone de erro sobreposto indica a existência de um ou mais sintomas de erro que afetam a conectividade.
--  Passe o ponteiro do mouse sobre o ícone de erro para mostrar o erro e o número de entidades afetadas. Clique no ícone de uma lista filtrada de entidades afetadas.
+- Uma linha verde indica que a ligação é saudável.
+- Uma linha vermelha com o ícone de erro sobreposto indica a existência de um ou mais sintomas de erro que impactam a conectividade.
+-  Passe o ponteiro do rato sobre o ícone de erro para mostrar o erro e o número de entidades afetadas. Clique no ícone para obter uma lista filtrada de entidades com impacto.
 
-    ![Exibição de infraestrutura do Site Recovery (cofre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+    ![Vista de infraestrutura de recuperação do local (cofre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
-### <a name="tips-for-monitoring-the-infrastructure"></a>Dicas para monitorar a infraestrutura
+### <a name="tips-for-monitoring-the-infrastructure"></a>Dicas para monitorizar a infraestrutura
 
-- Verifique se os componentes da infraestrutura local (servidor de configuração, servidores de processo, servidores VMM, hosts Hyper-V, máquinas VMware) estão executando as versões mais recentes do provedor de Site Recovery e/ou agentes.
-- Para usar todos os recursos no modo de exibição de infraestrutura, você deve estar executando o [pacote cumulativo de atualizações 22](https://support.microsoft.com/help/4072852) para esses componentes.
-- Para usar o modo de exibição de infraestrutura, selecione o cenário de replicação apropriado em seu ambiente. Você pode fazer uma busca detalhada na exibição para obter mais detalhes. A tabela a seguir mostra quais cenários são representados.
+- Certifique-se de que os componentes de infraestrutura no local (servidor de configuração, servidores de processos, servidores VMM, anfitriões Hyper-V, máquinas VMware) estão a executar as versões mais recentes do Fornecedor de Recuperação do Site e/ou agentes.
+- Para utilizar todas as funcionalidades na vista da infraestrutura, deverá estar a executar o [rollup Update 22](https://support.microsoft.com/help/4072852) para estes componentes.
+- Para utilizar a vista da infraestrutura, selecione o cenário de replicação apropriado no seu ambiente. Pode perfurar na vista para mais detalhes. A tabela que se segue mostra quais os cenários representados.
 
-    **Cenário** | **Status**  | **Exibição disponível?**
+    **Cenário** | **Estado**  | **Vista disponível?**
     --- |--- | ---
-    **Replicação entre sites locais** | Todos os estados | Não 
-    **Replicação de VM do Azure entre regiões do Azure**  | Replicação habilitada/replicação inicial em andamento | Sim
-    **Replicação de VM do Azure entre regiões do Azure** | Failover/failback | Não   
-    **Replicação do VMware para o Azure** | Replicação habilitada/replicação inicial em andamento | Sim     
-    **Replicação do VMware para o Azure** | Failover/failback reprovado | Não      
-    **Replicação do Hyper-V para o Azure** | Failover/failback reprovado | Não
+    **Replicação entre locais no local** | Todos os estados | Não 
+    **Réplica de VM azure entre regiões de Azure**  | Replicação ativada/replicação inicial em curso | Sim
+    **Réplica de VM azure entre regiões de Azure** | Falhou por cima/falhar de volta | Não   
+    **Replicação do VMware para o Azure** | Replicação ativada/replicação inicial em curso | Sim     
+    **Replicação do VMware para o Azure** | Falhou/falhou nas costas | Não      
+    **Replicação do Hyper-V para o Azure** | Falhou/falhou nas costas | Não
 
-- Para ver o modo de exibição de infraestrutura para um único computador de replicação, no menu do cofre, clique em **itens replicados**e selecione um servidor.  
-
-
+- Para ver a vista da infraestrutura para uma única máquina de replicação, no menu do cofre, clique **em itens Replicados**e selecione um servidor.  
 
 
-## <a name="monitor-recovery-plans"></a>Monitorar planos de recuperação
 
-Em **planos de recuperação**, monitore o número de planos, crie novos planos e modifique os existentes.  
+
+## <a name="monitor-recovery-plans"></a>Monitorizar planos de recuperação
+
+Nos **planos de Recuperação**, monitorize o número de planos, crie novos planos e modifique os existentes.  
 
 ## <a name="monitor-jobs"></a>Monitorizar trabalhos
 
-Em **trabalhos**, monitore o status das operações de site Recovery.
+Em **Empregos**, monitorize o estado das operações de recuperação do local.
 
-- A maioria das operações no Azure Site Recovery são executadas de forma assíncrona, com um trabalho de rastreamento sendo criado e usado para acompanhar o progresso da operação. 
-- O objeto de trabalho tem todas as informações de que você precisa para acompanhar o estado e o andamento da operação. 
+- A maioria das operações na Recuperação do Local de Azure são executadas de forma assíncrona, com um trabalho de rastreio a ser criado e usado para acompanhar o progresso da operação. 
+- O objeto de trabalho tem toda a informação necessária para rastrear o estado e o progresso da operação. 
 
-Monitore trabalhos da seguinte maneira:
+Monitorize os trabalhos da seguinte forma:
 
-1. Na seção Dashboard > **Jobs** , você pode ver um resumo dos trabalhos que foram concluídos, estão em andamento ou aguardando a entrada nas últimas 24 horas. Você pode clicar em qualquer Estado para obter mais informações sobre os trabalhos relevantes.
-2. Clique em **Exibir tudo** para ver todos os trabalhos nas últimas 24 horas.
+1. Na secção > **Jobs,** pode ver-se um resumo dos postos de trabalho que terminaram, estão em curso, ou à espera de entrada, nas últimas 24 horas. Pode clicar em qualquer estado para obter mais informações sobre os trabalhos relevantes.
+2. Clique em **ver tudo** para ver todos os trabalhos nas últimas 24 horas.
 
     > [!NOTE]
-    > Você também pode acessar as informações do trabalho no menu do cofre > **site Recovery trabalhos**. 
+    > Também pode aceder a informações de trabalho a partir do menu do cofre > Trabalhos de Recuperação do **Site.** 
 
-2. Na lista **trabalhos de site Recovery** , uma lista de trabalhos é exibida. No menu superior, você pode obter detalhes do erro para um trabalho específico, filtrar a lista de trabalhos com base em critérios específicos e exportar detalhes do trabalho selecionado para o Excel.
-3. Você pode analisar um trabalho clicando nele. 
+2. Na lista de Empregos de Recuperação do **Site,** é apresentada uma lista de empregos. No menu superior pode obter detalhes de erro para um trabalho específico, filtrar a lista de empregos com base em critérios específicos e exportar detalhes de emprego selecionados para o Excel.
+3. Pode perfurar um trabalho clicando nele. 
 
 ## <a name="monitor-virtual-machines"></a>Monitorizar máquinas virtuais
 
-Em **itens replicados**, obtenha uma lista de máquinas replicadas. 
-    ![Exibição da lista de itens replicados Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
+Em **itens replicados,** obtenha uma lista de máquinas replicadas. 
+    ![Visualização da lista de itens replicados da Recuperação do Site](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
-2. Você pode exibir e filtrar informações. No menu Ação na parte superior, você pode executar ações para um computador específico, incluindo a execução de um failover de teste ou a exibição de erros específicos.
-3. Clique em **colunas** para mostrar colunas adicionais, por exemplo, para mostrar RPO, problemas de configuração de destino e erros de replicação.
-4. Clique em **Filtrar** para exibir informações com base em parâmetros específicos, como integridade da replicação ou uma determinada política de replicação.
-5. Clique com o botão direito do mouse em um computador para iniciar operações como failover de teste para ela ou para exibir detalhes de erro específicos associados a ela.
-6. Clique em um computador para analisar mais detalhes sobre ele. Os detalhes incluem:
-   - **Informações de replicação**: Status atual e integridade do computador.
-   - **RPO** (objetivo de ponto de recuperação): O RPO atual para a máquina virtual e a hora em que o RPO foi calculado pela última vez.
-   - **Pontos de recuperação**: Pontos de recuperação mais recentes disponíveis para o computador.
-   - **Prontidão de failover**: Indica se um failover de teste foi executado para o computador, a versão do agente em execução no computador (para computadores que executam o serviço de mobilidade) e quaisquer problemas de configuração.
-   - **Erros**: Lista de sintomas de erro de replicação observados no momento no computador e possíveis causas/ações.
-   - **Eventos**: Uma lista cronológica de eventos recentes que afetam o computador. Os detalhes do erro mostram os sintomas de erro observáveis, enquanto os eventos são um registro histórico de problemas que afetaram a máquina.
-   - **Exibição de infraestrutura**: Mostra o estado da infraestrutura para o cenário quando os computadores estão replicando para o Azure.
+2. Pode ver e filtrar informação. No menu de ação no topo, pode realizar ações para uma determinada máquina, incluindo executar uma falha de teste ou visualizar erros específicos.
+3. Clique em **Colunas** para mostrar colunas adicionais, por exemplo para mostrar RPO, problemas de configuração do alvo e erros de replicação.
+4. Clique em **Filtro** para visualizar informações baseadas em parâmetros específicos, tais como a saúde da replicação, ou uma política de replicação específica.
+5. Clique à direita numa máquina para iniciar operações como falha de teste para a sua, ou para visualizar detalhes de erro específicos associados à máquina.
+6. Clique numa máquina para perfurar mais detalhes. Os detalhes incluem:
+   - **Informações de replicação**: Estado atual e saúde da máquina.
+   - **RPO** (objetivo do ponto de recuperação): RPO atual para a máquina virtual e o tempo em que o RPO foi calculado pela última vez.
+   - **Pontos de recuperação**: Os últimos pontos de recuperação disponíveis para a máquina.
+   - **Prontidão de failover**: Indica se foi executado um teste de falha para a máquina, a versão do agente em execução na máquina (para máquinas que executam o serviço de Mobilidade) e quaisquer problemas de configuração.
+   - **Erros**: Lista de sintomas de erro de replicação atualmente observados na máquina, e possíveis causas/ações.
+   - **Eventos**: Uma lista cronológica de eventos recentes com impacto na máquina. Os detalhes do erro mostram os sintomas de erro atualmente observáveis, enquanto os eventos são um registo histórico de problemas que impactaram a máquina.
+   - **Vista de infraestrutura**: Mostra estado de infraestrutura para o cenário em que as máquinas estão a replicar-se para O Azure.
 
-     ![Detalhes do item replicado Site Recovery/visão geral](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Detalhes/visão geral do item de recuperação do site](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
-## <a name="subscribe-to-email-notifications"></a>Assinar notificações por email
+## <a name="subscribe-to-email-notifications"></a>Subscreva notificações por e-mail
 
-Você pode assinar para receber notificações por email para esses eventos críticos:
+Pode subscrever para receber notificações por e-mail para estes eventos críticos:
  
-- Estado crítico para o computador replicado.
-- Nenhuma conectividade entre os componentes de infraestrutura local e o serviço de Site Recovery. A conectividade entre Site Recovery e servidores locais registrados em um cofre é detectada usando um mecanismo de pulsação.
-- Falhas de failover.
+- Estado crítico para máquina replicada.
+- Não há conectividade entre os componentes da infraestrutura no local e o serviço de recuperação do local. A conectividade entre a Recuperação do Site e os servidores no local registados num cofre é detetada usando um mecanismo de batimento cardíaco.
+- Falhas de falha.
 
-Assine o seguinte:
+Inscreva-se da seguinte forma:
 
-Na seção **monitoramento** de > do cofre, clique em **site Recovery eventos**.
-1. Clique em **notificações por email**.
-1. Em **notificação por email**, ative as notificações e especifique para quem enviar. Você pode enviar para todos os administradores de assinatura para receber notificações e, opcionalmente, endereços de email específicos.
+Na secção de **monitorização** > do cofre, clique em Eventos de **Recuperação do Site**.
+1. Clique em **Notificações por e-mail**.
+1. Na notificação por **e-mail,** ligue as notificações e especifique a quem enviar. Pode enviar a todos os administradores de subscrição notificações e endereços de e-mail opcionalmente específicos.
 
-    ![Notificações de e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)
+    ![Notificações por e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre como](monitor-log-analytics.md) monitorar Site Recovery com Azure monitor.
+[Saiba mais sobre](monitor-log-analytics.md) a monitorização da Recuperação do Site com o Monitor Azure.

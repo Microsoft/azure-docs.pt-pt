@@ -5,24 +5,21 @@ services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 07bdc8af5a3bc82f0fc5aad52648a9524a2dc87f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164152"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154734"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -45,16 +42,16 @@ Considere o cenário mais básico, em que é necessária uma identidade: um util
 
 ![Descrição geral do início de sessão na aplicação Web](./media/v1-authentication-scenarios/auth-basics-microsoft-identity-platform.svg)
 
-Eis o que precisa de saber sobre os vários componentes mostrados no diagrama:
+Aqui está o que precisa de saber sobre os vários componentes mostrados no diagrama:
 
-* O Azure AD é o fornecedor de identidade. O fornecedor de identidade é responsável por verificar a identidade dos utilizadores e aplicações existentes num diretório da organização e emite tokens de segurança após a autenticação com êxito desses utilizadores e aplicações.
+* O Azure AD é o fornecedor de identidade. O fornecedor de identidade é responsável pela verificação da identidade dos utilizadores e aplicações existentes no diretório de uma organização, e emite fichas de segurança após a autenticação bem sucedida desses utilizadores e aplicações.
 * Uma aplicação que pretenda subcontratar a autenticação à Azure AD deve ser registada no Azure Ative Directory (Azure AD). O Azure AD regista e identifica exclusivamente a aplicação no diretório.
 * Os programadores podem utilizar as bibliotecas de autenticação de código aberto do Azure AD para facilitar a autenticação ao lidar com os detalhes de protocolo por si. Para mais informações, consulte as bibliotecas de autenticação da plataforma de identidade Microsoft [v2.0](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) e as [bibliotecas de autenticação v1.0.](active-directory-authentication-libraries.md)
-* Após a autenticação de um utilizador, a aplicação tem de validar o token de segurança do utilizador para assegurar que a autenticação foi efetuada com êxito. Pode encontrar inícios rápidos, tutoriais e exemplos de código numa variedade de linguagens e arquiteturas que mostram o que a aplicação tem de fazer.
+* Uma vez autenticado um utilizador, a aplicação deve validar o sinal de segurança do utilizador para garantir que a autenticação foi bem sucedida. Pode encontrar inícios rápidos, tutoriais e exemplos de código numa variedade de linguagens e arquiteturas que mostram o que a aplicação tem de fazer.
   * Para criar rapidamente uma aplicação e adicionar funcionalidades como obter tokens, atualizar tokens, iniciar a sessão de um utilizador, apresentar algumas informações de utilizador e muito mais, veja a secção **Inícios Rápidos** da documentação.
   * Para obter procedimentos detalhados baseados em cenários para tarefas de programador de autenticação, como obter tokens de acesso e utilizá-los em chamadas à Microsoft Graph API e outras APIs, implementar o início de sessão Microsoft com uma aplicação Web tradicional baseada no browser com o OpenID Connect e muito mais, veja a secção **Tutoriais** da documentação.
   * Para transferir exemplos de código, aceda ao [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* O fluxo de pedidos e respostas do processo de autenticação é determinado pelo protocolo de autenticação utilizado, como OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Para mais informações sobre protocolos, consulte a secção **de protocolos de autenticação** da documentação.
+* O fluxo de pedidos e respostas do processo de autenticação é determinado pelo protocolo de autenticação utilizado, como OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Para mais informações sobre protocolos, consulte a secção de **protocolos de Autenticação de Conceitos > autenticação** da documentação.
 
 No cenário de exemplo acima, pode classificar as aplicações de acordo com estas duas funções:
 
@@ -74,7 +71,7 @@ Dependendo da forma como o seu cliente é construído, pode utilizar um (ou vár
 |[Fluxo em-nome-de](v1-oauth2-on-behalf-of-flow.md) | ficha de acesso| x| x| x| |
 |[Credenciais de cliente](v1-oauth2-client-creds-grant-flow.md) | | | x (apenas app)| | |
 
-Os tokens emitidos através do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador através do URL (onde `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra do navegador e falhar quando é muito longo.  Assim, estas fichas não têm `groups` ou `wids` reivindicações. 
+Os tokens emitidos através do modo implícito têm uma limitação de `response_mode` comprimento `query` `fragment`devido a ser passado de volta para o navegador através do URL (onde está ou ).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra do navegador e falhar quando é muito longo.  Assim, estas fichas não `groups` `wids` têm nem reclamam. 
 
 Agora que tem uma descrição geral dos conceitos básicos, continue a ler para compreender o modelo de aplicação de identidade e a API, como funciona o aprovisionamento no Azure AD e obter ligações para informações detalhadas sobre os cenários comuns suportados pelo Azure AD.
 
@@ -139,7 +136,7 @@ As afirmações presentes em qualquer token de segurança dependem do tipo de to
 | ID de objeto | Contém um identificador exclusivo imutável do requerente no Azure AD. |
 | Funções | Contém os nomes amigáveis das Funções de Aplicação do Azure AD concedidas ao utilizador. |
 | Âmbito | Indica as permissões concedidas à aplicação cliente. |
-| Requerente | Indica o principal sobre o qual o token declara informações. |
+| Assunto | Indica o principal sobre o qual o token declara informações. |
 | ID do inquilino | Contém um identificador exclusivo imutável do inquilino do diretório que emitiu o token. |
 | Duração do Token | Define o intervalo de tempo durante o qual um token é válido. |
 | Nome Principal de Utilizador | Contém o nome principal de utilizador do requerente. |

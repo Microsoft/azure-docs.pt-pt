@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
 ms.openlocfilehash: cf48090b2c32f0c3a1c8170873cb8d6a771fe21f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240297"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de backup Azure?
@@ -20,10 +20,10 @@ O serviço Azure Backup fornece soluções simples, seguras e económicas que lh
 ## <a name="what-can-i-back-up"></a>O que posso apoiar?
 
 - No local - **Ficheiros** de reserva, pastas, estado de sistema utilizando o [agente Microsoft Azure Recovery Services (MARS).](backup-support-matrix-mars-agent.md) Ou utilize o agente DPM ou Azure Backup Server (MABS) para proteger vMs no local[(Hiper-V](back-up-hyper-v-virtual-machines-mabs.md) e [VMWare)](backup-azure-backup-server-vmware.md)e [outras cargas de trabalho no local](backup-mabs-protection-matrix.md)
-- **Os VMs azure** - [Back up whole Windows/Linux VMs](backup-azure-vms-introduction.md) (utilizando extensões de cópia de segurança) ou ficheiros de backup, pastas e estado de sistema utilizando o [agente MARS](backup-azure-manage-mars.md).
+- **Vitelos Azure** - [Retraia vMs inteiros Windows/Linux](backup-azure-vms-introduction.md) (utilizando extensões de cópia de segurança) ou ficheiros de backup, pastas e estado de sistema utilizando o [agente MARS](backup-azure-manage-mars.md).
 - **Azure Files partilha** - [Back up Azure File partilha para uma conta de armazenamento](backup-afs.md)
-- **SQL Server em VMs Azure** -  [back up bases de dados do Servidor SQL em execução em VMs Azure](backup-azure-sql-database.md)
-- Bases de **dados SAP HANA em VMs Azure** - bases de [dados Backup SAP HANA em execução em VMs Azure](backup-azure-sap-hana-database.md)
+- **Servidor SQL em VMs** -  Azure[Back up Bases de dados do Servidor SQL em execução em VMs Azure](backup-azure-sql-database.md)
+- **Bases de dados SAP HANA nas** - bases de dados Azure VMs[Backup SAP HANA em execução em VMs Azure](backup-azure-sap-hana-database.md)
 
 ![Visão geral do Backup Azure](./media/backup-overview/azure-backup-overview.png)
 
@@ -46,7 +46,7 @@ A Azure Backup oferece estes principais benefícios:
   - [O armazenamento redundante localmente (LRS)](../storage/common/storage-redundancy-lrs.md) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
   - [O armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy-grs.md) é a opção de replicação predefinida e recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). GrS custa mais do que LRS, mas GRS fornece um nível mais alto de durabilidade para os seus dados, mesmo que haja uma paragem regional.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja](backup-architecture.md) a arquitetura e os componentes para diferentes cenários de backup.
 - [Verifique](backup-support-matrix.md) os requisitos e limitações de suporte para backup e para [backup Azure VM](backup-support-matrix-iaas.md).

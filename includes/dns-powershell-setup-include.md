@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
 ms.openlocfilehash: 32c516ccee3a9f4f7604a3e330285703a776b47d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67133832"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Configurar o Azure PowerShell para o DNS do Azure
@@ -38,7 +38,7 @@ Find-Module -Name AzureRM.Dns
 Find-Module -Name AzureRM.Network 
 ``` 
  
-A saída dos comandos acima precisa mostrar que a versão do azurerm. DNS é a 4.1.0 ou uma versão e para azurerm. Network que é a 5.4.0 ou uma versão posterior.  
+A saída dos comandos acima referidos tem de mostrar que a versão de AzureRM.Dns é de versão 4.1.0 ou superior, e para o AzureRM.Network é 5.4.0 ou versão superior.  
 
 No caso do sistema ter versões anteriores, pode de instalar a versão mais recente do Azure PowerShell ou transferir e instalar os módulos acima a partir da Galeria do PowerShell, utilizando as ligações acima junto às versões do Módulo. Em seguida, pode instalá-los utilizando o abaixo comandos. Ambos os módulos são necessários e possuem uma retrocompatibilidade compatível total. 
 
@@ -52,7 +52,7 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
-Abra a consola do PowerShell e ligue-se à sua conta. Para obter mais informações, consulte [iniciar sessão com o AzureRM](/powershell/azure/azurerm/authenticate-azureps).
+Abra a consola do PowerShell e ligue-se à sua conta. Para mais informações, consulte [Iniciar sessão com o AzureRM](/powershell/azure/azurerm/authenticate-azureps).
 
 ```powershell
 Connect-AzureRmAccount
@@ -74,7 +74,7 @@ Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização, que é utilizada como a localização predefinida para os recursos nesse grupo de recursos. No entanto, uma vez que todos os recursos DNS são globais, não regionais, a opção de localização do grupo de recursos não tem impacto no DNS do Azure.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização. que é utilizada como a localização predefinida para os recursos nesse grupo de recursos. No entanto, uma vez que todos os recursos DNS são globais, não regionais, a opção de localização do grupo de recursos não tem impacto no DNS do Azure.
 
 Pode ignorar este passo se estiver a utilizar um grupo de recursos existente.
 

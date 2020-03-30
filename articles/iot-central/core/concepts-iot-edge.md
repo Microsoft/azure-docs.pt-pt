@@ -8,68 +8,68 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 69660152458de26e9dbcbf1f50db6ce6824351d0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77027072"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Ligue os dispositivos Azure IoT Edge a uma aplicação Central Azure IoT
 
-IoT Edge é composta por três componentes:
+O IoT Edge é composto por três componentes:
 
-* Os **módulos de IOT Edge** são contêineres que executam serviços do Azure, serviços de parceiros ou seu próprio código. Os módulos são implantados em dispositivos IoT Edge e executados localmente nesses dispositivos.
-* O **tempo de execução do IOT Edge** é executado em cada dispositivo IOT Edge e gerencia os módulos implantados em cada dispositivo.
-* Uma **interface baseada em nuvem** permite que você monitore e gerencie dispositivos IOT Edge remotamente. IoT Central é a interface de nuvem.
+* **Os módulos IoT Edge** são recipientes que executam serviços Azure, serviços parceiros ou o seu próprio código. Os módulos são implantados para dispositivos IoT Edge e funcionam localmente nesses dispositivos.
+* O tempo de funcionação do **IoT Edge** funciona em cada dispositivo IoT Edge e gere os módulos implantados em cada dispositivo.
+* Uma **interface baseada em nuvem** permite-lhe monitorizar e gerir remotamente dispositivos IoT Edge. IoT Central é a interface da nuvem.
 
-Um dispositivo **Azure IOT Edge** pode ser um dispositivo de gateway, com dispositivos downstream conectando-se ao dispositivo IOT Edge. Este artigo partilha mais informações sobre os padrões de conectividade do dispositivo a jusante.
+Um dispositivo **Azure IoT Edge** pode ser um dispositivo de gateway, com dispositivos a jusante ligados ao dispositivo IoT Edge. Este artigo partilha mais informações sobre os padrões de conectividade do dispositivo a jusante.
 
-Um **modelo de dispositivo** define os recursos do seu dispositivo e módulos de IOT Edge. Os recursos incluem telemetria que o módulo envia, propriedades do módulo e os comandos que um módulo responde.
+Um modelo de **dispositivo** define as capacidades do seu dispositivo e módulos IoT Edge. As capacidades incluem telemetria que o módulo envia, propriedades do módulo, e os comandos a que um módulo responde.
 
-## <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>Relações de dispositivo downstream com um gateway e módulos
+## <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>Relações a jusante do dispositivo com um portal e módulos
 
-Os dispositivos downstream podem se conectar a um dispositivo de gateway IoT Edge por meio do módulo `$edgeHub`. Esse IoT Edge dispositivo torna-se um gateway transparente nesse cenário.
+Os dispositivos a jusante podem ligar-se `$edgeHub` a um dispositivo de gateway IoT Edge através do módulo. Este dispositivo IoT Edge torna-se uma porta de entrada transparente neste cenário.
 
 ![Diagrama de gateway transparente](./media/concepts-iot-edge/gateway-transparent.png)
 
-Os dispositivos downstream também podem se conectar a um dispositivo de gateway IoT Edge por meio de um módulo personalizado. No cenário a seguir, os dispositivos downstream se conectam por meio de um módulo personalizado Modbus.
+Os dispositivos a jusante também podem ligar-se a um dispositivo de gateway IoT Edge através de um módulo personalizado. No seguinte cenário, os dispositivos a jusante conectam-se através de um módulo personalizado Modbus.
 
-![Diagrama da conexão de módulo personalizada](./media/concepts-iot-edge/gateway-module.png)
+![Diagrama de conexão personalizada do módulo](./media/concepts-iot-edge/gateway-module.png)
 
-O diagrama a seguir mostra a conexão a um dispositivo de gateway IoT Edge por meio de ambos os tipos de módulos (personalizado e `$edgeHub`).  
+O diagrama seguinte mostra a ligação a um dispositivo de `$edgeHub`gateway IoT Edge através de ambos os tipos de módulos (personalizado e ).  
 
-![Diagrama de conexão por meio de ambos os módulos de conexão](./media/concepts-iot-edge/gateway-module-transparent.png)
+![Diagrama de ligação através de ambos os módulos de ligação](./media/concepts-iot-edge/gateway-module-transparent.png)
 
-Por fim, os dispositivos downstream podem se conectar a um dispositivo de gateway IoT Edge por meio de vários módulos personalizados. O diagrama a seguir mostra os dispositivos downstream que se conectam por meio de um módulo personalizado MODBUS, um módulo BLE personalizado e o módulo `$edgeHub`. 
+Finalmente, os dispositivos a jusante podem ligar-se a um dispositivo de gateway IoT Edge através de vários módulos personalizados. O diagrama seguinte mostra dispositivos a jusante que se ligam `$edgeHub` através de um módulo personalizado Modbus, um módulo personalizado BLE e o módulo. 
 
-![Diagrama de conexão por meio de vários módulos personalizados](./media/concepts-iot-edge/gateway-module2-transparent.png)
+![Diagrama de ligação através de vários módulos personalizados](./media/concepts-iot-edge/gateway-module2-transparent.png)
 
 ## <a name="deployment-manifests-and-device-templates"></a>Manifestos de implantação e modelos de dispositivo
 
-No IoT Edge, você pode implantar e gerenciar a lógica de negócios na forma de módulos. Os módulos de IoT Edge são a menor unidade de computação gerenciada pelo IoT Edge e podem conter serviços do Azure (como Azure Stream Analytics) ou seu próprio código específico da solução. Para entender como os módulos são desenvolvidos, implantados e mantidos, consulte [módulos IOT Edge](../../iot-edge/iot-edge-modules.md).
+No IoT Edge, pode implementar e gerir a lógica do negócio sob a forma de módulos. Os módulos IoT Edge são a menor unidade de computação gerida pelo IoT Edge, e podem conter serviços Azure (como o Azure Stream Analytics), ou o seu próprio código específico de solução. Para entender como os módulos são desenvolvidos, implantados e mantidos, consulte [os módulos IoT Edge](../../iot-edge/iot-edge-modules.md).
 
-Num alto nível, um manifesto de implantação é uma lista de duplos de módulo que estão configurados com as respetivas propriedades pretendidas. Um manifesto de implantação informa um dispositivo IoT Edge (ou um grupo de dispositivos) quais módulos instalar e como configurá-los. Os manifestos de implantação incluem as propriedades desejadas para cada módulo. IoT Edge dispositivos reportam as propriedades relatadas para cada módulo.
+A um nível elevado, um manifesto de implantação é uma lista de gémeos módulos que são configurados com as suas propriedades desejadas. Um manifesto de implantação diz a um dispositivo IoT Edge (ou um grupo de dispositivos) quais os módulos a instalar e como configurá-los. Os manifestos de implantação incluem as propriedades desejadas para cada módulo gémeo. Os dispositivos IoT Edge relatam as propriedades reportadas para cada módulo.
 
-Use Visual Studio Code para criar um manifesto de implantação. Para saber mais, confira [Azure IOT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Utilize o Código do Estúdio Visual para criar um manifesto de implantação. Para saber mais, consulte [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
-No Azure IoT Central, pode importar um manifesto de implantação para criar um modelo de dispositivo. O fluxograma a seguir mostra um ciclo de vida de manifesto de implantação no IoT Central.
+No Azure IoT Central, pode importar um manifesto de implantação para criar um modelo de dispositivo. O fluxograma seguinte mostra um ciclo de vida manifesto de implantação na IoT Central.
 
-![Fluxograma do ciclo de vida de manifesto de implantação](./media/concepts-iot-edge/dmflow.png)
+![Fluxograma de implantação do ciclo de vida manifesto](./media/concepts-iot-edge/dmflow.png)
 
 IoT Plug and Play (pré-visualização) modela um dispositivo IoT Edge da seguinte forma:
 
-* Cada modelo de dispositivo IoT Edge tem um modelo de funcionalidade de dispositivo.
-* Para cada módulo personalizado listado no manifesto de implantação, um modelo de funcionalidade de módulo é gerado.
-* Uma relação é estabelecida entre cada modelo de funcionalidade de módulo e um modelo de capacidade de dispositivo.
-* Um modelo de funcionalidade de módulo implementa interfaces de módulo.
+* Todos os modelos de dispositivos IoT Edge têm um modelo de capacidade de dispositivo.
+* Para cada módulo personalizado listado no manifesto de implementação, é gerado um modelo de capacidade de módulo.
+* Estabelece-se uma relação entre cada modelo de capacidade do módulo e um modelo de capacidade do dispositivo.
+* Um modelo de capacidade de módulo implementa interfaces de módulos.
 * Cada interface de módulo contém telemetria, propriedades e comandos.
 
-![Diagrama de modelagem de IoT Edge](./media/concepts-iot-edge/edgemodelling.png)
+![Diagrama da modelação IoT Edge](./media/concepts-iot-edge/edgemodelling.png)
 
 ## <a name="iot-edge-gateway-devices"></a>Dispositivos de gateway IoT Edge
 
-Se você selecionou um dispositivo de IoT Edge para ser um dispositivo de gateway, poderá adicionar relações de downstream a modelos de capacidade de dispositivo para dispositivos que você deseja conectar ao dispositivo de gateway.
+Se selecionou um dispositivo IoT Edge para ser um dispositivo de gateway, pode adicionar relações a jusante aos modelos de capacidade do dispositivo para dispositivos que pretende ligar ao dispositivo gateway.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você sabe o que são os modelos de aplicativo IoT Central, comece [criando um aplicativo IOT central](quick-deploy-iot-central.md).
+Agora que sabe quais são os modelos de aplicação IoT Central, inicie-se com a criação de [uma Aplicação Central IoT](quick-deploy-iot-central.md).

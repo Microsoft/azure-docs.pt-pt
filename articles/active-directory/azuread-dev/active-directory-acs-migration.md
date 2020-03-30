@@ -1,10 +1,9 @@
 ---
-title: Migrar do Serviço de Controlo de Acesso Azure  Microsoft Docs
+title: Migrar do Serviço de Controlo de Acesso Azure [ Microsoft Docs
 description: Conheça as opções para movimentar aplicações e serviços do Serviço de Controlo de Acesso Do Azure (ACS).
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev
@@ -13,12 +12,13 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 63ace9af31dd284c61fae188744b24361f33c170
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3168d36bf4c2d3c696173725f669b12dc168dcc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377908"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155006"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
 
@@ -55,9 +55,9 @@ Para utilizar estes componentes, tem de criar um ou mais espaços de nomes do Co
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Toda a comunicação com o STS e as operações de gestão são feitas neste URL. Usas caminhos diferentes para diferentes propósitos. Para determinar se as suas aplicações ou serviços utilizam o Access Control, monitorize para qualquer tráfego para https://&lt;espaço de nome&gt;.accesscontrol.windows.net. Qualquer tráfego para este URL é manuseado pelo Controlo de Acesso, e precisa de ser descontinuado. 
+Toda a comunicação com o STS e as operações de gestão são feitas neste URL. Usas caminhos diferentes para diferentes propósitos. Para determinar se as suas aplicações ou serviços utilizam&lt;o&gt;Access Control, monitorize para qualquer tráfego para https:// espaço de nome .accesscontrol.windows.net. Qualquer tráfego para este URL é manuseado pelo Controlo de Acesso, e precisa de ser descontinuado. 
 
-A exceção a isto é qualquer tráfego para `https://accounts.accesscontrol.windows.net`. O tráfego para este URL já é tratado por um serviço diferente e **não é** afetado pela depreciação do Controlo de Acesso. 
+A exceção a isto `https://accounts.accesscontrol.windows.net`é qualquer tráfego para . O tráfego para este URL já é tratado por um serviço diferente e **não é** afetado pela depreciação do Controlo de Acesso. 
 
 Para mais informações sobre o Controlo de Acesso, consulte o [Access Control Service 2.0 (arquivado)](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -86,22 +86,22 @@ Siga os passos nesta secção para saber qual das suas aplicações será impact
      Get-Help [Command-Name] -Full
     ```
     
-    onde `[Command-Name]` é o nome do comando ACS.
+    onde `[Command-Name]` está o nome do comando ACS.
 
 ### <a name="list-your-acs-namespaces"></a>Listar os seus espaços de nome ACS
 
 1. Ligue-se ao ACS utilizando o cmdlet **Connect-AcsAccount.**
   
-    Poderá ter de executar `Set-ExecutionPolicy -ExecutionPolicy Bypass` antes de poder executar comandos e ser administrador dessas subscrições para executar os comandos.
+    Poderá ter de `Set-ExecutionPolicy -ExecutionPolicy Bypass` executar antes de poder executar comandos e ser administrador dessas subscrições para executar os comandos.
 
 2. Enumere as suas subscrições Azure disponíveis utilizando o cmdlet **Get-AcsSubscription.**
 3. Enumere os seus espaços de nome ACS utilizando o cmdlet **Get-AcsNamespace.**
 
 ### <a name="check-which-applications-will-be-impacted"></a>Verifique quais as aplicações que serão impactadas
 
-1. Use o espaço de nome do passo anterior e vá para `https://<namespace>.accesscontrol.windows.net`
+1. Use o espaço de nome do passo anterior e vá para`https://<namespace>.accesscontrol.windows.net`
 
-    Por exemplo, se um dos espaços de nome for um teste de contoso, vá para `https://contoso-test.accesscontrol.windows.net`
+    Por exemplo, se um dos espaços de nome é contoso-teste, vá para`https://contoso-test.accesscontrol.windows.net`
 
 2. No âmbito das **relações Trust**, selecione **as aplicações do partido Relying** para ver a lista de aplicações que serão impactadas pela reforma da ACS.
 3. Repita os passos 1-2 para qualquer outro espaço de nome ACS que tenha.
@@ -112,9 +112,9 @@ A partir de novembro de 2017, todos os componentes do Controlo de Acesso estão 
 
 Aqui está o horário para depreciar os componentes do Controlo de Acesso:
 
-- **novembro de 2017**: A experiência de administrador adia do Azure no portal clássico Azure [está reformada.](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/) Neste ponto, a gestão do espaço de nome para controlo de acesso está disponível num novo URL dedicado: `https://manage.windowsazure.com?restoreClassic=true`. Utilize este URl para visualizar os espaços de nomeexistentes, ativar e desativar espaços de nomes, e para eliminar espaços de nome, se assim o desejar.
-- 2 de abril de **2018**: O portal clássico azure está completamente reformado, o que significa que a gestão do espaço de nome do Access Control já não está disponível através de qualquer URL. Neste ponto, não é possível desativar ou ativar, excluir ou enumerar os seus espaços de nome sinuoso controlo de acesso. No entanto, o portal de gestão do Controlo de Acesso estará totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes do Controlo de Acesso continuam a funcionar normalmente.
-- **7 de novembro de 2018**: Todos os componentes do Controlo de Acesso estão permanentemente desligados. Isto inclui o portal de gestão do Controlo de Acesso, o serviço de gestão, sTS e o motor de regra de transformação simbólica. Neste ponto, quaisquer pedidos enviados para o Controlo de Acesso (localizados no espaço de nome \<\>.accesscontrol.windows.net) falham. Você deveria ter migrado todas as aplicações e serviços existentes para outras tecnologias muito antes deste tempo.
+- **novembro de 2017**: A experiência de administrador adia do Azure no portal clássico Azure [está reformada.](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/) Neste ponto, a gestão do espaço de nome para `https://manage.windowsazure.com?restoreClassic=true`controlo de acesso está disponível num novo URL dedicado: . Utilize este URl para visualizar os espaços de nomeexistentes, ativar e desativar espaços de nomes, e para eliminar espaços de nome, se assim o desejar.
+- 2 de abril de **2018**: O portal clássico azure está completamente reformado, o que significa que a gestão do espaço de nome do Access Control já não está disponível através de qualquer URL. Neste ponto, não é possível desativar ou ativar, excluir ou enumerar os seus espaços de nome sinuoso controlo de acesso. No entanto, o portal de gestão `https://\<namespace\>.accesscontrol.windows.net`do Controlo de Acesso estará totalmente funcional e localizado em . Todos os outros componentes do Controlo de Acesso continuam a funcionar normalmente.
+- **7 de novembro de 2018**: Todos os componentes do Controlo de Acesso estão permanentemente desligados. Isto inclui o portal de gestão do Controlo de Acesso, o serviço de gestão, sTS e o motor de regra de transformação simbólica. Neste ponto, quaisquer pedidos enviados para \<o\>Controlo de Acesso (localizado no espaço de nome .accesscontrol.windows.net) falham. Você deveria ter migrado todas as aplicações e serviços existentes para outras tecnologias muito antes deste tempo.
 
 > [!NOTE]
 > Uma política desativa espaços de nome que não solicitaram um símbolo por um período de tempo. A partir do início de setembro de 2018, este período de tempo encontra-se atualmente em 14 dias de inatividade, mas este será encurtado para 7 dias de inatividade nas próximas semanas. Se tiver espaços de nome sintetizadores de Controlo de Acesso que estão atualmente desativados, pode descarregar e instalar o [ACS PowerShell](#download-and-install-acs-powershell) para reativar o espaço de nomes.
@@ -151,7 +151,7 @@ Os clientes SharePoint 2013, 2016 e SharePoint Online há muito que utilizam acs
 | Funcionalidade | Orientação |
 | ------- | -------- |
 | Autenticação de utilizadores da Azure AD | Anteriormente, a Azure AD não suportava fichas SAML 1.1 exigidas pelo SharePoint para autenticação, e a ACS foi utilizada como um intermediário que tornava o SharePoint compatível com os formatos de token Azure AD. Agora, pode [ligar o SharePoint diretamente ao Azure AD utilizando o Azure AD App Gallery SharePoint na aplicação de instalações](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
-| [Autenticação de aplicativos e autenticação servidor-a-servidor no SharePoint nas instalações](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não afetado pela reforma da ACS; nenhuma mudança necessária. | 
+| [Autenticação de aplicações & autenticação servidor-servidor no SharePoint nas instalações](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não afetado pela reforma da ACS; nenhuma mudança necessária. | 
 | [Baixa autorização de confiança para add-ins SharePoint (fornecedor hospedado e SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Não afetado pela reforma da ACS; nenhuma mudança necessária. |
 | [Pesquisa híbrida em nuvem sharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Não afetado pela reforma da ACS; nenhuma mudança necessária. |
 
@@ -209,7 +209,7 @@ A um nível elevado, *o Azure Ative Directory é provavelmente a melhor escolha 
 | Descoberta de reino doméstico personalizável/UI de recolha de conta | Código transferível que pode ser incorporado em apps | Não suportado |
 | Faça upload de certificados de assinatura de token personalizados | Suportado | Suportado |
 | Personalizar reclamações em fichas |- Passar por pedidos de entrada de fornecedores de identidade<br />- Obtenha acesso ao fornecedor de identidade como reivindicação<br />- Emitir reclamações de saída com base nos valores dos créditos de entrada<br />- Emitir reclamações de produção com valores constantes |- Não pode passar por reclamações de fornecedores de identidade federados<br />- Não é possível obter acesso do fornecedor de identidade como reivindicação<br />- Não pode emitir reclamações de saída com base em valores de créditos de entrada<br />- Pode emitir reclamações de produção com valores constantes<br />- Pode emitir reclamações de saída com base em propriedades dos utilizadores sincronizados com a Azure AD |
-| **Automatização** | | |
+| **Automação** | | |
 | Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso | Suportado usando a Microsoft Graph API |
 
 Se decidir que o Azure AD é o melhor caminho de migração para as suas aplicações e serviços, deve estar ciente de duas formas de integrar a sua app com o Azure AD.
@@ -260,7 +260,7 @@ O quadro seguinte compara as funcionalidades do Controlo de Acesso que são rele
 | Descoberta de reino doméstico personalizável/UI de recolha de conta | Código transferível que pode ser incorporado em apps | UI totalmente personalizável através de CSS personalizado |
 | Faça upload de certificados de assinatura de token personalizados | Suportado | Chaves de assinatura personalizadas, não certificados, suportadas através de políticas personalizadas |
 | Personalizar reclamações em fichas |- Passar por pedidos de entrada de fornecedores de identidade<br />- Obtenha acesso ao fornecedor de identidade como reivindicação<br />- Emitir reclamações de saída com base nos valores dos créditos de entrada<br />- Emitir reclamações de produção com valores constantes |- Pode passar por reclamações de fornecedores de identidade; políticas personalizadas necessárias para algumas reivindicações<br />- Não é possível obter acesso do fornecedor de identidade como reivindicação<br />- Pode emitir reclamações de saída com base nos valores dos pedidos de entrada através de políticas personalizadas<br />- Pode emitir reclamações de produção com valores constantes através de políticas personalizadas |
-| **Automatização** | | |
+| **Automação** | | |
 | Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso |- Criação de utilizadores permitidos através da API do Microsoft Graph<br />- Não pode criar inquilinos, candidaturas ou políticas B2C programáticamente |
 
 Se decidir que o Azure AD B2C é o melhor caminho de migração para as suas aplicações e serviços, comece com os seguintes recursos:

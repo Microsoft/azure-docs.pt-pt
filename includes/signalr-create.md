@@ -9,30 +9,30 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 39bff26baea622e6c0ed524ca68c3c8bae4e770d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76020891"
 ---
-1. Para criar um recurso do serviço de Signaler do Azure, primeiro entre no [portal do Azure](https://portal.azure.com). No lado superior esquerdo da página, selecione **+ criar um recurso**. Na caixa de texto **Pesquisar no Marketplace** , insira **serviço de signalr**.
+1. Para criar um recurso de serviço De Sinalização Azure, inste primeiro o [portal Azure](https://portal.azure.com). No lado superior esquerdo da página, selecione **+ Crie um recurso**. Na caixa de texto **Do Mercado,** introduza o **Serviço SignalR**.
 
-2. Selecione **serviço de signalr** nos resultados e selecione **criar**.
+2. Selecione **O Serviço SignalR** nos resultados e selecione **Criar**.
 
-3. Na página Configurações do novo **signalr** , adicione as seguintes configurações para o novo recurso do signalr:
+3. Na nova página de definições do **SignalR,** adicione as seguintes definições para o seu novo recurso SignalR:
 
     | Nome | Valor recomendado | Descrição |
     | ---- | ----------------- | ----------- |
-    | Nome do recurso | *testsignalr* | Introduza um nome de recurso exclusivo para utilizar no recurso do SignalR. O nome deve ser uma cadeia de caracteres de 1 a 63 caracteres e conter apenas números, letras e o caractere de hífen (`-`). O nome não pode começar ou terminar com o caractere de hífen, e caracteres de hífen consecutivos não são válidos.|
-    | Subscrição | Escolher a sua subscrição |  Selecione a subscrição do Azure que pretende utilizar para testar o SignalR. Se sua conta tiver apenas uma assinatura, ela será selecionada automaticamente e a lista suspensa **assinatura** não será exibida.|
-    | Grupo de recursos | Crie um grupo de recursos chamado *SignalRTestResources*| Selecione ou crie um grupo de recursos para o seu recurso SignalR. Esse grupo é útil para organizar vários recursos que você pode querer excluir ao mesmo tempo excluindo o grupo de recursos. Para obter mais informações, consulte [Utilizar grupos de recursos para gerir os seus recursos do Azure](../articles/azure-resource-manager/management/overview.md). |
-    | Localização | *EUA Leste* | Utilize **Localização** para especificar a localização geográfica onde o seu recurso SignalR está alojado. Para obter o melhor desempenho, recomendamos que crie o recurso na mesma região que os outros componentes da sua aplicação. |
-    | Escalão de preço | *Gratuito* | Atualmente, as opções **gratuitas** e **padrão** estão disponíveis. |
-    | Afixar ao dashboard | ✔ | Selecione esta caixa para que o recurso seja fixado ao seu painel para que seja mais fácil de localizar. |
+    | Nome do recurso | *testsignalr* | Introduza um nome de recurso exclusivo para utilizar no recurso do SignalR. O nome deve ser uma cadeia de 1 a 63 caracteres e`-`conter apenas números, letras e o caráter do hífen. O nome não pode começar ou terminar com o caráter hífen, e os caracteres de hífen consecutivos não são válidos.|
+    | Subscrição | Escolher a sua subscrição |  Selecione a subscrição do Azure que pretende utilizar para testar o SignalR. Se a sua conta tiver apenas uma subscrição, é automaticamente selecionada e a entrega da **Subscrição** não é apresentada.|
+    | Grupo de recursos | Criar um grupo de recursos chamado *SignalRTestResources*| Selecione ou crie um grupo de recursos para o seu recurso SignalR. Este grupo é útil para organizar vários recursos que você pode querer apagar ao mesmo tempo, eliminando o grupo de recursos. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../articles/azure-resource-manager/management/overview.md). |
+    | Localização | *E.U.A. Leste* | Utilize **Localização** para especificar a localização geográfica onde o seu recurso SignalR está alojado. Para obter o melhor desempenho, recomendamos que crie o recurso na mesma região que os outros componentes da sua aplicação. |
+    | Escalão de preço | *Gratuito* | Atualmente, estão disponíveis opções **Gratuitas** e **Standard.** |
+    | Afixar ao dashboard | ✔ | Selecione esta caixa para ter o recurso fixado no seu painel de instrumentos para que seja mais fácil de encontrar. |
 
-4. Selecione **Criar**. A implantação pode levar alguns minutos para ser concluída.
+4. Selecione **Criar**. O destacamento pode levar alguns minutos para ser concluído.
 
-5. Depois que a implantação for concluída, selecione **chaves** em **configurações**. Copie a cadeia de conexão para a chave primária. Você usará essa cadeia de caracteres posteriormente para configurar seu aplicativo para usar o recurso de serviço de Signaler do Azure.
+5. Depois de concluída a colocação em que stão, selecione **Teclas** em **DEFINIÇÕES**. Copie a sua corda de ligação para a chave principal. Mais tarde, utilizará esta cadeia para configurar a sua aplicação para utilizar o recurso do Serviço De Sinalização Azure.
 
     A cadeia de ligação terá a seguinte forma:
     

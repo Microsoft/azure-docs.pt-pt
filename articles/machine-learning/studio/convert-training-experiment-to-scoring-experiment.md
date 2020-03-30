@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 03/28/2017
 ms.openlocfilehash: 061c340f8c4952d5a0f2a3873f7475e4f733c290
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204516"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Como preparar o seu modelo para implantação no Azure Machine Learning Studio (clássico)
@@ -26,45 +26,45 @@ Para isso, você usa Studio (clássico) para criar uma experiência - chamada ex
 
 Pode ver um exemplo deste processo no [Tutorial 1: Prever o risco](tutorial-part1-credit-risk.md)de crédito.
 
-Este artigo analisa detalhadamente os detalhes de como uma experimentação de preparação é convertida numa experimentação preditiva e, como esse experimentação preditiva for implementada. Ao compreender estes detalhes, pode saber como configurar o seu modelo implementado para torná-lo mais eficiente.
+Este artigo mergulha profundamente nos detalhes de como uma experiência de treino é convertida numa experiência preditiva, e como essa experiência preditiva é implementada. Ao compreender estes detalhes, pode aprender a configurar o seu modelo implementado para torná-lo mais eficaz.
 
 
 
 ## <a name="overview"></a>Descrição geral 
 
-O processo de conversão de uma experimentação de preparação para uma experimentação preditiva envolve três etapas:
+O processo de conversão de uma experiência de treino para uma experiência preditiva envolve três passos:
 
-1. Substitua o machine learning módulos de algoritmo com o seu modelo treinado.
-2. Corte a experimentação para apenas esses módulos que são necessários para a classificação. Uma experimentação de preparação inclui um número de módulos que são necessários para treinamento, mas não são necessários quando é preparado o modelo.
-3. Defina como o seu modelo irá aceitar dados do usuário de serviço web e os dados que vão ser devolvidos.
+1. Substitua os módulos de algoritmo de aprendizagem automática pelo seu modelo treinado.
+2. Corte a experiência apenas para os módulos que são necessários para marcar. Uma experiência de treino inclui uma série de módulos que são necessários para o treino, mas não são necessários uma vez que o modelo é treinado.
+3. Defina como o seu modelo irá aceitar dados do utilizador do serviço web e quais os dados que serão devolvidos.
 
 > [!TIP]
-> Na sua experimentação de preparação estiver preocupado com a preparação e classificação de seu modelo usando seus próprios dados. Mas depois de implementada, os utilizadores irão enviar novos dados ao seu modelo e irá devolver resultados da predição. Assim, quando converter a sua experimentação de preparação para uma experimentação preditiva para prepará-la para a implementação, tenha em atenção como o modelo será utilizado por outras pessoas.
+> Na sua experiência de treino, tem-se preocupado em treinar e marcar o seu modelo usando os seus próprios dados. Mas uma vez implementados, os utilizadores enviarão novos dados para o seu modelo e devolverão os resultados da previsão. Assim, ao converter a sua experiência de treino numa experiência preditiva para a preparar para a implantação, lembre-se de como o modelo será usado por outros.
 > 
 > 
 
-## <a name="set-up-web-service-button"></a>Botão de segurança de serviço Web
+## <a name="set-up-web-service-button"></a>Configurar o botão de serviço web
 Depois de executar a sua experiência (clique em **RUN** na parte inferior da tela de experiência), clique no botão **Configurar** o Serviço Web (selecione a opção **Predictive Web Service).** **O Serviço Web configurar** executa para si os três passos de conversão da sua experiência de treino para uma experiência preditiva:
 
 1. Guarda o seu modelo treinado na secção **Modelos Treinados** da paleta de módulos (à esquerda da tela de experimentação). Em seguida, substitui o algoritmo de aprendizagem automática e os módulos [Train Model][train-model] pelo modelo treinado.
-2. Ele analisa a sua experimentação e remove os módulos que claramente foram utilizados apenas para fins de formação e já não são necessários.
+2. Analisa a sua experiência e remove módulos que foram claramente utilizados apenas para o treino e que já não são necessários.
 3. Insere os módulos de entrada e _saída_ do _serviço Web_ em locais predefinidos na sua experiência (estes módulos aceitam e devolvem os dados do utilizador).
 
-Por exemplo, a experimentação seguinte prepara um modelo de árvore de decisões elevada de duas classes com dados de censo de exemplo:
+Por exemplo, a seguinte experiência treina um modelo de árvore de decisão de duas classes com dados de recenseamento de amostras:
 
-![Experimentação de preparação](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
+![Experiência de treino](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
-Os módulos Nesse experimento executam basicamente quatro funções diferentes:
+Os módulos desta experiência desempenham basicamente quatro funções diferentes:
 
-![Funções de módulo](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
+![Funções do módulo](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
-Quando converter esta experimentação de preparação para uma experimentação preditiva, alguns destes módulos já não são necessários, ou que agora servem um objetivo diferente:
+Quando você converte esta experiência de treino para uma experiência preditiva, alguns destes módulos já não são necessários, ou agora servem um propósito diferente:
 
-* **Dados** - Os dados deste conjunto de dados da amostra não são utilizados durante a pontuação - o utilizador do serviço web fornecerá os dados a serem pontuados. No entanto, os metadados deste conjunto de dados, tais como tipos de dados, é utilizado pelo modelo treinado. Por isso terá de manter o conjunto de dados na experimentação preditiva para que ele pode fornecer esses metadados.
+* **Dados** - Os dados deste conjunto de dados da amostra não são utilizados durante a pontuação - o utilizador do serviço web fornecerá os dados a serem pontuados. No entanto, os metadados deste conjunto de dados, como os tipos de dados, são utilizados pelo modelo treinado. Por isso, é necessário manter o conjunto de dados na experiência preditiva para que possa fornecer estes metadados.
 
 * **Preparação** - Dependendo dos dados do utilizador que serão submetidos para pontuação, estes módulos podem ou não ser necessários para processar os dados que chegam. O botão **'Configurar** o Serviço Web' não toca neles - tem de decidir como pretende manuseá-los.
   
-    Por exemplo, neste exemplo, o conjunto de dados da amostra pode ter valores em falta, pelo que foi incluído um módulo de [Dados Em Falta Limpos][clean-missing-data] para lidar com eles. Além disso, o conjunto de dados de exemplo inclui colunas que não são necessários para preparar o modelo. Assim, foi incluída uma [Select Columns no][select-columns] módulo Dataset para excluir essas colunas extra do fluxo de dados. Se souber que os dados que serão submetidos para pontuação através do serviço web não terão valores em falta, então pode remover o módulo De [dados em falta limpos.][clean-missing-data] No entanto, uma vez que as [Colunas Select no][select-columns] módulo Dataset ajudam a definir as colunas de dados que o modelo treinado espera, esse módulo precisa de permanecer.
+    Por exemplo, neste exemplo, o conjunto de dados da amostra pode ter valores em falta, pelo que foi incluído um módulo de [Dados Em Falta Limpos][clean-missing-data] para lidar com eles. Além disso, o conjunto de dados da amostra inclui colunas que não são necessárias para treinar o modelo. Assim, foi incluída uma [Select Columns no][select-columns] módulo Dataset para excluir essas colunas extra do fluxo de dados. Se souber que os dados que serão submetidos para pontuação através do serviço web não terão valores em falta, então pode remover o módulo De [dados em falta limpos.][clean-missing-data] No entanto, uma vez que as [Colunas Select no][select-columns] módulo Dataset ajudam a definir as colunas de dados que o modelo treinado espera, esse módulo precisa de permanecer.
 
 * **Trem** - Estes módulos são usados para treinar o modelo. Quando clicar em Configurar o **Serviço Web,** estes módulos são substituídos por um único módulo que contém o modelo que treinou. Este novo módulo é guardado na secção **Modelos Treinados** da paleta de módulos.
 
@@ -72,48 +72,48 @@ Quando converter esta experimentação de preparação para uma experimentação
 
 Aqui está como o nosso exemplo fica depois de clicar em **Configurar O Serviço Web:**
 
-![Converter a experimentação preditiva](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
+![Experiência preditiva convertida](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
-O trabalho realizado pelo **set Up Web Service** pode ser suficiente para preparar a sua experiência para ser implantado como um serviço web. No entanto, pode querer fazer algum trabalho adicional específico à sua experimentação.
+O trabalho realizado pelo **set Up Web Service** pode ser suficiente para preparar a sua experiência para ser implantado como um serviço web. No entanto, pode querer fazer algum trabalho adicional específico da sua experiência.
 
-### <a name="adjust-input-and-output-modules"></a>Ajustar os módulos de entrada e saídos
-Na sua experimentação de preparação, utilizou um conjunto de dados de treinamento e, em seguida, fizemos algum processamento para obter os dados de forma que o algoritmo de aprendizagem necessários. Se os dados que espera receber através do serviço web não precisarem deste processamento, pode contorná-lo: ligar a saída do módulo de entrada do **serviço Web** a um módulo diferente na sua experiência. Os dados do utilizador agora vão deparar-se no modelo nesta localização.
+### <a name="adjust-input-and-output-modules"></a>Ajuste os módulos de entrada e saída
+Na sua experiência de treino, usou um conjunto de dados de treino e depois fez algum processamento para obter os dados de uma forma que o algoritmo de aprendizagem automática necessitava. Se os dados que espera receber através do serviço web não precisarem deste processamento, pode contorná-lo: ligar a saída do módulo de entrada do **serviço Web** a um módulo diferente na sua experiência. Os dados do utilizador chegarão agora ao modelo neste local.
 
 Por exemplo, por padrão **Configurar** o Web Service coloca o módulo de entrada do **serviço Web** na parte superior do fluxo de dados, como mostra a figura acima. Mas podemos posicionar manualmente a entrada do **serviço Web** para além dos módulos de processamento de dados:
 
 ![Mover a entrada do serviço web](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
-Os dados de entrada fornecidos através do serviço web agora passará diretamente para o módulo de modelo de pontuação sem qualquer tipo de pré-processamento.
+Os dados de entrada fornecidos através do serviço web passarão agora diretamente para o módulo 'Modelo de Pontuação' sem qualquer pré-processamento.
 
 Da mesma forma, por padrão, o Sistema Web **De Configuração** coloca o módulo de saída do serviço Web na parte inferior do fluxo de dados. Neste exemplo, o serviço web devolverá ao utilizador a saída do módulo ['Modelo de Pontuação',][score-model] que inclui o vetor completo de dados de entrada mais os resultados de pontuação.
 No entanto, se preferir devolver algo diferente, pode adicionar módulos adicionais antes do módulo de saída do **serviço Web.** 
 
-Por exemplo, para devolver apenas os resultados de pontuação e não todo o vetor de dados de entrada, adicione uma Coluna Select no módulo [Dataset][select-columns] para excluir todas as colunas, exceto os resultados de pontuação. Em seguida, mova o módulo de saída do **serviço Web** para a saída das Colunas Select no módulo [Dataset.][select-columns] A experimentação tem esta aparência:
+Por exemplo, para devolver apenas os resultados de pontuação e não todo o vetor de dados de entrada, adicione uma Coluna Select no módulo [Dataset][select-columns] para excluir todas as colunas, exceto os resultados de pontuação. Em seguida, mova o módulo de saída do **serviço Web** para a saída das Colunas Select no módulo [Dataset.][select-columns] A experiência é assim:
 
 ![Mover a saída do serviço web](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
-### <a name="add-or-remove-additional-data-processing-modules"></a>Adicionar ou remover módulos de processamento de dados adicionais
-Se existirem mais módulos na experimentação que sabe que não serão necessários durante a classificação, estes podem ser removidos. Por exemplo, como mudámos o módulo de entrada do **serviço Web** para um ponto após os módulos de processamento de dados, podemos remover o módulo de [Dados Desaparecidos Limpos][clean-missing-data] da experiência preditiva.
+### <a name="add-or-remove-additional-data-processing-modules"></a>Adicionar ou remover módulos adicionais de processamento de dados
+Se houver mais módulos na sua experiência que sabe que não serão necessários durante a pontuação, estes podem ser removidos. Por exemplo, como mudámos o módulo de entrada do **serviço Web** para um ponto após os módulos de processamento de dados, podemos remover o módulo de [Dados Desaparecidos Limpos][clean-missing-data] da experiência preditiva.
 
-Nosso experimentação preditiva agora esta aparência:
+A nossa experiência preditiva agora é assim:
 
-![Remover o módulo adicional](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
+![Remoção de módulo adicional](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
-### <a name="add-optional-web-service-parameters"></a>Adicionar parâmetros do serviço Web opcional
-Em alguns casos, pode querer permitir que o usuário do seu serviço web alterar o comportamento de módulos, quando o serviço for acedido. *Os parâmetros* do Serviço Web permitem-lhe fazê-lo.
+### <a name="add-optional-web-service-parameters"></a>Adicionar parâmetros opcionais de serviço web
+Em alguns casos, é melhor permitir que o utilizador do seu serviço web altere o comportamento dos módulos quando o serviço é acedido. *Os parâmetros* do Serviço Web permitem-lhe fazê-lo.
 
 Um exemplo comum é a criação de um módulo [de Dados de Importação][import-data] para que o utilizador do serviço web implementado possa especificar uma fonte de dados diferente quando o serviço web é acedido. Ou configurar um módulo de [Dados de Exportação][export-data] para que um destino diferente possa ser especificado.
 
-Pode definir parâmetros do serviço Web e associá-las com um ou mais parâmetros do módulo, e pode especificar se são necessárias ou opcionais. O utilizador do web service fornece valores para estes parâmetros quando o serviço é acedido e as ações de módulo são modificadas em conformidade.
+Pode definir parâmetros de serviço web e associá-los a um ou mais parâmetros de módulo, e pode especificar se são necessários ou opcionais. O utilizador do serviço web fornece valores para estes parâmetros quando o serviço é acedido, e as ações do módulo são modificadas em conformidade.
 
 Para obter mais informações sobre quais são os parâmetros do Serviço Web e como usá-los, consulte utilizar os parâmetros do serviço web de [aprendizagem automática Azure][webserviceparameters].
 
 [webserviceparameters]: web-service-parameters.md
 
 
-## <a name="deploy-the-predictive-experiment-as-a-web-service"></a>Implementar a experimentação preditiva como um serviço web
-Agora que a experimentação preditiva foi suficientemente preparada, pode implementá-lo como um serviço web do Azure. Usando o web service, os utilizadores podem enviar dados para o seu modelo e o modelo retornará seu previsões.
+## <a name="deploy-the-predictive-experiment-as-a-web-service"></a>Implementar a experiência preditiva como um serviço web
+Agora que a experiência preditiva foi suficientemente preparada, pode implantá-la como um serviço web Azure. Utilizando o serviço web, os utilizadores podem enviar dados para o seu modelo e o modelo devolverá as suas previsões.
 
 Para obter mais informações sobre o processo completo de implementação, consulte [Implementar um serviço web Azure Machine Learning][deploy]
 

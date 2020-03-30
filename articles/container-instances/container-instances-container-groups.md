@@ -5,13 +5,13 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
 ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247218"
 ---
-# <a name="container-groups-in-azure-container-instances"></a>Grupos de contentores em instâncias de contentores de Azure
+# <a name="container-groups-in-azure-container-instances"></a>Grupos de contentores no Azure Container Instances
 
 O recurso de alto nível em Casos de Contentores Azure é o grupo de *contentores*. Este artigo descreve quais são os grupos de contentores e os tipos de cenários que permitem.
 
@@ -72,10 +72,10 @@ Dentro de um grupo de contentores, as instâncias de contentores podem chegar en
 
 Coloque opcionalmente grupos de contentores numa [rede virtual Azure][virtual-network] para permitir que os contentores comuniquem de forma segura com outros recursos da rede virtual.
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 Pode especificar volumes externos para montar dentro de um grupo de contentores. Os volumes suportados incluem:
-* [Partilha de ficheiros do Azure][azure-files]
+* [Partilha de ficheiros Azure][azure-files]
 * [Segredo][secret]
 * [Diretório vazio][empty-directory]
 * [Repo git clonado][volume-gitrepo]

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257527"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Faça um teste failover (broca de recuperação de desastres) para Azure 
@@ -28,7 +28,7 @@ Este procedimento descreve como executar um teste falhado para um plano de recup
 ![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
-1. Na recuperação do site no portal Azure, clique em Planos de **Recuperação** > recoveryplan_name falha *de* **teste** > .
+1. Na recuperação do site no portal Azure, clique em **Planos** > de Recuperação*recoveryplan_name* > **Falha de Teste**.
 2. Selecione um **Ponto de Recuperação** para o qual falhar. Pode utilizar uma das opções seguintes:
     - **Mais recente processado**: Esta opção falha em todos os VMs no plano para o mais recente ponto de recuperação processado pela Recuperação do Site. Para ver o mais recente ponto de recuperação de um VM específico, verifique os **últimos pontos** de recuperação nas definições vM. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
     - **Mais recente aplicação consistente**: Esta opção falha em todos os VMs no plano para o mais recente ponto de recuperação consistente de aplicações processado pela Recovery do Site. Para ver o mais recente ponto de recuperação de um VM específico, verifique os **últimos pontos** de recuperação nas definições vM.
@@ -45,7 +45,7 @@ Este procedimento descreve como executar um teste falhado para um plano de recup
 5. Falha no progresso no separador **Jobs.** Deve poder ver a máquina de réplica de teste no portal Azure.
 6. Para iniciar uma ligação RDP ao VM Azure, é necessário [adicionar um endereço IP público](https://aka.ms/addpublicip) na interface de rede do VM falhado.
 7. Quando tudo estiver a funcionar como esperado, clique em **failover**do teste de limpeza . Isto elimina os VMs que foram criados durante a falha do teste.
-8. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste.
+8. Em **Notas,** grave e guarde quaisquer observações associadas ao failover do teste.
 
 
 ![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
@@ -105,7 +105,7 @@ Se pretender ligar-se aos VMs Azure utilizando RDP/SSH após a falha, siga os re
 
 **Ativação pós-falha** | **Localização** | **Ações**
 --- | --- | ---
-**Vitrina Azure VM executando janelas** | Máquina no local antes da falha | Para aceder ao Azure VM através da internet, ativar o RDP e certificar-se de que as regras de TCP e UDP são adicionadas para **publicamente**, e que o RDP é permitido para todos os perfis no **Windows Firewall** > **Permitidas Apps**.<br/><br/> Para aceder ao Azure VM sobre uma ligação site-to-site, ative rdP na máquina e certifique-se de que o RDP é permitido no **Windows Firewall** -> **permitidas aplicações e funcionalidades**, para redes **De domínio e privadas.**<br/><br/>  Certifique-se de que a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando acionar uma falha. A atualização do Windows poderá começar quando falhar novamente e não poderá entrar no VM até que a atualização esteja concluída.
+**Vitrina Azure VM executando janelas** | Máquina no local antes da falha | Para aceder ao Azure VM através da internet, ativar o RDP e certificar-se de que as regras de TCP e UDP são adicionadas para **publicamente**, e que o RDP é permitido para todos os perfis em**Aplicações permitidas**pelo **Windows Firewall** > .<br/><br/> Para aceder ao Azure VM sobre uma ligação site-to-site, ative rdP na máquina e certifique-se de que o RDP é permitido nas**aplicações e funcionalidades permitidas**pelo **Windows Firewall,** -> para redes **De domínio e privadas.**<br/><br/>  Certifique-se de que a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando acionar uma falha. A atualização do Windows poderá começar quando falhar novamente e não poderá entrar no VM até que a atualização esteja concluída.
 **Vitrina Azure VM executando janelas** | VM Azure após falha |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras do grupo de segurança da rede sobre o VM falhado (e a subnet Azure a que está ligada) precisam de permitir a entrada de ligações à porta RDP.<br/><br/> Verifique os **diagnósticos da Boot** para verificar uma imagem do VM.<br/><br/> Se não conseguir ligar, verifique se o VM está em execução e reveja estas dicas de resolução de [problemas.](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 **Azure VM executando Linux** | Máquina no local antes da falha | Certifique-se de que o serviço Secure Shell no VM está programado para começar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
 **Azure VM executando Linux** | VM Azure após falha | As regras do grupo de segurança da rede sobre o VM falhado (e a subnet Azure a que está ligada) precisam de permitir a entrada de ligações à porta SSH.<br/><br/> [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique os **diagnósticos** da Boot para obter uma imagem do VM.<br/><br/>

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 94a376c01229de20e6a1264da3f29532becefa8a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368657"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061003"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes partilhas de ficheiros
 
@@ -20,7 +20,7 @@ Quando ativa grandes ações de ficheiros na sua conta de armazenamento, as suas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Se pretender utilizar o Azure CLI, [instale a versão mais recente.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Se pretende utilizar o Azure PowerShell, [instale a versão mais recente.](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
 
@@ -34,8 +34,8 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
 ### <a name="portal"></a>Portal
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. No portal do Azure, selecione **Todos os serviços**. 
-1. Na lista de recursos, insira Contas de **Armazenamento.** À medida que escreve, a lista filtra com base na sua entrada. Selecione **Contas do Storage**.
+1. No portal Azure, selecione **Todos os serviços.** 
+1. Na lista de recursos, insira Contas de **Armazenamento.** À medida que escreve, a lista filtra com base na sua entrada. Selecione **Contas de Armazenamento**.
 1. Na janela Contas de **Armazenamento** que aparece, selecione **Adicionar**.
 1. Selecione a subscrição que utilizará para criar a conta de armazenamento.
 1. No campo **Grupo de recursos**, selecione **Criar novo**. Insira um nome para o seu novo grupo de recursos.
@@ -65,7 +65,7 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
 
 Em primeiro lugar, [instale a versão mais recente do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para que possa ativar grandes partilhas de ficheiros.
 
-Para criar uma conta de armazenamento com grandes partilhas de ficheiros ativadas, utilize o seguinte comando. Substitua `<yourStorageAccountName>`, `<yourResourceGroup>`e `<yourDesiredRegion>` com a sua informação.
+Para criar uma conta de armazenamento com grandes partilhas de ficheiros ativadas, utilize o seguinte comando. Substitua, `<yourStorageAccountName>` `<yourResourceGroup>` `<yourDesiredRegion>` e com a sua informação.
 
 ```azurecli-interactive
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
@@ -76,9 +76,9 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 Em primeiro lugar, [instale a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) para que possa ativar grandes partilhas de ficheiros.
 
-Para criar uma conta de armazenamento com grandes partilhas de ficheiros ativadas, utilize o seguinte comando. Substitua `<yourStorageAccountName>`, `<yourResourceGroup>`e `<yourDesiredRegion>` com a sua informação.
+Para criar uma conta de armazenamento com grandes partilhas de ficheiros ativadas, utilize o seguinte comando. Substitua, `<yourStorageAccountName>` `<yourResourceGroup>` `<yourDesiredRegion>` e com a sua informação.
 
-```PowerShell
+```powershell
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
@@ -102,7 +102,7 @@ Se receber a mensagem de erro "As grandes ações de ficheiro ainda não estão 
 
 ### <a name="cli"></a>CLI
 
-Para permitir grandes partilhas de ficheiros na sua conta existente, utilize o seguinte comando. Substitua `<yourStorageAccountName>` e `<yourResourceGroup>` com as suas informações.
+Para permitir grandes partilhas de ficheiros na sua conta existente, utilize o seguinte comando. `<yourStorageAccountName>` Substitua `<yourResourceGroup>` e com a sua informação.
 
 ```azurecli-interactive
 az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
@@ -110,9 +110,9 @@ az storage account update --name <yourStorageAccountName> -g <yourResourceGroup>
 
 ### <a name="powershell"></a>PowerShell
 
-Para permitir grandes partilhas de ficheiros na sua conta existente, utilize o seguinte comando. Substitua `<yourStorageAccountName>` e `<yourResourceGroup>` com as suas informações.
+Para permitir grandes partilhas de ficheiros na sua conta existente, utilize o seguinte comando. `<yourStorageAccountName>` Substitua `<yourResourceGroup>` e com a sua informação.
 
-```PowerShell
+```powershell
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
 ```
 
@@ -132,7 +132,7 @@ A criação de uma grande quota de ficheiros é quase idêntica à criação de 
 
 ### <a name="cli"></a>CLI
 
-Para criar uma grande partilha de ficheiros, utilize o seguinte comando. Substitua `<yourStorageAccountName>`, `<yourStorageAccountKey>`e `<yourFileShareName>` com a sua informação.
+Para criar uma grande partilha de ficheiros, utilize o seguinte comando. Substitua, `<yourStorageAccountName>` `<yourStorageAccountKey>` `<yourFileShareName>` e com a sua informação.
 
 ```azurecli-interactive
 az storage share create --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName>
@@ -140,9 +140,9 @@ az storage share create --account-name <yourStorageAccountName> --account-key <y
 
 ### <a name="powershell"></a>PowerShell
 
-Para criar uma grande partilha de ficheiros, utilize o seguinte comando. Substitua `<YourStorageAccountName>`, `<YourStorageAccountKey>`e `<YourStorageAccountFileShareName>` com a sua informação.
+Para criar uma grande partilha de ficheiros, utilize o seguinte comando. Substitua, `<YourStorageAccountName>` `<YourStorageAccountKey>` `<YourStorageAccountFileShareName>` e com a sua informação.
 
-```PowerShell
+```powershell
 ##Config
 $storageAccountName = "<YourStorageAccountName>"
 $storageAccountKey = "<YourStorageAccountKey>"
@@ -165,7 +165,7 @@ Depois de ter ativado grandes ações de ficheiros na sua conta de armazenamento
 
 ### <a name="cli"></a>CLI
 
-Para definir a quota para o tamanho máximo, utilize o seguinte comando. Substitua `<yourStorageAccountName>`, `<yourStorageAccountKey>`e `<yourFileShareName>` com a sua informação.
+Para definir a quota para o tamanho máximo, utilize o seguinte comando. Substitua, `<yourStorageAccountName>` `<yourStorageAccountKey>` `<yourFileShareName>` e com a sua informação.
 
 ```azurecli-interactive
 az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 102400
@@ -173,9 +173,9 @@ az storage share update --account-name <yourStorageAccountName> --account-key <y
 
 ### <a name="powershell"></a>PowerShell
 
-Para definir a quota para o tamanho máximo, utilize o seguinte comando. Substitua `<YourStorageAccountName>`, `<YourStorageAccountKey>`e `<YourStorageAccountFileShareName>` com a sua informação.
+Para definir a quota para o tamanho máximo, utilize o seguinte comando. Substitua, `<YourStorageAccountName>` `<YourStorageAccountKey>` `<YourStorageAccountFileShareName>` e com a sua informação.
 
-```PowerShell
+```powershell
 ##Config
 $storageAccountName = "<YourStorageAccountName>"
 $storageAccountKey = "<YourStorageAccountKey>"

@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77026001"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar a Gestão de Identidade Privilegiada da Azure AD (PIM)
@@ -44,14 +44,14 @@ Abordar o **cumprimento e a governação** - A implementação da Gestão de Ide
 
 **Reduzir custos** - Reduzir custos eliminando ineficiências, erros humanos e questões de segurança, implementando corretamente a Gestão de Identidade Privilegiada. O resultado líquido é a redução dos crimes cibernéticos associados a identidades privilegiadas, que são dispendiosas e difíceis de recuperar. A Gestão de Identidade Privilegiada também ajudará a sua organização a reduzir os custos associados à auditoria de informação de acesso no que diz respeito ao cumprimento de regulamentos e padrões.
 
-Para obter mais informações, consulte [o que é o Azure AD Privileged Identity Management?](pim-configure.md).
+Para mais informações, consulte o que é a [Azure AD Privileged Identity Management?](pim-configure.md)
 
 ### <a name="licensing-requirements"></a>Requisitos de licenciamento
 
 Para utilizar a Gestão de Identidade Privilegiada, o seu diretório deve ter uma das seguintes licenças pagas ou experimentais:
 
 - Azure AD Premium P2
-- Mobilidade Empresarial + Segurança (EMS) E5
+- Enterprise Mobility + Security (EMS) E5
 - Microsoft 365 M5
 
 Para mais informações, consulte [os requisitos de Licença para utilizar a Gestão de Identidade Privilegiada.](subscription-requirements.md)
@@ -61,7 +61,7 @@ Para mais informações, consulte [os requisitos de Licença para utilizar a Ges
 | Termo ou conceito | Descrição |
 | --- | --- |
 | elegível | Uma atribuição de funções que requer que um utilizador realize uma ou mais ações para usar o papel. Se um utilizador tiver sido elegível para um papel, isso significa que pode ativar a função quando precisa de executar tarefas privilegiadas. Não há diferença no acesso dado a alguém com um papel permanente contra um papel elegível. A única diferença é que algumas pessoas não precisam de ter acesso a toda a hora. |
-| ativar | O processo de realização de uma ou mais ações para utilizar uma função para a qual um utilizador é elegível. As ações podem incluir a execução de uma verificação de MFA (autenticação multifator), o fornecimento de uma justificativa de negócios ou a solicitação de aprovação de aprovadores designados. |
+| ativar | O processo de realização de uma ou mais ações para utilizar uma função para a qual um utilizador é elegível. As ações podem incluir a realização de um controlo de autenticação multifactor (MFA), o fornecimento de uma justificação de negócio, ou o pedido de aprovação dos aprovadores designados. |
 | acesso just-in-time (JIT) | Um modelo no qual os utilizadores recebem permissões temporárias para executar tarefas privilegiadas, o que impede que utilizadores maliciosos ou não autorizados tenham acesso após o termo das permissões. O acesso só é concedido quando os utilizadores precisam. |
 | princípio de acesso menos privilegiado | Uma prática de segurança recomendada na qual cada utilizador é dotado apenas dos privilégios mínimos necessários para realizar as tarefas que está autorizado a executar. Esta prática minimiza o número de Administradores Globais e, em vez disso, utiliza funções específicas de administrador para determinados cenários. |
 
@@ -75,7 +75,7 @@ Para mais informações, consulte [terminologia.](pim-configure.md#terminology)
 1. Assim que o utilizador ativar com sucesso a sua função, obterá o papel por um período de tempo pré-configurado.
 1. Os administradores podem ver um histórico de todas as atividades de Gestão de Identidade Privilegiada no registo de auditoria. Também podem garantir as suas organizações de AD Azure e cumprir o cumprimento usando funcionalidades de Gestão de Identidade Privilegiada, como avaliações de acesso e alertas.
 
-Para obter mais informações, consulte [o que é o Azure AD Privileged Identity Management?](pim-configure.md).
+Para mais informações, consulte o que é a [Azure AD Privileged Identity Management?](pim-configure.md)
 
 ### <a name="roles-that-can-be-managed-by-privileged-identity-management"></a>Funções que podem ser geridas pela Privileged Identity Management
 
@@ -85,7 +85,7 @@ Para obter mais informações, consulte [o que é o Azure AD Privileged Identity
 
 Para mais informações, consulte [Funções que não pode gerir na Gestão](pim-roles.md)de Identidade Privilegiada.
 
-## <a name="plan-your-deployment"></a>Planeie a sua implementação
+## <a name="plan-your-deployment"></a>Planear a sua implementação
 
 Esta secção centra-se no que precisa de fazer antes de implementar a Gestão de Identidade Privilegiada na sua organização. É essencial seguir as instruções e compreender os conceitos nesta secção, pois irão guiá-lo para criar o melhor plano adaptado para as identidades privilegiadas da sua organização.
 
@@ -101,9 +101,9 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 | Nome | Função | Ação |
 | --- | --- | --- |
-| Nome e e-mail | **Arquiteto de identidade ou Administrador Global Azure**<br/>Um representante da equipa de gestão de identidade responsável pela definição de como esta mudança está alinhada com a principal infraestrutura de gestão de identidade na sua organização. | SO/R/I |
-| Nome e e-mail | **Proprietário de serviço / Gestor de linha**<br/>Um representante dos proprietários de TI de um serviço ou de um grupo de serviços. São fundamentais para tomar decisões e ajudar a lançar a Gestão de Identidade Privilegiada para a sua equipa. | SO/R/I |
-| Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que pode assinar que o plano cumpre os requisitos de segurança da sua organização. | SO/R |
+| Nome e e-mail | **Arquiteto de identidade ou Administrador Global Azure**<br/>Um representante da equipa de gestão de identidade responsável pela definição de como esta mudança está alinhada com a principal infraestrutura de gestão de identidade na sua organização. | Assim/R/I |
+| Nome e e-mail | **Proprietário de serviço / Gestor de linha**<br/>Um representante dos proprietários de TI de um serviço ou de um grupo de serviços. São fundamentais para tomar decisões e ajudar a lançar a Gestão de Identidade Privilegiada para a sua equipa. | Assim/R/I |
+| Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que pode assinar que o plano cumpre os requisitos de segurança da sua organização. | Então/R |
 | Nome e e-mail | **Gestor de suporte de TI / Helpdesk**<br/>Um representante da organização de apoio de TI que pode fornecer informações sobre a capacidade de suporte desta mudança de uma perspetiva de helpdesk. | R/I |
 | Nome e e-mail para utilizadores-piloto | **Utilizadores privilegiados**<br/>O grupo de utilizadores para os quais é implementada uma gestão privilegiada da identidade. Terão de saber como ativar as suas funções assim que a Gestão de Identidade Privilegiada for implementada. | I |
 
@@ -111,8 +111,8 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 | Nome | Função | Ação |
 | --- | --- | --- |
-| Nome e e-mail | **Subscrição / Proprietário de recursos**<br/>Um representante dos proprietários de TI de cada subscrição ou recurso que pretende implementar Gestão de Identidade Privilegiada para | SO/R/I |
-| Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que pode assinar que o plano cumpre os requisitos de segurança da sua organização. | SO/R |
+| Nome e e-mail | **Subscrição / Proprietário de recursos**<br/>Um representante dos proprietários de TI de cada subscrição ou recurso que pretende implementar Gestão de Identidade Privilegiada para | Assim/R/I |
+| Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que pode assinar que o plano cumpre os requisitos de segurança da sua organização. | Então/R |
 | Nome e e-mail | **Gestor de suporte de TI / Helpdesk**<br/>Um representante da organização de apoio de TI que pode fornecer informações sobre a capacidade de suporte desta mudança de uma perspetiva de helpdesk. | R/I |
 | Nome e e-mail para utilizadores-piloto | **Utilizadores de funções RBAC**<br/>O grupo de utilizadores para os quais é implementada uma gestão privilegiada da identidade. Terão de saber como ativar as suas funções assim que a Gestão de Identidade Privilegiada for implementada. | I |
 
@@ -153,7 +153,7 @@ Para automatizar os dois últimos passos, pode utilizar avaliações de acesso e
 
 ![Criar um painel de revisão de acesso para funções da AD Azure](./media/pim-deployment-plan/create-access-review.png)
 
-Deve definir os revisores para **Deputados (eu)** . Isto enviará um e-mail a todos os membros do papel para que confirmem se precisam ou não do acesso. Também deve ativar **Exigir razão na aprovação** nas definições avançadas para que os utilizadores possam indicar por que precisam da função. Com base nesta informação, poderá remover os utilizadores de funções desnecessárias e delegar papéis de administrador mais granular no caso dos Administradores Globais.
+Deve definir os revisores para **Deputados (eu)**. Isto enviará um e-mail a todos os membros do papel para que confirmem se precisam ou não do acesso. Também deve ativar **Exigir razão na aprovação** nas definições avançadas para que os utilizadores possam indicar por que precisam da função. Com base nesta informação, poderá remover os utilizadores de funções desnecessárias e delegar papéis de administrador mais granular no caso dos Administradores Globais.
 
 As avaliações de acesso dependem de e-mails para notificar as pessoas para rever em seu acesso às funções. Se tem contas privilegiadas que não têm e-mails ligados, certifique-se de preencher o campo de e-mail secundário nessas contas. Para mais informações, consulte [proxyAddresss atribui-se em Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
@@ -179,14 +179,14 @@ Escolher quais as funções a proteger com a Gestão de Identidade Privilegiada 
 
 1. Administrador global
 1. Administrador de segurança
-1. Administrador do usuário
-1. Administrador de intercâmbio
+1. Administrador de utilizadores
+1. Administrador do Exchange
 1. Administrador do SharePoint
-1. Administrador insinado
+1. Administrador do Intune
 1. Leitor de segurança
 1. Administrador de serviço
 1. Administrador de faturação
-1. Skype para administrador de negócios
+1. Administrador do Skype para Empresas
 
 > [!TIP]
 > :heavy_check_mark: A **Microsoft recomenda** que gere todos os seus Administradores Globais e Administradores de Segurança usando a Gestão de Identidade Privilegiada como um primeiro passo, pois são os que podem causar mais danos quando comprometidos.
@@ -240,19 +240,19 @@ Antes de implementar a sua solução privilegiada de Gestão de Identidade, é u
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Definições privilegiadas de Gestão de Identidade para funções azure AD
 
-| Função | Requerer MFA | Notificação | Bilhete incidente | Exigir aprovação | Aprovador | Duração da ativação | Administrador permanente |
+| Função | Requerer MFA | Notificação | Bilhete incidente | Exigir aprovação | Approver | Duração da ativação | Administrador permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Administrador Global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros Administradores Globais | Uma Hora | Contas de acesso de emergência |
-| Administrador de Intercâmbio | :heavy_check_mark: | :heavy_check_mark: | w.x.y. | w.x.y. | Nenhuma | 2 Horas | Nenhuma |
-| Administrador de assistência técnica | w.x.y. | w.x.y. | :heavy_check_mark: | w.x.y. | Nenhuma | 8 Horas | Nenhuma |
+| Administrador Global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros Administradores Globais | 1 Hora | Contas de acesso de emergência |
+| Administrador de Intercâmbio | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nenhuma | 2 Horas | Nenhuma |
+| Administrador de Helpdesk | :x: | :x: | :heavy_check_mark: | :x: | Nenhuma | 8 Horas | Nenhuma |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Definições privilegiadas de Gestão de Identidade para funções de recursos Do Azure
 
-| Função | Requerer MFA | Notificação | Exigir aprovação | Aprovador | Duração da ativação | Administrador ativo | Expiração ativa | Expiração elegível |
+| Função | Requerer MFA | Notificação | Exigir aprovação | Approver | Duração da ativação | Administrador ativo | Expiração ativa | Expiração elegível |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietário de subscrições críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da subscrição | Uma Hora | Nenhuma | n/d | 3 meses |
-| Administrador de Acesso ao Utilizador de subscrições menos críticas | :heavy_check_mark: | :heavy_check_mark: | w.x.y. | Nenhuma | Uma Hora | Nenhuma | n/d | 3 meses |
-| Colaborador de Máquina Virtual | w.x.y. | :heavy_check_mark: | w.x.y. | Nenhuma | 3 Horas | Nenhuma | n/d | 6 meses |
+| Proprietário de subscrições críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da subscrição | 1 Hora | Nenhuma | n/d | 3 meses |
+| Administrador de Acesso ao Utilizador de subscrições menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhuma | 1 Hora | Nenhuma | n/d | 3 meses |
+| Contribuidor de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhuma | 3 Horas | Nenhuma | n/d | 6 meses |
 
 A tabela seguinte descreve cada uma das definições.
 
@@ -263,14 +263,14 @@ A tabela seguinte descreve cada uma das definições.
 | Notificação | Se for definido como verdadeiro, o Administrador Global, O Administrador de Papel Privilegiado e administrador de segurança da organização receberão uma notificação por e-mail quando um utilizador elegível ativar a função.<br/><br/>**Nota:** Algumas organizações não têm um endereço de e-mail ligado às suas contas de administrador, para receber estas notificações de e-mail, você deve ir definir um endereço de e-mail alternativo para que os administradores recebam esses e-mails. |
 | Bilhete incidente | Se o utilizador elegível precisa registar um número de bilhete incidente ao ativar o seu papel. Esta definição ajuda uma organização a identificar cada ativação com um número de incidente interno para mitigar ativações indesejadas.<br/><br/> :heavy_check_mark: A **Microsoft recomenda** aproveitar os números de bilhetes incidentes para ligar a Privileged Identity Management ao seu sistema interno. Isto é particularmente útil para os aprovadores que precisam de contexto para a ativação. |
 | Exigir aprovação | Se o utilizador elegível precisa de obter aprovação para ativar a função.<br/><br/> :heavy_check_mark: A **Microsoft recomenda-lhe** que estabeleça a aprovação para funções com mais permissão. Com base nos padrões de utilização de todos os clientes privilegiados de Gestão de Identidade, Administrador Global, Administrador de Utilizador, Administrador de Câmbio, Administrador de Segurança e Administrador de Passwords são as funções mais comuns com a configuração da aprovação. |
-| Aprovador | Se for necessária a aprovação para ativar a função elegível, enumere as pessoas que devem aprovar o pedido. Por predefinição, a Privileged Identity Management define o aprovador como todos os utilizadores que são um administrador privilegiado, quer sejam permanentes ou elegíveis.<br/><br/>**Nota:** Se um utilizador for elegível para uma função de AD Azure e um aprovador do papel, não poderá aprovar-se a si próprio.<br/><br/> :heavy_check_mark: A **Microsoft recomenda** que escolha os aprovadores para serem aqueles que têm mais conhecimento sobre a função específica e os seus utilizadores frequentes em vez de um Administrador Global. |
+| Approver | Se for necessária a aprovação para ativar a função elegível, enumere as pessoas que devem aprovar o pedido. Por predefinição, a Privileged Identity Management define o aprovador como todos os utilizadores que são um administrador privilegiado, quer sejam permanentes ou elegíveis.<br/><br/>**Nota:** Se um utilizador for elegível para uma função de AD Azure e um aprovador do papel, não poderá aprovar-se a si próprio.<br/><br/> :heavy_check_mark: A **Microsoft recomenda** que escolha os aprovadores para serem aqueles que têm mais conhecimento sobre a função específica e os seus utilizadores frequentes em vez de um Administrador Global. |
 | Duração da ativação | O tempo de tempo que um utilizador será ativado na função antes de expirar. |
 | Administrador permanente | Lista de utilizadores que serão administradores permanentes para o papel (nunca ter de ativar).<br/><br/> :heavy_check_mark: A **Microsoft recomenda** que tenha administrador permanente zero para todas as funções, exceto para administradores globais. Leia mais sobre o mesmo sobre quem deve ser elegível e quem deve ser permanentemente ativo secção deste plano. |
 | Administrador ativo | Para os recursos do Azure, o administrador ativo é a lista de utilizadores que nunca terão de ativar para utilizar a função. Isto não é referido como administrador permanente como nas funções Da D Da Azure porque pode definir um prazo de validade para quando o utilizador perder esta função. |
 | Expiração ativa | Uma atribuição de funções ativas para funções de recurso Azure expira após este período de tempo configurado. Pode escolher entre 15 dias, 1 mês, 3 meses, 6 meses, 1 ano ou permanentemente ativo. |
 | Expiração elegível | Uma atribuição de funções elegíveis para funções de recurso Azure expira após este período de tempo configurado. Pode escolher entre 15 dias, 1 mês, 3 meses, 6 meses, 1 ano ou permanentemente elegíveis. |
 
-## <a name="implement-your-solution"></a>Implementar sua solução
+## <a name="implement-your-solution"></a>Implementar a sua solução
 
 A base de um planeamento adequado é a base na qual pode implementar uma aplicação com sucesso com o Azure Ative Directory.  Proporciona segurança e integração inteligentes que simplificam o embarque, reduzindo ao mesmo tempo o tempo para implementações bem sucedidas.  Esta combinação garante que a sua aplicação está integrada com facilidade, atenuando o tempo de paragem para os utilizadores finais.
 
@@ -285,8 +285,8 @@ Nesta tabela, identifique os utilizadores de teste que verificarão se as defini
 
 | Nome da função | Utilizadores de teste |
 | --- | --- |
-| &lt;nome&gt; | &lt;Utilizadores para testar o papel&gt; |
-| &lt;nome&gt; | &lt;Utilizadores para testar o papel&gt; |
+| &lt;Nome da função&gt; | &lt;Utilizadores para testar o papel&gt; |
+| &lt;Nome da função&gt; | &lt;Utilizadores para testar o papel&gt; |
 
 ### <a name="test-implementation"></a>Implementação de testes
 
@@ -351,7 +351,7 @@ Se a Gestão de Identidade Privilegiada não funcionar como desejado no ambiente
 #### <a name="azure-ad-roles"></a>Funções do Azure AD
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 1. Clique em **funções de AD Azure** e, em seguida, clique em **Funções**.
 1. Para cada função que configurar, clique na elipse**para**todos os utilizadores com uma atribuição elegível.
 1. Clique na opção **Tornar permanente** a opção para tornar a atribuição de funções permanente.
@@ -359,9 +359,9 @@ Se a Gestão de Identidade Privilegiada não funcionar como desejado no ambiente
 #### <a name="azure-resource-roles"></a>Funções de recursos do Azure
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 1. Clique nos **recursos do Azure** e, em seguida, clique numa subscrição ou recurso que pretende reverter.
-1. Clique em **funções**.
+1. Clique em **Papéis**.
 1. Para cada função que configurar, clique na elipse**para**todos os utilizadores com uma atribuição elegível.
 1. Clique na opção **Tornar permanente** a opção para tornar a atribuição de funções permanente.
 
@@ -374,7 +374,7 @@ Implementar com sucesso a Gestão de Identidade Privilegiada na produção é um
 Deve utilizar a funcionalidade de alerta de identidade privilegiada incorporada para melhor salvaguardar o seu inquilino. Para mais informações, consulte [alertas](pim-how-to-configure-security-alerts.md#security-alerts)de segurança . Estes alertas incluem: os administradores não estão a usar papéis privilegiados, as funções estão a ser atribuídas fora da Gestão de Identidade Privilegiada, as funções estão a ser ativadas com demasiada frequência e mais. Para proteger totalmente a sua organização, deve analisar regularmente a sua lista de alertas e corrigir os problemas. Pode ver e corrigir os seus alertas da seguinte forma:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 1. Clique em **funções de AD Azure** e, em seguida, clique em **Alertas**.
 
 > [!TIP]

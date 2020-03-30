@@ -1,14 +1,14 @@
 ---
-title: Criar um novo recurso Azure Application Insights  Microsoft Docs
+title: Criar um novo recurso Azure Application Insights [ Microsoft Docs
 description: Configurar manualmente a monitorização de Insights de Aplicação para uma nova aplicação ao vivo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 090c983dcca101557f8dec479d1267275d24908b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c1b3a6920723ad59b714cce4bd69e1b95fe1995f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79276052"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132408"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -16,7 +16,7 @@ O Azure Application Insights exibe dados sobre a sua aplicação num *recurso*Mi
 
 ## <a name="sign-in-to-microsoft-azure"></a>Inscreva-se no Microsoft Azure
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -26,7 +26,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com)e crie um recurso Deinsig
 
    | Definições        |  Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor único | Nome que identifique a aplicação que está a monitorizar. |
+   | **Nome**      | Valor exclusivo | Nome que identifique a aplicação que está a monitorizar. |
    | **Grupo de Recursos**     | myResourceGroup      | Nome para o novo ou já existente grupo de recursos para hospedar dados da App Insights. |
    | **Localização** | E.U.A. Leste | Escolha um local perto de si, ou perto do local onde a sua aplicação está hospedada. |
 
@@ -41,7 +41,7 @@ Quando a sua aplicação foi criada, abre-se um novo painel. Este painel é onde
 
 ## <a name="copy-the-instrumentation-key"></a>Copiar a chave de instrumentação
 
-A chave de instrumentação identifica o recurso com o que pretende associar os seus dados de telemetria. Necessitará de cópia para adicionar a chave de instrumentação ao código da sua aplicação.
+A chave de instrumentação identifica o recurso com o que pretende associar os seus dados de telemetria. Terá de copiar a chave de instrumentação e adicioná-la ao código da sua aplicação.
 
 ![Clique e copie a chave de instrumentação](./media/create-new-resource/instrumentation-key.png)
 
@@ -102,7 +102,7 @@ Para aceder à pré-visualização Insights Azure CLI comandos que primeiro prec
  az extension add -n application-insights
 ```
 
-Se não executar o comando `az extension add` verá uma mensagem de erro que diz: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Se não executar o `az extension add` comando, verá uma mensagem de erro que indique:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Agora pode executar o seguinte para criar o seu recurso Application Insights:
 

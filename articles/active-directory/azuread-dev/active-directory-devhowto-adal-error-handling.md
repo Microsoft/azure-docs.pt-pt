@@ -11,12 +11,13 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
-ms.openlocfilehash: 508d1b71873b535725f446a3b62ce17d82258495
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9fc45ead65a29f2e7567133b5af4667bdb7c79ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165257"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154989"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Manipulação de erros para clientes da Biblioteca de Autenticação de Diretórios Ativos azure (ADAL)
 
@@ -35,7 +36,7 @@ Neste artigo, exploramos os casos específicos de cada plataforma suportada pela
 > Ao implementar as condições de erro abrangidas neste documento, deve registar o código de erro e a descrição pelas razões discutidas anteriormente. Consulte a [referência Error e loglogging](#error-and-logging-reference) por exemplo de código de registo. 
 >
 
-## <a name="acquiretokensilent"></a>AcquireTokenSilent
+## <a name="acquiretokensilent"></a>AdquirirTokenSilent
 
 AcquireTokenSilent tenta obter um símbolo com a garantia de que o utilizador final não vê uma Interface de Utilizador (UI). Existem vários casos em que a aquisição silenciosa pode falhar, e precisa de ser tratada através de pedidos interativos ou por um manipulador de padrão. Mergulhamos nas especificidades de quando e como empregar cada caso nas secções que se seguem.
 
@@ -59,8 +60,8 @@ Fundamentalmente, existem dois casos de erros AcquireTokenSilent:
 
 As seguintes orientações fornecem exemplos de manipulação de erros em conjunto com os métodos ADAL: 
 
-- acquireTokenSilentAsync(…)
-- acquireTokenSilentSync(…) 
+- adquirirTokenSilentAsync(...)
+- adquirirTokenSilentSync(...) 
 - [depreciado] adquirirTokenSilent(...)
 - [depreciado] adquirirTokenByRefreshToken(...) 
 
@@ -103,8 +104,8 @@ catch (AdalException e) {
 
 As seguintes orientações fornecem exemplos de manipulação de erros em conjunto com os métodos ADAL: 
 
-- acquireTokenSilentSync(…)
-- acquireTokenSilentAsync(...)
+- adquirirTokenSilentSync(...)
+- adquirirTokenSilentAsync(...)
 - [depreciado] adquirirTokenSilent(...)
 
 O seu código seria implementado da seguinte forma:
@@ -139,7 +140,7 @@ public void onError(Exception e) {
 
 As seguintes orientações fornecem exemplos de manipulação de erros em conjunto com os métodos ADAL: 
 
-- acquireTokenSilentWithResource(…)
+- adquirirTokenSilentWithResource(...)
 
 O seu código seria implementado da seguinte forma:
 
@@ -169,7 +170,7 @@ O seu código seria implementado da seguinte forma:
 }]
 ```
 
-## <a name="acquiretoken"></a>AcquireToken
+## <a name="acquiretoken"></a>Adquirir Token
 
 AcquireToken é o método ADAL padrão usado para obter fichas. Nos casos em que a identidade do utilizador é necessária, a AcquireToken tenta obter um símbolo silenciosamente primeiro, em seguida, exibe UI se necessário (a menos que promptBehavior.Nunca seja passado). Nos casos em que a identidade da aplicação é necessária, a AcquireToken tenta obter um símbolo, mas não mostra uI, uma vez que não existe um utilizador final. 
 
@@ -209,7 +210,7 @@ O tratamento de erros em aplicações nativas pode ser definido por dois casos:
 
 As seguintes orientações fornecem exemplos de manipulação de erros em conjunto com todos os AcquireToken não silenciosos(...) Métodos ADAL, *com exceção:* 
 
-- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- Adquirir TokenAsync(..., IClientAssertionCertification, ...)
 - Adquirir TokenAsync(..., ClientCredential, ...)
 - Adquirir TokenAsync(..., ClientAssertion, ...)
 - Adquirir TokenAsync(..., UserAssertion,...)   
@@ -345,7 +346,7 @@ Se estiver a construir uma aplicação web .NET que obtenha um símbolo usando u
 
 As seguintes orientações fornecem exemplos de manipulação de erros em conjunto com os métodos ADAL: 
 
-- AcquireTokenByAuthorizationCodeAsync(…)
+- AcquireTokenByAuthorizationCodeAsync(...)
 
 O seu código seria implementado da seguinte forma:
 
@@ -414,10 +415,10 @@ Para *todos os* cenários de aplicação serviço-a-serviço, incluindo em nome 
 
 As seguintes orientações fornecem exemplos de manipulação de erros em conjunto com os métodos ADAL: 
 
-- AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(…,ClientCredential, …)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion, …)
+- Adquirir TokenAsync(..., IClientAssertionCertification, ...)
+- Adquirir TokenAsync(...,ClientCredential, ...)
+- Adquirir TokenAsync(...,ClientAssertion, ...)
+- Adquirir TokenAsync(...,UserAssertion, ...)
 
 O seu código seria implementado da seguinte forma:
 
@@ -480,7 +481,7 @@ Construímos uma [amostra completa](https://github.com/Azure-Samples/active-dire
 
 ## <a name="error-and-logging-reference"></a>Referência de erro e registo
 
-### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registo de Informação Pessoal Identificável e Informação Identificável Organizacional 
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registo de Informação Pessoal Identificável & Informação Identificável Organizacional 
 Por predefinição, o registo da ADAL não captura nem regista qualquer informação pessoal identificável ou informação identificável organizacional. A biblioteca permite que os desenvolvedores de aplicações liguem isto através de um setter na classe Logger. Ao registar informações pessoais identificáveis ou informações identificáveis organizacionais, a app assume a responsabilidade de manusear dados altamente sensíveis e cumprir quaisquer requisitos regulamentares.
 
 ### <a name="net"></a>.NET
@@ -544,7 +545,7 @@ Para explorar erros específicos da ADAL, o código fonte no [repositório azure
 
 Os erros do iOS podem surgir durante o sessão quando os utilizadores utilizam visualizações web e a natureza da autenticação. Isto pode ser causado por condições como erros SSL, intervalos de tempo ou erros de rede:
 
-- Para partilha de direitos, os logins não são persistentes e a cache parece vazia. Pode resolver adicionando a seguinte linha de código ao porta-chaves: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- Para partilha de direitos, os logins não são persistentes e a cache parece vazia. Pode resolver adicionando a seguinte linha de código ao porta-chaves:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - Para o conjunto de erros nsUrlDomain, a ação muda dependendo da lógica da aplicação. Consulte a documentação de [referência NSURLErrorDomain](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) para casos específicos que podem ser tratados.
 - Consulte as [Questões Comuns ADAL Obj-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) para a lista de erros comuns mantidos pela equipa ADAL Objective-C.
 
@@ -578,13 +579,13 @@ window.Logging = {
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* [Bibliotecas de Autenticação AD Azure][AAD-Auth-Libraries]
+* [Bibliotecas de Autenticação do Microsoft Azure AD][AAD-Auth-Libraries]
 * [Cenários de autenticação da AD Azure][AAD-Auth-Scenarios]
 * [Integração de Aplicações com Diretório Ativo Azure][AAD-Integrating-Apps]
 
 Use a secção de comentários que se segue, para fornecer feedback e nos ajudar a refinar e moldar o nosso conteúdo.
 
-[![mostra o botão "Iniciar sessão com a Microsoft"][AAD-Sign-In]][AAD-Sign-In]
+[![Mostra o botão "Iniciar sessão com a Microsoft"][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

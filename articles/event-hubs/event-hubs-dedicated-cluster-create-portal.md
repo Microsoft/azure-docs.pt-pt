@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: femila
 ms.openlocfilehash: 5b1574eaac8771043e09500225b65e4835c8e627
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77157487"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Quickstart: Criar um cluster dedicado de Hubs de Eventos usando o portal Azure 
@@ -49,7 +49,7 @@ Para criar um cluster no seu grupo de recursos utilizando o portal Azure, por fa
 
         ![Criar cluster de hubs de eventos - página básica](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
 3. Na página **Tags,** configure o seguinte:
-    1. Introduza um **nome** e um **valor** para a etiqueta que pretende adicionar. Este passo é **opcional**.  
+    1. Introduza um **nome** e um **valor** para a etiqueta que pretende adicionar. Este passo é **opcional.**  
     2. Selecione o botão **Rever + Criar.**
 
         ![Criar página cluster de Hubs de Eventos - Página de tags](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
@@ -75,7 +75,7 @@ Para criar um cluster no seu grupo de recursos utilizando o portal Azure, por fa
 3. Uma vez criado o seu espaço de nome, pode [criar um centro](event-hubs-create.md#create-an-event-hub) de eventos, pois normalmente criaria um dentro de um espaço de nome. 
 
 
-## <a name="submit-a-support-request"></a>Submeter pedidos de suporte
+## <a name="submit-a-support-request"></a>Submeter um pedido de apoio
 
 Se desejar alterar o tamanho do seu cluster após a criação ou se a sua região preferida não estiver disponível, por favor envie um pedido de apoio seguindo estas etapas:
 
@@ -109,7 +109,7 @@ Neste artigo, criou um cluster de Centros de Eventos. Para instruções passo a 
 - Enviar e receber eventos 
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
-    - [python](get-started-python-send-v2.md)
+    - [Pitão](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
 - [Utilize o portal Azure para permitir a captura de hubs de eventos](event-hubs-capture-enable-through-portal.md)
 - [Use hubs de eventos Azure para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Netsuite OneWorld para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Netsuite OneWorld para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Netsuite OneWorld.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c9a823e6515c2bfe09e1ab7bcef471eb8169e75
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063300"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar a Netsuite para o fornecimento automático de utilizadores
@@ -28,7 +28,7 @@ O objetivo deste tutorial é mostrar-lhe os passos necessários para realizar na
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
 
 *   Um inquilino de diretório Azure Ative.
 *   Uma subscrição Netsuite OneWorld. Note que o fornecimento automático de utilizadores é atualmente suportado apenas com o NetSuite OneWorld.
@@ -44,7 +44,7 @@ Antes de configurar e ativar o serviço de provisionamento, tem de decidir quais
 
 ### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Dicas importantes para atribuir utilizadores à Netsuite OneWorld
 
-*   Recomenda-se que um único utilizador da AD Azure seja atribuído à Netsuite para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+*   Recomenda-se que um único utilizador da AD Azure seja atribuído à Netsuite para testar a configuração de provisionamento. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
 
 *   Ao atribuir um utilizador à Netsuite, deve selecionar uma função de utilizador válida. A função "Acesso Predefinido" não funciona para o provisionamento.
 
@@ -59,7 +59,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 O objetivo desta secção é delinear como permitir o fornecimento de contas de utilizadores do Diretório Ativo à Netsuite.
 
-1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > todas as aplicações.**
 
 1. Se já configurou a Netsuite para um único sinal, procure a sua instância de Netsuite utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **netsuite** na galeria de aplicações. Selecione netsuite a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
@@ -83,7 +83,7 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 1. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users para Netsuite.**
 
-1. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Netsuite. Note que os atributos selecionados como propriedades **correspondentes** são usados para combinar as contas de utilizador na Netsuite para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+1. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Netsuite. Note que os atributos selecionados como propriedades **correspondentes** são usados para combinar as contas de utilizador na Netsuite para operações de atualização. Selecione o botão Guardar para elegiro qualquer alteração.
 
 1. Para ativar o serviço de provisionamento de AD Azure para a Netsuite, altere o Estado de **Provisionamento** para **On** na secção Definições
 

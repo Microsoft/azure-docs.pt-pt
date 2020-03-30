@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c3c52fc85e6c915587db27a3f5ce247fd05ea51
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 7b8c1b0bcc74d73f1f869972488ba7c5dfe610d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598328"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060068"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho SAP em Azure: lista de verificação de planeamento e implementação
 
@@ -63,8 +63,8 @@ Durante esta fase, planeia a migração da sua carga de trabalho SAP para a plat
         - Com base na RTO e rpo, defina como a arquitetura de alta disponibilidade e recuperação de desastres precisa de ser.
         - Para uma elevada disponibilidade dentro de uma zona, verifique o que o DBMS desejado tem para oferecer em Azure. A maioria dos pacotes DBMS oferecem métodos sincronizados de um standby quente sincronizado, que recomendamos para sistemas de produção. Verifique também a documentação relacionada com o SAP para diferentes bases de dados, começando com [considerações para a implantação de DBMS de Máquinas Virtuais Azure para cargas de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e documentos relacionados.
            Utilizar o Clusterde failover do Servidor windows com uma configuração de disco partilhado para a camada DBMS como, por exemplo, [descrito para o Servidor SQL,](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017)não é suportado. Em vez disso, utilize soluções como:
-           - [Servidor SQL sempre ligado](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
-           - [Guarda de Dados Oracle](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+           - [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
+           - [Proteção de Dados Oracle](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
            - [Replicação do sistema HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - Para a recuperação de desastres nas regiões de Azure, reveja as soluções oferecidas por diferentes fornecedores de DBMS. A maioria suporta replicação assíncrona ou envio de registos.
         - Para a camada de aplicação SAP, determine se irá executar os seus sistemas de teste de regressão de negócios, que idealmente são réplicas das suas implementações de produção, na mesma região de Azure ou na sua região DE. No segundo caso, pode visar o sistema de regressão do negócio como alvo DE DR para as suas implementações de produção.
@@ -105,7 +105,7 @@ Recomendamos que instale e valide uma solução HADR completa e design de segura
         - Avalie e teste o dimensionamento dos seus VMs Azure no que diz respeito à máxima entrada de armazenamento e à entrada de rede dos tipos VM que escolheu durante a fase de planeamento. Pode encontrar os dados aqui:
            -  [Tamanhos para máquinas virtuais Windows em Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar a entrada de *disco max uncached* para dimensionamento.
            -  [Tamanhos para máquinas virtuais Linux em Azure.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) É importante considerar a entrada de *disco max uncached* para dimensionamento.
-   2. Um armazém.
+   2. Armazenamento.
         - No mínimo, utilize [o armazenamento Azure Standard SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) para VMs que representem camadas de aplicação SAP e para implantação de DBMSs que não sejam sensíveis ao desempenho.
         - Em geral, não recomendamos a utilização de [discos HDD Padrão Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd).
         - Utilize [o Armazenamento Azure Premium](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) para quaisquer VMs DBMS que sejam remotamente sensíveis ao desempenho.
@@ -125,7 +125,7 @@ Recomendamos que instale e valide uma solução HADR completa e design de segura
             -  A colocação da camada de aplicação SAP e do SAP DBMS em diferentes redes virtuais Azure que não são espreitadas não é suportada.
             -  Pode utilizar as regras do grupo de segurança de [aplicações e da rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para definir rotas entre a camada de aplicação SAP e a camada DBMS SAP.
         - Certifique-se de que o [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está ativado nos VMs utilizados na camada de aplicação SAP e na camada DBMS SAP. Tenha em mente que são necessários diferentes níveis de Os para apoiar o Networking Acelerado em Azure:
-            - Windows Server 2012 R2 ou mais tarde.
+            - Windows Server 2012 R2 ou posterior.
             - SUSE Linux 12 SP3 ou mais tarde.
             - RHEL 7.4 ou mais tarde.
             - Oracle Linux 7.5. Se estiver a utilizar o núcleo RHCKL, é necessário libertar 3.10.0-862.13.1.el7. Se estiver a utilizar o núcleo Oráculo UEK, é necessário libertar 5.
@@ -150,7 +150,7 @@ Recomendamos que instale e valide uma solução HADR completa e design de segura
         - Se utilizar uma configuração de cluster de failover do Windows, certifique-se de que o tempo para reagir em nós não responsivos está corretamente definido para o Azure. O artigo [Tuning Failover Cluster Network Thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) lista parâmetros e como afetam sensibilidades de failover. Assumindo que os nós do cluster estão na mesma sub-rede, deve alterar estes parâmetros:
             - SameSubNetDelay = 2000
             - SameSubNetThreshold = 15
-            - RoutingHistorylength = 30
+            - RoutHistorylength = 30
     6. Definições ou Patches do OS
         - Para executar hana no SAP, leia estas notas e documentação:
             -   [Nota de suporte SAP #2814271 - SAP HANA Backup falha em Azure com Erro de Verificação](https://launchpad.support.sap.com/#/notes/2814271)
@@ -164,7 +164,7 @@ Recomendamos que instale e valide uma solução HADR completa e design de segura
             -   [Nota de suporte SAP #2772999 - Red Hat Enterprise Linux 8.x: Instalação e Configuração](https://launchpad.support.sap.com/#/notes/2772999)
             -   [Nota de suporte SAP #2777782 - SAP HANA DB: Definições recomendadas de OS para RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
             -   [Nota de suporte SAP #2578899 - SUSE Linux Enterprise Server 15: Nota de instalação](https://launchpad.support.sap.com/#/notes/2578899)
-            -   [Nota de apoio SAP # https://launchpad.support.sap.com/#/notes/0002455582)(https://launchpad.support.sap.com/#/notes/0002455582)
+            -   [Nota de suporte SAP #2455582 - Linux: Executar aplicações SAP compiladas com GCC 6.x](https://launchpad.support.sap.com/#/notes/0002455582)
             -    [Nota de suporte SAP #2729475 - HWCCT Falhou com erro "Hypervisor não é suportado" em VMs Azure certificados para SAP HANA](https://launchpad.support.sap.com/#/notes/2729475)
 1. Teste os seus procedimentos de alta disponibilidade e recuperação de desastres.
    1. Simular situações de falha desligando VMs (sistemas operativos Windows) ou colocando sistemas operativos em modo de pânico (sistemas operativos de hóspedes Linux). Este passo irá ajudá-lo a descobrir se as suas configurações de failover funcionam como projetadas.
@@ -182,7 +182,7 @@ Recomendamos que instale e valide uma solução HADR completa e design de segura
 1. Testes de desempenho. No SAP, com base no rastreio e medições do SAP, faça estas comparações:
    - Quando aplicável, compare os 10 melhores relatórios online com a sua implementação atual.
    - Quando aplicável, compare os 10 melhores trabalhos de lote com a sua implementação atual.
-   - Compare as transferências de dados através de interfaces no sistema SAP. Concentre-se em interfaces onde sabe que a transferência está agora entre diferentes locais, como de instalações para Azure.
+   - Compare as transferências de dados através de interfaces no sistema SAP. Concentre-se em interfaces onde sabe que a transferência vai entre diferentes locais, como de instalações para Azure.
 
 
 ## <a name="non-production-phase"></a>Fase de não produção 
@@ -262,8 +262,8 @@ Durante a fase de go-live, não se esqueça de seguir os livros que desenvolveu 
         - Tempo médio de CPU, cada processador individual (128 processadores em VMs M128)
         - Tempo de kernel CPU, cada processador individual
         - Tempo de utilizador do CPU, cada processador individual
-    - A memória.
-        - Memória gratuita
+    - Memória.
+        - Memória livre
         - Página de memória em/segundo
         - Página de memória para fora/segundo
     - O disco.
@@ -295,7 +295,7 @@ Esta fase tem a ver com monitorização, operação e administração do sistema
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte estes artigos:
+Veja estes artigos:
 
 - [Planeamento e implementação de Máquinas Virtuais Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [Implantação de Máquinas Virtuais Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)

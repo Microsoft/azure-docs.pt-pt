@@ -9,10 +9,10 @@ ms.date: 01/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0838edb03c4868548f3d09f14d71ec7016e670a4
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127789"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implementar uma ferramenta de gestão com a PowerShell
@@ -134,11 +134,11 @@ Para verificar a configuração da aplicação Azure AD e dar consentimento:
 3. **Selecione todas as aplicações** e procure o nome único da aplicação que forneceu para o script PowerShell no [Create a Azure Ative Directory .](#create-an-azure-active-directory-app-registration)
 4. No painel do lado esquerdo do navegador, selecione **Autenticação** e certifique-se de que o URI redirecionamento é o mesmo que o URL da aplicação web para a ferramenta de gestão, como mostra a imagem seguinte.
    
-   [![A página de autenticação com o redirecionamento introduzido DO URI](media/management-ui-redirect-uri-inline.png)](media/management-ui-redirect-uri-expanded.png#lightbox)
+   [![A página de autenticação com](media/management-ui-redirect-uri-inline.png) o URI redirecionado introduzido](media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. No painel esquerdo, selecione **permissões DaPI** para confirmar que foram adicionadas permissões. Se você é um administrador global, selecione o **consentimento do administrador Grant para `tenantname`** botão e siga as instruções de diálogo para fornecer consentimento administrativo para a sua organização.
+5. No painel esquerdo, selecione **permissões DaPI** para confirmar que foram adicionadas permissões. Se você é um administrador global, selecione o consentimento do **administrador Grant para `tenantname` ** o botão e siga as instruções de diálogo para fornecer consentimento administrativo para a sua organização.
     
-    [![página de permissões da API](media/management-ui-permissions-inline.png)](media/management-ui-permissions-expanded.png#lightbox)
+    [![A página de](media/management-ui-permissions-inline.png) permissões da API](media/management-ui-permissions-expanded.png#lightbox)
 
 Agora pode começar a usar a ferramenta de gestão.
 
@@ -158,7 +158,7 @@ Agora que montou a ferramenta de gestão a qualquer momento, pode lançá-la a q
    > [!NOTE]
    > Se tiver um grupo de inquilinos personalizados, insira o nome manualmente em vez de escolher a partir da lista de lançamentos.
 
-## <a name="report-issues"></a>Questões de relatório
+## <a name="report-issues"></a>Comunicar problemas
 
 Se encontrar algum problema com a ferramenta de gestão ou outras ferramentas de ambiente de trabalho virtual do Windows, siga as instruções nos modelos do Gestor de [Recursos Azure para serviços](https://github.com/Azure/RDS-Templates/blob/master/README.md) de ambiente de trabalho remotos para os reportar no GitHub.
 

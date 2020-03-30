@@ -13,16 +13,16 @@ ms.date: 01/29/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76908739"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia resiliente de gestão de controlo de acesso com o Diretório Ativo azure
 
 >[!NOTE]
-> As informações contidas neste documento representam a visão atual da Microsoft Corporation sobre os assuntos discutidos a partir da data de publicação. Uma vez que a Microsoft deve responder às alterações das condições de mercado, não deve ser interpretada como um compromisso por parte da Microsoft, e a Microsoft não pode garantir a exatidão de qualquer informação apresentada após a data de publicação.
+> The information contained in this document represents the current view of Microsoft Corporation on the issues discussed as of the date of publication. Uma vez que a Microsoft deve responder às alterações das condições de mercado, não deve ser interpretada como um compromisso por parte da Microsoft, e a Microsoft não pode garantir a exatidão de qualquer informação apresentada após a data de publicação.
 
 As organizações que dependem de um controlo único de acesso, como a autenticação de vários fatores (MFA) ou uma única localização da rede, para garantir os seus sistemas informáticos são suscetíveis de aceder a falhas nas suas apps e recursos se esse controlo de acesso único ficar indisponível ou mal configurado. Por exemplo, uma catástrofe natural pode resultar na indisponibilidade de grandes segmentos de infraestruturas de telecomunicações ou redes empresariais. Tal perturbação poderia impedir que os utilizadores finais e os administradores pudessem iniciar o contrato.
 
@@ -186,7 +186,7 @@ Neste próximo exemplo, **as políticas de A. B - Contingência para permitir o 
   * Nome: EM001 - ENABLE IN EMERGENCY: Device Compliance Disruption[1/2] - Salesforce - Block Todos os utilizadores, exceto SalesforceContingência
   * Utilizadores e Grupos: Incluir todos os utilizadores. Excluir SalesAdmins e SalesforceContingência
   * Cloud Apps: Salesforce.
-  * Condições: Nenhuma
+  * Condições: nenhuma
   * Controlo de Subvenções: Bloco
   * Estado: Deficientes
 * Política 2: Bloquear a equipa de Vendas de qualquer outra plataforma que não seja móvel (para reduzir a área de ataque da superfície)
@@ -260,10 +260,10 @@ Se a sua organização estiver a usar políticas de legado mfa por utilizador, e
 >[!NOTE]
  > Configurar [iPs fidedignos](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) para O MFA Azure só está disponível com [licenças Azure AD Premium.](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing)
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
-* [Documentação de autenticação da AD Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
-* [Gerir o acesso de emergência de contas administrativas no Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+* [Documentação da Autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
+* [Gerir contas administrativas de acesso de emergência em Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Configure locais nomeados em Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Como configurar o Diretório Ativo Azure híbrido juntou-se a dispositivos](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)

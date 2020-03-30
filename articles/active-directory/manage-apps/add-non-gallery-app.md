@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063616"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Adicione uma aplicação não listada (não-galeria) à sua organização Azure AD
@@ -34,7 +34,7 @@ Este artigo descreve como adicionar uma aplicação não-galeria às **Aplicaç�
 
 1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com/) utilizando a sua conta de administrador de plataforma de identidade microsoft.
 
-2. Selecione **Aplicações Empresariais** > **Nova aplicação.**
+2. Selecione **Aplicações Empresariais** > **Nova aplicação**.
 
 3. (Opcional, mas recomendado) Na caixa de pesquisa da **Galeria Browse Azure AD,** introduza o nome de exibição da aplicação. 
 
@@ -47,7 +47,7 @@ Este artigo descreve como adicionar uma aplicação não-galeria às **Aplicaç�
    > [!NOTE]
    > Recomendamos que utilize a versão da galeria da sua aplicação sempre que possível. Se a aplicação que pretende adicionar aparecer nos resultados da pesquisa, selecione a aplicação e ignore o resto deste procedimento.
 
-6. O que pretende fazer com a **sua candidatura?** Esta opção é normalmente utilizada para aplicações SAML e WS-Fed.
+6. O que pretende fazer com a **Integrate any other application you don't find in the gallery** **sua candidatura?** Esta opção é normalmente utilizada para aplicações SAML e WS-Fed.
 
    > [!NOTE]
    > As outras duas opções são utilizadas nos seguintes cenários:
@@ -108,6 +108,6 @@ Este artigo descreve como adicionar uma aplicação não-galeria às **Aplicaç�
 
 Agora que adicionou a aplicação à sua organização Azure AD, [escolha um único método de inscrição](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que deseja utilizar e consulte o artigo apropriado abaixo:
 
-- [Configure o único sign-on baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
+- [Configurar o início de sessão único baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
 - [Configure o sinal único da palavra-passe](configure-password-single-sign-on-non-gallery-applications.md)
-- [Configurar o sign-on ligado](configure-linked-sign-on.md)
+- [Configurar o início de sessão ligado](configure-linked-sign-on.md)

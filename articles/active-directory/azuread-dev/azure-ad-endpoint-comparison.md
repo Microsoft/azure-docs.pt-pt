@@ -12,12 +12,13 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.openlocfilehash: d910a76397a40a14d960b59f60561cbee470f5c4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ROBOTS: NOINDEX
+ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263689"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154921"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Porquê atualizar a plataforma de identidade da Microsoft (v2.0)?
 
@@ -32,7 +33,7 @@ Ao desenvolver uma nova aplicação, é importante conhecer as diferenças entre
 
 * O ponto final v1.0 permite que apenas as contas de trabalho e escola sintetizam a sua candidatura (Azure AD)
 * O ponto final da plataforma de identidade da Microsoft permite que contas de trabalho e escola a partir de contas Da AD E pessoais da Microsoft (MSA), como hotmail.com, outlook.com e msn.com, se inscrevam.
-* Ambos os pontos finais também aceitam inscrições de *[utilizadores convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório Azure AD para aplicações configuradas como *[inquilino único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicações *multi-arrendatárias* configuradas para apontar para o ponto final específico do inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
+* Ambos os pontos finais também aceitam inscrições de *[utilizadores convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório Azure AD para aplicações configuradas como inquilino`https://login.microsoftonline.com/{TenantId_or_Name}` *[único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicações *multi-arrendatárias* configuradas para apontar para o ponto final específico do inquilino ( ).
 
 O ponto final da plataforma de identidade da Microsoft permite-lhe escrever apps que aceitam inscrições a partir de contas pessoais da Microsoft e contas de trabalho e escola. Isto dá-lhe a capacidade de escrever a sua app completamente agnóstica. Por exemplo, se a sua aplicação ligar para o [Microsoft Graph,](https://graph.microsoft.io)alguma funcionalidade adicional e dados estarão disponíveis para contas de trabalho, como os seus sites do SharePoint ou dados de diretório. Mas para muitas ações, como ler o [correio de um utilizador,](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0)o mesmo código pode aceder ao e-mail para contas pessoais e laborais e escolares.
 
@@ -50,9 +51,9 @@ As permissões definidas diretamente no registo da candidatura são **estáticas
 
 * A aplicação precisa de conhecer todos os recursos a que alguma vez acederia com antecedência. Foi difícil criar apps que pudessem aceder a um número arbitrário de recursos.
 
-Com o ponto final da plataforma de identidade da Microsoft, pode ignorar as permissões estáticas definidas na informação de registo da aplicação no portal Azure e solicitar permissões incrementalmente, o que significa pedir um conjunto mínimo de permissões antecipadamente e crescendo mais com o tempo à medida que o cliente usa funcionalidades adicionais de aplicação. Para isso, pode especificar os âmbitos de que a sua aplicação necessita a qualquer momento, incluindo os novos âmbitos do parâmetro `scope` ao solicitar um sinal de acesso - sem a necessidade de os definir predefinindo nas informações de registo da aplicação. Se o utilizador ainda não tiver consentido com novos âmbitos adicionados ao pedido, serão solicitados a consentir apenas com as novas permissões. Para saber mais, consulte [permissões, consentimento e âmbitos.](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+Com o ponto final da plataforma de identidade da Microsoft, pode ignorar as permissões estáticas definidas na informação de registo da aplicação no portal Azure e solicitar permissões incrementalmente, o que significa pedir um conjunto mínimo de permissões antecipadamente e crescendo mais com o tempo à medida que o cliente usa funcionalidades adicionais de aplicação. Para isso, pode especificar os âmbitos de que a sua aplicação `scope` necessita a qualquer momento, incluindo os novos âmbitos do parâmetro ao solicitar um sinal de acesso - sem a necessidade de os definir predefinindo nas informações de registo da aplicação. Se o utilizador ainda não tiver consentido com novos âmbitos adicionados ao pedido, serão solicitados a consentir apenas com as novas permissões. Para saber mais, consulte [permissões, consentimento e âmbitos.](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 
-Permitir que uma aplicação solicite permissões dinamicamente através do parâmetro `scope` dá aos desenvolvedores o controlo total sobre a experiência do utilizador. Também pode carregar frontalmente a sua experiência de consentimento e pedir todas as permissões num pedido de autorização inicial. Se a sua aplicação necessitar de um grande número de permissões, pode recolher essas permissões do utilizador de forma incremental, uma vez que tenta utilizar determinadas funcionalidades da aplicação ao longo do tempo.
+Permitir que uma aplicação solicite `scope` permissões dinamicamente através do parâmetro dá aos desenvolvedores o controlo total sobre a experiência do utilizador. Também pode carregar frontalmente a sua experiência de consentimento e pedir todas as permissões num pedido de autorização inicial. Se a sua aplicação necessitar de um grande número de permissões, pode recolher essas permissões do utilizador de forma incremental, uma vez que tenta utilizar determinadas funcionalidades da aplicação ao longo do tempo.
 
 O consentimento da Administração feita em nome de uma organização ainda requer as permissões estáticas registadas para a app, pelo que deverá definir essas permissões para aplicações no portal de registo de aplicações se precisar de um administrador para dar consentimento em nome de toda a organização. Isto reduz os ciclos exigidos pelo administrador da organização para a configuração da aplicação.
 
@@ -60,8 +61,8 @@ O consentimento da Administração feita em nome de uma organização ainda requ
 
 Para aplicações que utilizem o ponto final v1.0, uma aplicação pode comportar-se como um **recurso**, ou um destinatário de fichas. Um recurso pode definir uma série de **âmbitos** ou **oAuth2Permissions** que entende, permitindo que as aplicações de clientes solicitem fichas desse recurso para um determinado conjunto de âmbitos. Considere a Microsoft Graph API como um exemplo de um recurso:
 
-* Identificador de recursos, ou `AppID URI`: `https://graph.microsoft.com/`
-* Âmbitos, ou `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, e assim por diante.
+* Identificador de `AppID URI`recursos, ou:`https://graph.microsoft.com/`
+* Âmbitos, `oAuth2Permissions` `Directory.Read`ou: `Directory.Write`, e assim por diante.
 
 Isto mantém-se fiel ao ponto final da plataforma de identidade da Microsoft. Uma aplicação ainda pode comportar-se como um recurso, definir âmbitos e ser identificada por um URI. As aplicações de clientes ainda podem solicitar acesso a esses âmbitos. No entanto, a forma como um cliente solicita essas permissões mudou.
 
@@ -91,20 +92,20 @@ Aqui, o parâmetro de **âmbito** indica que recurso e permissões a app está a
 
 ### <a name="offline-access"></a>Acesso offline
 
-As aplicações que utilizam o ponto final da plataforma de identidade da Microsoft podem exigir o uso de uma nova permissão bem conhecida para apps - o âmbito `offline_access`. Todas as aplicações terão de solicitar esta permissão se necessitarem de aceder a recursos em nome de um utilizador por um período prolongado de tempo, mesmo quando o utilizador pode não estar a utilizar ativamente a aplicação. O âmbito `offline_access` aparecerá ao utilizador em diálogos de consentimento como Aceder aos **seus dados a qualquer momento**, que o utilizador deve concordar. Pedir a autorização `offline_access` permitirá que a sua aplicação web receba o OAuth 2.0 refresh_tokens do ponto final da plataforma de identidade da Microsoft. As fichas de atualização são de longa duração e podem ser trocadas por novos tokens de acesso OAuth 2.0 por longos períodos de acesso.
+As aplicações que utilizam o ponto final da plataforma de identidade `offline_access` da Microsoft podem exigir o uso de uma nova permissão bem conhecida para apps - o âmbito. Todas as aplicações terão de solicitar esta permissão se necessitarem de aceder a recursos em nome de um utilizador por um período prolongado de tempo, mesmo quando o utilizador pode não estar a utilizar ativamente a aplicação. O `offline_access` âmbito aparecerá para o utilizador em diálogos de consentimento como Aceder aos **seus dados a qualquer momento**, que o utilizador deve concordar. Pedir a `offline_access` permissão permitirá que a sua aplicação web receba o OAuth 2.0 refresh_tokens do ponto final da plataforma de identidade da Microsoft. As fichas de atualização são de longa duração e podem ser trocadas por novos tokens de acesso OAuth 2.0 por longos períodos de acesso.
 
-Se a sua aplicação não solicitar o âmbito `offline_access`, não receberá fichas de atualização. Isto significa que quando resgatar um código de autorização no fluxo de código de autorização OAuth 2.0, só receberá um sinal de acesso do ponto final `/token`. Esse token de acesso permanece válido por um curto período de tempo (normalmente uma hora), mas acabará por expirar. Nessa altura, a sua aplicação terá de redirecionar o utilizador para o ponto final `/authorize` para recuperar um novo código de autorização. Durante este redirecionamento, o utilizador pode ou não precisar de introduzir as suas credenciais novamente ou reconsentir-se com permissões, dependendo do tipo de app.
+Se a sua aplicação `offline_access` não solicitar o âmbito, não receberá fichas de atualização. Isto significa que quando resgatar um código de autorização no fluxo de código de autorização OAuth `/token` 2.0, só receberá um sinal de acesso a partir do ponto final. Esse token de acesso permanece válido por um curto período de tempo (normalmente uma hora), mas acabará por expirar. Nessa altura, a sua aplicação terá de redirecionar `/authorize` o utilizador para o ponto final para recuperar um novo código de autorização. Durante este redirecionamento, o utilizador pode ou não precisar de introduzir as suas credenciais novamente ou reconsentir-se com permissões, dependendo do tipo de app.
 
-Para saber mais sobre o OAuth 2.0, `refresh_tokens`, e `access_tokens`, consulte a referência do protocolo da [plataforma de identidade microsoft](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Para saber mais sobre o OAuth 2.0, `refresh_tokens`e, `access_tokens`confira a referência do protocolo da plataforma de identidade [microsoft](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ### <a name="openid-profile-and-email"></a>OpenID, perfil e e-mail
 
 Historicamente, o fluxo de entrada de entrada mais básico do OpenID Connect com a plataforma de identidade da Microsoft forneceria muita informação sobre o utilizador na *id_token*resultante . As reclamações num id_token podem incluir o nome do utilizador, nome de utilizador preferido, endereço de e-mail, ID do objeto, e muito mais.
 
-A informação a que o âmbito `openid` dá acesso à sua aplicação está agora restrita. O âmbito `openid` só permitirá que a sua aplicação assine o utilizador e receba um identificador específico da aplicação para o utilizador. Se pretender obter dados pessoais sobre o utilizador na sua aplicação, a sua aplicação necessita de solicitar permissões adicionais ao utilizador. Dois novos âmbitos, `email` e `profile`, permitir-lhe-ão solicitar permissões adicionais.
+A informação `openid` a que o âmbito permite o acesso da sua aplicação está agora restrita. O `openid` âmbito só permitirá que a sua aplicação assine o utilizador e receba um identificador específico da aplicação para o utilizador. Se pretender obter dados pessoais sobre o utilizador na sua aplicação, a sua aplicação necessita de solicitar permissões adicionais ao utilizador. Dois novos âmbitos, `email` e, `profile`permitir-lhe-á solicitar permissões adicionais.
 
-* O âmbito `email` permite o acesso da sua aplicação ao endereço de e-mail principal do utilizador através da `email` reclamação no id_token, assumindo que o utilizador tem um endereço de e-mail endereçado.
-* O âmbito `profile` permite à sua aplicação o acesso a todas as outras informações básicas sobre o utilizador, tais como o seu nome de utilizador, nome de utilizador preferido, ID de objeto, e assim por diante, no id_token.
+* O `email` âmbito permite o acesso da sua aplicação `email` ao endereço de e-mail principal do utilizador através da reclamação no id_token, assumindo que o utilizador tem um endereço de e-mail endereçado.
+* O `profile` âmbito permite à sua aplicação o acesso a todas as outras informações básicas sobre o utilizador, tais como o seu nome, nome de utilizador preferido, ID de objeto, e assim por diante, no id_token.
 
 Estes âmbitos permitem codificar a sua aplicação de forma mínima para que só possa pedir ao utilizador o conjunto de informações que a sua aplicação precisa para fazer o seu trabalho. Para obter mais informações sobre estes âmbitos, consulte [a referência de âmbito da plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
@@ -140,7 +141,7 @@ As inscrições de aplicativos que suportam o trabalho e as contas escolares e a
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrições aos URLs de redirecionamento
 
-As aplicações que estão registadas na plataforma de identidade da Microsoft estão restritas a um conjunto limitado de valores de URL redirecionados. O URL de redirecionamento para aplicações e serviços web deve começar com o esquema `https`, e todos os valores de URL redirecionam um único domínio DNS.  O sistema de registo compara todo o nome DNS do URL de redirecionamento existente ao nome DNS do URL de redirecionamento que está a adicionar. `http://localhost` também é suportado como um URL de redirecionamento.  
+As aplicações que estão registadas na plataforma de identidade da Microsoft estão restritas a um conjunto limitado de valores de URL redirecionados. O URL de redirecionamento para `https`aplicações e serviços web deve começar com o esquema , e todos os valores de URL redirecionam um único domínio DNS.  O sistema de registo compara todo o nome DNS do URL de redirecionamento existente ao nome DNS do URL de redirecionamento que está a adicionar. `http://localhost`também é suportado como um URL redireccional.  
 
 O pedido para adicionar o nome DNS irá falhar, se uma das seguintes condições for verdadeira:  
 
@@ -149,7 +150,7 @@ O pedido para adicionar o nome DNS irá falhar, se uma das seguintes condições
 
 #### <a name="example-1"></a>Exemplo 1
 
-Se a aplicação tiver um URL redirecionado de `https://login.contoso.com`, pode adicionar um URL de redirecionamento onde o nome DNS corresponde exatamente, como mostra o seguinte exemplo:
+Se a aplicação tiver `https://login.contoso.com`um URL redirecionado de, pode adicionar um URL de redirecionamento onde o nome DNS corresponde exatamente, como mostra o seguinte exemplo:
 
 `https://login.contoso.com/new`
 
@@ -159,7 +160,7 @@ Ou, pode consultar um subdomínio DNS de login.contoso.com, como mostra o seguin
 
 #### <a name="example-2"></a>Exemplo 2
 
-Se quiser ter uma aplicação que tenha `login-east.contoso.com` e `login-west.contoso.com` como URLs redireccionadores, deve adicionar esses URLs redirecionais na seguinte ordem:
+Se quiser ter uma aplicação que tenha `login-east.contoso.com` e `login-west.contoso.com` como redirecionamento de URLs, deve adicionar esses URLs redirecionais na seguinte ordem:
 
 `https://contoso.com`  
 `https://login-east.contoso.com`  
@@ -179,15 +180,15 @@ Atualmente, o suporte à biblioteca para o ponto final da plataforma de identida
 * Se estiver a construir um ambiente de trabalho ou uma aplicação móvel, pode utilizar uma das Bibliotecas de Autenticação da Microsoft (MSAL). Estas bibliotecas estão geralmente disponíveis ou numa pré-visualização apoiada pela produção, pelo que é seguro utilizá-las em aplicações de produção. Pode ler mais sobre os termos da pré-visualização e as bibliotecas disponíveis na referência das bibliotecas de [autenticação.](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 * Para plataformas não abrangidas pelas bibliotecas da Microsoft, pode integrar-se com o ponto final da plataforma de identidade da Microsoft enviando e recebendo diretamente mensagens protocolares no seu código de aplicação. Os protocolos OpenID Connect e OAuth [estão explicitamente documentados](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para ajudá-lo a fazer tal integração.
 * Por fim, pode utilizar bibliotecas OpenID Connect e OAuth de código aberto para integrar com o ponto final da plataforma de identidade da Microsoft. O ponto final da plataforma de identidade da Microsoft deve ser compatível com muitas bibliotecas de protocolos de código aberto sem alterações. A disponibilidade deste tipo de bibliotecas varia em termos de linguagem e plataforma. Os websites [OpenID Connect](https://openid.net/connect/) e [OAuth 2.0](https://oauth.net/2/) mantêm uma lista de implementações populares. Para obter mais informações, consulte a [plataforma de identidade da Microsoft e bibliotecas](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)de autenticação , e a lista de bibliotecas e amostras de clientes de código aberto que foram testadas com o ponto final da plataforma de identidade da Microsoft.
-* Para referência, o ponto final `.well-known` para o ponto final comum da plataforma de identidade da Microsoft é `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Substitua `common` com a sua identificação do inquilino para obter dados específicos do seu inquilino.  
+* Para referência, `.well-known` o ponto final para o `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`ponto final comum da plataforma de identidade da Microsoft é . Substitua-a `common` com o seu ID de inquilino para obter dados específicos do seu inquilino.  
 
 ### <a name="protocol-changes"></a>Alterações de protocolo
 
 O ponto final da plataforma de identidade da Microsoft não suporta a SAML ou a WS-Federation; suporta apenas o OpenID Connect e o OAuth 2.0.  As notáveis alterações aos protocolos OAuth 2.0 do ponto final v1.0 são: 
 
 * A `email` reclamação é devolvida se uma reclamação opcional estiver configurada **ou for** especificada no pedido o scope=email. 
-* O parâmetro `scope` é agora suportado no lugar do parâmetro `resource`.  
-* Muitas respostas foram modificadas para torná-las mais compatíveis com a especificação OAuth 2.0, por exemplo, devolvendo corretamente `expires_in` como um int em vez de uma cadeia.  
+* O `scope` parâmetro é agora suportado `resource` no lugar do parâmetro.  
+* Muitas respostas foram modificadas para torná-las mais compatíveis com a especificação `expires_in` OAuth 2.0, por exemplo, regressando corretamente como um int em vez de uma cadeia.  
 
 Para melhor compreender o âmbito da funcionalidade do protocolo suportado no ponto final da plataforma de identidade da Microsoft, consulte openID Connect e referência de [protocolo OAuth 2.0](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

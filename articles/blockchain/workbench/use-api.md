@@ -5,10 +5,10 @@ ms.date: 03/05/2020
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 3084fcf343bc42fe01bf352b6791916d62f63540
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672739"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Utilização da bancada de trabalho Azure Blockchain Preview REST API
@@ -19,7 +19,7 @@ A Azure Blockchain Workbench Preview REST API fornece aos desenvolvedores e trab
 
 As APIs da bancada blockchain são acedidas através de um ponto final para a sua implementação. Para obter o URL final da API para a sua implementação:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No painel de navegação à esquerda, selecione **Grupos de Recursos**.
 1. Escolha o nome do grupo de recursos a sua bancada de trabalho blockchain implantada.
 1. Selecione a direção da coluna **TYPE** para classificar a lista alfabeticamente por tipo.
@@ -134,7 +134,7 @@ HTTP/1.1 200
 
 Utilize as [Aplicações GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) para recuperar todas as aplicações blockchain Workbench para o utilizador. Neste exemplo, o utilizador inscrito tem acesso a duas aplicações:
 
-- [Transferência de ativos](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+- [Transferência de recursos](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
 - [Transporte refrigerado](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 ### <a name="applications-get-request"></a>Pedidos GET pedido

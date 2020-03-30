@@ -7,13 +7,13 @@ ms.service: cache
 ms.topic: overview
 ms.date: 03/11/2020
 ms.openlocfilehash: 38936000e426d560237295105b5456429d9ae16d
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79126360"
 ---
-# <a name="azure-cache-for-redis-description"></a>Azure Cache para a descrição de Redis
+# <a name="azure-cache-for-redis-description"></a>Descrição da Cache do Azure para Redis
 
 O Azure Cache for Redis fornece uma loja de dados em memória baseada no software de código aberto [Redis](https://redis.io/). Quando usado como cache, redis melhora o desempenho e escalabilidade de sistemas que dependem fortemente de lojas de dados de backend. O desempenho é melhorado copiando dados frequentemente acedidos a armazenamento rápido localizado perto da aplicação. Com Azure Cache para Redis, este armazenamento rápido está localizado na memória em vez de ser carregado do disco por uma base de dados.
 
@@ -39,7 +39,7 @@ Azure Cache for Redis está disponível nos seguintes níveis:
 
 | Escalão | Descrição |
 |---|---|
-Básica | Uma cache de nó único. Este nível suporta múltiplos tamanhos de memória (250 MB - 53 GB)e é ideal para trabalhos de desenvolvimento/teste e cargas de trabalho não críticas. O escalão Básico não tem nenhum contrato de nível de serviço (SLA) |
+Básico | Uma cache de nó único. Este nível suporta múltiplos tamanhos de memória (250 MB - 53 GB)e é ideal para trabalhos de desenvolvimento/teste e cargas de trabalho não críticas. O escalão Básico não tem nenhum contrato de nível de serviço (SLA) |
 | Standard | Uma cache replicada numa configuração primária/secundária de dois nós gerida pelo Azure com um SLA de alta disponibilidade (99,9%) |
 | Premium | O nível Premium é o nível pronto para a Enterprise. As Caches de escalão Premium suportam mais funcionalidades e têm um maior débito com menores latências. As Caches no escalão Premium são implementadas em hardware mais poderoso e fornecem um melhor desempenho comparativamente aos Escalões Básico ou Standard. Esta vantagem significa que a entrada para uma cache do mesmo tamanho será maior em Premium em comparação com o nível Standard. |
 
@@ -53,13 +53,13 @@ Pode escalar o seu cache para um nível mais alto depois de ter sido criado. A d
 
 A página [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) fornece uma comparação detalhada de cada nível. A tabela seguinte ajuda a descrever algumas das funcionalidades suportadas pelo escalão:
 
-| Descrição da Funcionalidade | Premium | Standard | Básica |
+| Descrição da Funcionalidade | Premium | Standard | Básico |
 | ------------------- | :-----: | :------: | :---: |
 | [Contrato de Nível de Serviço (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
 | [Persistência de dados de Redis](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Cluster de Redis](cache-how-to-premium-clustering.md) |✔|-|-|
 | [Segurança através de regras da Firewall](cache-configure.md#firewall) |✔|✔|✔|
-| Encriptação em trânsito |✔|✔|✔|
+| Encriptação de dados em circulação |✔|✔|✔|
 | [Segurança e isolamento otimizados com VNet](cache-how-to-premium-vnet.md) |✔|-|-|
 | [Importação/Exportação](cache-how-to-import-export-data.md) |✔|-|-|
 | [Atualizações programadas](cache-administration.md#schedule-updates) |✔|✔|✔|

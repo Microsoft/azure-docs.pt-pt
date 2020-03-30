@@ -9,10 +9,10 @@ ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244644"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configure ligações s2S VPN ativas com Gateways Azure VPN
@@ -40,7 +40,7 @@ Você pode combiná-los juntos para construir uma topologia de rede mais complex
 >   * VpnGw1, VpnGw2, VpnGw3
 >   * HighPerformance (para antigas SKUs legados)
 
-## <a name ="aagateway"></a>Parte 1 - Criar e configurar gateways VPN ativos
+## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Parte 1 - Criar e configurar gateways VPN ativos
 Os seguintes passos configurarão o seu gateway Azure VPN em modos ativos ativos. As principais diferenças entre os gateways ativos ativos e ativos:
 
 * Você precisa criar duas configurações IP Gateway com dois endereços IP públicos
@@ -157,7 +157,7 @@ A ordem dos endereços IP públicos para as instâncias de gateway e os endereç
 
 Uma vez criado o gateway, pode utilizar esta porta de entrada para estabelecer instalações cruzadas ativas ou ligação VNet-to-VNet. As seguintes secções percorrem os degraus para completar o exercício.
 
-## <a name ="aacrossprem"></a>Parte 2 - Estabelecer uma ligação inter-instalações ativas
+## <a name="part-2---establish-an-active-active-cross-premises-connection"></a><a name ="aacrossprem"></a>Parte 2 - Estabelecer uma ligação inter-instalações ativas
 Para estabelecer uma ligação transversal às instalações, é necessário criar um Gateway de Rede Local para representar o seu dispositivo VPN no local e uma Ligação para ligar o gateway Azure VPN ao gateway da rede local. Neste exemplo, o gateway Azure VPN encontra-se em modo ativo. Como resultado, apesar de existir apenas um dispositivo VPN no local (gateway de rede local) e um recurso de ligação, ambas as instâncias de gateway VPN Azure estabelecerão túneis S2S VPN com o dispositivo no local.
 
 Antes de prosseguir, certifique-se de que completou a [Parte 1](#aagateway) deste exercício.
@@ -223,7 +223,7 @@ O exemplo abaixo lista os parâmetros que introduzirá na secção de configura�
 
 A ligação deve ser estabelecida após alguns minutos, e a sessão de observação do BGP começará assim que a ligação IPsec for estabelecida. Este exemplo até agora configuraa apenas um dispositivo VPN no local, resultando no diagrama abaixo:
 
-![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
+![activo-activo crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
 ### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>Passo 3 - Ligue dois dispositivos VPN no local ao gateway VPN ativo
 Se tiver dois dispositivos VPN na mesma rede no local, pode obter uma dupla redundância ligando a porta de entrada Azure VPN ao segundo dispositivo VPN.
@@ -272,7 +272,7 @@ Uma vez estabelecida a ligação (túneis), terá dois dispositivos VPN redundan
 
 ![dupla-redundância-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
-## <a name ="aav2v"></a>Parte 3 - Estabelecer uma ligação VNet-to-VNet ativa
+## <a name="part-3---establish-an-active-active-vnet-to-vnet-connection"></a><a name ="aav2v"></a>Parte 3 - Estabelecer uma ligação VNet-to-VNet ativa
 Esta secção cria uma ligação VNet-to-VNet ativa com BGP. 
 
 As instruções abaixo são a continuação dos passos anteriores listados acima. Tem de completar a [Parte 1](#aagateway) para criar e configurar o TestVNet1 e o VpN Gateway com BGP. 
@@ -368,7 +368,7 @@ Após completar estes passos, a ligação será estabelecido em poucos minutos, 
 
 ![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
-## <a name ="aaupdate"></a>Atualizar um gateway VPN existente
+## <a name="update-an-existing-vpn-gateway"></a><a name ="aaupdate"></a>Atualizar um gateway VPN existente
 
 Esta secção ajuda-o a alterar um gateway Azure VPN existente de standby ativo para modo ativo ativo, ou vice-versa.
 
@@ -410,7 +410,7 @@ Neste passo, ativa o modo ativo e atualiza o gateway. No exemplo, o gateway VPN 
 
 * Não pode mudar um Legado SKU para um dos novos SKUs usando este passo. Você só pode redimensionar um legado SKU para outro legado apoiado SKU. Por exemplo, não pode mudar o SKU de Standard para VpnGw1 (embora vpnGw1 seja suportado para ativo ativo) porque a Standard é um legado SKU e VpnGw1 é um SKU atual. Para obter mais informações sobre redimensionamento e migração de SKUs, consulte [Gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Se quiser redimensionar um SKU atual, por exemplo VpnGw1 para VpnGw3, pode fazê-lo usando este passo porque as SKUs estão na mesma família SKU. Para isso, usaria o valor: ```-GatewaySku VpnGw3```
+* Se quiser redimensionar um SKU atual, por exemplo VpnGw1 para VpnGw3, pode fazê-lo usando este passo porque as SKUs estão na mesma família SKU. Para isso, usaria o valor:```-GatewaySku VpnGw3```
 
 Quando estiver a usar isto no seu ambiente, se não precisar de redimensionar o portal, não precisará especificar o GatewaySku. Note que neste passo, deve definir o objeto de gateway no PowerShell para desencadear a atualização real. Esta atualização pode demorar entre 30 a 45 minutos, mesmo que não esteja a redimensionar o seu portal.
 

@@ -7,10 +7,10 @@ ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127643"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurar chaves geridas pelo cliente para encriptar dados em repouso para ambientes de serviçode integração (ISEs) em Aplicações Lógicas Azure
@@ -80,7 +80,7 @@ O destacamento geralmente leva dentro de duas horas para terminar. Ocasionalment
 
 No cabeçalho de pedido, inclua estas propriedades:
 
-* `Content-type`: Detete este valor de propriedade para `application/json`.
+* `Content-type`: Definir este `application/json`valor de propriedade para .
 
 * `Authorization`: Detete este valor de propriedade ao cliente que tenha acesso à subscrição do Azure ou ao grupo de recursos que pretende utilizar.
 
@@ -203,7 +203,7 @@ Para esta tarefa, pode utilizar o comando Azure PowerShell [Set-AzKeyVaultAccess
 
 1. No [portal Azure,](https://portal.azure.com)abra o seu cofre chave Azure.
 
-1. No seu menu de cofre chave, selecione políticas de **acesso** > Adicionar Política de **Acesso,** por exemplo:
+1. No menu do cofre chave, selecione **Políticas** > de acesso Adicionar Política de**Acesso,** por exemplo:
 
    ![Adicionar política de acesso para identidade gerida atribuída pelo sistema](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
 
@@ -214,12 +214,12 @@ Para esta tarefa, pode utilizar o comando Azure PowerShell [Set-AzKeyVaultAccess
       | Definição | Valores |
       |---------|--------|
       | **Configurar a partir da lista de modelos (opcional)** | Gestão chave |
-      | **Principais permissões** | - **Operações de Gestão chave**: Obter, Lista <p><p>**Operações Criptográficas**- : Chave de desembrulhar, Chave de Embrulho |
+      | **Principais permissões** | - **Operações de Gestão chave**: Obter, Lista <p><p>- **Operações Criptográficas**: Chave de desembrulhar, Chave de Embrulho |
       |||
 
-      ![Selecione "Key Management" > "Key permissions"](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
+      ![Selecione "Key Management" > "Principais permissões"](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. Para **selecionar o principal,** selecione **Nenhum selecionado**. Depois do painel **principal** abrir, na caixa de pesquisa, encontre e selecione o seu ISE. Quando terminar, escolha **Selecione** > **Adicionar**.
+   1. Para **selecionar o principal,** selecione **Nenhum selecionado**. Depois do painel **principal** abrir, na caixa de pesquisa, encontre e selecione o seu ISE. Quando terminar, escolha **'Adicionar' Selecione** > **.**
 
       ![Selecione o seu ISE para usar como principal](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 

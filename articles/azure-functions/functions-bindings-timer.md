@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: f4fdf25fa1403b8429e7ad7e7fc644d0355b1324
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79277157"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80056413"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho do temporizador para funções azure 
 
@@ -20,7 +20,7 @@ Este artigo explica como trabalhar com gatilhos temporizadores nas Funções Azu
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
+## <a name="packages---functions-1x"></a>Pacotes - Funções 1.x
 
 O gatilho do temporizador é fornecido no pacote [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet, versão 2.x. O código fonte para o pacote está no repositório [GitHub-extensões azure-webjobs-sdk.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/)
 
@@ -34,9 +34,9 @@ O gatilho do temporizador é fornecido no pacote [Microsoft.Azure.WebJobs.Extens
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-O exemplo seguinte mostra uma [ C# função](functions-dotnet-class-library.md) que é executada cada vez que as atas têm um valor divisível por cinco (por exemplo, se a função começar às 18:57:00, a próxima apresentação será às 19:00:00). O objeto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) é passado para a função.
+O exemplo seguinte mostra uma [função C#](functions-dotnet-class-library.md) que é executada cada vez que as atas têm um valor divisível por cinco (por exemplo, se a função começar às 18:57:00, a próxima performance será às 19:00:00). O [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -50,9 +50,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O exemplo seguinte mostra uma ligação do gatilho do temporizador num ficheiro *function.json* e uma [ C# função de script](functions-reference-csharp.md) que utiliza a ligação. A função escreve um registo indicando se esta invocação de função se deve a uma ocorrência de horário perdido. O objeto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) é passado para a função.
+O exemplo seguinte mostra uma ligação do gatilho do temporizador num ficheiro *function.json* e numa [função de script C#](functions-reference-csharp.md) que utiliza a ligação. A função escreve um registo indicando se esta invocação de função se deve a uma ocorrência de horário perdido. O [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
 Aqui estão os dados vinculativos no ficheiro *função.json:*
 
@@ -65,7 +65,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-Aqui está o código de script do c#:
+Aqui está o código de script C#:
 
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
@@ -93,7 +93,7 @@ Aqui estão os dados vinculativos no ficheiro *função.json:*
 }
 ```
 
-Eis o código JavaScript:
+Aqui está o código JavaScript:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -109,9 +109,9 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
-O exemplo seguinte utiliza uma ligação do gatilho do temporizador cuja configuração é descrita no ficheiro *fun.json.* A [função Python](functions-reference-python.md) real que utiliza a ligação é descrita no ficheiro  *__init__.py.* O objeto passado para a função é de tipo [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). A lógica da função escreve para os registos indicando se a invocação atual se deve a uma ocorrência de horário perdido. 
+O exemplo seguinte utiliza uma ligação do gatilho do temporizador cuja configuração é descrita no ficheiro *fun.json.* A [função Python](functions-reference-python.md) real que utiliza a ligação é descrita no ficheiro * __init__.py.* O objeto passado para a função é de tipo [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). A lógica da função escreve para os registos indicando se a invocação atual se deve a uma ocorrência de horário perdido. 
 
 Aqui estão os dados vinculativos no ficheiro *função.json:*
 
@@ -145,7 +145,7 @@ def main(mytimer: func.TimerRequest) -> None:
 
 # <a name="java"></a>[Java](#tab/java)
 
-A função de exemplo seguinte dispara e executa a cada cinco minutos. A anotação `@TimerTrigger` sobre a função define o calendário utilizando o mesmo formato de corda que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+A função de exemplo seguinte dispara e executa a cada cinco minutos. A `@TimerTrigger` anotação na função define o horário utilizando o mesmo formato de cadeia que [as expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 ```java
 @FunctionName("keepAlive")
@@ -162,11 +162,11 @@ public void keepAlive(
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize o [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
+Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)utilize o [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-O construtor do atributo tem uma expressão CRON ou um `TimeSpan`. Só pode utilizar `TimeSpan` se a aplicação de funções estiver a funcionar num plano de Serviço de Aplicações. `TimeSpan` não é suportado para funções de consumo ou premium elásticos.
+O construtor do atributo tem uma `TimeSpan`expressão CRON ou um . Só pode `TimeSpan` utilizar se a aplicação de funções estiver a funcionar num plano de Serviço de Aplicações. `TimeSpan`não é suportado para funções de Consumo ou Premium Elástico.
 
 O exemplo que se segue mostra uma expressão CRON:
 
@@ -182,21 +182,21 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos C# não são suportados pelo Script.
+Os atributos não são suportados por C# Script.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A anotação `@TimerTrigger` sobre a função define o calendário utilizando o mesmo formato de corda que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+A `@TimerTrigger` anotação na função define o horário utilizando o mesmo formato de cadeia que [as expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 ```java
 @FunctionName("keepAlive")
@@ -213,21 +213,21 @@ public void keepAlive(
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no atributo `TimerTrigger`.
+A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `TimerTrigger` atributo.
 
-|propriedade de Function | Propriedade de atributo |Descrição|
+|propriedade fun.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido para "TimerTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
-|**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
+|**tipo** | n/d | Deve ser definido para "TimerTrigger". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
+|**direção** | n/d | Deve ser definido para "in". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
 |**nome** | n/d | O nome da variável que representa o objeto temporizador no código de função. | 
-|**schedule**|**Expressão de horário**|Uma [expressão CRON](#ncrontab-expressions) ou um valor [TimeSpan.](#timespan) Um `TimeSpan` pode ser usado apenas para uma aplicação de função que funciona num Plano de Serviço de Aplicações. Pode colocar a expressão de horário numa definição de app e definir esta propriedade para o nome de definição de aplicações envolto em sinais **%,** como neste exemplo: "%ScheduleAppSetting%". |
-|**runOnStartup**|**RunOnStartup**|Se `true`, a função é invocada quando o tempo de funcionamento começa. Por exemplo, o tempo de execução começa quando a aplicação de funções acorda depois de ficar inativa devido à inatividade. quando a aplicação de função recomeçar devido a alterações de função, e quando a aplicação de função se esescala. Assim, **a runOnStartup** raramente deve ser definida para `true`, especialmente na produção. |
-|**useMonitor**|**Monitor de Utilização**|Definir para `true` ou `false` para indicar se o horário deve ser monitorizado. A monitorização do horário persiste em agendar ocorrências para ajudar a garantir que o horário seja mantido corretamente, mesmo quando as instâncias da aplicação de funções recomeçam. Se não for definido explicitamente, o padrão é `true` para horários que tenham um intervalo de recorrência superior ou igual a 1 minuto. Para os horários que disparam mais de uma vez por minuto, o predefinido é `false`.
+|**agenda**|**Expressão de horário**|Uma [expressão CRON](#ncrontab-expressions) ou um valor [TimeSpan.](#timespan) A `TimeSpan` pode ser usado apenas para uma aplicação de função que funciona em um Plano de Serviço de Aplicações. Pode colocar a expressão de horário numa definição de app e **%** definir esta propriedade para o nome de definição de aplicação envolto em sinais, como neste exemplo: "%ScheduleAppSetting%". |
+|**runOnStartup**|**RunOnStartup**|Se `true`, a função for invocada quando o tempo de funcionamento começar. Por exemplo, o tempo de execução começa quando a aplicação de funções acorda depois de ficar inativa devido à inatividade. quando a aplicação de função recomeçar devido a alterações de função, e quando a aplicação de função se esescala. Assim, **runOnStartup** raramente deve ser `true`definido para , especialmente na produção. |
+|**useMonitor**|**Monitor de Utilização**|Definir `true` ou `false` indicar se o horário deve ser monitorizado. A monitorização do horário persiste em agendar ocorrências para ajudar a garantir que o horário seja mantido corretamente, mesmo quando as instâncias da aplicação de funções recomeçam. Se não for definido explicitamente, o padrão é `true` para horários que tenham um intervalo de recorrência superior ou igual a 1 minuto. Para horários que disparam mais de `false`uma vez por minuto, o padrão é .
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Recomendamos que não se ajuste a **runOnStartup** para `true` em produção. A utilização desta definição faz com que o código execute em momentos altamente imprevisíveis. Em determinadas configurações de produção, estas execuções extra podem resultar em custos significativamente mais elevados para aplicações alojadas nos planos de Consumo. Por exemplo, com **o runOnStartup** ativado o gatilho é invocado sempre que a sua aplicação de função é dimensionada. Certifique-se de que compreende completamente o comportamento de produção das suas funções antes de ativar a **runOnStartup** em produção.   
+> Recomendamos não configurar `true` **runOnStartup** para em produção. A utilização desta definição faz com que o código execute em momentos altamente imprevisíveis. Em determinadas configurações de produção, estas execuções extra podem resultar em custos significativamente mais elevados para aplicações alojadas nos planos de Consumo. Por exemplo, com **o runOnStartup** ativado o gatilho é invocado sempre que a sua aplicação de função é dimensionada. Certifique-se de que compreende completamente o comportamento de produção das suas funções antes de ativar a **runOnStartup** em produção.   
 
 ## <a name="usage"></a>Utilização
 
@@ -246,7 +246,7 @@ Quando uma função de gatilho do temporizador é invocada, um objeto temporizad
 }
 ```
 
-A propriedade `IsPastDue` é `true` quando a invocação da função atual é mais tarde do que o previsto. Por exemplo, um reinício de uma aplicação de função pode causar a falta de uma invocação.
+A `IsPastDue` propriedade `true` é quando a invocação da função atual é mais tarde do que o previsto. Por exemplo, um reinício de uma aplicação de função pode causar a falta de uma invocação.
 
 ## <a name="ncrontab-expressions"></a>Expressões NCRONTAB 
 
@@ -259,10 +259,10 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |Tipo  |Exemplo  |Quando desencadeado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00 onde hh é a cada hora (uma vez por hora)|
-|Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|às 5:mm:00 todos os dias, onde mm é cada minuto da hora (60 vezes por dia)|
-|Uma gama (operador de`-`)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05,hh:mm:06, e hh:mm:07 onde hh:mm é cada minuto de cada hora (3 vezes por minuto)|
-|Um conjunto de valores (operador`,`)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05,hh:mm:08, e hh:mm:10 onde hh:mm é cada minuto de cada hora (3 vezes por minuto)|
-|Um valor de intervalo (operador`/`)|<nobr>"0 */5 * * * *"</nobr>|hh:00:00, hh:05:00, hh:10:00, e assim por diante através de hh:55:00 onde hh é a cada hora (12 vezes por hora)|
+|Todos os`*`valores ()|<nobr>"0 * 5 * * *"</nobr>|às 5:mm:00 todos os dias, onde mm é cada minuto da hora (60 vezes por dia)|
+|Uma gama`-` (operador)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05,hh:mm:06, e hh:mm:07 onde hh:mm é cada minuto de cada hora (3 vezes por minuto)|
+|Um conjunto de`,` valores (operador)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05,hh:mm:08, e hh:mm:10 onde hh:mm é cada minuto de cada hora (3 vezes por minuto)|
+|Um valor`/` de intervalo (operador)|<nobr>"0 */5 * * * *"</nobr>|hh:00:00, hh:05:00, hh:10:00, e assim por diante através de hh:55:00 onde hh é a cada hora (12 vezes por hora)|
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -283,12 +283,12 @@ Aqui estão alguns exemplos de expressões NCRONTAB que pode usar para o gatilho
 
 ### <a name="ncrontab-time-zones"></a>Fusos horários NCRONTAB
 
-Os números numa expressão CRON referem-se a uma data e data, não a um período de tempo. Por exemplo, um 5 no campo `hour` refere-se às 5:00 da manhã, não a cada 5 horas.
+Os números numa expressão CRON referem-se a uma data e data, não a um período de tempo. Por exemplo, um `hour` 5 no campo refere-se às 5:00 da manhã, não a cada 5 horas.
 
-O fuso horário predefinido utilizado com as expressões CRON é o Tempo Universal Coordenado (UTC). Para ter a expressão CRON baseada noutro fuso horário, crie uma definição de aplicação para a sua aplicação de função chamada `WEBSITE_TIME_ZONE`. Detete o valor para o nome do fuso horário desejado, como mostrado no Índice de [Fuso Horário](https://technet.microsoft.com/library/cc749073)da Microsoft .
+O fuso horário predefinido utilizado com as expressões CRON é o Tempo Universal Coordenado (UTC). Para ter a expressão CRON baseada noutro fuso horário, `WEBSITE_TIME_ZONE`crie uma definição de aplicação para a sua aplicação de função chamada . Detete o valor para o nome do fuso horário desejado, como mostrado no Índice de [Fuso Horário](https://technet.microsoft.com/library/cc749073)da Microsoft .
 
   > [!NOTE]
-  > `WEBSITE_TIME_ZONE` não é atualmente apoiada no plano de consumo linux.
+  > `WEBSITE_TIME_ZONE`não é atualmente apoiado no plano de consumo linux.
 
 Por exemplo, o *Horário Padrão Oriental* é UTC-05:00. Para que o seu temporizador dispare às 10:00 EST todos os dias, use a seguinte expressão NCRONTAB que explica o fuso horário UTC:
 
@@ -296,30 +296,30 @@ Por exemplo, o *Horário Padrão Oriental* é UTC-05:00. Para que o seu temporiz
 "0 0 15 * * *"
 ``` 
 
-Ou crie uma definição de aplicação para a sua aplicação de função chamada `WEBSITE_TIME_ZONE` e defina o valor para **eastern standard time**.  Em seguida, utiliza a seguinte expressão NCRONTAB: 
+Ou crie uma definição `WEBSITE_TIME_ZONE` de aplicação para a sua aplicação de função nomeada e defina o valor para **o Tempo Padrão Oriental**.  Em seguida, utiliza a seguinte expressão NCRONTAB: 
 
 ```
 "0 0 10 * * *"
 ``` 
 
-Quando utiliza `WEBSITE_TIME_ZONE`, o tempo é ajustado para alterações de tempo no fuso horário específico, como o horário de verão. 
+Quando utilizar `WEBSITE_TIME_ZONE`, o tempo é ajustado para alterações de tempo no fuso horário específico, como o horário de verão. 
 
 ## <a name="timespan"></a>TimeSpan
 
- Um `TimeSpan` pode ser usado apenas para uma aplicação de função que funciona num Plano de Serviço de Aplicações.
+ A `TimeSpan` pode ser usado apenas para uma aplicação de função que funciona em um Plano de Serviço de Aplicações.
 
-Ao contrário de uma expressão CRON, um valor `TimeSpan` especifica o intervalo de tempo entre cada invocação de função. Quando uma função completa após o tempo de execução mais longo do que o intervalo especificado, o temporizador invoca imediatamente a função novamente.
+Ao contrário de `TimeSpan` uma expressão CRON, um valor especifica o intervalo de tempo entre cada invocação de função. Quando uma função completa após o tempo de execução mais longo do que o intervalo especificado, o temporizador invoca imediatamente a função novamente.
 
-Expresso como uma corda, o formato `TimeSpan` é `hh:mm:ss` quando `hh` tem menos de 24 anos. Quando os dois primeiros dígitos são 24 ou mais, o formato é `dd:hh:mm`. Eis alguns exemplos:
+Expresso como uma `TimeSpan` corda, `hh:mm:ss` `hh` o formato é quando tem menos de 24 anos. Quando os dois primeiros dígitos são 24 ou mais, o formato é `dd:hh:mm`. Eis alguns exemplos:
 
 |Exemplo |Quando desencadeado  |
 |---------|---------|
 |"01:00:00" | a cada hora        |
 |"00:01:00"|cada minuto         |
-|"24:00:00" | a cada 24 horas        |
+|"24:00:00" | a cada 24 dias        |
 |"1.00:00:00" | Todos os dias        |
 
-## <a name="scale-out"></a>Escala para fora
+## <a name="scale-out"></a>Aumentar
 
 Se uma aplicação de função se dimensionar para várias instâncias, apenas uma instância de uma função acionada pelo temporizador é executada em todas as instâncias.
 
@@ -329,8 +329,8 @@ Se estiver a partilhar contas de armazenamento através de aplicações de funç
 
 | Versão funções | Definição                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2.x (e superior)  | variável ambiente `AzureFunctionsWebHost__hostid` |
-| 1.x               | `id` no *anfitrião.json*                                  |
+| 2.x (e superior)  | `AzureFunctionsWebHost__hostid`variável ambiente |
+| 1.x               | `id`em *host.json*                                  |
 
 Pode omitir o valor de identificação ou definir manualmente a configuração de identificação de cada aplicação de função para um valor diferente.
 

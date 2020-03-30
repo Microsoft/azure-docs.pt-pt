@@ -1,6 +1,6 @@
 ---
-title: Gateway de VPN clássico para migração do Gerenciador de recursos | Microsoft Docs
-description: Esta página fornece uma visão geral do gateway de VPN clássico para a migração do Gerenciador de recursos.
+title: VPN Gateway Classic para Gestor de Recursos Migração [ Microsoft Docs
+description: Esta página fornece uma visão geral da VPN Gateway Classic para a migração do Gestor de Recursos.
 documentationcenter: na
 services: vpn-gateway
 author: amsriva
@@ -15,55 +15,55 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
 ms.openlocfilehash: c1a75630c6419816b048495ee87d24c81979af16
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064772"
 ---
-# <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Gateway de VPN clássico para migração do Gerenciador de recursos
-Os gateways de VPN agora podem ser migrados do modelo de implantação clássico para o Gerenciador de recursos. Pode ler mais sobre [funcionalidades e benefícios](../azure-resource-manager/management/overview.md)do Gestor de Recursos do Azure. Neste artigo, detalharemos como migrar de implantações clássicas para um modelo baseado no Resource Manager mais recente. 
+# <a name="vpn-gateway-classic-to-resource-manager-migration"></a>VPN Gateway clássico para migração de Gestor de Recursos
+Os Gateways VPN podem agora ser migrados do modelo clássico para o modelo de implantação do Gestor de Recursos. Pode ler mais sobre [funcionalidades e benefícios](../azure-resource-manager/management/overview.md)do Gestor de Recursos do Azure. Neste artigo, detalhamos como migrar de implementações clássicas para o novo modelo baseado em Recursos. 
 
-Os gateways de VPN são migrados como parte da migração de VNet do clássico para o Gerenciador de recursos. Essa migração é feita uma VNet por vez. Não há nenhum requisito adicional em termos de ferramentas ou pré-requisitos para a migração. Os passos de migração são idênticos à migração vnet existente e estão documentados na página de migração de [recursos iaaS](../virtual-machines/windows/migration-classic-resource-manager-ps.md). Não há nenhum tempo de inatividade de caminho de dados durante a migração e, portanto, as cargas de trabalho existentes continuarão a funcionar sem perda de conectividade local durante a migração. O endereço IP público associado ao gateway de VPN não é alterado durante o processo de migração. Isso implica que não será necessário reconfigurar o roteador local quando a migração for concluída.  
+Os Gateways VPN são migrados como parte da migração vNet do clássico para o Gestor de Recursos. Esta migração é feita um VNet de cada vez. Não existe requisitoadicional em termos de ferramentas ou pré-requisitos para a migração. Os passos de migração são idênticos à migração vnet existente e estão documentados na página de migração de [recursos iaaS](../virtual-machines/windows/migration-classic-resource-manager-ps.md). Não existe tempo de paragem da trajetória de dados durante a migração e, portanto, as cargas de trabalho existentes continuariam a funcionar sem perder a conectividade no local durante a migração. O endereço IP público associado ao gateway VPN não muda durante o processo de migração. Isto implica que não terá de reconfigurar o seu router no local assim que a migração estiver concluída.  
 
-O modelo no Gerenciador de recursos é diferente do modelo clássico e é composto por gateways de rede virtual, gateways de rede local e recursos de conexão. Eles representam o próprio gateway de VPN, o site local que representa o espaço de endereço local e a conectividade entre os dois, respectivamente. Depois que a migração for concluída, seus gateways não estarão disponíveis no modelo clássico e todas as operações de gerenciamento em gateways de rede virtual, gateways de rede local e objetos de conexão deverão ser executados usando o modelo do Resource Manager.
+O modelo em Resource Manager é diferente do modelo clássico e é composto por gateways de rede virtuais, gateways de rede locais e recursos de conexão. Estes representam o próprio gateway VPN, o local que representa nas instalações o espaço de endereço e a conectividade entre os dois, respectivamente. Uma vez concluída a migração, os seus gateways não estariam disponíveis em modelos clássicos e todas as operações de gestão em gateways de rede virtuais, gateways de rede locais e objetos de ligação devem ser realizados usando o modelo De Gestor de Recursos.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
-Os cenários de conectividade VPN mais comuns são cobertos pela migração clássica para o Resource Manager. Os cenários com suporte incluem-
+Os cenários de conectividade VPN mais comuns são cobertos pelo clássico para a migração do Gestor de Recursos. Os cenários apoiados incluem -
 
-* Conectividade ponto a site
-* Conectividade site a site com o gateway de VPN conectado à localização local
-* Conectividade VNet com VNet entre dois VNets usando gateways de VPN
-* Vários VNets conectados à mesma localização local
-* Conectividade multissite
-* VNets habilitado para túnel forçado
+* Aponte para a conectividade do local
+* Site para site conectividade com VPN Gateway ligado à localização do local
+* Conectividade VNet para VNet entre dois VNets usando gateways VPN
+* Múltiplos VNets ligados ao mesmo na localização do local
+* Conectividade multi-local
+* Túneis forçados habilitados vNets
 
-Cenários que não têm suporte incluem-  
+Os cenários que não são apoiados incluem -  
 
-* Atualmente, não há suporte para VNet com gateway de ExpressRoute e gateway de VPN.
-* Cenários de trânsito em que as extensões de VM são conectadas a servidores locais. As limitações de conectividade de VPN de trânsito são detalhadas abaixo.
+* A VNet com o ExpressRoute Gateway e o VPN Gateway não está atualmente suportada.
+* Cenários de trânsito em que as extensões vm estão ligadas a servidores no local. As limitações de conectividade VPN de trânsito são detalhadas abaixo.
 
 > [!NOTE]
-> A validação de CIDR no modelo do Resource Manager é mais estrita do que a do modelo clássico. Antes de migrar, verifique se os intervalos de endereços clássicos estão em conformidade com o formato CIDR válido antes de iniciar a migração. O CIDR pode ser validado usando qualquer validador CIDR comum. Os sites VNet ou locais com intervalos CIDR inválidos quando migrados resultarão em estado de falha.
+> A validação do CIDR no modelo De Gestor de Recursos é mais rigorosa do que a do modelo clássico. Antes de migrar, certifique-se de que as gamas de endereços clássicos dadas estão em conformidade com o formato CIDR válido antes de iniciar a migração. O CIDR pode ser validado utilizando quaisquer validadores CIDR comuns. VNet ou sites locais com gamas CIDR inválidas quando migrados resultariam em estado falhado.
 > 
 > 
 
 ## <a name="vnet-to-vnet-connectivity-migration"></a>Migração de conectividade VNet para VNet
-A conectividade de VNet para VNet no clássico foi obtida com a criação de uma representação de site local da VNet conectada. Os clientes eram obrigados a criar dois sites locais que representavam os dois VNets que precisavam ser conectados juntos. Em seguida, eles foram conectados ao VNets correspondente usando o túnel IPsec para estabelecer a conectividade entre os dois VNets. Esse modelo tem desafios de gerenciamento, pois qualquer alteração de intervalo de endereços em uma VNet também deve ser mantida na representação do site local correspondente. No modelo do Resource Manager, essa solução alternativa não é mais necessária. A conexão entre os dois VNets pode ser obtida diretamente usando o tipo de conexão ' Vnet2Vnet ' no recurso de conexão. 
+A conectividade VNet para VNet em clássico foi conseguida através da criação de uma representação local do site local do VNet conectado. Os clientes foram obrigados a criar dois sites locais que representavam os dois VNets que precisavam de ser ligados entre si. Estes foram então ligados aos VNets correspondentes utilizando o túnel IPsec para estabelecer a conectividade entre os dois VNets. Este modelo tem desafios de gestão, uma vez que quaisquer alterações de alcance de endereço num VNet também devem ser mantidas na representação do local correspondente. No modelo do Gestor de Recursos, esta suver já não é necessária. A ligação entre os dois VNets pode ser alcançada diretamente utilizando o tipo de ligação 'Vnet2Vnet' no recurso de ligação. 
 
-![Captura de tela da migração de VNet para VNet.](./media/vpn-gateway-migration/migration1.png)
+![Screenshot de VNet para migração VNet.](./media/vpn-gateway-migration/migration1.png)
 
-Durante a migração de VNet, detectamos que a entidade conectada ao gateway de VPN da VNet atual é outra VNet e garante que, depois que a migração de ambos os VNets for concluída, você não verá mais dois sites locais representando a outra VNet. O modelo clássico de dois gateways de VPN, dois sites locais e duas conexões entre eles são transformados no modelo do Resource Manager com dois gateways de VPN e duas conexões do tipo Vnet2Vnet.
+Durante a migração vNet, detetamos que a entidade conectada ao gateway VPN da VNet atual é outro VNet e asseguramos que uma vez concluída a migração de ambos os VNets, deixará de ver dois sites locais que representam os outros VNet. O modelo clássico de dois gateways VPN, dois locais e duas ligações entre eles é transformado para o modelo De Gestor de Recursos com dois gateways VPN e duas ligações de tipo Vnet2Vnet.
 
-## <a name="transit-vpn-connectivity"></a>Conectividade de VPN de trânsito
-Você pode configurar gateways de VPN em uma topologia de modo que a conectividade local para uma VNet seja obtida conectando-se a outra VNet conectada diretamente ao local. Essa é a conectividade de VPN em trânsito em que as instâncias na primeira VNet estão conectadas a recursos locais via trânsito para o gateway de VPN na VNet conectada que está diretamente conectada ao local. Para obter essa configuração no modelo de implantação clássico, você precisaria criar um site local que tenha prefixos agregados que representem tanto a VNet conectada quanto o espaço de endereço local. Esse site local de reapresentação é então conectado à VNet para obter conectividade de trânsito. Esse modelo clássico também tem desafios de gerenciamento semelhantes, já que qualquer alteração no intervalo de endereços local também deve ser mantida no site local que representa a agregação de VNet e local. A introdução do suporte a BGP nos gateways com suporte do Gerenciador de recursos simplifica a capacidade de gerenciamento, já que os gateways conectados podem aprender rotas locais sem modificações manuais em prefixos.
+## <a name="transit-vpn-connectivity"></a>Conectividade VPN de trânsito
+Pode configurar gateways VPN numa topologia de tal forma que a conectividade no local para um VNet é alcançada ligando-se a outro VNet que está diretamente ligado às instalações. Esta é a conectividade VPN de trânsito onde os casos no primeiro VNet estão ligados aos recursos no local através do trânsito para o gateway VPN em VNet conectado que está diretamente ligado às instalações. Para alcançar esta configuração no modelo de implementação clássico, você precisaria criar um site local que tenha prefixos agregados representando tanto o vnet conectado como o espaço de endereço no local. Este local local de representação está então ligado ao VNet para alcançar a conectividade de trânsito. Este modelo clássico também tem desafios de gestão semelhantes, uma vez que qualquer alteração na gama de endereços no local também deve ser mantida no local representando o agregado de VNet e no local. A introdução do suporte bGP em gateways suportados pelo Gestor de Recursos simplifica a capacidade de gestão, uma vez que os gateways conectados podem aprender rotas a partir de instalações sem modificação manual para prefixos.
 
-![Captura de tela do cenário de roteamento de trânsito.](./media/vpn-gateway-migration/migration2.png)
+![Screenshot do cenário de encaminhamento de trânsito.](./media/vpn-gateway-migration/migration2.png)
 
-Como podemos transformar a conectividade VNet em VNet sem a necessidade de sites locais, o cenário de trânsito perde a conectividade local para VNet que está conectada indiretamente ao local. A perda de conectividade pode ser atenuada das duas maneiras a seguir, após a conclusão da migração- 
+Uma vez que transformamos a conectividade VNet em VNet sem exigir locais locais, o cenário de trânsito perde a conectividade no local para a VNet que está indiretamente ligada às instalações. A perda de conectividade pode ser atenuada nas duas seguintes formas, após a migração estar concluída - 
 
-* Habilite o BGP em gateways de VPN que estão conectados juntos e localmente. Habilitar o BGP restaura a conectividade sem nenhuma outra alteração de configuração, uma vez que as rotas são aprendidas e anunciadas entre os gateways de VNet. Observe que a opção BGP só está disponível em SKUs Standard e superiores.
-* Estabeleça uma conexão explícita da VNet afetada com o gateway de rede local que representa a localização no local. Isso também exigiria a alteração da configuração no roteador local para criar e configurar o túnel IPsec.
+* Ative o BGP nos portões VPN que estão ligados entre si e no local. Permitir o BGP restaura a conectividade sem qualquer outra alteração de configuração, uma vez que as rotas são aprendidas e publicitadas entre gateways VNet. Note que a opção BGP só está disponível em SKUs Standard e mais elevado.
+* Estabeleça uma ligação explícita da VNet afetada ao portal de rede local que representa a localização no local. Isto também exigiria a alteração da configuração no router no local para criar e configurar o túnel IPsec.
 
 ## <a name="next-steps"></a>Passos seguintes
 Depois de aprender sobre o apoio à migração de gateways VPN, vá para a [migração apoiada pela plataforma de recursos IaaS do clássico para o Gestor de Recursos](../virtual-machines/windows/migration-classic-resource-manager-ps.md) para começar.

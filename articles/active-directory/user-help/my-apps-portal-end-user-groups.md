@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022301"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Atualize as informações dos seus Grupos no portal My Apps
@@ -26,7 +26,7 @@ Pode utilizar o seu trabalho ou conta escolar com o portal **My Apps** baseado n
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Este conteúdo destina-se aos utilizadores. Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na Documentação de Gestão de [Aplicações.](https://docs.microsoft.com/azure/active-directory/manage-apps)
 
 ## <a name="view-your-groups-information"></a>Consulte as informações dos seus Grupos
 
@@ -38,11 +38,11 @@ Se o seu administrador lhe deu permissão para ver o azulejo **dos Grupos,** pod
 
 ### <a name="to-view-your-groups-information"></a>Para ver a informação dos seus grupos
 
-1. Entre em sua conta corporativa ou de estudante.
+1. Inscreva-se no seu trabalho ou na conta da escola.
 
-2. Abra o seu navegador web e vá para https://myapps.microsoft.com, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Abra o seu navegador https://myapps.microsoft.comweb e vá para, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada https://myapps.microsoft.com/contoso.compara a sua organização, como .
 
-    A página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
+    A **Apps** página apps aparece, mostrando todas as aplicações baseadas na nuvem detidas pela sua organização e disponíveis para que possa utilizar.
 
     ![Página de aplicativos no portal My Apps](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
 
@@ -80,11 +80,11 @@ Se o seu administrador lhe deu permissão para ver o azulejo **dos Grupos,** pod
 
     - **Tipo de grupo:**
 
-        - **Segurança.** Serve para gerir o acesso de membros e de computadores a recursos partilhados de um grupo de utilizadores. Por exemplo, pode criar um grupo de segurança para uma política de segurança específica. Ao fazê-lo desta maneira, pode dar um conjunto de permissões a todos os membros de uma só vez, em vez de precisar de adicionar permissões a cada membro individualmente.
+        - **A segurança.** Serve para gerir o acesso de membros e de computadores a recursos partilhados de um grupo de utilizadores. Por exemplo, pode criar um grupo de segurança para uma política de segurança específica. Ao fazê-lo desta maneira, pode dar um conjunto de permissões a todos os membros de uma só vez, em vez de precisar de adicionar permissões a cada membro individualmente.
 
-        - **Office 365.** Proporciona oportunidades de colaboração ao conceder aos membros o acesso a uma caixa de correio partilhada, calendário, ficheiros, site do SharePoint, entre outros. Esta opção também lhe permite conceder às pessoas fora da organização acesso ao grupo.
+        - **Escritório 365.** Proporciona oportunidades de colaboração ao conceder aos membros o acesso a uma caixa de correio partilhada, calendário, ficheiros, site do SharePoint, entre outros. Esta opção também lhe permite conceder às pessoas fora da organização acesso ao grupo.
 
-    - **Nome do grupo.** Adicione um nome ao grupo, algo fácil de lembrar e que faça sentido.
+    - **Nome de grupo.** Adicione um nome ao grupo, algo fácil de lembrar e que faça sentido.
 
     - **Descrição do grupo (opcional).** Adicione uma descrição opcional ao grupo.
 
@@ -98,7 +98,7 @@ Se o seu administrador lhe deu permissão para ver o azulejo **dos Grupos,** pod
 
 Depois de criar um grupo, pode editar os seus dados, incluindo atualizar qualquer uma das informações existentes.
 
-1. Selecione o grupo que pretende editar na página **Grupos** e, em seguida, **selecione detalhes editar** na página&lt;group_name *&gt;.*
+1. Selecione o grupo que pretende editar a partir da página **Grupos** e, em seguida, **selecione detalhes editar** na página * &lt;group_name.&gt; *
 
     A caixa de **detalhes editar** aparece e pode atualizar as informações que adicionou quando criou inicialmente o grupo.
 
@@ -108,7 +108,7 @@ Depois de criar um grupo, pode editar os seus dados, incluindo atualizar qualque
 
 Pode adicionar ou remover membros para quaisquer grupos que possua.
 
-1. Selecione o grupo a que pretende adicionar membros e, em seguida, selecione **+** na *página&gt;&lt;group_name.*
+1. Selecione o grupo a que pretende **+** adicionar membros e, em seguida, selecione na * &lt;&gt; * página group_name.
 
     ![Adicione um membro do grupo, com + sinal realçado](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
@@ -118,7 +118,7 @@ Pode adicionar ou remover membros para quaisquer grupos que possua.
 
     É enviado um convite ao novo membro, para começar a aceder às aplicações da organização.
 
-3. Se tiver adicionado um membro por engano, ou se um membro tiver deixado a sua organização, pode remover o membro selecionando o **membro Remover** ao lado do nome do membro na página&lt;*group_name&gt;.*
+3. Se tiver adicionado um membro por engano, ou se um membro tiver deixado a sua organização, pode remover o membro selecionando o **membro Remover** ao lado do nome do membro na página * &lt;group_name.&gt; *
 
     ![Remova um membro, com o link de remoção realçado](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
@@ -138,9 +138,9 @@ Se a sua organização o permitir, pode renovar um grupo do Office 365, prolonga
 
 Pode eliminar qualquer um dos seus próprios grupos a qualquer momento. No entanto, se eliminar um grupo por engano, terá de criá-lo e adicionar novamente aos membros.
 
-1. Selecione o grupo que pretende eliminar permanentemente e, em seguida, **selecione eliminar** o grupo na página&gt; *&lt;group_name.*
+1. Selecione o grupo que pretende eliminar permanentemente e, em seguida, **selecione eliminar** o * &lt;&gt; * grupo na página group_name.
 
-    ![<Group_name> página com o link do grupo Delete em destaque](media/my-apps-portal/my-apps-portal-delete-group-link.png)
+    ![<Group_name página> com o link do grupo Delete em destaque](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 
 2. Selecione **Sim** na mensagem de confirmação.
 

@@ -1,5 +1,5 @@
 ---
-title: O que é o controlo de acesso baseado em papéis (RBAC) para os recursos Do Azure? | Microsoft Docs
+title: O que é o controlo de acesso baseado em funções (RBAC) dos recursos do Azure? | Microsoft Docs
 description: Obtenha uma visão geral do controlo de acesso baseado em papéis (RBAC) para os recursos Azure. Utilize atribuições de funções para controlar o acesso aos recursos do Azure.
 services: active-directory
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2ef528438591006be6e4cdec508dd15a7fb0a143
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6e3313e3ae201d0b730d8582fed9659d89f0d0c1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79240108"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063062"
 ---
-# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o controlo de acesso baseado em papéis (RBAC) para os recursos Do Azure?
+# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o controlo de acesso baseado em funções (RBAC) dos recursos do Azure?
 
 A gestão de acesso para recursos na cloud é uma função crítica para qualquer organização que está a utilizar a cloud. O controlo de acesso baseado em funções (RBAC) ajuda-o a gerir quem tem acesso aos recursos do Azure, o que fazem com esses recursos e a que áreas têm acesso.
 
@@ -46,7 +46,7 @@ Quando planear a estratégia de controlo de acesso, é boa prática conceder aos
 
 ## <a name="how-rbac-works"></a>Como funciona o RBAC
 
-A forma de controlar o acesso a recursos com o RBAC é criar atribuições de funções. Este é um conceito fundamental para compreender de que forma as permissões são impostas. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito.
+A forma de controlar o acesso a recursos com o RBAC é criar atribuições de funções. Este é um conceito chave para entender – é como as permissões são aplicadas. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito.
 
 ### <a name="security-principal"></a>Principal de segurança
 
@@ -68,7 +68,7 @@ Uma *definição de função* é uma coleção de permissões. Normalmente chama
 O Azure inclui várias [funções incorporadas](built-in-roles.md) que pode utilizar. São apresentadas em seguida quatro funções incorporadas fundamentais. As três primeiras aplicam-se a todos os tipos de recursos.
 
 - [Proprietário](built-in-roles.md#owner) – Tem acesso total a todos os recursos, incluindo o direito de delegar o acesso a outras pessoas.
-- [Contribuidor](built-in-roles.md#contributor) – Pode criar e gerir todos os tipos de recursos do Azure, mas não pode conceder acesso a outras pessoas.
+- [Colaborador](built-in-roles.md#contributor) - Pode criar e gerir todos os tipos de recursos Azure, mas não pode dar acesso a outros.
 - [Leitor](built-in-roles.md#reader) – Pode ver os recursos do Azure existentes.
 - [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator) – Permite gerir o acesso do utilizador aos recursos do Azure.
 
@@ -102,7 +102,7 @@ Pode criar atribuições de funções no portal do Azure, CLI do Azure, Azure Po
 
 ## <a name="multiple-role-assignments"></a>Atribuições de múltiplos papéis
 
-O que acontece se tiver várias missões sobrepostas? O RBAC é um modelo aditivo, por isso as suas permissões eficazes são a adição das suas atribuições de funções. Considere o seguinte exemplo em que um utilizador recebe a função de Contribuinte no âmbito da subscrição e o papel do Leitor num grupo de recursos. A adição das permissões do Contribuinte e das permissões do Leitor é efetivamente o papel de Contribuinte para o grupo de recursos. Portanto, neste caso, a atribuição do papel do Leitor não tem impacto.
+O que acontece se tiver várias missões sobrepostas? O RBAC é um modelo aditivo, por isso as suas permissões eficazes são a soma das suas atribuições. Considere o seguinte exemplo em que um utilizador recebe a função de Contribuinte no âmbito da subscrição e o papel do Leitor num grupo de recursos. A soma das permissões do Contribuinte e das permissões do Leitor é efetivamente o papel de Contribuinte para o grupo de recursos. Portanto, neste caso, a atribuição do papel do Leitor não tem impacto.
 
 ![Atribuições de múltiplos papéis](./media/overview/rbac-multiple-roles.png)
 
@@ -126,7 +126,7 @@ Seguem-se as etapas de alto nível que o RBAC utiliza para determinar se tem ace
 
 1. O Azure Resource Manager determina se a ação na chamada de API está incluída nas funções que utilizador tem para este recurso.
 
-1. Se o utilizador não tiver uma função com a ação no âmbito solicitado, o acesso não é concedido. Caso contrário, o Azure Resource Manager verifica se uma atribuição de negação se aplica.
+1. Se o utilizador não tiver um papel com a ação no âmbito solicitado, o acesso não é concedido. Caso contrário, o Azure Resource Manager verifica se uma atribuição de negação se aplica.
 
 1. Se uma atribuição de negação se aplicar, o acesso é bloqueado. Caso contrário, o acesso é concedido.
 

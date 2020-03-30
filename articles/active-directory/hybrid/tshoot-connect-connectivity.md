@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253601"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049721"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Conectividade AD de Troubleshoot Azure
 Este artigo explica como funciona a conectividade entre o Azure AD Connect e o Azure AD E como resolver problemas de conectividade. Estes problemas são mais prováveis de serem vistos num ambiente com um servidor proxy.
@@ -32,7 +32,7 @@ O Azure AD Connect está a utilizar a Autenticação Moderna (utilizando a bibli
 Neste artigo, mostramos como fabrikam se conecta ao Azure AD através do seu proxy. O servidor proxy é nomeado fabrikamproxy e está usando a porta 8080.
 
 Primeiro, temos de ter a certeza de que [**a máquina.config**](how-to-connect-install-prerequisites.md#connectivity) está corretamente configurada.  
-![](./media/tshoot-connect-connectivity/machineconfig.png) de meconfig
+![máquinaconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
 > Em alguns blogs não Microsoft, está documentado que devem ser feitas alterações para miiserver.exe.config. No entanto, este ficheiro é substituído em todas as atualizações, pelo que mesmo que funcione durante a instalação inicial, o sistema deixa de funcionar na primeira atualização. Por essa razão, a recomendação é atualizar machine.config.
@@ -69,8 +69,8 @@ Se utilizar uma **conta Microsoft** em vez de uma conta de escola **ou organiza�
 ![Uma Conta Microsoft é usada](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>O ponto final do MFA não pode ser alcançado
-Este erro aparece se o ponto final **https://secure.aadcdn.microsoftonline-p.com** não puder ser atingido e a sua administração global tiver MFA ativada.  
-![](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png) de nomachineconfig
+Este erro aparece se **https://secure.aadcdn.microsoftonline-p.com** o ponto final não puder ser atingido e a sua administração global tiver MFA ativada.  
+![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Se vir este erro, verifique se o ponto final **secure.aadcdn.microsoftonline-p.com** foi adicionado ao representante.
 
@@ -78,14 +78,14 @@ Este erro aparece se o ponto final **https://secure.aadcdn.microsoftonline-p.com
 Se o assistente de instalação tiver sucesso na ligação ao Azure AD, mas a senha em si não pode ser verificada, verá este erro:  
 ![Má senha.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* A palavra-passe é uma senha temporária e deve ser alterada? É realmente a senha correta? Tente iniciar sessão em https://login.microsoftonline.com (noutro computador que não o servidor Azure AD Connect) e verifique se a conta é utilizável.
+* A palavra-passe é uma senha temporária e deve ser alterada? É realmente a senha correta? Tente iniciar sessão `https://login.microsoftonline.com` em (noutro computador que não o servidor Azure AD Connect) e verifique se a conta é utilizável.
 
 ### <a name="verify-proxy-connectivity"></a>Verificar a conectividade proxy
-Para verificar se o servidor Azure AD Connect tem conectividade real com o Proxy e a Internet, utilize algum PowerShell para ver se o proxy está a permitir pedidos web ou não. Num pedido powerShell, corra `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tecnicamente, a primeira chamada é para https://login.microsoftonline.com e este URI também funciona, mas o outro URI é mais rápido a responder.)
+Para verificar se o servidor Azure AD Connect tem conectividade real com o Proxy e a Internet, utilize algum PowerShell para ver se o proxy está a permitir pedidos web ou não. Num pedido powerShell, `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`corra. (Tecnicamente, a `https://login.microsoftonline.com` primeira chamada é para e este URI também funciona, mas o outro URI é mais rápido para responder.)
 
 O PowerShell utiliza a configuração em machine.config para contactar o proxy. As definições em winhttp/netsh não devem ter impacto nestas cmdlets.
 
-Se o proxy estiver corretamente configurado, deverá obter um estatuto de sucesso: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Se o proxy estiver corretamente configurado, deve ![obter um estatuto de sucesso: proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
 Se receber **Não conseguir ligar-se ao servidor remoto,** então o PowerShell está a tentar fazer uma chamada direta sem utilizar o proxy ou o DNS não está corretamente configurado. Certifique-se de que o ficheiro **machine.config** está corretamente configurado.
 ![incapaz de ligar](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
@@ -104,7 +104,7 @@ Quando a Azure AD Connect enviar um pedido de exportação para a Azure AD, a Az
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>O padrão de comunicação entre azure AD Connect e Azure AD
 Se seguiu todos estes passos anteriores e ainda não consegue ligar-se, pode, neste momento, começar a olhar para os registos de rede. Esta secção está a documentar um padrão de conectividade normal e bem-sucedido. Também está a listar arenques vermelhos comuns que podem ser ignorados quando está a ler os registos da rede.
 
-* Há chamadas para https://dc.services.visualstudio.com. Não é necessário ter este URL aberto no proxy para que a instalação tenha sucesso e estas chamadas podem ser ignoradas.
+* Há chamadas `https://dc.services.visualstudio.com`para. Não é necessário ter este URL aberto no proxy para que a instalação tenha sucesso e estas chamadas podem ser ignoradas.
 * Você vê que a resolução do DNS lista os anfitriões reais para estar no espaço de nome DNS nsatc.net e outros espaços de nome não sob microsoftonline.com. No entanto, não existem pedidos de serviço web nos nomes reais do servidor e não tem de adicionar estes URLs ao proxy.
 * Os pontos finais adminwebservice e provisioningapi são pontos finais de descoberta e usados para encontrar o ponto final real para usar. Estes pontos finais são diferentes dependendo da sua região.
 
@@ -225,14 +225,14 @@ Mostrado como erro inesperado no assistente de instalação. Pode acontecer se t
 Com lançamentos a começar com a construção número 1.1.105.0 (lançado em fevereiro de 2016), o assistente de inscrição foi reformado. Esta secção e a configuração já não devem ser necessárias, mas são mantidas como referência.
 
 Para que o único sinal em assistente funcione, winhttp deve ser configurado. Esta configuração pode ser feita com [**netsh**](how-to-connect-install-prerequisites.md#connectivity).  
-![](./media/tshoot-connect-connectivity/netsh.png) netsh
+![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>O assistente de inscrição não foi corretamente configurado
 Este erro aparece quando o assistente de inscrição não consegue contactar o representante ou o representante não está a permitir o pedido.
-![](./media/tshoot-connect-connectivity/nonetsh.png) de nonetsh
+![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
 
 * Se vir este erro, olhe para a configuração de procuração em [netsh](how-to-connect-install-prerequisites.md#connectivity) e verifique se está correto.
-  ![](./media/tshoot-connect-connectivity/netshshow.png) de netshshow
+  ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
 * Se isso parecer correto, siga os passos em Verificar a [conectividade proxy](#verify-proxy-connectivity) para ver se o problema também está presente fora do assistente.
 
 ## <a name="next-steps"></a>Passos seguintes

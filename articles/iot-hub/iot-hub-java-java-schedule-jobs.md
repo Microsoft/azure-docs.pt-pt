@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.openlocfilehash: 9227192b2f7c554943fb3716ba1d1066f814c447
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110317"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Agendae e trabalhos de transmissão (Java)
@@ -71,7 +71,7 @@ No final deste tutorial, tens uma aplicação de dispositivo de consola java e u
 
 Também pode utilizar a [extensão IoT para](https://github.com/Azure/azure-iot-cli-extension) a ferramenta Azure CLI para adicionar um dispositivo ao seu hub IoT.
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
@@ -109,7 +109,7 @@ Para criar a aplicação:
     ```
 
     > [!NOTE]
-    > Pode consultar a versão mais recente do **iot-service-client** usando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **iot-service-client** utilizando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Adicione o nó de **construção** seguinte após o nó de **dependências.** Esta configuração instrui Maven a usar Java 1.8 para construir a aplicação:
 
@@ -129,7 +129,7 @@ Para criar a aplicação:
     </build>
     ```
 
-6. Guarde e feche o ficheiro **pom.xml.**
+6. Guarde e feche o ficheiro **pom.xml**.
 
 7. Utilizando um editor de texto, abra o **schedule-jobs\src\main\java\com\mycompany\app\app\app\app.java** file.
 
@@ -151,7 +151,7 @@ Para criar a aplicação:
     import java.util.UUID;
     ```
 
-9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{youriothubconnectionstring}` com a sua cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
+9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{youriothubconnectionstring}` com a sua cadeia de ligação de hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -260,7 +260,7 @@ Para criar a aplicação:
     }
     ```
 
-14. Atualize a assinatura do método **principal** para incluir a seguinte cláusula `throws`:
+14. Atualize a assinatura **do** `throws` método principal para incluir a seguinte cláusula:
 
     ```java
     public static void main( String[] args ) throws Exception
@@ -324,7 +324,7 @@ Nesta secção, cria-se uma aplicação de consola Java que lida com as propried
     ```
 
     > [!NOTE]
-    > Pode verificar a versão mais recente do **iot-device-client** usando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **iot-device-client** utilizando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Adicione a seguinte dependência ao nó de **dependências.** Esta dependência configura um NOP para a fachada de exploração de apache [SLF4J,](https://www.slf4j.org/) que é usada pelo cliente do dispositivo SDK para implementar a exploração madeireira. Esta configuração é opcional, mas se a omitir, poderá ver um aviso na consola quando executar a aplicação. Para obter mais informações sobre o login no cliente do dispositivo SDK, consulte [o Registo de Registos](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)nas *Amostras para o dispositivo Azure IoT SDK para java* readme file.
 
@@ -354,7 +354,7 @@ Nesta secção, cria-se uma aplicação de consola Java que lida com as propried
     </build>
     ```
 
-6. Guarde e feche o ficheiro **pom.xml.**
+6. Guarde e feche o ficheiro **pom.xml**.
 
 7. Utilizando um editor de texto, abra o **dispositivo simulado\src\main\java\com\mycompany\app\app\app\java** file.
 
@@ -369,7 +369,7 @@ Nesta secção, cria-se uma aplicação de consola Java que lida com as propried
     import java.util.Scanner;
     ```
 
-9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{yourdeviceconnectionstring}` com a cadeia de ligação do dispositivo que copiou anteriormente no Registo um novo dispositivo na secção [do hub IoT:](#register-a-new-device-in-the-iot-hub)
+9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua-a `{yourdeviceconnectionstring}` pela cadeia de ligação do dispositivo que copiou anteriormente no Registo um novo dispositivo na secção [do hub IoT:](#register-a-new-device-in-the-iot-hub)
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
@@ -427,7 +427,7 @@ Nesta secção, cria-se uma aplicação de consola Java que lida com as propried
     }
     ```
 
-13. Atualize a assinatura do método **principal** para incluir a seguinte cláusula `throws`:
+13. Atualize a assinatura **do** `throws` método principal para incluir a seguinte cláusula:
 
     ```java
     public static void main( String[] args ) throws IOException, URISyntaxException
@@ -501,7 +501,7 @@ Está agora pronto para executar as aplicações de consola.
 
    ![O cliente do dispositivo começa](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
-2. Numa solicitação de comando na pasta `schedule-jobs`, execute o seguinte comando para executar a app de serviço de **horários** para executar dois empregos. O primeiro define os valores de propriedade desejados, o segundo chama o método direto:
+2. Numa solicitação de `schedule-jobs` comando na pasta, execute o seguinte comando para executar a app de serviço de **horários para** executar dois empregos. O primeiro define os valores de propriedade desejados, o segundo chama o método direto:
 
    ```cmd\sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"

@@ -9,10 +9,10 @@ ms.date: 12/10/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 41b24a94d36b21fe5d5f539e056abb535bda433a
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128282"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo pessoal de atribuição de piscina de anfitrião do ambiente de trabalho
@@ -77,5 +77,5 @@ Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -Assigned
 
 Agora que configurao o tipo de atribuição pessoal de desktop, pode iniciar sessão num cliente do Windows Virtual Desktop para o testar como parte de uma sessão de utilizador. Estes próximos dois How-tos dir-lhe-ão como se conectar a uma sessão usando o cliente da sua escolha:
 
-- [Conecte-se com o cliente do Windows Desktop](connect-windows-7-and-10.md)
-- [Conecte-se com o cliente web](connect-web.md)
+- [Ligar ao cliente de Ambiente de Trabalho do Windows](connect-windows-7-and-10.md)
+- [Ligar com o cliente web](connect-web.md)

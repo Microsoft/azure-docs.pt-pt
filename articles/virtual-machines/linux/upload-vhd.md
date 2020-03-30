@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 70fff041cd693a19269b11398947fb0c8ce56bb1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: b5063c8037a763c1919d2172a81c8abbbd406ace
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060153"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Crie um VM Linux a partir de um disco personalizado com o Azure CLI
 
@@ -40,7 +40,7 @@ Para completar os seguintes passos, terá de ser:
 
 - Uma máquina virtual Linux que foi preparada para ser usada em Azure. A secção Prepare a secção [VM](#prepare-the-vm) deste artigo abrange como encontrar informações específicas sobre a instalação do Agente Azure Linux (waagent), que é necessário para que possa ligar-se a um VM com SSH.
 - O ficheiro VHD de uma [distribuição linux apoiada pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou ver [informações para distribuições não endossadas)](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)para um disco virtual no formato VHD. Existem múltiplas ferramentas para criar um VM e VHD:
-  - Instale e configure [qEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [KVM,](https://www.linux-kvm.org/page/RunningKVM)tendo o cuidado de usar o VHD como formato de imagem. Se necessário, pode [converter uma imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) com `qemu-img convert`.
+  - Instale e configure [qEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [KVM,](https://www.linux-kvm.org/page/RunningKVM)tendo o cuidado de usar o VHD como formato de imagem. Se necessário, pode converter `qemu-img convert`uma [imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) com .
   - Também pode utilizar o Hyper-V [no Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) ou [no Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
@@ -51,7 +51,7 @@ Para completar os seguintes passos, terá de ser:
 
 - Certifique-se de que tem o mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e está inscrito numa conta Azure com [login az](/cli/azure/reference-index#az-login).
 
-Nos exemplos seguintes, substitua os nomes dos parâmetros exemplos pelos seus próprios valores, tais como `myResourceGroup`, `mystorageaccount`e `mydisks`.
+Nos exemplos seguintes, substitua os nomes dos `myResourceGroup` `mystorageaccount`parâmetros `mydisks`de exemplo pelos seus próprios valores, tais como , e .
 
 <a id="prepimage"> </a>
 
@@ -90,7 +90,7 @@ Caso contrário, deve tirar uma foto do VM e, em seguida, criar um novo VHD osso
 
 Este exemplo cria uma imagem de um VM chamado *myVM* no grupo de recursos *myResourceGroup* e cria um instantâneo chamado *osDiskSnapshot*.
 
-```azure-cli
+```azurecli
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 az snapshot create \
     -g myResourceGroup \
@@ -103,13 +103,13 @@ Crie um novo disco gerido a partir do instantâneo.
 
 Pegue a identificação da foto. Neste exemplo, o instantâneo chama-se *osDiskSnapshot* e está no grupo de recursos *myResourceGroup.*
 
-```azure-cli
+```azurecli
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)
 ```
 
 Crie o disco gerido. Neste exemplo, criaremos um disco gerido chamado *myManagedDisk* a partir do nosso instantâneo, onde o disco está em armazenamento padrão e dimensionado a 128 GB.
 
-```azure-cli
+```azurecli
 az disk create \
     --resource-group myResourceGroup \
     --name myManagedDisk \

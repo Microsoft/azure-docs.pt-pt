@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250988"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) permitem-lhe carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para a entrega de transmissões em fluxo, tanto a pedido, como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 
@@ -37,11 +37,11 @@ Este tópico mostra cenários comuns para entregar o seu conteúdo [ao vivo](#li
 
 Para começar a utilizar os Media Services do Azure, deve ter o seguinte:
 
-* Uma conta do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
+* Uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Media Services do Azure Para obter mais informações, consulte [Criar Conta](media-services-portal-create-account.md).
 * O ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
 
-    Quando a sua conta do AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, que está no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo tem de estar no estado **Em execução**.
+    Quando a sua conta AMS é criada, um ponto final de streaming **predefinido** é adicionado à sua conta no estado **Deter.** Para começar a transmitir o seu conteúdo em fluxo e tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo tem de estar no estado **Em execução**.
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Objetos utilizados normalmente no desenvolvimento com o modelo OData do AMS
 
@@ -104,7 +104,7 @@ Para obter informações sobre a disponibilidade em datacenters, veja a secção
     Se utilizar o localizador SAS, o conteúdo é transferido a partir do Blob Storage do Azure. Neste caso, não precisa de ter pontos finais de transmissão em fluxo no estado iniciado.
 4. Transferir progressivamente os conteúdos.
 
-## <a id="live_scenarios"></a>Entregar eventos de transmissão em fluxo 
+## <a name="delivering-live-streaming-events"></a><a id="live_scenarios"></a>Entregar eventos de transmissão em fluxo 
 
 1. Ingira conteúdos em direto com vários protocolos de transmissão em fluxo em direto (por exemplo, RTMP ou Smooth Streaming).
 2. (opcionalmente) Codifique a transmissão numa transmissão em fluxo de velocidade de transmissão adaptável.
@@ -143,7 +143,7 @@ Os Media Services do Azure fornecem as ferramentas necessárias para criar aplic
 
 Os Media Services suportam a integração com a CDN do Azure. Para obter mais informações sobre como ativar a CDN do Azure, consulte [Como Gerir Transmissão em Fluxo de Pontos Finais numa Conta de Media Services](media-services-portal-manage-streaming-endpoints.md).
 
-## <a id="scaling"></a>Dimensionar uma conta dos Serviços de Multimédia
+## <a name="scaling-a-media-services-account"></a><a id="scaling"></a>Escalar uma conta dos Media Services
 
 Os clientes do AMS podem dimensionar pontos finais de transmissões, o processamento de multimédia e o armazenamento nas respetivas contas do AMS.
 
@@ -151,17 +151,17 @@ Os clientes do AMS podem dimensionar pontos finais de transmissões, o processam
 
     Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Por predefinição, os clientes que têm os pontos finais de transmissão em fluxo **Premium** recebem uma unidade de transmissão em fluxo (SU). O ponto final de transmissão em fluxo pode ser dimensionado mediante a adição de mais SUs. Cada SU fornece capacidade de largura de banda adicional à aplicação. Para obter mais informações sobre o dimensionamento de pontos finais de transmissões em fluxo **Premium** veja o tópico [Scaling streaming endpoints](media-services-portal-scale-streaming-endpoints.md) (Dimensionar pontos finais de transmissões em fluxo).
 
-* As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher de entre os tipos de unidades reservadas **S1**, **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**.
+* As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher entre os seguintes tipos de unidades reservados: **S1,** **S2,** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**.
 
-    Para além de especificar o tipo de unidade reservada, pode especificar o aprovisionamento da sua conta com **Unidades Reservadas** (RUs). O número de RUs aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta.
+    Além de especificar o tipo de unidade reservado, pode especificar para fornecer a sua conta com **Unidades Reservadas** (RUs). O número de RUs aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta.
 
     >[!NOTE]
     >As RUs destinam-se a paralelizar todos os processamentos de multimédia, incluindo trabalhos de indexação com o Azure Media Indexer. No entanto, ao contrário da codificação, os trabalhos de indexação não são processados mais depressa com unidades reservadas mais rápidas.
 
-    Para obter mais informações, veja [Scale media processing](media-services-portal-scale-media-processing.md) (Dimensionar o processamento de multimédia).
+    Para mais informações consulte, Dimensione o [processamento dos meios de comunicação.](media-services-portal-scale-media-processing.md)
 * Também pode escalar a sua conta dos Media Services adicionando-lhe contas deo Storage. Cada conta do Storage está limitada a 500 TB. Para expandir o limite predefinido do seu armazenamento, pode optar por ligar várias contas do Storage numa única conta de Media Services. Para obter mais informações, veja [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md) (Gerir contas de armazenamento).
 
-## <a id="availability"></a> Disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
+## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a> Disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
 Esta secção mostra detalhes sobre a disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters.
 
@@ -225,7 +225,7 @@ Os Serviços de Multimédia do Microsoft Azure permite-lhe proteger os seus elem
 
 |Encriptação|Estado|Datacenters|
 |---|---|---| 
-|Armazenamento|GA|Todos|
+|Storage|GA|Todos|
 |Chaves AES-128|GA|Todos|
 |Fairplay|GA|Todos|
 |PlayReady|GA|Todos|

@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar e resolver problemas ao usar O Azure Cosmos DB .NET SDK
+title: Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 description: Utilize funcionalidades como a exploração madeireira do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas com problemas do Azure Cosmos DB ao utilizar .NET SDK.
 author: j82w
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 5f92d98630c6fb875babeb907f92732b0c24bb52
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137959"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao usar O Azure Cosmos DB .NET SDK
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 Este artigo abrange questões comuns, salções, passos de diagnóstico e ferramentas quando utiliza o [.NET SDK](sql-api-sdk-dotnet.md) com contas API Azure Cosmos DB SQL.
 O .NET SDK fornece representação lógica do lado do cliente para aceder à API Azure Cosmos DB SQL. Este artigo descreve as ferramentas e abordagens para o ajudar se encontrar problemas.
 
@@ -35,16 +35,16 @@ Veja a secção de [questões comuns e de suposições](#common-issues-workaroun
 Verifique a secção de problemas do [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) que está monitorizada ativamente. Verifique se algum problema semelhante com uma suverjás já está arquivado. Se não encontrou uma solução, então arquiva um problema gitHub. Pode abrir um carraça de apoio para questões urgentes.
 
 
-## <a name="common-issues-workarounds"></a>Questões comuns e suposições
+## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problemas comuns e soluções
 
 ### <a name="general-suggestions"></a>Sugestões gerais
 * Execute a sua aplicação na mesma região do Azure que a sua conta Azure Cosmos DB, sempre que possível. 
 * Pode encontrar problemas de conectividade/disponibilidade devido à falta de recursos na sua máquina cliente. Recomendamos monitorizar a sua utilização de CPU em nós que executam o cliente Da BD Azure Cosmos, e escalar/sair se estiverem a funcionar a alta carga.
 
 ### <a name="check-the-portal-metrics"></a>Verifique as métricas do portal
-Verificar as [métricas](monitor-accounts.md) do portal ajudará a determinar se é um problema do lado do cliente ou se há algum problema com o serviço. Por exemplo, se as métricas contiverem uma elevada taxa de pedidos limitados de taxas (código de estado HTTP 429), o que significa que o pedido está a ser acelerado, verifique a taxa de [Taxa de pedido muito grande] 
+Verificar as [métricas](monitor-accounts.md) do portal ajudará a determinar se é um problema do lado do cliente ou se há algum problema com o serviço. Por exemplo, se as métricas contiverem uma elevada taxa de pedidos limitados de taxas (código de estado HTTP 429), o que significa que o pedido está a ser acelerado, verifique a taxa de [pedido demasiado grande.] 
 
-### <a name="request-timeouts"></a>Pedidos de intervalos
+### <a name="requests-timeouts"></a><a name="request-timeouts"></a>Pedidos de intervalos
 RequestTimeout geralmente acontece quando se utiliza Direct/TCP, mas pode acontecer no modo Gateway. Estes erros são as causas conhecidas comuns, e sugestões sobre como corrigir o problema.
 
 * A utilização do CPU é elevada, o que causará tempo de latência e/ou pedido. O cliente pode escalar a máquina hospedeira para lhe dar mais recursos, ou a carga pode ser distribuída por mais máquinas.
@@ -59,10 +59,10 @@ RequestTimeout geralmente acontece quando se utiliza Direct/TCP, mas pode aconte
         * Tente escalar a aplicação para cima/para fora.
         * Além disso, os registos SDK podem ser capturados através do [Trace Listener](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) para obter mais detalhes.
 
-### <a name="high-network-latency"></a>Latência de alta rede
+### <a name="high-network-latency"></a><a name="high-network-latency"></a>Latência de alta rede
 A latência de alta rede pode ser identificada utilizando a cadeia de [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) no V2 SDK ou [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) em V3 SDK.
 
-Se não houver [tempo sem tempo](#request-timeouts) e os diagnósticos mostrarem pedidos individuais em que a elevada latência é evidente na diferença entre `ResponseTime` e `RequestStartTime`, como assim (>300 milissegundos neste exemplo):
+Se não houver [tempo limites](#request-timeouts) e os diagnósticos mostrarem pedidos únicos em `ResponseTime` `RequestStartTime`que a elevada latência é evidente na diferença entre e, como tal (>300 milissegundos neste exemplo):
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
@@ -78,7 +78,7 @@ Esta latência pode ter múltiplas causas:
     * Ativar [a rede acelerada numa máquina virtual existente.](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms)
     * Considere usar uma [máquina virtual de ponta superior.](../virtual-machines/windows/sizes.md)
 
-### <a name="snat"></a>Exaustão da porta Azure SNAT (PAT)
+### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Exaustão da porta Azure SNAT (PAT)
 
 Se a sua aplicação for implantada em [Máquinas Virtuais Azure sem um endereço IP público,](../load-balancer/load-balancer-outbound-connections.md#defaultsnat)por padrão as [portas Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) estabelecem ligações a qualquer ponto final fora do seu VM. O número de ligações permitidas desde o VM até ao ponto final do Azure Cosmos DB é limitado pela [configuração Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Esta situação pode levar a estrangulamentos de ligação, encerramento de ligação ou os intervalos de pedidos acima [mencionados.](#request-timeouts)
 
@@ -90,10 +90,10 @@ Se a sua aplicação for implantada em [Máquinas Virtuais Azure sem um endereç
 * Atribua um [IP público ao seu Azure VM](../load-balancer/load-balancer-outbound-connections.md#assignilpip).
 
 ### <a name="http-proxy"></a>Procuração HTTP
-Se utilizar um representante http, certifique-se de que pode suportar o número de ligações configuradas no SDK `ConnectionPolicy`.
+Se utilizar um representante http, certifique-se de que pode suportar o `ConnectionPolicy`número de ligações configuradas no SDK .
 Caso contrário, enfrentas problemas de ligação.
 
-### <a name="request-rate-too-large"></a>Taxa de pedido muito grande
+### <a name="request-rate-too-large"></a><a name="request-rate-too-large"></a>Taxa de pedido muito grande
 A "taxa de pedido demasiado grande" ou o código de erro 429 indica que os seus pedidos estão a ser acelerados, porque a entrada consumida (RU/s) excedeu a [entrada prevista](set-throughput.md). O SDK irá automaticamente rejulgar os pedidos com base na política de [retry](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet)especificada . Se tiver esta falha com frequência, considere aumentar a entrada na coleção. Verifique as [métricas do portal](use-metrics.md) para ver se está a ter 429 erros. Reveja a [sua chave de partição](partitioning-overview.md#choose-partitionkey) para garantir que resulta numa distribuição uniforme do armazenamento e do volume de pedidos. 
 
 ### <a name="slow-query-performance"></a>Desempenho de consulta lenta

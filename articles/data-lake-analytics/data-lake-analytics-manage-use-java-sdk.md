@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Azure Data Lake Analytics usando o SDK do Java do Azure
-description: Este artigo descreve como usar o SDK do Java do Azure para escrever aplicativos que gerenciam Data Lake Analytics trabalhos, fontes de dados & usuários.
+title: Gerencie o Azure Data Lake Analytics usando o Azure Java SDK
+description: Este artigo descreve como usar o Azure Java SDK para escrever aplicações que gerem empregos de Data Lake Analytics, fontes de dados, & utilizadores.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,30 +10,30 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70813631"
 ---
-# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerenciar Azure Data Lake Analytics usando um aplicativo Java
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerencie o Azure Data Lake Analytics usando uma aplicação Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Este artigo descreve como gerenciar contas de Azure Data Lake Analytics, fontes de dados, usuários e trabalhos usando um aplicativo escrito usando o SDK do Java do Azure. 
+Este artigo descreve como gerir contas de Azure Data Lake Analytics, fontes de dados, utilizadores e empregos usando uma aplicação escrita usando o Azure Java SDK. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Java Development Kit (JDK) 8** (usando a versão 1,8 do Java).
-* **IntelliJ** ou outro ambiente de desenvolvimento Java adequado. As instruções neste documento usam IntelliJ.
-* Criar uma aplicação do Azure Active Directory (AAD) e obtenha o **ID de Cliente**, o **ID do Inquilino** e a **Chave**. Para mais informações sobre as aplicações do AAD e instruções sobre como obter um ID de cliente, consulte [Criar aplicação e serviço principal do Active Directory utilizando o portal](../active-directory/develop/howto-create-service-principal-portal.md). O URI de resposta e a chave estarão disponíveis no portal depois que o aplicativo for criado e a chave for gerada.
+* **Kit de Desenvolvimento Java (JDK) 8** (utilizando a versão Java 1.8).
+* **IntelliJ** ou outro ambiente de desenvolvimento adequado de Java. As instruções deste documento utilizam o IntelliJ.
+* Criar uma aplicação do Azure Active Directory (AAD) e obtenha o **ID de Cliente**, o **ID do Inquilino** e a **Chave**. Para mais informações sobre as aplicações do AAD e instruções sobre como obter um ID de cliente, consulte [Criar aplicação e serviço principal do Active Directory utilizando o portal](../active-directory/develop/howto-create-service-principal-portal.md). O Answer URI and Key está disponível no portal assim que tiver a aplicação criada e a chave gerada.
 
-## <a name="authenticating-using-azure-active-directory"></a>Autenticando usando Azure Active Directory
+## <a name="authenticating-using-azure-active-directory"></a>Autenticação usando o Diretório Ativo Azure
 
-O trecho de código a seguir fornece código para autenticação **não interativa** , onde o aplicativo fornece suas próprias credenciais.
+O código que se segue ao snippet fornece código para autenticação **não interativa,** onde a aplicação fornece as suas próprias credenciais.
 
 ## <a name="create-a-java-application"></a>Criar uma aplicação Java
-1. Abra IntelliJ e crie um projeto Java usando o modelo de **aplicativo de linha de comando** .
+1. Abra o IntelliJ e crie um projeto Java utilizando o modelo **de aplicação de linha de comando.**
 2. Clique com o botão direito no lado esquerdo do ecrã e clique em **Adicionar Suporte para Framework**. Escolha **Maven** e clique em **OK**.
-3. Abra o ficheiro **"pom.xml"** recentemente criado e adicione o seguinte fragmento de texto entre a etiqueta **\</version >** e a etiqueta **\</project >** :
+3. Abra o ficheiro **"pom.xml"** recentemente criado e adicione o seguinte fragmento de texto entre a etiqueta **\</version >** e a etiqueta **\</project >**:
 
 ```
 <dependencies>
@@ -76,9 +76,9 @@ O trecho de código a seguir fornece código para autenticação **não interati
 </dependencies>
 ```
 
-Vá para **arquivo > configurações > Build > execução > implantação**. Selecione **ferramentas de compilação > Maven > importando**. Em seguida, marque **Importar projetos Maven automaticamente**.
+Vá para **configurações de > de ficheiros > construir > implementação de > de execução**. Selecione **Ferramentas de construção > Maven > Importing**. Em seguida, verifique **automaticamente os projetos Import Maven**.
 
-Abra `Main.java` e substitua o bloco de código existente pelo código a seguir:
+Abra `Main.java` e substitua o bloco de código existente pelo seguinte código:
 
 ```java
 import com.microsoft.azure.CloudException;
@@ -307,7 +307,7 @@ public class Main {
 }
 ```
 
-Forneça os valores para parâmetros chamados no trecho de código:
+Fornecer os valores dos parâmetros chamados no código:
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`
@@ -320,5 +320,5 @@ Forneça os valores para parâmetros chamados no trecho de código:
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre U-SQL, consulte [Introdução à linguagem U-SQL de Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md) e [Referência de linguagem U-SQL](https://docs.microsoft.com/u-sql/).
-* Para tarefas de gestão, veja [Manage Azure Data Lake Analytics using Azure portal (Gerir o Azure Data Lake Analytics com o Portal do Azure)](data-lake-analytics-manage-use-portal.md).
+* Para tarefas de gestão, consulte [Manage Azure Data Lake Analytics utilizando o portal Azure](data-lake-analytics-manage-use-portal.md).
 * Para uma descrição geral da Data Lake Analytics, consulte [Descrição geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).

@@ -9,10 +9,10 @@ ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77179008"
 ---
 A utilização de VMs spot permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. A qualquer momento em que o Azure precise de capacidade de volta, a infraestrutura Azure despejará VMs spot. Por isso, os VMs spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes de v/teste, grandes cargas de trabalho de computação, e muito mais.
@@ -21,7 +21,7 @@ A quantidade de capacidade disponível pode variar em função do tamanho, regi�
 
 > [!IMPORTANT]
 > Os casos de spot estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 >
 
 ## <a name="eviction-policy"></a>Política de despejo
@@ -34,12 +34,12 @@ Os utilizadores podem optar por receber notificações in-VM através de [Evento
 | Opção | Resultado |
 |--------|---------|
 | O preço máximo está definido para >= o preço atual. | A VM é implantada se a capacidade e a quota estiverem disponíveis. |
-| O preço máximo está definido para o preço atual. | O VM não está implantado. Receberá uma mensagem de erro que o preço máximo tem de ser >= preço atual. |
+| O preço máximo está definido para < o preço atual. | O VM não está implantado. Receberá uma mensagem de erro de que o preço máximo precisa de ser >= preço atual. |
 | Reiniciar um VM stop/desalocado se o preço máximo for >= o preço atual | Se houver capacidade e quota, então o VM é implantado. |
-| Reiniciar um VM stop/desalocado se o preço máximo for < o preço atual | Receberá uma mensagem de erro que o preço máximo tem de ser >= preço atual. | 
-| O preço para o VM subiu e é agora > o preço máximo. | O VM é despejado. Recebes uma notificação dos anos 30 antes do despejo real. | 
+| Reiniciar um VM stop/desalocado se o preço máximo for < o preço atual | Receberá uma mensagem de erro de que o preço máximo precisa de ser >= preço atual. | 
+| O preço do VM subiu e está agora > o preço máximo. | O VM é despejado. Recebes uma notificação dos anos 30 antes do despejo real. | 
 | Após o despejo, o preço do VM volta a ser < o preço máximo. | O VM não será automaticamente reiniciado. Você pode reiniciar o VM por si mesmo, e será cobrado ao preço atual. |
-| Se o preço máximo for definido para `-1` | O VM não será despejado por razões de preços. O preço máximo será o preço atual, até ao preço dos VMs padrão. Nunca será cobrado acima do preço normal.| 
+| Se o preço máximo for definido para`-1` | O VM não será despejado por razões de preços. O preço máximo será o preço atual, até ao preço dos VMs padrão. Nunca será cobrado acima do preço normal.| 
 | Alteração do preço máximo | Precisa de desalojar o VM para alterar o preço máximo. Deslocar o VM, definir um novo preço máximo e, em seguida, atualizar o VM. |
 
 ## <a name="limitations"></a>Limitações
@@ -57,7 +57,7 @@ Os VMs spot podem ser implantados em qualquer região, exceto o Microsoft Azure 
 Os preços dos VMs spot são variáveis, com base na região e no SKU. Para mais informações, consulte os preços vm para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
 
-Com preços variáveis, você tem opção de definir um preço máximo, em dólares americanos (USD), usando até 5 lugares decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se fixar o preço máximo a `-1`, o VM não será despejado com base no preço. O preço do VM será o preço atual para o local ou o preço de um VM padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis.
+Com preços variáveis, você tem opção de definir um preço máximo, em dólares americanos (USD), usando até 5 lugares decimais. Por exemplo, `0.98765`o valor seria um preço máximo de $0.98765 USD por hora. Se fixar o preço `-1`máximo para ser, o VM não será despejado com base no preço. O preço do VM será o preço atual para o local ou o preço de um VM padrão, o que sempre é menor, desde que haja capacidade e quota disponíveis.
 
 
 ##  <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -74,7 +74,7 @@ Com preços variáveis, você tem opção de definir um preço máximo, em dóla
 
 **Q:** Como é gerida a quota para VMs spot?
 
-**A:** Os Spot VMs terão um pool de quotas separado. A quota spot será partilhada entre VMs e instâncias de escala. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** Os Spot VMs terão um pool de quotas separado. A quota spot será partilhada entre VMs e instâncias de escala. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 **Q:** Posso pedir quota adicional para o Spot?
@@ -91,16 +91,16 @@ Com preços variáveis, você tem opção de definir um preço máximo, em dóla
 | Canais Azure               | Disponibilidade de VMs spot azure       |
 |------------------------------|-----------------------------------|
 | Contrato Enterprise         | Sim                               |
-| Pague à medida que for                | Sim                               |
+| Pay As You Go                | Sim                               |
 | Provedor de Serviço sinuoso (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Vantagens                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |
-| Julgamento Gratuito                   | Não disponível                     |
+| Avaliação Gratuita                   | Não disponível                     |
 
 
 **Q:** Onde posso fazer perguntas?
 
-**A:** Pode publicar e marcar a sua pergunta com `azure-spot` na [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** Pode publicar e marcar `azure-spot` a sua pergunta no [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 
 

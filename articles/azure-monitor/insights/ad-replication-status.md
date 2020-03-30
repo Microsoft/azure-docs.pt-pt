@@ -1,17 +1,17 @@
 ---
-title: Monitor Ativo de replicação de diretório com Monitor Azure / Microsoft Docs
+title: Monitor ativo estatuto de replicação do Diretório
 description: O pacote de solução Ative Directory Replication Status monitoriza regularmente o seu ambiente de Diretório Ativo para eventuais falhas de replicação.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: bfc9572e8b21692a386c510ffd3409c571eff8f4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77667181"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055904"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitor ativo de replicação de diretório com monitor Azure
 
@@ -41,7 +41,7 @@ Se não quiser ligar nenhum dos seus controladores de domínio diretamente ao Mo
 
 1. Verifique se o computador é um membro do domínio que pretende monitorizar utilizando a solução DeEstatuto de Replicação AD.
 2. [Ligue o computador Windows ao Monitor Azure](../../azure-monitor/platform/om-agents.md) ou [conecte-o utilizando o ambiente do Gestor de Operações existente ao Monitor Azure](../../azure-monitor/platform/om-agents.md), caso não esteja já ligado.
-3. Nesse computador, detete a seguinte chave de registo:<br>Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valor: **IsTarget**<br>Dados de Valor: **verdadeiro**
+3. Nesse computador, detete a seguinte chave de registo:<br>Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parâmetros\Management\<GroupName>\Solutions\ADReplication**<br>Valor: **IsTarget**<br>Dados de Valor: **verdadeiro**
 
    > [!NOTE]
    > Estas alterações não entram em vigor até reiniciar o serviço do Microsoft Monitoring Agent (HealthService.exe).
@@ -52,7 +52,9 @@ Se não quiser ligar nenhum dos seus controladores de domínio diretamente ao Mo
 ## <a name="ad-replication-status-data-collection-details"></a>Dados da recolha de dados do Estado de Replicação aD
 O quadro seguinte mostra métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Estado de Replicação de AD.
 
-| Plataforma | Agente Direto | Agente do SCOM | Storage do Azure | SCOM necessário? | Dados de agente do SCOM enviados através do grupo de gestão | Frequência de recolha |
+| 
+    da Microsoft
+   | Agente Direto | Agente SCOM | Storage do Azure | SCOM necessário? | Dados do agente SCOM enviados através de grupo de gestão | frequência de recolha |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |a cada cinco dias |
 
@@ -67,7 +69,7 @@ O azulejo do Estado de Replicação AD mostra quantos erros de replicação tem 
 ![Azulejo do Estado de Replicação AD](./media/ad-replication-status/oms-ad-replication-tile.png)
 
 Ao clicar no azulejo, pode ver mais informações sobre os erros.
-![](./media/ad-replication-status/oms-ad-replication-dash.png) do painel de instrumentos de replicação de anúncios
+![Painel de instrumentos de estado de replicação ad](./media/ad-replication-status/oms-ad-replication-dash.png)
 
 ### <a name="destination-server-status-and-source-server-status"></a>Estado do servidor de destino e estado do servidor de origem
 Estas colunas mostram o estado dos servidores de destino e servidores de origem que estão a experimentar erros de replicação. O número após cada nome do controlador de domínio indica o número de erros de replicação nesse controlador de domínio.

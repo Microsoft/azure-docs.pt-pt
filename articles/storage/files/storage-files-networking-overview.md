@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 09d7f93c7a1d8ad9e567ecfe0bb3854d9d54f6e0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597750"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067156"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de networking de Ficheiros Azure 
 Pode ligar-se a uma participação de ficheiros Azure de duas formas:
@@ -22,7 +22,9 @@ Pode ligar-se a uma participação de ficheiros Azure de duas formas:
 
 Este artigo centra-se em como configurar a rede para quando o seu caso de utilização pede acesso diretamente à partilha de ficheiros Azure em vez de utilizar o Azure File Sync. Para obter mais informações sobre considerações de networking para uma implementação de Sincronização de Ficheiros Azure, consulte [configurar as definições](storage-sync-files-firewall-and-proxy.md)de proxy e firewall do Ficheiro Azure .
 
-A configuração de rede para as ações de ficheiros Azure é feita na conta de armazenamento Azure. Uma conta de armazenamento é uma construção de gestão que representa um conjunto partilhado de armazenamento no qual você pode implementar várias ações de arquivo, bem como outros recursos de armazenamento, tais como recipientes de bolhas ou filas. As contas de armazenamento expõem várias configurações que o ajudam a garantir o acesso à rede às suas partilhas de ficheiros: pontos finais de rede, definições de firewall de conta de armazenamento e encriptação em trânsito.
+A configuração de rede para as ações de ficheiros Azure é feita na conta de armazenamento Azure. Uma conta de armazenamento é uma construção de gestão que representa um conjunto partilhado de armazenamento no qual você pode implementar várias ações de arquivo, bem como outros recursos de armazenamento, tais como recipientes de bolhas ou filas. As contas de armazenamento expõem várias configurações que o ajudam a garantir o acesso à rede às suas partilhas de ficheiros: pontos finais de rede, definições de firewall de conta de armazenamento e encriptação em trânsito. 
+
+Recomendamos a leitura de Planeamento para uma implementação de [Ficheiros Azure](storage-files-planning.md) antes de ler este guia conceptual.
 
 ## <a name="accessing-your-azure-file-shares"></a>Aceder às suas ações de ficheiros Azure
 Quando implementa uma parte de ficheiro Azure dentro de uma conta de armazenamento, a sua parte de ficheiro é imediatamente acessível através do ponto final da conta de armazenamento. Isto significa que os pedidos autenticados, tais como pedidos autorizados pela identidade de logon de um utilizador, podem originar-se de forma segura dentro ou fora do Azure. 
@@ -32,7 +34,7 @@ Em muitos ambientes de clientes, uma primeira parte do ficheiro Azure na sua est
 Uma vez que a forma mais fácil de aceder à sua quota de ficheiros Azure a partir do local é abrir a sua rede no local para a porta 445, a Microsoft recomenda os seguintes passos para remover o SMB 1.0 do seu ambiente:
 
 1. Certifique-se de que o SMB 1.0 é removido ou desativado nos dispositivos da sua organização. Todas as versões suportadas atualmente do Windows e do Windows Server suportam a remoção ou desativação do SMB 1.0 e, a começar pelo Windows 10, a versão 1709, o SMB 1.0 não está instalado no Windows por padrão. Para saber mais sobre como desativar o SMB 1.0, consulte as nossas páginas específicas do OS:
-    - [Titular o Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
+    - [Proteger o Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
     - [Assegurar o Linux](storage-how-to-use-files-linux.md#securing-linux)
 2. Certifique-se de que nenhum produto dentro da sua organização requer SMB 1.0 e remova os que o fazem. Mantemos um [SMB1 Product Clearinghouse,](https://aka.ms/stillneedssmb1)que contém todos os produtos de primeira e terceira suposição conhecidas pela Microsoft para exigir SMB 1.0. 
 3. (Opcional) Utilize uma firewall de terceiros com a rede no local da sua organização para evitar que o tráfego SMB 1.0 saia do limite organizacional.
@@ -66,19 +68,21 @@ A utilização de pontos finais privados com Ficheiros Azure permite-lhe:
 - Proteja as suas ações de ficheiro Azure configurando a firewall da conta de armazenamento para bloquear todas as ligações no ponto final público. Por predefinição, a criação de um ponto final privado não bloqueia as ligações ao ponto final público.
 - Aumente a segurança da rede virtual, permitindo bloquear a exfiltração de dados da rede virtual (e peering limites).
 
+Para criar um ponto final privado, consulte [configurar pontos finais privados para Ficheiros Azure](storage-files-networking-endpoints.md).
+
 ### <a name="private-endpoints-and-dns"></a>Pontos finais privados e DNS
-Quando cria um ponto final privado, por padrão também criamos uma (ou atualizar uma zona privada de DNS existente) correspondente ao subdomínio `privatelink`. Em rigor, a criação de uma zona privada de DNS não é necessária para utilizar um ponto final privado para a sua conta de armazenamento, mas é altamente recomendado em geral e explicitamente necessário ao montar a sua partilha de ficheiros Azure com um diretor de diretório ativo ou aceder da API FileREST.
+Quando cria um ponto final privado, por padrão também criamos uma (ou atualizar `privatelink` uma zona privada de DNS existente) correspondente ao subdomínio. Em rigor, a criação de uma zona privada de DNS não é necessária para utilizar um ponto final privado para a sua conta de armazenamento, mas é altamente recomendado em geral e explicitamente necessário ao montar a sua partilha de ficheiros Azure com um diretor de diretório ativo ou aceder da API FileREST.
 
 > [!Note]  
 > Este artigo utiliza a conta de armazenamento DNS sufixo para as regiões públicas de Azure, `core.windows.net`. Este comentário também se aplica às nuvens soberanas do Azure, como a nuvem do Governo dos EUA azure e a nuvem azure china - apenas substitua os sufixos apropriados para o seu ambiente. 
 
-Na sua zona privada de DNS, criamos um registo A para `storageaccount.privatelink.file.core.windows.net` e um registo CNAME para o nome regular da conta de armazenamento, que segue o padrão `storageaccount.file.core.windows.net`. Uma vez que a sua zona Privada DeNs Azure está ligada à rede virtual que contém o ponto final privado, pode observar a configuração DNS quando, através da chamada `Resolve-DnsName` cmdlet da PowerShell num VM Azure (alternadamente `nslookup` no Windows e Linux):
+Na sua zona privada de DNS, `storageaccount.privatelink.file.core.windows.net` criamos um registo A e um registo CNAME `storageaccount.file.core.windows.net`para o nome regular da conta de armazenamento, que segue o padrão . Uma vez que a sua zona Privada DeNs Azure está ligada à rede virtual que `Resolve-DnsName` contém o ponto final privado, pode observar `nslookup` a configuração DNS quando ligar para o cmdlet da PowerShell num Azure VM (alternadamente no Windows e Linux):
 
 ```powershell
 Resolve-DnsName -Name "storageaccount.file.core.windows.net"
 ```
 
-Por este exemplo, a conta de armazenamento `storageaccount.file.core.windows.net` se resolve com o endereço IP privado do ponto final privado, que por acaso é `192.168.0.4`.
+Por este exemplo, `storageaccount.file.core.windows.net` a conta de armazenamento resolve-se com o endereço `192.168.0.4`IP privado do ponto final privado, que por acaso é .
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -105,7 +109,7 @@ TimeToExpiration       : 2419200
 DefaultTTL             : 300
 ```
 
-Se executar o mesmo comando a partir do local, verá que o mesmo nome da conta de armazenamento se resolve para o endereço IP público da conta de armazenamento; `storageaccount.file.core.windows.net` é um registo CNAME para `storageaccount.privatelink.file.core.windows.net`, que por sua vez é um recorde CNAME para o cluster de armazenamento Azure que acolhe a conta de armazenamento:
+Se executar o mesmo comando a partir do local, verá que o mesmo nome da conta de armazenamento se resolve para o endereço IP público da conta de armazenamento; `storageaccount.file.core.windows.net` é um registo `storageaccount.privatelink.file.core.windows.net`CNAME para, que por sua vez é um registo CNAME para o cluster de armazenamento Azure que acolhe a conta de armazenamento:
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -124,9 +128,9 @@ IP4Address : 52.239.194.40
 
 Isto reflete o facto de a conta de armazenamento poder expor tanto o ponto final público como um ou mais pontos finais privados. Para garantir que o nome da conta de armazenamento se resolve no endereço IP privado do ponto final privado, deve alterar a configuração dos seus servidores DNS no local. Isto pode ser realizado de várias maneiras:
 
-- Modificar o ficheiro dos anfitriões nos seus clientes para que `storageaccount.file.core.windows.net` resolva o endereço IP privado do ponto final pretendido. Isto é fortemente desencorajado para ambientes de produção, uma vez que você precisará fazer estas alterações a todos os clientes que queiram montar as suas ações de ficheiro Saque e alterações na conta de armazenamento ou ponto final privado não serão tratados automaticamente.
-- Criar um registo para `storageaccount.file.core.windows.net` nos seus servidores DNS no local. Isto tem a vantagem de que os clientes no seu ambiente no local serão capazes de resolver automaticamente a conta de armazenamento sem precisar de configurar cada cliente, no entanto esta solução é igualmente frágil para modificar o ficheiro dos anfitriões porque as alterações não são refletido. Embora esta solução seja frágil, pode ser a melhor escolha para alguns ambientes.
-- Encaminhar a zona `core.windows.net` dos seus servidores DNS no local para a sua zona DNS privada Azure. O anfitrião Privado DNS azure pode ser alcançado através de um endereço IP especial (`168.63.129.16`) que só é acessível dentro de redes virtuais que estão ligadas à zona Privada DeNs do Azure. Para contornar esta limitação, pode executar servidores DNS adicionais dentro da sua rede virtual que irão encaminhar `core.windows.net` para a zona Privada DNS do Azure. Para simplificar esta configuração, fornecemos cmdlets PowerShell que irão implantar automaticamente servidores DNS na sua rede virtual Azure e configurá-los como desejado.
+- Modificar o ficheiro dos anfitriões `storageaccount.file.core.windows.net` nos seus clientes para resolver o endereço IP privado do ponto final pretendido. Isto é fortemente desencorajado para ambientes de produção, uma vez que você precisará fazer estas alterações a todos os clientes que queiram montar as suas ações de ficheiro Saque e alterações na conta de armazenamento ou ponto final privado não serão tratados automaticamente.
+- Criar um registo `storageaccount.file.core.windows.net` para os seus servidores DNS no local. Isto tem a vantagem de que os clientes no seu ambiente no local serão capazes de resolver automaticamente a conta de armazenamento sem precisar de configurar cada cliente, no entanto esta solução é igualmente frágil para modificar o ficheiro dos anfitriões porque as alterações não são refletido. Embora esta solução seja frágil, pode ser a melhor escolha para alguns ambientes.
+- Encaminhar `core.windows.net` a zona dos seus servidores DNS no local para a sua zona DNS privada Azure. O anfitrião Privado DNS azure pode ser`168.63.129.16`alcançado através de um endereço IP especial ( ) que só é acessível dentro de redes virtuais que estão ligadas à zona Privada DeNs do Azure. Para contornar esta limitação, pode executar servidores DNS adicionais dentro da sua rede virtual que irão encaminhar-se `core.windows.net` para a zona Privada DNS do Azure. Para simplificar esta configuração, fornecemos cmdlets PowerShell que irão implantar automaticamente servidores DNS na sua rede virtual Azure e configurá-los como desejado. Para aprender a configurar o encaminhamento de DNS, consulte [Configurar DNS com Ficheiros Azure](storage-files-networking-dns.md).
 
 ## <a name="storage-account-firewall-settings"></a>Definições de firewall de conta de armazenamento
 Uma firewall é uma política de rede que controla quais os pedidos que são autorizados a aceder ao ponto final público para uma conta de armazenamento. Utilizando a firewall da conta de armazenamento, pode restringir o acesso ao ponto final da conta de armazenamento a determinados endereços ou gamas IP ou a uma rede virtual. Em geral, a maioria das políticas de firewall para uma conta de armazenamento restringirá o acesso em rede a uma ou mais redes virtuais. 
@@ -137,7 +141,7 @@ Existem duas abordagens para restringir o acesso a uma conta de armazenamento a 
 
 Para saber mais sobre como configurar a firewall da conta de armazenamento, consulte as firewalls de [armazenamento do Azure e as redes virtuais.](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
-## <a name="encryption-in-transit"></a>Encriptação em trânsito
+## <a name="encryption-in-transit"></a>Encriptação de dados em circulação
 Por padrão, todas as contas de armazenamento do Azure têm encriptação ativada em trânsito. Isto significa que quando montar uma partilha de ficheiros sobre SMB ou acedê-la através do protocolo FileREST (como por exemplo através do portal Azure, PowerShell/CLI ou Azure SDKs), o Azure Files só permitirá a ligação se for feita com SMB 3.0+ com encriptação ou HTTPS. Os clientes que não suportam SMB 3.0 ou clientes que suportem sMB 3.0 mas não encriptação SMB não serão capazes de montar a partilha de ficheiros Azure se a encriptação em trânsito estiver ativada. Para obter mais informações sobre quais os sistemas operativos suportam SMB 3.0 com encriptação, consulte a nossa documentação detalhada para [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md)e [Linux](storage-how-to-use-files-linux.md). Todas as versões atuais do PowerShell, CLI e SDKs suportam HTTPS.  
 
 Pode desativar a encriptação em trânsito para uma conta de armazenamento Azure. Quando a encriptação é desativada, o Azure Files também permitirá chamadas SMB 2.1, SMB 3.0 sem encriptação e chamadas API De FileREST não encriptadas sobre HTTP. A principal razão para desativar a encriptação em trânsito é para suportar uma aplicação antiga que deve ser executada num sistema operativo mais antigo, como o Windows Server 2008 R2 ou a distribuição linux mais antiga. O Azure Files apenas permite ligações SMB 2.1 dentro da mesma região azure que a quota de ficheiros Azure; um cliente SMB 2.1 fora da região Azure da quota de ficheiros Azure, como no local ou numa região do Azure diferente, não poderá aceder à partilha de ficheiros.
@@ -146,4 +150,4 @@ Para obter mais informações sobre encriptação em trânsito, consulte a neces
 
 ## <a name="see-also"></a>Consulte também
 - [Descrição geral dos Ficheiros do Azure](storage-files-introduction.md)
-- [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
+- [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)

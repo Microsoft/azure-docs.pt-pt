@@ -1,26 +1,26 @@
 ---
-title: Instalar pacotes no Jupyter notebooks – versão prévia do Azure Notebooks
-description: Saiba como instalar o Python, o R e F# pacotes de dentro de um notebook Jupyter em execução no Azure.
+title: Instale pacotes em cadernos Jupyter - Pré-visualização de cadernos Azure
+description: Aprenda a instalar pacotes Python, R e F# de dentro de um caderno Jupyter em execução no Azure.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646233"
 ---
-# <a name="install-packages-from-within-azure-notebooks-preview"></a>Instalar pacotes de dentro do Azure Notebooks versão prévia
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>Instale pacotes a partir de dentro da Pré-visualização de cadernos Azure
 
-Embora seja possível configurar o [ambiente para o bloco de notas no nível de projeto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), pode querer instalar pacotes diretamente dentro de um bloco de notas individual.
+Embora possa configurar o [ambiente para o seu caderno ao nível do projeto,](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)poderá querer instalar pacotes diretamente dentro de um caderno individual.
 
-Pacotes instalados do bloco de notas aplicam-se apenas para a atual sessão do servidor. Instalações de pacotes não são mantidas depois do servidor está a ser encerrado.
+Os pacotes instalados a partir do caderno aplicam-se apenas à sessão atual do servidor. As instalações do pacote não são persistidas uma vez que o servidor é desligado.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 
-Pacotes em Python podem ser instalados através do pip ou conda utilizando os comandos dentro das células de código:
+As embalagens em Python podem ser instaladas utilizando pip ou conda utilizando comandos dentro de células de código:
 
 ```bash
 !pip install <package_name>
@@ -28,17 +28,17 @@ Pacotes em Python podem ser instalados através do pip ou conda utilizando os co
 !conda install <package_name> -y
 ```
 
-Se a saída do comando indica que o requisito é satisfeito já, em seguida, blocos de notas do Azure pode incluir o pacote por predefinição. O pacote também pode ser instalado através de um [o passo de configuração do ambiente de projeto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
+Se a saída de comando indicar que a exigência já está satisfeita, então os Cadernos Azure podem incluir a embalagem por defeito. O pacote também pode ser instalado através de uma etapa de [configuração](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)do ambiente do projeto .
 
-## <a name="r"></a>R.
+## <a name="r"></a>R
 
-Os pacotes em R podem ser instalados de CRAN ou GitHub usando a função `install.packages` em uma célula de código:
+As embalagens em R podem ser instaladas `install.packages` a partir de CRAN ou GitHub utilizando a função numa célula de código:
 
 ```r
 install.packages("package_name")
 ```
 
-Você também pode instalar versões de pré-lançamento e outros pacotes de desenvolvimento do GitHub usando a biblioteca devtools:
+Também pode instalar versões pré-lançamento e outros pacotes de desenvolvimento do GitHub utilizando a biblioteca de devtools:
 
 ```r
 options(unzip = 'internal')
@@ -48,7 +48,7 @@ install_github('<user>/<repo>')
 
 ## <a name="f"></a>F#
 
-Pacotes no F# pode ser instalada a partir [nuget.org](https://www.nuget.org) chamando a dependência de Paket manager a partir de dentro das células de código. Primeiro, carregue o Gestor de Paket:
+Os pacotes em F# podem ser instalados a partir de [nuget.org,](https://www.nuget.org) ligando para o gestor de dependência paket de dentro de células de código. Primeiro, carregue o gerente do Paket:
 
 ```fsharp
 #load "Paket.fsx"
@@ -63,7 +63,7 @@ Paket.Package
   ]
 ```
 
-Em seguida, carregue o gerador de paket:
+Em seguida, carregue o gerador Paket:
 ```fsharp
 #load "Paket.Generated.Refs.fsx"
 ```
@@ -75,5 +75,5 @@ open MathNet.Numerics
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [Como: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)

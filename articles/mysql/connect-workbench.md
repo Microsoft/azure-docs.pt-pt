@@ -1,24 +1,24 @@
 ---
-title: Conectar-se usando o MySQL Workbench-banco de dados do Azure para MySQL
+title: Conecte-se usando a bancada mySQL - Base de dados Azure para MySQL
 description: Este Guia de introdução disponibiliza os passos para utilizar o MySQL Workbench para se ligar e consultar dados da Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 16218dcac2f0a4301b52b0efc54fc04ae39d5e22
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 9b6b4143ea2eeefcf0d0afbe281f7e27ca7794a1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770684"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067845"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o MySQL Workbench para se ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação do MySQL Workbench. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
+Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
 - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -28,7 +28,7 @@ Transfira e instale o MySQL Workbench no seu computador a partir do [site do MyS
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure.](https://portal.azure.com/)
 
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 
@@ -40,24 +40,24 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Ligar ao servidor com o MySQL Workbench 
 Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 
-1.  Inicie a aplicação MySQL Workbench no computador. 
+1.    Inicie a aplicação MySQL Workbench no computador. 
 
-2.  Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
+2.    Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
 
     ![configurar ligação nova](./media/connect-workbench/2-setup-new-connection.png)
 
     | **Definição** | **Valor sugerido** | **Descrição do campo** |
     |---|---|---|
-    |   Nome da Ligação | Ligação de Demonstração | Especifique uma etiqueta para esta ligação. |
+    |    Nome da Ligação | Ligação de Demonstração | Especifique uma etiqueta para esta ligação. |
     | Método de Ligação | Standard (TCP/IP) | Standard (TCP/IP) é suficiente. |
-    | Nome de anfitrião | *server name* | Especifique o valor de nome de servidor que foi utilizado quando criou a Base de Dados do Azure para MySQL anteriormente. O nosso servidor de exemplo mostrado é mydemoserver.mysql.database.azure.com. Utilize o nome de domínio completamente qualificado (\*.mysql.database.azure.com), conforme mostrado no exemplo. Siga os passos na secção anterior para obter as informações da ligação, se não se lembrar do nome do servidor.  |
+    | Nome de anfitrião | *nome do servidor* | Especifique o valor de nome de servidor que foi utilizado quando criou a Base de Dados do Azure para MySQL anteriormente. O nosso servidor de exemplo mostrado é mydemoserver.mysql.database.azure.com. Utilize o nome de domínio completamente qualificado (\*.mysql.database.azure.com), conforme mostrado no exemplo. Siga os passos na secção anterior para obter as informações da ligação, se não se lembrar do nome do servidor.  |
     | Porta | 3306 | Utilize sempre a porta 3306 para se ligar à Base de Dados do Azure para MySQL. |
-    | Nome de utilizador |  *nome de início de sessão de administrador do servidor* | Introduza o nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Base de Dados do Azure para MySQL anteriormente. O nosso nome de utilizador de exemplo é myadmin@mydemoserver. Siga os passos na secção anterior para obter as informações da ligação, se não se lembrar do nome de utilizador. O formato é *username\@ServerName*.
-    | Palavra-passe | a sua palavra-passe | Clique no botão **Armazenar no Cofre...** para guardar a palavra-passe. |
+    | Nome de utilizador |  *nome de login de administrador servidor* | Introduza o nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Base de Dados do Azure para MySQL anteriormente. O nosso nome de utilizador de exemplo é myadmin@mydemoserver. Siga os passos na secção anterior para obter as informações da ligação, se não se lembrar do nome de utilizador. O formato é nome de servidor de *nome\@de utilizador.*
+    | Palavra-passe | a sua palavra-passe | Clique **em Loja no Cofre...** botão para guardar a senha. |
 
 3.   Clique em **Testar Ligação** para testar se todos os parâmetros estão configurados corretamente. 
 
-4.   Clique em **OK** para guardar a ligação. 
+4.   Clique **em OK** para salvar a ligação. 
 
 5.   Na listagem das **Ligações do MySQL**, clique no mosaico correspondente ao seu servidor e, em seguida, aguarde que a ligação seja estabelecida.
 

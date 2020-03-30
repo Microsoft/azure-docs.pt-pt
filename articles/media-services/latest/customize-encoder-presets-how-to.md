@@ -1,6 +1,6 @@
 ---
-title: Codificar de transformação personalizada usando os serviços de multimédia v3 .NET - Azure | Documentos da Microsoft
-description: Este tópico mostra como utilizar serviços de multimédia do Azure v3 para codificar uma transformação personalizados usando o .NET.
+title: Transformação personalizada em código utilizando Media Services v3 .NET - Azure Microsoft Docs
+description: Este tópico mostra como usar o Azure Media Services v3 para codificar uma transformação personalizada usando .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,53 +9,53 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: seodec18
 ms.date: 05/03/2019
 ms.author: juliako
-ms.openlocfilehash: 2167a74dc81bdbb2562211cf5c0195a755941d9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seodec18
+ms.openlocfilehash: ebe701032e6416b3e007a28db62f5a8235bb1bb1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148339"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80068038"
 ---
-# <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizados - .NET
+# <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizada - .NET
 
-Ao codificar com os serviços de multimédia do Azure, pode começar a utilizar rapidamente com um dos pré-visualizando incorporada recomendado com base nas práticas recomendadas do setor, como demonstrado na [ficheiros de transmissão em fluxo](stream-files-tutorial-with-api.md) tutorial. Também pode criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino.
+Ao codificar com a Azure Media Services, pode começar rapidamente com uma das predefinições incorporadas recomendadas com base nas melhores práticas da indústria, como demonstrado no tutorial de [ficheiros streaming.](stream-files-tutorial-with-api.md) Também pode construir um preset personalizado para direcionar os seus requisitos específicos para o seu cenário ou dispositivo.
 
 ## <a name="considerations"></a>Considerações
 
-Ao criar configurações predefinidas personalizadas, aplicam-se as seguintes considerações:
+Ao criar predefinições personalizadas, aplicam-se as seguintes considerações:
 
-* Todos os valores para a altura e largura no conteúdo de AVC tem de ser um múltiplo de 4.
-* Em serviços de multimédia do Azure v3, todas as velocidades de transmissão de codificação são em bits por segundo. Isso é diferente de predefinições com nossas APIs v2, que utilizado kilobits por segundo, como a unidade. Por exemplo, se a velocidade de transmissão no v2 foi especificada como 128 (kilobits por segundo), na v3-la seria definido como 128000 (bits por segundo).
+* Todos os valores para a altura e largura no teor de AVC devem ser múltiplos de 4.
+* No Azure Media Services v3, todos os bitrates de codificação estão em bits por segundo. Isto é diferente dos presets com as nossas V2 APIs, que usavam quilobits/segundo como unidade. Por exemplo, se o bitrate em v2 fosse especificado como 128 (quilobits/segundo), em v3 seria fixado em 128000 (bits/segundo).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-[Criar uma conta de serviços de multimédia](create-account-cli-how-to.md)
+[Criar uma conta dos Media Services](create-account-cli-how-to.md)
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-Clone um repositório do GitHub que contém o exemplo completo do .NET Core para o seu computador com o seguinte comando:  
+Clone um repositório GitHub que contenha a amostra completa .NET Core para a sua máquina utilizando o seguinte comando:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials.git
  ```
  
-O exemplo predefinido personalizado está localizado no [EncodeCustomTransform](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/) pasta.
+A amostra predefinida personalizada está localizada na pasta [EncodeCustomTransform.](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/)
 
-## <a name="create-a-transform-with-a-custom-preset"></a>Criar uma transformação com uma configuração predefinida personalizada 
+## <a name="create-a-transform-with-a-custom-preset"></a>Criar uma transformação com um preset personalizado 
 
-Ao criar um novo [transformar](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar o que deseja produzir como saída. O parâmetro necessário é um objeto [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput), conforme apresentado no código abaixo. Cada **TransformOutput** contém uma **Predefinição**. O **predefinir** descreve as instruções passo a passo de operações de processamento de vídeo e/ou áudio que devem ser usados para gerar o pretendido **TransformOutput**. O seguinte procedimento **TransformOutput** cria definições personalizadas de codec e a camada da saída.
+Ao criar um novo [Transform,](https://docs.microsoft.com/rest/api/media/transforms)precisa especificar o que pretende que produza como uma saída. O parâmetro necessário é um objeto [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput), conforme apresentado no código abaixo. Cada **TransformOutput** contém uma **Predefinição**. O **Preset** descreve as instruções passo-a-passo das operações de processamento de vídeo e/ou áudio que devem ser utilizadas para gerar a **TransformOutput**desejada . O seguinte **TransformOutput** cria definições personalizadas de codec e de saída de camadas.
 
-Ao criar uma [Transformação](https://docs.microsoft.com/rest/api/media/transforms), primeiro deve verificar se já existe uma com o método **Get**, conforme apresentado no código que se segue. Em serviços de multimédia v3, **Obtenha** métodos em entidades retornar **nulo** se a entidade não existe (uma verificação de maiúsculas e minúsculas no nome).
+Ao criar uma [Transformação](https://docs.microsoft.com/rest/api/media/transforms), primeiro deve verificar se já existe uma com o método **Get**, conforme apresentado no código que se segue. Nos Serviços de Media v3, **obtenha** métodos sobre entidades que reempenem **o nulo** se a entidade não existir (uma verificação de caso insensível no nome).
 
 ### <a name="example"></a>Exemplo
 
-O exemplo seguinte define um conjunto de saídas que Desejamos sejam gerados quando essa transformação é utilizada. Primeiro, vamos adicionar uma camada de AacAudio para a codificação de áudio e de duas camadas de H264Video para a codificação de vídeo. As camadas de vídeo, podemos atribuir etiquetas para que possa ser utilizados em nomes de ficheiros de saída. Em seguida, queremos que a saída para incluir também miniaturas. No exemplo abaixo, podemos especificar imagens em formato PNG, gerado a 50% da resolução de vídeo de entrada e em três carimbos de data / - {25%, 50%, 75} de comprimento do vídeo de entrada. Por último, podemos especificar o formato para os ficheiros de saída – um para vídeo + áudio e outro para as miniaturas. Uma vez que temos várias H264Layers, temos de usar macros que produzem nomes exclusivos por camada. Podemos utilizar um `{Label}` ou `{Bitrate}` macro, o exemplo mostra o primeiro.
+O exemplo que se segue define um conjunto de saídas que queremos ser geradas quando este Transform é usado. Primeiro adicionamos uma camada AacAudio para a codificação de áudio e duas camadas H264Video para a codificação de vídeo. Nas camadas de vídeo, atribuímos etiquetas para que possam ser usadas nos nomes dos ficheiros de saída. Em seguida, queremos que a saída também inclua miniaturas. No exemplo abaixo especificamos imagens em formato PNG, geradas a 50% da resolução do vídeo de entrada, e em três selos de tempo - {25%, 50%, 75} do comprimento do vídeo de entrada. Por último, especificamos o formato para os ficheiros de saída - um para vídeo + áudio e outro para as miniaturas. Como temos vários H264Layers, temos que usar macros que produzem nomes únicos por camada. Podemos usar `{Label}` um `{Bitrate}` ou macro, o exemplo mostra o primeiro.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Ficheiros de transmissão em fluxo](stream-files-tutorial-with-api.md) 
+[Transmitir ficheiros em fluxo](stream-files-tutorial-with-api.md) 

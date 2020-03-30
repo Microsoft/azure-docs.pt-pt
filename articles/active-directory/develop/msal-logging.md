@@ -1,5 +1,5 @@
 ---
-title: Sessão de registo em aplicativos MSAL  Azure
+title: Sessão de registo em aplicativos MSAL [ Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre o registo nas aplicações da Microsoft Authentication Library (MSAL).
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 58697cc535357710c6889f05060b5e04e129ae7d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084889"
 ---
 # <a name="logging-in-msal-applications"></a>Registo em aplicações MSAL
@@ -39,19 +39,19 @@ Por padrão, o madeireiro MSAL não captura dados pessoais ou organizacionais al
 
 Para mais detalhes sobre o registo da MSAL numa determinada língua, escolha o separador que corresponde à sua língua:
 
-## <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 ## <a name="logging-in-msalnet"></a>Sessão de exploração madeireira em MSAL.NET
 
  > [!NOTE]
  > Veja o [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) para amostras de MSAL.NET exploração madeireira e muito mais.
 
-No MSAL 3.x, o registo é definido por aplicação na criação de aplicações utilizando o modificador `.WithLogging` construtor. Este método requer parâmetros opcionais:
+Em MSAL 3.x, o registo é definido `.WithLogging` por aplicação na criação de aplicações utilizando o modificador do construtor. Este método requer parâmetros opcionais:
 
-- `Level` permite-lhe decidir qual o nível de exploração que pretende. Defini-lo para Erros só vai ter erros
-- `PiiLoggingEnabled` permite registar dados pessoais e organizacionais se for em forma. Por predefinição, isto está definido como falso, para que a sua aplicação não faça login de dados pessoais.
-- `LogCallback` está definido para um delegado que faz a exploração madeireira. Se `PiiLoggingEnabled` for verdade, este método receberá as mensagens duas vezes: uma com o parâmetro `containsPii` é igual a falso e a mensagem sem dados pessoais, e uma segunda vez com o parâmetro `containsPii` é igual a verdadeiro e a mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contenha dados pessoais), a mensagem será a mesma.
-- `DefaultLoggingEnabled` permite o registo predefinido da plataforma. Por defeito é falso. Se o definir de forma verdadeira, utiliza O Rastreio de Eventos em aplicações Desktop/UWP, NSLog no iOS e logcat no Android.
+- `Level`permite-lhe decidir qual o nível de exploração que pretende. Defini-lo para Erros só vai ter erros
+- `PiiLoggingEnabled`permite-lhe registar dados pessoais e organizacionais se for definido como verdadeiro. Por predefinição, isto está definido como falso, para que a sua aplicação não faça login de dados pessoais.
+- `LogCallback`é definido para um delegado que faz a exploração madeireira. Se `PiiLoggingEnabled` for verdade, este método receberá as `containsPii` mensagens duas vezes: uma com o parâmetro é `containsPii` igual a falsa e a mensagem sem dados pessoais, e uma segunda vez com o parâmetro é igual a verdadeiro e a mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contenha dados pessoais), a mensagem será a mesma.
+- `DefaultLoggingEnabled`permite o registo predefinido para a plataforma. Por defeito é falso. Se o definir de forma verdadeira, utiliza O Rastreio de Eventos em aplicações Desktop/UWP, NSLog no iOS e logcat no Android.
 
 ```csharp
 class Program
@@ -80,16 +80,16 @@ class Program
  }
  ```
 
-## <a name="androidtabandroid"></a>[Android](#tab/android)
+## <a name="android"></a>[Android](#tab/android)
 
 ## <a name="logging-in-msal-for-android-using-java"></a>Sessão de login em MSAL para Android usando Java
 
 Ligue o login na criação de apps criando um callback de registo. A chamada leva estes parâmetros:
 
-- `tag` é uma corda passada à chamada pela biblioteca. Está associado à entrada de registo e pode ser usado para ordenar mensagens de registo.
-- `logLevel` permite-lhe decidir qual o nível de exploração que pretende. Os níveis de registo suportados são: `Error`, `Warning`, `Info`e `Verbose`.
-- `message` é o conteúdo da entrada de registo.
-- `containsPII` especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registadas. Por predefinição, isto está definido como falso, para que a sua aplicação não faça login de dados pessoais. Se `containsPII` for `true`, este método receberá as mensagens duas vezes: uma com o parâmetro `containsPII` definido para `false` e o `message` sem dados pessoais, e uma segunda vez com o parâmetro `containsPii` definido para `true` e a mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contenha dados pessoais), a mensagem será a mesma.
+- `tag`é uma corda passada para a chamada pela biblioteca. Está associado à entrada de registo e pode ser usado para ordenar mensagens de registo.
+- `logLevel`permite-lhe decidir qual o nível de exploração que pretende. Os níveis de registo `Error`suportados são: , `Warning`, `Info`e `Verbose`.
+- `message`é o conteúdo da entrada de registo.
+- `containsPII`especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registadas. Por predefinição, isto está definido como falso, para que a sua aplicação não faça login de dados pessoais. Se `containsPII` `true`for, este método receberá as mensagens duas vezes: `containsPII` uma com o parâmetro definido e `false` `true` `message` sem dados pessoais, e uma segunda vez com o `containsPii` parâmetro definido e a mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contenha dados pessoais), a mensagem será a mesma.
 
 ```java
 private StringBuilder mLogs;
@@ -124,14 +124,14 @@ Por predefinição do logcat é desativado. Para permitir:
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
-## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
- Ative o registo em MSAL.js (JavaScript) passando um objeto de logger durante a configuração para criar uma `UserAgentApplication` instância. Este objeto madeireiro tem as seguintes propriedades:
+ Ative o registo em MSAL.js (JavaScript) passando um `UserAgentApplication` objeto de logger durante a configuração para criar uma instância. Este objeto madeireiro tem as seguintes propriedades:
 
 - `localCallback`: uma instância de Callback que pode ser fornecida pelo desenvolvedor para consumir e publicar registos de forma personalizada. Implemente o método LocalCallback dependendo de como pretende redirecionar os registos.
-- `level` (opcional): o nível de registo configurável. Os níveis de registo suportados são: `Error`, `Warning`, `Info`e `Verbose`. A predefinição é `Info`.
-- `piiLoggingEnabled` (opcional): se for definido como verdadeiro, regista dados pessoais e organizacionais. Por predefinição, isto é falso para que a sua aplicação não faça login de dados pessoais. Os registos de dados pessoais nunca são escritos para saídas padrão como Consola, Logcat ou NSLog.
-- `correlationId` (opcional): um identificador único, utilizado para mapear o pedido com a resposta para fins de depuração. Predefinições da versão RFC4122 4 guia (128 bits).
+- `level`(opcional): o nível de registo configurável. Os níveis de registo `Error`suportados são: , `Warning`, `Info`e `Verbose`. A predefinição é `Info`.
+- `piiLoggingEnabled`(opcional): se for definido como verdadeiro, regista dados pessoais e organizacionais. Por predefinição, isto é falso para que a sua aplicação não faça login de dados pessoais. Os registos de dados pessoais nunca são escritos para saídas padrão como Consola, Logcat ou NSLog.
+- `correlationId`(opcional): um identificador único, utilizado para mapear o pedido com a resposta para fins de depuração. Predefinições da versão RFC4122 4 guia (128 bits).
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -156,7 +156,7 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ## <a name="msal-for-ios-and-macos-logging-objc"></a>MSAL para iOS e macOS logging-ObjC
 
@@ -194,7 +194,7 @@ Por exemplo:
 
 ### <a name="personal-data"></a>Dados pessoais
 
-Por predefinição, a MSAL não captura nem regista quaisquer dados pessoais (PII). A biblioteca permite que os desenvolvedores de aplicações liguem isto através de uma propriedade na classe MSALLogger. Ao ligar `pii.Enabled`, a app assume a responsabilidade de manusear dados altamente sensíveis e seguir os requisitos regulamentares.
+Por predefinição, a MSAL não captura nem regista quaisquer dados pessoais (PII). A biblioteca permite que os desenvolvedores de aplicações liguem isto através de uma propriedade na classe MSALLogger. Ao `pii.Enabled`ligar, a app assume a responsabilidade de manusear dados altamente sensíveis e seguir os requisitos regulamentares.
 
 ```objc
 // By default, the `MSALLogger` doesn't capture any PII
@@ -226,7 +226,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
  ### <a name="log-message-format"></a>Formato de mensagem de log
 
-A parte da mensagem das mensagens de registo MSAL está no formato de `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+A parte da mensagem das mensagens de registo MSAL está no formato de`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Por exemplo:
 
@@ -234,7 +234,7 @@ Por exemplo:
 
 Fornecer iDs de correlação e carimbos de tempo são úteis para rastrear problemas. A informação sobre o carimbo de tempo e a correlação de identificação estão disponíveis na mensagem de registo. O único lugar de confiança para recuperá-los é a partir de mensagens de registo da MSAL.
 
-## <a name="swifttabswift"></a>[Swift](#tab/swift)
+## <a name="swift"></a>[Swift](#tab/swift)
 
 ## <a name="msal-for-ios-and-macos-logging-swift"></a>MSAL para iOS e macOS logging-Swift
 
@@ -271,7 +271,7 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 
 ### <a name="personal-data"></a>Dados pessoais
 
-Por predefinição, a MSAL não captura nem regista quaisquer dados pessoais (PII). A biblioteca permite que os desenvolvedores de aplicações liguem isto através de uma propriedade na classe MSALLogger. Ao ligar `pii.Enabled`, a app assume a responsabilidade de manusear dados altamente sensíveis e seguir os requisitos regulamentares.
+Por predefinição, a MSAL não captura nem regista quaisquer dados pessoais (PII). A biblioteca permite que os desenvolvedores de aplicações liguem isto através de uma propriedade na classe MSALLogger. Ao `pii.Enabled`ligar, a app assume a responsabilidade de manusear dados altamente sensíveis e seguir os requisitos regulamentares.
 
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
@@ -303,7 +303,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>Formato de mensagem de log
 
-A parte da mensagem das mensagens de registo MSAL está no formato de `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+A parte da mensagem das mensagens de registo MSAL está no formato de`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Por exemplo:
 
@@ -311,7 +311,7 @@ Por exemplo:
 
 Fornecer iDs de correlação e carimbos de tempo são úteis para rastrear problemas. A informação sobre o carimbo de tempo e a correlação de identificação estão disponíveis na mensagem de registo. O único lugar de confiança para recuperá-los é a partir de mensagens de registo da MSAL.
 
-## <a name="javatabjava"></a>[Java](#tab/java)
+## <a name="java"></a>[Java](#tab/java)
 
 ## <a name="msal-for-java-logging"></a>MSAL para exploração madeireira de Java
 
@@ -350,7 +350,7 @@ Por predefinição, a exploração madeireira MSAL não captura nem regista quai
             .build();
 ```
 
-Ligue a registo de dados pessoais e organizacionais, definindo `logPii()` no construtor de aplicações do cliente. Se ligar o registo de dados pessoais ou organizacionais, a sua aplicação deve assumir a responsabilidade pelo tratamento seguro de dados altamente sensíveis e pelo cumprimento de quaisquer requisitos regulamentares.
+Ligue a registo de dados `logPii()` pessoais e organizacionais, fixando o construtor de aplicações do cliente. Se ligar o registo de dados pessoais ou organizacionais, a sua aplicação deve assumir a responsabilidade pelo tratamento seguro de dados altamente sensíveis e pelo cumprimento de quaisquer requisitos regulamentares.
 
 No exemplo seguinte, o registo de dados pessoais ou organizacionais está ativado:
 
@@ -361,11 +361,11 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .build();
 ```
 
-## <a name="pythontabpython"></a>[python](#tab/python)
+## <a name="python"></a>[Pitão](#tab/python)
 
 ## <a name="msal-for-python-logging"></a>MSAL para exploração madeireira Python
 
-O registo em MSAL Python utiliza o mecanismo padrão de exploração de python, por exemplo, `logging.info("msg")` Pode configurar a exploração madeireira MSAL da seguinte forma (e vê-la em ação no [username_password_sample):](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)
+O registo em MSAL Python utiliza o `logging.info("msg")` mecanismo padrão de exploração de python, por exemplo, pode configurar a exploração madeireira MSAL da seguinte forma (e vê-la em ação no [username_password_sample):](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)
 
 ### <a name="enable-debug-logging-for-all-modules"></a>Ativar a exploração de depuração para todos os módulos
 

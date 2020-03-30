@@ -1,5 +1,5 @@
 ---
-title: Utilize a autenticação Azure AD para aceder à API azure Media Services com .NET  Microsoft Docs
+title: Utilize a autenticação Azure AD para aceder à API azure Media Services com .NET [ Microsoft Docs
 description: Este tópico mostra como utilizar a autenticação Azure Ative Directory (Azure AD) para aceder à API Azure Media Services (AMS) com .NET.
 services: media-services
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b53fca292630ef988ee1357ea50adc4d7b7e9be5
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162884"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Utilize a autenticação Azure AD para aceder à API azure Media Services com .NET
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Começando pelo windowsazure.mediaservices 4.0.0.4, a Azure Media Services suporta a autenticação com base no Azure Ative Directory (Azure AD). Este tópico mostra como usar a autenticação Azure AD para aceder à API azure Media Services com a Microsoft .NET.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure. Para obter mais detalhes, veja [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Uma conta do Azure. Para mais detalhes, consulte [o teste gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) 
 - Uma conta dos Media Services. Para mais informações, consulte [Criar uma conta Azure Media Services utilizando o portal Azure](media-services-portal-create-account.md).
 - O mais recente pacote [NuGet.](https://www.nuget.org/packages/windowsazure.mediaservices)
 - Familiaridade com o tema [Accessing Azure Media Services API com visão geral da autenticação Azure AD.](media-services-use-aad-auth-to-access-ams-api.md) 
@@ -42,7 +42,7 @@ Quando estiver a utilizar a autenticação Azure AD com a Azure Media Services, 
 >[!IMPORTANT]
 >O Azure Media Service suporta atualmente um modelo de autenticação do Serviço de Controlo de Acesso Azure. No entanto, a autorização de Controlo de Acesso vai ser deprecinada no dia 22 de junho de 2018. Recomendamos que emigra para um modelo de autenticação de Diretório Ativo Azure o mais rapidamente possível.
 
-## <a name="get-an-azure-ad-access-token"></a>Obtenha um sinal de acesso a Anúncio Azure
+## <a name="get-an-azure-ad-access-token"></a>Obter um token de acesso do Azure AD
 
 Para ligar à API Azure Media Services com a autenticação Azure AD, a aplicação de clientes precisa de solicitar um sinal de acesso Azure AD. Quando utiliza o Cliente SDK dos Media Services .NET, muitos dos detalhes sobre como adquirir um token de acesso Azure AD são embrulhados e simplificados para si nas classes [AzureAdTokenProvider](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenProvider.cs) e [AzureAdTokenCredentials.](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenCredentials.cs) 
 
@@ -57,7 +57,7 @@ Também tem a opção de substituir a implementação padrão do **AzureAdTokenP
 >[!NOTE] 
 >Para utilizar a autenticação Azure AD com o Media Services .NET SDK, precisa de ter o mais recente pacote [NuGet.](https://www.nuget.org/packages/windowsazure.mediaservices) Além disso, adicione uma referência ao **conjunto Microsoft.IdentityModel.Clients.ActiveDirectory.** Se estiver a utilizar uma aplicação existente, inclua o **conjunto Microsoft.WindowsAzure.MediaServices.Client.Common.Common.Authentication.dll.** 
 
-1. Crie C# uma nova aplicação de consola no Estúdio Visual.
+1. Crie uma nova aplicação de consola C# no Estúdio Visual.
 2. Utilize o pacote NuGet [windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices) para instalar **o Azure Media Services .NET SDK**. 
 
     Para adicionar referências utilizando o NuGet, tome os seguintes passos: no **Solution Explorer,** clique no nome do projeto e, em seguida, selecione **'Gerir pacotes NuGet**' . Em seguida, procure **windowsazure.mediaservices** e selecione **Instalar**.

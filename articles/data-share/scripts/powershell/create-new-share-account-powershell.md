@@ -1,6 +1,6 @@
 ---
-title: 'Script do PowerShell: Criar nova conta de compartilhamento de dados do Azure | Microsoft Docs'
-description: Esse script do PowerShell cria uma nova conta de compartilhamento de dados.
+title: 'Script PowerShell: Criar nova conta Azure Data Share [ Microsoft Docs'
+description: Este script PowerShell cria uma nova conta Data Share.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: c3852dd5f1d3d3df8a982716ce5dab9426782869
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70307278"
 ---
-# <a name="use-powershell-to-create-a-data-share-account-in-azure"></a>Usar o PowerShell para criar uma conta de compartilhamento de dados no Azure
+# <a name="use-powershell-to-create-a-data-share-account-in-azure"></a>Use o PowerShell para criar uma conta de partilha de dados no Azure
 
-Esse script do PowerShell cria uma nova conta de compartilhamento de dados. 
+Este script PowerShell cria uma nova conta Data Share. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -38,11 +38,11 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [New-AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount?view=azps-2.6.0) | Cria uma conta de compartilhamento de dados. |
+| [New-AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount?view=azps-2.6.0) | Cria uma conta de partilha de dados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos adicionais de script do PowerShell do compartilhamento de dados do Azure podem ser encontrados nos [exemplos do PowerShell do compartilhamento de dados do Azure](../../samples-powershell.md).
+Amostras adicionais de script de partilha de dados azure PowerShell podem ser encontradas nas [amostras de PowerShell de partilha](../../samples-powershell.md)de dados do Azure .

@@ -1,17 +1,17 @@
 ---
-title: Funcionalidade de Monitor de Desempenho na solução Monitor de Desempenho da Rede no Azure Log Analytics  Microsoft Docs
+title: Monitor de Desempenho no Monitor de Desempenho da Rede
 description: A capacidade do Monitor de Desempenho no Monitor de Desempenho da Rede ajuda-o a monitorizar a conectividade da rede em vários pontos da sua rede. Você pode monitorizar implementações em nuvem e locais no local, vários centros de dados e filiais, e aplicações ou microserviços multimais críticos da missão.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dfbc4ea8e168ced95a4239dd100cf7277e0adf7b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654533"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055694"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução de Monitor de Desempenho da Rede: Monitorização do desempenho
 
@@ -94,7 +94,7 @@ Considere as seguintes informações antes de escolher um protocolo:
 
 Se optar por utilizar o ICMP durante a implementação, pode mudar para TCP a qualquer momento, editando a regra de monitorização predefinida.
 
-1. Vá ao monitor  **de** >de desempenho da **rede**  > **configure** > **Monitor**. Em seguida, selecione a **regra padrão**. 
+1. Vá ao > **Monitor** >de **Monitor** **Configuração** >de Desempenho da **Rede**. Em seguida, selecione a **regra padrão**. 
 2. Percorra a secção **Protocol** e selecione o protocolo que pretende utilizar. 
 3. Selecione **Guardar** para aplicar a definição. 
 

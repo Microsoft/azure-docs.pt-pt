@@ -10,10 +10,10 @@ ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: ed477e3c1431048d60e4a696f59aa0593e1b3f1f
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79136334"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Quickstart: Criar uma aplicação Java no Serviço de Aplicações Azure no Windows
@@ -35,7 +35,7 @@ O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojam
 
 ## <a name="create-a-java-app"></a>Criar uma aplicação em Java
 
-Execute o seguinte comando Maven na Cloud Shell pronta para criar uma nova aplicação chamada `helloworld`:
+Execute o seguinte comando Maven na Cloud Shell `helloworld`pronta para criar uma nova aplicação chamada :
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -97,7 +97,7 @@ Atualize os seguintes marcadores de posição na configuração do plug-in:
 
 | Marcador de posição | Descrição |
 | ----------- | ----------- |
-| `SUBSCRIPTION_ID` | A identificação única da subscrição para a sua utilização. O ID da subscrição predefinida pode ser encontrado a partir da Cloud Shell ou CLI utilizando o comando `az account show`. Para todas as subscrições disponíveis, utilize o comando `az account list`.|
+| `SUBSCRIPTION_ID` | A identificação única da subscrição para a sua utilização. O ID da subscrição predefinida pode ser encontrado `az account show` a partir da Cloud Shell ou CLI utilizando o comando. Para todas as subscrições `az account list` disponíveis, utilize o comando.|
 | `RESOURCEGROUP_NAME` | Nome para o novo grupo de recursos para criar a sua app. Ao colocar todos os recursos de uma aplicação num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos eliminará todos os recursos associados à aplicação. Atualize este valor com um nome único de grupo de recursos novos, por exemplo, *o myResourceGroup*. Irá utilizar este nome de grupo de recursos para limpar todos os recursos do Azure numa secção posterior. |
 | `WEBAPP_NAME` | O nome da aplicação fará parte do nome de anfitrião da aplicação quando foi implantado para o Azure (WEBAPP_NAME.azurewebsites.net). Atualize este valor com um nome único para a nova app App Service, que irá acolher a sua app Java, por exemplo *contoso.* |
 | `REGION` | Uma região de Azure onde a app está hospedada, por *exemplo, westus2*. Pode obter uma lista de regiões do Cloud Shell ou da CLI com o comando `az account list-locations`. |

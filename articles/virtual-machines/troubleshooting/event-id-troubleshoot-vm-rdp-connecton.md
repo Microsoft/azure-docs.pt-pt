@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de conexão RDP de VM do Azure por ID de evento | Microsoft Docs
+title: Problemas Desfilmam problemas de ligação Azure VM RDP por Id de eventos [ Microsoft Docs
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,111 +15,111 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71154199"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Resolver problemas de ligação de RDP da VM do Azure por ID de Evento 
 
-Este artigo explica como usar IDs de evento para solucionar problemas que impedem uma conexão de protocolo de Área de Trabalho Remota (RDP) para uma VM (máquina virtual) do Azure.
+Este artigo explica como usar iDs de eventos para resolver problemas que impedem uma ligação remota de protocolo de ambiente de trabalho (RDP) a uma Máquina Virtual Azure (VM).
 
 ## <a name="symptoms"></a>Sintomas
 
-Você tenta usar uma sessão de protocolo de Área de Trabalho Remota (RDP) para se conectar a uma VM do Azure. Depois de inserir suas credenciais, a conexão falhará e você receberá a seguinte mensagem de erro:
+Tente utilizar uma sessão de protocolo de ambiente de trabalho remoto (RDP) para se ligar a um VM Azure. Depois de inseri-lo as suas credenciais, a ligação falha e recebe a seguinte mensagem de erro:
 
-**Este computador não pode se conectar ao computador remoto. Tente se conectar novamente, se o problema persistir, contate o proprietário do computador remoto ou o administrador da rede.**
+**Este computador não pode ligar-se ao computador remoto. Tente ligar-se novamente, se o problema continuar, contacte o proprietário do computador remoto ou o seu administrador de rede.**
 
-Para solucionar esse problema, examine os logs de eventos na VM e, em seguida, consulte os cenários a seguir.
+Para resolver esta questão, reveja os registos do evento no VM e, em seguida, consulte os seguintes cenários.
 
-## <a name="before-you-troubleshoot"></a>Antes de solucionar problemas
+## <a name="before-you-troubleshoot"></a>Antes de resolver problemas
 
 ### <a name="create-a-backup-snapshot"></a>Criar um instantâneo de backup
 
-Para criar um instantâneo de backup, siga as etapas em fazer o [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+Para criar uma imagem de backup, siga os passos em [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
-### <a name="connect-to-the-vm-remotely"></a>Conectar-se à VM remotamente
+### <a name="connect-to-the-vm-remotely"></a>Ligue-se ao VM remotamente
 
-Para se conectar à VM remotamente, use um dos métodos em [como usar as ferramentas remotas para solucionar problemas de VM do Azure](remote-tools-troubleshoot-azure-vm-issues.md).
+Para ligar remotamente ao VM, utilize um dos métodos em [Como utilizar ferramentas remotas para resolver problemas com os problemas do Azure VM](remote-tools-troubleshoot-azure-vm-issues.md).
 
 ## <a name="scenario-1"></a>Cenário 1
 
 ### <a name="event-logs"></a>Registos de eventos
 
-Em uma instância do CMD, execute os seguintes comandos para verificar se o evento 1058 ou 1057 está registrado no log do sistema nas últimas 24 horas:
+Em caso de CMD, execute os seguintes comandos para verificar se o evento 1058 ou o evento 1057 está registado no registo do Sistema nas últimas 24 horas:
 
 ```cmd
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1058 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome do log:**      Sistema <br />
-**Original**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Data:** *tempo* <br />
-**ID do evento:**      1058 <br />
-**Categoria da tarefa:** Nenhum <br />
-**Geral**         Erro <br />
-**Palavras-chave**      Clássica <br />
+**Nome do registo:**      Sistema <br />
+**Fonte:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Data:**          *hora* <br />
+**ID do evento:** 1058 <br />
+**Categoria de Tarefa:** Nenhuma. <br />
+**Nível:**         Erro <br />
+**Palavras-chave:**      Clássico <br />
 **Utilizador:**          N/A <br />
-**Computador:** *computador* do <br />
-**Descrição:** O servidor de Host da Sessão RD falhou ao substituir o certificado autoassinado expirado usado para autenticação de servidor Host da Sessão RD em conexões SSL. O código de status relevante foi negado.
+**Computador:**      *computador* <br />
+**Descrição:** O Servidor de Anfitriões de Sessão RD não substituiu o certificado auto-assinado expirado utilizado para a autenticação do Servidor de Anfitriões de Sessão RD nas ligações SSL. O código de estado relevante foi o Acesso negado.
 
-**Nome do log:**      Sistema <br />
-**Original**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Data:** *tempo* <br />
-**ID do evento:**      1058 <br />
-**Categoria da tarefa:** Nenhum <br />
-**Geral**         Erro <br />
-**Palavras-chave**      Clássica <br />
+**Nome do registo:**      Sistema <br />
+**Fonte:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Data:**          *hora* <br />
+**ID do evento:** 1058 <br />
+**Categoria de Tarefa:** Nenhuma. <br />
+**Nível:**         Erro <br />
+**Palavras-chave:**      Clássico <br />
 **Utilizador:**          N/A <br />
-**Computador:** *computador* do <br />
-**Descrição:** O servidor de host da sessão da área de trabalho remota falhou ao criar um novo certificado autoassinado para ser usado para autenticação do servidor host da Sessão RD em conexões SSL. o código de status relevante do objeto já existe.
+**Computador:**      *computador* <br />
+**Descrição:** O servidor de anfitriões rd Session não conseguiu criar um novo certificado auto-assinado para ser usado para autenticação do servidor de anfitriões RD Session em ligações SSL, o código de estado relevante já existia.
 
-**Nome do log:**      Sistema <br />
-**Original**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Data:** *tempo* <br />
-**ID do evento:**      1057 <br />
-**Categoria da tarefa:** Nenhum <br />
-**Geral**         Erro <br />
-**Palavras-chave**      Clássica <br />
+**Nome do registo:**      Sistema <br />
+**Fonte:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Data:**          *hora* <br />
+**ID do evento:** 1057 <br />
+**Categoria de Tarefa:** Nenhuma. <br />
+**Nível:**         Erro <br />
+**Palavras-chave:**      Clássico <br />
 **Utilizador:**          N/A <br />
-**Computador:** *computador* do <br />
-**Descrição:** O servidor de Host da Sessão RD falhou ao criar um novo certificado autoassinado para ser usado para autenticação de servidor Host da Sessão RD em conexões SSL. O código de status relevante do conjunto de chaves não existe
+**Computador:**      *computador* <br />
+**Descrição:** O Servidor de Anfitriões de Sessão RD não conseguiu criar um novo certificado auto-assinado para ser usado para autenticação do Servidor de Anfitriões de Sessão RD em ligações SSL. O código de estado relevante era Keyset não existe
 
-Você também pode verificar os eventos de erro SCHANNEL 36872 e 36870 executando os seguintes comandos:
+Também pode verificar se os erros do SCHANNEL 36872 e 36870 executam os seguintes comandos:
 
 ```cmd
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36870 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome do log:**      Sistema <br />
-**Original**        Schannel <br />
+**Nome do registo:**      Sistema <br />
+**Fonte:**        Canal <br />
 **Data:** — <br />
-**ID do evento:**      36870 <br />
-**Categoria da tarefa:** Nenhum <br />
-**Geral**         Erro <br />
-**Palavras-chave**       <br />
+**ID do evento:** 36870 <br />
+**Categoria de Tarefa:** Nenhuma. <br />
+**Nível:**         Erro <br />
+**Palavras-chave:**       <br />
 **Utilizador:**          SISTEMA <br />
-**Computador:** *computador* do <br />
-**Descrição:** Ocorreu um erro fatal ao tentar acessar a chave privada de credencial do servidor SSL. O código de erro retornado do módulo de criptografia é 0x8009030D.  <br />
+**Computador:**      *computador* <br />
+**Descrição:** Ocorreu um erro fatal ao tentar aceder à chave privada credencial do servidor SSL. O código de erro devolvido do módulo criptográfico é 0x8009030D.  <br />
 O estado de erro interno é 10001.
 
 ### <a name="cause"></a>Causa
-Esse problema ocorre porque as chaves de criptografia RSA locais na pasta MachineKeys na VM não podem ser acessadas. Esse problema pode ocorrer por um dos seguintes motivos:
+Este problema ocorre porque as chaves de encriptação RSA locais na pasta MachineKeys no VM não podem ser acedidas. Esta questão pode ocorrer por uma das seguintes razões:
 
-1. Configuração de permissões incorreta na pasta MachineKeys ou nos arquivos RSA.
+1. Configuração de permissões erradas na pasta Machinekeys ou nos ficheiros RSA.
 
-2. Chave RSA corrompida ou ausente.
+2. Chave RSA corrompida ou desaparecida.
 
 ### <a name="resolution"></a>Resolução
 
-Para solucionar esse problema, você precisa configurar as permissões corretas no certificado RDP usando estas etapas.
+Para resolver este problema, tem de configurar as permissões corretas no Certificado RDP utilizando estes passos.
 
-#### <a name="grant-permission-to-the-machinekeys-folder"></a>Conceder permissão para a pasta MachineKeys
+#### <a name="grant-permission-to-the-machinekeys-folder"></a>Conceder permissão à pasta MachineKeys
 
-1. Crie um script usando o seguinte conteúdo:
+1. Criar um script utilizando o seguinte conteúdo:
 
    ```powershell
    remove-module psreadline 
@@ -132,18 +132,18 @@ Para solucionar esse problema, você precisa configurar as permissões corretas 
    Restart-Service TermService -Force
    ```
 
-2.  Execute este script para redefinir as permissões da pasta MachineKey e redefinir os arquivos RSA para os valores padrão.
+2.  Executar este script para redefinir as permissões da pasta MachineKey e redefinir os ficheiros RSA para os valores predefinidos.
 
-3.  Tente acessar a VM novamente.
+3.  Tente aceder ao VM de novo.
 
-Depois de executar o script, você pode verificar os seguintes arquivos que estão tendo problemas de permissões:
+Depois de executar o script, pode verificar os seguintes ficheiros que estão a experimentar problemas de permissões:
 
 * c:\temp\BeforeScript_permissions.txt
 * c:\temp\AfterScript_permissions.txt
 
-#### <a name="renew-rdp-self-signed-certificate"></a>Renovar certificado RDP autoassinado
+#### <a name="renew-rdp-self-signed-certificate"></a>Renovar certificado auto-assinado RDP
 
-Se o problema persistir, execute o seguinte script para certificar-se de que o certificado autoassinado do RDP seja renovado:
+Se o problema persistir, execute o seguinte guião para se certificar de que o certificado auto-assinado rdp é renovado:
 
 ```powershell
 Import-Module PKI
@@ -154,27 +154,27 @@ Stop-Service -Name "SessionEnv"
 Start-Service -Name "SessionEnv"
 ```
 
-Se você não puder renovar o certificado, siga estas etapas para tentar excluir o certificado:
+Se não conseguir renovar o certificado, siga estes passos para tentar apagar o certificado:
 
-1. Em outra VM na mesma VNET, abra a caixa **executar** , digite **MMC**e pressione **OK**. 
+1. Em outro VM no mesmo VNET, abra a caixa **Run,** escreva **mmc,** e, em seguida, pressione **OK**. 
 
-2. No menu **arquivo** , selecione **Adicionar/remover snap-in**.
+2. No menu **'Ficheiro',** selecione **Adicionar/Remover o Snap-in**.
 
-3. Na lista **snap-ins disponíveis** , selecione **certificados**e, em seguida, selecione **Adicionar**.
+3. Na lista **de snap-ins disponíveis,** selecione **Certificados,** e, em seguida, selecione **Adicionar**.
 
-4. Selecione **conta de computador**e, em seguida, selecione **Avançar**.
+4. Selecione **a conta de computador,** e, em seguida, selecione **Next**.
 
-5. Selecione **outro computador**e, em seguida, adicione o endereço IP da VM que tem problemas.
+5. Selecione **Outro computador**e, em seguida, adicione o endereço IP do VM que tem problemas.
    >[!Note]
-   >Tente usar a rede interna para evitar o uso de um endereço IP virtual.
+   >Tente utilizar a rede interna para evitar a utilização de um endereço IP virtual.
 
-6. Selecione **concluir**e, em seguida, selecione **OK**.
+6. Selecione **Terminar,** e depois selecione **OK**.
 
-   ![Selecionar computador](./media/event-id-troubleshoot-vm-rdp-connecton/select-computer.png)
+   ![Selecione Computador](./media/event-id-troubleshoot-vm-rdp-connecton/select-computer.png)
 
-7. Expanda os certificados, vá para a pasta Desktop\Certificates remota, clique com o botão direito do mouse no certificado e selecione **excluir**.
+7. Expanda os certificados, vá para a pasta Remote Desktop\Certificates, clique no certificado à direita e, em seguida, selecione **Delete**.
 
-8. Reinicie o serviço de configuração Área de Trabalho Remota:
+8. Reiniciar o serviço de configuração de ambiente de trabalho remoto:
 
    ```cmd
    net stop SessionEnv
@@ -182,25 +182,25 @@ Se você não puder renovar o certificado, siga estas etapas para tentar excluir
    ```
 
    >[!Note]
-   >Neste ponto, se você atualizar o armazenamento do MMC, o certificado reaparecerá. 
+   >Neste ponto, se refrescar a loja a partir do MMC, o certificado reaparece. 
 
-Tente acessar a VM usando o RDP novamente.
+Tente aceder ao VM utilizando novamente o RDP.
 
-#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Atualizar certificado protocolo SSL (SSL)
+#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Certificado de camada de camada de tomadas seguras (SSL)
 
-Se você configurar a VM para usar um certificado SSL, execute o comando a seguir para obter a impressão digital. Em seguida, verifique se é o mesmo que a impressão digital do certificado:
+Se configurar o VM para utilizar um certificado SSL, execute o seguinte comando para obter a impressão digital. Então verifique se é o mesmo que a impressão digital do certificado:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
 ```
 
-Se não estiver, altere a impressão digital:
+Se não for, mude a impressão digital:
 
 ```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash /t REG_BINARY /d <CERTIFICATE THUMBPRINT>
 ```
 
-Você também pode tentar excluir a chave para que o RDP use o certificado autoassinado para RDP:
+Também pode tentar apagar a chave para que o PDR utilize o certificado auto-assinado para RDP:
 
 ```cmd
 reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
@@ -208,95 +208,95 @@ reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RD
 
 ## <a name="scenario-2"></a>Cenário 2
 
-### <a name="event-log"></a>Log de eventos
+### <a name="event-log"></a>Registo de eventos
 
-Em uma instância do CMD, execute os seguintes comandos para verificar se o evento 36871 de erro SCHANNEL está registrado no log do sistema nas últimas 24 horas:
+Num caso CMD, execute os seguintes comandos para verificar se o erro do SCHANNEL 36871 está registado no registo do Sistema nas últimas 24 horas:
 
 ```cmd
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome do log:**      Sistema <br />
-**Original**        Schannel <br />
+**Nome do registo:**      Sistema <br />
+**Fonte:**        Canal <br />
 **Data:** — <br />
-**ID do evento:**      36871 <br />
-**Categoria da tarefa:** Nenhum <br />
-**Geral**         Erro <br />
-**Palavras-chave**       <br />
+**ID do evento:** 36871 <br />
+**Categoria de Tarefa:** Nenhuma. <br />
+**Nível:**         Erro <br />
+**Palavras-chave:**       <br />
 **Utilizador:**          SISTEMA <br />
-**Computador:** *computador* do <br />
-**Descrição:** Ocorreu um erro fatal ao criar uma credencial do servidor TLS. O estado de erro interno é 10013.
+**Computador:**      *computador* <br />
+**Descrição:** Um erro fatal ocorreu ao criar uma credencial de servidor TLS. O estado de erro interno é 10013.
  
 ### <a name="cause"></a>Causa
 
-Esse problema é causado por políticas de segurança. Quando versões mais antigas do TLS (como 1,0) estiverem desabilitadas, o acesso ao RDP falhará.
+Esta questão é causada por políticas de segurança. Quando as versões mais antigas de TLS (como 1.0) são desativadas, o acesso rdp falha.
 
 ### <a name="resolution"></a>Resolução
 
-O RDP usa o TLS 1,0 como o protocolo padrão. No entanto, o protocolo pode ser alterado para TLS 1,1, que é o novo padrão.
+RdP usa TLS 1.0 como o protocolo padrão. No entanto, o protocolo pode ser alterado para TLS 1.1, que é o novo padrão.
 
-Para solucionar esse problema, consulte [solucionar erros de autenticação ao usar o RDP para se conectar à VM do Azure](troubleshoot-authentication-error-rdp-vm.md#tls-version).
+Para resolver este problema, consulte erros de [autenticação troubleshoot quando utilizar RDP para ligar ao Azure VM](troubleshoot-authentication-error-rdp-vm.md#tls-version).
 
 ## <a name="scenario-3"></a>Cenário 3
 
-Se você instalou a função **agente de conexão de área de trabalho remota** na VM, verifique se há o evento 2056 ou o evento 1296 nas últimas 24 horas. Em uma instância do CMD, execute os seguintes comandos: 
+Se instalou a função de Corretor de **Ligação** remota no VM, verifique se há evento 2056 ou evento 1296 nas últimas 24 horas. Num caso CMD, executar os seguintes comandos: 
 
 ```cmd
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker '] and EventID=2056 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome do log:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
-**Original**        Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Data:** *tempo* <br />
-**ID do evento:**      2056 <br />
-**Categoria da tarefa:** (109) <br />
-**Geral**         Erro <br />
-**Palavras-chave**       <br />
+**Nome do registo:**      Microsoft-Windows-TerminalServices-SessionBroker/Operacional <br />
+**Fonte:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
+**Data:**          *hora* <br />
+**ID do evento:** 2056 <br />
+**Categoria tarefa:** (109) <br />
+**Nível:**         Erro <br />
+**Palavras-chave:**       <br />
 **Utilizador:**          SERVIÇO DE REDE <br />
-**Computador:** *FQDN do computador* <br />
-**Descrição:** A descrição para a ID de evento 2056 da origem Microsoft-Windows-TerminalServices-agente não pode ser encontrada. O componente que gera esse evento não está instalado no computador local ou a instalação está corrompida. Você pode instalar ou reparar o componente no computador local. <br />
-Se o evento tiver sido originado em outro computador, as informações de exibição precisarão ser salvas com o evento. <br />
-As informações a seguir foram incluídas com o evento: <br />
+**Computador:**      *fqdn do computador* <br />
+**Descrição:** A descrição do Evento ID 2056 da fonte Microsoft-Windows-TerminalServices-SessionBroker não pode ser encontrada. Ou o componente que levanta este evento não está instalado no seu computador local ou a instalação é corrompida. Pode instalar ou reparar o componente no computador local. <br />
+Se o evento teve origem noutro computador, as informações do visor tiveram de ser guardadas com o evento. <br />
+As seguintes informações foram incluídas no evento: <br />
 NULL <br />
 NULL <br />
-Falha ao fazer logon no banco de dados.
+O logon na base de dados falhou.
 
-**Nome do log:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
-**Original**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Data:** *tempo* <br />
-**ID do evento:**      1296 <br />
-**Categoria da tarefa:** (104) <br />
-**Geral**         Erro <br />
-**Palavras-chave**       <br />
+**Nome do registo:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operacional <br />
+**Fonte:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**Data:**          *hora* <br />
+**ID do evento:** 1296 <br />
+**Categoria tarefa:** (104) <br />
+**Nível:**         Erro <br />
+**Palavras-chave:**       <br />
 **Utilizador:**          SERVIÇO DE REDE <br />
-**Computador:** *FQDN do computador* <br />
-**Descrição:** A descrição para a ID de evento 1296 da origem Microsoft-Windows-TerminalServices-agente-Client não foi encontrada. O componente que gera esse evento não está instalado no computador local ou a instalação está corrompida. Você pode instalar ou reparar o componente no computador local.
-Se o evento tiver sido originado em outro computador, as informações de exibição precisarão ser salvas com o evento.
-As informações a seguir foram incluídas com o evento:  <br />
-*text* <br />
-*text* <br />
-O agente de Conexão de Área de Trabalho Remota não está pronto para comunicação RPC.
+**Computador:**      *fqdn do computador* <br />
+**Descrição:** A descrição do Id do evento 1296 da fonte Microsoft-Windows-TerminalServices-SessionBroker-Client não pode ser encontrada. Ou o componente que levanta este evento não está instalado no seu computador local ou a instalação é corrompida. Pode instalar ou reparar o componente no computador local.
+Se o evento teve origem noutro computador, as informações do visor tiveram de ser guardadas com o evento.
+As seguintes informações foram incluídas no evento:  <br />
+*texto* <br />
+*texto* <br />
+O corretor de ligação à secretária de trabalho remoto não está pronto para a comunicação RPC.
 
 ### <a name="cause"></a>Causa
 
-Esse problema ocorre porque o nome do host do servidor do agente de Conexão de Área de Trabalho Remota é alterado, o que não é uma alteração com suporte. 
+Este problema ocorre porque o nome do anfitrião do servidor remote Desktop Connection Broker é alterado, o que não é uma alteração suportada. 
 
-O nome do host tem entradas e dependências no banco de dados interno do Windows, o que é exigido pelo Área de Trabalho Remota farm de serviços para poder funcionar. Alterar o nome do host depois que o farm já está compilado causa muitos erros e pode fazer com que o servidor do agente pare de funcionar.
+O nome de anfitrião tem entradas e dependências na Base de Dados Interna do Windows, que é exigida pela fazenda Remote Desktop Service para poder funcionar. Mudar o nome de anfitrião depois de a quinta já estar construída causa muitos erros e pode fazer com que o servidor de corretor deixe de funcionar.
 
 ### <a name="resolution"></a>Resolução 
 
-Para corrigir esse problema, a função de agente de Conexão de Área de Trabalho Remota e o banco de dados interno do Windows devem ser reinstalados.
+Para corrigir este problema, a função de Corretor de Ligação ao Ambiente de Trabalho Remoto e a Base de Dados Interna do Windows devem ser reinstaladas.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 [Eventos Schannel](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
 
-[Visão geral técnica do Schannel SSP](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx)
+[Descrição Geral Técnica do Schannel SSP](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx)
 
-[Falha de RDP com a ID de evento 1058 & evento 36870 com Host da Sessão da Área de Trabalho Remota certificado & comunicação SSL](https://blogs.technet.microsoft.com/askperf/2014/10/22/rdp-fails-with-event-id-1058-event-36870-with-remote-desktop-session-host-certificate-ssl-communication/)
+[RdP Falha com Id de evento 1058 & Evento 36870 com Certificado de anfitrião de sessão de ambiente de trabalho remoto & Comunicação SSL](https://blogs.technet.microsoft.com/askperf/2014/10/22/rdp-fails-with-event-id-1058-event-36870-with-remote-desktop-session-host-certificate-ssl-communication/)
 
-[Schannel 36872 ou Schannel 36870 em um controlador de domínio](https://blogs.technet.microsoft.com/instan/2009/01/05/schannel-36872-or-schannel-36870-on-a-domain-controller/)
+[Canal 36872 ou Canal 36870 num Controlador de Domínio](https://blogs.technet.microsoft.com/instan/2009/01/05/schannel-36872-or-schannel-36870-on-a-domain-controller/)
 
-[ID do evento 1058 — Serviços de Área de Trabalho Remota autenticação e criptografia](https://technet.microsoft.com/library/ee890862(v=ws.10).aspx)
+[Id do evento 1058 - Autenticação e Encriptação de serviços de ambiente de trabalho remoto](https://technet.microsoft.com/library/ee890862(v=ws.10).aspx)
 

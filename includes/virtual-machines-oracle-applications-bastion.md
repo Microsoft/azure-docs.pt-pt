@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
 ms.openlocfilehash: 35f506235f698fbcf42308e6f0b0f400e925df29
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68361547"
 ---
-### <a name="bastion-tier"></a>Camada de bastiões
+### <a name="bastion-tier"></a>Bastião
 
-O host de bastiões é um componente opcional que você pode usar como um servidor de salto para acessar as instâncias de aplicativo e banco de dados. A VM do host de bastiões pode ter um endereço IP público atribuído a ela, embora a recomendação seja configurar uma conexão de ExpressRoute ou VPN site a site com sua rede local para acesso seguro. Além disso, somente SSH (porta 22, Linux) ou RDP (porta 3389, Windows Server) deve ser aberto para tráfego de entrada. Para alta disponibilidade, implante um host de bastiões em duas zonas de disponibilidade ou em um único conjunto de disponibilidade.
+O anfitrião do bastião é um componente opcional que pode usar como servidor de salto para aceder às instâncias de aplicação e base de dados. O anfitrião do bastião VM pode ter um endereço IP público atribuído ao mesmo, embora a recomendação seja a criação de uma ligação ExpressRoute ou VPN site-to-site com a sua rede no local para acesso seguro. Além disso, apenas o SSH (porta 22, Linux) ou RDP (porta 3389, Windows Server) devem ser abertos para o tráfego de entrada. Para uma elevada disponibilidade, coloque um anfitrião de bastião em duas zonas de disponibilidade ou num único conjunto de disponibilidade.
 
-Você também pode habilitar o encaminhamento do agente SSH em suas VMs, o que permite que você acesse outras VMs na rede virtual encaminhando as credenciais do seu host bastião. Ou use o túnel SSH para acessar outras instâncias.
+Também pode ativar o reencaminhado do agente SSH nos seus VMs, o que lhe permite aceder a outros VMs na rede virtual, reencaminhando as credenciais do seu anfitrião do bastião. Ou, use túneis SSH para aceder a outras instâncias.
 
-Aqui está um exemplo de encaminhamento de agente:
+Aqui está um exemplo de reencaminhamento de agente:
 
 ```
 ssh -A -t user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP`
 ```
 
-Esse comando conecta-se à bastiões e, em seguida `ssh` , é executado imediatamente, para que você obtenha um terminal na instância de destino. Talvez seja necessário especificar um usuário diferente da raiz na instância de destino se o cluster estiver configurado de forma diferente. O `-A` argumento encaminha a conexão do agente para que sua chave privada em seu computador local seja usada automaticamente. Observe que o encaminhamento do agente é uma cadeia, portanto `ssh` , o segundo `-A` comando também inclui para que todas as conexões SSH subsequentes iniciadas a partir da instância de destino também usem sua chave privada local.
+Este comando liga-se ao bastião `ssh` e, em seguida, corre imediatamente novamente, para obter um terminal na instância alvo. Pode ser necessário especificar um utilizador que não seja a raiz na instância-alvo se o seu cluster estiver configurado de forma diferente. O `-A` argumento repara a ligação do agente para que a sua chave privada na sua máquina local seja utilizada automaticamente. Note que o reencaminhamento do agente `ssh` é `-A` uma corrente, pelo que o segundo comando também inclui para que quaisquer ligações SSH subsequentes iniciadas a partir da instância-alvo também utilizem a chave privada local.

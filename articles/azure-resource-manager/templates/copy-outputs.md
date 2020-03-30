@@ -3,16 +3,16 @@ title: Definir múltiplas instâncias de um valor de saída
 description: Utilize a operação de cópia num modelo de Gestor de Recursos Azure para iterar várias vezes ao devolver um valor a partir de uma implementação.
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: db5c548c7bd4c60357d3656b1273b0192c497459
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 3889260d02f438274c80e99e99136515499443e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77624777"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153391"
 ---
-# <a name="output-iteration-in-azure-resource-manager-templates"></a>Iteração de saída nos modelos do Gestor de Recursos Azure
+# <a name="output-iteration-in-arm-templates"></a>Iteração de saída em modelos ARM
 
-Este artigo mostra-lhe como criar mais do que um valor para uma saída no seu modelo de Gestor de Recursos Azure. Ao adicionar o elemento **de cópia** à secção de saídas do seu modelo, pode dinamicamente devolver uma série de itens durante a implementação.
+Este artigo mostra-lhe como criar mais do que um valor para uma saída no seu modelo Degestor de Recursos Azure (ARM). Ao adicionar o elemento **de cópia** à secção de saídas do seu modelo, pode dinamicamente devolver uma série de itens durante a implementação.
 
 Também pode utilizar cópiacom [recursos,](copy-resources.md) [propriedades num recurso,](copy-properties.md)e [variáveis.](copy-variables.md)
 
@@ -153,11 +153,11 @@ O exemplo anterior devolve uma matriz com os seguintes valores:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos de Gestor de Recursos .
+* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos ARM .
 * Para outras utilizações do elemento cópia, consulte:
-  * [Iteração de recursos nos modelos do Gestor de Recursos Azure](copy-resources.md)
-  * [Iteração de propriedade em modelos de Gestor de Recursos Azure](copy-properties.md)
-  * [Iteração variável nos modelos do Gestor de Recursos Azure](copy-variables.md)
-* Se quiser saber sobre as secções de um modelo, consulte os modelos de gestor de [recursos do Azure .](template-syntax.md)
-* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com o Modelo](deploy-powershell.md)de Gestor de Recursos Azure .
+  * [Iteração de recursos em modelos ARM](copy-resources.md)
+  * [Iteração de propriedade em modelos ARM](copy-properties.md)
+  * [Iteração variável em modelos ARM](copy-variables.md)
+* Se quiser saber sobre as secções de um modelo, consulte [os modelos ARM autores](template-syntax.md).
+* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com modelo ARM](deploy-powershell.md).
 

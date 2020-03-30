@@ -9,10 +9,10 @@ ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 4301aaed0152e07eb2a941b56637239b66c33878
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127349"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
@@ -92,7 +92,7 @@ Pode desativar a aplicação da Microsoft Store para garantir que os utilizadore
 Para desativar a aplicação Loja:
 
 1. Criar uma nova Política de Grupo.
-2. **Selecione a configuração** do computador > **modelos administrativos** > **componentes do Windows**.
+2. Selecione**modelos administrativos** > de **configuração** > de computador**Componentes do Windows**.
 3. Selecione **Loja**.
 4. Selecione **Aplicação da loja**.
 5. Selecione **Desativar**e, em seguida, selecione **OK**.

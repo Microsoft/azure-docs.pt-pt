@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77046202"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Portal de aplicações Migrate Azure e Firewall de aplicação web de v1 para v2
@@ -25,7 +25,7 @@ Há duas fases numa migração:
 
 Este artigo abrange a migração de configuração. A migração do tráfego do cliente varia consoante o seu ambiente específico. No entanto, [são fornecidas](#migrate-client-traffic)algumas recomendações gerais de alto nível.
 
-## <a name="migration-overview"></a>Visão geral da migração
+## <a name="migration-overview"></a>Descrição geral da migração
 
 Está disponível um script Azure PowerShell que faz o seguinte:
 
@@ -41,7 +41,7 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 * v2 não suporta iPv6, por isso os gateways v1 habilitados iPv6 não são migrados. Se executar o guião, pode não estar completo.
 * Se o gateway v1 tiver apenas um endereço IP privado, o script cria um endereço IP público e um endereço IP privado para o novo gateway v2. os gateways v2 atualmente não suportam apenas endereços IP privados.
 
-## <a name="download-the-script"></a>Baixar o script
+## <a name="download-the-script"></a>Descarregue o script
 
 Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzureAppGWMigration)
 
@@ -49,16 +49,16 @@ Descarregue o script de migração da [Galeria PowerShell.](https://www.powershe
 
 Existem duas opções para si, dependendo da configuração e preferências locais do ambiente PowerShell:
 
-* Se não tiver os módulos Azure Az instalados ou não se importar de desinstalar os módulos Azure Az, a melhor opção é utilizar a opção `Install-Script` para executar o script.
+* Se não tiver os módulos Azure Az instalados ou não se importar de desinstalar os módulos `Install-Script` Azure Az, a melhor opção é usar a opção de executar o script.
 * Se precisa de manter os módulos Azure Az, a sua melhor aposta é baixar o script e executá-lo diretamente.
 
-Para determinar se tem os módulos Azure Az instalados, faça `Get-InstalledModule -Name az`. Se não vir nenhum módulo Az instalado, então pode utilizar o método `Install-Script`.
+Para determinar se tem os módulos Azure `Get-InstalledModule -Name az`Az instalados, corra . Se não vir nenhum módulo Az instalado, então `Install-Script` pode utilizar o método.
 
 ### <a name="install-using-the-install-script-method"></a>Instalar utilizando o método Instalação-Script
 
 Para utilizar esta opção, não deve ter os módulos Azure Az instalados no seu computador. Se estiverem instalados, o comando seguinte apresenta um erro. Pode desinstalar os módulos Azure Az ou utilizar a outra opção para descarregar o script manualmente e executá-lo.
   
-Execute o script com o seguinte comando:
+Executar o script com o seguinte comando:
 
 `Install-Script -Name AzureAppGWMigration`
 
@@ -74,7 +74,7 @@ Para executar o script:
 
 1. Utilize `Import-Module Az` para importar os módulos Az.
 
-1. Executar `Get-Help AzureAppGWMigration.ps1` examinar os parâmetros necessários:
+1. Corra `Get-Help AzureAppGWMigration.ps1` para examinar os parâmetros necessários:
 
    ```
    AzureAppGwMigration.ps1
@@ -100,7 +100,7 @@ Para executar o script:
 
    * **subnetAddressRange: [String]: Required** - Este é o espaço de endereço IP que atribuiu (ou quer alocar) para uma nova subnet que contenha o seu novo gateway v2. Isto deve ser especificado na notação CIDR. Por exemplo: 10.0.0.0/24. Não precisas de criar esta sub-rede com antecedência. O guião cria-o para ti se não existir.
    * **appgwName: [String]: Opcional**. Esta é uma cadeia que especifica para usar como nome para o novo portal de Standard_v2 ou WAF_v2. Se este parâmetro não for fornecido, o nome do seu gateway v1 existente será utilizado com o sufixo *_v2* anexado.
-   * **sslCertificados: [PSApplicationGatewaySslCertificado]: Opcional**.  Uma lista separada da vírposta de objetos PSApplicationGatewaySslCertificate que cria para representar as certs SSL do seu gateway v1 deve ser enviada para o novo gateway v2. Para cada um dos seus certificados SSL configurados para o seu gateway Standard v1 ou WAF v1, pode criar um novo objeto PSApplicationGatewaySslCertificate através do comando `New-AzApplicationGatewaySslCertificate` mostrado aqui. Precisa do caminho para o seu ficheiro SSL Cert e a palavra-passe.
+   * **sslCertificados: [PSApplicationGatewaySslCertificado]: Opcional**.  Uma lista separada da vírposta de objetos PSApplicationGatewaySslCertificate que cria para representar as certs SSL do seu gateway v1 deve ser enviada para o novo gateway v2. Para cada um dos seus certificados SSL configurados para o seu gateway Standard v1 ou WAF v1, pode criar um novo objeto PSApplicationGatewaySslCertificate através do `New-AzApplicationGatewaySslCertificate` comando aqui mostrado. Precisa do caminho para o seu ficheiro SSL Cert e a palavra-passe.
 
      Este parâmetro só é opcional se não tiver ouvintes HTTPS configurados para o seu gateway v1 ou WAF. Se tiver pelo menos uma configuração de escuta HTTPS, deve especificar este parâmetro.
 
@@ -114,7 +114,7 @@ Para executar o script:
         -Password $password
       ```
 
-     Pode passar em `$mySslCert1, $mySslCert2` (comma-separado) no exemplo anterior como valores para este parâmetro no script.
+     Pode passar `$mySslCert1, $mySslCert2` (separado sem vírem) no exemplo anterior como valores para este parâmetro no script.
    * **trustRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Opcional**. Uma lista separada da vírposta de objetos PSApplicationGatewayTrustedRootCertificate que cria para representar os [certificados De Raiz Fidedigno](ssl-overview.md) para autenticação das instâncias de backend do seu gateway v2.
    
       ```azurepowershell
@@ -161,7 +161,7 @@ Aqui estão alguns cenários em que o seu portal de aplicação atual (Standard)
 
   * Se utilizar endereços IP públicos no seu gateway de aplicação, pode fazer uma migração granular controlada utilizando um perfil do Traffic Manager para encaminhar gradualmente o tráfego (método de encaminhamento de tráfego ponderado) para o novo gateway v2.
 
-    Pode fazê-lo adicionando as etiquetas DNS dos gateways de aplicação v1 e v2 ao [perfil do Gestor](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)de Tráfego , e cnameing o seu registo DNS personalizado (por exemplo, `www.contoso.com`) ao domínio do Gestor de Tráfego (por exemplo, contoso.trafficmanager.net).
+    Pode fazê-lo adicionando as etiquetas DNS dos gateways de aplicação v1 e v2 ao [perfil do](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method) `www.contoso.com`Gestor de Tráfego , e cnameing o seu registo DNS personalizado (por exemplo), ao domínio do Gestor de Tráfego (por exemplo, contoso.trafficmanager.net).
   * Ou, pode atualizar o seu registo dNS de domínio personalizado para apontar para a etiqueta DNS do novo gateway de aplicação v2. Dependendo do TTL configurado no seu registo DNS, pode demorar algum tempo para que todo o tráfego do seu cliente migrasse para o seu novo gateway V2.
 * **Os seus clientes ligam-se ao endereço IP frontend do seu portal de aplicações.**
 
@@ -195,7 +195,7 @@ Não. Atualmente, o script não suporta certificados no KeyVault. No entanto, is
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Tive alguns problemas com o uso deste guião. Como posso conseguir ajuda?
   
-Pode enviar um e-mail para appgwmigrationsup@microsoft.com, abrir um caso de suporte com o Suporte Azure, ou fazer ambos.
+Pode enviar um appgwmigrationsup@microsoft.come-mail para, abrir um caso de suporte com o Suporte Azure, ou fazer os dois.
 
 ## <a name="next-steps"></a>Passos seguintes
 

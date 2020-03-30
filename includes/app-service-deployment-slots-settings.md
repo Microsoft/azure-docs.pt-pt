@@ -5,41 +5,41 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
 ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71129701"
 ---
-Quando você clona a configuração de outro slot de implantação, a configuração clonada é editável. Alguns elementos de configuração seguem o conteúdo em uma permuta (não específico do slot), enquanto outros elementos de configuração permanecem no mesmo slot após uma permuta (específica do slot). As listas a seguir mostram as configurações que são alteradas quando você permuta os slots.
+Quando se clona a configuração de outra ranhura de implantação, a configuração clonada é editável. Alguns elementos de configuração seguem o conteúdo através de uma troca (não específica de ranhura), enquanto outros elementos de configuração permanecem na mesma ranhura após uma troca (específica de ranhura). As seguintes listas mostram as definições que mudam quando troca as ranhuras.
 
-**Configurações que são trocadas**:
+**Definições trocadas:**
 
-* Configurações gerais, como versão do Framework, 32/64 bits, Web Sockets
-* Configurações do aplicativo (podem ser configuradas para serem transfixadas em um slot)
-* Cadeias de conexão (podem ser configuradas para aderir a um slot)
-* Mapeamentos de manipulador
+* Configurações gerais, tais como versão-quadro, tomadas web de 32/64 bits
+* Definições de aplicativos (pode ser configurada para ficar com uma ranhura)
+* Cordas de ligação (pode ser configurada para ficar colada a uma ranhura)
+* Mapeamentos de manipuladores
 * Certificados públicos
-* Conteúdo de trabalhos Web
+* Conteúdo webJobs
 * Conexões híbridas *
 * Integração de rede virtual *
-* Pontos de extremidade de serviço *
-* Rede de distribuição de conteúdo do Azure *
+* Pontos finais de serviço *
+* Rede de Entrega de Conteúdos Azure *
 
-Os recursos marcados com um asterisco (*) estão planejados para serem desalternados. 
+Estão previstas características marcadas com um asterisco (*) para serem destrocadas. 
 
-**Configurações que não são trocadas**:
+**Definições que não são trocadas:**
 
-* Pontos de extremidade de publicação
+* Pontos finais de publicação
 * Nomes de domínio personalizados
-* Certificados não públicos e configurações de TLS/SSL
-* Configurações de escala
-* Agendadores de trabalhos Web
-* Restrições de IP
-* Sempre Ativo
-* Configurações do log de diagnóstico
-* CORS (compartilhamento de recursos entre origens)
+* Certificados não públicos e definições TLS/SSL
+* Definições de escala
+* Programadores WebJobs
+* Restrições IP
+* Sempre ligado
+* Definições de registo de diagnóstico
+* Partilha de recursos de origem cruzada (CORS)
 
 > [!NOTE]
-> Determinadas configurações de aplicativo que se aplicam a configurações não alternadas também são trocadas. Por exemplo, como as configurações de log de diagnóstico não são trocadas, as configurações de aplicativo relacionadas, como `WEBSITE_HTTPLOGGING_RETENTION_DAYS` e `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS`, também não são trocadas, mesmo que elas não apareçam como configurações de slot.
+> Algumas definições de aplicações que se aplicam a definições não trocadas também não são trocadas. Por exemplo, uma vez que as definições `WEBSITE_HTTPLOGGING_RETENTION_DAYS` de `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` registo de diagnóstico não são trocadas, as configurações de aplicações relacionadas como e também não são trocadas, mesmo que não apareçam como configurações de slot.
 >

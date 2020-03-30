@@ -9,10 +9,10 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 867b327ac25d51cd3955e622da9d8067ae6d9ae9
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127722"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
@@ -87,7 +87,7 @@ Para saber mais sobre como configurar o Windows Defender para excluir certos fic
 
 Para desativar as atualizações automáticas através da Política de Grupo local:
 
-1. Open **Local Group Policy Editor\\Modelos Administrativos\\componentes do Windows\\Atualização do Windows**.
+1. Open **Local Policy\\Editor\\Administrative Templates Windows\\Components Windows Update**.
 2. Clique na **configuração automática** e desative-a para **desativar**.
 
 Também pode executar o seguinte comando numa solicitação de comando para desativar atualizações automáticas.
@@ -113,7 +113,7 @@ Para redirecionar fusos horários:
 1. No servidor De Diretório Ativo, abra a Consola de **Gestão**de Políticas do Grupo .
 2. Expanda o seu domínio e objetos de política de grupo.
 3. Clique no **Objeto** de Política de Grupo que criou para as definições de política do grupo e **selecione Editar**.
-4. No Editor de **Gestão**de Políticas do Grupo, navegue para as **políticas** de **configuração** de computador >  > **modelos administrativos** > componentes do Windows > **serviços** de ambiente de **trabalho remotos** > dispositivo > de **sessão de ambiente** de trabalho remoto e **redirecionamento**de recursos.
+4. No Editor de **Gestão de Políticas**do Grupo, navegue para**as políticas** > de **configuração** > do computador**Modelos administrativos** > **Windows Components** > Dos componentes do Windows Remote Desktop Services > **Remote Desktop****Session Host** > **Device e Redirection de Recursos**.
 5. Ativar a regulação de **redirecionamento do fuso horário.**
 
 Também pode executar este comando na imagem principal para redirecionar fusos horários:
@@ -203,8 +203,8 @@ As seguintes instruções dirão como enviar a sua imagem principal para uma con
 
 Agora que tem uma imagem, pode criar ou atualizar piscinas de anfitriões. Para saber mais sobre como criar e atualizar piscinas de anfitriões, consulte os seguintes artigos:
 
-- [Crie uma piscina de anfitriões com um modelo de Gestor de Recursos Azure](create-host-pools-arm-template.md)
+- [Criar um conjunto de anfitriões com um modelo do Azure Resource Manager](create-host-pools-arm-template.md)
 - [Tutorial: Crie uma piscina de anfitriões com o Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Crie uma piscina de anfitriões com powerShell](create-host-pools-powershell.md)
-- [Crie um recipiente de perfil para uma piscina anfitriã usando uma partilha de ficheiros](create-host-pools-user-profile.md)
-- [Configure o método de equilíbrio de carga virtual do Windows](configure-host-pool-load-balancing.md)
+- [Criar um conjunto de anfitriões com o PowerShell](create-host-pools-powershell.md)
+- [Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros](create-host-pools-user-profile.md)
+- [Configurar o método de balanceamento de carga do Windows Virtual Desktop](configure-host-pool-load-balancing.md)

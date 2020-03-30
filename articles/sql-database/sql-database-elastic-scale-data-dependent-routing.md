@@ -1,5 +1,5 @@
 ---
-title: Encaminhamento dependente de dados
+title: Encaminhamento Dependente de Dados
 description: Como utilizar a classe ShardMapManager em aplicações .NET para encaminhamento dependente de dados, uma funcionalidade de bases de dados esfumaçadas na Base de Dados Azure SQL
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: fbdf8e316368be02ebd0c4bfd320917c20d80777
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77069460"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Utilizar o encaminhamento dependente de dados para encaminhar uma consulta para base de dados apropriada

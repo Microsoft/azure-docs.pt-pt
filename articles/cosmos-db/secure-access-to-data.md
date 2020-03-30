@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 448b14168e85e75b7ed19e189600186ce11c2902
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251820"
 ---
-# <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro aos dados em Azure Cosmos DB
+# <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro aos dados no Azure Cosmos DB
 
 Este artigo fornece uma visão geral de garantir o acesso aos dados armazenados no [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
@@ -62,7 +62,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-## Fichas de recurso<a id="resource-tokens"></a>
+## <a name="resource-tokens"></a>Fichas de recurso<a id="resource-tokens"></a>
 
 Os tokens de recursos fornecem acesso aos recursos de aplicação dentro de uma base de dados. Fichas de recurso:
 
@@ -95,7 +95,7 @@ A geração e gestão de recursos é tratada pelas bibliotecas de clientes nativ
 
 Para um exemplo de um serviço de nível médio usado para gerar ou intermediar tokens de recursos, consulte a [aplicação ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-## Utilizadores<a id="users"></a>
+## <a name="users"></a>Utilizadores<a id="users"></a>
 
 Os utilizadores da Azure Cosmos DB estão associados a uma base de dados da Cosmos.  Cada base de dados pode conter zero ou mais utilizadores de Db Cosmos. A amostra de código que se segue mostra como criar um utilizador cosmos DB utilizando o [Azure Cosmos DB .NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 
@@ -109,7 +109,7 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > Cada utilizador da Cosmos DB tem um método ReadAsync() que pode ser usado para recuperar a lista de [permissões associadas](#permissions) ao utilizador.
 
-## Permissões<a id="permissions"></a>
+## <a name="permissions"></a>Permissões<a id="permissions"></a>
 
 Um recurso de permissão está associado a um utilizador e atribuído no recipiente, bem como ao nível da chave de divisória. Cada utilizador pode conter zero ou mais permissões. Um recurso de permissão fornece acesso a um símbolo de segurança que o utilizador precisa ao tentar aceder a um recipiente ou dados específicos numa chave de partição específica. Existem dois níveis de acesso disponíveis que podem ser fornecidos por um recurso de permissão:
 

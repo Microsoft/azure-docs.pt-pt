@@ -1,6 +1,6 @@
 ---
-title: Notas de versão da atualização 2 para o StorSimple 8000 Series | Microsoft Docs
-description: Descreve os novos recursos, problemas e soluções alternativas para a atualização 2 do StorSimple 8000 Series.
+title: Notas de lançamento da Série 2 storSimple 8000 Microsoft Docs
+description: Descreve as novas funcionalidades, problemas e soluções para storSimple 8000 Series Update 2.
 services: storsimple
 documentationcenter: NA
 author: twooley
@@ -15,97 +15,97 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: twooley
 ms.openlocfilehash: 4e57fffd2f74ae1b14f51537c92299607f193ad5
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934063"
 ---
-# <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de versão da atualização 2 para o StorSimple 8000 Series
+# <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de lançamento da Série 2 storSimple 8000
 
-## <a name="overview"></a>Visão geral
-As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos abertos do StorSimple 8000 Series Update 2. Eles também contêm uma lista das atualizações de software, Driver e firmware de disco do StorSimple incluídas nesta versão. 
+## <a name="overview"></a>Descrição geral
+As seguintes notas de lançamento descrevem as novas funcionalidades e identificam as questões críticas em aberto para o StorSimple 8000 Series Update 2. Também contêm uma lista das atualizações de software, controlador e firmware do storSimple incluídas nesta versão. 
 
-A atualização 2 pode ser aplicada a qualquer dispositivo StorSimple que executa a versão (GA) ou a atualização 0,1 até a atualização 1,2. A versão do dispositivo associada à atualização 2 é 6.3.9600.17673.
+A atualização 2 pode ser aplicada a qualquer dispositivo StorSimple que execute o Lançamento (GA) ou o Update 0.1 através do Update 1.2. A versão do dispositivo associada ao Update 2 é de 6.3.9600.17673.
 
-Examine as informações contidas nas notas de versão antes de implantar a atualização em sua solução do StorSimple.
+Por favor, reveja as informações contidas nas notas de lançamento antes de implementar a atualização na sua solução StorSimple.
 
 > [!IMPORTANT]
-> * Leva aproximadamente 4-7 horas para instalar essa atualização (incluindo as atualizações do Windows). 
-> * A atualização 2 tem atualizações de software, driver LSI e firmware SSD.
-> * Para novas versões, talvez você não veja as atualizações imediatamente porque fazemos uma distribuição em fases das atualizações. Aguarde alguns dias e, em seguida, verifique se há atualizações novamente, pois elas serão disponibilizadas em breve.
+> * Demora aproximadamente 4 a 7 horas a instalar esta atualização (incluindo as atualizações do Windows). 
+> * A Atualização 2 tem software, controlador LSI e atualizações de firmware SSD.
+> * Para novos lançamentos, pode não ver as atualizações imediatamente porque fazemos um lançamento faseado das atualizações. Aguarde alguns dias e, em seguida, procure novamente as atualizações, uma vez que estas estarão disponíveis em breve.
 > 
 > 
 
-## <a name="whats-new-in-update-2"></a>O que há de novo na atualização 2
-A atualização 2 apresenta os novos recursos a seguir.
+## <a name="whats-new-in-update-2"></a>Novidades na Atualização 2
+A atualização 2 introduz as seguintes novas funcionalidades.
 
-* **Volumes fixados localmente** – em versões anteriores da série StorSimple 8000, blocos de dados eram em camadas para a nuvem com base no uso. Não havia como garantir que os blocos permaneçam no local. Na atualização 2, quando você cria um volume, pode designar um volume como fixado localmente e os dados primários desse volume não serão em camadas na nuvem. Os instantâneos de volumes fixados localmente ainda serão copiados para a nuvem para backup, de modo que a nuvem possa ser usada para fins de recuperação de desastres e mobilidade de dados. Além disso, você pode alterar o tipo de volume (ou seja, converter volumes em camadas em volumes fixados localmente e converter volumes localmente afixados em camadas). 
-* **Aprimoramentos do dispositivo virtual storsimple** – anteriormente, a série storsimple 8000 posicionou o dispositivo virtual como uma solução de recuperação de desastre ou desenvolvimento/teste. Havia apenas um modelo de dispositivo virtual (modelo 1100). A atualização 2 apresenta dois modelos de dispositivo virtual: 
+* **Volumes fixados localmente** – Em lançamentos anteriores da série StorSimple 8000, os blocos de dados foram nientes para a nuvem com base no uso. Não havia como garantir que os blocos ficariam no local. No Update 2, quando criar um volume, pode designar um volume como fixado localmente, e os dados primários desse volume não serão nividados para a nuvem. Os instantâneos de volumes fixados localmente ainda serão copiados para a nuvem para backup para que a nuvem possa ser usada para fins de mobilidade de dados e recuperação de desastres. Além disso, pode alterar o tipo de volume (isto é, converter volumes hierárquicos em volumes fixados localmente e converter volumes fixados localmente em camadas). 
+* **Melhorias do dispositivo virtual StorSimple** – Anteriormente, a série StorSimple 8000 posicionou o dispositivo virtual como uma solução de recuperação de desastres ou desenvolvimento/teste. Havia apenas um modelo de dispositivo virtual (modelo 1100). A atualização 2 introduz dois modelos de dispositivos virtuais: 
   
-  * 8010 (anteriormente chamado de 1100) – sem alteração; o tem uma capacidade de 30 TB e usa o armazenamento standard do Azure.
-  * 8020 – tem uma capacidade de 64 TB e usa o armazenamento Premium do Azure para melhorar o desempenho.
+  * 8010 (anteriormente chamado de 1100) – Sem alterações; tem uma capacidade de 30 TB e utiliza armazenamento padrão Azure.
+  * 8020 – Tem uma capacidade de 64 TB e utiliza o armazenamento Azure Premium para um melhor desempenho.
     
-    Há um único VHD para ambos os modelos de dispositivo virtual (8010/8020). Quando você inicia o dispositivo virtual pela primeira vez, ele detecta os parâmetros da plataforma e aplica a versão do modelo correta.
-* **Melhorias de rede** – a atualização 2 contém os seguintes aprimoramentos de rede:
+    Existe um único VHD para ambos os modelos de dispositivos virtuais (8010/8020). Quando inicia o dispositivo virtual, deteta os parâmetros da plataforma e aplica a versão correta do modelo.
+* **Melhorias de Rede** – A Atualização 2 contém as seguintes melhorias de rede:
   
-  * Várias NICs podem ser habilitadas para a nuvem para que o failover possa ocorrer se uma NIC falhar.
-  * Aprimoramentos de roteamento, com métricas fixas para blocos habilitados para nuvem.
-  * Repetição online de recursos com falha antes de um failover.
+  * Vários NICs podem ser ativados para a nuvem para que a falha possa ocorrer se um NIC falhar.
+  * Melhorias de encaminhamento, com métricas fixas para blocos ativados pela nuvem.
+  * Repetição online de recursos falhados antes de uma falha.
   * Novos alertas para falhas de serviço.
-* **Aprimoramentos de atualização** – na atualização 1,2 e anteriores, a série StorSimple 8000 foi atualizada por meio de dois canais: Windows Update para clustering, iSCSI e assim por diante, e Microsoft Update para binários e firmware.
-    A atualização 2 usa Microsoft Update para todos os pacotes de atualização. Isso deve levar a um tempo menor de aplicação de patch ou de failover. 
-* **Atualizações de firmware** – as seguintes atualizações de firmware estão incluídas:
+* **Atualizando melhorias** – Na Atualização 1.2 e anterior, a série StorSimple 8000 foi atualizada através de dois canais: Windows Update para clustering, iSCSI, e assim por diante, e Microsoft Update para binários e firmware.
+    O Update 2 utiliza o Microsoft Update para todos os pacotes de atualização. Isto deve levar a menos tempo a remendar ou a fazer falhas. 
+* **Atualizações de Firmware** – As seguintes atualizações de firmware estão incluídas:
   
-  * LSI: lsi_sas2. sys versão do produto 2.00.72.10
-  * Somente SSD (sem atualizações de HDD): XMGG, XGEG, KZ50, F6C2 e VR08
-* **Suporte proativo** – a atualização 2 permite que a Microsoft extraia informações de diagnóstico adicionais do dispositivo. Quando nossa equipe de operações identifica dispositivos que estão tendo problemas, estamos mais bem equipados para coletar informações do dispositivo e diagnosticar problemas. Ao **aceitar a atualização 2, você nos permite fornecer esse suporte proativo**.    
+  * LSI: versão do produto lsi_sas2.sys versão 2.00.72.10
+  * SSD apenas (sem atualizações HDD): XMGG, XGEG, KZ50, F6C2 e VR08
+* **Suporte Proactivo** – O Update 2 permite à Microsoft retirar informações adicionais de diagnóstico do dispositivo. Quando a nossa equipa de operações identifica dispositivos que estão com problemas, estamos mais bem equipados para recolher informações do dispositivo e diagnosticar problemas. **Ao aceitar a Atualização 2, permite-nos fornecer este suporte proactivo**.    
 
-## <a name="issues-fixed-in-update-2"></a>Problemas corrigidos na atualização 2
-As tabelas a seguir fornecem um resumo dos problemas que foram corrigidos nas atualizações 2.    
+## <a name="issues-fixed-in-update-2"></a>Problemas corrigidos na Atualização 2
+As tabelas seguintes fornecem um resumo das questões que foram corrigidas nas Atualizações 2.    
 
-| Não. | Funcionalidade | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
+| Não. | Funcionalidade | Problema | Aplica-se ao dispositivo físico | Aplica-se a dispositivovirtual |
 | --- | --- | --- | --- | --- |
-| 1 |Interfaces de rede |Após uma atualização para a atualização 1, o serviço de StorSimple Manager relatou que as portas Dados2 e data3 falharam em um controlador. Este problema foi corrigido. |Sim |Não |
-| 2 |Atualizações |Após uma atualização para a atualização 1, alertas de alarme audível ocorreram no portal clássico do Azure em vários dispositivos. Este problema foi corrigido. |Sim |Não |
-| 3 |Autenticação Openstack |Ao usar o Openstack como seu provedor de serviços de nuvem, você pode receber um erro de que sua cadeia de caracteres de autenticação de nuvem era muito longa. Isto foi corrigido. |Sim |Não |
+| 1 |Interfaces de rede |Após uma atualização para a Atualização 1, o serviço StorSimple Manager informou que as portas Data2 e Data3 falharam num controlador. Esta questão foi corrigida. |Sim |Não |
+| 2 |Atualizações |Após uma atualização para o Update 1, ocorreram alertas de alarme sonoros no portal clássico azure em vários dispositivos. Esta questão foi corrigida. |Sim |Não |
+| 3 |Autenticação openstack |Ao utilizar o Openstack como fornecedor de serviços na nuvem, pode receber um erro de que a sua cadeia de autenticação em nuvem era demasiado longa. Este problema foi corrigido. |Sim |Não |
 
-## <a name="known-issues-in-update-2"></a>Problemas conhecidos na atualização 2
-A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
+## <a name="known-issues-in-update-2"></a>Questões conhecidas na Atualização 2
+A tabela que se segue apresenta um resumo das questões conhecidas nesta versão.
 
-| Não. | Funcionalidade | Problema | Comentários/solução alternativa | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
+| Não. | Funcionalidade | Problema | Comentários / suposições | Aplica-se ao dispositivo físico | Aplica-se a dispositivovirtual |
 | --- | --- | --- | --- | --- | --- |
-| 1 |Quorum de disco |Em casos raros, se a maioria dos discos no compartimento EBOD de um dispositivo 8600 for desconectada, resultando em nenhum quorum de disco, o pool de armazenamento ficará offline. Ele permanecerá offline mesmo que os discos sejam reconectados. |Será necessário reinicializar o dispositivo. Se o problema persistir, entre em contato com Suporte da Microsoft para as próximas etapas. |Sim |Não |
-| 2 |ID do controlador incorreta |Quando uma substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada do nó par, a ID do controlador pode aparecer inicialmente como a ID do controlador de par. Em raras circunstâncias, esse comportamento também pode ser visto após a reinicialização do sistema. |Não é necessária nenhuma ação do utilizador. Essa situação será resolvida depois que a substituição do controlador for concluída. |Sim |Não |
-| 3 |Contas de armazenamento |O uso do serviço de armazenamento para excluir a conta de armazenamento é um cenário sem suporte. Isso resultará em uma situação em que os dados do usuário não podem ser recuperados. | |Sim |Sim |
-| 4 |Failover de dispositivo |Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para dispositivos de destino diferentes. O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após esse failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando você os exibir no portal clássico do Azure. | |Sim |Não |
-| 5 |Instalação |Durante a instalação do adaptador StorSimple para SharePoint, você precisa fornecer um IP de dispositivo para que a instalação seja concluída com êxito. | |Sim |Não |
-| 6 |Proxy Web |Se sua configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de dispositivo para serviço será afetada e o dispositivo ficará offline. Os pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. |Verifique se a URL do proxy Web tem HTTP como o protocolo especificado. Para obter mais informações, veja [Configure web proxy for your device (Configurar o proxy Web para o seu dispositivo)](storsimple-configure-web-proxy.md). |Sim |Não |
-| 7 |Proxy Web |Se você configurar e habilitar o proxy Web em um dispositivo registrado, será necessário reiniciar o controlador ativo em seu dispositivo. | |Sim |Não |
-| 8 |Alta latência de nuvem e alta carga de trabalho de e/s |Quando o dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas (ordem de segundos) e alta carga de trabalho de e/s, os volumes do dispositivo entram em um estado degradado e as e/SS podem falhar com um erro "o dispositivo não está pronto". |Será necessário reinicializar manualmente os controladores de dispositivo ou executar um failover de dispositivo para se recuperar dessa situação. |Sim |Não |
-| 9 |Azure PowerShell |Quando você usa o cmdlet do StorSimple **Get- &#124; AzureStorSimpleStorageAccountCredential Select-Object-First 1-Wait** para selecionar o primeiro objeto para que você possa criar um novo objeto **associado volumecontainer** , o cmdlet retorna todos os objetos. |Coloque o cmdlet entre parênteses da seguinte maneira: **(Get-Azure-StorSimpleStorageAccountCredential &#124; ) Select-Object-First 1-Wait** |Sim |Sim |
-| 10 |Migração |Quando vários contêineres de volume são passados para migração, o ETA para backup mais recente é preciso apenas para o primeiro contêiner de volume. Além disso, a migração paralela será iniciada depois que os quatro primeiros backups no primeiro contêiner de volume forem migrados. |Recomendamos que você migre um contêiner de volume de cada vez. |Sim |Não |
-| 11 |Migração |Após a restauração, os volumes não são adicionados à política de backup ou ao grupo de discos virtuais. |Será necessário adicionar esses volumes a uma política de backup para criar backups. |Sim |Sim |
-| 12 |Migração |Após a conclusão da migração, o dispositivo da série 5000/7000 não deve acessar os contêineres de dados migrados. |Recomendamos que você exclua os contêineres de dados migrados depois que a migração for concluída e confirmada. |Sim |Não |
-| 13 |Clone e DR |Um dispositivo StorSimple que executa A atualização 1 não pode clonar ou executar a recuperação de desastre em um dispositivo que executa o software anterior à atualização 1. |Será necessário atualizar o dispositivo de destino para a atualização 1 para permitir essas operações |Sim |Sim |
-| 14 |Migração |O backup de configuração para migração poderá falhar em um dispositivo da série 5000-7000 quando houver grupos de volumes sem volumes associados. |Exclua todos os grupos de volume vazios sem volumes associados e repita o backup de configuração. |Sim |Não |
-| 15 |Azure PowerShell cmdlets e volumes localmente afixados |Você não pode criar um volume fixado localmente por meio de cmdlets Azure PowerShell. (Qualquer volume criado por meio de Azure PowerShell será colocado em camadas.) |Sempre use o serviço de StorSimple Manager para configurar volumes fixados localmente. |Sim |Não |
-| 16 |Espaço disponível para volumes fixados localmente |Se você excluir um volume fixado localmente, o espaço disponível para novos volumes poderá não ser atualizado imediatamente. O serviço de StorSimple Manager atualiza o espaço local disponível aproximadamente a cada hora. |Aguarde uma hora antes de tentar criar o novo volume. |Sim |Não |
-| 17 |volumes afixados localmente |O trabalho de restauração expõe o backup de instantâneo temporário no catálogo de backup, mas apenas durante o trabalho de restauração. Além disso, ele expõe um grupo de discos virtuais com o prefixo **tmpCollection** na página de **políticas de backup** , mas apenas durante o trabalho de restauração. |Esse comportamento pode ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados localmente e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Não é necessária a intervenção do utilizador. |Sim |Não |
-| 18 |volumes afixados localmente |Se você cancelar um trabalho de restauração e um failover de controlador ocorrer imediatamente depois, o trabalho de restauração mostrará **falha** em vez de **cancelado**. Se um trabalho de restauração falhar e um failover de controlador ocorrer imediatamente depois, o trabalho de restauração mostrará **cancelado** em vez de **falha**. |Esse comportamento pode ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados localmente e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Não é necessária a intervenção do utilizador. |Sim |Não |
-| 19 |volumes afixados localmente |Se você cancelar um trabalho de restauração ou se uma restauração falhar e um failover de controlador ocorrer, um trabalho de restauração adicional será exibido na página **trabalhos** . |Esse comportamento pode ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados localmente e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Não é necessária a intervenção do utilizador. |Sim |Não |
-| 20 |volumes afixados localmente |Se você tentar converter um volume em camadas (criado e clonado com a atualização 1,2 ou anterior) em um volume fixado localmente e o dispositivo estiver ficando sem espaço ou houver uma interrupção de nuvem, os clones poderão ser corrompidos. |Esse problema ocorre apenas com volumes que foram criados e clonados com o software anterior à atualização 2. Isso deve ser um cenário infrequente. | | |
-| 21 |Conversão de volume |Não atualize o ACRs anexado a um volume enquanto uma conversão de volume estiver em andamento (em camadas para fixadas localmente ou vice-versa). A atualização do ACRs pode resultar em dados corrompidos. |Se necessário, atualize o ACRs antes da conversão do volume e não faça nenhuma atualização adicional do ACR enquanto a conversão estiver em andamento. | | |
+| 1 |Quórum do disco |Em casos raros, se a maioria dos discos no recinto do EBOD de um dispositivo 8600 for desligado, resultando em nenhum quórum de disco, então a piscina de armazenamento ficará offline. Permanecerá offline mesmo que os discos estejam reconectados. |Terá de reiniciar o dispositivo. Se o problema persistir, contacte o Microsoft Support para os próximos passos. |Sim |Não |
+| 2 |ID do controlador incorreto |Quando uma substituição do controlador é efetuada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó de pares, o ID do controlador pode aparecer inicialmente como id do controlador de pares. Em casos raros, este comportamento também pode ser visto após um reboot do sistema. |Não é necessária qualquer ação do utilizador. Esta situação resolver-se-á após a substituição do controlador estar completa. |Sim |Não |
+| 3 |Contas de armazenamento |A utilização do serviço de armazenamento para eliminar a conta de armazenamento é um cenário não suportado. Isto conduzirá a uma situação em que os dados dos utilizadores não podem ser recuperados. | |Sim |Sim |
+| 4 |Falha no dispositivo |Não são suportadas múltiplas falhas de um contentor de volume do mesmo dispositivo de origem para diferentes dispositivos-alvo. A falha de um único dispositivo morto para vários dispositivos fará com que os contentores de volume do primeiro falhado sobre o dispositivo percam a propriedade de dados. Após tal falha, estes contentores de volume aparecerão ou comportar-se-ão de forma diferente quando os vires no portal clássico do Azure. | |Sim |Não |
+| 5 |Instalação |Durante o Adaptador StorSimple para a instalação do SharePoint, é necessário fornecer um IP do dispositivo para que a instalação termine com sucesso. | |Sim |Não |
+| 6 |Proxy Web |Se a configuração do seu proxy web tiver HTTPS como protocolo especificado, então a sua comunicação dispositivo-a-serviço será afetada e o dispositivo ficará offline. Os pacotes de suporte também serão gerados no processo, consumindo recursos significativos no seu dispositivo. |Certifique-se de que o URL de procuração web tem HTTP como protocolo especificado. Para obter mais informações, veja [Configure web proxy for your device (Configurar o proxy Web para o seu dispositivo)](storsimple-configure-web-proxy.md). |Sim |Não |
+| 7 |Proxy Web |Se configurar e ativar o proxy web num dispositivo registado, terá de reiniciar o controlador ativo no seu dispositivo. | |Sim |Não |
+| 8 |Latência de nuvem alta e alta carga de trabalho em I/S |Quando o seu dispositivo StorSimple encontra uma combinação de latenciências de nuvem muito alta (ordem de segundos) e alta carga de trabalho em I/S, os volumes do dispositivo entram em estado degradado e o I/Os pode falhar com um erro "dispositivo não pronto". |Terá de reiniciar manualmente os controladores do dispositivo ou realizar uma falha no dispositivo para se recuperar desta situação. |Sim |Não |
+| 9 |Azure PowerShell |Quando utilizar o StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para selecionar o primeiro objeto para que possa criar um novo objeto **VolumeContainer,** o cmdlet devolve todos os objetos. |Embrulhe o cmdlet em parênteses da seguinte forma: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sim |Sim |
+| 10 |Migração |Quando vários contentores de volume são passados para migração, o ETA para a última cópia de segurança é preciso apenas para o primeiro recipiente de volume. Além disso, a migração paralela começará após a migração das primeiras 4 cópias de segurança no primeiro contentor de volume. |Recomendamos que emigra um recipiente de volume de cada vez. |Sim |Não |
+| 11 |Migração |Após a restauração, os volumes não são adicionados à política de backup ou ao grupo de discos virtuais. |Terá de adicionar estes volumes a uma política de backup para criar backups. |Sim |Sim |
+| 12 |Migração |Após a migração estar concluída, o dispositivo da série 5000/7000 não deve aceder aos recipientes de dados migrados. |Recomendamos que apague os recipientes de dados migrados após a migração estar completa e comprometida. |Sim |Não |
+| 13 |Clone e DR |Um dispositivo StorSimple que executa o Update 1 não pode clonar ou realizar a recuperação de desastres para um dispositivo que executa o software pré-actualização 1. |Terá de atualizar o dispositivo-alvo para atualizar 1 para permitir estas operações |Sim |Sim |
+| 14 |Migração |A cópia de segurança de configuração para migração pode falhar num dispositivo da série 5000-7000 quando há grupos de volume sem volumes associados. |Elimine todos os grupos de volume vazios sem volumes associados e, em seguida, tente novamente a cópia de segurança da configuração. |Sim |Não |
+| 15 |Cmdlets Azure PowerShell e volumes fixados localmente |Não é possível criar um volume fixado localmente através de cmdlets Azure PowerShell. (Qualquer volume que criar através do Azure PowerShell será nivido.) |Utilize sempre o serviço StorSimple Manager para configurar volumes fixados localmente. |Sim |Não |
+| 16 |Espaço disponível para volumes locais fixados |Se eliminar um volume fixado localmente, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O serviço StorSimple Manager atualiza o espaço local disponível aproximadamente a cada hora. |Aguarde uma hora antes de tentar criar o novo volume. |Sim |Não |
+| 17 |volumes afixados localmente |O seu trabalho de restauro expõe o backup de instantâneos temporários no Catálogo de Cópias de Segurança, mas apenas durante a duração do trabalho de restauro. Além disso, expõe um grupo de discos virtuais com prefixo **tmpCollection** na página Políticas de **Backup,** mas apenas durante a duração do trabalho de restauro. |Este comportamento pode ocorrer se o seu trabalho de restauro tiver apenas volumes fixados localmente ou uma mistura de volumes fixados localmente e hierárquicos. Se o trabalho de restauro incluir apenas volumes hierárquicos, então este comportamento não ocorrerá. Não é necessária a intervenção do utilizador. |Sim |Não |
+| 18 |volumes afixados localmente |Se cancelar um trabalho de restauro e um reprovação ocorrer imediatamente a seguir, o trabalho de restauro mostrará **falhado** em vez de **cancelado**. Se um trabalho de restauro falhar e um controlador falhar imediatamente depois, o trabalho de restauro mostrará **cancelado** em vez de **Falhado**. |Este comportamento pode ocorrer se o seu trabalho de restauro tiver apenas volumes fixados localmente ou uma mistura de volumes fixados localmente e hierárquicos. Se o trabalho de restauro incluir apenas volumes hierárquicos, então este comportamento não ocorrerá. Não é necessária a intervenção do utilizador. |Sim |Não |
+| 19 |volumes afixados localmente |Se cancelar um trabalho de restauro ou se um restauro falhar e, em seguida, ocorrer uma falha no controlador, aparece um trabalho adicional de restauro na página **Jobs.** |Este comportamento pode ocorrer se o seu trabalho de restauro tiver apenas volumes fixados localmente ou uma mistura de volumes fixados localmente e hierárquicos. Se o trabalho de restauro incluir apenas volumes hierárquicos, então este comportamento não ocorrerá. Não é necessária a intervenção do utilizador. |Sim |Não |
+| 20 |volumes afixados localmente |Se tentar converter um volume hierárquico (criado e clonado com a Atualização 1.2 ou anterior) para um volume fixado localmente e o seu dispositivo estiver a ficar sem espaço ou se houver uma falha na nuvem, então o clone(s) pode ser corrompido. |Este problema ocorre apenas com volumes que foram criados e clonados com software pré-Actualização 2. Este deve ser um cenário pouco frequente. | | |
+| 21 |Conversão de volume |Não atualize os ACRs ligados a um volume enquanto estiver em curso uma conversão de volume (nivida a fixação local ou vice-versa). A atualização dos ACRs pode resultar em corrupção de dados. |Se necessário, atualize os ACRs antes da conversão do volume e não efaça mais atualizações aCR enquanto a conversão estiver em curso. | | |
 
-## <a name="controller-and-firmware-updates-in-update-2"></a>Atualizações de controlador e firmware na atualização 2
-Esta versão atualiza o driver e o firmware do disco em seu dispositivo.
+## <a name="controller-and-firmware-updates-in-update-2"></a>Atualizações de controlador e firmware no Update 2
+Esta versão atualiza o controlador e o firmware do disco no seu dispositivo.
 
-* Para obter mais informações sobre a atualização do firmware LSI, consulte o artigo 3121900 da base de dados de conhecimento Microsoft. 
-* Para obter mais informações sobre a atualização de firmware de disco, consulte o artigo 3121899 da base de dados de conhecimento Microsoft.
+* Para obter mais informações sobre a atualização de firmware LSI, consulte o artigo base do Microsoft Knowledge 3121900. 
+* Para obter mais informações sobre a atualização do firmware do disco, consulte o artigo base do Microsoft Knowledge 3121899.
 
-## <a name="virtual-device-updates-in-update-2"></a>Atualizações de dispositivo virtual na atualização 2
-Esta atualização não pode ser aplicada ao dispositivo virtual. Novos dispositivos virtuais precisarão ser criados. 
+## <a name="virtual-device-updates-in-update-2"></a>Atualizações de dispositivos virtuais no Update 2
+Esta atualização não pode ser aplicada ao dispositivo virtual. Serão necessários novos dispositivos virtuais. 
 
 ## <a name="next-step"></a>Passo seguinte
-Saiba como [instalar a atualização 2](storsimple-install-update-2.md) em seu dispositivo StorSimple.
+Saiba como instalar o [Update 2](storsimple-install-update-2.md) no seu dispositivo StorSimple.
 

@@ -1,19 +1,19 @@
 ---
-title: Eliminar e recuperar o espaço de trabalho do Azure Log Analytics  Microsoft Docs
+title: Eliminar e recuperar o espaço de trabalho do Azure Log Analytics [ Microsoft Docs
 description: Saiba como eliminar o seu espaço de trabalho Log Analytics se criou um numa subscrição pessoal ou reestruturar o seu modelo de espaço de trabalho.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 6f50450702c9ecdc1c1d910514d94e0a759176b8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: ead0ac04fbd2244fce97dd043ebd44f24fb0f67f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670479"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054925"
 ---
-# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminar e restaurar o espaço de trabalho azure Log Analytics
+# <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminar e recuperar o espaço de trabalho do Azure Log Analytics
 
 Este artigo explica o conceito de eliminação suave do espaço de trabalho Azure Log Analytics e como recuperar o espaço de trabalho eliminado. 
 
@@ -46,9 +46,9 @@ Pode eliminar um espaço de trabalho utilizando [powerShell,](https://docs.micro
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. Para entrar, vá ao [portal Azure.](https://portal.azure.com) 
-2. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
+2. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
 3. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho e clique em **Apagar** a partir da parte superior do painel médio.
-   ![Excluir a opção das propriedades do Espaço de Trabalho painel](media/delete-workspace/log-analytics-delete-workspace.png)
+   ![Eliminar a opção do painel de propriedades do Espaço de Trabalho](media/delete-workspace/log-analytics-delete-workspace.png)
 4. Quando a janela da mensagem de confirmação aparecer pedindo-lhe que confirme a eliminação do espaço de trabalho, clique **em Sim**.
    ![Confirmar a supressão do espaço de trabalho](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
 
@@ -58,7 +58,7 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ```
 
 ## <a name="permanent-workspace-delete"></a>Espaço de trabalho permanente apaga
-O método soft-delete pode não caber em alguns cenários, tais como desenvolvimento e teste, onde você precisa repetir uma implementação com as mesmas configurações e nome do espaço de trabalho. Nesses casos, pode eliminar permanentemente o seu espaço de trabalho e "anular" o período de eliminação suave. O espaço de trabalho permanente elimina a operação liberta o nome do local de trabalho e pode criar um novo espaço de trabalho com o mesmo nome.
+O método soft-delete pode não caber em alguns cenários, tais como desenvolvimento e teste, onde você precisa repetir uma implementação com as mesmas configurações e nome do espaço de trabalho. Nesses casos, pode eliminar permanentemente o seu espaço de trabalho e "anular" o período de eliminação suave. O espaço de trabalho permanente elimina a operação liberta o nome do espaço de trabalho e pode criar um novo espaço de trabalho com o mesmo nome.
 
 
 > [!IMPORTANT]
@@ -70,8 +70,8 @@ O espaço de trabalho permanente pode ser atualmente realizado através da API R
 > Qualquer pedido da API deve incluir um símbolo de autorização do Portador no cabeçalho do pedido.
 >
 > Pode adquirir o símbolo usando:
-> - [Registos das aplicações](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
-> - Navegue para o portal Azure utilizando a consola do desenvolvedor (F12) no navegador. Olhar num dos casos do **lote?** Isto estará na *autorização padrão: <token>ao portador.* Copie e adicione isto à sua chamada API, como mostram os exemplos.
+> - [Registos de aplicações](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
+> - Navegue para o portal Azure utilizando a consola do desenvolvedor (F12) no navegador. Olhar num dos casos do **lote?** **Request Headers** Isto estará na *autorização padrão: <token>Bearer *. Copie e adicione isto à sua chamada API, como mostram os exemplos.
 > - Navegue para o site de documentação Azure REST. pressione **Experimente** em qualquer API, copie o token do Portador e adicione-o à sua chamada API.
 Para eliminar permanentemente o seu espaço de trabalho, utilize os espaços de [trabalho - Elimine]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) a chamada REST API com uma etiqueta de força:
 >
@@ -89,7 +89,7 @@ Pode recuperar um espaço de trabalho recriando-o utilizando os seguintes métod
 
 * ID da subscrição
 * Nome do Grupo de Recursos
-* Nome do espaço de trabalho
+* Nome da área de trabalho
 * Região
 
 ### <a name="powershell"></a>PowerShell

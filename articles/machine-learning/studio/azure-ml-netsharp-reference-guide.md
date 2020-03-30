@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218255"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guia para a linguagem de especificação da rede neural Net# para o Estúdio de Aprendizagem automática Azure (clássico)
@@ -56,7 +56,7 @@ Adicionalmente, a Net# suporta os seguintes quatro tipos de pacotes avançados d
 + **Conjuntos** de pacotes e **pacotes de normalização**de resposta. Estes são semelhantes a pacotes convolucionais na medida em que o utilizador define pequenos bairros de nó na camada de origem. A diferença é que os pesos das bordas nestes pacotes não são treináveis. Em vez disso, aplica-se uma função predefinida aos valores do nó de origem para determinar o valor do nó de destino.
 
 
-## <a name="supported-customizations"></a>Personalizações suportadas
+## <a name="supported-customizations"></a>Supported customizations (Personalizações avançadas)
 
 A arquitetura dos modelos de rede neural que cria no Azure Machine Learning Studio (clássico) pode ser extensivamente personalizada usando o Net#. Pode:
 
@@ -87,7 +87,7 @@ Uma especificação da estrutura da rede neural é composta por três secções:
 
 Uma declaração constante é opcional. Fornece um meio para definir valores utilizados em outros lugares na definição da rede neural. A declaração consiste num identificador seguido de um sinal igual e de uma expressão de valor.
 
-Por exemplo, a seguinte declaração define um `x`constante:
+Por exemplo, a seguinte afirmação define uma constante: `x`
 
 `Const X = 28;`
 
@@ -112,7 +112,7 @@ output Result[2] from Hidden all;
 + O produto das dimensões é o número de nós na camada. Neste exemplo, existem duas dimensões [5,20], o que significa que há 100 nós na camada.
 + As camadas podem ser declaradas em qualquer ordem, com uma exceção: Se for definida mais de uma camada de entrada, a ordem em que são declaradas deve corresponder à ordem das características nos dados de entrada.
 
-Para especificar que o número de nós numa camada é determinado automaticamente, utilize a palavra-chave `auto`. A palavra-chave `auto` tem efeitos diferentes, dependendo da camada:
+Para especificar que o número de nós numa camada é `auto` determinado automaticamente, utilize a palavra-chave. A `auto` palavra-chave tem efeitos diferentes, dependendo da camada:
 
 + Numa declaração de camada de entrada, o número de nós é o número de funcionalidades nos dados de entrada.
 + Numa declaração de camada escondida, o número de nós é o número especificado pelo valor do parâmetro para **o número de nós escondidos**.
@@ -130,7 +130,7 @@ Uma declaração de camada para uma camada treinável (as camadas ocultas ou de 
 
 As seguintes funções de saída são suportadas:
 
-+ sigmoid
++ sigmoide
 + linear
 + softmax
 + rlinear
@@ -147,13 +147,13 @@ Por exemplo, a seguinte declaração utiliza a função **softmax:**
 
 ## <a name="connection-declaration"></a>Declaração de ligação
 
-Imediatamente após a definição da camada treinável, deve declarar ligações entre as camadas que definiu. A declaração do pacote de ligação começa com a palavra-chave `from`, seguida pelo nome da camada de origem do pacote e o tipo de pacote de ligação para criar.
+Imediatamente após a definição da camada treinável, deve declarar ligações entre as camadas que definiu. A declaração do pacote de `from`ligação começa com a palavra-chave, seguida pelo nome da camada de origem do pacote e pelo tipo de pacote de ligação para criar.
 
 Atualmente, cinco tipos de pacotes de ligação são suportados:
 
-+ **Pacotes completos,** indicados pela palavra-chave `all`
-+ Pacotes **filtrados,** indicados pela palavra-chave `where`, seguidos de uma expressão predicada
-+ Pacotes **convolucionais,** indicados pela palavra-chave `convolve`, seguidos pelos atributos de convolução
++ **Pacotes completos,** indicados pela palavra-chave`all`
++ Pacotes **filtrados,** indicados `where`pela palavra-chave, seguidos de uma expressão predicada
++ Pacotes **convolucionais,** indicados `convolve`pela palavra-chave, seguidos pelos atributos de convolução
 + **Pacotes de agrupamento,** indicados pelas palavras-chave **max pool** ou **piscina média**
 + **Pacotes** de normalização de resposta, indicados pela norma de **resposta** da palavra-chave
 
@@ -163,7 +163,7 @@ Um pacote completo de ligação inclui uma ligação de cada nó na camada de or
 
 ## <a name="filtered-bundles"></a>Pacotes filtrados
 
-Uma especificação de pacote de ligação filtrada inclui um C# predicado, expresso sintáticamente, muito parecido com uma expressão de lambda. O exemplo que se segue define dois pacotes filtrados:
+Uma especificação de feixe de ligação filtrada inclui um predicado, expresso sintáticamente, muito parecido com uma expressão c# lambda. O exemplo que se segue define dois pacotes filtrados:
 
 ```Net#
 input Pixels [10, 20];
@@ -171,13 +171,13 @@ hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 ```
 
-+ No predicado para `ByRow`, `s` é um parâmetro que representa um índice na matriz retangular de nós da camada de entrada, `Pixels`, e `d` é um parâmetro que representa um índice na matriz de nós da camada escondida, `ByRow`. O tipo de `s` e `d` é uma tuple de inteiros de comprimento dois. Conceptualmente, `s` varia sobre todos os pares de inteiros com `0 <= s[0] < 10` e `0 <= s[1] < 20`, e `d` varia sobre todos os pares de inteiros, com `0 <= d[0] < 10` e `0 <= d[1] < 12`.
++ No predicado `ByRow` `s` para, é um parâmetro que representa um índice na matriz retangular `Pixels`de `d` nós da camada de entrada, e é um parâmetro `ByRow`que representa um índice na matriz de nós da camada escondida, . O tipo `s` de `d` ambos e é uma túnica de inteiros de comprimento dois. Conceptualmente, `s` varia sobre todos os pares de `0 <= s[0] < 10` `0 <= s[1] < 20`inteiros `d` com e, e varia sobre todos `0 <= d[0] < 10` `0 <= d[1] < 12`os pares de inteiros, com e .
 
-+ No lado direito da expressão predicada, há uma condição. Neste exemplo, por cada valor de `s` e `d` tal que a condição é Verdadeira, há uma borda desde o nó da camada de origem até ao nó da camada de destino. Assim, esta expressão do filtro indica que o feixe inclui uma ligação do nó definido por `s` ao nó definido por `d` em todos os casos em que o s[0] é igual a d[0].
++ No lado direito da expressão predicada, há uma condição. Neste exemplo, por cada `s` `d` valor e de tal forma que a condição é verdadeira, há uma borda desde o nó da camada de origem até ao nó da camada de destino. Assim, esta expressão do filtro indica que o feixe `s` inclui uma ligação do nó definido pelo nó definido por `d` em todos os casos em que o s[0] é igual a d[0].
 
 Opcionalmente, pode especificar um conjunto de pesos para um pacote filtrado. O valor para o atributo dos **Pesos** deve ser uma tuple de valores de ponto flutuante com um comprimento que corresponda ao número de ligações definidas pelo pacote. Por padrão, os pesos são gerados aleatoriamente.
 
-Os valores de peso são agrupados pelo índice de nó de destino. Ou seja, se o nó de destino está ligado aos nós de origem K, os primeiros `K` elementos da tuple **Weights** são os pesos para o primeiro nó de destino, por ordem de índice fonte. O mesmo se aplica aos restantes nódosos de destino.
+Os valores de peso são agrupados pelo índice de nó de destino. Ou seja, se o nó de destino está ligado aos `K` nós de origem K, os primeiros elementos da tuple **Weights** são os pesos para o primeiro nó de destino, em ordem de índice fonte. O mesmo se aplica aos restantes nódosos de destino.
 
 É possível especificar os pesos diretamente como valores constantes. Por exemplo, se tiver aprendido os pesos anteriormente, pode especificá-los como constantes usando esta sintaxe:
 
@@ -211,18 +211,18 @@ Existem dois conjuntos de propriedades que controlam o enchimento, sendo as prop
 
     Um único valor Boolean é estendido para ser uma tuple do comprimento correto com todos os componentes iguais ao valor especificado.
 
-    Se o valor para uma dimensão for verdadeiro, a fonte é logicamente acolchoada nessa dimensão com células de valor zero para suportar aplicações adicionais de kernel, de modo que os nós centrais do primeiro e último núcleo nessa dimensão são os primeiros e últimos nós em que dimensão na camada de origem. Assim, o número de nós "bonecos" em cada dimensão é determinado automaticamente, para encaixar exatamente `(InputShape[d] - 1) / Stride[d] + 1` núcleos na camada de origem acolchoada.
+    Se o valor para uma dimensão for verdadeiro, a fonte é logicamente acolchoada nessa dimensão com células de valor zero para suportar aplicações adicionais de kernel, de modo que os nós centrais do primeiro e último núcleo nessa dimensão são os primeiros e últimos nós em que dimensão na camada de origem. Assim, o número de nós "bonecos" em cada dimensão é `(InputShape[d] - 1) / Stride[d] + 1` determinado automaticamente, para encaixar exatamente os núcleos na camada de origem acolchoada.
 
     Se o valor para uma dimensão for Falso, os núcleos são definidos de modo a que o número de nós de cada lado que ficam de fora seja o mesmo (até uma diferença de 1). O valor padrão deste atributo é um tuple com todos os componentes iguais ao Falso.
 
 + **UpperPad** e **LowerPad**: (opcional) Fornecer um maior controlo sobre a quantidade de estofamento a utilizar. **Importante:** Estes atributos podem ser definidos se e apenas se a propriedade **de Acolchoamento** acima ***não*** for definida. Os valores devem ser tuples de valor inteiro com comprimentos que são a aridade do pacote. Quando estes atributos são especificados, os nós "bonecos" são adicionados às extremidades inferiores e superiores de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferiores e superiores em cada dimensão é determinado por **LowerPad**[i] e **UpperPad**[i] respectivamente.
 
     Para garantir que os grãos correspondam apenas a nós "reais" e não a nós "bonecos", devem ser satisfeitas as seguintes condições:
-  - Cada componente do **LowerPad** deve ser estritamente inferior a `KernelShape[d]/2`.
-  - Cada componente do **UpperPad** não deve ser superior a `KernelShape[d]/2`.
+  - Cada componente do **LowerPad** deve `KernelShape[d]/2`ser estritamente inferior a .
+  - Cada componente do **UpperPad** não `KernelShape[d]/2`deve ser maior do que .
   - O valor padrão destes atributos é um tuple com todos os componentes iguais a 0.
 
-    A definição **Do acolchoamento** = verdadeiro permite o acolchoamento que for necessário para manter o "centro" do núcleo dentro da entrada "real". Isto muda um pouco a matemática para calcular o tamanho da saída. Geralmente, o tamanho de saída *D* é calculado como `D = (I - K) / S + 1`, onde `I` é o tamanho da entrada, `K` é o tamanho do núcleo, `S` é o passo, e `/` é divisão inteiro (redonda para zero). Se definir o UpperPad = [1, 1], o tamanho da entrada `I` é efetivamente 29, e assim `D = (29 - 5) / 2 + 1 = 13`. No entanto, quando **o acolchoamento** = verdadeiro, essencialmente `I` é aumentado por `K - 1`; daí `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Ao especificar valores para **O Pad superior** e **LowerPad** obtém-se muito mais controlo sobre o acolchoado do que se apenas definir **o acolchoamento** = verdadeiro.
+    A definição **Do acolchoamento** = verdadeiro permite o acolchoamento que for necessário para manter o "centro" do núcleo dentro da entrada "real". Isto muda um pouco a matemática para calcular o tamanho da saída. Geralmente, o tamanho *de* saída `D = (I - K) / S + 1`D `I` é calculado como, onde é o tamanho da entrada, `K` é o tamanho do núcleo, `S` é o passo, e `/` é divisão de inteiro (redonda para zero). Se definir o UpperPad = [1, 1], o tamanho `I` da `D = (29 - 5) / 2 + 1 = 13`entrada é efetivamente 29, e assim . No entanto, quando **o acolchoado** = verdadeiro, essencialmente `I` é atropelado por; `K - 1` daí. `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14` Ao especificar valores para **O Pad superior** e **LowerPad** obtém-se muito mais controlo sobre o acolchoado do que se apenas definir **o acolchoamento** = verdadeiro.
 
 Para obter mais informações sobre redes convolucionais e suas aplicações, consulte estes artigos:
 
@@ -246,14 +246,14 @@ hidden P1 [5, 12, 12]
   }
 ```
 
-+ A aridade do pacote é 3: ou seja, o comprimento dos tuples `InputShape`, `KernelShape`, e `Stride`.
-+ O número de nós na camada de origem é `5 * 24 * 24 = 2880`.
++ A aridade do pacote é 3: isto é, `InputShape`o `KernelShape`comprimento `Stride`dos tupículos, e .
++ O número de nós na camada `5 * 24 * 24 = 2880`de origem é .
 + Esta é uma camada tradicional de piscina local porque **KernelShape** e **Stride** são iguais.
-+ O número de nós na camada de destino é `5 * 12 * 12 = 1440`.
++ O número de nós na camada `5 * 12 * 12 = 1440`de destino é .
 
 Para obter mais informações sobre camadas de agrupamento, consulte estes artigos:
 
-+ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Secção 3.4)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf)(Secção 3.4)
 + [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
 + [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
@@ -261,7 +261,7 @@ Para obter mais informações sobre camadas de agrupamento, consulte estes artig
 
 **A normalização** da resposta é um esquema de normalização local que foi introduzido pela primeira vez por Geoffrey Hinton, et al, no artigo [ImageNet Classification with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
-A normalização da resposta é utilizada para ajudar à generalização das redes neurais. Quando um neurónio dispara a um nível de ativação muito elevado, uma camada de normalização de resposta local suprime o nível de ativação dos neurónios circundantes. Isto é feito utilizando três parâmetros (`α`, `β`e `k`) e uma estrutura convolucional (ou forma de bairro). Cada neurónio na camada de destino **y** corresponde a um neurónio **x** na camada de origem. O nível de ativação de **y** é dado pela seguinte fórmula, onde `f` é o nível de ativação de um neurónio, e `Nx` é o núcleo (ou o conjunto que contém os neurónios na vizinhança de **x),** como definido pela seguinte estrutura convolucional:
+A normalização da resposta é utilizada para ajudar à generalização das redes neurais. Quando um neurónio dispara a um nível de ativação muito elevado, uma camada de normalização de resposta local suprime o nível de ativação dos neurónios circundantes. Isto é feito utilizando três`α` `β`parâmetros `k`( e ) e uma estrutura convolucional (ou forma de bairro). Cada neurónio na camada de destino **y** corresponde a um neurónio **x** na camada de origem. O nível **y** de ativação de y `f` é dado pela seguinte `Nx` fórmula, onde está o nível de ativação de um neurónio, e é o núcleo (ou o conjunto que contém os neurónios na vizinhança de **x),** como definido pela seguinte estrutura convolucional:
 
 ![fórmula para estrutura convolucional](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
@@ -274,13 +274,13 @@ Os pacotes de normalização da resposta suportam todos os atributos convolucion
 Como os feixes de normalização da resposta aplicam uma função predefinida para obter valores do nó para determinar o valor do nó de destino, eles não têm estado treinável (pesos ou enviesamentos).
 
 > [!NOTE]
-> Os nós na camada de destino correspondem a neurónios que são os nós centrais dos núcleos. Por exemplo, se `KernelShape[d]` é estranho, então `KernelShape[d]/2` corresponde ao nó de kernel central. Se `KernelShape[d]` é equilibrado, o nó central está em `KernelShape[d]/2 - 1`. Portanto, se `Padding[d]` é Falso, o primeiro e o último nó `KernelShape[d]/2` não têm nódosos correspondentes na camada de destino. Para evitar esta situação, defina **o acolchoado** como [verdadeiro, verdadeiro, ..., verdadeiro].
+> Os nós na camada de destino correspondem a neurónios que são os nós centrais dos núcleos. Por exemplo, `KernelShape[d]` se for `KernelShape[d]/2` estranho, então corresponde ao nó de kernel central. Se `KernelShape[d]` for mesmo, o nó `KernelShape[d]/2 - 1`central está em . Portanto, se `Padding[d]` for Falso, o `KernelShape[d]/2` primeiro e o último nós não têm nódosos correspondentes na camada de destino. Para evitar esta situação, defina **o acolchoado** como [verdadeiro, verdadeiro, ..., verdadeiro].
 
 Além dos quatro atributos descritos anteriormente, os pacotes de normalização da resposta também suportam os seguintes atributos:
 
-+ **Alfa**: (obrigatório) Especifica um valor de ponto flutuante que corresponde a `α` na fórmula anterior.
-+ **Beta**: (obrigatório) Especifica um valor de ponto flutuante que corresponde a `β` na fórmula anterior.
-+ **Offset**: (opcional) Especifica um valor de ponto flutuante que corresponde a `k` na fórmula anterior. Falha para 1.
++ **Alfa**: (obrigatório) Especifica um valor de ponto `α` flutuante que corresponda à fórmula anterior.
++ **Beta**: (obrigatório) Especifica um valor de ponto `β` flutuante que corresponde à fórmula anterior.
++ **Offset**: (opcional) Especifica um valor de `k` ponto flutuante que corresponde à fórmula anterior. Falha para 1.
 
 O exemplo seguinte define um pacote de normalização de resposta utilizando estes atributos:
 
@@ -382,9 +382,9 @@ output Out [10] sigmoid from H all;
 
 O exemplo ilustra alguns comandos básicos da seguinte forma:
 
-+ A primeira linha define a camada de entrada (denominada `Data`). Quando utiliza a palavra-chave `auto`, a rede neural inclui automaticamente todas as colunas de características nos exemplos de entrada.
-+ A segunda linha cria a camada escondida. O nome `H` é atribuído à camada escondida, que tem 200 nós. Esta camada está totalmente ligada à camada de entrada.
-+ A terceira linha define a camada de saída (denominada `Out`), que contém 10 nóóis de saída. Se a rede neural for utilizada para a classificação, existe um nó de saída por classe. O **sigmoid** da palavra-chave indica que a função de saída é aplicada à camada de saída.
++ A primeira linha define a camada `Data`de entrada (nomeada). Quando utiliza `auto` a palavra-chave, a rede neural inclui automaticamente todas as colunas de características nos exemplos de entrada.
++ A segunda linha cria a camada escondida. O `H` nome é atribuído à camada escondida, que tem 200 nós. Esta camada está totalmente ligada à camada de entrada.
++ A terceira linha define a `Out`camada de saída (nomeada), que contém 10 nóóis de saída. Se a rede neural for utilizada para a classificação, existe um nó de saída por classe. O **sigmoid** da palavra-chave indica que a função de saída é aplicada à camada de saída.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Defina várias camadas ocultas: exemplo de visão computacional
 
@@ -416,11 +416,11 @@ from MetaData all;
 
 Este exemplo ilustra várias características da linguagem de especificação das redes neurais:
 
-+ A estrutura tem duas camadas de entrada, `Pixels` e `MetaData`.
-+ A camada `Pixels` é uma camada de origem para dois feixes de conexão, com camadas de destino, `ByRow` e `ByCol`.
-+ As camadas `Gather` e `Result` são camadas de destino em vários feixes de conexão.
-+ A camada de saída, `Result`, é uma camada de destino em dois feixes de conexão; um com a camada oculta do segundo nível `Gather` como uma camada de destino, e o outro com a camada de entrada `MetaData` como camada de destino.
-+ As camadas escondidas, `ByRow` e `ByCol`, especificam a conectividade filtrada utilizando expressões predicadas. Mais precisamente, o nó em `ByRow` em [x, y] está ligado aos nós em `Pixels` que têm a primeira coordenada de índice igual à primeira coordenada do nó, x. Da mesma forma, o nó em `ByCol` em [x, y] está ligado aos nós em `Pixels` que têm a segunda coordenada de índice dentro de uma das segundas coordenadas do nó, y.
++ A estrutura tem duas `Pixels` camadas de entrada, e `MetaData`.
++ A `Pixels` camada é uma camada de origem para `ByRow` dois `ByCol`feixes de conexão, com camadas de destino, e .
++ As `Gather` camadas e `Result` são camadas de destino em vários feixes de conexão.
++ A camada `Result`de saída, é uma camada de destino em dois feixes de conexão; um com a camada `Gather` oculta do segundo nível como camada `MetaData` de destino, e o outro com a camada de entrada como camada de destino.
++ As camadas `ByRow` `ByCol`escondidas e, especifique a conectividade filtrada utilizando expressões predicadas. Mais precisamente, o `ByRow` nó em [x, y] está ligado `Pixels` aos nós em que têm a primeira coordenada de índice igual à primeira coordenada do nó, x. Da mesma forma, `ByCol` o nó em [x, y] está `Pixels` ligado aos nós em que têm a segunda coordenada de índice dentro de uma das segundas coordenadas do nó, y.
 
 ### <a name="define-a-convolutional-network-for-multiclass-classification-digit-recognition-example"></a>Defina uma rede convolucional para classificação multiclasse: exemplo de reconhecimento de dígitos
 
@@ -448,20 +448,20 @@ hidden Hid3 [100] from Conv2 all;
 output Digit [10] from Hid3 all;
 ```
 
-+ A estrutura tem uma única camada de entrada, `Image`.
-+ A palavra-chave `convolve` indica que as camadas chamadas `Conv1` e `Conv2` são camadas convolucionais. Cada uma destas declarações de camadas é seguida por uma lista dos atributos de convolução.
-+ A rede tem uma terceira camada escondida, `Hid3`, que está totalmente ligada à segunda camada escondida, `Conv2`.
-+ A camada de saída, `Digit`, está ligada apenas à terceira camada escondida, `Hid3`. A palavra-chave `all` indica que a camada de saída está totalmente ligada a `Hid3`.
-+ A aridade da convolução é três: o comprimento dos tuples `InputShape`, `KernelShape`, `Stride`e `Sharing`.
-+ O número de pesos por núcleo é `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Ou `26 * 50 = 1300`.
++ A estrutura tem uma única `Image`camada de entrada, .
++ A palavra-chave `convolve` indica `Conv1` que `Conv2` as camadas nomeadas e são camadas convolucionais. Cada uma destas declarações de camadas é seguida por uma lista dos atributos de convolução.
++ A rede tem uma `Hid3`terceira camada escondida, que está `Conv2`totalmente ligada à segunda camada escondida, .
++ A camada `Digit`de saída, está ligada apenas à terceira camada escondida, `Hid3`. A palavra-chave `all` indica que a `Hid3`camada de saída está totalmente ligada a .
++ A aridade da convolução é três: o `InputShape`comprimento `KernelShape` `Stride`dos `Sharing`tupículos, , e .
++ O número de pesos por `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`núcleo é . Ou. `26 * 50 = 1300`
 + Pode calcular os nós em cada camada escondida da seguinte forma:
 
     `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
-+ O número total de nós pode ser calculado utilizando a dimensionalidade declarada da camada, [50, 5, 5], da seguinte forma: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
-+ Como `Sharing[d]` é falso apenas para `d == 0`, o número de núcleos é `MapCount * NodeCount\[0] = 10 * 5 = 50`.
++ O número total de nós pode ser calculado utilizando a dimensionalidade declarada da camada, [50, 5, 5], da seguinte forma:`MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
++ Porque `Sharing[d]` é falso `d == 0`apenas para, o `MapCount * NodeCount\[0] = 10 * 5 = 50`número de núcleos é .
 
-## <a name="acknowledgements"></a>Confirmações
+## <a name="acknowledgements"></a>Agradecimentos
 
 A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (Arquiteto, Machine Learning) e Alexey Kamenev (Engenheiro de Software, Microsoft Research). É utilizado internamente para projetos de machine learning e aplicações que vão desde a deteção de imagem até à análise de texto. Para mais informações, consulte [Redes Neurais no estúdio Azure Machine Learning - Introdução à Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

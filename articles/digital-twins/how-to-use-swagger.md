@@ -1,6 +1,6 @@
 ---
-title: Como usar a documentação do Swagger de referência-Azure digital gêmeos | Microsoft Docs
-description: Noções básicas sobre como usar a documentação de referência do Azure digital gêmeos Swagger.
+title: Como utilizar a documentação de referência Swagger - Azure Digital Twins [ Azure Digital Twins ] Microsoft Docs
+description: Compreender como usar a documentação de referência azure Digital Twins Swagger.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,126 +10,126 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: 27874e5731bd6fb9821e7aeda9333adbdbb79099
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023298"
 ---
-# <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência do Swagger do Azure digital gêmeos
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência azure Digital Twins Swagger
 
-Cada instância do Azure digital gêmeos provisionada inclui sua própria documentação de referência do Swagger gerada automaticamente.
+Cada instância de Azure Digital Twins aprovisionada inclui a sua própria documentação de referência swagger gerada automaticamente.
 
-O [Swagger](https://swagger.io/), ou [openapi](https://www.openapis.org/), une informações de API complexas em um recurso de referência interativo e independente de linguagem. O Swagger fornece material de referência crítica sobre quais cargas JSON, métodos HTTP e pontos de extremidade específicos usar para executar operações em uma API.
+[Swagger](https://swagger.io/), ou [OpenAPI,](https://www.openapis.org/)une informação complexa da API num recurso de referência interativo e agnóstico. A Swagger fornece material de referência crítico sobre o qual as cargas jSON, métodos HTTP e pontos finais específicos para usar para realizar operações contra uma API.
 
-## <a name="swagger-summary"></a>Resumo do Swagger
+## <a name="swagger-summary"></a>Resumo swagger
 
-O Swagger fornece um resumo interativo de sua API, que inclui:
+A Swagger fornece um resumo interativo da sua API, que inclui:
 
-* Informações de API e modelo de objeto.
-* Pontos de extremidade da API REST que especificam as cargas de solicitação, os cabeçalhos, os parâmetros, os caminhos de contexto e os métodos HTTP necessários.
+* Informação do modelo api e objeto.
+* REST Pontos finais da API que especificam as cargas de pedido, cabeçalhos, parâmetros, percursos de contexto e métodos HTTP.
 * Teste de funcionalidades de API.
-* Informações de resposta de exemplo usadas para validar e confirmar respostas HTTP.
-* Informações do código de erro.
+* Informações de resposta de exemplo utilizadas para validar e confirmar respostas HTTP.
+* Informação do código de erro.
 
-O Swagger é uma ferramenta conveniente para auxiliar nas chamadas de desenvolvimento e teste feitas para as APIs de gerenciamento de gêmeos digital do Azure.
+A Swagger é uma ferramenta conveniente para ajudar no desenvolvimento e teste de chamadas feitas para as APIs de Gestão de Gémeos Digitais Azure.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Material de referência
 
-O material de referência do Swagger gerado automaticamente fornece uma visão geral rápida de conceitos importantes, pontos de extremidade da API de gerenciamento disponíveis e uma descrição de cada modelo de objeto para ajudar no desenvolvimento e no teste.
+O material de referência swagger gerado automaticamente fornece uma visão geral rápida de conceitos importantes, pontos finais de API de Gestão disponíveis, e uma descrição de cada modelo de objeto para ajudar no desenvolvimento e teste.
 
 Um resumo conciso descreve a API.
 
-[![resumo swagger e informações de visão geral da API](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
+[![Resumo swagger e informação geral da API](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
-Os modelos de objeto de API de gerenciamento também são listados.
+Os modelos de objetos API de gestão também estão listados.
 
-[modelos ![Swagger listados no fundo da Swagger UI](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
+[![Modelos swagger listados no fundo da Swagger UI](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
-Você pode selecionar cada modelo de objeto listado para obter um resumo mais detalhado dos principais atributos.
+Pode selecionar cada modelo de objeto listado para um resumo mais detalhado dos principais atributos.
 
-[![modelos Swagger expandidos para ler o conteúdo dos modelos](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[![Modelos Swagger expandidos para ler o conteúdo dos modelos](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
-Os modelos de objeto do Swagger gerados são convenientes para ler todos os [objetos e APIs](./concepts-objectmodel-spatialgraph.md)do Azure digital gêmeos disponíveis. Os desenvolvedores podem usar esse recurso quando criarem soluções no Azure digital gêmeos.
+Os modelos de objetos Swagger gerados são convenientes para ler todos os objetos e [APIs](./concepts-objectmodel-spatialgraph.md)disponíveis das Gémeas Digitais Azure. Os desenvolvedores podem usar este recurso quando constroem soluções em Azure Digital Twins.
 
-## <a name="endpoint-summary"></a>Resumo do ponto de extremidade
+## <a name="endpoint-summary"></a>Resumo do ponto final
 
-O Swagger também fornece uma visão geral completa de todos os pontos de extremidade que compõem as APIs de gerenciamento.
+A Swagger também fornece uma visão geral completa de todos os pontos finais que compõem as APIs de Gestão.
 
-Cada ponto de extremidade listado também inclui as informações de solicitação necessárias, como:
+Cada ponto final listado também inclui as informações de pedido exigidas, tais como:
 
 * Parâmetros necessários.
-* Tipos de dados de parâmetro necessários.
-* Método HTTP para acessar o recurso.
+* Tipos de dados de parâmetros necessários.
+* MÉTODO HTTP para aceder ao recurso.
 
-[![pontos finais swagger exibidos na Swagger UI](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
+[![Pontos finais swagger exibidos na Swagger UI](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
-Selecione cada recurso para exibir seu conteúdo adicional para obter uma visão geral mais detalhada.
+Selecione cada recurso para exibir os seus conteúdos adicionais para obter uma visão geral mais detalhada.
 
-## <a name="use-swagger-to-test-endpoints"></a>Usar o Swagger para testar pontos de extremidade
+## <a name="use-swagger-to-test-endpoints"></a>Use swagger para testar pontos finais
 
-Uma das poderosas funcionalidades que o Swagger fornece é a capacidade de testar um ponto de extremidade de API diretamente por meio da interface do usuário da documentação.
+Uma das funcionalidades poderosas que a Swagger fornece é a capacidade de testar um ponto final da API diretamente através da documentação UI.
 
-Depois de selecionar um ponto de extremidade específico, o botão **experimentar** será exibido.
+Depois de selecionar um ponto final específico, será apresentado o botão **Experimente-o.**
 
 [![Swagger Experimente o botão](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
-Expanda essa seção para exibir os campos de entrada para cada parâmetro obrigatório e opcional. Insira os valores corretos e selecione **executar**.
+Expanda esta secção para criar campos de entrada para cada parâmetro necessário e opcional. Introduza os valores corretos e selecione **Executar**.
 
 [![Swagger Experimente o exemplo do resultado](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
-Depois de executar o teste, você pode validar os dados de resposta.
+Depois de executar o teste, pode validar os dados de resposta.
 
-## <a name="swagger-response-data"></a>Dados de resposta do Swagger
+## <a name="swagger-response-data"></a>Dados de resposta swagger
 
-Cada ponto de extremidade listado também inclui dados de corpo de resposta para validar o desenvolvimento e os testes. Esses exemplos incluem os códigos de status e o JSON para solicitações HTTP bem-sucedidas.
+Cada ponto final listado também inclui dados do corpo de resposta para validar o seu desenvolvimento e testes. Estes exemplos incluem os códigos de estado e jSON para pedidos http bem sucedidos.
 
-[![Swagger JSON exemplo de resposta](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
+[![Exemplo de resposta swagger JSON](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
-Os exemplos também incluem códigos de erro para ajudar a depurar ou melhorar os testes com falha.
+Os exemplos também incluem códigos de erro para ajudar a depurar ou melhorar os testes de falha.
 
-## <a name="swagger-oauth-20-authorization"></a>Autorização de OAuth 2,0 do Swagger
+## <a name="swagger-oauth-20-authorization"></a>Autorização swagger OAuth 2.0
 
 > [!NOTE]
-> * A entidade de usuário que criou o recurso de gêmeos digital do Azure terá uma atribuição de função de administrador de espaço e poderá criar atribuições de função adicionais para outros usuários. Esses utilizadores e as suas funções podem ser autorizados a ligar para as APIs.
+> * O diretor de utilizadores que criou o recurso Azure Digital Twins terá uma atribuição de função de Administrador Espacial e será capaz de criar atribuições de funções adicionais para outros utilizadores. Esses utilizadores e as suas funções podem ser autorizados a ligar para as APIs.
 
-1. Siga os passos [no Quickstart](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) para criar e configurar uma aplicação azure Ative Directory. Como alternativa, você pode reutilizar um registro de aplicativo existente.
+1. Siga os passos [no Quickstart](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) para criar e configurar uma aplicação azure Ative Directory. Em alternativa, pode reutilizar o registo de aplicações existente.
 
 1. Adicione o seguinte **Redirect URI** ao registo da sua aplicação Azure Ative Directory:
 
-    [![Register Swagger redireciona url em AAD](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png)](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png#lightbox)
+    [![Registre a url de redirecionamento swagger em AAD](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png)](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png#lightbox)
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
     | Nome  | Substituir | Exemplo |
     |---------|---------|---------|
-    | YOUR_SWAGGER_URL | A URL da documentação da API REST de gerenciamento encontrada no portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+    | YOUR_SWAGGER_URL | URL de documentação da Sua Gestão REST API encontrado no portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-1. Selecione a caixa de verificação de **fichas** de acesso > Acesso **para** permitir a sua utilizada caixa de verificação implícita o OAuth 2.0. **Selecione Configurar**e, em seguida, **guardar**.
+1. Selecione a caixa de verificação de**fichas** de acesso **implícita** > para permitir a utilizada do fluxo de subvenção implícito OAuth 2.0. **Selecione Configurar**e, em seguida, **guardar**.
 
 1. Copie a **identificação** do cliente da sua aplicação Azure Ative Directory.
 
-Depois de concluir o registro de Azure Active Directory:
+Após a conclusão do registo do Diretório Ativo Azure:
 
-1. Selecione o botão **autorizar** na sua página do Swagger.
+1. Selecione o botão **Autorizar** na sua página de swagger.
 
-    [![Selecione o botão de autorização swagger](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Selecione o botão de autorização Swagger](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 1. Colar o ID da aplicação no campo **client_id.**
 
-    [campo de client_id ![Swagger](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
+    [![Campo swagger client_id](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-1. Em seguida, você será redirecionado para o seguinte modal com êxito.
+1. Em seguida, será redirecionado para o seguinte sucesso modal.
 
-    [![Swagger redireciona modal](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
+    [![Modal de redirecionamento swagger](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
-Para saber mais sobre as solicitações de teste interativamente protegidas pelo OAuth 2,0, leia a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
+Para saber mais sobre os pedidos de teste interativos protegidos pela OAuth 2.0, leia a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para ler mais sobre os modelos de objetos do Azure digital gêmeos e o grafo de inteligência espacial, leia [entender os modelos de objetos do Azure digital gêmeos](./concepts-objectmodel-spatialgraph.md).
+- Para ler mais sobre os modelos de objetos Azure Digital Twins e o gráfico de inteligência espacial, leia os modelos de [objetos De Pares Digitais Do Understand Azure](./concepts-objectmodel-spatialgraph.md).
 
-- Para saber como autenticar com sua API de gerenciamento, leia [autenticar com APIs](./security-authenticating-apis.md).
+- Para aprender a autenticar com a sua API de Gestão, leia [Authenticato com APIs](./security-authenticating-apis.md).

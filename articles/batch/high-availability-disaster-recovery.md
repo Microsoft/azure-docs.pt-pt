@@ -14,40 +14,40 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: labrenne
 ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77026086"
 ---
 # <a name="design-your-application-for-high-availability"></a>Conceber a sua aplicação para elevada disponibilidade
 
-O lote do Azure é um serviço regional. O lote está disponível em todas as regiões do Azure, mas quando uma conta do lote é criada, ela deve ser associada a uma região. Todas as operações da conta do lote são aplicadas a essa região. Por exemplo, pools e VMs (máquinas virtuais) associadas são criados na mesma região que a conta do lote.
+Azure Batch é um serviço regional. O lote está disponível em todas as regiões do Azure, mas quando uma conta de Lote é criada deve ser associada a uma região. Todas as operações para a conta Batch aplicam-se então a essa região. Por exemplo, piscinas e máquinas virtuais associadas (VMs) são criadas na mesma região que a conta Batch.
 
-Ao criar um aplicativo que usa o lote, você deve considerar a possibilidade de o lote não estar disponível em uma região. É possível encontrar uma situação rara em que há um problema com a região como um todo, o serviço do lote inteiro na região ou um problema com sua conta do lote específica.
+Ao conceber uma aplicação que utilize o Batch, deve considerar a possibilidade de o Lote não estar disponível numa região. É possível encontrar uma situação rara em que há um problema com a região como um todo, todo o serviço de Lote na região, ou um problema com a sua conta de Lote específica.
 
-Se o aplicativo ou a solução que usa o lote sempre precisar estar disponível, ele deverá ser criado para failover para outra região ou sempre ter a divisão de carga de trabalho entre duas ou mais regiões. Ambas as abordagens exigem pelo menos duas contas do lote, com cada conta localizada em uma região diferente.
+Se a aplicação ou solução que utiliza o Batch tiver sempre de estar disponível, então deve ser concebida para falhar noutra região ou ter sempre a carga de trabalho dividida entre duas ou mais regiões. Ambas as abordagens requerem pelo menos duas contas de Lote, com cada conta localizada numa região diferente.
 
-## <a name="multiple-batch-accounts-in-multiple-regions"></a>Várias contas do lote em várias regiões
+## <a name="multiple-batch-accounts-in-multiple-regions"></a>Contas de Lote Múltiplas em várias regiões
 
-Usar várias contas do lote em várias regiões fornece a capacidade de o aplicativo continuar em execução se uma conta do lote em outra região ficar indisponível. Usar várias contas é especialmente importante se seu aplicativo precisar estar altamente disponível.
+A utilização de várias contas do Batch em várias regiões fornece a capacidade de a sua aplicação continuar a funcionar se uma conta de Lote noutra região ficar indisponível. A utilização de várias contas é especialmente importante se a sua aplicação precisar de estar altamente disponível.
 
-Em alguns casos, um aplicativo pode ser projetado para sempre usar duas ou mais regiões. Por exemplo, quando você precisa de uma quantidade considerável de capacidade, o uso de várias regiões pode ser necessário para lidar com um aplicativo de grande escala ou para o crescimento futuro.
+Em alguns casos, uma aplicação pode ser concebida para sempre utilizar duas ou mais regiões. Por exemplo, quando se precisa de uma quantidade considerável de capacidade, a utilização de várias regiões pode ser necessária para lidar com uma aplicação em larga escala ou para atender ao crescimento futuro.
 
-## <a name="design-considerations-for-providing-failover"></a>Considerações de design para fornecer failover
+## <a name="design-considerations-for-providing-failover"></a>Considerações de conceção para fornecer failover
 
-Um ponto importante a ser considerado ao fornecer a capacidade de failover para uma região alternativa é que todos os componentes em uma solução precisam ser considerados; Não é suficiente simplesmente ter uma segunda conta do lote. Por exemplo, na maioria dos aplicativos do lote, uma conta de armazenamento do Azure é necessária, com a conta de armazenamento e a conta do lote que precisam estar na mesma região para desempenho aceitável.
+Um ponto-chave a ter em conta ao proporcionar a capacidade de falhar a uma região alternativa é que todos os componentes de uma solução devem ser considerados; não basta simplesmente ter uma segunda conta batch. Por exemplo, na maioria das aplicações do Batch, é necessária uma conta de armazenamento Azure, com a conta de armazenamento e a conta batch a necessitarem de estar na mesma região para um desempenho aceitável.
 
-Considere os seguintes pontos ao criar uma solução que pode fazer failover:
+Considere os seguintes pontos ao conceber uma solução que possa falhar:
 
-- Crie previamente todas as contas necessárias em cada região, como a conta do lote e a conta de armazenamento. Em geral, não há nenhuma cobrança por ter contas criadas, somente quando há dados armazenados ou a conta é usada.
-- Verifique se as cotas estão definidas nas contas antes do tempo, para que você possa alocar o número necessário de núcleos usando a conta do lote.
-- Use modelos e/ou scripts para automatizar a implantação do aplicativo em uma região.
-- Manter binários de aplicativos e dados de referência atualizados em todas as regiões. Manter-se atualizado garantirá que a região possa ser colocada online rapidamente sem precisar esperar o upload e a implantação de arquivos. Por exemplo, se um aplicativo personalizado a ser instalado em nós de pool for armazenado e referenciado usando pacotes de aplicativos do lote, quando uma nova versão do aplicativo for produzida, ela deverá ser carregada para cada conta do lote e referenciada pela configuração do pool (ou tornar a nova versão a versão padrão).
-- No aplicativo que chama o lote, o armazenamento e quaisquer outros serviços, facilmente comutando clientes ou a carga para a região diferente.
-- Uma prática recomendada para garantir que um failover será bem-sucedida é fazer a alternância com frequência para uma região alternativa como parte da operação normal. Por exemplo, com duas implantações em regiões separadas, alternando para a região alternativa todos os meses.
+- Pré-criar todas as contas necessárias em cada região, como a conta Batch e a conta de armazenamento. Muitas vezes não há qualquer encargo por ter contas criadas, apenas quando há dados armazenados ou a conta é usada.
+- Certifique-se de que as quotas são definidas nas contas com antecedência, para que possa alocar o número necessário de núcleos utilizando a conta Batch.
+- Utilize modelos e/ou scripts para automatizar a implementação da aplicação numa região.
+- Mantenha os binários de aplicação e os dados de referência atualizados em todas as regiões. Manter-se atualizado garantirá que a região pode ser trazida online rapidamente sem ter que esperar pelo upload e implementação de ficheiros. Por exemplo, se uma aplicação personalizada para instalar em nós de piscina for armazenada e referenciada utilizando pacotes de aplicação Batch, então quando uma nova versão da aplicação for produzida, deve ser enviada para cada conta do Lote e referenciada pela configuração do pool (ou fazer da nova versão a versão padrão).
+- Na aplicação que chama Lote, armazenamento e quaisquer outros serviços, facilmente troca clientes ou a carga para a região diferente.
+- As melhores práticas para garantir que uma falha será bem sucedida é mudar frequentemente para uma região alternativa como parte do funcionamento normal. Por exemplo, com duas implantações em regiões distintas, a transição para a região alternativa todos os meses.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a criação de contas de Lote com o [portal Azure,](batch-account-create-portal.md)o [Azure CLI,](cli-samples.md) [PowerShell](batch-powershell-cmdlets-get-started.md)ou a API de gestão de [Lotes.](batch-management-dotnet.md)
-- As cotas padrão são associadas a uma conta do lote; [Este artigo](batch-quota-limit.md) detalha os valores de cota padrão e descreve como as cotas podem ser aumentadas.
+- As quotas por defeito estão associadas a uma conta Batch; [este artigo](batch-quota-limit.md) detalha os valores das quotas por defeito e descreve como as quotas podem ser aumentadas.

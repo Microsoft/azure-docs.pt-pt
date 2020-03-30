@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA 
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: deedd4d2553b3b06f76f698fdb2425a8d3878d23
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248063"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
@@ -16,7 +16,7 @@ As bases de dados SAP HANA são cargas de trabalho críticas que requerem um obj
 
 Este artigo mostra como apoiar as bases de dados DaAP HANA que estão a funcionar em VMs Azure para um cofre dos Serviços de Recuperação de Backup Azure.
 
-Neste artigo, ficará a saber como:
+Neste artigo, aprenderá a:
 > [!div class="checklist"]
 >
 > * Criar e configurar um cofre
@@ -26,7 +26,7 @@ Neste artigo, ficará a saber como:
 
 >[!NOTE]
 >**A eliminação suave para o servidor SQL em Azure VM e eliminação suave para SAP HANA em cargas de trabalho VM Azure** já está disponível na pré-visualização.<br>
->Para se inscrever na pré-estreia, escreva-nos na AskAzureBackupTeam@microsoft.com
+>Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -97,7 +97,7 @@ Use um proxy HTTP | É permitido o controlo granular no proxy sobre os URLs de a
 
 ## <a name="discover-the-databases"></a>Descubra as bases de dados
 
-1. No cofre, em **Getting Started,** clique em **Backup**. Em Onde está a funcionara **sua carga de trabalho?**
+1. No cofre, em **Getting Started,** clique em **Backup**. Em Onde está a funcionar **SAP HANA in Azure VM**a **sua carga de trabalho?**
 2. Clique em **Iniciar Descoberta**. Isto inicia a descoberta de VMs linux desprotegidos na região do cofre.
 
    * Após a descoberta, VMs desprotegidos aparecem no portal, listados pelo nome e pelo grupo de recursos.
@@ -118,10 +118,10 @@ Agora, ative a reserva.
 1. No passo 2, clique em **Configurar Cópia de Segurança**.
 
     ![Configurar a Cópia de Segurança](./media/backup-azure-sap-hana-database/configure-backup.png)
-2. Em **'Selecionar itens' para fazer o 'back', selecione**todas as bases de dados que pretende proteger > **OK**.
+2. Em **itens Selecionados para fazer o seu trabalho de remarcação,** selecione todas as bases de dados que pretende proteger > **OK**.
 
     ![Selecione itens para fazer back-up](./media/backup-azure-sap-hana-database/select-items.png)
-3. Na **Política de Backup** > Escolha a política de **backup,** crie uma nova política de backup para as bases de dados, de acordo com as instruções abaixo.
+3. Na **Política** > de Backup**Escolha a política**de backup , crie uma nova política de backup para as bases de dados, de acordo com as instruções abaixo.
 
     ![Escolha a política de backup](./media/backup-azure-sap-hana-database/backup-policy.png)
 4. Depois de criar a política, no menu **'Backup',** clique em **ativar a cópia de segurança**.
@@ -189,7 +189,7 @@ Os backups funcionam de acordo com o calendário de apólices. Pode executar um 
 1. No menu do cofre, clique em **itens de backup**.
 2. Em Itens de **Backup,** selecione o VM que executa a base de dados SAP HANA e, em seguida, clique em **Backup agora**.
 3. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
-4. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de abóbadas > **Backup Jobs** > **Em andamento**. Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
+4. Monitorize as notificações do portal. Você pode monitorizar o progresso do trabalho no painel de instrumentos do cofre > **Backup Jobs** > **Em andamento.** Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Executar backup do Estúdio SAP HANA numa base de dados com backup Azure ativado
 
@@ -197,7 +197,7 @@ Se quiser obter uma cópia de segurança local (usando o HANA Studio) de uma bas
 
 1. Aguarde quaisquer cópias de segurança completas ou de registo para que a base de dados termine. Verifique o estado no Estúdio SAP HANA / Cockpit.
 2. Desative as cópias de segurança e desative as cópias de segurança e desative o catálogo de cópias de segurança no sistema de ficheiros para uma base de dados relevante.
-3. Para isso, clique duplo no **sistema db** > **Configuração** > **Select Database** > **Filter (Log)** .
+3. Para isso, clique duas vezes na**configuração** > do **sistema,** > **selecione** > filtro de base de dados **(Log)**.
 4. Definir **enable_auto_log_backup** para **Nº**.
 5. Coloque **log_backup_using_backint** a **Falso**.
 6. Pegue uma cópia de segurança completa da base de dados.

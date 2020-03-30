@@ -1,5 +1,5 @@
 ---
-title: Segurança e autenticação - Azure Event Grid IoT Edge  Microsoft Docs
+title: Segurança e autenticação - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Segurança e autenticação em Grelha de Eventos na Borda IoT.
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844518"
 ---
 # <a name="security-and-authentication"></a>Segurança e autenticação
@@ -39,9 +39,9 @@ O módulo De Grelha de Eventos acolhe os pontos finais HTTP e HTTPS. Todos os m�
 
 Por predefinição, apenas é permitida a comunicação HTTPS. Pode anular este comportamento através **inbound__serverAuth__tlsPolicy** configuração. A tabela seguinte capta o valor possível deste imóvel.
 
-| Possível Valor(s) | Descrição |
+| Valores possíveis | Descrição |
 | ---------------- | ------------ |
-| Restrito | Predefinição. Só permite HTTPS
+| Estrito | Predefinição. Só permite HTTPS
 | Ativado | Permite tanto http como HTTPS
 | Desativado | Permite apenas HTTP
 
@@ -54,26 +54,26 @@ O módulo Event Grid suporta dois tipos de autenticação do cliente:
 * Assinatura de acesso partilhado (SAS) baseada na chave
 * com base em certificados
 
-Por predefinição, o módulo De Rede de Eventos está configurado para aceitar apenas a autenticação baseada em certificados. No arranque, o módulo Event Grid recupera o "TrustBundle" da IoT Edge security daemon e usa-o para validar qualquer certificado de cliente. Os certificados de cliente que não se resolvam a esta cadeia serão rejeitados com `UnAuthorized`.
+Por predefinição, o módulo De Rede de Eventos está configurado para aceitar apenas a autenticação baseada em certificados. No arranque, o módulo Event Grid recupera o "TrustBundle" da IoT Edge security daemon e usa-o para validar qualquer certificado de cliente. Os certificados de cliente que não se `UnAuthorized`resolvam a esta cadeia serão rejeitados com .
 
 ### <a name="certificate-based-client-authentication"></a>Autenticação de cliente baseada em certificado
 
 A autenticação baseada em certificado é por defeito. Pode optar por desativar a autenticação baseada em certificados através da **inbound__clientAuth__clientCert__enabled**de propriedade . A tabela que se segue capta um valor possível.
 
-| Possível Valor(s) | Descrição |
+| Valores possíveis | Descrição |
 | ----------------  | ------------ |
 | true | Predefinição. Requer todos os pedidos no módulo Event Grid para apresentar um certificado de cliente. Além disso, terá de configurar **inbound__clientAuth__clientCert__source**.
 | false | Não obrigue um cliente a apresentar certificado.
 
 A tabela que se segue capta um valor possível para **inbound__clientAuth__clientCert__source**
 
-| Possível Valor(s) | Descrição |
+| Valores possíveis | Descrição |
 | ---------------- | ------------ |
 | IoT Edge | Predefinição. Usa o Pacote Fiduciário da IoT Edge para validar todos os certificados de cliente.
 
 Se um cliente apresentar um auto-assinado, por padrão, o módulo De Rede de Eventos rejeitará tais pedidos. Pode optar por permitir certificados de cliente auto-assinados através **inbound__clientAuth__clientCert__allowUnknownCA** propriedade. A tabela que se segue capta um valor possível.
 
-| Possível Valor(s) | Descrição |
+| Valores possíveis | Descrição |
 | ----------------  | ------------|
 | true | Predefinição. Permite que os certificados auto-assinados sejam apresentados com sucesso.
 | false | Falhará os pedidos se forem apresentados certificados auto-assinados.
@@ -83,11 +83,11 @@ Se um cliente apresentar um auto-assinado, por padrão, o módulo De Rede de Eve
 
 ### <a name="sas-key-based-client-authentication"></a>Autenticação do cliente baseada na chave SAS
 
-Além da autenticação baseada em certificado, o módulo De Rede de Eventos também pode fazer autenticação baseada em Chaves SAS. A tecla SAS é como um segredo configurado no módulo De Rede de Eventos que deve usar para validar todas as chamadas recebidas. Os clientes precisam especificar o segredo no cabeçalho HTTP 'aeg-sas-key'. O pedido será rejeitado com `UnAuthorized` se não corresponder.
+Além da autenticação baseada em certificado, o módulo De Rede de Eventos também pode fazer autenticação baseada em Chaves SAS. A tecla SAS é como um segredo configurado no módulo De Rede de Eventos que deve usar para validar todas as chamadas recebidas. Os clientes precisam especificar o segredo no cabeçalho HTTP 'aeg-sas-key'. O pedido será `UnAuthorized` rejeitado se não corresponder.
 
 A configuração para controlar a autenticação baseada na chave SAS é **inbound__clientAuth__sasKeys__enabled**.
 
-| Possível Valor(s) | Descrição  |
+| Valores possíveis | Descrição  |
 | ----------------  | ------------ |
 | true | Permite a autenticação baseada na chave SAS. Requer **inbound__clientAuth__sasKeys__key1** ou **inbound__clientAuth__sasKeys__key2**
 | false | Predefinição. A autenticação baseada na chave SAS está desativada.
@@ -105,14 +105,14 @@ Todos os módulos IoT Edge são atribuídos um Certificado de Identidade pelo da
 
 A configuração para controlar a autenticação do cliente de saída é **outbound__clientAuth__clientCert__enabled**.
 
-| Possível Valor(s) | Descrição |
+| Valores possíveis | Descrição |
 | ----------------  | ------------ |
 | true | Predefinição. Requer todos os pedidos de saída do módulo Event Grid para apresentar um certificado. Precisa de configurar **outbound__clientAuth__clientCert__source.**
 | false | Não exija que o módulo Da Grelha de Eventos apresente o seu certificado.
 
 A configuração que controla a fonte do certificado é **outbound__clientAuth__clientCert__source**.
 
-| Possível Valor(s) | Descrição |
+| Valores possíveis | Descrição |
 | ---------------- | ------------ |
 | IoT Edge | Predefinição. Utiliza o certificado de identidade do módulo configurado por IoT Edge security daemon.
 
@@ -122,21 +122,21 @@ Um dos tipos de destino para um assinante da Rede de Eventos é "Webhook". Por p
 
 A configuração para controlar a política de destino webhook **outbound__webhook__httpsOnly**.
 
-| Possível Valor(s) | Descrição |
+| Valores possíveis | Descrição |
 | ----------------  | ------------ |
 | true | Predefinição. Só permite assinantes com ponto final HTTPS.
 | false | Permite aos assinantes com ponto final HTTP ou HTTPS.
 
 Por predefinição, o módulo De Rede de Eventos validará o certificado de servidor do assinante. Pode ignorar a validação substituindo **outbound__webhook__skipServerCertValidation**. Os valores possíveis são:
 
-| Possível Valor(s) | Descrição |
+| Valores possíveis | Descrição |
 | ----------------  | ------------ |
 | true | Não valide o certificado de servidor do assinante.
 | false | Predefinição. Valide o certificado de servidor do assinante.
 
 Se o certificado do assinante for auto-assinado, por padrão o módulo DeRede de Eventos rejeitará esses subscritores. Para permitir um certificado auto-assinado, pode anular **outbound__webhook__allowUnknownCA**. A tabela que se segue capta o valor possível.
 
-| Possível Valor(s) | Descrição |
+| Valores possíveis | Descrição |
 | ----------------  | ------------ |
 | true | Predefinição. Permite que os certificados auto-assinados sejam apresentados com sucesso.
 | false | Falhará os pedidos se forem apresentados certificados auto-assinados.

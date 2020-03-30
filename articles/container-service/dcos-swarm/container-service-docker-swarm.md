@@ -10,10 +10,10 @@ ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: c76701ce74aafcccdbb2f1a2454f9528b52fc096
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136232"
 ---
 # <a name="deprecated-container-management-with-docker-swarm"></a>(DEPRECIADO) Gestão de contentores com Docker Swarm
@@ -26,9 +26,9 @@ O Docker Swarm fornece um ambiente para a implementação de cargas de trabalho 
 
 Pré-requisitos para os exercícios deste documento:
 
-[Criar um cluster Swarm no Azure Container Service](container-service-deployment.md)
+[Criar um cluster Swarm no Serviço de Contentor do Azure](container-service-deployment.md)
 
-[Ligar ao cluster Swarm no Azure Container Service](../container-service-connect.md)
+[Ligar com o cluster Swarm no Serviço de Contentor do Azure](../container-service-connect.md)
 
 ## <a name="deploy-a-new-container"></a>Implementar um novo contentor
 Para criar um novo contentor no Docker Swarm, utilize o comando `docker run` (certificando-se de que tem aberto um túnel SSH para os principais, de acordo com os pré-requisitos acima). Este exemplo cria um contentor a partir da imagem `yeasy/simple-web`:

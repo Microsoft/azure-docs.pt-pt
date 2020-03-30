@@ -9,16 +9,16 @@ ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 12f6e2b3ed9962754c965b1f74cbe10c0d6809de
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70999490"
 ---
-* Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
-* [Python 2. x ou 3. x](https://www.python.org/downloads/). Certifique-se de que utiliza a instalação de 32 ou 64 bits, conforme exigido pela sua configuração. Quando lhe for pedido durante a instalação, confirme que adiciona Python à variável de ambiente específica da sua plataforma. Se estiver a utilizar Python 2.x, poderá ter de [instalar ou atualizar o *pip*, o sistema de gestão de pacotes de Python](https://pip.pypa.io/en/stable/installing/).
+* [Python 2.x ou 3.x](https://www.python.org/downloads/). Certifique-se de que utiliza a instalação de 32 ou 64 bits, conforme exigido pela sua configuração. Quando lhe for pedido durante a instalação, confirme que adiciona Python à variável de ambiente específica da sua plataforma. Se estiver a utilizar Python 2.x, poderá ter de [instalar ou atualizar o *pip*, o sistema de gestão de pacotes de Python](https://pip.pypa.io/en/stable/installing/).
 
-* Se necessário, instale o pacote [Azure-IOT-Device](https://pypi.org/project/azure-iot-device/) , usando o comando`pip install azure-iot-device`
+* Se necessário, instale o pacote de [dispositivos azure-iot,](https://pypi.org/project/azure-iot-device/) utilizando o comando`pip install azure-iot-device`
 
-* Se necessário, instale o pacote [Azure-iothub-Service-Client](https://pypi.org/project/azure-iothub-service-client/) usando o comando`pip install azure-iothub-service-client`
+* Se necessário, instale o pacote [azure-iothub-service-cliente,](https://pypi.org/project/azure-iothub-service-client/) utilizando o comando`pip install azure-iothub-service-client`

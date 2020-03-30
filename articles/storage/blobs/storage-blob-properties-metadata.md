@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: b4abd7e29dec67ddc1be50a2a6703da2a25551d1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137667"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gerir propriedades blob e metadados com .NET
@@ -25,14 +25,14 @@ Além dos dados que contêm, as propriedades do sistema de suporte blobs e os me
 
 - **Metadados definidos pelo utilizador**: Os metadados definidos pelo utilizador consistem num ou mais pares de valor de nome que especifica para um recurso de armazenamento Blob. Pode utilizar metadados para armazenar valores adicionais com o recurso. Os valores dos metadados são apenas para os seus próprios fins, e não afetam o comportamento do recurso.
 
-Recuperar metadados e valores de propriedade para um recurso de armazenamento Blob é um processo em duas etapas. Antes de poder ler estes valores, deve rebusca-los explicitamente, chamando o método `FetchAttributes` ou `FetchAttributesAsync`. A exceção a esta regra é que os métodos `Exists` e `ExistsAsync` chamam o método de `FetchAttributes` adequado sob as coberturas. Quando se chama um destes métodos, também não é preciso ligar para `FetchAttributes`.
+Recuperar metadados e valores de propriedade para um recurso de armazenamento Blob é um processo em duas etapas. Antes de poder ler estes valores, deve `FetchAttributes` rebusca-los explicitamente, chamando o ou o `FetchAttributesAsync` método. A exceção a esta `Exists` `ExistsAsync` regra é `FetchAttributes` que os métodos e métodos chamam o método adequado sob as coberturas. Quando se chama um destes métodos, também `FetchAttributes`não é preciso ligar.
 
 > [!IMPORTANT]
-> Se verificar que os valores de propriedade ou metadados para um recurso de armazenamento não foram povoados, verifique se o seu código chama o método `FetchAttributes` ou `FetchAttributesAsync`.
+> Se verificar que os valores de propriedade ou metadados para um recurso `FetchAttributes` `FetchAttributesAsync` de armazenamento não foram povoados, verifique se o seu código chama o ou o método.
 
 ## <a name="set-and-retrieve-properties"></a>Definir e recuperar propriedades
 
-O exemplo de código que se segue define as propriedades do sistema `ContentType` e `ContentLanguage` numa bolha.
+O exemplo de código `ContentType` `ContentLanguage` que se segue define as propriedades e do sistema numa bolha.
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -60,7 +60,7 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 }
 ```
 
-Para recuperar propriedades blob, ligue para o método `FetchAttributes` ou `FetchAttributesAsync` na sua bolha para povoar a propriedade `Properties`. O seguinte exemplo de código obtém propriedades do sistema de uma bolha e exibe alguns dos valores:
+Para recuperar propriedades blob, ligue para o `FetchAttributes` ou `FetchAttributesAsync` método na sua bolha para povoar a `Properties` propriedade. O seguinte exemplo de código obtém propriedades do sistema de uma bolha e exibe alguns dos valores:
 
 ```csharp
 private static async Task GetBlobPropertiesAsync(CloudBlob blob)
@@ -89,16 +89,16 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 ## <a name="set-and-retrieve-metadata"></a>Definir e recuperar metadados
 
-Pode especificar metadados como um ou mais pares de valor de nome num recurso blob ou contentor. Para definir metadados, adicione pares de valor de nome à recolha `Metadata` no recurso. Em seguida, ligue para um dos seguintes métodos para escrever os valores:
+Pode especificar metadados como um ou mais pares de valor de nome num recurso blob ou contentor. Para definir metadados, adicione pares de `Metadata` valor de nome à recolha no recurso. Em seguida, ligue para um dos seguintes métodos para escrever os valores:
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 
-Os pares de nome/valor de metadados são cabeçalhos HTTP válidos e devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes de metadados devem C# ser nomes de cabeçalho http válidos e identificadores válidos, podem conter apenas caracteres ASCII, e devem ser tratados como insensíveis a casos. [Base64-codificar](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) ou [código URL](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) valores de metadados contendo caracteres não ASCII.
+Os pares de nome/valor de metadados são cabeçalhos HTTP válidos e devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes de metadados devem ser nomes de cabeçalho http válidos e identificadores C# válidos, podem conter apenas caracteres ASCII, e devem ser tratados como insensíveis a casos. [Base64-codificar](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) ou [código URL](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) valores de metadados contendo caracteres não ASCII.
 
-O nome dos seus metadados deve estar C# em conformidade com as convenções de nomeação dos identificadores. Os nomes dos metadados mantêm o caso usado quando foram criados, mas são insensíveis aos casos quando definidos ou lidos. Se dois ou mais cabeçalhos de metadados usando o mesmo nome forem submetidos para um recurso, o armazenamento do Azure Blob devolve o código de erro HTTP 400 (Pedido Mau).
+O nome dos seus metadados deve estar em conformidade com as convenções de nomeação para identificadores C#. Os nomes dos metadados mantêm o caso usado quando foram criados, mas são insensíveis aos casos quando definidos ou lidos. Se dois ou mais cabeçalhos de metadados usando o mesmo nome forem submetidos para um recurso, o armazenamento do Azure Blob devolve o código de erro HTTP 400 (Pedido Mau).
 
-O exemplo de código que se segue define metadados numa bolha. Um valor é definido utilizando o método de `Add` da coleção. O outro valor é definido utilizando a sintaxe implícita da chave/valor.
+O exemplo de código que se segue define metadados numa bolha. Um valor é definido usando `Add` o método da coleção. O outro valor é definido utilizando a sintaxe implícita da chave/valor.
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -125,7 +125,7 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 }
 ```
 
-Para recuperar metadados, ligue para o método `FetchAttributes` ou `FetchAttributesAsync` na sua bolha ou contentor para povoar a recolha `Metadata` e, em seguida, leia os valores, como mostra o exemplo abaixo.
+Para recuperar metadados, `FetchAttributes` `FetchAttributesAsync` ligue para o ou o `Metadata` método na sua bolha ou contentor para povoar a recolha e, em seguida, leia os valores, como mostra o exemplo abaixo.
 
 ```csharp
 public static async Task ReadBlobMetadataAsync(CloudBlob blob)

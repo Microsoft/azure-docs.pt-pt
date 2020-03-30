@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: d7b9ada17871dc7882209b7a8a449a8edcd61a94
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214080"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Insights Inteligentes que usam IA para monitorizar e resolver o desempenho da base de dados (Pré-visualização)
@@ -50,7 +50,7 @@ As degradações de desempenho identificadas da Base de Dados SQL são registada
 
 | Propriedade | Detalhes |
 | :------------------- | ------------------- |
-| informação sobre bases de dados | Metadados sobre uma base de dados sobre a qual foi detetada uma visão, como um uri de recursos. |
+| Informação sobre bases de dados | Metadados sobre uma base de dados sobre a qual foi detetada uma visão, como um uri de recursos. |
 | Intervalo de tempo observado | Início e fim do tempo para o período da perceção detetada. |
 | Métricas impactadas | Métricas que causaram uma perspicácia para ser gerada: <ul><li>A duração da consulta aumenta [segundos].</li><li>Espera excessiva [segundos].</li><li>Pedidos cronometrados [percentagem].</li><li>Pedidos de saída errados [percentagem].</li></ul>|
 | Valor de impacto | Valor de uma métrica medida. |
@@ -99,7 +99,7 @@ Para utilizar Insights Inteligentes com Ana Azure SQL Analytics, configure os da
 
 O exemplo seguinte mostra um Smart Insights visualizado através do Azure SQL Analytics:
 
-![Relatório de informações inteligente](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
+![Relatório de Insights Inteligentes](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 ### <a name="set-up-with-event-hubs"></a>Configurar com Hubs de Eventos
 

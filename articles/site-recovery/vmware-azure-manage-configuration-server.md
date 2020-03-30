@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257280"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerir o servidor de configuração para vMware VM/recuperação de desastres de servidor físico
@@ -71,7 +71,7 @@ Se não tiver sido adicionando credenciais durante a implementação do servidor
 
 1. Depois [de iniciar sessão,](#access-configuration-server)selecione **Gerir as credenciais**de máquina virtual .
 2. Clique em **Adicionar credenciais de máquina virtual**.
-    ![](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png) de aumentar as credenciais de mobilidade
+    ![adicionar-mobilidade-credenciais](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Introduza as novas credenciais e clique em **Adicionar**.
 
 Também pode adicionar credenciais através de CSPSConfigtool.exe.
@@ -99,7 +99,7 @@ O modelo de formato de virtualização aberta (OVF) implementa o VM do servidor 
 Pode voltar a registar o servidor de configuração no mesmo cofre, se necessário. Se tiver uma máquina de servidor de processo adicional, para além do servidor de processo predefinido que está a funcionar na máquina do servidor de configuração, reregistre ambas as máquinas.
 
 
-1. No cofre, abra **a Manage** > Infraestrutura de **Recuperação** do Local > servidores de **configuração**.
+1. No cofre, **abra** > **os servidores**de configuração de configuração de**infraestrutura** > de recuperação do site .
 2. Nos **Servidores,** selecione **a chave de registo de descarregamento** para descarregar o ficheiro de credenciais de cofre.
 3. Inscreva-se na máquina do servidor de configuração.
 4. Em **%ProgramData%\ASR\home\svsystems\bin,** **cspsconfigtool.exe**.
@@ -112,7 +112,7 @@ Pode voltar a registar o servidor de configuração no mesmo cofre, se necessár
    ```
 
     >[!NOTE]
-    >Para **retirar os mais recentes certificados** do servidor de configuração para o servidor de processo satisfaça o comando "\<Unidade de *Instalação\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >Para **retirar os mais recentes certificados** do servidor de configuração para o servidor de processo satisfaça o comando " *\<Unidade de Instalação\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
 8. Finalmente, reinicie o motor de obengine executando o seguinte comando.
    ```
@@ -152,9 +152,9 @@ As ligações para atualizar rollups para upgrade para todas as versões do serv
 
 Atualize o servidor da seguinte forma:
 
-1. No cofre, vá para **gerir** > **Infraestrutura** de recuperação de locais > servidores de **configuração**.
+1. No cofre, vá **gerir** > os servidores de configuração de > **infraestruturas**de recuperação do**local.**
 2. Se estiver disponível uma atualização, aparece um link na versão do **agente** > coluna.
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Descarregue o ficheiro do instalador de atualizações para o servidor de configuração.
 
     ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)
@@ -188,19 +188,19 @@ Executar o ficheiro de instalação da seguinte forma:
 
 |Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
-| /ServerMode|Required|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
-|/InstallLocation|Required|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
-|/MySQLCredsFilePath|Required|O caminho do ficheiro no qual as credenciais do servidor MySQL são armazenadas|O ficheiro deve estar no formato especificado abaixo|
-|/VaultCredsFilePath|Required|O caminho do ficheiro de credenciais do cofre|Caminho do ficheiro válido|
-|/EnvType|Required|Tipo de ambiente que pretende proteger |VMware<br>NonVMware|
-|/PSIP|Required|Endereço IP do NIC a ser utilizado para transferência de dados de replicação| Qualquer endereço IP válido|
-|/CSIP|Required|O endereço IP do NIC em que o servidor de configuração está a ouvir| Qualquer endereço IP válido|
-|/PassphraseFilePath|Required|O caminho completo para a localização do ficheiro da frase de acesso|Caminho do ficheiro válido|
+| /ServerMode|Necessário|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
+|/InstallLocation|Necessário|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
+|/MySQLCredsFilePath|Necessário|O caminho do ficheiro no qual as credenciais do servidor MySQL são armazenadas|O ficheiro deve estar no formato especificado abaixo|
+|/VaultCredsFilePath|Necessário|O caminho do ficheiro de credenciais do cofre|Caminho do ficheiro válido|
+|/EnvType|Necessário|Tipo de ambiente que pretende proteger |VMware<br>NonVMware|
+|/PSIP|Necessário|Endereço IP do NIC a ser utilizado para transferência de dados de replicação| Qualquer endereço IP válido|
+|/CSIP|Necessário|O endereço IP do NIC em que o servidor de configuração está a ouvir| Qualquer endereço IP válido|
+|/PassphraseFilePath|Necessário|O caminho completo para a localização do ficheiro da frase de acesso|Caminho do ficheiro válido|
 |/BypassProxy|Opcional|Especifica que o servidor de configuração estabelece uma ligação ao Azure sem um proxy|Para obter este valor do Venu|
 |/ProxySettingsFilePath|Opcional|Definições de proxy (o proxy predefinido necessita de autenticação ou de um proxy personalizado)|O ficheiro deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|Número da porta no PSIP a ser utilizado para dados de replicação| Número de Porta Válido (o valor predefinido é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar a verificação de espaços para a cache do disco| |
-|/AcceptThirdpartyEULA|Required|O sinalizador indica a aceitação do EULA de terceiros| |
+|/AcceptThirdpartyEULA|Necessário|O sinalizador indica a aceitação do EULA de terceiros| |
 |/ShowThirdpartyEULA|Opcional|Apresenta o EULA de terceiros. Se for fornecido como entrada, todos os outros parâmetros são ignorados| |
 
 
@@ -230,7 +230,7 @@ ProxyPassword="Password"
 1. [Desative a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todos os VMs sob o servidor de configuração.
 2. [Desassociater](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) e [eliminar](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) todas as políticas de replicação do servidor de configuração.
 3. [Elimine](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) todos os servidores/anfitriões vSphere que estejam associados ao servidor de configuração.
-4. No cofre, a **infraestrutura** de recuperação do local aberta > servidores de **configuração.**
+4. No cofre, aberto**sinuosos servidores**de configuração de **infraestrutura** > de recuperação do local.
 5. Selecione o servidor de configuração que pretende remover. Em seguida, na página **Detalhes,** **selecione Eliminar**.
 
     ![Eliminar servidor de configuração](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
@@ -284,16 +284,16 @@ Para implementações de servidores de configuração antes de maio de 2016, a e
 
 ### <a name="renew-the-certificate"></a>Renovar o certificado
 
-1. No cofre, a **infraestrutura** de recuperação do local aberta > servidor de **configuração**. Selecione o servidor de configuração necessário.
+1. No cofre, aberto servidor de**configuração**de **infraestrutura** > de recuperação do local. Selecione o servidor de configuração necessário.
 2. A data de validade aparece sob **a saúde**do Servidor de Configuração .
 3. **Selecione Renovar Certificados**.
 
 ## <a name="refresh-configuration-server"></a>Servidor de configuração de atualização
 
-1. No portal Azure, navegue para o Cofre de Serviços de **Recuperação** > **Gerir** > **Infraestrutura** de Recuperação do Local > **para VMware e máquinas físicas** > **servidores** de configuração
+1. No**Manage** > portal Azure, navegue para a infraestrutura > de**recuperação**do cofre de **recuperação** > do cofre**para VMware &** > servidores de configuração de máquinas**físicas**
 2. Clique no servidor de configuração que pretende atualizar.
 3. Na lâmina com detalhes do servidor de configuração escolhido, clique em **Mais** > **Refresh Server**.
-4. Monitorize o progresso do trabalho no âmbito do Cofre de **Serviços** de **Recuperação** > monitorização > postos de **recuperação do local.**
+4. Monitorize o progresso do trabalho no âmbito dos **trabalhos** > de recuperação do cofre de**monitorização** > do local de recuperação do**local.**
 
 ## <a name="failback-requirements"></a>Requisitos de reativação pós-falha
 
@@ -301,6 +301,6 @@ Durante a reproteção e o recuo, o servidor de configuração no local deve est
 
 Certifique-se de que tem cópias de segurança regulares do seu servidor de configuração. Se ocorrer um desastre e o servidor de configuração estiver perdido, primeiro deve restaurar o servidor de configuração a partir de uma cópia de cópia de cópia de cópia de cópia de segurança e certificar-se de que o servidor de configuração restaurado tem o mesmo endereço IP com o qual foi registado no cofre. O failback não funcionará se for utilizado um endereço IP diferente para o servidor de configuração restaurado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja os tutoriais para a criação de uma recuperação de desastres de [VMware VMs](vmware-azure-tutorial.md) para Azure.

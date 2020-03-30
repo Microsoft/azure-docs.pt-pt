@@ -1,85 +1,85 @@
 ---
-title: Configurar o Glossário de negócios no catálogo de dados do Azure
-description: Artigo de instruções destacando o Glossário de negócios no catálogo de dados do Azure para definir e usar um vocabulário de negócios comum para marcar ativos de dados registrados.
+title: Configurar o glossário de negócios no Catálogo de Dados Azure
+description: Como fazer o artigo destacando o glossário de negócios no Catálogo de Dados Azure para definir e utilizar um vocabulário de negócio comum para etiquetar ativos de dados registados.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 1065abecb1f0ef57eb13b1ec3f194f07ae01eaee
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68976798"
 ---
-# <a name="set-up-the-business-glossary-for-governed-tagging"></a>Configurar o Glossário de negócios para marcação governada
+# <a name="set-up-the-business-glossary-for-governed-tagging"></a>Criar o glossário de negócios para a marcação governada
 
 ## <a name="introduction"></a>Introdução
 
-O catálogo de dados do Azure permite a descoberta de fonte de dados, para que você possa descobrir e entender facilmente as fontes de dados necessárias para realizar a análise e tomar decisões. Esses recursos têm o maior impacto quando você pode encontrar e entender a maior variedade de fontes de dados disponíveis.
+O Azure Data Catalog permite a descoberta de fontes de dados, para que possa facilmente descobrir e compreender as fontes de dados que precisa para realizar análises e tomar decisões. Estas capacidades têm o maior impacto quando se pode encontrar e compreender a mais ampla gama de fontes de dados disponíveis.
 
-Um recurso de catálogo de dados que promove maior compreensão dos dados de ativos é a marcação. Ao usar a marcação, você pode associar palavras-chave a um ativo ou a uma coluna, o que, por sua vez, torna mais fácil descobrir o ativo por meio de pesquisa ou navegação. A marcação também ajuda você a entender mais facilmente o contexto e a intenção do ativo.
+Uma funcionalidade de Data Catalog que promove uma maior compreensão dos dados dos ativos é a marcação. Ao utilizar a marcação, pode associar palavras-chave a um ativo ou coluna, o que por sua vez facilita a descoberta do ativo através da pesquisa ou navegação. A marcação também o ajuda a entender mais facilmente o contexto e a intenção do ativo.
 
-No entanto, a marcação pode, às vezes, causar problemas. Alguns exemplos de problemas que a marcação pode introduzir são:
+No entanto, a marcação pode, por vezes, causar problemas por si só. Alguns exemplos de problemas que a marcação pode introduzir são:
 
-* O uso de abreviações em alguns ativos e textos expandidos em outros. Essa inconsistência impede a descoberta de ativos, embora a intenção seja marcar os ativos com a mesma marca.
-* Variações em potencial no significado, dependendo do contexto. Por exemplo, uma marca chamada *receita* em um conjunto de dados do cliente pode significar a receita por cliente, mas a mesma marca em um conjunto de dado de vendas trimestral pode significar receita trimestral para a empresa.  
+* A utilização de abreviaturas em alguns ativos e texto expandido noutros. Esta inconsistência dificulta a descoberta de ativos, embora a intenção fosse marcar os ativos com a mesma etiqueta.
+* Variações potenciais no significado, dependendo do contexto. Por exemplo, uma etiqueta chamada *Receita* num conjunto de dados do cliente pode significar receita por parte do cliente, mas a mesma etiqueta num conjunto trimestral de dados de vendas pode significar receitas trimestrais para a empresa.  
 
-Para ajudar a resolver esses e outros desafios semelhantes, o catálogo de dados inclui um glossário de negócios.
+Para ajudar a enfrentar estes e outros desafios semelhantes, o Data Catalog inclui um glossário de negócios.
 
-Usando o Glossário de negócios do catálogo de dados, uma organização pode documentar os principais termos de negócios e suas definições para criar um vocabulário de negócios comum. Essa governança permite a consistência no uso de dados em toda a organização. Depois que um termo é definido no Glossário de negócios, ele pode ser atribuído a um ativo de dados no catálogo. Essa abordagem, *marcação governada*, é a mesma abordagem que a marcação.
+Ao utilizar o glossário de negócios do Data Catalog, uma organização pode documentar termos de negócio chave e suas definições para criar um vocabulário de negócio comum. Esta governação permite a consistência na utilização de dados em toda a organização. Depois de definido um termo no glossário de negócios, pode ser atribuído a um ativo de dados no catálogo. Esta abordagem, *regida,* é a mesma abordagem que a marcação.
 
-## <a name="glossary-availability-and-privileges"></a>Disponibilidade e privilégios do glossário
+## <a name="glossary-availability-and-privileges"></a>Disponibilidade e privilégios glossários
 
-O Glossário de negócios está disponível apenas na edição Standard do catálogo de dados do Azure. A edição gratuita do catálogo de dados não inclui um glossário e não fornece recursos para marcação controlada.
+O glossário de negócios está disponível apenas na Edição Padrão do Catálogo de Dados Azure. A Edição Gratuita do Catálogo de Dados não inclui um glossário, e não fornece capacidades para a marcação governada.
 
-Você pode acessar o Glossário de negócios por meio da opção **Glossário** no menu de navegação do portal do catálogo de dados.  
+Pode aceder ao glossário de negócios através da opção **Glossário** no menu de navegação do portal Data Catalog.  
 
-![Catálogo de dados-acessar o Glossário de negócios](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Catálogo de Dados - Aceda ao glossário de negócios](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
-Os administradores do catálogo de dados e os membros da função Administradores do glossário podem criar, editar e excluir os termos do glossário no Glossário de negócios. Todos os usuários do catálogo de dados podem exibir as definições de termo e os ativos de marca com os termos do glossário.
+Os administradores do Data Catalog e os membros da função de administradores glossários podem criar, editar e eliminar termos glossários no glossário do negócio. Todos os utilizadores do Data Catalog podem ver as definições de termo e etiquetar os ativos com termos glossários.
 
-![Catálogo de dados-adicionar um novo termo de Glossário](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Catálogo de Dados - Adicione um novo termo glossário](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
-## <a name="creating-glossary-terms"></a>Criando termos do glossário
+## <a name="creating-glossary-terms"></a>Criação de termos glossários
 
-Os administradores do catálogo de dados e os administradores do glossário podem criar termos do glossário clicando no botão **novo termo** . Cada termo do glossário contém os seguintes campos:
+Os administradores do Data Catalog e os administradores glossários podem criar termos glossários clicando no botão **New Term.** Cada termo glossário contém os seguintes campos:
 
-* Uma definição de negócios para o termo
-* Uma descrição que captura o uso pretendido ou as regras de negócio para o ativo ou coluna
-* Uma lista de participantes que conhecem mais informações sobre o termo
-* O termo pai, que define a hierarquia na qual o termo é organizado
+* Uma definição de negócio para o termo
+* Uma descrição que captura as regras de utilização ou negócios pretendidas para o ativo ou coluna
+* Uma lista de interessados que mais sabem sobre o termo
+* O termo-mãe, que define a hierarquia em que o termo é organizado
 
-## <a name="glossary-term-hierarchies"></a>Hierarquias de termos do glossário
+## <a name="glossary-term-hierarchies"></a>Hierarquias de termo glossário
 
-Usando o Glossário de negócios do catálogo de dados, uma organização pode descrever seu vocabulário de negócios como uma hierarquia de termos e pode criar uma classificação de termos que melhor represente sua taxonomia de negócios.
+Utilizando o glossário de negócios do Data Catalog, uma organização pode descrever o seu vocabulário empresarial como uma hierarquia de termos, e pode criar uma classificação de termos que melhor representem a sua taxonomia empresarial.
 
-Um termo deve ser exclusivo em um determinado nível de hierarquia. Nomes duplicados não são permitidos. Não há nenhum limite para o número de níveis em uma hierarquia, mas uma hierarquia geralmente é compreendida mais facilmente quando há três níveis ou menos.
+Um termo deve ser único a um determinado nível de hierarquia. Nomes duplicados não são permitidos. Não há limite para o número de níveis numa hierarquia, mas muitas vezes uma hierarquia é mais facilmente compreendida quando há três níveis ou menos.
 
-O uso de hierarquias no Glossário de negócios é opcional. Deixar o campo de termo pai em branco para termos de Glossário cria uma lista simples (não hierárquica) de termos no Glossário.  
+O uso de hierarquias no glossário empresarial é opcional. Deixar o campo de termo-mãe em branco para termos glossários cria uma lista plana (não hierárquica) de termos no glossário.  
 
-## <a name="tagging-assets-with-glossary-terms"></a>Marcando ativos com os termos do glossário
+## <a name="tagging-assets-with-glossary-terms"></a>Tagging ativos com termos glossários
 
-Depois que os termos do glossário tiverem sido definidos no catálogo, a experiência de ativos de marcação será otimizada para pesquisar o Glossário, pois um usuário digita uma marca. O portal do catálogo de dados exibe uma lista de termos de Glossário correspondentes para sua escolha. Se o usuário selecionar um termo de glossário na lista, o termo será adicionado ao ativo como uma marca (também chamada de marca de Glossário). O usuário também pode optar por criar uma nova marca digitando um termo que não está no Glossário (também chamado de marca de usuário).
+Depois de definidos termos glossários dentro do catálogo, a experiência de marcação de ativos é otimizada para pesquisar o glossário como um utilizador tipo uma etiqueta. O portal Data Catalog apresenta uma lista de termos glossários correspondentes para escolher. Se o utilizador selecionar um termo glossário da lista, o termo é adicionado ao ativo como etiqueta (também chamada de etiqueta glossária). O utilizador também pode optar por criar uma nova etiqueta digitando um termo que não está no glossário (também chamado de etiqueta de utilizador).
 
-![Ativo de dados marcado com uma marca de usuário e duas marcas de Glossário](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
+![Ativo de dados marcado com uma etiqueta de utilizador e duas etiquetas glossárias](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
 > [!NOTE]
-> As marcas de usuário são o único tipo de marca com suporte na edição gratuita do catálogo de dados.
+> As etiquetas de utilizador são o único tipo de etiqueta suportada na Edição Gratuita do Catálogo de Dados.
 
-### <a name="hover-behavior-on-tags"></a>Comportamento de focalização nas marcas
+### <a name="hover-behavior-on-tags"></a>Hover comportamento em tags
 
-No portal do catálogo de dados, os dois tipos de marcas são visualmente distintos e apresentam comportamentos de foco diferentes. Ao passar o mouse sobre uma marca de usuário, você pode ver o texto da marca e o usuário ou os usuários que adicionaram a marca. Ao passar o mouse sobre uma marca de Glossário, você também verá a definição do termo do glossário e um link para abrir o Glossário de negócios para exibir a definição completa do termo.
+No portal Data Catalog, os dois tipos de tags são visualmente distintos e apresentam diferentes comportamentos hover. Quando paira sobre uma etiqueta de utilizador, pode ver o texto da etiqueta e o utilizador ou utilizadores que adicionaram a etiqueta. Quando paira sobre uma etiqueta glossária, também vê a definição do termo glossário e um link para abrir o glossário de negócios para ver a definição completa do termo.
 
-### <a name="search-filters-for-tags"></a>Pesquisar filtros para marcas
+### <a name="search-filters-for-tags"></a>Pesquisar filtros para etiquetas
 
-Marcas de glossário e marcas de usuário são pesquisáveis e você pode aplicá-las como filtros em uma pesquisa.
+As etiquetas glossárias e as etiquetas de utilizador são pesquisáveis e pode aplicá-las como filtros numa pesquisa.
 
 ## <a name="summary"></a>Resumo
 
-Usando o Glossário de negócios no catálogo de dados do Azure e a marcação controlada que ele habilita, você pode identificar, gerenciar e descobrir ativos de dados de maneira consistente. O Glossário de negócios pode promover o aprendizado do vocabulário de negócios por membros da organização. O Glossário também dá suporte à captura de metadados significativos, o que simplifica a descoberta de ativos e a compreensão.
+Ao utilizar o glossário de negócios no Catálogo de Dados Azure, e a marcação regida que permite, pode identificar, gerir e descobrir os ativos de dados de forma consistente. O glossário de negócios pode promover a aprendizagem do vocabulário empresarial por membros da organização. O glossário também suporta a captura de metadados significativos, o que simplifica a descoberta e compreensão de ativos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Documentação da API REST para operações de Glossário de negócios](/rest/api/datacatalog/data-catalog-glossary)
+* [Documentação rest API para operações glossárias empresariais](/rest/api/datacatalog/data-catalog-glossary)

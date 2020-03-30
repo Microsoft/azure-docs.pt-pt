@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 76e7a9aa9c0f17501885c8bd06c6997fdc8d2104
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: b2b34a6fdf96613c5bc372e585598fabbe43d53d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255696"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066614"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para a implantação da Plataforma de Contentores OpenShift 3.11 em Azure
 
@@ -49,21 +49,22 @@ Este guia descreve como criar os artefactos associados aos pré-requisitos.
 > * Crie um cofre chave para gerir as teclas SSH para o cluster OpenShift.
 > * Crie um diretor de serviço para utilização pelo Azure Cloud Provider.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 Inicie sessão na subscrição do Azure com o comando [de login az](/cli/azure/reference-index) e siga as instruções no ecrã ou clique em **experimentá-la** para utilizar a Cloud Shell.
 
-```azurecli 
+```azurecli
 az login
 ```
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Devias usar um grupo de recursos dedicado para alojar o cofre chave. Este grupo é separado do grupo de recursos em que os recursos de cluster OpenShift se implantam.
 
 O exemplo seguinte cria um grupo de recursos chamado *keyvaultrg* na localização *oriental:*
 
-```azurecli 
+```azurecli
 az group create --name keyvaultrg --location eastus
 ```
 
@@ -79,9 +80,9 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ```
 
 ## <a name="create-an-ssh-key"></a>Criar uma chave SSH 
-É necessária uma chave SSH para garantir o acesso ao cluster OpenShift. Crie um par de chaves SSH utilizando o comando `ssh-keygen` (em Linux ou macOS):
+É necessária uma chave SSH para garantir o acesso ao cluster OpenShift. Crie um par de chaves `ssh-keygen` SSH utilizando o comando (em Linux ou macOS):
  
- ```bash
+```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
@@ -115,6 +116,7 @@ Criar o diretor de serviço:
 ```azurecli
 az group show --name openshiftrg --query id
 ```
+
 Salve a saída do comando e use no lugar de $scope no próximo comando
 
 ```azurecli
@@ -123,6 +125,7 @@ az ad sp create-for-rbac --name openshiftsp \
 ```
 
 Tome nota da propriedade appId e palavra-passe devolvida do comando:
+
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",
@@ -132,6 +135,7 @@ Tome nota da propriedade appId e palavra-passe devolvida do comando:
   "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 }
 ```
+
  > [!WARNING] 
  > Certifique-se de que anota a palavra-passe segura, uma vez que não será possível recuperar novamente esta palavra-passe.
 
@@ -160,7 +164,7 @@ Tens de guardar estes ficheiros em segredos do Cofre chave.  Use o mesmo cofre d
 
 Crie os segredos usando o Azure CLI. Abaixo está um exemplo.
 
-```bash
+```azurecli
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
 ```
 

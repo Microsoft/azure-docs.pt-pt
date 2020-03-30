@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 15c75d4add9615df6c42aa6121557659e54354d0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 56a0cb66f5b54c817067970ab369d7ca471a1696
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666791"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132348"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Monitorização de aplicações de instrumentação zero para aplicações hospedadas pela Kubernetes
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 O Azure Monitor aproveita agora a tecnologia de malha de serviço no seu cluster Kubernetes para fornecer a monitorização da aplicação de caixa para qualquer aplicação hospedada pela Kubernetes. Com funcionalidades padrão de Insight de aplicação como O Mapa de [Aplicações](../../azure-monitor/app/app-map.md) para modelar as suas dependências, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) para monitorização em tempo real, visualizações poderosas com o [dashboard padrão,](../../azure-monitor/app/overview-dashboard.md) [Explorador Métrico](../../azure-monitor/platform/metrics-getting-started.md)e Livros de [Trabalho](../../azure-monitor/app/usage-workbooks.md). Esta funcionalidade ajudará os utilizadores a detetar estrangulamentos de desempenho e hotspots de falha em todas as suas cargas de trabalho kubernetes dentro de um espaço de nome seleto de Kubernetes. Ao capitalizar os investimentos existentes em malha de serviço com tecnologias como a Istio, o Azure Monitor permite a monitorização automática de aplicações sem qualquer alteração ao código da sua aplicação.
 
 > [!NOTE]
-> Esta é uma das muitas formas de realizar a monitorização de aplicações em Kubernetes. Também pode instrumentar qualquer aplicação hospedada em Kubernetes utilizando o [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) sem a necessidade de uma malha de serviço. Para monitorizar kubernetes sem instrumentar a aplicação com um SDK pode utilizar o método abaixo.
+> Esta é uma das muitas formas de realizar a monitorização de aplicações em Kubernetes.Também pode instrumentar qualquer aplicação hospedada em Kubernetes utilizando o [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) sem a necessidade de uma malha de serviço. Para monitorizar kubernetes sem instrumentar a aplicação com um SDK pode utilizar o método abaixo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ O Azure Monitor aproveita agora a tecnologia de malha de serviço no seu cluster
 
 Ao utilizar a monitorização de aplicações de instrumentação zero para aplicações hospedadas pela Kubernetes, poderá utilizar:
 
-- [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
+- [Mapa de aplicações](../../azure-monitor/app/app-map.md)
 - [Métricas de live stream](../../azure-monitor/app/live-stream.md)
 - [Dashboards](../../azure-monitor/app/overview-dashboard.md)
 - [Explorador de Métricas](../../azure-monitor/platform/metrics-getting-started.md)
@@ -59,7 +59,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 ```
 
 > [!NOTE]
-> Uma vez que a malha de serviço retira dados do fio, não podemos intercetar o tráfego encriptado. Para tráfego que não sai do cluster, utilize um protocolo não encriptado (por exemplo, HTTP). Para tráfego externo que deve ser encriptado, considere a instalação de [terminação SSL](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) no controlador de entrada.
+> Uma vez que a malha de serviço retira dados do fio, não podemos intercetar o tráfego encriptado. Para tráfego que não sai do cluster, utilize um protocolo não encriptado (por exemplo, HTTP). Para tráfego externo que deve ser encriptado, considere a instalação de [terminação de TLS](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) no controlador de entrada.
 
 As aplicações que correm fora da malha de serviço não são afetadas.
 
@@ -75,7 +75,7 @@ As aplicações que correm fora da malha de serviço não são afetadas.
 3. Editar *aplicação-insights-istio-mixer-adapter-deployment.yaml*
     - editar o valor da variável ambiente *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* para conter a chave de instrumentação do recurso Application Insights no portal Azure para conter a telemetria.
     - Se necessário, edite o valor da variável ambiente *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* para conter uma lista separada de espaços de nome sitia para os quais deseja permitir a monitorização. Deixe em branco para monitorizar todos os espaços de nome.
-4. Aplicar *todos os* ficheiros YAML encontrados em *src/kubernetes/* executando o seguinte (ainda deve estar dentro */src/kubernetes/* ):
+4. Aplicar *todos os* ficheiros YAML encontrados em *src/kubernetes/* executando o seguinte (ainda deve estar dentro */src/kubernetes/*):
 
    ```console
    kubectl apply -f .

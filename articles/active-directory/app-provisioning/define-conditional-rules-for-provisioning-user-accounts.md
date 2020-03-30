@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79138540"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Fornecimento de aplicações baseado em atributos com filtros de deteção
@@ -65,7 +65,7 @@ De acordo com este filtro de deteção, os utilizadores devem satisfazer os segu
 Os filtros de deteção são configurados como parte dos mapeamentos de atributos para cada conector de fornecimento de utilizadores da AD Azure. O procedimento seguinte pressupõe que já criou o fornecimento automático para [uma das aplicações suportadas](../saas-apps/tutorial-list.md) e está a adicionar-lhe um filtro de deteção.
 
 ### <a name="create-a-scoping-filter"></a>Criar um filtro de deteção
-1. No [portal Azure,](https://portal.azure.com)vá ao **Diretório Ativo do Azure** > **Aplicações empresariais** > **todas as aplicações.**
+1. No [portal Azure,](https://portal.azure.com)vá à secção de**Aplicações empresariais** > de **diretório** > ativo Azure**Todas as aplicações.**
 
 2. Selecione a aplicação para a qual configurao o fornecimento automático: por exemplo, "ServiceNow".
 
@@ -123,9 +123,9 @@ Os filtros de deteção são configurados como parte dos mapeamentos de atributo
 ## <a name="common-scoping-filters"></a>Filtros comuns de deteção
 | Atributo-alvo| Operador | Valor | Descrição|
 |----|----|----|----|
-|userPrincipalName|REGEX MATCH|.\*@domain.com |Todos os utilizadores com o utilizadorPrincipal que tenha o domínio @domain.com estarão no âmbito do provisionamento|
-|userPrincipalName|NÃO JOGO REGEX|.\*@domain.com|Todos os utilizadores com o utilizadorPrincipal que tenha o domínio @domain.com estarão fora do âmbito de provisionamento|
-|Departamento|EQUALS|vendas|Todos os utilizadores do departamento de vendas estão no âmbito do provisionamento|
+|userPrincipalName|REGEX MATCH|.\*@domain.com |Todos os utilizadores com userPrincipal que tenha o domínio @domain.com estarão no âmbito do fornecimento|
+|userPrincipalName|NÃO JOGO REGEX|.\*@domain.com|Todos os utilizadores com userPrincipal que tenha o domínio @domain.com estarão fora do âmbito de provisionamento|
+|departamento|EQUALS|vendas|Todos os utilizadores do departamento de vendas estão no âmbito do provisionamento|
 |trabalhadorID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os trabalhadores com IDs de trabalhadores entre 10000000 e 2000000 estão no âmbito do provisionamento.|
 
 ## <a name="related-articles"></a>Artigos relacionados

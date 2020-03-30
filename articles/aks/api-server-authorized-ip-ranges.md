@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.openlocfilehash: 593f9e0b335e6f4d62c76ce92f833ff4e9143372
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126616"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Acesso seguro ao servidor API utilizando gamas de endereços IP autorizadas no Serviço Azure Kubernetes (AKS)
@@ -24,11 +24,11 @@ Este artigo mostra-lhe como utilizar os intervalos de endereços IP autorizados 
 
 Os intervalos IP autorizados do servidor API funcionam apenas para novos clusters AKS que cria. Este artigo mostra-lhe como criar um cluster AKS usando o Azure CLI.
 
-Precisa da versão Azure CLI 2.0.76 ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Precisa da versão Azure CLI 2.0.76 ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Visão geral das gamas IP autorizadas do servidor API
 
-O servidor Kubernetes API é como as APIs kubernetes subjacentes são expostas. Este componente proporciona a interação para ferramentas de gestão, como `kubectl` ou o dashboard Kubernetes. A AKS fornece um mestre de agrupamento de inquilinos único, com um servidor API dedicado. Por predefinição, o servidor API é atribuído a um endereço IP público, e deve controlar o acesso utilizando controlos de acesso baseados em funções (RBAC).
+O servidor Kubernetes API é como as APIs kubernetes subjacentes são expostas. Este componente proporciona a interação para `kubectl` ferramentas de gestão, como ou o dashboard Kubernetes. A AKS fornece um mestre de agrupamento de inquilinos único, com um servidor API dedicado. Por predefinição, o servidor API é atribuído a um endereço IP público, e deve controlar o acesso utilizando controlos de acesso baseados em funções (RBAC).
 
 Para garantir o acesso ao plano de controlo AKS /servidor API acessível ao público, pode ativar e utilizar gamas IP autorizadas. Estas gamas IP autorizadas apenas permitem intervalos de endereçoip definidos para comunicar com o servidor API. Está bloqueado um pedido feito ao servidor API a partir de um endereço IP que não faça parte destas gamas IP autorizadas. Continue a utilizar o RBAC para autorizar os utilizadores e as ações que solicitam.
 
@@ -36,7 +36,7 @@ Para obter mais informações sobre o servidor API e outros componentes de clust
 
 ## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>Criar um cluster AKS com gamas IP autorizadas do servidor API ativadas
 
-Os intervalos IP autorizados do servidor API funcionam apenas para novos clusters AKS. Crie um cluster utilizando as [aks az criar][az-aks-create] e especificar o parâmetro de --api-server-autorizado-ip-intervalos para fornecer uma lista de intervalos de endereçoip autorizados. Estas gamas de endereços IP são geralmente faixas de endereço utilizadas pelas suas redes no local ou iPs públicos. Quando especificar uma gama CIDR, comece com o primeiro endereço IP na gama. Por exemplo, *137.117.106.90/29* é um intervalo válido, mas certifique-se de especificar o primeiro endereço IP na gama, tais como *137.117.106.88/29*.
+Os intervalos IP autorizados do servidor API funcionam apenas para novos clusters AKS. Crie um cluster utilizando as [aks az criar][az-aks-create] e especificar o parâmetro de --api-server-autorizado-ip-intervalos para fornecer uma lista de intervalos de endereçoip autorizados. *--api-server-authorized-ip-ranges* Estas gamas de endereços IP são geralmente faixas de endereço utilizadas pelas suas redes no local ou iPs públicos. Quando especificar uma gama CIDR, comece com o primeiro endereço IP na gama. Por exemplo, *137.117.106.90/29* é um intervalo válido, mas certifique-se de especificar o primeiro endereço IP na gama, tais como *137.117.106.88/29*.
 
 > [!IMPORTANT]
 > Por predefinição, o seu cluster utiliza o [equilíbrio de carga SKU Padrão][standard-sku-lb] que pode utilizar para configurar o gateway de saída. Quando ativa as gamas IP autorizadas pelo servidor API durante a criação do cluster, o IP público para o seu cluster também é permitido por padrão, além das gamas que especifica. Se especificar *""* ou nenhum valor para *--api-server-server-autorizado-ip-intervalos,* os intervalos IP autorizados pelo servidor API serão desativados.

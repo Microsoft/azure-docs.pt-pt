@@ -1,5 +1,5 @@
 ---
-title: Persistir estado no Windows - Azure Event Grid IoT Edge  Microsoft Docs
+title: Persistir estado no Windows - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Persistir estado nas Janelas
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086622"
 ---
 # <a name="persist-state-in-windows"></a>Persistir estado nas Janelas
@@ -75,7 +75,7 @@ Este artigo fornece os passos necessários para implementar o módulo De Rede de
     1. Clique à direita e, em seguida, selecione **Propriedades**.
     1. Selecione **Segurança**.
     1. Em *Nomes de grupo ou utilizador, **selecione Editar**.
-    1. **Selecione Adicionar,** introduza `Users`, selecione **'Ver Nomes'** e selecione **Ok**.
+    1. Selecione `Users` **Adicionar,** introduzir, selecione **'Ver Nomes'** e selecione **Ok**.
     1. Sob *permissões para utilizadores,* selecione **Modificar**, e selecione **Ok**.
 1. Use **Binds** para montar este volume e reimplantar módulo de Rede de Eventos do portal Azure
 
@@ -112,7 +112,7 @@ Este artigo fornece os passos necessários para implementar o módulo De Rede de
     ```
 
    >[!IMPORTANT]
-   >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica no módulo. Para o módulo De Rede de Eventos nas janelas, tem de ser **C:\\app\\metadadosDb**.
+   >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica no módulo. Para o módulo De Rede de Eventos nas janelas, tem de ser **\\C: metadados de aplicaçõesDb\\**.
 
 
     Por exemplo,
@@ -176,7 +176,7 @@ Em vez de acumular um volume, pode criar um diretório no sistema de anfitriões
     ```
 
     >[!IMPORTANT]
-    >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica no módulo. Para o módulo De Rede de Eventos nas janelas, tem de ser **C:\\app\\metadadosDb**.
+    >Não altere a segunda parte do valor da ligação. Aponta para uma localização específica no módulo. Para o módulo De Rede de Eventos nas janelas, tem de ser **\\C: metadados de aplicaçõesDb\\**.
 
     Por exemplo,
 
@@ -220,7 +220,7 @@ Coisas importantes a notar sobre eventos persistentes:
 * A persistência do evento é configurada numa Subscrição de Eventos no momento da criação e não pode ser modificada uma vez que a Subscrição do Evento é criada. Para alternar a persistência do evento, deve eliminar e recriar a Subscrição do Evento.
 * Os eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto a diferença de velocidade depende muito das características da unidade. A troca entre a velocidade e a fiabilidade é inerente a todos os sistemas de mensagens, mas torna-se apenas percetível em larga escala.
 
-Para permitir a persistência do evento numa Subscrição de Eventos, detete `persistencePolicy` para `true`:
+Para permitir a persistência do `persistencePolicy` evento `true`numa Subscrição de Eventos, definida para:
 
  ```json
         {

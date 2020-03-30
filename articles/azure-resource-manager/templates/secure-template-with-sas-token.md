@@ -3,16 +3,16 @@ title: Implementar de forma segura o modelo com token SAS
 description: Desloque recursos para o Azure com um modelo de Gestor de Recursos Azure que é protegido por um token SAS. Mostra Azure PowerShell e Azure CLI.
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d30e685c35f33b6fc5d3872b9287e45190ad5713
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273712"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156400"
 ---
-# <a name="deploy-private-resource-manager-template-with-sas-token"></a>Implementar um modelo privado do Resource Manager com o token SAS
+# <a name="deploy-private-arm-template-with-sas-token"></a>Implementar modelo de ARM privado com token SAS
 
-Quando o seu modelo está localizado numa conta de armazenamento, pode restringir o acesso ao modelo para evitar expô-lo publicamente. Você acede a um modelo seguro criando um símbolo de assinatura de acesso partilhado (SAS) para o modelo, e fornecendo esse símbolo durante a implementação. Este artigo explica como usar o Azure PowerShell ou o Azure CLI para implementar um modelo com um token SAS.
+Quando o seu modelo De gestor de recursos Azure (ARM) estiver localizado numa conta de armazenamento, pode restringir o acesso ao modelo para evitar expô-lo publicamente. Você acede a um modelo seguro criando um símbolo de assinatura de acesso partilhado (SAS) para o modelo, e fornecendo esse símbolo durante a implementação. Este artigo explica como usar o Azure PowerShell ou o Azure CLI para implementar um modelo com um token SAS.
 
 ## <a name="create-storage-account-with-secured-container"></a>Criar conta de armazenamento com recipiente seguro
 
@@ -37,7 +37,7 @@ New-AzStorageContainer `
   -Permission Off
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create \
@@ -73,7 +73,7 @@ Set-AzStorageBlobContent `
   -File c:\Templates\azuredeploy.json
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az storage blob upload \
@@ -109,7 +109,7 @@ New-AzResourceGroupDeployment `
   -TemplateUri $templateuri
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -129,7 +129,7 @@ url=$(az storage blob url \
     --name azuredeploy.json \
     --output tsv \
     --connection-string $connection)
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```
@@ -140,5 +140,5 @@ Para um exemplo de utilização de um símbolo SAS com modelos ligados, consulte
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para uma introdução aos modelos de implantação, consulte [os recursos de implantação com modelos de Gestor de Recursos e O PowerShell Azure](deploy-powershell.md).
+* Para uma introdução aos modelos de implantação, consulte [os recursos de implantação com modelos ARM e Azure PowerShell](deploy-powershell.md).
 * Para definir parâmetros no modelo, consulte [os modelos de autor](template-syntax.md#parameters).

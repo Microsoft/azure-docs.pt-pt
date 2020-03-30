@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: cba97b84f77bd4e2d4cfd97601fa4f8637105eb4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189842"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051413"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre pedidos de reclamação em políticas personalizadas do Diretório Ativo Azure B2C
 
@@ -24,7 +24,7 @@ As [políticas personalizadas](custom-policy-overview.md) de reclamação em Azu
 
 Para utilizar uma reclamação resolver numa reivindicação de entrada ou saída, define um Tipo de **Reclamação**de cadeias , sob o elemento [ClaimsSchema,](claimsschema.md) e, em seguida, define o **DefaultValue** para o resolver de reclamação no elemento de entrada ou de saída. O Azure AD B2C lê o valor da reclamação e utiliza o valor no perfil técnico.
 
-No exemplo seguinte, um tipo de reclamação chamado `correlationId` é definido com um **DataType** de `string`.
+No exemplo seguinte, um `correlationId` tipo de reclamação `string`nomeado é definido com um **DataType** de .
 
 ```XML
 <ClaimType Id="correlationId">
@@ -34,7 +34,7 @@ No exemplo seguinte, um tipo de reclamação chamado `correlationId` é definido
 </ClaimType>
 ```
 
-No perfil técnico, mapeie a reclamação resolver o tipo de reclamação. O Azure AD B2C preenche o valor do pedido que `{Context:CorrelationId}` no pedido `correlationId` e envia a reclamação para o perfil técnico.
+No perfil técnico, mapeie a reclamação resolver o tipo de reclamação. O Azure AD B2C preenche o `{Context:CorrelationId}` valor `correlationId` da reclamação no sinistro e envia a reclamação para o perfil técnico.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
@@ -50,51 +50,53 @@ A lista de secções seguintes disponível de reclamação resolve.
 | ----- | ----------- | --------|
 | {Cultura:Nome de língua} | O código ISO de duas letras para a língua. | en |
 | {Cultura:LCID}   | O LCID do código linguístico. | 1033 |
-| {Culture:RegionName} | O código ISO de duas letras para a região. | EUA |
+| {Cultura:Nome da Região} | O código ISO de duas letras para a região. | EUA |
 | {Cultura:RFC5646} | O código linguístico RFC5646. | pt-PT |
 
 ### <a name="policy"></a>Política
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {Policy:PolicyId} | O nome da política do partido. | B2C_1A_signup_signin |
-| {Policy:RelyingPartyTenantId} | A identificação do inquilino da política do partido. | your-tenant.onmicrosoft.com |
-| {Policy:TenantObjectId} | A identificação do objeto inquilino da política do partido. | 00000000-0000-0000-0000-000000000000 |
-| {Policy:TrustFrameworkTenantId} | A identificação do inquilino do quadro fiduciário. | your-tenant.onmicrosoft.com |
+| {Política:PolicyId} | O nome da política do partido. | B2C_1A_signup_signin |
+| {Política:RelyingPartyTenantId} | A identificação do inquilino da política do partido. | your-tenant.onmicrosoft.com |
+| {Política:TenantObjectId} | A identificação do objeto inquilino da política do partido. | 00000000-0000-0000-0000-000000000000 |
+| {Política:TrustFrameworkTenantId} | A identificação do inquilino do quadro fiduciário. | your-tenant.onmicrosoft.com |
 
 ### <a name="openid-connect"></a>OpenID Connect
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |O parâmetro de corda de consulta `acr_values`. | N/D |
-| {OIDC:ClientId} |O parâmetro de corda de consulta `client_id`. | 00000000-0000-0000-0000-000000000000 |
-| {OIDC:DomainHint} |O parâmetro de corda de consulta `domain_hint`. | facebook.com |
-| {OIDC:LoginHint} |  O parâmetro de corda de consulta `login_hint`. | someone@contoso.com |
-| {OIDC:Maxage} | O `max_age`. | N/D |
-| {OIDC:Nonce} |O parâmetro de corda de consulta `Nonce`. | padrãoNonce |
-| {OIDC:Prompt} | O parâmetro de corda de consulta `prompt`. | início de sessão |
-| {OIDC:Recurso} |O parâmetro de corda de consulta `resource`. | N/D |
-| {OIDC:scope} |O parâmetro de corda de consulta `scope`. | openid |
-| {OIDC:RedirectUri} |O parâmetro de corda de consulta `redirect_uri`. | https://jwt.ms |
+| {OIDC:AutenticaçãoContextReferences} |O `acr_values` parâmetro de corda de consulta. | N/D |
+| {OIDC:Clientid} |O `client_id` parâmetro de corda de consulta. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC:DomainHint} |O `domain_hint` parâmetro de corda de consulta. | facebook.com |
+| {OIDC:LoginHint} |  O `login_hint` parâmetro de corda de consulta. | someone@contoso.com |
+| {OIDC:Maxage} | O. `max_age` | N/D |
+| {OIDC:Nonce} |O `Nonce` parâmetro de corda de consulta. | padrãoNonce |
+| {OIDC:Password}| As credenciais de senha do [proprietário do recurso fluem](ropc-custom.md) a palavra-passe do utilizador.| senha1| 
+| {OIDC:Prompt} | O `prompt` parâmetro de corda de consulta. | início de sessão |
+| {OIDC:RedirectUri} |O `redirect_uri` parâmetro de corda de consulta. | https://jwt.ms |
+| {OIDC:Recurso} |O `resource` parâmetro de corda de consulta. | N/D |
+| {OIDC:scope} |O `scope` parâmetro de corda de consulta. | openid |
+| {OIDC:Username}| As credenciais de senha do [proprietário do recurso fluem](ropc-custom.md) o nome de utilizador do utilizador.| emily@contoso.com| 
 
 ### <a name="context"></a>Contexto
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | A versão Quadro de Experiência de Identidade (número de construção).  | 1.0.507.0 |
-| {Context:CorrelationId} | O ID de correlação.  | 00000000-0000-0000-0000-000000000000 |
-| {Context:DateTimeInUtc} |A data de data na UTC.  | 10/10/2018 12:00:00 |
-| {Context:DeploymentMode} |O modo de implantação da política.  | Produção |
-| {Context:IPAddress} | O endereço IP do utilizador. | 11.111.111.11 |
+| {Contexto:Correlação} | A identificação da correlação.  | 00000000-0000-0000-0000-000000000000 |
+| {Contexto:DateTimeInUtc} |A data de data na UTC.  | 10/10/2018 12:00:00 |
+| {Contexto:Modo de Implantação} |O modo de implantação da política.  | Produção |
+| {Contexto:IPAddress} | O endereço IP do utilizador. | 11.111.111.11 |
 | {Contexto:KMSI} | Indica se [me mantenho assinado na](custom-policy-keep-me-signed-in.md) caixa de verificação. |  true |
 
 ### <a name="non-protocol-parameters"></a>Parâmetros não protocolares
 
-Qualquer nome de parâmetro incluído como parte de um pedido oIDC ou OAuth2 pode ser mapeado para uma reclamação na viagem do utilizador. Por exemplo, o pedido da aplicação pode incluir um parâmetro de corda de consulta com um nome de `app_session`, `loyalty_number`, ou qualquer corda de consulta personalizada.
+Qualquer nome de parâmetro incluído como parte de um pedido oIDC ou OAuth2 pode ser mapeado para uma reclamação na viagem do utilizador. Por exemplo, o pedido da aplicação pode incluir um `app_session`parâmetro `loyalty_number`de corda de consulta com um nome de , ou qualquer corda de consulta personalizada.
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------------------- | --------|
-| {OAUTH-KV:campaignId} | Um parâmetro de corda de consulta. | havaiano |
+| {OAUTH-KV:campaignId} | Um parâmetro de corda de consulta. | Havai |
 | {OAUTH-KV:app_session} | Um parâmetro de corda de consulta. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Um parâmetro de corda de consulta. | 1234 |
 | {OAUTH-KV:qualquer corda de consulta personalizada} | Um parâmetro de corda de consulta. | N/D |
@@ -110,12 +112,12 @@ Qualquer nome de parâmetro incluído como parte de um pedido oIDC ou OAuth2 pod
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {SAML:AuthnContextClassReferences} | O valor `AuthnContextClassRef` elemento, a partir do pedido SAML. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
-| {SAML:Formato NameidPolicy} | O `Format` atributo, do elemento `NameIDPolicy` do pedido SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
-| {SAML:Emitente} |  O SAML `Issuer` valor do elemento do pedido SAML.| https://contoso.com |
-| {SAML:Permitir Criar} | O valor `AllowCreate` atributo, a partir do elemento `NameIDPolicy` do pedido SAML. | Verdadeiro |
-| {SAML:ForceAuthn} | O valor `ForceAuthN` atributo, a partir do elemento `AuthnRequest` do pedido SAML. | Verdadeiro |
-| {SAML:ProviderName} | O valor `ProviderName` atributo, a partir do elemento `AuthnRequest` do pedido SAML.| Contoso.com |
+| {SAML:AuthnContextClassReferences} | O `AuthnContextClassRef` valor do elemento, a partir do pedido saml. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
+| {SAML:Formato NameidPolicy} | O `Format` atributo, `NameIDPolicy` a partir do elemento do pedido SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML:Emitente} |  O valor `Issuer` do elemento SAML do pedido SAML.| `https://contoso.com` |
+| {SAML:Permitir Criar} | O `AllowCreate` valor do atributo, a partir do `NameIDPolicy` elemento do pedido SAML. | Verdadeiro |
+| {SAML:ForceAuthn} | O `ForceAuthN` valor do atributo, a partir do `AuthnRequest` elemento do pedido SAML. | Verdadeiro |
+| {SAML:ProviderName} | O `ProviderName` valor do atributo, a partir do `AuthnRequest` elemento do pedido SAML.| Contoso.com |
 
 ## <a name="using-claim-resolvers"></a>Utilização de pedidos de indemnização
 
@@ -136,14 +138,14 @@ Pode utilizar reclamações com os seguintes elementos:
 |[Perfil](relyingparty.md#technicalprofile) técnico do Partido Da Base| `OutputClaim`| 2 |
 
 Configurações:
-1. Os metadados `IncludeClaimResolvingInClaimsHandling` devem ser definidos para `true`.
-1. Os pedidos de entrada ou de saída atribuem `AlwaysUseDefaultValue` devem ser definidos para `true`.
+1. Os `IncludeClaimResolvingInClaimsHandling` metadados devem `true`ser definidos para .
+1. O atributo `AlwaysUseDefaultValue` de créditos de `true`entrada ou de saída deve ser definido para .
 
 ## <a name="claim-resolvers-samples"></a>Reclamar amostras resolveria
 
 ### <a name="restful-technical-profile"></a>Perfil técnico RESTful
 
-Num perfil técnico [RESTful,](restful-technical-profile.md) pode querer enviar a linguagem do utilizador, nome de política, âmbito e ID do cliente. Com base nestas afirmações, a API REST pode executar uma lógica de negócio personalizada, e se necessário levantar uma mensagem de erro localizada.
+Num perfil técnico [RESTful,](restful-technical-profile.md) pode querer enviar a linguagem do utilizador, nome de política, âmbito e ID do cliente. Com base nas alegações, a API REST pode executar a lógica de negócio personalizada, e se necessário levantar uma mensagem de erro localizada.
 
 O exemplo seguinte mostra um perfil técnico RESTful com este cenário:
 
@@ -175,7 +177,7 @@ Utilizando resolver pedidos de reclamação, pode pré-povoar o nome de sessão 
 
 O Azure AD B2C permite-lhe passar parâmetros de cadeia de consulta para os pontos finais da definição de conteúdo HTML para tornar dinamicamente o conteúdo da página. Por exemplo, isto permite modificar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro personalizado que passa da sua aplicação web ou móvel. Para mais informações, consulte [Dynamicly configure o UI utilizando políticas personalizadas no Diretório Ativo Azure B2C](custom-policy-ui-customization.md). Também pode localizar a sua página HTML com base num parâmetro de idioma, ou pode alterar o conteúdo com base no ID do cliente.
 
-O exemplo seguinte passa no parâmetro de corda de consulta nomeado **campaignId** com um valor de `hawaii`, um código **de linguagem** de `en-US`, e **app** que representa o ID do cliente:
+O exemplo seguinte passa no parâmetro de corda de `Hawaii`consulta chamado **campaignId** com um valor de , um código **de linguagem** de `en-US`, e **app** que representa o ID do cliente:
 
 ```XML
 <UserJourneyBehaviors>
@@ -195,7 +197,7 @@ Como resultado, o Azure AD B2C envia os parâmetros acima para a página de cont
 
 ### <a name="content-definition"></a>Definição de conteúdo
 
-Numa `LoadUri`[de Definição](contentdefinitions.md) de Conteúdo, pode enviar pedidos de reclamação para retirar conteúdo de diferentes locais, com base nos parâmetros utilizados.
+Numa [Definição](contentdefinitions.md) `LoadUri`de Conteúdo, pode enviar pedidos de reclamação para retirar conteúdo de diferentes locais, com base nos parâmetros utilizados.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">

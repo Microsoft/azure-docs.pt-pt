@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 12/02/2019
-ms.openlocfilehash: 18a61c215f6c10bb399beaa83ec53ad2ebc62970
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 3/18/2020
+ms.openlocfilehash: 0a41dfbdbfb1a0f588c1a334aefeb4fb5043e813
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938975"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067953"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Java para ligar e consultar dados na Base de Dados Azure para MySQL
 
@@ -37,7 +37,7 @@ Obtenha o [conector MariaDB/J](https://mariadb.com/kb/en/library/mariadb-connect
 
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure.](https://portal.azure.com/)
 2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos**, e depois procure o servidor que criou (como o **mydemoserver).**
 3. Selecione o nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
@@ -148,7 +148,7 @@ public class CreateTableInsertRows {
 
 ## <a name="read-data"></a>Ler dados
 
-Utilize o código seguinte para ler os dados com a instrução SQL **SELECT**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL. Os métodos [criamStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) e executoQuery() são utilizados para ligar e executar a declaração selecionada. Os resultados são processados utilizando um objeto ResultSet. 
+Utilize o código seguinte para ler os dados com a instrução SQL **SELECT**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL. Os métodos [criamStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) e executoQuery() são utilizados para ligar e executar a declaração selecionada. Os resultados são processados através de um objeto ResultSet. 
 
 Substitua os parâmetros do sistema anfitrião, da base de dados, do utilizador e da palavra-passe pelos valores que especificou ao criar o seu próprio servidor e base de dados.
 

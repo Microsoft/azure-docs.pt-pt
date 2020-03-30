@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de exceções-Microsoft Threat Modeling Tool-Azure | Microsoft Docs
-description: mitigações para ameaças expostas no Threat Modeling Tool
+title: Gestão de Exceções - Ferramenta de Modelação de Ameaças da Microsoft - Azure [ Microsoft Docs
+description: atenuações para ameaças expostas na Ferramenta de Modelação de Ameaças
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,32 +16,32 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68728080"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>Quadro de segurança: Gerenciamento de exceções | Mitigações 
-| Produtos/serviços | Artigo |
+# <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gestão de Exceções [ Gestão de Exceções] Atenuações 
+| Produto/Serviço | Artigo |
 | --------------- | ------- |
-| **WCF** | <ul><li>[WCF-não incluir o nó de userdebug no arquivo de configuração](#servicedebug)</li><li>[WCF-não inclui o nó de metadados no arquivo de configuração](#servicemetadata)</li></ul> |
-| **API Web** | <ul><li>[Certifique-se de que o tratamento de exceção adequado seja feito em ASP.NET Web API](#exception)</li></ul> |
-| **Aplicativo Web** | <ul><li>[Não expor detalhes de segurança em mensagens de erro](#messages)</li><li>[Implementar página de tratamento de erro padrão](#default)</li><li>[Definir o método de implantação para varejo no IIS](#deployment)</li><li>[As exceções devem falhar com segurança](#fail)</li></ul> |
+| **WCF** | <ul><li>[WCF- Não inclua o serviçoNódebug no ficheiro de configuração](#servicedebug)</li><li>[WCF- Não inclua o nó de metadados de serviço no ficheiro de configuração](#servicemetadata)</li></ul> |
+| **API Web** | <ul><li>[Certifique-se de que o manuseamento adequado da exceção é feito em ASP.NET Web API](#exception)</li></ul> |
+| **Aplicação Web** | <ul><li>[Não exponha detalhes de segurança em mensagens de erro](#messages)</li><li>[Implementar página de manipulação de erros predefinido](#default)</li><li>[Definir método de implantação para o retalho no IIS](#deployment)</li><li>[Exceções devem falhar com segurança](#fail)</li></ul> |
 
-## <a id="servicedebug"></a>WCF-não incluir o nó de userdebug no arquivo de configuração
+## <a name="wcf--do-not-include-servicedebug-node-in-configuration-file"></a><a id="servicedebug"></a>WCF- Não inclua o serviçoNódebug no ficheiro de configuração
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérico, NET Framework 3 |
-| **Atributos**              | N/A  |
-| **Referências**              | [Msdn](https://msdn.microsoft.com/library/ff648500.aspx), [fortalecer o Reino Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
-| **Passos** | Os serviços do Windows Communication Framework (WCF) podem ser configurados para expor informações de depuração. As informações de depuração não devem ser usadas em ambientes de produção. A `<serviceDebug>` marca define se o recurso de informações de depuração está habilitado para um serviço WCF. Se o atributo includeExceptionDetailInFaults for definido como true, as informações de exceção do aplicativo serão retornadas aos clientes. Os invasores podem aproveitar as informações adicionais que eles adquirem da saída de depuração para ataques de montagem direcionados à estrutura, ao banco de dados ou a outros recursos usados pelo aplicativo. |
+| **Fase SDL**               | Compilação |  
+| **Tecnologias Aplicáveis** | Quadro 3 genérico e LÍQUIDO |
+| **Atributos**              | N/D  |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
+| **Passos** | Os serviços do Windows Communication Framework (WCF) podem ser configurados para expor informações de depuração. As informações sobre depuração não devem ser utilizadas em ambientes de produção. A `<serviceDebug>` etiqueta define se a funcionalidade de informação de depuração está ativada para um serviço WCF. Se o atributo incluir ExceptionDetailInFaults está definido como verdadeiro, as informações de exceção da aplicação serão devolvidas aos clientes. Os atacantes podem aproveitar as informações adicionais que obtêm através da depuração da produção para montar ataques direcionados para o quadro, base de dados ou outros recursos utilizados pela aplicação. |
 
 ### <a name="example"></a>Exemplo
-O arquivo de configuração a seguir `<serviceDebug>` inclui a marca: 
+O seguinte ficheiro `<serviceDebug>` de configuração inclui a etiqueta: 
 ```
 <configuration> 
 <system.serviceModel> 
@@ -51,32 +51,32 @@ O arquivo de configuração a seguir `<serviceDebug>` inclui a marca:
 <serviceDebug includeExceptionDetailInFaults=""True"" httpHelpPageEnabled=""True""/> 
 ... 
 ```
-Desabilite as informações de depuração no serviço. Isso pode ser feito removendo a `<serviceDebug>` marca do arquivo de configuração do aplicativo. 
+Desative a informação de depuração no serviço. Isto pode ser realizado `<serviceDebug>` removendo a etiqueta do ficheiro de configuração da sua aplicação. 
 
-## <a id="servicemetadata"></a>WCF-não inclui o nó de metadados no arquivo de configuração
+## <a name="wcf--do-not-include-servicemetadata-node-in-configuration-file"></a><a id="servicemetadata"></a>WCF- Não inclua o nó de metadados de serviço no ficheiro de configuração
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérica |
-| **Atributos**              | Genérico, NET Framework 3 |
-| **Referências**              | [Msdn](https://msdn.microsoft.com/library/ff648500.aspx), [fortalecer o Reino Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
-| **Passos** | Expor publicamente informações sobre um serviço pode fornecer aos invasores um valioso insight sobre como eles podem explorar o serviço. A `<serviceMetadata>` marca habilita o recurso de publicação de metadados. Os metadados de serviço podem conter informações confidenciais que não devem ser acessíveis publicamente. No mínimo, somente permita que usuários confiáveis acessem os metadados e verifique se as informações desnecessárias não estão expostas. Melhor ainda, desabilite totalmente a capacidade de publicar metadados. Uma configuração segura do WCF não conterá `<serviceMetadata>` a marca. |
+| **Fase SDL**               | Compilação |  
+| **Tecnologias Aplicáveis** | Genérica |
+| **Atributos**              | Quadro 3 genérico e LÍQUIDO |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
+| **Passos** | Expor publicamente informações sobre um serviço pode fornecer aos atacantes uma visão valiosa de como podem explorar o serviço. A `<serviceMetadata>` etiqueta permite a funcionalidade de publicação de metadados. Os metadados de serviço podem conter informações sensíveis que não devem ser acessíveis ao público. No mínimo, apenas permite que os utilizadores de confiança acedam aos metadados e garantam que informações desnecessárias não são expostas. Melhor ainda, desativar totalmente a capacidade de publicar metadados. Uma configuração WCF segura `<serviceMetadata>` não conterá a etiqueta. |
 
-## <a id="exception"></a>Certifique-se de que o tratamento de exceção adequado seja feito em ASP.NET Web API
+## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Certifique-se de que o manuseamento adequado da exceção é feito em ASP.NET Web API
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | MVC 5, MVC 6 |
-| **Atributos**              | N/A  |
-| **Referências**              | [Tratamento de exceção no ASP.NET Web API](https://www.asp.net/web-api/overview/error-handling/exception-handling), [validação de modelo no ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Passos** | Por padrão, a maioria das exceções não capturadas no ASP.NET Web API são convertidas em uma resposta HTTP com código de status`500, Internal Server Error`|
+| **Fase SDL**               | Compilação |  
+| **Tecnologias Aplicáveis** | MVC 5, MVC 6 |
+| **Atributos**              | N/D  |
+| **Referências**              | [Tratamento de exceções em ASP.NET Web API,](https://www.asp.net/web-api/overview/error-handling/exception-handling)Validação de [Modelos em ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Passos** | Por padrão, a maioria das exceções não apanhadas em ASP.NET Web API são traduzidas numa resposta HTTP com código de estado`500, Internal Server Error`|
 
 ### <a name="example"></a>Exemplo
-Para controlar o código de status retornado pela API, `HttpResponseException` pode ser usado como mostrado abaixo: 
+Para controlar o código de estado `HttpResponseException` devolvido pela API, pode ser utilizado como indicado a seguir: 
 ```csharp
 public Product GetProduct(int id)
 {
@@ -90,7 +90,7 @@ public Product GetProduct(int id)
 ```
 
 ### <a name="example"></a>Exemplo
-Para obter mais controle sobre a resposta de exceção `HttpResponseMessage` , a classe pode ser usada como mostrado abaixo: 
+Para um maior controlo sobre `HttpResponseMessage` a resposta à exceção, a classe pode ser utilizada como indicado a seguir: 
 ```csharp
 public Product GetProduct(int id)
 {
@@ -107,10 +107,10 @@ public Product GetProduct(int id)
     return item;
 }
 ```
-Para capturar exceções sem tratamento que não sejam do tipo `HttpResponseException`, os filtros de exceção podem ser usados. Os filtros de exceção `System.Web.Http.Filters.IExceptionFilter` implementam a interface. A maneira mais simples de escrever um filtro de exceção é derivar da `System.Web.Http.Filters.ExceptionFilterAttribute` classe e substituir o método OnException. 
+Para capturar exceções não tratadas que `HttpResponseException`não sejam do tipo, podem ser utilizados filtros de exceção. Os filtros `System.Web.Http.Filters.IExceptionFilter` de exceção implementam a interface. A forma mais simples de escrever um `System.Web.Http.Filters.ExceptionFilterAttribute` filtro de exceção é derivar da classe e anular o método OnException. 
 
 ### <a name="example"></a>Exemplo
-Aqui está um filtro que converte `NotImplementedException` as exceções no código `501, Not Implemented`de status http: 
+Aqui está um filtro `NotImplementedException` que converte `501, Not Implemented`exceções em código de estado HTTP: 
 ```csharp
 namespace ProductStore.Filters
 {
@@ -132,13 +132,13 @@ namespace ProductStore.Filters
 }
 ```
 
-Há várias maneiras de registrar um filtro de exceção da API Web:
+Existem várias formas de registar um filtro de exceção Web API:
 - Por ação
 - Por controlador
 - Globalmente
 
 ### <a name="example"></a>Exemplo
-Para aplicar o filtro a uma ação específica, adicione o filtro como um atributo à ação: 
+Para aplicar o filtro a uma ação específica, adicione o filtro como atributo à ação: 
 ```csharp
 public class ProductsController : ApiController
 {
@@ -150,7 +150,7 @@ public class ProductsController : ApiController
 }
 ```
 ### <a name="example"></a>Exemplo
-Para aplicar o filtro a todas as ações em um `controller`, adicione o filtro como um atributo `controller` à classe: 
+Para aplicar o filtro a todas `controller`as ações em a, `controller` adicione o filtro como um atributo à classe: 
 
 ```csharp
 [NotImplExceptionFilter]
@@ -161,14 +161,14 @@ public class ProductsController : ApiController
 ```
 
 ### <a name="example"></a>Exemplo
-Para aplicar o filtro globalmente a todos os controladores de API da Web, adicione uma instância do filtro `GlobalConfiguration.Configuration.Filters` à coleção. Os filtros de exceção nesta coleção se aplicam a qualquer ação do controlador da API Web. 
+Para aplicar o filtro globalmente a todos os controladores Web `GlobalConfiguration.Configuration.Filters` API, adicione uma instância do filtro à recolha. Os filtros de exceção nesta coleção aplicam-se a qualquer ação do controlador Web API. 
 ```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Exemplo
-Para a validação do modelo, o estado do modelo pode ser passado para o método CreateErrorResponse, conforme mostrado abaixo: 
+Para validação de modelos, o estado do modelo pode ser passado para o método CreateErrorResponse, como mostrado abaixo: 
 ```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
@@ -180,51 +180,51 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Verifique os links na seção de referências para obter detalhes adicionais sobre a manipulação de exceção e a validação de modelo no ASP.NET Web API 
+Consulte os links na secção de referências para obter detalhes adicionais sobre manipulação excecional e validação de modelos em ASP.NET API Web 
 
-## <a id="messages"></a>Não expor detalhes de segurança em mensagens de erro
+## <a name="do-not-expose-security-details-in-error-messages"></a><a id="messages"></a>Não exponha detalhes de segurança em mensagens de erro
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérica |
-| **Atributos**              | N/A  |
-| **Referências**              | N/A  |
-| **Passos** | <p>As mensagens de erro genéricas são fornecidas diretamente para o usuário sem incluir dados confidenciais do aplicativo. Exemplos de dados confidenciais incluem:</p><ul><li>Nomes de servidor</li><li>Cadeias de ligação</li><li>Nomes</li><li>Palavras-passe</li><li>Procedimentos SQL</li><li>Detalhes de falhas de SQL dinâmicas</li><li>Rastreamento de pilha e linhas de código</li><li>Variáveis armazenadas na memória</li><li>Locais de unidade e pasta</li><li>Pontos de instalação do aplicativo</li><li>Definições de configuração do host</li><li>Outros detalhes do aplicativo interno</li></ul><p>O trapping de todos os erros em um aplicativo e o fornecimento de mensagens de erro genéricas, bem como a habilitação de erros personalizados no IIS, ajudará a evitar a divulgação de informações. SQL Server o tratamento de exceção do banco de dados e do .NET, entre outras arquiteturas de tratamento de erros, são especialmente detalhados e extremamente úteis para um usuário mal-intencionado que realiza a criação de perfil do seu aplicativo. Não exiba diretamente o conteúdo de uma classe derivada da classe de exceção do .NET e verifique se você tem uma manipulação de exceção adequada para que uma exceção inesperada não seja gerada inadvertidamente diretamente para o usuário.</p><ul><li>Fornecer mensagens de erro genéricas diretamente ao usuário que abstrai detalhes específicos encontrados diretamente na mensagem de erro/exceção</li><li>Não exibir o conteúdo de uma classe de exceção do .NET diretamente para o usuário</li><li>Interceptar todas as mensagens de erro e, se apropriado, informar ao usuário por meio de uma mensagem de erro genérica enviada ao cliente do aplicativo</li><li>Não exponha o conteúdo da classe de exceção diretamente ao usuário, especialmente o valor de retorno de `.ToString()`, ou os valores das propriedades Message ou StackTrace. Registrar essas informações com segurança e exibir uma mensagem mais inofensiva para o usuário</li></ul>|
+| **Fase SDL**               | Compilação |  
+| **Tecnologias Aplicáveis** | Genérica |
+| **Atributos**              | N/D  |
+| **Referências**              | N/D  |
+| **Passos** | <p>As mensagens de erro genéricas são fornecidas diretamente ao utilizador sem incluir dados sensíveis da aplicação. Exemplos de dados sensíveis incluem:</p><ul><li>Nomes do servidor</li><li>Cadeias de ligação</li><li>Nomes de utilizador</li><li>Palavras-passe</li><li>Procedimentos SQL</li><li>Detalhes das falhas dinâmicas do SQL</li><li>Empilhar vestígios e linhas de código</li><li>Variáveis armazenadas na memória</li><li>Localizações de unidade e pasta</li><li>Pontos de instalação de aplicação</li><li>Configurações de configuração do anfitrião</li><li>Outros detalhes internos da aplicação</li></ul><p>Capturar todos os erros dentro de uma aplicação e fornecer mensagens genéricas de erro, bem como permitir erros personalizados dentro do IIS ajudará a impedir a divulgação de informação. A base de dados do SQL Server e o manuseamento de .NET Exception, entre outras arquiteturas de manipulação de erros, são especialmente verbosos e extremamente úteis para um utilizador malicioso que perfis da sua aplicação. Não exiba diretamente o conteúdo de uma classe derivada da classe .NET Exception e certifique-se de que tem um manuseamento de exceção adequado para que uma exceção inesperada não seja inadvertidamente levantada diretamente ao utilizador.</p><ul><li>Fornecer mensagens genéricas de erro diretamente ao utilizador que abstratem detalhes específicos encontrados diretamente na mensagem de exceção/erro</li><li>Não exiba o conteúdo de uma classe de exceção .NET diretamente ao utilizador</li><li>Prenda todas as mensagens de erro e, se for caso disso, informe o utilizador através de uma mensagem de erro genérica enviada ao cliente da aplicação</li><li>Não exponha o conteúdo da classe Exception diretamente ao `.ToString()`utilizador, especialmente o valor de devolução das propriedades de Message ou StackTrace. Inicie sessão segura desta informação e exiba uma mensagem mais inócua ao utilizador</li></ul>|
 
-## <a id="default"></a>Implementar página de tratamento de erro padrão
+## <a name="implement-default-error-handling-page"></a><a id="default"></a>Implementar página de manipulação de erros predefinido
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérica |
-| **Atributos**              | N/A  |
-| **Referências**              | [Caixa de diálogo Editar configurações de páginas de erro do ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Passos** | <p>Quando um aplicativo ASP.NET falha e causa um erro de servidor interno HTTP/1. x 500 ou uma configuração de recurso (como filtragem de solicitação) impede que uma página seja exibida, uma mensagem de erro será gerada. Os administradores podem escolher se o aplicativo deve ou não exibir uma mensagem amigável para o cliente, uma mensagem de erro detalhada para o cliente ou uma mensagem de erro detalhada somente para localhost. A `<customErrors>` marca no Web. config tem três modos:</p><ul><li>**No** Especifica que os erros personalizados estão habilitados. Se nenhum atributo DefaultRedirect for especificado, os usuários verão um erro genérico. Os erros personalizados são mostrados para os clientes remotos e para o host local</li><li>**Desconto** Especifica que os erros personalizados estão desabilitados. Os erros de ASP.NET detalhados são mostrados para os clientes remotos e para o host local</li><li>**RemoteOnly:** Especifica que os erros personalizados são mostrados apenas para os clientes remotos e que os erros de ASP.NET são mostrados para o host local. Esse é o valor padrão</li></ul><p>Abra o `web.config` arquivo para o aplicativo/site e verifique se a marca `<customErrors mode="RemoteOnly" />` tem ou `<customErrors mode="On" />` está definida.</p>|
+| **Fase SDL**               | Compilação |  
+| **Tecnologias Aplicáveis** | Genérica |
+| **Atributos**              | N/D  |
+| **Referências**              | [Caixa de Diálogo Editar Definições de Páginas de Erro .NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
+| **Passos** | <p>Quando uma aplicação ASP.NET falha e causa um Erro de Servidor Interno HTTP/1.x 500, ou uma configuração de funcionalidade (como a Filtragem de Pedidos) impede que uma página seja exibida, gera-se uma mensagem de erro. Os administradores podem escolher se a aplicação deve ou não apresentar uma mensagem amigável ao cliente, uma mensagem de erro detalhada ao cliente ou uma mensagem de erro detalhada apenas para o local. A `<customErrors>` etiqueta no web.config tem três modos:</p><ul><li>**Em:** Especifica que erros personalizados estão ativados. Se não for especificado o atributo predefinidoRedirect, os utilizadores vêem um erro genérico. Os erros personalizados são mostrados aos clientes remotos e ao anfitrião local</li><li>**Fora:** Especifica que erros personalizados são desativados. Os erros detalhados ASP.NET são mostrados aos clientes remotos e ao anfitrião local</li><li>**RemoteOnly:** Especifica que erros personalizados são mostrados apenas aos clientes remotos, e que ASP.NET erros são mostrados ao anfitrião local. Este é o valor padrão</li></ul><p>Abra `web.config` o ficheiro para a aplicação/site `<customErrors mode="RemoteOnly" />` e `<customErrors mode="On" />` certifique-se de que a etiqueta está definida ou definida.</p>|
 
-## <a id="deployment"></a>Definir o método de implantação para varejo no IIS
+## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Definir método de implantação para o retalho no IIS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Implementação |  
-| **Tecnologias aplicáveis** | Genérica |
-| **Atributos**              | N/A  |
-| **Referências**              | [Elemento Deployment (esquema de configurações de ASP.NET)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
-| **Passos** | <p>A `<deployment retail>` opção é destinada ao uso por servidores IIS de produção. Essa opção é usada para ajudar os aplicativos a serem executados com o melhor desempenho possível e menos possíveis vazamentos de informações de segurança, desabilitando a capacidade do aplicativo de gerar a saída de rastreamento em uma página, desabilitando a capacidade de exibir mensagens de erro detalhadas para os usuários finais e a desabilitação da opção de depuração.</p><p>Muitas vezes, opções e opções que são focadas no desenvolvedor, como rastreamento e depuração de solicitação com falha, são habilitadas durante o desenvolvimento ativo. É recomendável que o método de implantação em qualquer servidor de produção seja definido como varejo. Abra o arquivo Machine. config e certifique- `<deployment retail="true" />` se de que permaneça definido como true.</p>|
+| **Fase SDL**               | Implementação |  
+| **Tecnologias Aplicáveis** | Genérica |
+| **Atributos**              | N/D  |
+| **Referências**              | [Elemento de implementação (ASP.NET Definições Schema)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
+| **Passos** | <p>O `<deployment retail>` interruptor destina-se a ser utilizado por servidores IIS de produção. Este interruptor é usado para ajudar as aplicações a executar com o melhor desempenho possível e menos possível fugas de informação de segurança, desativando a capacidade da aplicação de gerar saída de vestígios numa página, desativando a capacidade de exibir mensagens de erro detalhadas para utilizadores finais, e desativando o interruptor de depuração.</p><p>Muitas vezes, os interruptores e opções que estão focados no desenvolvimento, tais como rastreios de pedidos falhados e depuração, são ativados durante o desenvolvimento ativo. Recomenda-se que o método de implantação em qualquer servidor de produção seja definido para o retalho. abra o ficheiro machine.config `<deployment retail="true" />` e certifique-se de que permanece definido como verdadeiro.</p>|
 
-## <a id="fail"></a>As exceções devem falhar com segurança
+## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Exceções devem falhar com segurança
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérica |
-| **Atributos**              | N/A  |
-| **Referências**              | [Falhar com segurança](https://www.owasp.org/index.php/Fail_securely) |
-| **Passos** | O aplicativo deve falhar com segurança. Qualquer método que retorna um valor booliano, com base no qual determinada decisão é feita, deve ter um bloco de exceção criado com cuidado. Há muitos erros lógicos devido a quais problemas de segurança surgiram, quando o bloco de exceção é escrito com cuidado.|
+| **Fase SDL**               | Compilação |  
+| **Tecnologias Aplicáveis** | Genérica |
+| **Atributos**              | N/D  |
+| **Referências**              | [Falhar de forma segura](https://www.owasp.org/index.php/Fail_securely) |
+| **Passos** | A aplicação deve falhar com segurança. Qualquer método que derreta um valor booleano, com base no qual determinada decisão é tomada, deve ter um bloco de exceção cuidadosamente criado. Há muitos erros lógicos devido aos quais as questões de segurança se infiltram, quando o bloco de exceção é escrito descuidadamente.|
 
 ### <a name="example"></a>Exemplo
 ```csharp
@@ -267,4 +267,4 @@ Verifique os links na seção de referências para obter detalhes adicionais sob
             }
         }
 ```
-O método acima sempre retornará true, se ocorrer alguma exceção. Se o usuário final fornecer uma URL malformada, que o navegador respeita, `Uri()` mas o construtor não, isso gerará uma exceção, e a vítima será direcionada para a URL válida, mas malformada. 
+O método acima sempre devolverá True, se alguma exceção acontecer. Se o utilizador final fornecer um URL mal formado, `Uri()` que o navegador respeite, mas o construtor não, isso lançará uma exceção, e a vítima será levada para o URL válido, mas mal formado. 

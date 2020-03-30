@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9849e8ab918562267e93506771a4c32cf96533a4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 95e220102cba290664a32cb6bbebef881ae4ffde
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255031"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159494"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemas de suturação de ficheiros Azure em Linux
 
@@ -80,7 +80,7 @@ Verifique se as regras de firewall ou de rede virtual estão configuradas corret
 
 Em Linux, recebeuma mensagem de erro que se assemelha ao seguinte:
 
-**\<nome de ficheiro> [permissão negada] Quota de disco ultrapassada**
+**\<nome de ficheiro> [permissão negada] Quota de disco excedida**
 
 ### <a name="cause"></a>Causa
 
@@ -107,15 +107,15 @@ Para fechar as pegas abertas para uma partilha de ficheiros, diretório ou fiche
     - Utilize o [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para qualquer transferência entre duas ações de ficheiro.
     - A utilização de cp ou dd com paralelo pode melhorar a velocidade da cópia, o número de fios depende da sua caixa de utilização e da carga de trabalho. Os seguintes exemplos utilizam seis: 
     - exemplo cp (cp utilizará o tamanho do bloco predefinido do sistema de ficheiros como o tamanho do pedaço): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
-    - exemplo dd (este comando define explicitamente o tamanho do pedaço para 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - exemplo dd (este comando define explicitamente o tamanho do pedaço para 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Ferramentas de terceiros de código aberto, tais como:
         - [Gnu Paralelo](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) - Separe os ficheiros e embale-os em divisórias.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Utiliza fpart e uma ferramenta de cópia para gerar vários casos para migrar dados de src_dir para dst_url.
         - [Multi](https://github.com/pkolano/mutil) - Cp multi-roscado e md5sum com base em coreutils GNU.
-- Definir o tamanho do ficheiro com antecedência, em vez de fazer cada escrever uma escrita extensão, ajuda a melhorar a velocidade da cópia em cenários onde o tamanho do ficheiro é conhecido. Se a extensão de escrita supor ser evitada, pode definir um tamanho de ficheiro de destino com `truncate - size <size><file>` comando. Depois disso, `dd if=<source> of=<target> bs=1M conv=notrunc`comando copiará um ficheiro fonte sem ter de atualizar repetidamente o tamanho do ficheiro alvo. Por exemplo, pode definir o tamanho do ficheiro de destino para cada ficheiro que pretende copiar (assumir que uma parte é montada sob /mnt/share):
+- Definir o tamanho do ficheiro com antecedência, em vez de fazer cada escrever uma escrita extensão, ajuda a melhorar a velocidade da cópia em cenários onde o tamanho do ficheiro é conhecido. Se a extensão de escrita supor, pode definir `truncate - size <size><file>` um tamanho de ficheiro de destino com comando. Depois disso, `dd if=<source> of=<target> bs=1M conv=notrunc`o comando copiará um ficheiro fonte sem ter de atualizar repetidamente o tamanho do ficheiro alvo. Por exemplo, pode definir o tamanho do ficheiro de destino para cada ficheiro que pretende copiar (assumir que uma parte é montada sob /mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - e, em seguida, - copiar ficheiros sem estender escreve em paralelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - e, em seguida, - copiar ficheiros sem estender escreve em paralelo:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Erro de montagem(115): Operação agora em curso" quando montar Ficheiros Azure utilizando SMB 3.0
@@ -150,7 +150,7 @@ Verifique se as regras de firewall ou de rede virtual estão configuradas corret
 Navegue na conta de armazenamento onde está localizada a partilha de ficheiros Azure, clique no controlo de **acesso (IAM)** e verifique se a sua conta de utilizador tem acesso à conta de armazenamento. Para saber mais, consulte como proteger a sua conta de [armazenamento com o Controlo de Acesso baseado em Funções (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Incapaz de apagar um ficheiro ou diretório numa partilha de ficheiros Azure
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não consigo eliminar um ficheiro ou um diretório numa partilha de ficheiros do Azure
 
 ### <a name="cause"></a>Causa
 Este problema ocorre normalmente se o ficheiro ou diretório tiver uma pega aberta. 
@@ -167,7 +167,7 @@ Se os clientes SMB tiverem fechado todas as pegas abertas e o problema continuar
 > Os cmdlets de cmdlets de comando Get-AzStorageFileHandle e Close-AzStorageFileHandle estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [Instalar o módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
-## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Desempenho lento em uma partilha de ficheiros Azure montado em um VM Linux
+## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Desempenho lento numa partilha de ficheiros do Azure montada numa VM do Linux
 
 ### <a name="cause-1-caching"></a>Causa 1: Caching
 
@@ -217,11 +217,11 @@ Utilize o utilizador da conta de armazenamento para copiar os ficheiros:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: não pode aceder&lt;caminho&gt;': Erro de entrada/saída
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: não&lt;pode&gt;aceder ' caminho ': Erro de entrada/saída
 
 Quando tenta listar ficheiros numa partilha de ficheiros Azure utilizando o comando ls, o comando fica pendurado ao listar ficheiros. Obtém-se o seguinte erro:
 
-**ls: não pode aceder"&lt;caminho&gt;": Erro de entrada/saída**
+**ls: não&lt;pode&gt;aceder" caminho ': Erro de entrada/saída**
 
 
 ### <a name="solution"></a>Solução
@@ -287,6 +287,14 @@ No entanto, estas alterações poderão não ser ainda transportadas para todas 
 Pode contornar este problema ao especificar uma montagem forçada. Uma montagem forçada obriga o cliente a aguardar até que seja estabelecida uma ligação ou até que seja interrompido explicitamente. Pode utilizá-la para evitar erros devido a tempos limite de rede. No entanto, esta solução pode causar esperas indefinidas. Esteja preparado para parar as ligações, se necessário.
 
 Se não for possível atualizar para as versões kernel mais recentes, poderá contornar este problema ao manter um ficheiro na partilha de ficheiros do Azure para o qual escreve de 30 em 30 segundos ou menos. Tem de ser uma operação de escrita, como reescrever a data de criação ou de modificação no ficheiro. Caso contrário, poderá obter resultados em cache e a operação poderá não acionar o restabelecimento.
+
+## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>"CIFS VFS: error -22 no ioctl para obter a lista de interface" quando monta uma partilha de ficheiros Azure utilizando SMB 3.0
+
+### <a name="cause"></a>Causa
+Este erro é registado porque o Azure Files [não suporta atualmente o multicanal SMB](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+
+### <a name="solution"></a>Solução
+Este erro pode ser ignorado.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 

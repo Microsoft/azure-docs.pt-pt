@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 3ec965318da1361454b4a6bb78ed7147562b5fea
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: f8f5ab99086ee38e2f56247ce31f8ac0e7affc81
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79138523"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128993"
 ---
 # <a name="authentication-basics"></a>Noções básicas sobre autenticação
 
@@ -75,7 +75,24 @@ Cabe à aplicação para a qual o token foi gerado, à aplicação web que assin
 
 Os tokens só são válidos por um período limitado de tempo. Normalmente, o STS fornece um par de fichas: um sinal de acesso para aceder à aplicação ou recurso protegido, e um token refrescante usado para refrescar o token de acesso quando o token de acesso está perto de expirar.
 
-As fichas de acesso são passadas para uma API web como o símbolo do portador no cabeçalho `Authorization`. Uma aplicação pode fornecer um token de atualização para o STS, e se o acesso do utilizador à aplicação não foi revogado, receberá de volta um novo token de acesso e um novo token de atualização. É assim que o cenário de alguém deixar a empresa é tratado. Quando o STS receber o token de atualização, não emitirá outro sinal de acesso válido se o utilizador deixar de ser autorizado.
+As fichas de acesso são passadas para uma `Authorization` API web como o símbolo do portador no cabeçalho. Uma aplicação pode fornecer um token de atualização para o STS, e se o acesso do utilizador à aplicação não foi revogado, receberá de volta um novo token de acesso e um novo token de atualização. É assim que o cenário de alguém deixar a empresa é tratado. Quando o STS receber o token de atualização, não emitirá outro sinal de acesso válido se o utilizador deixar de ser autorizado.
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite fichas e códigos
+
+Dependendo da forma como o seu cliente é construído, pode utilizar um (ou vários) dos fluxos de autenticação suportados pela Azure AD. Estes fluxos podem produzir uma variedade de tokens (id_tokens, fichas de atualização, fichas de acesso) bem como códigos de autorização, e requerem diferentes fichas para fazê-los funcionar. Este gráfico fornece uma visão geral:
+
+|Fluxo | Requer | id_token | ficha de acesso | ficha refrescante | código de autorização | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Fluxo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Fluxo híbrido oIDC](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Refrescar redenção de token](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | ficha refrescante | x | x | x| |
+|[Fluxo em-nome-de](v2-oauth2-on-behalf-of-flow.md) | ficha de acesso| x| x| x| |
+|[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (apenas app)| | |
+
+Os tokens emitidos através do modo implícito têm uma limitação de `response_mode` comprimento `query` `fragment`devido a ser passado de volta para o navegador através do URL (onde está ou ).  Alguns navegadores têm um limite no tamanho do URL que pode ser colocado na barra do navegador e falhar quando é muito longo.  Assim, estas fichas não `groups` `wids` têm nem reclamam. 
+
+Agora que tem uma visão geral do básico, leia para entender o modelo de aplicação de identidade e API, saiba como funciona o provisionamento em Azure AD, e obtenha links para informações detalhadas sobre cenários comuns suportes da AD Azure.
 
 ## <a name="application-model"></a>Modelo de aplicação
 
@@ -144,9 +161,9 @@ O diagrama de sequência seguinte resume esta interação:
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Como uma aplicação web determina se o utilizador é autenticado
 
-Os desenvolvedores de aplicações web podem indicar se todas ou apenas determinadas páginas requerem autenticação. Por exemplo, em ASP.NET/ASP.NET Core, isto é feito adicionando o atributo `[Authorize]` às ações do controlador. 
+Os desenvolvedores de aplicações web podem indicar se todas ou apenas determinadas páginas requerem autenticação. Por exemplo, em ASP.NET/ASP.NET Core, isto `[Authorize]` é feito adicionando o atributo às ações do controlador. 
 
-Este atributo faz com que ASP.NET verifique a presença de um cookie de sessão contendo a identidade do utilizador. Se um cookie não estiver presente, ASP.NET redireciona a autenticação para o fornecedor de identidade especificado. Se o fornecedor de identidade for Azure AD, a aplicação web redireciona a autenticação para `https://login.microsoftonline.com`, que apresenta um diálogo de entrada.
+Este atributo faz com que ASP.NET verifique a presença de um cookie de sessão contendo a identidade do utilizador. Se um cookie não estiver presente, ASP.NET redireciona a autenticação para o fornecedor de identidade especificado. Se o fornecedor de identidade for Azure AD, `https://login.microsoftonline.com`a aplicação web redireciona a autenticação para , que apresenta um diálogo de entrada.
 
 ### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>Como uma aplicação web delega o início de sessão no Azure AD e obtém um símbolo
 

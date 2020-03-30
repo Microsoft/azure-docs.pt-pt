@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2020
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245619"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062246"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista de atribuições de funções utilizando o Azure RBAC e o portal Azure
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Este artigo descreve como listar atribuições de papéis utilizando o portal Azure.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de papéis usando o portal Azure.
 
 > [!NOTE]
 > Se a sua organização tiver funções de gestão subcontratadas a um prestador de serviços que utiliza a [gestão de recursos delegados do Azure,](../lighthouse/concepts/azure-delegated-resource-management.md)as atribuições de funções autorizadas por esse prestador de serviços não serão mostradas aqui.
@@ -52,7 +52,7 @@ Os utilizadores que tenham sido atribuídos à função [Proprietário](built-in
 
 1. Clique na subscrição que pretende listar os proprietários.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **Atribuições de funções** para ver todas as atribuições de funções para esta subscrição.
 
@@ -66,7 +66,7 @@ Os utilizadores que tenham sido atribuídos à função [Proprietário](built-in
 
 1. Clique no recurso específico.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador de **atribuições de Role** para ver todas as atribuições de funções neste âmbito.
 
@@ -82,7 +82,7 @@ Para listar o acesso a um utilizador, grupo, diretor de serviço ou identidade g
 
 1. Clique no recurso específico.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **de acesso Verificar.**
 
@@ -128,15 +128,15 @@ Para listar o acesso a um utilizador, grupo, diretor de serviço ou identidade g
 
 ## <a name="list-number-of-role-assignments"></a>Número de lista de atribuições de funções
 
-Pode ter até **2000** atribuições em cada subscrição. Para ajudá-lo a acompanhar estes limites, o separador de **atribuições de role** inclui um gráfico que lista o número atual de atribuições de papéis.
+Pode ter até **2000** atribuições em cada subscrição. Para ajudá-lo a acompanhar este limite, o separador de **atribuições de Role** inclui um gráfico que lista o número de atribuições de funções para a subscrição atual.
 
 ![Controlo de acesso - Gráfico de atribuição de funções](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-Se estiver perto do número máximo e tentar adicionar mais tarefas, verá um aviso no painel de atribuição de **funções Add.** Pode reduzir o número de atribuições de funções, apagando atribuições de funções que já não são necessárias ou atribuindo funções a grupos em vez de utilizadores individuais.
+Se estiver perto do número máximo e tentar adicionar mais tarefas, verá um aviso no painel de atribuição de **funções Add.** Para formas de reduzir o número de atribuições de papéis, consulte [Troubleshoot Azure RBAC](troubleshooting.md#azure-role-assignments-limit).
 
 ![Controlo de acesso - Adicionar aviso de atribuição de funções](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o portal Azure](role-assignments-portal.md)
 - [RBAC de resolução de problemas para recursos Azure](troubleshooting.md)

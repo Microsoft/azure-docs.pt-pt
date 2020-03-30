@@ -6,70 +6,70 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 02/03/2020
 ms.openlocfilehash: 6a3837d01815306e469a684404ab76506f547f43
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77013784"
 ---
-## <a name="business-disaster-recovery"></a>Recuperação de desastres de negócios
+## <a name="business-disaster-recovery"></a>Recuperação de desastres empresariais
 
-Esta seção descreve os recursos de Azure Time Series Insights que mantêm aplicativos e serviços em execução, mesmo se ocorrer um desastre (conhecido como *recuperação de desastres de negócios*).
+Esta secção descreve funcionalidades de Insights da Série De Tempo Azure que mantêm as aplicações e serviços em funcionamento, mesmo que ocorra um desastre (conhecido como recuperação de *desastres de negócios).*
 
 ### <a name="high-availability"></a>Elevada disponibilidade
 
-Como um serviço do Azure, o Time Series Insights fornece determinados recursos de *alta disponibilidade* usando redundâncias no nível de região do Azure. Por exemplo, o Azure dá suporte a recursos de recuperação de desastre por meio do recurso de *disponibilidade entre regiões* do Azure.
+Como serviço Azure, a Time Series Insights fornece certas funcionalidades de *alta disponibilidade* utilizando redundâncias a nível da região de Azure. Por exemplo, o Azure suporta capacidades de recuperação de desastres através da funcionalidade de disponibilidade de *regiões transversais* do Azure.
 
-Recursos adicionais de alta disponibilidade fornecidos por meio do Azure (e também disponíveis para qualquer instância de Time Series Insights) incluem:
+As funcionalidades adicionais de alta disponibilidade fornecidas através do Azure (e também disponíveis para qualquer instância de Time Series Insights) incluem:
 
-- **Failover**: o Azure fornece [replicação geográfica e balanceamento de carga](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
-- **Restauração de dados** e **recuperação de armazenamento**: o Azure fornece [várias opções para preservar e recuperar dados](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Azure site Recovery**: o Azure fornece recursos de recuperação de site por meio de [Azure site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-- **Backup do Azure**: o [backup do Azure](https://docs.microsoft.com/azure/backup/backup-architecture) dá suporte ao backup local e na nuvem de VMs do Azure.
+- **Failover**: O Azure fornece [geo-replicação e equilíbrio de carga](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
+- **Recuperação** de dados e recuperação de **armazenamento:** O Azure oferece [várias opções para preservar e recuperar dados.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption)
+- **Recuperação**do site Azure : Azure fornece funcionalidades de recuperação do local através da [Recuperação do Site Azure.](https://docs.microsoft.com/azure/site-recovery/)
+- **Backup Azure**: [O Backup Azure](https://docs.microsoft.com/azure/backup/backup-architecture) suporta tanto no local como na nuvem backup de VMs Azure.
 
-Certifique-se de habilitar os recursos relevantes do Azure para fornecer alta disponibilidade global entre regiões para seus dispositivos e usuários.
+Certifique-se de que permite que as funcionalidades do Azure relevantes ofereçam uma elevada disponibilidade global e transversal aos seus dispositivos e utilizadores.
 
 > [!NOTE]
-> Se o Azure estiver configurado para habilitar a disponibilidade entre regiões, nenhuma configuração de disponibilidade de região entre regiões adicional será necessária no Azure Time Series Insights.
+> Se o Azure estiver configurado para permitir a disponibilidade transversal, não é necessária uma configuração adicional de disponibilidade transversal em Insights da Série De Tempo Azure.
 
-### <a name="iot-and-event-hubs"></a>IoT e hubs de eventos
+### <a name="iot-and-event-hubs"></a>IoT e centros de eventos
 
-Alguns serviços do Azure IoT também incluem recursos internos de recuperação de desastres de negócios:
+Alguns serviços Azure IoT também incluem funcionalidades de recuperação de desastres de negócios incorporados:
 
-- [Recuperação de desastre de alta disponibilidade do Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), que inclui redundância de região interna
-- [Políticas de hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-- [Redundância de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Azure IoT Hub recuperação de desastres de alta disponibilidade,](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)que inclui redundância intrarregião
+- [Políticas de Hubs de Eventos Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
+- [Redundância de armazenamento azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
-A integração do Time Series Insights com os outros serviços fornece outras oportunidades de recuperação de desastre. Por exemplo, a telemetria enviada ao Hub de eventos pode ser persistida em um banco de dados de armazenamento de BLOBs do Azure de backup.
+Integrar insights da Time Series com os outros serviços proporciona oportunidades adicionais de recuperação de desastres. Por exemplo, a telemetria enviada para o seu centro de eventos pode ser persistiu numa base de dados de armazenamento Azure Blob de reserva.
 
 ### <a name="time-series-insights"></a>Time Series Insights
 
-Há várias maneiras de manter seus Time Series Insights dados, aplicativos e serviços em execução, mesmo que eles sejam interrompidos. 
+Existem várias formas de manter os seus dados, aplicações e serviços da Série Time Insights em funcionamento, mesmo que sejam interrompidos. 
 
-No entanto, você pode determinar que uma cópia de backup completa do seu ambiente de série temporal do Azure também é necessária, para as seguintes finalidades:
+No entanto, poderá determinar que também é necessária uma cópia de cópia de reserva completa do seu ambiente da Série De Tempo Azure, para os seguintes fins:
 
-- Como uma *instância de failover* especificamente para Time Series insights redirecionar dados e tráfego para
+- Como um *caso de failover* especificamente para Time Series Insights para redirecionar dados e tráfego para
 - Para preservar dados e informações de auditoria
 
-Em geral, a melhor maneira de duplicar um ambiente de Time Series Insights é criar um segundo ambiente de Time Series Insights em uma região de backup do Azure. Os eventos também são enviados para esse ambiente secundário a partir da origem do evento principal. Certifique-se de usar um segundo grupo de consumidores dedicado. Siga as diretrizes de recuperação de desastre comercial da fonte, conforme descrito anteriormente.
+Em geral, a melhor maneira de duplicar um ambiente time series insights é criar um segundo ambiente time series Insights em uma região de backup Azure. Os eventos também são enviados para este ambiente secundário a partir da sua principal fonte de evento. Certifique-se de que utiliza um segundo grupo de consumidores dedicado. Siga as diretrizes de recuperação de desastres comerciais da fonte, como descrito anteriormente.
 
 Para criar um ambiente duplicado:
 
-1. Crie um ambiente em uma segunda região. Para obter mais informações, leia [criar um novo ambiente de time Series insights no portal do Azure](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
-1. Crie um segundo grupo de consumidores dedicado para a origem do evento.
-1. Conecte essa origem do evento ao novo ambiente. Certifique-se de designar o segundo grupo de consumidores dedicado.
-1. Examine a documentação do [Hub IOT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) e dos [hubs de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) do time Series insights.
+1. Criar um ambiente numa segunda região. Para mais informações, leia Criar um novo ambiente time [series insights no portal Azure](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Crie um segundo grupo de consumidores dedicado para a sua fonte de evento.
+1. Ligue a fonte do evento ao novo ambiente. Certifique-se de que designa o segundo grupo de consumidores dedicado.
+1. Reveja a documentação do Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) e [do Event Hubs.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access)
 
 Se ocorrer um evento:
 
-1. Se sua região primária for afetada durante um incidente de desastre, redirecione as operações para o ambiente de Time Series Insights de backup.
-1. Use sua segunda região para fazer backup e recuperar todos os Time Series Insights telemetria e dados de consulta.
+1. Se a sua região primária for afetada durante um incidente de desastre, reencaminhe as operações para o ambiente de backup Time Series Insights.
+1. Use a sua segunda região para apoiar e recuperar todos os dados de telemetria e consulta da Time Series Insights.
 
 > [!IMPORTANT]
-> Se ocorrer um failover:
+> Se ocorrer uma falha:
 > 
-> * Um atraso também pode ocorrer.
-> * Um pico momentâneo no processamento de mensagens pode ocorrer, pois as operações são redirecionadas.
+> * Pode também ocorrer um atraso.
+> * Pode ocorrer um pico momentâneo no processamento de mensagens, à medida que as operações são redirecionadas.
 > 
-> Para obter mais informações, leia [reduzir latência em time Series insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
+> Para mais informações, leia [a latência de Mitigação em Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
 

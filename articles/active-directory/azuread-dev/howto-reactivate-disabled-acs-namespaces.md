@@ -12,12 +12,13 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 85696a5580c4ed6c03f257787e2693a61a6158de
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: ff0ce05b13fea8409475e3415c5d810d7c79769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164620"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154870"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar espaços de nome do Serviço de Controlo de Acesso desativados
 
@@ -60,17 +61,17 @@ Pode utilizar o ACS PowerShell para listar todos os seus espaços de nome ACS e 
         Get-Help [Command-Name] -Full
         ```
     
-        onde `[Command-Name]` é o nome do comando ACS.
+        onde `[Command-Name]` está o nome do comando ACS.
 1. Ligue-se ao ACS utilizando o cmdlet **Connect-AcsAccount.** 
 
     Pode ter de alterar a sua política de execução executando a **Política de Execução de set antes** de poder executar o comando.
 1. Enumere as suas subscrições Azure disponíveis utilizando o cmdlet **Get-AcsSubscription.**
 1. Enumere os seus espaços de nome ACS utilizando o cmdlet **Get-AcsNamespace.**
-1. Confirme se os espaços de nome são desativados confirmando que `State` é `Disabled`.
+1. Confirme se os espaços de nome `State` `Disabled`são desativados confirmando que é .
 
-    [![Confirmar que os espaços de nome estão desativados](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
+    [![Confirme que os espaços de nome estão desativados](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
 
-    Também pode utilizar `nslookup {your-namespace}.accesscontrol.windows.net` para confirmar se o domínio ainda está ativo.
+    Também pode `nslookup {your-namespace}.accesscontrol.windows.net` utilizar para confirmar se o domínio ainda está ativo.
 
 1. Ative o seu espaço de nome ACS utilizando o cmdlet **Enable-AcsNamespace.**
 
@@ -94,7 +95,7 @@ Outras extensões deixarão de ser automaticamente aprovadas. Se precisar de mai
     | Campo de pedido de apoio | Valor |
     |-----------------------|--------------------|
     | **Tipo de emissão** | `Technical` |
-    | **Subscrição** | Definir para a sua subscrição |
+    | **Assinatura** | Definir para a sua subscrição |
     | **Serviço** | `All services` |
     | **Recurso** | `General question/Resource not available` |
     | **Tipo de problema** | `ACS to SAS Migration` |
@@ -121,7 +122,7 @@ Outras extensões deixarão de ser automaticamente aprovadas. Se precisar de mai
 ## <a name="help-and-support"></a>Ajuda e suporte
 
 - Se tiver algum problema depois de seguir este como fazer, contacte o [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-- Se tiver dúvidas ou feedback sobre a reforma da ACS, contacte-nos em acsfeedback@microsoft.com.
+- Se tiver dúvidas ou feedback sobre a acsfeedback@microsoft.comreforma da ACS, contacte-nos em .
 
 ## <a name="next-steps"></a>Passos seguintes
 

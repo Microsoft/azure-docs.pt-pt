@@ -10,10 +10,10 @@ ms.author: dpalled
 manager: cshankar
 ms.custom: include file
 ms.openlocfilehash: f097479b67a7b48eca4a2710db3bd7eed6ddc982
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77013919"
 ---
 O seguinte resume os principais limites na Disponibilidade Geral.
@@ -40,7 +40,7 @@ Os ambientes S2 SKU suportam substancialmente mais eventos por mês e têm uma c
 | SKU  | Contagem de eventos por mês  | Tamanho do evento por mês  | Contagem de eventos por minuto | Tamanho do evento por minuto  |
 |---------|---------|---------|---------|---------|
 | S1     |   30 milhões     |  30 GB     |  720    |  720 KB   |
- |S2     |   300 milhões    |   300 GB   | 7,200   | 7\.200 KB  |
+ |S2     |   300 milhões    |   300 GB   | 7,200   | 7.200 KB  |
 
 ### <a name="property-limits"></a>Limites de propriedade
 
@@ -55,7 +55,7 @@ Os limites de propriedade ga dependem do ambiente SKU que é selecionado. As pro
 
 É apoiado um máximo de duas fontes de eventopor instância. 
 
-* Saiba como [Adicionar uma origem do hub de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+* Saiba como [adicionar uma fonte](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)de hub de eventos.
 * Configure [uma fonte de hub IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
 ### <a name="api-limits"></a>Limites da API

@@ -5,10 +5,10 @@ ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
 ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240941"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
@@ -87,7 +87,7 @@ Por exemplo, a função RBAC de contribuidor de VM pode ser atribuída a um grup
 
 A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos de gestão.
 
-| Nome da Função RBAC             | Criar | Mudar o nome | Mover** | Eliminar | Atribuir Acesso | Atribuir Política | Ler  |
+| Nome da Função RBAC             | Criar | Mudar o Nome | Mover** | Eliminar | Atribuir Acesso | Atribuir Política | Leitura  |
 |:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X      | X      | X             | X             | X     |
 |Contribuinte                 | X      | X      | X      | X      |               |               | X     |
@@ -105,7 +105,7 @@ A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos
 O suporte personalizado de funções RBAC para grupos de gestão está atualmente em pré-visualização com [algumas limitações.](#limitations)  Pode definir o âmbito do grupo de gestão no âmbito designado pela Definição de Função.  Essa Função RBAC personalizada passará a estar disponível para atribuição nesse grupo de gestão e em qualquer grupo de gestão, subscrição, grupo de recursos ou recursos aí existentes. Esta função personalizada herdará a hierarquia como qualquer função incorporada.    
 
 ### <a name="example-definition"></a>Definição de exemplo
-[Definir e criar um papel personalizado](../../role-based-access-control/custom-roles.md) não muda com a inclusão de grupos de gestão. Utilize o caminho completo para definir o grupo de gestão **/fornecedores/Microsoft.Management/managementgroups/{groupId}** . 
+[Definir e criar um papel personalizado](../../role-based-access-control/custom-roles.md) não muda com a inclusão de grupos de gestão. Utilize o caminho completo para definir o grupo de gestão **/fornecedores/Microsoft.Management/managementgroups/{groupId}**. 
 
 Utilize o ID do grupo de gestão e não o nome de exibição do grupo de gestão. Este erro comum acontece uma vez que ambos são campos definidos sob medida na criação de um grupo de gestão. 
 
@@ -187,9 +187,9 @@ Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../a
 
 ![Registos de atividades com Grupos de Gestão](media/al-mg.png)
 
-Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"** .
+Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

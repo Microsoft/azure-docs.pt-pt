@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Samanage para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Samanage para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizador para samanage.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.date: 03/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 988efc2087b3b30e6073bd7f6e2cf08f91fd397c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77060507"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configure Samanage para fornecimento automático de utilizadores
@@ -53,11 +53,11 @@ Para adicionar Samanage do Marketplace, siga estes passos.
 
 2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
 3. Para adicionar uma nova aplicação, selecione **Nova aplicação** na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
 4. Na caixa de pesquisa, introduza **Samanage** e selecione **Samanage** a partir do painel de resultados. Para adicionar a aplicação, selecione **Adicionar**.
 
@@ -86,9 +86,9 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 ### <a name="configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para Samanage em Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** > **Todas as aplicações** > **Samanage**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** > **Todas as aplicações** > **Samanage**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Samanage**.
 
@@ -100,7 +100,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 4. Detete o **modo de provisionamento** para **automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia de provisionamento](common/provisioning-automatic.png)
 
 5. Sob a secção **de Credenciais de Administrador,** insera o url do **inquilino** samanage e **o Token Secreto**. Clique na **ligação de teste** para garantir que o Azure AD pode ligar-se ao Samanage. Se a ligação falhar, certifique-se de que a sua conta Samanage tem permissões de administrador e tente novamente.
 

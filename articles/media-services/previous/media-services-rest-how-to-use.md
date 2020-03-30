@@ -16,16 +16,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773667"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services operações REST API visão geral 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 A **Media Services Operations REST** API é utilizada para criar Empregos, Ativos, Canais Ao Vivo e outros recursos numa conta de Media Services. Para mais informações, consulte [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -63,7 +63,7 @@ Para cada chamada que fizer nos Serviços de Media, há um conjunto de cabeçalh
 | Autorização |Portador |O portador é o único mecanismo de autorização aceite. O valor deve incluir também o sinal de acesso fornecido pelo Azure Ative Directory. |
 | x-ms-versão |Decimal |2.17 (ou versão mais recente)|
 | DataServiceVersion |Decimal |3.0 |
-| MaxDataServiceVersion |Decimal |3.0 |
+| Versão MaxDataService |Decimal |3.0 |
 
 > [!NOTE]
 > Dado que os Serviços de Media utilizam o OData para expor as suas APIs REST, os cabeçalhos DataServiceVersion e MaxDataServiceVersion devem ser incluídos em todos os pedidos; no entanto, se não forem, então atualmente os Serviços de Media assumem que o valor dataServiceVersion em uso é de 3.0.
@@ -75,12 +75,12 @@ Segue-se um conjunto de cabeçalhos opcionais:
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
 | Date |Data RFC 1123 |Carimbo de tempo do pedido |
-| Aceitar |Tipo de conteúdo |O tipo de conteúdo solicitado para a resposta, tais como:<p> -application/json;odata=verbose<p> - aplicação/átomo+xml<p> As respostas podem ter um tipo de conteúdo diferente, como uma busca blob, onde uma resposta bem sucedida contém o fluxo de bolhas como a carga útil. |
+| Aceitar |Tipo do conteúdo |O tipo de conteúdo solicitado para a resposta, tais como:<p> -aplicação/json;odata=verbose<p> - aplicação/átomo+xml<p> As respostas podem ter um tipo de conteúdo diferente, como uma busca blob, onde uma resposta bem sucedida contém o fluxo de bolhas como a carga útil. |
 | Aceitação-Codificação |Gzip, esvaziar |Codificação GZIP e DEFLATE, quando aplicável. Nota: Para grandes recursos, os Serviços de Media podem ignorar este cabeçalho e devolver dados não comprimidos. |
-| Linguagem aceitação |"en", "es", e assim por diante. |Especifica a linguagem preferida para a resposta. |
+| Accept-Language |"en", "es", e assim por diante. |Especifica a linguagem preferida para a resposta. |
 | Aceitar-Charset |Tipo charset como "UTF-8" |O padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que clientes ou firewalls que não suportem métodos HTTP como PUT ou DELETE utilizem estes métodos, túneis através de uma chamada GET. |
-| Tipo de conteúdo |Tipo de conteúdo |Tipo de conteúdo do organismo de pedido em pedidos PUT ou POST. |
+| Content-Type |Tipo do conteúdo |Tipo de conteúdo do organismo de pedido em pedidos PUT ou POST. |
 | cliente-request-id |Cadeia |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta STANDARD HTTP suportados por Media Services
@@ -91,7 +91,7 @@ Segue-se um conjunto de cabeçalhos que lhe podem ser devolvidos dependendo do r
 | pedido-id |Cadeia |Um identificador único para a operação atual, serviço gerado. |
 | cliente-request-id |Cadeia |Um identificador especificado pelo chamador no pedido original, se presente. |
 | Date |Data RFC 1123 |A data/hora em que o pedido foi processado. |
-| Tipo de conteúdo |Varia |O tipo de conteúdo do corpo de resposta. |
+| Content-Type |Varia |O tipo de conteúdo do corpo de resposta. |
 | Codificação de conteúdos |Varia |Gzip ou esvaziar, conforme apropriado. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Verbos STANDARD HTTP suportados por Media Services
@@ -104,7 +104,7 @@ Segue-se uma lista completa de verbos HTTP que podem ser utilizados ao fazer ped
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
 | DELETE |Elimina um objeto. |
 | FUSÃO |Atualiza um objeto existente com alterações de propriedade nomeadas. |
-| CABEÇA |Devolve metadados de um objeto para uma resposta GET. |
+| HEAD |Devolve metadados de um objeto para uma resposta GET. |
 
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>Descubra e navegue no modelo de entidade dos Media Services
 Para tornar as entidades dos Serviços de Media mais detetáveis, a operação $metadata pode ser utilizada. Permite-lhe recuperar todos os tipos de entidades válidas, propriedades de entidades, associações, funções, ações, e assim por diante. Ao adicionar a $metadata operação ao fim do seu ponto final da Media Services REST API, pode aceder a este serviço de descoberta.

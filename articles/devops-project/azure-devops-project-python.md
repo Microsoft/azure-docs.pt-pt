@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: b912dfe3fb6461a925977192a6631ecac1357d35
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049822"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Crie um oleoduto CI/CD para Python com projetos Azure DevOps
@@ -34,7 +34,7 @@ Neste arranque rápido, utiliza a experiência simplificada de Projetos Azure De
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar uma nova organização de DevOps do Azure ou usar uma organização existente. Projetos de DevOps também cria os recursos do Azure na subscrição do Azure à sua escolha.
+A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar uma nova organização Azure DevOps ou usar uma organização existente. A DevOps Projects também cria recursos Azure na subscrição Azure à sua escolha.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com), e no painel esquerdo, selecione **Criar um recurso**. 
 
@@ -42,18 +42,18 @@ A DevOps Projects cria um oleoduto CI/CD em Pipelines Azure. Você pode criar um
 
 1. Procure e selecione **Projetos DevOps,** e, em seguida, **selecione Criar**.
 
-## <a name="select-a-sample-application-and-azure-service"></a>Selecione um exemplo de aplicação e o serviço do Azure
+## <a name="select-a-sample-application-and-azure-service"></a>Selecione um exemplo de aplicação e serviço do Azure
 
-1. Selecione a aplicação da amostra Python. Os exemplos Python incluem várias opções de arquiteturas de aplicações.
+1. Selecione o exemplo de aplicação Python. Os exemplos Python incluem várias opções de arquiteturas de aplicações.
 
-1. A estrutura da amostra padrão é Django. Deixe a definição predefinida e, em seguida, selecione **Seguinte**.    
-Web App For Containers é o alvo de implementação padrão. O quadro de aplicação, que escolheu anteriormente, dita o tipo de alvo de implementação de serviço seleções Azure aqui disponível. 
+1. A arquitetura de exemplo predefinida é Django. Deixe a definição predefinida e, em seguida, selecione **Seguinte**.    
+A Aplicação Web Para Contentores é o destino de implementação predefinido. O quadro de aplicação, que escolheu anteriormente, dita o tipo de alvo de implementação de serviço seleções Azure aqui disponível. 
 
 3. Deixe o serviço predefinido e, em seguida, selecione **Seguinte**.
  
-## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar o Azure DevOps e uma subscrição do Azure 
+## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configure Azure DevOps e uma subscrição Azure 
 
-1. Crie uma nova organização Azure DevOps ou escolha uma organização existente. 
+1. Crie uma organização nova do Azure DevOps ou utilize uma organização existente. 
 
     a. Insira um nome para o seu projeto em Azure DevOps.  
 
@@ -85,7 +85,7 @@ Pode clonar o repositório Git no seu IDE preferido.  Nos próximos passos, pode
 1. No seu navegador, vá ao painel de projetos DevOps.   
     Agora deve ver uma construção em andamento. As alterações que acabou de fazer são automaticamente construídas e implantadas através de um oleoduto CI/CD.
 
-## <a name="examine-the-cicd-pipeline"></a>Examine o pipeline de CI/CD
+## <a name="examine-the-cicd-pipeline"></a>Examinar o gasoduto CI/CD
 
 No passo anterior, os Projetos DevOps configuraram automaticamente um pipeline CI/CD completo. Explore e personalize o pipeline, conforme necessário. Para se familiarizar com os oleodutos de construção e libertação, faça o seguinte:
 
@@ -97,21 +97,21 @@ Um separador de navegador exibe o pipeline de construção para o seu novo proje
 
 1. Selecione **Editar**.
 
-1. Neste painel, pode examinar as várias tarefas para o seu pipeline de compilação.  
+1. Neste painel, pode examinar as várias tarefas para o seu pipeline de construção.  
         A construção executa várias tarefas, tais como a busca de fontes do repositório Git, restaurar dependências e publicar saídas para implementações.
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Mude o nome do seu pipeline de construção para algo mais descritivo, selecione **Save & queue,** e, em seguida, selecione **Guardar**.
+1. Mude o nome do seu oleoduto de construção para algo mais descritivo, selecione **Guardar & fila**e, em seguida, selecione **Guardar**.
 
 1. No nome do pipeline de compilação, selecione **Histórico**.  
         Verá um registo de auditoria das alterações recentes da compilação.  A Azure DevOps acompanha quaisquer alterações feitas ao pipeline de construção, e permite-lhe comparar versões.
 
-1. Selecione **Acionadores**.  
+1. Selecione **Triggers**.  
          A DevOps Projects cria automaticamente um gatilho ci, e cada compromisso com o repositório inicia uma nova construção.  Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
 
 1. Selecione **Retenção**.  
-        Dependendo do seu cenário, pode especificar políticas de manter ou remover um determinado número de compilações.
+        Dependendo do seu cenário, pode especificar políticas para manter ou remover um determinado número de construções.
 
 1. Selecione **Construir e Soltar,** e depois escolher **Lançamentos**.   
  A DevOps Projects cria um oleoduto de libertação para gerir as implantações para o Azure.
@@ -123,10 +123,10 @@ O gasoduto de libertação define o processo de libertação.
 O oleoduto de construção que examinou nos passos anteriores produz a saída que é usada para o artefacto. 
 
 1. Ao lado do ícone **Drop,** selecione o **gatilho de implantação Contínua**.  
-        O oleoduto de libertação tem um gatilho de CD ativado, que executa uma implantação sempre que há um novo artefacto de construção disponível. Opcionalmente, pode desativar o acionador para que as suas implementações exigem execução manual. 
+        O oleoduto de libertação tem um gatilho de CD ativado, que executa uma implantação sempre que há um novo artefacto de construção disponível. Opcionalmente, pode desativar o gatilho de modo a que as suas implementações exijam execução manual. 
 
 1. À esquerda, selecione **Tarefas**.   
-As tarefas são as atividades que executa o processo de implementação. Neste exemplo, foi criada uma tarefa para implantar no Azure App Service.
+As tarefas são as atividades que o seu processo de implantação realiza. Neste exemplo, foi criada uma tarefa para implantar no Azure App Service.
 
 1. À direita, selecione **ver ver ver para** mostrar um histórico de lançamentos.  
         
@@ -136,7 +136,7 @@ As tarefas são as atividades que executa o processo de implementação. Neste e
 1. Selecione **Consolidações**. 
         Esta visão mostra os compromissos do código que estão associados à implantação específica. 
 
-1. Selecione **Registos**.   
+1. Selecionar **Registos**.   
 Os registos contêm informações úteis sobre o processo de implementação. Pode vê-los durante e após as implantações.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

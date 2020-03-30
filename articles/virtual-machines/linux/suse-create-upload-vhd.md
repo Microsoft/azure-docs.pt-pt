@@ -3,7 +3,7 @@ title: Crie e carregue um VHD SUSE Linux em Azure
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo SUSE Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
+author: gbowerman
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: mimckitt
-ms.openlocfilehash: d64fc55159ddc3ce88397879958a63bf30808ad9
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.author: guybo
+ms.openlocfilehash: 7bfe0aabbf2318643b59d57519be1475648a12ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251577"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066559"
 ---
-# <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare uma SLES ou abra a máquina virtual SUSE para o Azure
+# <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
 
 
 Este artigo pressupõe que já instalou um sistema operativo SUSE ou abriu o sistema operativo SUSE Linux para um disco rígido virtual. Existem múltiplas ferramentas para criar ficheiros .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instale a função Hyper-V e configure uma máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
@@ -78,9 +78,9 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
     
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-11. Recomenda-se editar o ficheiro "/etc/sysconfig/network/dhcp" e alterar o parâmetro `DHCLIENT_SET_HOSTNAME` para o seguinte:
+11. Recomenda-se editar o ficheiro "/etc/sysconfig/network/dhcp" `DHCLIENT_SET_HOSTNAME` e alterar o parâmetro para o seguinte:
     
-     DHCLIENT_SET_HOSTNAME="no"
+     DHCLIENT_SET_HOSTNAME="não"
 12. Em "/etc/sudoers", comentar ou remover as seguintes linhas se existirem:
     
     ```
@@ -98,13 +98,13 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-16. Clique em **Ação -> Desligue** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
+16. Clique em **Ação -> desligar** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
 
 ---
 ## <a name="prepare-opensuse-131"></a>Prepare abrir SUSE 13.1+
 1. No painel central do Hyper-V Manager, selecione a máquina virtual.
 2. Clique **em Ligar** para abrir a janela para a máquina virtual.
-3. Na concha, executar o comando`zypper lr`'. Se este comando devolver a saída semelhante à seguinte, então os repositórios são configurados como esperado - não são necessários ajustes (note que os números da versão podem variar):
+3. Na concha, executar o`zypper lr`comando ' ' ' Se este comando devolver a saída semelhante à seguinte, então os repositórios são configurados como esperado - não são necessários ajustes (note que os números da versão podem variar):
    
         # | Alias                 | Name                  | Enabled | Refresh
         --+-----------------------+-----------------------+---------+--------
@@ -118,7 +118,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
         # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
-    Em seguida, pode verificar se os repositórios foram adicionados executando novamente o comando`zypper lr`' ' No caso de um dos repositórios de atualização relevante não estiver ativado, ative-o com o seguinte comando:
+    Em seguida, pode verificar se os repositórios foram adicionados executando novamente o comando`zypper lr`. No caso de um dos repositórios de atualização relevante não estiver ativado, ative-o com o seguinte comando:
    
         # sudo zypper mr -e [NUMBER OF REPOSITORY]
 4. Atualize o núcleo para a versão mais recente disponível:
@@ -133,14 +133,14 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
         # sudo zypper install WALinuxAgent
 6. Modifique a linha de arranque do núcleo na sua configuração de larva para incluir parâmetros adicionais de kernel para o Azure. Para tal, abra "/boot/grub/menu.lst" num editor de texto e certifique-se de que o núcleo predefinido inclui os seguintes parâmetros:
    
-     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+     consola=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
    Isto garantirá que todas as mensagens de consola são enviadas para a primeira porta em série, que pode ajudar o suporte do Azure com problemas de depuração. Além disso, retire os seguintes parâmetros da linha de arranque do núcleo se existirem:
    
      libata.atapi_enabled=0 reserva=0x1f0,0x8
-7. Recomenda-se editar o ficheiro "/etc/sysconfig/network/dhcp" e alterar o parâmetro `DHCLIENT_SET_HOSTNAME` para o seguinte:
+7. Recomenda-se editar o ficheiro "/etc/sysconfig/network/dhcp" `DHCLIENT_SET_HOSTNAME` e alterar o parâmetro para o seguinte:
    
-     DHCLIENT_SET_HOSTNAME="no"
+     DHCLIENT_SET_HOSTNAME="não"
 8. **Importante:** Em "/etc/sudoers", comentar ou remover as seguintes linhas se existirem:
      
      ```
@@ -162,7 +162,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 12. Certifique-se de que o Agente Azure Linux funciona no arranque:
     
         # sudo systemctl enable waagent.service
-13. Clique em **Ação -> Desligue** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
+13. Clique em **Ação -> desligar** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 Está agora pronto para usar o seu disco rígido virtual SUSE Linux para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para o Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

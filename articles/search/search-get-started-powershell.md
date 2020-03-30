@@ -10,24 +10,24 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
 ms.openlocfilehash: 612751c2405cd55ad0b3760aa8e093e434a22f57
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121603"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva azure no PowerShell usando APIs REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [C #](search-create-index-dotnet.md)
 > * [Carteiro (REST)](search-get-started-postman.md)
-> * [python](search-get-started-python.md)
+> * [Pitão](search-get-started-python.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
 Este artigo acompanha-o através do processo de criação, carregamento e consulta de um índice de pesquisa cognitiva Azure utilizando a PowerShell e as APIs de [PESQUISA Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como executar comandos PowerShell interativamente. Em alternativa, pode [descarregar e executar um script Powershell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) que executa as mesmas operações.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página de **visão geral** do seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-2. Em **Definições** > **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
+2. Em **Definições** > **Keys,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
 
 ![Obtenha um ponto final http e chave de acesso](media/search-get-started-postman/get-url-key.png "Obtenha um ponto final http e chave de acesso")
 
@@ -87,7 +87,7 @@ Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviç
 
 A menos que esteja a utilizar o portal, deve existir um índice no serviço antes de poder carregar dados. Este passo define o índice e empurra-o para o serviço. A [API Create Index REST](https://docs.microsoft.com/rest/api/searchservice/create-index) é utilizada para este passo.
 
-Os elementos necessários de um índice incluem um nome e uma coleção de campos. A coleção de campos define a estrutura de um *documento.* Cada campo tem um nome, tipo e atributos que determinam como é usado (por exemplo, se é pesquisável em texto completo, filtrado ou recuperável nos resultados da pesquisa). Dentro de um índice, um dos campos de `Edm.String` tipo deve ser designado como a *chave* para a identidade do documento.
+Os elementos necessários de um índice incluem um nome e uma coleção de campos. A coleção de campos define a estrutura de um *documento.* Cada campo tem um nome, tipo e atributos que determinam como é usado (por exemplo, se é pesquisável em texto completo, filtrado ou recuperável nos resultados da pesquisa). Dentro de um índice, um `Edm.String` dos campos do tipo deve ser designado como a *chave* para a identidade do documento.
 
 Este índice chama-se "hotéis-quickstart" e tem as definições de campo que você vê abaixo. É um subconjunto de um índice de [hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) maior usado em outros walkthroughs. Aparamo-lo neste início rápido para a brevidade.
 
@@ -183,7 +183,7 @@ Para empurrar documentos, utilize um pedido HTTP POST para o ponto final do URL 
 
 1. Passe este exemplo no PowerShell para criar um objeto **$body** contendo os documentos que pretende carregar. 
 
-    Este pedido inclui dois registos completos e um parcial. O registo parcial demonstra que pode fazer o upload de documentos incompletos. O parâmetro `@search.action` especifica como a indexação é feita. Os valores válidos incluem upload, fusão, fusão OrUpload e eliminar. O comportamento da fusãoOrUpload ou cria um novo documento para o hotelId = 3, ou atualiza o conteúdo se já existir.
+    Este pedido inclui dois registos completos e um parcial. O registo parcial demonstra que pode fazer o upload de documentos incompletos. O `@search.action` parâmetro especifica como a indexação é feita. Os valores válidos incluem upload, fusão, fusão OrUpload e eliminar. O comportamento da fusãoOrUpload ou cria um novo documento para o hotelId = 3, ou atualiza o conteúdo se já existir.
 
     ```powershell
     $body = @"
@@ -319,7 +319,7 @@ Para empurrar documentos, utilize um pedido HTTP POST para o ponto final do URL 
 
 Este passo mostra-lhe como consultar um índice utilizando a API de [Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)de Pesquisa .
 
-Certifique-se de que utiliza citações únicas em $urls de pesquisa. As cordas de consulta incluem **$** caracteres, e você pode omitir ter que escapar deles se toda a corda estiver fechada em citações simples.
+Certifique-se de que utiliza citações únicas em $urls de pesquisa. As cordas de **$** consulta incluem caracteres, e você pode omitir ter que escapar deles se toda a corda estiver fechada em citações únicas.
 
 1. Defina o ponto final para a coleção de docs de arranque rápido dos *hotéis* e adicione um parâmetro de **pesquisa** para passar numa corda de consulta. 
   
@@ -393,7 +393,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando está a trabalhar na sua própria subscrição, é uma boa ideia no final de um projeto identificar se ainda precisa dos recursos que criou. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: orspodek
 ms.openlocfilehash: a2297301a0b9c0540c73c0f50483cccfc3181a0f
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79128914"
 ---
 ### <a name="event-system-properties-mapping"></a>Mapeamento de propriedades do sistema de eventos
@@ -21,7 +21,7 @@ Se selecionou propriedades do **sistema de eventos** na secção Fonte de **Dado
 
 **Exemplo de esquema de mesa**
 
-Se os seus dados incluirem três colunas (`Timespan`, `Metric`e `Value`) e as propriedades que inclui são `x-opt-enqueued-time` e `x-opt-offset`, criem ou alterem o esquema da tabela utilizando este comando:
+Se os seus dados`Timespan`incluirem `Value`três colunas ( `x-opt-enqueued-time` e `x-opt-offset` `Metric`) e as propriedades que inclui são e, criar ou alterar o esquema da tabela utilizando este comando:
 
 ```kusto
     .create-merge table TestTable (TimeStamp: datetime, Metric: string, Value: int, EventHubEnqueuedTime:datetime, EventHubOffset:string)
@@ -44,7 +44,7 @@ Executar os seguintes comandos para adicionar dados ao início do registo. Nota 
  
 **Exemplo de mapeamento JSON**
 
-Os dados são adicionados utilizando os nomes das propriedades do sistema tal como aparecem na lista de propriedades do **sistema de** eventos de ligação de **dados.** Executar estes comandos:
+Os dados são adicionados utilizando os nomes das propriedades do sistema tal como aparecem na lista de propriedades do **sistema de** eventos de ligação de **dados.** Execute estes comandos:
 
 ```kusto
     .create table TestTable ingestion json mapping "JsonMapping1"

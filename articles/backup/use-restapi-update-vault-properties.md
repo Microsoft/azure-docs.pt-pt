@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252366"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação azure utilizando a API REST
@@ -33,13 +33,13 @@ Para obter o estado atual de soft-delete para um cofre, use a seguinte operaçã
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-O GET URI tem `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
+O GET `{subscriptionId}`URI `{vaultName}` `{vaultresourceGroupName}` tem, parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são dados no URI, não há necessidade de um corpo de pedido separado.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>Respostas
 
 A resposta bem sucedida para a operação 'GET' é mostrada abaixo:
 
@@ -71,7 +71,7 @@ Para atualizar o estado de eliminação suave do cofre de serviços de recupera�
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-O PATCH URI tem parâmetros `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI por valores acima, então o URI será assim.
+O PATCH `{subscriptionId}`URI `{vaultName}` `{vaultresourceGroupName}` tem, parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Se substituirmos o URI por valores acima, então o URI será assim.
 
 ```http
 PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -83,10 +83,10 @@ THe seguindo definições comuns são usados para criar um corpo de pedido
 
 Para mais detalhes, consulte [a documentação rest API](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Nome  |Required  |Tipo  |Descrição  |
+|Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  ETag opcional       |
-|localização     |  true       |String         |   Localização dos recursos      |
+|eTag     |         |   Cadeia      |  ETag opcional       |
+|localização     |  true       |Cadeia         |   Localização do recurso      |
 |propriedades     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |etiquetas     |         | Objeto        |     Etiquetas de recursos    |
 
@@ -103,7 +103,7 @@ O exemplo seguinte é utilizado para atualizar o estado de eliminação suave pa
 }
 ```
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>Respostas
 
 A resposta bem sucedida para a operação 'PATCH' é mostrada abaixo:
 
@@ -127,7 +127,7 @@ Uma vez apresentado o pedido 'PATCH', uma resposta de 200 (bem-sucedida) é devo
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Crie uma política de backup para apoiar um VM Azure neste cofre.](backup-azure-arm-userestapi-createorupdatepolicy.md)
 

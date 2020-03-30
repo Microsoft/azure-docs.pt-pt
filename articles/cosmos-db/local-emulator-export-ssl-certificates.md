@@ -1,17 +1,17 @@
 ---
-title: Exportar os certificados de emulador do Azure Cosmos DB
+title: Exportar os certificados do Emulador do Azure Cosmos DB
 description: Ao programar em linguagens e runtimes que não utilizam a Loja de Certificados do Windows, terá de exportar e gerir os certificados SSL. Esta mensagem apresenta instruções passo a passo.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: a398c10511fdd3891a2c429f0ef46869dcc48922
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 623837b30038ef8524aef1e87aeb5933204925a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244438"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156026"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporte os certificados de Emulador do Azure Cosmos DB para utilizar com o Java, o Python e o Node.js
 
@@ -44,7 +44,7 @@ Ambos os certificados podem ser regenerados ao clicar em **Repor Dados** conform
 
     ![Passo 2 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
 
-3. Clique em **Copiar para Ficheiro...** .
+3. Clique em **Copiar para Ficheiro... **.
 
     ![Passo 3 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
@@ -70,7 +70,7 @@ Ambos os certificados podem ser regenerados ao clicar em **Repor Dados** conform
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Como utilizar o certificado no Java
 
-Ao executar aplicações Java ou aplicações do MongoDB que utilizam o cliente de Java é mais fácil instalar o certificado para o arquivo de certificados do padrão de Java que passar o `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` sinalizadores. Por exemplo, a [aplicação de Demonstração do Java](https://localhost:8081/_explorer/index.html) incluída depende do arquivo de certificados predefinido.
+Ao executar aplicações Java ou aplicações MongoDB que utilizam o cliente Java é mais `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` fácil instalar o certificado na loja de certificados padrão Java do que passar as bandeiras. Por exemplo, a [aplicação de Demonstração do Java](https://localhost:8081/_explorer/index.html) incluída depende do arquivo de certificados predefinido.
 
 Siga as instruções em [Adicionar um Certificado ao Arquivo de Certificados de AC do Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) para importar o certificado X.509 para o arquivo de certificados do Java. Tenha em conta que irá trabalhar no diretório %JAVA_HOME% ao executar o keytool.
 
@@ -84,7 +84,7 @@ Por predefinição o [SDK do Python (versão 2.0.0 ou superior)](sql-api-sdk-pyt
 
 Por predefinição o [SDK do Node.js (versão 1.10.1 ou superior)](sql-api-sdk-node.md) para a API do SQL não irá tentar e irá utilizar o certificado SSL ao ligar ao emulador local. Se, no entanto, pretender utilizar a validação de SSL, pode seguir os exemplos da [documentação do Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez o seguinte:
 

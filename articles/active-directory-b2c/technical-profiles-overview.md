@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 48324d252e22ca898f923e1f0ad9b76df1c10861
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5d89d123fe757b0502f4c6b3a0d33c185b25224b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183657"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80057304"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas do Diretório Ativo Azure B2C
 
@@ -28,19 +28,21 @@ Um perfil técnico fornece um quadro com um mecanismo incorporado para comunicar
 
 Um perfil técnico permite este tipo de cenários:
 
+- [Informações sobre aplicações](application-insights-technical-profile.md) - Envio de dados de eventos para [Insights de Aplicação](../azure-monitor/app/app-insights-overview.md).
 - [Azure Ative Directory](active-directory-technical-profile.md) - Fornece suporte para a gestão de utilizadores do Azure Ative Directory B2C.
+- [Autenticação Azure Multi-Factor](multi-factor-auth-technical-profile.md) - fornece suporte para verificar um número de telefone utilizando a autenticação de multi-factores Azure (MFA). 
+- [Transformação de sinistros](claims-transformation-technical-profile.md) - A produção de chamadas reclama transformações para manipular valores de sinistros, validar reclamações ou definir valores padrão para um conjunto de reclamações de saída.
 - [Emissor de símboloj](jwt-issuer-technical-profile.md) - Emite um símbolo JWT que é devolvido à aplicação do partido que depende.
-- **Fornecedor de fatores telefónicos** - Autenticação multifactor.
 - [OAuth1](oauth1-technical-profile.md) - Federação com qualquer provedor de identidade protocolo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) - Federação com qualquer fornecedor de identidade protocolo OAuth 2.0.
+- [Palavra-passe única](one-time-password-technical-profile.md) - Fornece suporte para gerir a geração e verificação de uma senha única.
 - [OpenID Connect](openid-connect-technical-profile.md) - Federação com qualquer fornecedor de identidade de protocolo OpenID Connect.
-- [Transformação de sinistros](claims-transformation-technical-profile.md) - A produção de chamadas reclama transformações para manipular valores de sinistros, validar reclamações ou definir valores padrão para um conjunto de reclamações de saída.
+- [Fator telefone](phone-factor-technical-profile.md) - Suporte para inscrição e verificação de números de telefone.
 - [Fornecedor RESTful](restful-technical-profile.md) - Ligue para os serviços rest API, tais como validar a entrada do utilizador, enriquecer os dados do utilizador ou integrar-se com aplicações de linha de negócio.
 - [SAML2](saml-technical-profile.md) - Federação com qualquer fornecedor de identidade de protocolo SAML.
+- Emissor de [token SAML](saml-issuer-technical-profile.md) - Emite um símbolo SAML que é devolvido à aplicação do partido que depende.
 - [Self-Afirmado](self-asserted-technical-profile.md) - Interaja com o utilizador. Por exemplo, recolher a credencial do utilizador para iniciar sessão, renderizar a página de inscrição ou repor a palavra-passe.
 - [Gestão de sessões](custom-policy-reference-sso.md) - Lidar com diferentes tipos de sessões.
-- [Application Insights](../azure-monitor/app/usage-overview.md)
-- [Palavra-passe única](one-time-password-technical-profile.md) - Fornece suporte para gerir a geração e verificação de uma senha única.
 
 ## <a name="technical-profile-flow"></a>Fluxo de perfil técnico
 
@@ -64,9 +66,9 @@ Todos os tipos de perfis técnicos partilham o mesmo conceito. Envia reclamaçõ
 
 ## <a name="technical-profile-inclusion"></a>Inclusão de perfil técnico
 
-Um perfil técnico pode incluir outro perfil técnico para alterar definições ou adicionar novas funcionalidades.  O elemento `IncludeTechnicalProfile` é uma referência ao perfil técnico base a partir do qual é derivado um perfil técnico. Não há limite para o número de níveis.
+Um perfil técnico pode incluir outro perfil técnico para alterar definições ou adicionar novas funcionalidades.  O `IncludeTechnicalProfile` elemento é uma referência ao perfil técnico base a partir do qual é derivado um perfil técnico. Não há limite para o número de níveis.
 
-Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError** inclui o **AAD-UserReadUsingAlternativeSecurityId**. Este perfil técnico define o item de metadados `RaiseErrorIfClaimsPrincipalDoesNotExist` para `true`, e levanta um erro se uma conta social não existir no diretório. **AAD-UserReadUsingAlternativeSecurityId-NoError sobrepõe-se** a este comportamento e desativa essa mensagem de erro.
+Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError** inclui o **AAD-UserReadUsingAlternativeSecurityId**. Este perfil técnico `RaiseErrorIfClaimsPrincipalDoesNotExist` define o item dos metadados para `true`, e levanta um erro se uma conta social não existir no diretório. **AAD-UserReadUsingAlternativeSecurityId-NoError sobrepõe-se** a este comportamento e desativa essa mensagem de erro.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
@@ -77,7 +79,7 @@ Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError*
 </TechnicalProfile>
 ```
 
-**AAD-UserReadUsingAlternativeSecurityId** inclui o perfil técnico `AAD-Common`.
+**AAD-UserReadUsingAlternativeSecurityId** inclui `AAD-Common` o perfil técnico.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

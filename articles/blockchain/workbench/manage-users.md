@@ -5,10 +5,10 @@ ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 573ec477a3e75beb91f90da0545fb7d4c0f9bf39
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252184"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gerir utilizadores na bancada de trabalho Azure Blockchain
@@ -25,9 +25,9 @@ A bancada azure Blockchain workbench utiliza o Azure Ative Directory (Azure AD) 
 
 Os utilizadores da bancada blockchain precisam de existir no inquilino da AD Azure antes de poder atribuí-los a aplicações e funções. Para adicionar utilizadores ao Azure AD, utilize os seguintes passos:
 
-1.  Inicie sessão no [portal do Azure](https://portal.azure.com).
+1.  Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2.  Selecione a sua conta no canto superior direito e mude para o inquilino Azure AD associado à Bancada de Trabalho blockchain.
-3.  Selecione **Diretório Ativo Azure > Utilizadores.** Vê uma lista de utilizadores no seu diretório.
+3.  Selecione **Diretório Ativo do Azure > Utilizadores.** Vê uma lista de utilizadores no seu diretório.
 4.  Para adicionar utilizadores ao diretório, selecione **Novo utilizador**. Para utilizadores externos, selecione **Novo utilizador convidado**.
 
     ![Novo utilizador](./media/manage-users/add-ad-user.png)
@@ -42,15 +42,15 @@ Uma vez adicionados os utilizadores ao diretório, o próximo passo é escolher 
 
 Para adicionar utilizadores ao grupo **Administrador** no diretório Azure AD:
 
-1.  Inicie sessão no [portal do Azure](https://portal.azure.com).
+1.  Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2.  Verifique se está no inquilino da AD Azure associado à Bancada de Trabalho blockchain, selecionando a sua conta no canto superior direito.
-3.  Selecione **aplicações azure Ative Directory > Enterprise.**
+3.  Selecione aplicações de **Diretório Ativo > Enterprise do Azure.**
 4.  Selecione a aplicação de cliente Azure AD para blockchain Workbench
     
     ![Todos os registos de candidaturas empresariais](./media/manage-users/select-blockchain-client-app.png)
 
 5.  Selecione **Utilizadores e grupos > Adicionar utilizador**.
-6.  No **Add Assignment,** selecione **Utilizadores**. Escolha ou procure o utilizador que pretende adicionar como administrador. Clique em **Selecionar** quando terminar a escolha.
+6.  Em **Adicionar Atribuição**, selecione **Utilizadores**. Escolha ou procure o utilizador que pretende adicionar como administrador. Clique em **Selecionar** quando terminar a escolha.
 
     ![Adicionar atribuição](./media/manage-users/add-user-assignment.png)
 

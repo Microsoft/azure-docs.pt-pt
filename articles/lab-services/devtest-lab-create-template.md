@@ -1,6 +1,6 @@
 ---
-title: Criar uma imagem personalizada do Azure DevTest Labs de um ficheiro VHD | Documentos da Microsoft
-description: Saiba como criar uma imagem personalizada no Azure DevTest Labs, de um ficheiro VHD com o portal do Azure
+title: Crie uma imagem personalizada do Azure DevTest Labs a partir de um ficheiro VHD [ Microsoft Docs
+description: Saiba como criar uma imagem personalizada em Azure DevTest Labs a partir de um ficheiro VHD usando o portal Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61296175"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Criar uma imagem personalizada a partir de um ficheiro VHD
@@ -31,58 +31,58 @@ ms.locfileid: "61296175"
 
 ## <a name="step-by-step-instructions"></a>Instruções passo a passo
 
-Os seguintes passos guiá-lo através da criação de uma imagem personalizada de um ficheiro VHD com o portal do Azure:
+Os seguintes passos passam por você através da criação de uma imagem personalizada a partir de um ficheiro VHD usando o portal Azure:
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
+1. Selecione **Todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 
-1. Na lista de laboratórios, selecione o laboratório pretendido.  
+1. Da lista de laboratórios, selecione o laboratório desejado.  
 
-1. No painel de principal do laboratório, selecione **Konfigurace a zásady**. 
+1. No painel principal do laboratório, selecione **Configuração e políticas**. 
 
-1. Sobre o **Konfigurace a zásady** painel, selecione **imagens personalizadas de**.
+1. No painel **de configuração e políticas,** selecione **imagens personalizadas**.
 
-1. Sobre o **imagens personalizadas** painel, selecione **+ adicionar**.
+1. No painel de **imagens Personalizado,** selecione **+Adicionar**.
 
     ![Adicionar imagem personalizada](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Introduza o nome da imagem personalizada. Este nome é apresentado na lista de imagens de base ao criar uma VM.
+1. Insira o nome da imagem personalizada. Este nome é apresentado na lista de imagens base ao criar um VM.
 
-1. Introduza a descrição da imagem personalizada. Esta descrição é apresentada na lista de imagens de base ao criar uma VM.
+1. Introduza a descrição da imagem personalizada. Esta descrição é apresentada na lista de imagens base ao criar um VM.
 
-1. Para **tipo de SO**, selecione **Windows** ou **Linux**.
+1. Para **o tipo OS,** selecione **Windows** ou **Linux**.
 
-    - Se selecionou **Windows**, especifique por meio da caixa de verificação se *sysprep* tiver sido executado na máquina. 
-    - Se selecionou **Linux**, especifique por meio da caixa de verificação se *desaprovisionamento* tiver sido executado na máquina. 
+    - Se selecionar **o Windows,** especifique através da caixa de verificação se foi executada a *sysprep* na máquina. 
+    - Se selecionar **o Linux,** especifique através da caixa de verificação se a *desprovisionamento* foi executada na máquina. 
 
-1. Selecione um **VHD** no menu pendente. Este é o VHD que vai ser utilizado para criar a nova imagem personalizada. Se necessário, selecione para **carregar um VHD com o PowerShell**.
+1. Selecione um **VHD** a partir do menu suspenso. Este é o VHD que será usado para criar a nova imagem personalizada. Se necessário, selecione para **carregar um VHD utilizando powerShell**.
 
-1. Também pode introduzir um nome do plano, a oferta de plano e o publicador do plano se a imagem utilizada para criar a imagem personalizada não é uma imagem licenciada (publicada pela Microsoft).
+1. Também pode introduzir um nome de plano, oferta de planos e editor de planos se a imagem usada para criar a imagem personalizada não for uma imagem licenciada (publicada pela Microsoft).
 
-   - **Nome do plano:** Introduza o nome da imagem do Marketplace (SKU) a partir do qual esta imagem personalizada é criada 
-   - **Plano de oferta:** Introduza o produto (oferta) da imagem do Marketplace a partir do qual esta imagem personalizada é criada 
-   - **Vydavatel plánu:** Introduza o publicador da imagem do Marketplace a partir do qual esta imagem personalizada é criada
+   - Nome do **plano:** Introduza o nome da imagem marketplace (SKU) a partir da qual esta imagem personalizada é criada 
+   - **Oferta de plano:** Insira o produto (oferta) da imagem marketplace a partir da qual esta imagem personalizada é criada 
+   - **Editor de planos:** Insira o editor da imagem marketplace a partir da qual esta imagem personalizada é criada
 
    > [!NOTE]
-   > Se a imagem estiver a utilizar para criar uma imagem personalizada é **não** uma imagem licenciada, em seguida, estes campos estão vazios e podem ser preenchidas se escolher. Se a imagem **é** uma imagem licenciada, em seguida, os campos são automaticamente preenchido com as informações de plano. Se tentar altere-as em vez disso, é apresentada uma mensagem de aviso.
+   > Se a imagem que está a usar para criar uma imagem personalizada **não** é uma imagem licenciada, então estes campos estão vazios e podem ser preenchidos se escolher. Se a imagem **é** uma imagem licenciada, então os campos são auto-povoados com a informação do plano. Se tentar mudá-las neste caso, é apresentada uma mensagem de aviso.
    >
    >
 
 1. Selecione **OK** para criar a imagem personalizada.
 
-Após alguns minutos, a imagem personalizada é criada e é armazenada no interior da conta de armazenamento do laboratório. Quando um utilizador de laboratório quiser criar uma nova VM, a imagem está disponível na lista de imagens de base.
+Após alguns minutos, a imagem personalizada é criada e é armazenada dentro da conta de armazenamento do laboratório. Quando um utilizador de laboratório quer criar um novo VM, a imagem está disponível na lista de imagens base.
 
-![Imagem personalizada disponível na lista de imagens de base](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+![Imagem personalizada disponível na lista de imagens base](./media/devtest-lab-create-template/custom-image-available-as-base.png)
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Postagens de blogs relacionados
+## <a name="related-blog-posts"></a>Posts de blog relacionados
 
-- [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Copiar imagens personalizadas entre o Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Imagens ou fórmulas personalizadas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Copiar imagens personalizadas entre laboratórios Azure DevTest](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar uma VM para o laboratório](./devtest-lab-add-vm.md)
+- [Adicione um VM ao seu laboratório](./devtest-lab-add-vm.md)

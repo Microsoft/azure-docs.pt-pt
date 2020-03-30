@@ -2,28 +2,25 @@
 title: Aplicações de uma página única no Diretório Ativo do Azure
 description: Descreve quais são as aplicações de uma só página (SPAs) e os fundamentos do fluxo de protocolo, registo e expiração do token para este tipo de aplicação.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 362de46b6b8cd70f9e4daa86637e3b4eb28ad95c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164178"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154751"
 ---
-# <a name="single-page-applications"></a>Aplicativos de página única
+# <a name="single-page-applications"></a>Aplicações de página única
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 

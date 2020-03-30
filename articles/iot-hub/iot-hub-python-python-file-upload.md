@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
 ms.openlocfilehash: f1c0c046c40ff8edbc33c5e93e4207d9fe2fc67a
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110746"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (Python)
@@ -64,7 +64,7 @@ Nesta secção, cria a aplicação do dispositivo para fazer o upload de um fich
 
 3. Utilizando um editor de texto, crie um ficheiro **FileUpload.py** na sua pasta de trabalho.
 
-4. Adicione as seguintes declarações e variáveis `import` no início do ficheiro **FileUpload.py.** 
+4. Adicione as `import` seguintes declarações e variáveis no início do ficheiro **FileUpload.py.** 
 
     ```python
     import time
@@ -80,7 +80,7 @@ Nesta secção, cria a aplicação do dispositivo para fazer o upload de um fich
     FILENAME = "[File name for storage]"
     ```
 
-5. No seu ficheiro, substitua `[Device Connection String]` com a cadeia de ligação do seu dispositivo hub IoT. Substitua `[Full path to file]` pelo caminho para o ficheiro de teste que criou, ou qualquer ficheiro no seu dispositivo que pretenda carregar. Substitua `[File name for storage]` pelo nome que pretende dar ao seu ficheiro depois de ser enviado para o armazenamento de bolhas. 
+5. No seu ficheiro, substitua-a `[Device Connection String]` pela cadeia de ligação do seu dispositivo hub IoT. Substitua-o `[Full path to file]` pelo caminho para o ficheiro de teste que criou, ou qualquer ficheiro no seu dispositivo que pretenda carregar. Substitua-o `[File name for storage]` pelo nome que pretende dar ao seu ficheiro depois de ser enviado para o armazenamento de bolhas. 
 
 6. Criar um callback para a função **upload_blob:**
 
@@ -92,7 +92,7 @@ Nesta secção, cria a aplicação do dispositivo para fazer o upload de um fich
             print ( "...file upload callback returned: " + str(result) )
     ```
 
-7. Adicione o seguinte código para ligar o cliente e faça upload do ficheiro. Inclua também a rotina `main`:
+7. Adicione o seguinte código para ligar o cliente e faça upload do ficheiro. Inclua `main` também a rotina:
 
     ```python
     def iothub_file_upload_sample_run():

@@ -4,15 +4,15 @@ description: Este artigo descreve a visão em tempo real de registos, eventos e 
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79216554"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como ver registos, eventos e métricas de cápsulas kubernetes em tempo real
 
-O Monitor Azure para contentores inclui a funcionalidade Live Data (pré-visualização), que é uma funcionalidade avançada de diagnóstico que lhe permite aceder diretamente aos registos de contentores do Serviço Azure Kubernetes (AKS) (stdout/stderror), eventos e métricas de pod. Expõe o acesso direto a `kubectl logs -c`, eventos `kubectl get` e `kubectl top pods`. Um painel de consolamostra os registos, eventos e métricas gerados pelo motor do contentor para ajudar ainda mais em problemas de resolução de problemas em tempo real.
+O Monitor Azure para contentores inclui a funcionalidade Live Data (pré-visualização), que é uma funcionalidade avançada de diagnóstico que lhe permite aceder diretamente aos registos de contentores do Serviço Azure Kubernetes (AKS) (stdout/stderror), eventos e métricas de pod. Expõe o acesso `kubectl logs -c`direto `kubectl get` a `kubectl top pods`eventos e. Um painel de consolamostra os registos, eventos e métricas gerados pelo motor do contentor para ajudar ainda mais em problemas de resolução de problemas em tempo real.
 
 Este artigo fornece uma visão geral detalhada e ajuda-o a entender como usar esta funcionalidade. 
 
@@ -57,7 +57,7 @@ Pode visualizar os dados de registo em tempo real à medida que são gerados pel
 4. Selecione um objeto da grelha de desempenho e, no painel de propriedades encontrado no lado direito, selecione **ver dados ao vivo (pré-visualização).** Se o cluster AKS estiver configurado com um único sinal de utilização utilizando o Azure AD, é solicitado que autenticar na primeira utilização durante a sessão do navegador. Selecione a sua conta e a autenticação completa com o Azure.  
 
     >[!NOTE]
-    >Ao visualizar os dados do seu espaço de trabalho Log Analytics, selecionando a opção **View in analytics** a partir do painel de propriedades, os resultados da pesquisa de registo mostrarão potencialmente **Nodes**, **Conjuntos Daemon,** **Conjuntos de Réplicas, Empregos,** **Trabalhos cronos,** **Pods**e **Contentores** que podem já não existir. **Jobs** Tentar procurar registos de um recipiente que não esteja disponível em `kubectl` também falhará aqui. Reveja a funcionalidade [View in analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre a visualização de registos históricos, eventos e métricas.  
+    >Ao visualizar os dados do seu espaço de trabalho Log Analytics, selecionando a opção **View in analytics** a partir do painel de propriedades, os resultados da pesquisa de registo mostrarão potencialmente **Nodes**, **Conjuntos Daemon,** **Conjuntos de Réplicas, Empregos,** **Trabalhos cronos,** **Pods**e **Contentores** que podem já não existir. **Jobs** Tentar procurar registos de um recipiente que `kubectl` não esteja disponível também falhará aqui. Reveja a funcionalidade [View in analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre a visualização de registos históricos, eventos e métricas.  
 
 Depois de autenticar com sucesso, o painel de consolas Live Data (pré-visualização) aparecerá abaixo da grelha de dados de desempenho onde poderá ver os dados de registo num fluxo contínuo. Se o indicador de estado de busca mostrar uma marca de verificação verde, que está na extrema direita do painel, significa que os dados podem ser recuperados e começa a transmitir para a sua consola.  
 
@@ -78,7 +78,7 @@ Pode visualizar os dados do evento em tempo real à medida que são gerados pelo
 4. Selecione um objeto da grelha de desempenho e, no painel de propriedades encontrado no lado direito, selecione **ver dados ao vivo (pré-visualização).** Se o cluster AKS estiver configurado com um único sinal de utilização utilizando o Azure AD, é solicitado que autenticar na primeira utilização durante a sessão do navegador. Selecione a sua conta e a autenticação completa com o Azure.  
 
     >[!NOTE]
-    >Ao visualizar os dados do seu espaço de trabalho Log Analytics, selecionando a opção **View in analytics** a partir do painel de propriedades, os resultados da pesquisa de registo mostrarão potencialmente **Nodes**, **Conjuntos Daemon,** **Conjuntos de Réplicas, Empregos,** **Trabalhos cronos,** **Pods**e **Contentores** que podem já não existir. **Jobs** Tentar procurar registos de um recipiente que não esteja disponível em `kubectl` também falhará aqui. Reveja a funcionalidade [View in analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre a visualização de registos históricos, eventos e métricas.  
+    >Ao visualizar os dados do seu espaço de trabalho Log Analytics, selecionando a opção **View in analytics** a partir do painel de propriedades, os resultados da pesquisa de registo mostrarão potencialmente **Nodes**, **Conjuntos Daemon,** **Conjuntos de Réplicas, Empregos,** **Trabalhos cronos,** **Pods**e **Contentores** que podem já não existir. **Jobs** Tentar procurar registos de um recipiente que `kubectl` não esteja disponível também falhará aqui. Reveja a funcionalidade [View in analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre a visualização de registos históricos, eventos e métricas.  
 
 Depois de autenticar com sucesso, o painel de consolas Live Data (pré-visualização) aparecerá abaixo da grelha de dados de desempenho. Se o indicador de estado de busca mostrar uma marca de verificação verde, que está na extrema direita do painel, significa que os dados podem ser recuperados e começa a transmitir para a sua consola. 
     
@@ -105,7 +105,7 @@ Pode visualizar dados métricos em tempo real à medida que são gerados pelo mo
 4. Selecione um objeto **Pod** a partir da grelha de desempenho e no painel de propriedades encontrado no lado direito, selecione **Ver dados ao vivo (pré-visualização).** Se o cluster AKS estiver configurado com um único sinal de utilização utilizando o Azure AD, é solicitado que autenticar na primeira utilização durante a sessão do navegador. Selecione a sua conta e a autenticação completa com o Azure.  
 
     >[!NOTE]
-    >Ao visualizar os dados do seu espaço de trabalho Log Analytics, selecionando a opção **View in analytics** a partir do painel de propriedades, os resultados da pesquisa de registo mostrarão potencialmente **Nodes**, **Conjuntos Daemon,** **Conjuntos de Réplicas, Empregos,** **Trabalhos cronos,** **Pods**e **Contentores** que podem já não existir. **Jobs** Tentar procurar registos de um recipiente que não esteja disponível em `kubectl` também falhará aqui. Reveja a funcionalidade [View in analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre a visualização de registos históricos, eventos e métricas.  
+    >Ao visualizar os dados do seu espaço de trabalho Log Analytics, selecionando a opção **View in analytics** a partir do painel de propriedades, os resultados da pesquisa de registo mostrarão potencialmente **Nodes**, **Conjuntos Daemon,** **Conjuntos de Réplicas, Empregos,** **Trabalhos cronos,** **Pods**e **Contentores** que podem já não existir. **Jobs** Tentar procurar registos de um recipiente que `kubectl` não esteja disponível também falhará aqui. Reveja a funcionalidade [View in analytics](container-insights-log-search.md#search-logs-to-analyze-data) para saber mais sobre a visualização de registos históricos, eventos e métricas.  
 
 Depois de autenticar com sucesso, o painel de consolas Live Data (pré-visualização) aparecerá abaixo da grelha de dados de desempenho. Os dados métricos são recuperados e começam a transmitir para a sua consola para apresentação nos dois gráficos. O título do painel mostra o nome da vagem com a aquecida pelo recipiente.
 

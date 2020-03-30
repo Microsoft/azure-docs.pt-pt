@@ -1,6 +1,6 @@
 ---
-title: Reagir a eventos do módulo de armazenamento de BLOBs-grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Reagir a eventos do módulo de armazenamento de BLOBs
+title: Reagir a eventos de módulos de armazenamento blob - Azure Event Grid IoT Edge [ Microsoft Docs
+description: Reagir a eventos de módulos de armazenamento blob
 author: arduppal
 manager: brymat
 ms.author: arduppal
@@ -10,53 +10,53 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086602"
 ---
-# <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: reagir a eventos de armazenamento de BLOBs em IoT Edge (versão prévia)
-Este artigo mostra como implantar o armazenamento de BLOBs do Azure no módulo IoT, que atuaria como um editor de grade de eventos para enviar eventos sobre a criação de BLOB e exclusão de BLOB para a grade de eventos.  
+# <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: Reagir a eventos de armazenamento de blob em IoT Edge (Pré-visualização)
+Este artigo mostra-lhe como implementar o Armazenamento De Blob Azure no módulo IoT, que funcionaria como uma editora da Event Grid para enviar eventos sobre criação de Blob e eliminação de Blob para a Rede de Eventos.  
 
 Para uma visão geral do Armazenamento De Blob Azure na Borda IoT, consulte [o Armazenamento Azure Blob no IoT Edge](../../iot-edge/how-to-store-data-blob.md) e as suas características.
 
 > [!WARNING]
-> O armazenamento de BLOBs do Azure na integração de IoT Edge com a grade de eventos está em versão prévia
+> Armazenamento azure blob na integração de IoT Edge com Grelha de Eventos está em pré-visualização
 
-Para concluir este tutorial, você precisará de:
+Para completar este tutorial, necessitará:
 
 * **Assinatura Azure** - Crie uma [conta gratuita](https://azure.microsoft.com/free) se ainda não tiver uma. 
 * **Dispositivo Azure IoT Hub e IoT Edge** - Siga os passos no arranque rápido para [dispositivos](../../iot-edge/quickstart.md) [Linux](../../iot-edge/quickstart-linux.md) ou Windows se ainda não tiver um.
 
-## <a name="deploy-event-grid-iot-edge-module"></a>Implantar o módulo de IoT Edge da grade de eventos
+## <a name="deploy-event-grid-iot-edge-module"></a>Implementar módulo De Borda da Grelha de Eventos IoT
 
-Há várias maneiras de implantar módulos em um dispositivo IoT Edge e todos eles funcionam para a grade de eventos do Azure no IoT Edge. Este artigo descreve as etapas para implantar a grade de eventos em IoT Edge do portal do Azure.
+Existem várias formas de implementar módulos para um dispositivo IoT Edge e todos eles trabalham para a Grelha de Eventos Azure em IoT Edge. Este artigo descreve os passos para implantar a Grelha de Eventos na Borda IoT do portal Azure.
 
 >[!NOTE]
-> Neste tutorial, você implantará o módulo de grade de eventos sem persistência. Isso significa que todos os tópicos e assinaturas criados neste tutorial serão excluídos quando você reimplantar o módulo. Para obter mais informações sobre como configurar a persistência, consulte os seguintes artigos: [Persistir no estado de Linux](persist-state-linux.md) ou Persistir no [Windows](persist-state-windows.md). Para cargas de trabalho de produção, recomendamos que você instale o módulo de grade de eventos com persistência.
+> Neste tutorial, irá implantar o módulo Da Grelha de Eventos sem persistência. Significa que quaisquer tópicos e subscrições que criar neste tutorial serão eliminados quando reimplantar o módulo. Para obter mais informações sobre como configurar a persistência, consulte os seguintes artigos: [Persistir no estado de Linux](persist-state-linux.md) ou Persistir no [Windows](persist-state-windows.md). Para cargas de trabalho de produção, recomendamos que instale o módulo Da Grelha de Eventos com persistência.
 
 
-### <a name="select-your-iot-edge-device"></a>Selecione seu dispositivo IoT Edge
+### <a name="select-your-iot-edge-device"></a>Selecione o seu dispositivo IoT Edge
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Navegue até o Hub IoT.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Navegue para o seu Hub IoT.
 1. Selecione **IoT Edge** do menu na secção De Gestão automática de **Dispositivos.** 
-1. Clique na ID do dispositivo de destino na lista de dispositivos
-1. Selecione **Definir Módulos**. Mantenha a página aberta. Você continuará com as etapas na próxima seção.
+1. Clique na identificação do dispositivo alvo a partir da lista de dispositivos
+1. Selecione **Módulos de Conjunto**. Mantenha a página aberta. Continuará com os passos na próxima secção.
 
 ### <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais os módulos para implementar, como os dados fluem entre os módulos e propriedades pretendidas do duplos de módulo. O portal do Azure tem um assistente que o orienta na criação de um manifesto de implantação, em vez de criar o documento JSON manualmente.  Tem três **passos: Adicionar módulos,** **especificar rotas,** e **rever a implementação**.
+Um manifesto de implantação é um documento JSON que descreve quais os módulos a implantar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação, em vez de construir manualmente o documento JSON.  Tem três **passos: Adicionar módulos,** **especificar rotas,** e **rever a implementação**.
 
 ### <a name="add-modules"></a>Adicionar módulos
 
 1. Na secção Módulos de **Implementação,** selecione **Adicionar**
 1. A partir dos tipos de módulos na lista de drop-down, selecione **IoT Edge Module**
-1. Forneça as opções nome, imagem e contêiner criar do contêiner:
+1. Forneça o nome, imagem, recipiente criar opções do recipiente:
 
    * **Nome**: eventgridmodule
-   * **Imagem URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **O recipiente cria opções:**
 
     ```json
@@ -77,11 +77,11 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
         }
     ```    
 
- 1. Clicar em **Guardar**
+ 1. Clique em **Guardar**
  1. Continue na secção seguinte para adicionar o módulo de Assinante da Grelha de Eventos Azure antes de os colocar juntos.
 
     >[!IMPORTANT]
-    > Neste tutorial, você aprenderá a implementar o módulo De Rede de Eventos para permitir tanto pedidos HTTP/HTTPs, autenticação do cliente desativado. Para cargas de trabalho de produção, recomendamos que você habilite somente solicitações HTTPs e assinantes com autenticação de cliente habilitada. Para obter mais informações sobre como configurar o módulo de Rede de Eventos de forma segura, consulte [segurança e autenticação.](security-authentication.md)
+    > Neste tutorial, você aprenderá a implementar o módulo De Rede de Eventos para permitir tanto pedidos HTTP/HTTPs, autenticação do cliente desativado. Para cargas de trabalho de produção, recomendamos que apenas permita pedidos de HTTPs e assinantes com autenticação do cliente ativado. Para obter mais informações sobre como configurar o módulo de Rede de Eventos de forma segura, consulte [segurança e autenticação.](security-authentication.md)
     
 
 ## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Implementar módulo de subscritor de rede de eventos IoT Edge
@@ -92,23 +92,23 @@ Esta secção mostra-lhe como implementar outro módulo IoT que funcionaria como
 
 1. Na secção Módulos de **Implantação,** selecione **Adicionar** novamente. 
 1. A partir dos tipos de módulos na lista de drop-down, selecione **IoT Edge Module**
-1. Forneça as opções nome, imagem e contêiner criar do contêiner:
+1. Fornecer o nome, imagem e recipiente criar opções do recipiente:
 
    * **Nome**: assinante
-   * **Imagem URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Recipiente Criar opções**: Nenhum
-1. Clicar em **Guardar**
-1. Continue na próxima seção para adicionar o módulo de armazenamento de BLOBs do Azure
+1. Clique em **Guardar**
+1. Continue na secção seguinte para adicionar o módulo de armazenamento De Blob Azure
 
-## <a name="deploy-azure-blob-storage-module"></a>Implantar o módulo de armazenamento de BLOBs do Azure
+## <a name="deploy-azure-blob-storage-module"></a>Implementar módulo de armazenamento Azure Blob
 
-Esta seção mostra como implantar o módulo de armazenamento de BLOBs do Azure, que atuaria como um Publicador de grade de eventos que publica eventos de blob criados e excluídos.
+Esta secção mostra-lhe como implementar o módulo de armazenamento De Blob Azure, que funcionaria como uma editora da Event Grid publicando eventos criados e apagados.
 
 ### <a name="add-modules"></a>Adicionar módulos
 
 1. Na secção Módulos de **Implementação,** selecione **Adicionar**
 2. A partir dos tipos de módulos na lista de drop-down, selecione **IoT Edge Module**
-3. Forneça as opções nome, imagem e contêiner criar do contêiner:
+3. Fornecer o nome, imagem e recipiente criar opções do recipiente:
 
    * **Nome**: azureblobstorageoniotedge
    * **Imagem URI**: mcr.microsoft.com/azure-blob-storage:latest
@@ -133,47 +133,47 @@ Esta seção mostra como implantar o módulo de armazenamento de BLOBs do Azure,
    ```
 
    > [!IMPORTANT]
-   > - O módulo de armazenamento de BLOBs pode publicar eventos usando HTTPS e HTTP. 
-   > - Se tiver ativado a autenticação baseada no cliente para eventGrid, certifique-se de atualizar o valor do EVENTGRID_ENDPOINT para permitir https, como este: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`.
-   > - Adicione também outra variável ambiental `AllowUnknownCertificateAuthority=true` ao Json acima. Ao falar com o EventGrid sobre HTTPS, o **AllowUnknownCertificateAuthority** permite que o módulo de armazenamento confie em certificados de servidor EventGrid auto-assinados.
+   > - O módulo de armazenamento Blob pode publicar eventos usando HTTPS e HTTP. 
+   > - Se tiver ativado a autenticação baseada no cliente para eventGrid, certifique-se de `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`atualizar o valor do EVENTGRID_ENDPOINT permitir https, assim: .
+   > - Adicione também outra `AllowUnknownCertificateAuthority=true` variável ambiental ao Json acima. Ao falar com o EventGrid sobre HTTPS, o **AllowUnknownCertificateAuthority** permite que o módulo de armazenamento confie em certificados de servidor EventGrid auto-assinados.
 
-4. Atualize o JSON que você copiou com as seguintes informações:
+4. Atualize o JSON que copiou com as seguintes informações:
 
-   - Substitua `<your storage account name>` por um nome de que se lembre. Os nomes de conta devem ter entre 3 e 24 caracteres, com letras minúsculas e números. Sem espaços.
+   - Substitua-o `<your storage account name>` por um nome de que se lembre. Os nomes das contas devem ter 3 a 24 caracteres de comprimento, com letras minúsculas e números. Sem espaços.
 
-   - Substitua `<your storage account key>` por uma tecla base 64 byte64. Pode gerar uma chave com ferramentas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Irá utilizar estas credenciais para aceder ao armazenamento de BLOBs a partir de outros módulos.
+   - Substitua-a `<your storage account key>` por uma tecla base 64 byte64. Pode gerar uma chave com ferramentas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Você usará estas credenciais para aceder ao armazenamento de bolhas de outros módulos.
 
-   - Substitua `<event grid module name>` com o nome do módulo Event Grid.
-   - Substitua `<storage mount>` de acordo com o seu sistema operativo de contentores.
+   - Substitua-o `<event grid module name>` pelo nome do módulo Event Grid.
+   - Substitua de `<storage mount>` acordo com o seu sistema de funcionamento do contentor.
      - Para os recipientes Linux, **o meu volume:/blobroot**
      - Para recipientes Windows,**my-volume:C:/BlobRoot**
 
-5. Clicar em **Guardar**
+5. Clique em **Guardar**
 6. Clique **em próximo** para continuar na secção rotas
 
     > [!NOTE]
-    > Se você estiver usando uma VM do Azure como o dispositivo de borda, adicione uma regra de porta de entrada para permitir o tráfego de entrada nas portas de host usadas neste tutorial: 4438, 5888, 8080 e 11002. Para obter instruções sobre a adição da regra, consulte [Como abrir portas a um VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
+    > Se estiver a utilizar um VM Azure como dispositivo de borda, adicione uma regra de entrada para permitir o tráfego de entrada nas portas hospedeiras utilizadas neste tutorial: 4438, 5888, 8080 e 11002. Para obter instruções sobre a adição da regra, consulte [Como abrir portas a um VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
-### <a name="setup-routes"></a>Rotas de instalação
+### <a name="setup-routes"></a>Rotas de configuração
 
 Mantenha as rotas predefinidas e selecione **Next** para continuar na secção de revisão
 
-### <a name="review-deployment"></a>Implementação de revisão
+### <a name="review-deployment"></a>Revisão da implantação
 
-1. A seção revisão mostra o manifesto de implantação JSON criado com base em suas seleções na seção anterior. Confirme que vê os seguintes quatro módulos: **$edgeAgent,** **$edgeHub,** **eventgridmodule,** **assinante** e **azureblobstorageoniotedge** que todos estão a ser implantados.
+1. A secção de revisão mostra-lhe o manifesto de implantação jSON que foi criado com base nas suas seleções na secção anterior. Confirme que vê os seguintes quatro módulos: **$edgeAgent,** **$edgeHub,** **eventgridmodule,** **assinante** e **azureblobstorageoniotedge** que todos estão a ser implantados.
 2. Reveja as informações de implementação e, em seguida, selecione **Enviar**.
 
-## <a name="verify-your-deployment"></a>Verificar sua implantação
+## <a name="verify-your-deployment"></a>Verifique a sua implantação
 
-1. Depois de enviar a implantação, você retornará para a página IoT Edge do Hub IoT.
+1. Depois de submeter a implementação, volte à página IoT Edge do seu hub IoT.
 2. Selecione o **dispositivo IoT Edge** que apontou com a implementação para abrir os seus detalhes.
 3. Nos detalhes do dispositivo, verifique se os módulos eventgrid, assinante e azureblobstorageoniotedge estão listados como **especificados na implementação** e **reportados pelo dispositivo**.
 
-   Pode levar alguns minutos para que o módulo seja iniciado no dispositivo e reportado de volta ao Hub IoT. Atualize a página para ver um status atualizado.
+   Pode levar alguns momentos para o módulo ser iniciado no dispositivo e depois reportado de volta ao IoT Hub. Refresque a página para ver um estado atualizado.
 
 ## <a name="publish-blobcreated-and-blobdeleted-events"></a>Publicar eventos BlobCreated e BlobDeleted
 
-1. Este módulo cria automaticamente o tópico **MicrosoftStorage**. Verifique se ele existe
+1. Este módulo cria automaticamente o tópico **MicrosoftStorage**. Verifique se existe
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview
     ```
@@ -195,11 +195,11 @@ Mantenha as rotas predefinidas e selecione **Next** para continuar na secção d
     ```
 
     > [!IMPORTANT]
-    > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio da chave SAS, a chave SAS especificada anteriormente deverá ser adicionada como um cabeçalho. Daí que o pedido de caracóis seja: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
-    > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada via certificado, o pedido de caracóis será: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através da chave SAS, a tecla SAS especificada anteriormente deve ser adicionada como cabeçalho. Daí o pedido de caracóis será:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada via certificado, o pedido de caracóis será:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
-2. Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, terá de criar uma subscrição de Event Grid para o tópico **do MicrosoftStorage.**
-    1. Crie blobsubscription. JSON com o conteúdo a seguir. Para mais detalhes sobre a carga útil, consulte a nossa [documentação da API](api.md)
+2. Os assinantes podem inscrever-se para eventos publicados num tópico. Para receber qualquer evento, terá de criar uma subscrição de Event Grid para o tópico **do MicrosoftStorage.**
+    1. Crie blobsubscription.json com o seguinte conteúdo. Para mais detalhes sobre a carga útil, consulte a nossa [documentação da API](api.md)
 
        ```json
         {
@@ -215,19 +215,19 @@ Mantenha as rotas predefinidas e selecione **Next** para continuar na secção d
        ```
 
        >[!NOTE]
-       > A propriedade **endpointType** especifica que o assinante é um **Webhook**.  O **endpointUrl** especifica o URL no qual o assinante está a ouvir eventos. Essa URL corresponde ao exemplo de Azure function que você implantou anteriormente.
+       > A propriedade **endpointType** especifica que o assinante é um **Webhook**.  O **endpointUrl** especifica o URL no qual o assinante está a ouvir eventos. Este URL corresponde à amostra da Função Azure que implementou anteriormente.
 
-    2. Execute o comando a seguir para criar uma assinatura para o tópico. Confirme se vê que o código de estado HTTP está `200 OK`.
+    2. Executar o seguinte comando para criar uma subscrição para o tópico. Confirme se vê o `200 OK`código de estado HTTP .
 
        ```sh
        curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
        ```
 
        > [!IMPORTANT]
-       > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio da chave SAS, a chave SAS especificada anteriormente deverá ser adicionada como um cabeçalho. Daí que o pedido de caracóis seja: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através da chave SAS, a tecla SAS especificada anteriormente deve ser adicionada como cabeçalho. Daí o pedido de caracóis será:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
        > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada via certificado, o pedido de caracóis será:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
-    3. Execute o comando a seguir para verificar se a assinatura foi criada com êxito. O código de status HTTP de 200 OK deve ser retornado.
+    3. Executar o seguinte comando para verificar se a subscrição foi criada com sucesso. Http Status Code of 200 OK deve ser devolvido.
 
        ```sh
        curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
@@ -253,19 +253,19 @@ Mantenha as rotas predefinidas e selecione **Next** para continuar na secção d
        ```
 
        > [!IMPORTANT]
-       > - Para o fluxo HTTPS, se a autenticação do cliente estiver habilitada por meio da chave SAS, a chave SAS especificada anteriormente deverá ser adicionada como um cabeçalho. Daí que o pedido de caracóis seja: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
-       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada via certificado, o pedido de caracóis será: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através da chave SAS, a tecla SAS especificada anteriormente deve ser adicionada como cabeçalho. Daí o pedido de caracóis será:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada via certificado, o pedido de caracóis será:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
 3. Baixe [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) e [conecte-o ao seu armazenamento local](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
-## <a name="verify-event-delivery"></a>Verificar a entrega de eventos
+## <a name="verify-event-delivery"></a>Verificar a entrega do evento
 
-### <a name="verify-blobcreated-event-delivery"></a>Verificar a entrega de eventos do BlobCreated
+### <a name="verify-blobcreated-event-delivery"></a>Verificar a entrega do evento BlobCreated
 
-1. Carregue arquivos como BLOBs de blocos no armazenamento local de Gerenciador de Armazenamento do Azure e o módulo publicará automaticamente os eventos de criação. 
-2. Confira os logs do assinante para criar evento. Siga os passos para [verificar a entrega do evento](pub-sub-events-webhook-local.md#verify-event-delivery)
+1. Faça upload de ficheiros como blocos blobs para o armazenamento local do Azure Storage Explorer, e o módulo publicará automaticamente criar eventos. 
+2. Confira os registos de subscritores para criar evento. Siga os passos para [verificar a entrega do evento](pub-sub-events-webhook-local.md#verify-event-delivery)
 
-    Saída de exemplo:
+    Saída da amostra:
 
     ```json
             Received Event:
@@ -290,12 +290,12 @@ Mantenha as rotas predefinidas e selecione **Next** para continuar na secção d
             }
     ```
 
-### <a name="verify-blobdeleted-event-delivery"></a>Verificar a entrega de eventos do BlobDeleted
+### <a name="verify-blobdeleted-event-delivery"></a>Verificar a entrega do evento BlobDeleted
 
-1. Exclua os BLOBs do armazenamento local usando Gerenciador de Armazenamento do Azure e o módulo publicará automaticamente os eventos de exclusão. 
-2. Confira os logs do assinante para excluir evento. Siga os passos para [verificar a entrega do evento](pub-sub-events-webhook-local.md#verify-event-delivery)
+1. Elimine as bolhas do armazenamento local utilizando o Azure Storage Explorer, e o módulo publicará automaticamente apagar eventos. 
+2. Confira os registos de assinantes para eliminar o evento. Siga os passos para [verificar a entrega do evento](pub-sub-events-webhook-local.md#verify-event-delivery)
 
-    Saída de exemplo:
+    Saída da amostra:
     
     ```json
             Received Event:
@@ -320,45 +320,45 @@ Mantenha as rotas predefinidas e selecione **Next** para continuar na secção d
             }
     ```
 
-Parabéns! Você concluiu o tutorial. As seções a seguir fornecem detalhes sobre as propriedades do evento.
+Parabéns! Completou o tutorial. As seguintes secções fornecem detalhes sobre as propriedades do evento.
 
 ### <a name="event-properties"></a>Propriedades do evento
 
-Aqui está a lista de propriedades de eventos com suporte e seus tipos e descrições. 
+Aqui está a lista de propriedades de eventos suportados e seus tipos e descrições. 
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. A Grelha de Eventos fornece este valor. |
-| subject | string | Caminho definido pela editora para o assunto do evento. |
-| eventType | string | Um dos tipos de eventos registados para esta fonte do evento. |
-| eventoTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| ID | string | Identificador exclusivo do evento. |
-| data | objeto | Dados de evento de armazenamento de BLOBs. |
-| dataVersion | string | A versão esquema do objeto de dados. A editora define a versão do esquema. |
-| metadataVersion | string | A versão de esquema dos metadados do evento. A Grelha de Eventos define o esquema das propriedades de alto nível. A Grelha de Eventos fornece este valor. |
+| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | string | Identificador único para o evento. |
+| data | objeto | Dados do evento de armazenamento blob. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| api | string | A operação que disparou o evento. Pode ser um dos seguintes valores: <ul><li>BlobCreated - valores permitidos são: `PutBlob` e `PutBlockList`</li><li>BlobDeleted - valores permitidos são `DeleteBlob`, `DeleteAfterUpload` e `AutoDelete`. <p>O evento `DeleteAfterUpload` é gerado quando a bolha é automaticamente eliminada porque a propriedade desejada a eliminar AfterUpload é definida como verdadeira. </p><p>`AutoDelete` evento é gerado quando a bolha é automaticamente eliminada porque o valor de propriedade desejado afterAfterMinutes expirou.</p></li></ul>|
+| api | string | A operação que desencadeou o evento. Pode ser um dos seguintes valores: <ul><li>BlobCreated - valores `PutBlob` permitidos são: e`PutBlockList`</li><li>BlobDeleted - valores `DeleteAfterUpload` `AutoDelete`permitidos são, `DeleteBlob`e . <p>O `DeleteAfterUpload` evento é gerado quando a bolha é automaticamente eliminada porque a propriedade desejada a eliminar AfterUpload é definida como verdadeira. </p><p>`AutoDelete`evento é gerado quando a bolha é automaticamente eliminada porque eliminar AfterMinutes valor de propriedade desejado expirou.</p></li></ul>|
 | clientRequestId | string | um PEDIDO de pedido fornecido pelo cliente para a operação API de armazenamento. Este ID pode ser usado para correlacionar com os registos de diagnóstico do Armazenamento Azure utilizando o campo "cliente-request-id" nos registos, e pode ser fornecido em pedidos de cliente utilizando o cabeçalho "x-ms-cliente-request-id". Para mais detalhes, consulte [formato de log](/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | string | ID de pedido gerado pelo serviço para a operação API de armazenamento. Pode ser usado para correlacionar os logs de diagnóstico do armazenamento do Azure usando o campo "solicitação-ID-cabeçalho" nos logs e é retornado de iniciar chamada à API no cabeçalho ' x-MS-Request-ID '. Ver [Formato de Registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| eTag | string | O valor que você pode usar para executar operações condicionalmente. |
-| contentType | string | O tipo de conteúdo especificado para o blob. |
-| contentLength | número inteiro | O tamanho do blob em bytes. |
-| blobType | string | O tipo de BLOB. Os valores válidos são "BlockBlob" ou "PageBlob". |
-| url | string | O caminho para a bolha. <br>Se o cliente utilizar um API Blob REST, então o url tem esta estrutura: *\<nome de conta de armazenamento\>.blob.core.windows.net/\<nome de contentor\>/\<\>de nome de ficheiro* . <br>Se o cliente utilizar uma API de depósito de data Lake, então o url tem esta estrutura: *\<nome de conta de armazenamento\>.dfs.core.windows.net/\<nome do sistema de ficheiros\>/\<\>de nome de ficheiro* . |
+| requestId | string | ID de pedido gerado pelo serviço para a operação API de armazenamento. Pode ser usado para correlacionar com os registos de diagnóstico do Armazenamento Azure utilizando o campo "request-id-header" nos registos e é devolvido a partir do início da chamada da API no cabeçalho 'x-ms-request-id'. Ver [Formato de Registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| eTag | string | O valor que pode utilizar para realizar operações condicionalmente. |
+| conteúdoType | string | O tipo de conteúdo especificado para a bolha. |
+| conteúdoComprimento | número inteiro | O tamanho da bolha em bytes. |
+| blobType | string | O tipo de bolha. Os valores válidos são "BlockBlob" ou "PageBlob". |
+| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: * \<nome de\>arma de armazenamento .blob.core.windows.net/\<nome\>/\<\>de ficheiro de nome de contentor*. <br>Se o cliente utilizar uma API REST De armazenamento de data Lake, então o url tem esta estrutura: * \<\>nome de arma de armazenamento .dfs.core.windows.net/\<nome\>/\<\>de ficheiro do ficheiro do ficheiro*. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte os seguintes artigos da documentação do armazenamento de BLOBs:
+Consulte os seguintes artigos da documentação de Armazenamento Blob:
 
 - [Filtrar eventos de armazenamento blob](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
 - [Práticas recomendadas para consumir eventos de armazenamento blob](../../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
 
-Neste tutorial, você publicou eventos criando ou excluindo BLOBs em um armazenamento de BLOBs do Azure. Consulte os outros tutoriais para saber como encaminhar eventos para a nuvem (Hub de eventos do Azure ou Hub IoT do Azure): 
+Neste tutorial, publicou eventos criando ou apagando bolhas num Armazém Azure Blob. Veja os outros tutoriais para aprender a encaminhar eventos para a nuvem (Azure Event Hub ou Azure IoT Hub): 
 
-- [Eventos avançados para a Grelha de Eventos De Azure](forward-events-event-grid-cloud.md)
-- [Eventos avançados para o Hub Azure IoT](forward-events-iothub.md)
+- [Reencaminhar eventos para o Azure Event Grid](forward-events-event-grid-cloud.md)
+- [Reencaminhar eventos para o Hub IoT do Azure](forward-events-iothub.md)

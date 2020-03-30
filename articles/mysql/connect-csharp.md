@@ -1,5 +1,5 @@
 ---
-title: Conectar- C# se usando-banco de dados do Azure para MySQL
+title: Conecte-se usando C# - Base de Dados Azure para MySQL
 description: Este guia de introdução disponibiliza um código de exemplo de C# (.NET) que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,25 +7,25 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 2f740d21c7fb59a05fa1df4a0b3b1385cf2f0831
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 715be66e1b7d1c9270600dd3f11ee16d9aa1885d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770786"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067980"
 ---
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar .NET (C#) para se ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação C#. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com C# e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
+Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
 - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Também tem de:
-- Instalar o [.NET](https://www.microsoft.com/net/download). Siga os passos no artigo ligado para instalar o .NET especificamente para a sua plataforma (Windows, Ubuntu Linux ou macOS). 
-- Instale o [Visual Studio](https://www.visualstudio.com/downloads/).
+- Instalar [.NET](https://www.microsoft.com/net/download). Siga os passos no artigo ligado para instalar o .NET especificamente para a sua plataforma (Windows, Ubuntu Linux ou macOS). 
+- Instalar [o Estúdio Visual.](https://www.visualstudio.com/downloads/)
 
 ## <a name="create-a-c-project"></a>Criar um projeto em C#
 Numa linha de comandos, execute:
@@ -40,7 +40,7 @@ dotnet add package MySqlConnector
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure.](https://portal.azure.com/)
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.

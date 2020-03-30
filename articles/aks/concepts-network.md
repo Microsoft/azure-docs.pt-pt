@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253939"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Serviço Azure Kubernetes (AKS)
@@ -54,16 +54,16 @@ O endereço IP para equilibradores e serviços de carga pode ser atribuído dina
 
 Podem ser criados equilibradores de carga *internos* e *externos.* Os equilibradores internos de carga só têm um endereço IP privado, pelo que não podem ser acedidos a partir da Internet.
 
-## <a name="azure-virtual-networks"></a>Redes virtuais Azure
+## <a name="azure-virtual-networks"></a>Redes virtuais do Azure
 
-No AKS, pode implementar um cluster que utiliza um dos dois modelos de rede seguintes:
+No AKS, pode implementar um cluster que utilize um dos dois modelos de rede seguintes:
 
 - *Rede Kubenet* - Os recursos de rede são tipicamente criados e configurados à medida que o cluster AKS é implantado.
 - Rede de rede de *contentores Azure (CNI)* - O cluster AKS está ligado aos recursos e configurações de rede virtuais existentes.
 
 ### <a name="kubenet-basic-networking"></a>Rede Kubenet (básica)
 
-A opção de rede *kubenet* é a configuração padrão para a criação de cluster AKS. Com *kubenet,* os nós obtêm um endereço IP da subnet da rede virtual Azure. As cápsulas recebem um endereço IP de um espaço de endereço logicamente diferente para a subnet de rede virtual Azure dos nódosos. A tradução de endereços de rede (NAT) é então configurada para que as cápsulas possam chegar a recursos na rede virtual Azure. O endereço IP de origem do tráfego é NAT'd para o endereço IP primário do nó.
+A opção de rede *kubenet* é a configuração padrão para a criação de cluster AKS. Com *kubenet,* os nós obtêm um endereço IP da subnet da rede virtual Azure. Os pods recebem um endereço IP de um espaço de endereços logicamente diferente para a sub-rede da rede virtual do Azure dos nós. A tradução de endereços de rede (NAT) é configurada para que os pods possam chegar aos recursos na rede virtual do Azure. O endereço IP de origem do tráfego é NAT'd para o endereço IP primário do nó.
 
 Os nódosos usam o plugin [kubenet][kubenet] Kubernetes. Pode permitir que a plataforma Azure crie e configure as redes virtuais para si, ou opte por implantar o seu cluster AKS numa subnet de rede virtual existente. Mais uma vez, apenas os nós recebem um endereço IP resaída, e as cápsulas usam NAT para comunicar com outros recursos fora do cluster AKS. Esta abordagem reduz consideravelmente o número de endereços IP que precisa de reservar no seu espaço de rede para que as cápsulas possam utilizar.
 
@@ -71,7 +71,7 @@ Para mais informações, consulte a rede de rede De Modo Desinformação [para u
 
 ### <a name="azure-cni-advanced-networking"></a>Rede Azure CNI (avançada)
 
-Com o Azure CNI, cada cápsula recebe um endereço IP da subnet e pode ser acedida diretamente. Estes endereços IP devem ser únicos em todo o espaço da sua rede, e devem ser planeados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de cápsulas que suporta. O número equivalente de endereços IP por nó é então reservado à frente para esse nó. Esta abordagem requer mais planeamento, como pode levar à exaustão do endereço IP ou à necessidade de reconstruir clusters numa subrede maior à medida que a sua aplicação exige crescer.
+Com o Azure CNI, cada pod obtém um endereço IP da sub-rede e pode ser acedido diretamente. Estes endereços IP devem ser únicos em todo o espaço da sua rede, e devem ser planeados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de cápsulas que suporta. O número equivalente de endereços IP por nó é então reservado à frente para esse nó. Esta abordagem requer mais planeamento, como pode levar à exaustão do endereço IP ou à necessidade de reconstruir clusters numa subrede maior à medida que a sua aplicação exige crescer.
 
 Os nós utilizam a interface de rede de [contentores Azure (CNI)][cni-networking] plugin Kubernetes.
 
@@ -119,7 +119,7 @@ Embora capacidades como pontos finais de serviço ou UDRs sejam suportadas tanto
 * Se criar manualmente os recursos de rede virtuais para um cluster AKS, é suportado ao configurar os seus próprios UDRs ou pontos finais de serviço.
 * Se a plataforma Azure criar automaticamente os recursos de rede virtuais para o seu cluster AKS, não é suportado para alterar manualmente esses recursos geridos pela AKS para configurar os seus próprios UDRs ou pontos finais de serviço.
 
-## <a name="ingress-controllers"></a>Controladores de ingressos
+## <a name="ingress-controllers"></a>Controladores de entrada
 
 Quando se cria um Serviço de Balancer tipo LoadBalancer, é criado um recurso de equilíbrio de carga Azure subjacente. O equilibrista de carga está configurado para distribuir o tráfego nas cápsulas do seu Serviço numa determinada porta. O LoadBalancer só funciona na camada 4 - o Serviço desconhece as aplicações reais, e não pode fazer quaisquer considerações adicionais de encaminhamento.
 

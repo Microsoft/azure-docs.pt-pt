@@ -1,6 +1,6 @@
 ---
-title: Exportar e importar registros de hubs de notificação do Azure em massa | Microsoft Docs
-description: Saiba como usar o suporte em massa de hubs de notificação para executar um grande número de operações em um hub de notificação ou para exportar todos os registros.
+title: Exporte e importação De Centros de Notificação Azure registos a granel [ Export and importe Hubs] registos a granel Microsoft Docs
+description: Saiba como utilizar o suporte a granel dos Centros de Notificação para realizar um grande número de operações num centro de notificação ou para exportar todos os registos.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -15,31 +15,31 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212392"
 ---
-# <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportar e importar registros de hubs de notificação do Azure em massa
-Há cenários em que é necessário criar ou modificar grandes números de registros em um hub de notificação. Alguns desses cenários são atualizações de marca após computações em lote ou migração de uma implementação de push existente para usar os hubs de notificação.
+# <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exporte e importação De Centros de Notificação Azure registos a granel
+Existem cenários em que é necessário criar ou modificar um grande número de registos num centro de notificação. Alguns destes cenários são atualizações de etiquetas após computações de lote, ou migração de uma implementação de impulso existente para usar Centros de Notificação.
 
-Este artigo explica como executar um grande número de operações em um hub de notificação ou para exportar todos os registros em massa.
+Este artigo explica como realizar um grande número de operações num centro de notificação, ou para exportar todos os registos, a granel.
 
 ## <a name="high-level-flow"></a>Fluxo de alto nível
-O suporte ao lote foi projetado para dar suporte a trabalhos de longa execução envolvendo milhões de registros. Para atingir essa escala, o suporte ao lote usa o armazenamento do Azure para armazenar detalhes e a saída do trabalho. Para operações de atualização em massa, o usuário é solicitado a criar um arquivo em um contêiner de BLOB, cujo conteúdo é a lista de operações de atualização de registro. Ao iniciar o trabalho, o usuário fornece uma URL para o blob de entrada, junto com uma URL para um diretório de saída (também em um contêiner de BLOB). Depois que o trabalho for iniciado, o usuário poderá verificar o status consultando um local de URL fornecido no início do trabalho. Um trabalho específico só pode executar operações de um tipo específico (cria, atualiza ou exclui). As operações de exportação são executadas de forma análoga.
+O apoio ao lote destina-se a apoiar postos de trabalho de longa duração envolvendo milhões de registos. Para atingir esta escala, o suporte de lote utiliza o Armazenamento Azure para armazenar detalhes de trabalho e saída. Para operações de atualização a granel, o utilizador é obrigado a criar um ficheiro num contentor blob, cujo conteúdo é a lista de operações de atualização de registo. Ao iniciar o trabalho, o utilizador fornece um URL à bolha de entrada, juntamente com um URL para um diretório de saída (também num recipiente de bolhas). Após o início do trabalho, o utilizador pode verificar o estado consultando uma localização url fornecida no início do trabalho. Um trabalho específico só pode realizar operações de tipo específico (cria, atualiza ou elimina). As operações de exportação são realizadas de forma análoga.
 
 ## <a name="import"></a>Importar
 
-### <a name="set-up"></a>Configuração
-Esta seção pressupõe que você tenha as seguintes entidades:
+### <a name="set-up"></a>Configurar
+Esta secção assume que tem as seguintes entidades:
 
-- Um hub de notificação provisionado.
-- Um contêiner de blob de armazenamento do Azure.
-- Referências ao [pacote NuGet do armazenamento do Azure](https://www.nuget.org/packages/windowsazure.storage/) e ao [pacote NuGet dos hubs de notificação](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+- Um centro de notificação provisionado.
+- Um recipiente de blob Azure Storage.
+- Referências ao [pacote NuGet](https://www.nuget.org/packages/windowsazure.storage/) de Armazenamento Azure e pacote NuGet de Centros de [Notificação](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-### <a name="create-input-file-and-store-it-in-a-blob"></a>Criar arquivo de entrada e armazená-lo em um blob
-Um arquivo de entrada contém uma lista de registros serializados em XML, um por linha. Usando o SDK do Azure, o exemplo de código a seguir mostra como serializar os registros e carregá-los no contêiner de BLOB.
+### <a name="create-input-file-and-store-it-in-a-blob"></a>Crie o ficheiro de entrada e guarde-o numa bolha
+Um ficheiro de entrada contém uma lista de registos serializados em XML, um por linha. Utilizando o Azure SDK, o seguinte exemplo de código mostra como serializar as matrículas e carregá-las para o recipiente blob.
 
 ```csharp
 private static void SerializeToBlob(CloudBlobContainer container, RegistrationDescription[] descriptions)
@@ -59,10 +59,10 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
 ```
 
 > [!IMPORTANT]
-> O código anterior serializa os registros na memória e, em seguida, carrega todo o fluxo em um blob. Se você carregou um arquivo com mais de apenas alguns megabytes, consulte as diretrizes de blob do Azure sobre como executar estas etapas; por exemplo, [blobs de blocos](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
+> O código anterior serializa os registos na memória e, em seguida, envia todo o fluxo para uma bolha. Se já fez o upload de um ficheiro de mais do que alguns megabytes, consulte a orientação da bolha Azure sobre como executar estes passos; por exemplo, [blocos de bolhas.](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)
 
-### <a name="create-url-tokens"></a>Criar tokens de URL
-Depois que o arquivo de entrada for carregado, gere as URLs a serem fornecidas ao Hub de notificação para o arquivo de entrada e o diretório de saída. Você pode usar dois contêineres de blob diferentes para entrada e saída.
+### <a name="create-url-tokens"></a>Criar fichas url
+Uma vez que o seu ficheiro de entrada é carregado, gere os URLs para fornecer ao seu centro de notificação tanto para o ficheiro de entrada como para o diretório de saída. Pode utilizar dois recipientes de bolhas diferentes para entrada e saída.
 
 ```csharp
 static Uri GetOutputDirectoryUrl(CloudBlobContainer container)
@@ -90,7 +90,7 @@ static Uri GetInputFileUrl(CloudBlobContainer container, string filePath)
 ```
 
 ### <a name="submit-the-job"></a>Submeter o trabalho
-Com as duas URLs de entrada e saída, agora você pode iniciar o trabalho do lote.
+Com os dois URLs de entrada e saída, agora pode iniciar o trabalho de lote.
 
 ```csharp
 NotificationHubClient client = NotificationHubClient.CreateClientFromConnectionString(CONNECTION_STRING, HUB_NAME);
@@ -115,23 +115,23 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 }
 ```
 
-Além das URLs de entrada e saída, este exemplo cria um `NotificationHubJob` objeto que contém um `JobType` objeto, que pode ser um dos seguintes tipos:
+Além dos URLs de entrada e saída, este exemplo cria um `NotificationHubJob` objeto que contém um `JobType` objeto, que pode ser um dos seguintes tipos:
 
 - `ImportCreateRegistrations`
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-Depois que a chamada for concluída, o trabalho será continuado pelo hub de notificação e você poderá verificar seu status com a chamada para [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
+Uma vez concluída a chamada, o trabalho é continuado pelo centro de notificação, e pode verificar o seu estado com a chamada para [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
 
-Na conclusão do trabalho, você pode inspecionar os resultados examinando os seguintes arquivos no diretório de saída:
+No final do trabalho, pode inspecionar os resultados analisando os seguintes ficheiros no seu diretório de saída:
 
 - `/<hub>/<jobid>/Failed.txt`
 - `/<hub>/<jobid>/Output.txt`
 
-Esses arquivos contêm a lista de operações bem-sucedidas e com falha do seu lote. O formato de arquivo `.cvs`é, no qual cada linha tem o número de linha do arquivo de entrada original e a saída da operação (normalmente, a descrição de registro criada ou atualizada).
+Estes ficheiros contêm a lista de operações bem sucedidas e falhadas do seu lote. O formato `.cvs`de ficheiro é, no qual cada linha tem o número de linha do ficheiro de entrada original, e a saída da operação (normalmente a descrição do registo criada ou atualizada).
 
-### <a name="full-sample-code"></a>Código de exemplo completo
-O código de exemplo a seguir importa os registros para um hub de notificação.
+### <a name="full-sample-code"></a>Código de amostra completo
+O código de amostra seguinte importa registos num centro de notificação.
 
 ```csharp
 using Microsoft.Azure.NotificationHubs;
@@ -262,13 +262,13 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="export"></a>Exportar
-Exportar o registro é semelhante à importação, com as seguintes diferenças:
+O registo de exportação é semelhante ao importado, com as seguintes diferenças:
 
-- Você só precisa da URL de saída.
-- Você cria um NotificationHubJob do tipo ExportRegistrations.
+- Só precisa do URL de saída.
+- Cria um NotificationHubJob de tipo ExportRegistrations.
 
-### <a name="sample-code-snippet"></a>Trecho de código de exemplo
-Aqui está um trecho de código de exemplo para exportar registros em Java:
+### <a name="sample-code-snippet"></a>Corte de código de amostra
+Aqui está um código de amostra para registos de exportação em Java:
 
 ```java
 // submit an export job
@@ -288,8 +288,8 @@ while(true){
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre os registros, consulte os seguintes artigos:
+Para saber mais sobre as inscrições, consulte os seguintes artigos:
 
-- [Gerenciamento de registro](notification-hubs-push-notification-registration-management.md)
-- [Marcas para registros](notification-hubs-tags-segment-push-message.md)
-- [Registros de modelo](notification-hubs-templates-cross-platform-push-messages.md)
+- [Gestão de registos](notification-hubs-push-notification-registration-management.md)
+- [Etiquetas para registos](notification-hubs-tags-segment-push-message.md)
+- [Registos de modelos](notification-hubs-templates-cross-platform-push-messages.md)

@@ -1,6 +1,6 @@
 ---
-title: Arquiteturas para implantar aplicativos Oracle em máquinas virtuais do Azure | Microsoft Docs
-description: Arquiteturas de aplicativos para implantar aplicativos Oracle, incluindo o E-Business Suite, JD Edwards EnterpriseOne e PeopleSoft em Microsoft Azure máquinas virtuais com bancos de dados no Azure ou no OCI (Oracle Cloud Infrastructure).
+title: Arquiteturas para implementar aplicações da Oracle em Máquinas Virtuais Azure [ Microsoft Docs
+description: Arquiteturas de aplicações para implementar aplicações Oracle, incluindo E-Business Suite, JD Edwards EnterpriseOne, e PeopleSoft em máquinas virtuais Microsoft Azure com bases de dados em Azure ou na Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
@@ -14,138 +14,138 @@ ms.date: 07/18/2019
 ms.author: rogirdh
 ms.custom: ''
 ms.openlocfilehash: b183a4d4922c89f60ccb19b3e3e978216f33cc9a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70100092"
 ---
-# <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Arquiteturas para implantar aplicativos Oracle no Azure
+# <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Arquiteturas para implementar aplicações da Oracle no Azure
 
-A Microsoft e a Oracle trabalharam em conjunto para permitir que os clientes implantem aplicativos Oracle, como Oracle E-Business Suite, JD Edwards EnterpriseOne e PeopleSoft na nuvem. Com a introdução da interconectividade de [rede privada](configure-azure-oci-networking.md) de visualização entre o Microsoft Azure e o Oracle Cloud Infrastructure (OCI), os aplicativos Oracle agora podem ser implantados no Azure com seus bancos de dados back-end no Azure ou no OCI. Os aplicativos Oracle também podem ser integrados com o Azure Active Directory, permitindo que você configure o logon único para que os usuários possam entrar no aplicativo Oracle usando suas credenciais do Azure Active Directory (AD do Azure).
+A Microsoft e a Oracle trabalharam em conjunto para permitir que os clientes implementem aplicações da Oracle, como a Oracle E-Business Suite, a JD Edwards EnterpriseOne e a PeopleSoft na nuvem. Com a introdução da [interconectividade da rede privada](configure-azure-oci-networking.md) de pré-visualização entre o Microsoft Azure e o Oracle Cloud Infrastructure (OCI), as aplicações oracle podem agora ser implementadas no Azure com as suas bases de dados back-end em Azure ou OCI. As aplicações Oracle também podem ser integradas com o Azure Ative Directory, permitindo-lhe configurar um único sinal para que os utilizadores possam assinar na aplicação Oracle usando as suas credenciais Azure Ative Directory (Azure AD).
 
-O OCI oferece várias opções de banco de dados Oracle para aplicativos Oracle, incluindo DBaaS, serviço de nuvem Exadata, Oracle RAC e infraestrutura como serviço (IaaS). Atualmente, o banco de dados autônomo não é um back-end com suporte para aplicativos Oracle.
+O OCI oferece várias opções de base de dados oracle para aplicações Oracle, incluindo DBaaS, Exadata Cloud Service, Oracle RAC e Infrastructure-as-a-Service (IaaS). Atualmente, a Base de Dados Autónoma não é um back-end suportado para aplicações Oracle.
 
-Há [várias opções](oracle-overview.md) para implantar aplicativos Oracle no Azure, incluindo de maneira altamente disponível e segura. O Azure também oferece [imagens de VM de banco de dados Oracle](oracle-vm-solutions.md) que você pode implantar se optar por executar aplicativos Oracle totalmente no Azure.
+Existem [várias opções](oracle-overview.md) para implementar aplicações Oracle em Azure, incluindo de forma altamente disponível e segura. O Azure também oferece [imagens VM](oracle-vm-solutions.md) da base de dados Oracle que pode implementar se optar por executar as suas aplicações Oracle inteiramente no Azure.
 
-As seções a seguir descrevem as recomendações de arquitetura da Microsoft e da Oracle para implantar o Oracle E-Business Suite, JD Edwards EnterpriseOne e PeopleSoft em uma configuração de nuvem cruzada ou inteiramente no Azure. A Microsoft e a Oracle testaram esses aplicativos e confirmaram que o desempenho atende aos padrões definidos pela Oracle para esses aplicativos.
+As seguintes secções delineiam recomendações de arquitetura tanto da Microsoft como da Oracle para implementar a Oracle E-Business Suite, jD Edwards EnterpriseOne e PeopleSoft numa configuração transversal ou inteiramente em Azure. A Microsoft e a Oracle testaram estas aplicações e confirmaram que o desempenho cumpre os padrões estabelecidos pela Oracle para estas aplicações.
 
-## <a name="architecture-considerations"></a>Considerações sobre arquitetura
+## <a name="architecture-considerations"></a>Considerações de arquitetura
 
-Os aplicativos Oracle são compostos por vários serviços, que podem ser hospedados na mesma ou em várias máquinas virtuais no Azure e, opcionalmente, no OCI. 
+As aplicações oracle são compostas por múltiplos serviços, que podem ser hospedados nas mesmas ou múltiplas máquinas virtuais em Azure e opcionalmente em OCI. 
 
-As instâncias do aplicativo podem ser configuradas com pontos de extremidade públicos ou privados. A Microsoft e a Oracle recomendam a configuração de uma *VM host bastião* com um endereço IP público em uma sub-rede separada para o gerenciamento do aplicativo. Em seguida, atribua apenas endereços IP privados a outros computadores, incluindo a camada de banco de dados. 
+As instâncias de candidatura podem ser configuradas com pontos finais privados ou públicos. A Microsoft e a Oracle recomendam a criação de um *VM de anfitrião* de bastião com um endereço IP público numa subnet separada para a gestão da aplicação. Em seguida, atribua apenas endereços IP privados às outras máquinas, incluindo o nível de base de dados. 
 
-Ao configurar um aplicativo em uma arquitetura de nuvem cruzada, o planejamento é necessário para garantir que o espaço de endereço IP na rede virtual do Azure não se sobreponha ao espaço de endereço IP privado na rede de nuvem virtual de OCI.
+Ao configurar uma aplicação numa arquitetura cross-cloud, é necessário planear para garantir que o espaço de endereço IP na rede virtual Azure não se sobreponha ao espaço de endereçoip privado na rede de nuvem virtual OCI.
 
-Para maior segurança, configure grupos de segurança de rede em um nível de sub-rede para garantir que apenas o tráfego em portas específicas e endereços IP seja permitido. Por exemplo, os computadores na camada intermediária só devem receber tráfego de dentro da rede virtual. Nenhum tráfego externo deve alcançar os computadores da camada intermediária diretamente.
+Para uma maior segurança, criar grupos de segurança de rede a nível de subnet para garantir apenas o tráfego em portas específicas e endereços IP é permitido. Por exemplo, as máquinas do nível médio só devem receber tráfego dentro da rede virtual. Nenhum tráfego externo deve chegar diretamente às máquinas de nível médio.
 
-Para alta disponibilidade, você pode configurar instâncias redundantes dos diferentes servidores no mesmo conjunto de disponibilidade ou zonas de disponibilidade diferentes. As zonas de disponibilidade permitem que você alcance um SLA de tempo de atividade de 99,99%, enquanto os conjuntos de disponibilidade permitem que você obtenha um SLA de tempo de atividade de 99,95% em região. As arquiteturas de exemplo mostradas neste artigo são implantadas em duas zonas de disponibilidade.
+Para uma elevada disponibilidade, pode configurar instâncias redundantes dos diferentes servidores no mesmo conjunto de disponibilidade ou em diferentes zonas de disponibilidade. As zonas de disponibilidade permitem-lhe atingir um SLA de 99,99%, enquanto os conjuntos de disponibilidade permitem-lhe atingir um SLA de 99,95% na região. As arquiteturas de amostras mostradas neste artigo são implantadas em duas zonas de disponibilidade.
 
-Ao implantar um aplicativo usando a interconexão entre nuvem, você pode continuar usando um circuito de ExpressRoute existente para conectar seu ambiente do Azure à sua rede local. No entanto, você precisa de um circuito de ExpressRoute separado para a interconexão de OCI do que a que se conecta à sua rede local.
+Ao implementar uma aplicação utilizando a interligação cross-cloud, poderá continuar a utilizar um circuito ExpressRoute existente para ligar o seu ambiente Azure à sua rede no local. No entanto, necessita de um circuito ExpressRoute separado para a interligação com o OCI do que aquele que está ligado à sua rede no local.
 
-## <a name="e-business-suite"></a>E-Business Suite
+## <a name="e-business-suite"></a>Suíte E-Business
 
-O Oracle E-Business Suite (EBS) é um pacote de aplicativos, incluindo SCM (gerenciamento de cadeia de fornecedores) e CRM (gerenciamento de relacionamento com o cliente). Para aproveitar o portfólio de banco de dados gerenciado do OCI, o EBS pode ser implantado usando a interconexão entre nuvem entre o Microsoft Azure e o OCI. Nessa configuração, as camadas de apresentação e de aplicativo são executadas no Azure e na camada de banco de dados no OCI, conforme ilustrado no diagrama de arquitetura a seguir (Figura 1).
+Oracle E-Business Suite (EBS) é um conjunto de aplicações que incluem gestão da cadeia de fornecimento (SCM) e Gestão da Relação com o Cliente (CRM). Para tirar partido do portfólio de bases de dados gerido pela OCI, o EBS pode ser implementado utilizando a interligação entre o Microsoft Azure e o OCI. Nesta configuração, os níveis de apresentação e aplicação funcionam em Azure e no nível de base de dados em OCI, como ilustrado no seguinte diagrama de arquitetura (Figura 1).
 
-![Arquitetura entre nuvens do E-Business Suite](media/oracle-oci-applications/ebs-arch-cross-cloud.png)
+![Arquitetura transversal e-business suite](media/oracle-oci-applications/ebs-arch-cross-cloud.png)
 
-*Figura 1: Arquitetura entre nuvens do E-Business Suite* 
+*Figura 1: E-Business Suite arquitetura cross-cloud* 
 
-Nessa arquitetura, a rede virtual no Azure é conectada a uma rede de nuvem virtual no OCI usando a interconexão entre nuvem. A camada de aplicativo é configurada no Azure, enquanto o banco de dados é configurado no OCI. É recomendável implantar cada componente em sua própria sub-rede com grupos de segurança de rede para permitir o tráfego somente de sub-redes específicas em portas específicas.
+Nesta arquitetura, a rede virtual em Azure está ligada a uma rede de nuvem virtual em OCI utilizando a interligação cross-cloud. O nível de aplicação está criado em Azure, enquanto a base de dados está configurada no OCI. Recomenda-se a colocação de cada componente na sua própria sub-rede com grupos de segurança de rede para permitir o tráfego apenas a partir de subredes específicas em portas específicas.
 
-A arquitetura também pode ser adaptada para implantação inteiramente no Azure com bancos de dados Oracle altamente disponíveis configurados usando o Oracle Data Guard em duas zonas de disponibilidade em uma região. O diagrama a seguir (Figura 2) é um exemplo desse padrão de arquitetura:
+A arquitetura também pode ser adaptada para implantação inteiramente em Azure com bases de dados oráculo altamente disponíveis configuradas usando a Oracle Data Guard em duas zonas de disponibilidade numa região. O diagrama seguinte (Figura 2) é um exemplo deste padrão arquitetónico:
 
-![Arquitetura do E-Business Suite somente Azure](media/oracle-oci-applications/ebs-arch-azure.png)
+![Arquitetura só e-Business Suite Azure](media/oracle-oci-applications/ebs-arch-azure.png)
 
-*Figura 2: Arquitetura do E-Business Suite somente Azure*
+*Figura 2: Arquitetura só e-Business Suite Azure*
 
-As seções a seguir descrevem os diferentes componentes em um alto nível.
+As seguintes secções descrevem os diferentes componentes a um nível elevado.
 
 [!INCLUDE [virtual-machines-oracle-applications-bastion](../../../../includes/virtual-machines-oracle-applications-bastion.md)]
 
-### <a name="application-middle-tier"></a>Camada do aplicativo (intermediária)
+### <a name="application-middle-tier"></a>Nível de aplicação (médio)
 
-A camada de aplicativo é isolada em sua própria sub-rede. Há várias máquinas virtuais configuradas para tolerância a falhas e gerenciamento fácil de patches. Essas VMs podem ser apoiadas pelo armazenamento compartilhado, que é oferecido pelo Azure NetApp Files e pelo ultra SSDs. Essa configuração permite uma implantação mais fácil de patches sem tempo de inatividade. Os computadores na camada de aplicativo devem ser frontais por um balanceador de carga público, de modo que as solicitações para a camada de aplicativo EBS sejam processadas mesmo que um computador na camada esteja offline devido a uma falha.
+O nível de aplicação está isolado na sua própria sub-rede. Existem múltiplas máquinas virtuais configuradas para a tolerância à falha e gestão fácil de patch. Estes VMs podem ser apoiados por armazenamento partilhado, que é oferecido por Ficheiros Azure NetApp e Ultra SSDs. Esta configuração permite uma implementação mais fácil de patches sem tempo de inatividade. As máquinas do nível de aplicação devem ser encabeçadas por um equilibrista de carga pública, de modo a que os pedidos ao nível de aplicação EBS sejam processados mesmo que uma máquina do nível esteja offline devido a uma falha.
 
-### <a name="load-balancer"></a>Balanceador de carga
+### <a name="load-balancer"></a>Load balancer
 
-Um balanceador de carga do Azure permite distribuir o tráfego entre várias instâncias de sua carga de trabalho para garantir a alta disponibilidade. Nesse caso, um balanceador de carga público é configurado, pois os usuários têm permissão para acessar o aplicativo EBS pela Web. O balanceador de carga distribui a carga para ambos os computadores na camada intermediária. Para maior segurança, permita o tráfego somente de usuários que acessam o sistema de sua rede corporativa usando uma VPN site a site ou os grupos de segurança de rede e de ExpressRoute.
+Um equilibrador de carga Azure permite-lhe distribuir tráfego em várias instâncias da sua carga de trabalho para garantir uma elevada disponibilidade. Neste caso, é criado um equilibrista de carga pública, uma vez que os utilizadores podem aceder à aplicação EBS pela web. O equilibrador de carga distribui a carga a ambas as máquinas no nível médio. Para maior segurança, permita o tráfego apenas dos utilizadores que acedam ao sistema a partir da sua rede corporativa utilizando uma VPN ou ExpressRoute site-to-site e grupos de segurança de rede.
 
-### <a name="database-tier"></a>Camada de base de dados
+### <a name="database-tier"></a>Nível de base de dados
 
-Essa camada hospeda o banco de dados Oracle e é separada em sua própria sub-rede. É recomendável adicionar grupos de segurança de rede que permitam somente o tráfego da camada de aplicativo para a camada de banco de dados na porta de banco de dados específica da Oracle 1521.
+Este nível acolhe a base de dados oracle e é separado na sua própria sub-rede. Recomenda-se adicionar grupos de segurança de rede que só permitem o tráfego do nível de aplicação para o nível de base de dados na porta de base de dados 1521 específica da Oracle.
 
-A Microsoft e a Oracle recomendam uma configuração de alta disponibilidade. A alta disponibilidade no Azure pode ser obtida Configurando dois bancos de dados Oracle em duas zonas de disponibilidade com o Oracle Data Guard ou usando Oracle Database serviço de nuvem Exadata no OCI. Ao usar Oracle Database serviço de nuvem Exadata, seu banco de dados é implantado em duas sub-redes. Você também pode configurar Oracle Database em VMs no OCI em dois domínios de disponibilidade com o Oracle Data Guard.
+A Microsoft e a Oracle recomendam uma configuração de alta disponibilidade. A elevada disponibilidade em Azure pode ser alcançada através da criação de duas bases de dados Oracle em duas zonas de disponibilidade com a Oracle Data Guard, ou utilizando o Oracle Database Exadata Cloud Service em OCI. Ao utilizar o Oracle Database Exadata Cloud Service, a sua base de dados está implantada em duas subredes. Também pode configurar a Oracle Database em VMs em OCI em dois domínios de disponibilidade com a Oracle Data Guard.
 
 
-### <a name="identity-tier"></a>Camada de identidade
+### <a name="identity-tier"></a>Nível de identidade
 
-A camada de identidade contém a VM de confirmador EBS. O EBS Asserter permite que você sincronize identidades do IDCS (serviço de nuvem de identidade) da Oracle e do Azure AD. O declarador EBS é necessário porque o EBS não oferece suporte a protocolos de logon único como SAML 2,0 ou OpenID Connect. O declarador EBS consome o token do OpenID Connect (gerado por IDCS), valida-o e, em seguida, cria uma sessão para o usuário no EBS. 
+O nível de identidade contém o EBS Asserter VM. A EBS Asserter permite sincronizar identidades do Oracle Identity Cloud Service (IDCS) e da Azure AD. O Asserter EBS é necessário porque a EBS não suporta protocolos de inscrição simples como o SAML 2.0 ou o OpenID Connect. O EBS Asserter consome o token de ligação OpenID (gerado pelo IDCS), valida-o e cria uma sessão para o utilizador em EBS. 
 
-Embora essa arquitetura mostre a integração do IDCS, o acesso unificado do Azure AD e o logon único também podem ser habilitados com o Oracle Access Manager com o Oracle Internet Directory ou o Oracle Unified Directory. Para obter mais informações, consulte os White papers sobre [implantação do Oracle EBS com a integração do IDCS](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_idcs.pdf) ou [implantação do Oracle EBS com integração com o OAM](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_oam.pdf).
+Embora esta arquitetura mostre a integração do IDCS, o acesso unificado da Azure AD e o único sign-on também podem ser ativados com o Oracle Access Manager com o Diretório de Internet oracle ou o Diretório Unificado oracle. Para mais informações, consulte os livros brancos sobre a implantação do [Oracle EBS com integração iDCS](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_idcs.pdf) ou implantação do [Oracle EBS com integração oam](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_oam.pdf).
 
-Para alta disponibilidade, é recomendável que você implante servidores redundantes do Declarador do EBS em várias zonas de disponibilidade com um balanceador de carga na frente dele.
+Para uma elevada disponibilidade, recomenda-se que implemente servidores redundantes do Asserter EBS em várias zonas de disponibilidade com um equilibrista de carga à sua frente.
 
-Depois que sua infraestrutura for configurada, o E-Business Suite poderá ser instalado seguindo o guia de instalação fornecido pela Oracle.
+Uma vez instalada a sua infraestrutura, a E-Business Suite pode ser instalada seguindo o guia de instalação fornecido pela Oracle.
 
 ## <a name="jd-edwards-enterpriseone"></a>JD Edwards EnterpriseOne
 
-O JD Edwards EnterpriseOne da Oracle é um pacote de aplicativos integrado de software de planejamento de recursos empresariais abrangente. É um aplicativo de várias camadas que pode ser configurado com um back-end de banco de dados Oracle ou SQL Server. Esta seção aborda detalhes sobre como implantar o JD Edwards EnterpriseOne com um back-end de banco de dados Oracle no OCI ou no Azure.
+A Oracle's JD Edwards EnterpriseOne é um conjunto integrado de aplicações de software abrangente de planeamento de recursos empresariais. É uma aplicação multi-camadas que pode ser configurada com um backend de base de dados Oracle ou SQL Server. Esta secção discute detalhes sobre a implementação da JD Edwards EnterpriseOne com uma base de dados oracle back-end, quer em OCI quer em Azure.
 
-Na arquitetura recomendada a seguir (Figura 3), a administração, a apresentação e as camadas intermediárias são implantadas na rede virtual no Azure. O banco de dados é implantado em uma rede de nuvem virtual no OCI.
+Na seguinte arquitetura recomendada (Figura 3), a administração, apresentação e níveis médios são implantados na rede virtual em Azure. A base de dados está implantada numa rede virtual de nuvem em OCI.
 
-Assim como acontece com o E-Business Suite, você pode configurar uma camada de bastiões opcional para fins administrativos seguros. Use o host da VM de bastiões como um servidor de salto para acessar as instâncias de aplicativo e banco de dados.
+Tal como acontece com a E-Business Suite, pode criar um bastião opcional para fins administrativos seguros. Utilize o anfitrião do bastião VM como um servidor de salto para aceder às instâncias de aplicação e base de dados.
 
-![Arquitetura entre nuvens do JD Edwards EnterpriseOne](media/oracle-oci-applications/jdedwards-arch-cross-cloud.png)
+![JD Edwards EnterpriseOne arquitetura cross-cloud](media/oracle-oci-applications/jdedwards-arch-cross-cloud.png)
 
-*Figura 3: Arquitetura entre nuvens do JD Edwards EnterpriseOne*
+*Figura 3: JD Edwards EnterpriseOne arquitetura cross-cloud*
 
-Nessa arquitetura, a rede virtual no Azure é conectada à rede de nuvem virtual em OCI usando a interconexão entre nuvem. A camada de aplicativo é configurada no Azure, enquanto o banco de dados é configurado no OCI. É recomendável implantar cada componente em sua própria sub-rede com grupos de segurança de rede para permitir o tráfego somente de sub-redes específicas em portas específicas.
+Nesta arquitetura, a rede virtual em Azure está ligada à rede de nuvem virtual em OCI utilizando a interligação cross-cloud. O nível de aplicação está criado em Azure, enquanto a base de dados está configurada no OCI. Recomenda-se a colocação de cada componente na sua própria sub-rede com grupos de segurança de rede para permitir o tráfego apenas a partir de subredes específicas em portas específicas.
 
-A arquitetura também pode ser adaptada para implantação inteiramente no Azure com bancos de dados Oracle altamente disponíveis configurados usando o Oracle Data Guard em duas zonas de disponibilidade em uma região. O diagrama a seguir (Figura 4) é um exemplo desse padrão de arquitetura:
+A arquitetura também pode ser adaptada para implantação inteiramente em Azure com bases de dados oráculo altamente disponíveis configuradas usando a Oracle Data Guard em duas zonas de disponibilidade numa região. O diagrama seguinte (Figura 4) é um exemplo deste padrão arquitetónico:
 
-![JD Edwards EnterpriseOne somente arquitetura do Azure](media/oracle-oci-applications/jdedwards-arch-azure.png)
+![Arquitetura só jD Edwards EnterpriseOne Azure](media/oracle-oci-applications/jdedwards-arch-azure.png)
 
-*Figura 4: JD Edwards EnterpriseOne somente arquitetura do Azure*
+*Figura 4: Arquitetura só jD Edwards EnterpriseOne Azure*
 
-As seções a seguir descrevem os diferentes componentes em um alto nível.
+As seguintes secções descrevem os diferentes componentes a um nível elevado.
 
 [!INCLUDE [virtual-machines-oracle-applications-bastion](../../../../includes/virtual-machines-oracle-applications-bastion.md)]
 
-### <a name="administrative-tier"></a>Camada administrativa
+### <a name="administrative-tier"></a>Nível administrativo
 
-Como o nome sugere, essa camada é usada para tarefas administrativas. Você pode enfileirar uma sub-rede separada para a camada administrativa. Os serviços e servidores nessa camada são usados principalmente para a instalação e a administração do aplicativo. Portanto, instâncias únicas desses servidores são suficientes. Instâncias redundantes não são necessárias para a alta disponibilidade do seu aplicativo.
+Como o nome sugere, este nível é utilizado para tarefas administrativas. Pode esculpir uma sub-rede separada para o nível administrativo. Os serviços e servidores deste nível são usados principalmente para a instalação e administração da aplicação. Por isso, casos únicos destes servidores são suficientes. Não são necessários casos redundantes para a elevada disponibilidade da sua aplicação.
 
-Os componentes dessa camada são os seguintes:
+Os componentes deste nível são os seguintes:
     
- - **Servidor de provisionamento** -esse servidor é usado para implantação de ponta a ponta dos diferentes componentes do aplicativo. Ele se comunica com as instâncias nas outras camadas, incluindo as instâncias na camada de banco de dados, na porta 22. Ele hospeda o console Gerenciador do Servidor para JD Edwards EnterpriseOne.
- - **Servidor de implantação** -este servidor é necessário principalmente para a instalação do JD Edwards EnterpriseOne. Durante o processo de instalação, esse servidor atua como o repositório central para os arquivos necessários e os pacotes de instalação. O software é distribuído ou implantado em outros servidores e clientes deste servidor.
- - **Cliente de desenvolvimento** – este servidor contém componentes que são executados em um navegador da Web, bem como aplicativos nativos.
+ - **Servidor** de fornecimento - Este servidor é utilizado para a implementação de ponta a ponta dos diferentes componentes da aplicação. Comunica com as instâncias nos outros níveis, incluindo as instâncias no nível de base de dados, sobre a porta 22. Acolhe a Consola de Gestor de Servidores da JD Edwards EnterpriseOne.
+ - **Servidor de implementação** - Este servidor é principalmente necessário para a instalação de JD Edwards EnterpriseOne. Durante o processo de instalação, este servidor funciona como o repositório central para ficheiros e pacotes de instalação necessários. O software é distribuído ou implantado para outros servidores e clientes deste servidor.
+ - **Cliente de desenvolvimento** - Este servidor contém componentes que funcionam num navegador web, bem como aplicações nativas.
 
-### <a name="presentation-tier"></a>Camada de apresentação
+### <a name="presentation-tier"></a>Camada física de apresentação
 
-Essa camada contém vários componentes, como o AIS (serviços de interface de aplicativo), o ADF (estrutura de desenvolvimento de aplicativos) e os JAS (servidores de aplicativos Java). Os servidores nessa camada se comunicam com os servidores na camada intermediária. Eles são frontais por um balanceador de carga que roteia o tráfego para o servidor necessário com base no número da porta e na URL em que o tráfego é recebido. É recomendável que você implante várias instâncias de cada tipo de servidor para alta disponibilidade.
+Este nível contém vários componentes, tais como Serviços de Interface de Aplicação (AIS), Estrutura de Desenvolvimento de Aplicações (ADF) e Servidores de Aplicações Java (JAS). Os servidores deste nível comunicam com os servidores no nível médio. São encabeçados por um equilibrista de carga que encaminha o tráfego para o servidor necessário com base no número da porta e URL em que o tráfego é recebido. Recomenda-se que implemente várias instâncias de cada tipo de servidor para uma elevada disponibilidade.
 
-Estes são os componentes desta camada:
+Seguem-se os componentes deste nível:
     
-- **AIS (Application interface Services)** – o servidor AIS fornece a interface de comunicação entre JD Edwards EnterpriseOne Mobile Enterprise Applications e JD Edwards EnterpriseOne.
-- **Servidor de aplicativos Java (Jas)** – o Jas recebe solicitações do balanceador de carga e as transmite para a camada intermediária para executar tarefas complicadas. O JAS tem a capacidade de executar uma lógica de negócios simples.
-- **Servidor do Publicador de BI (bip)** -este servidor apresenta relatórios com base nos dados coletados pelo aplicativo JD Edwards EnterpriseOne. Você pode criar e controlar como o relatório apresenta os dados com base em modelos diferentes.
-- **Servidor de serviços corporativos (BSS)** -o BSS habilita a troca de informações e a interoperabilidade com outros aplicativos Oracle.
-- **Servidor de eventos em tempo real (RTE)** – o servidor RTE permite que você configure notificações para sistemas externos sobre transações que ocorrem no sistema JDE EnterpriseOne. Ele usa um modelo de assinante e permite que sistemas de terceiros assinem eventos. Para balancear a carga de solicitações para ambos os servidores RTE, verifique se os servidores estão em um cluster.
-- **Servidor de estrutura de desenvolvimento de aplicativos (ADF)** -o servidor ADF é usado para executar JD Edwards EnterpriseOne aplicativos desenvolvidos com o Oracle ADF. Isso é implantado em um Oracle WebLogic Server com tempo de execução do ADF.
+- Serviços de Interface de **Aplicação (AIS)** - O servidor AIS fornece a interface de comunicação entre as aplicações móveis JD Edwards EnterpriseOne e a JD Edwards EnterpriseOne.
+- **Java Application Server (JAS)** - O JAS recebe pedidos do equilibrador de carga e passa-o para o nível médio para executar tarefas complicadas. O JAS tem a capacidade de executar uma lógica de negócio simples.
+- **BI Publisher Server (BIP)** - Este servidor apresenta relatórios com base nos dados recolhidos pela aplicação JD Edwards EnterpriseOne. Pode projetar e controlar a forma como o relatório apresenta os dados com base em diferentes modelos.
+- **Business Services Server (BSS)** - O BSS permite o intercâmbio de informações e interoperabilidade com outras aplicações da Oracle.
+- Servidor de Eventos em **Tempo Real (RTE)** - O Servidor RTE permite-lhe configurar notificações a sistemas externos sobre transações que ocorrem no sistema JDE EnterpriseOne. Utiliza um modelo de subscritor e permite que sistemas de terceiros subscrevam eventos. Para carregar pedidos de equilíbrio para ambos os servidores RTE, certifique-se de que os servidores estão num cluster.
+- **Application Development Framework (ADF) Server** - O servidor ADF é usado para executar aplicações JD Edwards EnterpriseOne desenvolvidas com a Oracle ADF. Isto é implantado num servidor Oracle WebLogic com tempo de execução ADF.
 
-### <a name="middle-tier"></a>Camada intermediária
+### <a name="middle-tier"></a>Nível médio
 
-A camada intermediária contém o servidor lógico e o servidor de lote. Nesse caso, ambos os servidores são instalados na mesma máquina virtual. No entanto, para cenários de produção, é recomendável que você implante servidor lógico e servidor de lote em servidores separados. Vários servidores são implantados na camada intermediária em duas zonas de disponibilidade para maior disponibilidade. Um Azure Load Balancer deve ser criado e esses servidores devem ser colocados em seu pool de back-end para garantir que ambos os servidores estejam ativos e processando solicitações.
+O nível médio contém o servidor lógico e o servidor de lote. Neste caso, ambos os servidores estão instalados na mesma máquina virtual. No entanto, para cenários de produção, recomenda-se que implemente servidorlógico lógico e servidor de lote em servidores separados. Vários servidores são implantados no nível médio em duas zonas de disponibilidade para uma maior disponibilidade. Deve ser criado um balancedor de carga Azure e estes servidores devem ser colocados no seu pool de backend para garantir que ambos os servidores estão ativos e processam pedidos.
 
-Os servidores na camada intermediária recebem solicitações dos servidores na camada de apresentação e do balanceador de carga público. As regras do grupo de segurança de rede devem ser configuradas para negar o tráfego de qualquer endereço que não seja a sub-rede da camada de apresentação e o balanceador de carga. Uma regra NSG também pode ser configurada para permitir o tráfego na porta 22 do host bastião para fins de gerenciamento. Talvez você possa usar o balanceador de carga público para balancear a carga de solicitações entre as VMs na camada intermediária.
+Os servidores do nível médio recebem pedidos dos servidores apenas no nível de apresentação e do equilibrador de carga público. As regras do grupo de segurança da rede devem ser criadas para negar o tráfego de qualquer endereço que não seja a subnet de nível de apresentação e o equilibrador de carga. Também pode ser criada uma regra nsg para permitir o tráfego no porto 22 do anfitrião do bastião para fins de gestão. Poderá utilizar o equilibrador de carga público para carregar pedidos de equilíbrio entre os VMs no nível médio.
 
-Os dois componentes a seguir estão na camada intermediária:
+Os dois componentes seguintes estão no nível médio:
 
-- **Servidor lógico** – contêm a lógica de negócios ou as funções de negócios.
-- **Servidor de lote** -usado para processamento em lotes
+- **Servidor lógico** - Conter a lógica do negócio ou funções empresariais.
+- **Servidor de lote** - Usado para processamento de lote
 
 [!INCLUDE [virtual-machines-oracle-applications-database](../../../../includes/virtual-machines-oracle-applications-database.md)]
 
@@ -153,44 +153,44 @@ Os dois componentes a seguir estão na camada intermediária:
 
 ## <a name="peoplesoft"></a>PeopleSoft
 
-O pacote de aplicativos PeopleSoft da Oracle contém software para recursos humanos e gerenciamento financeiro. O pacote de aplicativos é multicamada e os aplicativos incluem sistemas de gerenciamento de recursos humanos (HRMS), gerenciamento de relacionamento com o cliente (CRM), finanças e gerenciamento de cadeia de fornecedores (FSCM) e Enterprise Performance Management (EPM).
+A suíte de aplicações PeopleSoft da Oracle contém software para recursos humanos e gestão financeira. O conjunto de aplicações é multi-tiered e as aplicações incluem sistemas de gestão de recursos humanos (HRMS), gestão de relacionamento com o cliente (CRM), gestão financeira e de cadeia de fornecimento (FSCM) e gestão de desempenho empresarial (EPM).
 
-É recomendável que cada camada do pacote de software seja implantada em sua própria sub-rede. Um banco de dados Oracle ou Microsoft SQL Server é necessário como o banco de dados de back-end para o aplicativo. Esta seção aborda detalhes sobre como implantar o PeopleSoft com um back-end do banco de dados Oracle.
+Recomenda-se que cada nível da suíte de software seja implantado na sua própria sub-rede. Uma base de dados Oracle ou Microsoft SQL Server é necessária como base de dados de backend para a aplicação. Esta secção discute detalhes sobre a implementação do PeopleSoft com um backend de base de dados Oracle.
 
-Veja a seguir uma arquitetura canônica para implantar o pacote de aplicativos PeopleSoft em uma arquitetura de nuvem cruzada (Figura 5).
+Segue-se uma arquitetura canónica para a implantação da suíte de aplicação PeopleSoft numa arquitetura transversal (Figura 5).
 
-![Arquitetura de nuvem cruzada da PeopleSoft](media/oracle-oci-applications/peoplesoft-arch-cross-cloud.png)
+![PeopleSoft arquitetura cross-cloud](media/oracle-oci-applications/peoplesoft-arch-cross-cloud.png)
 
-*Figura 5: Arquitetura de nuvem cruzada da PeopleSoft*
+*Figura 5: Arquitetura de nuvem cruzada PeopleSoft*
 
-Nesta arquitetura de exemplo, a rede virtual no Azure está conectada à rede de nuvem virtual em OCI usando a interconexão entre nuvem. A camada de aplicativo é configurada no Azure, enquanto o banco de dados é configurado no OCI. É recomendável implantar cada componente em sua própria sub-rede com grupos de segurança de rede para permitir o tráfego somente de sub-redes específicas em portas específicas.
+Nesta arquitetura de amostra, a rede virtual em Azure está ligada à rede de nuvem virtual em OCI utilizando a interligação de nuvem cruzada. O nível de aplicação está criado em Azure, enquanto a base de dados está configurada no OCI. Recomenda-se a colocação de cada componente na sua própria sub-rede com grupos de segurança de rede para permitir o tráfego apenas a partir de subredes específicas em portas específicas.
 
-A arquitetura também pode ser adaptada para implantação inteiramente no Azure com bancos de dados Oracle altamente disponíveis configurados usando o Oracle Data Guard em duas zonas de disponibilidade em uma região. O diagrama a seguir (Figura 6) é um exemplo desse padrão de arquitetura:
+A arquitetura também pode ser adaptada para implantação inteiramente em Azure com bases de dados oráculo altamente disponíveis configuradas usando a Oracle Data Guard em duas zonas de disponibilidade numa região. O diagrama seguinte (Figura 6) é um exemplo deste padrão arquitetónico:
 
-![Arquitetura somente do PeopleSoft Azure](media/oracle-oci-applications/peoplesoft-arch-azure.png)
+![Arquitetura só para o PeopleSoft Azure](media/oracle-oci-applications/peoplesoft-arch-azure.png)
 
-*Figura 6: Arquitetura somente do PeopleSoft Azure*
+*Figura 6: Arquitetura só para o PeopleSoft Azure*
 
-As seções a seguir descrevem os diferentes componentes em um alto nível.
+As seguintes secções descrevem os diferentes componentes a um nível elevado.
 
 [!INCLUDE [virtual-machines-oracle-applications-bastion](../../../../includes/virtual-machines-oracle-applications-bastion.md)]
 
-### <a name="application-tier"></a>Camada de aplicativos
+### <a name="application-tier"></a>Camada física da aplicação
 
-A camada de aplicativo contém instâncias dos servidores de aplicativos PeopleSoft, servidores Web da PeopleSoft, pesquisa elástica e Agendador de processos do PeopleSoft. Um Azure Load Balancer é configurado para aceitar solicitações de usuários que são roteadas para o servidor apropriado na camada de aplicativo.
+O nível de aplicação contém instâncias dos servidores de aplicações PeopleSoft, servidores web PeopleSoft, pesquisa elástica e Programador de Processos PeopleSoft. Um balancedor de carga Azure é criado para aceitar pedidos de utilizadores que são encaminhados para o servidor apropriado no nível de aplicação.
 
-Para alta disponibilidade, considere configurar instâncias redundantes de cada servidor na camada de aplicativo em diferentes zonas de disponibilidade. O Azure Load Balancer pode ser configurado com vários pools de back-end para direcionar cada solicitação ao servidor certo.
+Para uma elevada disponibilidade, considere configurar casos redundantes de cada servidor no nível de aplicação em diferentes zonas de disponibilidade. O equilibrador de carga Azure pode ser configurado com várias piscinas traseiras para direcionar cada pedido para o servidor certo.
 
 ### <a name="peopletools-client"></a>Cliente PeopleTools
 
-O cliente PeopleTools é usado para executar atividades de administração, como desenvolvimento, migração e atualização. Como o cliente PeopleTools não é necessário para obter alta disponibilidade do seu aplicativo, servidores redundantes do cliente PeopleTools não são necessários.
+O Cliente PeopleTools é utilizado para realizar atividades administrativas, tais como desenvolvimento, migração e upgrade. Como o Cliente PeopleTools não é necessário para alcançar uma elevada disponibilidade da sua aplicação, não são necessários servidores redundantes do Cliente PeopleTools.
 
 [!INCLUDE [virtual-machines-oracle-applications-database](../../../../includes/virtual-machines-oracle-applications-database.md)]
 
 [!INCLUDE [virtual-machines-oracle-applications-identity](../../../../includes/virtual-machines-oracle-applications-identity.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Use [scripts Terraform](https://github.com/microsoft/azure-oracle) para configurar aplicativos Oracle no Azure e estabelecer conectividade entre nuvem com o OCI.
+Utilize [scripts Terraform](https://github.com/microsoft/azure-oracle) para configurar aplicações Oracle em Azure e estabelecer conectividade cross-cloud com OCI.
 
-Para obter mais informações e White papers sobre o OCI, consulte a documentação da [nuvem do Oracle](https://docs.cloud.oracle.com/iaas/Content/home.htm) .
+Para mais informações e documentos brancos sobre o OCI, consulte a documentação da [Oracle Cloud.](https://docs.cloud.oracle.com/iaas/Content/home.htm)

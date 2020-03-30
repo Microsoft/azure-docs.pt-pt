@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 676a1dd2435d17db2151bdf21f1989e7f182701b
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136488"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128768"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dispositivos de resolução de problemas utilizando o comando dsregcmd
 
@@ -28,10 +28,10 @@ Esta secção lista os parâmetros de adesão do dispositivo. A tabela abaixo en
 
 | AzureAdJoined | EnterpriseJoined | Domínio Unido | Estado do dispositivo |
 | ---   | ---   | ---   | ---   |
-| SIM, SIM. | NO | NO | Azure AD Juntou-se |
-| NO | NO | SIM, SIM. | Domínio Unido |
-| SIM, SIM. | NO | SIM, SIM. | Anúncio Híbrido Juntou-se |
-| NO | SIM, SIM. | SIM, SIM. | No local DRS Juntou-se |
+| SIM | NO | NO | Azure AD Juntou-se |
+| NO | NO | SIM | Domínio Unido |
+| SIM | NO | SIM | Anúncio Híbrido Juntou-se |
+| NO | SIM | SIM | No local DRS Juntou-se |
 
 > [!NOTE]
 > O estado de Adesão ao Local de Trabalho (Azure AD registado) é apresentado na secção "Estado do Utilizador"
@@ -134,9 +134,9 @@ Esta secção enumera o estado de vários atributos para o utilizador atualmente
 - **CanReset:** - Denota se a tecla Windows Hello pode ser redefinida pelo utilizador. 
 - **Valores possíveis:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, ou Unknown if error. 
 - **WorkplaceJoined:** - set to "YES" if Azure AD registered accounts have been added to the device in the current NTUSER context.
-- **WamDefaultSet:** - Definir para "YES" se for criada uma WebAccount padrão WAM para o utilizador registado. Este campo pode apresentar um erro se o dsreg/estado for executado em contexto de administração. 
+- **WamDefaultSet:** - Definir para "YES" se for criada uma WebAccount padrão WAM para o utilizador registado. Este campo pode apresentar um erro se o dsreg/estado for executado a partir de um pedido de comando elevado. 
 - **WamDefaultAuthority:** - set para "organizações" para Azure AD.
-- **WamDefaultId:** - Sempre "https://login.microsoft.com" para Azure AD.
+- **WamDefaultId:** -https://login.microsoft.comSempre " para Azure AD.
 - **WamDefaultGUID:** - O guia do fornecedor WAM (conta Azure AD/Microsoft) para o WebAccount padrão da WAM. 
 
 ### <a name="sample-user-state-output"></a>Saída do estado do utilizador da amostra

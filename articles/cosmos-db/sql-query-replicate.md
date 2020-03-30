@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 19fcde522c5cb0355e53a5616145f27fada7dad9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302190"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICA (Azure Cosmos DB)
- Repete-se um valor de cadeia de caracteres um número de vezes especificado.
+ Repete um valor de cadeia um número especificado de vezes.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -33,14 +33,14 @@ REPLICATE(<str_expr>, <num_expr>)
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Devolve uma expressão de cadeia.
+  Devolve uma expressão de corda.
   
 ## <a name="remarks"></a>Observações
   O comprimento máximo do resultado é de 10.000 caracteres, ou seja, (comprimento(*str_expr*) * *num_expr*) <= 10.000.
 
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que se segue mostra como usar `REPLICATE` numa consulta.
+  O exemplo que se `REPLICATE` segue mostra como usar numa consulta.
   
 ```sql
 SELECT REPLICATE("a", 3) AS replicate

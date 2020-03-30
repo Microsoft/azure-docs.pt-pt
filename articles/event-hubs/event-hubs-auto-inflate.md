@@ -1,6 +1,6 @@
 ---
-title: Escalar verticalmente unidades de produtividade automaticamente – hubs de eventos do Azure | Microsoft Docs
-description: Habilite o inflar automaticamente em um namespace para dimensionar automaticamente as unidades de produtividade.
+title: Escala automaticamente as unidades de produção - Azure Event Hubs / Microsoft Docs
+description: Ativar automaticamente insuflar-se num espaço de nome para aumentar automaticamente as unidades de produção.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -16,67 +16,67 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: dc6edaebebe89b6d4a35ada58d40795f86a935d3
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72264469"
 ---
-# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de produtividade dos hubs de eventos do Azure
-Os hubs de eventos do Azure são uma plataforma de streaming de dados altamente escalonável. Dessa forma, o uso dos hubs de eventos geralmente aumenta depois de começar a usar o serviço. Esse uso exige o aumento das unidades de [produtividade](event-hubs-scalability.md#throughput-units) predeterminadas para dimensionar os hubs de eventos e lidar com taxas de transferência maiores. O recurso de **inflar** automaticamente dos hubs de eventos escala verticalmente aumentando o número de unidades de produtividade para atender às necessidades de uso. O aumento das unidades de produtividade impede cenários de limitação, em que:
+# <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escala automaticamente as unidades de produção do Azure Event Hubs
+O Azure Event Hubs é uma plataforma de streaming de dados altamente escalável. Como tal, o uso de Centros de Eventos aumenta frequentemente após começar a usar o serviço. Esta utilização requer o aumento das [unidades](event-hubs-scalability.md#throughput-units) de produção pré-determinadas para escalar os Centros de Eventos e lidar com taxas de transferência maiores. A função **de auto-insuflar** os Centros de Eventos aumenta automaticamente aumentando o número de unidades de produção, para satisfazer as necessidades de utilização. O aumento das unidades de entrada impede cenários de estrangulamento, nos quais:
 
-* As taxas de entrada de dados excedem as unidades de produtividade definidas.
-* As taxas de solicitação de saída de dados excederam as unidades de produtividade definidas.
+* As taxas de ingresso de dados excedem as unidades de entrada definidas.
+* As taxas de pedido de saída de dados excedem as unidades de entrada definidas.
 
-O serviço de hubs de eventos aumenta a taxa de transferência quando o carregamento aumenta além do limite mínimo, sem nenhuma solicitação falhando com erros de ServerBusy.
+O serviço Event Hubs aumenta a produção quando a carga aumenta para além do limiar mínimo, sem que quaisquer pedidos falhem com erros do ServerBusy.
 
-## <a name="how-auto-inflate-works"></a>Como o inflar automaticamente funciona
+## <a name="how-auto-inflate-works"></a>Como funciona o auto-insuflador
 
-O tráfego dos hubs de eventos é controlado por [unidades de produtividade](event-hubs-scalability.md#throughput-units). Uma única unidade de produtividade permite 1 MB por segundo de entrada e duas vezes essa quantidade de egresso. Os hubs de eventos padrão podem ser configurados com 1-20 unidades de produtividade. O inflar automaticamente permite iniciar pequeno com as unidades de produtividade mínimas necessárias que você escolher. Em seguida, o recurso é dimensionado automaticamente para o limite máximo de unidades de produtividade que você precisa, dependendo do aumento no tráfego. O inflar automaticamente oferece os seguintes benefícios:
+O tráfego de Hubs de Eventos é controlado por [unidades](event-hubs-scalability.md#throughput-units)de produção . Uma única unidade de entrada permite 1 MB por segundo de entrada e o dobro dessa quantidade de saída. Os centros de eventos padrão podem ser configurados com unidades de entrada 1-20. A insuflação automática permite-lhe iniciar-se em pequena si com as unidades de entrada mínimas exigidas que escolher. A funcionalidade eleva-se automaticamente ao limite máximo das unidades de entrada de que necessita, dependendo do aumento do tráfego. A auto-inflação proporciona os seguintes benefícios:
 
-- Um mecanismo de dimensionamento eficiente para começar pequeno e escalar verticalmente conforme o crescimento.
-- Dimensionar automaticamente para o limite superior especificado sem limitação de problemas.
-- Mais controle sobre o dimensionamento, pois você controla quando e quanto dimensionar.
+- Um mecanismo de escala eficiente para iniciar pequena e escalar à medida que cresce.
+- Escala automaticamente para o limite superior especificado sem problemas de estrangulamento.
+- Mais controlo sobre a escala, porque controla quando e quanto escalar.
 
-## <a name="enable-auto-inflate-on-a-namespace"></a>Habilitar o inflar automaticamente em um namespace
+## <a name="enable-auto-inflate-on-a-namespace"></a>Ativar automaticamente insuflar num espaço de nome
 
-Você pode habilitar ou desabilitar o inflar automaticamente em um namespace de hubs de eventos de camada Standard usando um dos seguintes métodos:
+Pode ativar ou desativar automaticamente um espaço de nome standard de centros de eventos utilizando qualquer um dos seguintes métodos:
 
-- O [portal do Azure](https://portal.azure.com).
-- Um [modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
-
-> [!NOTE]
-> Os namespaces de hubs de eventos de camada básica não dão suporte ao inflar automaticamente.
-
-### <a name="enable-auto-inflate-through-the-portal"></a>Habilitar o inflar automaticamente por meio do portal
-
-
-#### <a name="enable-at-the-time-of-creation"></a>Habilitar no momento da criação 
-Você pode habilitar o recurso de inflar automaticamente **ao criar um namespace de hubs de eventos**:
- 
-![Habilitar o inflar automaticamente no momento da criação do hub de eventos](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
-
-Com essa opção habilitada, você pode começar pequeno com suas unidades de produtividade e escalar verticalmente conforme seu uso precisa aumentar. O limite superior para inflação não afeta imediatamente os preços, o que depende do número de unidades de taxa de transferência usadas por hora.
-
-#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Habilitar o inflar automaticamente para um hub de eventos existente
-Você também pode habilitar o recurso de inflar automaticamente e modificar suas configurações usando as seguintes instruções: 
- 
-1. Na página **namespace de hubs de eventos** , selecione **desabilitado** em **unidades de produtividade de inflar automaticamente**.  
-
-    ![Selecionar unidades de produtividade na página namespace de hubs de eventos](./media/event-hubs-auto-inflate/select-throughput-units.png)
-2. Na página **configurações de escala** , marque a caixa de seleção **habilitar** (se o recurso de dimensionamento automático não estiver habilitado).
-
-    ![Selecione habilitar](./media/event-hubs-auto-inflate/scale-settings.png)
-3. Insira o número **máximo** de unidades de produtividade ou use a barra de rolagem para definir o valor. 
-4. adicional Atualize o número **mínimo** de unidades de produtividade na parte superior desta página. 
-
+- O [portal Azure.](https://portal.azure.com)
+- Um modelo de Gestor de [Recursos Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
 
 > [!NOTE]
-> Quando você aplica a configuração de inflar automaticamente para aumentar as unidades de produtividade, o serviço de hubs de eventos emite logs de diagnóstico que fornecem informações sobre por que e quando a taxa de transferência aumentou. Para habilitar o log de diagnóstico para um hub de eventos, selecione **configurações de diagnóstico** no menu à esquerda da página Hub de eventos na portal do Azure. Para obter mais informações, consulte [Configurar Logs de diagnóstico para um hub de eventos do Azure](event-hubs-diagnostic-logs.md). 
+> Os espaços de nome de centros de eventos de nível básico não suportam o auto-insuflador.
 
-### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Habilitar o inflar automaticamente usando um modelo de Azure Resource Manager
+### <a name="enable-auto-inflate-through-the-portal"></a>Ativar automaticamente insuflar através do portal
 
-Você pode habilitar o inflar automaticamente durante uma implantação de modelo de Azure Resource Manager. Por exemplo, defina a propriedade `isAutoInflateEnabled` como **true** e defina `maximumThroughputUnits` como 10. Por exemplo:
+
+#### <a name="enable-at-the-time-of-creation"></a>Ativar no momento da criação 
+Pode ativar a função de auto-insuflar ao criar um espaço de nome dos Centros de **Eventos:**
+ 
+![Ativar automaticamente inflação na criação do centro de eventos de tempo](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+
+Com esta opção ativada, pode começar a ser pequeno com as suas unidades de entrada e aumentar à medida que a sua utilização precisa aumentar. O limite máximo para a inflação não afeta imediatamente os preços, o que depende do número de unidades de entrada utilizadas por hora.
+
+#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Ativar automaticamente insuflar para um centro de eventos existente
+Também pode ativar a função de auto-inflação e modificar as suas definições utilizando as seguintes instruções: 
+ 
+1. Na página Namespace do **Event Hubs,** selecione **Desativado** sob **unidades de entrada de insufladoautomático**automaticamente .  
+
+    ![Selecione unidades de entrada na página do espaço de nome do Event Hubs](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. Na página Definições de **Escala,** selecione a caixa de verificação para **Ativar** (se a função de escala automática não estiver ativada).
+
+    ![Selecionar Ativar](./media/event-hubs-auto-inflate/scale-settings.png)
+3. Introduza o número **máximo** de unidades de entrada ou utilize a barra de deslocação para definir o valor. 
+4. (opcional) Atualize o número **mínimo** de unidades de entrada no topo desta página. 
+
+
+> [!NOTE]
+> Quando aplica a configuração de auto-inflação para aumentar as unidades de produção, o serviço Event Hubs emite registos de diagnóstico que lhe dão informações sobre o porquê e quando a entrada aumentou. Para permitir o registo de diagnóstico para um centro de eventos, selecione **definições de diagnóstico** no menu esquerdo na página Do Hub de Eventos no portal Azure. Para mais informações, consulte [A configuração de registos de diagnóstico para um centro de eventos Azure](event-hubs-diagnostic-logs.md). 
+
+### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Ativar o auto-insuflar usando um modelo de Gestor de Recursos Azure
+
+Pode ativar a inflação automática durante a implementação do modelo do Gestor de Recursos Azure. Por exemplo, `isAutoInflateEnabled` coloque a propriedade `maximumThroughputUnits` em **realidade** e definida para 10. Por exemplo:
 
 ```json
 "resources": [
@@ -119,12 +119,12 @@ Você pode habilitar o inflar automaticamente durante uma implantação de model
     ]
 ```
 
-Para obter o modelo completo, confira [criar o namespace de hubs de eventos e habilitar](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) o modelo de inflar no github.
+Para obter o modelo completo, consulte o espaço de nome sinuoso [do "Create Event Hubs" e ative](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) o modelo de insuflar no GitHub.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Event Hubs Overview (Descrição Geral dos Hubs de Eventos)](event-hubs-what-is-event-hubs.md)
+* [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md)
 

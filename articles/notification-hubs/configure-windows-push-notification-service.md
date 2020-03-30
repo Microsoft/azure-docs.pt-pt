@@ -1,6 +1,6 @@
 ---
-title: Configurar o serviço de notificação por push do Windows nos hubs de notificação do Azure | Microsoft Docs
-description: Saiba como definir as configurações do serviço de notificação por push do Windows para um hub de notificação do Azure.
+title: Configure o Serviço de Notificação push do Windows em Hubs de Notificação Azure [ Microsoft Docs
+description: Saiba como configurar as definições do Serviço de Notificação push do Windows para um hub de notificação Azure.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -12,30 +12,31 @@ ms.date: 03/25/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: a7f7734d97cd67c133ff0cedc3ef2376967bcdf4
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 73304e191242725c80204efb132c26aede9ce7e9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212407"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127315"
 ---
-# <a name="configure-windows-push-notification-service-wns-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurar as configurações do WNS (serviço de notificação por push do Windows) para um hub de notificação no portal do Azure
-Este artigo mostra como definir as configurações do WNS (serviço de notificação do Windows) para um hub de notificação do Azure usando o portal do Azure.  
+# <a name="configure-windows-push-notification-service-settings-in-the-azure-portal"></a>Configure as definições do Serviço de Notificação push do Windows no portal Azure
+
+Este artigo mostra-lhe como configurar as definições do Serviço de Notificação do Windows (WNS) para um hub de notificação Azure utilizando o portal Azure.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se você ainda não criou um hub de notificação, crie um agora. Para obter mais informações, consulte [criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md). 
+Se ainda não criou um centro de notificação, crie um agora. Para mais informações, consulte Criar um hub de [notificação Azure no portal Azure.](create-notification-hub-portal.md) 
 
-## <a name="configure-windows-push-notification-service-wns"></a>Configurar o serviço de notificação por push do Windows (WNS)
+## <a name="configure-windows-push-notification-service-wns"></a>Configure O Serviço de Notificação push do Windows (WNS)
 
-O procedimento a seguir fornece as etapas para definir as configurações de WNS (serviço de notificação por push do Windows) para um hub de notificação: 
+O procedimento seguinte dá-lhe passos para configurar as definições do Serviço de Notificação push do Windows (WNS) para um centro de notificação: 
 
-1. Na portal do Azure, na página **Hub de notificação** , selecione **Windows (WNS)** no menu à esquerda.
-2. Insira valores para o **SID do pacote** e a chave de **segurança**.
+1. No portal Azure, na página Do Hub de **Notificação,** selecione **Windows (WNS)** no menu esquerdo.
+2. Introduza valores para **pacote SID** e Chave **de Segurança**.
 3. Selecione **Guardar**.
 
-   ![Captura de tela que mostra as caixas SID do pacote e chave de segurança](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
+   ![Screenshot que mostra as caixas de chaves de pacote SID e segurança](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter um tutorial com as instruções passo a passo para enviar notificações por push para Plataforma Universal do Windows aplicativos usando os hubs de notificação do Azure e o WNS (serviço de notificação por push do Windows), consulte [enviar notificações para aplicativos UWP usando a notificação do Azure Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+Para um tutorial com instruções passo a passo para empurrar notificações para aplicações da Plataforma Universal Windows utilizando hubs de notificação Azure e Serviço de Notificação push do Windows (WNS), consulte [Enviar notificações para aplicações UWP utilizando hubs de notificação Do Azure.](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 
 

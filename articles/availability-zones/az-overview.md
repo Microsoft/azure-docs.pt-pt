@@ -6,23 +6,23 @@ ms.service: azure
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: c9f4a418ac05b2618b4641c857e182e73c35d34c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: fasttrack-edit, mvc
+ms.openlocfilehash: 9f1b0f1885019c75252a4c5b8333f342660fac0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253471"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80057271"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>O que são Zonas de Disponibilidade em Azure?
-As Zonas de Disponibilidade são uma oferta de alta disponibilidade que protege as suas aplicações e dados de falhas no datacenter. As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege aplicações e dados de falhas no datacenter. Os serviços redundantes em zonas replicam as suas aplicações e dados através das Zonas de Disponibilidade para proteger contra pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece à indústria o melhor tempo de uptime De SLA de 99,99% vM. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
+As Zonas de Disponibilidade são uma oferta de alta disponibilidade que protege as suas aplicações e dados de falhas no datacenter. As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das Zonas de Disponibilidade dentro de uma região protege aplicações e dados de falhas no datacenter. Os serviços redundantes em zonas replicam as suas aplicações e dados através das Zonas de Disponibilidade para proteger contra pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece à indústria o melhor tempo de uptime De SLA de 99,99% vM. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
 
 Uma Zona de Disponibilidade numa região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se criar três ou mais VMs em três zonas de uma região do Azure, os seus VMs são efetivamente distribuídos por três domínios de falha e três domínios de atualização. A plataforma Azure reconhece esta distribuição através de domínios de atualização para garantir que os VMs em diferentes zonas não são atualizados ao mesmo tempo.
 
-Construa alta disponibilidade na sua arquitetura de aplicação co-localizando a sua computação, armazenamento, networking e recursos de dados dentro de uma zona e replicando-se noutras zonas. Os serviços Azure que suportam zonas de disponibilidade enquadram-se em duas categorias:
+Construa alta disponibilidade na sua arquitetura de aplicação co-localizando a sua computação, armazenamento, networking e recursos de dados dentro de uma zona e replicando-se noutras zonas. Os serviços do Azure que suportam as Zonas de Disponibilidade estão divididos em duas categorias:
 
 - **Serviços zonais** – você prende o recurso a uma zona específica (por exemplo, máquinas virtuais, discos geridos, endereços IP standard), ou
-- **Serviços de redução de zonas** – a plataforma replica-se automaticamente em zonas (por exemplo, armazenamento redundante em zona, Base de Dados SQL).
+- **Serviços com redundância entre zonas** – a plataforma é replicada automaticamente nas zonas (por exemplo, armazenamento com redundância entre zonas, Base de Dados SQL).
 
 Para alcançar uma continuidade abrangente de negócios no Azure, construa a sua arquitetura de aplicação utilizando a combinação de Zonas de Disponibilidade com pares da região de Azure. Pode replicar sincronizadamente as suas aplicações e dados utilizando zonas de disponibilidade dentro de uma região de Azure para alta disponibilidade e replicação assincronicamente em todas as regiões de Azure para proteção de recuperação de desastres.
  
@@ -38,7 +38,7 @@ As combinações de serviços Azure e regiões que suportam zonas de disponibili
 
 |                                 |Américas |              |           |           | Europa |              |          |              | Ásia-Pacífico |                 |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
-|          |E.U.A. Central|E.U.A. Leste|E.U.A. Leste 2|E.U.A.Oeste 2|França Central|Europa do Norte|Sul do Reino Unido|Europa Ocidental|Leste do Japão|Ásia Sudeste|
+|          |E.U.A. Central|E.U.A. Leste|E.U.A. Leste 2|E.U.A.Oeste 2|França Central|Europa do Norte|Sul do Reino Unido|Europa ocidental|Leste do Japão|Ásia Sudeste|
 | **Computação**                         |            |              |           |           |                |              |          |             |            |                |
 | Máquinas Virtuais do Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Máquinas Virtuais do Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
@@ -52,16 +52,16 @@ As combinações de serviços Azure e regiões que suportam zonas de disponibili
 | Endereço IP padrão        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Balanceador de Carga Padrão     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Gateway de VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
-| ExpressRoute Gateway   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
+| Gateway do ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
 | Gateway de aplicação (V2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
 | Azure Firewall           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
-| **Bases de dados**                     |            |              |           |           |                |              |          |             |            |                |
+| **Bases de Dados**                     |            |              |           |           |                |              |          |             |            |                |
 | Azure Data Explorer                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |
-| Base de Dados SQL                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;(Pré-visualização)      | &#10003;       |
+| SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003; (Pré-visualização)      | &#10003;       |
 | Cache do Azure para Redis           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
 | Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; | &#10003; |       |     | &#10003; |  &#10003;   |            | &#10003;       |
 | **Análise**                       |            |              |           |           |                |              |          |             |            |                |
-| Hubs de Eventos                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |
+| Event Hubs                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |
 | **Integração**                     |            |              |           |           |                |              |          |             |            |                |
 | Ônibus de serviço (apenas premium tier) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 | Event Grid | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
@@ -88,7 +88,7 @@ Não existe um custo adicional para máquinas virtuais implantadas numa Zona de 
 - [Criar um gateway de rede virtual com redundância entre zonas](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 - [Adicione zona redundante região para Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
 - [Começar azure cache para redis zonas de disponibilidade](https://aka.ms/redis/az/getstarted)
-- [Criar uma instância de Serviços de Domínio de Diretório Ativo Azure](../active-directory-domain-services/tutorial-create-instance.md)
+- [Criar uma instância do Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Crie um cluster azure Kubernetes Service (AKS) que utilize zonas de disponibilidade](../aks/availability-zones.md)
 
 ## <a name="next-steps"></a>Passos seguintes
