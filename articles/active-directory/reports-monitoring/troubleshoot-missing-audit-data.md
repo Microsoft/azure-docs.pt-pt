@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de dados ausentes em logs de atividade | Microsoft Docs
+title: Resolução de problemas Dados em falta nos registos de atividades Microsoft Docs
 description: Apresenta uma resolução para os dados em falta nos registos de atividades do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014277"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Resolução de problemas: Dados em falta nos registos de atividades do Azure Active Directory 
@@ -94,6 +94,6 @@ Tem duas opções para manter os dados durante mais de 30 dias. Pode utilizar as
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Retenção de relatórios do Azure AD](reference-reports-data-retention.md).
-* [Latências dos relatórios do Azure Active Directory](reference-reports-latencies.md).
-* [FAQ dos relatórios do Azure Active Directory](reports-faq.md).
+* [Azure Ative Directory reportando latenciências.](reference-reports-latencies.md)
+* [Azure Ative Directory reportando FAQ](reports-faq.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Azure Media Services v3
+title: Descrição geral dos Serviços de Multimédia do Azure v3
 titleSuffix: Azure Media Services
 description: Uma visão geral de alto nível do Azure Media Services v3 com ligações a quickstarts, tutoriais e amostras de código.
 services: media-services
@@ -17,21 +17,21 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 7e4a242c1f81a504872dae6399683483c836daf2
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: bd3890757377525cf9c178866a2a2fbc0791b9de
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086898"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79461015"
 ---
-# <a name="azure-media-services-v3-overview"></a>Visão geral do Azure Media Services v3
+# <a name="azure-media-services-v3-overview"></a>Descrição geral dos Serviços de Multimédia do Azure v3
 
 Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lhe permite criar soluções que possibilitam a transmissão em vídeo com qualidade de transmissão, melhorar a acessibilidade e distribuição, analisar conteúdo e muito mais. Quer seja um programador de aplicações, um call center, uma agência governamental ou uma empresa de entretenimento, o Media Services ajuda-o a criar aplicações que oferecem experiências mediáticas de excelente qualidade a grandes audiências nos dispositivos e navegadores móveis mais populares de hoje.
 
 Os Serviços de Media v3 SDKs baseiam-se na [Especificação OpenAPI (Swagger)](https://aka.ms/ams-v3-rest-sdk)dos Media Services V3 .
 
 > [!NOTE]
-> Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para: gerir os Media Services v3 [Live Events,](live-events-outputs-concept.md)ver (não gerir) [os Ativos](assets-concept.md)v3, [obter informações sobre o acesso a APIs](access-api-portal.md). Para todas as outras tarefas de gestão (por exemplo, [Transforms and Jobs](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados.
+> Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para: gerir os Media Services v3 [Live Events,](live-events-outputs-concept.md)ver (não gerir) [os Ativos](assets-concept.md)v3, [obter informações sobre o acesso a APIs](access-api-portal.md). Para todas as outras tarefas de gestão (por exemplo, [Transforms and Jobs](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API,](https://docs.microsoft.com/rest/api/media/) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -62,28 +62,28 @@ A Media Services permite-lhe construir uma variedade de fluxos de trabalho medi�
 Saiba como codificar e embalar conteúdos, transmitir vídeos a pedido, transmitir em direto e analisar os seus vídeos com o Media Services v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
 
 > [!TIP]
-> Antes de começar a desenvolver, reveja:<br/>* [Conceitos fundamentais](concepts-overview.md) (incude conceitos importantes, como embalagens, codificação e proteção)<br/>* [Desenvolvimento com Serviços de Media v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, e assim por diante)
+> Antes de começar a desenvolver, reveja:<br/>* [Conceitos fundamentais](concepts-overview.md) (incude conceitos importantes, como embalagens, codificação e proteção)<br/>* [Desenvolvimento com Serviços de Media v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, nomeação de convenções, e assim por diante)
 
 ### <a name="sdks"></a>SDKs
 
 Comece a desenvolver-se com [os SDKs de clientes V3 da Azure Media Services.](media-services-apis-overview.md#sdks)
 
-### <a name="quickstarts"></a>Inícios rápidos  
+### <a name="quickstarts"></a>Guias de Início Rápido  
 
 Os quickstarts mostram instruções fundamentais do dia 1 para os novos clientes experimentarem rapidamente os Serviços de Media.
 
-* [Stream ficheiros de vídeo - .NET](stream-files-dotnet-quickstart.md)
+* [Transmitir ficheiros de vídeo - .NET](stream-files-dotnet-quickstart.md)
 * [Stream ficheiros de vídeo - CLI](stream-files-cli-quickstart.md)
-* [Stream video files - Node.js](stream-files-nodejs-quickstart.md)
+* [Transmitir ficheiros de vídeo - Node.js](stream-files-nodejs-quickstart.md)
 
 ### <a name="tutorials"></a>Tutoriais
 
 Os tutoriais mostram procedimentos baseados em cenários para algumas das principais tarefas dos Serviços de Media.
 
-* [Codificar ficheiro remoto e vídeo de streaming - REST](stream-files-tutorial-with-rest.md)
-* [Codificar ficheiro carregado e transmitir vídeo - .NET](stream-files-tutorial-with-api.md)
-* [Stream live - .NET](stream-live-tutorial-with-api.md)
-* [Analise o seu vídeo - .NET](analyze-videos-tutorial-with-api.md)
+* [Codificar o ficheiro remoto e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)
+* [Codificar o ficheiro carregado e transmitir o vídeo - .NET](stream-files-tutorial-with-api.md)
+* [Transmitir em direto - .NET](stream-live-tutorial-with-api.md)
+* [Analisar o seu vídeo - .NET](analyze-videos-tutorial-with-api.md)
 * [Encriptação dinâmica AES-128 - .NET](protect-with-aes128.md)
 
 ### <a name="samples"></a>Amostras
@@ -95,7 +95,7 @@ Utilize [este navegador de amostras](https://docs.microsoft.com/samples/browse/?
 Como orientar os guias contêm amostras de código que demonstram como completar uma tarefa. Nesta secção, você encontrará muitos exemplos. Aqui estão alguns deles:
 
 * [Criar uma conta - CLI](create-account-cli-how-to.md)
-* [ACESSO APIs - CLI](access-api-cli-how-to.md)
+* [Aceder a APIs - CLI](access-api-cli-how-to.md)
 * [Codificar com HTTPS como entrada de emprego - .NET](job-input-from-http-how-to.md)  
 * [Monitorizar eventos - Portal](monitor-events-portal-how-to.md)
 * [Criptografe dinamicamente com multi-DRM - .NET](protect-with-drm.md) 

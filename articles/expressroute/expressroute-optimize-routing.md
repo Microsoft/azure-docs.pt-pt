@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: otimizar o roteamento'
+title: 'Azure ExpressRoute: Otimizar o encaminhamento'
 description: Esta página disponibiliza detalhes sobre como otimizar o encaminhamento quando tem mais do que um circuito do ExpressRoute que se ligam entre a rede da Microsoft e a sua rede empresarial.
 services: expressroute
 author: charwen
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.openlocfilehash: dcbae103933167c583bf0f73dc2fa09178c38bd5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74080124"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o Encaminhamento do ExpressRoute
 Se tem vários circuitos do ExpressRoute, significa que tem mais do que um caminho para se ligar à Microsoft. Sendo assim, o encaminhamento poderá não ser o ideal, ou seja, o tráfego poderá optar por um caminho mais longo para chegar à Microsoft e da Microsoft à sua rede. Quanto mais longo for o caminho de rede, maior será a latência. A latência tem um impacto direto no desempenho das aplicações e na experiência do utilizador. Este artigo ilustra este problema e explica como otimizar o encaminhamento com as tecnologias de encaminhamento padrão.
 
-## <a name="path-selection-on-microsoft-and-public-peerings"></a>Seleção de caminho em emparelhamentos públicos e da Microsoft
-É importante garantir que, ao utilizar o emparelhamento da Microsoft ou público, o tráfego flua sobre o caminho desejado se você tiver um ou mais circuitos do ExpressRoute, bem como caminhos para a Internet por meio de um Internet Exchange (IX) ou provedor de serviços de Internet (ISP). O BGP utiliza um melhor algoritmo de seleção de caminho com base em vários fatores, incluindo o LPM (correspondência de prefixo mais longo). Para garantir que o tráfego destinado ao Azure por meio da Microsoft ou do emparelhamento público Percorra o caminho do ExpressRoute, os clientes devem implementar o atributo de *preferência local* para garantir que o caminho seja sempre preferido no ExpressRoute. 
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Seleção de Caminhos em Espreitamentos da Microsoft e do Público
+É importante garantir que, ao utilizar a Microsoft ou o Público, o tráfego flua sobre o caminho pretendido se tiver um ou mais circuitos ExpressRoute, bem como caminhos para a Internet através de um Internet Exchange (IX) ou Internet Service Provider (ISP). BGP utiliza um melhor algoritmo de seleção de caminhos baseado em uma série de fatores, incluindo a mais longa partida de prefixo (LPM). Para garantir que o tráfego destinado ao Azure via Microsoft ou o público perceda o caminho ExpressRoute, os clientes devem implementar o atributo *De Preferência Local* para garantir que o caminho é sempre preferido no ExpressRoute. 
 
 > [!NOTE]
-> A preferência local padrão é normalmente 100. Preferências de local mais altas são mais preferenciais. 
+> A preferência local padrão é tipicamente 100. As preferências locais mais altas são mais preferíveis. 
 >
 >
 
-Considere o seguinte cenário de exemplo:
+Considere o seguinte exemplo:
 
 ![Problema de Caso 1 do ExpressRoute - encaminhamento inferior ao ideal do cliente para a Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
-No exemplo acima, para preferir caminhos do ExpressRoute, configure a preferência local da seguinte maneira. 
+No exemplo acima, preferir os caminhos expressRoute configurar a Preferência Local da seguinte forma. 
 
-**Configuração do Cisco IOS-XE da perspectiva de R1:**
+**Configuração Cisco IOS-XE do ponto de vista R1:**
 
     R1(config)#route-map prefer-ExR permit 10
     R1(config-route-map)#set local-preference 150
@@ -41,7 +41,7 @@ No exemplo acima, para preferir caminhos do ExpressRoute, configure a preferênc
     R1(config-router)#neighbor 1.1.1.2 activate
     R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
 
-**Configuração do Junos da perspectiva do R1:**
+**Configuração junos a partir da perspetiva R1:**
 
     user@R1# set protocols bgp group ibgp type internal
     user@R1# set protocols bgp group ibgp local-preference 150
@@ -49,12 +49,12 @@ No exemplo acima, para preferir caminhos do ExpressRoute, configure a preferênc
 
 
 ## <a name="suboptimal-routing-from-customer-to-microsoft"></a>Encaminhamento inferior ao ideal do cliente para a Microsoft
-Vamos analisar o problema de encaminhamento com um exemplo. Imagine que tem dois escritórios nos EUA, um em Los Angeles e outro em Nova Iorque. Os escritórios estão ligados através de uma Rede Alargada (WAN), que pode ser a sua própria rede principal ou a VPN de IP do seu fornecedor de serviços. Tem dois circuitos do ExpressRoute, um nos E.U.A. Oeste e o outro nos E.U.A. Leste, que também estão ligados através da WAN. Tem, obviamente, dois caminhos para se ligar à rede da Microsoft. Imagine agora que tem a implementação do Azure (por exemplo, o Serviço de Aplicações do Azure) nos E.U.A. Oeste e nos E.U.A. Leste. A sua intenção é ligar os utilizadores em Los Angeles ao Azure dos E.U.A. Oeste e os utilizadores em Nova Iorque ao Azure dos E.U.A. Leste, porque o administrador de serviços anuncia que os utilizadores em cada escritório acederão aos serviços mais próximos do Azure, para uma experiência ideal. Infelizmente, o plano funciona bem para os utilizadores da costa leste mas não para os utilizadores da costa oeste. A causa do problema é a seguinte. Em cada circuito do ExpressRoute, anunciamos o prefixo no Azure dos E.U.A. Leste (23.100.0.0/16) e o prefixo no Azure dos E.U.A. Oeste (13.100.0.0/16). Se não souber que prefixo corresponde a que região, não conseguirá tratá-los de forma diferente. A rede WAN poderá achar que ambos os prefixos estão mais próximos dos E.U.A. Leste do que dos E.U.A. Oeste e, por conseguinte, encaminhar ambos os utilizadores do escritório para o circuito do ExpressRoute nos E.U.A. Leste. No final, terá muitos utilizadores insatisfeitos no escritório de Los Angeles.
+Vamos analisar o problema de encaminhamento com um exemplo. Imagine que tem dois escritórios nos EUA, um em Los Angeles e outro em Nova Iorque. Os escritórios estão ligados através de uma Rede Alargada (WAN), que pode ser a sua própria rede principal ou a VPN de IP do seu fornecedor de serviços. Tem dois circuitos ExpressRoute, um no US West e outro no US East, que também estão ligados no WAN. Tem, obviamente, dois caminhos para se ligar à rede da Microsoft. Imagine agora que tem a implementação do Azure (por exemplo, o Serviço de Aplicações do Azure) nos E.U.A. Oeste e nos E.U.A. Leste. A sua intenção é ligar os utilizadores em Los Angeles ao Azure dos E.U.A. Oeste e os utilizadores em Nova Iorque ao Azure dos E.U.A. Leste, porque o administrador de serviços anuncia que os utilizadores em cada escritório acederão aos serviços mais próximos do Azure, para uma experiência ideal. Infelizmente, o plano funciona bem para os utilizadores da costa leste mas não para os utilizadores da costa oeste. A causa do problema é a seguinte. Em cada circuito do ExpressRoute, anunciamos o prefixo no Azure dos E.U.A. Leste (23.100.0.0/16) e o prefixo no Azure dos E.U.A. Oeste (13.100.0.0/16). Se não souber que prefixo corresponde a que região, não conseguirá tratá-los de forma diferente. A rede WAN poderá achar que ambos os prefixos estão mais próximos dos E.U.A. Leste do que dos E.U.A. Oeste e, por conseguinte, encaminhar ambos os utilizadores do escritório para o circuito do ExpressRoute nos E.U.A. Leste. No final, terá muitos utilizadores insatisfeitos no escritório de Los Angeles.
 
 ![Problema de Caso 1 do ExpressRoute - encaminhamento inferior ao ideal do cliente para a Microsoft](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
 ### <a name="solution-use-bgp-communities"></a>Solução: utilizar Comunidades do BGP
-Para otimizar o encaminhamento para os utilizadores dos dois escritório, é necessário saber qual é o prefixo do Azure dos E.U.A. Oeste e qual é o do Azure dos E.U.A. Leste. Codificamos estas informações com os [Valores das Comunidades do BGP](expressroute-routing.md). Atribuímos um valor de comunidade BGP exclusivo a cada região do Azure, por exemplo, "12076:51004" para o leste dos EUA, "12076:51006" para o oeste dos EUA. Agora que sabe que prefixo corresponde a que região do Azure, já pode configurar que circuito do ExpressRoute deve ser o preferencial. Uma vez que utilizamos o BGP para trocar informações de encaminhamento, pode utilizar a Preferência Local do BGP para influenciar o encaminhamento. No nosso exemplo, pode atribuir um valor de preferência local mais alto a 13.100.0.0/16 nos E.U.A. Oeste do que nos E.U.A. Leste, e, da mesma forma, um valor de preferência local mais alto a 23.100.0.0/16 nos E.U.A. Leste do que nos E.U.A. Oeste. Esta configuração permitirá garantir que, quando estiverem disponíveis os dois caminhos para Microsoft, os utilizadores em Los Angeles optam pelo circuito do ExpressRoute nos E.U.A. Oeste para se ligarem ao Azure dos E.U.A. Oeste, ao passo que os utilizadores em Nova Iorque optarão pelo ExpressRoute nos E.U.A. Leste para o Azure dos E.U.A. Leste. O encaminhamento fica otimizado em ambos os lados. 
+Para otimizar o encaminhamento para os utilizadores dos dois escritório, é necessário saber qual é o prefixo do Azure dos E.U.A. Oeste e qual é o do Azure dos E.U.A. Leste. Codificamos estas informações com os [Valores das Comunidades do BGP](expressroute-routing.md). Atribuímos um valor comunitário único de BGP a cada região de Azure, por exemplo,"12076:51004" para o Us East, "12076:51006" para o Us West. Agora que sabe que prefixo corresponde a que região do Azure, já pode configurar que circuito do ExpressRoute deve ser o preferencial. Uma vez que utilizamos o BGP para trocar informações de encaminhamento, pode utilizar a Preferência Local do BGP para influenciar o encaminhamento. Em nosso exemplo, você pode atribuir um valor de preferência local mais elevado para 13.100.0.0.0/16 no Us West do que nos EUA East, e similarmente, um valor de preferência local mais elevado para 23.100.0.0/16 no Leste dos EUA do que no Us West. Esta configuração permitirá garantir que, quando estiverem disponíveis os dois caminhos para Microsoft, os utilizadores em Los Angeles optam pelo circuito do ExpressRoute nos E.U.A. Oeste para se ligarem ao Azure dos E.U.A. Oeste, ao passo que os utilizadores em Nova Iorque optarão pelo ExpressRoute nos E.U.A. Leste para o Azure dos E.U.A. Leste. O encaminhamento fica otimizado em ambos os lados. 
 
 ![Solução do Caso 1 do ExpressRoute - utilizar Comunidades do BGP](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
@@ -64,7 +64,7 @@ Para otimizar o encaminhamento para os utilizadores dos dois escritório, é nec
 >
 
 ## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Encaminhamento inferior ao ideal da Microsoft para o cliente
-Veja outro exemplo em que as ligações da Microsoft optam por um caminho mais longo para chegarem à sua rede. Neste caso, está a utilizar servidores do Exchange no local e o Exchange Online num [ambiente híbrido](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Os seus escritórios estão ligados a uma WAN. Anuncia os prefixos dos servidores no local em ambos os escritórios para a Microsoft através de dois circuitos do ExpressRoute. O Exchange Online irá iniciar ligações aos servidores no local em casos como a migração da caixa de correio. Infelizmente, a ligação ao seu escritório em Los Angeles é encaminhada para o circuito do ExpressRoute nos E.U.A. Leste, atravessando todo o continente antes de voltar à costa oeste. A causa do problema é semelhante à anterior. Sem sugestões, a rede da Microsoft não sabe qual dos prefixos do cliente está próximo dos E.U.A. Leste e qual deles está próximo dos E.U.A. Oeste. E escolhe o caminho errado para o seu escritório em Los Angeles.
+Veja outro exemplo em que as ligações da Microsoft optam por um caminho mais longo para chegarem à sua rede. Neste caso, está a utilizar servidores do Exchange no local e o Exchange Online num [ambiente híbrido](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Os seus escritórios estão ligados a uma WAN. Anuncia os prefixos dos servidores no local em ambos os escritórios para a Microsoft através de dois circuitos do ExpressRoute. O Exchange Online irá iniciar ligações aos servidores no local em casos como a migração da caixa de correio. Infelizmente, a ligação ao seu escritório em Los Angeles é encaminhada para o circuito do ExpressRoute nos E.U.A. Leste, atravessando todo o continente antes de voltar à costa oeste. A causa do problema é semelhante à anterior. Sem qualquer pista, a rede da Microsoft não consegue dizer qual o prefixo do cliente perto do US East e qual deles está perto do US West. E escolhe o caminho errado para o seu escritório em Los Angeles.
 
 ![Caso 2 do ExpressRoute - encaminhamento inferior ao ideal da Microsoft para o cliente](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
@@ -74,7 +74,7 @@ Existem duas soluções para o problema. A primeira é simplesmente anunciar o p
 A segunda solução é continuar a anunciar ambos os prefixos em ambos os circuitos do ExpressRoute e, além disso, dar-nos uma sugestão de qual é o prefixo que está próximo de qual dos seus escritórios. Uma vez que suportamos a prefixação COMO Caminho do BGP, pode configurá-la para o seu prefixo de modo a influenciar o encaminhamento. Neste exemplo, pode aumentar a prefixação COMO Caminho para 172.2.0.0/31 nos E.U.A. Leste de modo a preferirmos o circuito do ExpressRoute nos E.U.A. Oeste para o tráfego destinado a este prefixo (uma vez que a nossa rede irá considerar o caminho para este prefixo mais curto no Oeste). Pode, do mesmo modo, aumentar a prefixação COMO Caminho para 172.2.0.2/31 nos E.U.A. Oeste, de modo a preferirmos o circuito do ExpressRoute nos E.U.A. Leste. O encaminhamento fica otimizado para ambos os escritórios. Com esta estrutura, se um circuito do ExpressRoute for interrompido, o Exchange Online ainda consegue contactá-lo através de outro circuito do ExpressRoute e da sua WAN. 
 
 > [!IMPORTANT]
-> Removemos os números de as privados no caminho as para os prefixos recebidos no emparelhamento da Microsoft durante o emparelhamento usando um número de AS privado. Você precisa emparelhar com um público como e anexar os números de as no caminho as para influenciar o roteamento para o emparelhamento da Microsoft.
+> Removemos os números as privados no AS PATH para os prefixos recebidos no Microsoft Peering ao espreitar usando um número AS privado. Você precisa peer com um AS público e anexar os números de AS públicos no AS PATH para influenciar o encaminhamento para O Microsoft Peering.
 > 
 > 
 

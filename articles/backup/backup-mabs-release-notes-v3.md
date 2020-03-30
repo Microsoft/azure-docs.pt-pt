@@ -1,25 +1,25 @@
 ---
-title: Notas de versão do Backup do Microsoft Azure Server v3
-description: Este artigo fornece informações sobre os problemas conhecidos e soluções alternativas para o Backup do Microsoft Azure Server (MABS) v3.
+title: Notas de lançamento para Microsoft Azure Backup Server v3
+description: Este artigo fornece as informações sobre os problemas e suposições conhecidas para o Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.openlocfilehash: b47d83e0e3714f3f035397acaadeac9cda39d12a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172269"
 ---
-# <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de versão do Backup do Microsoft Azure Server
+# <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de lançamento para o Microsoft Azure Backup Server
 
-Este artigo fornece os problemas conhecidos e as soluções alternativas para o Backup do Microsoft Azure Server (MABS) v3.
+Este artigo fornece as questões e suposições conhecidas para o Microsoft Azure Backup Server (MABS) V3.
 
-## <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Falha de backup e recuperação para cargas de trabalho clusterizadas
+## <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Backup e recuperação falha para cargas de trabalho agrupadas
 
-**Descrição:** Falha de backup/restauração para fontes de dados clusterizadas, como cluster do Hyper-V ou cluster do SQL (SQL Always On) ou o Exchange no DAG (grupo de disponibilidade de banco de dados) depois de atualizar MABS v2 para MABS v3.
+**Descrição:** Falhas de backup/restauro para fontes de dados agrupadas, tais como cluster Hiper-V ou cluster SQL (SQL Always On) ou Exchange in database availability group (DAG) after upgrade MABS V2 to MABS V3.
 
-**Solução alternativa:** Para evitar isso, abra SQL Server Management Studio (SSMS)) e execute o seguinte script SQL no banco de BD do DPM:
+**Trabalhar em torno:** Para evitar isto, abra o Estúdio de Gestão de Servidores SQL (SSMS)) e execute o seguinte script SQL no DPM DB:
 
 ```sql
     IF EXISTS (SELECT * FROM dbo.sysobjects
@@ -48,20 +48,20 @@ Este artigo fornece os problemas conhecidos e as soluções alternativas para o 
     GO
 ```
 
-## <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>A atualização para o MABS v3 falha na localidade russa
+## <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>Upgrade para MABS V3 falha no local russo
 
-**Descrição:** A atualização do MABS v2 para o MABS V3 na localidade russa falha com um código de erro **4387**.
+**Descrição:** O upgrade de MABS V2 para MABS V3 em localidade russa falha com um código de erro **4387**.
 
-**Solução alternativa:** Execute as seguintes etapas para atualizar para o MABS v3 usando o pacote de instalação do russo:
+**Trabalhar em torno:** Faça os seguintes passos para atualizar para MABS V3 utilizando o pacote de instalação russo:
 
-1. [Faça backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) de seu banco de dados SQL e desinstale o mAbs v2 (opte por manter os dados protegidos durante a desinstalação).
-2. Atualize para o SQL 2017 (Enterprise) e desinstale o Reporting como parte da atualização.
-3. [Instalar](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) o SQL Server Reporting Services (SSRS).
-4. [Instalar](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o SQL Server Management Studio (SSMS).
-5. Configure o relatório usando os parâmetros conforme documentado na [configuração do SSRS com o SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
-6. [Instalar](backup-azure-microsoft-azure-backup.md) o MABS V3.
-7. [Restaurar](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL usando o SSMS e execute a ferramenta de sincronização do DPM, conforme descrito [aqui](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
-8. Atualize a propriedade ' DataBaseVersion ' na tabela dbo. tbl_DLS_GlobalSetting usando o seguinte comando:
+1. [Faça backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) da base de dados SQL e desinstale o MABS V2 (opte por reter os dados protegidos durante a desinstalação).
+2. Upgrade para SQL 2017 (Enterprise) e desinstale relatórios como parte da atualização.
+3. [Instalar](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) Serviços de Reporte de Servidores SQL (SSRS).
+4. [Instalar](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) Estúdio de Gestão de Servidores SQL (SSMS).
+5. Configure relatórios utilizando os parâmetros conforme documentado na [configuração SSRS com SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
+6. [Instalar](backup-azure-microsoft-azure-backup.md) MABS V3.
+7. [Restaurar](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL usando SSMS e executar ferramenta DPM-Sync como descrito [aqui](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
+8. Atualize a propriedade 'DataBaseVersion' na tabela dbo.tbl_DLS_GlobalSetting utilizando o seguinte comando:
 
 ```sql
         UPDATE dbo.tbl_DLS_GlobalSetting
@@ -73,4 +73,4 @@ Este artigo fornece os problemas conhecidos e as soluções alternativas para o 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[O que há de novo no MABS v3](backup-mabs-whats-new-mabs.md)
+[O que há de novo no MABS V3](backup-mabs-whats-new-mabs.md)

@@ -1,6 +1,6 @@
 ---
-title: Provisionar novos locatários em um aplicativo multilocatário
-description: Saiba como provisionar e catalogar novos locatários em um aplicativo SaaS multilocatário do banco de dados SQL do Azure
+title: Provisão de novos inquilinos em uma app multiarrendatária
+description: Saiba como fornecer e catalogar novos inquilinos numa aplicação Multitenant SaaS da Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,139 +12,139 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 6ec8f8835e925663fc6ac21a6eb1df09d6927109
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132102"
 ---
-# <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar novos locatários e registrá-los no catálogo
+# <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como fornecer novos inquilinos e registá-los no catálogo
 
-Neste tutorial, você aprenderá a provisionar e catalogar padrões de SaaS. Você também aprende como eles são implementados no aplicativo de banco de dados por locatário SaaS Wingtip tickets. Você cria e inicializa novos bancos de dados de locatário e os registra no catálogo de locatários do aplicativo. O catálogo é um banco de dados que mantém o mapeamento entre os vários locatários do aplicativo SaaS e seus dados. O catálogo desempenha um papel importante no direcionamento de solicitações de aplicativo e gerenciamento para o banco de dados correto.
+Neste tutorial, aprende-se a fornecer e catalogar padrões SaaS. Você também aprende como eles são implementados na aplicação de bases de dados SaaS de bilhetes de ala e por inquilino. Cria e inicia novas bases de dados de inquilinos e regista-as no catálogo de inquilinos da aplicação. O catálogo é uma base de dados que mantém o mapeamento entre os muitos inquilinos da aplicação SaaS e os seus dados. O catálogo desempenha um papel importante na direção de pedidos de aplicação e gestão para a base de dados correta.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
-> * Provisionar um único locatário novo.
-> * Provisione um lote de locatários adicionais.
+> * Providenciar um único novo inquilino.
+> * Providenciar um lote de inquilinos adicionais.
 
 
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
-* O aplicativo de banco de dados por locatário SaaS Wingtip tickets é implantado. Para implantá-lo em menos de cinco minutos, consulte [implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-get-started-deploy.md).
+* A aplicação de bases de dados SaaS de bilhetes Wingtip SaaS por inquilino está implementada. Para implantá-lo em menos de cinco minutos, consulte Implementar e explorar a aplicação de bases de [dados SaaS de bilhetes de base de dados SaaS](saas-dbpertenant-get-started-deploy.md).
 * O Azure PowerShell está instalado. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-## <a name="introduction-to-the-saas-catalog-pattern"></a>Introdução ao padrão de catálogo de SaaS
+## <a name="introduction-to-the-saas-catalog-pattern"></a>Introdução ao padrão de catálogo SaaS
 
-Em um aplicativo SaaS multilocatário com suporte de banco de dados, é importante saber onde as informações de cada locatário são armazenadas. No padrão de catálogo de SaaS, um banco de dados de catálogo é usado para manter o mapeamento entre cada locatário e o banco de dados no qual os seus dados são armazenados. Esse padrão se aplica sempre que os dados de locatário são distribuídos entre vários bancos.
+Numa aplicação multiarrendatária apoiada pela base de dados, é importante saber onde estão armazenadas informações para cada inquilino. No padrão do catálogo SaaS, uma base de dados de catálogo é usada para manter o mapeamento entre cada inquilino e a base de dados em que os seus dados são armazenados. Este padrão aplica-se sempre que os dados dos inquilinos são distribuídos por várias bases de dados.
 
-Cada locatário é identificado por uma chave no catálogo, que é mapeada para o local de seu banco de dados. No aplicativo Wingtip tickets, a chave é formada por um hash do nome do locatário. Esse esquema permite que o aplicativo Construa a chave a partir do nome do locatário incluído na URL do aplicativo. Outros esquemas de chave de locatário podem ser usados.
+Cada inquilino é identificado por uma chave no catálogo, que está mapeada para a localização da sua base de dados. Na aplicação Wingtip Tickets, a chave é formada a partir de um hash do nome do inquilino. Este esquema permite que a app construa a chave a partir do nome do inquilino incluído no URL da aplicação. Outros esquemas-chave para o inquilino podem ser usados.
 
-O catálogo permite que o nome ou o local do banco de dados seja alterado com impacto mínimo sobre o aplicativo. Em um modelo de banco de dados multilocatário, esse recurso também acomoda a movimentação de um locatário entre bancos de dados. O catálogo também pode ser usado para indicar se um locatário ou banco de dados está offline para manutenção ou outras ações. Esse recurso é explorado no [tutorial de restauração de locatário único](saas-dbpertenant-restore-single-tenant.md).
+O catálogo permite que o nome ou localização da base de dados seja alterado com o mínimo impacto na aplicação. Num modelo de base de dados multiarrendatário, esta capacidade também acomoda mover um inquilino entre bases de dados. O catálogo também pode ser usado para indicar se um inquilino ou base de dados está offline para manutenção ou outras ações. Esta capacidade é explorada no tutorial de [restaurar único inquilino.](saas-dbpertenant-restore-single-tenant.md)
 
-O catálogo também pode armazenar metadados adicionais de locatário ou banco de dados, como a versão do esquema, o plano de serviço ou os SLAs oferecidos aos locatários. O catálogo pode armazenar outras informações que habilitam o gerenciamento de aplicativos, atendimento ao cliente ou DevOps.
+O catálogo também pode armazenar metadados adicionais de inquilinos ou bases de dados, tais como a versão schema, plano de serviço, ou SLAs oferecido aos inquilinos. O catálogo pode armazenar outras informações que permitam a gestão da aplicação, suporte ao cliente ou DevOps.
 
-Além do aplicativo SaaS, o catálogo pode habilitar as ferramentas de banco de dados. No exemplo de banco de dados por locatário SaaS Wingtip tickets, o catálogo é usado para habilitar a consulta entre locatários, que é explorada no [tutorial de relatório ad hoc](saas-tenancy-cross-tenant-reporting.md). O gerenciamento de trabalhos entre bancos de dados é explorado nos tutoriais de [Gerenciamento de esquema](saas-tenancy-schema-management.md) e [análise de locatário](saas-tenancy-tenant-analytics.md) .
+Para além da aplicação SaaS, o catálogo pode ativar ferramentas de base de dados. Na amostra de bases de dados SaaS de bilhetes wingtip saaS por inquilino, o catálogo é utilizado para permitir a consulta de inquilinos cruzados, que é explorada no tutorial de [reporte ad hoc.](saas-tenancy-cross-tenant-reporting.md) A gestão de empregos na base de dados é explorada nos tutoriais de gestão de [Schema](saas-tenancy-schema-management.md) e de análise de [inquilinos.](saas-tenancy-tenant-analytics.md)
 
-Nos exemplos de SaaS do Wingtip tickets, o catálogo é implementado usando os recursos de gerenciamento de fragmentos da [biblioteca de cliente do banco de dados elástico (EDCL)](sql-database-elastic-database-client-library.md). O EDCL está disponível em Java e na .NET Framework. O EDCL permite que um aplicativo crie, gerencie e use um mapa de fragmentos com backup de banco de dados.
+Nas amostras Wingtip Tickets SaaS, o catálogo é implementado utilizando as funcionalidades de Gestão de Fragmentos da biblioteca de clientes Da Base de [Dados Elástica (EDCL)](sql-database-elastic-database-client-library.md). O EDCL está disponível em Java e no .NET Framework. O EDCL permite que uma aplicação crie, gere e utilize um mapa de fragmentos apoiado por bases de dados.
 
-Um mapa de fragmentos contém uma lista de fragmentos (bancos de dados) e o mapeamento entre chaves (locatários) e fragmentos. As funções EDCL são usadas durante o provisionamento de locatário para criar as entradas no mapa de fragmentos. Eles são usados em tempo de execução por aplicativos para se conectarem ao banco de dados correto. O EDCL armazena em cache as informações de conexão para minimizar o tráfego para o banco de dados de catálogo e acelerar o aplicativo.
+Um mapa contém uma lista de fragmentos (bases de dados) e o mapeamento entre chaves (inquilinos) e fragmentos. As funções EDCL são usadas durante o fornecimento de inquilinos para criar as entradas no mapa do fragmento. São usados no tempo de execução por aplicações para se ligarem à base de dados correta. A EDCL caches informações de ligação para minimizar o tráfego na base de dados do catálogo e acelerar a aplicação.
 
 > [!IMPORTANT]
-> Os dados de mapeamento podem ser acessados no banco de dado do catálogo, mas *não editá-los*. Edite dados de mapeamento usando somente APIs de biblioteca de cliente do banco de dados elástico. Manipular diretamente o mapeamento de riscos de dados que corrompem o catálogo e não tem suporte.
+> Os dados de mapeamento estão acessíveis na base de dados do catálogo, mas *não os editam.* Editar dados de mapeamento utilizando apenas APIs da Biblioteca de Clientes da Base de Dados Elástica. Manipular diretamente os dados de mapeamento corre o risco de corromper o catálogo e não é suportado.
 
 
-## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introdução ao padrão de provisionamento de SaaS
+## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introdução ao padrão de provisionamento SaaS
 
-Quando você adiciona um novo locatário em um aplicativo SaaS que usa um modelo de banco de dados de locatário único, você deve provisionar um novo banco de dados de locatário. O banco de dados deve ser criado no local e na camada de serviço apropriados. Ele também deve ser inicializado com o esquema e os dados de referência apropriados. E deve ser registrado no catálogo sob a chave de locatário apropriada.
+Quando você adicionar um novo inquilino em uma aplicação SaaS que usa um modelo de base de dados de um único inquilino, você deve fornecer uma nova base de dados de inquilinos. A base de dados deve ser criada no local e no nível de serviço adequados. Deve também ser inicializado com os dados de esquemas e referência adequados. E deve estar registado no catálogo com a chave de inquilino apropriado.
 
-Abordagens diferentes para o provisionamento de banco de dados podem ser usadas. Você pode executar scripts SQL, implantar um bacpac ou copiar um banco de dados de modelo.
+Podem ser utilizadas diferentes abordagens para o fornecimento de bases de dados. Pode executar scripts SQL, implementar um bacpac ou copiar uma base de dados de modelos.
 
-O provisionamento de banco de dados precisa fazer parte de sua estratégia de gerenciamento de esquema. Você deve certificar-se de que os novos bancos de dados sejam provisionados com o esquema mais recente. Esse requisito é explorado no [tutorial de gerenciamento de esquema](saas-tenancy-schema-management.md).
+O fornecimento de bases de dados tem de fazer parte da sua estratégia de gestão de esquemas. Deve certificar-se de que as novas bases de dados são aprovisionadas com o mais recente esquema. Este requisito é explorado no tutorial de [gestão de Schema.](saas-tenancy-schema-management.md)
 
-O aplicativo de banco de dados por locatário Wingtip tickets provisiona novos locatários copiando um banco de dados de modelo chamado _basetenantdb_, que é implantado no servidor de catálogo. O provisionamento pode ser integrado ao aplicativo como parte de uma experiência de inscrição. Ele também pode ter suporte offline usando scripts. Este tutorial explora o provisionamento usando o PowerShell.
+A app wingtip Tickets base-per-tenant disponibiliza novos inquilinos copiando uma base de dados de modelos chamada _basetenantdb_, que é implantada no servidor do catálogo. O provisionamento pode ser integrado na aplicação como parte de uma experiência de inscrição. Também pode ser suportado offline usando scripts. Este tutorial explora o fornecimento utilizando o PowerShell.
 
-Os scripts de provisionamento copiam o banco de dados _basetenantdb_ para criar um novo banco de dados de locatário em um pool elástico. O banco de dados de locatário é criado no servidor de locatário mapeado para o alias DNS _Tenente_ . Esse alias mantém uma referência ao servidor usado para provisionar novos locatários e é atualizado para apontar para um servidor de locatário de recuperação nos tutoriais de recuperação de desastres ([Dr usando georestore](saas-dbpertenant-dr-geo-restore.md), [Dr usando a replicação](saas-dbpertenant-dr-geo-replication.md)). Em seguida, os scripts inicializam o banco de dados com informações específicas do locatário e o registram no mapa do fragmento do catálogo. Os bancos de dados de locatário recebem nomes com base no nome do locatário. Esse esquema de nomenclatura não é uma parte crítica do padrão. O catálogo mapeia a chave de locatário para o nome do banco de dados, portanto, qualquer Convenção de nomenclatura pode ser usada.
+O fornecimento de scripts copia a base de dados _de tenantdb_ para criar uma nova base de dados de inquilinos numa piscina elástica. A base de dados de inquilinos é criada no servidor de inquilinos mapeado para o pseudónimo do _novo inquilino_ DNS. Este pseudónimo mantém uma referência ao servidor usado para fornecer novos inquilinos e é atualizado para apontar para um servidor de inquilinos de recuperação nos tutoriais de recuperação de desastres ([DR usando georestauro,](saas-dbpertenant-dr-geo-restore.md) [DR usando georeplicação](saas-dbpertenant-dr-geo-replication.md)). Os scripts iniciam então a base de dados com informações específicas do arrendatário e registam-na no mapa do catálogo. As bases de dados dos inquilinos são dadas nomes com base no nome do inquilino. Este esquema de nomeação não é uma parte crítica do padrão. O catálogo mapeia a chave do inquilino para o nome da base de dados, para que qualquer convenção de nomeação possa ser usada.
 
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicativo de banco de dados por locatário SaaS Wingtip tickets
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenha os scripts de aplicação de bases de dados SaaS de bilhetes de ala e de bilhetes por inquilino
 
-Os scripts do Wingtip tickets SaaS e o código-fonte do aplicativo estão disponíveis no repositório GitHub [repositório wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip tickets.
+Os scripts SaaS e o código fonte de aplicação estão disponíveis no repo [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub. Confira as [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para os passos para descarregar e desbloquear os scripts Wingtip Tickets SaaS.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Instruções detalhadas sobre o aprovisionamento e a catalogação
 
-Para entender como o aplicativo Wingtip tickets implementa o novo provisionamento de locatário, adicione um ponto de interrupção e siga o fluxo de trabalho enquanto você provisiona um locatário.
+Para entender como a aplicação Wingtip Tickets implementa o fornecimento de novos inquilinos, adicione um ponto de rutura e siga o fluxo de trabalho enquanto você disponibiliza um inquilino.
 
-1. No ISE do PowerShell, abra...\\módulos de aprendizado\\ProvisionAndCatalog\\_demo-provisionandcatalog. ps1_ e defina os seguintes parâmetros:
+1. No PowerShell ISE, abra... \\Provisões\\de Módulos de Aprendizagem E Catalog\\_Demo-ProvisionAndCatalog.ps1_ e definir os seguintes parâmetros:
 
    * **$TenantName** = o nome do novo local (por exemplo, *Bushwillow Blues*).
-   * **$VenueType** = um dos tipos de local predefinidos: _azuis, ClassicalMusic, dança, jazz, judo, a corrida do motor, multipropósito, Opera, ROCKMUSIC, futebol_.
-   * **$DemoScenario** = **1**, *provisionar um único locatário*.
+   * **$VenueType** = um dos tipos predefinidos: _blues, música clássica, dança, jazz, judo, automobilismo, multiusos, ópera, rockmusic, futebol._
+   * **$DemoScenario** = **1**, *Provisão de um único inquilino.*
 
-2. Para adicionar um ponto de interrupção, coloque o cursor em qualquer lugar na linha que diz *New-locatário '* . Em seguida, pressione F9.
+2. Para adicionar um ponto de rutura, coloque o cursor em qualquer lugar da linha que diz *New-Tenant .* Em seguida, prima F9.
 
-   ![Breakpoint](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Ponto de rutura](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
-3. Para executar o script, pressione F5.
+3. Para executar o guião, prima F5.
 
-4. Após a execução do script parar no ponto de interrupção, pressione F11 para entrar no código.
+4. Depois que a execução do guião pare no ponto de rutura, pressione f11 para entrar no código.
 
    ![Depurar](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 
-Rastreie a execução do script usando as opções do menu **depurar** . Pressione F10 e F11 para passar sobre ou para as funções chamadas. Para obter mais informações sobre como depurar scripts do PowerShell, consulte [dicas sobre como trabalhar com e depurar scripts do PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Trace a execução do script utilizando as opções do menu **Debug.** Pressione F10 e F11 para passar ou entrar nas funções chamadas. Para obter mais informações sobre depuração de scripts PowerShell, consulte [Dicas sobre o trabalho e depurando scripts PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
-Você não precisa seguir este fluxo de trabalho explicitamente. Ele explica como depurar o script.
+Não precisas de seguir explicitamente este fluxo de trabalho. Explica como depurar o guião.
 
-* **Importe o módulo CatalogAndDatabaseManagement. psm1.** Ele fornece uma abstração de nível de locatário e de catálogo sobre as funções de [Gerenciamento de fragmentos](sql-database-elastic-scale-shard-map-management.md) . Esse módulo encapsula grande parte do padrão de catálogo e vale a pena explorar.
-* **Importe o módulo SubscriptionManagement. psm1.** Ele contém funções para entrar no Azure e selecionar a assinatura do Azure com a qual você deseja trabalhar.
-* **Obter detalhes de configuração.** Passe para Get-Configuration usando F11 e veja como a configuração do aplicativo é especificada. Os nomes de recursos e outros valores específicos do aplicativo são definidos aqui. Não altere esses valores até que você esteja familiarizado com os scripts.
-* **Obter o objeto de catálogo.** Passe para o Get-Catalog, que compõe e retorna um objeto de catálogo que é usado no script de nível superior. Essa função usa funções de gerenciamento de fragmentos que são importadas de **AzureShardManagement. psm1**. O objeto de catálogo é composto pelos seguintes elementos:
+* **Importar o módulo CatalogAndDatabaseManagement.psm1.** Fornece um catálogo e abstração ao nível do inquilino sobre as funções [de Gestão de Fragmentos.](sql-database-elastic-scale-shard-map-management.md) Este módulo encapsula grande parte do padrão do catálogo e vale a pena explorar.
+* **Importar o módulo SubscriptionManagement.psm1.** Contém funções para iniciar sessão no Azure e selecionar a subscrição Azure com a quais pretende trabalhar.
+* **Obtenha detalhes de configuração.** Entre na Configuração Get utilizando f11 e veja como a consola da aplicação é especificada. Os nomes de recursos e outros valores específicos da aplicação são definidos aqui. Não mude estes valores até estar familiarizado com os scripts.
+* **Pegue o objeto do catálogo.** Entre no Get-Catalog, que compõe e devolve um objeto de catálogo que é usado no script de alto nível. Esta função utiliza funções de Gestão de Fragmentos que são importadas de **AzureShardManagement.psm1**. O objeto do catálogo é composto pelos seguintes elementos:
 
-   * $catalogServerFullyQualifiedName é construído usando o tronco padrão mais seu nome de usuário: _Catalog-\<usuário\>. Database. Windows .net_.
+   * $catalogServerFullyQualifiedName é construído utilizando o caule padrão mais o seu nome de utilizador: _catálogo-utilizador\<\>.database.windows .net_.
    * $catalogDatabaseName é obtido a partir da configuração: *tenantcatalog*.
    * O objeto $shardMapManager é inicializado a partir da base de dados do catálogo.
-   * O objeto $shardMap é inicializado a partir do mapa de partições horizontais _tenantcatalog_ na base de dados do catálogo. Um objeto de catálogo é composto e retornado. Ele é usado no script de nível superior.
-* **Calcule a nova chave de locatário.** É utilizada uma função hash para criar a chave de inquilino a partir do nome do inquilino.
-* **Verifique se a chave de locatário já existe.** O catálogo é verificado para verificar se a chave está disponível.
-* **A base de dados do inquilino é aprovisionada com New-TenantDatabase**. Use F11 para entrar em como o banco de dados é provisionado usando um [modelo de Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
+   * O objeto $shardMap é inicializado a partir do mapa de partições horizontais _tenantcatalog_ na base de dados do catálogo. Um objeto de catálogo é composto e devolvido. É usado no guião de alto nível.
+* **Calcule a nova chave do inquilino.** É utilizada uma função hash para criar a chave de inquilino a partir do nome do inquilino.
+* **Verifique se a chave do inquilino já existe.** O catálogo é verificado para se certificar de que a chave está disponível.
+* **A base de dados do inquilino é aprovisionada com New-TenantDatabase**. Utilize o F11 para entrar na forma como a base de dados é aprovisionada utilizando um modelo de Gestor de [Recursos Azure](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-    O nome de base de dados é construído a partir do nome de inquilino para ficar claro quais as partições horizontais que pertencem a que inquilino. Você também pode usar outras convenções de nomenclatura de banco de dados. Um modelo do Resource Manager cria um banco de dados de locatário copiando um banco de dados de modelo (_baseTenantDB_) no servidor de catálogo. Como alternativa, você pode criar um banco de dados e inicializá-lo importando um bacpac. Ou você pode executar um script de inicialização de um local bem conhecido.
+    O nome de base de dados é construído a partir do nome de inquilino para ficar claro quais as partições horizontais que pertencem a que inquilino. Também pode utilizar outras convenções de nomeação de bases de dados. Um modelo de Gestor de Recursos cria uma base de dados de inquilinos copiando uma base de dados de modelos _(baseTenantDB_) no servidor do catálogo. Como alternativa, pode criar uma base de dados e ininicializá-la importando um bacpac. Ou pode executar um guião de inicialização a partir de um local bem conhecido.
 
-    O modelo do Resource Manager está na pasta. ..\Learning Modules\Common\: *tenantdatabasecopytemplate. JSON*
+    O modelo do Gestor de Recursos está na pasta ...\Learning Modules\Common\: *tenantdatabasecopytemplate.json*
 
-* **O banco de dados de locatário é inicializado ainda mais.** O nome do local (locatário) e o tipo de local são adicionados. Você também pode fazer outra inicialização aqui.
+* **A base de dados dos inquilinos está ainda inicializada.** O nome do local (inquilino) e o tipo de local são adicionados. Também pode fazer outra inicialização aqui.
 
-* **O banco de dados de locatário está registrado no catálogo.** Ele é registrado com *Add-TenantDatabaseToCatalog* usando a chave de locatário. Use F11 para entrar nos detalhes:
+* **A base de dados dos inquilinos está registada no catálogo.** Está registado no *Add-TenantDatabaseToCatalog* utilizando a chave do inquilino. Utilize F11 para avançar para os detalhes:
 
     * A base de dados do catálogo é adicionada ao mapa de partições horizontais (a lista de bases de dados conhecidas).
     * É criado o mapeamento que liga o valor da chave à partição horizontal.
-    * Metadados adicionais sobre o locatário (o nome do local) são adicionados à tabela locatários no catálogo. A tabela locatários não faz parte do esquema de gerenciamento de fragmentos e não é instalada pelo EDCL. Esta tabela ilustra como o banco de dados do catálogo pode ser estendido para dar suporte a dados específicos do aplicativo adicionais.
+    * Os metadados adicionais sobre o inquilino (nome do local) são adicionados à tabela de Inquilinos no catálogo. A mesa dos Inquilinos não faz parte do esquema da Shard Management, e não é instalada pela EDCL. Esta tabela ilustra como a base de dados do catálogo pode ser estendida para suportar dados adicionais específicos da aplicação.
 
 
-Após a conclusão do provisionamento, a execução retorna ao script original *demo-ProvisionAndCatalog* . A página **eventos** é aberta para o novo locatário no navegador.
+Após o fornecimento completo, a execução retorna ao script original *de Demo-ProvisionAndCatalog.* A página **Eventos** abre para o novo inquilino no navegador.
 
    ![Página de eventos](media/saas-dbpertenant-provision-and-catalog/new-tenant.png)
 
 
-## <a name="provision-a-batch-of-tenants"></a>Provisionar um lote de locatários
+## <a name="provision-a-batch-of-tenants"></a>Provisão de um lote de inquilinos
 
-Este exercício provisiona um lote de 17 locatários. Recomendamos que você provisione esse lote de locatários antes de iniciar outros tutoriais de banco de dados por locatário do Wingtip tickets SaaS. Há mais do que apenas alguns bancos de dados com os quais trabalhar.
+Este exercício prevê um lote de 17 inquilinos. Recomendamos que você forme este lote de inquilinos antes de iniciar outros tutoriais de base de dados SaaS de bilhetes wingtip por inquilino. Há mais do que algumas bases de dados para trabalhar.
 
-1. No ISE do PowerShell, abra...\\módulos de aprendizado\\ProvisionAndCatalog\\*demo-provisionandcatalog. ps1*. Altere o parâmetro *$DemoScenario* para 3:
+1. No PowerShell ISE, abra... \\Fornecimento de\\Módulos\\de Aprendizagem E Catalog*Demo-ProvisionAndCatalog.ps1*. Alterar o parâmetro *$DemoScenario* para 3:
 
-   * **$DemoScenario** = **3**, *provisionar um lote de locatários*.
-2. Para executar o script, pressione F5.
+   * **$DemoScenario** = **3**, Providenciar um lote *de inquilinos.*
+2. Para executar o guião, prima F5.
 
-O script implementa um lote de inquilinos adicionais. Ele usa um [modelo de Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) que controla o lote e delega o provisionamento de cada banco de dados para um modelo vinculado. Utilizar modelos desta forma permite que o Azure Resource Manager funcione como o mediador no processo de aprovisionamento do script. Os modelos provisionam bancos de dados em paralelo e tratam de novas tentativas, se necessário. O script é idempotente, portanto, se ele falhar ou parar por qualquer motivo, execute-o novamente.
+O script implementa um lote de inquilinos adicionais. Utiliza um modelo de Gestor de [Recursos Azure](../azure-resource-manager/resource-manager-template-walkthrough.md) que controla o lote e delega o fornecimento de cada base de dados a um modelo ligado. Utilizar modelos desta forma permite que o Azure Resource Manager funcione como o mediador no processo de aprovisionamento do script. Os modelos disponibilizam bases de dados paralelas e manuseiam repetições, se necessário. O guião é idempotente, por isso, se falhar ou parar por qualquer motivo, executa-o novamente.
 
-### <a name="verify-the-batch-of-tenants-that-successfully-deployed"></a>Verificar o lote de locatários que foram implantados com êxito
+### <a name="verify-the-batch-of-tenants-that-successfully-deployed"></a>Verifique o lote de inquilinos que implementaram com sucesso
 
-* Na [portal do Azure](https://portal.azure.com), navegue até a lista de servidores e abra o servidor *tenants1* . Selecione **bancos de dados SQL**e verifique se o lote de 17 bancos de dados adicionais está agora na lista.
+* No [portal Azure,](https://portal.azure.com)navegue para a sua lista de servidores e abra o servidor *tenants1.* Selecione bases de **dados SQL**e verifique se o lote de 17 bases de dados adicionais está agora na lista.
 
    ![Lista de bases de dados](media/saas-dbpertenant-provision-and-catalog/database-list.png)
 
@@ -154,11 +154,11 @@ O script implementa um lote de inquilinos adicionais. Ele usa um [modelo de Azur
 
 Outros padrões de provisionamento não incluídos neste tutorial:
 
-**Pré-Provisionando bancos de dados**: o padrão de pré-provisionamento explora o fato de que os bancos de dados em um pool elástico não agregam custo extra. A cobrança é para o pool elástico, não para os bancos de dados. Bancos de dados ociosos não consomem recursos. Ao provisionar previamente bancos de dados em um pool e alocá-los quando necessário, você pode reduzir o tempo para adicionar locatários. O número de bancos de dados previamente provisionados pode ser ajustado conforme necessário para manter um buffer adequado para a taxa de provisionamento prevista.
+Bases de **dados de pré-provisionamento**: O padrão de pré-provisionamento explora o facto de as bases de dados de uma piscina elástica não acrescentarem custos adicionais. A faturação é para a piscina elástica, não para as bases de dados. As bases de dados inúteis não consomem recursos. Ao pré-fornecer bases de dados numa piscina e alocá-las quando necessário, pode reduzir o tempo para adicionar inquilinos. O número de bases de dados pré-provisionadas pode ser ajustado conforme necessário para manter um tampão adequado à taxa de provisionamento prevista.
 
-**Provisionamento automático**: no padrão de provisionamento automático, um serviço de provisionamento provisiona servidores, pools e bancos de dados automaticamente, conforme necessário. Se desejar, você pode incluir o pré-provisionamento de bancos de dados em pools elásticos. Se os bancos de dados forem encerrados e excluídos, as lacunas nos pools elásticos poderão ser preenchidas pelo serviço de provisionamento. Esse serviço pode ser simples ou complexo, como manipular o provisionamento em várias regiões geográficas e configurar a replicação geográfica para recuperação de desastres.
+**Fornecimento automático**: No padrão de fornecimento automático, um serviço de fornecimento de serviços disponibiliza automaticamente servidores, piscinas e bases de dados, se necessário. Se quiser, pode incluir bases de dados pré-provisionantes em piscinas elásticas. Se as bases de dados forem desativadas e eliminadas, as lacunas nas piscinas elásticas podem ser preenchidas pelo serviço de provisionamento. Tal serviço pode ser simples ou complexo, como manusear o fornecimento através de várias geografias e criar geo-replicação para a recuperação de desastres.
 
-Com o padrão de provisionamento automático, um script ou aplicativo cliente envia uma solicitação de provisionamento para uma fila a ser processada pelo serviço de provisionamento. Em seguida, ele sonda o serviço para determinar a conclusão. Se o provisionamento prévio for usado, as solicitações serão tratadas rapidamente. O serviço provisiona um banco de dados de substituição em segundo plano.
+Com o padrão de fornecimento automático, uma aplicação ou script do cliente submete um pedido de provisionamento a uma fila a ser processada pelo serviço de provisionamento. Em seguida, vota o serviço para determinar a conclusão. Se for utilizado o pré-provisionamento, os pedidos são tratados rapidamente. O serviço prevê uma base de dados de substituição em segundo plano.
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -167,14 +167,14 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 >
-> * Provisionar um único locatário novo.
-> * Provisione um lote de locatários adicionais.
-> * Concorra os detalhes de provisionamento de locatários e registro deles no catálogo.
+> * Providenciar um único novo inquilino.
+> * Providenciar um lote de inquilinos adicionais.
+> * Entre nos detalhes do fornecimento de inquilinos e registe-os no catálogo.
 
-Experimente o [tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
+Experimente o tutorial de [monitorização](saas-dbpertenant-performance-monitoring.md)do desempenho .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que se baseiam no aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que se baseiam na aplicação de bases de dados SaaS de bilhetes de ala](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Biblioteca de clientes da base de dados elástica](sql-database-elastic-database-client-library.md)
-* [Depurar scripts no ISE do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Depuram scripts no IsE PowerShell do Windows](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

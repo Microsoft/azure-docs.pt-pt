@@ -1,6 +1,6 @@
 ---
-title: Desanexar um disco de dados de uma VM do Linux-Azure
-description: Saiba como desanexar um disco de dados de uma máquina virtual no Azure usando CLI do Azure ou o portal do Azure.
+title: Desaperte um disco de dados de um Linux VM - Azure
+description: Aprenda a separar um disco de dados de uma máquina virtual em Azure utilizando o Azure CLI ou o portal Azure.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
@@ -8,33 +8,33 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74036376"
 ---
-# <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Linux
+# <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual do Linux
 
-Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual, pode desligá-lo facilmente. Isso remove o disco da máquina virtual, mas não o Remove do armazenamento. Neste artigo, estamos trabalhando com uma distribuição Ubuntu LTS 16, 4. Se você estiver usando uma distribuição diferente, as instruções para desmontar o disco podem ser diferentes.
+Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual, pode desligá-lo facilmente. Isto remove o disco da máquina virtual, mas não o remove do armazenamento. Neste artigo, estamos a trabalhar com uma distribuição Ubuntu LTS 16.04. Se estiver a utilizar uma distribuição diferente, as instruções para desmontar o disco podem ser diferentes.
 
 > [!WARNING]
-> Se você desanexar um disco, ele não será excluído automaticamente. Se você assinou o armazenamento Premium, continuará a incorrer em encargos de armazenamento para o disco. Para obter mais informações, consulte [preços e cobrança ao usar o armazenamento Premium](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+> Se retirar um disco, não é automaticamente apagado. Se tiver subscrito o armazenamento Premium, continuará a incorrer em custos de armazenamento para o disco. Para mais informações, consulte [Preços e Faturação ao utilizar o Armazenamento Premium](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá-lo à mesma máquina virtual ou a outra.  
 
 
-## <a name="connect-to-the-vm-to-unmount-the-disk"></a>Conectar-se à VM para desmontar o disco
+## <a name="connect-to-the-vm-to-unmount-the-disk"></a>Ligue-se ao VM para desmontar o disco
 
-Antes de poder desanexar o disco usando a CLI ou o portal, você precisa desmontar o disco e remover as referências a If do arquivo fstab.
+Antes de poder desmontar o disco utilizando o CLI ou o portal, é necessário desmontar o disco e remover referências para se a partir do seu ficheiro fstab.
 
-Ligue à VM. Neste exemplo, o endereço IP público da VM é *10.0.1.4* com o nome de usuário *azureuser*: 
+Ligue à VM. Neste exemplo, o endereço IP público do VM é *10.0.1.4* com o nome de utilizador *azureuser:* 
 
 ```bash
 ssh azureuser@10.0.1.4
 ```
 
-Primeiro, localize o disco de dados que você deseja desanexar. O exemplo a seguir usa dmesg para filtrar em discos SCSI:
+Primeiro, encontre o disco de dados que quer desprender. O exemplo seguinte utiliza dmesg para filtrar em discos SCSI:
 
 ```bash
 dmesg | grep SCSI
@@ -50,13 +50,13 @@ O resultado é semelhante ao seguinte exemplo:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Aqui, *SDC* é o disco que desejamos desanexar. Você também deve obter o UUID do disco.
+Aqui, *sdc* é o disco que queremos desmontar. Também deve sacar o UUID do disco.
 
 ```bash
 sudo -i blkid
 ```
 
-A saída é semelhante ao exemplo a seguir:
+A saída é semelhante ao seguinte exemplo:
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -65,33 +65,33 @@ A saída é semelhante ao exemplo a seguir:
 ```
 
 
-Edite o arquivo */etc/fstab* para remover as referências ao disco. 
+Editar o ficheiro */etc/fstab* para remover referências ao disco. 
 
 > [!NOTE]
-> A edição inadequada do arquivo **/etc/fstab** pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente esse arquivo. Também é recomendável que um backup do arquivo/etc/fstab seja criado antes da edição.
+> A edição inadequada do ficheiro **/etc/fstab** pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação de distribuição para obter mais informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro /etc/fstab antes da edição.
 
-Abra o arquivo */etc/fstab* em um editor de texto da seguinte maneira:
+Abra o ficheiro */etc/fstab* num editor de texto da seguinte forma:
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-Neste exemplo, a linha a seguir precisa ser excluída do arquivo */etc/fstab* :
+Neste exemplo, é necessário eliminar do ficheiro */etc/fstab* a seguinte linha:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
-Use `umount` para desmontar o disco. O exemplo a seguir desmonta a partição */dev/sdc1* do ponto de montagem */DataDrive* :
+Use `umount` para desmontar o disco. O seguinte exemplo desmonta a partição */dev/sdc1* do ponto de montagem */datadrive:*
 
 ```bash
 sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## <a name="detach-a-data-disk-using-azure-cli"></a>Desanexar um disco de dados usando CLI do Azure 
+## <a name="detach-a-data-disk-using-azure-cli"></a>Desmontar um disco de dados utilizando o Azure CLI 
 
-Este exemplo desanexa o disco *myDataDisk* da VM denominada *MyVM* no *myresourceproperties*.
+Este exemplo desprende o disco *myDataDisk* da VM chamado *myVM* no *myResourceGroup*.
 
 ```azurecli
 az vm disk detach \
@@ -100,23 +100,23 @@ az vm disk detach \
     -n myDataDisk
 ```
 
-O disco permanece no armazenamento, mas não está mais anexado a uma máquina virtual.
+O disco permanece no armazenamento, mas já não está ligado a uma máquina virtual.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados com o portal
 
-1. No menu à esquerda, selecione **máquinas virtuais**.
-2. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar e clique em **parar** para desalocar a VM.
-3. No painel máquina virtual, selecione **discos**.
-4. Na parte superior do painel **discos** , selecione **Editar**.
-5. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, clique na imagem do botão desanexar ![](./media/detach-disk/detach.png) botão desanexar.
-5. Depois que o disco for removido, clique em salvar na parte superior do painel.
-6. No painel máquina virtual, clique em **visão geral** e, em seguida, clique no botão **Iniciar** na parte superior do painel para reiniciar a VM.
+1. No menu esquerdo, selecione **Máquinas Virtuais**.
+2. Selecione a máquina virtual que tem o disco de dados que pretende desprender e clique em **Parar** para desalojar o VM.
+3. No painel da máquina virtual, selecione **Discos**.
+4. Na parte superior do painel de **discos,** **selecione Editar**.
+5. No painel **de Discos,** à extrema direita do disco de dados que ![gostaria de](./media/detach-disk/detach.png) separar, clique no botão de desapego de imagem do botão Detach.
+5. Depois de removido o disco, clique em Guardar na parte superior do painel.
+6. No painel virtual da máquina, clique em **Visão Geral** e, em seguida, clique no botão **Iniciar** na parte superior do painel para reiniciar o VM.
 
-O disco permanece no armazenamento, mas não está mais anexado a uma máquina virtual.
+O disco permanece no armazenamento, mas já não está ligado a uma máquina virtual.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Se você quiser reutilizar o disco de dados, você pode apenas [anexá-lo a outra VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se quiser reutilizar o disco de dados, pode [simplesmente ligá-lo a outro VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

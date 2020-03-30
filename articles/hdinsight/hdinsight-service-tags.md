@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/10/2020
 ms.openlocfilehash: a72753d5553e79a8ed28c3afcc7e54af6c2d230c
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79117234"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de serviço do grupo de segurança de rede (NSG) para Azure HDInsight
@@ -30,7 +30,7 @@ Tem duas opções para utilizar etiquetas de serviço nos seus grupos de seguran
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Use uma única etiqueta de serviço HDInsight global
 
-A maneira mais fácil de começar a usar etiquetas de serviço com o seu cluster HDInsight é adicionar a etiqueta global `HDInsight` a uma regra do grupo de segurança da rede.
+A maneira mais fácil de começar a usar etiquetas de `HDInsight` serviço com o seu cluster HDInsight é adicionar a etiqueta global a uma regra do grupo de segurança da rede.
 
 1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu grupo de segurança de rede.
 
@@ -72,7 +72,7 @@ Se preferir a opção de etiqueta de serviço dois, e o seu cluster estiver loca
 | &nbsp; | Sul da Índia | HDInsight.SouthIndia |
 | Japão | Oeste do Japão | HDInsight.JapanWest |
 | França | França Central| HDInsight.FranceCentral |
-| RU | Sul do Reino Unido | HDInsight.UKSouth |
+| REINO UNIDO | Sul do Reino Unido | HDInsight.UKSouth |
 | Azure Government | USDoD Central   | HDInsight.USDodCentral |
 | &nbsp; | USGov Texas | HDInsight.USGovTexas |
 | &nbsp; | UsDoD East | HDInsight.USDoDEast |
@@ -86,9 +86,9 @@ As restantes regiões dividem-se em grupos com base nas etiquetas de serviço re
 
 #### <a name="group-1"></a>Grupo 1
 
-Se o seu cluster for criado numa das regiões da tabela abaixo, permita que as etiquetas de serviço `HDInsight.WestUS` e `HDInsight.EastUS` para além da etiqueta de serviço regional listada. As regiões desta secção requerem três etiquetas de serviço.
+Se o seu cluster for criado numa das regiões da `HDInsight.WestUS` tabela `HDInsight.EastUS` abaixo, permita as etiquetas de serviço e para além da etiqueta de serviço regional listada. As regiões desta secção requerem três etiquetas de serviço.
 
-Por exemplo, se o seu cluster for criado na região `East US 2`, então terá de adicionar as seguintes etiquetas de serviço ao seu grupo de segurança de rede:
+Por exemplo, se o `East US 2` seu cluster for criado na região, terá de adicionar as seguintes etiquetas de serviço ao seu grupo de segurança de rede:
 
 - `HDInsight.EastUS2`
 - `HDInsight.WestUS`
@@ -104,22 +104,22 @@ Por exemplo, se o seu cluster for criado na região `East US 2`, então terá de
 | &nbsp; | E.U.A. Oeste | HDInsight.WestUS |
 | Japão | Leste do Japão | HDInsight.JapanEast |
 | Europa | Europa do Norte | HDInsight.NorthEurope |
-| &nbsp; | Europa Ocidental| HDInsight.WestEurope |
+| &nbsp; | Europa ocidental| HDInsight.WestEurope |
 | Ásia | Ásia Leste | HDInsight.EastAsia |
 | &nbsp; | Ásia Sudeste | HDInsight.SoutheastAsia |
 | Austrália | Leste da Austrália | HDInsight.AustraliaEast |
 
 #### <a name="group-2"></a>Grupo 2
 
-Os aglomerados nas regiões da **China Norte** e **China Leste**precisam de permitir duas etiquetas de serviço: `HDInsight.ChinaNorth` e `HDInsight.ChinaEast`.
+Os aglomerados nas regiões da **China Norte** e **China Leste,** precisam de permitir duas etiquetas de serviço: `HDInsight.ChinaNorth` e `HDInsight.ChinaEast`.
 
 #### <a name="group-3"></a>Grupo 3
 
-Os aglomerados nas regiões dos **EUA Gov Iowa** e **norte-americano Gov Virginia**precisam de permitir duas etiquetas de serviço: `HDInsight.USGovIowa` e `HDInsight.USGovVirginia`.
+Os aglomerados nas regiões dos **EUA Gov Iowa** e **norte-americano Gov Virginia,** precisam de permitir duas etiquetas de serviço: `HDInsight.USGovIowa` e `HDInsight.USGovVirginia`.
 
 #### <a name="group-4"></a>Grupo 4
 
-Os aglomerados nas regiões da **Alemanha Central** e **Alemanha Nordeste,** precisam de permitir duas etiquetas de serviço: `HDInsight.GermanyCentral` e `HDInsight.GermanyNorthEast`.
+Os agrupamentos nas regiões da **Alemanha Central** e **Alemanha Nordeste,** precisam de permitir duas etiquetas de serviço: `HDInsight.GermanyCentral` e `HDInsight.GermanyNorthEast`.
 
 ## <a name="next-steps"></a>Passos seguintes
 

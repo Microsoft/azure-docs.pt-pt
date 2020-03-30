@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: usar o cache do Azure para Redis com Java'
-description: Neste guia de início rápido, você criará um novo aplicativo Java que usa o cache do Azure para Redis
+title: 'Quickstart: Use Azure Cache para Redis com Java'
+description: Neste arranque rápido, você vai criar uma nova app Java que usa Azure Cache para Redis
 author: yegu-ms
 ms.service: cache
 ms.devlang: java
@@ -9,19 +9,19 @@ ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 6163392c80d40b6ea65e681aa175c21c244099b9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74122703"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Início rápido: usar o cache do Azure para Redis com Java
+# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Quickstart: Use Azure Cache para Redis com Java
 
-Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo Java usando o cliente [Jedis](https://github.com/xetorthio/jedis) Redis para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
+Neste arranque rápido, incorpora o Azure Cache for Redis numa aplicação Java utilizando o cliente [Jedis](https://github.com/xetorthio/jedis) Redis para ter acesso a uma cache segura e dedicada que é acessível a partir de qualquer aplicação dentro do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## <a name="create-an-azure-cache-for-redis"></a>Criar uma Cache do Azure para Redis
@@ -113,7 +113,7 @@ public class App
 }
 ```
 
-Este código mostra como se conectar a um cache do Azure para a instância do Redis usando o nome de host do cache e as variáveis de ambiente de chave. O código também armazena e obtém um valor de cadeia na cache. Os comandos `PING` e `CLIENT LIST` também são executados. 
+Este código mostra-lhe como se ligar a um Azure Cache para redis, utilizando o nome do anfitrião da cache e variáveis ambientais chave. O código também armazena e obtém um valor de cadeia na cache. Os comandos `PING` e `CLIENT LIST` também são executados. 
 
 Save *App.java*.
 
@@ -128,7 +128,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor em cache, o qual foi definido com a Consola Redis no portal do Azure. A aplicação atualizou esse valor em cache. A aplicação também executou os comandos `PING` e `CLIENT LIST`.
 
-![Cache do Azure para aplicativo Redis concluído](./media/cache-java-get-started/azure-cache-redis-complete.png)
+![Azure Cache para app Redis concluída](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -137,22 +137,22 @@ Se avançar para o próximo tutorial, pode manter os recursos que criou neste in
 Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-1. Na caixa de texto **Filtrar por nome** , digite o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. Em seu grupo de recursos na lista de resultados, selecione **...** em seguida, **excluir grupo de recursos**.
+1. No **Filtro por nome,** escreva o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No seu grupo de recursos **...** na lista de resultados, selecione... em **seguida, elimine**o grupo de recursos .
 
-   ![Grupo de recursos do Azure excluído](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
+   ![Grupo de recursos Azure eliminado](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
-1. É-lhe pedido que confirme a eliminação do grupo de recursos. Digite o nome do seu grupo de recursos para confirmar e selecione **excluir**.
+1. É-lhe pedido que confirme a eliminação do grupo de recursos. Digite o nome do seu grupo de recursos para confirmar e selecione **Eliminar**.
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você aprendeu a usar o cache do Azure para Redis de um aplicativo Java. Continue para o próximo início rápido para usar o cache do Azure para Redis com um aplicativo Web ASP.NET.
+Neste arranque rápido, aprendeu a usar o Azure Cache para Redis a partir de uma aplicação Java. Continue para o próximo quickstart a usar O Cache Azure para Redis com uma aplicação web ASP.NET.
 
 > [!div class="nextstepaction"]
-> [Crie um aplicativo Web ASP.NET que usa um cache do Azure para Redis.](./cache-web-app-howto.md)
+> [Crie uma ASP.NET aplicação web que utilize um Azure Cache para Redis.](./cache-web-app-howto.md)

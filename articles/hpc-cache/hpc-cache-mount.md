@@ -1,41 +1,41 @@
 ---
-title: Montar um cache HPC do Azure
-description: Como conectar clientes a um serviço de cache do Azure HPC
+title: Monte uma cache Azure HPC
+description: Como ligar clientes a um serviço Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: d906ed9a1a55e936c6374806a9037085c47e3b01
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73582220"
 ---
-# <a name="mount-the-azure-hpc-cache"></a>Montar o cache HPC do Azure
+# <a name="mount-the-azure-hpc-cache"></a>Monte a Cache Azure HPC
 
-Depois que o cache é criado, os clientes NFS podem acessá-lo com um comando de montagem simples.
+Após a criação da cache, os clientes nFS podem acessá-lo com um simples comando de montagem.
 
-O comando Mount é composto de dois elementos:
+O comando do suporte é composto por dois elementos:
 
-* Um dos endereços de montagem do cache (listado na página Visão geral do cache)
-* O caminho de namespace virtual que você definiu quando criou o destino de armazenamento
+* Um dos endereços de montagem do cache (listado na página de visão geral da cache)
+* O caminho virtual do espaço de nome que definiu quando criou o alvo de armazenamento
 
-![captura de tela da página de visão geral da instância do cache HPC do Azure, com uma caixa de realce em volta da lista de endereços de montagem no canto inferior direito](media/hpc-cache-mount-addresses.png)
+![screenshot da página de visão geral da instância de Cache Azure HPC, com uma caixa de destaque em torno da lista de endereços de montagem na parte inferior direita](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
-> Os endereços de montagem de cache correspondem às interfaces de rede dentro da sub-rede do cache. Em um grupo de recursos, essas NICs são listadas com nomes que terminam em `-cluster-nic-` e um número. Não altere ou exclua essas interfaces, ou o cache ficará indisponível.
+> Os endereços de montagem de cache correspondem às interfaces de rede dentro da sub-rede da cache. Num grupo de recursos, estes NICs `-cluster-nic-` estão listados com nomes que terminam e um número. Não altere ou elimine estas interfaces, ou a cache ficará indisponível.
 
-Os caminhos de namespace virtual são mostrados na página **destinos de armazenamento** . Clique em um nome de destino de armazenamento individual para ver seus detalhes, incluindo caminhos de namespace agregados associados a ele.
+Os caminhos de espaço de nome virtual são mostrados na página de alvos de **Armazenamento.** Clique num nome de alvo de armazenamento individual para ver os seus detalhes, incluindo os caminhos agregados do espaço de nome associados.
 
-![captura de tela do painel de destino de armazenamento do cache, com uma caixa de realce em volta de uma entrada na coluna PATH da tabela](media/hpc-cache-view-namespace-paths.png)
+![screenshot do painel alvo de armazenamento da cache, com uma caixa de destaque em torno de uma entrada na coluna Caminho da tabela](media/hpc-cache-view-namespace-paths.png)
 
-## <a name="mount-command-syntax"></a>Sintaxe de comando de montagem
+## <a name="mount-command-syntax"></a>Sintaxe de comando do monte
 
-Use um comando de montagem como o seguinte:
+Utilize um comando de montagem como o seguinte:
 
-> *namespace_path* de montagem do sudo *cache_mount_address*:/ *local_path* {*Options*}
+> sudo montagem *cache_mount_address*:/*namespace_path* *local_path* {*opções*}
 
 Exemplo:
 
@@ -45,24 +45,24 @@ root@test-client:/tmp# sudo mount 10.0.0.28:/blob-demo-0722 ./hpccache/ -orw,tcp
 root@test-client:/tmp# 
 ```
 
-Depois que esse comando for executado com sucesso, o conteúdo da exportação de armazenamento deverá estar visível no diretório ``hpccache`` no cliente.
+Após o sucesso deste comando, o conteúdo da ``hpccache`` exportação de armazenamento deve ser visível no diretório sobre o cliente.
 
 > [!NOTE] 
-> Os clientes devem ser capazes de acessar a rede virtual e a sub-rede que hospeda o cache. Por exemplo, crie VMs de cliente na mesma rede virtual ou use um ponto de extremidade, gateway ou outra solução na rede virtual para acesso de fora. Lembre-se de que nada mais pode ser hospedado na sub-rede do cache.
+> Os seus clientes devem poder aceder à rede virtual e à sub-rede que alberga a sua cache. Por exemplo, criar VMs de clientes dentro da mesma rede virtual, ou usar um ponto final, gateway ou outra solução na rede virtual para acesso a partir do exterior. Lembre-se que nada mais pode ser hospedado dentro da subnet do cache.
 
 ### <a name="mount-command-options"></a>Opções de comando de montagem
 
-Para uma montagem de cliente robusta, passe essas configurações e argumentos no comando mount: 
+Para uma montagem robusta do cliente, passe estas configurações e argumentos no seu comando de montagem: 
 
 ``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${CACHE_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Configurações de comando de montagem recomendadas | |
+| Definições recomendadas de comando de montagem | |
 --- | --- 
-``hard`` | As montagens suaves no cache do HPC do Azure estão associadas a falhas do aplicativo e à possível perda de dados. 
-``proto=netid`` | Essa opção dá suporte ao tratamento apropriado de erros de rede NFS.
-``mountproto=netid`` | Essa opção dá suporte ao tratamento apropriado de erros de rede para operações de montagem.
-``retry=n`` | Defina ``retry=30`` para evitar falhas de montagem transitórias. (Um valor diferente é recomendado em montagens de primeiro plano.)
+``hard`` | Os suportes macios para a Cache Azure HPC estão associados a falhas de aplicação e possível perda de dados. 
+``proto=netid`` | Esta opção suporta o tratamento adequado dos erros de rede NFS.
+``mountproto=netid`` | Esta opção suporta o tratamento adequado dos erros de rede para as operações de montagem.
+``retry=n`` | Preparar ``retry=30`` para evitar falhas transitórias de montagem. (Recomenda-se um valor diferente em suportes de primeiro plano.)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para mover dados para os destinos de armazenamento do cache, leia [popular novo armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
+* Para mover dados para os alvos de armazenamento da cache, leia [O novo armazenamento da Blob Azure](hpc-cache-ingest.md).

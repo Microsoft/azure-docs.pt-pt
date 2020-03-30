@@ -1,6 +1,6 @@
 ---
-title: Interface da CLI do agente do computador conectado do Azure
-description: Documentação de referência para a CLI do agente de máquina conectada do Azure
+title: Interface da CLI do Azure Connected Machine Agent
+description: Documentação de referência para o agente da máquina ligada ao Azure CLI
 author: bobbytreed
 manager: carmonm
 services: azure-arc
@@ -10,19 +10,19 @@ ms.topic: reference
 ms.date: 11/04/2019
 ms.author: robreed
 ms.openlocfilehash: d35c5e283f2e1e2f8afd431d83775167dc2a531a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73513201"
 ---
-# <a name="azure-connected-machine-agent-cli-interface"></a>Interface da CLI do agente do computador conectado do Azure
+# <a name="azure-connected-machine-agent-cli-interface"></a>Interface da CLI do Azure Connected Machine Agent
 
-A ferramenta `Azcmagent` (agente do computador conectado do Azure) é usada para configurar e solucionar problemas de uma conexão de computadores não Azure com o Azure.
+A `Azcmagent` ferramenta (Agente de Máquinas Conectadas Azure) é utilizada para configurar e resolver problemas uma ligação de máquinas não-azure ao Azure.
 
-O próprio agente é um processo de daemon chamado `himdsd` no Linux e um serviço do Windows chamado `himds` no Windows.
+O próprio agente é um processo `himdsd` de daemon chamado `himds` Linux, e um Serviço Windows chamado no Windows.
 
-No uso normal, `azcmagent connect` é usado para estabelecer uma conexão entre este computador e o Azure e `azcmagent disconnect` se você decidir que não deseja mais essa conexão. Os outros comandos são para solução de problemas ou outros casos especiais.
+Em uso `azcmagent connect` normal, é usado para estabelecer uma ligação entre esta máquina e Azure, e `azcmagent disconnect` se você decidir que você não quer mais essa ligação. Os outros comandos são para resolução de problemas ou outros casos especiais.
 
 ## <a name="options"></a>Opções
 
@@ -31,32 +31,32 @@ No uso normal, `azcmagent connect` é usado para estabelecer uma conexão entre 
   -v, --verbose   Increase logging verbosity to show all logs
 ```
 
-## <a name="see-also"></a>CONSULTE TAMBÉM
+## <a name="see-also"></a>VER TAMBÉM
 
-* [azcmagent Connect](#azcmagent-connect) – conecta este computador ao Azure
-* [azcmagent desconectar – desconecta](#azcmagent-disconnect) este computador do Azure
-* [reconectar azcmagent](#azcmagent-reconnect) -reconecta este computador ao Azure
-* [azcmagent show](#azcmagent-show) – Obtém os metadados do computador e o status do agente. Isso é útil principalmente para solução de problemas.
-* [versão do azcmagent](#azcmagent-version) – exibir a versão do agente de gerenciamento híbrido
+* [azcmagent connect](#azcmagent-connect) - Liga esta máquina ao Azure
+* [azcmagent desconexão](#azcmagent-disconnect) - Desliga esta máquina de Azure
+* [azcmagent reconectar](#azcmagent-reconnect) - Reconecta esta máquina a Azure
+* [azcmagent show](#azcmagent-show) - Obtém metadados de máquina e estado de agente. Isto é essencialmente útil para resolução de problemas.
+* [versão azcmagent](#azcmagent-version) - Mostrar a versão Hybrid Management Agent
 
 ## <a name="azcmagent-connect"></a>azcmagent conectar
 
-Conecta este computador ao Azure
+Liga esta máquina ao Azure
 
-### <a name="synopsis"></a>Resumo
+### <a name="synopsis"></a>Sinopse
 
-Cria um recurso no Azure que representa este computador.
+Cria um recurso em Azure representando esta máquina.
 
-Isso usa as opções de autenticação fornecidas para criar um recurso no Azure Resource Manager que representa esse computador. O recurso está na assinatura e no grupo de recursos solicitado, e os dados sobre a máquina são armazenados na região do Azure especificada pelo parâmetro local.
-O nome do recurso padrão é o nome do host deste computador, se não for substituído.
+Isto utiliza as opções de autenticação fornecidas para criar um recurso no Gestor de Recursos Azure que representa esta máquina. O recurso está no grupo de subscrição e recursos solicitado, e os dados sobre a máquina são armazenados na região de Azure especificados pelo parâmetro de localização.
+O nome de recurso predefinido é o nome de anfitrião desta máquina se não for ultrapassado.
 
-Um certificado correspondente à identidade atribuída pelo sistema dessa máquina é então baixado e armazenado localmente. Depois que essa etapa concluir o serviço de **metadados da máquina conectada do Azure** e o agente de configuração do convidado começar a sincronizar com a nuvem do Azure.
+Um certificado correspondente à Identidade Atribuída ao Sistema desta máquina é então descarregado e armazenado localmente. Assim que este passo completar o Serviço de **Metadados de Máquinas Conectadas Azure** e o Agente de Configuração do Hóspede começam a sincronizar com a nuvem Azure.
 
 Opções de autenticação:
 
-* `azcmagent connect --access-token <> --subscription-id <> --resource-group <> --location <>` de token de acesso
-* ID da entidade de serviço e segredo `azcmagent connect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid> --subscription-id <> --resource-group <> --location <>`
-* Entrada do dispositivo (interativa) `azcmagent connect --tenant-id <> --subscription-id <> --resource-group <> --location <>`
+* Ficha de acesso`azcmagent connect --access-token <> --subscription-id <> --resource-group <> --location <>`
+* Id e segredo do principal de serviço`azcmagent connect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid> --subscription-id <> --resource-group <> --location <>`
+* Sinal de inscrição no dispositivo (Interativo)`azcmagent connect --tenant-id <> --subscription-id <> --resource-group <> --location <>`
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -80,25 +80,25 @@ azcmagent connect [flags]
       --tenant-id string                  Tenant Id
 ```
 
-## <a name="azcmagent-disconnect"></a>desconectar azcmagent
+## <a name="azcmagent-disconnect"></a>desconexão azcmagent
 
-Desconecta este computador do Azure
+Desliga esta máquina de Azure
 
-### <a name="synopsis"></a>Resumo
+### <a name="synopsis"></a>Sinopse
 
-Exclui o recurso no Azure que representa este servidor.
+Elimina o recurso em Azure que representa este servidor.
 
-Esse comando usa as opções de autenticação fornecidas para remover o Azure Resource Manager recurso que representa esse computador. Após esse ponto, o **serviço de metadados do computador conectado do Azure** e o agente de configuração do convidado serão desconectados. Este comando não interrompe ou remove os serviços: Remova o pacote para fazer isso.
+Este comando utiliza as opções de autenticação fornecidas para remover o recurso Do Gestor de Recursos Azure que representa esta máquina. Depois deste ponto, o Serviço de Metadados de **Máquinas Conectadas Azure** e o Agente de Configuração do Hóspede serão desligados. Este comando não para nem remove os serviços: retire a embalagem para o fazer.
 
-Esse comando requer privilégios mais altos do que a função "integração de máquinas conectadas do Azure".
+Este comando requer privilégios mais elevados do que a função "Azure Connected Machine Onboarding".
 
-Quando um computador estiver desconectado, use `azcmagent connect`, não `azcmagent reconnect` se você quiser criar um novo recurso para ele no Azure.
+Uma vez desligada uma `azcmagent connect`máquina, `azcmagent reconnect` utilize, não se quiser criar um novo recurso para a máquina em Azure.
 
-Opções de autenticação:
+Opções de Autenticação:
 
-* `azcmagent disconnect --access-token <>` de token de acesso
-* ID da entidade de serviço e segredo `azcmagent disconnect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid>`
-* `azcmagent disconnect --tenant-id <>` de entrada do dispositivo interativo
+* Ficha de acesso`azcmagent disconnect --access-token <>`
+* Id e segredo do principal de serviço`azcmagent disconnect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid>`
+* Sinal de dispositivo interativo`azcmagent disconnect --tenant-id <>`
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -119,27 +119,27 @@ azcmagent disconnect [flags]
   -t, --tenant-id string                  Tenant Id
 ```
 
-## <a name="azcmagent-reconnect"></a>reconectar azcmagent
+## <a name="azcmagent-reconnect"></a>azcmagent reconectar
 
-Reconecta este computador ao Azure
+Reconecta esta máquina ao Azure
 
-### <a name="synopsis"></a>Resumo
+### <a name="synopsis"></a>Sinopse
 
-Reconecte o computador com credenciais inválidas para o Azure.
+Religue a máquina com credenciais inválidas para o Azure.
 
-Se um computador já tiver um recurso no Azure, mas não conseguir se autenticar nele, ele poderá ser reconectado usando esse comando. Isso será possível se uma máquina tiver sido desativada por tempo suficiente para que seu certificado expire (pelo menos 45 dias).
+Se uma máquina já tiver um recurso em Azure mas não for capaz de autenticar, pode ser reconectada utilizando este comando. Isto é possível se uma máquina tiver sido desligada o tempo suficiente para que o seu certificado expirasse (pelo menos 45 dias).
 
-Se um computador tiver sido desconectado com `azcmagent disconnect`, use `azcmagent connect` em vez disso.
+Se uma máquina foi `azcmagent disconnect`desligada, utilize `azcmagent connect` em vez disso.
 
-Esse comando usa as opções de autenticação fornecidas para recuperar novas credenciais correspondentes ao recurso de Azure Resource Manager que representa esse computador.
+Este comando utiliza as opções de autenticação fornecidas para recuperar novas credenciais correspondentes ao recurso Do Gestor de Recursos Azure que representa esta máquina.
 
-Este comando requer privilégios mais altos do que a função de **integração do computador conectado do Azure** .
+Este comando requer privilégios mais elevados do que a função de embarque da **Máquina Conectada Azure.**
 
-Opções de autenticação
+Opções de Autenticação
 
-* `azcmagent reconnect --access-token <>` de token de acesso
-* ID da entidade de serviço e segredo `azcmagent reconnect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid>`
-* `azcmagent reconnect --tenant-id <>` de entrada do dispositivo interativo
+* Ficha de acesso`azcmagent reconnect --access-token <>`
+* Id e segredo do principal de serviço`azcmagent reconnect --service-principal-id <> --service-principal-secret <> --tenant-id <tenantid>`
+* Sinal de dispositivo interativo`azcmagent reconnect --tenant-id <>`
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -161,13 +161,13 @@ azcmagent reconnect [flags]
       --tenant-id string                  tenant id
 ```
 
-## <a name="azcmagent-show"></a>azcmagent mostrar
+## <a name="azcmagent-show"></a>show azcmagent
 
-Obtém os metadados do computador e o status do agente. Isso é útil principalmente para solução de problemas.
+Obtém metadados de máquinas e estatuto de agente. Isto é essencialmente útil para resolução de problemas.
 
-### <a name="synopsis"></a>Resumo
+### <a name="synopsis"></a>Sinopse
 
-Obtém os metadados do computador e o status do agente. Isso é útil principalmente para solução de problemas.
+Obtém metadados de máquinas e estatuto de agente. Isto é essencialmente útil para resolução de problemas.
 
 
 ### <a name="syntax"></a>Sintaxe
@@ -182,13 +182,13 @@ azcmagent show [flags]
   -h, --help   help for show
 ```
 
-## <a name="azcmagent-version"></a>versão do azcmagent
+## <a name="azcmagent-version"></a>versão azcmagent
 
-Exibir a versão do agente de gerenciamento híbrido
+Mostrar a versão do Agente de Gestão Híbrida
 
-### <a name="synopsis"></a>Resumo
+### <a name="synopsis"></a>Sinopse
 
-Exibir a versão do agente de gerenciamento híbrido
+Mostrar a versão do Agente de Gestão Híbrida
 
 ### <a name="syntax"></a>Sintaxe
 

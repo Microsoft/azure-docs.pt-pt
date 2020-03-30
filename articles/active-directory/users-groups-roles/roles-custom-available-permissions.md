@@ -1,6 +1,6 @@
 ---
-title: Permissões da função de administrador personalizada disponíveis – Azure AD | Microsoft Docs
-description: Permissões de função de administrador personalizado para delegar o gerenciamento de identidade.
+title: Permissões de função de administrador personalizado disponíveis - Azure AD / Microsoft Docs
+description: Permissões de funções de administrador personalizado para delegar a gestão de identidade.
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,160 +14,160 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74025154"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Subtipos de registro de aplicativo e permissões no Azure Active Directory
+# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Subtipos e permissões de registo de candidaturas no Diretório Ativo do Azure
 
-Este artigo contém as permissões de registro de aplicativo disponíveis no momento para definições de função personalizadas no Azure Active Directory (Azure AD).
+Este artigo contém as permissões de registo de aplicações atualmente disponíveis para definições de papéis personalizados no Azure Ative Directory (Azure AD).
 
-## <a name="permissions-for-managing-single-directory-applications"></a>Permissões para gerenciar aplicativos de diretório único
+## <a name="permissions-for-managing-single-directory-applications"></a>Permissões para gestão de aplicações de diretório único
 
-Ao escolher as permissões para sua função personalizada, você tem a opção de conceder acesso para gerenciar somente aplicativos de diretório único. Os aplicativos de diretório único estão disponíveis somente para usuários na organização do Azure AD em que o aplicativo está registrado. Os aplicativos de diretório único são definidos como tendo os **tipos de conta com suporte** definidos como "contas neste diretório organizacional somente". Na API do Graph, os aplicativos de diretório único têm a propriedade signInAudience definida como "AzureADMyOrg".
+Ao escolher as permissões para o seu papel personalizado, tem a opção de conceder acesso para gerir apenas aplicações de diretório único. As aplicações de diretório único só estão disponíveis para utilizadores da organização Azure AD onde a aplicação está registada. As aplicações de diretório único são definidas como tendo tipos de **conta suportados** definidos para "Contas apenas neste diretório organizacional". No Gráfico API, as aplicações de um único diretório têm a propriedade signInAudience definida para "AzureADMyOrg".
 
-Para conceder acesso para gerenciar somente aplicativos de diretório único, use as permissões abaixo com o subtipo **Applications. MyOrganization**. Por exemplo, Microsoft. Directory/Applications. MyOrganization/Basic/Update.
+Para conceder acesso a penas para gerir aplicações de diretório único, utilize as permissões abaixo com as **aplicações subtipo.myOrganization**. Por exemplo, microsoft.directy/applications.myOrganization/basic/update.
 
-Consulte a [visão geral das funções personalizadas](roles-custom-overview.md) para obter uma explicação do que significa o subtipo de termos gerais, a permissão e o conjunto de propriedades. As informações a seguir são específicas para os registros do aplicativo.
+Consulte a visão geral das [funções personalizadas](roles-custom-overview.md) para obter uma explicação do que significam os termos gerais subtipo, permissão e conjunto de propriedades. As seguintes informações são específicas dos registos de candidaturas.
 
 ### <a name="create-and-delete"></a>Criar e excluir
 
-Há duas permissões disponíveis para conceder a capacidade de criar registros de aplicativo, cada um com comportamento diferente:
+Existem duas permissões disponíveis para a concessão da capacidade de criar registos de candidaturas, cada uma com comportamentos diferentes:
 
-#### <a name="microsoftdirectoryapplicationscreateasowner"></a>Microsoft. Directory/Applications/createAsOwner
+#### <a name="microsoftdirectoryapplicationscreateasowner"></a>microsoft.directy/applications/createAsOwner
 
-A atribuição dessa permissão faz com que o criador seja adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado será contabilizado na cota de objetos criados do 250 do criador.
+A atribuição desta permissão resulta na adição do criador como o primeiro proprietário do registo de aplicações criado, e o registo de aplicações criado selevai supor-se com a quota de 250 objetos criados pelo criador.
 
-#### <a name="microsoftdirectoryapplicationscreate"></a>Microsoft. Directory/Applications/Create
+#### <a name="microsoftdirectoryapplicationscreate"></a>microsoft.directy/applications/create
 
-A atribuição dessa permissão faz com que o criador não seja adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado não será contabilizado na cota de objetos criados do 250 do criador. Use essa permissão com cuidado, pois não há nada impedindo que o destinatário crie registros de aplicativo até que a cota de nível de diretório seja atingida. Se ambas as permissões forem atribuídas, essa permissão terá precedência.
+A atribuição desta permissão resulta na não adição do criador como o primeiro proprietário do registo de aplicações criado, e o registo de aplicações criado não contará com a quota de 250 objetos criados pelo criador. Utilize esta permissão cuidadosamente, pois não há nada que impeça o designado de criar registos de aplicações até que a quota de nível de diretório seja atingida. Se ambas as permissões forem atribuídas, esta permissão tem precedência.
 
-Se ambas as permissões forem atribuídas, a permissão/CREATE terá precedência. Embora a permissão/createAsOwner não adicione automaticamente o criador como o primeiro proprietário, os proprietários podem ser especificados durante a criação do registro do aplicativo ao usar as APIs do Graph ou os cmdlets do PowerShell.
+Se ambas as permissões forem atribuídas, a permissão /criar terá precedência. Embora a permissão /createAsOwner não adicione automaticamente o criador como primeiro proprietário, os proprietários podem ser especificados durante a criação do registo da aplicação ao utilizar em APIs gráficos ou cmdlets PowerShell.
 
-Criar permissões concedem acesso ao **novo** comando de registro.
+Criar permissões que garantam o acesso ao novo comando de **registo.**
 
-[Essas permissões concedem acesso ao novo comando do portal de registro](./media/roles-create-custom/new-custom-role.png)
+[Estas permissões concedem acesso ao novo comando do portal de registo](./media/roles-create-custom/new-custom-role.png)
 
-Há duas permissões disponíveis para conceder a capacidade de excluir registros de aplicativo:
+Existem duas permissões disponíveis para a concessão da capacidade de eliminar registos de aplicações:
 
-#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft.directory/applications/delete
+#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft.directy/applications/delete
 
-Concede a capacidade de excluir registros de aplicativo, independentemente do subtipo; ou seja, aplicativos de locatário único e multilocatário.
+Concede a possibilidade de eliminar registos de aplicações independentemente do subtipo; isto é, tanto pedidos de inquilino único como multi-inquilinos.
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationdelete"></a>Microsoft. Directory/Applications. myorganizacionai/Delete
+#### <a name="microsoftdirectoryapplicationsmyorganizationdelete"></a>microsoft.directy/applications.myOrganization/delete
 
-Concede a capacidade de excluir registros de aplicativo restritos àqueles que são acessíveis somente para contas em sua organização ou aplicativos de locatário único (subtipo MyOrganization).
+Concede a possibilidade de eliminar registos de aplicações restritos aos acessíveis apenas a contas na sua organização ou aplicações de inquilino único (subtipo myOrganization).
 
-![Essas permissões concedem acesso ao comando excluir aplicativo de registro](./media/roles-custom-available-permissions/delete-app-registration.png)
+![Estas permissões concedem acesso ao comando de registo de aplicações Delete](./media/roles-custom-available-permissions/delete-app-registration.png)
 
 > [!NOTE]
-> Ao atribuir uma função que contém permissões de criação, a atribuição de função deve ser feita no escopo do diretório. Uma permissão de criação atribuída a um escopo de recurso não concede a capacidade de criar registros de aplicativo.
+> Ao atribuir uma função que contenha criar permissões, a atribuição de funções deve ser feita no âmbito do diretório. Uma autorização de criação atribuída a um âmbito de recurso não concede a capacidade de criar registos de aplicações.
 
 ### <a name="read"></a>Leitura
 
-Todos os usuários Membros na organização podem ler informações de registro do aplicativo por padrão. No entanto, os usuários convidados e as entidades de serviço do aplicativo não podem. Se você planeja atribuir uma função a um usuário ou aplicativo convidado, deve incluir as permissões de leitura apropriadas.
+Todos os utilizadores membros da organização podem ler as informações de registo de aplicações por padrão. No entanto, os utilizadores convidados e os diretores de serviços de aplicação não podem. Se pretender atribuir uma função a um utilizador ou aplicação de hóspedes, deve incluir as permissões de leitura adequadas.
 
-#### <a name="microsoftdirectoryapplicationsallpropertiesread"></a>Microsoft. Directory/Applications/myproperties/Read
+#### <a name="microsoftdirectoryapplicationsallpropertiesread"></a>microsoft.directy/applications/allProperties/read
 
-Capacidade de ler todas as propriedades de aplicativos de locatário único e multilocatário fora das propriedades que não podem ser lidas em nenhuma situação, como credenciais.
+Capacidade de ler todas as propriedades de aplicações de inquilino único e multi-inquilinofora de imóveis que não podem ser lidos em qualquer situação como credenciais.
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesread"></a>Microsoft. Directory/Applications. myorganizacionai/myproperties/Read
+#### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesread"></a>microsoft.directy/applications.myOrganization/allProperties/read
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/myproperties/Read, mas somente para aplicativos de locatário único.
+Concede as mesmas permissões que microsoft.directy/applications/allProperties/read, mas apenas para aplicações de inquilino único.
 
-#### <a name="microsoftdirectoryapplicationsownersread"></a>Microsoft. Directory/Applications/Owners/Read
+#### <a name="microsoftdirectoryapplicationsownersread"></a>microsoft.diretório/aplicações/proprietários/ler
 
-Concede a capacidade de ler a propriedade Owners em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página proprietários de registro do aplicativo:
+Concede a possibilidade de ler propriedades de proprietários em pedidos de inquilino único e multi-inquilinos. Concede acesso a todos os campos na página dos proprietários de registos de candidaturas:
 
-![Essas permissões concedem acesso à página de proprietários de registro do aplicativo](./media/roles-custom-available-permissions/app-registration-owners.png)
+![Isto permite o acesso à página de proprietários de registo de aplicações](./media/roles-custom-available-permissions/app-registration-owners.png)
 
-#### <a name="microsoftdirectoryapplicationsstandardread"></a>Microsoft. Directory/Applications/Standard/Read
+#### <a name="microsoftdirectoryapplicationsstandardread"></a>microsoft.diretório/aplicações/standard/read
 
-Concede acesso para ler as propriedades de registro de aplicativo padrão. Isso inclui propriedades nas páginas de registro do aplicativo.
+Concede acesso à leitura de propriedades de registo de aplicações padrão. Isto inclui propriedades em todas as páginas de inscrição de candidaturas.
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>Microsoft. Directory/Applications. myorganizacional/Standard/Read
+#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>microsoft.directy/applications.myOrganization/standard/read
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/Standard/Read, mas somente para aplicativos de locatário único.
+Concede as mesmas permissões que microsoft.diretório/aplicações/standard/read, mas para aplicações de um único inquilino.
 
 ### <a name="update"></a>Atualizar
 
-#### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. Directory/Applications/myproperties/Update
+#### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directy/applications/allProperties/update
 
-Capacidade de atualizar todas as propriedades em aplicativos de diretório único e vários diretórios.
+Capacidade de atualizar todas as propriedades em aplicações de diretório único e multidiretório.
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>Microsoft. Directory/Applications. MyOrganization/Propriedade/Update
+#### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>microsoft.directy/applications.myOrganization/allProperties/update
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/myproperties/Update, mas somente para aplicativos de locatário único.
+Concede as mesmas permissões que microsoft.directy/applications/allProperties/update, mas apenas para aplicações de inquilino único.
 
-#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
+#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directy/applications/audience/update
 
-Capacidade de atualizar a propriedade de tipo de conta com suporte (signInAudience) em aplicativos de diretório único e vários diretórios.
+Capacidade de atualizar a propriedade do tipo de conta suportada (signInAudience) em aplicações de diretório único e multi-directórios.
 
-![Essa permissão concede acesso à propriedade tipo de conta com suporte de registro de aplicativo na página autenticação](./media/roles-custom-available-permissions/supported-account-types.png)
+![Esta permissão permite o acesso à propriedade do tipo de conta suportada pelo registo de aplicações na página de autenticação](./media/roles-custom-available-permissions/supported-account-types.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationaudienceupdate"></a>Microsoft. Directory/Applications. MyOrganization/audiência/Update
+#### <a name="microsoftdirectoryapplicationsmyorganizationaudienceupdate"></a>microsoft.directy/applications.myOrganization/audience/update
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/Audience/Update, mas somente para aplicativos de locatário único.
+Concede as mesmas permissões que microsoft.directy/applications/audience/update, mas apenas para aplicações de inquilino único.
 
-#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft.directory/applications/authentication/update
+#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft.directy/applications/autenticação/atualização
 
-Capacidade de atualizar a URL de resposta, a URL de saída, o fluxo implícito e as propriedades de domínio do Publicador em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página de autenticação de registro do aplicativo, exceto tipos de conta com suporte:
+Capacidade de atualizar o URL de resposta, URL de inscrição, fluxo implícito e propriedades de domínio de editor em aplicações de inquilino único e multi-inquilinos. Concede acesso a todos os campos da página de autenticação do registo de candidaturas, exceto os tipos de conta suportada:
 
-![Concede acesso à autenticação de registro de aplicativo, mas aos tipos de conta sem suporte](./media/roles-custom-available-permissions/supported-account-types.png)
+![Concede acesso à autenticação do registo de aplicações, mas não suportado por tipos de conta](./media/roles-custom-available-permissions/supported-account-types.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>Microsoft. Directory/Applications. MyOrganization/autenticação/atualização
+#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>microsoft.directy/applications.myOrganization/autenticação/atualização
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/Authentication/Update, mas somente para aplicativos de locatário único.
+Concede as mesmas permissões que microsoft.diretório/aplicações/autenticação/atualização, mas apenas para aplicações de inquilino único.
 
-#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>Microsoft. Directory/Applications/Basic/Update
+#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>microsoft.diretório/aplicações/básico/atualização
 
-Capacidade de atualizar o nome, o logotipo, a URL da Home Page, a URL dos termos de serviço e as propriedades de URL da política de privacidade em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página de identidade visual do registro do aplicativo:
+Capacidade de atualizar o nome, logotipo, URL de página inicial, termos de URL de serviço e propriedades url de declaração de privacidade em aplicações de inquilino único e multi-inquilinos. Concede acesso a todos os campos da página de marca de registo de aplicações:
 
-![Essa permissão concede acesso à página de identidade visual do registro do aplicativo](./media/roles-custom-available-permissions/app-registration-branding.png)
+![Esta permissão permite o acesso à página de marca de registo de aplicações](./media/roles-custom-available-permissions/app-registration-branding.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationbasicupdate"></a>Microsoft. Directory/Applications. MyOrganization/Basic/Update
+#### <a name="microsoftdirectoryapplicationsmyorganizationbasicupdate"></a>microsoft.directy/applications.myOrganization/basic/update
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/Basic/Update, mas somente para aplicativos de locatário único.
+Concede as mesmas permissões que microsoft.diretório/aplicações/basic/update, mas apenas para aplicações de inquilino único.
 
-#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directory/applications/credentials/update
+#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directy/applications/credentials/update
 
-Capacidade de atualizar as propriedades de certificados e segredos de cliente em aplicativos de locatário único e multilocatário. Concede acesso a todos os campos na página certificados de registro de aplicativo & segredos:
+Capacidade de atualizar os certificados e propriedades de segredos de cliente em aplicações de inquilino único e multi-inquilinos. Concede acesso a todos os campos dos certificados de inscrição de aplicação & página de segredos:
 
-![Essa permissão concede acesso à página de certificados de registro de aplicativo & segredos](./media/roles-custom-available-permissions/app-registration-secrets.png)
+![Esta permissão permite o acesso aos certificados de registo da aplicação & página de segredos](./media/roles-custom-available-permissions/app-registration-secrets.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>Microsoft. Directory/Applications. MyOrganization/Credentials/Update
+#### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>microsoft.directy/applications.myOrganization/credentials/update
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/Credentials/Update, mas somente para aplicativos de diretório único.
+Concede as mesmas permissões que microsoft.diretório/aplicações/credenciais/atualização, mas apenas para aplicações de diretório único.
 
-#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
+#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.diretório/aplicações/proprietários/atualização
 
-Capacidade de atualizar a propriedade de proprietário em um locatário único e multilocatário. Concede acesso a todos os campos na página proprietários de registro do aplicativo:
+Capacidade de atualizar a propriedade do proprietário em inquilino único e multi-inquilino. Concede acesso a todos os campos na página dos proprietários de registos de candidaturas:
 
-![Essas permissões concedem acesso à página de proprietários de registro do aplicativo](./media/roles-custom-available-permissions/app-registration-owners.png)
+![Isto permite o acesso à página de proprietários de registo de aplicações](./media/roles-custom-available-permissions/app-registration-owners.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationownersupdate"></a>Microsoft. Directory/Applications. MyOrganization/Owners/Update
+#### <a name="microsoftdirectoryapplicationsmyorganizationownersupdate"></a>microsoft.directy/applications.myOrganization/owners/update
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/Owners/Update, mas somente para aplicativos de locatário único.
+Concede as mesmas permissões que microsoft.diretório/aplicações/proprietários/atualização, mas apenas para aplicações de inquilino único.
 
-#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>Microsoft. Directory/Applications/Permissions/Update
+#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>microsoft.directy/applications/permissions/update
 
-Capacidade de atualizar as permissões delegadas, permissões de aplicativo, aplicativos cliente autorizados, permissões necessárias e conceder Propriedades de consentimento em aplicativos de locatário único e multilocatário. Não concede a capacidade de executar o consentimento. Concede acesso a todos os campos nas permissões da API de registro de aplicativo e expõe uma página de API:
+Capacidade de atualizar as permissões delegadas, permissões de candidatura, pedidos de clientes autorizados, permissões necessárias e concessão de propriedades de consentimento em pedidos de inquilino único e multi-inquilinos. Não concede a capacidade de realizar o consentimento. Concede acesso a todos os campos no registo de candidaturas Permissões API e expõe uma página da API:
 
-![Essas permissões concedem acesso à página de permissões da API de registro do aplicativo](./media/roles-custom-available-permissions/app-registration-api-permissions.png)
+![Isto permite o acesso à página de permissões de registo da aplicação API](./media/roles-custom-available-permissions/app-registration-api-permissions.png)
 
-![Essa permissão concede acesso ao registro do aplicativo expor uma página de API](./media/roles-custom-available-permissions/app-registration-expose-api.png)
+![Esta permissão permite acesso ao registo da aplicação Expor uma página da API](./media/roles-custom-available-permissions/app-registration-expose-api.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>Microsoft. Directory/Applications. MyOrganization/Permissions/Update
+#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directy/applications.myOrganization/permissions/update
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/Permissions/Update, mas somente para aplicativos de locatário único.
+Concede as mesmas permissões que microsoft.diretório/aplicações/permissões/atualização, mas apenas para aplicações de inquilino único.
 
-## <a name="required-license-plan"></a>Plano de licença necessário
+## <a name="required-license-plan"></a>Plano de licença obrigatório
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Criar funções personalizadas usando [o portal do Azure, o PowerShell do Azure AD e o API do Graph](roles-create-custom.md)
-- [Exibir as atribuições para uma função personalizada](roles-view-assignments.md)
+- Crie funções personalizadas utilizando [o portal Azure, Azure AD PowerShell e Graph API](roles-create-custom.md)
+- [Ver as atribuições para um papel personalizado](roles-view-assignments.md)

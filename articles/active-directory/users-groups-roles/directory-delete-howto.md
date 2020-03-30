@@ -1,6 +1,6 @@
 ---
-title: Excluir um diretório do AD do Azure-Azure Active Directory | Microsoft Docs
-description: Explica como preparar um diretório do Azure AD para exclusão, incluindo diretórios de autoatendimento
+title: Eliminar um diretório Azure AD - Diretório Ativo Azure [ Azure Ative Diretório ] Microsoft Docs
+description: Explica como preparar um diretório da AD Azure para a eliminação, incluindo diretórios de self-service
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,132 +15,132 @@ ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73961822"
 ---
-# <a name="delete-a-directory-in-azure-active-directory"></a>Excluir um diretório no Azure Active Directory
+# <a name="delete-a-directory-in-azure-active-directory"></a>Eliminar um diretório em Diretório Ativo Azure
 
-Quando um diretório do Azure AD é excluído, todos os recursos contidos no diretório também são excluídos. Prepare sua organização minimizando seus recursos associados antes de excluir. Somente um administrador global Azure Active Directory (AD do Azure) pode excluir um diretório do Azure AD do Portal.
+Quando um diretório Azure AD é eliminado, todos os recursos contidos no diretório também são eliminados. Prepare a sua organização minimizando os seus recursos associados antes de eliminar. Apenas um administrador global do Azure Ative Directory (Azure AD) pode eliminar um diretório Azure AD do portal.
 
 ## <a name="prepare-the-directory"></a>Preparar o diretório
 
-Você não pode excluir um diretório no Azure AD até que ele passe por várias verificações. Essas verificações reduzem o risco de que a exclusão de um diretório do Azure AD afete negativamente o acesso do usuário, como a capacidade de entrar no Office 365 ou acessar recursos no Azure. Por exemplo, se o diretório associado a uma assinatura for excluído de forma não intencional, os usuários não poderão acessar os recursos do Azure para essa assinatura. Verificam-se as seguintes condições:
+Não pode apagar um diretório em Azure AD até passar vários cheques. Estes controlos reduzem o risco de a apagar um diretório de Anúncios Azure ter um impacto negativo no acesso dos utilizadores, como a capacidade de iniciar sessão no Office 365 ou os recursos de acesso em Azure. Por exemplo, se o diretório associado a uma subscrição for eliminado involuntariamente, então os utilizadores não podem aceder aos recursos do Azure para essa subscrição. Verificam-se as seguintes condições:
 
-* Não pode haver nenhum usuário no diretório, exceto um administrador global, que deve excluir o diretório. Deverão ser eliminados todos os outros utilizadores antes de eliminar o diretório. Se os usuários estiverem sincronizados no local, a sincronização deverá primeiro ser desativada e os usuários deverão ser excluídos no diretório de nuvem usando os cmdlets portal do Azure ou Azure PowerShell.
-* Não podem existir aplicações no diretório. Todos os aplicativos devem ser removidos antes que o diretório possa ser excluído.
-* Não pode haver nenhum provedor de autenticação multifator vinculado ao diretório.
+* Não pode haver utilizadores no diretório exceto um administrador global que deve apagar o diretório. Deverão ser eliminados todos os outros utilizadores antes de eliminar o diretório. Se os utilizadores estiverem sincronizados a partir do local, então a sincronização deve primeiro ser desligada e os utilizadores devem ser eliminados no diretório da nuvem utilizando o portal Azure ou os cmdlets Azure PowerShell.
+* Não podem existir aplicações no diretório. Quaisquer aplicações devem ser removidas antes de o diretório poder ser eliminado.
+* Não pode haver fornecedores de autenticação multifactor ligados ao diretório.
 * Não podem existir subscrições para quaisquer Serviços Online da Microsoft, como o Microsoft Azure, o Office 365 ou o Azure AD Premium, associadas ao diretório. Por exemplo, se tiver criado um diretório predefinido no Azure, não o poderá eliminar se a sua subscrição do Azure ainda depender desse diretório para a autenticação. Do mesmo modo, não pode eliminar um diretório se outro utilizador tiver associado uma subscrição ao mesmo.
 
-## <a name="delete-the-directory"></a>Excluir o diretório
+## <a name="delete-the-directory"></a>Eliminar o diretório
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que seja o administrador global da sua organização.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta que é o Administrador Global da sua organização.
 
 2. Selecione **Azure Active Directory**.
 
-3. Alterne para o diretório que você deseja excluir.
+3. Mude para o diretório que pretende eliminar.
   
-   ![Confirmar organização antes de excluir](./media/directory-delete-howto/delete-directory-command.png)
+   ![Confirmar organização antes de apagar](./media/directory-delete-howto/delete-directory-command.png)
 
-4. Selecione **excluir diretório**.
+4. **Selecione Excluir o diretório**.
   
-   ![Selecione o comando para excluir a organização](./media/directory-delete-howto/delete-directory-list.png)
+   ![selecionar o comando para apagar a organização](./media/directory-delete-howto/delete-directory-list.png)
 
-5. Se o diretório não passar por uma ou mais verificações, você receberá um link para obter mais informações sobre como passar. Depois de passar todas as verificações, selecione **excluir** para concluir o processo.
+5. Se o seu diretório não passar um ou mais cheques, é-lhe fornecido um link para mais informações sobre como passar. Depois de passar todas as verificações, selecione **Eliminar** para completar o processo.
 
-## <a name="if-you-cant-delete-the-directory"></a>Se você não puder excluir o diretório
+## <a name="if-you-cant-delete-the-directory"></a>Se não puder apagar o diretório
 
-Quando você configurou seu diretório do Azure AD, você também pode ter ativado assinaturas baseadas em licença para sua organização, como Azure AD Premium P2, Office 365 Business Premium ou Enterprise Mobility + Security e5. Para evitar a perda acidental de dados, não é possível excluir um diretório até que as assinaturas sejam totalmente excluídas. As assinaturas devem estar em um estado **desprovisionado** para permitir a exclusão do diretório. Uma assinatura **expirada** ou **cancelada** é movida para o estado **desabilitado** e o estágio final é o estado **desprovisionado** .
+Quando configurao o seu diretório Azure AD, pode também ter ativado subscrições baseadas em licença para a sua organização, como o Azure AD Premium P2, office 365 Business Premium, ou Enterprise Mobility + Security E5. Para evitar perda acidental de dados, não pode excluir um diretório até que as subscrições sejam totalmente eliminadas. As assinaturas devem estar num estado **dedprovisionamento** para permitir a supressão do diretório. Uma subscrição **expirada** ou **cancelada** move-se para o estado **de deficientes,** e a fase final é o estado **dedprovisionamento.**
 
-Para o que esperar quando uma assinatura de avaliação do Office 365 expira (não incluindo parceiro/CSP, Enterprise Agreement ou licenciamento de volume pago), consulte a tabela a seguir. Para obter mais informações sobre a retenção de dados do Office 365 e o ciclo de vida da assinatura, consulte [o que acontece com meus dados e acesso quando a minha assinatura do Office 365 for Business termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+Para o que esperar quando expirar uma assinatura do Gabinete de Ensaio 365 (sem incluir o Parceiro/CSP pago, o Acordo de Empresa ou o Licenciamento de Volume), consulte a tabela seguinte. Para obter mais informações sobre o Office 365 data retenção de dados e o ciclo de vida por subscrição, veja o que acontece aos meus dados e acesso quando o [meu Office 365 para subscrição de negócios terminar?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3) 
 
-Estado da assinatura | Dados | Acesso aos dados
+Estado de subscrição | Dados | Acesso a dados
 ----- | ----- | -----
-Ativo (30 dias para avaliação) | Dados acessíveis a todos | Os usuários têm acesso normal aos arquivos do Office 365 ou aos aplicativos<br>Os administradores têm acesso normal para Microsoft 365 centro de administração e recursos 
-Expirado (30 dias) | Dados acessíveis a todos| Os usuários têm acesso normal aos arquivos do Office 365 ou aos aplicativos<br>Os administradores têm acesso normal para Microsoft 365 centro de administração e recursos
-Desabilitado (30 dias) | Dados acessíveis somente para administrador | Os usuários não podem acessar arquivos do Office 365 ou aplicativos<br>Os administradores podem acessar o centro de administração do Microsoft 365, mas não podem atribuir licenças para ou atualizar usuários
-Desprovisionado (30 dias após desabilitado) | Dados excluídos (excluídos automaticamente se nenhum outro serviço estiver em uso) | Os usuários não podem acessar arquivos do Office 365 ou aplicativos<br>Os administradores podem acessar o centro de administração do Microsoft 365 para comprar e gerenciar outras assinaturas
+Ativo (30 dias para julgamento) | Dados acessíveis a todos | Os utilizadores têm acesso normal a ficheiros do Office 365 ou apps<br>Administradores têm acesso normal ao centro de administração e recursos da Microsoft 365 
+Expirado (30 dias) | Dados acessíveis a todos| Os utilizadores têm acesso normal a ficheiros do Office 365 ou apps<br>Administradores têm acesso normal ao centro de administração e recursos da Microsoft 365
+Deficientes (30 dias) | Dados acessíveis apenas à administração | Os utilizadores não podem aceder ao Office 365 ficheiros ou aplicações<br>Os administradores podem aceder ao centro de administração da Microsoft 365, mas não podem atribuir licenças ou atualizar utilizadores
+Desprovisionado (30 dias após deficiente) | Dados eliminados (eliminados automaticamente se não forem utilizados outros serviços) | Os utilizadores não podem aceder ao Office 365 ficheiros ou aplicações<br>Os administradores podem aceder ao centro de administração da Microsoft 365 para comprar e gerir outras subscrições
 
-## <a name="delete-a-subscription"></a>Excluir uma assinatura
+## <a name="delete-a-subscription"></a>Eliminar uma subscrição
 
-Você pode colocar uma assinatura no estado **desprovisionado** para ser excluída em três dias usando o centro de administração Microsoft 365.
+Pode colocar uma subscrição no estado **dedprovisionamento** a ser eliminada em três dias utilizando o centro de administração da Microsoft 365.
 
-1. Entre no centro de [Administração do Microsoft 365](https://admin.microsoft.com) com uma conta que seja um administrador global em sua organização. Se você estiver tentando excluir o diretório "contoso" que tem o domínio padrão inicial contoso.onmicrosoft.com, entre com um UPN, como admin@contoso.onmicrosoft.com.
+1. Inscreva-se no centro de administração da [Microsoft 365](https://admin.microsoft.com) com uma conta que é um administrador global na sua organização. Se estiver a tentar eliminar o diretório "Contoso" que tem o domínio padrão admin@contoso.onmicrosoft.cominicial contoso.onmicrosoft.com, inscreva-se numa UPN como .
 
-2. Visualize o novo centro de administração do Microsoft 365 verificando se a opção **experimentar o novo centro de administração** está habilitada.
+2. Pré-visualizar o novo centro de administração do Microsoft 365, certificando-se de que o novo toggle do **centro de administração** está ativado.
 
-   ![Visualizar a nova experiência do centro de administração do M365](./media/directory-delete-howto/preview-toggle.png)
+   ![Pré-visualizar a nova experiência do centro de administração M365](./media/directory-delete-howto/preview-toggle.png)
 
-3. Depois que o novo centro de administração estiver habilitado, você precisará cancelar uma assinatura para poder excluí-la. Selecione **cobrança** e selecione **produtos & serviços**e, em seguida, selecione **cancelar assinatura** para a assinatura que você deseja cancelar. Você será levado a uma página de comentários.
+3. Uma vez ativado o novo centro de administração, tem de cancelar uma subscrição antes de a eliminar. Selecione Serviços de **Faturação** e selecione **Produtos &** e, em seguida, selecione cancelar **subscrição** para a subscrição que pretende cancelar. Será levado para uma página de feedback.
 
-   ![Escolha uma assinatura para cancelar](./media/directory-delete-howto/cancel-choose-subscription.png)
+   ![Escolha uma subscrição para cancelar](./media/directory-delete-howto/cancel-choose-subscription.png)
 
-4. Preencha o formulário de comentários e selecione **cancelar assinatura** para cancelar a assinatura.
+4. Complete o formulário de feedback e selecione **Cancelar a subscrição** para cancelar a subscrição.
 
-   ![Comando Cancel na versão prévia da assinatura](./media/directory-delete-howto/cancel-command.png)
+   ![Cancelar o comando na pré-visualização da subscrição](./media/directory-delete-howto/cancel-command.png)
 
-5. Agora você pode excluir a assinatura. Selecione **excluir** para a assinatura que você deseja excluir. Se você não conseguir encontrar a assinatura na página **produtos & Services** , verifique se você tem o **status da assinatura** definido como **todos**.
+5. Agora pode apagar a subscrição. Selecione **Excluir** para a subscrição que pretende eliminar. Se não encontrar a subscrição na página de **serviços & Produtos,** certifique-se de que tem o estado de **subscrição** definido para **Todos**.
 
-   ![Excluir o link para excluir a assinatura](./media/directory-delete-howto/delete-command.png)
+   ![Eliminar link para excluir subscrição](./media/directory-delete-howto/delete-command.png)
 
-6. Selecione **excluir assinatura** para excluir a assinatura e aceitar os termos e condições. Todos os dados são excluídos permanentemente dentro de três dias. Você pode [reativar a assinatura](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante o período de três dias se mudar de ideia.
+6. **Selecione Excluir subscrição** para eliminar a subscrição e aceitar os termos e condições. Todos os dados são permanentemente eliminados no prazo de três dias. Pode [reativar a subscrição](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante o período de três dias se mudar de ideias.
   
-   ![Leia atentamente os termos e condições](./media/directory-delete-howto/delete-terms.png)
+   ![leia atentamente termos e condições](./media/directory-delete-howto/delete-terms.png)
 
-7. Agora, o estado da assinatura foi alterado e a assinatura está marcada para exclusão. A assinatura entra no estado **desprovisionado** 72 horas depois.
+7. Agora o estado de subscrição mudou, e a subscrição está marcada para eliminação. A subscrição entra no estado **dedprovisionamento** 72 horas depois.
 
-8. Depois de ter excluído uma assinatura em seu diretório e 72 horas decorridos, você pode entrar novamente no centro de administração do Azure AD e não deve haver nenhuma ação necessária e nenhuma assinatura bloqueando a exclusão do diretório. Você deve ser capaz de excluir com êxito seu diretório do Azure AD.
+8. Uma vez eliminada uma subscrição no seu diretório e decorridos 72 horas, pode voltar a entrar no centro de administração da AD Azure e não deve haver nenhuma ação necessária e nenhuma subscrição que bloqueie a sua exclusão do diretório. Deverá ser capaz de eliminar com sucesso o seu diretório Azure AD.
   
-   ![aprovação da verificação da assinatura na tela de exclusão](./media/directory-delete-howto/delete-checks-passed.png)
+   ![passar verificação de subscrição no ecrã de eliminação](./media/directory-delete-howto/delete-checks-passed.png)
 
-## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Tenho uma assinatura de avaliação que bloqueia a exclusão
+## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Tenho uma assinatura de julgamento que bloqueia a eliminação.
 
-Há [produtos de inscrição de autoatendimento](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, usuários individuais podem se inscrever por meio do Office 365, que também cria um usuário convidado para autenticação em seu diretório do Azure AD. Esses produtos de autoatendimento bloqueiam exclusões de diretório até que elas sejam totalmente excluídas do diretório, para evitar a perda de dados. Eles podem ser excluídos somente pelo administrador do Azure AD se o usuário se inscreveu individualmente ou foi atribuído ao produto.
+Existem produtos de inscrição de self-service como Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, os utilizadores individuais podem [inscrever-se](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) através do Office 365, que também cria um utilizador convidado para autenticação no seu diretório Azure AD. Estes produtos self-service bloqueiam a eliminação do diretório até serem totalmente eliminados do diretório, para evitar a perda de dados. Só podem ser eliminados pelo administrador da AD Azure se o utilizador se inscreveu individualmente ou foi atribuído o produto.
 
-Há dois tipos de produtos de inscrição de autoatendimento em como eles são atribuídos: 
+Existem dois tipos de produtos de inscrição de autosserviço na forma como são atribuídos: 
 
-* Atribuição de nível de organização: um administrador do Azure AD atribui o produto a toda a organização e um usuário pode estar usando ativamente o serviço com essa atribuição de nível de organização, mesmo que eles não sejam licenciados individualmente.
-* Atribuição de nível de usuário: um usuário individual durante a inscrição de autoatendimento essencialmente atribui o produto a si mesmo sem um administrador. Depois que a organização for gerenciada por um administrador (consulte [tomada de administrador de um diretório não gerenciado](domains-admin-takeover.md), o administrador poderá atribuir diretamente o produto aos usuários sem inscrição de autoatendimento.  
+* Atribuição ao nível org: Um administrador da AD Azure atribui o produto a toda a organização e um utilizador pode estar a utilizar ativamente o serviço com esta atribuição de nível org, mesmo que não sejam licenciados individualmente.
+* Atribuição ao nível do utilizador: Um utilizador individual durante o autosserviço atribui essencialmente o produto a si próprio sem um administrador. Assim que a organização for gerida por um administrador (ver [Administrador aquisição de um diretório não gerido](domains-admin-takeover.md), então o administrador pode atribuir diretamente o produto aos utilizadores sem inscrição de autosserviço.  
 
-Quando você inicia a exclusão do produto de inscrição de autoatendimento, a ação exclui permanentemente os dados e remove todo o acesso do usuário ao serviço. Qualquer usuário que tenha sido atribuído à oferta individualmente ou no nível da organização será impedido de entrar ou acessar os dados existentes. Se você quiser evitar a perda de dados com o produto de inscrição de autoatendimento, como o [Microsoft Power bi dashboards](https://docs.microsoft.com/power-bi/service-export-to-pbix) ou a [configuração de política de serviços de Rights Management](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), verifique se os dados são copiados em backup e salvos em outro lugar.
+Quando inicia a eliminação do produto de inscrição de autosserviço, a ação elimina permanentemente os dados e remove todo o acesso do utilizador ao serviço. Qualquer utilizador que tenha sido atribuído à oferta individualmente ou a nível da organização está então impedido de iniciar sessão ou aceder a quaisquer dados existentes. Se pretender evitar a perda de dados com o produto de inscrição de self-service, como [os dashboards Microsoft Power BI](https://docs.microsoft.com/power-bi/service-export-to-pbix) ou a configuração da política de Serviços de Gestão de [Direitos,](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy)certifique-se de que os dados são apoiados e guardados noutros locais.
 
-Para obter mais informações sobre produtos e serviços de inscrição de autoatendimento disponíveis no momento, consulte [programas de autoatendimento disponíveis](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+Para obter mais informações sobre os produtos e serviços de auto-atendimento atualmente disponíveis, consulte [os programas de self-service disponíveis.](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs)
 
-Para o que esperar quando uma assinatura de avaliação do Office 365 expira (não incluindo parceiro/CSP, Enterprise Agreement ou licenciamento de volume pago), consulte a tabela a seguir. Para obter mais informações sobre a retenção de dados do Office 365 e o ciclo de vida da assinatura, consulte [o que acontece com meus dados e acesso quando a minha assinatura do Office 365 for Business termina?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Para o que esperar quando expirar uma assinatura do Gabinete de Ensaio 365 (sem incluir o Parceiro/CSP pago, o Acordo de Empresa ou o Licenciamento de Volume), consulte a tabela seguinte. Para obter mais informações sobre o Office 365 data retenção de dados e o ciclo de vida por subscrição, veja o que acontece aos meus dados e acesso quando o [meu Office 365 para subscrição de negócios terminar?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)
 
-Estado do produto | Dados | Acesso aos dados
+Estado do produto | Dados | Acesso a dados
 ------------- | ---- | --------------
-Ativo (30 dias para avaliação) | Dados acessíveis a todos | Os usuários têm acesso normal ao produto de inscrição por autoatendimento, arquivos ou aplicativos<br>Os administradores têm acesso normal para Microsoft 365 centro de administração e recursos
-Eliminado | Dados excluídos | Os usuários não podem acessar o produto, arquivos ou aplicativos de inscrição de autoatendimento<br>Os administradores podem acessar o centro de administração do Microsoft 365 para comprar e gerenciar outras assinaturas
+Ativo (30 dias para julgamento) | Dados acessíveis a todos | Os utilizadores têm acesso normal a produtos de inscrição de self-service, ficheiros ou aplicações<br>Administradores têm acesso normal ao centro de administração e recursos da Microsoft 365
+Eliminado | Dados eliminados | Os utilizadores não podem aceder a produtos, ficheiros ou aplicações de auto-atendimento<br>Os administradores podem aceder ao centro de administração da Microsoft 365 para comprar e gerir outras subscrições
 
-## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Como posso excluir um produto de inscrição de autoatendimento no portal do Azure?
+## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Como posso apagar um produto de inscrição de autosserviço no portal Azure?
 
-Você pode colocar um produto de inscrição de autoatendimento como o Microsoft Power BI ou o Azure Rights Management Services em um estado de **exclusão** para ser imediatamente excluído no portal do AD do Azure.
+Pode colocar um produto de inscrição de autosserviço como o Microsoft Power BI ou o Azure Rights Management Services num estado **De eliminar** imediatamente no portal Azure AD.
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que seja um administrador global na organização. Se você estiver tentando excluir o diretório "contoso" que tem o domínio padrão inicial contoso.onmicrosoft.com, faça logon com um UPN, como admin@contoso.onmicrosoft.com.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que é administradora global na organização. Se estiver a tentar eliminar o diretório "Contoso" que tem o domínio padrão admin@contoso.onmicrosoft.cominicial contoso.onmicrosoft.com, inscreva-se com uma UPN como .
 
-2. Selecione **licenças**e, em seguida, selecione **produtos de inscrição por autoatendimento**. Você pode ver todos os produtos de inscrição de autoatendimento separadamente das assinaturas baseadas em assento. Escolha o produto que você deseja excluir permanentemente. Veja um exemplo no Microsoft Power BI:
+2. Selecione **Licenças**e, em seguida, selecione **produtos de inscrição self-service**. Pode ver todos os produtos de inscrição de autosserviço separadamente das subscrições baseadas em assentos. Escolha o produto que pretende eliminar permanentemente. Aqui está um exemplo no Microsoft Power BI:
 
-    ![o nome de usuário está digitado ou não foi encontrado](./media/directory-delete-howto/licenses-page.png)
+    ![o nome de utilizador é mistyed ou não encontrado](./media/directory-delete-howto/licenses-page.png)
 
-3. Selecione **excluir** para excluir o produto e aceitar os termos que os dados são excluídos imediatamente e irrevogávels. Esta ação de exclusão removerá todos os usuários e removerá o acesso da organização ao produto. Clique em Sim para avançar com a exclusão.  
+3. **Selecione Excluir** para eliminar o produto e aceitar os termos de que os dados são eliminados imediatamente e irrevogavelmente. Esta ação de eliminação removerá todos os utilizadores e removerá o acesso da organização ao produto. Clique em Sim para avançar com a eliminação.  
 
-    ![o nome de usuário está digitado ou não foi encontrado](./media/directory-delete-howto/delete-product.png)
+    ![o nome de utilizador é mistyed ou não encontrado](./media/directory-delete-howto/delete-product.png)
 
-4. Quando você selecionar **Sim**, a exclusão do produto de autoatendimento será iniciada. Há uma notificação informando sobre a exclusão em andamento.  
+4. Quando selecionar **Sim,** a eliminação do produto self-service será iniciada. Há uma notificação que lhe dirá a eliminação em curso.  
 
-    ![o nome de usuário está digitado ou não foi encontrado](./media/directory-delete-howto/progress-message.png)
+    ![o nome de utilizador é mistyed ou não encontrado](./media/directory-delete-howto/progress-message.png)
 
-5. Agora, o estado do produto de inscrição de autoatendimento foi alterado para **excluído**. Quando você atualiza a página, o produto deve ser removido da página de **produtos de inscrição de autoatendimento** .  
+5. Agora o estado do produto de inscrição de self-service mudou para **Apagado**. Quando atualizar a página, o produto deve ser removido da página de produtos de **inscrição self-service.**  
 
-    ![o nome de usuário está digitado ou não foi encontrado](./media/directory-delete-howto/product-deleted.png)
+    ![o nome de utilizador é mistyed ou não encontrado](./media/directory-delete-howto/product-deleted.png)
 
-6. Depois de excluir todos os produtos, você pode entrar novamente no centro de administração do Azure AD e não deve haver nenhuma ação necessária e nenhum produto bloqueando a exclusão do diretório. Você deve ser capaz de excluir com êxito seu diretório do Azure AD.
+6. Depois de ter eliminado todos os produtos, pode voltar a entrar no centro de administração da Azure AD e não deve haver ação necessária e nenhum produto que bloqueie a sua exclusão do diretório. Deverá ser capaz de eliminar com sucesso o seu diretório Azure AD.
 
-    ![o nome de usuário está digitado ou não foi encontrado](./media/directory-delete-howto/delete-organization.png)
+    ![o nome de utilizador é mistyed ou não encontrado](./media/directory-delete-howto/delete-organization.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+[Documentação do Diretório Ativo azure](https://docs.microsoft.com/azure/active-directory/)

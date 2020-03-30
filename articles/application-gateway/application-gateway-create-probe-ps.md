@@ -1,7 +1,7 @@
 ---
-title: Criar uma investigação personalizada usando o PowerShell
+title: Crie uma sonda personalizada usando powerShell
 titleSuffix: Azure Application Gateway
-description: Saiba como criar uma investigação personalizada para o gateway de aplicativo usando o PowerShell no Gerenciador de recursos
+description: Saiba como criar uma sonda personalizada para o Gateway de Aplicação usando powerShell no Gestor de Recursos
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,28 +9,28 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075261"
 ---
-# <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma investigação personalizada para Aplicativo Azure gateway usando o PowerShell para Azure Resource Manager
+# <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Crie uma sonda personalizada para o Portal de Aplicações Azure utilizando a PowerShell para o Gestor de Recursos Azure
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-probe-portal.md)
+> * [Portal Azure](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente com o PowerShell. Investigações personalizadas são úteis para aplicativos que têm uma página de verificação de integridade específica ou para aplicativos que não fornecem uma resposta bem-sucedida no aplicativo Web padrão.
+Neste artigo, você adiciona uma sonda personalizada a uma porta de aplicação existente com powerShell. As sondas personalizadas são úteis para aplicações que tenham uma página específica de verificação de saúde ou para aplicações que não fornecem uma resposta bem sucedida na aplicação web predefinida.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway-with-a-custom-probe"></a>Criar um gateway de aplicativo com uma investigação personalizada
+## <a name="create-an-application-gateway-with-a-custom-probe"></a>Criar um portal de aplicação com uma sonda personalizada
 
-### <a name="sign-in-and-create-resource-group"></a>Entrar e criar um grupo de recursos
+### <a name="sign-in-and-create-resource-group"></a>Inscreva-se e crie grupo de recursos
 
 1. Use `Connect-AzAccount` para autenticar.
 
@@ -38,31 +38,31 @@ Neste artigo, você adiciona uma investigação personalizada a um gateway de ap
    Connect-AzAccount
    ```
 
-1. Obtenha as assinaturas da conta.
+1. Obtenha as assinaturas para a conta.
 
    ```powershell
    Get-AzSubscription
    ```
 
-1. Escolha qual das suas subscrições do Azure utilizar.
+1. Escolha qual das subscrições do Azure utilizar.
 
    ```powershell
    Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
    ```
 
-1. Crie um grupo de recursos. Você pode ignorar esta etapa se tiver um grupo de recursos existente.
+1. Crie um grupo de recursos. Pode saltar este passo se tiver um grupo de recursos existente.
 
    ```powershell
    New-AzResourceGroup -Name appgw-rg -Location 'West US'
    ```
 
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização. que é utilizada como a localização predefinida para os recursos nesse grupo de recursos. Verifique se todos os comandos para criar um gateway de aplicativo usam o mesmo grupo de recursos.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização. que é utilizada como a localização predefinida para os recursos nesse grupo de recursos. Certifique-se de que todos os comandos para criar um gateway de aplicação utilizam o mesmo grupo de recursos.
 
-No exemplo anterior, criamos um grupo de recursos chamado **appgw-RG** no local **oeste dos EUA**.
+No exemplo anterior, criámos um grupo de recursos chamado **appgw-RG** na localização **West US**.
 
 ### <a name="create-a-virtual-network-and-a-subnet"></a>Crie uma rede virtual e uma sub-rede
 
-O exemplo a seguir cria uma rede virtual e uma sub-rede para o gateway de aplicativo. O gateway de aplicativo requer sua própria sub-rede para uso. Por esse motivo, a sub-rede criada para o gateway de aplicativo deve ser menor do que o espaço de endereço da VNET para permitir que outras sub-redes sejam criadas e usadas.
+O exemplo seguinte cria uma rede virtual e uma sub-rede para o gateway da aplicação. O gateway de aplicação requer a sua própria sub-rede para utilização. Por esta razão, a subnet criada para o gateway de aplicação deve ser menor do que o espaço de endereço do VNET para permitir a criação e a sua utilizada outras subredes.
 
 ```powershell
 # Assign the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
@@ -77,25 +77,25 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
 
-Crie um recurso de IP público **publicIP01** no grupo de recursos **appgw-rg** para a região E.U.A. Oeste. Este exemplo usa um endereço IP público para o endereço IP de front-end do gateway de aplicativo.  O gateway de aplicativo requer que o endereço IP público tenha um nome DNS criado dinamicamente, portanto, o `-DomainNameLabel` não pode ser especificado durante a criação do endereço IP público.
+Crie um recurso IP **público PUBLICIP01** em **appgw-rg** do grupo de recursos para a região dos EUA Ocidentais. Este exemplo utiliza um endereço IP público para o endereço IP frontal do gateway da aplicação.  O gateway de aplicação requer que o endereço IP público `-DomainNameLabel` tenha um nome DNS dinamicamente criado, pelo que não pode ser especificado durante a criação do endereço IP público.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
 ```
 
-### <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
+### <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-Você configura todos os itens de configuração antes de criar o gateway de aplicativo. O exemplo a seguir cria os itens de configuração necessários para um recurso de gateway de aplicativo.
+Configura todos os itens de configuração antes de criar o gateway da aplicação. O exemplo seguinte cria os itens de configuração que são necessários para um recurso de gateway de aplicação.
 
 | **Componente** | **Descrição** |
 |---|---|
-| **Configuração de IP do gateway** | Uma configuração de IP para um gateway de aplicativo.|
-| **Pool de back-end** | Um pool de endereços IP, FQDN ou NICs que são para os servidores de aplicativos que hospedam o aplicativo Web|
-| **Investigação de integridade** | Uma investigação personalizada usada para monitorar a integridade dos membros do pool de back-end|
-| **Configurações de HTTP** | Uma coleção de configurações, incluindo a porta, o protocolo, a afinidade baseada em cookie, a investigação e o tempo limite.  Essas configurações determinam como o tráfego é roteado para os membros do pool de back-end|
-| **Porta de front-end** | A porta na qual o gateway de aplicativo escuta o tráfego|
-| **Listener** | Uma combinação de um protocolo, configuração de IP de front-end e porta de front-end. Isso é o que escuta solicitações de entrada.
-|**Régua**| Roteia o tráfego para o back-end apropriado com base nas configurações de HTTP.|
+| **Configuração de IP do gateway** | Uma configuração IP para um gateway de aplicação.|
+| **Piscina de backend** | Um conjunto de endereços IP, FQDN's ou NICs que são para os servidores de aplicação que acolhem a aplicação web|
+| **Sonda de saúde** | Uma sonda personalizada usada para monitorizar a saúde dos membros da piscina de backend|
+| **Definições http** | Uma coleção de configurações incluindo, porta, protocolo, afinidade baseada em cookies, sonda e timeout.  Estas configurações determinam como o tráfego é encaminhado para os membros da piscina de backend|
+| **Porto frontend** | O porto que a porta de aplicação escuta para o tráfego em|
+| **Serviço de Escuta** | Uma combinação de um protocolo, configuração IP frontal e porta frontend. Isto é o que ouve os pedidos de entrada.
+|**Regra**| Encaminha o tráfego para o backend apropriado com base nas definições http.|
 
 ```powershell
 # Creates an application gateway Frontend IP configuration named gatewayIP01
@@ -129,9 +129,9 @@ $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity
 $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location 'West US' -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-## <a name="add-a-probe-to-an-existing-application-gateway"></a>Adicionar uma investigação a um gateway de aplicativo existente
+## <a name="add-a-probe-to-an-existing-application-gateway"></a>Adicione uma sonda a um gateway de aplicação existente
 
-O trecho de código a seguir adiciona uma investigação a um gateway de aplicativo existente.
+O seguinte código de corte adiciona uma sonda a um gateway de aplicação existente.
 
 ```powershell
 # Load the application gateway resource into a PowerShell variable by using Get-AzApplicationGateway.
@@ -147,9 +147,9 @@ $getgw = Set-AzApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw 
 Set-AzApplicationGateway -ApplicationGateway $getgw
 ```
 
-## <a name="remove-a-probe-from-an-existing-application-gateway"></a>Remover uma investigação de um gateway de aplicativo existente
+## <a name="remove-a-probe-from-an-existing-application-gateway"></a>Remova uma sonda de um gateway de aplicação existente
 
-O trecho de código a seguir remove uma investigação de um gateway de aplicativo existente.
+O seguinte código de corte remove uma sonda de um gateway de aplicação existente.
 
 ```powershell
 # Load the application gateway resource into a PowerShell variable by using Get-AzApplicationGateway.
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como configurar o descarregamento de SSL visitando: [Configurar descarregamento de SSL](application-gateway-ssl-arm.md)
+Aprenda a configurar o descarregamento do SSL visitando: [Configure SSL Offload](application-gateway-ssl-arm.md)
 

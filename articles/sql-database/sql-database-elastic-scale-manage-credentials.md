@@ -1,6 +1,6 @@
 ---
-title: Gerenciando credenciais na biblioteca de cliente do banco de dados elástico
-description: Como definir o nível certo de credenciais, administrador para somente leitura, para aplicativos de banco de dados elástico
+title: Gestão de credenciais na biblioteca de clientes de base de dados elástica
+description: Como definir o nível certo de credenciais, administrador apenas para leitura, para aplicações de base de dados elásticas
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,72 +12,72 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 91689a32a128584aade8081905e3d1aa3ecb0a97
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823567"
 ---
-# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais usadas para acessar a biblioteca de cliente do banco de dados elástico
+# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais usadas para aceder à biblioteca de clientes da Base de Dados Elástica
 
-A [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) usa três tipos diferentes de credenciais para acessar o [Gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Dependendo da necessidade, use a credencial com o menor nível de acesso possível.
+A biblioteca de [clientes da Base](sql-database-elastic-database-client-library.md) de Dados Elástica usa três tipos diferentes de credenciais para aceder ao gestor de mapas de [fragmentos.](sql-database-elastic-scale-shard-map-management.md) Dependendo da necessidade, utilize a credencial com o nível mais baixo de acesso possível.
 
-* **Credenciais de gerenciamento**: para criar ou manipular um Gerenciador de mapa de fragmentos. (Consulte o [Glossário](sql-database-elastic-scale-glossary.md).)
-* **Credenciais de acesso**: para acessar um Gerenciador de mapa de fragmentos existente para obter informações sobre fragmentos.
-* **Credenciais de conexão**: para se conectar a fragmentos.
+* **Credenciais de gestão:** para criar ou manipular um gestor de mapas de fragmentos. (Ver o [glossário](sql-database-elastic-scale-glossary.md).)
+* **Credenciais de acesso:** aceder a um gestor de mapas de fragmentos existente para obter informações sobre fragmentos.
+* **Credenciais de ligação:** para ligar aos fragmentos.
 
-Consulte também [Gerenciando bancos de dados e logons no Azure SQL Database](sql-database-manage-logins.md).
+Consulte também a gestão de bases de [dados e logins na Base de Dados Azure SQL](sql-database-manage-logins.md).
 
-## <a name="about-management-credentials"></a>Sobre as credenciais de gerenciamento
+## <a name="about-management-credentials"></a>Sobre credenciais de gestão
 
-As credenciais de gerenciamento são usadas para criar um objeto **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) para aplicativos que manipulam mapas de fragmentos. (Por exemplo, consulte [adicionando um fragmento usando as ferramentas de banco](sql-database-elastic-scale-add-a-shard.md) de dados elástico e o [Roteamento Dependente de dado](sql-database-elastic-scale-data-dependent-routing.md)). O usuário da biblioteca de cliente de escala elástica cria os usuários do SQL e os logons do SQL e garante que cada um receba as permissões de leitura/gravação no banco de dados do mapa de fragmentos global e também em todos os bancos de dado de fragmentos. Essas credenciais são usadas para manter o mapa de fragmentos global e os mapas de fragmentos locais quando as alterações no mapa de fragmentos são executadas. Por exemplo, use as credenciais de gerenciamento para criar o objeto do Gerenciador de mapa de fragmentos (usando **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
+As credenciais de gestão são usadas para criar um objeto **ShardMapManager** [(Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) para aplicações que manipulam mapas de fragmentos. (Por exemplo, ver [Adicionar um fragmento utilizando ferramentas de base](sql-database-elastic-scale-add-a-shard.md) de dados elásticas e [encaminhamento dependente de dados).](sql-database-elastic-scale-data-dependent-routing.md) O utilizador da biblioteca de clientes em escala elástica cria os utilizadores SQL e logins SQL e certifica-se de que cada um recebe permissões de leitura/escrita na base de dados global de mapas de fragmentos e em todas as bases de dados de fragmentos também. Estas credenciais são usadas para manter o mapa global do fragmento e os mapas locais quando são realizadas alterações ao mapa do fragmento. Por exemplo, utilize as credenciais de gestão para criar o objeto gestor de mapas de fragmentos (utilizando **GetSqlShardMapManager** [(Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET):](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)
 
 ```java
 // Obtain a shard map manager.
 ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(smmAdminConnectionString,ShardMapManagerLoadPolicy.Lazy);
 ```
 
-A variável **smmAdminConnectionString** é uma cadeia de conexão que contém as credenciais de gerenciamento. A ID de usuário e a senha fornecem acesso de leitura/gravação ao banco de dados do mapa de fragmentos e a fragmentos individuais. A cadeia de conexão de gerenciamento também inclui o nome do servidor e o nome do banco de dados para identificar o banco de dados do mapa de fragmentos global. Aqui está uma cadeia de conexão típica para essa finalidade:
+O **smmAdminConnectionString** variável é uma cadeia de ligação que contém as credenciais de gestão. O ID do utilizador e a palavra-passe fornecem acesso de leitura/escrita tanto à base de dados do mapa de fragmentos como aos fragmentos individuais. A cadeia de ligação de gestão também inclui o nome do servidor e nome da base de dados para identificar a base de dados global de mapas de fragmentos. Aqui está uma cadeia de ligação típica para o efeito:
 
 ```java
 "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;”
 ```
 
-Não use valores na forma de "username@server" — em vez disso, basta usar o valor "username".  Isso ocorre porque as credenciais devem funcionar no banco de dados do Gerenciador de mapa de fragmentos e fragmentos individuais, que podem estar em servidores diferentes.
+Não utilize valores sobusername@servera forma de " — em vez disso, utilize apenas o valor do "nome de utilizador".  Isto porque as credenciais devem funcionar contra a base de dados do gestor de mapas de fragmentos e fragmentos individuais, que podem estar em servidores diferentes.
 
 ## <a name="access-credentials"></a>Credenciais de acesso
 
-Ao criar um Gerenciador de mapa de fragmentos em um aplicativo que não administra mapas de fragmentos, use credenciais que tenham permissões somente leitura no mapa de fragmentos global. As informações recuperadas do mapa de fragmentos global sob essas credenciais são usadas para [Roteamento Dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e para popular o cache de mapa de fragmentos no cliente. As credenciais são fornecidas por meio do mesmo padrão de chamada para **GetSqlShardMapManager**:
+Ao criar um gestor de mapas de fragmentos numa aplicação que não administra mapas de fragmentos, use credenciais que tenham apenas permissões de leitura no mapa global do fragmento. A informação obtida a partir do mapa global de fragmentos sob estas credenciais é usada para [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e para povoar a cache do mapa de fragmentos no cliente. As credenciais são fornecidas através do mesmo padrão de chamada para **GetSqlShardMapManager:**
 
 ```java
 // Obtain shard map manager.
 ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(smmReadOnlyConnectionString, ShardMapManagerLoadPolicy.Lazy);  
 ```
 
-Observe o uso do **smmReadOnlyConnectionString** para refletir o uso de credenciais diferentes para esse acesso em nome de usuários **não administradores** : essas credenciais não devem fornecer permissões de gravação no mapa de fragmentos global.
+Note a utilização do **smmReadOnlyConnectionString** para refletir a utilização de diferentes credenciais para este acesso em nome de utilizadores **não administrativos:** estas credenciais não devem fornecer permissões de escrita no mapa global do fragmento.
 
-## <a name="connection-credentials"></a>Credenciais de conexão
+## <a name="connection-credentials"></a>Credenciais de ligação
 
-Credenciais adicionais são necessárias ao usar o método **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) para acessar um fragmento associado a uma chave de fragmentação. Essas credenciais precisam fornecer permissões para acesso somente leitura às tabelas do mapa de fragmentos locais que residem no fragmento. Isso é necessário para executar a validação de conexão para roteamento dependente de dados no fragmento. Este trecho de código permite o acesso a dados no contexto do roteamento dependente de dados:
+São necessárias credenciais adicionais ao utilizar o método **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)para aceder a um fragmento associado a uma chave de sharding. Estas credenciais precisam de fornecer permissões para o acesso apenas de leitura às tabelas de mapas locais que residem no fragmento. Isto é necessário para realizar a validação da ligação para o encaminhamento dependente de dados no fragmento. Este código permite o acesso de dados no contexto do encaminhamento dependente de dados:
 
 ```csharp
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate))
 ```
 
-Neste exemplo, **smmUserConnectionString** mantém a cadeia de conexão para as credenciais do usuário. Para o BD SQL do Azure, aqui está uma cadeia de conexão típica para as credenciais do usuário:
+Neste exemplo, o **smmUserConnectionString** detém a cadeia de ligação para as credenciais do utilizador. Para o Azure SQL DB, aqui está uma cadeia de ligação típica para credenciais de utilizador:
 
 ```java
 "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 ```
 
-Assim como acontece com as credenciais de administrador, não use valores na forma de "username@server". Em vez disso, basta usar "username".  Observe também que a cadeia de conexão não contém um nome de servidor e um nome de banco de dados. Isso ocorre porque a chamada **OpenConnectionForKey** direciona automaticamente a conexão para o fragmento correto com base na chave. Portanto, o nome do banco de dados e o nome do servidor não são fornecidos.
+Tal como acontece com as credenciais de administração, não utilize valores sob a forma de "username@server." Em vez disso, utilize apenas "username".  Note também que a cadeia de ligação não contém um nome de servidor e nome de base de dados. Isto porque a chamada **OpenConnectionForKey** direciona automaticamente a ligação ao fragmento correto com base na chave. Por conseguinte, o nome da base de dados e o nome do servidor não são fornecidos.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 [Gerir bases de dados e inícios de sessão na Base de Dados SQL do Azure](sql-database-manage-logins.md)
 
-[Securing your SQL Database (Proteger a sua Base de Dados SQL)](sql-database-security-overview.md)
+[Proteger a sua Base de Dados SQL](sql-database-security-overview.md)
 
-[trabalhos de Banco de Dados Elástico](elastic-jobs-overview.md)
+[Trabalhos de base de dados elásticos](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

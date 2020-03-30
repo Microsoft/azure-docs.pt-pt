@@ -1,6 +1,6 @@
 ---
-title: O que é o OPC "Azure" | Microsoft Docs
-description: Este artigo fornece uma visão geral do OPC. O OPC Myoferece descoberta, registro e controle remoto de dispositivos industriais por meio de APIs REST.
+title: O que é OPC Twin - Azure Microsoft Docs
+description: Este artigo fornece uma visão geral da OPC Twin. A OPC Twin fornece descoberta, registo e controlo remoto de dispositivos industriais através de APIs REST.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -9,37 +9,37 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 91448f55f0ebb88ba6c685b960ece9d91cb98e25
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73826229"
 ---
-# <a name="what-is-opc-twin"></a>O que é OPC.
+# <a name="what-is-opc-twin"></a>O que é OPC Twin?
 
-O OPC myQuery consiste em microserviços que usam Azure IoT Edge e Hub IoT para conectar a nuvem e a rede de fábrica. O OPC Myoferece descoberta, registro e controle remoto de dispositivos industriais por meio de APIs REST. O OPC myQuery não requer um SDK do OPC UA (Unified Architecture), é independente da linguagem de programação e pode ser incluído em um fluxo de trabalho sem servidor. Este artigo descreve vários casos de uso do OPC.
+A OPC Twin é constituída por microserviços que utilizam o Azure IoT Edge e o IoT Hub para ligar a nuvem e a rede de fábrica. A OPC Twin fornece descoberta, registo e controlo remoto de dispositivos industriais através de APIs REST. OPc Twin não requer um SDK de Arquitetura Unificada OPC (OPC UA), é agnóstico de linguagem de programação, e pode ser incluído num fluxo de trabalho sem servidores. Este artigo descreve vários casos de utilização da OPC Twin.
 
-## <a name="discovery-and-control"></a>Descoberta e controle
-Você pode usar a "OPC" para o registro e a descoberta simples.
+## <a name="discovery-and-control"></a>Descoberta e controlo
+Pode utilizar o OPC Twin como simples para descoberta e registo.
 
-### <a name="simple-discovery-and-registration"></a>Descoberta e registro simples
-O OPC maup permite que os operadores de fábrica verifiquem a rede de fábrica, para que os servidores OPC UA possam ser descobertos e registrados. Como alternativa, os operadores de fábrica também podem registrar manualmente os dispositivos OPC UA usando uma URL de descoberta conhecida. Por exemplo, para se conectar a todos os dispositivos OPC UA depois que o gateway de IoT Edge com um módulo OPC myficar instalado no chão de fábrica, o operador de fábrica pode disparar remotamente uma verificação da rede e ver visualmente todos os servidores do OPC UA. 
+### <a name="simple-discovery-and-registration"></a>Simples descoberta e registo
+A OPC Twin permite que os operadores de fábrica scaneem a rede de fábrica, para que os servidores da OPC UA possam ser descobertos e registados. Como alternativa, os operadores de fábrica também podem registar manualmente dispositivos OPC UA usando um URL de descoberta conhecido. Por exemplo, para ligar a todos os dispositivos OPC UA depois de ter sido instalado o portal IoT Edge com um módulo OPC Twin no chão da fábrica, o operador de fábrica pode acionar remotamente uma varredura da rede e ver visualmente todos os servidores DaUA OPC. 
 
-### <a name="simple-control"></a>Controle simples
-O OPC maup permite que os operadores de fábrica reajam a eventos e reconfigurem seus computadores de chão de fábrica da nuvem de forma automática ou manual. O OPC myfornece APIs REST para invocar serviços no servidor OPC UA, procurar seu espaço de endereço, bem como variáveis de leitura/gravação e métodos de execução. Por exemplo, um preistor usa KPI de temperatura para controlar a linha de produção. O sensor de temperatura publica a alteração nos dados usando o editor OPC. O operador de fábrica recebe o alerta de que a temperatura atingiu o limite. A linha de produção é esfriada automaticamente por meio de OPC. O operador de fábrica é notificado do resfriamento.
+### <a name="simple-control"></a>Controlo simples
+A OPC Twin permite que os operadores de fábrica reajam aos acontecimentos e reconfigurem as suas máquinas de chão de fábrica a partir da nuvem, automaticamente ou manualmente, em voo. O PcP Twin fornece APIs REST para invocar serviços no servidor OPC UA, navegar no seu espaço de endereço, bem como para ler/escrever variáveis e executar métodos. Por exemplo, uma caldeira utiliza kPI de temperatura para controlar a linha de produção. O sensor de temperatura publica a alteração dos dados utilizando o OPC Publisher. O operador da fábrica recebe o alerta de que a temperatura atingiu o limiar. A linha de produção arrefece automaticamente através da OPC Twin. O operador da fábrica é notificado do arrefecimento.
 
 ## <a name="authentication"></a>Autenticação
-Você pode usar o OPC "para autenticação simples" e para uma experiência de desenvolvedor simples.
+Pode utilizar o OPC Twin como simples para autenticação e para uma experiência simples de desenvolvimento.
 
 ### <a name="simple-authentication"></a>Autenticação simples 
-O OPC myusa a autenticação baseada no AAD (Azure Active Directory) e a auditoria de ponta a ponta. Por exemplo, o OPC 10 permite que o aplicativo seja criado sobre o OPC 10 para determinar o que um operador executou em um computador. No lado do computador, é por meio da auditoria de OPC UA. No lado da nuvem, é por meio do armazenamento de um log de auditoria de cliente imutável e da autenticação do AAD na API REST.
+A OPC Twin utiliza autenticação e auditoria baseadas em Azure Ative (AAD) de ponta a ponta. Por exemplo, a OPC Twin permite que a aplicação seja construída em cima da OPC Twin para determinar o que um operador realizou numa máquina. Do lado da máquina, é através da auditoria da OPC UA. Do lado da nuvem, é através do armazenamento de um registo imutável de auditoria de clientes e autenticação AAD na API REST.
 
-### <a name="simple-developer-experience"></a>Experiência de desenvolvedor simples 
-O OPC myserial pode ser usado com aplicativos escritos em qualquer linguagem de programação por meio de APIs REST. À medida que os desenvolvedores integram um cliente OPC UA a uma solução, o conhecimento do SDK do OPC UA não é necessário. O OPC maup pode integrar-se perfeitamente às arquiteturas sem estado e não-servidor. Por exemplo, um desenvolvedor de pilha da Web completo que desenvolve um aplicativo para um evento de alarme e de eventos pode escrever a lógica para responder a eventos em JavaScript ou TypeScript usando o OPC "sem C#o conhecimento de C, ou a implementação completa de pilha do OPC UA. 
+### <a name="simple-developer-experience"></a>Experiência simples de desenvolvedor 
+O PcPc Twin pode ser usado com aplicações escritas em qualquer linguagem de programação através de APIs REST. À medida que os desenvolvedores integram um cliente da OPC UA numa solução, o conhecimento do OPC UA SDK não é necessário. OPc Twin pode integrar-se perfeitamente em arquiteturas apátridas e sem servidores. Por exemplo, um desenvolvedor de web de pilha completa que desenvolve uma aplicação para um painel de alarme e evento pode escrever a lógica para responder a eventos em JavaScript ou TypeScript usando OPC Twin sem o conhecimento de C, C#, ou a implementação completa da pilha de UA OPC. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu sobre o OPC e seus usos, aqui está a próxima etapa sugerida:
+Agora que aprendeu sobre o OPC Twin e os seus usos, eis o próximo passo sugerido:
 
 > [!div class="nextstepaction"]
-> [O que é o cofre do OPC](overview-opc-vault.md)
+> [O que é o Cofre OPC](overview-opc-vault.md)

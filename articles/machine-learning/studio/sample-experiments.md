@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
 ms.openlocfilehash: 1a913e714565ffb99237357e331ef5cf0189c40f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204226"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Create Azure Machine Learning Studio (clássico) experiências a partir de exemplos de trabalho na Galeria Azure AI
@@ -43,7 +43,7 @@ Para procurar todas as experimentações:
 3. Pode encontrar experimentações que cumprem os requisitos de duas formas diferentes:
    * **Selecione filtros no lado esquerdo.** Por exemplo, para procurar experimentações que utilizem um algoritmo de deteção de anomalias baseado em PCA: em **Categorias**, clique em **Experimentação**. Em seguida, em **Algoritmos Utilizados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Deteção de Anomalias Baseada em PCA**. Poderá ter de deslocar para baixo para vê-la.<br></br>
      ![Selecionar filtros](./media/sample-experiments/choose-an-algorithm.png)
-   * **Utilize a caixa de pesquisa.** Por exemplo, para procurar experimentações que tenham feito parte da Microsoft e estejam relacionadas com o reconhecimento de dígitos que utilizam um algoritmo da máquina de vetor com suporte de classe dois, introduza "reconhecimento de dígitos" na caixa de pesquisa. Em seguida, selecione os filtros **Experimentação**, **Apenas conteúdos da Microsoft** e **Máquina de Vetor com Suporte de Classe Dois**:<br></br>
+   * **Utilize a caixa de pesquisa.** Por exemplo, para procurar experimentações que tenham feito parte da Microsoft e estejam relacionadas com o reconhecimento de dígitos que utilizam um algoritmo da máquina de vetor com suporte de classe dois, introduza "reconhecimento de dígitos" na caixa de pesquisa. Em seguida, selecione os filtros **Experiment,** **apenas conteúdo da Microsoft**e **máquina de vetores de suporte de duas classes:**<br></br>
      ![Utilizar a caixa de pesquisa](./media/sample-experiments/search-for-experiments.png)
 4. Clique numa experimentação para saber mais acerca da mesma.
 5. Para executar e/ou modificar a experimentação, clique em **Abrir no Studio** na página de experimentação. <br></br>
@@ -58,7 +58,7 @@ Você também pode criar uma nova experiência no Machine Learning Studio (clás
 
 Uma nova experiência é criada no seu espaço de trabalho machine learning studio (clássico) usando a experiência de exemplo como modelo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Importar dados de várias origens](import-data.md)
 * [Tutorial de início rápido para a linguagem R no Machine Learning](r-quickstart.md)
 * [Implementar um serviço Web Machine Learning](deploy-a-machine-learning-web-service.md)

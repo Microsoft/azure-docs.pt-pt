@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: exemplos de configuração do roteador'
-description: Esta página fornece exemplos de configuração de router para os routers Cisco e Juniper.
+title: 'Azure ExpressRoute: Amostras de configuração do router'
+description: Esta página fornece amostras de config router para routers Cisco e Juniper.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,51 +8,51 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076669"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração de router para configurar e gerir o encaminhamento
-Esta página fornece interface e exemplos de configuração de encaminhamento para Cisco IOS-XE e os routers da série de Juniper MX ao trabalhar com o ExpressRoute. Estes destinam-se para ser amostras para obter orientações apenas e não pode ser usados como está. Pode trabalhar com o fornecedor para propor as configurações apropriadas para a sua rede. 
+# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Amostras de configuração do router para configurar e gerir o encaminhamento
+Esta página fornece amostras de configuração de interface e encaminhamento para routers da série Cisco IOS-XE e Juniper MX ao trabalhar com o ExpressRoute. Destinam-se a ser amostras apenas para orientação e não devem ser utilizadas como está. Pode trabalhar com o seu fornecedor para criar configurações adequadas para a sua rede. 
 
 > [!IMPORTANT]
-> Exemplos nesta página se destinam a ser puramente para obter orientações. Deve trabalhar com equipes de técnicos e de vendas do seu fornecedor e seu funcionamento em rede propor configurações adequadas às suas necessidades. A Microsoft irá suporta problemas relacionados com as configurações listadas nesta página. Tem de contactar o seu fornecedor de dispositivo para problemas de suporte.
+> As amostras nesta página destinam-se exclusivamente a orientação. Tem de trabalhar com a equipa técnica/de vendas do seu fornecedor e com a sua equipa de networking para criar configurações adequadas para atender às suas necessidades. A Microsoft não suportará problemas relacionados com configurações listadas nesta página. Deve contactar o fornecedor do seu dispositivo para obter problemas de suporte.
 > 
 > 
 
-## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Definições de MTU e TCP MSS em interfaces de router
-* O MTU da interface do ExpressRoute é 1500, que é o padrão típico MTU para uma interface de Ethernet num roteador. A menos que seu roteador tem um MTU diferente, por predefinição, não há necessidade de especificar um valor na interface de router.
-* Ao contrário de um Gateway de VPN do Azure, o MSS de TCP para um circuito do ExpressRoute não precisa de ser especificado.
+## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Definições mTU e TCP MSS nas interfaces do router
+* O MTU para a interface ExpressRoute é 1500, que é o MTU padrão típico para uma interface Ethernet num router. A menos que o seu router tenha um MTU diferente por padrão, não há necessidade de especificar um valor na interface do router.
+* Ao contrário de um Azure VPN Gateway, o TCP MSS para um circuito ExpressRoute não precisa de ser especificado.
 
-Exemplos de configuração de router abaixo se aplicam a todos os peerings. Revisão [peerings do ExpressRoute](expressroute-circuit-peerings.md) e [requisitos de encaminhamento do ExpressRoute](expressroute-routing.md) para obter mais detalhes sobre o encaminhamento.
+As amostras de configuração do router abaixo aplicam-se a todos os pares. Reveja [os pares expressRoute](expressroute-circuit-peerings.md) e os requisitos de [encaminhamento expressRoute](expressroute-routing.md) para mais detalhes sobre o encaminhamento.
 
 
-## <a name="cisco-ios-xe-based-routers"></a>IOS-XE da Cisco com routers base
-Os exemplos nesta secção aplicam-se para qualquer router com a família de SO IOS XE.
+## <a name="cisco-ios-xe-based-routers"></a>Routers baseados cisco IOS-XE
+As amostras desta secção aplicam-se a qualquer router que execute a família IOS-XE OS.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurando interfaces e subinterfaces
-Vai precisar de uma interface de sub-rotina por peering em cada router que se liga à Microsoft. Uma interface de sub-rotina pode ser identificada com um ID de VLAN ou um par empilhado de IDs de VLAN e um endereço IP.
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurar interfaces e subinterfaces
+Necessitará de uma subinterface por observação em todos os routers que ligar à Microsoft. Uma sub interface pode ser identificada com um ID VLAN ou um par empilhado de IDs VLAN e um endereço IP.
 
-**Definição de interface de Dot1Q**
+**Definição de interface do T1Q**
 
-Este exemplo fornece a definição de interface secundária para uma interface secundárias com um único ID de VLAN. O ID de VLAN é exclusivo por peering. O último octeto do seu endereço IPv4 será sempre um número ímpar.
+Esta amostra fornece a definição de sub-interface para uma sub-interface com um único ID VLAN. O ID VLAN é único por observação. O último octeto do seu endereço IPv4 será sempre um número ímpar.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <VLAN_ID>
      ip address <IPv4_Address><Subnet_Mask>
 
-**Definição de interface de QinQ**
+**Definição de interface QinQ**
 
-Este exemplo fornece a definição de interface secundária para uma interface de rede secundária com dois IDs de VLAN. O ID de VLAN externo (s-marca), se for utilizado permanece igual em todos os peerings. O ID de VLAN (c-etiqueta) interna é exclusivo por peering. O último octeto do seu endereço IPv4 será sempre um número ímpar.
+Esta amostra fornece a definição de sub-interface para uma sub-interface com duas IDs VLAN. O ID VLAN exterior (s-tag), se utilizado permanece o mesmo em todos os pares. O ID VLAN interior (c-tag) é único por observação. O último octeto do seu endereço IPv4 será sempre um número ímpar.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. Configurando sessões eBGP
-Tem de configurar uma sessão de BGP com a Microsoft para cada peering. O exemplo abaixo permite-lhe configurar uma sessão BGP com a Microsoft. Se o endereço de IPv4 que utilizou para a sua interface de sub-rotina a.b.c. d, o endereço IP do vizinhos de BGP (Microsoft) será a.b.c.d+1. O último octeto de endereço IPv4 dos vizinhos de BGP será sempre um número par.
+### <a name="2-setting-up-ebgp-sessions"></a>2. Criação de sessões de EBGP
+Tem de preparar uma sessão de BGP com a Microsoft para cada espreitante. A amostra abaixo permite-lhe configurar uma sessão de BGP com a Microsoft. Se o endereço IPv4 que usou para a sua subinterface fosse a.b.c.d,o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço IPv4 do vizinho bGP será sempre um número par.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -63,8 +63,8 @@ Tem de configurar uma sessão de BGP com a Microsoft para cada peering. O exempl
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configurando prefixos a serem anunciados na sessão BGP
-Pode configurar o router para anunciar prefixos selecionados à Microsoft. Pode fazê-lo com o exemplo abaixo.
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Criação de prefixos a anunciar durante a sessão do BGP
+Pode configurar o seu router para anunciar prefixos selecionados para a Microsoft. Pode fazê-lo utilizando a amostra abaixo.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -76,8 +76,8 @@ Pode configurar o router para anunciar prefixos selecionados à Microsoft. Pode 
      exit-address-family
     !
 
-### <a name="4-route-maps"></a>4. mapas de rota
-Pode utilizar mapas de rotas e apresenta uma lista de prefixo para prefixos de filtro propagados na sua rede. Pode utilizar o exemplo abaixo para realizar a tarefa. Certifique-se de que tem de configurar de listas de prefixo adequado.
+### <a name="4-route-maps"></a>4. Mapas de rotas
+Pode utilizar mapas de rotas e listas de prefixos para filtrar prefixos propagados na sua rede. Pode utilizar a amostra abaixo para realizar a tarefa. Certifique-se de que tem as listas de pré-fixação adequadas configuradas.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -94,14 +94,14 @@ Pode utilizar mapas de rotas e apresenta uma lista de prefixo para prefixos de f
     !
 
 
-## <a name="juniper-mx-series-routers"></a>Routers da série de Juniper MX
-Os exemplos nesta secção aplicam-se todos os routers série Juniper MX.
+## <a name="juniper-mx-series-routers"></a>Routers da série Juniper MX
+As amostras desta secção aplicam-se a quaisquer routers da série Juniper MX.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurando interfaces e subinterfaces
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurar interfaces e subinterfaces
 
-**Definição de interface de Dot1Q**
+**Definição de interface do T1Q**
 
-Este exemplo fornece a definição de interface secundária para uma interface secundárias com um único ID de VLAN. O ID de VLAN é exclusivo por peering. O último octeto do seu endereço IPv4 será sempre um número ímpar.
+Esta amostra fornece a definição de sub-interface para uma sub-interface com um único ID VLAN. O ID VLAN é único por observação. O último octeto do seu endereço IPv4 será sempre um número ímpar.
 
     interfaces {
         vlan-tagging;
@@ -116,9 +116,9 @@ Este exemplo fornece a definição de interface secundária para uma interface s
     }
 
 
-**Definição de interface de QinQ**
+**Definição de interface QinQ**
 
-Este exemplo fornece a definição de interface secundária para uma interface de rede secundária com dois IDs de VLAN. O ID de VLAN externo (s-marca), se for utilizado permanece igual em todos os peerings. O ID de VLAN (c-etiqueta) interna é exclusivo por peering. O último octeto do seu endereço IPv4 será sempre um número ímpar.
+Esta amostra fornece a definição de sub-interface para uma sub-interface com duas IDs VLAN. O ID VLAN exterior (s-tag), se utilizado permanece o mesmo em todos os pares. O ID VLAN interior (c-tag) é único por observação. O último octeto do seu endereço IPv4 será sempre um número ímpar.
 
     interfaces {
         <Interface_Number> {
@@ -132,8 +132,8 @@ Este exemplo fornece a definição de interface secundária para uma interface d
         }                                   
     }                           
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. Configurando sessões eBGP
-Tem de configurar uma sessão de BGP com a Microsoft para cada peering. O exemplo abaixo permite-lhe configurar uma sessão BGP com a Microsoft. Se o endereço de IPv4 que utilizou para a sua interface de sub-rotina a.b.c. d, o endereço IP do vizinhos de BGP (Microsoft) será a.b.c.d+1. O último octeto de endereço IPv4 dos vizinhos de BGP será sempre um número par.
+### <a name="2-setting-up-ebgp-sessions"></a>2. Criação de sessões de EBGP
+Tem de preparar uma sessão de BGP com a Microsoft para cada espreitante. A amostra abaixo permite-lhe configurar uma sessão de BGP com a Microsoft. Se o endereço IPv4 que usou para a sua subinterface fosse a.b.c.d,o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço IPv4 do vizinho bGP será sempre um número par.
 
     routing-options {
         autonomous-system <Customer_ASN>;
@@ -148,8 +148,8 @@ Tem de configurar uma sessão de BGP com a Microsoft para cada peering. O exempl
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configurando prefixos a serem anunciados na sessão BGP
-Pode configurar o router para anunciar prefixos selecionados à Microsoft. Pode fazê-lo com o exemplo abaixo.
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Criação de prefixos a anunciar durante a sessão do BGP
+Pode configurar o seu router para anunciar prefixos selecionados para a Microsoft. Pode fazê-lo utilizando a amostra abaixo.
 
     policy-options {
         policy-statement <Policy_Name> {
@@ -173,8 +173,8 @@ Pode configurar o router para anunciar prefixos selecionados à Microsoft. Pode 
     }
 
 
-### <a name="4-route-maps"></a>4. mapas de rota
-Pode utilizar mapas de rotas e apresenta uma lista de prefixo para prefixos de filtro propagados na sua rede. Pode utilizar o exemplo abaixo para realizar a tarefa. Certifique-se de que tem de configurar de listas de prefixo adequado.
+### <a name="4-route-maps"></a>4. Mapas de rotas
+Pode utilizar mapas de rotas e listas de prefixos para filtrar prefixos propagados na sua rede. Pode utilizar a amostra abaixo para realizar a tarefa. Certifique-se de que tem as listas de pré-fixação adequadas configuradas.
 
     policy-options {
         prefix-list MS_Prefixes {

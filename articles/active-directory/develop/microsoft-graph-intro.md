@@ -1,5 +1,5 @@
 ---
-title: Microsoft Graph API  Microsoft Docs
+title: Microsoft Graph API [ Microsoft Docs
 description: O Microsoft Graph API é um API web RESTful que lhe permite aceder aos recursos de serviço do Microsoft Cloud.
 author: davidmu1
 services: active-directory
@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
 ms.openlocfilehash: 6c1b4390282f6d54178365714b1e2e665b4cf061
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136505"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
@@ -26,7 +26,7 @@ O Microsoft Graph expõe as APIs rest e as bibliotecas de clientes para aceder a
 - Serviços do Office 365: Delve, Excel, Microsoft Bookings, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner e SharePoint
 - Serviços de Mobilidade e Segurança Empresariais: Advanced Threat Analytics, Advanced Threat Protection, Azure Ative Directory, Identity Manager e Intune
 - Serviços Windows 10: atividades, dispositivos, notificações
-- Dinâmica 365 Business Central
+- Dynamics 365 Business Central
 
 ## <a name="versions"></a>Versões
 
@@ -55,6 +55,6 @@ Quando completar o arranque rápido, tem uma aplicação pronta a funcionar. Par
 
 ## <a name="tools"></a>Ferramentas
 
-O Microsoft Graph Explorer é uma ferramenta baseada na Web que pode supor para construir e testar pedidos usando APIs do Microsoft Graph. Pode aceder ao Microsoft Graph Explorer em: `https://developer.microsoft.com/graph/graph-explorer`.
+O Microsoft Graph Explorer é uma ferramenta baseada na Web que pode supor para construir e testar pedidos usando APIs do Microsoft Graph. Pode aceder ao Microsoft `https://developer.microsoft.com/graph/graph-explorer`Graph Explorer em: .
 
-O carteiro é uma ferramenta que também pode usar para construir e testar pedidos utilizando as APIs do Microsoft Graph. Você pode baixar O Carteiro em: `https://www.getpostman.com/`. Para interagir com o Microsoft Graph em Postman, utiliza a coleção Microsoft Graph no Postman. Para mais informações, consulte [Use Postman com a Microsoft Graph API](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+O carteiro é uma ferramenta que também pode usar para construir e testar pedidos utilizando as APIs do Microsoft Graph. Você pode baixar O `https://www.getpostman.com/`Carteiro em: . Para interagir com o Microsoft Graph em Postman, utiliza a coleção Microsoft Graph no Postman. Para mais informações, consulte [Use Postman com a Microsoft Graph API](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).

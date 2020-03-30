@@ -15,10 +15,10 @@ ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243487"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássicos do Azure
@@ -38,13 +38,13 @@ Este artigo descreve como adicionar ou alterar as funções de Coadministrador e
 
     Os coadministradores só podem ser atribuídos no âmbito da subscrição.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador de **administradores clássicos.**
 
     ![Screenshot que abre administradores clássicos](./media/classic-administrators/classic-administrators.png)
 
-1. Clique em **Adicionar** > **Adicionar coadministrador** para abrir o painel de coadministradores adicionar.
+1. Clique em **Adicionar** > **coadministrador** para abrir o painel de coadministradores adicionar.
 
     Se a opção de coadministrador adicionar estiver desativada, não tem permissões.
 
@@ -83,7 +83,7 @@ Para obter informações que comparem utilizadores membros e utilizadores convid
 
 1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador de **administradores clássicos.**
 
@@ -101,7 +101,7 @@ Só o Administrador de Conta pode alterar o Administrador de Serviço para uma s
 
 Siga estes passos para alterar o Administrador de Serviço no **Centro de Conta**.
 
-### <a name="account-center"></a>Centro de Conta
+### <a name="account-center"></a>Centro de Contas
 
 1. Certifique-se de que o seu cenário é suportado verificando as [limitações para alterar o Administrador de Serviço](#limitations-for-changing-the-service-administrator).
 
@@ -128,7 +128,7 @@ Só pode haver um Administrador de Serviço por subscrição azure. A alteraçã
 | Conta Microsoft | Sim | Não | Não |
 | Conta do Azure AD | Sim | Sim | Não |
 
-Se o Administrador de Conta for uma conta Azure AD, pode alterar o Administrador de Serviço para uma conta Azure AD no mesmo diretório, mas não num diretório diferente. Por exemplo, abby@contoso.com podem mudar o Administrador de Serviço para bob@contoso.com, mas não podem mudar o Administrador de Serviço para john@notcontoso.com a menos que john@notcontoso.com tenha presença no diretório contoso.com.
+Se o Administrador de Conta for uma conta Azure AD, pode alterar o Administrador de Serviço para uma conta Azure AD no mesmo diretório, mas não num diretório diferente. Por abby@contoso.com exemplo, pode alterar bob@contoso.como Administrador de Serviço john@notcontoso.com para, mas não pode alterar o Administrador de Serviço para a menos que john@notcontoso.com tenha uma presença no diretório contoso.com.
 
 Para obter mais informações sobre as contas da Microsoft e as contas da AD Azure, consulte [o what is Azure Ative Directory?](../active-directory/fundamentals/active-directory-whatis.md)
 
@@ -138,7 +138,7 @@ O Administrador de Conta é o utilizador que inicialmente se inscreveu para a su
 
 Siga estes passos para visualizar o Administrador de Conta.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 

@@ -1,6 +1,6 @@
 ---
-title: Controlar o comportamento de cache da CDN do Azure com cadeias de consulta-camada Premium
-description: O cache da cadeia de consulta da CDN do Azure controla como os arquivos são armazenados em cache quando uma solicitação da Web contém uma cadeia de caracteres de consulta. Este artigo descreve o cache de cadeia de caracteres de consulta no produto Azure CDN Premium da Verizon.
+title: Controle O comportamento de cache do Azure CDN com cordas de consulta - nível premium
+description: O cache de cordas de consulta Azure CDN controla a forma como os ficheiros são cacheed quando um pedido web contém uma corda de consulta. Este artigo descreve o cache de cordas de consulta no Azure CDN Premium do produto Verizon.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,54 +15,54 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 365c52840d281c0f48d17aacc358e4cce513e3b4
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083082"
 ---
-# <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Controlar o comportamento de cache da CDN do Azure com cadeias de consulta-camada Premium
+# <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Controle O comportamento de cache do Azure CDN com cordas de consulta - nível premium
 > [!div class="op_single_selector"]
 > * [Escalão Standard](cdn-query-string.md)
 > * [Escalão Premium](cdn-query-string-premium.md)
 > 
 
 ## <a name="overview"></a>Descrição geral
-Com a CDN (rede de distribuição de conteúdo) do Azure, você pode controlar como os arquivos são armazenados em cache para uma solicitação da Web que contém uma cadeia de caracteres de consulta. Em uma solicitação da Web com uma cadeia de caracteres de consulta, a cadeia de caracteres de consulta é aquela parte da solicitação que ocorre após um ponto de interrogação (?). Uma cadeia de caracteres de consulta pode conter um ou mais pares chave-valor, nos quais o nome do campo e seu valor são separados por um sinal de igual (=). Cada par chave-valor é separado por um e comercial (&). Por exemplo, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. Se houver mais de um par chave-valor em uma cadeia de caracteres de consulta de uma solicitação, sua ordem não importa. 
+Com a Rede de Entrega de ConteúdoS Azure (CDN), pode controlar como os ficheiros são cached para um pedido web que contém uma cadeia de consulta. Num pedido web com uma corda de consulta, a corda de consulta é essa parte do pedido que ocorre após um ponto de interrogação (?). Uma corda de consulta pode conter um ou mais pares de valor-chave, em que o nome de campo e o seu valor são separados por um sinal igual (=). Cada par de valor-chave é separado por um ampersand (&). Por exemplo,\/http: /www.contoso.com/content.mov?field1=value1&campo2=valor2. Se houver mais de um par de valor-chave numa sequência de consulta de um pedido, a sua ordem não importa. 
 
 > [!IMPORTANT]
-> Os produtos CDN Standard e Premium fornecem a mesma funcionalidade de cache de cadeia de caracteres de consulta, mas a interface do usuário é diferente. Este artigo descreve a interface do **Azure CDN Premium da Verizon**. Para cache de cadeia de caracteres de consulta com produtos padrão da CDN do Azure, consulte [controlar o comportamento de cache da CDN do Azure com cadeias de consulta-camada Standard](cdn-query-string.md)
+> Os produtos CDN standard e premium fornecem a mesma funcionalidade de cache de corda de consulta, mas a interface do utilizador é diferente. Este artigo descreve a interface para **Azure CDN Premium da Verizon**. Para consulta de cordas com produtos padrão Azure CDN, consulte [Control Azure CDN comportamento](cdn-query-string.md)de cache com cordas de consulta - nível padrão .
 >
 
 
-Três modos de cadeia de caracteres de consulta estão disponíveis:
+Estão disponíveis três modos de corda de consulta:
 
-- **Standard-cache**: modo padrão. Nesse modo, o nó do ponto de presença (POP) da CDN passa as cadeias de caracteres de consulta do solicitante para o servidor de origem na primeira solicitação e armazena o ativo em cache. Todas as solicitações subsequentes para o ativo que são servidas do servidor POP ignoram as cadeias de caracteres de consulta até que o ativo em cache expire.
+- **cache padrão**: Modo predefinido. Neste modo, o nó de ponto de presença CDN (POP) passa as cordas de consulta do solicitador para o servidor de origem no primeiro pedido e caches o ativo. Todos os pedidos subsequentes para o ativo que são servidos a partir do servidor POP ignoram as cordas de consulta até que o ativo em cache expire.
 
     >[!IMPORTANT] 
-    > Se a autorização de token estiver habilitada para qualquer caminho nessa conta, o modo de cache padrão será o único modo que pode ser usado. 
+    > Se a autorização de ficha estiver ativada para qualquer caminho nesta conta, o modo de cache padrão é o único modo que pode ser utilizado. 
 
-- no **-cache**: nesse modo, as solicitações com cadeias de caracteres de consulta não são armazenadas em cache no nó pop do CDN. O nó POP recupera o ativo diretamente do servidor de origem e o passa para o solicitante com cada solicitação.
+- **no-cache**: Neste modo, os pedidos com cordas de consulta não são cached no nó Pop CDN. O nó POP recupera o ativo diretamente do servidor de origem e passa-o ao solicitador com cada pedido.
 
-- **cache exclusivo**: nesse modo, cada solicitação com uma URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de origem para uma solicitação, por exemplo,. ashx? q = Test1 é armazenada em cache no nó POP e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação, por exemplo,. ashx? q = test2, é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
+- **cache único**: Neste modo, cada pedido com um URL único, incluindo a corda de consulta, é tratado como um ativo único com a sua própria cache. Por exemplo, a resposta do servidor de origem para um pedido por exemplo.ashx?q=test1 é emcache no nó POP e devolvida para caches subsequentes com a mesma corda de consulta. Um pedido, por exemplo.ashx?q=test2 é cached como um ativo separado com a sua própria configuração de tempo para viver.
    
     >[!IMPORTANT] 
-    > Não use esse modo quando a cadeia de caracteres de consulta contiver parâmetros que serão alterados com cada solicitação, como uma ID de sessão ou um nome de usuário, pois isso resultará em uma taxa de acertos de cache baixo.
+    > Não utilize este modo quando a cadeia de consulta contiver parâmetros que mudarão a cada pedido, como um ID de sessão ou um nome de utilizador, porque resultará numa relação de cache-hit baixa.
 
-## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>Alterando configurações de cache de cadeia de caracteres de consulta para perfis de CDN Premium
-1. Abra um perfil CDN e clique em **gerenciar**.
+## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>Alterar as definições de cache de cordas de consulta para perfis CDN premium
+1. Abra um perfil CDN e, em seguida, clique em **Gerir**.
    
-    ![Botão Gerenciar perfil CDN](./media/cdn-query-string-premium/cdn-manage-btn.png)
+    ![Perfil CDN Gerir botão](./media/cdn-query-string-premium/cdn-manage-btn.png)
    
-    O portal de gerenciamento da CDN é aberto.
-2. Passe o mouse sobre a guia **http grande** e passe o mouse sobre o menu de atalho **configurações de cache** . Clique em **cache de cadeia de consulta**.
+    Abre o portal de gestão da CDN.
+2. Paire sobre o separador **HTTP Grande** e, em seguida, paire sobre o menu de flyout **De Definições cache.** Clique em **Caching De Cordas de Consulta**.
    
-    As opções de cache de cadeia de caracteres de consulta são exibidas.
+    São apresentadas opções de cache de corda de consulta.
    
-    ![Opções de cache de cadeia de consulta CDN](./media/cdn-query-string-premium/cdn-query-string.png)
-3. Selecione um modo de cadeia de caracteres de consulta e clique em **Atualizar**.
+    ![Opções de cache de corda de consulta CDN](./media/cdn-query-string-premium/cdn-query-string.png)
+3. Selecione um modo de corda de consulta e, em seguida, clique em **Atualizar**.
 
 > [!IMPORTANT]
-> Como leva tempo para o registro se propagar por meio da CDN, as alterações nas configurações da cadeia de caracteres do cache podem não estar visíveis imediatamente. A propagação geralmente é concluída em 10 minutos.
+> Uma vez que o registo demora tempo a propagar-se através do CDN, as alterações das definições de cadeias de cache podem não ser imediatamente visíveis. A propagação geralmente completa em 10 minutos.
  
 

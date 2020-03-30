@@ -1,6 +1,6 @@
 ---
-title: Introdução com o armazenamento do Azure usando o Visual Studio (projetos de trabalho Web)
-description: Como começar a usar o armazenamento de tabelas do Azure em um projeto Azure WebJobs no Visual Studio depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio
+title: Começar com o armazenamento Azure usando o Visual Studio (projetos WebJob)
+description: Como começar a usar o armazenamento da Mesa Azure num projeto Azure WebJobs no Estúdio Visual depois de se ligar a uma conta de armazenamento usando serviços conectados do Estúdio Visual
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,28 +14,28 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e4d8299c06bfa5b0f33bff8fa592a2fa549c695c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74707609"
 ---
-# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introdução com o armazenamento do Azure (projetos do Azure WebJob)
+# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Começar com o Armazenamento Azure (Projetos Azure WebJob)
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Visão geral
-Este artigo fornece C# exemplos de código que mostram como usar o SDK do Azure WebJobs versão 1. x com o serviço de armazenamento de tabelas do Azure. Os exemplos de código usam o [SDK de trabalhos](https://github.com/Azure/azure-webjobs-sdk/wiki) Web versão 1. x.
+## <a name="overview"></a>Descrição geral
+Este artigo fornece amostras de código C# que mostram como usar a versão 1.x Azure WebJobs SDK com o serviço de armazenamento de mesa Azure. As amostras de código utilizam a versão 1.x do [WebJobs SDK.](https://github.com/Azure/azure-webjobs-sdk/wiki)
 
-O serviço de armazenamento de tabelas do Azure permite que você armazene grandes quantidades de dados estruturados. O serviço é um repositório de armazenamento NoSQL que aceita chamadas autenticadas de dentro e fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.  Consulte [introdução ao armazenamento de tabelas do Azure usando o .net](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) para obter mais informações.
+O serviço de armazenamento de mesa azure permite armazenar grandes quantidades de dados estruturados. O serviço é uma loja de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.  Consulte [O Get start with Azure Table storage using .NET](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) for more information.
 
-Alguns dos trechos de código mostram o atributo **Table** usado em funções que são chamadas manualmente, ou seja, não usando um dos atributos Trigger.
+Alguns dos fragmentos de código mostram o atributo da **Tabela** utilizado em funções que são chamadas manualmente, isto é, não utilizando um dos atributos do gatilho.
 
-## <a name="how-to-add-entities-to-a-table"></a>Como adicionar entidades a uma tabela
+## <a name="how-to-add-entities-to-a-table"></a>Como adicionar entidades a uma mesa
 
-Para adicionar entidades a uma tabela, use o atributo **Table** com um parâmetro **ICollector\<t >** ou **IAsyncCollector\<t >** , em que **t** especifica o esquema das entidades que você deseja adicionar. O construtor de atributo usa um parâmetro de cadeia de caracteres que especifica o nome da tabela.
+Para adicionar entidades a uma tabela, utilize o atributo da **Tabela** com um **iCollector\<T>** ou **iAsyncCollector\<T>** parâmetro onde **t** especifica o esquema das entidades que pretende adicionar. O construtor de atributos pega num parâmetro de corda que especifica o nome da mesa.
 
-O exemplo de código a seguir adiciona entidades **Person** a uma tabela chamada *ingress*.
+A amostra de código seguinte adiciona as entidades **pessoas** a uma tabela chamada *Ingress*.
 
 ```csharp
 [NoAutomaticTrigger]
@@ -54,7 +54,7 @@ public static void IngressDemo(
 }
 ```
 
-Normalmente, o tipo usado com **ICollector** deriva de **TableEntity** ou implementa **ITableEntity**, mas não é necessário. Uma das seguintes classes **Person** funciona com o código mostrado no método de **entrada** anterior.
+Normalmente, o tipo que utiliza com **o ICollector** deriva da **TableEntity** ou implementa **o ITableEntity,** mas não tem de o fazer. Qualquer uma das seguintes aulas **de pessoa** trabalha com o código mostrado no método **Ingress** anterior.
 
 ```csharp
 public class Person : TableEntity
@@ -70,27 +70,27 @@ public class Person
 }
 ```
 
-Se você quiser trabalhar diretamente com a API de armazenamento do Azure, poderá adicionar um parâmetro **CloudStorageAccount** à assinatura do método.
+Se quiser trabalhar diretamente com a API de armazenamento Azure, pode adicionar um parâmetro **CloudStorageAccount** à assinatura do método.
 
-## <a name="real-time-monitoring"></a>Monitoramento em tempo real
+## <a name="real-time-monitoring"></a>Monitorização em tempo real
 
-Como as funções de entrada de dados geralmente processam grandes volumes de dados, o painel do SDK de trabalhos Web fornece dados de monitoramento em tempo real. A seção **log de invocação** informa se a função ainda está em execução.
+Como as funções de ingresso de dados muitas vezes processam grandes volumes de dados, o dashboard WebJobs SDK fornece dados de monitorização em tempo real. A secção Registo de **Invocação** diz-lhe se a função ainda está em funcionamento.
 
-![Função de entrada em execução](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
+![Funcionamento da função ingresso](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
 
-A página de **detalhes de invocação** informa o progresso da função (número de entidades gravadas) enquanto ela está em execução e lhe dá a oportunidade de abortar.
+A página De detalhes de **invocação** relata o progresso da função (número de entidades escritas) enquanto está em execução e dá-lhe a oportunidade de abortá-la.
 
-![Função de entrada em execução](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
+![Funcionamento da função ingresso](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
 
-Quando a função for concluída, a página de **detalhes de invocação** relatará o número de linhas gravadas.
+Quando a função termina, a página **Informação de Informação** informa o número de linhas escritas.
 
-![Função de entrada concluída](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
+![Função ingressa terminada](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
-## <a name="how-to-read-multiple-entities-from-a-table"></a>Como ler várias entidades de uma tabela
+## <a name="how-to-read-multiple-entities-from-a-table"></a>Como ler várias entidades a partir de uma mesa
 
-Para ler uma tabela, use o atributo **Table** com um **parâmetro IQueryable\<t >** em que o tipo **t** deriva de **TableEntity** ou implementa **ITableEntity**.
+Para ler uma tabela, utilize o atributo da **Tabela** com um parâmetro **IQueryable\<T>** onde o tipo **T** deriva da **TableEntity** ou implementa **a ITableEntity**.
 
-O exemplo de código a seguir lê e registra em log todas as linhas da tabela de **entrada** :
+A seguinte amostra de código lê e regista todas as linhas da tabela **Ingress:**
 
 ```csharp
 public static void ReadTable(
@@ -106,11 +106,11 @@ public static void ReadTable(
 }
 ```
 
-### <a name="how-to-read-a-single-entity-from-a-table"></a>Como ler uma única entidade de uma tabela
+### <a name="how-to-read-a-single-entity-from-a-table"></a>Como ler uma única entidade a partir de uma mesa
 
-Há um construtor de atributo de **tabela** com dois parâmetros adicionais que permitem especificar a chave de partição e a chave de linha quando você deseja associar a uma única entidade de tabela.
+Existe um construtor de **atributos tabela** com dois parâmetros adicionais que lhe permitem especificar a chave de partição e a chave de linha quando pretende ligar-se a uma única entidade de tabela.
 
-O exemplo de código a seguir lê uma linha de tabela para uma entidade **Person** com base nos valores de chave de partição e de linha recebidos em uma mensagem da fila:
+A seguinte amostra de código lê uma linha de tabela para uma entidade **pessoa** com base na chave de partilha e valores-chave da linha recebidos numa mensagem de fila:
 
 ```csharp
 public static void ReadTableEntity(
@@ -131,13 +131,13 @@ public static void ReadTableEntity(
 }
 ```
 
-A classe **Person** neste exemplo não precisa implementar **ITableEntity**.
+A classe **Pessoa** neste exemplo não tem de implementar **o ITableEntity**.
 
-## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>Como usar a API de armazenamento do .NET diretamente para trabalhar com uma tabela
+## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>Como utilizar a API de Armazenamento .NET diretamente para trabalhar com uma tabela
 
-Você também pode usar o atributo **Table** com um objeto **cloudtable** para obter mais flexibilidade ao trabalhar com uma tabela.
+Também pode utilizar o atributo da **Tabela** com um objeto **CloudTable** para uma maior flexibilidade no trabalho com uma tabela.
 
-O exemplo de código a seguir usa um objeto **cloudtable** para adicionar uma única entidade à tabela de *entrada* .
+A amostra de código seguinte utiliza um objeto **CloudTable** para adicionar uma única entidade à tabela *Ingress.*
 
 ```csharp
 public static void UseStorageAPI(
@@ -155,12 +155,12 @@ public static void UseStorageAPI(
 }
 ```
 
-Para obter mais informações sobre como usar o objeto **cloudtable** , consulte Introdução [ao armazenamento de tabelas do Azure usando o .net](../storage/storage-dotnet-how-to-use-tables.md).
+Para obter mais informações sobre como utilizar o objeto **CloudTable,** consulte Iniciar com [armazenamento de mesa Azure utilizando .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
-## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Tópicos relacionados abordados no artigo de instruções sobre filas
+## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Tópicos relacionados cobertos pelas filas como-fazer artigo
 
-Para obter informações sobre como tratar o processamento de tabela disparado por uma mensagem da fila ou para cenários do SDK de trabalhos Web não específicos do processamento de tabelas, consulte [introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (projetos de trabalho Web)](../storage/vs-storage-webjobs-getting-started-queues.md).
+Para obter informações sobre como lidar com o processamento de tabelas desencadeado por uma mensagem de fila, ou para cenários WebJobs SDK não específicos para o processamento de tabelas, consulte [Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar Azure WebJobs e o SDK de trabalhos Web, consulte [Azure WebJobs recursos de documentação](https://go.microsoft.com/fwlink/?linkid=390226).
+Este artigo forneceu amostras de código que mostram como lidar com cenários comuns para trabalhar com tabelas Azure. Para obter mais informações sobre como utilizar o Azure WebJobs e o WebJobs SDK, consulte [os recursos de documentação azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).

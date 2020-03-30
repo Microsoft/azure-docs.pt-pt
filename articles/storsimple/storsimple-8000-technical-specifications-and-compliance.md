@@ -1,6 +1,6 @@
 ---
-title: Especificações técnicas do StorSimple | Microsoft Docs
-description: Descreve as especificações técnicas e as informações de conformidade dos padrões regulatórios para os componentes de hardware do StorSimple.
+title: Especificações técnicas StorSimple [ StorSimple] Microsoft Docs
+description: Descreve as especificações técnicas e as normas regulamentares de conformidade com os componentes de hardware StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,188 +15,188 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965294"
 ---
-# <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
+# <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade com o dispositivo StorSimple
 
 ## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-Os componentes de hardware de seu dispositivo Microsoft Azure StorSimple aderem às especificações técnicas e aos padrões regulatórios descritos neste artigo. As especificações técnicas descrevem os PCMs (módulos de energia e resfriamento), as unidades de disco, a capacidade de armazenamento e os compartimentos. As informações de conformidade abrangem coisas como padrões internacionais, segurança e emissões e cabeamento.
+Os componentes de hardware do seu dispositivo Microsoft Azure StorSimple aderem às especificações técnicas e normas regulamentares descritas neste artigo. As especificações técnicas descrevem os Módulos de Potência e Arrefecimento (PCMs), unidades de disco, capacidade de armazenamento e recintos. As informações de conformidade abrangem coisas como normas internacionais, segurança e emissões e cablagem.
 
-## <a name="power-and-cooling-module-specifications"></a>Especificações do módulo de energia e resfriamento
+## <a name="power-and-cooling-module-specifications"></a>Especificações do módulo de energia e arrefecimento
 
-O dispositivo StorSimple tem dois PCMs (módulos de resfriamento de energia) de 100-240 V com ventilador duplo, em conformidade com SBB. Isso fornece uma configuração de energia redundante. Se um PCM falhar, o dispositivo continuará a operar normalmente no outro PCM até que o módulo com falha seja substituído.
+O dispositivo StorSimple tem duas ventoinhas duplas de 100-240 V, módulos de arrefecimento de potência compatíveis com SBB (PCMs). Isto fornece uma configuração de potência redundante. Se um PCM falhar, o dispositivo continua a funcionar normalmente no outro PCM até que o módulo falhado seja substituído.
 
-O compartimento EBOD usa um PCM de 580 W e o compartimento primário usa um PCM de 764 W. As tabelas a seguir listam as especificações técnicas associadas ao PCMs.
+O recinto EBOD utiliza um PCM de 580 W, e o recinto primário utiliza um PCM de 764 W. As tabelas seguintes listam as especificações técnicas associadas aos PCMs.
 
-| Specification | PCM DE 580 W (EBOD) | PCM de 764 W (primário) |
+| Especificação | 580 W PCM (EBOD) | 764 W PCM (Primário) |
 | --- | --- | --- |
-| Potência de saída máxima |580 W |764 |
+| Potência máxima de saída |580 W |764 |
 | Frequência |50/60 Hz |50/60 Hz |
-| Seleção de faixa de tensão |Variação automática: 90 – 264 V AC, 47/63 Hz |Variação automática: 90- 264 V AC, 47/63 Hz |
-| Corrente máxima de incorrida |20 A |20 A |
-| Correção de fator de energia |tensão de entrada nominal de > 95% |tensão de entrada nominal de > 95% |
-| Harmônicas |Atende a EN61000-3-2 |Atende a EN61000-3-2 |
-| Output |tensão \@ de espera de 5V 2,0 A |tensão \@ de espera de 5V 2,7 A |
+| Seleção de tensão |Auto ranging: 90 - 264 V AC, 47/63 Hz |Auto ranging: 90-264 V AC, 47/63 Hz |
+| Corrente máxima de incorrer |20 A |20 A |
+| Correção do fator de potência |>95% de tensão nominal de entrada |>95% de tensão nominal de entrada |
+| Harmónicas |Encontros EN61000-3-2 |Encontros EN61000-3-2 |
+| Saída |5V Tensão \@ de espera 2.0 A |5V tensão \@ de espera 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
-| \+ 12V \@ 38 A |\+ 12V \@ 38 A | |
-| Conectável a quente |Sim |Sim |
-| Interruptores e LEDs |Interruptor de ligar/desligar AC e quatro LEDs indicadores de status |Interruptor de ligar/desligar AC e seis LEDs indicadores de status |
-| Resfriamento de compartimento |Ventiladores de resfriamento axial com controle de velocidade de ventilador variável |Ventiladores de resfriamento axial com controle de velocidade de ventilador variável |
+| +12V \@ 38 A |+12V \@ 38 A | |
+| Pluggable quente |Sim |Sim |
+| Interruptores e LEDs |Interruptor AC ON/OFF e quatro LED indicador de estado |Interruptor AC ON/OFF e seis LED indicador de estado |
+| Arrefecimento do recinto |Ventiladores de arrefecimento axial com controlo de velocidade de ventilador variável |Ventiladores de arrefecimento axial com controlo de velocidade de ventilador variável |
 
-## <a name="power-consumption-statistics"></a>Estatísticas de consumo de energia
+## <a name="power-consumption-statistics"></a>Estatísticas do consumo de energia
 
-A tabela a seguir lista os dados de consumo de energia típicos (os valores reais podem variar do publicado) para os vários modelos do dispositivo StorSimple.
+A tabela que se segue lista os dados típicos de consumo de energia (os valores reais podem variar dos publicados) para os vários modelos do dispositivo StorSimple.
 
 | Condições | 240 V AC | 240 V AC | 240 V AC | 110 V AC | 110 V AC | 110 V AC |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Ventiladores lentos, unidades ociosas |1,45 A |0,31 kW |1057,76 BTU/h |3,19 A |0,34 kW |1160,13 BTU/h |
-|  Ventiladores lentos, unidades acessando |1,54 A |0,33 kW |1126, 1 BTU/h |3,27 A |0,36 kW |1228,37 BTU/h |
-|  Ventiladores rápidos, unidades ociosas, duas PSUs |2,14 A |0,49 kW |1671,95 BTU/h |4,99 A |0,54 kW |1842,56 BTU/h |
-|  Ventiladores rápidos, unidades ociosas, um PSU ligado um ocioso |2, 5 A |0,48 kW |1637,83 BTU/h |4,58 A |0,50 kW |1706, 7 BTU/h |
-|  Ventiladores rápidos, unidades acessando, duas PSUs |2,26 A |0,51 kW |1740,19 BTU/h |4,95 A |0,54 kW |1842,56 BTU/h |
-|  Ventiladores rápidos, unidades acessando, um PSU ligado um ocioso |2,14 A |0,49 kW |1671,95 BTU/h |4,81 A |0,53 kW |1808,44 BTU/h |
+|  Os fãs abrandam, conduzem ocioso |1.45 A |0,31 kW |1057.76 BTU/hr |3.19 A |0,34 kW |1160.13 BTU/hr |
+|  Fãs lentos, conduz acesso |1.54 A |0,33 kW |1126.01 BTU/hr |3.27 A |0,36 kW |1228.37 BTU/hr |
+|  Fãs rápidos, drives ociosos, duas PSUs powered |2.14 A |0,49 kW |1671.95 BTU/hr |4.99 A |0,54 kW |1842.56 BTU/hr |
+|  Fãs rápidos, conduz o marcha lenta, uma PSU alimentada um ocioso |2.05 A |0,48 kW |1637.83 BTU/hr |4.58 A |0,50 kW |1706.07 BTU/hr |
+|  Fãs rápidos, impulsiona o acesso, duas PSUs powered |2.26 A |0,51 kW |1740.19 BTU/hr |4.95 A |0,54 kW |1842.56 BTU/hr |
+|  Fãs rápidos, conduz acesso, uma PSU alimentada um ocioso |2.14 A |0,49 kW |1671.95 BTU/hr |4.81 A |0,53 kW |1808.44 BTU/hr |
 
 ## <a name="disk-drive-specifications"></a>Especificações de unidade de disco
 
-Seu dispositivo StorSimple dá suporte a até 12 unidades de disco SAS (SCSI anexado em série) de fator forma de 3,5 polegadas. As unidades reais podem ser uma mistura de unidades de estado sólido (SSDs) ou unidades de disco rígido (HDDs), dependendo da configuração do produto. Os 12 slots de unidade de disco estão localizados em uma configuração de 3 a 4 na frente do compartimento. O compartimento EBOD permite armazenamento adicional para outras 12 unidades de disco. Esses são sempre HDDs.
+O seu dispositivo StorSimple suporta até 12 unidades de disco Serial Attached SCSI (SAS) de até 12 3,5 polegadas. As unidades reais podem ser uma mistura de unidades de estado sólido (SSDs) ou discos rígidos (HDDs), dependendo da configuração do produto. As 12 ranhuras de acionamento do disco estão localizadas numa configuração 3 por 4 em frente ao recinto. O recinto EBOD permite um armazenamento adicional para mais 12 unidades de disco. Estes são sempre HDDs.
 
 ## <a name="storage-specifications"></a>Especificações de armazenamento
 
-Os dispositivos StorSimple têm uma mistura de unidades de disco rígido e unidades de estado sólido para 8100 e 8600. A capacidade utilizável total para 8100 e 8600 tem aproximadamente 15 TB e 38 TB, respectivamente. A tabela a seguir documenta os detalhes de SSD, HDD e capacidade de nuvem no contexto da capacidade da solução StorSimple.
+Os dispositivos StorSimple têm uma mistura de discos rígidos e unidades de estado sólido para os 8100 e 8600. A capacidade total utilizável para os 8100 e 8600 são aproximadamente 15 TB e 38 TB, respectivamente. A tabela seguinte documenta os detalhes de SSD, HDD e capacidade de nuvem no contexto da capacidade de solução StorSimple.
 
-| Capacidade/modelo do dispositivo | 8100 | 8600 |
+| Modelo de dispositivo / Capacidade | 8100 | 8600 |
 | --- | --- | --- |
-| Número de unidades de disco rígido (HDDs) |8 |19 |
+| Número de discos rígidos (HDDs) |8 |19 |
 | Número de unidades de estado sólido (SSDs) |4 |5 |
-| Capacidade de HDD único |4 TB |4 TB |
-| Capacidade SSD única |400 GB |800 GB |
+| Capacidade HDD única |4 TB |4 TB |
+| Capacidade única de SSD |400 GB |800 GB |
 | Capacidade de reposição |4 TB |4 TB |
-| Capacidade de HDD utilizável |14 TB |36 TB |
-| Capacidade de SSD utilizável |800 GB |2 TB |
-| Capacidade utilizável total * |~ 15 TB |~ 38 TB |
-| Capacidade máxima da solução (incluindo nuvem) |200 TB |500 TB |
+| Capacidade utilizável de HDD |14 TB |36 TB |
+| Capacidade utilizável de SSD |800 GB |2 TB |
+| Total da capacidade utilizável* |~ 15 TB |~ 38 TB |
+| Capacidade máxima de solução (incluindo nuvem) |200 TB |500 TB |
 
-<sup>* </sup>- *A capacidade utilizável total inclui a capacidade disponível para dados, metadados e buffers. Você pode provisionar volumes localmente afixados de até 8,5 TB no dispositivo 8100 ou até 22,5 TB no dispositivo 8600 maior. Para obter mais informações, vá para [volumes afixados localmente do StorSimple](storsimple-8000-local-volume-faq.md).*
+<sup>* </sup>- *A capacidade total utilizável inclui a capacidade disponível para dados, metadados e tampão. Pode fornecer volumes fixados localmente até 8,5 TB no dispositivo 8100 ou até 22,5 TB no dispositivo 8600 maior. Para mais informações, vá ao [StorSimple volumes fixados localmente.](storsimple-8000-local-volume-faq.md)*
 
-## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensões de compartimento e especificações de peso
+## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensões do recinto e especificações de peso
 
-As tabelas a seguir listam as várias especificações de compartimento para dimensões e peso.
+As tabelas seguintes listam as várias especificações do recinto para dimensões e peso.
 
-### <a name="enclosure-dimensions"></a>Dimensões do compartimento
+### <a name="enclosure-dimensions"></a>Dimensões do recinto
 
-A tabela a seguir lista as dimensões do compartimento em milímetros e polegadas.
+A tabela seguinte enumera as dimensões do recinto em milímetros e polegadas.
 
-| SPE | Milímetros | 5,08 |
+| Recinto | Milímetros | Centímetros |
 | --- | --- | --- |
 | Altura |87.9 |3.46 |
-| Largura entre flange de montagem |483 |19.02 |
-| Largura no corpo do compartimento |443 |17.44 |
-| Profundidade do flange de montagem frontal até o distante do corpo do compartimento |577 |22.72 |
-| Profundidade do painel de operações para distante mais distante do compartimento |630.5 |24.82 |
-| Profundidade da montagem de flange para distante mais distante do compartimento |603 |23.74 |
+| Largura através da flange de montagem |483 |19.02 |
+| Largura através do corpo do recinto |443 |17.44 |
+| Profundidade da flange de montagem frontal à extremidade do corpo do recinto |577 |22.72 |
+| Profundidade do painel de operações para a extremidade mais distante do recinto |630.5 |24.82 |
+| Profundidade da montagem da flange até à extremidade mais distante do recinto |603 |23.74 |
 
-### <a name="enclosure-weight"></a>Peso do compartimento
+### <a name="enclosure-weight"></a>Peso do recinto
 
-Dependendo da configuração, um compartimento primário totalmente carregado pode pesar de 21 a 33 kg e requer duas pessoas para tratá-lo.
+Dependendo da configuração, um recinto primário totalmente carregado pode pesar de 21 a 33 kge requer duas pessoas para manuseá-lo.
 
-| SPE | Peso |
+| Recinto | Peso |
 | --- | --- |
-| Peso máximo (depende da configuração) |30 kg – 33 kg |
-| Vazio (nenhuma unidade ajustada) |21 – 23 kg |
+| Peso máximo (depende da configuração) |30 kg - 33 kg |
+| Vazio (sem unidades montadas) |21 - 23 kg |
 
-## <a name="enclosure-environment-specifications"></a>Especificações de ambiente de compartimento
+## <a name="enclosure-environment-specifications"></a>Especificações ambientais de recinto
 
-Esta seção lista as especificações relacionadas ao ambiente de compartimento. A temperatura, a umidade, a altitude, o choque, a vibração, a orientação, a segurança e a compatibilidade eletromagnética (EMC) estão incluídas nessa categoria.
+Esta secção enumera as especificações relativas ao ambiente do recinto. A temperatura, humidade, altitude, choque, vibração, orientação, segurança e compatibilidade eletromagnética (EMC) estão incluídos nesta categoria.
 
-### <a name="temperature-and-humidity"></a>Temperatura e umidade
+### <a name="temperature-and-humidity"></a>Temperatura e humidade
 
-| SPE | Intervalo de temperatura ambiente | Umidade relativa ao ambiente | Lâmpada úmida máxima |
+| Recinto | Intervalo de temperatura ambiente | Humidade relativa ambiente | Lâmpada molhada máxima |
 | --- | --- | --- | --- |
-| Operacional |5 ° C-35 ° C (41 ° F-95 ° F) |20% a 80% sem condensação- |28°C (82°F) |
-| Não operacional |-40 ° C-70 ° C (40 ° F-158 ° F) |5%-100% sem condensação |29 ° C (84 ° F) |
+| Operacional |5°C - 35°C (41°F - 95°F) |20% - 80% não condensando- |28°C (82°F) |
+| Não operacional |-40°C - 70°C (40°F - 158°F) |5% - 100% não condensado |29°C (84°F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Fluxo de ar, altitude, choque, vibração, orientação, segurança e EMC
 
-| SPE | Especificações operacionais |
+| Recinto | Especificações operacionais |
 | --- | --- |
-| Ar |O fluxo de ar do sistema é de frente para trás. O sistema deve ser operado com uma instalação de exaustão traseira de baixa pressão. A pressão traseira criada por portas de rack e obstáculos não deve exceder 5 pascals (medidor de água de 0,5 mm). |
-| Altitude, operacional |-30 metros a 3045 metros (-100 pés a 10.000 pés) com a temperatura operacional máxima desclassificada por 5 ° c acima de 7000 pés. |
+| Fluxo de ar |O fluxo de ar do sistema é frontal para trás. O sistema deve ser acionado com uma instalação de escape traseiro de baixa pressão. A pressão traseira criada por portas e obstáculos não deve exceder 5 pascals (calibre de água de 0,5 mm). |
+| Altitude, operacional |-30 metros a 3045 metros (-100 pés a 10.000 pés) com temperatura máxima de funcionamento desclassificada em 5°C acima de 7.000 pés. |
 | Altitude, não operacional |-305 metros a 12.192 metros (-1.000 pés a 40.000 pés) |
-| Choque, operacional |5g 10 MS 1/2 seno |
-| Choque, não operacional |30g 10 MS 1/2 seno |
-| Vibração, operacional |0.21 g RMS 5-500 Hz aleatório |
-| Vibração, não operacional |1.04 g RMS 2-200 Hz aleatório |
-| Vibração, realocação |seno de 2-200 Hz 3G |
-| Orientação e montagem |"montagem em rack" de 19 (2 unidades EIA) |
-| Trilhos do rack |Para ajustar os racks de profundidade no mínimo 700 mm (31,50 polegadas) em conformidade com o IEC 297 |
+| Choque, operacional |5g 10 ms 1/2 sine |
+| Choque, não operacional |30g 10 ms 1/2 sine |
+| Vibração, operacional |0.21g RMS 5-500 Hz aleatório |
+| Vibração, não operacional |1.04g RMS 2-200 Hz aleatório |
+| Vibração, deslocalização |3g 2-200 Hz sine |
+| Orientação e montagem |Montagem de cremalheira de 19" (2 unidades EIA) |
+| Trilhos de cremalheira |Para encaixar no mínimo 700 mm (31,50 polegadas) cremalheiras de profundidade em conformidade com o IEC 297 |
 | Segurança e aprovações |CE e UL EN 61000-3, IEC 61000-3, UL 61000-3 |
-| DA |EN55022 (CISPR-A), FCC A |
+| EMC |EN55022 (CISPR - A), FCC A |
 
-## <a name="international-standards-compliance"></a>Conformidade com os padrões internacionais
+## <a name="international-standards-compliance"></a>Conformidade das normas internacionais
 
-Seu dispositivo Microsoft Azure StorSimple está em conformidade com os seguintes padrões internacionais:  
+O seu dispositivo Microsoft Azure StorSimple cumpre os seguintes padrões internacionais:  
 
-* CE-EN 60950-1
-* Relatório CB para IEC 60950-1
-* UL e cUL para UL 60950-1
+* CE - EN 60950 - 1
+* Relatório CB ao IEC 60950 - 1
+* UL e CUL para UL 60950 - 1
 
 ## <a name="safety-compliance"></a>Conformidade de segurança
 
-O dispositivo Microsoft Azure StorSimple atende às seguintes classificações de segurança:
+O seu dispositivo Microsoft Azure StorSimple cumpre as seguintes classificações de segurança:
 
-* Aprovação do tipo de produto do sistema: UL, cUL, CE
-* Conformidade de segurança: UL 60950, IEC 60950, EN 60950
+* Homologação do tipo de produto do sistema: UL, cUL, CE
+* Conformidade com a segurança: UL 60950, IEC 60950, EN 60950
 
-## <a name="emc-compliance"></a>Conformidade da EMC
+## <a name="emc-compliance"></a>Conformidade com a EMC
 
-Seu dispositivo Microsoft Azure StorSimple atende às classificações da EMC a seguir.
+O seu dispositivo Microsoft Azure StorSimple cumpre as seguintes classificações da EMC.
 
 ### <a name="emissions"></a>Emissões
 
-O dispositivo é compatível com a EMC para os níveis de emissões realizados e irradiados.
+O dispositivo é compatível com a EMC para níveis de emissões conduzidos e irradiados.
 
-* Níveis de limite de emissões conduzidos: CFR 47 parte 15B classe A EN55022 classe A CISPR classe a
-* Níveis de limite de emissões radiadas: CFR 47 parte 15B classe A EN55022 classe A CISPR classe a
+* Níveis limite de emissões conduzidos: CFR 47 Parte 15B Classe A EN55022 Classe A CISPR Classe A
+* Níveis limite de emissões irradiados: CFR 47 Parte 15B Classe A EN55022 Classe A CISPR Classe A
 
-### <a name="harmonics-and-flicker"></a>Harmônicas e cintilação
+### <a name="harmonics-and-flicker"></a>Harmónicas e cintilar
 
-O dispositivo está em conformidade com EN61000-3-2/3.
+O dispositivo está em conformidade com a EN61000-3-2/3.
 
-### <a name="immunity-limit-levels"></a>Níveis de limite de imunidade
+### <a name="immunity-limit-levels"></a>Níveis limite de imunidade
 
-O dispositivo está em conformidade com o EN55024.
+O dispositivo está em conformidade com a EN55024.
 
-## <a name="ac-power-cord-compliance"></a>Conformidade do cabo de alimentação AC
+## <a name="ac-power-cord-compliance"></a>Conformidade do cabo de alimentação CA
 
-O plug e o conjunto completo do cabo de alimentação devem atender aos padrões apropriados para o país/região em que o dispositivo está sendo usado, e eles devem ter aprovações de segurança aceitáveis nesse país/região. As tabelas a seguir listam os padrões para os EUA e Europa.
+A ficha e o conjunto completo do cabo de alimentação devem satisfazer as normas adequadas para o país/região em que o dispositivo está a ser utilizado, devendo dispor de aprovações de segurança aceitáveis nesse país/região. As seguintes tabelas listam normas para os EUA e europa.
 
-### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cabos de alimentação CA-EUA (deve ser NRTL listado)
+### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cabos de alimentação CA - EUA (devem estar listados nRTL)
 
-| Componente | Specification |
+| Componente | Especificação |
 | --- | --- |
-| Tipo de cabo |VA ou SVT, 18 AWG mínimo, 3 condutores, 2,0 medidores de comprimento máximo |
-| Tecnologia |Conexão de anexo de tipo de aterramento NEMA 5-15P com classificação 120 V, 10 A; ou IEC 320 C14, 250 V, 10 A |
-| SSA |IEC 320 C-13, 250 V, 10 A |
+| Tipo de cabo |SV ou SVT, 18 AWG mínimo, 3 condutores, 2,0 metros de comprimento máximo |
+| Ficha |Ficha de ligação à ligação à terra tipo NEMA 5-15P com classificação de 120 V, 10 A; ou IEC 320 C14, 250 V, 10 A |
+| Tomada |IEC 320 C-13, 250 V, 10 A |
 
-### <a name="ac-power-cords---europe"></a>Cabos de alimentação AC-Europa
+### <a name="ac-power-cords---europe"></a>Cabos de alimentação AC - Europa
 
-| Componente | Specification |
+| Componente | Especificação |
 | --- | --- |
-| Tipo de cabo |Harmonizado, H05-VVF-3G 1.0 |
-| SSA |IEC 320 C-13, 250 V, 10 A |
+| Tipo de cabo |Harmonizado, H05-VVF-3G1.0 |
+| Tomada |IEC 320 C-13, 250 V, 10 A |
 
-## <a name="supported-network-cables"></a>Cabos de rede com suporte
+## <a name="supported-network-cables"></a>Cabos de rede suportados
 
-Para as interfaces de rede de 10 GbE, DATA 2 e DATA 3, consulte a [lista de módulos e cabos de rede com suporte](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+Para as interfaces de rede de 10 GbE, DATA 2 e DATA 3, consulte a [lista de cabos e módulos](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)de rede suportados .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora você está pronto para implantar um dispositivo StorSimple em seu datacenter. Para obter mais informações, consulte Implantando [seu dispositivo local](storsimple-8000-deployment-walkthrough-u2.md).
+Está agora pronto para implementar um dispositivo StorSimple no seu datacenter. Para mais informações, consulte [a implementação do seu dispositivo no local](storsimple-8000-deployment-walkthrough-u2.md).
 

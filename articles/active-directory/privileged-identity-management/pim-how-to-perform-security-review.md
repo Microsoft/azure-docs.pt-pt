@@ -1,6 +1,6 @@
 ---
-title: Examinar o acesso às funções do Azure AD no PIM – Azure AD | Microsoft Docs
-description: Saiba como examinar o acesso de funções de Azure Active Directory no Azure AD Privileged Identity Management (PIM).
+title: Rever o acesso às funções da Azure AD na PIM - Azure AD [ Microsoft Docs
+description: Saiba como rever o acesso às funções de Diretório Ativo Azure na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,39 +15,39 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 76eccb5d62b68865b7a117312be62753f203e2cb
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73847096"
 ---
-# <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Examinar o acesso às funções do Azure AD no Privileged Identity Management
+# <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Rever o acesso a funções da Azure AD na Gestão de Identidade Privilegiada
 
-O Privileged Identity Management (PIM) simplifica o modo como as empresas gerenciam o acesso privilegiado a recursos no Azure Active Directory (AD) e outros serviços online da Microsoft, como o Office 365 ou Microsoft Intune. Siga as etapas neste artigo para revisar com êxito as funções atribuídas.
+A Privileged Identity Management (PIM) simplifica a forma como as empresas gerem o acesso privilegiado aos recursos em Azure Ative Directory (AD) e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune. Siga os passos deste artigo para se autorrever com sucesso as suas funções atribuídas.
 
-Se você estiver atribuído a uma função administrativa, o administrador de função com privilégios de sua organização poderá solicitar que você confirme regularmente que ainda precisa dessa função para seu trabalho. Você pode receber um email que inclui um link ou pode ir diretamente para a [portal do Azure](https://portal.azure.com) e começar.
+Se for designado para um cargo administrativo, o administrador privilegiado da sua organização pode pedir-lhe que confirme regularmente que ainda precisa desse papel para o seu trabalho. Você pode obter um e-mail que inclui um link, ou você pode ir direto para o [portal Azure](https://portal.azure.com) e começar.
 
-Se você for um administrador de função com privilégios ou administrador global interessado em revisões de acesso, obtenha mais detalhes em [como iniciar uma revisão de acesso](pim-how-to-start-security-review.md).
+Se é um administrador privilegiado ou administrador global interessado em avaliações de acesso, obtenha mais detalhes em [Como iniciar uma revisão](pim-how-to-start-security-review.md)de acesso .
 
-## <a name="add-a-pim-dashboard-tile"></a>Adicionar um bloco do painel PIM
+## <a name="add-a-pim-dashboard-tile"></a>Adicione um azulejo pim dashboard
 
-Se você não tiver o serviço Azure AD Privileged Identity Management fixado ao seu painel no seu portal do Azure, siga estas etapas para começar.
+Se não tiver o serviço de Gestão de Identidade Privilegiada Azure AD fixado no seu painel de instrumentos no seu portal Azure, siga estes passos para começar.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione seu nome de usuário no canto superior direito do portal do Azure e selecione o diretório em que você estará operando.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Selecione o seu nome de utilizador no canto superior direito do portal Azure e selecione o diretório onde irá operar.
 3. Selecione **Todos os serviços** e utilize a caixa de texto Filtro para procurar **Azure AD Privileged Identity Management**.
 4. Marque **Afixar ao dashboard** e, em seguida, clique em **Criar**. A aplicação de Privileged Identity Management será aberta.
 
-## <a name="approve-or-deny-access"></a>Aprovar ou negar acesso
+## <a name="approve-or-deny-access"></a>Aprovar ou negar o acesso
 
-Ao aprovar ou negar o acesso, você estará apenas informando ao revisor se você ainda usa essa função ou não. Escolha **aprovar** se você quiser permanecer na função ou **negar** se não precisar mais do acesso. Seu status não será alterado imediatamente, até que o revisor aplique os resultados.
-Siga estas etapas para localizar e concluir a revisão de acesso:
+Quando aprova ou nega o acesso, está apenas a dizer ao revisor se ainda usa este papel ou não. Escolha **Aprovar** se quiser permanecer no papel, ou **negá-lo** se já não precisar de acesso. O seu estado não mudará imediatamente, até que o revisor aplique os resultados.
+Siga estes passos para encontrar e completar a revisão de acesso:
 
-1. No serviço Privileged Identity Management, selecione **revisar acesso privilegiado**. Se você tiver quaisquer revisões de acesso pendentes, elas aparecerão na página de **revisões de acesso** do Azure AD.
-2. Selecione a revisão que você deseja concluir.
-3. A menos que você tenha criado a revisão, você aparece como o único usuário na revisão. Selecione a marca de seleção ao lado do seu nome.
-4. Escolha **aprovar** ou **negar**. Talvez seja necessário incluir um motivo para sua decisão na caixa de texto **fornecer um motivo** .  
-5. Feche a folha **examinar funções do Azure ad** .
+1. No serviço de Gestão de Identidade Privilegiada, selecione **Rever acesso privilegiado.** Se tiver alguma avaliação de acesso pendente, elas aparecem na página de comentários do Azure AD **Access.**
+2. Selecione a avaliação que pretende completar.
+3. A menos que tenha criado a revisão, aparece como o único utilizador na revisão. Selecione a marca de verificação ao lado do seu nome.
+4. Escolha **aprovar** ou **negar**. Poderá ter de incluir uma razão para a sua decisão na caixa de texto **Provide uma razão.**  
+5. Feche a lâmina de **funções da Review Azure AD.**
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,61 +1,61 @@
 ---
-title: Limites do serviço Blockchain do Azure
-description: Visão geral dos limites funcionais e de serviço no serviço Blockchain do Azure
+title: Limites do Serviço Blockchain Azure
+description: Visão geral do serviço e limites funcionais no Serviço Azure Blockchain
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: f4001ee520f3f3136d1bac5ca047c80526fc92e6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455655"
 ---
-# <a name="limits-in-azure-blockchain-service"></a>Limites no serviço Blockchain do Azure
+# <a name="limits-in-azure-blockchain-service"></a>Limites no Serviço Blockchain Azure
 
-O serviço Blockchain do Azure tem limites funcionais e de serviço, como o número de nós que um membro pode ter, restrições de consórcio e valores de armazenamento.
+O Serviço Azure Blockchain tem limites de serviço e funcionais, tais como o número de nós que um membro pode ter, restrições de consórcio e valores de armazenamento.
 
 ## <a name="pricing-tier"></a>Escalão de preço
 
-Os limites máximos em transações e nós de validador dependem se você provisiona o serviço Blockchain do Azure em tipos de preço básico ou padrão.
+Os limites máximos para transações e nódeos validadores dependem se você fornecer o Serviço Azure Blockchain em níveis básicos ou standard de preços.
 
-| Escalão de preço | Máximo de nós de transação | Máximo de nós de validador |
+| Escalão de preço | Nósodetransações max | Nódoreos validadores max |
 |:---|:---:|:---:|
-| Básica | 10 | 1 |
+| Básico | 10 | 1 |
 | Standard | 10 | 2 |
 
-A alteração do tipo de preço entre básico e Standard após a criação do membro não é suportada.
+A alteração do nível de preços entre o Básico e o Standard após a criação dos membros não é suportada.
 
 ## <a name="storage-capacity"></a>Capacidade de armazenamento
 
-A quantidade máxima de armazenamento que pode ser usada por nó para os dados e logs do razão é de 1,8 terabytes.
+A quantidade máxima de armazenamento que pode ser usada por nó para dados e registos de livros é de 1,8 terabytes.
 
-Não há suporte para a diminuição do tamanho do armazenamento do razão e do log.
+Não é suportado o tamanho do livro de contabilidade e do armazenamento de registos.
 
 ## <a name="consortium-limits"></a>Limites do consórcio
 
-* O **consórcio e os nomes de membros devem ser exclusivos** de outros nomes de consórcio e membro no serviço Blockchain do Azure.
+* **Os nomes do consórcio e dos membros devem ser exclusivos** de outros nomes de consórcio e membros no Serviço Azure Blockchain.
 
-* **Os nomes member e Consortium não podem ser alterados**
+* **Os nomes dos membros e do consórcio não podem ser alterados**
 
-* **Todos os membros em um consórcio devem estar no mesmo tipo de preço**
+* **Todos os membros de um consórcio devem estar no mesmo nível de preços**
 
-* **Todos os membros que participam de um consórcio devem residir na mesma região**
+* **Todos os membros que participam num consórcio devem residir na mesma região**
 
-    O primeiro membro criado em um consórcio determina a região. Membros convidados para o consórcio devem residir na mesma região que o primeiro membro. Limitar todos os membros à mesma região ajuda a garantir que o consenso da rede não seja afetado negativamente.
+    O primeiro membro criado num consórcio dita a região. Os membros convidados do consórcio devem residir na mesma região que o primeiro membro. Limitar todos os membros à mesma região ajuda a garantir que o consenso da rede não seja impactado negativamente.
 
 * **Um consórcio deve ter pelo menos um administrador**
 
-    Se houver apenas um administrador em um consórcio, eles não poderão se remover do consórcio nem excluir seus membros até que outro administrador seja adicionado ou promovido no consórcio.
+    Se houver apenas um administrador num consórcio, não podem retirar-se do consórcio ou eliminar o seu membro até que outro administrador seja adicionado ou promovido no consórcio.
 
-* **Os membros removidos do consórcio não podem ser adicionados novamente**
+* **Os membros retirados do consórcio não podem ser adicionados novamente**
 
-    Em vez disso, eles devem ser reconvidados para ingressar no consórcio e criar um novo membro. O recurso de membro existente não é excluído para preservar as transações históricas.
+    Pelo contrário, devem ser reconvidados a juntarem-se ao consórcio e a criarem um novo membro. Os recursos existentes para membros não são eliminados para preservar transações históricas.
 
-* **Todos os membros em um consórcio devem usar a mesma versão do razão**
+* **Todos os membros de um consórcio devem estar usando a mesma versão de livro-razão**
 
-    Para obter mais informações sobre patches, atualizações e versões do razão disponíveis no serviço Blockchain do Azure, consulte [patches, atualizações e versões](ledger-versions.md).
+    Para obter mais informações sobre as versões de patching, atualizações e livros disponíveis no Serviço Blockchain Azure, consulte [Patching, atualizações e versões](ledger-versions.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as políticas relacionadas a patches e atualizações de sistemas – [patches, atualizações e versões](ledger-versions.md).
+Saiba mais sobre as políticas relativas a patching e upgrades de sistemas - [Patching, atualizações e versões](ledger-versions.md).

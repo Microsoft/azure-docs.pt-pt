@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/19/2019
 ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243799"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
@@ -33,13 +33,13 @@ Isto leva-o à tela de fluxo de dados onde pode criar a sua lógica de transform
 
 A tela de fluxo de dados é separada em três partes: a barra superior, o gráfico e o painel de configuração. 
 
-![Tela](media/data-flow/canvas1.png "Tela")
+![Telas](media/data-flow/canvas1.png "Telas")
 
 ### <a name="graph"></a>Graph
 
 O gráfico exibe o fluxo de transformação. Mostra a linhagem dos dados de origem à medida que flui para um ou mais lavatórios. Para adicionar uma nova fonte, **selecione Adicionar fonte**. Para adicionar uma nova transformação, selecione o sinal de mais no direito inferior de uma transformação existente.
 
-![Tela](media/data-flow/canvas2.png "Tela")
+![Telas](media/data-flow/canvas2.png "Telas")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Propriedades de fluxo de dados de tempo de execução de integração Azure
 
@@ -91,7 +91,7 @@ O primeiro separador no painel de configuração de cada transformação contém
 
 O separador **Otimize** contém definições para configurar esquemas de partição.
 
-![Optimize](media/data-flow/optimize1.png "Otimizar")
+![Otimizar](media/data-flow/optimize1.png "Otimizar")
 
 A definição predefinida é **utilizar a partição atual,** que instrui a Azure Data Factory a utilizar o esquema de partição nativo dos fluxos de dados em funcionamento na Spark. Na maioria dos cenários, recomendamos esta configuração.
 
@@ -133,7 +133,7 @@ O separador **Inspecionar** fornece uma visão dos metadados do fluxo de dados q
 
 À medida que muda a forma dos seus dados através de transformações, verá as alterações dos metadados fluírem no painel **De si.** Se não houver um esquema definido na sua transformação de origem, então os metadados não serão visíveis no painel **de inspeção.** A falta de metadados é comum em cenários de deriva de esquemas.
 
-#### <a name="data-preview"></a>Pré-visualização de dados
+#### <a name="data-preview"></a>Pré-visualização dos dados
 
 Se o modo dedepurar estiver ligado, o separador **'Preview'** de dados dá-lhe uma imagem interativa dos dados em cada transformação. Para mais informações, consulte a [pré-visualização de Dados no modo de depuração](concepts-data-flow-debug-mode.md#data-preview).
 

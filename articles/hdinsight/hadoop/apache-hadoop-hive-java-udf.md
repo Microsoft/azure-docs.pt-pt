@@ -1,6 +1,6 @@
 ---
-title: UDF (função definida pelo usuário) Java com Apache Hive Azure HDInsight
-description: Saiba como criar uma UDF (função definida pelo usuário) baseada em Java que funcione com Apache Hive. Este exemplo UDF converte uma tabela de cadeias de caracteres de texto em minúsculas.
+title: Função java definida pelo utilizador (UDF) com Apache Hive Azure HDInsight
+description: Aprenda a criar uma função definida pelo utilizador (UDF) baseada em Java que funcione com a Apache Hive. Este exemplo UDF converte uma tabela de cordas de texto em minúsculas.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,63 +9,63 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/20/2019
 ms.openlocfilehash: 73a2a612a4eeb4a59f12abf0660fffb092f0547f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327198"
 ---
-# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usar um UDF Java com Apache Hive no HDInsight
+# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Use uma Java UDF com Hive Apache em HDInsight
 
-Saiba como criar uma UDF (função definida pelo usuário) baseada em Java que funcione com Apache Hive. O Java UDF neste exemplo converte uma tabela de cadeias de texto em caracteres com todos os minúsculos.
+Aprenda a criar uma função definida pelo utilizador (UDF) baseada em Java que funcione com a Apache Hive. A Java UDF neste exemplo converte uma tabela de cordas de texto em caracteres inteiros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster Hadoop no HDInsight. Consulte [introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Um aglomerado de Hadoop no HDInsight. Ver [Começar com HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks)
-* O [Apache Maven](https://maven.apache.org/download.cgi) foi [instalado](https://maven.apache.org/install.html) corretamente de acordo com o Apache.  O Maven é um sistema de compilação de projeto para projetos Java.
-* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário de clusters. Isso seria wasb://para o armazenamento do Azure, abfs://para Azure Data Lake Storage Gen2 ou adl://para Azure Data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, o URI será `wasbs://`.  Consulte também a [transferência segura](../../storage/common/storage-require-secure-transfer.md).
+* [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado](https://maven.apache.org/install.html) de acordo com Apache.  Maven é um sistema de construção de projetos para projetos Java.
+* O [esquema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Esta seria wasb:// para o Armazenamento Azure, abfs:// para o Azure Data Lake Storage Gen2 ou adl:// para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Azure, o URI seria .  Ver também, [transferência segura.](../../storage/common/storage-require-secure-transfer.md)
 
 * Um editor de texto ou Java IDE
 
     > [!IMPORTANT]  
-    > Se você criar os arquivos do Python em um cliente Windows, deverá usar um editor que usa LF como uma terminação de linha. Se você não tiver certeza se o editor usa LF ou CRLF, consulte a seção [solução de problemas](#troubleshooting) para ver as etapas de remoção do caractere CR.
+    > Se criar os ficheiros Python num cliente Windows, deve utilizar um editor que utilize o LF como um final de linha. Se não tem a certeza se o seu editor utiliza LF ou CRLF, consulte a secção [de resolução de problemas](#troubleshooting) para obter passos na remoção do caracteres CR.
 
 ## <a name="test-environment"></a>Ambiente de teste
 
-O ambiente usado para este artigo foi um computador que executa o Windows 10.  Os comandos foram executados em um prompt de comando e os vários arquivos foram editados com o bloco de notas. Modifique de acordo com o seu ambiente.
+O ambiente utilizado para este artigo era um computador que executava o Windows 10.  Os comandos foram executados num pedido de comando, e os vários ficheiros foram editados com o Bloco de Notas. Modifique em conformidade para o seu ambiente.
 
-Em um prompt de comando, insira os comandos abaixo para criar um ambiente de trabalho:
+A partir de um pedido de comando, introduza os comandos abaixo para criar um ambiente de trabalho:
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
 cd C:\HDI
 ```
 
-## <a name="create-an-example-java-udf"></a>Criar um exemplo de UDF Java
+## <a name="create-an-example-java-udf"></a>Crie um exemplo Java UDF
 
-1. Crie um novo projeto Maven inserindo o seguinte comando:
+1. Crie um novo projeto Maven entrando no seguinte comando:
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    Este comando cria um diretório chamado `exampleudf`, que contém o projeto Maven.
+    Este comando cria um `exampleudf`diretório chamado , que contém o projeto Maven.
 
-2. Depois que o projeto tiver sido criado, exclua o diretório `exampleudf/src/test` que foi criado como parte do projeto, digitando o seguinte comando:
+2. Uma vez criado o projeto, apague o `exampleudf/src/test` diretório que foi criado como parte do projeto, entrando no seguinte comando:
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. Abra `pom.xml` inserindo o comando abaixo:
+3. Abra `pom.xml` entrando no comando abaixo:
 
     ```cmd
     notepad pom.xml
     ```
 
-    Em seguida, substitua a entrada de `<dependencies>` existente pelo seguinte XML:
+    Em seguida, `<dependencies>` substitua a entrada existente pelo seguinte XML:
 
     ```xml
     <dependencies>
@@ -84,9 +84,9 @@ cd C:\HDI
     </dependencies>
     ```
 
-    Essas entradas especificam a versão do Hadoop e do hive incluídos no HDInsight 3,6. Você pode encontrar informações sobre as versões do Hadoop e do hive fornecidos com o HDInsight no documento [controle de versão de componente do hdinsight](../hdinsight-component-versioning.md) .
+    Estas entradas especificam a versão de Hadoop e Hive incluída com HDInsight 3.6. Pode encontrar informações sobre as versões de Hadoop e Hive fornecidas com HDInsight a partir do documento de versão do [componente HDInsight.](../hdinsight-component-versioning.md)
 
-    Adicione uma seção de `<build>` antes da linha de `</project>` no final do arquivo. Esta seção deve conter o seguinte XML:
+    Adicione `<build>` uma secção `</project>` antes da linha no final do ficheiro. Esta secção deve conter o seguinte XML:
 
     ```xml
     <build>
@@ -140,17 +140,17 @@ cd C:\HDI
     </build>
     ```
 
-    Essas entradas definem como compilar o projeto. Especificamente, a versão do Java que o projeto usa e como criar um uberjar para implantação no cluster.
+    Estas entradas definem como construir o projeto. Especificamente, a versão de Java que o projeto usa e como construir um uberjar para implantação para o cluster.
 
-    Salve o arquivo depois que as alterações forem feitas.
+    Guarde o ficheiro uma vez feitas as alterações.
 
-4. Digite o comando a seguir para criar e abrir um novo arquivo `ExampleUDF.java`:
+4. Introduza o comando abaixo para `ExampleUDF.java`criar e abra um novo ficheiro:
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    Em seguida, copie e cole o código Java abaixo no novo arquivo. Em seguida, feche o arquivo.
+    Em seguida, copie e cole o código java abaixo no novo ficheiro. Em seguida, feche o arquivo.
 
     ```java
     package com.microsoft.examples;
@@ -177,62 +177,62 @@ cd C:\HDI
     }
     ```
 
-    Esse código implementa um UDF que aceita um valor de cadeia de caracteres e retorna uma versão em minúsculas da cadeia de caracteres.
+    Este código implementa uma UDF que aceita um valor de cadeia, e devolve uma versão minúscula da cadeia.
 
-## <a name="build-and-install-the-udf"></a>Criar e instalar o UDF
+## <a name="build-and-install-the-udf"></a>Construir e instalar a UDF
 
-Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for diferente. Substitua `mycluster` pelo nome real do cluster.
+Nos comandos abaixo, `sshuser` substitua-o pelo nome de utilizador real, se for diferente. Substitua-a `mycluster` com o nome real do cluster.
 
-1. Compile e empacote o UDF digitando o seguinte comando:
+1. Compilar e embalar a UDF entrando no seguinte comando:
 
     ```cmd
     mvn compile package
     ```
 
-    Esse comando cria e empacota o UDF no arquivo de `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar`.
+    Este comando constrói e embala a `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` UDF no ficheiro.
 
-2. Use o comando `scp` para copiar o arquivo para o cluster HDInsight digitando o seguinte comando:
+2. Utilize `scp` o comando para copiar o ficheiro para o cluster HDInsight introduzindo o seguinte comando:
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-3. Conecte-se ao cluster usando SSH digitando o seguinte comando:
+3. Ligue-se ao cluster utilizando SSH, inserindo o seguinte comando:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-4. Na sessão SSH aberta, copie o arquivo JAR para o armazenamento do HDInsight.
+4. A partir da sessão ssh aberta, copie o ficheiro do frasco para o armazenamento HDInsight.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
     ```
 
-## <a name="use-the-udf-from-hive"></a>Usar o UDF do hive
+## <a name="use-the-udf-from-hive"></a>Use a UDF da Colmeia
 
-1. Inicie o cliente beeline da sessão SSH digitando o seguinte comando:
+1. Inicie o cliente Beeline a partir da sessão SSH, entrando no seguinte comando:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-    Esse comando pressupõe que você usou o padrão de **admin** para a conta de logon do cluster.
+    Este comando pressupõe que usou o padrão de **administração** para a conta de login para o seu cluster.
 
-2. Depois de chegar ao prompt de `jdbc:hive2://localhost:10001/>`, insira o seguinte para adicionar o UDF ao hive e expô-lo como uma função.
+2. Assim que chegar `jdbc:hive2://localhost:10001/>` à solicitação, introduza o seguinte para adicionar a UDF à Colmeia e expô-la como uma função.
 
     ```hiveql
     ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
 
-3. Use o UDF para converter valores recuperados de uma tabela em cadeias de caracteres em letras minúsculas.
+3. Utilize a UDF para converter valores recuperados de uma tabela para cadeias minúsculas.
 
     ```hiveql
     SELECT tolower(state) AS ExampleUDF, state FROM hivesampletable LIMIT 10;
     ```
 
-    Essa consulta seleciona o estado da tabela, converte a cadeia de caracteres em letras minúsculas e, em seguida, exibe-as junto com o nome não modificado. A saída é semelhante ao seguinte texto:
+    Esta consulta seleciona o estado da mesa, converte a corda para minúscula e, em seguida, exibi-as juntamente com o nome não modificado. A saída parece semelhante ao seguinte texto:
 
         +---------------+---------------+--+
         |  exampleudf   |     state     |
@@ -251,13 +251,13 @@ Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for dife
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Ao executar o trabalho do hive, você pode vir um erro semelhante ao seguinte texto:
+Ao executar o trabalho de colmeia, pode deparar-se com um erro semelhante ao seguinte texto:
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 
-Esse problema pode ser causado pelas terminações de linha no arquivo Python. Muitos editores do Windows usam o padrão CRLF como terminação de linha, mas os aplicativos Linux geralmente esperam LF.
+Este problema pode ser causado pelos terminações de linha no ficheiro Python. Muitos editores do Windows não usam o CRLF como o fim da linha, mas as aplicações linux geralmente esperam LF.
 
-Você pode usar as seguintes instruções do PowerShell para remover os caracteres CR antes de carregar o arquivo para o HDInsight:
+Pode utilizar as seguintes declarações powerShell para remover os caracteres CR antes de enviar o ficheiro para HDInsight:
 
 ```PowerShell
 # Set $original_file to the python file path
@@ -267,6 +267,6 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para outras maneiras de trabalhar com o Hive, consulte [usar o Apache Hive com o HDInsight](hdinsight-use-hive.md).
+Para outras formas de trabalhar com a Hive, consulte [Use Apache Hive com HDInsight](hdinsight-use-hive.md).
 
-Para obter mais informações sobre funções definidas pelo usuário do hive, consulte a seção [operadores de Apache Hive e funções definidas pelo usuário](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) do wiki do hive em Apache.org.
+Para obter mais informações sobre as funções definidas pelo utilizador da Hive, consulte os operadores de colmeia Apache e a secção de [Funções Definidas](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) pelo Utilizador do Wiki da Colmeia em apache.org.

@@ -1,6 +1,6 @@
 ---
-title: 'Script do PowerShell: Listar convites de compartilhamento de dados do Azure enviados a um consumidor | Microsoft Docs'
-description: Este script do PowerShell aceita convites de um compartilhamento de dados existente.
+title: 'Roteiro PowerShell: List Azure Data Share convites enviados a um consumidor Microsoft Docs'
+description: Este script PowerShell aceita convites de uma partilha de dados existente.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 157b844afd9d59b6c03c7ae8585bc2182370d3a3
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70307156"
 ---
-# <a name="use-powershell-to-get-a-data-share-invitation"></a>Usar o PowerShell para obter um convite de compartilhamento de dados
+# <a name="use-powershell-to-get-a-data-share-invitation"></a>Use powerShell para obter um convite de partilha de dados
 
-Este script do PowerShell Obtém convites enviados a um consumidor.
+Este guião da PowerShell recebe convites enviados a um consumidor.
 
 ## <a name="sample-script"></a>Script de exemplo
 ```powershell
@@ -40,11 +40,11 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Obter e listar convites de compartilhamento de dados enviados. |
+| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Obtenha e lista envie convites de partilha de dados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos adicionais de script do PowerShell do compartilhamento de dados do Azure podem ser encontrados nos [exemplos do PowerShell do compartilhamento de dados do Azure](../../samples-powershell.md).
+Amostras adicionais de script de partilha de dados azure PowerShell podem ser encontradas nas [amostras de PowerShell de partilha](../../samples-powershell.md)de dados do Azure .

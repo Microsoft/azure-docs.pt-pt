@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: b05a202537492fe54a76cf40a3b15987e099a7e3
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367725"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Link privado para base de dados Azure para MariaDB
@@ -53,7 +53,7 @@ Com private link, você pode permitir acesso cross-premises ao ponto final priva
 
 Os pontos finais privados são necessários para ativar o Private Link. Isto pode ser feito utilizando os seguintes guias de como fazer.
 
-* [Portal do Azure](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
+* [Portal Azure](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Processo de Aprovação
@@ -95,8 +95,8 @@ Configure a ligação de [gateway VNet-to-VNet VPN](https://docs.microsoft.com/a
 Para estabelecer conectividade desde um ambiente no local até à Base de Dados Azure para MariaDB, escolha e implemente uma das opções:
 
 * [Ligação ponto-a-local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
-* [Ligação VPN site-to-site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [Circuito ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [Ligação VPN Site a Site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
+* [Circuito do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Link Privado combinado com regras de firewall
 

@@ -4,37 +4,37 @@ description: Utilize o comando de construção de az acr para construir uma imag
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: c42bde6bbab5973094302a2d41f004d7600bdf9e
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79087069"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Construa e empurre uma imagem de uma aplicação usando um Cloud Native Buildpack
 
-O comando Azure CLI `az acr pack build` utiliza a [ferramenta`pack`](https://github.com/buildpack/pack) CLI, a partir da [Buildpacks,](https://buildpacks.io/)para construir uma aplicação e empurrar a sua imagem para um registo de contentores Azure. Esta funcionalidade fornece uma opção para construir rapidamente uma imagem de recipiente a partir do seu código fonte de aplicação em Node.js, Java e outras línguas sem ter que definir um Dockerfile.
+O comando `az acr pack build` Azure CLI utiliza a [`pack`](https://github.com/buildpack/pack) ferramenta CLI, a partir da [Buildpacks,](https://buildpacks.io/)para construir uma aplicação e empurrar a sua imagem para um registo de contentores Azure. Esta funcionalidade fornece uma opção para construir rapidamente uma imagem de recipiente a partir do seu código fonte de aplicação em Node.js, Java e outras línguas sem ter que definir um Dockerfile.
 
-Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para executar os exemplos deste artigo. Se quiser usá-lo localmente, a versão 2.0.70 ou posterior é necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para executar os exemplos deste artigo. Se quiser usá-lo localmente, a versão 2.0.70 ou posterior é necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="use-the-build-command"></a>Use o comando de construção
 
-Para construir e empurrar uma imagem de recipiente usando Cloud Native Buildpacks, executar o comando de construção de [az acr pack.][az-acr-pack-build] Enquanto o comando de [construção az acr][az-acr-build] constrói e empurra uma imagem de uma fonte de Dockerfile e código relacionado, com `az acr pack build` especifica uma árvore-fonte de aplicação diretamente.
+Para construir e empurrar uma imagem de recipiente usando Cloud Native Buildpacks, executar o comando de construção de [az acr pack.][az-acr-pack-build] Enquanto o comando de [construção az acr][az-acr-build] constrói e empurra uma `az acr pack build` imagem de uma fonte de Dockerfile e código relacionado, com você especifica uma árvore de origem de aplicação diretamente.
 
-No mínimo, especifique o seguinte quando executar `az acr pack build`:
+No mínimo, especifique `az acr pack build`o seguinte quando executar:
 
 * Um registo de contentores Azure onde dirige o comando
 * Um nome de imagem e etiqueta para a imagem resultante
 * Um dos [locais de contexto suportado](container-registry-tasks-overview.md#context-locations) para Tarefas ACR, como um diretório local, um repo GitHub, ou uma bola de tarball remota
-* O nome de uma imagem de construtor buildpack adequada para a sua aplicação. O registo de contentores Azure caches imagens de construtores como `cloudfoundry/cnb:0.0.34-cflinuxfs3` para construções mais rápidas.  
+* O nome de uma imagem de construtor buildpack adequada para a sua aplicação. O registo de contentores Azure `cloudfoundry/cnb:0.0.34-cflinuxfs3` caches imagens de construtores, como para construções mais rápidas.  
 
-`az acr pack build` suporta outras funcionalidades dos comandos aCR Tasks, incluindo variáveis de execução e [registos](container-registry-tasks-reference-yaml.md#run-variables) de execução de [tarefas](container-registry-tasks-logs.md) que são transmitidos e também guardados para posterior recuperação.
+`az acr pack build`suporta outras funcionalidades dos comandos aCR Tasks, incluindo variáveis de execução e [registos](container-registry-tasks-reference-yaml.md#run-variables) de execução de [tarefas](container-registry-tasks-logs.md) que são transmitidos e também guardados para posterior recuperação.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemplo: Construa imagem nonódeo com o construtor cloud foundry
 
-O exemplo seguinte constrói uma imagem de recipiente a partir de uma app Node.js no [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, usando o construtor `cloudfoundry/cnb:0.0.34-cflinuxfs3`. Este construtor é cacheed pelo Registo de Contentores Azure, por isso não é necessário um parâmetro `--pull`:
+O exemplo seguinte constrói uma imagem de recipiente a partir de uma app Node.js no [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, usando o `cloudfoundry/cnb:0.0.34-cflinuxfs3` construtor. Este construtor é cacheed pelo Registo de `--pull` Contentores Azure, por isso não é necessário um parâmetro:
 
 ```azurecli
 az acr pack build \
@@ -44,7 +44,7 @@ az acr pack build \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-Este exemplo constrói a imagem `node-app` com a etiqueta `1.0` e empurra-a para o registo de *contentores do meu registo.* Neste exemplo, o nome do registo-alvo é explicitamente preparado para o nome da imagem. Se não especificado, o nome do servidor de login do registo é automaticamente preparado para o nome da imagem.
+Este exemplo constrói `node-app` a `1.0` imagem com a etiqueta e empurra-a para o registo de *contentores do meu registo.* Neste exemplo, o nome do registo-alvo é explicitamente preparado para o nome da imagem. Se não especificado, o nome do servidor de login do registo é automaticamente preparado para o nome da imagem.
 
 A saída de comando mostra o progresso da construção e do impulso da imagem. 
 
@@ -60,11 +60,11 @@ Executar a imagem:
 docker run --rm -p 1337:1337 myregistry.azurecr.io/node-app:1.0
 ```
 
-Navegue para `localhost:1337` no seu navegador favorito para ver a aplicação web da amostra. Pressione `[Ctrl]+[C]` para parar o recipiente.
+Navegue `localhost:1337` no seu navegador favorito para ver a aplicação web da amostra. Pressione `[Ctrl]+[C]` para parar o recipiente.
 
 ## <a name="example-build-java-image-with-heroku-builder"></a>Exemplo: Construa a imagem de Java com o construtor Heroku
 
-O exemplo seguinte constrói uma imagem de recipiente da aplicação Java no [repo buildpack/sample-java-app,](https://github.com/buildpack/sample-java-app) utilizando o construtor `heroku/buildpacks:18`. O parâmetro `--pull` especifica que o comando deve puxar a última imagem do construtor. 
+O exemplo seguinte constrói uma imagem de recipiente da aplicação Java no [repo buildpack/sample-java-app,](https://github.com/buildpack/sample-java-app) utilizando o `heroku/buildpacks:18` construtor. O `--pull` parâmetro especifica que o comando deve puxar a última imagem do construtor. 
 
 ```azurecli
 az acr pack build \
@@ -74,7 +74,7 @@ az acr pack build \
     https://github.com/buildpack/sample-java-app.git
 ```
 
-Este exemplo constrói a imagem `java-app` marcada com a identificação do comando e empurra-a para o registo do recipiente *do meu registo.*
+Este exemplo constrói `java-app` a imagem marcada com a identificação do comando e empurra-a para o registo do contentor *do meu registo.*
 
 A saída de comando mostra o progresso da construção e do impulso da imagem. 
 
@@ -90,12 +90,12 @@ Executar a imagem, substituindo a sua etiqueta de imagem por *runid:*
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid
 ```
 
-Navegue para `localhost:8080` no seu navegador favorito para ver a aplicação web da amostra. Pressione `[Ctrl]+[C]` para parar o recipiente.
+Navegue `localhost:8080` no seu navegador favorito para ver a aplicação web da amostra. Pressione `[Ctrl]+[C]` para parar o recipiente.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de construir e empurrar uma imagem de recipiente com `az acr pack build`, pode implantá-la como qualquer imagem para um alvo à sua escolha. As opções de implementação do Azure incluem executá-lo no [App Service](../app-service/containers/tutorial-custom-docker-image.md) ou [no Azure Kubernetes Service,](../aks/tutorial-kubernetes-deploy-cluster.md)entre outros.
+Depois de construir e empurrar `az acr pack build`uma imagem de recipiente com, pode implantá-la como qualquer imagem para um alvo à sua escolha. As opções de implementação do Azure incluem executá-lo no [App Service](../app-service/containers/tutorial-custom-docker-image.md) ou [no Azure Kubernetes Service,](../aks/tutorial-kubernetes-deploy-cluster.md)entre outros.
 
 Para obter mais informações sobre as funcionalidades de Tarefas ACR, consulte a construção e manutenção de [imagens de contentores Automate com Tarefas ACR](container-registry-tasks-overview.md).
 

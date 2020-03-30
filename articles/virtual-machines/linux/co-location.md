@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: d2fd8a2cd7dac7b1d3c78691c84a861d924005ce
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250286"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>Co-localizar recursos para uma latência melhorada

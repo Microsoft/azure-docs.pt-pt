@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.openlocfilehash: a784fc070400995c56d16a3bc264d589bcb1f64e
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082851"
 ---
 # <a name="azure-monitor-integration-for-azure-red-hat-openshift-43"></a>Integração do Azure Monitor para o Azure Red Hat OpenShift 4.3
@@ -25,10 +25,10 @@ Este artigo descreve como permitir a pré-visualização privada do Monitor Azur
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Leme 3](https://helm.sh/docs/intro/install/)
 - Acesso ao kubeconfig do aglomerado de kubernetes
-- Acesso a uma subscrição do Azure
+- Aceder a uma subscrição do Azure
 - Acesso ao cluster OpenShift 4.3 para instalar o monitor Azure para o gráfico de leme de contentores
 - Autorização de função RBAC contribuidor mínimo na subscrição do Azure  
 - O Agente de Monitorização requer as seguintes portas de saída - e domínios para enviar os dados de monitorização para o backend do Monitor Azure (Se bloqueado por procuração/firewall):
@@ -40,7 +40,7 @@ Este artigo descreve como permitir a pré-visualização privada do Monitor Azur
 ## <a name="onboarding"></a>Inclusão
 
 > [!TIP]
-> O guião usa características de bash 4, por isso certifique-se de que a sua festa está atualizada. Pode verificar a sua versão atual com `bash --version`.
+> O guião usa características de bash 4, por isso certifique-se de que a sua festa está atualizada. Pode verificar a sua `bash --version`versão atual com .
 
 ### <a name="download-the-onboarding-script"></a>Descarregue o script de embarque
 
@@ -90,7 +90,7 @@ Navegue para [a Monitorização Híbrida](https://aka.ms/azmon-containers-hybrid
 
 Para mais informações sobre as funcionalidades e funcionalidades suportadas, consulte a [visão geral do Container Insights](../azure-monitor/insights/container-insights-overview.md).
 
-Contacte-nos através askcoin@microsoft.com para obter feedback e perguntas.
+Contacte-nos através askcoin@microsoft.com de feedback e perguntas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

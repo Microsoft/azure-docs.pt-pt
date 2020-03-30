@@ -1,6 +1,6 @@
 ---
-title: Adicionar ferramentas de migração nas migrações para Azure
-description: Saiba como adicionar ferramentas de migração nas migrações para Azure.
+title: Adicione ferramentas de migração em Azure Migrate
+description: Aprenda a adicionar ferramentas de migração em Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.manager: carmonm
@@ -8,72 +8,72 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
 ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185967"
 ---
 # <a name="add-migration-tools"></a>Adicionar ferramentas de migração
 
-Este artigo descreve como adicionar ferramentas de migração nas [migrações para Azure](migrate-overview.md).
+Este artigo descreve como adicionar ferramentas de migração em [Azure Migrate](migrate-overview.md).
 
-As migrações para Azure fornecem um hub de ferramentas para avaliação e migração para o Azure. Ele inclui ferramentas nativas, ferramentas fornecidas por outros serviços do Azure e ofertas de ISVs (fornecedores independentes de software) de terceiros.
+A Azure Migrate fornece um centro de ferramentas para avaliação e migração para Azure. Inclui ferramentas nativas, ferramentas fornecidas por outros serviços Azure e ofertas de fornecedores de software independentes de terceiros (ISV).
 
-Se você quiser adicionar uma ferramenta de migração e ainda não tiver configurado um projeto de migrações para Azure, siga este [artigo](how-to-add-tool-first-time.md).
+Se quiser adicionar uma ferramenta de migração e ainda não tiver montado um projeto Azure Migrate, siga este [artigo.](how-to-add-tool-first-time.md)
 
 
 
-## <a name="selecting-an-isv-tool"></a>Selecionando uma ferramenta ISV
+## <a name="selecting-an-isv-tool"></a>Selecionar uma ferramenta ISV
 
-Se você escolher uma [ferramenta de ISV](migrate-services-overview.md#isv-integration) para migração, poderá começar obtendo uma licença ou inscrevendo-se para uma avaliação gratuita, de acordo com a política de ISV. Em cada ferramenta, há uma opção para se conectar a migrações para Azure. Implante a ferramenta e siga as instruções e a documentação da ferramenta para conectar o espaço de trabalho de ferramenta com as migrações para Azure. 
+Se escolher uma [ferramenta ISV](migrate-services-overview.md#isv-integration) para migração, pode começar por obter uma licença, ou inscrever-se para um teste gratuito, de acordo com a política do ISV. Em cada ferramenta, há uma opção para ligar ao Azure Migrate. Implante a ferramenta e siga as instruções e documentação da ferramenta para ligar o espaço de trabalho da ferramenta com o Azure Migrate. 
 
-## <a name="select-a-migration-scenario"></a>Selecionar um cenário de migração
+## <a name="select-a-migration-scenario"></a>Selecione um cenário de migração
 
-1. No projeto migrações para Azure, clique em **visão geral**.
-2. Selecione o cenário de migração que você deseja usar:
+1. No projeto Azure Migrate, clique em **Visão Geral**.
+2. Selecione o cenário de migração que pretende utilizar:
 
-    - Para migrar máquinas e cargas de trabalho para o Azure, selecione **avaliar e migrar servidores**.
-    - Para migrar máquinas SQL locais, selecione **avaliar e migrar bancos de dados**.
-    - Para migrar aplicativos Web locais, selecione **avaliar e migrar aplicativos Web**.
-    - Para migrar grandes quantidades de dados locais para o Azure no modo offline, selecione **ordenar um data Box**.
+    - Para migrar máquinas e cargas de trabalho para O Azure, selecione **avaliar e migrar servidores**.
+    - Para migrar no local máquinas SQL, selecione **avaliar e migrar bases**de dados .
+    - Para migrar no local aplicações web, selecione **Avaliar e migrar aplicações web**.
+    - Para migrar grandes quantidades de dados no local para Azure em modo offline, selecione **Order a Data Box**.
 
     ![Cenário de avaliação](./media/how-to-migrate/assess-scenario.png)
 
-## <a name="select-a-server-migration-tool"></a>Selecione uma ferramenta de migração de servidor
+## <a name="select-a-server-migration-tool"></a>Selecione uma ferramenta de migração do servidor
 
-1. Clique em **avaliar e migrar servidores**.
-2. Em **migrações para Azure-servidores**, se ainda não tiver adicionado ferramentas de migração, em **ferramentas de migração**, selecione **clique aqui para adicionar uma ferramenta de migração**. Se você já tiver adicionado ferramentas de migração, em **adicionar mais ferramentas de migração**, selecione **alterar**.
+1. Clique em **Avaliar e migrar servidores**.
+2. No **Azure Migrate - Servidores,** se ainda não adicionou ferramentas de migração, sob **as ferramentas de Migração,** selecione Clique aqui para adicionar uma ferramenta de **migração**. Se já adicionou ferramentas de migração, em Adicionar mais ferramentas de **migração,** selecione **Change**.
 
     > [!NOTE]
-    > Se você precisar navegar para um projeto diferente, no **Migrations-Servers do Azure**, ao lado de **Ver os detalhes de um projeto de migração diferente**, clique **em clique aqui**.
+    > Se precisar de navegar para um projeto diferente, em **Azure Migrate - Servers,** ao lado de **Ver detalhes para um projeto migratório diferente,** clique em Clique **aqui**.
 
-3. Em **migrações para Azure**, selecione a ferramenta de migração que você deseja usar.
-    - Se você usar a migração de servidor de migrações para Azure, poderá configurar e executar as migrações diretamente no projeto de migrações para Azure.
-    - Se você usar uma ferramenta de avaliação de terceiros, navegue até o link fornecido para o ISV e execute a migração de acordo com as instruções que eles fornecem.
+3. No **Azure Migrate,** selecione a ferramenta de migração que pretende utilizar.
+    - Se utilizar a Migração do Servidor Migratório Azure, pode configurar e executar migrações diretamente no projeto Azure Migrate.
+    - Se utilizar uma ferramenta de avaliação de terceiros, navegue para o link fornecido para o ISV e ecorra a migração de acordo com as instruções que fornecem.
 
-## <a name="select-a-database-migration-tool"></a>Selecione uma ferramenta de migração de banco de dados
+## <a name="select-a-database-migration-tool"></a>Selecione uma ferramenta de migração de base de dados
 
-1. Clique em **avaliar e migrar bancos de dados**
-2. Em **bancos de dados**, clique em **Adicionar ferramentas**.
-3. Em adicionar uma ferramenta > **selecione ferramenta de migração**, selecione a ferramenta que você deseja usar para migrar seu banco de dados.
+1. Clique em **avaliar e migrar bases de dados**
+2. Nas **Bases de Dados,** clique em **Adicionar ferramentas**.
+3. Adicione uma ferramenta > **Selecione**a ferramenta de migração que pretende utilizar para migrar a sua base de dados.
 
-## <a name="select-a-web-app-migration-tool"></a>Selecione uma ferramenta de migração de aplicativo Web
+## <a name="select-a-web-app-migration-tool"></a>Selecione uma ferramenta de migração de aplicativos web
 
-1. Clique em **avaliar e migrar aplicativos Web**.
-2. Siga o link para a ferramenta de migração para o serviço de Azure App. Use a ferramenta de migração para:
+1. Clique em **Avaliar e migrar aplicações web**.
+2. Siga o link para a ferramenta Migração para o Serviço de Aplicações Azure. Utilize a ferramenta de migração para:
 
-    - **Avaliar aplicativos online**: você pode avaliar e migrar aplicativos com uma URL pública online, usando o assistente de migração de serviço Azure app.
-    - **.Net/php**: para aplicativos internos do .net e PHP, você pode baixar e executar o assistente de migração.
+    - **Avaliar aplicações online**: Pode avaliar e migrar aplicações com um URL público online, utilizando o Assistente de Migração do Serviço de Aplicações Azure.
+    - **.NET/PHP**: Para aplicações internas .NET e PHP, pode descarregar e executar o Assistente de Migração.
 
-## <a name="order-an-azure-data-box"></a>Ordenar um Azure Data Box
+## <a name="order-an-azure-data-box"></a>Encomende uma caixa de dados Azure
 
-Para migrar grandes quantidades de dados para o Azure, você pode solicitar um Azure DAta box para transferência de dados offline.
+Para migrar grandes quantidades de dados para o Azure, pode encomendar uma Caixa Azure DAta para transferência de dados offline.
 
-1. Clique em **solicitar um data Box**.
-2. Em **selecionar seu Azure data Box**, especifique sua assinatura. 
-3. A transferência será uma importação para o Azure. Especifique a fonte de dados e o destino da região do Azure para os dados.
+1. Clique **em Encomendar uma Caixa de Dados**.
+2. Em **Select your Azure Data Box,** especifique a sua subscrição. 
+3. A transferência será uma importação para Azure. Especifique a fonte de dados e o destino da região de Azure para os dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Experimente uma migração usando a migração de servidor de migração do Azure para VMs [Hyper-V](tutorial-migrate-hyper-v.md) ou [VMware](tutorial-migrate-vmware.md) .
+Experimente uma migração utilizando a migração do servidor de migração azure migrate para VMs [hiper-V](tutorial-migrate-hyper-v.md) ou [VMware.](tutorial-migrate-vmware.md)

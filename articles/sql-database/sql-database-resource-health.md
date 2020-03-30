@@ -1,6 +1,6 @@
 ---
 title: Use a Azure Resource Health para monitorizar a saúde da base de dados
-description: Utilize o Azure Resource Health para monitorizar o estado de funcionamento da base de dados SQL, ajuda a diagnosticar e obter suporte quando um problema do Azure afeta os seus recursos do SQL.
+description: Use a Azure Resource Health para monitorizar a saúde da Base de Dados SQL, ajuda-o a diagnosticar e obter suporte quando um problema azure afeta os seus recursos SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,13 +12,13 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
 ms.openlocfilehash: 9e19e904b47d69444b491dd88ffe49ff812aafc3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79208877"
 ---
-# <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utilizar o Resource Health para resolver problemas de conectividade para a base de dados do Azure SQL
+# <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Use Resource Health to troubleshoot connectivity for Azure SQL Database (Utilizar o Resource Health para resolver problemas de conectividade da Base de Dados SQL do Azure)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -26,11 +26,11 @@ ms.locfileid: "79208877"
 
 ![Descrição geral](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
-## <a name="health-checks"></a>Verificações de estado de funcionamento
+## <a name="health-checks"></a>Verificação de saúde
 
-Estado de funcionamento do recurso determina o estado de funcionamento do seu recurso SQL ao examinar o êxito e falha de inícios de sessão para o recurso. Atualmente, o estado de funcionamento de recursos para o seu recurso de BD SQL examina apenas falhas de início de sessão devido a erro de sistema e não a erro de utilizador. O estado de funcionamento do recurso é atualizado a cada 1 a 2 minutos.
+A Resource Health determina a saúde do seu recurso SQL examinando o sucesso e a falha dos logins no recurso. Atualmente, a Saúde de Recursos para o seu recurso SQL DB apenas examina falhas de login devido a erro do sistema e não erro do utilizador. O estado da Saúde dos Recursos é atualizado a cada 1-2 minutos.
 
-## <a name="health-states"></a>Estados de funcionamento
+## <a name="health-states"></a>Estados da Saúde
 
 ### <a name="available"></a>Disponível
 
@@ -40,42 +40,42 @@ Um estado de **Disponível** significa que a Saúde dos Recursos não detetou fa
 
 ### <a name="degraded"></a>Degradado
 
-O estado **Degradado** significa que o Resource Health detetou maioritariamente inícios de sessão com êxito, mas também algumas falhas. Esses são erros de início de sessão transitórias mais prováveis. Para reduzir o impacto dos problemas de ligação causados por erros transitórios de login, por favor implemente a lógica de [retry](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) no seu código.
+O estado **Degradado** significa que o Resource Health detetou maioritariamente inícios de sessão com êxito, mas também algumas falhas. Estes são provavelmente erros transitórios de login. Para reduzir o impacto dos problemas de ligação causados por erros transitórios de login, por favor implemente a lógica de [retry](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) no seu código.
 
 ![Degradado](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### <a name="unavailable"></a>Indisponível
 
-Um estado de **Indisponíveis** significa que a Saúde dos Recursos detetou falhas de login consistentes no seu recurso SQL. Se o seu recurso permanecer neste estado durante um período prolongado de tempo, contacte o suporte.
+Um estado de **Indisponíveis** significa que a Saúde dos Recursos detetou falhas de login consistentes no seu recurso SQL. Se o seu recurso permanecer neste estado por um longo período de tempo, contacte o suporte.
 
 ![Indisponível](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
 ### <a name="unknown"></a>Desconhecido
 
-O estado de saúde de **Unknown** indica que a Saúde de Recursos não recebe informações sobre este recurso há mais de 10 minutos. Embora este estado não é uma indicação definitiva do Estado do recurso, é um ponto de dados importantes no processo de resolução de problemas. Se o recurso está em execução conforme esperado, o estado do recurso mudará para disponível após alguns minutos. Se estiver a ter problemas com o recurso, o estado de funcionamento desconhecido pode sugerir que um evento na plataforma está a afetar o recurso.
+O estado de saúde de **Unknown** indica que a Saúde de Recursos não recebe informações sobre este recurso há mais de 10 minutos. Embora este estado não seja uma indicação definitiva do estado do recurso, é um importante ponto de dados no processo de resolução de problemas. Se o recurso estiver a funcionar como esperado, o estado do recurso mudará para Disponível após alguns minutos. Se estiver com problemas com o recurso, o estado de saúde desconhecido pode sugerir que um evento na plataforma está a afetar o recurso.
 
 ![Desconhecido](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
-## <a name="historical-information"></a>Informações do histórico
+## <a name="historical-information"></a>Informação histórica
 
-Pode acessar até 14 dias do histórico de estado de funcionamento na secção de histórico de estado de funcionamento do Estado de funcionamento do recurso. A secção também irá conter o motivo de tempo de inatividade (quando disponível) para os tempos de inatividade do comunicado pelo Estado de funcionamento do recurso. Atualmente, o Azure mostra o tempo de inatividade do seu recurso de base de dados SQL com uma granularidade de dois minutos. O tempo de inatividade atual é provavelmente menos do que um minuto – média é 8s.
+Pode aceder até 14 dias de história da saúde na secção de História da Saúde da Saúde. A secção também conterá a razão de inatividade (quando disponível) para os tempos de inatividade reportados pela Resource Health. Atualmente, o Azure mostra o período de indisponibilidade do recurso da base de dados SQL com uma granularidade de dois minutos. O período de indisponibilidade real é provavelmente inferior a um minuto; a média são oito segundos.
 
-### <a name="downtime-reasons"></a>Motivos de tempo de inatividade
+### <a name="downtime-reasons"></a>Razões de inatividade
 
-Quando a base de dados SQL sofrer um período de indisponibilidade, a análise é executada para determinar um motivo. Se estiver disponível, é comunicado o motivo de tempo de inatividade na secção de histórico de estado de funcionamento do Estado de funcionamento do recurso. Geralmente, os motivos para os tempos de inatividade são publicados 30 minutos após os eventos.
+Quando a sua Base de Dados SQL experimenta tempo de inatividade, a análise é realizada para determinar uma razão. Quando disponível, a razão de inatividade é reportada na secção de História da Saúde da Saúde dos Recursos. Geralmente, os motivos para os tempos de inatividade são publicados 30 minutos após os eventos.
 
 #### <a name="planned-maintenance"></a>Manutenção planeada
 
-A infraestrutura do Azure efetua periodicamente a manutenção planeada – atualização dos componentes de hardware ou software no Centro de dados. Enquanto a base de dados entra em manutenção, o SQL pode encerrar algumas ligações existentes e recusar novos. As falhas de login experimentadas durante a manutenção planeada são tipicamente transitórias e a lógica de [retry](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) ajuda a reduzir o impacto. Se continuar a ocorrer erros de início de sessão, contacte o suporte.
+A infraestrutura Azure realiza periodicamente a manutenção planeada – a tualização de componentes de hardware ou software no datacenter. Enquanto a base de dados é submetida a manutenção, a SQL pode encerrar algumas ligações existentes e recusar novas. As falhas de login experimentadas durante a manutenção planeada são tipicamente transitórias e a lógica de [retry](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) ajuda a reduzir o impacto. Se continuar a sentir erros de login, contacte o suporte.
 
 #### <a name="reconfiguration"></a>Reconfiguração
 
-Reconfigurações são consideradas condições transitórias e espera-se de tempos em tempos. Esses eventos podem ser adicionados a falhas de software/hardware ou de balanceamento de carga. Qualquer aplicação de produção de clientes que se conectem a uma base de dados em nuvem deve implementar uma lógica robusta de [retry](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)de ligação, uma vez que ajudaria a mitigar estas situações e geralmente tornaria os erros transparentes para o utilizador final.
+As reconfigurações são consideradas condições transitórias, e são esperadas de vez em quando. Estes eventos podem ser desencadeados por falhas de equilíbrio de carga ou de software/hardware. Qualquer aplicação de produção de clientes que se conectem a uma base de dados em nuvem deve implementar uma lógica robusta de [retry](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)de ligação, uma vez que ajudaria a mitigar estas situações e geralmente tornaria os erros transparentes para o utilizador final.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a lógica de [retry para erros transitórios](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [Troubleshoot, diagnose, and prevent SQL connection errors](./sql-database-connectivity-issues.md) (Resolver problemas, diagnosticar e evitar erros de ligação do SQL)
 - Saiba mais sobre [configurar alertas](../service-health/resource-health-alert-arm-template-guide.md) de saúde de recursos
 - Obtenha uma visão geral da [Saúde](../service-health/resource-health-overview.md) dos Recursos
-- [FaQ de saúde de recursos](../service-health/resource-health-faq.md)
+- [FAQ do Resource Health](../service-health/resource-health-faq.md)

@@ -1,27 +1,27 @@
 ---
-title: Ingestão de dados do cache HPC do Azure – script de cópia paralela
-description: Como usar um script de cópia paralela para mover dados para um destino de armazenamento de BLOBs no cache HPC do Azure
+title: Ingerir dados azure HPC Cache - roteiro de cópia paralela
+description: Como usar um roteiro de cópia paralela para mover dados para um alvo de armazenamento Blob em Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 90e05ad3d42b1009b631630fe476669a9f418d33
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74166890"
 ---
-# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Ingestão de dados do cache HPC do Azure – método de script de cópia paralela
+# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Ingerir dados azure HPC Cache - método de script de cópia paralela
 
-Este artigo fornece instruções para criar o script de ``parallelcp`` e usá-lo para mover dados para um contêiner de armazenamento de BLOBs para uso com o cache do HPC do Azure.
+Este artigo dá instruções ``parallelcp`` para criar o script e usá-lo para mover dados para um recipiente de armazenamento Blob para utilização com cache Azure HPC.
 
-Para saber mais sobre como mover dados para o armazenamento de BLOBs para o cache do Azure HPC, leia [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
+Para saber mais sobre a mudança de dados para o armazenamento Blob para o seu Cache Azure HPC, leia [os dados do Move para o armazenamento da Blob Azure](hpc-cache-ingest.md).
 
-## <a name="create-the-parallelcp-script"></a>Criar o script parallelcp
+## <a name="create-the-parallelcp-script"></a>Criar o roteiro parallelcp
 
-O script a seguir adicionará o `parallelcp`executável. (Esse script foi criado para o Ubuntu; se estiver usando outra distribuição, você deverá instalar o ``parallel`` separadamente.)
+O script abaixo irá `parallelcp`adicionar o executável . (Este script foi concebido para Ubuntu; se ``parallel`` utilizar outra distribuição, tem de instalar separadamente.)
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
@@ -75,11 +75,11 @@ EOM
 
 ## <a name="parallel-copy-example"></a>Exemplo de cópia paralela
 
-Este exemplo usa o script de cópia paralela para compilar ``glibc`` usando arquivos de origem no cache do HPC do Azure.
+Este exemplo utiliza o script ``glibc`` de cópia paralela para compilar utilizando ficheiros de origem no Cache Azure HPC.
 
-Os arquivos de origem são armazenados em cache no ponto de montagem do cache HPC do Azure e os arquivos de objeto são armazenados no disco rígido local.
+Os ficheiros de origem estão em cache no ponto de montagem azure HPC Cache, e os ficheiros do objeto são armazenados no disco rígido local.
 
-Este exemplo usa o script de cópia paralela com a opção ``-j`` e ``make`` para obter paralelização.
+Este exemplo utiliza o roteiro ``-j`` de ``make`` cópia paralela com a opção e para ganhar paralelização.
 
 ```bash
 sudo apt-get update

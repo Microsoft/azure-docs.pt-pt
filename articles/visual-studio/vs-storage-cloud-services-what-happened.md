@@ -1,6 +1,6 @@
 ---
-title: O que aconteceu com meu projeto de serviço de nuvem?
-description: Descreve o que acontece em um projeto de serviços de nuvem depois de se conectar a uma conta de armazenamento do Azure usando os serviços conectados do Visual Studio
+title: O que aconteceu com o meu projeto de serviço na nuvem?
+description: Descreve o que acontece num projeto de serviços na nuvem depois de ligar a uma conta de armazenamento Azure usando serviços conectados do Estúdio Visual
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,30 +14,30 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ac5a635b687e51ddd34899717497548296c2fc23
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298761"
 ---
-# <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>O que aconteceu com o meu projeto de serviços de nuvem (serviço conectado do armazenamento do Azure do Visual Studio)?
+# <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>O que aconteceu ao meu projeto de serviços cloud (serviço ligado de Armazenamento Azure do Visual Studio)?
 ## <a name="references-added"></a>Referências adicionadas
-O pacote NuGet do armazenamento do Azure foi adicionado ao seu projeto do Visual Studio.  
+O pacote Azure Storage NuGet foi adicionado ao seu projeto Visual Studio.  
 Este pacote adiciona as seguintes referências .NET:
 
-* **Microsoft. Data. Edm**
-* **Microsoft. Data. OData**
-* **Microsoft. Data. Services. Client**
-* **Microsoft. WindowsAzure. Configuration**
-* **Microsoft. WindowsAzure. Storage**
-* **Newtonsoft. JSON**
-* **System. Data**
-* **System. espacial**
+* **Microsoft.Data.Edm**
+* **Microsoft.data.OData**
+* **Microsoft.Data.Services.Client**
+* **Microsoft.WindowsAzure.Configuração**
+* **Microsoft.WindowsAzure.Storage**
+* **Newtonsoft.Json**
+* **Sistema.Dados**
+* **Sistema.Espacial**
 
-## <a name="connection-string-for-azure-storage-added"></a>Cadeia de conexão para o armazenamento do Azure adicionada
-Os elementos foram criados com a cadeia de conexão e a chave da conta de armazenamento selecionada. Foram feitas modificações nos seguintes arquivos:
+## <a name="connection-string-for-azure-storage-added"></a>Fio de ligação para armazenamento azure adicionado
+Foram criados elementos com a cadeia e a chave de ligação da conta de armazenamento selecionada. Foram feitas modificações nos seguintes ficheiros:
 
-* **Webdefinition. csdef**
-* **Inconfiguration. Cloud. cscfg**
-* **Inconfiguration. local. cscfg**
+* **ServiceDefinition.csdef**
+* **Configuração de serviço.Cloud.cscfg**
+* **Configuração do serviço.local.cscfg**
 

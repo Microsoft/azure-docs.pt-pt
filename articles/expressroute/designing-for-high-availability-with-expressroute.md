@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: projetando para alta disponibilidade'
-description: Esta página fornece recomendações de arquitetura para alta disponibilidade ao usar o Azure ExpressRoute.
+title: 'Azure ExpressRoute: Design para alta disponibilidade'
+description: Esta página fornece recomendações arquitetónicas para alta disponibilidade enquanto utiliza o Azure ExpressRoute.
 services: expressroute
 author: rambk
 ms.service: expressroute
@@ -8,85 +8,85 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076684"
 ---
-# <a name="designing-for-high-availability-with-expressroute"></a>Projetando para alta disponibilidade com o ExpressRoute
+# <a name="designing-for-high-availability-with-expressroute"></a>Design para alta disponibilidade com ExpressRoute
 
-O ExpressRoute foi projetado para alta disponibilidade a fim de fornecer conectividade de rede privada de nível Carrier para recursos da Microsoft. Em outras palavras, não há nenhum ponto único de falha no caminho do ExpressRoute dentro da rede da Microsoft. Para maximizar a disponibilidade, o cliente e o segmento do provedor de serviços do circuito do ExpressRoute também devem ser arquitetados para alta disponibilidade. Neste artigo, primeiro vamos examinar as considerações de arquitetura de rede para a criação de uma conectividade de rede robusta usando um ExpressRoute. em seguida, vamos examinar os recursos de ajuste que o ajudarão a melhorar a alta disponibilidade do seu circuito do ExpressRoute.
+O ExpressRoute foi concebido para uma elevada disponibilidade para fornecer conectividade de rede privada de qualidade transportadora aos recursos da Microsoft. Por outras palavras, não existe um único ponto de falha na rota ExpressRoute dentro da rede Microsoft. Para maximizar a disponibilidade, o cliente e o segmento de prestador de serviços do seu circuito ExpressRoute também devem ser arquitetados para alta disponibilidade. Neste artigo, primeiro vamos analisar considerações de arquitetura de rede para construir uma conectividade robusta da rede usando uma ExpressRoute, em seguida, vamos olhar para as funcionalidades de afinação que o ajudam a melhorar a alta disponibilidade do seu circuito ExpressRoute.
 
 
-## <a name="architecture-considerations"></a>Considerações sobre arquitetura
+## <a name="architecture-considerations"></a>Considerações de arquitetura
 
-A figura a seguir ilustra a maneira recomendada de se conectar usando um circuito do ExpressRoute para maximizar a disponibilidade de um circuito do ExpressRoute.
+A figura que se segue ilustra a forma recomendada de se ligar utilizando um circuito ExpressRoute para maximizar a disponibilidade de um circuito ExpressRoute.
 
- [![1]][1]
+ [![11]][1]
 
-Para alta disponibilidade, é essencial manter a redundância do circuito do ExpressRoute em toda a rede de ponta a ponta. Em outras palavras, você precisa manter a redundância dentro de sua rede local e não deve comprometer a redundância na rede do provedor de serviços. Manter a redundância no mínimo implica em evitar o ponto único de falhas de rede. Ter energia e resfriamento redundantes para os dispositivos de rede melhorará ainda mais a alta disponibilidade.
+Para uma elevada disponibilidade, é essencial manter a redundância do circuito ExpressRoute em toda a rede de ponta a ponta. Por outras palavras, é necessário manter o despedimento dentro da sua rede no local, e não deve comprometer a redundância dentro da sua rede de prestadores de serviços. Manter o despedimento no mínimo implica evitar um único ponto de falha na rede. Ter energia e arrefecimento redundantes para os dispositivos de rede melhorará ainda mais a elevada disponibilidade.
 
-### <a name="first-mile-physical-layer-design-considerations"></a>Considerações de design da camada física da primeira quilometragem
+### <a name="first-mile-physical-layer-design-considerations"></a>Considerações de design de camada física de primeira milha
 
- Se você encerrar as conexões primária e secundária de um circuito do ExpressRoute no mesmo CPE (equipamento de local do cliente), você estará comprometendo a alta disponibilidade em sua rede local. Além disso, se você configurar as conexões primária e secundária por meio da mesma porta de um CPE (encerrando as duas conexões em diferentes subinterfaces ou mesclando as duas conexões na rede de parceiros), você está forçando o parceiro para comprometer a alta disponibilidade em seu segmento de rede também. Esse comprometimento é ilustrado na figura a seguir.
+ Se terminar as ligações primárias e secundárias de um circuito ExpressRoute no mesmo Equipamento de Instalações do Cliente (CPE), está a comprometer a elevada disponibilidade dentro da sua rede no local. Além disso, se configurar as ligações primárias e secundárias através da mesma porta de um CPE (seja terminando as duas ligações em diferentes subinterfaces ou fundindo as duas ligações dentro da rede parceira), está a forçar o parceiro para comprometer a elevada disponibilidade no seu segmento de rede também. Este compromisso é ilustrado na figura seguinte.
 
 [![2]][2]
 
-Por outro lado, se você encerrar as conexões primária e secundária de um circuito do ExpressRoute em diferentes localizações geográficas, você poderá comprometer o desempenho da rede da conectividade. Se o tráfego estiver ativamente balanceado entre as conexões primária e secundária terminadas em diferentes localizações geográficas, uma possível diferença significativa na latência de rede entre os dois caminhos resultaria em uma rede ideal desempenho. 
+Por outro lado, se encerrar as ligações primárias e secundárias de circuitos ExpressRoute em diferentes locais geográficos, então poderá comprometer o desempenho da rede da conectividade. Se o tráfego for ativamente carregado equilibrado em todas as ligações primárias e secundárias que são terminadas em diferentes localizações geográficas, uma potencial diferença substancial na latência da rede entre os dois caminhos resultaria numa rede subóptima desempenho. 
 
-Para considerações de design com redundância geográfica, consulte [projetando para recuperação de desastre com o ExpressRoute][DR].
+Para considerações de design geo-redundantes, consulte Design para recuperação de [desastres com expressRoute][DR].
 
-### <a name="active-active-connections"></a>Conexões ativas-ativas
+### <a name="active-active-connections"></a>Ligações ativas
 
-A rede da Microsoft está configurada para operar as conexões primárias e secundárias de circuitos do ExpressRoute no modo ativo-ativo. No entanto, por meio de seus anúncios de rota, você pode forçar as conexões redundantes de um circuito do ExpressRoute para operar no modo ativo-passivo. Anunciar rotas mais específicas e BGP como caminho preferível são as técnicas comuns usadas para tornar um caminho preferencial sobre o outro.
+A rede Microsoft está configurada para operar as ligações primárias e secundárias dos circuitos ExpressRoute em modo ativo ativo. No entanto, através dos anúncios da sua rota, pode forçar as ligações redundantes de um circuito ExpressRoute a operar em modo passivo ativo. A publicidade de rotas mais específicas e os pré-gastos do caminho bGP AS são as técnicas comuns utilizadas para fazer um caminho preferido em relação ao outro.
 
-Para melhorar a alta disponibilidade, é recomendável operar ambas as conexões de um circuito do ExpressRoute no modo ativo-ativo. Se você permitir que as conexões operem no modo ativo-ativo, a rede da Microsoft balanceará o tráfego entre as conexões em cada fluxo.
+Para melhorar a elevada disponibilidade, recomenda-se operar ambas as ligações de um circuito ExpressRoute em modo ativo-activo. Se deixar as ligações funcionarem em modo ativo, a rede Microsoft carregará o equilíbrio do tráfego através das ligações por caudal.
 
-A execução das conexões primária e secundária de um circuito do ExpressRoute no modo ativo-passivo enfrenta o risco de ambas as conexões falharem após uma falha no caminho ativo. As causas comuns de falha na mudança são a falta de gerenciamento ativo da conexão passiva e as rotas obsoletas de publicidade de conexão passiva.
+O funcionamento das ligações primárias e secundárias de um circuito ExpressRoute em modo passivo ativo enfrenta o risco de ambas as ligações falharem na sequência de uma falha no caminho ativo. As causas comuns para a não transição são a falta de gestão ativa da ligação passiva e a publicidade passiva à publicidade.
 
-Como alternativa, executar as conexões primária e secundária de um circuito de ExpressRoute no modo ativo-ativo, resulta em apenas cerca de metade dos fluxos com falha e sendo redirecionado, seguindo uma falha de conexão do ExpressRoute. Portanto, o modo ativo-ativo ajudará significativamente a melhorar o tempo médio de recuperação (MTTR).
+Alternativamente, executar as ligações primárias e secundárias de um circuito ExpressRoute em modo ativo ativo, resulta em apenas cerca de metade dos fluxos falhando e sendo reencaminhados, na sequência de uma falha de ligação ExpressRoute. Assim, o modo activo-activo ajudará significativamente a melhorar o tempo médio para recuperar (MTTR).
 
-### <a name="nat-for-microsoft-peering"></a>NAT para emparelhamento da Microsoft 
+### <a name="nat-for-microsoft-peering"></a>NAT para o peering da Microsoft 
 
-O emparelhamento da Microsoft foi projetado para comunicação entre pontos de extremidade públicos. Normalmente, os pontos de extremidade privados locais são endereços de rede traduzidos (NATed) com IP público no cliente ou na rede de parceiros antes de se comunicarem por emparelhamento da Microsoft. Supondo que você use as conexões primária e secundária no modo ativo-ativo, onde e como o NAT tem um impacto sobre a rapidez de recuperação após uma falha em uma das conexões do ExpressRoute. Duas opções de NAT diferentes são ilustradas na figura a seguir:
+O peering da Microsoft foi concebido para a comunicação entre pontos finais públicos. Tão comumente, os pontos finais privados no local são o Endereço de Rede Traduzido (NATed) com IP público na rede de clientes ou parceiros antes de comunicarem através do peering da Microsoft. Assumindo que utiliza as ligações primárias e secundárias em modo ativo ativo, onde e como o NAT tem um impacto na rapidez com que se recupera na sequência de uma falha numa das ligações ExpressRoute. Duas opções nat diferentes são ilustradas na seguinte figura:
 
 [![3]][3]
 
-Na opção 1, o NAT é aplicado após a divisão do tráfego entre as conexões primárias e secundárias do ExpressRoute. Para atender aos requisitos de estado do NAT, os pools de NAT independentes são usados entre os dispositivos primário e secundário para que o tráfego de retorno chegue ao mesmo dispositivo de borda por meio do qual o fluxo foi enviado.
+Na opção 1, o NAT é aplicado após dividir o tráfego entre as ligações primárias e secundárias da ExpressRoute. Para satisfazer os requisitos imponentes do NAT, são utilizadas piscinas NAT independentes entre os dispositivos primários e secundários, de modo a que o tráfego de retorno chegue ao mesmo dispositivo de borda através do qual o fluxo se esgressia.
 
-Na opção 2, um pool de NAT comum é usado antes de dividir o tráfego entre as conexões primárias e secundárias do ExpressRoute. É importante fazer a distinção de que o pool de NAT comum antes de dividir o tráfego não significa introduzir um ponto único de falha, comprometendo a alta disponibilidade.
+Na opção 2, uma piscina NAT comum é usada antes de dividir o tráfego entre as ligações primárias e secundárias da ExpressRoute. É importante fazer a distinção de que a piscina comum de NAT antes de dividir o tráfego não significa introduzir um ponto de falha comprometendo assim a alta disponibilidade.
 
-Com a opção 1, após uma falha de conexão do ExpressRoute, a capacidade de alcançar o pool de NAT correspondente é interrompida. Portanto, todos os fluxos quebrados precisam ser restabelecidos pela camada TCP ou de aplicativo após o tempo limite da janela correspondente. Se qualquer um dos pools de NAT for usado para front-end de qualquer um dos servidores locais e se a conectividade correspondente falhar, os servidores locais não poderão ser acessados do Azure até que a conectividade seja corrigida.
+Com a opção 1, na sequência de uma falha de ligação ExpressRoute, a capacidade de alcançar a piscina NAT correspondente está quebrada. Por conseguinte, todos os fluxos partidos têm de ser restabelecidos quer pela TCP quer pela camada de aplicação, seguindo o tempo de saída correspondente. Se algum dos pools NAT for utilizado para fazer frente a qualquer um dos servidores no local e se a conectividade correspondente falhar, os servidores no local não podem ser contactados a partir de Azure até que a conectividade seja corrigida.
 
-Ao passo que com a opção 2, o NAT pode ser acessado mesmo após uma falha de conexão primária ou secundária. Portanto, a camada de rede em si pode redirecionar os pacotes e ajudar a recuperação mais rápida após a falha. 
+Considerando que, com a opção 2, o NAT é acessível mesmo após uma falha de ligação primária ou secundária. Portanto, a camada de rede em si pode redirecionar os pacotes e ajudar a recuperar mais rapidamente após a falha. 
 
 > [!NOTE]
-> Se você usar a opção de NAT 1 (pools de NAT independentes para conexões primárias e secundárias do ExpressRoute) e mapear uma porta de um endereço IP de um dos pools NAT para um servidor local, o servidor não poderá ser acessado por meio do circuito do ExpressRoute quando o correspondente falha na conexão.
+> Se utilizar a opção NAT 1 (piscinas NAT independentes para ligações primárias e secundárias da ExpressRoute) e mapear uma porta de um endereço IP de um dos pools NAT para um servidor no local, o servidor não será acessível através do circuito ExpressRoute quando o correspondente a ligação falha.
 > 
 
-## <a name="fine-tuning-features-for-private-peering"></a>Recursos de ajuste fino para emparelhamento privado
+## <a name="fine-tuning-features-for-private-peering"></a>Funcionalidades de afinação para o peering privado
 
-Nesta seção, vamos examinar opcionalmente (dependendo de sua implantação do Azure e de quão confidencial você é MTTR) recursos que ajudam a melhorar a alta disponibilidade do circuito do ExpressRoute. Especificamente, vamos examinar a implantação com reconhecimento de zona dos gateways de rede virtual ExpressRoute e a detecção de encaminhamento bidirecional (BFD).
+Nesta secção, vamos rever opcionalmente (dependendo da sua implementação Azure e quão sensível está para o MTTR) que ajudam a melhorar a elevada disponibilidade do seu circuito ExpressRoute. Especificamente, vamos rever a implementação consciente da zona dos gateways de rede virtual ExpressRoute e a Deteção de Reencaminhamento Bidirecional (BFD).
 
-### <a name="availability-zone-aware-expressroute-virtual-network-gateways"></a>Gateways de rede virtual do ExpressRoute com reconhecimento de zona de disponibilidade
+### <a name="availability-zone-aware-expressroute-virtual-network-gateways"></a>Disponibilidade Zona consciente de Gateways de rede virtual ExpressRoute
 
-Uma zona de disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Se você optar pela implantação de IaaS do Azure com redundância de zona, talvez também queira configurar gateways de rede virtual com redundância de zona que terminem o emparelhamento privado do ExpressRoute. Para saber mais, confira [sobre gateways de rede virtual com redundância de zona no zonas de disponibilidade do Azure][zone redundant vgw]. Para configurar o gateway de rede virtual com redundância de zona, consulte [criar um gateway de rede virtual com redundância de zona no zonas de disponibilidade do Azure][conf zone redundant vgw].
+Uma Zona de Disponibilidade numa região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Se optar pela implementação do Azure IaaS redundante em zona, também poderá querer configurar gateways de rede virtual redundantes que encerram o peering privado ExpressRoute. Para saber mais, consulte [sobre os gateways de rede virtual redundantes em Zonas][zone redundant vgw]de Disponibilidade Azure . Para configurar o gateway da rede virtual redundante, consulte [Criar um portal de rede virtual redundante em Zonas][conf zone redundant vgw]de Disponibilidade Azure .
 
-### <a name="improving-failure-detection-time"></a>Melhorando o tempo de detecção de falhas
+### <a name="improving-failure-detection-time"></a>Melhorar o tempo de deteção de falhas
 
-O ExpressRoute dá suporte a BFD sobre emparelhamento privado. O BFD reduz o tempo de detecção de falha na rede de camada 2 entre o Microsoft Enterprise Edge (MSEEs) e seus vizinhos de BGP no lado local de cerca de 3 minutos (padrão) a menos de um segundo. O tempo de detecção de falha rápida ajuda a hastening a recuperação de falhas. Para saber mais, confira [Configurar o BFD no ExpressRoute][BFD].
+ExpressRoute apoia bfD sobre o peering privado. O BFD reduz o tempo de deteção de falhas sobre a rede Layer 2 entre o Microsoft Enterprise Edge (MSEEs) e os seus vizinhos bGP no lado no local de cerca de 3 minutos (padrão) para menos de um segundo. O tempo de deteção rápido de falhas ajuda a acelerar a recuperação da falha. Para saber mais, consulte [configure BFD sobre expressroute][BFD].
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, discutimos como projetar para alta disponibilidade de uma conectividade de circuito do ExpressRoute. Um ponto de emparelhamento de circuito do ExpressRoute é fixado em uma localização geográfica e, portanto, pode ser afetado por uma falha catastrófica que afete todo o local. 
+Neste artigo, discutimos como projetar para uma alta disponibilidade de uma conectividade de circuito ExpressRoute. Um ponto de observação do circuito ExpressRoute está fixado a uma localização geográfica e, portanto, pode ser impactado por uma falha catastrófica que afeta toda a localização. 
 
-Para considerações de design para criar conectividade de rede com redundância geográfica para o backbone da Microsoft que pode suportar falhas catastróficas, que afetam toda a região, consulte [projetando para recuperação de desastres com o emparelhamento privado do ExpressRoute][DR].
+Para considerações de design para construir conectividade de rede geo-redundante com a espinha dorsal da Microsoft que pode suportar falhas catastróficas, que impactam toda uma região, ver Design para recuperação de [desastres com o peering privado ExpressRoute][DR].
 
 <!--Image References-->
-[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "maneira recomendada de se conectar usando o ExpressRoute"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "conectividade de última quilometragem de nível inferior"
-[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "Opções de NAT"
+[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "Forma recomendada de se conectar usando a ExpressRoute"
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "Conectividade sub-óptima de última milha"
+[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "opções NAT"
 
 
 <!--Link References-->

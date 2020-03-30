@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 6c81e50560de69f7702e852d4602680fde7f01f3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218132"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementar um serviço web Azure Machine Learning Studio (clássico)
@@ -34,11 +34,11 @@ A entrada para BES é como a entrada de dados que o RRS utiliza. A principal dif
 
 De um ponto de vista de alto nível, você implanta o seu modelo em três passos:
 
-* **[Criar uma experiência de treino]** de formação - Em Estúdio (clássico), pode treinar e testar um modelo de análise preditiva utilizando dados de treino que fornece, utilizando um grande conjunto de algoritmos de aprendizagem automática incorporados.
-* **[Convertê-lo numa experiência preditiva]** - Uma vez treinado o seu modelo com dados existentes e está pronto a usá-lo para obter novos dados, prepare e agilize a sua experiência para previsões.
-* **Implemente-o** como um **[novo serviço web]** ou um serviço web **[Serviço web clássico]** - Quando implementa a sua experiência preditiva como um serviço web Azure, os utilizadores podem enviar dados para o seu modelo e receber as previsões do seu modelo.
+* **[Crie uma experiência]** de formação - Em Estúdio (clássico), pode treinar e testar um modelo de análise preditiva utilizando dados de treino que fornece, utilizando um grande conjunto de algoritmos de aprendizagem automática incorporados.
+* **[Converta-o numa experiência preditiva]** - Uma vez treinado o seu modelo com dados existentes e está pronto a usá-lo para obter novos dados, prepare e agilize a sua experiência para previsões.
+* **Implemente-o** como um **[novo serviço web]** ou um serviço web **[Clássico]** - Quando implementa a sua experiência preditiva como um serviço web Azure, os utilizadores podem enviar dados para o seu modelo e receber as previsões do seu modelo.
 
-## <a name="create-a-training-experiment"></a>Criar uma experimentação de preparação
+## <a name="create-a-training-experiment"></a>Criar uma experiência de treino
 
 Para treinar um modelo de análise preditiva, você usa o Azure Machine Learning Studio (clássico) para criar uma experiência de treino onde você inclui vários módulos para carregar dados de treino, preparar os dados conforme necessário, aplicar algoritmos de aprendizagem automática, e avaliar o resultados. Pode iterar numa experiência e experimentar diferentes algoritmos de aprendizagem automática para comparar e avaliar os resultados.
 
@@ -49,7 +49,7 @@ O processo de criação e gestão de experiências de formação é coberto mais
 * [Importe os seus dados de formação para o Azure Machine Learning Studio (clássico)](import-data.md)
 * [Gerir iterações de experimentação no Azure Machine Learning Studio (clássico)](manage-experiment-iterations.md)
 
-## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Converter a experimentação de preparação para uma experimentação preditiva
+## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Converter a experiência de treino numa experiência preditiva
 
 Depois de treinar o seu modelo, está pronto para converter a sua experiência de treino numa experiência preditiva para obter novos dados.
 
@@ -65,12 +65,12 @@ Os seguintes passos descrevem a implementação de uma experiência preditiva co
 
 ## <a name="deploy-it-as-a-new-web-service"></a>Implementá-lo como um novo serviço web
 
-Agora que a experiência preditiva foi preparada, pode implantá-la como um novo serviço web Azure (baseado em Recursos). Usando o web service, os utilizadores podem enviar dados para o seu modelo e o modelo retornará seu previsões.
+Agora que a experiência preditiva foi preparada, pode implantá-la como um novo serviço web Azure (baseado em Recursos). Utilizando o serviço web, os utilizadores podem enviar dados para o seu modelo e o modelo devolverá as suas previsões.
 
-Para implementar a sua experiência preditiva, clique em **Correr** na parte inferior da tela da experiência. Uma vez que a experiência termine de funcionar, clique em **Implementar o Serviço Web** e selecione Implementar o Serviço Web  **[Novo]** .  Abre a página de implementação do portal de serviço web do Machine Learning Studio (clássico).
+Para implementar a sua experiência preditiva, clique em **Correr** na parte inferior da tela da experiência. Uma vez que a experiência termine de funcionar, clique em **Implementar o Serviço Web** e selecione Implementar o Serviço Web ** [Novo]**.  Abre a página de implementação do portal de serviço web do Machine Learning Studio (clássico).
 
 > [!NOTE] 
-> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição para a qual estiver a implementar o serviço web. Para mais informações consulte, [Gerencie um serviço Web utilizando o portal Azure Machine Learning Web Services](manage-new-webservice.md). 
+> Para implementar um novo serviço web deve ter permissões suficientes na subscrição à qual implementa o serviço web. Para mais informações consulte, [Gerencie um serviço Web utilizando o portal Azure Machine Learning Web Services](manage-new-webservice.md). 
 
 ### <a name="web-service-portal-deploy-experiment-page"></a>Página de experiências do portal do serviço web
 
@@ -79,7 +79,7 @@ Selecione um plano de preços. Se tiver um plano de preços existente, pode sele
 
 1. No **Plano** de Preços desça, selecione um plano existente ou selecione a nova opção **de plano Select.**
 2. Em **Nome do Plano**, escreva um nome que identifique o plano na sua conta.
-3. Selecione um dos Níveis de **Plano Mensal**. A predefinição de escalões do plano para os planos para a sua região predefinida e o seu serviço web é implementada nessa região.
+3. Selecione um dos Níveis de **Plano Mensal**. Os níveis de plano sem acordo para os planos para a sua região padrão e o seu serviço web estão implantados nessa região.
 
 Clique em **Implementar** e a página **Quickstart** para o seu serviço web abre.
 
@@ -125,7 +125,7 @@ Para obter mais informações sobre o acesso a um serviço web machine learning 
 
 Você pode gerir os seus novos serviços web usando o portal de Serviços Web Machine Learning Studio (clássico). Na página principal do [portal,](https://services.azureml.net/)clique em **Web Services**. A partir da página de serviços web, pode eliminar ou copiar um serviço. Para monitorizar um serviço específico, clique no serviço e, em seguida, clique no **Dashboard**. Para monitorizar os trabalhos de lote associados ao serviço web, clique no **Registo de Pedidos**de Lote .
 
-### <a id="multi-region"></a>Implemente o seu Novo serviço web para várias regiões
+### <a name="deploy-your-new-web-service-to-multiple-regions"></a><a id="multi-region"></a>Implemente o seu Novo serviço web para várias regiões
 
 Você pode facilmente implementar um novo serviço web para várias regiões sem precisar de múltiplas subscrições ou espaços de trabalho.
 
@@ -146,7 +146,7 @@ Os preços são específicos da região, por isso é necessário definir um plan
 #### <a name="deploy-the-web-service-to-another-region"></a>Implementar o serviço web para outra região
 
 1. Na página da Microsoft Azure Machine Learning Web Services, clique na opção de menu **dos Serviços Web.**
-2. Selecione o serviço Web que está a implementar uma nova região.
+2. Selecione o Serviço Web que está a implementar para uma nova região.
 3. Clique em **Copiar**.
 4. No **Nome do Serviço Web,** escreva um novo nome para o serviço web.
 5. Na **descrição do serviço Web,** escreva uma descrição para o serviço web.
@@ -159,7 +159,7 @@ Os preços são específicos da região, por isso é necessário definir um plan
 
 ## <a name="deploy-it-as-a-classic-web-service"></a>Implementá-lo como um serviço web clássico
 
-Agora que a experiência preditiva foi suficientemente preparada, pode implantá-la como um serviço web Classic Azure. Usando o web service, os utilizadores podem enviar dados para o seu modelo e o modelo retornará seu previsões.
+Agora que a experiência preditiva foi suficientemente preparada, pode implantá-la como um serviço web Classic Azure. Utilizando o serviço web, os utilizadores podem enviar dados para o seu modelo e o modelo devolverá as suas previsões.
 
 Para implementar a sua experiência preditiva, clique em **Executar** na parte inferior da tela de experimentação e, em seguida, clique em **implementar o Serviço Web**. O serviço web está configurado e você é colocado no painel de instrumentos do serviço web.
 
@@ -175,7 +175,7 @@ Pode clicar no link de pré-visualização **do Teste** para testar o seu servi�
 
 Para testar o Serviço de Execução do Lote, clique no link de pré-visualização **do teste** . Na página de teste do Lote, clique em Navegar sob a sua entrada e selecione um ficheiro CSV contendo valores de amostra apropriados. Se não tiver um ficheiro CSV e tiver criado a sua experiência preditiva utilizando o Machine Learning Studio (clássico), pode descarregar o conjunto de dados para a sua experiência preditiva e usá-lo.
 
-![Testar o serviço web](./media/publish-a-machine-learning-web-service/figure-3.png)
+![Testar o serviço Web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
 Na página **DE CONFIGURAÇÃO,** pode alterar o nome de exibição do serviço e dar-lhe uma descrição. O nome e descrição estão expostos no [portal Azure](https://portal.azure.com/) onde gere os seus serviços web.
 
@@ -213,7 +213,7 @@ Como já implementou esta experiência antes, é-lhe perguntado se deseja substi
 
 Uma opção para atualizar o seu serviço web é retreinar o modelo programáticamente. Para mais informações, consulte os [modelos Retrain Machine Learning Studio (clássicos) programáticamente](/azure/machine-learning/studio/retrain-machine-learning-model).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais detalhes técnicos sobre como funciona a implementação, veja [como um modelo de Machine Learning Studio (clássico) evolui de uma experiência para um serviço Web operacionalizado.](model-progression-experiment-to-web-service.md)
 

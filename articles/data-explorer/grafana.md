@@ -1,6 +1,6 @@
 ---
-title: Visualizar dados do Azure Data Explorer usando o Grafana
-description: Neste artigo, você aprende a configurar o Azure Data Explorer como uma fonte de dados para Grafana e, em seguida, Visualizar dados de um cluster de exemplo.
+title: Visualizar dados do Azure Data Explorer usando grafana
+description: Neste artigo, aprende-se a configurar o Azure Data Explorer como fonte de dados para grafana e, em seguida, visualizar dados de um cluster de amostras.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,87 +8,87 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74037975"
 ---
-# <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizar dados do Azure Data Explorer no Grafana
+# <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizar dados do Azure Data Explorer em Grafana
 
-O Grafana é uma plataforma de análise que permite consultar e Visualizar dados e, em seguida, criar e compartilhar dashboards com base em suas visualizações. O Grafana fornece um *plug-in*do data Explorer do Azure, que permite que você se conecte e visualize dados do data Explorer do Azure. Neste artigo, você aprende a configurar o Azure Data Explorer como uma fonte de dados para Grafana e, em seguida, Visualizar dados de um cluster de exemplo.
+Grafana é uma plataforma de análise que lhe permite consultar e visualizar dados, em seguida, criar e partilhar dashboards com base nas suas visualizações. Grafana fornece um *plugin*Azure Data Explorer, que lhe permite ligar e visualizar dados do Azure Data Explorer. Neste artigo, aprende-se a configurar o Azure Data Explorer como fonte de dados para grafana e, em seguida, visualizar dados de um cluster de amostras.
 
-Use o vídeo a seguir para saber como usar o plug-in do Data Explorer do Azure do Grafana, configurar o Data Explorer do Azure como uma fonte de dados para Grafana e, em seguida, Visualizar dados. 
+Utilize o seguinte vídeo, para aprender a usar o plugin Azure Data Explorer da Grafana, configurar o Azure Data Explorer como fonte de dados para grafana e, em seguida, visualizar dados. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
-Como alternativa, você pode [Configurar a fonte de dados](#configure-the-data-source) e [Visualizar os dados](#visualize-data) conforme detalhado no artigo abaixo.
+Em alternativa, pode [configurar a fonte de dados](#configure-the-data-source) e [visualizar dados](#visualize-data) conforme detalhado no artigo abaixo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do seguinte para concluir este artigo:
+Precisa do seguinte para completar este artigo:
 
-* [Grafana versão 5.3.0 ou posterior](https://docs.grafana.org/installation/) para seu sistema operacional
+* [Grafana versão 5.3.0 ou mais tarde](https://docs.grafana.org/installation/) para o seu sistema operativo
 
-* O [plug-in do data Explorer do Azure](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) para Grafana
+* O [plugin Azure Data Explorer](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) para Grafana
 
-* Um cluster que inclui os dados de exemplo StormEvents. Para obter mais informações, consulte [início rápido: criar um cluster de data Explorer do Azure e um banco](create-cluster-database-portal.md) de [dados e ingerir exemplos de dado no Azure data Explorer](ingest-sample-data.md).
+* Um cluster que inclui os dados da amostra StormEvents. Para mais informações, consulte [Quickstart: Crie um cluster e base de dados do Azure Data Explorer e](create-cluster-database-portal.md) [os dados da amostra ingest no Azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 [!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
 
-### <a name="specify-properties-and-test-the-connection"></a>Especificar propriedades e testar a conexão
+### <a name="specify-properties-and-test-the-connection"></a>Especificar propriedades e testar a ligação
 
-Com a entidade de serviço atribuída à função de *visualizadores* , agora você especifica as propriedades em sua instância do Grafana e testa a conexão com o Azure data Explorer.
+Com o principal de serviço atribuído à função *de espectadores,* agora especifica propriedades no seu caso de Grafana, e testa a ligação ao Azure Data Explorer.
 
-1. No Grafana, no menu à esquerda, selecione o ícone de engrenagem e, em seguida, **fontes de dados**.
+1. Em Grafana, no menu esquerdo, selecione o ícone da engrenagem e depois **fontes**de dados .
 
     ![Origens de dados](media/grafana/data-sources.png)
 
 1. Selecione **Adicionar fonte de dados**.
 
-1. Na página **fontes de dados/nova** , insira um nome para a fonte de dados e selecione o tipo **Azure data Explorer DataSource**.
+1. Na página **Fontes** de Dados / Nova página, introduza um nome para a fonte de dados e, em seguida, selecione o tipo **Azure Datasource**do Explorador de Dados .
 
-    ![Nome e tipo da conexão](media/grafana/connection-name-type.png)
+    ![Nome e tipo de ligação](media/grafana/connection-name-type.png)
 
-1. Insira o nome do cluster no formato https://{ClusterName}. {Region}. Kusto. Windows. net. Insira os outros valores do portal do Azure ou da CLI. Consulte a tabela abaixo da imagem a seguir para obter um mapeamento.
+1. Introduza o nome do seu cluster no formulário https://{ClusterName}. {Região}.kusto.windows.net. Introduza os outros valores do portal Azure ou CLI. Consulte a tabela abaixo da seguinte imagem para um mapeamento.
 
     ![Propriedades de ligação](media/grafana/connection-properties.png)
 
-    | Interface do usuário do amGrafana | Portal do Azure | CLI do Azure |
+    | Grafana UI | Portal do Azure | CLI do Azure |
     | --- | --- | --- |
-    | ID da subscrição | ID DA ASSINATURA | SubscriptionId |
-    | ID do locatário | ID do diretório | tenant |
-    | ID do cliente | ID da aplicação | appId |
+    | ID da Subscrição | ID DA SUBSCRIÇÃO | SubscriptionId |
+    | Id inquilino | ID do diretório | inquilino |
+    | Id do cliente | ID da aplicação | appId |
     | Segredo do cliente | Palavra-passe | palavra-passe |
     | | | |
 
-1. Selecione **salvar & teste**.
+1. Selecione **Guardar & Teste**.
 
-    Se o teste for bem-sucedido, vá para a próxima seção. Se você tiver problemas, verifique os valores especificados em Grafana e examine as etapas anteriores.
+    Se o teste for bem sucedido, vá para a próxima secção. Se encontrar algum problema, verifique os valores especificados em Grafana e reveja os passos anteriores.
 
 ## <a name="visualize-data"></a>Visualizar os dados
 
-Agora que você concluiu a configuração do Azure Data Explorer como uma fonte de dados para Grafana, é hora de visualizar os dados. Mostraremos um exemplo básico aqui, mas há muito mais que você pode fazer. Recomendamos examinar as [consultas de gravação do Azure data Explorer](write-queries.md) para obter exemplos de outras consultas a serem executadas no conjunto de dados de exemplo.
+Agora que terminou de configurar o Azure Data Explorer como fonte de dados para grafana, é hora de visualizar dados. Vamos dar um exemplo básico aqui, mas há muito mais que pode fazer. Recomendamos que se analise [as consultas de Escrita para o Azure Data Explorer,](write-queries.md) por exemplo, outras consultas para correr contra o conjunto de dados da amostra.
 
-1. No Grafana, no menu à esquerda, selecione o ícone de adição e, em seguida, **painel**.
+1. Em Grafana, no menu esquerdo, selecione o ícone plus em seguida **Dashboard**.
 
-    ![Criar painel](media/grafana/create-dashboard.png)
+    ![Criar painel de instrumentos](media/grafana/create-dashboard.png)
 
-1. Na guia **Adicionar** , selecione **grafo**.
+1. Sob o separador **Adicionar,** selecione **Graph**.
 
-    ![Adicionar grafo](media/grafana/add-graph.png)
+    ![Adicionar gráfico](media/grafana/add-graph.png)
 
-1. No painel gráfico, selecione **título do painel** e **Editar**.
+1. No painel de gráficos, selecione **Título do Painel** **e,** em seguida, editar .
 
     ![Painel de edição](media/grafana/edit-panel.png)
 
-1. Na parte inferior do painel, selecione **fonte de dados** e selecione a fonte de dados que você configurou.
+1. Na parte inferior do painel, selecione **Data Source** e, em seguida, selecione a fonte de dados que configura.
 
     ![Selecionar origem de dados](media/grafana/select-data-source.png)
 
-1. No painel de consulta, copie na consulta a seguir e selecione **executar**. A consulta classifica a contagem de eventos por dia para o conjunto de dados de exemplo.
+1. No painel de consulta, copie na seguinte consulta e, em seguida, selecione **Executar**. A consulta baldea a contagem de eventos por dia para o conjunto de dados da amostra.
 
     ```kusto
     StormEvents
@@ -97,39 +97,39 @@ Agora que você concluiu a configuração do Azure Data Explorer como uma fonte 
 
     ![Executar consulta](media/grafana/run-query.png)
 
-1. O grafo não mostra nenhum resultado porque ele tem o escopo definido por padrão para dados das últimas seis horas. No menu superior, selecione **últimas 6 horas**.
+1. O gráfico não mostra resultados porque é examinado por padrão aos dados das últimas seis horas. No menu superior, selecione **Last 6 horas**.
 
     ![Últimas seis horas](media/grafana/last-six-hours.png)
 
-1. Especifique um intervalo personalizado que cubra 2007, o ano incluído em nosso conjunto de dados de exemplo StormEvents. Selecione **Aplicar**.
+1. Especifique uma gama personalizada que cubra 2007, o ano incluído no nosso conjunto de dados de amostrastormEvents. Selecione **Aplicar**.
 
-    ![Intervalo de datas personalizado](media/grafana/custom-date-range.png)
+    ![Gama de datas personalizada](media/grafana/custom-date-range.png)
 
-    Agora, o grafo mostra os dados de 2007, bucketdos por dia.
+    Agora o gráfico mostra os dados de 2007, baldeados de dia.
 
-    ![Grafo concluído](media/grafana/finished-graph.png)
+    ![Gráfico acabado](media/grafana/finished-graph.png)
 
-1. No menu superior, selecione o ícone salvar: ![Ícone salvar](media/grafana/save-icon.png).
+1. No menu superior, selecione o ícone de guardar: ![Salvar o ícone](media/grafana/save-icon.png).
 
-## <a name="create-alerts"></a>Criar alertas
+## <a name="create-alerts"></a>Criar Alertas
 
-1. No painel inicial, selecione **alertas** > **canais de notificação** para criar um novo canal de notificação
+1. No Home Dashboard, selecione**canais** de **notificação de** > alerta para criar um novo canal de notificação
 
     ![criar canal de notificação](media/grafana/create-notification-channel.png)
 
-1. Crie um novo **canal de notificação**e, em seguida, **salve**.
+1. Crie um novo **canal de Notificação,** em **seguida, guardar**.
 
     ![Criar novo canal de notificação](media/grafana/new-notification-channel-adx.png)
 
-1. No **painel**, selecione **Editar** na lista suspensa.
+1. No **Dashboard**, **selecione Editar** a partir da queda.
 
-    ![Selecione Editar no painel](media/grafana/edit-panel-4-alert.png)
+    ![selecionar editar no painel de instrumentos](media/grafana/edit-panel-4-alert.png)
 
-1. Selecione o ícone de sino de alerta para abrir o painel **alerta** . Selecione **criar alerta**. Preencha as propriedades a seguir no painel **alerta** .
+1. Selecione o ícone do sino de alerta para abrir o painel **alerta.** Selecione **Criar Alerta**. Complete as seguintes propriedades no painel **alerta.**
 
-    ![Propriedades do alerta](media/grafana/alert-properties.png)
+    ![propriedades de alerta](media/grafana/alert-properties.png)
 
-1. Selecione o ícone **salvar painel** para salvar as alterações.
+1. Selecione o ícone **do painel de dados Save** para guardar as suas alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 

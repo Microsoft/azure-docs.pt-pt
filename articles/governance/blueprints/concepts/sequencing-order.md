@@ -1,59 +1,59 @@
 ---
-title: Entender a ordem de sequência de implantação
-description: Saiba mais sobre a ordem padrão em que os artefatos de Blueprint são implantados durante uma atribuição de Blueprint e como personalizar a ordem de implantação.
+title: Compreenda a ordem da sequência de implantação
+description: Saiba mais sobre a ordem padrão em que os artefactos da planta são implantados durante uma atribuição de plantas e como personalizar a ordem de implementação.
 ms.date: 08/22/2019
 ms.topic: conceptual
 ms.openlocfilehash: 51026862c989f15acf6d3e21702cfcfc8b2b27b0
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74128817"
 ---
-# <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entender a sequência de implantação em plantas do Azure
+# <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreenda a sequência de implantação em Plantas Azure
 
-Os planos gráficos do Azure usam uma **ordem de sequenciamento** para determinar a ordem de criação de recursos ao processar a atribuição de uma definição de plano gráfico. Este artigo explica os seguintes conceitos:
+A Azure Blueprints utiliza uma ordem de **sequenciação** para determinar a ordem de criação de recursos ao processar a atribuição de uma definição de projeto. Este artigo explica os seguintes conceitos:
 
-- A ordem de sequenciamento padrão usada
-- Como personalizar o pedido
-- Como a ordem personalizada é processada
+- A ordem de sequenciação padrão que é usada
+- Como personalizar a encomenda
+- Como a encomenda personalizada é processada
 
-Há variáveis nos exemplos JSON que você precisa substituir pelos seus próprios valores:
+Existem variáveis nos exemplos json que precisa substituir com os seus próprios valores:
 
 - `{YourMG}` - substituir pelo nome do seu grupo de gestão
 
-## <a name="default-sequencing-order"></a>Ordem de sequenciamento padrão
+## <a name="default-sequencing-order"></a>Ordem de sequenciação padrão
 
-Se a definição de Blueprint não contiver nenhuma diretiva para a ordem de implantação de artefatos ou se a diretiva for nula, a seguinte ordem será usada:
+Se a definição de projeto não contiver nenhuma diretiva para a instalação de artefactos ou a diretiva for nula, então é utilizada a seguinte ordem:
 
-- Artefatos de **atribuição de função** de nível de assinatura classificados por nome de artefato
-- Artefatos de **atribuição de política** de nível de assinatura classificados pelo nome do artefato
-- Nível de assinatura Azure Resource Manager artefatos de **modelo** classificados por nome de artefato
-- Artefatos do **grupo de recursos** (incluindo artefatos filho) classificados por nome do espaço reservado
+- Artefactos de atribuição de funções de nível de **subscrição** classificados pelo nome do artefacto
+- Artefactos de atribuição de políticas de nível de **subscrição** classificados pelo nome do artefacto
+- Artefactos de modelo de gestor de **recursos de** nível de subscrição classificados pelo nome do artefacto
+- **Artefactos** do grupo de recursos (incluindo artefactos infantis) classificados pelo nome do espaço reservado
 
-Dentro de cada artefato do **grupo de recursos** , a ordem de sequência a seguir é usada para que os artefatos sejam criados dentro desse grupo de recursos:
+Dentro de cada artefacto do **grupo de recursos,** é utilizada a seguinte ordem de sequência para a criação de artefactos dentro desse grupo de recursos:
 
-- Artefatos de **atribuição de função** filho do grupo de recursos classificados pelo nome do artefato
-- Artefatos de **atribuição de política** filho do grupo de recursos classificados pelo nome do artefato
-- Artefatos do **modelo de Azure Resource Manager** filho do grupo de recursos classificados pelo nome do artefato
-
-> [!NOTE]
-> O uso de [artefatos ()](../reference/blueprint-functions.md#artifacts) cria uma dependência implícita no artefato que está sendo referenciado.
-
-## <a name="customizing-the-sequencing-order"></a>Personalizando a ordem de sequenciamento
-
-Ao compor grandes definições de Blueprint, pode ser necessário que os recursos sejam criados em uma ordem específica. O padrão de uso mais comum desse cenário é quando uma definição de Blueprint inclui vários modelos de Azure Resource Manager. Os planos gráficos manipulam esse padrão, permitindo que a ordem de sequenciamento seja definida.
-
-A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A definição do Blueprint, para grupos de recursos e objetos de artefato dão suporte a essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
+- Artefactos de atribuição de **funções** de grupo de recursos classificados pelo nome do artefacto
+- Artefactos de atribuição de **políticas** para crianças do grupo de recursos classificados pelo nome do artefacto
+- Artefactos de modelo de gestor de recursos de grupo de recursos **azure** classificados pelo nome do artefacto
 
 > [!NOTE]
-> Ao criar objetos BluePrints, cada recurso de artefato obtém seu nome do nome de arquivo, se estiver usando o [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)ou o ponto de extremidade de URL, se estiver usando a [API REST](/rest/api/blueprints/artifacts/createorupdate).
-> as referências de _resourcegroup_ em artefatos devem corresponder àquelas definidas na definição do Blueprint.
+> A utilização de [artefactos](../reference/blueprint-functions.md#artifacts) cria uma dependência implícita do artefacto a que se refere.
 
-### <a name="example---ordered-resource-group"></a>Exemplo-grupo de recursos ordenados
+## <a name="customizing-the-sequencing-order"></a>Personalização da ordem de sequenciação
 
-Este exemplo de definição de Blueprint tem um grupo de recursos que definiu uma ordem de sequenciamento personalizada declarando um valor para `dependsOn`, juntamente com um grupo de recursos padrão. Nesse caso, o artefato chamado **assignPolicyTags** será processado antes do grupo de recursos **ordered-RG** .
-**Standard-RG** será processado de acordo com a ordem de sequenciamento padrão.
+Ao compor grandes definições de plantas, pode ser necessário que os recursos sejam criados numa ordem específica. O padrão de utilização mais comum deste cenário é quando uma definição de planta inclui vários modelos do Gestor de Recursos Azure. As plantas lidam com este padrão permitindo definir a ordem de sequenciação.
+
+A encomenda é realizada definindo uma `dependsOn` propriedade no JSON. A definição de planta, para grupos de recursos, e objetos de artefacto supor esta propriedade. `dependsOn`é uma série de nomes de artefactos que o artefacto em particular precisa de ser criado antes de ser criado.
+
+> [!NOTE]
+> Ao criar objetos de plantas, cada recurso de artefacto obtém o seu nome a partir do nome de ficheiro, se utilizar [powerShell](/powershell/module/az.blueprint/new-azblueprintartifact), ou o ponto final do URL, se utilizar [a API REST](/rest/api/blueprints/artifacts/createorupdate).
+> _recursos As_ referências do grupo em artefactos devem corresponder às definidas na definição de projeto.
+
+### <a name="example---ordered-resource-group"></a>Exemplo - grupo de recursos encomendados
+
+Esta definição de modelo de exemplo tem um grupo de recursos que `dependsOn`definiu uma ordem de sequenciação personalizada declarando um valor para, juntamente com um grupo de recursos padrão. Neste caso, o artefacto denominado **AtribuirTags policytags** será processado antes do grupo de recursos **encomendado-rg.**
+**standard-rg** será processado de acordo com a ordem de sequenciação padrão.
 
 ```json
 {
@@ -80,9 +80,9 @@ Este exemplo de definição de Blueprint tem um grupo de recursos que definiu um
 }
 ```
 
-### <a name="example---artifact-with-custom-order"></a>Exemplo – artefato com ordem personalizada
+### <a name="example---artifact-with-custom-order"></a>Exemplo - artefacto com encomenda personalizada
 
-Este exemplo é um artefato de política que depende de um modelo de Azure Resource Manager. Por padrão, a ordenação de um artefato de política seria criado antes do modelo de Azure Resource Manager. Essa ordenação permite que o artefato da política aguarde até que o modelo de Azure Resource Manager seja criado.
+Este exemplo é um artefacto político que depende de um modelo de Gestor de Recursos Azure. Por ordem padrão, um artefacto de política seria criado antes do modelo do Gestor de Recursos Azure. Esta encomenda permite que o artefacto político aguarde a criação do modelo do Gestor de Recursos Azure.
 
 ```json
 {
@@ -99,9 +99,9 @@ Este exemplo é um artefato de política que depende de um modelo de Azure Resou
 }
 ```
 
-### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Exemplo-artefato de modelo de nível de assinatura dependendo de um grupo de recursos
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Exemplo - artefacto de modelo de nível de subscrição dependendo de um grupo de recursos
 
-Este exemplo é para um modelo do Resource Manager implantado no nível de assinatura para depender de um grupo de recursos. Na ordenação padrão, os artefatos de nível de assinatura seriam criados antes de qualquer grupo de recursos e artefatos filho nesses grupos de recursos. O grupo de recursos é definido na definição do Blueprint da seguinte maneira:
+Este exemplo é para um modelo de Gestor de Recursos implantado ao nível de subscrição para depender de um grupo de recursos. Na encomenda predefinida, os artefactos de nível de subscrição seriam criados antes de quaisquer grupos de recursos e artefactos infantis nesses grupos de recursos. O grupo de recursos é definido na definição de planta como esta:
 
 ```json
 "resourceGroups": {
@@ -113,7 +113,7 @@ Este exemplo é para um modelo do Resource Manager implantado no nível de assin
 }
 ```
 
-O artefato do modelo de nível de assinatura, dependendo do grupo de recursos **Wait-for-me,** é definido da seguinte maneira:
+O artefacto do modelo de nível de subscrição, dependendo do grupo de recursos **de espera para mim,** é definido assim:
 
 ```json
 {
@@ -133,15 +133,15 @@ O artefato do modelo de nível de assinatura, dependendo do grupo de recursos **
 }
 ```
 
-## <a name="processing-the-customized-sequence"></a>Processando a sequência personalizada
+## <a name="processing-the-customized-sequence"></a>Processamento da sequência personalizada
 
-Durante o processo de criação, uma classificação topológica é usada para criar o grafo de dependência dos artefatos de plantas. A verificação verifica se há suporte para cada nível de dependência entre grupos de recursos e artefatos.
+Durante o processo de criação, um tipo topológico é usado para criar o gráfico de dependência dos artefactos das plantas. O controlo assegura que cada nível de dependência entre grupos de recursos e artefactos é suportado.
 
-Se uma dependência de artefato for declarada que não alteraria a ordem padrão, nenhuma alteração será feita. Um exemplo é um grupo de recursos que depende de uma política de nível de assinatura. Outro exemplo é uma atribuição de política filho ' Standard-RG ' do grupo de recursos que depende da atribuição de função filho ' Standard-RG ' do grupo de recursos. Em ambos os casos, o `dependsOn` não teria alterado a ordem de sequenciamento padrão e nenhuma alteração seria feita.
+Se uma dependência de artefactos for declarada que não alteraria a ordem padrão, então não se faz qualquer alteração. Um exemplo é um grupo de recursos que depende de uma política de nível de subscrição. Outro exemplo é uma atribuição de política infantil "standard-rg" do grupo de recursos que depende da atribuição de funções para crianças do grupo de recursos "standard-rg". Em ambos os `dependsOn` casos, não teria alterado a ordem de sequenciação padrão e não seriam feitas alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
+- Conheça o ciclo de vida da [planta.](lifecycle.md)
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

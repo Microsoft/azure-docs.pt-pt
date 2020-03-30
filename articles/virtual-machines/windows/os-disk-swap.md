@@ -1,6 +1,6 @@
 ---
-title: Trocar o disco do sistema operacional para uma VM do Azure com o PowerShell '
-description: Altere o disco do sistema operacional usado por uma máquina virtual do Azure usando o PowerShell.
+title: Troque o disco OS por um VM Azure com PowerShell '
+description: Altere o disco do sistema operativo utilizado por uma máquina virtual Azure utilizando o PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,29 +15,29 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.openlocfilehash: ec66892804f3c2d1f831168a2955f2498462cbf3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033016"
 ---
-# <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Alterar o disco do sistema operacional usado por uma VM do Azure usando o PowerShell
+# <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Alterar o disco OS utilizado por um VM Azure utilizando a PowerShell
 
-Se você tiver uma VM existente, mas quiser trocar o disco por um disco de backup ou outro disco do sistema operacional, poderá usar Azure PowerShell para trocar os discos do sistema operacional. Você não precisa excluir e recriar a VM. Você pode até mesmo usar um disco gerenciado em outro grupo de recursos, desde que ele ainda não esteja em uso.
+Se tiver um VM existente, mas pretender trocar o disco por um disco de reserva ou outro disco OPERATIVO, pode utilizar o Azure PowerShell para trocar os discos OS. Não é preciso apagar e recriar o VM. Pode até utilizar um disco gerido noutro grupo de recursos, desde que ainda não esteja em uso.
 
  
 
-A VM precisa ser stopped\deallocated, então a ID de recurso do disco gerenciado pode ser substituída pela ID de recurso de um disco gerenciado diferente.
+O VM precisa de ser interrompido\deallocated, então o ID de recursos do disco gerido pode ser substituído com o ID de recurso de um disco gerido diferente.
 
-Verifique se o tamanho da VM e o tipo de armazenamento são compatíveis com o disco que você deseja anexar. Por exemplo, se o disco que você deseja usar estiver no armazenamento Premium, a VM precisará ser capaz de armazenar o armazenamento Premium (como um tamanho da série DS). Ambos os discos também devem ter o mesmo tamanho.
+Certifique-se de que o tamanho VM e o tipo de armazenamento são compatíveis com o disco que pretende anexar. Por exemplo, se o disco que pretende utilizar estiver no Armazenamento Premium, então o VM precisa de ser capaz de armazenamento premium (como um tamanho da série DS). Ambos os discos também devem ter o mesmo tamanho.
 
-Obter uma lista de discos em um grupo de recursos usando [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
+Obtenha uma lista de discos em um grupo de recursos usando [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
 
 ```azurepowershell-interactive
 Get-AzDisk -ResourceGroupName myResourceGroup | Format-Table -Property Name
 ```
  
-Quando você tiver o nome do disco que deseja usar, defina-o como o disco do sistema operacional para a VM. Este exemplo stop\deallocates a VM denominada *myVM* e atribui o disco chamado *newDisk* como o novo disco do sistema operacional. 
+Quando tiver o nome do disco que gostaria de utilizar, detetetete-o como o disco OS para o VM. Este exemplo stop\deallocates o VM nomeado *myVM* e atribui o disco nomeado *newDisk* como o novo disco OS. 
  
 ```azurepowershell-interactive 
 # Get the VM 
@@ -62,4 +62,4 @@ Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 **Passos seguintes**
 
-Para criar uma cópia de um disco, consulte [instantâneo de um disco](snapshot-copy-managed-disk.md).
+Para criar uma cópia de um disco, consulte [snapshot um disco](snapshot-copy-managed-disk.md).

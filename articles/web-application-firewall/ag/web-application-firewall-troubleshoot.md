@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas-Firewall do aplicativo Web do Azure
-description: Este artigo fornece informações de solução de problemas para o WAF (firewall do aplicativo Web) para Aplicativo Azure gateway
+title: Troubleshoot - Firewall de aplicação web Azure
+description: Este artigo fornece informações de resolução de problemas para firewall de aplicação web (WAF) para Gateway de Aplicação Azure
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,27 +8,27 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 33c85752903edd618044ccbab06aff7df9a791da
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74046198"
 ---
-# <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Solucionar problemas do WAF (firewall do aplicativo Web) para Aplicativo Azure gateway
+# <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Firewall de aplicação web de resolução de problemas (WAF) para Gateway de aplicação Azure
 
-Há algumas coisas que você pode fazer se as solicitações que devem passar pelo firewall do aplicativo Web (WAF) estiverem bloqueadas.
+Existem algumas coisas que pode fazer se os pedidos que devem passar através da sua Firewall de Aplicação Web (WAF) estiverem bloqueados.
 
-Primeiro, verifique se você leu a [visão geral do WAF](ag-overview.md) e os documentos de [configuração do WAF](application-gateway-waf-configuration.md) . Além disso, verifique se você habilitou o [monitoramento de WAF](../../application-gateway/application-gateway-diagnostics.md) esses artigos explicam como o WAF funciona, como a regra WAF define o trabalho e como acessar os logs do WAF.
+Em primeiro lugar, certifique-se de que leu a visão geral da [WAF](ag-overview.md) e os documentos de [configuração waf.](application-gateway-waf-configuration.md) Além disso, certifique-se de que permitiu [a monitorização](../../application-gateway/application-gateway-diagnostics.md) do WAF Estes artigos explicam como funciona a WAF, como funciona a regra WAF e como aceder aos registos waf.
 
-## <a name="understanding-waf-logs"></a>Noções básicas sobre logs do WAF
+## <a name="understanding-waf-logs"></a>Compreender os registos waf
 
-A finalidade dos logs do WAF é mostrar cada solicitação que é correspondida ou bloqueada pelo WAF. É um razão de todas as solicitações avaliadas que são correspondidas ou bloqueadas. Se você observar que o WAF bloqueia uma solicitação que não deveria (um falso positivo), você pode fazer algumas coisas. Primeiro, restrinja e localize a solicitação específica. Examine os logs para localizar o URI específico, o carimbo de data/hora ou a ID da transação da solicitação. Ao encontrar as entradas de log associadas, você pode começar a agir sobre os falsos positivos.
+O objetivo dos registos WAF é mostrar todos os pedidos que são combinados ou bloqueados pela WAF. É um livro-razão de todos os pedidos avaliados que são combinados ou bloqueados. Se notar que o WAF bloqueia um pedido que não deve (um falso positivo), pode fazer algumas coisas. Primeiro, reduza-se, e encontre o pedido específico. Procure nos registos para encontrar o URI específico, carimbo de tempo ou identificação de transação do pedido. Quando encontrar as entradas de registo associadas, pode começar a agir com base nos falsos positivos.
 
-Por exemplo, digamos que você tenha um tráfego legítimo contendo a cadeia de caracteres *1 = 1* que você deseja passar pelo seu WAF. Se você tentar a solicitação, o WAF bloqueará o tráfego que contém a cadeia de caracteres *1 = 1* em qualquer parâmetro ou campo. Essa é uma cadeia de caracteres com frequência associada a um ataque de injeção de SQL. Você pode examinar os logs e ver o carimbo de data/hora da solicitação e as regras que foram bloqueadas/correspondidas.
+Por exemplo, diga que tem um tráfego legítimo contendo a corda *1=1* que pretende passar através do seu WAF. Se tentar o pedido, o WAF bloqueia o tráfego que contém a sua corda *1=1* em qualquer parâmetro ou campo. Esta é uma corda frequentemente associada a um ataque de injeção SQL. Pode ver os registos e ver o carimbo de tempo do pedido e as regras que bloquearam/correspondem.
 
-No exemplo a seguir, você pode ver que quatro regras são disparadas durante a mesma solicitação (usando o campo TransactionId). O primeiro diz que ele correspondeu porque o usuário usou uma URL numérica/IP para a solicitação, o que aumenta a pontuação de anomalias em três, uma vez que é um aviso. A próxima regra correspondente é 942130, que é a que você está procurando. Você pode ver o *1 = 1* no campo `details.data`. Isso aumenta ainda mais a pontuação de anomalias em três, pois também é um aviso. Em geral, cada regra que tem a ação **correspondente** aumenta a pontuação de anomalias e, nesse ponto, a pontuação de anomalias seria seis. Para obter mais informações, consulte [modo de Pontuação de anomalias](ag-overview.md#anomaly-scoring-mode).
+No exemplo seguinte, pode ver que quatro regras são desencadeadas durante o mesmo pedido (utilizando o campo TransactionId). O primeiro diz que correspondeu porque o utilizador usou um URL numérico/IP para o pedido, o que aumenta a pontuação de anomalia em três, uma vez que é um aviso. A próxima regra que correspondeu é 942130, que é a que procura. Pode ver o *1=1* no `details.data` campo. Isto aumenta ainda mais a pontuação da anomalia em três novamente, já que é também um aviso. Geralmente, todas as regras que têm a ação **Igualadas** aumentam a pontuação da anomalia, e neste momento a pontuação de anomalia seria de seis. Para mais informações, consulte o [modo de pontuação Anomaly](ag-overview.md#anomaly-scoring-mode).
 
-As duas entradas finais de log mostram que a solicitação foi bloqueada porque a pontuação de anomalia foi alta o suficiente. Essas entradas têm uma ação diferente das outras duas. Eles mostram que eles realmente *bloquearam* a solicitação. Essas regras são obrigatórias e não podem ser desabilitadas. Eles não devem ser considerados como regras, mas mais como a infra-estrutura principal dos internos do WAF.
+As duas últimas entradas de registo mostram que o pedido foi bloqueado porque a pontuação da anomalia era alta o suficiente. Estas entradas têm uma ação diferente das outras duas. Mostram que *bloquearam* o pedido. Estas regras são obrigatórias e não podem ser desativadas. Não devem ser considerados como regras, mas mais como infraestruturas fundamentais dos internos da WAF.
 
 ```json
 { 
@@ -133,56 +133,56 @@ As duas entradas finais de log mostram que a solicitação foi bloqueada porque 
 }
 ```
 
-## <a name="fixing-false-positives"></a>Corrigindo falsos positivos
+## <a name="fixing-false-positives"></a>Fixação de falsos positivos
 
-Com essas informações, e o conhecimento de que a regra 942130 é aquela que correspondeu a *1 = 1* cadeia de caracteres, você pode fazer algumas coisas para impedir que isso bloqueie seu tráfego:
+Com esta informação, e o conhecimento que a regra 942130 é a que corresponde à corda *1=1,* você pode fazer algumas coisas para impedir que isso bloqueie o seu tráfego:
 
-- Usar uma lista de exclusão
+- Utilize uma Lista de Exclusão
 
-   Consulte [configuração do WAF](application-gateway-waf-configuration.md#waf-exclusion-lists) para obter mais informações sobre listas de exclusão.
-- Desabilite a regra.
+   Consulte a [configuração WAF](application-gateway-waf-configuration.md#waf-exclusion-lists) para obter mais informações sobre listas de exclusão.
+- Desativar a regra.
 
 ### <a name="using-an-exclusion-list"></a>Usando uma lista de exclusão
 
-Para tomar uma decisão informada sobre a manipulação de um falso positivo, é importante se familiarizar com as tecnologias que seu aplicativo usa. Por exemplo, digamos que não haja um SQL Server em sua pilha de tecnologia e você esteja obtendo falsos positivos relacionados a essas regras. Desabilitar essas regras não reduz necessariamente a segurança.
+Para tomar uma decisão informada sobre como lidar com um falso positivo, é importante familiarizar-se com as tecnologias que a sua aplicação utiliza. Por exemplo, digamos que não há um servidor SQL na sua pilha de tecnologia, e está a receber falsos positivos relacionados com essas regras. Desativar essas regras não enfraquece necessariamente a sua segurança.
 
-Um benefício de usar uma lista de exclusão é que apenas uma parte específica de uma solicitação está sendo desabilitada. No entanto, isso significa que uma exclusão específica é aplicável a todo o tráfego que passa pelo seu WAF porque é uma configuração global. Por exemplo, isso pode levar a um problema se *1 = 1* for uma solicitação válida no corpo de um determinado aplicativo, mas não para outros. Outro benefício é que você pode escolher entre o corpo, os cabeçalhos e os cookies a serem excluídos se uma determinada condição for atendida, em vez de excluir a solicitação inteira.
+Um dos benefícios da utilização de uma lista de exclusão é que apenas uma parte específica de um pedido está a ser desativada. No entanto, isto significa que uma exclusão específica é aplicável a todo o tráfego que passa pelo seu WAF porque é um cenário global. Por exemplo, isto pode levar a um problema se *1=1* é um pedido válido no organismo para uma determinada aplicação, mas não para outros. Outro benefício é que você pode escolher entre corpo, cabeçalhos e cookies a excluir se uma determinada condição for satisfeita, em oposição a excluir todo o pedido.
 
-Ocasionalmente, há casos em que parâmetros específicos são passados para o WAF de uma maneira que pode não ser intuitiva. Por exemplo, há um token que é passado durante a autenticação usando Azure Active Directory. Esse token, *__RequestVerificationToken*, geralmente é passado como um cookie de solicitação. No entanto, em alguns casos em que os cookies estão desabilitados, esse token também é passado como um atributo de solicitação ou "ARG". Se isso acontecer, você precisará garantir que *__RequestVerificationToken* também seja adicionada à lista de exclusões como um **nome de atributo de solicitação** .
+Ocasionalmente, há casos em que parâmetros específicos são passados para a WAF de uma forma que pode não ser intuitiva. Por exemplo, há um símbolo que é passado ao autenticar usando o Diretório Ativo Azure. Este símbolo, *__RequestVerificationToken,* geralmente é passado como um Cookie de Pedido. No entanto, em alguns casos em que os cookies são desativados, este token também é passado como um atributo de pedido ou "arg". Se isso acontecer, tem de garantir que *__RequestVerificationToken* é adicionado à lista de exclusão como nome de **atributo do Pedido.**
 
 ![Exclusões](../media/web-application-firewall-troubleshoot/exclusion-list.png)
 
-Neste exemplo, você deseja excluir o nome do **atributo de solicitação** que é igual a *text1*. Isso é aparente porque você pode ver o nome do atributo nos logs de firewall: **dados: dados correspondidos: 1 = 1 encontrado em args: text1:1 = 1**. O atributo é **text1**. Você também pode encontrar esse nome de atributo de outras maneiras, consulte [localizando nomes de atributo de solicitação](#finding-request-attribute-names).
+Neste exemplo, pretende excluir o nome de **atributo do Pedido** que seja igual ao *texto1*. Isto é evidente porque pode ver o nome do atributo nos registos de firewall: **dados: Dados compatíveis: 1=1 encontrados dentro do ARGS:text1: 1=1**. O atributo é **texto 1**. Você também pode encontrar este nome de atributo de várias outras maneiras, ver [encontrar nomes de atributos de pedido](#finding-request-attribute-names)de pedido .
 
-![Listas de exclusão do WAF](../media/web-application-firewall-troubleshoot/waf-config.png)
+![Listas de exclusão da WAF](../media/web-application-firewall-troubleshoot/waf-config.png)
 
-### <a name="disabling-rules"></a>Desabilitando regras
+### <a name="disabling-rules"></a>Regras incapacitantes
 
-Outra maneira de contornar um falso positivo é desabilitar a regra que correspondeu à entrada que o WAF pensou foi mal-intencionado. Como você analisou os logs do WAF e restringiu a regra para 942130, você pode desabilitá-la no portal do Azure. Consulte [Personalizar regras de firewall do aplicativo Web por meio do portal do Azure](application-gateway-customize-waf-rules-portal.md).
+Outra forma de contornar um falso positivo é desativar a regra que correspondia à entrada que a WAF pensava ser maliciosa. Uma vez que analisou os registos waf e reduziu a regra para 942130, pode desativá-la no portal Azure. Consulte personalizar as regras de [firewall da aplicação web através do portal Azure](application-gateway-customize-waf-rules-portal.md).
 
-Um dos benefícios de desabilitar uma regra é que, se você souber que todo o tráfego que contém uma determinada condição que normalmente será bloqueada é um tráfego válido, poderá desabilitar essa regra para todo o WAF. No entanto, se ele for apenas um tráfego válido em um caso de uso específico, você abrirá uma vulnerabilidade desabilitando essa regra para o WAF inteiro, uma vez que ela é uma configuração global.
+Um dos benefícios de desativar uma regra é que se souber todo o tráfego que contenha uma determinada condição que normalmente será bloqueada é o tráfego válido, pode desativar essa regra para toda a WAF. No entanto, se for apenas um tráfego válido num caso de uso específico, abre-se uma vulnerabilidade desativando essa regra para toda a WAF, uma vez que é um cenário global.
 
-Se você quiser usar Azure PowerShell, consulte [Personalizar as regras de firewall do aplicativo Web por meio do PowerShell](application-gateway-customize-waf-rules-powershell.md). Se você quiser usar CLI do Azure, consulte [Personalizar regras de firewall do aplicativo Web por meio do CLI do Azure](application-gateway-customize-waf-rules-cli.md).
+Se quiser utilizar o Azure PowerShell, consulte personalizar as regras de firewall da [aplicação web através do PowerShell](application-gateway-customize-waf-rules-powershell.md). Se quiser utilizar o Azure CLI, consulte Personalizar as regras de firewall da [aplicação web através do Azure CLI](application-gateway-customize-waf-rules-cli.md).
 
-![Regras de WAF](../media/web-application-firewall-troubleshoot/waf-rules.png)
+![Regras waf](../media/web-application-firewall-troubleshoot/waf-rules.png)
 
-## <a name="finding-request-attribute-names"></a>Localizando nomes de atributo de solicitação
+## <a name="finding-request-attribute-names"></a>Encontrar nomes de atributos de pedido
 
-Com a ajuda do [Fiddler](https://www.telerik.com/fiddler), você inspeciona solicitações individuais e determina quais campos específicos de uma página da Web são chamados. Isso pode ajudar a excluir determinados campos da inspeção usando listas de exclusão.
+Com a ajuda do [Fiddler,](https://www.telerik.com/fiddler)inspeciona os pedidos individuais e determina quais os campos específicos de uma página web. Isto pode ajudar a excluir certos campos da inspeção utilizando listas de exclusão.
 
-Neste exemplo, você pode ver que o campo onde a cadeia de caracteres *1 = 1* foi inserida é chamado **text1**.
+Neste exemplo, pode ver que o campo onde a corda *1=1* foi introduzida é chamado **texto1**.
 
 ![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-1.png)
 
-Esse é um campo que você pode excluir. Para saber mais sobre listas de exclusão, consulte [limites de tamanho de solicitação de firewall do aplicativo Web e listas de exclusão](application-gateway-waf-configuration.md#waf-exclusion-lists). Você pode excluir a avaliação nesse caso Configurando a seguinte exclusão:
+Este é um campo que pode excluir. Para saber mais sobre listas de exclusão, consulte os limites de tamanho do pedido de firewall de [aplicação Web e listas de exclusão](application-gateway-waf-configuration.md#waf-exclusion-lists). Pode excluir a avaliação neste caso configurando a seguinte exclusão:
 
-![WAF exclusão](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
+![Exclusão waf](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
 
-Você também pode examinar os logs de firewall para obter as informações para ver o que precisa adicionar à lista de exclusões. Para habilitar o registro em log, consulte [integridade de back-end, logs de diagnóstico e métricas para o gateway de aplicativo](../../application-gateway/application-gateway-diagnostics.md).
+Também pode examinar os registos de firewall para obter a informação para ver o que precisa adicionar à lista de exclusão. Para permitir a exploração madeireira, consulte a [saúde de back-end, os registos de diagnóstico e as métricas para o Gateway](../../application-gateway/application-gateway-diagnostics.md)da Aplicação .
 
-Examine o log do firewall e exiba o arquivo PT1H. JSON para a hora em que a solicitação que você deseja inspecionar ocorreu.
+Examine o registo de firewall e veja o ficheiro PT1H.json durante a hora que o pedido que pretende inspecionar ocorreu.
 
-Neste exemplo, você pode ver que tem quatro regras com o mesmo TransactionId e que todas elas ocorreram ao mesmo tempo:
+Neste exemplo, pode ver que tem quatro regras com o mesmo TransactionID, e que todas ocorreram exatamente ao mesmo tempo:
 
 ```json
 -   {
@@ -287,51 +287,51 @@ Neste exemplo, você pode ver que tem quatro regras com o mesmo TransactionId e 
 -   }
 ```
 
-Com o seu conhecimento de como a regra CRS define o funcionamento e que o conjunto de regras do CRS 3,0 funciona com um sistema de Pontuação de anomalias (consulte [Firewall do aplicativo Web para gateway de aplicativo Azure](ag-overview.md)), você sabe que as duas últimas regras com a **ação: Propriedade bloqueada** estão bloqueando com base na pontuação total de anomalias. As regras para se concentrar são as duas principais.
+Com o seu conhecimento de como a regra do CRS funciona, e que a regra do CRS 3.0 funciona com um sistema de pontuação de anomalias (ver Firewall de aplicação web para Gateway de [aplicação azure)](ag-overview.md)sabe que as duas regras inferiores com a **ação: A** propriedade bloqueada está bloqueando com base na pontuação total de anomalias. As regras em que nos concentrarsão são as duas primeiras.
 
-A primeira entrada é registrada porque o usuário usou um endereço IP numérico para navegar até o gateway de aplicativo, que pode ser ignorado nesse caso.
+A primeira entrada é registada porque o utilizador usou um endereço IP numérico para navegar para o Gateway da Aplicação, o que pode ser ignorado neste caso.
 
-A segunda (regra 942130) é a interessante. Você pode ver nos detalhes que ele correspondeu a um padrão (1 = 1) e o campo é chamado de **text1**. Siga as mesmas etapas anteriores para excluir o **nome do atributo de solicitação** que **é igual** a **1 = 1**.
+A segunda (regra 942130) é a interessante. Pode ver nos detalhes que corresponde a um padrão (1=1), e o campo é chamado **texto1**. Siga os mesmos passos anteriores para excluir o Nome do **Atributo pedido** que **equivale a** **1=1**.
 
-## <a name="finding-request-header-names"></a>Localizando nomes de cabeçalho de solicitação
+## <a name="finding-request-header-names"></a>Encontrar nomes de cabeçalho de pedido
 
-O Fiddler é uma ferramenta útil mais uma vez para localizar nomes de cabeçalho de solicitação. Na captura de tela a seguir, você pode ver os cabeçalhos dessa solicitação GET, que incluem *Content-Type*, *User-Agent*e assim por diante.
+Fiddler é uma ferramenta útil mais uma vez para encontrar nomes de cabeçalho de pedido. Na seguinte imagem, pode ver os cabeçalhos para este pedido GET, que incluem *Conteúdo-Tipo,* *User-Agent,* e assim por diante.
 
 ![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
 
-Outra maneira de exibir cabeçalhos de solicitação e resposta é procurar nas ferramentas de desenvolvedor do Chrome. Você pode pressionar F12 ou clicar com o botão direito do mouse > **inspecionar** -> **ferramentas para desenvolvedores**e selecionar a guia **rede** . Carregue uma página da Web e clique na solicitação que você deseja inspecionar.
+Outra forma de ver os cabeçalhos de pedido e resposta é olhar para dentro das ferramentas de desenvolvimento do Chrome. Pode premir F12 ou clicar à direita -> **Inspecione** -> **as Ferramentas**de Desenvolvimento, e selecione o separador **Rede.** Carregue uma página web e clique no pedido que pretende inspecionar.
 
 ![Chrome F12](../media/web-application-firewall-troubleshoot/chrome-f12.png)
 
-## <a name="finding-request-cookie-names"></a>Localizando nomes de cookie de solicitação
+## <a name="finding-request-cookie-names"></a>Encontrar nomes de cookies de pedido
 
-Se a solicitação contiver cookies, a guia **cookies** poderá ser selecionada para exibi-los no Fiddler.
+Se o pedido contiver cookies, o separador **Cookies** pode ser selecionado para vê-los no Fiddler.
 
-## <a name="restrict-global-parameters-to-eliminate-false-positives"></a>Restringir parâmetros globais para eliminar falsos positivos
+## <a name="restrict-global-parameters-to-eliminate-false-positives"></a>Restringir os parâmetros globais para eliminar falsos positivos
 
-- Desabilitar inspeção do corpo da solicitação
+- Inspeção corporal de pedido de desativação
 
-   Ao definir o **corpo da solicitação de inspeção** como desativado, os corpos de solicitação de todo o tráfego não serão avaliados pelo seu WAF. Isso pode ser útil se você souber que os corpos de solicitação não são mal-intencionados para seu aplicativo.
+   Ao definir o organismo de **pedido de inspeção** para desligar, os corpos de pedido de todo o tráfego não serão avaliados pela sua WAF. Isto pode ser útil se souber que os órgãos de pedido não são maliciosos para a sua aplicação.
 
-   Ao desabilitar essa opção, apenas o corpo da solicitação não é inspecionado. Os cabeçalhos e cookies permanecem inspecionados, a menos que sejam excluídos usando a funcionalidade da lista de exclusão.
+   Ao desativar esta opção, apenas o organismo de pedido não é inspecionado. Os cabeçalhos e os cookies permanecem inspecionados, a menos que os individuais sejam excluídos utilizando a funcionalidade da lista de exclusão.
 
-- Limites de tamanho de arquivo
+- Limites de tamanho de ficheiro
 
-   Limitando o tamanho do arquivo para seu WAF, você está limitando a possibilidade de um ataque ocorrer em seus servidores Web. Ao permitir que arquivos grandes sejam carregados, o risco de seu back-end ser sobrecarregado aumenta. Limitar o tamanho do arquivo a um caso de uso normal para seu aplicativo é apenas outra maneira de evitar ataques.
+   Ao limitar o tamanho do ficheiro para o seu WAF, está a limitar a possibilidade de um ataque acontecer aos seus servidores web. Ao permitir o upload de ficheiros grandes, o risco de o seu backend ser sobrecarregado aumenta. Limitar o tamanho do ficheiro a um caso de utilização normal para a sua aplicação é apenas mais uma forma de prevenir ataques.
 
    > [!NOTE]
-   > Se você sabe que seu aplicativo nunca precisará de nenhum carregamento de arquivo acima de um determinado tamanho, você pode restringir isso ao definir um limite.
+   > Se souber que a sua aplicação nunca precisará de qualquer upload de ficheiro acima de um determinado tamanho, pode restringir isso estabelecendo um limite.
 
-## <a name="firewall-metrics-waf_v1-only"></a>Métricas de firewall (somente WAF_v1)
+## <a name="firewall-metrics-waf_v1-only"></a>Métricas de Firewall (apenas WAF_v1)
 
-Para firewalls de aplicativo Web v1, as seguintes métricas agora estão disponíveis no Portal: 
+Para firewalls de aplicação web v1, as seguintes métricas estão agora disponíveis no portal: 
 
-1. Contagem de solicitação bloqueada do firewall do aplicativo Web o número de solicitações que foram bloqueadas
-2. A regra bloqueada de firewall do aplicativo Web conta todas as regras que foram correspondidas **e** a solicitação foi bloqueada
-3. Distribuição de regra total do firewall do aplicativo Web todas as regras que foram correspondidas durante a avaliação
+1. Contagem de pedidos bloqueados por firewall de aplicação web O número de pedidos que foram bloqueados
+2. Firewall firewall firewall bloqueado Regra Contagem Todas as regras que foram correspondidas **e** o pedido foi bloqueado
+3. Distribuição total de regras da firewall da aplicação web Todas as regras que foram correspondidas durante a avaliação
      
-Para habilitar as métricas, selecione a guia **métricas** no portal e selecione uma das três métricas.
+Para ativar as métricas, selecione o separador **Métricas** no portal e selecione uma das três métricas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [como configurar o Firewall do aplicativo Web no gateway de aplicativo](tutorial-restrict-web-traffic-powershell.md).
+Ver [Como configurar a firewall](tutorial-restrict-web-traffic-powershell.md)da aplicação web no Gateway da aplicação .

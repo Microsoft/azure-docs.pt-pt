@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 07/20/2019
 ms.author: victorh
 ms.openlocfilehash: 3064def2eac0aaee5c04f7ab736cf539ae372cb4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359899"
 ---
-# <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Gerenciar o tráfego da Web com um gateway de aplicativo usando o CLI do Azure
+# <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Gerir o tráfego da Web com um gateway de aplicação com a CLI do Azure
 
-O gateway de aplicação serve para gerir e proteger o tráfego da Web para os servidores que mantém. Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md) que usa um conjunto de dimensionamento de [máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores de back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual. O conjunto de dimensionamento é adicionado ao pool de back-end padrão do gateway de aplicativo.
+O gateway de aplicação serve para gerir e proteger o tráfego da Web para os servidores que mantém. Pode utilizar o Azure CLI para criar um portal de [aplicação](overview.md) que utiliza um conjunto de escala de [máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores de backend. Neste exemplo, o conjunto de escala contém duas caixas de máquinas virtuais. O conjunto de escala é adicionado ao conjunto de backend padrão do gateway de aplicação.
 
 Neste artigo, vai aprender a:
 
@@ -25,13 +25,13 @@ Neste artigo, vai aprender a:
 > * Criar um gateway de aplicação
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
-Se preferir, você pode concluir este procedimento usando [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
+Se preferir, pode concluir este procedimento utilizando [o Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá que você execute o CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este quickstart requer que execute a versão 2.0.4 do Azure CLI ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -71,7 +71,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-Utilize [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente. 
+Utilize [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. O gateway da aplicação é atribuído ao *myAGSubnet* e *ao myPublicIPAddress* que criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -89,7 +89,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- A criação do gateway de aplicação pode demorar vários minutos. Depois que o gateway de aplicativo for criado, você verá esses novos recursos:
+ A criação do gateway de aplicação pode demorar vários minutos. Após a criação do gateway da aplicação, você verá estas novas funcionalidades:
 
 - *appGatewayBackendPool* - um gateway de aplicação tem de ter, pelo menos, um conjunto de endereços de back-end.
 - *appGatewayBackendHttpSettings* - especifica que a porta 80 e um protocolo HTTP são utilizados para a comunicação.
@@ -153,6 +153,6 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 az group delete --name myResourceGroupAG --location eastus
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Restringir o tráfego da Web com uma firewall de aplicações Web](./tutorial-restrict-web-traffic-cli.md)

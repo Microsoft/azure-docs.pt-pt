@@ -1,5 +1,5 @@
 ---
-title: Restaurar um backup para uma instância gerenciada
+title: Restaurar uma cópia de segurança para a instância gerida
 description: Restaure uma cópia de segurança para uma Instância Gerida da Base de Dados SQL do Azure através do SSMS.
 services: sql-database
 ms.service: sql-database
@@ -12,43 +12,43 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
 ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73825700"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: restaurar um banco de dados para um Instância Gerenciada
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Quickstart: Restaurar uma base de dados para uma instância gerida
 
-Neste guia de início rápido, você usará SQL Server Management Studio (SSMS) para restaurar um banco de dados (o arquivo de backup padrão Wide World Importers) do armazenamento de BLOBs do Azure para um banco de dados SQL do Azure [instância gerenciada](sql-database-managed-instance.md).
+Neste arranque rápido, utilizará o SQL Server Management Studio (SSMS) para restaurar uma base de dados (o Wide World Importers - Ficheiro de backup standard) do armazenamento Azure Blob numa [instância gerida](sql-database-managed-instance.md)pela Base de Dados Azure SQL.
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> Para obter mais informações sobre a migração usando o serviço de migração de banco de dados do Azure (DMS), consulte [migração de instância gerenciada usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-> Para obter mais informações sobre vários métodos de migração, consulte [SQL Server instância de migração para instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-migrate.md).
+> Para obter mais informações sobre migração utilizando o Serviço de Migração de Bases de Dados Azure (DMS), consulte a migração de [instâncias geridas utilizando DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+> Para obter mais informações sobre vários métodos de migração, consulte a migração por exemplo do SQL Server para a Instância gerida pela Base de [Dados Azure SQL](sql-database-managed-instance-migrate.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este guia de início rápido:
 
-- Usa recursos do guia de início rápido [criar um instância gerenciada](sql-database-managed-instance-get-started.md) .
-- Requer que o computador tenha as [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) mais recentes instaladas.
-- Requer o uso do SSMS para se conectar ao seu Instância Gerenciada. Consulte estes guias de início rápido sobre como se conectar:
-  - [Habilitar ponto de extremidade público](sql-database-managed-instance-public-endpoint-configure.md) em instância gerenciada-essa é uma abordagem recomendada para este tutorial.
+- Utiliza recursos do início rápido da [Create a Managed Instance.](sql-database-managed-instance-get-started.md)
+- Requer que o seu computador tenha o mais recente Estúdio de [Gestão de Servidores SQL](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) instalado.
+- Requer a utilização de SSMS para se ligar à sua Instância Gerida. Veja estes quickstarts sobre como ligar:
+  - [Ativar o ponto final público](sql-database-managed-instance-public-endpoint-configure.md) em Caso Gerido - esta é uma abordagem recomendada para este tutorial.
   - [Ligar a uma Instância Gerida da Base de Dados SQL do Azure a partir de uma VM do Azure](sql-database-managed-instance-configure-vm.md)
-  - [Configure uma conexão ponto a site com um instância gerenciada do banco de dados SQL do Azure local](sql-database-managed-instance-configure-p2s.md).
+  - [Configure uma ligação ponto-a-local a uma base de dados Azure SQL Gerida a partir do local](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
-> Para obter mais informações sobre como fazer backup e restaurar um banco de dados SQL Server usando o armazenamento de BLOBs do Azure e uma [chave de assinatura de acesso compartilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consulte [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> Para obter mais informações sobre o backup e restauro de uma base de dados do SQL Server utilizando o armazenamento Do Blob e uma [chave Signature de Acesso Partilhado (SAS),](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)consulte a Cópia de Segurança do Servidor [SQL para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
-## <a name="restore-the-database-from-a-backup-file"></a>Restaurar o banco de dados de um arquivo de backup
+## <a name="restore-the-database-from-a-backup-file"></a>Restaurar a base de dados de um ficheiro de cópia de segurança
 
-No SSMS, siga estas etapas para restaurar o banco de dados de importadores mundiais para seu Instância Gerenciada. O arquivo de backup do banco de dados é armazenado em uma conta de armazenamento de BLOBs do Azure pré-configurada.
+No SSMS, siga estes passos para restaurar a base de dados dos Importadores do Mundo Largo para a sua Instância Gerida. O ficheiro de backup da base de dados é armazenado numa conta de armazenamento Azure Blob pré-configurada.
 
-1. Abra SMSS e conecte-se ao seu Instância Gerenciada.
-2. No menu à esquerda, clique com o botão direito do mouse no Instância Gerenciada e selecione **nova consulta** para abrir uma nova janela de consulta.
-3. Execute o seguinte script SQL, que usa uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) em seu instância gerenciada.
+1. Abra o SMSS e ligue-se à sua Instância Gerida.
+2. A partir do menu à esquerda, clique na direita na sua Instância Gerida e selecione **New Consulta** para abrir uma nova janela de consulta.
+3. Executar o seguinte script SQL, que usa uma conta de armazenamento pré-configurada e chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) na sua Instância Gerida.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
@@ -58,7 +58,7 @@ No SSMS, siga estas etapas para restaurar o banco de dados de importadores mundi
 
     ![Criar credencial](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-4. Para verificar sua credencial, execute o script a seguir, que usa uma URL de [contêiner](https://azure.microsoft.com/services/container-instances/) para obter uma lista de arquivos de backup.
+4. Para verificar a sua credencial, execute o seguinte script, que utiliza um URL de [recipiente](https://azure.microsoft.com/services/container-instances/) para obter uma lista de ficheiros de reserva.
 
    ```sql
    RESTORE FILELISTONLY FROM URL =
@@ -67,7 +67,7 @@ No SSMS, siga estas etapas para restaurar o banco de dados de importadores mundi
 
     ![lista de ficheiros](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-5. Execute o script a seguir para restaurar o banco de dados de importadores mundiais.
+5. Execute o seguinte guião para restaurar a base de dados dos Importadores do Mundo Largo.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -76,7 +76,7 @@ No SSMS, siga estas etapas para restaurar o banco de dados de importadores mundi
 
     ![restore](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-6. Execute o script a seguir para acompanhar o status da restauração.
+6. Execute o seguinte script para rastrear o estado do seu restauro.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
@@ -86,14 +86,14 @@ No SSMS, siga estas etapas para restaurar o banco de dados de importadores mundi
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Quando a restauração for concluída, exiba o banco de dados no Pesquisador de objetos. Você pode verificar se a restauração do banco de dados foi concluída usando o modo de exibição [Sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
+7. Quando o restauro estiver concluído, consulte a base de dados no Object Explorer. Pode verificar se a restauração da base de dados está concluída utilizando [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) visualização.
 
 > [!NOTE]
-> A operação de restauração de banco de dados é assíncrona e passível. Você pode receber algum erro SQL Server Management Studio se quebras de conexão ou algum tempo limite expirar. O banco de dados SQL do Azure continuará tentando restaurar o banco de dados em segundo plano e você poderá acompanhar o progresso da restauração usando as exibições [Sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [Sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
-> Em algumas fases do processo de restauração, você verá o identificador exclusivo em vez do nome real do banco de dados nas exibições do sistema. Saiba mais sobre as diferenças de comportamento de instrução de `RESTORE` [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
+> A operação de restauro da base de dados é assíncrona e retriável. Pode ter algum erro é o SQL Server Management Studio se a ligação se rompe ou algum tempo de saída expirar. A Base de Dados Azure SQL continuará a tentar restaurar a base de dados em segundo plano, podendo acompanhar o progresso da restauração utilizando as vistas [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)
+> Em algumas fases do processo de restauro, você verá identificador único em vez de nome real de base de dados nas vistas do sistema. Conheça `RESTORE` as diferenças de comportamento da afirmação [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para solucionar problemas de backup em uma URL, consulte [SQL Server práticas recomendadas de backup para URL e solução de problemas](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
-- Para obter uma visão geral das opções de conexão de aplicativo, consulte [conectar seus aplicativos ao instância gerenciada](sql-database-managed-instance-connect-app.md).
-- Para consultar usando suas ferramentas ou linguagens favoritas, consulte [inícios rápidos: conexão e consulta do banco de dados SQL do Azure](sql-database-connect-query.md).
+- Para resolver um backup para um URL, consulte [o SQL Server Backup para URL Best Practices e Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
+- Para uma visão geral das opções de ligação de aplicações, consulte [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
+- Para consultar utilizando as suas ferramentas ou idiomas favoritos, consulte [Quickstarts: Azure SQL Database Connect and Query](sql-database-connect-query.md).

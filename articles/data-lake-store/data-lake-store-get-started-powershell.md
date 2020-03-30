@@ -1,45 +1,45 @@
 ---
-title: Introdução ao Azure Data Lake Storage Gen1-PowerShell | Microsoft Docs
-description: Use Azure PowerShell para criar uma conta de Azure Data Lake Storage Gen1 e executar operações básicas.
+title: Inicie com Azure Data Lake Storage Gen1 - PowerShell Microsoft Docs
+description: Utilize o Azure PowerShell para criar uma conta Azure Data Lake Storage Gen1 e realizar operações básicas.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 42ddab6991b418af3e41da9966cdab69ded87461
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837897"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Introdução ao Azure Data Lake Storage Gen1 usando Azure PowerShell
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Inicie-se com o Azure Data Lake Storage Gen1 usando o Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [CLI do Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 >
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Saiba como usar Azure PowerShell para criar uma conta de Azure Data Lake Storage Gen1 e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre Data Lake Storage Gen1, consulte [visão geral do data Lake Storage Gen1](data-lake-store-overview.md).
+Saiba como usar o Azure PowerShell para criar uma conta Azure Data Lake Storage Gen1 e realizar operações básicas como criar pastas, carregar e transferir ficheiros de dados, eliminar a sua conta, etc. Para mais informações sobre data Lake Storage Gen1, consulte [a visão geral do Data Lake Storage Gen1](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="authentication"></a>Autenticação
 
-Este artigo usa uma abordagem de autenticação mais simples com Data Lake Storage Gen1 em que você será solicitado a inserir suas credenciais de conta do Azure. O nível de acesso para Data Lake Storage Gen1 conta e sistema de arquivos é governado pelo nível de acesso do usuário conectado. No entanto, há outras abordagens para autenticar com Data Lake Storage Gen1, que são a autenticação do usuário final ou a autenticação serviço a serviço. Para obter instruções e obter mais informações sobre como autenticar, veja [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
+Este artigo utiliza uma abordagem de autenticação mais simples com data Lake Storage Gen1 onde é solicitado a introduzir as credenciais da sua conta Azure. O nível de acesso à conta e sistema de ficheiros Data Lake Storage Gen1 é então regido pelo nível de acesso do registado no utilizador. No entanto, existem outras abordagens para autenticar com data Lake Storage Gen1, que são autenticação de utilizador final ou autenticação de serviço-a-serviço. Para obter instruções e obter mais informações sobre como autenticar, veja [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta de Data Lake Storage Gen1
+## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta do Data Lake Storage Gen1
 
-1. No ambiente de trabalho, abra uma nova janela do Windows PowerShell. Insira o trecho a seguir para fazer logon em sua conta do Azure, defina a assinatura e registre o provedor de Data Lake Storage Gen1. Quando for solicitado a fazer logon, certifique-se de fazer logon como um dos administradores/proprietário da assinatura:
+1. No ambiente de trabalho, abra uma nova janela do Windows PowerShell. Insira o seguinte corte para iniciar sessão na sua conta Azure, definir a subscrição e registar o fornecedor data Lake Storage Gen1. Quando for solicitado para iniciar sessão, certifique-se de que faz login como um dos administradores/proprietários de subscrição:
 
     ```PowerShell
     # Log in to your Azure account
@@ -55,23 +55,23 @@ Este artigo usa uma abordagem de autenticação mais simples com Data Lake Stora
     Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
     ```
 
-1. Uma conta de Data Lake Storage Gen1 está associada a um grupo de recursos do Azure. Comece criando um grupo de recursos.
+1. Uma conta de Data Lake Storage Gen1 está associada a um grupo de recursos Azure. Comece por criar um grupo de recursos.
 
     ```PowerShell
     $resourceGroupName = "<your new resource group name>"
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    ![Criar um grupo de recursos do Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Criar um Grupo de Recursos do Azure")
+    ![Criar um Grupo de Recursos Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Criar um Grupo de Recursos do Azure")
 
-1. Crie uma conta de Data Lake Storage Gen1. O nome que especificar só pode conter minúsculas e números.
+1. Crie uma conta Gen1 de Armazenamento de Data Lake. O nome que especificar só pode conter minúsculas e números.
 
     ```PowerShell
     $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 account name>"
     New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
     ```
 
-    ![Criar uma conta de Data Lake Storage Gen1](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Criar uma conta de Data Lake Storage Gen1")
+    ![Criar uma conta do Data Lake Storage Gen1](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Criar uma conta do Data Lake Storage Gen1")
 
 1. Certifique-se de que a conta foi criada com êxito.
 
@@ -83,7 +83,7 @@ Este artigo usa uma abordagem de autenticação mais simples com Data Lake Stora
 
 ## <a name="create-directory-structures"></a>Criar estruturas de diretório
 
-Você pode criar diretórios em sua conta do Data Lake Storage Gen1 para gerenciar e armazenar dados.
+Pode criar diretórios sob a sua conta Data Lake Storage Gen1 para gerir e armazenar dados.
 
 1. Especifique um diretório de raiz.
 
@@ -105,11 +105,11 @@ Você pode criar diretórios em sua conta do Data Lake Storage Gen1 para gerenci
 
     Deve ser apresentado como uma saída, conforme mostrado na captura de ecrã seguinte:
 
-    ![Verificar diretório](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verificar Diretório")
+    ![Verificar Diretório](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verificar Diretório")
 
 ## <a name="upload-data"></a>Carregar dados
 
-Você pode carregar seus dados para Data Lake Storage Gen1 diretamente no nível raiz ou em um diretório que você criou na conta. Os fragmentos nesta secção demonstram como carregar alguns dados de exemplo para o diretório (**mynewdirectory**) que criou na secção anterior.
+Pode fazer o upload dos seus dados para data Lake Storage Gen1 diretamente ao nível da raiz, ou para um diretório que criou dentro da conta. Os fragmentos nesta secção demonstram como carregar alguns dados de exemplo para o diretório (**mynewdirectory**) que criou na secção anterior.
 
 Se estiver à procura de alguns dados de exemplo para carregar, pode obter a pasta **Ambulance Data** a partir do [Repositório de Git do Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Transfira o ficheiro e armazene-o num diretório local no seu computador, como C:\sampledata\.
 
@@ -119,7 +119,7 @@ Import-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name `
    -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 ```
 
-## <a name="rename-download-and-delete-data"></a>Renomear, baixar e excluir dados
+## <a name="rename-download-and-delete-data"></a>Mudar nome, transferir e eliminar dados
 
 Para mudar o nome de um ficheiro, utilize o seguinte comando:
 
@@ -151,9 +151,9 @@ Remove-AzDataLakeStoreItem -AccountName $dataLakeStorageGen1Name `
     -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 ```
 
-## <a name="delete-your-account"></a>Excluir sua conta
+## <a name="delete-your-account"></a>Eliminar a sua conta
 
-Use o comando a seguir para excluir sua conta de Data Lake Storage Gen1.
+Utilize o seguinte comando para eliminar a sua conta Data Lake Storage Gen1.
 
 ```PowerShell
 Remove-AzDataLakeStoreAccount -Name $dataLakeStorageGen1Name
@@ -163,8 +163,8 @@ Quando lhe for pedido, introduza **S** para eliminar a conta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Diretrizes de ajuste de desempenho para usar o PowerShell com Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
-* [Usar Azure Data Lake Storage Gen1 para requisitos de Big Data](data-lake-store-data-scenarios.md)
+* [Orientação de afinação de desempenho para a utilização da PowerShell com o Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
+* [Use o Azure Data Lake Storage Gen1 para grandes necessidades de dados](data-lake-store-data-scenarios.md)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
-* [Usar Azure Data Lake Analytics com Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usar o Azure HDInsight com o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Use Azure Data Lake Analytics com Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use Azure HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

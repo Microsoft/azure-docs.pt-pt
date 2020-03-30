@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 47dc1a84fbc80925e5b65db8c03683f9f026271b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2d7ea5618f4c0e8b6d348ea6c34127492b3e1096
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194993"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457411"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para cofre chave Azure
 
@@ -35,7 +35,7 @@ Aqui estão alguns exemplos de como pode utilizar pontos finais de serviço:
 * Você quer bloquear o acesso ao seu cofre chave para que apenas a sua aplicação, ou uma pequena lista de anfitriões designados, possa ligar-se ao seu cofre chave.
 * Tem uma aplicação em execução na sua rede virtual Azure, e esta rede virtual está bloqueada para todo o tráfego de entrada e saída. A sua aplicação ainda precisa de se ligar ao Key Vault para obter segredos ou certificados, ou usar chaves criptográficas.
 
-## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Configure firewalls de cofre chave e redes virtuais
+## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Configurar firewalls e redes virtuais do Key Vault
 
 Aqui estão os passos necessários para configurar firewalls e redes virtuais. Estes passos aplicam-se quer esteja a utilizar o PowerShell, o Azure CLI ou o portal Azure.
 
@@ -54,7 +54,7 @@ Para mais informações, consulte as firewalls do [Cofre chave Configure Azure e
 > Esteja atento às seguintes limitações de configuração:
 > * São permitidas 127 regras de rede virtual e 127 regras iPv4. 
 > * Não são suportadas gamas de endereços pequenos que utilizem os tamanhos de prefixo "/31" ou "/32". Em vez disso, configure estas gamas utilizando regras individuais de endereço IP.
-> * As regras da rede IP só são permitidas para endereços IP públicos. As gamas de endereços IP reservadas para redes privadas (tal como definidas no RFC 1918) não são permitidas nas regras ip. As redes privadas incluem endereços que começam com **10.** , **172.16-31**e **192.168.** 
+> * As regras da rede IP só são permitidas para endereços IP públicos. As gamas de endereços IP reservadas para redes privadas (tal como definidas no RFC 1918) não são permitidas nas regras ip. As redes privadas incluem endereços que começam com **10.**, **172.16-31**e **192.168.** 
 > * Apenas os endereços IPv4 são suportados neste momento.
 
 ## <a name="trusted-services"></a>Serviços de confiança
@@ -67,9 +67,9 @@ Aqui está uma lista de serviços fidedignos que são autorizados a aceder a um 
 |Serviço de implementação de modelo de gestor de recursos Azure|[Passe valores seguros durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md).|
 |Serviço de encriptação de volume de encriptação de disco azure|Permitir o acesso à Chave BitLocker (Windows VM) ou dM Passphrase (Linux VM) e chave de encriptação de chaves, durante a implementação da máquina virtual. Isto permite a encriptação do [disco Azure](../security/fundamentals/encryption-overview.md).|
 |Azure Backup|Permitir a cópia de segurança e restaurar as chaves e segredos relevantes durante a cópia de segurança das Máquinas Virtuais Azure, utilizando [o Backup Azure](../backup/backup-introduction-to-azure-backup.md).|
-|Troca online e sharePoint online|Permitir o acesso à chave do cliente para encriptação do serviço de armazenamento Azure com [chave do cliente](/microsoft-365/compliance/customer-key-overview).|
+|Troca online & SharePoint Online|Permitir o acesso à chave do cliente para encriptação do serviço de armazenamento Azure com [chave do cliente](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Permitir o acesso à chave de inquilinos para [a Proteção de Informação Azure.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Serviço de Aplicações do Azure|[Implemente o certificado de aplicação web Azure através do cofre da chave.](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)|
+|App Service do Azure|[Implemente o certificado de aplicação web Azure através do cofre da chave.](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)|
 |Base de Dados SQL do Azure|[Encriptação transparente de dados com trazer o seu próprio suporte chave para base de dados Azure SQL e Armazém de Dados](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Storage do Azure|[Encriptação do serviço de armazenamento utilizando chaves geridas pelo cliente no Cofre de Chaves Azure](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Encriptação de dados na Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) com uma chave gerida pelo cliente.|
@@ -78,7 +78,7 @@ Aqui está uma lista de serviços fidedignos que são autorizados a aceder a um 
 |Azure Data Factory|[Buscar credenciais de loja de dados no Cofre chave da Fábrica de Dados](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[Permitir o acesso a um cofre chave para o cenário de chaves gerida pelo cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Service Bus do Azure|[Permitir o acesso a um cofre chave para o cenário de chaves gerida pelo cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
-
+|Importar/Exportar do Microsoft Azure| [Utilize chaves geridas pelo cliente no Cofre chave Azure para serviço de importação/exportação](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
 
 > [!NOTE]
 > Deve configurar as políticas de acesso ao Cofre chave relevantes para permitir que os serviços correspondentes tenham acesso ao Key Vault.

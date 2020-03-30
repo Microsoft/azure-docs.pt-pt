@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: enviar eventos personalizados para os hubs de eventos-grade de eventos, CLI do Azure'
-description: 'Início rápido: Use a grade de eventos do Azure e CLI do Azure para publicar um tópico e assinar esse evento. É utilizado um hub de eventos para o ponto final.'
+title: 'Quickstart: Envie eventos personalizados para Hubs de Eventos - Rede de Eventos, Azure CLI'
+description: 'Quickstart: Use Azure Event Grid e Azure CLI para publicar um tópico e subscrever esse evento. É utilizado um hub de eventos para o ponto final.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 832c4e453befc9e54051c968e0c364d22afd2bc2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73721418"
 ---
-# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Início rápido: rotear eventos personalizados para hubs de eventos do Azure com CLI do Azure e grade de eventos
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Quickstart: Rota eventos personalizados para Hubs de Eventos Azure com Azure CLI e Grid de Eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. Os Hubs de Eventos do Azure é um dos processadores de eventos suportados. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Envia eventos para um hub de eventos.
 
@@ -59,7 +59,7 @@ az eventhubs eventhub create --name $hubname --namespace-name $namespace --resou
 
 ## <a name="subscribe-to-a-custom-topic"></a>Subscrever um tópico personalizado
 
-Você assina um tópico da grade de eventos para informar à grade de eventos quais eventos você deseja rastrear. O exemplo a seguir assina o tópico personalizado que você criou e passa a ID de recurso do hub de eventos para o ponto de extremidade. O ponto final está no formato:
+Subscreva um tópico da grelha de eventos para dizer ao Event Grid quais os eventos que pretende acompanhar. O exemplo seguinte subscreve o tópico personalizado que criou e passa a identificação de recursos do centro de eventos para o ponto final. O ponto final está no formato:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.EventHub/namespaces/<namespace-name>/eventhubs/<hub-name>`
 

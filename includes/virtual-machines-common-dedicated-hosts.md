@@ -9,17 +9,17 @@ ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79129432"
 ---
 ## <a name="limitations"></a>Limitações
 
 - Os conjuntos de escala de máquinas virtuais não são atualmente suportados em anfitriões dedicados.
 
-## <a name="benefits"></a>Benefícios 
+## <a name="benefits"></a>Vantagens 
 
 Reservar todo o anfitrião proporciona os seguintes benefícios:
 
@@ -72,9 +72,9 @@ A infraestrutura que suporta as suas máquinas virtuais pode ocasionalmente ser 
 **O Control de Manutenção** oferece aos clientes a opção de ignorar as atualizações regulares da plataforma agendadas nos seus anfitriões dedicados e, em seguida, aplicá-la no momento da sua escolha dentro de uma janela de 35 dias.
 
 > [!NOTE]
->  O controlo de manutenção está atualmente em pré-visualização pública. Para mais informações, consulte as atualizações de Controlo com controlo de **manutenção utilizando [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) ou [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)** .
+>  O controlo de manutenção está atualmente em pré-visualização pública. Para mais informações, consulte as atualizações de Controlo com controlo de **manutenção utilizando [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) ou [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)**.
 
-## <a name="capacity-considerations"></a>Considerações sobre capacidade
+## <a name="capacity-considerations"></a>Considerações de capacidade
 
 Uma vez que um hospedeiro dedicado é aprovisionado, O Azure atribui-o ao servidor físico. Isto garante a disponibilidade da capacidade quando precisa de fornecer o seu VM. O Azure utiliza toda a capacidade da região (ou zona) para escolher um servidor físico para o seu anfitrião. Significa também que os clientes podem esperar ser capazes de crescer a sua pegada de anfitrião dedicada sem a preocupação de ficar sem espaço no cluster.
 
@@ -114,10 +114,10 @@ Os tamanhos e tipos de hardware variam por região. Consulte a [página](https:/
 
 O Azure monitoriza e gere o estado de saúde dos seus anfitriões. Os seguintes estados serão devolvidos quando consultar o seu anfitrião:
 
-| Estado de Funcionamento   | Descrição       |
+| Estado da Saúde   | Descrição       |
 |----------|----------------|
 | Anfitrião disponível     | Não há problemas conhecidos com o seu anfitrião.   |
 | Hospedeiro sob investigação  | Estamos tendo alguns problemas com o anfitrião que estamos investigando. Este é um estado de transição necessário para que o Azure tente identificar o âmbito e a causa principal para a questão identificada. As máquinas virtuais que estão a funcionar no hospedeiro podem ser impactadas. |
-| Desalocar pendente de anfitrião   | O Azure não pode restaurar o hospedeiro num estado saudável e pedir-lhe que recoloque as suas máquinas virtuais para fora deste hospedeiro. Se `autoReplaceOnFailure` estiver ativada, as suas máquinas virtuais são *de serviço curadas* para um hardware saudável. Caso contrário, a sua máquina virtual pode estar a funcionar num hospedeiro que está prestes a falhar.|
+| Desalocar pendente de anfitrião   | O Azure não pode restaurar o hospedeiro num estado saudável e pedir-lhe que recoloque as suas máquinas virtuais para fora deste hospedeiro. Se `autoReplaceOnFailure` estiver ativada, as suas máquinas virtuais são *de serviço curadas* para hardware saudável. Caso contrário, a sua máquina virtual pode estar a funcionar num hospedeiro que está prestes a falhar.|
 | Anfitrião deallocated  | Todas as máquinas virtuais foram removidas do hospedeiro. Já não está a ser cobrado por este hospedeiro, uma vez que o hardware foi retirado da rotação.   |
 

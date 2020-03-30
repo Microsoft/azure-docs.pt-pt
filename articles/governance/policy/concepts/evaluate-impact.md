@@ -1,76 +1,76 @@
 ---
 title: Avaliar o impacto de uma nova política do Azure
-description: Entenda o processo a ser seguido ao introduzir uma nova definição de política em seu ambiente do Azure.
+description: Compreenda o processo a seguir ao introduzir uma nova definição política no seu ambiente Azure.
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74463520"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Avaliar o impacto de uma nova política do Azure
 
-Azure Policy é uma ferramenta poderosa para gerenciar seus recursos do Azure para padrões de negócios e atender às necessidades de conformidade. Quando as pessoas, os processos ou os pipelines criam ou atualizam recursos, Azure Policy revisa a solicitação. Quando o efeito de definição de política é [Append](./effects.md#deny) ou [DeployIfNotExists](./effects.md#deployifnotexists), Policy altera a solicitação ou adiciona a ela. Quando o efeito de definição de política é [Audit](./effects.md#audit) ou [AuditIfNotExists](./effects.md#auditifnotexists), Policy faz com que uma entrada do log de atividades seja criada. E quando o efeito de definição de política é [Deny](./effects.md#deny), a política interrompe a criação ou a alteração da solicitação.
+A Azure Policy é uma ferramenta poderosa para gerir os seus recursos Azure para padrões de negócio e para satisfazer as necessidades de conformidade. Quando pessoas, processos ou oleodutos criam ou atualizam recursos, a Política Azure revê o pedido. Quando o efeito de definição de política é [apêndice](./effects.md#deny) ou [implementação,](./effects.md#deployifnotexists)a política altera o pedido ou adiciona-lhe. Quando o efeito de definição de política é [Auditoria](./effects.md#audit) ou [AuditoriaIfNotExists,](./effects.md#auditifnotexists)a política faz com que seja criada uma entrada de registo de atividade. E quando o efeito de definição de política é [Deny,](./effects.md#deny)a política para a criação ou alteração do pedido.
 
-Esses resultados são exatamente os desejados quando você sabe que a política está definida corretamente. No entanto, é importante validar que uma nova política funcione como pretendida antes de permitir que ela mude ou bloqueie o trabalho. A validação deve garantir que apenas os recursos pretendidos sejam determinados como sem conformidade e que nenhum recurso compatível seja incluído incorretamente (conhecido como _falso positivo_) nos resultados.
+Estes resultados são exatamente os desejados quando se sabe que a política é definida corretamente. No entanto, é importante validar uma nova política como pretendido antes de permitir que mude ou bloqueie o trabalho. A validação deve assegurar que apenas os recursos pretendidos sejam determinados como incompatíveis e que não sejam incluídos incorretamente recursos conformes (conhecidos como _falsos positivos)_ nos resultados.
 
-A abordagem recomendada para validar uma nova definição de política é seguir estas etapas:
+A abordagem recomendada para validar uma nova definição de política é seguindo estes passos:
 
-- Definir rigidamente sua política
-- Auditar seus recursos existentes
-- Auditar solicitações de recursos novas ou atualizadas
-- Implantar sua política para recursos
+- Defina firmemente a sua política
+- Audite os seus recursos existentes
+- Auditar novos ou atualizados pedidos de recursos
+- Implemente a sua política em recursos
 - Monitorização contínua
 
-## <a name="tightly-define-your-policy"></a>Definir rigidamente sua política
+## <a name="tightly-define-your-policy"></a>Defina firmemente a sua política
 
-É importante entender como a política de negócios é implementada como uma definição de política e a relação dos recursos do Azure com outros serviços do Azure. Essa etapa é realizada [identificando os requisitos](../tutorials/create-custom-policy-definition.md#identify-requirements) e [determinando as propriedades do recurso](../tutorials/create-custom-policy-definition.md#determine-resource-properties).
-Mas também é importante ver além da definição estreita de sua política de negócios. O estado da política, por exemplo, "todas as máquinas virtuais devem..."? E quanto a outros serviços do Azure que fazem uso de VMs, como HDInsight ou AKS? Ao definir uma política, devemos considerar como essa política afeta os recursos que são usados por outros serviços.
+É importante entender como a política de negócios é implementada como uma definição de política e a relação dos recursos azure com outros serviços Azure. Este passo é realizado [identificando os requisitos](../tutorials/create-custom-policy-definition.md#identify-requirements) e [determinando as propriedades dos recursos.](../tutorials/create-custom-policy-definition.md#determine-resource-properties)
+Mas também é importante ver para além da definição estreita da sua política comercial. O seu estado político, por exemplo, "Todas as máquinas virtuais devem..."? E outros serviços Azure que utilizam VMs, como hDInsight ou AKS? Ao definirmos uma política, temos de considerar o impacto desta política nos recursos utilizados por outros serviços.
 
-Por esse motivo, as definições de política devem ser tão definidas e focadas nos recursos e nas propriedades que você precisa avaliar para obter a conformidade o mais possível.
+Por esta razão, as definições políticas devem ser tão bem definidas e focadas nos recursos e propriedades que necessita para avaliar o cumprimento possível.
 
-## <a name="audit-existing-resources"></a>Auditar recursos existentes
+## <a name="audit-existing-resources"></a>Auditoria dos recursos existentes
 
-Antes de procurar gerenciar recursos novos ou atualizados com sua nova definição de política, é melhor ver como ele avalia um subconjunto limitado de recursos existentes, como um grupo de recursos de teste. Use o [modo de imposição](./assignment-structure.md#enforcement-mode)
-_desabilitado_ (DoNotEnforce) em sua atribuição de política para impedir que o [efeito](./effects.md) de disparar ou entradas do log de atividades seja criado.
+Antes de procurar gerir recursos novos ou atualizados com a sua nova definição de política, o melhor é ver como avalia um subconjunto limitado de recursos existentes, como um grupo de recursos de teste. Utilize
+o modo de [execução](./assignment-structure.md#enforcement-mode)_Desativado_ (DoNotEnforce) na sua atribuição de política para evitar que o [efeito](./effects.md) desencadeie ou que sejam criadas entradas de registo de atividade.
 
-Esta etapa lhe dá a chance de avaliar os resultados de conformidade da nova política nos recursos existentes sem afetar o fluxo de trabalho. Verifique se nenhum recurso compatível está marcado como não compatível (_falso positivo_) e se todos os recursos que você espera que não estejam em conformidade estão marcados corretamente.
-Depois que o subconjunto inicial de recursos é validado como esperado, expanda lentamente a avaliação para todos os recursos existentes.
+Este passo dá-lhe a oportunidade de avaliar os resultados de conformidade da nova política sobre os recursos existentes sem afetar o fluxo de trabalho. Verifique se nenhum recursos conformes são marcados como não conformes _(falsopositivos)_ e que todos os recursos que espera não cumprir são marcados corretamente.
+Após o subconjunto inicial de recursos validar como esperado, expanda lentamente a avaliação a todos os recursos existentes.
 
-A avaliação de recursos existentes dessa maneira também oferece uma oportunidade de corrigir recursos sem conformidade antes da implementação completa da nova política. Essa limpeza pode ser feita manualmente ou por meio de uma [tarefa de correção](../how-to/remediate-resources.md) se o efeito de definição de política for _DeployIfNotExists_.
+A avaliação dos recursos existentes desta forma constitui também uma oportunidade para remediar os recursos não conformes antes da plena implementação da nova política. Esta limpeza pode ser feita manualmente ou através de uma tarefa de [reparação](../how-to/remediate-resources.md) se o efeito de definição de política for _DeployIfNotExists_.
 
 ## <a name="audit-new-or-updated-resources"></a>Auditar recursos novos ou atualizados
 
-Depois de validar que sua nova definição de política está se comunicando corretamente nos recursos existentes, é hora de examinar o impacto da política quando os recursos forem criados ou atualizados. Se a definição de política der suporte à parametrização de efeito, use [Audit](./effects.md#audit). Essa configuração permite que você monitore a criação e a atualização de recursos para ver se a nova definição de política dispara uma entrada no log de atividades do Azure para um recurso que não está em conformidade sem afetar o trabalho ou as solicitações existentes.
+Uma vez validada a sua nova definição de política está a reportar corretamente sobre os recursos existentes, é hora de olhar para o impacto da política quando os recursos são criados ou atualizados. Se a definição de política apoiar a parametrização do efeito, utilize [a Auditoria](./effects.md#audit). Esta configuração permite-lhe monitorizar a criação e atualização de recursos para ver se a nova definição de política desencadeia uma entrada no registo da Atividade Azure para um recurso que não está em conformidade sem afetar o trabalho ou os pedidos existentes.
 
-É recomendável atualizar e criar novos recursos que correspondam à definição de política para ver que o efeito de _auditoria_ está sendo disparado corretamente quando esperado. Esteja atento a solicitações de recursos que não devem ser afetadas pela nova definição de política que disparam o efeito de _auditoria_ .
-Esses recursos impactados são outro exemplo de _falsos positivos_ e devem ser corrigidos na definição de política antes da implementação completa.
+Recomenda-se tanto atualizar e criar novos recursos que correspondam à sua definição política para ver se o efeito _Auditoria_ está a ser corretamente desencadeado quando esperado. Esteja atento a pedidos de recursos que não devem ser impactados pela nova definição de política que desencadeia o efeito _Auditoria._
+Estes recursos impactados são mais um exemplo de _falsos positivos_ e devem ser fixados na definição de política antes da plena implementação.
 
-No caso de a definição de política ser alterada neste estágio de teste, é recomendável iniciar o processo de validação com a auditoria de recursos existentes. Uma alteração na definição de política para um _falso positivo_ sobre recursos novos ou atualizados provavelmente também terá um impacto nos recursos existentes.
+No caso de a definição de política ser alterada nesta fase de testes, é aconselhável iniciar o processo de validação com a auditoria dos recursos existentes. É provável que uma alteração da definição de política para um _falso positivo_ sobre recursos novos ou atualizados também tenha um impacto nos recursos existentes.
 
-## <a name="deploy-your-policy-to-resources"></a>Implantar sua política para recursos
+## <a name="deploy-your-policy-to-resources"></a>Implemente a sua política em recursos
 
-Depois de concluir a validação da nova definição de política com recursos existentes e solicitações de recursos novas ou atualizadas, você inicia o processo de implementação da política. É recomendável criar a atribuição de política para a nova definição de política para um subconjunto de todos os recursos primeiro, como um grupo de recursos. Depois de validar a implantação inicial, estenda o escopo da política para níveis mais amplos e mais amplos, como assinaturas e grupos de gerenciamento. Essa expansão é obtida removendo a atribuição e criando uma nova nos escopos de destino até que ela seja atribuída ao escopo completo de recursos que devem ser cobertos pela nova definição de política.
+Depois de concluir a validação da sua nova definição de política com recursos existentes e pedidos de recursos novos ou atualizados, inicia o processo de implementação da política. É recomendado criar a atribuição de políticas para a nova definição de política para um subconjunto de todos os recursos em primeiro lugar, como um grupo de recursos. Após a validação da implantação inicial, alargar o âmbito da política a níveis mais amplos e mais amplos, tais como assinaturas e grupos de gestão. Esta expansão é conseguida removendo a atribuição e criando uma nova nos âmbitos-alvo até que seja atribuída ao âmbito completo dos recursos destinados a ser cobertos pela sua nova definição de política.
 
-Durante a distribuição, se estiverem localizados recursos que devem ser isentos da nova definição de política, resolva-os de uma das seguintes maneiras:
+Durante o lançamento, se estiverem localizados recursos que devam estar isentos da sua nova definição de política, dirija-os de uma das seguintes formas:
 
-- Atualize a definição de política para ser mais explícita para reduzir o impacto indesejado
-- Alterar o escopo da atribuição de política (removendo e criando uma nova atribuição)
-- Adicionar o grupo de recursos à lista de exclusões para a atribuição de política
+- Atualizar a definição de política para ser mais explícito para reduzir o impacto não intencional
+- Alterar o âmbito da atribuição de políticas (removendo e criando uma nova atribuição)
+- Adicione o grupo de recursos à lista de exclusão para a atribuição de políticas
 
-Todas as alterações no escopo (nível ou exclusões) devem ser totalmente validadas e comunicadas com suas organizações de segurança e conformidade para garantir que não haja nenhuma lacuna na cobertura.
+Quaisquer alterações ao âmbito (nível ou exclusões) devem ser totalmente validadas e comunicadas com as suas organizações de segurança e conformidade para garantir que não existem lacunas na cobertura.
 
-## <a name="monitor-your-policy-and-compliance"></a>Monitore sua política e conformidade
+## <a name="monitor-your-policy-and-compliance"></a>Monitorize a sua política e conformidade
 
-A implementação e a atribuição da definição de política não é a etapa final. Monitore continuamente o nível de [conformidade](../how-to/get-compliance-data.md) dos recursos para sua nova definição de política e a instalação apropriada [Azure monitor alertas e notificações](../../../azure-monitor/platform/alerts-overview.md) para quando dispositivos não compatíveis forem identificados. Também é recomendável avaliar a definição de política e as atribuições relacionadas em uma base agendada para validar que a definição de política está atendendo às necessidades de conformidade e política de negócios. As políticas devem ser removidas se não forem mais necessárias. As políticas também precisam ser atualizadas de tempos em tempos à medida que os recursos subjacentes do Azure evoluem e adicionam novas propriedades e recursos.
+Implementar e atribuir a sua definição de política não é o passo final. Monitorize continuamente o nível de [conformidade](../how-to/get-compliance-data.md) dos recursos à sua nova definição de política e configurar [alertas e notificações](../../../azure-monitor/platform/alerts-overview.md) adequadas do Monitor Do Azure para quando os dispositivos não conformes forem identificados. Também é recomendado avaliar a definição de política e as atribuições relacionadas numa base programada para validar a definição de política é atender às necessidades de política de negócios e conformidade. As políticas devem ser suprimidas se já não for necessário. As políticas também precisam de ser atualizadas de tempos a tempos à medida que os recursos azure subjacentes evoluem e acrescentam novas propriedades e capacidades.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
-- Saiba mais sobre a [estrutura de atribuição de política](./assignment-structure.md).
-- Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
-- Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
-- Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
-- Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).
+- Conheça a estrutura da definição de [políticas.](./definition-structure.md)
+- Conheça a estrutura de atribuição de [políticas.](./assignment-structure.md)
+- Compreender como [criar políticas programáticas.](../how-to/programmatically-create.md)
+- Saiba como obter dados de [conformidade.](../how-to/get-compliance-data.md)
+- Aprenda a [remediar recursos não conformes](../how-to/remediate-resources.md).
+- Reveja o que é um grupo de gestão com organizar os seus recursos com grupos de [gestão Azure.](../../management-groups/overview.md)

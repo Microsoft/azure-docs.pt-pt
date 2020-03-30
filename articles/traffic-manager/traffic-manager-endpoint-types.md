@@ -13,23 +13,23 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rohink
 ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250936"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 
-O Microsoft Azure Traffic Manager permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução em diferentes datacenters. Configura cada implementação de aplicação como um 'ponto final' no Traffic Manager. Quando o Gestor de Tráfego recebe um pedido de DNS, escolhe um ponto final disponível para devolver na resposta dNS. O gestor de tráfego baseia a escolha no estado atual do ponto final e no método de encaminhamento de tráfego. Para mais informações, consulte como funciona o [Gestor de Tráfego.](traffic-manager-how-it-works.md)
+O Microsoft Azure Traffic Manager permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução em diferentes datacenters. Irá configurar cada implementação de aplicação como um "ponto final" no Gestor de Tráfego. Quando o Gestor de Tráfego recebe um pedido de DNS, seleciona um ponto final disponível para devolver na resposta ao DNS. O gestor de tráfego baseia a escolha no estado atual do ponto final e no método de encaminhamento de tráfego. Para mais informações, consulte como funciona o [Gestor de Tráfego.](traffic-manager-how-it-works.md)
 
-Existem três tipos de ponto final suportados pelo Traffic Manager:
+Existem três tipos de ponto final suportados pelo Gestor de Tráfego:
 
-* **Os pontos finais azure** são utilizados para serviços hospedados em Azure.
-* **Os pontos finais externos** são utilizados para endereços IPv4/IPv6, FQDNs ou para serviços hospedados fora do Azure que podem estar no local ou com um fornecedor de hospedagem diferente.
-* **Os pontos finais aninhados** são utilizados para combinar perfis do Traffic Manager para criar esquemas de encaminhamento de tráfego mais flexíveis para suportar as necessidades de implementações maiores e mais complexas.
+* Os **pontos finais do Azure** são utilizados pelos serviços alojados no Azure.
+* Os **pontos finais externos** são utilizados para endereços IPv4/IPv6, FQDNs ou serviços alojados fora do Azure, que podem estar no local ou pertencer a um fornecedor de alojamento diferente.
+* Os **pontos finais aninhados** são utilizados para combinar perfis do Gestor de Tráfego de forma a criar esquemas de encaminhamento de tráfego mais flexíveis para suportar as necessidades de implementações mais complexas e de maior dimensão.
 
-Não existe qualquer restrição sobre a forma como os pontos finais de diferentes tipos são combinados num único perfil do Traffic Manager. Cada perfil pode conter qualquer mistura de tipos de pontos finais.
+Não existem restrições sobre a forma como os pontos finais de diferentes tipos são combinados num só perfil do Gestor de Tráfego. Cada perfil pode conter qualquer combinação de tipos de ponto final.
 
 As seguintes secções descrevem cada tipo de ponto final em maior profundidade.
 
@@ -91,7 +91,7 @@ Para mais detalhes, consulte [a monitorização](traffic-manager-monitoring.md#e
 
 Se todos os pontos finais de um perfil estiverem desativados, ou se o perfil em si estiver desativado, então o Gestor de Tráfego envia uma resposta 'NXDOMAIN' a uma nova consulta de DNS.
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 
 * [Posso usar o Traffic Manager com pontos finais de várias subscrições?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 

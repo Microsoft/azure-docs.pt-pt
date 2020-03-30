@@ -8,10 +8,10 @@ ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096290"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Export Azure Activity log to storage or Azure Event Hubs
@@ -20,7 +20,7 @@ ms.locfileid: "79096290"
 > O método para enviar o registo da Atividade Azure para o Azure Storage e os Centros de Eventos Azure mudou para [configurações](diagnostic-settings.md)de diagnóstico . Este artigo descreve o método legado que está em processo de ser depreciado. Consulte a recolha e exportação de registos da [Atividade Azure](diagnostic-settings-legacy.md) para uma comparação.
 
 
-O [Registo de Atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos de nível de subscrição que ocorreram na sua subscrição Azure. Além de visualizar o registo de atividade no portal Azure ou copiá-lo para um espaço de trabalho de Log Analytics onde pode ser analisado com outros dados recolhidos pelo Azure Monitor, pode criar um perfil de registo para arquivar o registo de atividade para uma conta de armazenamento Azure ou transmiti-lo para um  Centro de Eventos.
+O [Registo de Atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos de nível de subscrição que ocorreram na sua subscrição Azure. Além de visualizar o registo de atividade no portal Azure ou copiá-lo para um espaço de trabalho de Log Analytics onde pode ser analisado com outros dados recolhidos pelo Azure Monitor, pode criar um perfil de registo para arquivar o registo de atividade sacana para uma conta de armazenamento Azure ou transmiti-lo para um Centro de Eventos.
 
 ## <a name="archive-activity-log"></a>Registo de Atividades de Arquivo
 Arquivar o Registo de Atividade saqueado numa conta de armazenamento é útil se quiser reter os seus dados de registo por mais de 90 dias (com controlo total sobre a política de retenção) para auditoria, análise estática ou backup. Se necessitar apenas de reter os seus eventos durante 90 dias ou menos, não precisa de configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de Registo de Atividade saem retidos na plataforma Azure durante 90 dias.
@@ -40,7 +40,7 @@ A conta de armazenamento não tem de estar na mesma subscrição que os registos
 > [!TIP]
 > Consulte [as firewalls de Armazenamento Configure Azure e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para fornecer acesso a uma conta de armazenamento por trás de uma rede virtual segura.
 
-### <a name="event-hubs"></a>Hubs de Eventos
+### <a name="event-hubs"></a>Event Hubs
 Se está a enviar o seu Registo de Atividades para um centro de eventos, então precisa de criar um centro de [eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se já transmitiu eventos de Registo de Atividade para este espaço de nome sinuoso do Event Hubs, então esse centro de eventos será reutilizado.
 
 A política de acesso partilhado define as permissões que o mecanismo de streaming tem. O streaming para centros de eventos requer permissões de Gestão, Envio e Escuta. Pode criar ou modificar políticas de acesso partilhado para o espaço de nome sem nome do Event Hubs no portal Azure sob o separador Configure para o seu espaço de nome Sem Evento.
@@ -60,9 +60,9 @@ O perfil de registo define o seguinte.
 
 **Que regiões (locais) devem ser exportadas.** Você deve incluir todos os locais, uma vez que muitos eventos no Registo de Atividades são eventos globais.
 
-**Quanto tempo o Registo de Atividade deve ser conservado numa Conta de Armazenamento.** A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
+**Quanto tempo o Registo de Atividade deve ser conservado numa Conta de Armazenamento.** Uma retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
 
-Se as políticas de retenção forem definidas, mas armazenar registos numa conta de armazenamento é desativada, então as políticas de retenção não têm qualquer efeito. Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
+Se as políticas de retenção forem definidas, mas armazenar registos numa conta de armazenamento é desativada, então as políticas de retenção não têm qualquer efeito. As políticas de retenção são aplicadas por dia, pelo que, ao fim de um dia (UTC), os registos do dia que está agora para além da política de retenção são suprimidos. Por exemplo, se tivesse uma política de retenção de um dia, ao início do dia de hoje, os registos do dia anterior a ontem seriam apagados. O processo de eliminação começa à meia-noite UTC, mas note que pode demorar até 24 horas para que os registos sejam eliminados da sua conta de armazenamento.
 
 
 > [!IMPORTANT]
@@ -111,7 +111,7 @@ Se já existir um perfil de registo, é necessário remover primeiro o perfil de
     Remove-AzLogProfile -Name "default"
     ```
 
-3. Utilize `Add-AzLogProfile` para criar um novo perfil de registo:
+3. Utilizar `Add-AzLogProfile` para criar um novo perfil de registo:
 
     ```powershell
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
@@ -120,8 +120,8 @@ Se já existir um perfil de registo, é necessário remover primeiro o perfil de
     | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
     | Nome |Sim |Nome do seu perfil de registo. |
-    | StorageAccountId |Não |Identificação de recursos da Conta de Armazenamento onde o Registo de Atividade deve ser guardado. |
-    | serviceBusRuleId |Não |Service Bus Rule ID para o espaço de nome do ônibus de serviço em que você gostaria de ter centros de eventos criados. Esta é uma cadeia com o formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+    | ArmazenamentoAccountid |Não |Identificação de recursos da Conta de Armazenamento onde o Registo de Atividade deve ser guardado. |
+    | serviçoBusRuleId |Não |Service Bus Rule ID para o espaço de nome do ônibus de serviço em que você gostaria de ter centros de eventos criados. Esta é uma cadeia `{service bus resource ID}/authorizationrules/{key name}`com o formato: . |
     | Localização |Sim |Lista separada da vírposta de regiões para as quais gostaria de recolher eventos de Registo de Atividades. |
     | Dias de Retenção |Sim |Número de dias para os quais os eventos devem ser mantidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os registos indefinidamente. |
     | Categoria |Não |Lista separada da vírposta das categorias de eventos que devem ser recolhidas. Os valores possíveis são _Escrever,_ _Apagar_e _Ação._ |
@@ -154,7 +154,7 @@ Se já existir um perfil de registo, é necessário remover primeiro o perfil de
 
 1. Utilize `az monitor log-profiles list` para identificar se existe um perfil de registo.
 2. Utilize `az monitor log-profiles delete --name "<log profile name>` para remover o perfil de registo utilizando o valor da propriedade *do nome.*
-3. Utilize `az monitor log-profiles create` para criar um novo perfil de registo:
+3. Utilizar `az monitor log-profiles create` para criar um novo perfil de registo:
 
    ```azurecli-interactive
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
@@ -163,10 +163,10 @@ Se já existir um perfil de registo, é necessário remover primeiro o perfil de
     | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
     | nome |Sim |Nome do seu perfil de registo. |
-    | storage-account-id |Sim |Identificação de recursos da Conta de Armazenamento para a qual os Registos de Atividade devem ser guardados. |
-    | locations |Sim |Lista de regiões separadas pelo espaço para as quais gostaria de recolher eventos de Registo de Atividades. Pode ver uma lista de todas as regiões para a sua subscrição usando `az account list-locations --query [].name`. |
+    | armazenamento-conta-id |Sim |Identificação de recursos da Conta de Armazenamento para a qual os Registos de Atividade devem ser guardados. |
+    | locais |Sim |Lista de regiões separadas pelo espaço para as quais gostaria de recolher eventos de Registo de Atividades. Pode ver uma lista de todas as `az account list-locations --query [].name`regiões para a sua subscrição utilizando . |
     | dias |Sim |Número de dias para os quais os eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazenará os registos indefinidamente (para sempre).  Se zero, então o parâmetro ativado deve ser definido como falso. |
-    |enabled | Sim |VERDADEIRO ou FALSO.  Usado para ativar ou desativar a política de retenção.  Se for verdade, então o parâmetro dos dias deve ser um valor superior a 0.
+    |ativado | Sim |Verdadeiro ou Falso.  Usado para ativar ou desativar a política de retenção.  Se for verdade, então o parâmetro dos dias deve ser um valor superior a 0.
     | categories |Sim |Lista separada do espaço das categorias de eventos que devem ser recolhidas. Os valores possíveis são Escrever, Apagar e Agir. |
 
 

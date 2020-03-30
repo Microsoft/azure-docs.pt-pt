@@ -1,6 +1,6 @@
 ---
-title: Configurar um laboratório de Ethical Hacking com o Azure Lab Services | Microsoft Docs
-description: Saiba como configurar um laboratório usando Azure Lab Services para ensinar ao Ethical Hacking.
+title: Criar um laboratório de hacking ético com serviços de laboratório azure [ Microsoft Docs
+description: Aprenda a montar um laboratório usando os Serviços de Laboratório Azure para ensinar hacking ético.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,136 +14,136 @@ ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
 ms.openlocfilehash: 2b600edc4c360a2b2990be34e44bb8fbd1c8f721
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133174"
 ---
-# <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurar um laboratório para ensinar a classe de Ethical Hacking 
-Este artigo mostra como configurar uma classe que se concentra no lado da perícia de Ethical Hacking. O teste de penetração, uma prática usada pela comunidade de Ethical Hacking, ocorre quando alguém tenta obter acesso ao sistema ou à rede para demonstrar as vulnerabilidades que um invasor mal-intencionado pode explorar. 
+# <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Criar um laboratório para ensinar aulas de hacking ético 
+Este artigo mostra-lhe como criar uma classe que se foca no lado forense da pirataria ética. Os testes de penetração, uma prática usada pela comunidade de hacking ético, ocorre quando alguém tenta aceder ao sistema ou à rede para demonstrar vulnerabilidades que um intruso malicioso pode explorar. 
 
-Em uma aula de Ethical Hacking, os alunos podem aprender técnicas modernas de defesa contra vulnerabilidades. Cada aluno Obtém uma máquina virtual do host do Windows Server que tem duas máquinas virtuais aninhadas – uma máquina virtual com imagem [Metasploitable3](https://github.com/rapid7/metasploitable3) e outra máquina com a imagem do [Kali Linux](https://www.kali.org/) . A máquina virtual Metasploitable é usada para fins de exploração e a máquina virtual Kali fornece acesso às ferramentas necessárias para executar tarefas forenses.
+Numa aula de hacking ético, os alunos podem aprender técnicas modernas para se defenderem contra vulnerabilidades. Cada aluno recebe uma máquina virtual do Windows Server que tem duas máquinas virtuais aninhadas – uma máquina virtual com imagem [Metasploitável3](https://github.com/rapid7/metasploitable3) e outra máquina com imagem [Kali Linux.](https://www.kali.org/) A máquina virtual Metasploitável é usada para explorar propósitos e a máquina virtual Kali fornece acesso às ferramentas necessárias para executar tarefas forenses.
 
-Este artigo tem duas seções principais. A primeira seção aborda como criar o laboratório de sala de aula. A segunda seção aborda como criar o computador de modelo com a virtualização aninhada habilitada e com as ferramentas e imagens necessárias. Nesse caso, uma imagem Metasploitável e uma imagem do Kali Linux em um computador com o Hyper-V habilitado para hospedar as imagens.
+Este artigo tem duas secções principais. A primeira secção cobre como criar o laboratório de sala de aula. A segunda secção cobre como criar a máquina do modelo com virtualização aninhada ativada e com as ferramentas e imagens necessárias. Neste caso, uma imagem metasploitável e uma imagem Kali Linux numa máquina que tem Hyper-V habilitado a hospedar as imagens.
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
-Para configurar este laboratório, você precisa de uma assinatura do Azure para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você pode criar uma nova conta de laboratório no Azure Lab Services ou usar uma conta existente. Consulte o tutorial a seguir para criar uma nova conta de laboratório: [tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).
+Para montar este laboratório, precisa de uma assinatura Azure para começar. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Assim que obtém uma subscrição Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure ou usar uma conta existente. Consulte o seguinte tutorial para criar uma nova conta de laboratório: [Tutorial para configurar uma conta](tutorial-setup-lab-account.md)de laboratório .
 
-Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e, em seguida, aplicar as seguintes configurações:
+Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e, em seguida, aplique as seguintes definições:
 
 | Tamanho da máquina virtual | Imagem |
 | -------------------- | ----- | 
-| Médio (virtualização aninhada) | Windows Server 2019 datacenter |
+| Médio (Virtualização Aninhada) | Windows Server 2019 Datacenter |
 
-## <a name="template-machine"></a>Computador de modelo 
+## <a name="template-machine"></a>Máquina de modelo 
 
-Após a criação do computador de modelo, inicie o computador e conecte-o para concluir as três principais tarefas a seguir. 
+Depois de criada a máquina do modelo, ligue a máquina e ligue-a para completar as três principais tarefas seguintes. 
  
-1. Configure o computador para virtualização aninhada. Ele habilita todos os recursos do Windows apropriados, como o Hyper-V, e configura a rede para que as imagens do Hyper-V possam se comunicar entre si e com a Internet.
-2. Configure a imagem do [Kali](https://www.kali.org/) Linux. O Kali é uma distribuição do Linux que inclui ferramentas para teste de penetração e auditoria de segurança.
-3. Configure a imagem de Metasploit. Para este exemplo, a imagem [Metasploitable3](https://github.com/rapid7/metasploitable3) será usada. Essa imagem é criada para ter vulnerabilidades de segurança intencionalmente.
+1. Instale a máquina para virtualização aninhada. Permite que todas as funcionalidades apropriadas do windows, como o Hyper-V, e configura o networking para que as imagens Hyper-V possam comunicar entre si e com a internet.
+2. Configura risa a imagem [kali](https://www.kali.org/) Linux. Kali é uma distribuição Linux que inclui ferramentas para testes de penetração e auditoria de segurança.
+3. Configurar a imagem metasploitável. Para este exemplo, será utilizada a imagem [Metasploitável3.](https://github.com/rapid7/metasploitable3) Esta imagem é criada para ter propositadamente vulnerabilidades de segurança.
 
-Um script que automatiza as tarefas descritas acima está disponível em [scripts de Ethical Hacking dos serviços de laboratório](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/EthicalHacking).
+Um script que automatiza as tarefas acima descritas está disponível nos [Scripts de Hacking Ético dos Serviços de Laboratório.](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/EthicalHacking)
 
-### <a name="prepare-template-machine-for-nested-virtualization"></a>Preparar computador de modelo para virtualização aninhada
-Siga as instruções neste [artigo](how-to-enable-nested-virtualization-template-vm.md) para preparar sua máquina virtual de modelo para a virtualização aninhada. 
+### <a name="prepare-template-machine-for-nested-virtualization"></a>Prepare a máquina de modelo para a virtualização aninhada
+Siga as instruções [deste artigo](how-to-enable-nested-virtualization-template-vm.md) para preparar o seu modelo de máquina virtual para virtualização aninhada. 
 
-### <a name="set-up-a-nested-virtual-machine-with-kali-linux-image"></a>Configurar uma máquina virtual aninhada com a imagem do Kali Linux
-O Kali é uma distribuição do Linux que inclui ferramentas para teste de penetração e auditoria de segurança.
+### <a name="set-up-a-nested-virtual-machine-with-kali-linux-image"></a>Configurar uma máquina virtual aninhada com imagem Kali Linux
+Kali é uma distribuição Linux que inclui ferramentas para testes de penetração e auditoria de segurança.
 
-1. Baixe a imagem de [https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/).  
-    1. Baixe o **Kali Linux Hyper-v 64 bit** para Hyper-v.
-    1. Extraia o arquivo. 7z.  Se você ainda não tiver 7 zip, baixe-o em [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html). Lembre-se do local da pasta extraída, pois você precisará dela mais tarde.
-2. Abra o **Gerenciador do Hyper-V** em ferramentas administrativas.
-1. Selecione **ação**e, em seguida, selecione **importar máquina virtual**. 
-1. Na página **Localizar pasta** do assistente para **importar máquina virtual** , escolha o local da pasta extraída que contém a imagem do Kali Linux.
+1. Descarregue [https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/)a imagem de .  
+    1. Baixe o **Kali Linux Hyper-V 64 Bit** para Hyper-V.
+    1. Extraio o ficheiro .7z.  Se ainda não tiver 7 zip, [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html)descarregue-o a partir de . Lembre-se da localização da pasta extraída, pois precisará dela mais tarde.
+2. Abra **o Gestor de Hiper-V** a partir de Ferramentas Administrativas.
+1. Selecione **Action**, e, em seguida, selecione **Import Virtual Machine**. 
+1. Na página **localizar pastas** do assistente da **Máquina Virtual importada,** escolha a localização da pasta extraída que detém a imagem Kali Linux.
 
-    ![Caixa de diálogo Localizar pasta](../media/class-type-ethical-hacking/locate-folder.png)
-1. Na página **selecionar máquina virtual** , selecione a imagem do Kali Linux.  Nesse caso, a imagem é **Kali-Linux-2019,3-HyperV**.
+    ![Localizar o diálogo da pasta](../media/class-type-ethical-hacking/locate-folder.png)
+1. Na página **Select Virtual Machine,** selecione a imagem Kali Linux.  Neste caso, a imagem é **kali-linux-2019.3-hyperv**.
 
-    ![Selecionar imagem Kali](../media/class-type-ethical-hacking/select-kali-image.png)
-1.  Na página **escolher tipo de importação** , selecione **copiar a máquina virtual (criar uma nova ID exclusiva)** .
+    ![Selecione imagem Kali](../media/class-type-ethical-hacking/select-kali-image.png)
+1.  Na página **Escolha do Tipo de Importação,** selecione Copiar a máquina virtual **(criar um novo ID único)**.
 
-    ![Escolher tipo de importação](../media/class-type-ethical-hacking/choose-import-type.png)
-1. Aceite as configurações padrão em **escolher pastas para arquivos de máquina virtual** e **escolha pastas para armazenar as páginas de discos rígidos virtuais** e, em seguida, selecione **Avançar**.
-1. Na página **conectar rede** , escolha **LabServicesSwitch** criado anteriormente na seção **preparar modelo para virtualização aninhada** deste artigo e, em seguida, selecione **Avançar**.
+    ![Escolha o tipo de importação](../media/class-type-ethical-hacking/choose-import-type.png)
+1. Aceite as definições predefinidas em **Escolher Pastas para Ficheiros de Máquinas Virtuais** e escolha pastas para armazenar páginas **de Discos Rígidos Virtuais** e, em seguida, selecione **Next**.
+1. Na página **Connect Network,** escolha **LabServicesSwitch** criado anteriormente no **Modelo de Preparação para a Virtualização Anestesada** deste artigo e, em seguida, selecione **Next**.
 
-    ![Página conectar rede](../media/class-type-ethical-hacking/connect-network.png)
-1. Selecione **concluir** na página **Resumo** . Aguarde até que as operações de cópia e importação sejam concluídas. A máquina virtual Kali Linux agora estará disponível no Hyper-V.
-1. No **Gerenciador do Hyper-V**, escolha **ação** -> **Iniciar**e, em seguida, escolha **ação** -> **conectar** para conectar-se à máquina virtual.  
-12. O nome de usuário padrão é `root` e a senha é `toor`. 
+    ![Conecte página de rede](../media/class-type-ethical-hacking/connect-network.png)
+1. Selecione **Terminar** na página **Resumo.** Aguarde até que as operações de cópia e importação estejam concluídas. A máquina virtual Kali Linux já estará disponível em Hyper-V.
+1. De **Hyper-V Manager,** escolha **Action** -> **Start**e, em seguida, escolha **Action** -> **Connect** para ligar à máquina virtual.  
+12. O nome de `root` utilizador predefinido é e a palavra-passe é `toor`. 
 
     > [!NOTE]
-    > Se você precisar desbloquear a imagem, pressione a tecla CTRL e arraste o mouse para cima.
+    > Se precisar de desbloquear a imagem, prima a tecla CTRL e arraste o rato para cima.
 
-## <a name="set-up-a-nested-vm-with-metasploitable-image"></a>Configurar uma VM aninhada com imagem Metasploitável  
-A imagem Rapid7 Metasploitable é uma imagem configurada propositadamente com vulnerabilidades de segurança. Você usará essa imagem para testar e encontrar problemas. As instruções a seguir mostram como usar uma imagem do Metasploitable criada previamente. No entanto, se uma versão mais nova da imagem Metasploitável for necessária, consulte [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
+## <a name="set-up-a-nested-vm-with-metasploitable-image"></a>Criar um VM aninhado com imagem metasploitável  
+A imagem Rapid7 Metasploitable é uma imagem propositadamente configurada com vulnerabilidades de segurança. Vais usar esta imagem para testar e encontrar problemas. As seguintes instruções mostram-lhe como usar uma imagem metasploitável pré-criada. No entanto, se for necessária uma versão mais [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3)recente da imagem metasploitável, consulte .
 
-1. Navegue até [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Preencha o formulário para baixar a imagem e selecione o botão **Enviar** .
-1. Selecione o botão **baixar agora** .
-1. Quando o arquivo zip for baixado, extraia o arquivo zip e lembre-se do local.
-1. Converta o arquivo VMDK extraído em um arquivo vhdx para que você possa usar o com o Hyper-V. Para fazer isso, abra o PowerShell com privilégios administrativos e navegue até a pasta onde o arquivo VMDK reside e siga estas instruções:
-    1. Baixe o [conversor de máquina virtual da Microsoft](https://www.microsoft.com/download/details.aspx?id=42497)e execute mvmc_setup arquivo. msi quando solicitado.
-    1. Importe o módulo PowerShell.  O local padrão no qual o módulo está instalado é C:\Arquivos de Programas\microsoft Virtual Machine converter \
+1. Navegar [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html)para. Preencha o formulário para descarregar a imagem e selecione o botão **Enviar.**
+1. Selecione o botão **Download Metasploitable Now.**
+1. Quando o ficheiro zip for descarregado, extraa o ficheiro zip e lembre-se da localização.
+1. Converta o ficheiro vmdk extraído num ficheiro Vhdx para que possa utilizar com Hyper-V. Para tal, abra a PowerShell com privilégios administrativos e navegue até à pasta onde reside o ficheiro vmdk, e siga estas instruções:
+    1. Descarregue o Conversor de [Máquinavirtual da Microsoft](https://www.microsoft.com/download/details.aspx?id=42497)e execute mvmc_setup ficheiro.msi quando solicitado.
+    1. Importe o módulo PowerShell.  A localização predefinida na qual o módulo está instalado é C:\Program Files\Microsoft Virtual Machine Converter\
 
         ```powershell
         Import-Module 'C:\Program Files\Microsoft Virtual Machine Converter\MvmcCmdlet.psd1'
         ```
-    1. Converta o VMDK em um arquivo VHD que possa ser usado pelo Hyper-V. Esta operação pode levar vários minutos.
+    1. Converta o vmdk num ficheiro vhd que pode ser usado pela Hyper-V. Esta operação pode demorar vários minutos.
     
         ```powershell
         ConvertTo-MvmcVirtualHardDisk -SourceLiteralPath .\Metasploitable.vmdk -DestinationLiteralPath .\Metasploitable.vhdx -VhdType DynamicHardDisk -VhdFormat vhdx
         ```
-    1. Copie o recém-criado. vhdx que acabou de criar para C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\. 
-1. Crie uma nova máquina virtual do Hyper-V.
-    1. Abra o **Gerenciador do Hyper-V**.
-    1. Escolha a **ação** -> **nova** -> **máquina virtual**.
-    1. Na página **antes de começar** do assistente de **nova máquina virtual**, clique em **Avançar**.
-    1. Na página **especificar nome e local** , digite **Metasploitable** para o **nome**e selecione **Avançar**.
+    1. Copie os metásplitos recém-criados.vhdx para C:\Utilizadores\Public\Documents\Hyper-V\Virtual Hard Disks\. 
+1. Crie uma nova máquina virtual Hyper-V.
+    1. Open **Hyper-V Manager**.
+    1. Escolha **ação** -> **nova** -> máquina**virtual**.
+    1. Na página Antes de **New Virtual Machine Wizard** **Começar,** clique em **Seguinte**.
+    1. Na página **'Especificar Nome e Localização',** introduza **metasploitável** para o **nome**, e selecione **Next**.
 
-        ![Assistente de nova imagem de VM](../media/class-type-ethical-hacking/new-vm-wizard-1.png)
-    1. Na página **especificar geração** , aceite os padrões e selecione **Avançar**.
-    1. Na página **atribuir memória** , insira **512 MB** para a **memória de inicialização**e selecione **Avançar**. 
+        ![Novo assistente de imagem VM](../media/class-type-ethical-hacking/new-vm-wizard-1.png)
+    1. Na página **'Especificar Geração',** aceite as predefinições e selecione **Next**.
+    1. Na página De atribuição de **memória,** introduza **512 MB** para a memória de **arranque**, e selecione **Seguinte**. 
 
-        ![Página atribuir memória](../media/class-type-ethical-hacking/assign-memory-page.png)
-    1. Na página **Configurar rede** , deixe a conexão como **não conectada**. Você configurará o adaptador de rede mais tarde.
-    1. Na página **conectar disco rígido virtual** , selecione **usar um disco rígido virtual existente**. Navegue até o local do arquivo **. vhdx** que é possível criar na etapa anterior e selecione **Avançar**. 
+        ![Atribuir página de memória](../media/class-type-ethical-hacking/assign-memory-page.png)
+    1. Na página de Configuração de **Rede,** deixe a ligação **como não ligada**. Vai sabotar o adaptador de rede mais tarde.
+    1. Na página **Connect Virtual Hard Disk,** selecione **Utilize um disco rígido virtual existente**. Navegue no local para o ficheiro **metasploitable.vhdx** criado no passo anterior e selecione **Next**. 
 
-        ![Página conectar disco de rede virtual](../media/class-type-ethical-hacking/connect-virtual-network-disk.png)
-    1. Na página **concluindo o assistente de nova máquina virtual** e selecione **concluir**.
-    1. Depois que a máquina virtual for criada, selecione-a no Gerenciador do Hyper-V. Não ative o computador ainda.  
-    1. Escolha **ação** -> **configurações**.
-    1. Na caixa de diálogo **configurações para o Metasploitable** para, selecione **adicionar hardware**. 
-    1. Selecione **adaptador de rede herdado**e selecione **Adicionar**.
+        ![Conecte página de disco de rede virtual](../media/class-type-ethical-hacking/connect-virtual-network-disk.png)
+    1. Na página **de Completar a Nova Máquina Virtual Assistente** e selecionar **Acabamento**.
+    1. Assim que a máquina virtual for criada, selecione-a no Gestor de Hiper-V. Não ligue a máquina ainda.  
+    1. Escolha**as Definições** **de Ação** -> .
+    1. Nas **Definições para um diálogo metasploitável,** selecione **Adicionar Hardware**. 
+    1. Selecione **Legacy Network Adapter**, e selecione **Adicionar**.
 
         ![Página adaptador de rede](../media/class-type-ethical-hacking/network-adapter-page.png)
-    1. Na página **adaptador de rede herdado** , selecione **LabServicesSwitch** para a configuração do **comutador virtual** e selecione **OK**. LabServicesSwitch foi criado ao preparar o computador de modelo para o Hyper-V na seção **preparar modelo para virtualização aninhada** .
+    1. Na página do Adaptador de **Rede Legacy,** selecione **LabServicesSwitch** para a definição **de Switch Virtual** e selecione **OK**. LabServicesSwitch foi criado ao preparar a máquina de modelo para Hyper-V na secção **de preparação para a virtualização anuminária.**
 
-        ![Página adaptador de rede herdada](../media/class-type-ethical-hacking/legacy-network-adapter-page.png)
-    1. A imagem Metasploitable agora está pronta para uso. No **Gerenciador do Hyper-V**, escolha **ação** -> **Iniciar**e, em seguida, escolha **ação** -> **conectar** para conectar-se à máquina virtual.  O nome de usuário padrão é **msfadmin** e a senha é **msfadmin**. 
+        ![Página adaptador legacy Network](../media/class-type-ethical-hacking/legacy-network-adapter-page.png)
+    1. A imagem metasploitável está agora pronta a ser utilizada. De **Hyper-V Manager,** escolha **Action** -> **Start**e, em seguida, escolha **Action** -> **Connect** para ligar à máquina virtual.  O nome de utilizador predefinido é **msfadmin** e a palavra-passe é **msfadmin**. 
 
 
-O modelo agora está atualizado e tem imagens necessárias para uma classe de teste de penetração de Ethical Hacking, uma imagem com ferramentas para fazer o teste de penetração e outra imagem com vulnerabilidades de segurança para descobrir. A imagem de modelo agora pode ser publicada na classe. Selecione o botão **publicar** na página modelo para publicar o modelo no laboratório.
+O modelo está agora atualizado e tem imagens necessárias para uma aula de testes de penetração de hacking ético, uma imagem com ferramentas para fazer o teste de penetração e outra imagem com vulnerabilidades de segurança para descobrir. A imagem do modelo pode agora ser publicada para a classe. Selecione o botão **Publicar** na página do modelo para publicar o modelo no laboratório.
   
 
 ## <a name="cost"></a>Custo  
-Se você quiser estimar o custo deste laboratório, poderá usar o exemplo a seguir: 
+Se quiser estimar o custo deste laboratório, pode usar o seguinte exemplo: 
  
-Para uma classe de 25 alunos com 20 horas de tempo de classe agendada e 10 horas de cota para a casa ou as atribuições, o preço do laboratório seria: 
+Para uma turma de 25 alunos com 20 horas de horário de aulas programada e 10 horas de quota para trabalhos de casa ou tarefas, o preço para o laboratório seria: 
 
-25 alunos * (20 + 10) horas * 55 unidades de laboratório * 0, 1 USD por hora = 412,50 USD. 
+25 alunos * (20 + 10) horas * 55 Unidades de Laboratório * 0,01 USD por hora = 412,50 USD. 
 
-Para obter mais informações sobre preços, consulte [preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
+Para obter mais informações sobre preços, consulte o [Preço dos Serviços do Laboratório Azure](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Conclusão
-Este artigo descreveu as etapas para criar um laboratório para a aula de Ethical Hacking. Ele inclui etapas para configurar a virtualização aninhada para criar duas máquinas virtuais dentro da máquina virtual do host para fazer testes de penetração.
+Este artigo acompanhou-o pelas escadas para criar um laboratório para a aula de hacking ético. Inclui passos para configurar a virtualização aninhada para criar duas máquinas virtuais dentro da máquina virtual hospedeira para testes de penetração.
 
 ## <a name="next-steps"></a>Passos seguintes
-As próximas etapas são comuns à configuração de qualquer laboratório:
+Os próximos passos são comuns à criação de qualquer laboratório:
 
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Definir cota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Definir um agendamento](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Links de registro de email para alunos](how-to-configure-student-usage.md#send-invitations-to-users). 
+- [Definir quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Definir um horário](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
+- [Links de inscrição por e-mail para estudantes.](how-to-configure-student-usage.md#send-invitations-to-users) 
 

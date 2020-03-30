@@ -1,6 +1,6 @@
 ---
-title: lista de azcopy | Microsoft Docs
-description: Este artigo fornece informações de referência para o comando azcopy List.
+title: lista de azcopy [ Microsoft Docs
+description: Este artigo fornece informações de referência para o comando da lista de azcopy.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,19 +9,19 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: f02c1afadf18a7d3170eb178696487464e4a0bd3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034102"
 ---
 # <a name="azcopy-list"></a>azcopy list
 
-Lista as entidades em um determinado recurso.
+Lista as entidades num determinado recurso.
 
-## <a name="synopsis"></a>Resumo
+## <a name="synopsis"></a>Sinopse
 
-Somente os contêineres de blob têm suporte na versão atual.
+Apenas os recipientes Blob são suportados na versão atual.
 
 ```azcopy
 azcopy list [containerURL] [flags]
@@ -30,9 +30,9 @@ azcopy list [containerURL] [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
-- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
-- [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
+- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+- [Configure, otimize e problemas AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -44,17 +44,17 @@ azcopy list [containerURL]
 
 |Opção|Descrição|
 |--|--|
-|-h,--ajuda|Mostra o conteúdo da ajuda para o comando de lista.|
-|--legível por máquina|Lista os tamanhos de arquivo em bytes.|
-|--Mega-unidades|Exibe unidades em ordens de 1000, não 1024.|
-|--com contagem alta|Conta o número total de arquivos e seus tamanhos.|
+|-h, --ajuda|Mostre conteúdo de ajuda para o comando da lista.|
+|--máquina legível|Lista tamanhos de ficheiros em bytes.|
+|--mega-unidades|Exibe unidades em ordens de 1000, não 1024.|
+|-running-tally|Conta o número total de ficheiros e os seus tamanhos.|
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
 |Opção|Descrição|
 |---|---|
-|--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
-|--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
+|--cap-mbps uint32|Cobre a taxa de transferência, em megabits por segundo. A entrada momentânea pode variar ligeiramente a partir da tampa. Se esta opção estiver definida para zero, ou for omitida, a entrada não está limitada.|
+|--cadeia tipo saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 
 ## <a name="see-also"></a>Consulte também
 

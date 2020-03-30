@@ -1,51 +1,51 @@
 ---
-title: Exibir repositórios no portal
-description: Use o portal do Azure para exibir repositórios do registro de contêiner do Azure, que hospedam imagens de contêiner do Docker e outros artefatos com suporte.
+title: Ver repositórios no portal
+description: Utilize o portal Azure para visualizar os repositórios do Registo de Contentores de Azure, que acolhem imagens de contentores Docker e outros artefactos apoiados.
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456286"
 ---
-# <a name="view-container-registry-repositories-in-the-azure-portal"></a>Exibir repositórios de registro de contêiner no portal do Azure
+# <a name="view-container-registry-repositories-in-the-azure-portal"></a>Ver repositórios de registo de contentores no portal Azure
 
-O registro de contêiner do Azure permite armazenar imagens de contêiner do Docker em repositórios. Ao armazenar imagens em repositórios, você pode armazenar grupos de imagens (ou versões de imagens) em ambientes isolados. Você pode especificar esses repositórios ao enviar imagens por push para o registro e exibir seu conteúdo no portal do Azure.
+O Registo de Contentores Azure permite-lhe armazenar imagens de contentores Docker em repositórios. Ao armazenar imagens em repositórios, pode armazenar grupos de imagens (ou versões de imagens) em ambientes isolados. Pode especificar estes repositórios quando empurra as imagens para o seu registo e visualiza o seu conteúdo no portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Registro de contêiner**: Crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [portal do Azure](container-registry-get-started-portal.md) ou o [CLI do Azure](container-registry-get-started-azure-cli.md).
-* **CLI do Docker**: Instale o [Docker][docker-install] em seu computador local, que fornece a interface de linha de comando do Docker.
-* **Imagem de contêiner**: enviar por push uma imagem para o registro de contêiner. Para obter orientação sobre como enviar por push e efetuar pull de imagens, consulte [enviar por push e puxar uma imagem](container-registry-get-started-docker-cli.md).
+* **Registo de contentores**: Crie um registo de contentores na sua assinatura Azure. Por exemplo, utilize o [portal Azure](container-registry-get-started-portal.md) ou o [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Docker CLI**: Instale [o Docker][docker-install] na sua máquina local, o que lhe fornece a interface da linha de comando Docker.
+* **Imagem do recipiente**: Empurre uma imagem para o registo do seu recipiente. Para obter orientações sobre como empurrar e puxar imagens, consulte [Empurrar e puxar uma imagem](container-registry-get-started-docker-cli.md).
 
-## <a name="view-repositories-in-azure-portal"></a>Exibir repositórios no portal do Azure
+## <a name="view-repositories-in-azure-portal"></a>Ver repositórios no portal Azure
 
-Você pode ver uma lista dos repositórios que hospedam suas imagens, bem como as marcas de imagem, na portal do Azure.
+Pode ver uma lista dos repositórios que hospedam as suas imagens, bem como as etiquetas de imagem, no portal Azure.
 
-Se você seguiu as etapas em [enviar por push e efetuar pull de uma imagem](container-registry-get-started-docker-cli.md) (e não excluiu subsequentemente a imagem), você deve ter uma imagem Nginx no registro de contêiner. As instruções nesse artigo especificaram que você marca a imagem com um namespace, os "exemplos" em `/samples/nginx`. Como um atualizador, o comando [Docker Push][docker-push] especificado no artigo foi:
+Se seguiu os passos em [Push e puxou uma imagem](container-registry-get-started-docker-cli.md) (e não apagou posteriormente a imagem), deverá ter uma imagem Nginx no registo do seu contentor. As instruções nesse artigo especificavam que marcava a imagem com `/samples/nginx`um espaço de nome, as "amostras" em . Como um refrescante, o comando de pressão do [estivador][docker-push] especificado nesse artigo foi:
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
- Como o registro de contêiner do Azure dá suporte a esses namespaces de repositório de vários níveis, você pode delimitar coleções de imagens relacionadas a um aplicativo específico ou a uma coleção de aplicativos para diferentes equipes de desenvolvimento ou operacionais. Para ler mais sobre repositórios em registros de contêiner, consulte [registros de contêiner do Docker privado no Azure](container-registry-intro.md).
+ Uma vez que o Registo de Contentores azure suporta tais espaços de nome supérdico multinível, pode ser possível fazer o âmbito de coleções de imagens relacionadas com uma aplicação específica, ou uma coleção de apps, a diferentes equipas de desenvolvimento ou operacionais. Para ler mais sobre repositórios em registos de contentores, consulte os registos de [contentores do Private Docker em Azure](container-registry-intro.md).
 
-Para exibir um repositório:
+Para ver um repositório:
 
-1. Inicie sessão no [portal do Azure][portal]
-1. Selecione o **registro de contêiner do Azure** para o qual você enviou a imagem Nginx
-1. Selecione **repositórios** para ver uma lista dos repositórios que contêm as imagens no registro
-1. Selecione um repositório para ver as marcas de imagem dentro desse repositório
+1. Inscreva-se no [portal Azure][portal]
+1. Selecione o Registo de **Contentores Azure** para o qual empurrou a imagem nginx
+1. Selecione **Repositórios** para ver uma lista dos repositórios que contêm as imagens no registo
+1. Selecione um repositório para ver as etiquetas de imagem dentro desse repositório
 
-Por exemplo, se você enviou por push a imagem Nginx conforme instruído em [Enviar e puxar uma imagem](container-registry-get-started-docker-cli.md), verá algo semelhante a:
+Por exemplo, se empurrou a imagem nginx como instruída no [Push e puxe uma imagem,](container-registry-get-started-docker-cli.md)deve ver algo semelhante a:
 
 ![Repositórios no portal](./media/container-registry-repositories/container-registry-repositories.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você conhece os conceitos básicos da exibição e do trabalho com repositórios no portal, tente usar o registro de contêiner do Azure com um cluster do [AKs (serviço de kubernetes do Azure)](../aks/tutorial-kubernetes-prepare-app.md) .
+Agora que conhece os fundamentos da visualização e do trabalho com repositórios no portal, experimente utilizar o Registo de Contentores Azure com um cluster [azure Kubernetes Service (AKS).](../aks/tutorial-kubernetes-prepare-app.md)
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/

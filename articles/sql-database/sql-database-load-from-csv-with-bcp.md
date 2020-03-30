@@ -1,5 +1,5 @@
 ---
-title: Carregar dados do arquivo CSV em um banco de dados (BCP)
+title: Carregue os dados do ficheiro CSV numa base de dados (bcp)
 description: Para um tamanho de dados de pequena dimensão, utilize o bcp para importar dados para a Base de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: b0df3d588f1d9b0a50c3ea7a583b0704e7e85c39
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73827478"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Carregar dados de ficheiros CSV para a Base de Dados SQL do Azure (ficheiros simples)
@@ -26,9 +26,9 @@ Pode utilizar o utilitário da linha de comandos do bcp para importar dados a pa
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas neste artigo, você precisará de:
+Para completar os passos deste artigo, precisa de:
 
-* Um banco de dados e servidor de banco de dados SQL do Azure
+* Um servidor de base de dados Azure SQL e base de dados
 * Ter instalado o utilitário bcp de linha de comandos
 * Ter instalado o utilitário sqlcmd de linha de comandos
 
@@ -38,7 +38,7 @@ Pode transferir os utilitários bcp e sqlcmd a partir do [Centro de Transferênc
 
 Se estiver a experimentar este tutorial com os seus dados, estes têm de utilizar a codificação ASCII ou UTF-16, uma vez que o bcp não suporta UTF-8. 
 
-## <a name="1-create-a-destination-table"></a>1. criar uma tabela de destino
+## <a name="1-create-a-destination-table"></a>1. Criar uma tabela de destino
 
 Defina uma tabela na Base de Dados SQL como a tabela de destino. As colunas na tabela têm de corresponder aos dados em cada linha do ficheiro de dados.
 
@@ -57,7 +57,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2-create-a-source-data-file"></a>2. criar um arquivo de dados de origem
+## <a name="2-create-a-source-data-file"></a>2. Criar um ficheiro de dados de origem
 
 Abra o Bloco de Notas e copie as seguintes linhas de dados para um novo ficheiro de texto e, em seguida, guarde este ficheiro no diretório temporário local, C:\Temp\DimDate2.txt. Estes dados estão no formato ASCII.
 
@@ -82,7 +82,7 @@ Abra o Bloco de Notas e copie as seguintes linhas de dados para um novo ficheiro
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
-## <a name="3-load-the-data"></a>3. carregar os dados
+## <a name="3-load-the-data"></a>3. Carregar os dados
 
 Para carregar os dados, abra uma linha de comandos e execute o seguinte comando, substituindo os valores para o Nome do Servidor, nome da Base de Dados, Nome de Utilizador e Palavra-passe pelas suas informações.
 

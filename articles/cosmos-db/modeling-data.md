@@ -1,43 +1,43 @@
 ---
-title: Modelando dados no Azure Cosmos DB
+title: Dados de modelação em Azure Cosmos DB
 titleSuffix: Azure Cosmos DB
-description: Saiba mais sobre a modelagem de dados em bancos de dados NoSQL, as diferenças entre modelar dados em um banco de dados relacional e um banco de dados de documentos.
+description: Conheça a modelação de dados nas bases de dados noSQL, diferenças entre modelar dados numa base de dados relacional e uma base de dados de documentos.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 523049ea3286445117f41147f3dd12a2c911d1ae
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72755020"
 ---
-# <a name="data-modeling-in-azure-cosmos-db"></a>Modelagem de dados no Azure Cosmos DB
+# <a name="data-modeling-in-azure-cosmos-db"></a>Modelação de dados em Azure Cosmos DB
 
-Embora os bancos de dados sem esquemas, como Azure Cosmos DB, facilitem o armazenamento e a consulta de um dado não estruturado e semiestruturado, você deve dedicar algum tempo pensando em seu modelo de dados para obter o máximo do serviço em termos de desempenho e escalabilidade e o mais baixo custo.
+Enquanto bases de dados sem esquemas, como o Azure Cosmos DB, tornam super fácil armazenar e consultar dados não estruturados e semi-estruturados, deve passar algum tempo a pensar no seu modelo de dados para tirar o máximo partido do serviço em termos de desempenho e escalabilidade e menor custo.
 
-Como os dados serão armazenados? Como seu aplicativo vai recuperar e consultar dados? Seu aplicativo é de leitura intensa ou de gravação pesada?
+Como é que os dados vão ser armazenados? Como é que a sua aplicação vai recuperar e consultar dados? A sua aplicação é pesada ou pesada?
 
-Depois de ler este artigo, você poderá responder às seguintes perguntas:
+Depois de ler este artigo, poderá responder às seguintes perguntas:
 
-* O que é modelagem de dados e por que devo me preocupar?
-* Como é possível modelar dados em Azure Cosmos DB diferentes para um banco de dado relacional?
-* Como fazer as relações de dados expressas em um banco não relacional?
-* Quando faço para inserir dados e quando vinculo a dados?
+* O que é modelação de dados e por que devo me importar?
+* Como é que a modelação de dados no Azure Cosmos DB é diferente de uma base de dados relacional?
+* Como expresso relações de dados numa base de dados não relacional?
+* Quando é que insinto dados e quando é que me ligarei aos dados?
 
-## <a name="embedding-data"></a>Inserindo dados
+## <a name="embedding-data"></a>Dados de incorporação
 
-Quando você começa a modelar dados em Azure Cosmos DB tente tratar suas entidades como **itens** independentes representados como documentos JSON.
+Quando começar a modelar dados em Azure Cosmos DB tente tratar as suas entidades como **itens independentes representados** como documentos JSON.
 
-Para comparação, vamos ver primeiro como podemos modelar dados em um banco de dado relacional. O exemplo a seguir mostra como uma pessoa pode ser armazenada em um banco de dados relacional.
+Para comparação, vamos primeiro ver como podemos modelar dados numa base de dados relacional. O exemplo que se segue mostra como uma pessoa pode ser armazenada numa base de dados relacional.
 
-![Modelo de banco de dados relacional](./media/sql-api-modeling-data/relational-data-model.png)
+![Modelo de base de dados relacional](./media/sql-api-modeling-data/relational-data-model.png)
 
-Quando se trabalha com bancos de dados relacionais, a estratégia é normalizar todos os seus próprios. Normalizar seus dados normalmente envolve pegar uma entidade, como uma pessoa, e dividi-la em componentes discretos. No exemplo acima, uma pessoa pode ter vários registros de detalhes de contato, bem como vários registros de endereço. Os detalhes de contato podem ser divididos mais detalhadamente com a extração de campos comuns como um tipo. O mesmo se aplica ao endereço, cada registro pode ser do tipo *Home* ou *Business*.
+Ao trabalhar com bases de dados relacionais, a estratégia é normalizar todos os seus dados. Normalizar os seus dados normalmente envolve tomar uma entidade, como uma pessoa, e decompartá-la em componentes discretos. No exemplo acima, uma pessoa pode ter múltiplos registos de detalhes de contacto, bem como vários registos de endereços. Os dados de contacto podem ser ainda mais discriminados através da extração de campos comuns como um tipo. O mesmo se aplica ao endereço, cada registo pode ser do tipo *Casa* ou *Negócios.*
 
-A premissa de orientação ao normalizar os dados é **evitar o armazenamento de dados redundantes** em cada registro e, em vez disso, consultar os dados. Neste exemplo, para ler uma pessoa, com todos os seus detalhes e endereços de contato, você precisa usar junções para compor de forma efetiva (ou desnormalizar) seus dados em tempo de execução.
+A premissa orientadora ao normalizar os dados é **evitar armazenar dados redundantes** em cada registo e antes consultar os dados. Neste exemplo, para ler uma pessoa, com todos os seus dados de contacto e endereços, é necessário utilizar o JOINS para compor eficazmente (ou desnormalizar) os seus dados no momento de funcionamento.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -45,9 +45,9 @@ A premissa de orientação ao normalizar os dados é **evitar o armazenamento de
     JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
-Atualizar uma única pessoa com seus endereços e detalhes de contato requer operações de gravação em várias tabelas individuais.
+Atualizar uma única pessoa com os seus dados de contacto e endereços requer a escrita de operações em muitas tabelas individuais.
 
-Agora vamos dar uma olhada em como modelar os mesmos dados como uma entidade autônoma em Azure Cosmos DB.
+Agora vamos ver como modelaríamos os mesmos dados que uma entidade independente no Azure Cosmos DB.
 
     {
         "id": "1",
@@ -68,31 +68,31 @@ Agora vamos dar uma olhada em como modelar os mesmos dados como uma entidade aut
         ]
     }
 
-Usando a abordagem acima, **desnormalizamos** o registro Person **, inserindo todas as** informações relacionadas a essa pessoa, como seus detalhes de contato e endereços, em um único documento *JSON* .
-Além disso, como não estamos confinados a um esquema fixo, temos a flexibilidade de fazer coisas como ter detalhes de contato de formas diferentes inteiramente.
+Utilizando a abordagem acima, **desnormalizámos** o registo da pessoa, **incorporando** todas as informações relacionadas com esta pessoa, tais como os seus dados de contacto e endereços, num único documento *da JSON.*
+Além disso, como não estamos confinados a um esquema fixo, temos a flexibilidade para fazer coisas como ter detalhes de contacto de diferentes formas inteiramente.
 
-A recuperação de um registro de pessoa completo do banco de dados agora é uma **única operação de leitura** em um único contêiner e para um único item. A atualização de um registro de pessoa, com seus detalhes e endereços de contato, também é uma **única operação de gravação** em um único item.
+Recuperar um registo completo de pessoas da base de dados é agora uma **operação de leitura única** contra um único recipiente e para um único item. Atualizar um registo de uma pessoa, com os seus dados de contacto e endereços, é também uma **única operação de escrita** contra um único item.
 
-Ao desnormalizar os dados, seu aplicativo pode precisar emitir menos consultas e atualizações para concluir operações comuns.
+Ao desnormalizar os dados, a sua aplicação poderá ter de emitir menos consultas e atualizações para completar operações comuns.
 
-### <a name="when-to-embed"></a>Quando inserir
+### <a name="when-to-embed"></a>Quando incorporar
 
-Em geral, use modelos de dados inseridos quando:
+Em geral, utilize modelos de dados incorporados quando:
 
-* Há relações **contidas** entre entidades.
-* Há relações de **um para poucos** entre entidades.
-* Há dados inseridos que são **alterados com pouca frequência**.
-* Há dados inseridos que não serão aumentados **sem limite**.
-* Há dados inseridos que são **consultados frequentemente em conjunto**.
+* Existem relações **contidas** entre entidades.
+* **Há** relações entre entidades.
+* Há dados incorporados que **mudam com pouca frequência.**
+* Há dados incorporados que não crescerão **sem limites.**
+* Há dados incorporados que são **consultados frequentemente em conjunto.**
 
 > [!NOTE]
-> Normalmente, os modelos de dados desnormalizados fornecem melhor desempenho de **leitura** .
+> Os modelos de dados tipicamente desnormalizados proporcionam um melhor desempenho **de leitura.**
 
-### <a name="when-not-to-embed"></a>Quando não inserir
+### <a name="when-not-to-embed"></a>Quando não incorporar
 
-Embora a regra geral na Azure Cosmos DB seja desnormalizar tudo e inserir todos os dados em um único item, isso pode levar a algumas situações que devem ser evitadas.
+Embora a regra do polegar em Azure Cosmos DB seja desnormalizar tudo e incorporar todos os dados num único item, isso pode levar a algumas situações que devem ser evitadas.
 
-Faça este trecho de JSON.
+Pegue este corte JSON.
 
     {
         "id": "1",
@@ -110,11 +110,11 @@ Faça este trecho de JSON.
         ]
     }
 
-Isso pode ser a aparência de uma entidade post com comentários inseridos se tivéssemos modelando um sistema típico de blog, ou CMS,. O problema com este exemplo é que a matriz de comentários não está **associada**, o que significa que não há nenhum limite (prático) para o número de comentários que qualquer postagem pode ter. Isso pode se tornar um problema, pois o tamanho do item pode aumentar infinitamente grande.
+Isto pode ser o que uma entidade postcom comentários incorporados seria se estivéssemos modelando um blog típico, ou CMS, sistema. O problema deste exemplo é que o conjunto de comentários não está **limitado,** o que significa que não existe um limite (prático) para o número de comentários que qualquer publicação pode ter. Isto pode tornar-se um problema, uma vez que o tamanho do item pode crescer infinitamente grande.
 
-Como o tamanho do item aumenta a capacidade de transmitir os dados pela conexão, bem como ler e atualizar o item, em escala, será afetado.
+À medida que o tamanho do item aumenta a capacidade de transmitir os dados sobre o fio, bem como a leitura e a atualização do item, à escala, será impactado.
 
-Nesse caso, seria melhor considerar o seguinte modelo de dados.
+Neste caso, seria prefere considerar o seguinte modelo de dados.
 
     Post item:
     {
@@ -147,11 +147,11 @@ Nesse caso, seria melhor considerar o seguinte modelo de dados.
         ]
     }
 
-Esse modelo tem os três comentários mais recentes inseridos no contêiner post, que é uma matriz com um conjunto fixo de atributos. Os outros comentários são agrupados em lotes de 100 Comentários e armazenados como itens separados. O tamanho do lote foi escolhido como 100 porque nosso aplicativo fictício permite que o usuário carregue 100 Comentários por vez.  
+Este modelo tem os três comentários mais recentes incorporados no contentor do correio, que é um conjunto com um conjunto fixo de atributos. Os outros comentários são agrupados em lotes de 100 comentários e armazenados como itens separados. O tamanho do lote foi escolhido como 100 porque a nossa aplicação fictícia permite ao utilizador carregar 100 comentários de cada vez.  
 
-Outro caso em que incorporar dados não é uma boa ideia é quando os dados inseridos costumam ser usados em todos os itens e serão alterados com frequência.
+Outro caso em que incorporar dados não é uma boa ideia é quando os dados incorporados são frequentemente utilizados em itens e mudam frequentemente.
 
-Faça este trecho de JSON.
+Pegue este corte JSON.
 
     {
         "id": "1",
@@ -169,17 +169,17 @@ Faça este trecho de JSON.
         ]
     }
 
-Isso pode representar o portfólio de ações de uma pessoa. Optamos por inserir as informações de ações em cada documento de portfólio. Em um ambiente em que os dados relacionados são alterados com frequência, como um aplicativo de negociação de estoque, a inserção de dados que mudam com frequência significa que você atualiza constantemente cada documento do portfólio sempre que um estoque é negociado.
+Isto pode representar o portfólio de ações de uma pessoa. Optámos por incorporar a informação sobre as ações em cada documento de carteira. Num ambiente em que os dados relacionados estão a mudar frequentemente, como uma aplicação de negociação de ações, incorporar dados que mudam frequentemente significa que está constantemente a atualizar cada documento de carteira sempre que uma ação é negociada.
 
-O *Zaza* de ações pode ser comercializado muitas centenas de vezes em um único dia e milhares de usuários podem ter *Zaza* em seu portfólio. Com um modelo de dados como o acima, teríamos que atualizar muitos milhares de documentos de portfólio muitas vezes todos os dias que levam a um sistema que não será bem dimensionado.
+O *stock zaza* pode ser negociado muitas centenas de vezes num só dia e milhares de utilizadores podem ter *zaza* no seu portfólio. Com um modelo de dados como o acima referido teríamos de atualizar muitos milhares de documentos de portfólio muitas vezes todos os dias, levando a um sistema que não escalaria bem.
 
-## <a name="referencing-data"></a>Fazendo referência a dados
+## <a name="referencing-data"></a>Dados de referência
 
-A inserção de dados funciona bem para muitos casos, mas há cenários em que a desnormalização de seus dados causará mais problemas do que vale a pena. Então, o que fazemos agora?
+Incorporar dados funciona bem para muitos casos, mas existem cenários para desnormalizar os seus dados causará mais problemas do que vale. Então, o que fazemos agora?
 
-Os bancos de dados relacionais não são o único lugar onde você pode criar relações entre entidades. Em um banco de dados de documentos, você pode ter informações em um documento relacionado a dados em outros documentos. Não recomendamos a criação de sistemas que seriam mais adequados para um banco de dados relacional em Azure Cosmos DB ou qualquer outro banco de dados de documentos, mas relações simples são bem e podem ser úteis.
+As bases de dados relacionais não são o único local onde se pode criar relações entre entidades. Numa base de dados de documentos, pode ter informações num documento relacionado com dados de outros documentos. Não recomendamos sistemas de construção que sejam mais adequados a uma base de dados relacional em Azure Cosmos DB, ou qualquer outra base de dados documental, mas relacionamentos simples são bons e podem ser úteis.
 
-No JSON abaixo, optamos por usar o exemplo de um portfólio de ações de antes, mas desta vez vamos nos referir ao item de estoque no portfólio em vez de incorporá-lo. Dessa forma, quando o item de estoque é alterado com frequência durante todo o dia, o único documento que precisa ser atualizado é o documento de ações únicas.
+No JSON abaixo escolhemos usar o exemplo de uma carteira de ações de antes, mas desta vez referimo-nos ao item de stock da carteira em vez de o incorporarmos. Desta forma, quando o item de stock muda frequentemente ao longo do dia, o único documento que precisa de ser atualizado é o documento de stock único.
 
     Person document:
     {
@@ -214,32 +214,32 @@ No JSON abaixo, optamos por usar o exemplo de um portfólio de ações de antes,
         "pe": 75.82
     }
 
-No entanto, uma desvantagem imediata dessa abordagem é se o aplicativo for necessário para mostrar informações sobre cada estoque que é mantido ao exibir o portfólio de uma pessoa; Nesse caso, você precisaria fazer várias viagens ao banco de dados para carregar as informações de cada documento de ações. Aqui, tomamos uma decisão de melhorar a eficiência das operações de gravação, que ocorrem frequentemente durante todo o dia, mas, por sua vez, são comprometidas nas operações de leitura que potencialmente têm menos impacto sobre o desempenho desse sistema específico.
+Uma desvantagem imediata para esta abordagem é se a sua aplicação for necessária para mostrar informações sobre cada stock que é detido ao exibir o portfólio de uma pessoa; neste caso, teria de fazer múltiplas viagens à base de dados para carregar a informação para cada documento de stock. Aqui tomámos a decisão de melhorar a eficiência das operações de escrita, que acontecem frequentemente ao longo do dia, mas por sua vez comprometidas nas operações de leitura que potencialmente têm menos impacto no desempenho deste sistema em particular.
 
 > [!NOTE]
-> Modelos de dados normalizados **podem exigir mais viagens de ida** e volta ao servidor.
+> Os modelos de dados normalizados **podem exigir mais viagens de ida e volta** ao servidor.
 
-### <a name="what-about-foreign-keys"></a>E quanto às chaves estrangeiras?
+### <a name="what-about-foreign-keys"></a>E as chaves estrangeiras?
 
-Como atualmente não há nenhum conceito de restrição, chave estrangeira ou de outra forma, qualquer relação entre documentos que você tenha em documentos será efetivamente "links fracos" e não será verificada pelo próprio banco de dados. Se você quiser garantir que os dados aos quais um documento está se referindo realmente existem, você precisará fazer isso em seu aplicativo ou por meio do uso de gatilhos do lado do servidor ou de procedimentos armazenados no Azure Cosmos DB.
+Uma vez que não existe atualmente um conceito de restrição, chave estrangeira ou não, quaisquer relações inter-documentais que tenha em documentos são efetivamente "ligações fracas" e não serão verificadas pela própria base de dados. Se pretender garantir que os dados a que um documento se refere realmente existe, então tem de o fazer na sua aplicação, ou através da utilização de gatilhos do lado do servidor ou procedimentos armazenados no Azure Cosmos DB.
 
 ### <a name="when-to-reference"></a>Quando fazer referência
 
-Em geral, use modelos de dados normalizados quando:
+Em geral, utilize modelos de dados normalizados quando:
 
-* Representando relações **um-para-muitos** .
-* Representando relações **muitos para muitos** .
-* Os dados relacionados **são alterados com frequência**.
-* Os dados referenciados podem ser **desvinculados**.
+* Representando **relacionamentos** de um a muitos.
+* Representando **muitas a muitas** relações.
+* Alterações de dados **relacionadas frequentemente**.
+* Os dados referenciados podem ser **ilimitados.**
 
 > [!NOTE]
-> Normalmente, a normalização proporciona um melhor desempenho de **gravação** .
+> Normalmente, a normalização proporciona um melhor desempenho **de escrita.**
 
-### <a name="where-do-i-put-the-relationship"></a>Onde eu coloco a relação?
+### <a name="where-do-i-put-the-relationship"></a>Onde coloco a relação?
 
-O crescimento da relação ajudará a determinar em qual documento armazenar a referência.
+O crescimento da relação ajudará a determinar em que documento armazenar a referência.
 
-Se observarmos o JSON abaixo, que modela os editores e os livros.
+Se olharmos para o JSON abaixo que modela editores e livros.
 
     Publisher document:
     {
@@ -257,9 +257,9 @@ Se observarmos o JSON abaixo, que modela os editores e os livros.
     ...
     {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
-Se o número de livros por Publicador for pequeno com crescimento limitado, o armazenamento da referência do livro dentro do documento do Publicador poderá ser útil. No entanto, se o número de livros por Publicador não estiver associado, esse modelo de dados levaria a matrizes mutáveis e crescentes, como no documento de exemplo Publicador acima.
+Se o número de livros por editor for pequeno e com um crescimento limitado, então armazenar a referência do livro dentro do documento da editora pode ser útil. No entanto, se o número de livros por editora não estiver limitado, então este modelo de dados conduziria a matrizes mutáveis e em crescimento, como no documento de editor de exemplo acima.
 
-Mudar as coisas em um pouco resultaria em um modelo que ainda representa os mesmos dados, mas agora evita essas grandes coleções mutáveis.
+Mudar um pouco as coisas resultaria num modelo que ainda representa os mesmos dados, mas agora evita estas grandes coleções mutáveis.
 
     Publisher document:
     {
@@ -276,15 +276,15 @@ Mudar as coisas em um pouco resultaria em um modelo que ainda representa os mesm
     ...
     {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
-No exemplo acima, descartamos a coleção não associada no documento do Publicador. Em vez disso, temos apenas uma referência ao Publicador em cada documento de livro.
+No exemplo acima, deixámos cair a coleção não limitada no documento da editora. Em vez disso, temos apenas uma referência à editora em cada documento do livro.
 
-### <a name="how-do-i-model-manymany-relationships"></a>Como fazer modelo muitos: muitas relações?
+### <a name="how-do-i-model-manymany-relationships"></a>Como modelo muitas: muitas relações?
 
-Em um banco de dados relacional *muitos: muitas* relações geralmente são modeladas com tabelas de junção, que apenas ingressam em registros de outras tabelas.
+Numa base de dados relacional *muitas: muitas* relações são muitas vezes modeladas com mesas de adesão, que se juntam apenas a registos de outras tabelas.
 
-![Unir tabelas](./media/sql-api-modeling-data/join-table.png)
+![Junte mesas](./media/sql-api-modeling-data/join-table.png)
 
-Você pode estar tentado a replicar a mesma coisa usando documentos e produzir um modelo de dados parecido com o seguinte.
+Pode sentir-se tentado a replicar a mesma coisa usando documentos e produzir um modelo de dados semelhante ao seguinte.
 
     Author documents:
     {"id": "a1", "name": "Thomas Andersen" }
@@ -303,9 +303,9 @@ Você pode estar tentado a replicar a mesma coisa usando documentos e produzir u
     {"authorId": "a1", "bookId": "b2" }
     {"authorId": "a1", "bookId": "b3" }
 
-Isso funcionaria. No entanto, carregar um autor com seus livros ou carregar um livro com seu autor, sempre exigiria pelo menos duas consultas adicionais no banco de dados. Uma consulta para o documento de junção e outra consulta para buscar o documento real que está sendo Unido.
+Isto funcionaria. No entanto, carregar um autor com os seus livros, ou carregar um livro com o seu autor, exigiria sempre pelo menos duas consultas adicionais contra a base de dados. Uma consulta ao documento de adesão e, em seguida, outra consulta para obter o documento real sendo aderido.
 
-Se toda essa tabela de junção estiver colando duas partes de dados, por que não soltá-la completamente?
+Se tudo o que esta mesa de adesão está a fazer é colar dois pedaços de dados, então porque não o largas completamente?
 Considere o seguinte.
 
     Author documents:
@@ -318,17 +318,17 @@ Considere o seguinte.
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
     {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
-Agora, se eu tivesse um autor, sei imediatamente quais livros eles escreveram e, por outro lado, se eu tivesse um documento de livro carregado, saberia as identificações do (s) autor (es). Isso salva a consulta intermediária em relação à tabela de junção, reduzindo o número de viagens de ida e volta do servidor que seu aplicativo precisa fazer.
+Agora, se eu tivesse um autor, eu imediatamente sei que livros escreveram, e inversamente se eu tivesse um documento de livro carregado eu saberia as iDs do(s autor). Isto economiza essa consulta intermediária contra a mesa de adesão reduzindo o número de viagens redondas do servidor que a sua aplicação tem de fazer.
 
 ## <a name="hybrid-data-models"></a>Modelos de dados híbridos
 
-Agora, examinamos a inserção (ou desnormalização) e a referência (ou a normalização) de dados, cada um deles com seus lados e cada um tem comprometeções como vimos.
+Agora, parecemos incorporar (ou desnormalizar) e referenciar dados (ou normalizar), cada um tem as suas vantagens e cada um tem compromissos como vimos.
 
-Nem sempre precisa ser ou não fazer medo para misturar coisas por um pouco.
+Nem sempre tem de ser ou.não tenhas medo de misturar um pouco as coisas.
 
-Com base nos padrões de uso e cargas de trabalho específicos de seu aplicativo, pode haver casos em que misturar dados incorporados e referenciados faz sentido e pode levar à lógica do aplicativo mais simples com menos viagens de ida e volta do servidor e, ao mesmo tempo, manter um bom nível de desempenho.
+Com base nos padrões de utilização e cargas de trabalho específicos da sua aplicação, pode haver casos em que misturar dados incorporados e referenciados faz sentido e pode levar a uma lógica de aplicação mais simples com menos viagens redondas do servidor, mantendo um bom nível de desempenho.
 
-Considere o JSON a seguir.
+Considere o seguinte JSON.
 
     Author documents:
     {
@@ -371,19 +371,19 @@ Considere o JSON a seguir.
         ]
     }
 
-Aqui, (principalmente), seguimos o modelo incorporado, em que os dados de outras entidades são inseridos no documento de nível superior, mas outros dados são referenciados.
+Aqui seguimos (principalmente) o modelo incorporado, onde os dados de outras entidades estão incorporados no documento de alto nível, mas outros dados são referenciados.
 
-Se você examinar o documento de livro, poderemos ver alguns campos interessantes ao examinarmos a matriz de autores. Há um campo `id` que é o campo que usamos para fazer referência a um documento de autor, uma prática padrão em um modelo normalizado, mas também temos `name` e `thumbnailUrl`. Poderíamos ter preso `id` e deixar o aplicativo para obter informações adicionais necessárias do respectivo documento autor usando o "link", mas como nosso aplicativo exibe o nome do autor e uma imagem em miniatura com cada livro exibido pode salvar uma viagem de ida e volta ao servidor por livro em uma lista desnormalizando **alguns** dados do autor.
+Se olharmos para o documento do livro, podemos ver alguns campos interessantes quando olhamos para o conjunto de autores. Há um `id` campo que é o campo que usamos para remeter de volta a um `name` documento `thumbnailUrl`de autor, prática padrão em um modelo normalizado, mas depois também temos e . Poderíamos ter `id` ficado com e deixado a aplicação para obter qualquer informação adicional necessária do respetivo documento de autor usando o "link", mas como a nossa aplicação exibe o nome do autor e uma imagem de miniatura com cada livro exibido podemos guardar uma viagem de ida e volta ao servidor por livro numa lista desnormalizando **alguns** dados do autor.
 
-Com certeza, se o nome do autor for alterado ou quisessem atualizar sua foto, precisaremos atualizar todos os livros que já publicaram, mas para nosso aplicativo, com base na suposição de que os autores não alteram seus nomes com frequência, essa é uma decisão de design aceitável.  
+Claro, se o nome do autor mudasse ou quisesse minhá-lo, teríamos de atualizar todos os livros que já publicaram, mas para a nossa aplicação, com base no pressuposto de que os autores não mudam os seus nomes com frequência, esta é uma decisão de design aceitável.  
 
-No exemplo, há valores de **agregações previamente calculados** para salvar o processamento caro em uma operação de leitura. No exemplo, alguns dos dados inseridos no documento do autor são dados que são calculados em tempo de execução. Sempre que um novo livro é publicado, um documento de livro é criado **e** o campo countOfBooks é definido como um valor calculado com base no número de documentos de livro que existem para um determinado autor. Essa otimização seria boa em sistemas de leitura intensa, nos quais podemos arcar com cálculos em gravações a fim de otimizar as leituras.
+No exemplo, existem **valores agregados pré-calculados** para economizar processamento dispendioso numa operação de leitura. No exemplo, alguns dos dados incorporados no documento do autor são dados que são calculados no prazo de execução. Sempre que um novo livro é publicado, é criado um documento de livro **e** o campo countOfBooks é definido para um valor calculado com base no número de documentos de livros que existem para um determinado autor. Esta otimização seria boa na leitura de sistemas pesados onde podemos dar-nos ao luxo de fazer cálculos em escritos de forma a otimizar as leituras.
 
-A capacidade de ter um modelo com campos pré-calculados é possibilitada porque Azure Cosmos DB dá suporte a **Transações de vários documentos**. Muitos repositórios NoSQL não podem realizar transações em documentos e, portanto, defendem decisões de design, como "sempre inserir tudo", devido a essa limitação. Com Azure Cosmos DB, você pode usar gatilhos do lado do servidor ou procedimentos armazenados, que inserem livros e atualizam os autores em uma transação ACID. Agora você não **precisa** inserir tudo em um documento apenas para ter certeza de que seus dados permanecem consistentes.
+A capacidade de ter um modelo com campos pré-calculados é possível porque a Azure Cosmos DB suporta **transações multi-documentos.** Muitas lojas NoSQL não podem fazer transações através de documentos e, por isso, defendem decisões de design, como "sempre incorporar tudo", devido a esta limitação. Com o Azure Cosmos DB, pode utilizar gatilhos do lado do servidor, ou procedimentos armazenados, que insiram livros e atualizar autores todos dentro de uma transação ACID. Agora não **precisa** incorporar tudo num único documento apenas para ter certeza de que os seus dados permanecem consistentes.
 
-## <a name="distinguishing-between-different-document-types"></a>Diferenciando entre diferentes tipos de documento
+## <a name="distinguishing-between-different-document-types"></a>Distinguindo diferentes tipos de documentos
 
-Em alguns cenários, talvez você queira misturar tipos de documentos diferentes na mesma coleção; Normalmente, esse é o caso em que você deseja que vários documentos relacionados sejam posicionados na mesma [partição](partitioning-overview.md). Por exemplo, você pode colocar livros e revisões de livro na mesma coleção e particioná-los por `bookId`. Nessa situação, você geralmente deseja adicionar aos seus documentos com um campo que identifica seu tipo para diferenciá-los.
+Em alguns cenários, é possível misturar diferentes tipos de documentos na mesma coleção; este é geralmente o caso quando se quer que vários documentos relacionados se sente na mesma [divisão](partitioning-overview.md). Por exemplo, você poderia colocar ambos livros e críticas `bookId`de livros na mesma coleção e dividi-lo por . Nesta situação, normalmente pretende adicionar aos seus documentos um campo que identifique o seu tipo de forma a diferenciá-los.
 
     Book documents:
     {
@@ -409,12 +409,12 @@ Em alguns cenários, talvez você queira misturar tipos de documentos diferentes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-As maiores informações deste artigo são entender que a modelagem de dados em um mundo livre de esquemas é tão importante quanto nunca.
+Os maiores takeaways deste artigo são compreender que a modelação de dados num mundo livre de esquemas é tão importante como sempre.
 
-Assim como não há uma maneira única de representar dados em uma tela, não há uma maneira única de modelar seus dados. Você precisa entender seu aplicativo e como ele vai produzir, consumir e processar os dados. Em seguida, aplicando algumas das diretrizes apresentadas aqui, você pode definir sobre a criação de um modelo que atenda às necessidades imediatas do seu aplicativo. Quando seus aplicativos precisam ser alterados, você pode aproveitar a flexibilidade de um banco de dados sem esquemas para adotar essa alteração e desenvolver facilmente seu modelo de dados.
+Assim como não há uma única maneira de representar um pedaço de dados num ecrã, não há uma única maneira de modelar os seus dados. Precisa entender a sua aplicação e como irá produzir, consumir e processar os dados. Em seguida, aplicando algumas das diretrizes aqui apresentadas, pode definir a criação de um modelo que responda às necessidades imediatas da sua aplicação. Quando as suas aplicações precisam de mudar, pode aproveitar a flexibilidade de uma base de dados sem esquemas para abraçar essa mudança e evoluir facilmente o seu modelo de dados.
 
-Para saber mais sobre Azure Cosmos DB, consulte a página de [documentação](https://azure.microsoft.com/documentation/services/cosmos-db/) do serviço.
+Para saber mais sobre o Azure Cosmos DB, consulte a página de [documentação](https://azure.microsoft.com/documentation/services/cosmos-db/) do serviço.
 
-Para entender como fragmentar seus dados em várias partições, consulte [Particionando dados em Azure Cosmos DB](sql-api-partition-data.md).
+Para entender como fragmentos dos seus dados em várias divisórias, consulte dados [de partição em Azure Cosmos DB](sql-api-partition-data.md).
 
-Para saber como modelar e particionar dados em Azure Cosmos DB usando um exemplo do mundo real, consulte [modelagem e particionamento de dados – um exemplo do mundo real](how-to-model-partition-example.md).
+Para aprender a modelar e dividir dados sobre o Azure Cosmos DB usando um exemplo real, consulte [modelação de dados e partição - um exemplo do Mundo Real](how-to-model-partition-example.md).

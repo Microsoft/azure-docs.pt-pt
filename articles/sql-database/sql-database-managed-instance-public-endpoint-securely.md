@@ -1,6 +1,6 @@
 ---
-title: Pontos de extremidade públicos de instância gerenciada segura
-description: Usar pontos de extremidade públicos com segurança no Azure com uma instância gerenciada
+title: Pontos finais públicos seguros de instância gerida
+description: Use com segurança pontos finais públicos em Azure com um exemplo gerido
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,46 +11,46 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
 ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73821744"
 ---
-# <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Usar uma instância gerenciada do banco de dados SQL do Azure com segurança com pontos de extremidade públicos
+# <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Utilize uma base de dados Azure SQL gerida de forma segura com pontos finais públicos
 
-As instâncias gerenciadas do banco de dados SQL do Azure podem fornecer conectividade de usuário em [pontos de extremidade públicos](../virtual-network/virtual-network-service-endpoints-overview.md). Este artigo explica como tornar essa configuração mais segura.
+As instâncias geridas pela Base de Dados Azure SQL podem fornecer conectividade ao utilizador em relação aos [pontos finais públicos](../virtual-network/virtual-network-service-endpoints-overview.md). Este artigo explica como tornar esta configuração mais segura.
 
 ## <a name="scenarios"></a>Cenários
 
-Uma instância gerenciada do banco de dados SQL fornece um ponto de extremidade privado para permitir a conectividade de dentro de sua rede virtual. A opção padrão é fornecer isolamento máximo. No entanto, há situações em que você precisa fornecer uma conexão de ponto de extremidade pública:
+Uma instância gerida pela Base de Dados SQL fornece um ponto final privado para permitir a conectividade a partir do interior da sua rede virtual. A opção padrão é proporcionar o máximo isolamento. No entanto, existem cenários em que é necessário fornecer uma ligação de ponto final público:
 
-- A instância gerenciada deve ser integrada com ofertas de PaaS (plataforma como serviço) multilocatário.
-- Você precisa de maior taxa de transferência de troca de dados do que é possível quando você está usando uma VPN.
-- As políticas da empresa proíbem PaaS dentro de redes corporativas.
+- A instância gerida deve integrar-se com ofertas de plataforma-como-serviço multi-inquilinos (PaaS).
+- Precisa de uma maior perecção de troca de dados do que é possível quando se está a utilizar uma VPN.
+- As políticas da empresa proíbem o PaaS dentro das redes corporativas.
 
-## <a name="deploy-a-managed-instance-for-public-endpoint-access"></a>Implantar uma instância gerenciada para acesso de ponto de extremidade público
+## <a name="deploy-a-managed-instance-for-public-endpoint-access"></a>Implementar uma instância gerida para acesso ao ponto final público
 
-Embora não seja obrigatório, o modelo de implantação comum para uma instância gerenciada com acesso de ponto de extremidade público é criar a instância em uma rede virtual isolada dedicada. Nessa configuração, a rede virtual é usada somente para isolamento de cluster virtual. Não importa se o espaço de endereço IP da instância gerenciada se sobrepõe ao espaço de endereço IP de uma rede corporativa.
+Embora não seja obrigatório, o modelo comum de implantação para uma instância gerida com acesso ao ponto final público é criar a instância numa rede virtual isolada dedicada. Nesta configuração, a rede virtual é usada apenas para isolamento de cluster virtual. Não importa se o espaço de endereço IP da instância gerida se sobrepõe ao espaço de endereçoIP de uma rede corporativa.
 
 ## <a name="secure-data-in-motion"></a>Proteger dados em movimento
 
-O tráfego de dados de instância gerenciada será sempre criptografado se o driver de cliente oferecer suporte à criptografia. Os dados enviados entre a instância gerenciada e outras máquinas virtuais do Azure ou serviços do Azure nunca deixam o backbone do Azure. Se houver uma conexão entre a instância gerenciada e uma rede local, recomendamos que você use o Azure ExpressRoute com o emparelhamento da Microsoft. O ExpressRoute ajuda você a evitar a movimentação de dados pela Internet pública. Para conectividade privada de instância gerenciada, somente o emparelhamento privado pode ser usado.
+O tráfego de dados de instância gerido é sempre encriptado se o condutor do cliente suportar a encriptação. Os dados enviados entre a instância gerida e outras máquinas virtuais Azure ou serviços Azure nunca saem da espinha dorsal do Azure. Se houver uma ligação entre a instância gerida e uma rede no local, recomendamos que utilize o Azure ExpressRoute com o peering da Microsoft. O ExpressRoute ajuda-o a evitar a movimentação de dados através da internet pública. Para a conectividade privada gerida, apenas o epeering privado pode ser usado.
 
 ## <a name="lock-down-inbound-and-outbound-connectivity"></a>Bloquear a conectividade de entrada e saída
 
-O diagrama a seguir mostra as configurações de segurança recomendadas:
+O diagrama seguinte mostra as configurações de segurança recomendadas:
 
 ![Configurações de segurança para bloquear a conectividade de entrada e saída](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
 
-Uma instância gerenciada tem um [endereço de ponto de extremidade público dedicado](sql-database-managed-instance-find-management-endpoint-ip-address.md). No firewall de saída do lado do cliente e nas regras do grupo de segurança de rede, defina esse endereço IP do ponto de extremidade público para limitar a conectividade de saída.
+Um caso gerido tem um endereço final dedicado ao [público.](sql-database-managed-instance-find-management-endpoint-ip-address.md) Na firewall de saída do lado do cliente e nas regras do grupo de segurança da rede, detetou este endereço IP do ponto final público para limitar a conectividade de saída.
 
-Para garantir que o tráfego para a instância gerenciada seja proveniente de fontes confiáveis, é recomendável conectar-se de fontes com endereços IP conhecidos. Use um grupo de segurança de rede para limitar o acesso ao ponto de extremidade público da instância gerenciada na porta 3342.
+Para garantir que o tráfego para a instância gerida provém de fontes fidedignas, recomendamos a ligação de fontes com endereços IP bem conhecidos. Utilize um grupo de segurança de rede para limitar o acesso ao ponto final da instância gerida no porto 3342.
 
-Quando os clientes precisarem iniciar uma conexão de uma rede local, verifique se o endereço de origem está traduzido para um conjunto conhecido de endereços IP. Se você não puder fazer isso (por exemplo, uma força de equipe móvel sendo um cenário típico), recomendamos que você use [conexões VPN ponto a site e um ponto de extremidade privado](sql-database-managed-instance-configure-p2s.md).
+Quando os clientes precisarem de iniciar uma ligação a partir de uma rede no local, certifique-se de que o endereço originário é traduzido para um conjunto bem conhecido de endereços IP. Se não o puder fazer (por exemplo, uma mão de obra móvel é um cenário típico), recomendamos que utilize [ligações VPN ponto-a-site e um ponto final privado](sql-database-managed-instance-configure-p2s.md).
 
-Se as conexões forem iniciadas no Azure, recomendamos que o tráfego venha de um [endereço IP virtual](../virtual-network/virtual-networks-reserved-public-ip.md) atribuído conhecido (por exemplo, uma máquina virtual). Para facilitar o gerenciamento de endereços VIP (IP virtual), talvez você queira usar [prefixos de endereço IP público](../virtual-network/public-ip-address-prefix.md).
+Se as ligações forem iniciadas a partir de Azure, recomendamos que o tráfego venha de um [conhecido endereço IP virtual](../virtual-network/virtual-networks-reserved-public-ip.md) atribuído (por exemplo, uma máquina virtual). Para facilitar a gestão dos endereços IP virtuais (VIP), é melhor utilizar [prefixos de endereçoip públicos](../virtual-network/public-ip-address-prefix.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como configurar o ponto de extremidade público para gerenciar instâncias: [Configurar ponto de extremidade público](sql-database-managed-instance-public-endpoint-configure.md)
+- Saiba como configurar o ponto final público para gerir casos: [Configurar o ponto final do público](sql-database-managed-instance-public-endpoint-configure.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Analysis Services nomes de servidor de alias | Microsoft Docs
-description: Saiba como criar Azure Analysis Services aliases de nome de servidor. Os usuários podem, então, se conectar ao seu servidor com um nome de alias mais curto em vez do nome do servidor.
+title: Azure Analysis Services pseudónimo nomes de servidores / Microsoft Docs
+description: Saiba como criar pseudónimos de servidor do Azure Analysis Services. Os utilizadores podem então ligar-se ao seu servidor com um nome de pseudónimo mais curto em vez do nome do servidor.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,42 +8,42 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5e7017fad90e32cb8c4b952987fe248e463e4d03
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572280"
 ---
-# <a name="alias-server-names"></a>Nomes de servidor de alias
+# <a name="alias-server-names"></a>Nomes de servidores de Alias
 
-Usando um alias de nome de servidor, os usuários podem se conectar ao seu servidor de Azure Analysis Services com um *alias* mais curto em vez do nome do servidor. Ao se conectar de um aplicativo cliente, o alias é especificado como um ponto de extremidade usando o formato de protocolo **link://** . Em seguida, o ponto de extremidade retorna o nome do servidor real para se conectar.
+Ao utilizar um pseudónimo de nome de servidor, os utilizadores podem ligar-se ao seu servidor de Serviços de Análise Azure com um *pseudónimo* mais curto em vez do nome do servidor. Ao ligar-se a partir de uma aplicação do cliente, o pseudónimo é especificado como ponto final utilizando o formato **protocolo link://.** O ponto final devolve então o nome real do servidor para se ligar.
 
-Os nomes de servidor de alias são bons para:
+Os nomes dos servidores da Alias são bons para:
 
-- Migrar modelos entre servidores sem afetar os usuários. 
-- Nomes de servidor amigáveis são mais fáceis para os usuários se lembrarem. 
-- Encaminhe os usuários para servidores diferentes em momentos diferentes do dia. 
-- Encaminhe os usuários em regiões diferentes para as instâncias que estão geograficamente mais próximas, como ao usar o Gerenciador de tráfego do Azure. 
+- Modelos de migração entre servidores sem afetar os utilizadores. 
+- Os nomes amigáveis do servidor são mais fáceis de lembrar pelos utilizadores. 
+- Direcione os utilizadores para diferentes servidores em diferentes horas do dia. 
+- Utilizadores direcionados em diferentes regiões para casos geograficamente mais próximos, como quando se utiliza o Azure Traffic Manager. 
 
-Qualquer ponto de extremidade HTTPS que retorna um nome de servidor Azure Analysis Services válido pode servir como um alias. O ponto de extremidade deve oferecer suporte a HTTPS pela porta 443 e a porta não deve ser especificada no URI.
+Qualquer ponto final HTTPS que deseja um nome válido do servidor do Azure Analysis Services pode servir como pseudónimo. O ponto final deve suportar HTTPS sobre a porta 443 e a porta não deve ser especificada no URI.
 
-![Alias usando o formato de link](media/analysis-services-alias/aas-alias-browser.png)
+![Pseudónimos usando formato de ligação](media/analysis-services-alias/aas-alias-browser.png)
 
-Ao conectar-se de um cliente, o nome do servidor de alias é inserido usando o formato de protocolo **link://** . Por exemplo, em Power BI Desktop:
+Ao ligar-se a partir de um cliente, o nome do servidor de pseudónimos é introduzido utilizando **link://** formato de protocolo. Por exemplo, no Power BI Desktop:
 
-![Power BI Desktop conexão](media/analysis-services-alias/aas-alias-connect-pbid.png)
+![Ligação de ambiente de trabalho Power BI](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
-## <a name="create-an-alias"></a>Criar um alias
+## <a name="create-an-alias"></a>Criar um pseudónimo
 
-Para criar um ponto de extremidade de alias, você pode usar qualquer método que retorne um nome de servidor de Azure Analysis Services válido. Por exemplo, uma referência a um arquivo no armazenamento de BLOBs do Azure que contém o nome do servidor real, ou criar e publicar um aplicativo de Web Forms ASP.NET.
+Para criar um ponto final de pseudónimo, pode utilizar qualquer método que derete um nome válido de servidor do Serviço de Análise Azure. Por exemplo, uma referência a um ficheiro no Armazenamento De Blob Azure contendo o nome real do servidor, ou criar e publicar uma aplicação ASP.NET Web Forms.
 
-Neste exemplo, um aplicativo ASP.NET Web Forms é criado no Visual Studio. A referência de página mestra e o controle de usuário são removidos da página default. aspx. O conteúdo de default. aspx é simplesmente a seguinte diretiva de página:
+Neste exemplo, uma aplicação de formulários web ASP.NET é criada no Estúdio Visual. A referência da página principal e o controlo do utilizador são removidos da página Padrão.aspx. O conteúdo do Default.aspx é simplesmente a seguinte diretiva página:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
 ```
 
-O evento Page_Load em Default.aspx.cs usa o método Response. Write () para retornar o nome do servidor Azure Analysis Services.
+O evento Page_Load em Default.aspx.cs utiliza o método Response.Write() para devolver o nome do servidor dos Serviços de Análise Azure.
 
 ```
 protected void Page_Load(object sender, EventArgs e)
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>Consulte também
 
-[Bibliotecas de cliente](analysis-services-data-providers.md)   
-[Conectar de Power BI Desktop](analysis-services-connect-pbi.md)
+[Bibliotecas de clientes](analysis-services-data-providers.md)   
+[Ligar a partir do Power BI Desktop](analysis-services-connect-pbi.md)

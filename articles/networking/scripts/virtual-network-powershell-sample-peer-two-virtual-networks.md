@@ -1,6 +1,6 @@
 ---
-title: Exemplo de script Azure PowerShell-emparelhar duas redes virtuais | Microsoft Docs
-description: Exemplo de script Azure PowerShell-emparelhar duas redes virtuais
+title: Amostra de script Azure PowerShell - Peer duas redes virtuais / Microsoft Docs
+description: Amostra de script Azure PowerShell - Peer duas redes virtuais
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -13,15 +13,15 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: kumud
 ms.openlocfilehash: 53af283813500fc93d3e5fb9d4b00a9c3034af2d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890194"
 ---
-# <a name="peer-two-virtual-networks"></a>Emparelhar duas redes virtuais
+# <a name="peer-two-virtual-networks"></a>Peering de rede de duas redes virtuais
 
-Esse script cria e conecta duas redes virtuais na mesma região por meio da rede do Azure. Depois de executar o script, irá criar um peering entre duas redes virtuais.
+Este script cria e conecta duas redes virtuais na mesma região através da rede Azure. Depois de executar o script, irá criar um peering entre duas redes virtuais.
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 
@@ -48,7 +48,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. | 
-| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)| Cria uma rede e sub-rede virtual do Azure. |
+| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork)| Cria uma rede e sub-rede virtual do Azure. |
 | [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) | Cria um peering entre duas redes virtuais.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 

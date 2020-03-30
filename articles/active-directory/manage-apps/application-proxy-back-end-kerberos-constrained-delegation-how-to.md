@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de delegação restrita de Kerberos-proxy de aplicativo
-description: Resolver problemas de configurações de delegação restrita de Kerberos para o Proxy de aplicações
+title: Problemática supor a delegação restrita de Kerberos - App Proxy
+description: Resolução de problemas Kerberos Configurações restritas de delegação para procuração de aplicação
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,157 +17,157 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275686"
 ---
-# <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolver problemas de configurações de delegação restringida de Kerberos para o Proxy de aplicações
+# <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolução de problemas Kerberos limitou configurações de delegação para procuração de aplicação
 
-Os métodos disponíveis para alcançar o SSO a aplicações publicadas podem variar de uma aplicação para outra. Uma opção que o Proxy de aplicações do Azure Active Directory (Azure AD) oferece por predefinição é a delegação restringida de Kerberos (KCD). Pode configurar um conector, para os seus utilizadores, para executar restrita de Kerberos de autenticação para aplicações de back-end.
+Os métodos disponíveis para alcançar o SSO a aplicações publicadas podem variar de uma aplicação para outra. Uma opção que o Azure Ative Directory (Azure AD) Application Proxy oferece por defeito é a delegação limitada kerberos (KCD). Pode configurar um conector, para os seus utilizadores, para executar a autenticação limitada de Kerberos para aplicações de back-end.
 
-O procedimento para ativar o KCD é simples. Ela exige não mais do que uma compreensão geral dos vários componentes e fluxo de autenticação que suportam o SSO. Mas, às vezes, o KCD SSO não funcionar conforme esperado. Precisa boas fontes de informações para resolver estes cenários.
+O procedimento para ativar a KCD é simples. Não requer mais do que uma compreensão geral dos vários componentes e fluxo de autenticação que suportam o SSO. Mas, às vezes, o KCD SSO não funciona como esperado. Precisa de boas fontes de informação para resolver estes cenários.
 
-Este artigo fornece um único ponto de referência que ajuda a resolver problemas e Self-retificar alguns dos problemas mais comuns. Também aborda de diagnóstico de problemas de implementação mais complexos.
+Este artigo fornece um único ponto de referência que ajuda a resolver problemas e a auto-remediar algumas das questões mais comuns. Abrange também o diagnóstico de problemas de implementação mais complexos.
 
 Este artigo faz as seguintes suposições:
 
-- A implantação da Proxy de Aplicativo do AD do Azure por introdução [ao proxy de aplicativo](application-proxy-add-on-premises-application.md) e o acesso geral a aplicativos não KCD funcionam conforme o esperado.
-- O aplicativo de destino publicados baseia-se nos serviços de informação Internet (IIS) e a implementação Microsoft do Kerberos.
-- Os anfitriões de servidor e aplicação residirem num único domínio do Azure Active Directory. Para obter informações detalhadas sobre cenários de floresta e domínio cruzado, consulte o [White Paper KCD](https://aka.ms/KCDPaper).
-- A aplicação de assunto é publicada no Azure inquilino com a pré-autenticação ativada. Os utilizadores devem autenticar para o Azure através da autenticação baseada em formulários. Cenários de autenticação de cliente rico não são abordados neste artigo. Podem ser adicionados em algum momento no futuro.
+- A implementação do Proxy de Aplicação AD Azure por [Get começou com o Proxy de Aplicação](application-proxy-add-on-premises-application.md) e o acesso geral a aplicações não KCD funcionam como esperado.
+- A aplicação-alvo publicada baseia-se nos Serviços de Informação da Internet (IIS) e na implementação da Microsoft da Kerberos.
+- Os anfitriões do servidor e da aplicação residem num único domínio de Diretório Ativo Azure. Para obter informações detalhadas sobre cenários de domínio cruzado e floresta, consulte o [livro branco KCD](https://aka.ms/KCDPaper).
+- O pedido de assunto é publicado num inquilino azure com pré-autenticação habilitada. Espera-se que os utilizadores autentiquem ao Azure através da autenticação baseada em formulários. Cenários ricos de autenticação de clientes não estão cobertos por este artigo. Podem ser adicionados em algum momento no futuro.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Proxy de aplicações do Azure AD podem ser implementado em vários tipos de infraestruturas ou ambientes. As arquiteturas variam de organização para organização. As causas mais comuns dos problemas relacionados com o KCD não são os ambientes. Erros de configuração simples ou erros gerais com que a maioria dos problemas.
+A Procuração de Aplicações AD Azure pode ser implantada em muitos tipos de infraestruturas ou ambientes. As arquiteturas variam de organização para organização. As causas mais comuns de questões relacionadas com a KCD não são os ambientes. Simples configurações erradas ou erros gerais causam a maioria dos problemas.
 
-Por esse motivo, é melhor garantir que você tenha atendido todos os pré-requisitos no [uso do SSO do KCD com o proxy de aplicativo](application-proxy-configure-single-sign-on-with-kcd.md) antes de iniciar a solução de problemas. Tenha em atenção a secção sobre como configurar a delegação restringida de Kerberos no 2012R2. Este processo utiliza uma abordagem diferente para configurar o KCD em versões anteriores do Windows. Além disso, ficar atentos a essas considerações:
+Por esta razão, o melhor é certificar-se de que cumpriu todos os pré-requisitos na utilização do [KCD SSO com o Proxy](application-proxy-configure-single-sign-on-with-kcd.md) de Aplicação antes de começar a resolver problemas. Note a secção sobre a configuração da delegação limitada kerberos em 2012R2. Este processo emprega uma abordagem diferente para configurar o KCD em versões anteriores do Windows. Além disso, esteja atento a estas considerações:
 
-- Não é incomum para um servidor de membro de domínio abrir uma caixa de diálogo de canal seguro com um controlador de domínio específico (DC). Em seguida, o servidor pode ser movida para outra caixa de diálogo em qualquer momento. Então, anfitriões de conector não são restritos a comunicação com o site local específico apenas controladores de domínio.
-- Cenários entre domínios contam com referências que direcionam um anfitrião do conector para controladores de domínio que podem estar fora do perímetro de rede local. Nestes casos, é igualmente importante para também enviar tráfego ou superior para DCs que representam outros respectivos domínios. Caso contrário, ocorre uma falha de delegação.
-- Sempre que possível, evite colocar quaisquer dispositivos ativos de IPS ou IDS entre anfitriões de conector e controladores de domínio. Esses dispositivos são, às vezes, muito invasivos e interferem no tráfego principal de RPC.
+- Não é incomum um servidor membro do domínio abrir um diálogo de canal seguro com um controlador de domínio específico (DC). Em seguida, o servidor pode passar para outro diálogo a qualquer momento. Assim, os anfitriões de conector não estão restritos à comunicação com apenas dCs locais específicos.
+- Os cenários de domínio transversal baseiam-se em referências que direcionam um hospedeiro de conector para DCs que podem estar fora do perímetro da rede local. Nestes casos, é igualmente importante também enviar tráfego para os DCs que representam outros domínios respetivos. Se não, a delegação falha.
+- Sempre que possível, evite colocar quaisquer dispositivos IPS ou IDS ativos entre os anfitriões dos conectores e os DCs. Estes dispositivos são, por vezes, demasiado intrusivos e interferem com o tráfego rpc central.
 
-Delegação de teste em cenários simples. As variáveis mais introduz, quanto mais talvez tenha que ser seguidas. Para economizar tempo, limite o teste com um único conector. Adicione conectores adicionais depois do problema foi resolvido.
+Delegação de teste em cenários simples. Quanto mais variáveis introduzires, mais terás de enfrentar. Para poupar tempo, limite os seus testes a um único conector. Adicione conectores adicionais depois de resolvido o problema.
 
-Alguns fatores ambientais também podem contribuir para um problema. Para evitar esses fatores, minimize tanto quanto possível durante o teste de arquitetura. Por exemplo, o firewall interno mal configurado ACLs são comuns. Se possível, envie todo o tráfego de um conector direta para os controladores de domínio e a aplicação de back-end.
+Alguns fatores ambientais podem também contribuir para uma questão. Para evitar estes fatores, minimize a arquitetura o máximo possível durante os testes. Por exemplo, os ACLs internos de firewall mal configurados são comuns. Se possível, envie todo o tráfego de um conector diretamente para os DCs e aplicação back-end.
 
-O melhor local para posicionar conectores é o mais próximo possível para seus destinos. Uma firewall que lhes inline durante o teste adiciona complexidade desnecessária e pode prolongar a suas investigações.
+O melhor lugar para posicionar conectores é o mais próximo possível dos seus alvos. Uma firewall que fica na linha quando os testes adiciona complexidade desnecessária e pode prolongar as suas investigações.
 
-O que mostra um problema KCD? Existem vários indicações comuns KCD SSO com falhas. Os primeira sinais de um problema são apresentados no browser.
+O que mostra um problema com a KCD? Existem várias indicações comuns de que o KCD SSO está a falhar. Os primeiros sinais de um problema aparecem no navegador.
 
-![Exemplo: erro de configuração KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Exemplo: Erro de configuração KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
-![Exemplo: falha de autorização devido a permissões ausentes](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
+![Exemplo: Autorização falhou devido a falta de permissões](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Ambas essas imagens mostram o sintoma mesmo: falha SSO. É negado o acesso de utilizador à aplicação.
+Ambas as imagens mostram o mesmo sintoma: Falha sso. O acesso do utilizador à aplicação é negado.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Como resolver depende do problema e os sintomas que observar. Antes de vai qualquer ainda mais longe, explore os artigos seguintes. Eles fornecem informações de resolução de problemas úteis:
+A forma como se resoluo os problemas depende do problema e dos sintomas que observa. Antes de ir mais longe, explore os seguintes artigos. Fornecem informações úteis de resolução de problemas:
 
-- [Solucionar problemas de proxy de aplicativo e mensagens de erro](application-proxy-troubleshoot.md)
-- [Erros e sintomas do Kerberos](application-proxy-troubleshoot.md#kerberos-errors)
-- [Trabalhando com SSO quando as identidades locais e na nuvem não são idênticas](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
+- [Problemas de procuração de aplicação de problemas e mensagens de erro](application-proxy-troubleshoot.md)
+- [Erros e sintomas de Kerberos](application-proxy-troubleshoot.md#kerberos-errors)
+- [Trabalhar com sSO quando no local e identidades na nuvem não são idênticas](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
-Se tem a este ponto, o principal problema existe. Para começar, separe o fluxo para as três fases seguintes que pode resolver.
+Se chegou a este ponto, então o seu principal problema existe. Para começar, separe o fluxo nas três fases seguintes que pode resolver.
 
-### <a name="client-pre-authentication"></a>Pré-autenticação de cliente
+### <a name="client-pre-authentication"></a>Pré-autenticação do cliente
 
-O utilizador externo a autenticação no Azure através de um browser. A capacidade de autenticar previamente para o Azure é necessária para KCD SSO função. Testar e resolver esta capacidade, se existirem quaisquer problemas. A fase de pré-autenticação não está relacionado com KCD ou a aplicação publicada. É fácil corrigir qualquer discrepância sanidade verificando que a conta de assunto existe no Azure. Também verificar se não está desativada ou bloqueada. A resposta de erro no browser é descritiva o bastante para explicar a causa. Se estiver incerto, consulte outros artigos de resolução de problemas da Microsoft para verificar.
+O utilizador externo autenticando o Azure através de um browser. A capacidade de autenticação prévia ao Azure é necessária para que o SSO da KCD funcione. Teste e aborde esta capacidade se houver algum problema. A fase de pré-autenticação não está relacionada com a KCD ou com a aplicação publicada. É fácil corrigir quaisquer discrepâncias verificando que a conta do assunto existe em Azure. Verifique também se não está desativado ou bloqueado. A resposta de erro no navegador é descritiva o suficiente para explicar a causa. Se estiver incerta, verifique outros artigos de resolução de problemas da Microsoft para verificar.
 
 ### <a name="delegation-service"></a>Serviço de delegação
 
-O conector de Proxy do Azure que obtém uma permissão de serviço do Kerberos para os utilizadores a partir de um centro de distribuição de chave de Kerberos (KCD).
+O conector Azure Proxy que recebe um bilhete de serviço Kerberos para os utilizadores de um Centro de Distribuição de Chaves Kerberos (KCD).
 
-As comunicações externas entre o cliente e o front-end do Azure não tem nenhuma relevância na KCD. Estas comunicações apenas Certifique-se de que o KCD funciona. O serviço de Proxy do Azure é fornecido um ID de utilizador válido, que é utilizado para obter um tíquete Kerberos. Sem essa ID, o KCD não é possível e falha.
+As comunicações externas entre o cliente e a frente Azure não têm qualquer influência sobre a KCD. Estas comunicações só certificam-se de que a KCD funciona. O serviço Azure Proxy é fornecido um ID de utilizador válido que é usado para obter um bilhete Kerberos. Sem esta identificação, a KCD não é possível e falha.
 
-Como mencionado anteriormente, as mensagens de erro do navegador fornece algumas boas dicas sobre por que as coisas falharem. Certifique-se de tomar nota do ID de atividade e timestamp na resposta. Estas informações ajudam-lhe correlacionar o comportamento real eventos no registo de eventos de Proxy do Azure.
+Como mencionado anteriormente, as mensagens de erro do navegador fornecem algumas boas pistas sobre o porquê das coisas falharem. Certifique-se de que anota o ID de atividade e a marca de tempo na resposta. Esta informação ajuda-o a correlacionar o comportamento com eventos reais no registo de eventos do Azure Proxy.
 
-![Exemplo: erro de configuração KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
+![Exemplo: Erro de configuração KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-Mostram entradas correspondentes no registo de eventos de ver como eventos 13019 ou 12027. Localize os logs de eventos do conector em **logs de aplicativos e serviços** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **admin**.
+As entradas correspondentes vistas no registo do evento mostram como eventos 13019 ou 12027. Encontre os registos do evento do conector em **Registos de Sistemas** &gt; de Registos **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **Administrador**.
 
-![Evento 13019 de registo de eventos do Proxy de aplicações](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
+![Evento 13019 do registo de eventos da Application Proxy](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
-![12027 de eventos de registo de eventos do Proxy de aplicações](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic5.png)
+![Evento 12027 do registo de eventos do Proxy de Aplicação](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic5.png)
 
-1. Use um registro **a** no DNS interno para o endereço do aplicativo, não um **CNAME**.
-1. Voltem a que o anfitrião do conector foi concedido o direito de delegar para SPN a conta de destino designado. Reconfirme se **usar qualquer protocolo de autenticação** está selecionado. Para obter mais informações, consulte o [artigo configuração de SSO](application-proxy-configure-single-sign-on-with-kcd.md).
-1. Certifique-se de que existe apenas uma instância do SPN existe no Azure AD. Problema `setspn -x` de um prompt de comando em qualquer host membro do domínio.
-1. Verifique se uma política de domínio é imposta que limita o [tamanho máximo de tokens Kerberos emitidos](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/). Esta política será interrompido o conector de obter um token, se ele é considerado excessiva.
+1. Utilize um registo **A** no seu DNS interno para o endereço da aplicação, e não um **CName**.
+1. Confirme que o anfitrião do conector foi concedido o direito de delegar no SPN da conta-alvo designado. Reconfirme que Utilize qualquer protocolo de **autenticação** selecionado. Para mais informações, consulte o artigo de [configuração SSO](application-proxy-configure-single-sign-on-with-kcd.md).
+1. Verifique se só existe um caso da SPN em Azure AD. Emissão `setspn -x` de um pedido de comando em qualquer anfitrião do membro do domínio.
+1. Verifique se é aplicada uma política de domínio que limita o [tamanho máximo dos tokens Kerberos emitidos.](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/) Esta política impede o conector de obter um símbolo se for considerado excessivo.
 
-Um rastreio de rede que captura as trocas entre o anfitrião de conector e um domínio KDC é a próxima etapa melhor para obter mais detalhes de baixo nível sobre os problemas. Para obter mais informações, consulte o [artigo solução de problemas de aprofundamento](https://aka.ms/proxytshootpaper).
+Um traço de rede que captura as trocas entre o anfitrião do conector e um KDC de domínio é o próximo melhor passo para obter mais detalhes de baixo nível sobre os problemas. Para mais informações, consulte o [papel de mergulho profundo Troubleshoot](https://aka.ms/proxytshootpaper).
 
-Se estiver de emissão de permissões correto, verá um evento nos registos que diz que a autenticação falhou porque o aplicativo devolveu um erro 401. Este evento indica que o aplicativo de destino rejeitou o pedido de suporte. Vá para o próximo estágio.
+Se a bilhética parecer boa, vê-se um evento nos registos a indicar que a autenticação falhou porque a aplicação devolveu um 401. Este evento indica que o pedido de destino rejeitou o seu bilhete. Vai para a próxima fase.
 
-### <a name="target-application"></a>Aplicação de destino
+### <a name="target-application"></a>Aplicação-alvo
 
-O consumidor do tíquete Kerberos fornecido pelo conector. Nesta fase, esperar que o conector para enviou um pedido de serviço do Kerberos para o back-end. Este pedido de suporte é um cabeçalho no primeiro pedido de aplicação.
+O consumidor do bilhete Kerberos fornecido pelo conector. Nesta fase, espere que o conector tenha enviado um bilhete de serviço Kerberos para a parte de trás. Este bilhete é um cabeçalho no primeiro pedido de inscrição.
 
-1. Ao utilizar o URL interno do aplicativo definido no portal, valide se a aplicação está acessível diretamente a partir do browser no anfitrião do conector. Em seguida, pode iniciar sessão com êxito. Os detalhes podem ser encontrados na página de **solução de problemas** do conector.
-1. Ainda no anfitrião do conector, certifique-se que a autenticação entre o browser e o aplicativo usa Kerberos. Efetuar uma das seguintes ações:
-1. Execute DevTools (**F12**) no Internet Explorer ou use o [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) no host do conector. Vá para a aplicação utilizando o URL interno. Inspecionar os cabeçalhos de autorização de WWW oferecidos devolvidos na resposta da aplicação para se certificar de que qualquer um negociar ou Kerberos está presente.
+1. Ao utilizar o URL interno da aplicação definido no portal, valide que a aplicação esteja acessível diretamente a partir do navegador no anfitrião do conector. Então pode assinar com sucesso. Os detalhes podem ser encontrados na página do conector **Troubleshoot.**
+1. Ainda no anfitrião do conector, confirme que a autenticação entre o navegador e a aplicação utiliza a Kerberos. Efetue uma das seguintes ações:
+1. Executar DevTools **(F12)** no Internet Explorer ou utilizar [o Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) do anfitrião do conector. Vá à aplicação utilizando o URL interno. Inspecione os cabeçalhos de autorização de WWW devolvidos na resposta do pedido para se certificar de que ou negoceia ou kerberos está presente.
 
-   - O próximo blob Kerberos que é retornado na resposta do navegador para o aplicativo começa com **YII**. Estas letras indicam que o Kerberos está em execução. O Microsoft NT LAN Manager (NTLM), por outro lado, sempre começa com **TlRMTVNTUAAB**, que lê o NTLMSSP (provedor de suporte de segurança do NTLM) quando decodificado a partir de Base64. Se você vir **TlRMTVNTUAAB** no início do blob, o Kerberos não estará disponível. Se você não vir **TlRMTVNTUAAB**, o Kerberos provavelmente estará disponível.
+   - A próxima bolha kerberos que é devolvida na resposta do navegador à aplicação começa com **YII**. Estas cartas dizem-te que o Kerberos está a fugir. Microsoft NT LAN Manager (NTLM), por outro lado, começa sempre com **TlRMTVNTUAAB,** que lê ntLM Security Support Provider (NTLMSSP) quando descodificado a partir do Base64. Se vir **TlRMTVNTUAAB** no início da bolha, kerberos não está disponível. Se não vir **TlRMTVNTUAAB,** a Kerberos provavelmente está disponível.
 
       > [!NOTE]
-      > Se utilizar o Fiddler, este método requer que desabilitar temporariamente a proteção expandida na configuração da aplicação no IIS.
+      > Se utilizar o Fiddler, este método requer que desative temporariamente uma proteção alargada na configuração da aplicação no IIS.
 
-      ![Janela de inspeção de rede do browser](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
+      ![Janela de inspeção de rede de navegador](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
 
-   - O blob nesta figura não começa com **TIRMTVNTUAAB**. Portanto, neste exemplo, o Kerberos está disponível e o blob Kerberos não começa com **YII**.
+   - A bolha neste valor não começa com **tIRMTVNTUAAB**. Portanto, neste exemplo, Kerberos está disponível, e a bolha Kerberos não começa com **yII**.
 
-1. Remova temporariamente NTLM a partir da lista de fornecedores no site do IIS. Aceda à aplicação diretamente a partir do Internet Explorer no anfitrião do conector. NTLM não se encontra na lista de fornecedores. Pode aceder à aplicação através de Kerberos apenas. Se o acesso falhar, poderá haver um problema com a configuração da aplicação. A autenticação Kerberos não está a funcionar.
+1. Retire temporariamente a NTLM da lista de fornecedores no site do IIS. Aceda à aplicação diretamente do Internet Explorer no anfitrião do conector. A NTLM já não está na lista de fornecedores. Pode aceder à aplicação usando apenas kerberos. Se o acesso falhar, pode haver um problema com a configuração da aplicação. A autenticação kerberos não está a funcionar.
 
-   - Se o Kerberos não estiver disponível, verifique as definições de autenticação da aplicação no IIS. Certifique-se de que **Negotiate** esteja listado na parte superior, com NTLM logo abaixo dele. Se você vir **não negociar**, **Kerberos ou Negotiate**ou **PKU2U**, continue somente se o Kerberos estiver funcional.
+   - Se a Kerberos não estiver disponível, verifique as definições de autenticação da aplicação no IIS. Certifique-se de que **o Negotiate** está no topo, com a NTLM logo abaixo. Se vir **Não Negociar**, **Kerberos ou Negociar**, ou **PKU2U,** só continue se Kerberos estiver funcional.
 
-     ![Provedores de autenticação do Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
+     ![Fornecedores de autenticação windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 
-   - Com o Kerberos e NTLM no local, desative temporariamente a pré-autenticação para a aplicação no portal. Tente aceder a partir da internet ao utilizar o URL externo. Lhe for pedido para se autenticar. Pode fazê-lo com a mesma conta utilizada no passo anterior. Caso contrário, existe um problema com a aplicação de back-end, não KCD.
-   - Volte a ativar a pré-autenticação no portal. Autenticar-se através do Azure ao tentar ligar-se para a aplicação através do respetivo URL externo. Se falhar de SSO, verá uma mensagem de erro proibido no browser e o evento 13022 no registo de:
+   - Com kerberos e NTLM no lugar, desative temporariamente a pré-autenticação para a aplicação no portal. Tente acessá-lo a partir da internet utilizando o URL externo. Foi-lhe pedido que autenticasse. Pode fazê-lo com a mesma conta usada no passo anterior. Se não, há um problema com a aplicação de back-end, não com a KCD.
+   - Reativar a pré-autenticação no portal. Autenticar através do Azure tentando ligar-se à aplicação através do seu URL externo. Se o SSO falhar, vê uma mensagem de erro proibida no navegador e no evento 13022 no registo:
 
-     *O conector de proxy de aplicativo do Microsoft AAD não pode autenticar o usuário porque o servidor back-end responde às tentativas de autenticação Kerberos com um erro HTTP 401.*
+     *O Conector proxy da aplicação Microsoft AAD não pode autenticar o utilizador porque o servidor backend responde às tentativas de autenticação da Kerberos com um erro HTTP 401.*
 
-      ![Mostra o erro proibido do HTTTP 401](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
+      ![Mostra erro proibido hTTTP 401](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
-   - Verifique o aplicativo do IIS. Certifique-se de que o conjunto aplicacional configurado e o SPN estão configurados para utilizar a mesma conta no Azure AD. Navegue no IIS, conforme mostrado na ilustração seguinte:
+   - Verifique a aplicação IIS. Certifique-se de que o conjunto de aplicações configurado e o SPN estão configurados para utilizar a mesma conta em Azure AD. Navegue no IIS como mostrado na seguinte ilustração:
 
-      ![Janela de configuração de aplicativo do IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
+      ![Janela de configuração de aplicação IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-      Depois de saber a identidade, certifique-se de que esta conta está configurada com o SPN em questão. Um exemplo é `setspn –q http/spn.wacketywack.com`. Introduza o seguinte texto num prompt de comando:
+      Depois de conhecer a identidade, certifique-se de que esta conta está configurada com o SPN em questão. Um exemplo é `setspn –q http/spn.wacketywack.com`. Introduza o seguinte texto num pedido de comando:
 
       ![Mostra a janela de comando SetSPN](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
-   - Verifique o SPN definido contra as configurações do aplicativo no portal. Certifique-se de que o mesmo SPN configurado em relação a conta do Azure AD de destino é utilizado pelo conjunto de aplicações do aplicativo.
+   - Verifique o SPN definido com base nas definições da aplicação no portal. Certifique-se de que o mesmo SPN configurado contra a conta AD-alvo Azure é utilizado pelo conjunto de aplicações da aplicação.
 
-      ![Configuração do SPN no portal do Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+      ![Configuração SPN no portal Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
 
-   - Vá para o IIS e selecione a opção do **Editor de configuração** para o aplicativo. Navegue até **System. DataServer/Security/Authentication/WindowsAuthentication**. Verifique se o valor **UseAppPoolCredentials** é **true**.
+   - Entre no IIS e selecione a opção 'Editor de **Configuração'** para a aplicação. Navegar para **system.webServer/security/autenticação/windowsAuthentication**. Certifique-se de que o valor **UseAppPoolCredentials** é **verdadeiro**.
 
-      ![Opção de credenciais de pools de aplicativos de configuração do IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+      ![Aplicativo de configuração IIS pools opção credencial](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 
-      Altere esse valor para **true**. Remova todas as permissões de Kerberos em cache do servidor de back-end, executando o seguinte comando:
+      Mude este valor para **True**. Remova todos os bilhetes Kerberos em cache do servidor back-end executando o seguinte comando:
 
       ```powershell
       Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
       ```
 
-Para obter mais informações, consulte [limpar o cache de tíquetes de cliente Kerberos para todas as sessões](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
+Para mais informações, consulte Purpur o cache de bilhete cliente [Kerberos para todas as sessões](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
 
-Se deixar o modo de Kernel ativado, melhora o desempenho de operações do Kerberos. Mas ele também faz com que o pedido de suporte para o serviço de pedido ser desencriptada com a conta de computador. Esta conta também é denominada Sistema Local. Defina esse valor como **true** para interromper o KCD quando o aplicativo for hospedado em mais de um servidor em um farm.
+Se deixar o modo Kernel ativado, melhora o desempenho das operações da Kerberos. Mas também faz com que o bilhete para o serviço solicitado seja desencriptado utilizando a conta da máquina. Esta conta também é chamada de sistema local. Detete este valor para **True** para quebrar o KCD quando a aplicação estiver hospedada em mais de um servidor numa fazenda.
 
-- Como uma verificação adicional, desabilite a proteção **estendida** também. Em alguns cenários, a proteção **estendida** quebrou o KCD quando ele foi habilitado em configurações específicas. Nesses casos, uma aplicação foi publicada como uma subpasta do Web site predefinido. Esta aplicação está configurada para apenas a autenticação anónima. Todas as caixas de diálogo estão desativadas, que sugere que objetos filho não herdam as definições do Active Directory. Recomendamos que você teste, mas não se esqueça de restaurar esse valor para **habilitado**, sempre que possível.
+- Como verificação adicional, desative a proteção **alargada** também. Em alguns cenários, a proteção **estendida** quebrou o KCD quando foi ativada em configurações específicas. Nesses casos, uma aplicação foi publicada como subpasta do website predefinido. Esta aplicação está configurada apenas para autenticação anónima. Todos os diálogos estão acinzentados, o que sugere que os objetos infantis não herdam nenhuma definição ativa. Recomendamos que teste, mas não se esqueça de restaurar este valor para **ativado,** sempre que possível.
 
-  Esta verificação adicional coloca-o no caminho certo para utilizar o seu aplicativo publicado. Pode acelerar conectores adicionais que também estejam configurados para delegar. Para obter mais informações, leia o passo a passo técnico mais aprofundado, [solução de problemas do proxy de aplicativo do AD do Azure](https://aka.ms/proxytshootpaper).
+  Este cheque adicional coloca-o no caminho certo para usar a sua aplicação publicada. Pode girar conectores adicionais que também estão configurados para delegar. Para mais informações, leia a análise técnica mais aprofundada, [resolução de problemas com o Procurador de Aplicação AD Azure](https://aka.ms/proxytshootpaper).
 
-Se ainda não o conseguir progresso, o suporte da Microsoft pode ajudá-lo. Crie um pedido de suporte diretamente no portal. Um engenheiro irá contactá-lo.
+Se ainda não conseguir fazer progressos, o suporte da Microsoft pode ajudá-lo. Crie um bilhete de apoio diretamente dentro do portal. Um engenheiro vai contactá-lo.
 
 ## <a name="other-scenarios"></a>Outros cenários
 
-- Proxy de aplicações do Azure solicita um tíquete Kerberos antes de enviar sua solicitação para uma aplicação. Alguns aplicativos de terceiros não gostam desse método de autenticação. Esses aplicativos esperam que a negociações mais convencionais para ter lugar. A primeira solicitação é anônima, o que permite que o aplicativo responder com os tipos de autenticação que ele oferece suporte por meio de um erro 401.
-- Multi-HOP autenticação é frequentemente utilizada em cenários em que um aplicativo está em camadas, com um back-end e front-end, em que ambos requerem a autenticação, como o SQL Server Reporting Services. Para configurar o cenário de salto múltiplo, consulte o artigo de suporte a [delegação restrita de Kerberos pode exigir a transição de protocolo em cenários de multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- A Procuração de Aplicações Azure solicita um bilhete Kerberos antes de enviar o seu pedido para um pedido. Algumas aplicações de terceiros não gostam deste método de autenticação. Estas candidaturas esperam que se realizem negociações mais convencionais. O primeiro pedido é anónimo, o que permite que a aplicação responda com os tipos de autenticação que suporta através de um 401.
+- A autenticação multi-hop é comumente usada em cenários em que uma aplicação é nivida, com extremidade traseira e frente, onde ambos requerem autenticação, como serviços de reporte de servidores SQL. Para configurar o cenário multi-hop, consulte o artigo de apoio [Kerberos Constranged Delegação May Require A Transição Protocolar em Cenários Multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Configurar o KCD em um domínio gerenciado](../../active-directory-domain-services/deploy-kcd.md).
+[Configure o KCD num domínio gerido](../../active-directory-domain-services/deploy-kcd.md).

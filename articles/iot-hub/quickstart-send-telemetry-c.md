@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
 ms.openlocfilehash: cbd32be2caefc9b84c2db4255df298cfd0766c01
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241137"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Quickstart: Envie a telemetria de um dispositivo para um hub IoT e leia-a com uma aplicação de back-end (C)
@@ -29,11 +29,11 @@ Este artigo está escrito para Windows, mas também pode completar este arranque
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com o ['Desenvolvimento C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) desktop com ' carga de trabalho ativada.
+* Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com o 'Desenvolvimento desktop [com C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitado.
 
 * Instale a versão mais recente do [Git](https://git-scm.com/download/).
 
@@ -70,7 +70,7 @@ No entanto, neste arranque rápido, você vai preparar um ambiente de desenvolvi
 
 2. Encontre o nome da etiqueta para o [mais recente lançamento](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK.
 
-3. Abra uma linha de comandos ou a shell do Git Bash. Executar os seguintes comandos para clonar o mais recente lançamento do [repositório Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub. Utilize a etiqueta encontrada no passo anterior como valor para o parâmetro `-b`:
+3. Abra uma linha de comandos ou a shell do Git Bash. Executar os seguintes comandos para clonar o mais recente lançamento do [repositório Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub. Utilize a etiqueta encontrada no passo anterior `-b` como valor para o parâmetro:
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -80,7 +80,7 @@ No entanto, neste arranque rápido, você vai preparar um ambiente de desenvolvi
 
     Esta operação deve demorar vários minutos a ser concluída.
 
-4. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. Executar os seguintes comandos do diretório `azure-iot-sdk-c`:
+4. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. Executar os seguintes `azure-iot-sdk-c` comandos do diretório:
 
     ```cmd/sh
     mkdir cmake
@@ -93,7 +93,7 @@ No entanto, neste arranque rápido, você vai preparar um ambiente de desenvolvi
     cmake ..
     ```
 
-    Se `cmake` não encontrar C++ o seu compilador, poderá ter erros de construção enquanto executa o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    Se `cmake` não encontrar o seu compilador C++, poderá obter erros de construção enquanto executa o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:
 
@@ -160,7 +160,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
     static const char* connectionString = "[device connection string]";
     ```
 
-    Substitua o valor da `connectionString` constante com a cadeia de ligação do dispositivo de que tomou nota anteriormente. Em seguida, guarde as alterações ao **iothub_convenience_sample.c**.
+    Substitua o `connectionString` valor da constante pela cadeia de ligação do dispositivo de que tomou nota anteriormente. Em seguida, guarde as alterações ao **iothub_convenience_sample.c**.
 
 3. Na janela do terminal local, navegue para o diretório do projeto *iothub_convenience_sample* no diretório CMake que criou no SDK C do Azure IoT. Insira o seguinte comando do seu diretório de trabalho:
 

@@ -1,6 +1,6 @@
 ---
-title: Notificações por email no PIM-Azure Active Directory | Microsoft Docs
-description: Descreve as notificações por email no Azure AD Privileged Identity Management (PIM).
+title: Notificações por e-mail no PIM - Diretório Ativo Azure / Microsoft Docs
+description: Descreve notificações de e-mail em Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -17,89 +17,89 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee5f2edbae28276f8485ae774a5b1c52e1af2fd1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72756391"
 ---
-# <a name="email-notifications-in-pim"></a>Notificações por email no PIM
+# <a name="email-notifications-in-pim"></a>Notificações por e-mail em PIM
 
-Privileged Identity Management (PIM) permite que você saiba quando eventos importantes ocorrem em sua organização do Azure Active Directory (Azure AD), como quando uma função é atribuída ou ativada. Privileged Identity Management mantém você informado enviando-lhe e outros participantes notificações por email. Esses emails também podem incluir links para tarefas relevantes, como ativar ou renovar uma função. Este artigo descreve de que forma esses emails se parecem, quando eles são enviados e quem os recebe.
+A Privileged Identity Management (PIM) informa-o quando ocorrerem eventos importantes na sua organização Azure Ative Directory (Azure AD), como quando uma função é atribuída ou ativada. A Gestão de Identidade Privilegiada mantém-no informado enviando notificações de e-mail a si e a outros participantes. Estes e-mails também podem incluir links para tarefas relevantes, tais como ativar ou renovar um papel. Este artigo descreve como são estes e-mails, quando são enviados, e quem os recebe.
 
-## <a name="sender-email-address-and-subject-line"></a>Endereço de email do remetente e linha do assunto
+## <a name="sender-email-address-and-subject-line"></a>Endereço de e-mail do remetente e linha de assunto
 
-Os emails enviados de Privileged Identity Management para as funções de recurso do Azure AD e do Azure têm o seguinte endereço de email do remetente:
+Os e-mails enviados da Privileged Identity Management para as funções de recurso Azure AD e Azure têm o seguinte endereço de e-mail remetente:
 
-- Endereço de email: **Azure-noresponder\@Microsoft.com**
-- Nome de exibição: Microsoft Azure
+- Endereço de e-mail: **\@azure-noreply microsoft.com**
+- Nome do ecrã: Microsoft Azure
 
-Esses emails incluem um prefixo de **PIM** na linha de assunto. Segue-se um exemplo:
+Estes e-mails incluem um prefixo **PIM** na linha de assunto. Segue-se um exemplo:
 
-- PIM: Alain Charon atribuiu permanentemente a função de leitor de backup
+- PIM: Alain Charon foi permanentemente designado o papel de Leitor de Backup
 
-## <a name="notifications-for-azure-ad-roles"></a>Notificações para funções do Azure AD
+## <a name="notifications-for-azure-ad-roles"></a>Notificações para funções da AD Azure
 
-Privileged Identity Management envia emails quando os seguintes eventos ocorrem para funções do Azure AD:
+A Privileged Identity Management envia e-mails quando ocorrem os seguintes eventos para funções da AD Azure:
 
-- Quando uma ativação de função privilegiada estiver com aprovação pendente
-- Quando uma solicitação de ativação de função privilegiada for concluída
-- Quando Azure AD Privileged Identity Management está habilitado
+- Quando uma ativação de papel privilegiado está pendente de aprovação
+- Quando um pedido de ativação de funções privilegiada é concluído
+- Quando a Azure AD Privileged Identity Management está ativada
 
-Quem recebe esses emails para as funções do Azure AD depende de sua função, do evento e da configuração de notificações:
+Quem recebe estes e-mails para funções de AD Azure depende do seu papel, do evento e da definição de notificações:
 
-| Utilizador | A ativação da função está com aprovação pendente | A solicitação de ativação de função foi concluída | O PIM está habilitado |
+| Utilizador | A ativação de funções está pendente de aprovação | O pedido de ativação de funções está concluído | PiM está ativado |
 | --- | --- | --- | --- |
-| Administrador de função com privilégios</br>(Ativado/qualificado) | Sim</br>(somente se nenhum aprovador explícito for especificado) | Sim* | Sim |
-| Administrador de segurança</br>(Ativado/qualificado) | Não | Sim* | Sim |
-| Administrador Global</br>(Ativado/qualificado) | Não | Sim* | Sim |
+| Administrador privilegiado</br>(Ativado/Elegível) | Sim</br>(apenas se não forem especificados os aprovadores explícitos) | Sim* | Sim |
+| Administrador de Segurança</br>(Ativado/Elegível) | Não | Sim* | Sim |
+| Administrador Global</br>(Ativado/Elegível) | Não | Sim* | Sim |
 
-\* se a [configuração **notificações** ](pim-how-to-change-default-settings.md#notifications) estiver definida como **habilitar**.
+\*Se a definição de [ **Notificações** ](pim-how-to-change-default-settings.md#notifications) estiver definida para **ativar**.
 
-Veja a seguir um email de exemplo que é enviado quando um usuário ativa uma função do Azure AD para a organização fictícia Contoso.
+O seguinte mostra um e-mail de exemplo que é enviado quando um utilizador ativa uma função Azure AD para a organização fictícia Contoso.
 
-![Novo Privileged Identity Management email para funções do Azure AD](./media/pim-email-notifications/email-directory-new.png)
+![Novo e-mail privilegiado de Gestão de Identidade para funções da Azure AD](./media/pim-email-notifications/email-directory-new.png)
 
-### <a name="weekly-privileged-identity-management-digest-email-for-azure-ad-roles"></a>Email de resumo semanal Privileged Identity Management para funções do Azure AD
+### <a name="weekly-privileged-identity-management-digest-email-for-azure-ad-roles"></a>Gestão de Identidade Privilegiada Semanal digesta e-mail para funções de AD Azure
 
-Um email de resumo Privileged Identity Management semanal para funções do Azure AD é enviado para administradores de função com privilégios, administradores de segurança e administradores globais que habilitaram o Privileged Identity Management. Este email semanal fornece um instantâneo de Privileged Identity Management atividades para a semana, bem como atribuições de função com privilégios. Ele só está disponível para locatários na nuvem pública. Aqui está um exemplo de email:
+Um e-mail semanal de Gestão de Identidade Privilegiada para funções de AD Azure é enviado para Administradores de Papel Privilegiado, Administradores de Segurança e Administradores Globais que permitiram a Gestão de Identidade Privilegiada. Este e-mail semanal fornece uma imagem instantânea de atividades privilegiadas de Gestão de Identidade para a semana, bem como atribuições de papéis privilegiados. Só está disponível para inquilinos na nuvem pública. Aqui está um e-mail de exemplo:
 
-![Email de resumo semanal Privileged Identity Management para funções do Azure AD](./media/pim-email-notifications/email-directory-weekly.png)
+![Gestão de Identidade Privilegiada Semanal digesta e-mail para funções de AD Azure](./media/pim-email-notifications/email-directory-weekly.png)
 
-O email inclui quatro blocos:
+O e-mail inclui quatro azulejos:
 
-| Bloco | Descrição |
+| Mosaico | Descrição |
 | --- | --- |
-| **Usuários ativados** | Número de vezes que os usuários ativaram sua função qualificada dentro do locatário. |
-| **Usuários que se tornaram permanentes** | Número de vezes que os usuários com uma atribuição qualificada são tornados permanentes. |
-| **Atribuições de função no Privileged Identity Management** | Número de vezes que os usuários recebem uma função qualificada dentro Privileged Identity Management. |
-| **Atribuições de função fora do PIM** | Número de vezes que os usuários recebem uma função permanente fora do Privileged Identity Management (dentro do Azure AD). |
+| **Utilizadores ativados** | Número de vezes que os utilizadores ativaram o seu papel elegível dentro do inquilino. |
+| **Utilizadores tornados permanentes** | O número de vezes que os utilizadores com uma atribuição elegível são permanentes. |
+| **Atribuições de funções na Gestão de Identidade Privilegiada** | Número de vezes que os utilizadores recebem um papel elegível dentro da Gestão de Identidade Privilegiada. |
+| **Atribuições de funções fora da PIM** | Número de vezes que os utilizadores recebem um papel permanente fora da Gestão de Identidade Privilegiada (dentro da AD Azure). |
 
-A **visão geral da seção de funções principais** lista as cinco principais funções em seu locatário com base no número total de administradores permanentes e qualificados para cada função. O link **executar ação** abre o [Assistente do PIM](pim-security-wizard.md) , no qual você pode converter administradores permanentes em lotes qualificados em lotes.
+A visão geral da sua secção de **funções superiores** lista as cinco melhores funções do seu inquilino com base no número total de administradores permanentes e elegíveis para cada função. O link **take action** abre o [assistente PIM](pim-security-wizard.md) onde pode converter administradores permanentes em administradores elegíveis em lotes.
 
-## <a name="pim-emails-for-azure-resource-roles"></a>Emails do PIM para funções de recurso do Azure
+## <a name="pim-emails-for-azure-resource-roles"></a>E-mails da PIM para funções de recursos Do Azure
 
-Privileged Identity Management envia emails aos proprietários e aos administradores de acesso do usuário quando os seguintes eventos ocorrem para as funções de recurso do Azure:
+A Gestão de Identidade Privilegiada envia e-mails aos Proprietários e Administradores de Acesso ao Utilizador quando ocorrem os seguintes eventos para funções de recursos Do Azure:
 
-- Quando uma atribuição de função está com aprovação pendente
-- Quando uma função é atribuída
-- Quando uma função estiver em breve para expirar
-- Quando uma função está qualificada para estender
-- Quando uma função está sendo renovada por um usuário final
-- Quando uma solicitação de ativação de função é concluída
+- Quando uma atribuição de funções está pendente de aprovação
+- Quando um papel é atribuído
+- Quando um papel está prestes a expirar
+- Quando um papel é elegível para estender
+- Quando um papel está a ser renovado por um utilizador final
+- Quando um pedido de ativação de funções é concluído
 
-Privileged Identity Management envia emails aos usuários finais quando os seguintes eventos ocorrem para as funções de recurso do Azure:
+A Privileged Identity Management envia e-mails aos utilizadores finais quando ocorrem os seguintes eventos para funções de recursos Do Azure:
 
-- Quando uma função é atribuída ao usuário
-- Quando a função de um usuário está expirada
-- Quando a função de um usuário é estendida
-- Quando a solicitação de ativação de função de um usuário for concluída
+- Quando uma função é atribuída ao utilizador
+- Quando o papel de um utilizador é expirado
+- Quando o papel de um utilizador é alargado
+- Quando o pedido de ativação de funções de um utilizador é concluído
 
-Veja a seguir um email de exemplo que é enviado quando um usuário recebe uma função de recurso do Azure para a organização fictícia Contoso.
+O seguinte mostra um e-mail de exemplo que é enviado quando um utilizador é atribuído a uma função de recurso Azure para a organização fictícia Contoso.
 
-![Novo Privileged Identity Management email para funções de recurso do Azure](./media/pim-email-notifications/email-resources-new.png)
+![Novo e-mail privilegiado de Gestão de Identidade para funções de recurso Azure](./media/pim-email-notifications/email-resources-new.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Definir as configurações de função do Azure AD no Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Aprovar ou negar solicitações para funções do Azure AD no Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+- [Configure definições de funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-change-default-settings.md)
+- [Aprovar ou negar pedidos de funções da Azure AD na Gestão de Identidade Privilegiada](azure-ad-pim-approval-workflow.md)

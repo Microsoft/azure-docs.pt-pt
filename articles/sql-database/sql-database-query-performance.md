@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: f5998fde6659715de4fcb533cb0f41a8939b1c48
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214048"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Consulta Performance Insight para Base de Dados SQL Azure
@@ -48,13 +48,13 @@ Precisa das seguintes permissões [de controlo de acesso baseadas em funções](
 Consulta Performance Insight é fácil de usar:
 
 1. Abra o [portal Azure](https://portal.azure.com/) e encontre uma base de dados que pretende examinar.
-2. A partir do menu do lado esquerdo, abra **o Desempenho Inteligente** > **Query Performance Insight**.
+2. A partir do menu do lado esquerdo, abra a**Visão**de **Desempenho Inteligente** > de Performance de Desempenho .
   
    ![Consulta Performance Insight no menu](./media/sql-database-query-performance/tile.png)
 
 3. No primeiro separador, reveja a lista das principais consultas que consomem recursos.
 4. Selecione uma consulta individual para ver os seus detalhes.
-5. Open **Intelligent Performance** > As **recomendações** de desempenho e verifique se existem recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho incorporadas, consulte O Consultor de Base de [Dados SQL](sql-database-advisor.md).
+5. Abra**recomendações** **de desempenho** > inteligente e verifique se existem recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho incorporadas, consulte O Consultor de Base de [Dados SQL](sql-database-advisor.md).
 6. Utilize sliders ou ícones de zoom para alterar o intervalo observado.
 
    ![Painel de instrumentos de desempenho](./media/sql-database-query-performance/performance.png)
@@ -84,7 +84,7 @@ Por padrão, a Query Performance Insight mostra as cinco principais consultas qu
    >
    > Para uma comparação mais fina (até um minuto), considere criar um gráfico de utilização dTU personalizado:
    >
-   > 1. No portal Azure, **selecione Azure SQL Database** > **Monitorização**.
+   > 1. No portal Azure, selecione > **Monitorização**de Base de **Dados Azure SQL**.
    > 2. Selecione **Métricas**.
    > 3. Selecione **+Adicionar gráfico**.
    > 4. Selecione a percentagem de DTU na tabela.
@@ -176,7 +176,7 @@ Para identificar consultas de longa duração:
    >
    > Para compreender o consumo de DTU da base de dados com mais detalhes (até um minuto), considere criar um gráfico personalizado no portal Azure:
    >
-   > 1. Selecione Base de **Dados Azure SQL** > **Monitorização**.
+   > 1. Selecione > **Monitorização**da Base de **Dados Azure SQL**.
    > 2. Selecione **Métricas**.
    > 3. Selecione **+Adicionar gráfico**.
    > 4. Selecione a percentagem de DTU na tabela.

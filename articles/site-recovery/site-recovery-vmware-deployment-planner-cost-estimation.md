@@ -1,6 +1,6 @@
 ---
-title: Examinar estimativas de custo no Planejador de Implantações do Azure Site Recovery
-description: Este artigo descreve como examinar as estimativas de custo no Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware.
+title: Rever estimativas de custos no Planejador de Implantação de Recuperação de Sítios Azure
+description: Estes artigos descrevem como rever as estimativas de custos no Planejador de Implementação de Recuperação de Sítios Azure para a recuperação de desastres vMware.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953331"
 ---
-# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Examinar estimativas de custo no Planejador de Implantações VMware 
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Rever estimativas de custos no VMware Deployment Planner 
 
 O relatório do Planeador de Implementações fornece o resumo da estimativa de custos em folhas de [Recomendações](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) e a análise detalhada de custos na folha Estimativa de Custos. Inclui a análise detalhada de custos por VM. 
 
 >[!Note]
->A versão atual da ferramenta planejador de implantação v 2.5 fornece estimativa de custo para replicações de VMs para Managed Disks.
+>A versão atual da ferramenta de planificador de implantação v2.5 fornece uma estimativa de custos para vMs replicando para Discos Geridos.
 
 ### <a name="cost-estimation-summary"></a>Resumo da estimativa de custos 
 O gráfico mostra a vista de resumo do custo total estimado da recuperação após desastre (DR) para o Azure da região de destino que escolheu e a moeda que especificou para a geração do relatório.
@@ -52,12 +52,12 @@ No relatório completo, as células marcadas a cinzento são só de leitura. As 
 ### <a name="overall-dr-cost-by-components"></a>Custo global de DR por componentes
 A primeira secção mostra o custo global de DR por componentes e o custo de DR por estados. 
 
-**Compute (Computação)** : o custo das VMs IaaS que são executadas no Azure para as necessidades de DR. Inclui VMs que são criadas pelo Azure Site Recovery durante as explorações de DR (ativações pós-falha de teste) e as VMs executadas no Azure como o SQL Server com Grupos de Disponibilidade Always On e controladores de domínio/Servidores de Nomes de Domínio.
+**Compute (Computação)**: o custo das VMs IaaS que são executadas no Azure para as necessidades de DR. Inclui VMs que são criadas pelo Azure Site Recovery durante as explorações de DR (ativações pós-falha de teste) e as VMs executadas no Azure como o SQL Server com Grupos de Disponibilidade Always On e controladores de domínio/Servidores de Nomes de Domínio.
 
-**Storage (Armazenamento)** : o custo do consumo de armazenamento do Azure para as necessidades de DR. Inclui o consumo de armazenamento para a replicação e durante as explorações de DR.
+**Storage (Armazenamento)**: o custo do consumo de armazenamento do Azure para as necessidades de DR. Inclui o consumo de armazenamento para a replicação e durante as explorações de DR.
 Rede: custo do ExpressRoute e da rede de VPNs para as necessidades de DR. 
 
-**ASR license (Licença de ASR)** : o custo da licença do Azure Site Recovery para todas as VMs compatíveis. Caso tenha introduzido manualmente uma VM na tabela de análise detalhada de custos, o custo da licença do Azure Site Recovery também é incluído para essa VM.
+**ASR license (Licença de ASR)**: o custo da licença do Azure Site Recovery para todas as VMs compatíveis. Caso tenha introduzido manualmente uma VM na tabela de análise detalhada de custos, o custo da licença do Azure Site Recovery também é incluído para essa VM.
 
 ### <a name="overall-dr-cost-by-states"></a>Custo global de DR por estados
 O custo total da DR é categorizado com base em dois estados diferentes - replicação e exploração de DR.
@@ -101,7 +101,7 @@ Para adicionar VMs manualmente:
 
 * Número de VMs, tamanho de IaaS (a sua seleção)
 * Tipo de Armazenamento (Standard/Premium)
-* Tamanho de armazenamento total da VM (GB) do computador de origem
+* Tamanho total de armazenamento vm (GB) da máquina de origem
 * Número de explorações de DR num ano 
 * Duração de cada exploração de DR (Dias) 
 * Tipo de SO
@@ -112,35 +112,35 @@ Para adicionar VMs manualmente:
 
 1. Clique em «Re-calculate cost» (Voltar a calcular o custo) para atualizar o custo.
 
-**VM Name (Nome da VM)** : o nome da VM.
+**VM Name (Nome da VM)**: o nome da VM.
 
-**Number of VMs (Número de VMs)** : o número de VMs que correspondem à configuração. Pode atualizar o número de VMs existentes se as VMs com configuração semelhante não tiverem perfis criados, mas irão ser protegidas.
+**Number of VMs (Número de VMs)**: o número de VMs que correspondem à configuração. Pode atualizar o número de VMs existentes se as VMs com configuração semelhante não tiverem perfis criados, mas irão ser protegidas.
 
-**IaaS size (Recommendation) [Tamanho de IaaS (Recomendação)]** : é o tamanho da função VM da VM compatível que a ferramenta recomenda. 
+**IaaS size (Recommendation) [Tamanho de IaaS (Recomendação)]**: é o tamanho da função VM da VM compatível que a ferramenta recomenda. 
 
-**IaaS size (Your selection) [Tamanho de IaaS (A sua seleção)]** : por predefinição, é o mesmo que o tamanho da função VM recomendado. Pode alterar a função com base nos seus requisitos. O custo de computação baseia-se no tamanho da função VM que selecionou.
+**IaaS size (Your selection) [Tamanho de IaaS (A sua seleção)]**: por predefinição, é o mesmo que o tamanho da função VM recomendado. Pode alterar a função com base nos seus requisitos. O custo de computação baseia-se no tamanho da função VM que selecionou.
 
-**Storage type (Tipo de armazenamento)** : o tipo de armazenamento utilizado pela VM. É armazenamento standard ou premium.
+**Storage type (Tipo de armazenamento)**: o tipo de armazenamento utilizado pela VM. É armazenamento standard ou premium.
 
-**Tamanho total de armazenamento da VM (GB)** : o armazenamento total da VM de origem.
+Tamanho total de **armazenamento VM (GB)**: O armazenamento total da fonte VM.
 
-**Number of DR-Drills in a year (Número de explorações de DR num ano)** : o número de vezes que executa explorações de DR num ano. Por predefinição, é 4 vezes num ano. Pode modificar o período para VMs específicas ou aplicar o novo valor a todas as VMs ao introduzir o novo valor na linha superior e clicar no botão «Apply to all» (Aplicar a todos). Com base no número de Explorações de DR num ano e no período de duração de cada Exploração de DR, é calculado o custo total de Exploração de DR.  
+**Number of DR-Drills in a year (Número de explorações de DR num ano)**: o número de vezes que executa explorações de DR num ano. Por predefinição, é 4 vezes num ano. Pode modificar o período para VMs específicas ou aplicar o novo valor a todas as VMs ao introduzir o novo valor na linha superior e clicar no botão «Apply to all» (Aplicar a todos). Com base no número de Explorações de DR num ano e no período de duração de cada Exploração de DR, é calculado o custo total de Exploração de DR.  
 
-**Each DR-Drill duration (Days) [Duração de cada Exploração de DR (Dias)]** : a duração de cada Exploração de DR. Por predefinição, é 7 dias a cada 90 dias, de acordo com o [benefício Recuperação Após Desastre do Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Pode modificar o período para VMs específicas ou pode aplicar um novo valor a todas as VMs ao introduzir o novo valor na linha superior e clicar no botão «Apply to all» (Aplicar a todos). O custo total de Exploração de DR é calculado com base no número de Explorações de DR num ano e no período de duração de cada Exploração de DR.
+**Each DR-Drill duration (Days) [Duração de cada Exploração de DR (Dias)]**: a duração de cada Exploração de DR. Por predefinição, é 7 dias a cada 90 dias, de acordo com o [benefício Recuperação Após Desastre do Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Pode modificar o período para VMs específicas ou pode aplicar um novo valor a todas as VMs ao introduzir o novo valor na linha superior e clicar no botão «Apply to all» (Aplicar a todos). O custo total de Exploração de DR é calculado com base no número de Explorações de DR num ano e no período de duração de cada Exploração de DR.
   
-**OS Type (Tipo de SO)** : o tipo de SO da VM. É Windows ou Linux. Se o tipo de SO for Windows, o Benefício Híbrido do Azure pode ser aplicado a essa VM. 
+**OS Type (Tipo de SO)**: o tipo de SO da VM. É Windows ou Linux. Se o tipo de SO for Windows, o Benefício Híbrido do Azure pode ser aplicado a essa VM. 
 
-**Data redundancy (Redundância de dados)** : pode ser um dos seguintes - Armazenamento localmente redundante (LRS), Armazenamento georredundante (GRS) ou Armazenamento georredundante com acesso de leitura (RA-GRS). A predefinição é LRS. Pode alterar o tipo com base na sua conta de armazenamento para VMs específicas ou pode aplicar o novo tipo a todas as VMs, alterando o tipo da linha superior e clicando no botão «Apply to all» (Aplicar a todos).  O custo de armazenamento para a replicação é calculado com base no preço da redundância de dados que selecionou. 
+**Data redundancy (Redundância de dados)**: pode ser um dos seguintes - Armazenamento localmente redundante (LRS), Armazenamento georredundante (GRS) ou Armazenamento georredundante com acesso de leitura (RA-GRS). A predefinição é LRS. Pode alterar o tipo com base na sua conta de armazenamento para VMs específicas ou pode aplicar o novo tipo a todas as VMs, alterando o tipo da linha superior e clicando no botão «Apply to all» (Aplicar a todos).  O custo de armazenamento para a replicação é calculado com base no preço da redundância de dados que selecionou. 
 
 **Benefício Híbrido do Azure**: pode aplicar o Benefício Híbrido do Azure a VMs do Windows, se aplicável.  A predefinição é Sim. Pode alterar a definição para VMs específicas ou atualizar todas as VMs ao clicar no botão «Apply to all» (Aplicar a todos).
 
-**Total Azure consumption (Consumo total do Azure)** : inclui o custo de computação, armazenamento e licença do Azure Site Recovery para a sua DR. Com base na sua seleção, mostra o custo mensal ou anualmente.
+**Total Azure consumption (Consumo total do Azure)**: inclui o custo de computação, armazenamento e licença do Azure Site Recovery para a sua DR. Com base na sua seleção, mostra o custo mensal ou anualmente.
 
-**Steady state replication cost (Custo de replicação de estado de repouso)** : inclui o custo de armazenamento para a replicação.
+**Steady state replication cost (Custo de replicação de estado de repouso)**: inclui o custo de armazenamento para a replicação.
 
-**Total DR-Drill cost (average) [Custo total de Exploração de DR (média)]** : inclui o custo de computação e armazenamento para a Exploração de DR.
+**Total DR-Drill cost (average) [Custo total de Exploração de DR (média)]**: inclui o custo de computação e armazenamento para a Exploração de DR.
 
-**ASR license cost (Custo da licença do ASR)** : o custo da licença do Azure Site Recovery.
+**ASR license cost (Custo da licença do ASR)**: o custo da licença do Azure Site Recovery.
 
 ## <a name="supported-target-regions"></a>Regiões de destino suportadas
 O Planeador de Implementações do Azure Site Recovery fornece a estimativa de custos para as seguintes regiões do Azure. Se a sua região não estiver listada abaixo, pode utilizar qualquer uma das regiões seguintes cujos preços estejam mais próximos da sua região.

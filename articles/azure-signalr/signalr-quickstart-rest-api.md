@@ -1,16 +1,16 @@
 ---
-title: Guia de início rápido-API REST do serviço de Signaler do Azure
-description: Saiba como usar a API REST com o serviço de Signalr do Azure seguindo exemplos. Encontre detalhes da especificação da API REST.
+title: Quickstart - Serviço de Sinalização Azure REST API
+description: Aprenda a utilizar a API REST com o Serviço de Sinalização Azure após amostras. Encontre detalhes da especificação REST API.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74157692"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmitir mensagens em tempo real a partir da aplicação de consola
@@ -99,7 +99,7 @@ Pode executar `dotnet user-secrets set Azure:SignalR:ConnectionString "<Connecti
 
 ## <a name="usage"></a>Utilização
 
-Depois que o servidor for iniciado, use o comando para enviar a mensagem:
+Depois de o servidor ter começado, utilize o comando para enviar mensagem:
 
 ```
 send user <User Id>
@@ -111,11 +111,11 @@ broadcast
 
 Pode iniciar vários clientes com nomes de cliente diferentes.
 
-## <a name="usage"> </a> Integração com serviços de terceiros
+## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integração com serviços de terceiros
 
 O serviço Azure SignalR permite que os serviços de terceiros sejam integrados no sistema.
 
-### <a name="definition-of-technical-specifications"></a>Definição de especificações técnicas
+### <a name="definition-of-technical-specifications"></a> Definição das especificações técnicas
 
 A tabela seguinte mostra todas as versões das APIs REST suportadas até à data. Também pode encontrar o ficheiro de definição para cada versão específica
 
@@ -130,9 +130,9 @@ API | `1.0-preview` | `1.0`
 --- | --- | ---
 [Difundir para todos](#broadcast) | **&#x2713;** | **&#x2713;**
 [Difundir para um grupo](#broadcast-group) | **&#x2713;** | **&#x2713;**
-Difundir para alguns grupos | **&#x2713;** Preterido | `N / A`
+Difundir para alguns grupos | **&#x2713;** (Depreciado) | `N / A`
 [Enviar para utilizadores específicos](#send-user) | **&#x2713;** | **&#x2713;**
-Enviar para alguns utilizadores | **&#x2713;** Preterido | `N / A`
+Enviar para alguns utilizadores | **&#x2713;** (Depreciado) | `N / A`
 [A adicionar um utilizador a um grupo](#add-user-to-group) | `N / A` | **&#x2713;**
 [A remover um utilizador de um grupo](#remove-user-from-group) | `N / A` | **&#x2713;**
 
@@ -178,7 +178,7 @@ Versão | Método HTTP da API | URL do Pedido
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você aprendeu a usar a API REST para transmitir mensagens em tempo real do serviço de sinalização para os clientes. Em seguida, saiba mais sobre como desenvolver e implantar Azure Functions com a associação de serviço do Signalr, que é criada com base na API REST.
+Neste arranque rápido, aprendeu a usar a API REST para transmitir mensagens em tempo real do SignalR Service para os clientes. Em seguida, saiba mais sobre como desenvolver e implementar funções Azure com ligação do Serviço SignalR, que é construído em cima da API REST.
 
 > [!div class="nextstepaction"]
-> [Desenvolver Azure Functions usando associações do serviço de Signaler do Azure](signalr-quickstart-azure-functions-csharp.md)
+> [Desenvolver funções Azure utilizando encadernações do Serviço De Sinalização Azure](signalr-quickstart-azure-functions-csharp.md)

@@ -1,5 +1,6 @@
 ---
 title: Apaga suave mente o Cofre de Chaves Azure Microsoft Docs
+description: O soft-delete no Cofre de Chaves Azure permite-lhe recuperar cofres de chaves apagados e objetos de cofre chave, tais como chaves, segredos e certificados.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -7,14 +8,14 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 31d3556609737212ee1257015d12e9e0621ea4ee
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 9c72b2ea71da94215fc9193ffdf3906449ec5571
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197390"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457377"
 ---
-# <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de soft-delete do Cofre de Chaves Azure
+# <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault
 
 A função de eliminação suave do Key Vault permite a recuperação dos cofres apagados e objetos do cofre, conhecidos como soft-delete. Especificamente, abordamos os seguintes cenários:
 
@@ -23,7 +24,7 @@ A função de eliminação suave do Key Vault permite a recuperação dos cofres
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
-A função soft-delete está inicialmente disponível através das interfaces [REST,](/rest/api/keyvault/) [CLI,](key-vault-soft-delete-cli.md) [PowerShell](key-vault-soft-delete-powershell.md) e [.NET/C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet)
+A função soft-delete está inicialmente disponível através das interfaces [REST,](/rest/api/keyvault/) [CLI,](key-vault-soft-delete-cli.md) [PowerShell](key-vault-soft-delete-powershell.md) e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) .
 
 ## <a name="scenarios"></a>Cenários
 

@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: enviar eventos personalizados para fila de armazenamento-grade de eventos, CLI do Azure'
-description: 'Início rápido: Use a grade de eventos do Azure e CLI do Azure para publicar um tópico e assinar esse evento. É utilizada uma fila de armazenamento para o ponto final.'
+title: 'Quickstart: Envie eventos personalizados para a fila de armazenamento - Event Grid, Azure CLI'
+description: 'Quickstart: Use Azure Event Grid e Azure CLI para publicar um tópico e subscrever esse evento. É utilizada uma fila de armazenamento para o ponto final.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 44ffa570cfda39c186966866ee5755ab090083a5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73721444"
 ---
-# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Início rápido: rotear eventos personalizados para o armazenamento de filas do Azure com CLI do Azure e a grade de eventos
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Quickstart: Rota eventos personalizados para armazenamento de fila Azure com Azure CLI e Grelha de Eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. O armazenamento de Filas do Azure é um dos processadores de eventos suportados. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Os eventos são enviados para o armazenamento de Filas.
 
@@ -24,12 +24,12 @@ O Azure Event Grid é um serviço de eventos para a cloud. O armazenamento de Fi
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você estiver usando CLI do Azure ou Azure PowerShell em seu computador local em vez de usar Cloud Shell no portal do Azure, verifique se você tem as seguintes versões do CLI do Azure e Azure PowerShell. 
+Se estiver a utilizar o Azure CLI ou o Azure PowerShell na sua máquina local em vez de utilizar a Cloud Shell no portal Azure, certifique-se de que tem as seguintes versões do Azure CLI e da Azure PowerShell. 
 
-- CLI do Azure versão 2.0.56 ou superior. Para obter instruções sobre como instalar a versão mais recente do CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli). 
-- Azure PowerShell versão 1.1.0 ou superior. Baixe a versão mais recente do Azure PowerShell em seu computador Windows por meio de [downloads do Azure – ferramentas de linha de comando](https://azure.microsoft.com/downloads/). 
+- Versão Azure CLI 2.0.56 ou superior. Para obter instruções sobre a instalação da versão mais recente do Azure CLI, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli). 
+- Versão 1.1.0 da Azure PowerShell. Descarregue a versão mais recente do Azure PowerShell na sua máquina Windows a partir de [downloads do Azure - Ferramentas de linha de comando](https://azure.microsoft.com/downloads/). 
 
-Este artigo fornece comandos para usar CLI do Azure. 
+Este artigo dá-lhe ordens para usar o Azure CLI. 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -67,7 +67,7 @@ az storage queue create --name $queuename --account-name $storagename
 
 ## <a name="subscribe-to-a-custom-topic"></a>Subscrever um tópico personalizado
 
-Você assina um tópico personalizado para informar à grade de eventos quais eventos você deseja rastrear. O exemplo a seguir assina o tópico personalizado que você criou e passa a ID de recurso do armazenamento de fila para o ponto de extremidade. Com a CLI do Azure, transmite o ID de armazenamento da Fila como ponto final. O ponto final está no formato:
+Subscreva um tópico personalizado para dizer ao Event Grid quais os eventos que pretende acompanhar. O exemplo seguinte subscreve o tópico personalizado que criou e passa o ID de recurso do armazenamento de fila para o ponto final. Com a CLI do Azure, transmite o ID de armazenamento da Fila como ponto final. O ponto final está no formato:
 
 `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`
 

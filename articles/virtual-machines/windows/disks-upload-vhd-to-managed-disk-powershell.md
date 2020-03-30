@@ -9,10 +9,10 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.openlocfilehash: 883fea1e25ded26c35e96d11edd8f417e96db30e
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79369561"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Faça upload de um vhd para Azure usando o Azure PowerShell
@@ -39,9 +39,9 @@ Este tipo de disco gerido tem dois estados únicos:
 - ReadToUpload, o que significa que o disco está pronto para receber um upload mas não foi gerada nenhuma assinatura de [acesso segura](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS).
 - ActiveUpload, o que significa que o disco está pronto para receber um upload e o SAS foi gerado.
 
-Enquanto em qualquer um destes estados, o disco gerido será faturado com [preços HDD padrão,](https://azure.microsoft.com/pricing/details/managed-disks/)independentemente do tipo real de disco. Por exemplo, um P10 será cobrado como um S10. Isto será verdade até que seja chamado `revoke-access` no disco gerido, que é necessário para fixar o disco a um VM.
+Enquanto em qualquer um destes estados, o disco gerido será faturado com [preços HDD padrão,](https://azure.microsoft.com/pricing/details/managed-disks/)independentemente do tipo real de disco. Por exemplo, um P10 será cobrado como um S10. Isto será verdade `revoke-access` até que seja chamado no disco gerido, que é necessário para ligar o disco a um VM.
 
-Antes de criar um HDD padrão vazio para upload, você precisará do tamanho do ficheiro em bytes do vhd que você quer carregar. O código de exemplo vai conseguir isso para si, mas, para fazê-lo por si mesmo, pode usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Este valor é utilizado ao especificar o parâmetro **-UploadSizeInBytes.**
+Antes de criar um HDD padrão vazio para upload, você precisará do tamanho do ficheiro em bytes do vhd que você quer carregar. O código de exemplo vai dar-lhe isso, mas, para fazê-lo por si mesmo, pode usar: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Este valor é utilizado ao especificar o parâmetro **-UploadSizeInBytes.**
 
 Agora, na sua concha local, crie um HDD padrão vazio para carregar especificando a definição de **Upload** no parâmetro **-CreateOption,** bem como o parâmetro **-UploadSizeInBytes** no cmdlet [New-AzDiskConfig.](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) Em seguida, ligue para [o New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) para criar o disco:
 
@@ -92,7 +92,7 @@ O guião seguinte fará isto por si, o processo é semelhante aos passos descrit
 > [!IMPORTANT]
 > Tem de adicionar uma compensação de 512 quando estiver a fornecer o tamanho do disco em bytes de um disco gerido a partir do Azure. Isto porque Azure omite o rodapé ao devolver o tamanho do disco. A cópia falhará se não fizer isto. O seguinte guião já faz isto por ti.
 
-Substitua o `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetResourceGroupHere>``<targetDiskNameHere>`, `<yourOSTypeHere>` e `<yourTargetLocationHere>` (um exemplo de um valor de localização seria uswest2) com os seus valores e, em seguida, executar o seguinte script para copiar um disco gerido.
+Substitua `<sourceResourceGroupHere>` `<sourceDiskNameHere>`o `<targetDiskNameHere>` `<targetResourceGroupHere>`, `<yourOSTypeHere>` `<yourTargetLocationHere>` , , e (um exemplo de um valor de localização seria uswest2) com os seus valores, em seguida, executar o seguinte script para copiar um disco gerido.
 
 ```powershell
 
