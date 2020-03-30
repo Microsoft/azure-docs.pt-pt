@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 01/30/2020
 ms.openlocfilehash: 09cc9e1475616700aa77cdf92fd7ca808cd4290c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937842"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Níveis de serviço de base de dados Azure SQL
@@ -32,34 +32,34 @@ Este artigo discute diferenças de ser os níveis de serviço, as consideraçõe
 
 A tabela seguinte descreve as principais diferenças entre os níveis de serviço para a última geração (Gen5). Note que as características do nível de serviço podem ser diferentes na Base de Dados Única e na Instância Gerida.
 
-| | Tipo de recurso | Fins Gerais |  Hiperescala | Crítico para a Empresa |
+| | Tipo de recurso | Fins Gerais |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
-| **Melhor para** | |  Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento. | A maioria das cargas de trabalho de negócios. Tamanho de armazenamento de auto-escalaaté 100 TB, escalação de computação vertical e horizontal fluida, restauração rápida da base de dados. | Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
-|  **Disponível no tipo de recurso:** ||Banco de dados individual/pool elástico/instância gerenciada | Base de dados única | Banco de dados individual/pool elástico/instância gerenciada |
+| **O melhor para** | |  Oferece opções de cálculo e armazenamento equilibradas orientadas para o orçamento. | A maioria das cargas de trabalho de negócios. Tamanho de armazenamento de auto-escalaaté 100 TB, escalação de computação vertical e horizontal fluida, restauração rápida da base de dados. | Aplicações OLTP com elevada taxa de transação e baixa latência iO. Oferece a maior resiliência a falhas e falhas rápidas usando múltiplas réplicas sincronizadamente atualizadas.|
+|  **Disponível no tipo de recurso:** ||Base de dados única / piscina elástica / instância gerida | Base de dados individual | Base de dados única / piscina elástica / instância gerida |
 | **Tamanho da computação**|Base de dados única / piscina elástica | 1 a 80 vCores | 1 a 80 vCores | 1 a 80 vCores |
-| | Instância gerida | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| | Piscinas de instânciageridas | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | N/A |
-| **Tipo de armazenamento** | Tudo | Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache de SSD local (por instância) | Armazenamento SSD local extremamente rápido (por instância) |
-| **Tamanho da base de dados** | Base de dados única / piscina elástica | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
-| | Instância gerida  | 32 GB A 8 TB | N/A | 32 GB A 4 TB |
-| **Tamanho do armazenamento** | Base de dados única / piscina elástica | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
-| | Instância gerida  | 32 GB A 8 TB | N/A | 32 GB A 4 TB |
+| | Instância gerida | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| | Piscinas de instânciageridas | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | N/D |
+| **Tipo de armazenamento** | Todos | Armazenamento remoto premium (por exemplo) | Armazenamento dissociado com cache SSD local (por exemplo) | Armazenamento sSD local super rápido (por exemplo) |
+| **Tamanho da base de dados** | Base de dados única / piscina elástica | 5 GB - 4 TB | Até 100 TB | 5 GB - 4 TB |
+| | Instância gerida  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
+| **Tamanho do armazenamento** | Base de dados única / piscina elástica | 5 GB - 4 TB | Até 100 TB | 5 GB - 4 TB |
+| | Instância gerida  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
 | **Tamanho TempDB** | Base de dados única / piscina elástica | [32 GB por vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB por vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB por vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Instância gerida  | [24 GB por vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | Até 4 TB - [limitado pelo tamanho do armazenamento](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-| **Log write entrada** | Base de dados única | [1.875 MB/s por vCore (máx. 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Instância gerida | [3 MB/s por vCore (máx. 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [4 MB/s por vcore (máx. 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-|**Disponibilidade**|Tudo| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com base de dados única redundante da zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Únicos**|Tudo|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, recuperação constante do tempo no tempo (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
-|**OLTP em memória** | | N/A | N/A | Disponível |
-|**Réplicas somente leitura**| | 0 embutido <br> 0 - 4 utilizando [a geo-replicação](sql-database-active-geo-replication.md) | 0 - 4 embutidos | 1 incorporado, incluído no preço <br> 0 - 4 utilizando [a geo-replicação](sql-database-active-geo-replication.md) |
-|**Preços/faturação** | Base de dados única | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são carregados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
-|| Instância Gerida | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>IOPS não é cobrado| N/A | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>O IOPS não é cobrado.| 
-|**Modelos de desconto**| | [Casos reservados](sql-database-reserved-capacity.md)<br/>[Benefício Híbrido Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de dev/teste)<br/>[Subscrições enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test| [Benefício Híbrido Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de dev/teste)<br/>[Subscrições enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test| [Casos reservados](sql-database-reserved-capacity.md)<br/>[Benefício Híbrido Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de dev/teste)<br/>[Subscrições enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test|
+| | Instância gerida  | [24 GB por vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | Até 4 TB - [limitado pelo tamanho do armazenamento](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+| **Log write entrada** | Base de dados individual | [1.875 MB/s por vCore (máx. 30 MB/s)](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
+| | Instância gerida | [3 MB/s por vCore (máx. 22 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por vcore (máx. 48 MB/s)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+|**Disponibilidade**|Todos| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com base de dados única redundante da zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Cópias de segurança**|Todos|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, recuperação constante do tempo no tempo (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
+|**OLTP em memória** | | N/D | N/D | Disponível |
+|**Réplicas só de leitura**| | 0 embutido <br> 0 - 4 utilizando [a geo-replicação](sql-database-active-geo-replication.md) | 0 - 4 embutidos | 1 incorporado, incluído no preço <br> 0 - 4 utilizando [a geo-replicação](sql-database-active-geo-replication.md) |
+|**Preços/faturação** | Base de dados individual | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são carregados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
+|| Instância Gerida | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>IOPS não é cobrado| N/D | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/managed/) é cobrado. <br/>O IOPS não é cobrado.| 
+|**Modelos de desconto**| | [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício Híbrido Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de dev/teste)<br/>[Subscrições enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test| [Benefício Híbrido Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de dev/teste)<br/>[Subscrições enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test| [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício Híbrido Azure](sql-database-azure-hybrid-benefit.md) (não disponível em assinaturas de dev/teste)<br/>[Subscrições enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test|
 
 Para obter mais informações, consulte as diferenças detalhadas entre os níveis de serviço na base de [dados single (vCore)](sql-database-vcore-resource-limits-single-databases.md), piscinas de bases de [dados únicas (vCore)](sql-database-dtu-resource-limits-single-databases.md), base de [dados única (DTU)](sql-database-dtu-resource-limits-single-databases.md), bases de [dados únicas (DTU)](sql-database-dtu-resource-limits-single-databases.md)e páginas [De Instância Gerida.](sql-database-managed-instance-resource-limits.md)
 
 > [!NOTE]
-> Para obter informações sobre o nível de serviço de hiperescala no modelo de compra baseado em vCore, consulte o [nível de serviço de hiperescala](sql-database-service-tier-hyperscale.md). Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [recursos e modelos de compra do banco de dados SQL do Azure](sql-database-purchase-models.md).
+> Para obter informações sobre o nível de serviço de hiperescala no modelo de compra baseado em vCore, consulte o [nível de serviço de hiperescala](sql-database-service-tier-hyperscale.md). Para uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte os modelos e recursos de compra da Base de [Dados Azure SQL.](sql-database-purchase-models.md)
 
 ## <a name="data-and-log-storage"></a>Armazenamento de dados e registos
 
@@ -72,8 +72,8 @@ Os seguintes fatores afetam a quantidade de armazenamento utilizado para dados e
 - Pode selecionar qualquer tamanho de base de dados único entre 10 GB e o máximo suportado.
   - Para armazenamento nos níveis de serviço padrão ou geral, aumente ou diminua o tamanho em incrementos de 10 GB.
   - Para armazenamento nos níveis de serviço críticos premium ou empresariais, aumente ou diminua o tamanho em incrementos de 250 GB.
-- No nível de serviço de finalidade geral, `tempdb` utiliza um SSD anexado, e este custo de armazenamento está incluído no preço vCore.
-- No nível de serviço crítico do negócio, `tempdb` partilha o SSD anexado com os ficheiros MDF e LDF, e o custo de armazenamento `tempdb` está incluído no preço vCore.
+- No nível de `tempdb` serviço para fins gerais, utiliza um SSD anexado, e este custo de armazenamento está incluído no preço vCore.
+- No nível de `tempdb` serviço crítico do negócio, partilha o SSD `tempdb` anexado com os ficheiros MDF e LDF, e o custo de armazenamento está incluído no preço vCore.
 
 > [!IMPORTANT]
 > É cobrado o armazenamento total atribuído aos ficheiros MDF e LDF.
@@ -81,7 +81,7 @@ Os seguintes fatores afetam a quantidade de armazenamento utilizado para dados e
 Para monitorizar o tamanho total atual dos seus ficheiros MDF e LDF, utilize [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Para monitorizar o tamanho atual dos ficheiros MDF e LDF individuais, utilize [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ser necessário encolher uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ## <a name="backups-and-storage"></a>Backups e armazenamento
 

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de Hive com o Azure Data Factory
-description: Saiba como copiar dados de Hive para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados da Hive usando a Azure Data Factory
+description: Saiba como copiar dados da Hive para armazenar dados de sumidouro suportados utilizando uma atividade de cópia num pipeline azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 965864f1d2bc50ba7e5ae42e2b174a4fdc8d5c94
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929340"
 ---
-# <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados de Hive com o Azure Data Factory 
+# <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados da Hive usando a Azure Data Factory 
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Hive. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados da Hive. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector do hive tem suporte para as seguintes atividades:
+Este conector hive é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados de Hive para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados da Hive para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-O Azure Data Factory fornece um driver incorporado para permitir a conectividade, portanto não precisa de instalar manualmente a qualquer driver utilizar este conector.
+A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não necessita de instalar manualmente qualquer controlador utilizando este conector.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,32 +41,32 @@ O Azure Data Factory fornece um driver incorporado para permitir a conectividade
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do Hive.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector da Colmeia.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
-As seguintes propriedades são suportadas para o serviço ligado do Hive:
+As seguintes propriedades são suportadas para o serviço ligado à Hive:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **do Hive** | Sim |
-| anfitrião | Endereço IP ou nome do host do servidor Hive, separados por '; ' para vários hosts (somente quando o Service DiscoveryMode está habilitado).  | Sim |
-| porta | A porta TCP que o servidor do Hive utiliza para escutar ligações de cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
-| serverType | O tipo de servidor do Hive. <br/>Valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não |
-| thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **binário**, **SASL**, **HTTP** | Não |
-| authenticationType | O método de autenticação utilizado para aceder ao servidor do Hive. <br/>Valores permitidos são: **anónimo**, **nome de utilizador**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
-| serviceDiscoveryMode | TRUE para indicar a utilizar o serviço de ZooKeeper, false não.  | Não |
-| zooKeeperNameSpace | O espaço de nomes no qual 2 de servidor do Hive são adicionados nós do ZooKeeper.  | Não |
-| useNativeQuery | Especifica se o driver usa consultas HiveQL nativas ou as converte em um formato equivalente em HiveQL.  | Não |
-| o nome de utilizador | O nome de utilizador que utiliza para aceder ao servidor do Hive.  | Não |
-| palavra-passe | A palavra-passe correspondente ao utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
-| httpPath | O URL de parcial correspondente para o servidor do Hive.  | Não |
-| enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
-| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna para verificar o servidor ao ligar-se através de SSL. Esta propriedade só pode ser definida ao utilizar o SSL em Ir autoalojado. O valor predefinido é o arquivo de cacerts.pem instalado com o IR.  | Não |
-| useSystemTrustStore | Especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema ou a partir de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
-| allowHostNameCNMismatch | Especifica se exige um nome de certificado SSL emitidos pela AC para coincidir com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é false.  | Não |
-| allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é false.  | Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| tipo | A propriedade tipo deve ser definida para: **Colmeia** | Sim |
+| anfitrião | Endereço IP ou nome do anfitrião do servidor Hive, separado por ';' para vários anfitriões (apenas quando o serviçoDiscoveryMode está ativado).  | Sim |
+| porta | A porta TCP que o servidor da Hive usa para ouvir as ligações do cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
+| servidorType | O tipo de servidor da Colmeia. <br/>Os valores permitidos são: **HiveServer1,** **HiveServer2**, **HiveThriftServer** | Não |
+| thriftTransportProtocol | O protocolo de transporte a utilizar na camada Thrift. <br/>Os valores permitidos são: **Binário,** **SASL,** **HTTP** | Não |
+| authenticationType | O método de autenticação utilizado para aceder ao servidor da Colmeia. <br/>Os valores permitidos são: **Anónimo,** **Nome de utilizador,** **UsernameAndPassword,** **WindowsAzureHDInsightService** | Sim |
+| serviçoDiscoveryMode | fiel a indicar usando o serviço ZooKeeper, falso não.  | Não |
+| zooKeeperNameSpace | O espaço de nome no ZooKeeper sob o qual são adicionados os nós do Hive Server 2.  | Não |
+| usarNativeQuery | Especifica se o condutor utiliza consultas nativas da HiveQL ou as converte numa forma equivalente na HiveQL.  | Não |
+| o nome de utilizador | O nome de utilizador que utiliza para aceder ao Hive Server.  | Não |
+| palavra-passe | A palavra-passe correspondente ao utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
+| httpPath | O URL parcial correspondente ao servidor da Colmeia.  | Não |
+| enableSsl | Especifica se as ligações ao servidor estão encriptadas utilizando o SSL. O valor predefinido é false.  | Não |
+| trustedCertPath | O caminho completo do ficheiro .pem contendo certificados CA fidedignos para verificar o servidor ao ligar-se através do SSL. Esta propriedade só pode ser definida quando se utiliza SSL em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | Não |
+| useSystemTrustStore | Especifica se deve utilizar um certificado CA a partir da loja fiduciário do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar-se ao SSL. O valor predefinido é false.  | Não |
+| permitir AutoSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
 
 **Exemplo:**
 
@@ -89,18 +89,18 @@ As seguintes propriedades são suportadas para o serviço ligado do Hive:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Hive.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados da Hive.
 
-Para copiar dados de Hive, defina a propriedade de tipo de conjunto de dados para **HiveObject**. São suportadas as seguintes propriedades:
+Para copiar dados da Hive, detete a propriedade do tipo do conjunto de dados para **HiveObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **HiveObject** | Sim |
-| schema | Nome do esquema. |Não (se for especificada "query" na origem de atividade)  |
-| table | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
-| tableName | Nome da tabela, incluindo a parte do esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não (se for especificada "query" na origem de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **HiveObject** | Sim |
+| schema | Nome do esquema. |Não (se for especificada a "consulta" na fonte de atividade)  |
+| tabela | Nome da mesa. |Não (se for especificada a "consulta" na fonte de atividade)  |
+| tableName | Nome da mesa, incluindo parte do esquema. Esta propriedade é suportada para retrocompatibilidade. Para uma nova `schema` `table`carga de trabalho, use e . | Não (se for especificada a "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -121,16 +121,16 @@ Para copiar dados de Hive, defina a propriedade de tipo de conjunto de dados par
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do Hive.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte da Hive.
 
-### <a name="hivesource-as-source"></a>HiveSource como origem
+### <a name="hivesource-as-source"></a>HiveSource como fonte
 
-Para copiar dados de Hive, definir o tipo de origem na atividade de cópia para **HiveSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados da Hive, delineie o tipo de origem na atividade de cópia para **hiveSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **HiveSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **HiveSource** | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -164,10 +164,10 @@ Para copiar dados de Hive, definir o tipo de origem na atividade de cópia para 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

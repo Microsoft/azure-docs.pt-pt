@@ -1,6 +1,6 @@
 ---
-title: Configurar o grupo de disponibilidade Always On em uma VM do Azure usando o PowerShell | Microsoft Docs
-description: Este tutorial usa recursos que foram criados com o modelo de implantação clássico. Use o PowerShell para criar um grupo de disponibilidade Always On no Azure.
+title: Configure o grupo Always On disponibilidade num Azure VM utilizando powerShell / Microsoft Docs
+description: Este tutorial utiliza recursos que foram criados com o modelo clássico de implantação. Usa o PowerShell para criar um grupo de disponibilidade Always On em Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,52 +15,52 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978148"
 ---
-# <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurar o grupo de disponibilidade Always On em uma VM do Azure com o PowerShell
+# <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configure o grupo always on disponibilidade em um VM Azure com PowerShell
 > [!div class="op_single_selector"]
-> * [Clássico: interface do usuário](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Clássico: UI](../classic/portal-sql-alwayson-availability-groups.md)
 > * [Clássico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
-Antes de começar, considere que agora você pode concluir essa tarefa no modelo do Azure Resource Manager. Recomendamos o modelo do Azure Resource Manager para novas implantações. Confira [SQL Server grupos de disponibilidade Always on em máquinas virtuais do Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+Antes de começar, considere que agora pode completar esta tarefa no modelo de gestor de recursos Azure. Recomendamos o modelo de gestor de recursos Azure para novas implementações. Consulte [o Servidor SQL Sempre em grupos de disponibilidade em máquinas virtuais Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Recomendamos que a maioria das implantações novas usem o modelo do Resource Manager. O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo cobre a utilização do modelo de implementação clássica.
+> Recomendamos que a maioria das novas implementações utilizem o modelo De Gestor de Recursos. O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo cobre a utilização do modelo de implementação clássica.
 
-As VMs (máquinas virtuais) do Azure podem ajudar os administradores de banco de dados a reduzir o custo de um sistema de SQL Server de alta disponibilidade. Este tutorial mostra como implementar um grupo de disponibilidade usando SQL Server Always On de ponta a ponta dentro de um ambiente do Azure. No final do tutorial, sua solução de Always On SQL Server no Azure consistirá nos seguintes elementos:
+As máquinas virtuais Azure (VMs) podem ajudar os administradores da base de dados a reduzir o custo de um sistema de servidor SQL de alta disponibilidade. Este tutorial mostra-lhe como implementar um grupo de disponibilidade utilizando o SQL Server Always On de ponta a ponta dentro de um ambiente Azure. No final do tutorial, o seu Servidor SQL Always On solução em Azure consistirá nos seguintes elementos:
 
-* Uma rede virtual que contém várias sub-redes, incluindo um front-end e uma sub-rede de back-end.
-* Um controlador de domínio com um domínio Active Directory.
-* Duas VMs SQL Server implantadas na sub-rede de back-end e ingressadas no domínio Active Directory.
-* Um cluster de failover do Windows de três nós com o modelo de quorum maioria dos nós.
-* Um grupo de disponibilidade com duas réplicas de confirmação síncrona de um banco de dados de disponibilidade.
+* Uma rede virtual que contém várias subredes, incluindo uma frontal e uma sub-rede traseira.
+* Um controlador de domínio com um domínio de Diretório Ativo.
+* Dois VMs do Servidor SQL que são implantados na sub-rede de back-end e unidos ao domínio do Diretório Ativo.
+* Um cluster de falha do Windows de três nós com o modelo de quórum da Maioria do Nó.
+* Um grupo de disponibilidade com duas réplicas sincronizadas de uma base de dados de disponibilidade.
 
-Esse cenário é uma boa opção para sua simplicidade no Azure, não por sua economia de custo ou outros fatores. Por exemplo, você pode minimizar o número de VMs para que um grupo de disponibilidade de duas réplicas Economize em horas de computação no Azure usando o controlador de domínio como a testemunha de compartilhamento de arquivos de quorum em um cluster de failover de dois nós. Esse método reduz a contagem de VM em uma da configuração acima.
+Este cenário é uma boa escolha para a sua simplicidade no Azure, não pela sua custo-eficácia ou outros fatores. Por exemplo, pode minimizar o número de VMs para um grupo de disponibilidade de duas réplicas para economizar em horas de computação em Azure, utilizando o controlador de domínio como testemunha de partilha de ficheiros quórum num cluster de falha de dois nós. Este método reduz a contagem de VM por um a partir da configuração acima.
 
-Este tutorial destina-se a mostrar as etapas necessárias para configurar a solução descrita acima, sem elaborando sobre os detalhes de cada etapa. Portanto, em vez de fornecer as etapas de configuração da GUI, ele usa o script do PowerShell para levá-lo rapidamente a cada etapa. Este tutorial pressupõe o seguinte:
+Este tutorial destina-se a mostrar-lhe os passos necessários para configurar a solução descrita acima, sem especificar os detalhes de cada passo. Portanto, em vez de fornecer os passos de configuração GUI, ele usa scripts PowerShell para levá-lo rapidamente através de cada passo. Este tutorial assume o seguinte:
 
-* Você já tem uma conta do Azure com a assinatura da máquina virtual.
-* Você instalou os [cmdlets Azure PowerShell](/powershell/azure/overview).
-* Você já tem uma compreensão sólida de grupos de disponibilidade Always On para soluções locais. Para obter mais informações, consulte [grupos de disponibilidade Always on (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* Já tem uma conta Azure com a subscrição de máquina virtual.
+* Instalou os [cmdlets Azure PowerShell](/powershell/azure/overview).
+* Já tem uma compreensão sólida de sempre em grupos de disponibilidade para soluções no local. Para mais informações, consulte [Sempre em Grupos de Disponibilidade (Servidor SQL)](https://msdn.microsoft.com/library/hh510230.aspx).
 
-## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Conectar-se à sua assinatura do Azure e criar a rede virtual
-1. Em uma janela do PowerShell no computador local, importe o módulo do Azure, baixe o arquivo de configurações de publicação em seu computador e conecte sua sessão do PowerShell à sua assinatura do Azure importando as configurações de publicação baixadas.
+## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Ligue-se à sua subscrição Azure e crie a rede virtual
+1. Numa janela PowerShell no seu computador local, importe o módulo Azure, descarregue o ficheiro de definições de publicação para a sua máquina e ligue a sua sessão PowerShell à sua subscrição Azure importando as definições de publicação descarregadas.
 
         Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
         Get-AzurePublishSettingsFile
         Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-    O comando **Get-AzurePublishSettingsFile** gera automaticamente um certificado de gerenciamento com o Azure e o baixa em seu computador. Um navegador é aberto automaticamente e você é solicitado a inserir as credenciais de conta Microsoft para sua assinatura do Azure. O arquivo **. publishsettings** baixado contém todas as informações de que você precisa para gerenciar sua assinatura do Azure. Depois de salvar esse arquivo em um diretório local, importe-o usando o comando **Import-AzurePublishSettingsFile** .
+    O comando **Get-AzurePublishSettingsFile** gera automaticamente um certificado de gestão com o Azure e transfere-o para a sua máquina. Um navegador é automaticamente aberto e é solicitado que introduza as credenciais da conta microsoft para a sua subscrição Azure. O ficheiro de definições de **.publishsettings** descarregado contém todas as informações necessárias para gerir a sua subscrição Azure. Depois de guardar este ficheiro para um diretório local, importe-o utilizando o comando **Import-AzurePublishSettingsFile.**
 
    > [!NOTE]
-   > O arquivo. publishsettings contém suas credenciais (sem codificação) que são usadas para administrar suas assinaturas e serviços do Azure. A prática recomendada de segurança para esse arquivo é armazená-lo temporariamente fora dos diretórios de origem (por exemplo, na pasta Libraries\Documents) e, em seguida, excluí-lo após a conclusão da importação. Um usuário mal-intencionado que obtém acesso ao arquivo. publishsettings pode editar, criar e excluir seus serviços do Azure.
+   > O ficheiro .publishsettings contém as suas credenciais (não codificadas) que são usadas para administrar as suas subscrições e serviços Azure. A melhor prática de segurança para este ficheiro é armazená-lo temporariamente fora dos seus diretórios de origem (por exemplo, na pasta Bibliotecas\Documentos), e depois eliminá-lo após a importação ter terminado. Um utilizador malicioso que obtém acesso ao ficheiro .publishsettings pode editar, criar e eliminar os seus serviços Azure.
 
-2. Defina uma série de variáveis que você usará para criar sua infraestrutura de ti na nuvem.
+2. Defina uma série de variáveis que utilizará para criar a sua infraestrutura de TI em nuvem.
 
         $location = "West US"
         $affinityGroupName = "ContosoAG"
@@ -80,14 +80,14 @@ Este tutorial destina-se a mostrar as etapas necessárias para configurar a solu
         $vmAdminPassword = "Contoso!000"
         $workingDir = "c:\scripts\"
 
-    Preste atenção ao seguinte para garantir que seus comandos tenham sucesso mais tarde:
+    Preste atenção ao seguinte para garantir que os seus comandos terão sucesso mais tarde:
 
-   * As variáveis **$storageAccountName** e **$dcServiceName** devem ser exclusivas porque são usadas para identificar sua conta de armazenamento de nuvem e o servidor de nuvem, respectivamente, na Internet.
-   * Os nomes que você especificar para as variáveis **$affinityGroupName** e **$virtualNetworkName** são configurados no documento de configuração de rede virtual que você usará mais tarde.
-   * **$sqlImageName** especifica o nome atualizado da imagem de VM que contém SQL Server 2012 Service Pack 1 Enterprise Edition.
-   * Para simplificar, **contoso! 000** é a mesma senha usada em todo o tutorial.
+   * As variáveis **$storageAccountName** e **$dcServiceName** devem ser únicas porque são usadas para identificar a sua conta de armazenamento em nuvem e servidor de nuvem, respectivamente, na Internet.
+   * Os nomes que especifica para variáveis **$affinityGroupName** e **$virtualNetworkName** estão configurados no documento de configuração da rede virtual que utilizará mais tarde.
+   * **$sqlImageName** especifica o nome atualizado da imagem VM que contém o SQL Server 2012 Service Pack 1 Enterprise Edition.
+   * Para a simplicidade, **Contoso!000** é a mesma senha que é usada em todo o tutorial.
 
-3. Crie um grupo de afinidade.
+3. Criar um grupo de afinidade.
 
         New-AzureAffinityGroup `
             -Name $affinityGroupName `
@@ -95,12 +95,12 @@ Este tutorial destina-se a mostrar as etapas necessárias para configurar a solu
             -Description $affinityGroupDescription `
             -Label $affinityGroupLabel
 
-4. Crie uma rede virtual importando um arquivo de configuração.
+4. Criar uma rede virtual importando um ficheiro de configuração.
 
         Set-AzureVNetConfig `
             -ConfigurationPath $networkConfigPath
 
-    O arquivo de configuração contém o seguinte documento XML. Em suma, ele especifica uma rede virtual chamada **ContosoNET** no grupo de afinidade chamado **ContosoAG**. Ele tem o espaço de endereço **10.10.0.0/16** e tem duas sub-redes, **10.10.1.0/24** e **10.10.2.0/24**, que são a sub-rede frontal e a sub-rede traseira, respectivamente. A sub-rede frontal é onde você pode posicionar aplicativos cliente, como o Microsoft SharePoint. A sub-rede traseira é onde você colocará o SQL Server VMs. Se você alterar o **$affinityGroupName** e **$virtualNetworkName** variáveis anteriormente, também deverá alterar os nomes correspondentes abaixo.
+    O ficheiro de configuração contém o seguinte documento XML. Em resumo, especifica uma rede virtual chamada **ContosoNET** no grupo de afinidade chamado **ContosoAG.** Tem o espaço de **endereço10.10.0.0.0/16** e tem duas subredes, **10.10.1.0/24** e **10.10.2.2.0/24,** que são a sub-rede frontal e a sub-rede traseira, respectivamente. A sub-rede frontal é onde pode colocar aplicações de clientes como o Microsoft SharePoint. A sub-rede traseira é onde você colocará os VMs do Servidor SQL. Se alterar as variáveis **$affinityGroupName** e **$virtualNetworkName** mais cedo, também deve alterar os nomes correspondentes abaixo.
 
         <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -123,7 +123,7 @@ Este tutorial destina-se a mostrar as etapas necessárias para configurar a solu
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-5. Crie uma conta de armazenamento associada ao grupo de afinidade que você criou e defina-a como a conta de armazenamento atual em sua assinatura.
+5. Crie uma conta de armazenamento que esteja associada ao grupo de afinidade que criou e delineie-a como a conta de armazenamento corrente na sua subscrição.
 
         New-AzureStorageAccount `
             -StorageAccountName $storageAccountName `
@@ -133,7 +133,7 @@ Este tutorial destina-se a mostrar as etapas necessárias para configurar a solu
             -SubscriptionName (Get-AzureSubscription).SubscriptionName `
             -CurrentStorageAccount $storageAccountName
 
-6. Crie o servidor do controlador de domínio no novo serviço de nuvem e conjunto de disponibilidade.
+6. Crie o servidor do controlador de domínio no novo conjunto de serviço sinuoso e disponibilidade.
 
         New-AzureVMConfig `
             -Name $dcServerName `
@@ -151,14 +151,14 @@ Este tutorial destina-se a mostrar as etapas necessárias para configurar a solu
                     –AffinityGroup $affinityGroupName `
                     -VNetName $virtualNetworkName
 
-    Esses comandos canalizados fazem o seguinte:
+    Estes comandos canalizados fazem as seguintes coisas:
 
-   * **New-AzureVMConfig** cria uma configuração de VM.
-   * **Add-AzureProvisioningConfig** fornece os parâmetros de configuração de um Windows Server autônomo.
-   * **Add-AzureDataDisk** adiciona o disco de dados que você usará para armazenar Active Directory dados, com a opção de cache definida como None.
-   * **New-AzureVM** cria um novo serviço de nuvem e cria a nova VM do Azure no novo serviço de nuvem.
+   * **O New-AzureVMConfig** cria uma configuração VM.
+   * **Add-AzureProvisioningConfig** fornece os parâmetros de configuração de um servidor Windows autónomo.
+   * **Add-AzureDataDisk** adiciona o disco de dados que utilizará para armazenar dados do Diretório Ativo, com a opção de cache definida para Nenhum.
+   * **O Novo AzureVM** cria um novo serviço na nuvem e cria o novo Azure VM no novo serviço de cloud.
 
-7. Aguarde até que a nova VM seja totalmente provisionada e baixe o arquivo da área de trabalho remota em seu diretório de trabalho. Como a nova VM do Azure leva muito tempo para ser provisionada, o loop de `while` continua a sondar a nova VM até que ela esteja pronta para uso.
+7. Aguarde que o novo VM seja totalmente provisionado e descarregue o ficheiro remoto para o seu diretório de trabalho. Como o novo Azure VM demora muito `while` tempo a fornecer, o loop continua a sondar o novo VM até estar pronto a ser utilizado.
 
         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 
@@ -174,12 +174,12 @@ Este tutorial destina-se a mostrar as etapas necessárias para configurar a solu
             -Name $dcServerName `
             -LocalPath "$workingDir$dcServerName.rdp"
 
-O servidor do controlador de domínio agora foi provisionado com êxito. Em seguida, você configurará o domínio Active Directory nesse servidor do controlador de domínio. Deixe a janela do PowerShell aberta no computador local. Você o usará novamente mais tarde para criar as duas VMs SQL Server.
+O servidor do controlador de domínio está agora aprovisionado com sucesso. Em seguida, configurará o domínio do Diretório Ativo neste servidor de controlador de domínio. Deixe a janela PowerShell aberta no seu computador local. Voltará a usá-lo mais tarde para criar os dois VMs do Servidor SQL.
 
-## <a name="configure-the-domain-controller"></a>Configurar o controlador de domínio
-1. Conecte-se ao servidor do controlador de domínio iniciando o arquivo da área de trabalho remota. Use o nome de usuário AzureAdmin e a senha **contoso! 000**do administrador do computador que você especificou quando criou a nova VM.
-2. Abra uma janela do PowerShell no modo de administrador.
-3. Execute o Dcpromo a seguir **. EXE** para configurar o domínio **Corp.contoso.com** , com os diretórios de dados na unidade M.
+## <a name="configure-the-domain-controller"></a>Configure o controlador de domínio
+1. Ligue-se ao servidor do controlador de domínio lançando o ficheiro de ambiente de trabalho remoto. Utilize o nome de utilizador do administrador da máquina AzureAdmin e a palavra-passe **Contoso!000,** que especificou quando criou o novo VM.
+2. Abra uma janela PowerShell no modo administrador.
+3. Executar o seguinte **DCPROMO. Comando EXE** para configurar o domínio **corp.contoso.com,** com os diretórios de dados na unidade M.
 
         dcpromo.exe `
             /unattend `
@@ -197,14 +197,14 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
             /SYSVOLPath:"C:\Windows\SYSVOL" `
             /SafeModeAdminPassword:"Contoso!000"
 
-    Após a conclusão do comando, a VM é reiniciada automaticamente.
+    Após o fim do comando, o VM reinicia automaticamente.
 
-4. Conecte-se ao servidor do controlador de domínio novamente iniciando o arquivo da área de trabalho remota. Desta vez, entre como **CORP\Administrator**.
-5. Abra uma janela do PowerShell no modo de administrador e importe o Active Directory módulo do PowerShell usando o seguinte comando:
+4. Ligue-se novamente ao servidor do controlador de domínio, lançando o ficheiro de ambiente de trabalho remoto. Desta vez, inscreva-se como **administrador da CORP\.**
+5. Abra uma janela PowerShell no modo administrador e importe o módulo PowerShell do Diretório Ativo utilizando o seguinte comando:
 
         Import-Module ActiveDirectory
 
-6. Execute os comandos a seguir para adicionar três usuários ao domínio.
+6. Executar os seguintes comandos para adicionar três utilizadores ao domínio.
 
         $pwd = ConvertTo-SecureString "Contoso!000" -AsPlainText -Force
         New-ADUser `
@@ -226,8 +226,8 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
             -ChangePasswordAtLogon $false `
             -Enabled $true
 
-    **CORP\Install** é usado para configurar tudo relacionado às instâncias de serviço SQL Server, ao cluster de failover e ao grupo de disponibilidade. **CORP\SQLSvc1** e **CORP\SQLSvc2** são usados como as contas de serviço SQL Server para as duas VMs SQL Server.
-7. Em seguida, execute os comandos a seguir para conceder ao **CORP\Install** as permissões para criar objetos de computador no domínio.
+    **A instalação corp\é** usada para configurar tudo o que está relacionado com as instâncias de serviço do SQL Server, o cluster failover e o grupo de disponibilidade. **CORP\SQLSvc1** e **CORP\SQLSvc2** são usados como as contas de serviço SQL Server para os dois VMs do Servidor SQL.
+7. Em seguida, executar os seguintes comandos para dar **CORP\Instale** as permissões para criar objetos de computador no domínio.
 
         Cd ad:
         $sid = new-object System.Security.Principal.SecurityIdentifier (Get-ADUser "Install").SID
@@ -238,12 +238,12 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    O GUID especificado acima é o GUID para o tipo de objeto de computador. A conta **CORP\Install** precisa da permissão **ler todas as propriedades** e **criar objetos de computador** para criar os objetos do Active Direct para o cluster de failover. A permissão **ler todas as propriedades** já foi atribuída ao CORP\Install por padrão, portanto, você não precisa concedê-la explicitamente. Para obter mais informações sobre as permissões necessárias para criar o cluster de failover, consulte [guia passo a passo do cluster de failover: Configurando contas no Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    O GUID acima especificado é o GUID para o tipo de objeto de computador. A conta **CORP\Instalar** a conta precisa da permissão **de Ler Todas as Propriedades** e Criar **Objetos de Computador** para criar os objetos Ative Direct para o cluster failover. A permissão **Read All Properties** já foi dada à CORP\Install por padrão, pelo que não precisa concedê-la explicitamente. Para obter mais informações sobre permissões necessárias para criar o cluster failover, consulte [Failover Cluster Step-by-Step Guide: Configurar Contas no Diretório Ativo](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
-    Agora que você concluiu a configuração de Active Directory e os objetos de usuário, criará duas VMs SQL Server e as unirá a esse domínio.
+    Agora que terminou de configurar o Diretório Ativo e os objetos do utilizador, irá criar dois VMs sQL Server e juntá-los a este domínio.
 
-## <a name="create-the-sql-server-vms"></a>Criar as VMs SQL Server
-1. Continue a usar a janela do PowerShell que está aberta no computador local. Defina as seguintes variáveis adicionais:
+## <a name="create-the-sql-server-vms"></a>Criar os VMs do Servidor SQL
+1. Continue a utilizar a janela PowerShell aberta no seu computador local. Definir as seguintes variáveis adicionais:
 
         $domainName= "corp"
         $FQDN = "corp.contoso.com"
@@ -256,8 +256,8 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
         $dataDiskSize = 100
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
 
-    O endereço IP **10.10.0.4** normalmente é atribuído à primeira VM que você cria na sub-rede **10.10.0.0/16** da sua rede virtual do Azure. Você deve verificar se esse é o endereço do seu servidor do controlador de domínio executando **ipconfig**.
-2. Execute os seguintes comandos canalizados para criar a primeira VM no cluster de failover, chamada **ContosoQuorum**:
+    O endereço IP **10.10.0.4** é tipicamente atribuído ao primeiro VM que cria na sub-rede **10.10.0.0.0/16** da sua rede virtual Azure. Deve verificar se este é o endereço do seu servidor de controlador de domínio executando **IPCONFIG**.
+2. Executar os seguintes comandos canalizados para criar o primeiro VM no cluster failover, denominado **ContosoQuorum:**
 
         New-AzureVMConfig `
             -Name $quorumServerName `
@@ -283,13 +283,13 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
                         -VNetName $virtualNetworkName `
                         -DnsSettings $dnsSettings
 
-    Observe o seguinte em relação ao comando acima:
+    Note o seguinte em relação ao comando acima:
 
-   * **New-AzureVMConfig** cria uma configuração de VM com o nome do conjunto de disponibilidade desejado. As VMs subsequentes serão criadas com o mesmo nome do conjunto de disponibilidade para que elas sejam unidas ao mesmo conjunto de disponibilidade.
-   * **Add-AzureProvisioningConfig** une a VM ao domínio Active Directory que você criou.
-   * **Set-AzureSubnet** coloca a VM na sub-rede posterior.
-   * **New-AzureVM** cria um novo serviço de nuvem e cria a nova VM do Azure no novo serviço de nuvem. O parâmetro **DnsSettings** especifica que o servidor DNS para os servidores no novo serviço de nuvem tem o endereço IP **10.10.0.4**. Esse é o endereço IP do servidor do controlador de domínio. Esse parâmetro é necessário para permitir que as novas VMs no serviço de nuvem ingressem no domínio de Active Directory com êxito. Sem esse parâmetro, você deve definir manualmente as configurações de IPv4 em sua VM para usar o servidor do controlador de domínio como o servidor DNS primário depois que a VM é provisionada e, em seguida, ingressar a VM no domínio Active Directory.
-3. Execute os seguintes comandos canalizados para criar as VMs SQL Server, chamadas **ContosoSQL1** e **ContosoSQL2**.
+   * **O New-AzureVMConfig** cria uma configuração VM com o nome definido de disponibilidade pretendido. Os VMs subsequentes serão criados com o mesmo nome definido de disponibilidade para que se juntem ao mesmo conjunto de disponibilidade.
+   * **Add-AzureProvisioningConfig** junta-se ao VM ao domínio de Diretório Ativo que criou.
+   * **Set-AzureSubnet** coloca o VM na sub-rede traseira.
+   * **O Novo AzureVM** cria um novo serviço na nuvem e cria o novo Azure VM no novo serviço de cloud. O parâmetro **DnsSettings** especifica que o servidor DNS para os servidores no novo serviço de nuvem tem o endereço IP **10.10.0.4**. Este é o endereço IP do servidor do controlador de domínio. Este parâmetro é necessário para permitir que os novos VMs no serviço de nuvem se juntem ao domínio do Diretório Ativo com sucesso. Sem este parâmetro, deve definir manualmente as definições do IPv4 no seu VM para utilizar o servidor do controlador de domínio como o servidor DNS primário após o fornecimento do VM e, em seguida, juntar o VM ao domínio do Diretório Ativo.
+3. Executar os seguintes comandos canalizados para criar os VMs do Servidor SQL, **denominados ContosoSQL1** e **ContosoSQL2**.
 
         # Create ContosoSQL1...
         New-AzureVMConfig `
@@ -347,14 +347,14 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
                         New-AzureVM `
                             -ServiceName $sqlServiceName
 
-    Observe o seguinte em relação aos comandos acima:
+    Note o seguinte em relação aos comandos acima:
 
-   * **New-AzureVMConfig** usa o mesmo nome do conjunto de disponibilidade que o servidor do controlador de domínio e usa a imagem do SQL Server 2012 Service Pack 1 Enterprise Edition na Galeria de máquinas virtuais. Ele também define o disco do sistema operacional para somente cache de leitura (sem cache de gravação). Recomendamos que você migre os arquivos de banco de dados para um disco de armazenamento separado que você anexa à VM e configure-o sem cache de leitura ou gravação. No entanto, a melhor opção é remover o cache de gravação no disco do sistema operacional, pois não é possível remover o cache de leitura no disco do sistema operacional.
-   * **Add-AzureProvisioningConfig** une a VM ao domínio Active Directory que você criou.
-   * **Set-AzureSubnet** coloca a VM na sub-rede posterior.
-   * **Add-AzureEndpoint** adiciona pontos de extremidade de acesso para que os aplicativos cliente possam acessar essas instâncias de serviços de SQL Server na Internet. Portas diferentes são dadas a ContosoSQL1 e ContosoSQL2.
-   * **New-AzureVM** cria a nova VM SQL Server no mesmo serviço de nuvem que ContosoQuorum. Você deve posicionar as VMs no mesmo serviço de nuvem se quiser que elas estejam no mesmo conjunto de disponibilidade.
-4. Aguarde até que cada VM seja totalmente provisionada e para cada VM baixar seu arquivo de área de trabalho remota para seu diretório de trabalho. O loop de `for` percorre as três novas VMs e executa os comandos dentro das chaves de nível superior para cada uma delas.
+   * **O New-AzureVMConfig** utiliza o mesmo nome de conjunto de disponibilidade que o servidor do controlador de domínio, e utiliza a imagem Do SQL Server 2012 Service Pack 1 Enterprise Edition na galeria de máquinas virtuais. Também define o disco do sistema operativo apenas para o recado de leitura (sem cache de escrita). Recomendamos que emigra os ficheiros da base de dados para um disco de dados separado que se ligue ao VM e configure-os sem ler ou escrever cache. No entanto, o melhor a seguir é remover o cache de escrita no disco do sistema operativo porque não é possível remover o cache de leitura no disco do sistema operativo.
+   * **Add-AzureProvisioningConfig** junta-se ao VM ao domínio de Diretório Ativo que criou.
+   * **Set-AzureSubnet** coloca o VM na sub-rede traseira.
+   * **Add-AzureEndpoint** adiciona pontos finais de acesso para que as aplicações do cliente possam aceder a estas instâncias de serviços Do Servidor SQL na Internet. Diferentes portas são dadas a ContosoSQL1 e ContosoSQL2.
+   * **O New-AzureVM** cria o novo SQL Server VM no mesmo serviço de nuvem que o ContosoQuorum. Deve colocar os VMs no mesmo serviço de nuvem se quiser que estejam no mesmo conjunto de disponibilidade.
+4. Aguarde que cada VM seja totalmente provisionado e que cada VM descarregue o seu ficheiro remoto para o seu diretório de trabalho. O `for` loop passa através dos três novos VMs e executa os comandos dentro dos suportes encaracolados de nível superior para cada um deles.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
@@ -374,78 +374,78 @@ O servidor do controlador de domínio agora foi provisionado com êxito. Em segu
             Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
         }
 
-    As VMs SQL Server agora estão provisionadas e em execução, mas são instaladas com SQL Server com opções padrão.
+    Os VMs do Servidor SQL estão agora aprovisionados e em execução, mas estão instalados com o SQL Server com opções predefinidas.
 
-## <a name="initialize-the-failover-cluster-vms"></a>Inicializar as VMs do cluster de failover
-Nesta seção, você precisa modificar os três servidores que serão usados no cluster de failover e a instalação do SQL Server. Especificamente:
+## <a name="initialize-the-failover-cluster-vms"></a>Inicializar os VMs do cluster failover
+Nesta secção, é necessário modificar os três servidores que utilizará no cluster failover e na instalação do Servidor SQL. Mais concretamente:
 
-* Todos os servidores: você precisa instalar o recurso de **clustering de failover** .
-* Todos os servidores: você precisa adicionar **CORP\Install** como o **administrador**do computador.
-* Somente ContosoSQL1 e ContosoSQL2: você precisa adicionar **CORP\Install** como uma função **sysadmin** no banco de dados padrão.
-* Somente ContosoSQL1 e ContosoSQL2: você precisa adicionar **NT AUTHORITY\SYSTEM** como uma entrada com as seguintes permissões:
+* Todos os servidores: É necessário instalar a função **failover Clustering.**
+* Todos os servidores: Tem de adicionar O **CORP\Instale** como **administrador**da máquina .
+* ContosoSQL1 e ContosoSQL2 apenas: É necessário adicionar o **CORP\Install** como uma função **de sisadmina** na base de dados predefinida.
+* ContosoSQL1 e ContosoSQL2 apenas: É necessário adicionar o **NT AUTHORITY\System** como um sessão com as seguintes permissões:
 
   * Alterar qualquer grupo de disponibilidade
-  * Conectar SQL
-  * Exibir estado do servidor
-* Somente ContosoSQL1 e ContosoSQL2: o protocolo **TCP** já está habilitado na VM SQL Server. No entanto, você ainda precisa abrir o firewall para acesso remoto de SQL Server.
+  * Ligar SQL
+  * Ver estado de servidor
+* ContosoSQL1 e ContosoSQL2 apenas: O protocolo **TCP** já está ativado no VM do Servidor SQL. No entanto, ainda precisa de abrir a firewall para acesso remoto do Servidor SQL.
 
-Agora, você está pronto para começar. A partir do **ContosoQuorum**, siga as etapas abaixo:
+Agora, está pronto para começar. Começando com **ContosoQuorum,** siga os passos abaixo:
 
-1. Conecte-se ao **ContosoQuorum** iniciando os arquivos da área de trabalho remota. Use o nome de usuário **AzureAdmin** e a senha **contoso! 000**do administrador do computador que você especificou quando criou as VMs.
-2. Verifique se os computadores ingressaram com êxito no **Corp.contoso.com**.
-3. Aguarde até que a instalação do SQL Server conclua a execução das tarefas de inicialização automatizada antes de continuar.
-4. Abra uma janela do PowerShell no modo de administrador.
-5. Instale o recurso Windows failover clustering.
+1. Ligue-se a **ContosoQuorum** lançando os ficheiros remotos do ambiente de trabalho. Utilize o nome de utilizador do administrador da máquina **AzureAdmin** e a palavra-passe **Contoso!000,** que especificou quando criou os VMs.
+2. Verifique se os computadores foram bem-sucedidos juntos à **corp.contoso.com**.
+3. Aguarde que a instalação do SQL Server termine a execução das tarefas de inicialização automatizadas antes de prosseguir.
+4. Abra uma janela PowerShell no modo administrador.
+5. Instale a função de Clustering de Falha do Windows.
 
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
-6. Adicione **CORP\Install** como um administrador local.
+6. Adicione **corp\Instale** como administrador local.
 
         net localgroup administrators "CORP\Install" /Add
-7. Saia do ContosoQuorum. Você concluiu este servidor agora.
+7. Assine fora de ContosoQuorum. Já acabou com este servidor.
 
         logoff.exe
 
-Em seguida, inicialize **ContosoSQL1** e **ContosoSQL2**. Siga as etapas abaixo, que são idênticas para as duas VMs SQL Server.
+Em seguida, inicialize **ContosoSQL1** e **ContosoSQL2**. Siga os passos abaixo, idênticos para ambos os VMs do Servidor SQL.
 
-1. Conecte-se às duas VMs SQL Server iniciando os arquivos da área de trabalho remota. Use o nome de usuário **AzureAdmin** e a senha **contoso! 000**do administrador do computador que você especificou quando criou as VMs.
-2. Verifique se os computadores ingressaram com êxito no **Corp.contoso.com**.
-3. Aguarde até que a instalação do SQL Server conclua a execução das tarefas de inicialização automatizada antes de continuar.
-4. Abra uma janela do PowerShell no modo de administrador.
-5. Instale o recurso Windows failover clustering.
+1. Ligue-se aos dois VMs do Servidor SQL lançando os ficheiros remotos do ambiente de trabalho. Utilize o nome de utilizador do administrador da máquina **AzureAdmin** e a palavra-passe **Contoso!000,** que especificou quando criou os VMs.
+2. Verifique se os computadores foram bem-sucedidos juntos à **corp.contoso.com**.
+3. Aguarde que a instalação do SQL Server termine a execução das tarefas de inicialização automatizadas antes de prosseguir.
+4. Abra uma janela PowerShell no modo administrador.
+5. Instale a função de Clustering de Falha do Windows.
 
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
-6. Adicione **CORP\Install** como um administrador local.
+6. Adicione **corp\Instale** como administrador local.
 
         net localgroup administrators "CORP\Install" /Add
-7. Importe o provedor de SQL Server PowerShell.
+7. Importar o Fornecedor SQL Server PowerShell.
 
         Set-ExecutionPolicy -Execution RemoteSigned -Force
         Import-Module -Name "sqlps" -DisableNameChecking
-8. Adicione **CORP\Install** como a função sysadmin para a instância de SQL Server padrão.
+8. Adicione **corp\Instale** como a função de sisadmina para a instância padrão do Servidor SQL.
 
         net localgroup administrators "CORP\Install" /Add
         Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
-9. Adicione **NT AUTHORITY\SYSTEM** como uma entrada com as três permissões descritas acima.
+9. Adicione **nt AUTHORITY\System** como um sessão com as três permissões descritas acima.
 
         Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
         Invoke-SqlCmd -Query "GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
-10. Abra o firewall para acesso remoto de SQL Server.
+10. Abra a firewall para acesso remoto do Servidor SQL.
 
          netsh advfirewall firewall add rule name='SQL Server (TCP-In)' program='C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Binn\sqlservr.exe' dir=in action=allow protocol=TCP
-11. Saia de ambas as VMs.
+11. Assine fora dos dois VMs.
 
          logoff.exe
 
-Por fim, você está pronto para configurar o grupo de disponibilidade. Você usará o provedor de SQL Server PowerShell para executar todo o trabalho em **ContosoSQL1**.
+Finalmente, está pronto para configurar o grupo de disponibilidade. Utilizará o Fornecedor SQL Server PowerShell para realizar todo o trabalho em **ContosoSQL1**.
 
-## <a name="configure-the-availability-group"></a>Configurar o grupo de disponibilidade
-1. Conecte-se ao **ContosoSQL1** novamente iniciando os arquivos da área de trabalho remota. Em vez de entrar usando a conta da máquina, entre usando **CORP\Install**.
-2. Abra uma janela do PowerShell no modo de administrador.
-3. Defina as seguintes variáveis:
+## <a name="configure-the-availability-group"></a>Configure o grupo de disponibilidade
+1. Ligue-se novamente a **ContosoSQL1** lançando os ficheiros remotos do ambiente de trabalho. Em vez de iniciar sessão utilizando a conta da máquina, inscreva-se utilizando o **CORP\Install**.
+2. Abra uma janela PowerShell no modo administrador.
+3. Definir as seguintes variáveis:
 
         $server1 = "ContosoSQL1"
         $server2 = "ContosoSQL2"
@@ -459,7 +459,7 @@ Por fim, você está pronto para configurar o grupo de disponibilidade. Você us
         $backupShare = "\\$server1\backup"
         $quorumShare = "\\$server1\quorum"
         $ag = "AG1"
-4. Importe o provedor de SQL Server PowerShell.
+4. Importar o Fornecedor SQL Server PowerShell.
 
         Set-ExecutionPolicy RemoteSigned -Force
         Import-Module "sqlps" -DisableNameChecking
@@ -481,12 +481,12 @@ Por fim, você está pronto para configurar o grupo de disponibilidade. Você us
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Baixe **CreateAzureFailoverCluster. ps1** de [Create Failover cluster for Always on grupos de disponibilidade na VM do Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) para o diretório de trabalho local. Você usará esse script para ajudá-lo a criar um cluster de failover funcional. Para obter informações importantes sobre como o clustering de failover do Windows interage com a rede do Azure, consulte [alta disponibilidade e recuperação de desastres para SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
-8. Altere para seu diretório de trabalho e crie o cluster de failover com o script baixado.
+7. Baixe **CreateAzureFailoverCluster.ps1** de [Create Failover Cluster para Sempre Em Grupos de Disponibilidade em Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) para o diretório de trabalho local. Vais usar este guião para te ajudar a criar um cluster funcional de failover. Para obter informações importantes sobre como o Clustering de Failover do Windows interage com a rede Azure, consulte alta disponibilidade e recuperação de [desastres para o Servidor SQL em Máquinas Virtuais Azure](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+8. Mude para o seu diretório de trabalho e crie o cluster failover com o script descarregado.
 
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
-9. Habilite grupos de disponibilidade Always On para as instâncias de SQL Server padrão em **ContosoSQL1** e **ContosoSQL2**.
+9. Ativar sempre em grupos de disponibilidade para as instâncias padrão do Servidor SQL em **ContosoSQL1** e **ContosoSQL2**.
 
         Enable-SqlAlwaysOn `
             -Path SQLSERVER:\SQL\$server1\Default `
@@ -498,20 +498,20 @@ Por fim, você está pronto para configurar o grupo de disponibilidade. Você us
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-10. Crie um diretório de backup e conceda permissões para as contas de serviço SQL Server. Você usará esse diretório para preparar o banco de dados de disponibilidade na réplica secundária.
+10. Crie um diretório de backup e conceda permissões para as contas de serviço do SQL Server. Usará este diretório para preparar a base de dados de disponibilidade da réplica secundária.
 
          $backup = "C:\backup"
          New-Item $backup -ItemType directory
          net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
          icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
-11. Crie um banco de dados em **ContosoSQL1** chamado **MyDB1**, faça um backup completo e um backup de log e restaure-os no **CONTOSOSQL2** com a opção **WITH NORECOVERY** .
+11. Crie uma base de dados em **ContosoSQL1** chamada **MyDB1,** pegue tanto uma cópia de segurança completa como uma cópia de segurança de registo, e restaure-as em **ContosoSQL2** com a opção **SNORECOVERY.**
 
          Invoke-SqlCmd -Query "CREATE database $db"
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server1 -BackupAction Log
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server2 -NoRecovery
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server2 -RestoreAction Log -NoRecovery
-12. Crie os pontos de extremidade do grupo de disponibilidade nas VMs SQL Server e defina as permissões apropriadas nos pontos de extremidade.
+12. Crie os pontos finais do grupo de disponibilidade nos VMs do Servidor SQL e detetete as permissões adequadas nos pontos finais.
 
          $endpoint =
              New-SqlHadrEndpoint MyMirroringEndpoint `
@@ -550,7 +550,7 @@ Por fim, você está pronto para configurar o grupo de disponibilidade. Você us
              -FailoverMode "Automatic" `
              -Version 11 `
              -AsTemplate
-14. Por fim, crie o grupo de disponibilidade e ingresse a réplica secundária no grupo de disponibilidade.
+14. Finalmente, crie o grupo de disponibilidade e junte-se à réplica secundária ao grupo de disponibilidade.
 
          New-SqlAvailabilityGroup `
              -Name $ag `
@@ -565,6 +565,6 @@ Por fim, você está pronto para configurar o grupo de disponibilidade. Você us
              -Database $db
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora você implementou com êxito SQL Server Always On criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para esse grupo de disponibilidade, consulte [configurar um ouvinte ILB para grupos de disponibilidade Always on no Azure](../classic/ps-sql-int-listener.md).
+Agora implementou com sucesso o SQL Server Always On criando um grupo de disponibilidade em Azure. Para configurar um ouvinte para este grupo de disponibilidade, consulte [Configure um ouvinte ILB para grupos de disponibilidade Always On em Azure](../classic/ps-sql-int-listener.md).
 
-Para obter outras informações sobre como usar SQL Server no Azure, consulte [SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para outras informações sobre a utilização do Servidor SQL em Azure, consulte [o SQL Server em máquinas virtuais Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

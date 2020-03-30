@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB compensações de consistência, disponibilidade e desempenho
-description: Compensações de desempenho e disponibilidade para vários níveis de consistência no Azure Cosmos DB.
+title: Azure Cosmos DB consistência, disponibilidade e trocas de desempenho
+description: Trocas de disponibilidade e desempenho para vários níveis de consistência em Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445555"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
 
 As bases de dados distribuídas que dependem da replicação para elevada disponibilidade, baixa latência ou ambos, têm vantagens e desvantagens. As vantagens e desvantagens estão entre a consistência da leitura vs disponibilidade, latência e débito.
 
-Azure Cosmos DB se aproxima da consistência de dados como um espectro de opções. Essa abordagem inclui mais opções do que os dois extremos de consistência forte e eventual. Você pode escolher entre cinco modelos bem definidos no espectro de consistência. Do mais forte ao mais fraco, os modelos são:
+Azure Cosmos DB aborda a consistência dos dados como um espectro de escolhas. Esta abordagem inclui mais opções do que os dois extremos de consistência forte e eventual. Pode escolher entre cinco modelos bem definidos no espectro de consistência. Dos mais fortes aos mais fracos, os modelos são:
 
 - *Forte*
 - *Estagnação limitada*
@@ -26,51 +26,51 @@ Azure Cosmos DB se aproxima da consistência de dados como um espectro de opçõ
 - *Prefixo consistente*
 - *Eventual*
 
-Cada modelo fornece compensações de desempenho e disponibilidade e é apoiado por SLAs abrangentes.
+Cada modelo proporciona trocas de disponibilidade e desempenho e é apoiado por SLAs abrangentes.
 
 ## <a name="consistency-levels-and-latency"></a>Níveis de consistência e latência
 
-A latência de leitura para todos os níveis de consistência sempre é garantida para menos de 10 milissegundos no 99 º percentil. Essa latência de leitura é apoiada pelo SLA. A latência média de leitura, no 50 º percentil, normalmente é de 2 milissegundos ou menos. As contas do Azure cosmos que abrangem várias regiões e são configuradas com consistência forte são uma exceção a essa garantia.
+A latência de leitura para todos os níveis de consistência é sempre garantida a menos de 10 milissegundos no percentil 99. Esta latência lida é apoiada pelo SLA. A latência média de leitura, no percentil 50, é tipicamente de 2 milissegundos ou menos. As contas da Azure Cosmos que se estendem por várias regiões e estão configuradas com forte consistência são uma exceção a esta garantia.
 
-A latência de gravação para todos os níveis de consistência sempre é garantida para menos de 10 milissegundos no 99 º percentil. Essa latência de gravação é apoiada pelo SLA. A latência média de gravação, no 50 º percentil, geralmente é de 5 milissegundos ou menos.
+A latência de escrita para todos os níveis de consistência é sempre garantida a menos de 10 milissegundos no percentil 99. Esta latência escrita é apoiada pelo SLA. A latência média de escrita, no percentil 50, é geralmente de 5 milissegundos ou menos.
 
-Para contas do Azure Cosmos configuradas com consistência forte com mais de uma região, é garantido que a latência de gravação seja menor que duas vezes o RTT (tempo de ida e volta) entre qualquer uma das duas regiões mais distantes, mais 10 milissegundos no 99 º percentil.
+Para as contas da Azure Cosmos configuradas com forte consistência com mais de uma região, a latência por escrito é garantida mente menos de duas vezes o tempo de ida e volta (RTT) entre qualquer uma das duas regiões mais distantes, mais 10 milissegundos no percentil 99.
 
-A latência exata de RTT é uma função de distância de velocidade da luz e da topologia de rede do Azure. A rede do Azure não fornece SLAs de latência para o RTT entre duas regiões do Azure. Para sua conta do Azure Cosmos, as latências de replicação são exibidas no portal do Azure. Você pode usar a portal do Azure (vá para a folha métricas) para monitorar as latências de replicação entre várias regiões associadas à sua conta do Azure Cosmos.
+A latência RTT exata é uma função da distância de velocidade da luz e da topologia de rede Azure. A rede Azure não fornece SLAs de latência para o RTT entre duas regiões Azure. Para a sua conta Azure Cosmos, as tardios de replicação são exibidas no portal Azure. Pode utilizar o portal Azure (vá à lâmina das Métricas) para monitorizar as tardios de replicação entre várias regiões que estão associadas à sua conta Azure Cosmos.
 
-## <a name="consistency-levels-and-throughput"></a>Níveis de consistência e taxa de transferência
+## <a name="consistency-levels-and-throughput"></a>Níveis de consistência e de entrada
 
-- Para o mesmo número de unidades de solicitação, a sessão, o prefixo consistente e os níveis de consistência eventual fornecem cerca de duas vezes a taxa de transferência de leitura quando comparada com a forte e a desatualização limitada.
+- Para o mesmo número de unidades de pedido, a sessão, prefixo consistente e níveis de consistência eventual fornecem cerca de duas vezes a entrada de leitura quando comparada com a estagnação forte e limitada.
 
-- Para um determinado tipo de operação de gravação, como inserir, substituir, Upsert e excluir, a taxa de transferência de gravação para unidades de solicitação é idêntica para todos os níveis de consistência.
+- Para um determinado tipo de operação de escrita, como inserir, substituir, sersert e eliminar, a entrada de escrita para unidades de pedido é idêntica para todos os níveis de consistência.
 
-## <a id="rto"></a>Níveis de consistência e durabilidade de dados
+## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Níveis de consistência e durabilidade dos dados
 
-Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma interrupção em toda a região. Ao desenvolver seu plano de continuidade de negócios, você precisa entender o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para que um aplicativo se recupere totalmente é conhecido como**RTO**( **objetivo de tempo de recuperação** ). Você também precisa entender o período máximo de atualizações de dados recentes que o aplicativo pode tolerar perder ao recuperar após um evento de interrupção. O período de tempo das atualizações que você pode perder é conhecido como**RPO**( **objetivo de ponto de recuperação** ).
+Num ambiente de base de dados distribuído globalmente, existe uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma paralisação em toda a região. À medida que desenvolve o seu plano de continuidade de negócios, precisa de compreender o tempo máximo aceitável antes que a aplicação recupere totalmente após um evento disruptivo. O tempo necessário para uma candidatura para recuperar totalmente é conhecido como objetivo de tempo de **recuperação** **(RTO).** Também precisa entender o período máximo de atualizações de dados recentes que a aplicação pode tolerar perder quando se recupera após um evento disruptivo. O período de tempo de atualizações que pode supor perder é conhecido como objetivo do ponto de **recuperação** **(RPO).**
 
-A tabela a seguir define a relação entre o modelo de consistência e a durabilidade dos dados na presença de interrupção em toda a região. É importante observar que, em um sistema distribuído, mesmo com uma consistência forte, é impossível ter um banco de dados distribuído com RPO e RTO de zero devido à teorema CAP. Para saber mais sobre o porquê, consulte [níveis de consistência em Azure Cosmos DB](consistency-levels.md).
+O quadro abaixo define a relação entre o modelo de consistência e a durabilidade dos dados na presença de uma paragem em toda a região. É importante notar que num sistema distribuído, mesmo com uma forte coerência, é impossível dispor de uma base de dados distribuída com um RPO e rTO de zero devido ao teorema da PAC. Para saber mais sobre o porquê, consulte os níveis de [consistência em Azure Cosmos DB](consistency-levels.md).
 
-|**Região (ões)**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
+|**Região(s)**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
-|1|Único ou vários mestres|Qualquer nível de consistência|< de 240 minutos|< 1 semana|
-|>1|Mestre único|Sessão, prefixo consistente, eventual|< 15 minutos|< 15 minutos|
-|>1|Mestre único|Estagnação Limitada|*K* & *T*|< 15 minutos|
-|>1|Mestre único|Segura|0|< 15 minutos|
-|>1|Vários mestres|Sessão, prefixo consistente, eventual|< 15 minutos|0|
-|>1|Vários mestres|Estagnação Limitada|*K* & *T*|0|
+|1|Single ou Multi-Master|Qualquer Nível de Consistência|< 240 Minutos|<1 Semana|
+|>1|Mestre Único|Sessão, Prefixo Consistente, Eventual|< 15 minutos|< 15 minutos|
+|>1|Mestre Único|Estagnação Limitada|*K* & *T*|< 15 minutos|
+|>1|Mestre Único|Forte|0|< 15 minutos|
+|>1|Multi-Master|Sessão, Prefixo Consistente, Eventual|< 15 minutos|0|
+|>1|Multi-Master|Estagnação Limitada|*K* & *T*|0|
 
-*K* = o número de versões *"K"* (ou seja, atualizações) de um item.
+*K* = O número de versões *"K"* (isto é, atualizações) de um item.
 
-*T* = o intervalo de tempo *"T"* desde a última atualização.
+*T* = O intervalo de tempo *"T"* desde a última atualização.
 
-## <a name="strong-consistency-and-multi-master"></a>Consistência forte e vários mestres
+## <a name="strong-consistency-and-multi-master"></a>Forte consistência e multi-mestre
 
-As contas do cosmos configuradas para vários mestres não podem ser configuradas para uma consistência forte, pois não é possível que um sistema distribuído forneça um RPO de zero e um RTO igual a zero. Além disso, não há nenhum benefício de latência de gravação para usar a consistência forte com vários mestres, uma vez que qualquer gravação em qualquer região deve ser replicada e confirmada em todas as regiões configuradas na conta. Isso resulta na mesma latência de gravação que uma conta mestra única.
+As contas cosmos configuradas para multi-master não podem ser configuradas para uma forte consistência, uma vez que não é possível que um sistema distribuído forneça um RPO de zero e um RTO de zero. Além disso, não existem benefícios de latência por escrito para usar uma forte consistência com o multi-mestre, uma vez que qualquer escrita em qualquer região deve ser replicada e comprometida com todas as regiões configuradas dentro da conta. Isto resulta na mesma latência escrita que uma única conta principal.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a distribuição global e as compensações de consistência geral em sistemas distribuídos. Consulte os seguintes artigos:
+Saiba mais sobre a distribuição global e as trocas gerais de consistência em sistemas distribuídos. Consulte os seguintes artigos:
 
-- [Compensações de consistência no design de sistemas de bancos de dados distribuídos modernos](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+- [Trocas de consistência no design moderno de sistemas de base de dados distribuídos](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Elevada disponibilidade](high-availability.md)
-- [SLA de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

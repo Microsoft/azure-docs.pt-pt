@@ -1,56 +1,56 @@
 ---
-title: Cobrança de funções duráveis-Azure Functions
-description: Saiba mais sobre os comportamentos internos de Durable Functions e como eles afetam a cobrança de Azure Functions.
+title: Faturação de funções duráveis - Funções Azure
+description: Conheça os comportamentos internos das Funções Duráveis e como afetam a faturação das Funções Azure.
 author: cgillum
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 504ef93a0002895bc5662d95ad269c8593170ee2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74233003"
 ---
-# <a name="durable-functions-billing"></a>Cobrança de Durable Functions
+# <a name="durable-functions-billing"></a>Faturação de Funções Duráveis
 
-[Durable Functions](durable-functions-overview.md) é cobrado da mesma maneira que Azure functions. Para obter mais informações, consulte [preços de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+[As Funções Duráveis](durable-functions-overview.md) são faturadas da mesma forma que as Funções Azure. Para mais informações, consulte o preço das [Funções Azure](https://azure.microsoft.com/pricing/details/functions/).
 
-Ao executar funções de orquestrador no [plano de consumo](../functions-scale.md#consumption-plan)Azure functions, você precisa estar ciente de alguns comportamentos de cobrança. As seções a seguir descrevem esses comportamentos e seus efeitos em mais detalhes.
+Ao executar funções de orquestrador no plano de [consumo](../functions-scale.md#consumption-plan)de funções azure, você precisa estar ciente de alguns comportamentos de faturação. As seguintes secções descrevem estes comportamentos e o seu efeito com mais detalhes.
 
-## <a name="orchestrator-function-replay-billing"></a>Cobrança de reprodução de função de orquestrador
+## <a name="orchestrator-function-replay-billing"></a>Faturação de reprodução de função orquestradora
 
-As [funções de orquestrador](durable-functions-orchestrations.md) podem ser reproduzidas várias vezes durante o tempo de vida de uma orquestração. Cada repetição é exibida pelo tempo de execução de Azure Functions como uma invocação de função distinta. Por esse motivo, no plano de consumo de Azure Functions, você será cobrado por cada repetição de uma função de orquestrador. Outros tipos de plano não cobram pela reprodução da função do Orchestrator.
+[As funções](durable-functions-orchestrations.md) de orquestrador podem reproduzir-se várias vezes ao longo da vida de uma orquestração. Cada repetição é vista pelo tempo de funcionamento das Funções Azure como uma invocação de função distinta. Por esta razão, no plano de consumo de funções Azure você é cobrado para cada repetição de uma função orquestradora. Outros tipos de planos não cobram para a repetição da função orquestradora.
 
-## <a name="awaiting-and-yielding-in-orchestrator-functions"></a>Aguardando e produzindo em funções de orquestrador
+## <a name="awaiting-and-yielding-in-orchestrator-functions"></a>Esperando e cedendo em funções orquestradoras
 
-Quando uma função de orquestrador aguarda a conclusão de uma ação assíncrona usando **Await** em C# ou **yield** em JavaScript, o tempo de execução considera que a execução específica será concluída. A cobrança da função de orquestrador é interrompida nesse ponto. Ele não é retomado até a próxima reprodução da função de orquestrador. Você não é cobrado por nenhum tempo gasto aguardando ou produzindo em uma função de orquestrador.
+Quando uma função orquestradora espera que uma ação assíncrona termine usando **a aguardar** em C# ou **render** em JavaScript, o tempo de execução considera que a execução particular deve ser terminada. A faturação para a função de orquestrador para nessa altura. Não retoma até que a próxima função orquestradora reproduza. Não é cobrado por nenhum tempo passado à espera ou a ceder numa função de orquestrador.
 
 > [!NOTE]
-> As funções que chamam outras funções são consideradas como um antipadrão. Isso ocorre devido a um problema conhecido como _cobrança dupla_. Quando uma função chama outra função diretamente, ambas são executadas ao mesmo tempo. A função chamada está executando o código ativamente enquanto a função de chamada está aguardando uma resposta. Nesse caso, você deve pagar pelo tempo que a função de chamada gasta aguardando a execução da função chamada.
+> Funções que chamam outras funções são consideradas por alguns como um antipadrão. Isto deve-se a um problema conhecido como _faturação dupla._ Quando uma função chama outra função diretamente, ambas funcionam ao mesmo tempo. A função chamada está ativamente a funcionar código enquanto a função de chamada aguarda uma resposta. Neste caso, tem de pagar pelo tempo que a função de chamada passa à espera que a função seja executada.
 >
-> Não há nenhuma cobrança dupla nas funções de orquestrador. A cobrança de uma função de orquestrador é interrompida enquanto aguarda o resultado de uma função de atividade ou de uma suborquestração.
+> Não há faturação dupla em funções orquestradoras. A faturação de uma função orquestradora para enquanto aguarda o resultado de uma função de atividade ou sub-orquestração.
 
-## <a name="durable-http-polling"></a>Sondagem de HTTP durável
+## <a name="durable-http-polling"></a>Sondagem http durável
 
-As funções de orquestrador podem fazer chamadas HTTP de longa execução para pontos de extremidade externos, conforme descrito no [artigo recursos http](durable-functions-http-features.md). O método **CallHttpAsync** no C# e o método **callHttp** no JavaScript podem sondar internamente um ponto de extremidade HTTP enquanto segue o [padrão assíncrono 202](durable-functions-http-features.md#http-202-handling).
+As funções de orquestrador podem fazer chamadas http de longa duração para pontos finais externos, conforme descrito no artigo http [features](durable-functions-http-features.md). O método **CallHttpAsync** em C# e o método **callHttp** no JavaScript podem pesquisar internamente um ponto final HTTP enquanto seguem o [padrão assíncrono de 202](durable-functions-http-features.md#http-202-handling).
 
-Atualmente, não há uma cobrança direta para operações internas de sondagem HTTP. No entanto, a sondagem interna pode fazer com que a função de orquestrador reproduza periodicamente. Você será cobrado pelas cobranças padrão por essas repetições de função internas.
+Atualmente, não existe faturação direta para operações internas de sondagens http. No entanto, as sondagens internas podem fazer com que a função orquestradora reproduza periodicamente. Serão cobrados encargos padrão para estas repetições de funções internas.
 
-## <a name="azure-storage-transactions"></a>Transações de armazenamento do Azure
+## <a name="azure-storage-transactions"></a>Transações de Armazenamento Azure
 
-O Durable Functions usa o armazenamento do Azure por padrão para manter o estado persistente, processar mensagens e gerenciar partições por meio de concessões de BLOB. Como você é proprietário dessa conta de armazenamento, qualquer custo de transação é cobrado em sua assinatura do Azure. Para obter mais informações sobre os artefatos de armazenamento do Azure usados pelo Durable Functions, consulte o [artigo hubs de tarefas](durable-functions-task-hubs.md).
+As Funções Duráveis utilizam o Armazenamento Azure por padrão para manter as mensagens de processo persistentes do estado e gerir divisórias através de arrendamentos blob. Como é dono desta conta de armazenamento, quaisquer custos de transação são cobrados à sua subscrição Azure. Para obter mais informações sobre os artefactos de armazenamento azure utilizados por Funções Duráveis, consulte o [artigo Task hubs](durable-functions-task-hubs.md).
 
-Vários fatores contribuem para os custos reais de armazenamento do Azure incorridos pelo seu aplicativo Durable Functions:
+Vários fatores contribuem para os custos reais de Armazenamento Azure incorridos pela sua aplicação Funções Duráveis:
 
-* Um único aplicativo de funções é associado a um único Hub de tarefas, que compartilha um conjunto de recursos de armazenamento do Azure. Esses recursos são usados por todas as funções duráveis em um aplicativo de funções. O número real de funções no aplicativo de funções não tem efeito sobre os custos de transação do armazenamento do Azure.
-* Cada instância do aplicativo de funções sonda internamente várias filas na conta de armazenamento usando um algoritmo de sondagem de retirada exponencial. Uma instância de aplicativo ociosa sonda as filas com menos frequência do que um aplicativo ativo, o que resulta em menos custos de transação. Para obter mais informações sobre Durable Functions comportamento de sondagem de fila, consulte a [seção sondagem de fila do artigo desempenho e escala](durable-functions-perf-and-scale.md#queue-polling).
-* Durante a execução nos planos de consumo Azure Functions ou Premium, o [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sonda regularmente todas as filas do hub de tarefas em segundo plano. Se um aplicativo de funções estiver sob uma escala moderada, apenas uma única instância do controlador de escala sondará essas filas. Se o aplicativo de funções for dimensionado para um grande número de instâncias, mais instâncias do controlador de escala poderão ser adicionadas. Essas instâncias adicionais do controlador de escala podem aumentar os custos totais da transação de fila.
-* Cada instância do aplicativo de funções compete para um conjunto de concessões de BLOB. Essas instâncias farão periodicamente chamadas para o serviço blob do Azure para renovar concessões mantidas ou para tentar adquirir novas concessões. A contagem de partições configuradas do hub de tarefas determina o número de concessões de BLOB. Expandir para um número maior de instâncias do aplicativo de funções provavelmente aumenta os custos de transação do armazenamento do Azure associados a essas operações de concessão.
+* Uma única aplicação de função está associada a um único centro de tarefas, que partilha um conjunto de recursos de Armazenamento Azure. Estes recursos são utilizados por todas as funções duráveis numa aplicação de função. O número real de funções na aplicação de funções não tem qualquer efeito nos custos de transação de Armazenamento Azure.
+* Cada aplicação de funções clica internamente em várias filas na conta de armazenamento usando um algoritmo exponencial de sondagens. Uma aplicação ociosa sondagem as filas com menos frequência do que uma aplicação ativa, o que resulta em menos custos de transação. Para obter mais informações sobre o comportamento das sondagens de fila das Funções Duráveis, consulte a [secção de sondagens de fila do artigo Performance e Escala](durable-functions-perf-and-scale.md#queue-polling).
+* Ao executar os planos de consumo de funções azure ou premium, o controlador de [escala Funções Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) vota regularmente todas as filas de centros de tarefas em segundo plano. Se uma aplicação de função estiver sob escala leve a moderada, apenas uma instância de controlador de escala única irá fazer uma sondagem nestas filas. Se a aplicação de função se basear num grande número de casos, poderão ser adicionadas mais instâncias de controlador escamas. Estes casos de controlador de escala adicional podem aumentar os custos totais de transação de fila.
+* Cada instância de aplicação de funções compete por um conjunto de arrendamentos blob. Estes casos irão periodicamente fazer chamadas para o serviço Azure Blob, quer para renovar os contratos de arrendamento realizados, quer para tentar adquirir novos contratos de arrendamento. A contagem de partições configurada do centro de tarefas determina o número de arrendamentos blob. A escala para um maior número de instâncias de aplicações de funções provavelmente aumenta os custos de transação de Armazenamento Azure associados a estas operações de locação.
 
-Você pode encontrar mais informações sobre preços do armazenamento do Azure na documentação de [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) . 
+Pode encontrar mais informações sobre os preços do Armazenamento Azure na documentação de preços do [Armazenamento Azure.](https://azure.microsoft.com/pricing/details/storage/) 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre preços de Azure Functions](https://azure.microsoft.com/pricing/details/functions/)
+> [Saiba mais sobre os preços das Funções Azure](https://azure.microsoft.com/pricing/details/functions/)

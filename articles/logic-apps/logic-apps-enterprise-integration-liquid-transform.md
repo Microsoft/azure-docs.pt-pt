@@ -1,6 +1,6 @@
 ---
-title: Converter dados JSON com transformações Liquid
-description: Criar transformações ou mapas para transformações avançadas de JSON usando aplicativos lógicos e o modelo líquido
+title: Converter dados da JSON com transformações líquidas
+description: Crie transformações ou mapas para transformações avançadas da JSON usando aplicações lógicas e modelo líquido
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,34 +9,34 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
 ms.openlocfilehash: fb9f9cfdba07ebe0bc5800def6d93950869e9727
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456639"
 ---
-# <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Executar transformações JSON avançadas com modelos líquidos nos aplicativos lógicos do Azure
+# <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Realizar transformações avançadas da JSON com modelos líquidos em aplicações lógicas azure
 
-Você pode executar transformações JSON básicas em seus aplicativos lógicos com ações de operação de dados nativas, como **Compose** ou **Parse JSON**. Para executar transformações avançadas de JSON, você pode criar modelos ou mapas com o [Liquid](https://shopify.github.io/liquid/), que é uma linguagem de modelo de software livre para aplicativos Web flexíveis. Um modelo Liquid define como transformar a saída JSON e dá suporte a transformações JSON mais complexas, como iterações, fluxos de controle, variáveis e assim por diante. 
+Pode realizar transformações básicas da JSON nas suas aplicações lógicas com ações de operação de dados nativos, como **Compor** ou **Parse JSON**. Para realizar transformações avançadas de JSON, pode criar modelos ou mapas com [Líquido,](https://shopify.github.io/liquid/)que é um idioma de modelo de código aberto para aplicações web flexíveis. Um modelo líquido define como transformar a saída jSON e suporta transformações JSON mais complexas, tais como iterações, fluxos de controlo, variáveis, e assim por diante. 
 
-Antes de executar uma transformação Liquid em seu aplicativo lógico, você deve primeiro definir o mapeamento JSON para JSON com um modelo líquido e armazenar o mapa em sua conta de integração. Este artigo mostra como criar e usar este modelo ou mapa Liquid. 
+Antes de poder realizar uma transformação líquida na sua aplicação lógica, tem primeiro de definir o JSON para o mapeamento JSON com um modelo de Liquid e armazenar esse mapa na sua conta de integração. Este artigo mostra-lhe como criar e usar este modelo ou mapa líquido. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição, pode [começar com uma conta do Azure gratuita](https://azure.microsoft.com/free/). Ou então, [Inscreva-se para uma assinatura paga conforme o uso](https://azure.microsoft.com/pricing/purchase-options/).
+* Uma subscrição do Azure. Se não tiver uma subscrição, pode [começar com uma conta do Azure gratuita](https://azure.microsoft.com/free/). Ou, [inscreva-se para uma subscrição pay-As-You-Go](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica
 
-* Conhecimento básico sobre o [idioma do modelo líquido](https://shopify.github.io/liquid/)
+* Conhecimento básico sobre linguagem do [modelo líquido](https://shopify.github.io/liquid/)
 
-## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Criar um modelo ou mapa Liquid para sua conta de integração
+## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Crie modelo ou mapa líquido para a sua conta de integração
 
-1. Para este exemplo, crie o modelo Liquid de exemplo descrito nesta etapa. No seu modelo Liquid, você pode usar [filtros Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), que usam [DotLiquid](https://dotliquidmarkup.org/) e C# convenções de nomenclatura. 
+1. Para este exemplo, crie o modelo líquido da amostra descrito neste passo. No seu modelo Liquid, pode utilizar [filtros líquidos,](https://shopify.github.io/liquid/basics/introduction/#filters)que utilizam convenções de nomeação [DotLiquid](https://dotliquidmarkup.org/) e C# . 
 
    > [!NOTE]
-   > Verifique se os nomes de filtro usam *maiúsculas e minúsculas* no seu modelo. Caso contrário, os filtros não funcionarão. Além disso, os mapas têm [limites de tamanho de arquivo](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits).
+   > Certifique-se de que os nomes dos filtros utilizam *o invólucro* da frase no seu modelo. Caso contrário, os filtros não funcionarão. Além disso, os mapas têm [limites](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)de tamanho de ficheiros.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -57,100 +57,100 @@ Antes de executar uma transformação Liquid em seu aplicativo lógico, você de
    }
    ```
 
-2. Inicie sessão no [Portal do Azure](https://portal.azure.com). No menu principal do Azure, selecione **todos os recursos**. Na caixa de pesquisa, localize e selecione sua conta de integração.
+2. Inicie sessão no [Portal do Azure](https://portal.azure.com). No menu Azure principal, selecione **Todos os recursos.** Na caixa de pesquisa, encontre e selecione a sua conta de integração.
 
-   ![Selecionar conta de integração](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
+   ![Selecione conta de integração](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-3.  Em **componentes**, selecione **mapas**.
+3.  Em **Componentes,** selecione **Maps**.
 
-    ![Selecionar mapas](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
+    ![Selecione mapas](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
-4. Escolha **Adicionar** e forneça estes detalhes para o mapa:
+4. Escolha **Adicionar** e forneça estes detalhes para o seu mapa:
 
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
-   | **Nome** | JsonToJsonTemplate | O nome do mapa, que é "JsonToJsonTemplate" neste exemplo | 
-   | **Tipo de mapa** | **liquid** | O tipo do mapa. Para transformação JSON para JSON, você deve selecionar **Liquid**. | 
-   | **Mapa** | "SimpleJsonToJsonTemplate.liquid" | Um modelo Liquid ou um arquivo de mapa existente a ser usado para transformação, que é "SimpleJsonToJsonTemplate. Liquid" neste exemplo. Para localizar esse arquivo, você pode usar o seletor de arquivos. Para limites de tamanho do mapa, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
+   | **Nome** | Modelo JsonToJson | O nome para o seu mapa, que é "JsonToJsonTemplate" neste exemplo | 
+   | **Tipo de mapa** | **líquido** | O tipo para o seu mapa. Para a transformação json para JSON, você deve selecionar **líquido**. | 
+   | **Mapa** | "SimpleJsonToJsonTemplate.liquid" | Um modelo líquido ou ficheiro de mapa existente para usar para transformação, que é "SimpleJsonToJsonTemplate.liquid" neste exemplo. Para encontrar este ficheiro, pode utilizar o apanhador de ficheiros. Para obter limites de tamanho do mapa, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    ||| 
 
-   ![Adicionar modelo Liquid](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
+   ![Adicionar modelo líquido](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
     
-## <a name="add-the-liquid-action-for-json-transformation"></a>Adicionar a ação Liquid para transformação JSON
+## <a name="add-the-liquid-action-for-json-transformation"></a>Adicione a ação líquida para a transformação da JSON
 
-1. No portal do Azure, siga estas etapas para [criar um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. No portal Azure, siga estes passos para [criar uma aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2. No designer de aplicativo lógico, adicione o [gatilho de solicitação](../connectors/connectors-native-reqres.md#add-request) ao seu aplicativo lógico.
+2. No Logic App Designer, adicione o [gatilho do Pedido](../connectors/connectors-native-reqres.md#add-request) à sua aplicação lógica.
 
-3. No gatilho, escolha **nova etapa**. 
-   Na caixa de pesquisa, digite "Liquid" como filtro e selecione esta ação: **transformar JSON em JSON-Liquid**
+3. Sob o gatilho, escolha **novo passo**. 
+   Na caixa de pesquisa, introduza "líquido" como filtro e selecione esta ação: **Transforme jSON para JSON - Líquido**
 
-   ![Localizar e Selecionar ação líquida](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
+   ![Localizar e selecionar ação líquida](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-4. Clique dentro da caixa de **conteúdo** para que a lista de conteúdo dinâmico seja exibida e selecione o token de **corpo** .
+4. Clique dentro da caixa **de conteúdo** para que a lista de conteúdos dinâmicos apareça e selecione o símbolo **do Corpo.**
   
-   ![Selecionar corpo](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
+   ![Selecione o corpo](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
-5. Na lista **mapa** , selecione seu modelo Liquid, que é "JsonToJsonTemplate" neste exemplo.
+5. Na lista do **Mapa,** selecione o seu modelo de liquidez, que é "JsonToJsonTemplate" neste exemplo.
 
-   ![Selecionar mapa](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
+   ![Selecione mapa](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   Se a lista de mapas estiver vazia, provavelmente seu aplicativo lógico não está vinculado à sua conta de integração. 
-   Para vincular seu aplicativo lógico à conta de integração que tem o modelo ou mapa Liquid, siga estas etapas:
+   Se a lista de mapas estiver vazia, muito provavelmente a sua aplicação lógica não está ligada à sua conta de integração. 
+   Para ligar a sua aplicação lógica à conta de integração que tem o modelo ou mapa líquido, siga estes passos:
 
-   1. No menu do aplicativo lógico, selecione **configurações de fluxo de trabalho**.
+   1. No menu de aplicações lógicas, selecione **definições de Workflow**.
 
-   2. Na lista **selecionar uma conta de integração** , selecione sua conta de integração e escolha **salvar**.
+   2. A partir da lista de **conta Integração,** selecione a sua conta de integração e escolha **Guardar**.
 
-      ![Vincular o aplicativo lógico à conta de integração](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Link aplicação lógica para conta de integração](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
-## <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
+## <a name="test-your-logic-app"></a>Teste a sua aplicação lógica
 
-Poste a entrada JSON para seu aplicativo lógico do [postmaster](https://www.getpostman.com/postman) ou de uma ferramenta semelhante. A saída JSON transformada do seu aplicativo lógico é semelhante a este exemplo:
+Publique a entrada jSON na sua aplicação lógica do [Carteiro](https://www.getpostman.com/postman) ou de uma ferramenta semelhante. A saída jSON transformada da sua aplicação lógica parece este exemplo:
   
-![Exemplo de saída](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+![Saída de exemplo](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
-## <a name="more-liquid-action-examples"></a>Mais exemplos de ação Liquid
-Liquid não está limitado a apenas transformações JSON. Aqui estão outras ações de transformação disponíveis que usam Liquid.
+## <a name="more-liquid-action-examples"></a>Mais exemplos de ação líquida
+O líquido não se limita apenas às transformações da JSON. Aqui estão outras ações de transformação disponíveis que usam líquido.
 
-* Transformar JSON em texto
+* Transforme jSON em texto
   
-  Este é o modelo Liquid usado para este exemplo:
+  Aqui está o modelo líquido usado para este exemplo:
    
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   Aqui estão exemplos de entradas e saídas:
+   Aqui estão as inputs e saídas da amostra:
   
-   ![Exemplo de saída de JSON para texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+   ![Exemplo de saída JSON para texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
-* Transformar XML em JSON
+* Transforme xML em JSON
   
-  Este é o modelo Liquid usado para este exemplo:
+  Aqui está o modelo líquido usado para este exemplo:
    
    ``` json
    [{% JSONArrayFor item in content -%}
         {{item}}
     {% endJSONArrayFor -%}]
    ```
-   Aqui estão exemplos de entradas e saídas:
+   Aqui estão as inputs e saídas da amostra:
 
-   ![Exemplo de XML de saída para JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+   ![Saída de exemplo XML para JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
-* Transformar XML em texto
+* Transforme o XML em texto
   
-  Este é o modelo Liquid usado para este exemplo:
+  Aqui está o modelo líquido usado para este exemplo:
 
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
 
-   Aqui estão exemplos de entradas e saídas:
+   Aqui estão as inputs e saídas da amostra:
 
-   ![Exemplo de saída de XML para texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
+   ![Exemplo de saída XML para texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
-* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas de integração corporativa")  
+* [Saiba mais sobre o Pacote de Integração Empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Pacote de Integração Empresarial")  
+* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Conheça mapas de integração empresarial")  
 
