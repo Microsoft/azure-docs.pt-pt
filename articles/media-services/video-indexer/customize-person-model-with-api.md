@@ -1,7 +1,7 @@
 ---
-title: Usar a API de Video Indexer para personalizar um modelo Person-Azure
+title: Personalize um modelo pessoa com API indexante de vídeo
 titleSuffix: Azure Media Services
-description: Este artigo mostra como personalizar um modelo Person com a API Video Indexer.
+description: Aprenda a personalizar um modelo Pessoa com a API do Indexer de Vídeo.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,34 +10,34 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
-ms.openlocfilehash: 370e9e515359e2e2e598db90aa379f796b13c3fe
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fa41fca7f8ad96cf507aa6f04059b1254c8c3961
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292404"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127897"
 ---
-# <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizar um modelo Person com a API Video Indexer
+# <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalize um modelo pessoa com a API do Indexer de Vídeo
 
-Video Indexer dá suporte à detecção de face e ao reconhecimento de celebridade para conteúdo de vídeo. O recurso de reconhecimento de celebridade abrange aproximadamente 1 milhão rostos com base na fonte de dados solicitada comumente, como o IMDB, a Wikipédia e os principais influenciadores do LinkedIn. As faces que não são reconhecidas pelo recurso de reconhecimento de celebridade são detectadas; no entanto, elas são deixadas sem nome. Depois de carregar seu vídeo para Video Indexer e obter resultados de volta, você pode voltar e nomear as faces que não foram reconhecidas. Depois de rotular uma face com um nome, a face e o nome serão adicionados ao modelo Person da sua conta. Video Indexer, em seguida, reconhecerá essa face em seus vídeos futuros e vídeos anteriores.
+O Indexer de vídeo suporta a deteção facial e o reconhecimento de celebridades por conteúdos de vídeo. A funcionalidade de reconhecimento de celebridades abrange cerca de um milhão de rostos com base em fontes de dados comumente solicitadas, tais como IMDB, Wikipedia e influenciadores de topo do LinkedIn. Rostos que não são reconhecidos pela característica de reconhecimento de celebridades são detetados, mas deixados sem nome. Depois de fazer o upload do seu vídeo para o Video Indexer e obter resultados de volta, pode voltar atrás e nomear as caras que não foram reconhecidas. Uma vez rotulado um rosto com um nome, o rosto e o nome são adicionados ao modelo Pessoa da sua conta. O Indexer de vídeo reconhecerá então este rosto nos seus futuros vídeos e vídeos passados.
 
-Você pode usar a API Video Indexer para editar faces que foram detectadas em um vídeo, conforme descrito neste tópico. Você também pode usar o site Video Indexer, conforme descrito em [Personalizar modelo de pessoa usando o site do video indexer](customize-person-model-with-api.md).
+Pode utilizar a API do Indexer de Vídeo para editar rostos que foram detetados num vídeo, como descrito neste tópico. Também pode utilizar o website do Indexer de Vídeo, conforme descrito no [modelo Personaliz Person utilizando o website do Indexer de Vídeo](customize-person-model-with-api.md).
 
-## <a name="managing-multiple-person-models"></a>Gerenciando modelos de várias pessoas 
+## <a name="managing-multiple-person-models"></a>Gestão de vários modelos pessoa
 
-Video Indexer dá suporte a vários modelos de pessoa por conta. Esse recurso está atualmente disponível somente por meio das APIs de Video Indexer.
+O Indexer de vídeo suporta vários modelos pessoa por conta. Esta funcionalidade encontra-se atualmente disponível apenas através das APIs do Indexer de Vídeo.
 
-Se sua conta atender a diferentes cenários de caso de uso, talvez você queira criar vários modelos de pessoa por conta. Por exemplo, se o conteúdo estiver relacionado a esportes, você poderá criar um modelo de pessoa separado para cada esporte (futebol, basquete, futebol, etc.). 
+Se a sua conta atender a diferentes cenários de caso de utilização, é possível que queira criar vários modelos pessoa por conta. Por exemplo, se o seu conteúdo estiver relacionado com desporto, pode então criar um modelo pessoa separado para cada desporto (futebol, basquetebol, futebol, e assim por diante).
 
-Depois que um modelo é criado, você pode usá-lo fornecendo a ID do modelo de um modelo Person específico ao carregar/indexar ou reindexar um vídeo. Treinar uma nova face para um vídeo atualiza o modelo personalizado específico ao qual o vídeo foi associado.
+Uma vez criado um modelo, pode usá-lo fornecendo o id do modelo de um modelo pessoa específico ao carregar/indexar ou reindexar um vídeo. Treinar um novo rosto para um vídeo atualiza o modelo personalizado específico com o que o vídeo estava associado.
 
-Cada conta tem um limite de 50 modelos de pessoa. Se você não precisar do suporte ao modelo de várias pessoas, não atribua uma ID de modelo de pessoa ao seu vídeo ao carregar/indexar ou reindexar. Nesse caso, Video Indexer usa o modelo de pessoa personalizada padrão em sua conta.
+Cada conta tem um limite de 50 modelos pessoais. Se não necessitar do suporte do modelo pessoa múltipla, não designe um ID do modelo Pessoa para o seu vídeo ao carregar/indexar ou reindexar. Neste caso, o Indexer de Vídeo utiliza o modelo pessoa personalizado padrão na sua conta.
 
-## <a name="create-a-new-person-model"></a>Criar um novo modelo de pessoa
+## <a name="create-a-new-person-model"></a>Criar um novo modelo Pessoa
 
-Para criar um novo modelo de pessoa na conta especificada, use a API [criar um modelo Person](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) .
+Para criar um novo modelo Pessoa na conta especificada, utilize a criação de [uma API modelo de pessoa.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?)
 
-A resposta fornece o nome e a ID de modelo gerada do modelo Person que você acabou de criar, seguindo o formato do exemplo abaixo.
+A resposta fornece o nome e o modelo gerado ID do modelo Pessoa que acabou de criar seguindo o formato do exemplo abaixo.
 
 ```json
 {
@@ -46,21 +46,21 @@ A resposta fornece o nome e a ID de modelo gerada do modelo Person que você aca
 }
 ```
 
-Em seguida, você deve usar o valor de **ID** para o parâmetro **personModelId** ao [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexar um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Em seguida, utilize o valor **de id** para o parâmetro **personModelId** ao [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexar um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
-## <a name="delete-a-person-model"></a>Excluir um modelo Person
+## <a name="delete-a-person-model"></a>Eliminar um modelo Pessoa
 
-Para excluir um modelo de pessoa personalizada da conta especificada, use a API de [modelo excluir uma pessoa](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?) . 
+Para eliminar um modelo pessoa personalizado da conta especificada, utilize a [apague uma API modelo de pessoa.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?)
 
-Depois que o modelo Person for excluído com êxito, o índice dos seus vídeos atuais que estavam usando o modelo excluído permanecerá inalterado até que você os reindexe. Após a reindexação, as faces que foram nomeadas no modelo excluído não serão reconhecidas pelo Video Indexer em seus vídeos atuais que foram indexados usando esse modelo; no entanto, essas faces ainda serão detectadas. Seus vídeos atuais que foram indexados usando o modelo excluído agora usarão o modelo de pessoa padrão da sua conta. Se as faces do modelo excluído também forem nomeadas no modelo padrão da sua conta, essas faces continuarão a ser reconhecidas nos vídeos.
+Uma vez eliminado o modelo Pessoa com sucesso, o índice dos seus vídeos atuais que estavam a utilizar o modelo eliminado permanecerá inalterado até os reindexar. Após a reindexação, os rostos que foram nomeados no modelo apagado não serão reconhecidos pelo Indexer de Vídeo nos seus vídeos atuais que foram indexados usando esse modelo, mas as faces ainda serão detetadas. Os seus vídeos atuais que foram indexados com o modelo eliminado irão agora utilizar o modelo pessoa padrão da sua conta. Se os rostos do modelo apagado também forem nomeados no modelo padrão da sua conta, essas faces continuarão a ser reconhecidas nos vídeos.
 
-Não há nenhum conteúdo retornado quando o modelo Person é excluído com êxito.
+Não há conteúdo devolvido quando o modelo Pessoa é apagado com sucesso.
 
-## <a name="get-all-person-models"></a>Obter todos os modelos de pessoas
+## <a name="get-all-person-models"></a>Obtenha todos os modelos Pessoa
 
-Para obter todos os modelos de pessoa na conta especificada, use a API [obter um modelo Person](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?) .
+Para obter todos os modelos Pessoa na conta especificada, use o modelo aAPI de [obter uma pessoa.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?)
 
-A resposta fornece uma lista de todos os modelos de pessoa em sua conta (incluindo o modelo de pessoa padrão na conta especificada) e cada um de seus nomes e IDs seguindo o formato do exemplo abaixo.
+A resposta fornece uma lista de todos os modelos Pessoa na sua conta (incluindo o modelo Pessoa padrão na conta especificada) e cada um dos seus nomes e IDs seguindo o formato do exemplo abaixo.
 
 ```json
 [
@@ -75,20 +75,20 @@ A resposta fornece uma lista de todos os modelos de pessoa em sua conta (incluin
 ]
 ```
 
-Você pode escolher o modelo que deseja usar para um vídeo usando o valor de **ID** do modelo Person para o parâmetro **personModelId** ao [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexar um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Pode escolher qual modelo pretende utilizar para um `id` vídeo utilizando o `personModelId` valor do modelo Pessoa para o parâmetro ao [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexar um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
-## <a name="update-a-face"></a>Atualizar uma face
+## <a name="update-a-face"></a>Atualizar um rosto
 
-Esse comando permite que você atualize uma face em seu vídeo com um nome usando a ID do vídeo e a ID da face. Isso atualiza o modelo Person ao qual o vídeo foi associado após o carregamento/indexação ou a reindexação. Se nenhum modelo de pessoa foi atribuído, ele atualiza o modelo de pessoa padrão da conta. 
+Este comando permite-lhe atualizar um rosto no seu vídeo com um nome usando a identificação do vídeo e identificação do rosto. Esta ação atualiza então o modelo Pessoa a que o vídeo estava associado ao upload/indexação ou reindexing. Se nenhum modelo Pessoa foi atribuído, atualiza o modelo pessoa padrão da conta.
 
-Quando isso acontece, ele reconhece as ocorrências da mesma face em seus outros vídeos atuais que compartilham o mesmo modelo de pessoa. O reconhecimento da face em seus outros vídeos atuais pode levar algum tempo para entrar em vigor, pois esse é um processo em lote.
+O sistema reconhece então as ocorrências da mesma face nos seus outros vídeos atuais que partilham o mesmo modelo Pessoa. O reconhecimento do rosto nos seus outros vídeos atuais pode levar algum tempo a fazer efeito, uma vez que se trata de um processo de lote.
 
-Você pode atualizar uma face que Video Indexer reconhecida como um celebridade com um novo nome. O novo nome que você atribuir terá precedência sobre o reconhecimento de celebridade interno.
+Pode atualizar um rosto que o Video Indexer reconheceu como uma celebridade com um novo nome. O novo nome que dás terá precedência sobre o reconhecimento de celebridades incorporadas.
 
-Para atualizar a face, use [atualizar uma](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) API de face de vídeo.
+Para atualizar o rosto, utilize a atualização de uma API [face a vídeo.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?)
 
-Os nomes são exclusivos para modelos de pessoa, portanto, se você fornecer duas faces diferentes no mesmo modelo de pessoa com o mesmo valor de parâmetro de **nome** , Video indexer exibirá os rostos como a mesma pessoa e os convergirá quando você reindexar o vídeo. 
+Os nomes são únicos para os modelos Person, por isso, se você dá duas faces diferentes no mesmo modelo Pessoa o mesmo `name` valor de parâmetro, O Indexer de Vídeo vê as caras como a mesma pessoa e converge-as assim que reindexa o seu vídeo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Personalizar o modelo Person usando o site Video Indexer](customize-person-model-with-website.md)
+[Personalize o modelo da pessoa usando o site do Indexer de Vídeo](customize-person-model-with-website.md)

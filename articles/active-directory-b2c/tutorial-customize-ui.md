@@ -12,10 +12,10 @@ ms.date: 02/01/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186255"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalize a interface das experiências do utilizador no Diretório Ativo Azure B2C
@@ -29,7 +29,7 @@ Neste artigo, vai aprender a:
 > * Atualize o fluxo do utilizador para utilizar os ficheiros
 > * Teste o UI personalizado
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,15 +39,15 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Cria uma conta de armazenamento e um recipiente Azure e, em seguida, coloca ficheiros BÁSICOS HTML e CSS no recipiente.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Embora possa armazenar os seus ficheiros de muitas formas, para este tutorial, guarde-os no [armazenamento Azure Blob.](../storage/blobs/storage-blobs-introduction.md)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a usar o diretório que contém a sua subscrição Azure. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contenha a sua subscrição. Este diretório é diferente daquele que contém o seu inquilino Azure B2C.
 3. Escolha todos os serviços no canto superior esquerdo do portal Azure, procure e selecione contas de **Armazenamento.**
 4. Selecione **Adicionar**.
-5. No **grupo Recursos**, selecione Criar **novo,** introduza um nome para o novo grupo de recursos e, em seguida, clique OK .
+5. No **grupo Recursos**, selecione Criar **novo,** introduza um nome para o novo grupo de recursos e, em seguida, clique OK . **OK**
 6. Introduza um nome para a conta de armazenamento. O nome que escolher tem de ser exclusivo no Azure, deve ter entre 3 e 24 carateres de comprimento e apenas pode conter números e letras minúsculas.
 7. Selecione a localização da conta de armazenamento ou aceite a localização predefinida.
 8. Aceite todos os outros valores predefinidos, selecione **Rever + criar,** e depois clique em **Criar**.
@@ -63,8 +63,8 @@ Embora possa armazenar os seus ficheiros de muitas formas, para este tutorial, g
  O código Azure AD B2C num browser utiliza uma abordagem moderna e padrão para carregar conteúdo personalizado a partir de um URL que especifica num fluxo de utilizador. A partilha de recursos de origem cruzada (CORS) permite que recursos restritos numa página web sejam solicitados a partir de outros domínios.
 
 1. No menu, selecione **CORS**.
-2. Para **origens permitidas,** introduza `https://your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` pelo nome do seu inquilino Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário.
-3. Para **métodos permitidos**, selecione `GET`,`PUT`e `OPTIONS`.
+2. Para **origens permitidas,** entre . `https://your-tenant-name.b2clogin.com` Substitua `your-tenant-name` pelo nome do seu inquilino Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Precisa usar todas as letras minúsculas ao introduzir o nome do seu inquilino.
+3. Para **métodos permitidos,** selecione `GET`,`PUT`e `OPTIONS`.
 4. Para **cabeçalhos permitidos,** introduza um asterisco (*).
 5. Para **cabeçalhos expostos,** introduza um asterisco (*).
 6. Para **a idade máxima,** insira 200.
@@ -75,9 +75,9 @@ Embora possa armazenar os seus ficheiros de muitas formas, para este tutorial, g
 
 ### <a name="create-the-customization-files"></a>Criar os ficheiros de personalização
 
-Para personalizar o UI da experiência de inscrição, começa por criar um simples ficheiro HTML e CSS. Pode configurar o seu HTML da forma que quiser, mas deve ter um elemento de **mergulho** com um identificador de `api`. Por exemplo, `<div id="api"></div>`. O Azure AD B2C injeta elementos no recipiente `api` quando a página é apresentada.
+Para personalizar o UI da experiência de inscrição, começa por criar um simples ficheiro HTML e CSS. Pode configurar o seu HTML da forma que **div** quiser, mas deve `api`ter um elemento de mergulho com um identificador de . Por exemplo, `<div id="api"></div>`. O Azure AD B2C injeta elementos no `api` recipiente quando a página é apresentada.
 
-1. Numa pasta local, crie o seguinte ficheiro e certifique-se de que muda `your-storage-account` para o nome da conta de armazenamento e `your-container` o nome do recipiente que criou. Por exemplo, `https://store1.blob.core.windows.net/b2c/style.css`.
+1. Numa pasta local, crie o seguinte ficheiro `your-storage-account` e certifique-se de `your-container` que muda para o nome da conta de armazenamento e para o nome do recipiente que criou. Por exemplo, `https://store1.blob.core.windows.net/b2c/style.css`.
 
     ```html
     <!DOCTYPE html>

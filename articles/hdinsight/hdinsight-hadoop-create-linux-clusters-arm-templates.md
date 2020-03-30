@@ -1,6 +1,6 @@
 ---
-title: Criar clusters Apache Hadoop usando modelos – Azure HDInsight
-description: Saiba como criar clusters para o HDInsight usando modelos do Resource Manager
+title: Crie clusters Apache Hadoop usando modelos - Azure HDInsight
+description: Aprenda a criar clusters para hDInsight usando modelos de Gestor de Recursos
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,67 +9,67 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.openlocfilehash: 9498f2cf56f0bfe20d0806e5dc9872403dabb180
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979094"
 ---
-# <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager
+# <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Crie clusters Apache Hadoop em HDInsight usando modelos de Gestor de Recursos
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Neste artigo, você aprende várias maneiras de criar clusters do Azure HDInsight usando modelos de Azure Resource Manager. Para obter mais informações, consulte [implantar um aplicativo com Azure Resource Manager modelo](../azure-resource-manager/templates/deploy-powershell.md). Para saber mais sobre outras ferramentas e recursos de criação de cluster, clique no seletor de guias na parte superior desta página ou consulte [métodos de criação de cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
+Neste artigo, aprende-se várias formas de criar clusters Azure HDInsight utilizando modelos de Gestor de Recursos Azure. Para mais informações, consulte [Implementar uma aplicação com o modelo de Gestor](../azure-resource-manager/templates/deploy-powershell.md)de Recursos Azure . Para saber mais sobre outras ferramentas e funcionalidades de criação de clusters, clique no seletor de separadores na parte superior desta página ou consulte [os métodos](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)de criação do Cluster .
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [subscrição do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell e/ou CLI do Azure.
+* Uma [subscrição Azure.](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+* Azure PowerShell e/ou Azure CLI.
 
-### <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
+### <a name="resource-manager-templates"></a>Modelos do Resource Manager
 
-Um modelo do Resource Manager facilita a criação dos seguintes recursos para seu aplicativo em uma única operação coordenada:
-* Clusters HDInsight e seus recursos dependentes (como a conta de armazenamento padrão).
-* Outros recursos (como o banco de dados SQL do Azure para usar o [Apache Sqoop](https://sqoop.apache.org/)).
+Um modelo de Gestor de Recursos facilita a criação dos seguintes recursos para a sua aplicação numa única operação coordenada:
+* Os clusters HDInsight e os seus recursos dependentes (como a conta de armazenamento por defeito).
+* Outros recursos (como a Base de Dados Azure SQL para utilizar [o Apache Sqoop).](https://sqoop.apache.org/)
 
-No modelo, você define os recursos que são necessários para o aplicativo. Você também especifica parâmetros de implantação para valores de entrada para ambientes diferentes. O modelo consiste em JSON e expressões que você usa para construir valores para sua implantação.
+No modelo, define os recursos necessários para a aplicação. Também especifica parâmetros de implantação para valores de entrada para diferentes ambientes. O modelo consiste em JSON e expressões que utiliza para construir valores para a sua implantação.
 
-Você pode encontrar exemplos de modelo do HDInsight em [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Use [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) de plataforma cruzada com a [extensão do Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) ou um editor de texto para salvar o modelo em um arquivo em sua estação de trabalho.
+Pode encontrar amostras de modelo HDInsight em [modelos de quickstart Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Utilize o [Código](https://code.visualstudio.com/#alt-downloads) do Estúdio Visual transversal com a [extensão do Gestor](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) de Recursos ou um editor de texto para guardar o modelo num ficheiro da sua estação de trabalho.
 
-Para obter mais informações sobre modelos do Resource Manager, consulte os seguintes artigos e exemplos:
+Para obter mais informações sobre os modelos do Gestor de Recursos, consulte os seguintes artigos e exemplos:
 
-* [Criar modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Implantar um aplicativo com modelos de Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
-* Referência de modelo [do Microsoft. HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions)
-* [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
+* [Modelos de Gestor de Recursos Do Autor Azure](../azure-resource-manager/templates/template-syntax.md)
+* [Implementar uma aplicação com modelos de Gestor de Recursos Azure](../azure-resource-manager/templates/deploy-powershell.md)
+* Referência do modelo [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions)
+* [Modelos de quickstart azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>Gerar modelos
 
-O Gerenciador de recursos permite exportar um modelo do Resource Manager de recursos existentes em sua assinatura usando ferramentas diferentes. Pode utilizar esse modelo gerado para saber mais sobre a sintaxe do modelo ou para automatizar a reimplementação da sua solução conforme necessário. Para obter mais informações, consulte [Export templates](../azure-resource-manager/templates/export-template-portal.md).
+O Gestor de Recursos permite-lhe exportar um modelo de Gestor de Recursos a partir de recursos existentes na sua subscrição utilizando diferentes ferramentas. Pode utilizar esse modelo gerado para saber mais sobre a sintaxe do modelo ou para automatizar a reimplementação da sua solução conforme necessário. Para mais informações, consulte os modelos de [exportação.](../azure-resource-manager/templates/export-template-portal.md)
 
-## <a name="deploy-using-the-portal"></a>Implantar usando o portal
+## <a name="deploy-using-the-portal"></a>Implementar usando o portal
 
-Você pode implantar um modelo do Resource Manager usando o portal do Azure. Para obter mais informações, consulte [implantar recursos do modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Pode implementar um modelo de Gestor de Recursos utilizando o portal Azure. Para mais informações, consulte [Implementar recursos a partir de modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="deploy-using-powershell"></a>Implementar com o PowerShell
 
-Você pode implantar um modelo do Resource Manager usando Azure PowerShell. Para obter mais informações, consulte [implantar recursos com modelos do Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [implantar o modelo do Resource Manager privado com o token SAS e Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
+Pode implementar um modelo de Gestor de Recursos utilizando o Azure PowerShell. Para mais informações, consulte [a implantação de recursos com modelos de Gestor de Recursos e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e implante o modelo de Gestor de [Recursos privados com token SAS e Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
 ## <a name="deploy-using-azure-cli"></a>Implementar com a CLI do Azure
 
-Você pode implantar um modelo do Resource Manager usando CLI do Azure. Para obter mais informações, consulte [implantar recursos com modelos do Resource Manager e CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) e [implantar o modelo do Resource Manager privado com o token SAS e CLI do Azure](../azure-resource-manager/resource-manager-cli-sas-token.md).
+Pode implementar um modelo de Gestor de Recursos utilizando o Azure CLI. Para mais informações, consulte [a implantação de recursos com modelos de Gestor de Recursos e o Azure CLI](../azure-resource-manager/templates/deploy-cli.md) e implante o modelo de Gestor de [Recursos privados com token SAS e Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
-## <a name="deploy-using-the-rest-api"></a>Implantar usando a API REST
+## <a name="deploy-using-the-rest-api"></a>Implementar utilizando a API REST
 
-Você pode implantar um modelo do Resource Manager usando a API REST. Para obter mais informações, consulte [implantar recursos com modelos do Resource Manager e a API REST do Gerenciador de recursos](../azure-resource-manager/templates/deploy-rest.md).
+Pode implementar um modelo de Gestor de Recursos utilizando a API REST. Para mais informações, consulte API de [Implantação de recursos com modelos](../azure-resource-manager/templates/deploy-rest.md)de Gestor de Recursos e Gestor de Recursos REST API .
 
 ## <a name="deploy-with-visual-studio"></a>Implementar com o Visual Studio
 
- Use o Visual Studio para criar um projeto de grupo de recursos e implantá-lo no Azure por meio da interface do usuário. Você seleciona o tipo de recursos a serem incluídos em seu projeto. Esses recursos são adicionados automaticamente ao modelo do Resource Manager. O projeto também fornece um script do PowerShell para implantar o modelo.
+ Utilize o Visual Studio para criar um projeto de grupo de recursos e implementá-lo para o Azure através da interface de utilizador. Seleciona o tipo de recursos a incluir no seu projeto. Esses recursos são automaticamente adicionados ao modelo do Gestor de Recursos. O projeto também fornece um script PowerShell para implementar o modelo.
 
-Para obter uma introdução ao uso do Visual Studio com grupos de recursos, consulte [criando e implantando grupos de recursos do Azure por meio do Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+Para uma introdução à utilização do Visual Studio com grupos de recursos, consulte criar e implantar grupos de [recursos Azure através do Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
@@ -77,11 +77,11 @@ Caso se depare com problemas com a criação de clusters do HDInsight, veja [ace
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, confira os seguintes artigos:
+Neste artigo, aprendeu várias formas de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
 
-* Para obter mais modelos relacionados ao HDInsight, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
-* Para obter um exemplo de implantação de recursos por meio da biblioteca de cliente .NET, consulte [implantar recursos usando bibliotecas do .net e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Para obter um exemplo detalhado de implantação de um aplicativo, consulte [provisionar e implantar microservices previsíveis no Azure](../app-service/deploy-complex-application-predictably.md).
+* Para obter mais modelos relacionados com hDInsight, consulte [os modelos de arranque rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
+* Para um exemplo de implantação de recursos através da biblioteca de clientes .NET, consulte os [recursos de implantação utilizando bibliotecas .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Para um exemplo aprofundado de implementação de uma aplicação, consulte [a Provision e implemente microserviços previsivelmente em Azure](../app-service/deploy-complex-application-predictably.md).
 * Para obter orientações sobre a implementação da sua solução em ambientes diferentes, consulte [Ambientes de desenvolvimento e teste no Microsoft Azure](../solution-dev-test-environments.md).
-* Para saber mais sobre as seções do modelo de Azure Resource Manager, consulte [criando modelos](../azure-resource-manager/templates/template-syntax.md).
-* Para obter uma lista das funções que você pode usar em um modelo de Azure Resource Manager, consulte [funções de modelo](../azure-resource-manager/templates/template-functions.md).
+* Para conhecer as secções do modelo do Gestor de Recursos Azure, consulte [os modelos de autor .](../azure-resource-manager/templates/template-syntax.md)
+* Para obter uma lista das funções que pode utilizar num modelo de Gestor de Recursos Azure, consulte [funções de modelo](../azure-resource-manager/templates/template-functions.md).

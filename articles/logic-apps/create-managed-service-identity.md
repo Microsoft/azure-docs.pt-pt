@@ -7,24 +7,24 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: 82710a66cdf7874c745070e49b2c7aff7bc8816d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77117202"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar acesso aos recursos do Azure utilizando identidades geridas em Aplicações Lógicas Azure
 
 Para aceder a recursos em outros inquilinos do Azure Ative Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, a sua aplicação lógica pode usar uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente Identidade de Serviço Gerida ou MSI), em vez de credenciais ou segredos. O Azure gere esta identidade para si e ajuda a garantir as suas credenciais porque não tem de fornecer ou rodar segredos.
 
-As Aplicações Lógicas Azure suportam identidades geridas [*atribuídas*](../active-directory/managed-identities-azure-resources/overview.md) ao sistema e atribuídas ao [*utilizador.* ](../active-directory/managed-identities-azure-resources/overview.md) A sua aplicação lógica pode utilizar a identidade atribuída ao sistema ou uma *única* identidade atribuída ao utilizador, que pode partilhar através de um grupo de aplicações lógicas, mas não ambas. Atualmente, apenas [gatilhos e ações específicos](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) suportam identidades geridas, não geridos conectores ou conexões, por exemplo:
+As Aplicações Lógicas Azure suportam identidades geridas [*atribuídas*](../active-directory/managed-identities-azure-resources/overview.md) ao sistema e atribuídas ao [*utilizador.*](../active-directory/managed-identities-azure-resources/overview.md) A sua aplicação lógica pode utilizar a identidade atribuída ao sistema ou uma *única* identidade atribuída ao utilizador, que pode partilhar através de um grupo de aplicações lógicas, mas não ambas. Atualmente, apenas [gatilhos e ações específicos](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) suportam identidades geridas, não geridos conectores ou conexões, por exemplo:
 
 * HTTP
 * Funções do Azure
 * API Management do Azure
 * Serviços de Aplicações do Azure
 
-Este artigo mostra como configurar ambos os tipos de identidades geridas para a sua aplicação lógica. Para mais informações, consulte estes tópicos:
+Este artigo mostra como configurar ambos os tipos de identidades geridas para a sua aplicação lógica. Para obter mais informações, veja estes tópicos:
 
 * [Gatilhos e ações que suportam identidades geridas](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 * [Tipos de autenticação suportado em chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
@@ -41,7 +41,7 @@ Este artigo mostra como configurar ambos os tipos de identidades geridas para a 
 
 * A aplicação lógica onde pretende usar o [gatilho ou ações que suportam identidades geridas](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 
-## <a name="enable-managed-identity"></a>Ativar identidade gerida
+## <a name="enable-managed-identity"></a>Ativar a identidade gerida
 
 Para configurar a identidade gerida que pretende utilizar, siga o link para essa identidade:
 
@@ -54,8 +54,8 @@ Para configurar a identidade gerida que pretende utilizar, siga o link para essa
 
 Ao contrário das identidades atribuídas ao utilizador, não é preciso criar manualmente a identidade atribuída ao sistema. Para configurar a identidade atribuída ao sistema para a sua aplicação lógica, aqui estão as opções que pode utilizar:
 
-* [Portal do Azure](#azure-portal-system-logic-app)
-* [Modelos de Gestor de Recursos Azure](#template-system-logic-app)
+* [Portal Azure](#azure-portal-system-logic-app)
+* [Modelos do Azure Resource Manager](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -63,7 +63,7 @@ Ao contrário das identidades atribuídas ao utilizador, não é preciso criar m
 
 1. No [portal Azure,](https://portal.azure.com)abra a sua aplicação lógica no Logic App Designer.
 
-1. No menu de aplicações lógicas, em **Definições,** selecione **Identidade**. Selecione **o sistema atribuído** > **na** ** > Save**. Quando o Azure lhe pedir para confirmar, selecione **Sim**.
+1. No menu de aplicações lógicas, em **Definições,** selecione **Identidade**. Selecione **sistema atribuído** > **em** > **Save**. Quando o Azure lhe pedir para confirmar, selecione **Sim**.
 
    ![Ativar a identidade atribuída ao sistema](./media/create-managed-service-identity/enable-system-assigned-identity.png)
 
@@ -76,7 +76,7 @@ Ao contrário das identidades atribuídas ao utilizador, não é preciso criar m
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **ID do objeto** | <> *de identificação de recursos de identidade* | Um identificador globalmente único (GUID) que representa a identidade atribuída pelo sistema para a sua aplicação lógica em um inquilino DaD Azure |
+   | **ID de objeto** | <*identidade-recurso-ID*> | Um identificador globalmente único (GUID) que representa a identidade atribuída pelo sistema para a sua aplicação lógica em um inquilino DaD Azure |
    ||||
 
 1. Agora siga [os passos que dão acesso a essa identidade ao recurso](#access-other-resources) mais tarde neste tópico.
@@ -85,7 +85,7 @@ Ao contrário das identidades atribuídas ao utilizador, não é preciso criar m
 
 #### <a name="enable-system-assigned-identity-in-azure-resource-manager-template"></a>Ativar identidade atribuída ao sistema no modelo do Gestor de Recursos Azure
 
-Para automatizar a criação e implementação de recursos Azure, como aplicações lógicas, pode utilizar modelos do Gestor de [Recursos Azure.](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) Para ativar a identidade gerida atribuída pelo sistema para a sua aplicação lógica no modelo, adicione o objeto `identity` e a propriedade `type` criança à definição de recursos da aplicação lógica no modelo, por exemplo:
+Para automatizar a criação e implementação de recursos Azure, como aplicações lógicas, pode utilizar modelos do Gestor de [Recursos Azure.](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) Para ativar a identidade gerida atribuída pelo sistema para a `identity` sua aplicação lógica no modelo, adicione o objeto e a `type` propriedade da criança à definição de recursos da aplicação lógica no modelo, por exemplo:
 
 ```json
 {
@@ -110,7 +110,7 @@ Para automatizar a criação e implementação de recursos Azure, como aplicaç�
 }
 ```
 
-Quando o Azure cria a definição de recursos de aplicações lógicas, o `identity` objeto obtém estas propriedades adicionais:
+Quando o Azure cria a `identity` definição de recursos de aplicações lógicas, o objeto obtém estas propriedades adicionais:
 
 ```json
 "identity": {
@@ -122,8 +122,8 @@ Quando o Azure cria a definição de recursos de aplicações lógicas, o `ident
 
 | Propriedade (JSON) | Valor | Descrição |
 |-----------------|-------|-------------|
-| `principalId` | < *> principal de identificação* | O Identificador Globalmente Único (GUID) do principal objeto de serviço para a identidade gerida que representa a sua aplicação lógica no inquilino DaD Azure. Este GUID às vezes aparece como um "ID de objeto" ou `objectID`. |
-| `tenantId` | < *> azure-ad-inquilino-id* | O Identificador Globalmente Único (GUID) que representa o inquilino Azure AD onde a aplicação lógica é agora membro. Dentro do inquilino da AD Azure, o diretor de serviço tem o mesmo nome que a instância da aplicação lógica. |
+| `principalId` | <*principal-ID*> | O Identificador Globalmente Único (GUID) do principal objeto de serviço para a identidade gerida que representa a sua aplicação lógica no inquilino DaD Azure. Este GUID às vezes aparece como `objectID`um "ID de objeto" ou . |
+| `tenantId` | <*Azure-AD-inquilino-ID*> | O Identificador Globalmente Único (GUID) que representa o inquilino Azure AD onde a aplicação lógica é agora membro. Dentro do inquilino da AD Azure, o diretor de serviço tem o mesmo nome que a instância da aplicação lógica. |
 ||||
 
 <a name="user-assigned"></a>
@@ -132,23 +132,23 @@ Quando o Azure cria a definição de recursos de aplicações lógicas, o `ident
 
 Para configurar uma identidade gerida atribuída ao utilizador para a sua aplicação lógica, tem primeiro de criar essa identidade como recurso Azure autónomo separado. Aqui estão as opções que pode utilizar:
 
-* [Portal do Azure](#azure-portal-user-identity)
-* [Modelos de Gestor de Recursos Azure](#template-user-identity)
+* [Portal Azure](#azure-portal-user-identity)
+* [Modelos do Azure Resource Manager](#template-user-identity)
 * Azure PowerShell
   * [Criar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
-  * [Adicionar atribuição de papéis](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
+  * [Adicionar atribuição de função](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
 * CLI do Azure
   * [Criar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
-  * [Adicionar atribuição de papéis](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
-* API de DESCANSO Azul
+  * [Adicionar atribuição de função](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
+* API REST do Azure
   * [Criar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md)
-  * [Adicionar atribuição de papéis](../role-based-access-control/role-assignments-rest.md)
+  * [Adicionar atribuição de função](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-user-identity"></a>
 
 #### <a name="create-user-assigned-identity-in-the-azure-portal"></a>Criar identidade atribuída ao utilizador no portal Azure
 
-1. No [portal Azure,](https://portal.azure.com)na caixa de pesquisa em qualquer página, insira `managed identities`e selecione **Identidades Geridas**.
+1. No [portal Azure,](https://portal.azure.com)na caixa de pesquisa `managed identities`em qualquer página, introduza, e selecione **Identidades Geridas**.
 
    ![Localizar e selecionar "Identidades Geridas"](./media/create-managed-service-identity/find-select-managed-identities.png)
 
@@ -162,17 +162,17 @@ Para configurar uma identidade gerida atribuída ao utilizador para a sua aplica
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome do Recurso** | Sim | <*nome de identidade atribuído*> | O nome para dar a identidade atribuída ao utilizador. Este exemplo utiliza "Fabrikam-user-user-designado-identidade". |
-   | **Subscrição** | Sim | <*Azure-subscription-name*> | O nome da subscrição Azure para usar |
-   | **Grupo de recursos** | Sim | <> de nome de *grupo azure-recursos* | O nome para o grupo de recursos usar. Crie um novo grupo ou selecione um grupo existente. Este exemplo cria um novo grupo chamado "fabrikam-managed-identities-RG". |
-   | **Localização** | Sim | <> *da região de Azure* | A região de Azure onde armazenar informações sobre o seu recurso. Este exemplo usa "West US". |
+   | **Nome do recurso** | Sim | <*user-atribuído-identidade-nome*> | O nome para dar a identidade atribuída ao utilizador. Este exemplo utiliza "Fabrikam-user-user-designado-identidade". |
+   | **Assinatura** | Sim | <*Nome de assinatura Azure*> | O nome da subscrição Azure para usar |
+   | **Grupo de recursos** | Sim | <*Nome do grupo azure-recursos*> | O nome para o grupo de recursos usar. Crie um novo grupo ou selecione um grupo existente. Este exemplo cria um novo grupo chamado "fabrikam-managed-identities-RG". |
+   | **Localização** | Sim | <*Região azul*> | A região de Azure onde armazenar informações sobre o seu recurso. Este exemplo usa "West US". |
    |||||
 
    Agora pode adicionar a identidade atribuída ao utilizador na sua aplicação lógica. Não pode adicionar mais do que uma identidade atribuída ao utilizador na sua aplicação lógica.
 
 1. No portal Azure, encontre e abra a sua aplicação lógica no Logic App Designer.
 
-1. No menu de aplicações lógicas, em **Definições**, selecione **Identidade**, e, em seguida, selecione **User atribuído** > **Adicionar**.
+1. No menu de aplicações lógicas, em **Definições,** selecione **Identidade**, e, em seguida, selecione **User designado** > **Add**.
 
    ![Adicionar identidade gerida atribuída ao utilizador](./media/create-managed-service-identity/add-user-assigned-identity-logic-app.png)
 
@@ -193,13 +193,13 @@ Para configurar uma identidade gerida atribuída ao utilizador para a sua aplica
 
 #### <a name="create-user-assigned-identity-in-an-azure-resource-manager-template"></a>Criar identidade atribuída ao utilizador num modelo de Gestor de Recursos Azure
 
-Para automatizar a criação e implementação de recursos Azure, como aplicações [lógicas,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode utilizar modelos do Gestor de Recursos Azure , que suportam [identidades atribuídas ao utilizador para autenticação.](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md) Na secção `resources` do seu modelo, a definição de recursos da sua aplicação lógica requer estes itens:
+Para automatizar a criação e implementação de recursos Azure, como aplicações [lógicas,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)pode utilizar modelos do Gestor de Recursos Azure , que suportam [identidades atribuídas ao utilizador para autenticação.](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md) Na secção do `resources` seu modelo, a definição de recursos da sua aplicação lógica requer estes itens:
 
-* Um objeto `identity` com a propriedade `type` definida para `UserAssigned`
+* Um `identity` objeto `type` com a propriedade definida para`UserAssigned`
 
-* Uma criança `userAssignedIdentities` objeto que especifica o ID de recursos da identidade, que é outro objeto infantil que tem as propriedades `principalId` e `clientId`
+* Um `userAssignedIdentities` objeto infantil que especifica o ID de recursos da identidade, que é outro objeto infantil que tem as `principalId` propriedades e propriedades `clientId`
 
-Este exemplo mostra uma definição lógica de recursos de aplicações para um pedido HTTP PUT e inclui um objeto de `identity` não parametrizado. A resposta ao pedido de PUT e subsequente operação GET também tem este `identity` objeto:
+Este exemplo mostra uma definição lógica de recursos de aplicações `identity` para um pedido HTTP PUT e inclui um objeto não parametrizado. A resposta ao pedido DE PUT e `identity` subsequente operação GET também tem este objeto:
 
 ```json
 {
@@ -234,11 +234,11 @@ Este exemplo mostra uma definição lógica de recursos de aplicações para um 
 
 | Propriedade (JSON) | Valor | Descrição |
 |-----------------|-------|-------------|
-| `principalId` | < *> principal de identificação* | O Identificador Globalmente Único (GUID) para a identidade gerida atribuída pelo utilizador no inquilino da AD Azure |
-| `clientId` | <> *de identificação do cliente* | Um identificador globalmente único (GUID) para a nova identidade da sua aplicação lógica que é usada para chamadas durante o tempo de execução |
+| `principalId` | <*principal-ID*> | O Identificador Globalmente Único (GUID) para a identidade gerida atribuída pelo utilizador no inquilino da AD Azure |
+| `clientId` | <*cliente-ID*> | Um identificador globalmente único (GUID) para a nova identidade da sua aplicação lógica que é usada para chamadas durante o tempo de execução |
 ||||
 
-Se o seu modelo também incluir a definição de recursos da identidade gerida, pode parametrizar o `identity` objeto. Este exemplo mostra como a criança `userAssignedIdentities` objeto refere uma variável `userAssignedIdentity` que define na secção `variables` do seu modelo. Esta variável refere o ID de recurso para a sua identidade atribuída ao utilizador.
+Se o seu modelo também incluir a definição de recursos `identity` da identidade gerida, pode parametrizar o objeto. Este exemplo mostra `userAssignedIdentities` como o `userAssignedIdentity` objeto infantil refere uma variável que define na secção do `variables` seu modelo. Esta variável refere o ID de recurso para a sua identidade atribuída ao utilizador.
 
 ```json
 {
@@ -293,9 +293,9 @@ Se o seu modelo também incluir a definição de recursos da identidade gerida, 
 
 | Propriedade (JSON) | Valor | Descrição |
 |-----------------|-------|-------------|
-| `tenantId` | < *> azure-ad-inquilino-id* | O Identificador Globalmente Único (GUID) que representa o inquilino Azure AD onde a identidade atribuída ao utilizador é agora membro. Dentro do inquilino da AD Azure, o diretor de serviço tem o mesmo nome que o nome de identidade atribuído ao utilizador. |
-| `principalId` | < *> principal de identificação* | O Identificador Globalmente Único (GUID) para a identidade gerida atribuída pelo utilizador no inquilino da AD Azure |
-| `clientId` | <> *de identificação do cliente* | Um identificador globalmente único (GUID) para a nova identidade da sua aplicação lógica que é usada para chamadas durante o tempo de execução |
+| `tenantId` | <*Azure-AD-inquilino-ID*> | O Identificador Globalmente Único (GUID) que representa o inquilino Azure AD onde a identidade atribuída ao utilizador é agora membro. Dentro do inquilino da AD Azure, o diretor de serviço tem o mesmo nome que o nome de identidade atribuído ao utilizador. |
+| `principalId` | <*principal-ID*> | O Identificador Globalmente Único (GUID) para a identidade gerida atribuída pelo utilizador no inquilino da AD Azure |
+| `clientId` | <*cliente-ID*> | Um identificador globalmente único (GUID) para a nova identidade da sua aplicação lógica que é usada para chamadas durante o tempo de execução |
 ||||
 
 <a name="access-other-resources"></a>
@@ -304,11 +304,11 @@ Se o seu modelo também incluir a definição de recursos da identidade gerida, 
 
 Antes de poder utilizar a identidade gerida da sua aplicação lógica para autenticação, instale acesso a essa identidade no recurso Azure onde pretende utilizar a identidade. Para completar esta tarefa, atribuir o papel adequado a essa identidade no recurso-alvo Azure. Aqui estão as opções que pode utilizar:
 
-* [Portal do Azure](#azure-portal-assign-access)
-* [Modelo do Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+* [Portal Azure](#azure-portal-assign-access)
+* [Modelo Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)) - Para mais informações, consulte adicionar a atribuição de [funções utilizando o Azure RBAC e o Azure PowerShell.](../role-based-access-control/role-assignments-powershell.md)
 * Azure CLI ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) - Para mais informações, consulte Adicionar a atribuição de [funções utilizando o Azure RBAC e o Azure CLI](../role-based-access-control/role-assignments-cli.md).
-* [API de DESCANSO Azul](../role-based-access-control/role-assignments-rest.md)
+* [API REST do Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
 
@@ -316,7 +316,7 @@ Antes de poder utilizar a identidade gerida da sua aplicação lógica para aute
 
 1. No [portal Azure,](https://portal.azure.com)dirija-se ao recurso Azure onde pretende que a sua identidade gerida tenha acesso.
 
-1. A partir do menu do recurso, selecione o controlo de **acesso (IAM)**  > atribuições de **função** onde pode rever as atribuições de funções atuais para esse recurso. Na barra de ferramentas, selecione **Adicionar** > **Adicionar atribuição de funções**.
+1. A partir do menu do recurso, selecione**atribuições** de funções de controlo de **acesso (IAM)** > onde pode rever as atribuições de funções atuais para esse recurso. Na barra de ferramentas, selecione **Adicionar** > **designação de função**Add .
 
    ![Selecione "Adicionar" > "Adicionar atribuição de funções"](./media/create-managed-service-identity/add-role-to-resource.png)
 
@@ -382,7 +382,7 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
    |----------|----------|-------------|
    | **Método** | Sim | O método HTTP que é usado pela operação que pretende executar |
    | **URI** | Sim | O URL de ponto final para aceder ao recurso ou entidade azure alvo. A sintaxe URI geralmente inclui o ID de [recursos](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para o recurso ou serviço Azure. |
-   | **Headers** (Cabeçalhos) | Não | Quaisquer valores cabeçalho que você precisa ou deseja incluir no pedido de saída, como o tipo de conteúdo |
+   | **Cabeçalhos** | Não | Quaisquer valores cabeçalho que você precisa ou deseja incluir no pedido de saída, como o tipo de conteúdo |
    | **Consultas** | Não | Quaisquer parâmetros de consulta que necessite ou deseja incluir no pedido, como o parâmetro para uma operação específica ou a versão API para a operação que pretende executar |
    | **Autenticação** | Sim | O tipo de autenticação a utilizar para autenticar o acesso ao recurso ou entidade-alvo |
    ||||
@@ -398,7 +398,7 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
    |----------|----------|---------------|-------------|
    | **Método** | Sim | `PUT`| O método HTTP que a operação Snapshot Blob utiliza |
    | **URI** | Sim | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | O id de recurso para um ficheiro de armazenamento Azure Blob no ambiente Azure Global (público), que usa esta sintaxe |
-   | **Headers** (Cabeçalhos) | Sim, para o Armazenamento Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Os valores `x-ms-blob-type` e `x-ms-version` que são necessários para as operações de armazenamento do Azure. <p><p>**Importante**: Nos pedidos de ação de saída http e de ação para o Armazenamento Azure, o cabeçalho requer a propriedade `x-ms-version` e a versão API para a operação que pretende executar. <p>Para mais informações, consulte estes tópicos: <p><p>cabeçalhos de pedido de - [- Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>versão - para serviços de [armazenamento Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Cabeçalhos** | Sim, para o Armazenamento Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Os `x-ms-blob-type` `x-ms-version` valores e cabeçalhos que são necessários para as operações de Armazenamento Azure. <p><p>**Importante**: Nos pedidos de ação de saída http e `x-ms-version` de ação para o Armazenamento Azure, o cabeçalho requer a propriedade e a versão API para a operação que pretende executar. <p>Para obter mais informações, veja estes tópicos: <p><p>- [Cabeçalhos de pedido - Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Versão para serviços de armazenamento Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Consultas** | Sim, para esta operação. | `comp` = `snapshot` | O nome e valor do parâmetro de consulta para a operação Snapshot Blob. |
    |||||
 
@@ -429,12 +429,12 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
 
    Este exemplo continua com o **Sistema Identidade Gerida Atribuída**.
 
-1. Em alguns gatilhos e ações, a propriedade **do Público** também aparece para você definir o ID de recurso alvo. Detete a propriedade **do Público** para o [ID de recurso para o recurso ou serviço alvo](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Caso contrário, por padrão, a propriedade **do Público** utiliza o ID de recursos `https://management.azure.com/`, que é o ID de recurso para o Gestor de Recursos Azure.
+1. Em alguns gatilhos e ações, a propriedade **do Público** também aparece para você definir o ID de recurso alvo. Detete a propriedade **do Público** para o [ID de recurso para o recurso ou serviço alvo](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Caso contrário, por padrão, a `https://management.azure.com/` propriedade do **Público** utiliza o ID de recurso, que é o ID de recurso para o Gestor de Recursos Azure.
 
    > [!IMPORTANT]
    > Certifique-se de que o ID de recurso alvo *corresponde exatamente* ao valor que o Azure Ative Directory (AD) espera, incluindo quaisquer cortes de rasto necessários. Por exemplo, o ID de recursos para todas as contas de Armazenamento De Blob Azure requer um corte de rasto. No entanto, o ID de recursos para uma conta de armazenamento específica não requer um corte de rasto. Verifique os [iDs de recursos dos serviços Azure que suportam a Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-   Este exemplo define a propriedade **do Público** para `https://storage.azure.com/` para que os tokens de acesso utilizados para a autenticação sejam válidos para todas as contas de armazenamento. No entanto, também pode especificar o URL do serviço radicular, `https://fabrikamstorageaccount.blob.core.windows.net`, para uma conta de armazenamento específica.
+   Este exemplo define a `https://storage.azure.com/` propriedade do **Público** para que os tokens de acesso utilizados para a autenticação sejam válidos para todas as contas de armazenamento. No entanto, também pode especificar `https://fabrikamstorageaccount.blob.core.windows.net`o URL do serviço radicular, para uma conta de armazenamento específica.
 
    ![Definir a propriedade "Audience" para direcionar o ID do recurso](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
 
@@ -451,15 +451,15 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
 
 Para parar de usar uma identidade gerida para a sua aplicação lógica, você tem estas opções:
 
-* [Portal do Azure](#azure-portal-disable)
-* [Modelos de Gestor de Recursos Azure](#template-disable)
+* [Portal Azure](#azure-portal-disable)
+* [Modelos do Azure Resource Manager](#template-disable)
 * Azure PowerShell
   * [Remover a atribuição de funções](../role-based-access-control/role-assignments-powershell.md)
   * [Eliminar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 * CLI do Azure
   * [Remover a atribuição de funções](../role-based-access-control/role-assignments-cli.md)
   * [Eliminar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
-* API de DESCANSO Azul
+* API REST do Azure
   * [Remover a atribuição de funções](../role-based-access-control/role-assignments-rest.md)
   * [Eliminar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md)
 
@@ -477,7 +477,7 @@ No portal Azure, primeiro remova o acesso da identidade ao [seu recurso-alvo](#d
 
 1. No [portal Azure,](https://portal.azure.com)dirija-se ao recurso Azure alvo onde pretende remover o acesso à identidade gerida.
 
-1. A partir do menu do recurso-alvo, selecione controlo de **acesso (IAM)** . Sob a barra de ferramentas, selecione atribuições de **funções**.
+1. A partir do menu do recurso-alvo, selecione controlo de **acesso (IAM)**. Sob a barra de ferramentas, selecione atribuições de **funções**.
 
 1. Na lista de funções, selecione as identidades geridas que pretende remover. Na barra de ferramentas, **selecione Remover**.
 
@@ -494,7 +494,7 @@ A identidade gerida é agora removida e já não tem acesso ao recurso-alvo.
 
 1. No menu de aplicações lógicas, em **Definições,** selecione **Identidade,** e siga os passos para a sua identidade:
 
-   * Selecione **o sistema atribuído** > **na** ** > Save**. Quando o Azure lhe pedir para confirmar, selecione **Sim**.
+   * Selecione **sistema atribuído** > **em** > **Save**. Quando o Azure lhe pedir para confirmar, selecione **Sim**.
 
      ![Desativar a identidade atribuída ao sistema](./media/create-managed-service-identity/disable-system-assigned-identity.png)
 
@@ -508,7 +508,7 @@ A identidade gerida está agora desativada na sua aplicação lógica.
 
 ### <a name="disable-managed-identity-in-azure-resource-manager-template"></a>Desativar a identidade gerida no modelo do Gestor de Recursos Azure
 
-Se criou a identidade gerida da aplicação lógica utilizando um modelo de Gestor de Recursos Azure, detetete a propriedade `type` do objeto `identity` para `None`. Para a identidade gerida pelo sistema, esta ação também elimina o ID principal da Azure AD.
+Se criou a identidade gerida da aplicação lógica utilizando um modelo `identity` de `type` Gestor de `None`Recursos Azure, detetete a propriedade do objeto para . Para a identidade gerida pelo sistema, esta ação também elimina o ID principal da Azure AD.
 
 ```json
 "identity": {

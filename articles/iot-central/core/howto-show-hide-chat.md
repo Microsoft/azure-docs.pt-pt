@@ -4,16 +4,16 @@ description: Este artigo descreve como mostrar e esconder conversas na sua aplic
 author: v-krghan
 ms.author: v-krghan
 ms.date: 08/23/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: bd1c3d27ebedfb8479b9f30ac08d8132b2a44a04
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a8e93ea12f176a4b28f14f5878cc580873d3c7c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023468"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157709"
 ---
 # <a name="toggle-live-chat"></a>Ativar/desativar chat ao vivo
 
@@ -49,4 +49,4 @@ Para mostrar o chat, escolha **Show Chat** no painel **ajuda:**
 Agora que aprendeu a alternar a conversa ao vivo na Central Azure IoT, eis o próximo passo sugerido:
 
 > [!div class="nextstepaction"]
-> [Adicione azulejos ao seu painel de instrumentos](howto-add-tiles-to-your-dashboard.md)
+> [Adicionar mosaicos ao dashboard](howto-add-tiles-to-your-dashboard.md)

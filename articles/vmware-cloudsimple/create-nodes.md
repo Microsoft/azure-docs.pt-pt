@@ -1,6 +1,6 @@
 ---
-title: Provision nodes para Soluções VMware (AVS) - Azure
-description: Saiba como adicionar nódosos ao seu VMWare com implementação AVS
+title: Provision nodes para VMware Solution by CloudSimple - Azure
+description: Saiba como adicionar nódosos ao seu VMWare com implementação CloudSimple
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019
@@ -8,44 +8,44 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 94ca681153f1e3ccd9ff628b41a9d0e547be5802
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024811"
 ---
-# <a name="provision-nodes-for-azure-vmware-solutions-avs"></a>Nós de provisão para soluções Azure VMware (AVS)
+# <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Provision nodes para Azure VMware Solution by CloudSimple
 
-Provisões no portal Azure. Depois, pode configurar a capacidade de pagamento para o seu ambiente de nuvem privada AVS.
+Provisões no portal Azure. Em seguida, você pode configurar a capacidade pay-as-you para o seu ambiente de nuvem privada CloudSimple.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
-## <a name="add-a-node-to-your-avs-private-cloud"></a>Adicione um nó à sua nuvem privada AVS
+## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Adicione um nó à sua nuvem privada CloudSimple
 
 1. Selecione **Todos os serviços**.
-2. Pesquisa por **Nódos AVS**.
+2. Procure por **Nodes CloudSimple**.
 
-   ![Pesquisar avs nodes](media/create-cloudsimple-node-search.png)
+   ![Pesquisar narizes simples cloudsimple](media/create-cloudsimple-node-search.png)
 
-3. Selecione **Nódosos AVS**.
-4. Clique em **Adicionar** para criar nós.
+3. Selecione **CloudSimple Nodes**.
+4. Clique em **Adicionar** para criar nódosos.
 
-    ![Adicionar nódosos AVS](media/create-cloudsimple-node-add.png)
+    ![Adicione nódosos CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Selecione a subscrição onde pretende fornecer os nódosos AVS.
-6. Selecione o grupo de recursos para os nós. Para adicionar um novo grupo de recursos, clique em **criar novo**.
-7. Insira o prefixo para identificar os nós.
-8. Selecione o local dos recursos do nó.
-9. Selecione o local dedicado para hospedar os recursos do nó.
-10. Selecione o [tipo de nó](cloudsimple-node.md).
-11. Selecione o número de nós a serem provisionados.
-12. Selecione **revisão + criar**.
-13. Examine as configurações. Para modificar as configurações, clique em **anterior**.
+5. Selecione a subscrição onde pretende fornecer os nódosos CloudSimple.
+6. Selecione o grupo de recursos para os nódosos. Para adicionar um novo grupo de recursos, clique em **Criar Novo**.
+7. Introduza o prefixo para identificar os nódosos.
+8. Selecione a localização para os recursos do nó.
+9. Selecione a localização dedicada para hospedar os recursos do nó.
+10. Selecione o tipo de [nó](cloudsimple-node.md).
+11. Selecione o número de nós para a provisão.
+12. Selecione **Rever + Criar**.
+13. Reveja as definições. Para modificar quaisquer definições, clique em **Anterior**.
 14. Selecione **Criar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar nuvem privada AVS](create-private-cloud.md)
+* [Criar nuvem privada](create-private-cloud.md)

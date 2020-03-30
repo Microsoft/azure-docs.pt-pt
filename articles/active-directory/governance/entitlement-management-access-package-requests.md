@@ -3,7 +3,7 @@ title: Ver pedidos de um pacote de acesso na gestão de direitos da Azure AD - D
 description: Saiba como ver os pedidos de um pacote de acesso na gestão de direitos do Diretório Ativo azure.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/15/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: addc7db2aa2f0f9ba16438d2a31d6c7cc6bfa49e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f210602817c03b73ca4c48da2c3dad5549777f47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261921"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128735"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Ver pedidos de um pacote de acesso na gestão de direitos da AD Azure
 

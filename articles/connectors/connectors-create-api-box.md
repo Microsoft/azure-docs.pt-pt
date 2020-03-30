@@ -1,6 +1,6 @@
 ---
-title: Conectar ao box
-description: Automatizar tarefas e fluxos de trabalho que criam e gerenciam arquivos no box usando aplicativos lógicos do Azure
+title: Ligar à Caixa
+description: Automatizar tarefas e fluxos de trabalho que criam e gerem ficheiros em Box utilizando aplicações lógicas azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,40 +8,40 @@ ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: c7f97ff33742eb545cbfbd7521ba135584851e5e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666776"
 ---
-# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Criar e gerenciar arquivos no box usando aplicativos lógicos do Azure
+# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Criar e gerir ficheiros em Box utilizando aplicações da Lógica Azure
 
-Este artigo mostra como você pode criar e gerenciar seus arquivos no box de dentro de um aplicativo lógico com o conector do box. Dessa forma, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para gerenciar seus arquivos e outras ações, por exemplo:
+Este artigo mostra como pode criar e gerir os seus ficheiros em Box a partir de dentro de uma aplicação lógica com o conector Box. Desta forma, pode criar aplicações lógicas que automatizam tarefas e fluxos de trabalho para gerir os seus ficheiros e outras ações, por exemplo:
 
-* Crie seu fluxo de negócios com base nos dados obtidos do box.
+* Construa o seu fluxo de negócio saem com base nos dados que obtém da Box.
 
-* Disparar tarefas automatizadas e fluxo de trabalho quando um arquivo for criado ou atualizado.
+* Desencadear tarefas automatizadas e fluxo de trabalho quando um ficheiro é criado ou atualizado.
 
-* Executar uma ação que copia um arquivo ou exclui um arquivo.
+* Execute uma ação que copie um ficheiro ou apague um ficheiro.
 
-  Quando essas ações recebem uma resposta, elas tornam a saída disponível para outras ações. 
-  Por exemplo, quando um arquivo é alterado no box, você pode enviar esse arquivo por email usando o Office 365.
+  Quando estas ações obtêm uma resposta, disponibilizam a produção para outras ações. 
+  Por exemplo, quando um ficheiro é alterado na Caixa, pode enviar esse ficheiro por e-mail utilizando o Office 365.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [conta do box](https://www.box.com/home)
+* Uma [conta caixa](https://www.box.com/home)
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* O aplicativo lógico no qual você deseja acessar sua conta do box. Para iniciar seu aplicativo lógico com um gatilho de caixa, você precisa de um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* A aplicação lógica onde pretende aceder à sua conta Box. Para iniciar a sua aplicação lógica com um gatilho Box, precisa de uma [aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md).
+* Conhecimento básico sobre [como criar aplicações lógicas.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+Se você é novo em aplicativos lógicos, reveja [o que é Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/box/).
+Para detalhes técnicos, tais como gatilhos, ações e limites, conforme descrito pelo ficheiro OpenAPI (ex-Swagger) do conector, consulte a página de [referência do conector](/connectors/box/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

@@ -9,15 +9,15 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: eca2d3359614875e5bff0c9bb67f006f0a8cdba1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77198331"
 ---
-## <a name="timeout"></a>Duração do tempo de tempo fora da aplicação de função 
+## <a name="function-app-timeout-duration"></a><a name="timeout"></a>Duração do tempo de tempo fora da aplicação de função 
 
-A duração do tempo de saída de uma aplicação de função é definida pela propriedade `functionTimeout` no ficheiro do projeto [host.json.](../articles/azure-functions/functions-host-json.md#functiontimeout) O quadro seguinte mostra os valores padrão e máximos em minutos para ambos os planos e as diferentes versões de tempo de execução:
+A duração do tempo de saída `functionTimeout` de uma aplicação de função é definida pela propriedade no ficheiro do projeto [host.json.](../articles/azure-functions/functions-host-json.md#functiontimeout) O quadro seguinte mostra os valores padrão e máximos em minutos para ambos os planos e as diferentes versões de tempo de execução:
 
 | Planear | Versão runtime | Predefinição | Máximo |
 |------|---------|---------|---------|

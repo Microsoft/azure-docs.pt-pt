@@ -1,5 +1,5 @@
 ---
-title: Estatuto de Prestação de Candidaturas de Quarentena  Microsoft Docs
+title: Estatuto de Prestação de Candidaturas de Quarentena [ Microsoft Docs
 description: Quando configurar uma aplicação para o fornecimento automático de utilizadores, saiba o que significa um estado de provisionamento de Quarentena e como limpá-lo.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d689bb5f76eef36b784a3285749a7d250144fd7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522718"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154632"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Fornecimento de candidaturas em estado de quarentena
 
@@ -33,9 +33,11 @@ Enquanto está em quarentena, a frequência dos ciclos incrementais é gradualme
 
 Há três formas de verificar se um pedido está em quarentena:
   
-- No portal Azure, navegue para as **aplicações** do **Azure Ative Directory** > Enterprise > nome de *aplicação* &lt;&gt; > **Provisioning** e percorra até à barra de progresso na parte inferior.  
+- No portal Azure, navegue para **a Azure Ative Directory** > Enterprise aplica o nome&gt; > de > &lt;*aplicação***Provisioning** e percorra até à barra de progresso na parte inferior.**Enterprise applications**  
 
   ![Barra de estado de provisionamento que mostra o estado de quarentena](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
+
+- No portal Azure, navegue para **o Azure Ative Directory** > **Audit Logs** > filtro em **Atividade: Quarentena** e revisão do histórico de quarentena. Embora a visão na barra de progresso, tal como acima descrita, mostre se o provisionamento está atualmente em quarentena, os registos de auditoria permitem-lhe ver o histórico de quarentena para uma aplicação. 
 
 - Utilize o pedido do Microsoft Graph [Obtenha sincronizaçãoJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) para obter programáticamente o estatuto do trabalho de provisionamento:
 
@@ -51,11 +53,11 @@ Há três formas de verificar se um pedido está em quarentena:
 
 Um pedido do Microsoft Graph para obter o estatuto do trabalho de provisionamento mostra a seguinte razão para a quarentena:
 
-- `EncounteredQuarantineException` indica que foram fornecidas credenciais inválidas. O serviço de provisionamento não pode estabelecer uma ligação entre o sistema de origem e o sistema-alvo.
+- `EncounteredQuarantineException`indica que foram fornecidas credenciais inválidas. O serviço de provisionamento não pode estabelecer uma ligação entre o sistema de origem e o sistema-alvo.
 
-- `EncounteredEscrowProportionThreshold` indica que o provisionamento excedeu o limiar de caução. Esta condição ocorre quando mais de 60% dos eventos de provisionamento falharam.
+- `EncounteredEscrowProportionThreshold`indica que a provisão excedeu o limiar de caução. Esta condição ocorre quando mais de 60% dos eventos de provisionamento falharam.
 
-- `QuarantineOnDemand` significa que detetámos um problema com a tua aplicação e definimos manualmente para a quarentena.
+- `QuarantineOnDemand`significa que detetámos um problema com a tua aplicação e definimo-lo manualmente para a quarentena.
 
 ## <a name="how-do-i-get-my-application-out-of-quarantine"></a>Como posso tirar a minha candidatura da quarentena?
 
@@ -63,12 +65,12 @@ Primeiro, resolva a questão que fez com que o pedido fosse colocado em quarente
 
 - Verifique as definições de provisionamento da aplicação para se certificar de que [introduziu credenciais de administrador válidas](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). A Azure AD deve ser capaz de estabelecer um fundo com a aplicação-alvo. Certifique-se de que inseriu credenciais válidas e que a sua conta tem as permissões necessárias.
 
-- Reveja os registos de [provisionamento](../reports-monitoring/concept-provisioning-logs.md) para investigar mais aprofundadamente quais os erros que estão a causar quarentena e resolver o erro. Aceda aos registos de fornecimento no portal Azure indo para **o Azure Ative Directory** &gt; **Enterprise Apps** &gt; Registos de **Provisionamento (pré-visualização)** na secção **Atividade.**
+- Reveja os registos de [provisionamento](../reports-monitoring/concept-provisioning-logs.md) para investigar mais aprofundadamente quais os erros que estão a causar quarentena e resolver o erro. Aceda aos registos de provisionamento no portal Azure, indo para **o Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning registos (pré-visualização)** na secção **Atividade.**
 
 Depois de resolver o problema, reinicie o trabalho de provisionamento. Algumas alterações nas definições de provisionamento da aplicação, tais como mapeamentos de atributos ou filtros de deteção, reiniciarão automaticamente o fornecimento para si. A barra de progresso na página de **provisionamento** do pedido indica quando o fornecimento começou pela última vez. Se necessitar de reiniciar o trabalho de provisionamento manualmente, utilize um dos seguintes métodos:  
 
 - Utilize o portal Azure para reiniciar o trabalho de provisionamento. Na página de **provisionamento** da aplicação em **Definições,** selecione **clear state e reinicie** a sincronização e desemque o Estado de **Provisionamento** para **On**. Esta ação reinicia totalmente o serviço de provisionamento, que pode demorar algum tempo. Um ciclo inicial completo voltará a funcionar, o que limpa os esquástis, remove a aplicação da quarentena e limpa quaisquer marcas de água.
 
-- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Terá supor o que reiniciar. Pode optar por limpar os escrows (para reiniciar o contador de caução que se acumula em relação ao estado de quarentena), quarentena clara (para remover a aplicação da quarentena) ou marcas de água claras. Utilize o seguinte pedido:
+- Utilize o Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Terá supor o que reiniciar. Pode optar por limpar os escrows (para reiniciar o contador de caução que se acumula em relação ao estado de quarentena), quarentena clara (para remover a aplicação da quarentena) ou marcas de água claras. utilize o seguinte pedido:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`

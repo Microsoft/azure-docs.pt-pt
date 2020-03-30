@@ -9,15 +9,15 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.openlocfilehash: cbd7bd034c5cbbdf5308ec660a96dc52a9a2b310
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78200707"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Obter tokens de assinatura de acesso partilhado no código
 
-Você pode gerir a sua conta de armazenamento com as [fichas](../storage/common/storage-dotnet-shared-access-signature-part-1.md) de assinatura de acesso partilhada no seu cofre chave. Este artigo fornece exemplos de C# código que adquire um token SAS e executa operações com ele.  Para obter informações sobre como criar e armazenar tokens SAS, consulte Gerir as chaves da conta de [armazenamento com o Key Vault e o Azure CLI](key-vault-ovw-storage-keys.md) ou gerir as chaves da conta de armazenamento com key vault e [Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
+Você pode gerir a sua conta de armazenamento com as [fichas](../storage/common/storage-dotnet-shared-access-signature-part-1.md) de assinatura de acesso partilhada no seu cofre chave. Este artigo fornece exemplos de código C# que requer uma ficha SAS e realiza operações com ele.  Para obter informações sobre como criar e armazenar tokens SAS, consulte Gerir as chaves da conta de [armazenamento com o Key Vault e o Azure CLI](key-vault-ovw-storage-keys.md) ou gerir as chaves da conta de armazenamento com key vault e [Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Exemplos de código
 

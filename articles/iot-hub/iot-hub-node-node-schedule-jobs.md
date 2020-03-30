@@ -10,10 +10,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.openlocfilehash: 5053935f52153f0cd6ff2f05c5153732f5bda945
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110858"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Horários e trabalhos de transmissão (Node.js)
@@ -91,7 +91,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que responde a um mé
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Adicione uma variável **connectionString** e utilize-a para criar uma instância do **Cliente**. Substitua o valor do espaço reservado `{yourDeviceConnectionString}` pela cadeia de ligação do dispositivo que copiou anteriormente.
+5. Adicione uma variável **connectionString** e utilize-a para criar uma instância do **Cliente**. Substitua `{yourDeviceConnectionString}` o valor do espaço reservado pela cadeia de ligação do dispositivo que copiou anteriormente.
 
     ```javascript
     var connectionString = '{yourDeviceConnectionString}';
@@ -135,7 +135,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que responde a um mé
 > Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar políticas de retry (como um backoff exponencial), como sugerido no artigo, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
@@ -168,7 +168,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que inicia um **lockD
     var JobClient = require('azure-iothub').JobClient;
     ```
 
-5. Adicione as seguintes declarações de variável. Substitua o valor do espaço reservado `{iothubconnectionstring}` pelo valor copiado na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string). Se registou um dispositivo diferente do **meu DeviceId,** certifique-se de que o altera na condição de consulta.
+5. Adicione as seguintes declarações variáveis. Substitua `{iothubconnectionstring}` o valor do espaço reservado pelo valor copiado na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string). Se registou um dispositivo diferente do **meu DeviceId,** certifique-se de que o altera na condição de consulta.
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -287,7 +287,7 @@ Pode agora executar as aplicações.
 
    O seguinte mostra a resposta do dispositivo ao método direto:
 
-   ![Saída de aplicativo de dispositivo simulado](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
+   ![Saída simulada de aplicativo de dispositivo](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
 
    O seguinte mostra os trabalhos de agendamento de serviços para o método direto e a atualização de twin dispositivos, e os postos de trabalho em execução para a conclusão:
 

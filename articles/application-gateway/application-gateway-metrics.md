@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 8b63233aa2b20862e4654c89f1a6dd5d00c78940
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: abff2f16d9559f015417711820a993badd636f7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096094"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133082"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Gateway de Aplicação
 
@@ -34,7 +34,7 @@ Application Gateway fornece várias métricas de tempo incorporadas relacionadas
 
   Tempo gasto a estabelecer uma ligação com o pedido de backend. 
 
-  Isto inclui a latência da rede, bem como o tempo devida pela pilha de TCP do servidor de backend para estabelecer novas ligações. No caso da SSL, também inclui o tempo gasto em aperto de mão. 
+  Isto inclui a latência da rede, bem como o tempo devida pela pilha de TCP do servidor de backend para estabelecer novas ligações. No caso de TLS, também inclui o tempo gasto em aperto de mão. 
 
 - **Apoiar primeiro tempo de resposta byte**
 
@@ -100,7 +100,7 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
   Com o V2 SKU, o modelo de preços é impulsionado pelo consumo. As unidades de capacidade medem o custo baseado no consumo que é cobrado para além do custo fixo. *As unidades estimadas* de capacidade faturada indicam o número de unidades de capacidade que utilizam as quais a faturação é estimada. Isto é calculado como o maior valor entre *as unidades* de capacidade corrente (unidades de capacidade necessárias para carregar o equilíbrio do tráfego) e unidades de *capacidade de faturação fixa* (unidades de capacidade mínima mantidas).
 
-- **Pedidos Falhados**
+- **Pedidos com Falhas**
 
   Contagem de pedidos falhados que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
    
@@ -133,11 +133,11 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
   Contagem dos códigos de estado de resposta HTTP devolvidos pelos backends. Isto não inclui quaisquer códigos de resposta gerados pelo Gateway da Aplicação. A distribuição do código de estado de resposta pode ser ainda categorizada para mostrar respostas nas categorias 2xx, 3xx, 4xx e 5xx.
 
-- **Contagem saudável do hospedeiro**
+- **Contagem de anfitriões em bom estado de funcionamento**
 
   O número de backends que são determinados saudáveis pela sonda de saúde. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões saudáveis em uma piscina específica de backend.
 
-- **Contagem de hospedeiros pouco saudável**
+- **Contagem de anfitriões em mau estado de funcionamento**
 
   O número de backends que são determinados insalubres pela sonda de saúde. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões não saudáveis em uma piscina específica de backend.
   
@@ -160,7 +160,7 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
   Contagem das ligações atuais estabelecidas com gateway de aplicação
 
-- **Pedidos Falhados**
+- **Pedidos com Falhas**
 
   Contagem de pedidos falhados que o Application Gateway serviu. A contagem de pedidos pode ser filtrada para mostrar a contagem por cada/combinação específica de definição de pool-http.
 
@@ -184,11 +184,11 @@ Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
 Para o Gateway de Aplicação, estão disponíveis as seguintes métricas:
 
-- **Contagem saudável do hospedeiro**
+- **Contagem de anfitriões em bom estado de funcionamento**
 
   O número de backends que são determinados saudáveis pela sonda de saúde. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões saudáveis em uma piscina específica de backend.
 
-- **Contagem de hospedeiros pouco saudável**
+- **Contagem de anfitriões em mau estado de funcionamento**
 
   O número de backends que são determinados insalubres pela sonda de saúde. Você pode filtrar em uma base de piscina de backend para mostrar o número de anfitriões não saudáveis em uma piscina específica de backend.
 

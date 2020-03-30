@@ -1,6 +1,6 @@
 ---
-title: Inícios de sessão e utilizadores
-description: Saiba como o Azure SQL Database e o Azure Synapse Analytics autenticam os utilizadores para acesso através de logins e contas de utilizador e utiliza funções e permissões explícitas para autorizar logins e utilizadores a realizarações dentro de bases de dados, bem como ao nível do servidor.
+title: Autorizar o acesso ao servidor e à base de dados utilizando logins e contas de utilizador
+description: Saiba como a Azure SQL Database e a Azure Synapse Analytics autenticam os utilizadores para acesso através de logins e contas de utilizador. Também saiba como usar as funções de base de dados e permissões explícitas para autorizar logins e utilizadores a executar ações e dados de consulta.
 keywords: segurança de base de dados sql,gestão de segurança da base de dados,segurança de início de sessão,segurança de base de dados,acesso de base de dados
 services: sql-database
 ms.service: sql-database
@@ -11,56 +11,66 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/12/2020
-ms.openlocfilehash: 7c70d5dd19ec0495fe09152b5653363ad369347c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/23/2020
+ms.openlocfilehash: 98c15fe11b64e8c177e60a2ea1eb7c50eaf69353
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268915"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124781"
 ---
-# <a name="granting-database-access-and-authorization-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Concessão de acesso e autorização à Base de Dados SQL e à Azure Synapse Analytics utilizando logins e contas de utilizador
+# <a name="authorizing-database-access-to-authenticated-users-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Autorizar o acesso à base de dados a utilizadores autenticados na Base de Dados SQL e na Azure Synapse Analytics utilizando logins e contas de utilizador
 
-O acesso autenticado a bases de dados em Azure SQL Database e Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) é gerido através de logins e contas de utilizador. [**A autenticação**](sql-database-security-overview.md#authentication) é o processo de provar que o utilizador é quem afirmam ser.
+Neste artigo, aprende-se sobre:
 
-- Um login é uma conta individual na base de dados principal
-- Uma conta de utilizador é uma conta individual em qualquer base de dados, e não tem que ser associada a um login
-
-> [!IMPORTANT]
-> As bases de dados da Base de Dados Azure SQL e da Azure Synapse Analytics (antiga Azure SQL Data Warehouse) são referidas colectivamente no restante deste artigo como Base de Dados Azure SQL (para simplicidade).
-
-Um utilizador de base de dados liga-se a uma base de dados Azure SQL utilizando uma conta de utilizador e é autenticado utilizando um dos dois métodos seguintes:
-
-- [Autenticação SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication), que consiste num nome de login ou nome de conta de utilizador e palavra-passe associada armazenada na Base de Dados Azure SQL.
-- [Autenticação de Diretório Ativo Azure,](sql-database-aad-authentication.md)que utiliza credenciais de login armazenadas no Diretório Ativo Azure
-
-A autorização para aceder a dados e realizar várias ações dentro da base de dados Azure SQL é gerida usando funções de base de dados e permissões explícitas. [**A autorização**](sql-database-security-overview.md#authorization) refere-se às permissões atribuídas a um utilizador dentro de uma Base de Dados Azure SQL, e determina o que o utilizador pode fazer. A autorização é controlada pelas [subscrições](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) de funções de base de dados da sua conta de utilizador e [permissões ao nível do objeto](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Como melhor prática, deverá conceder aos utilizadores o mínimo de privilégios necessários.
-
-Neste artigo, vai aprender:
-
+- Opções para configurar a Base de Dados Azure SQL e a Azure Synapse Analytics (antiga Azure SQL Data Warehouse) para permitir aos utilizadores executar tarefas administrativas e aceder aos dados armazenados nestas bases de dados.
 - A configuração de acesso e autorização após a criação inicial de uma nova Base de Dados Azure SQL
 - Como adicionar logins e contas de utilizador na base de dados principal e contas de utilizador e, em seguida, conceder permissões administrativas a essas contas
 - Como adicionar contas de utilizador nas bases de dados dos utilizadores, associadas a logins ou como contas de utilizador contidas
 - Configure as contas dos utilizadores com permissões nas bases de dados dos utilizadores utilizando funções de base de dados e permissões explícitas
 
+> [!IMPORTANT]
+> As bases de dados da Base de Dados Azure SQL e da Azure Synapse Analytics (antiga Azure SQL Data Warehouse) são referidas colectivamente no restante deste artigo como bases de dados ou como Azure SQL (para simplicidade).
+
+## <a name="authentication-and-authorization"></a>Autenticação e autorização
+
+[**A autenticação**](sql-database-security-overview.md#authentication) é o processo de provar que o utilizador é quem afirmam ser. Um utilizador liga-se a uma base de dados utilizando uma conta de utilizador.
+Quando um utilizador tenta ligar-se a uma base de dados, fornece uma conta de utilizador e informações de autenticação. O utilizador é autenticado utilizando um dos dois seguintes métodos de autenticação:
+
+- [Autenticação SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
+
+  Com este método de autenticação, o utilizador submete um nome de conta de utilizador e uma senha associada para estabelecer uma ligação. Esta palavra-passe é armazenada na base de dados principal para contas de utilizador ligadas a um login ou armazenadas na base de dados que contém a conta do utilizador para contas de utilizador não ligadas a um login.
+- [Autenticação do Azure Active Directory](sql-database-aad-authentication.md)
+
+  Com este método de autenticação, o utilizador submete um nome de conta de utilizador e solicita que o serviço utilize as informações credenciais armazenadas no Diretório Ativo Azure.
+
+**Logins e utilizadores**: No Azure SQL, uma conta de utilizador numa base de dados pode ser associada a um login que é armazenado na base de dados principal ou pode ser um nome de utilizador que é armazenado numa base de dados individual.
+
+- Um **login** é uma conta individual na base de dados principal, à qual uma conta de utilizador numa ou mais bases de dados pode ser ligada. Com um login, as informações de credenciais para a conta de utilizador são armazenadas com o login.
+- Uma **conta de utilizador** é uma conta individual em qualquer base de dados que possa ser, mas não tem de estar ligada a um login. Com uma conta de utilizador que não esteja ligada a um login, a informação de credencial é armazenada na conta do utilizador.
+
+[**A autorização**](sql-database-security-overview.md#authorization) para aceder a dados e executar várias ações é gerida usando funções de base de dados e permissões explícitas. A autorização refere-se às permissões atribuídas a um utilizador e determina o que esse utilizador pode fazer. A autorização é controlada pelas [subscrições](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) de funções de base de dados da sua conta de utilizador e [permissões ao nível do objeto](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Como melhor prática, deverá conceder aos utilizadores o mínimo de privilégios necessários.
+
 ## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Logins existentes e contas de utilizador após a criação de uma nova base de dados
 
-Quando criar a sua primeira implementação de base de dados Azure SQL, especifice um login de administrador e uma palavra-passe associada para esse login. Esta conta administrativa chama-se **Administração do Servidor**. A seguinte configuração de logins e utilizadores nas bases de dados master e utilizador ocorre durante a implementação:
+Quando criar a sua primeira implementação Azure SQL, especifice um login de administrador e uma palavra-passe associada para esse login. Esta conta administrativa chama-se **Administração do Servidor**. A seguinte configuração de logins e utilizadores nas bases de dados master e utilizador ocorre durante a implementação:
 
 - É criado um login SQL com privilégios administrativos utilizando o nome de login que especificou. Um [login](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) é uma conta individual de utilizador para iniciar sessão na Base de Dados SQL.
 - Este login é concedido permissões administrativas completas em todas as bases de dados como [um diretor de nível de servidor](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). Este login tem todas as permissões disponíveis dentro da Base de Dados SQL e não pode ser limitado. Num caso gerido, este login é adicionado à função de [servidor fixo sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (esta função não existe com bases de dados únicas ou agrupadas).
-- É criada uma [conta de utilizador](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) chamada `dbo` para este login em cada base de dados do utilizador. O utilizador [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) tem todas as permissões de base de dados na base de dados e está mapeado para a função `db_owner` base de dados fixa. Funções adicionais de base de dados fixas são discutidas mais tarde neste artigo.
+- É criada `dbo` uma conta de [utilizador](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) chamada para este login em cada base de dados do utilizador. O utilizador [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) tem todas as permissões de `db_owner` base de dados na base de dados e está mapeado para a função de base de dados fixa. Funções adicionais de base de dados fixas são discutidas mais tarde neste artigo.
 
-Para identificar as contas do administrador do seu servidor SQL, abra o portal Azure e navegue para o separador **Propriedades** do seu servidor SQL ou Base de Dados SQL.
+Para identificar as contas do administrador de uma base de dados, abra o portal Azure e navegue para o separador **Propriedades** do seu servidor ou instância gerida.
 
 ![Administradores do SQL Server](media/sql-database-manage-logins/sql-admins.png)
+
+![Administradores do SQL Server](media/sql-database-manage-logins/sql-admins2.png)
 
 > [!IMPORTANT]
 > O nome de login administrativo não pode ser alterado depois de ter sido criado. Para redefinir a palavra-passe para o administrador lógico do servidor, aceda ao [portal Azure,](https://portal.azure.com)clique em **Servidores SQL,** selecione o servidor a partir da lista e, em seguida, clique em **Redefinir palavra-passe**. Para redefinir a palavra-passe para um servidor de instância gerido, vá ao portal Azure, clique na instância e clique em Redefinir a **palavra-passe**. Também pode utilizar o PowerShell ou o Azure CLI.
 
 ## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Criar logins adicionais e utilizadores com permissões administrativas
 
-Neste ponto, a sua Base de Dados SQL só está configurada para acesso através de uma única conta de login e utilizador SQL. Para criar logins adicionais com permissões administrativas completas ou parciais, tem as seguintes opções (dependendo do modo de implementação):
+Neste ponto, a sua instância Azure SQL só está configurada para acesso através de uma única conta de login E utilizador SQL. Para criar logins adicionais com permissões administrativas completas ou parciais, tem as seguintes opções (dependendo do modo de implementação):
 
 - **Criar uma conta de administrador de Diretório Ativo Azure com permissões administrativas completas**
 
@@ -79,12 +89,12 @@ Neste ponto, a sua Base de Dados SQL só está configurada para acesso através 
 
   - Crie um login SQL adicional na base de dados principal para uma única ou agrupada implantação de bases de dados, ou uma implementação de instância gerida
   - Crie uma conta de utilizador na base de dados principal associada a este novo login
-  - Adicione a conta de utilizador ao `dbmanager`, a função `loginmanager`, ou ambas na base de dados `master` utilizando a declaração [DE FUNÇÃO ALTER SERVER](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (para Anapse Analytics Azure, utilize a declaração [sp_addrolemember).](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
+  - Adicione a conta `dbmanager`de `loginmanager` utilizador à função `master` , ou ambas na base de dados utilizando a declaração [DE FUNÇÃO ALTER SERVER](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (para Anapse Analytics Azure, utilize a declaração [sp_addrolemember).](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
   > [!NOTE]
-  > `dbmanager` e `loginmanager` funções **não** dizem respeito a implementações de instâncias geridas.
+  > `dbmanager`e `loginmanager` as funções **não** dizem respeito a implementações de instâncias geridas.
 
-  Os membros destas [funções especiais](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) de base de dados para bases de dados individuais ou reunidas permitem que os utilizadores tenham autoridade para criar e gerir bases de dados ou para criar e gerir logins. Nas bases de dados criadas por um utilizador que é membro da função `dbmanager`, o membro é mapeado para a função de base de dados fixa `db_owner` e pode iniciar sessão e gerir essa base de dados utilizando a conta de utilizador `dbo`. Estas funções não têm permissões explícitas fora da base de dados principal.
+  Os membros destas [funções especiais](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) de base de dados para bases de dados individuais ou reunidas permitem que os utilizadores tenham autoridade para criar e gerir bases de dados ou para criar e gerir logins. Nas bases de dados criadas por `dbmanager` um utilizador que é membro `db_owner` da função, o membro é mapeado para a função de base de dados fixa e pode iniciar sessão e gerir essa base de dados utilizando a conta de `dbo` utilizador. Estas funções não têm permissões explícitas fora da base de dados principal.
 
   > [!IMPORTANT]
   > Não é possível criar um login SQL adicional com permissões administrativas completas numa única base de dados ou agrupada.
@@ -106,14 +116,14 @@ Pode criar contas para utilizadores não administrativos utilizando um de dois m
   Com esta abordagem, as informações de autenticação do utilizador são armazenadas em cada base de dados e replicadas automaticamente em bases de dados geo-replicadas. No entanto, se a mesma conta existir em várias bases de dados e estiver a utilizar a Autenticação SQL, deve manter as palavras-passe sincronizadas manualmente. Além disso, se um utilizador tiver uma conta em diferentes bases de dados com senhas diferentes, lembrar essas palavras-passe pode tornar-se um problema.
 
 > [!IMPORTANT]
-> Para criar utilizadores contidos mapeados para identidades AD Azure, você deve ser registrado na utilização de uma conta Azure AD que é um administrador na Base de Dados SQL. Em caso gerido, um login SQL com permissões `sysadmin` também pode criar um login ou utilizador de AD Azure.
+> Para criar utilizadores contidos mapeados para identidades AD Azure, você deve ser registrado na utilização de uma conta Azure AD que é um administrador na Base de Dados SQL. Em caso gerido, um login `sysadmin` SQL com permissões também pode criar um login ou utilizador azure AD.
 
 Por exemplo, mostrando como criar logins e utilizadores, consulte:
 
 - [Criar login para bases de dados individuais ou agrupadas](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Criar login para base de dados de instâncias geridas](https://docs.microsoft.com/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
+- [Criar login para base de dados de instâncias geridas](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
 - [Crie login para base de dados Azure Synapse Analytics](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
-- [Criar o utilizador](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
+- [Criar utilizador](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Criar anúncio sinuoso continha utilizadores](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
 
 > [!TIP]
@@ -157,6 +167,6 @@ Deverá familiarizar-se com as seguintes funcionalidades que podem ser utilizada
 - A [Máscara de Dados](sql-database-dynamic-data-masking-get-started.md) pode ser utilizada para limitar a exposição de dados confidenciais.
 - Os [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) podem ser utilizados para limitar as ações que podem ser realizadas na base de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma descrição geral de todas as funcionalidades de segurança da Base de Dados SQL, veja a [Descrição geral da segurança de SQL](sql-database-security-overview.md).

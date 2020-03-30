@@ -1,176 +1,176 @@
 ---
-title: Estender os IoT Central do Azure com regras e notificações personalizadas | Microsoft Docs
-description: Como desenvolvedor de soluções, configure um aplicativo IoT Central para enviar notificações por email quando um dispositivo parar de enviar telemetria. Essa solução usa Azure Stream Analytics, Azure Functions e SendGrid.
+title: Alargar a Azure IoT Central com regras e notificações personalizadas [ Microsoft Docs
+description: Como um desenvolvedor de soluções, configure uma aplicação IoT Central para enviar notificações de e-mail quando um dispositivo parar de enviar telemetria. Esta solução utiliza o Azure Stream Analytics, as Funções Azure e a SendGrid.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/02/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 541cbc0c34a691f51c1a3a53f71920379c447f5d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022448"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158151"
 ---
-# <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender IoT Central do Azure com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid
+# <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Alargar a Central Azure IoT com regras personalizadas utilizando stream analytics, funções azure e SendGrid
 
 
 
-Este guia de instruções mostra, como um desenvolvedor de soluções, como estender seu aplicativo IoT Central com regras e notificações personalizadas. O exemplo mostra o envio de uma notificação para um operador quando um dispositivo para de enviar telemetria. A solução usa uma consulta [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) para detectar quando um dispositivo parou de enviar telemetria. O trabalho de Stream Analytics usa [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) para enviar emails de notificação usando o [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+Este guia mostra-lhe, como desenvolvedor de soluções, como alargar a sua aplicação IoT Central com regras e notificações personalizadas. O exemplo mostra o envio de uma notificação a um operador quando um dispositivo deixa de enviar telemetria. A solução utiliza uma consulta [azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) para detetar quando um dispositivo deixou de enviar telemetria. O trabalho stream analytics utiliza [funções Azure](https://docs.microsoft.com/azure/azure-functions/) para enviar e-mails de notificação usando [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
-Este guia de instruções mostra como estender IoT Central além do que ele já pode fazer com as regras e ações internas.
+Este guia de como orientar mostra como estender a IoT Central para além do que já pode fazer com as regras e ações incorporadas.
 
-Neste guia de instruções, você aprende a:
+Neste guia de como orientar, aprende-se a:
 
-* Transmita a telemetria de um aplicativo IoT Central usando a *exportação de dados contínuas*.
-* Crie uma consulta Stream Analytics que detecta quando um dispositivo parou de enviar dados.
-* Envie uma notificação por email usando os serviços Azure Functions e SendGrid.
+* Telemetria de fluxo de uma aplicação IoT Central utilizando *a exportação contínua de dados*.
+* Crie uma consulta de Stream Analytics que detete quando um dispositivo deixou de enviar dados.
+* Envie uma notificação por e-mail utilizando as Funções Azure e os serviços SendGrid.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas neste guia de instruções, você precisa de uma assinatura ativa do Azure.
+Para completar os passos neste guia de como guiar, precisa de uma subscrição azure ativa.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-### <a name="iot-central-application"></a>IoT Central aplicativo
+### <a name="iot-central-application"></a>Aplicação IoT Central
 
-Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) com as seguintes configurações:
+Criar uma aplicação IoT Central no site do gestor de [aplicações Azure IoT Central](https://aka.ms/iotcentral) com as seguintes definições:
 
 | Definição | Valor |
 | ------- | ----- |
-| Plano de preços | Padrão |
+| Plano de preços | Standard |
 | Modelo de aplicação | Análise na loja – monitorização de condições |
-| Nome da aplicação | Aceite o padrão ou escolha seu próprio nome |
-| URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
-| Diretório | Seu locatário Azure Active Directory |
+| Nome da aplicação | Aceite o padrão ou escolha o seu próprio nome |
+| do IdP | Aceite o padrão ou escolha o seu próprio prefixo URL único |
+| Diretório | O seu inquilino de Diretório Ativo Azure |
 | Subscrição do Azure | A sua subscrição do Azure |
 | Região | A sua região mais próxima |
 
-Os exemplos e capturas de tela neste artigo usam a região **Estados Unidos** . Escolha um local perto de você e certifique-se de criar todos os seus recursos na mesma região.
+Os exemplos e imagens deste artigo utilizam a região **dos Estados Unidos.** Escolha um local próximo de si e certifique-se de criar todos os seus recursos na mesma região.
 
 Este modelo de aplicação inclui dois dispositivos termóstatos simulados que enviam telemetria.
 
 ### <a name="resource-group"></a>Grupo de recursos
 
-Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com/#create/Microsoft.ResourceGroup) chamado **DetectStoppedDevices** para conter os outros recursos que você criar. Crie seus recursos do Azure no mesmo local que o aplicativo IoT Central.
+Utilize o [portal Azure para criar um grupo de recursos](https://portal.azure.com/#create/Microsoft.ResourceGroup) chamado **DetectStoppedDevices** para conter os outros recursos que cria. Crie os seus recursos Azure no mesmo local que a sua aplicação IoT Central.
 
 ### <a name="event-hubs-namespace"></a>Espaço de nomes dos Event Hubs
 
-Use o [portal do Azure para criar um namespace de hubs de eventos](https://portal.azure.com/#create/Microsoft.EventHub) com as seguintes configurações:
+Utilize o [portal Azure para criar um espaço](https://portal.azure.com/#create/Microsoft.EventHub) de nome dos Hubs de Eventos com as seguintes definições:
 
 | Definição | Valor |
 | ------- | ----- |
-| Nome    | Escolha o nome do namespace |
-| Escalão de preço | Basic |
+| Nome    | Escolha o seu nome de espaço de nome |
+| Escalão de preço | Básico |
 | Subscrição | A sua subscrição |
-| Grupo de recursos | DetectStoppedDevices |
+| Grupo de recursos | Detetou Dispositivos Interrompidos |
 | Localização | E.U.A. Leste |
 | Unidades de Débito | 1 |
 
 ### <a name="stream-analytics-job"></a>Trabalho de Análise de Fluxo
 
-Use o [portal do Azure para criar um trabalho de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) com as seguintes configurações:
+Utilize o [portal Azure para criar um trabalho de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) com as seguintes definições:
 
 | Definição | Valor |
 | ------- | ----- |
-| Nome    | Escolha o nome do seu trabalho |
+| Nome    | Escolha o seu nome de trabalho |
 | Subscrição | A sua subscrição |
-| Grupo de recursos | DetectStoppedDevices |
+| Grupo de recursos | Detetou Dispositivos Interrompidos |
 | Localização | E.U.A. Leste |
 | Ambiente de alojamento | Nuvem |
 | Unidades de transmissão em fluxo | 3 |
 
 ### <a name="function-app"></a>Function app
 
-Use o [portal do Azure para criar um aplicativo de funções](https://portal.azure.com/#create/Microsoft.FunctionApp) com as seguintes configurações:
+Utilize o [portal Azure para criar uma aplicação](https://portal.azure.com/#create/Microsoft.FunctionApp) de função com as seguintes definições:
 
 | Definição | Valor |
 | ------- | ----- |
-| Nome da aplicação    | Escolha o nome do aplicativo de funções |
+| Nome da aplicação    | Escolha o nome da sua app de função |
 | Subscrição | A sua subscrição |
-| Grupo de recursos | DetectStoppedDevices |
+| Grupo de recursos | Detetou Dispositivos Interrompidos |
 | SO | Windows |
-| Plano de Hospedagem | Plano de Consumo |
+| Plano de Alojamento | Plano de Consumo |
 | Localização | E.U.A. Leste |
-| Pilha de tempo de execução | .NET |
-| Armazenamento | Criar novo |
+| Pilha de Tempo de Execução | .NET |
+| Storage | Criar novo |
 
-### <a name="sendgrid-account"></a>Conta do SendGrid
+### <a name="sendgrid-account"></a>Conta SendGrid
 
-Use o [portal do Azure para criar uma conta do SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) com as seguintes configurações:
+Utilize o [portal Azure para criar uma conta SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) com as seguintes definições:
 
 | Definição | Valor |
 | ------- | ----- |
-| Nome    | Escolha o nome da conta do SendGrid |
+| Nome    | Escolha o nome da sua conta SendGrid |
 | Palavra-passe | Criar uma senha |
 | Subscrição | A sua subscrição |
-| Grupo de recursos | DetectStoppedDevices |
+| Grupo de recursos | Detetou Dispositivos Interrompidos |
 | Escalão de preço | F1 Gratuito |
-| Informações de contacto | Preencher as informações necessárias |
+| Informações de contacto | Preencha as informações necessárias |
 
-Quando você tiver criado todos os recursos necessários, seu grupo de recursos **DetectStoppedDevices** será semelhante à captura de tela a seguir:
+Quando criou todos os recursos necessários, o grupo de recursos **DetectStoppedDevices** parece ser a seguinte imagem:
 
-![Detectar o grupo de recursos de dispositivos interrompidos](media/howto-create-custom-rules/resource-group.png)
+![Detetar grupo de recursos de dispositivos parados](media/howto-create-custom-rules/resource-group.png)
 
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
-Você pode configurar um aplicativo de IoT Central para exportar continuamente a telemetria para um hub de eventos. Nesta seção, você cria um hub de eventos para receber telemetria do seu aplicativo IoT Central. O Hub de eventos fornece a telemetria para seu trabalho de Stream Analytics para processamento.
+Pode configurar uma aplicação IoT Central para exportar continuamente telemetria para um centro de eventos. Nesta secção, você cria um hub de eventos para receber telemetria da sua aplicação IoT Central. O centro de eventos entrega a telemetria ao seu trabalho de Stream Analytics para processamento.
 
-1. Na portal do Azure, navegue até o namespace de seus hubs de eventos e selecione **+ Hub de eventos**.
-1. Nomeie o **centralexport**do hub de eventos e selecione **criar**.
+1. No portal Azure, navegue para o espaço de nome do Seu Event Hubs e selecione **+ Event Hub**.
+1. Nomeie o seu centro de eventos **centralexport,** e selecione **Create**.
 
-O namespace dos hubs de eventos é semelhante à captura de tela a seguir:
+O espaço de nome do Seu Event Hubs parece a seguinte imagem:
 
 ![Espaço de nomes dos Event Hubs](media/howto-create-custom-rules/event-hubs-namespace.png)
 
-## <a name="get-sendgrid-api-key"></a>Obter chave de API do SendGrid
+## <a name="get-sendgrid-api-key"></a>Obter chave API SendGrid
 
-Seu aplicativo de funções precisa de uma chave de API SendGrid para enviar mensagens de email. Para criar uma chave de API do SendGrid:
+A sua aplicação de funções precisa de uma chave SendGrid API para enviar mensagens de correio eletrónico. Para criar uma chave API SendGrid:
 
-1. Na portal do Azure, navegue até sua conta do SendGrid. Em seguida, escolha **gerenciar** para acessar sua conta do SendGrid.
-1. Em sua conta do SendGrid, escolha **configurações**e, em seguida, **chaves de API**. Escolha **criar chave de API**:
+1. No portal Azure, navegue para a sua conta SendGrid. Em seguida, escolha **Gerir** o acesso à sua conta SendGrid.
+1. Na sua conta SendGrid, escolha **Definições**, em **seguida, Teclas API**. Escolha **criar a chave API:**
 
-    ![Criar chave de API SendGrid](media/howto-create-custom-rules/sendgrid-api-keys.png)
+    ![Criar a chave API SendGrid](media/howto-create-custom-rules/sendgrid-api-keys.png)
 
-1. Na página **criar chave de API** , crie uma chave chamada **AzureFunctionAccess** com permissões de **acesso completo** .
-1. Anote a chave de API, você precisará dela quando configurar seu aplicativo de funções.
+1. Na página **Chave Create API,** crie uma chave chamada **AzureFunctionAccess** com permissões **de acesso completo.**
+1. Tome nota da Chave API, precisa dela quando configurar a sua aplicação de funções.
 
 ## <a name="define-the-function"></a>Definir a função
 
-Essa solução usa um aplicativo Azure Functions para enviar uma notificação por email quando o trabalho de Stream Analytics detecta um dispositivo interrompido. Para criar seu aplicativo de funções:
+Esta solução utiliza uma aplicação Azure Functions para enviar uma notificação por e-mail quando o trabalho do Stream Analytics detetar um dispositivo parado. Para criar a sua aplicação de funções:
 
-1. Na portal do Azure, navegue até a instância do **serviço de aplicativo** no grupo de recursos **DetectStoppedDevices** .
+1. No portal Azure, navegue para a instância do Serviço de **Aplicações** no grupo de recursos **DetectStoppedDevices.**
 1. Selecione **+** para criar uma nova função.
-1. Na página **escolher um ambiente de desenvolvimento** , escolha **no portal** e, em seguida, selecione **continuar**.
-1. Na página **criar uma função** , escolha **webhook + API** e, em seguida, selecione **criar**.
+1. Na página **CHOOSE A DEVELOPMENT ENVIRONMENT,** escolha **In-portal** e, em seguida, selecione **Continuar**.
+1. Na página **CREATE A FUNCTION,** escolha **Webhook + API** e, em seguida, selecione **Criar**.
 
-O portal cria uma função padrão chamada **HttpTrigger1**:
+O portal cria uma função predefinida chamada **HttpTrigger1:**
 
-![Função de gatilho HTTP padrão](media/howto-create-custom-rules/default-function.png)
+![Função de gatilho PADRÃO HTTP](media/howto-create-custom-rules/default-function.png)
 
-### <a name="configure-function-bindings"></a>Configurar associações de função
+### <a name="configure-function-bindings"></a>Configurar encadernações de função
 
-Para enviar emails com o SendGrid, você precisa configurar as associações para a função da seguinte maneira:
+Para enviar e-mails com sendGrid, precisa configurar as ligações para a sua função da seguinte forma:
 
-1. Selecione **integrar**, escolha o http de saída **($Return)** e, em seguida, selecione **excluir**.
-1. Escolha **+ nova saída**, escolha **SendGrid**e escolha **selecionar**. Escolha **instalar** para instalar a extensão SendGrid.
-1. Quando a instalação for concluída, selecione **usar valor de retorno da função**. Adicione um **endereço de endereçamento** válido para receber notificações por email.  Adicione um **endereço de** remetente válido para usar como o emissor do email.
-1. Selecione **novo** ao lado de **configuração do aplicativo de chave de API do SendGrid**. Insira **SendGridAPIKey** como a chave e a chave de API SendGrid que você anotou anteriormente como o valor. Em seguida, selecione **Criar**.
-1. Escolha **salvar** para salvar as associações SendGrid para sua função.
+1. Selecione **Integrar,** escolha a saída **HTTP ($return)** e, em seguida, selecione **eliminar**.
+1. Escolha **+ Saída Nova,** escolha **SendGrid,** e depois escolha **Select**. Escolha **instalar** para instalar a extensão SendGrid.
+1. Quando a instalação estiver concluída, selecione **Use o valor de devolução**da função . Adicione um endereço válido **para** receber notificações por e-mail.  Adicione um **endereço** válido para usar como remetente de e-mail.
+1. Selecione **novas próximas** definições de aplicação de **chave API SendGrid**. Introduza o **SendGridAPIKey** como chave e a chave SendGrid API que observou anteriormente como o valor. Em seguida, selecione **Criar**.
+1. Escolha **guardar** para guardar as encadernações SendGrid para a sua função.
 
-As configurações de integração são parecidas com a seguinte captura de tela:
+As definições de integração parecem a seguinte imagem:
 
-![Integrações do aplicativo de funções](media/howto-create-custom-rules/function-integrate.png)
+![Integrações de aplicativos de função](media/howto-create-custom-rules/function-integrate.png)
 
-### <a name="add-the-function-code"></a>Adicionar o código de função
+### <a name="add-the-function-code"></a>Adicione o código de função
 
-Para implementar sua função, adicione o C# código para analisar a solicitação HTTP de entrada e enviar os emails da seguinte maneira:
+Para implementar a sua função, adicione o código C# para analisar o pedido http e envie os e-mails da seguinte forma:
 
-1. Escolha a função **HttpTrigger1** em seu aplicativo de funções e substitua C# o código pelo código a seguir:
+1. Escolha a função **HttpTrigger1** na sua aplicação de função e substitua o código C# pelo seguinte código:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -210,58 +210,58 @@ Para implementar sua função, adicione o C# código para analisar a solicitaç�
     }
     ```
 
-    Você poderá ver uma mensagem de erro até salvar o novo código.
+    Pode ver uma mensagem de erro até guardar o novo código.
 
-1. Selecione **salvar** para salvar a função.
+1. Selecione **Guardar** para salvar a função.
 
-### <a name="test-the-function-works"></a>Testar a função Works
+### <a name="test-the-function-works"></a>Testar os trabalhos de função
 
-Para testar a função no portal, primeiro escolha **logs** na parte inferior do editor de código. Em seguida, escolha **teste** à direita do editor de códigos. Use o JSON a seguir como o **corpo da solicitação**:
+Para testar a função no portal, escolha primeiro **Registos** na parte inferior do editor de código. Em seguida, escolha **o Teste** à direita do editor de código. Utilize o seguinte JSON como **organismo de pedido:**
 
 ```json
 [{"deviceid":"test-device-1","time":"2019-05-02T14:23:39.527Z"},{"deviceid":"test-device-2","time":"2019-05-02T14:23:50.717Z"},{"deviceid":"test-device-3","time":"2019-05-02T14:24:28.919Z"}]
 ```
 
-As mensagens de log de função aparecem no painel de **logs** :
+As mensagens de registo de funções aparecem no painel **Registos:**
 
-![Saída de log de função](media/howto-create-custom-rules/function-app-logs.png)
+![Saída de registo de funções](media/howto-create-custom-rules/function-app-logs.png)
 
-Após alguns minutos, o endereço de email **para** recebe um email com o seguinte conteúdo:
+Após alguns minutos, o endereço de e-mail **Para** receber um e-mail com o seguinte conteúdo:
 
 ```txt
 The following device(s) have stopped sending telemetry:
 
-Device ID   Time
-test-device-1   2019-05-02T14:23:39.527Z
-test-device-2   2019-05-02T14:23:50.717Z
-test-device-3   2019-05-02T14:24:28.919Z
+Device ID    Time
+test-device-1    2019-05-02T14:23:39.527Z
+test-device-2    2019-05-02T14:23:50.717Z
+test-device-3    2019-05-02T14:24:28.919Z
 ```
 
-## <a name="add-stream-analytics-query"></a>Adicionar consulta de Stream Analytics
+## <a name="add-stream-analytics-query"></a>Adicionar consulta de Análise de Fluxo
 
-Essa solução usa uma consulta Stream Analytics para detectar quando um dispositivo para de enviar telemetria por mais de 120 segundos. A consulta usa a telemetria do hub de eventos como entrada. O trabalho envia os resultados da consulta para o aplicativo de funções. Nesta seção, você configura o trabalho de Stream Analytics:
+Esta solução utiliza uma consulta de Stream Analytics para detetar quando um dispositivo para de enviar telemetria por mais de 120 segundos. A consulta usa a telemetria do centro de eventos como sua entrada. O trabalho envia os resultados da consulta para a aplicação de função. Nesta secção, configura o trabalho de Stream Analytics:
 
 1. No portal Azure, navegue para o seu trabalho de Stream Analytics, sob a **topologia Jobs** selecione **Inputs,** escolha + Adicione a entrada de **fluxo,** e depois escolha **o Event Hub**.
-1. Use as informações na tabela a seguir para configurar a entrada usando o Hub de eventos que você criou anteriormente e, em seguida, escolha **salvar**:
+1. Utilize as informações na tabela seguinte para configurar a entrada utilizando o centro de eventos que criou anteriormente e, em seguida, escolha **Guardar:**
 
     | Definição | Valor |
     | ------- | ----- |
-    | Alias de entrada | centraltelemetry |
+    | Alias de entrada | centraltelemetria |
     | Subscrição | A sua subscrição |
-    | Espaço de nomes do hub de eventos | Seu namespace do hub de eventos |
-    | O nome do hub de eventos | Usar- **centralexport** existente |
+    | Espaço de nomes do hub de eventos | O seu espaço de nome do Hub de Eventos |
+    | O nome do hub de eventos | Utilização existente - **centralexport** |
 
-1. Em **topologia de trabalhos**, **selecione saídas**, escolha **+ Adicionar**e, em seguida, escolha **Azure function**.
-1. Use as informações na tabela a seguir para configurar a saída e, em seguida, escolha **salvar**:
+1. Em **Jobs topologia,** selecione **Outputs,** escolha **+ Adicionar,** e, em seguida, escolha a **função Azure**.
+1. Utilize as informações no quadro seguinte para configurar a saída e, em seguida, escolha **Guardar:**
 
     | Definição | Valor |
     | ------- | ----- |
-    | Alias de saída | emailnotification |
+    | Alias de saída | notificação por e-mail |
     | Subscrição | A sua subscrição |
-    | Function app | Seu aplicativo de funções |
+    | Function app | A sua aplicação de funções |
     | Função  | HttpTrigger1 |
 
-1. Em **topologia de trabalhos**, selecione **consulta** e substitua a consulta existente pelo seguinte SQL:
+1. Em **Topologia Jobs,** selecione **Consulta** e substitua a consulta existente pelo seguinte SQL:
 
     ```sql
     with
@@ -303,38 +303,38 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
     ```
 
 1. Selecione **Guardar**.
-1. Para iniciar o trabalho de Stream Analytics, escolha **visão geral**, **Iniciar**, **agora**e **Iniciar**:
+1. Para iniciar o trabalho de Stream Analytics, escolha **visão geral,** em **seguida, Iniciar,** em **seguida, agora**, e, em seguida, **iniciar:**
 
     ![Stream Analytics](media/howto-create-custom-rules/stream-analytics.png)
 
-## <a name="configure-export-in-iot-central"></a>Configurar a exportação no IoT Central
+## <a name="configure-export-in-iot-central"></a>Configure a exportação na IoT Central
 
-No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , navegue até o aplicativo IOT central que você criou por meio do modelo da contoso. Nesta seção, você configura o aplicativo para transmitir a telemetria de seus dispositivos simulados para o Hub de eventos. Para configurar a exportação:
+No site do gestor de [aplicações Azure IoT Central,](https://aka.ms/iotcentral) navegue para a aplicação IoT Central que criou a partir do modelo Contoso. Nesta secção, configura a aplicação para transmitir a telemetria dos seus dispositivos simulados para o seu centro de eventos. Para configurar a exportação:
 
 1. Navegue na página **de Exportação** de Dados, selecione **+ Novo,** e depois **Azure Event Hubs**.
-1. Use as configurações a seguir para configurar a exportação e, em seguida, selecione **salvar**:
+1. Utilize as seguintes definições para configurar a exportação e, em seguida, **selecione Guardar:**
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome a Apresentar | Exportar para hubs de eventos |
+    | Nome a Apresentar | Exportação para Centros de Eventos |
     | Ativado | Ativado |
-    | Espaço de nomes dos Event Hubs | Nome do namespace de seus hubs de eventos |
-    | Hub de eventos | centralexport |
+    | Espaço de nomes dos Event Hubs | Nome do nome do nome do seu evento Hubs |
+    | Hub de eventos | centralexporte |
     | Medições | Ativado |
     | Dispositivos | Desativado |
     | Modelos de dispositivo | Desativado |
 
-![Configuração de exportação de dados contínuas](media/howto-create-custom-rules/cde-configuration.png)
+![Configuração contínua da exportação de dados](media/howto-create-custom-rules/cde-configuration.png)
 
-Aguarde até que o status de exportação seja **executado** antes de continuar.
+Aguarde até que o estado de exportação **esteja em funcionamento** antes de continuar.
 
-## <a name="test"></a>Testar
+## <a name="test"></a>Test
 
-Para testar a solução, você pode desabilitar a exportação de dados contínuas de IoT Central para dispositivos interrompidos simulados:
+Para testar a solução, pode desativar a exportação contínua de dados da IoT Central para dispositivos parados simulados:
 
 1. Na sua aplicação IoT Central, navegue para a página **de Exportação** de Dados e selecione a configuração de **exportação para Hubs de Eventos.**
-1. Defina **habilitado** como **desativado** e escolha **salvar**.
-1. Após pelo menos dois minutos, o endereço de email **to** receberá um ou mais emails parecidos com o seguinte conteúdo de exemplo:
+1. Definir **Ativado** para **desligar** e escolher **Guardar**.
+1. Após pelo menos dois minutos, o endereço de e-mail **Para** recebe um ou mais e-mails que se parecem com o seguinte conteúdo exemplo:
 
     ```txt
     The following device(s) have stopped sending telemetry:
@@ -343,18 +343,18 @@ Para testar a solução, você pode desabilitar a exportação de dados contínu
     Thermostat-Zone1  2019-11-01T12:45:14.686Z
     ```
 
-## <a name="tidy-up"></a>Organizar
+## <a name="tidy-up"></a>Arrumação
 
-Para fazer a limpeza após este procedimento e evitar custos desnecessários, exclua o grupo de recursos **DetectStoppedDevices** no portal do Azure.
+Para arrumar depois deste como e evitar custos desnecessários, elimine o grupo de recursos **DetectStoppedDevices** no portal Azure.
 
-Você pode excluir o aplicativo IoT Central da página de **Gerenciamento** dentro do aplicativo.
+Pode eliminar a aplicação IoT Central da página **De Gestão** dentro da aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de instruções, você aprendeu a:
+Neste guia de como orientar, aprendeu a:
 
-* Transmita a telemetria de um aplicativo IoT Central usando a *exportação de dados contínuas*.
-* Crie uma consulta Stream Analytics que detecta quando um dispositivo parou de enviar dados.
-* Envie uma notificação por email usando os serviços Azure Functions e SendGrid.
+* Telemetria de fluxo de uma aplicação IoT Central utilizando *a exportação contínua de dados*.
+* Crie uma consulta de Stream Analytics que detete quando um dispositivo deixou de enviar dados.
+* Envie uma notificação por e-mail utilizando as Funções Azure e os serviços SendGrid.
 
-Agora que você sabe como criar regras e notificações personalizadas, a próxima etapa sugerida é aprender a [estender IOT central do Azure com análises personalizadas](howto-create-custom-analytics.md).
+Agora que sabe como criar regras e notificações personalizadas, o próximo passo sugerido é aprender a estender o [Azure IoT Central com análises personalizadas.](howto-create-custom-analytics.md)

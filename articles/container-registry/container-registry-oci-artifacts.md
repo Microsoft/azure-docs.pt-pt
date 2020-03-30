@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: stevelas
 ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371057"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Empurre e puxe um artefacto OCI usando um registo de contentores Azure
@@ -22,10 +22,10 @@ Para demonstrar esta capacidade, este artigo mostra como usar a ferramenta [OCI 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Registo de contentores do Azure** - crie um registos de contentores na sua subscrição do Azure. Por exemplo, utilize o [portal Azure](container-registry-get-started-portal.md) ou o [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Ferramenta ORAS** - Descarregue e instale uma versão ORAS atual para o seu sistema operativo a partir do [repo GitHub](https://github.com/deislabs/oras/releases). A ferramenta é libertada como uma bola de alcatrão comprimido (`.tar.gz` ficheiro). Extrair e instalar o ficheiro utilizando procedimentos padrão para o seu sistema operativo.
+* **Ferramenta ORAS** - Descarregue e instale uma versão ORAS atual para o seu sistema operativo a partir do [repo GitHub](https://github.com/deislabs/oras/releases). A ferramenta é libertada como uma`.tar.gz` bola de tarball comprimido (ficheiro). Extrair e instalar o ficheiro utilizando procedimentos padrão para o seu sistema operativo.
 * **Diretoria Ativa azure (opcional)** - Para autenticar diretamente com oras, crie um [serviço principal](container-registry-auth-service-principal.md) para aceder ao seu registo. Certifique-se de que o diretor de serviço é atribuído a uma função como a AcrPush para que tenha permissões para empurrar e puxar artefactos.
-* **Azure CLI (opcional)** - Para utilizar uma identidade individual, necessita de uma instalação local do Azure CLI. A versão 2.0.71 ou posterior é recomendada. Execute `az --version `para encontrar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-* **Docker (opcional)** - Para utilizar uma identidade individual, também deve ter o Docker instalado localmente, para autenticar com o registo. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [macOS,][docker-mac] [Windows][docker-windows]ou [Linux.][docker-linux]
+* **Azure CLI (opcional)** - Para utilizar uma identidade individual, necessita de uma instalação local do Azure CLI. A versão 2.0.71 ou posterior é recomendada. Corra `az --version `para encontrar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+* **Docker (opcional)** - Para utilizar uma identidade individual, também deve ter o Docker instalado localmente, para autenticar com o registo. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 
 ## <a name="sign-in-to-a-registry"></a>Inscreva-se num registo
@@ -34,13 +34,13 @@ Esta secção mostra dois fluxos de trabalho sugeridos para assinar no registo, 
 
 ### <a name="sign-in-with-oras"></a>Inscreva-se na ORAS
 
-Utilizando um diretor de [serviço](container-registry-auth-service-principal.md) com direitos de impulso, execute o comando `oras login` para iniciar sessão no registo utilizando o ID e a palavra-passe principal do serviço. Especifique o nome do registo totalmente qualificado (todas as minúsculas), neste caso *myregistry.azurecr.io*. O ID de aplicação principal do serviço é passado na variável ambiente `$SP_APP_ID`, e a palavra-passe na variável `$SP_PASSWD`.
+Utilizando um diretor de [serviço](container-registry-auth-service-principal.md) `oras login` com direitos de impulso, execute o comando para iniciar sessão no registo utilizando o ID de aplicação principal do serviço e a palavra-passe. Especifique o nome do registo totalmente qualificado (todas as minúsculas), neste caso *myregistry.azurecr.io*. O ID de aplicação principal `$SP_APP_ID`do serviço é passado `$SP_PASSWD`na variável ambiente, e a palavra-passe na variável .
 
 ```bash
 oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-Para ler a palavra-passe de Stdin, use `--password-stdin`.
+Para ler a palavra-passe de `--password-stdin`Stdin, use .
 
 ### <a name="sign-in-with-azure-cli"></a>Iniciar sessão com a CLI do Azure
 
@@ -54,7 +54,7 @@ az acr login --name myregistry
 ```
 
 > [!NOTE]
-> `az acr login` usa o cliente Docker para definir um token de Diretório Ativo Azure no ficheiro `docker.config`. O cliente Docker deve ser instalado e em execução para completar o fluxo de autenticação individual.
+> `az acr login`usa o cliente Docker para definir um token `docker.config` de Diretório Ativo Azure no ficheiro. O cliente Docker deve ser instalado e em execução para completar o fluxo de autenticação individual.
 
 ## <a name="push-an-artifact"></a>Empurre um artefacto
 
@@ -64,7 +64,7 @@ Crie um ficheiro de texto num diretório de trabalho local com algum texto de am
 echo "Here is an artifact!" > artifact.txt
 ```
 
-Utilize o comando `oras push` para empurrar este ficheiro de texto para o seu registo. O exemplo seguinte empurra o ficheiro de texto da amostra para o `samples/artifact` repo. O registo é identificado com o nome de registo totalmente qualificado *myregistry.azurecr.io* (todas as minúsculas). O artefacto está marcado `1.0`. O artefacto tem um tipo indefinido, por defeito, identificado pela cadeia do *tipo de mídia* seguindo o nome de ficheiro `artifact.txt`. Consulte [artefactos OCI](https://github.com/opencontainers/artifacts) para obter tipos adicionais. 
+Utilize `oras push` o comando para empurrar este ficheiro de texto para o seu registo. O exemplo seguinte empurra o ficheiro `samples/artifact` de texto da amostra para o repo. O registo é identificado com o nome de registo totalmente qualificado *myregistry.azurecr.io* (todas as minúsculas). O artefacto está `1.0`marcado. O artefacto tem um tipo indefinido, por defeito, identificado `artifact.txt`pela cadeia do tipo de *mídia* seguindo o nome de ficheiro . Consulte [artefactos OCI](https://github.com/opencontainers/artifacts) para obter tipos adicionais. 
 
 **Linux**
 
@@ -90,7 +90,7 @@ Pushed myregistry.azurecr.io/samples/artifact:1.0
 Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
 ```
 
-Para gerir artefactos no seu registo, se estiver a utilizar o Azure CLI, execute comandos padrão `az acr` para gerir imagens. Por exemplo, obtenha os atributos do artefacto usando o comando de show de [repositório az acr:][az-acr-repository-show]
+Para gerir artefactos no seu registo, se estiver a utilizar `az acr` o Azure CLI, execute comandos padrão para gerir imagens. Por exemplo, obtenha os atributos do artefacto usando o comando de show de [repositório az acr:][az-acr-repository-show]
 
 ```azurecli
 az acr repository show \
@@ -118,7 +118,7 @@ O resultado é semelhante ao seguinte:
 
 ## <a name="pull-an-artifact"></a>Puxe um artefacto
 
-Execute o comando `oras pull` para tirar o artefacto do seu registo.
+Mande `oras pull` o comando para retirar o artefacto do seu registo.
 
 Primeiro remova o ficheiro de texto do seu diretório de trabalho local:
 
@@ -126,7 +126,7 @@ Primeiro remova o ficheiro de texto do seu diretório de trabalho local:
 rm artifact.txt
 ```
 
-Executar `oras pull` para puxar o artefacto e especificar o tipo de mídia utilizado para empurrar o artefacto:
+Corra `oras pull` para puxar o artefacto e especifique o tipo de mídia utilizado para empurrar o artefacto:
 
 ```bash
 oras pull myregistry.azurecr.io/samples/artifact:1.0 \

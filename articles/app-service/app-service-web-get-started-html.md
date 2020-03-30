@@ -6,17 +6,17 @@ ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 1ec8944ea0b4cf44c05efe92d350ae0db66d338b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: e975708eddad9b9b4a07b49e1f753d604d77ff94
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78247797"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047575"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este quickstart mostra como implementar um site básico HTML+CSS para o Serviço de Aplicações Azure. Este início rápido deverá ser concluído no [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), mas também poderá executar estes comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli).
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este quickstart mostra como implementar um site básico HTML+CSS para o Serviço de Aplicações Azure. Você completará este quickstart em [Cloud Shell,](https://docs.microsoft.com/azure/cloud-shell/overview)mas também pode executar estes comandos localmente com [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Página inicial da aplicação de exemplo](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -84,7 +84,7 @@ Anote o valor `resourceGroup`. Vai precisar dele na secção [limpar recursos](#
 
 ## <a name="browse-to-the-app"></a>Navegar para a aplicação
 
-Num browser, vá ao URL da aplicação: `http://<app_name>.azurewebsites.net`.
+Num browser, vá ao URL `http://<app_name>.azurewebsites.net`da aplicação: .
 
 A página está a ser executada como uma aplicação Web do Serviço de Aplicações do Azure.
 

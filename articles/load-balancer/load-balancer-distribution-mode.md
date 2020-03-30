@@ -1,5 +1,5 @@
 ---
-title: Configurar o modo de distribuição de Balanceador de carga do Azure
+title: Configure Modo de distribuição de balanceadores de carga Azure
 titleSuffix: Azure Load Balancer
 description: Neste artigo, começar a configurar o modo de distribuição do Azure Load Balancer para suportar fonte de afinidade IP.
 services: load-balancer
@@ -14,50 +14,50 @@ ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 5c50186692438be5d0922cd329c28e665310e5c2
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023536"
 ---
-# <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurar o modo de distribuição para o Balanceador de carga do Azure
+# <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configure o modo de distribuição para o Equilíbrio de Carga Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="hash-based-distribution-mode"></a>Modo de distribuição baseados em hash
+## <a name="hash-based-distribution-mode"></a>Modo de distribuição baseado em hash
 
-O modo de distribuição predefinido para o Azure Load Balancer é um hash de cinco tuple. 
+O modo de distribuição predefinido do Balanceador de Carga do Azure é um hash de cinco cadeias. 
 
 O tuple é composto pelo:
 * **Fonte IP**
-* **Porta de origem**
+* **Porta-fonte**
 * **Destino IP**
-* **Porta de destino**
+* **Porto de destino**
 * **Tipo de protocolo**
 
 O hash é usado para mapear o tráfego para os servidores disponíveis. O algoritmo só proporciona a destreza dentro de uma sessão de transporte. Os pacotes que estão na mesma sessão são direcionados para o mesmo DATAcenter IP atrás do ponto final equilibrado. Quando o cliente inicia uma nova sessão a partir da mesma fonte IP, a porta de origem muda e faz com que o tráfego vá para um ponto final diferente do datacenter.
 
 ![Modo de distribuição baseado em hash de cinco tuple](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
-## <a name="source-ip-affinity-mode"></a>Modo de afinidade do IP de origem
+## <a name="source-ip-affinity-mode"></a>Modo de afinidade IP fonte
 
-O equilibrador de carga também pode ser configurado utilizando o modo de distribuição de afinidade IP fonte. Esse modo de distribuição é também conhecido como afinidade de sessão ou a afinidade do IP de cliente. O modo utiliza um hash de duas tuple (IP de origem e destino) ou três tuple (IP de origem, IP de destino e tipo de protocolo) para mapear o tráfego para os servidores disponíveis. Utilizando a afinidade IP fonte, as ligações que são iniciadas a partir do mesmo computador cliente vão para o mesmo ponto final do datacenter.
+O equilibrador de carga também pode ser configurado utilizando o modo de distribuição de afinidade IP fonte. O modo de distribuição também é conhecido como afinidade de sessão ou afinidade de IP de cliente. O modo utiliza um hash de duas tuple (IP de origem e destino) ou três tuple (IP de origem, IP de destino e tipo de protocolo) para mapear o tráfego para os servidores disponíveis. Utilizando a afinidade IP fonte, as ligações que são iniciadas a partir do mesmo computador cliente vão para o mesmo ponto final do datacenter.
 
-A figura que se segue ilustra uma configuração de dois túnicas. Note como o estuque de duas vezes passa através do equilibrador de carga para a máquina virtual 1 (VM1). VM1, em seguida, cópia de segurança, VM2 e VM3.
+A figura que se segue ilustra uma configuração de dois túnicas. Note como o estuque de duas vezes passa através do equilibrador de carga para a máquina virtual 1 (VM1). VM1 é então apoiado por VM2 e VM3.
 
 ![Modo de distribuição de afinidade de sessão de dois tuple](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
-Modo de afinidade do IP de origem resolve uma incompatibilidade entre o Balanceador de carga do Azure e o Gateway de ambiente de trabalho remoto (Gateway de RD). Ao utilizar este modo, pode criar um farm de servidores de Gateway de RD num serviço cloud único.
+O modo de afinidade IP source resolve uma incompatibilidade entre o Equilíbrio de Carga Azure e o Gateway do Ambiente de Trabalho Remoto (Gateway RD). Ao utilizar este modo, pode construir uma quinta RD Gateway num único serviço em nuvem.
 
-Outro cenário de caso de uso é o carregamento de suporte de dados. O carregamento de dados ocorre por meio de UDP, mas o plano de controlo é alcançado através de TCP:
+Outro cenário de uso é o upload dos meios de comunicação. O upload de dados ocorre através da UDP, mas o plano de controlo é alcançado através do TCP:
 
-* Um cliente inicia uma sessão de TCP para o endereço público equilibrado e é direcionado para um DIP específico. O canal fica ativo para monitorizar o estado de funcionamento da ligação.
-* Uma nova sessão uDP do mesmo computador cliente é iniciada para o mesmo ponto final público equilibrado em carga. A ligação é direcionada para o mesmo ponto final do DIP como a ligação de TCP anterior. O carregamento de suporte de dados pode ser executado em alto débito, mantendo um canal de controlo através de TCP.
+* Um cliente inicia uma sessão de TCP para o endereço público equilibrado e é direcionado para um DIP específico. O canal é deixado ativo para monitorizar a saúde da ligação.
+* Uma nova sessão uDP do mesmo computador cliente é iniciada para o mesmo ponto final público equilibrado em carga. A ligação é direcionada para o mesmo ponto final dip que a ligação TCP anterior. O upload do meio de dados pode ser executado em alta entrada, mantendo um canal de controlo através do TCP.
 
 > [!NOTE]
-> Quando altera um conjunto com balanceamento de carga através da remoção ou adicionar uma máquina virtual, a distribuição de pedidos de cliente é recalculada. Não é possível dependem novas ligações de clientes existentes para acabar no mesmo servidor. Além disso, IP de origem a utilizar o modo de distribuição de afinidade pode causar uma distribuição desiguais de tráfego. Os clientes que são executadas por trás de proxies podem ser vistos como um aplicativo de cliente exclusivos.
+> Quando um conjunto equilibrado em carga muda removendo ou adicionando uma máquina virtual, a distribuição dos pedidos do cliente é recomputada. Não pode depender de novas ligações de clientes existentes para acabar no mesmo servidor. Além disso, a utilização do modo de distribuição de afinidade IP de origem pode causar uma distribuição desigual do tráfego. Os clientes que correm atrás de proxies podem ser vistos como uma aplicação única do cliente.
 
-## <a name="configure-source-ip-affinity-settings"></a>Configurar definições de afinidade do IP de origem
+## <a name="configure-source-ip-affinity-settings"></a>Configurar definições de afinidade IP de origem
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -84,15 +84,15 @@ $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-Para máquinas virtuais clássicas, utilize o Azure PowerShell para alterar as definições de distribuição. Adicionar um ponto de final do Azure a uma máquina virtual e configurar o modo de distribuição de Balanceador de carga:
+Para máquinas virtuais clássicas, utilize o Azure PowerShell para alterar as definições de distribuição. Adicione um ponto final Azure a uma máquina virtual e configure o modo de distribuição do equilíbrio de carga:
 
 ```azurepowershell-interactive
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-Detete o valor do elemento `LoadBalancerDistribution` para a quantidade de equilíbrio de carga necessária. Especifique o equilíbrio de carga de duas tuple (IP de origem e IP de destino). Especifique o protocolo de origem IPProtocol para o equilíbrio de carga de três tuple (IP de origem, ip de destino e tipo de protocolo). Especifique nenhum para o comportamento padrão do equilíbrio de carga de cinco tuplés.
+Detete o `LoadBalancerDistribution` valor do elemento para a quantidade de equilíbrio de carga necessária. Especifique o equilíbrio de carga de duas tuple (IP de origem e IP de destino). Especifique o protocolo de origem IPProtocol para o equilíbrio de carga de três tuple (IP de origem, ip de destino e tipo de protocolo). Especifique nenhum para o comportamento padrão do equilíbrio de carga de cinco tuplés.
 
-Obter uma configuração de modo de distribuição de Balanceador de carga de ponto final com estas definições:
+Recupere uma configuração do modo de distribuição do equilíbrio de carga de ponto final utilizando estas definições:
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -114,21 +114,21 @@ Obter uma configuração de modo de distribuição de Balanceador de carga de po
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Quando o elemento `LoadBalancerDistribution` não está presente, o Azure Load Balancer usa o algoritmo padrão de cinco tuples.
+Quando `LoadBalancerDistribution` o elemento não está presente, o Azure Load Balancer usa o algoritmo padrão de cinco tuples.
 
-### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configurar o modo de distribuição no conjunto de pontos finais Balanceados de carga
+### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configure o modo de distribuição no conjunto de pontofinal equilibrado em carga
 
-Quando os pontos finais fazem parte de um conjunto de ponto final com balanceamento de carga, o modo de distribuição tem de ser configurado no conjunto de ponto final com balanceamento de carga:
+Quando os pontos finais fazem parte de um conjunto de pontofinal equilibrado, o modo de distribuição deve ser configurado no conjunto de pontofinal equilibrado:
 
 ```azurepowershell-interactive
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Configurar o modo de distribuição para pontos de extremidade de serviços Cloud
+### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Configure o modo de distribuição para pontos finais dos Serviços cloud
 
-Utilize o Azure SDK para .NET 2.5 para atualizar o seu serviço cloud. As definições de ponto de extremidade para serviços em nuvem são efetuadas no ficheiro. csdef. Para atualizar o modo de distribuição de Balanceador de carga para uma implementação de serviços Cloud, uma atualização de implementação é necessária.
+Utilize o Azure SDK para .NET 2.5 para atualizar o seu serviço na nuvem. As definições de ponto final para serviços de nuvem são feitas no ficheiro .csdef. Para atualizar o modo de distribuição do equilíbrio de carga para uma implementação dos Serviços cloud, é necessária uma atualização de implementação.
 
-Eis um exemplo de alterações. csdef para definições de ponto final:
+Aqui está um exemplo de alterações .csdef para definições de ponto final:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -148,13 +148,13 @@ Eis um exemplo de alterações. csdef para definições de ponto final:
 </NetworkConfiguration>
 ```
 
-## <a name="api-example"></a>Exemplo de API
+## <a name="api-example"></a>Exemplo da API
 
-O exemplo seguinte mostra como reconfigurar o modo de distribuição de Balanceador de carga para um conjunto com balanceamento de carga especificado numa implementação. 
+O exemplo seguinte mostra como reconfigurar o modo de distribuição do equilíbrio de carga para um conjunto determinado equilibrado em carga numa implantação. 
 
-### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>Alterar o modo de distribuição para o conjunto com balanceamento de carga implementado
+### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>Alterar o modo de distribuição para conjunto equilibrado em carga
 
-Utilize o modelo de implementação clássica do Azure para alterar uma configuração de implementação existente. Adicionar o `x-ms-version` cabeçalho e defina o valor para a versão 2014-09-01 ou posterior.
+Utilize o modelo de implementação clássico do Azure para alterar uma configuração de implementação existente. Adicione `x-ms-version` o cabeçalho e detetete o valor para a versão 2014-09-01 ou posterior.
 
 #### <a name="request"></a>Pedir
 
@@ -179,7 +179,7 @@ Utilize o modelo de implementação clássica do Azure para alterar uma configur
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-Como descrito anteriormente, detetete o elemento `LoadBalancerDistribution` para fonteIP para afinidade de dois tuple, sourceIPProtocol para afinidade de três tuple, ou nenhum para nenhuma afinidade (afinidade de cinco tuple).
+Como descrito anteriormente, `LoadBalancerDistribution` deset o elemento para fonte IP para afinidade de dois tuple, sourceIPProtocol para afinidade de três tuple, ou nenhum para nenhuma afinidade (afinidade de cinco tuple).
 
 #### <a name="response"></a>Resposta
 
@@ -193,6 +193,6 @@ Como descrito anteriormente, detetete o elemento `LoadBalancerDistribution` para
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição geral do Balanceador de carga interno do Azure](load-balancer-internal-overview.md)
-* [Introdução ao configurar um balanceador de carga com acesso à internet](quickstart-create-standard-load-balancer-powershell.md)
+* [Visão geral do equilíbrio de carga interna azure](load-balancer-internal-overview.md)
+* [Começar com a configuração de um equilibrador de carga virado para a Internet](quickstart-create-standard-load-balancer-powershell.md)
 * [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

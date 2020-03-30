@@ -6,19 +6,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 03/20/2020
+ms.openlocfilehash: a04b8fee31ffa5280bc8ad0fca35495bb87e0e8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79272087"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064471"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o caderno Jupyter em clusters Apache Spark em Azure HDInsight
 
-Os clusters HDInsight Spark fornecem núcleos que pode usar com o caderno Jupyter na [Apache Spark](https://spark.apache.org/) para testar as suas aplicações. Um núcleo é um programa que executa e interpreta o seu código. Os três núcleos são:
+Os clusters HDInsight Spark fornecem núcleos que pode usar com o caderno Jupyter na [Apache Spark](./apache-spark-overview.md) para testar as suas aplicações. Um núcleo é um programa que executa e interpreta o seu código. Os três núcleos são:
 
 - **PySpark** - para aplicações escritas em Python2.
 - **PySpark3** - para aplicações escritas em Python3.
@@ -53,48 +53,48 @@ Um cluster Apache Spark em HDInsight. Para obter instruções, veja [Criar clust
 
 Aqui estão alguns benefícios de usar os novos núcleos com o caderno Jupyter nos clusters Spark HDInsight.
 
-- **Contextos predefinidos.** Com **pySpark**, **PySpark3**, ou os kernels **Spark,** você não precisa definir os contextos Spark ou Hive explicitamente antes de começar a trabalhar com as suas aplicações. Estes estão disponíveis por defeito. Desses contextos são:
+- **Contextos predefinidos.** Com **pySpark**, **PySpark3**, ou os kernels **Spark,** você não precisa definir os contextos Spark ou Hive explicitamente antes de começar a trabalhar com as suas aplicações. Estes estão disponíveis por defeito. Estes contextos são:
 
   - **sc** - para o contexto spark
   - **sqlContext** - para o contexto da Colmeia
 
-    Por isso, não é preciso fazer declarações como as seguintes para definir os contextos:
+    Por isso, **não** é preciso fazer declarações como as seguintes para definir os contextos:
 
          sc = SparkContext('yarn-client')
          sqlContext = HiveContext(sc)
 
     Em vez disso, pode utilizar diretamente os contextos predefinidos na sua aplicação.
 
-- **Magias celulares.** O kernel PySpark fornece algumas "magias" predefinidas, que são comandos especiais que pode chamar com `%%` (por exemplo, `%%MAGIC` `<args>`). O comando mágico deve ser a primeira palavra numa célula de código e permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na cela. Adicionar qualquer coisa antes da magia, até comentários, causa um erro.     Para mais informações sobre magia, consulte [aqui.](https://ipython.readthedocs.org/en/stable/interactive/magics.html)
+- **Magias celulares.** O kernel PySpark fornece algumas "magias" predefinidas, que `%%` são comandos especiais que pode ligar (por exemplo, `%%MAGIC` `<args>`). O comando mágico deve ser a primeira palavra numa célula de código e permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na cela. Adicionar qualquer coisa antes da magia, até comentários, causa um erro.     Para mais informações sobre magia, consulte [aqui.](https://ipython.readthedocs.org/en/stable/interactive/magics.html)
 
     A tabela seguinte lista as diferentes magias disponíveis através dos núcleos.
 
    | Magia | Exemplo | Descrição |
    | --- | --- | --- |
-   | ajuda |`%%help` |Gera uma tabela de todas as magias disponíveis com exemplo e descrição |
-   | info |`%%info` |Informações da sessão de saídas para o atual ponto final da Livy |
+   | Ajuda |`%%help` |Gera uma tabela de todas as magias disponíveis com exemplo e descrição |
+   | informações |`%%info` |Informações da sessão de saídas para o atual ponto final da Livy |
    | configurar |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Refigura os parâmetros para a criação de uma sessão. A bandeira de força (-f) é obrigatória se já tiver sido criada uma sessão, o que garante que a sessão seja retirada e recriada. Veja o [Post/Sessões da Livy Request Body](https://github.com/cloudera/livy#request-body) para uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma corda JSON e devem estar na linha seguinte após a magia, como mostra a coluna de exemplo. |
-   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o kontext sqlContext. Se o parâmetro `-o` for aprovado, o resultado da consulta é persistente no contexto %%local python como um quadro de dados [pandas.](https://pandas.pydata.org/) |
-   | local |`%%local`<br>`a=1` |Todo o código nas linhas seguintes é executado localmente. O código deve ser válido, mesmo independentemente do núcleo que está a usar. Assim, mesmo que tenha selecionado os kernels **PySpark3** ou **Spark** enquanto cria o caderno, se utilizar a magia `%%local` numa célula, essa célula só deve ter um código Python2 válido. |
-   | logs |`%%logs` |Produz os registos para a atual sessão da Livy. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta de Colmeia contra o sqlContext. Se `-o` o parâmetro for aprovado, o resultado da consulta é persistente no contexto %%local python como um quadro de dados [Pandas.](https://pandas.pydata.org/) |
+   | local |`%%local`<br>`a=1` |Todo o código nas linhas seguintes é executado localmente. O código deve ser válido, mesmo independentemente do núcleo que está a usar. Por isso, mesmo que tenha selecionado os kernels **PySpark3** ou `%%local` **Spark** enquanto criao o caderno, se utilizar a magia numa célula, essa célula só deve ter um código Python2 válido. |
+   | registos |`%%logs` |Produz os registos para a atual sessão da Livy. |
    | delete |`%%delete -f -s <session number>` |Elimina uma sessão específica do atual ponto final da Livy. Não é possível apagar a sessão que é iniciada para o próprio núcleo. |
    | limpeza |`%%cleanup -f` |Elimina todas as sessões para o atual ponto final da Livy, incluindo a sessão deste caderno. A bandeira da força f é obrigatória. |
 
    > [!NOTE]  
-   > Além das magias adicionadas pelo kernel PySpark, você também pode usar as [magias IPython incorporadas](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), incluindo `%%sh`. Pode usar a magia `%%sh` para executar scripts e bloco de código no nó do cluster.
+   > Além das magias adicionadas pelo kernel PySpark, também pode usar as `%%sh` [magias IPython incorporadas](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), incluindo . Podeusar a `%%sh` magia para executar scripts e bloco de código no nó do cluster.
 
 - **Visualização automática**. O kernel Pyspark visualiza automaticamente a saída de consultas de Hive e SQL. Você pode escolher entre vários tipos diferentes de visualizações, incluindo Tabela, Torta, Linha, Área, Bar.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parâmetros suportados com a magia %%sql
 
-A magia `%%sql` suporta diferentes parâmetros que pode usar para controlar o tipo de saída que recebe quando executa consultas. A tabela seguinte lista a saída.
+A `%%sql` magia suporta diferentes parâmetros que pode usar para controlar o tipo de saída que recebe quando executa consultas. A tabela seguinte lista a saída.
 
 | Parâmetro | Exemplo | Descrição |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Utilize este parâmetro para persistir o resultado da consulta, no contexto de Python local%%, como um quadro de dados [pandas.](https://pandas.pydata.org/) O nome da variável dataframe é o nome variável que especifica. |
-| -q |`-q` |Use isto para desligar as visualizações para a célula. Se não quiser visualizar automaticamente o conteúdo de uma célula e apenas quiser capturá-lo como um quadro de dados, use `-q -o <VARIABLE>`. Se quiser desativar visualizações sem captar os resultados (por exemplo, para executar uma consulta SQL, como uma declaração de `CREATE TABLE`), utilize `-q` sem especificar um argumento `-o`. |
-| -m |`-m <METHOD>` |Quando o **MÉTODO** for **recolhido** ou **amostra** (a predefinição é **tomada).** Se o método for **recolhido,** o núcleo recolhe elementos da parte superior do conjunto de dados de resultados especificado por MAXROWS (descrito mais tarde nesta tabela). Se o método for **amostra**, o núcleo amostra aleatoriamente elementos do conjunto de dados de acordo com `-r` parâmetro, descrito seletivamente nesta tabela. |
-| -r |`-r <FRACTION>` |Aqui a **FRAÉFica** é um número de ponto flutuante entre 0,0 e 1,0. Se o método da amostra para a consulta SQL for `sample`, então o núcleo amostra aleatoriamente a fração especificada dos elementos do resultado definido para si. Por exemplo, se fizer uma consulta SQL com os argumentos `-m sample -r 0.01`, então 1% das linhas de resultados são amostradas aleatoriamente. |
+| -q |`-q` |Use isto para desligar as visualizações para a célula. Se não quiser visualizar automaticamente o conteúdo de uma célula e apenas quiser `-q -o <VARIABLE>`capturá-lo como um quadro de dados, então use . Se quiser desativar as visualizações sem captar os resultados (por exemplo, `CREATE TABLE` para executar `-q` uma consulta `-o` SQL, como uma declaração), use sem especificar um argumento. |
+| -m |`-m <METHOD>` |Quando o **MÉTODO** for **recolhido** ou **amostra** (a predefinição é **tomada).** Se o método for **recolhido,** o núcleo recolhe elementos da parte superior do conjunto de dados de resultados especificado por MAXROWS (descrito mais tarde nesta tabela). Se o método for **amostra**, o núcleo amostra aleatoriamente elementos do conjunto de dados de acordo com o `-r` parâmetro, descrito seletivamente nesta tabela. |
+| -r |`-r <FRACTION>` |Aqui a **FRAÉFica** é um número de ponto flutuante entre 0,0 e 1,0. Se o método da amostra para `sample`a consulta SQL for, então o núcleo amostra aleatoriamente a fração especificada dos elementos do resultado definido para si. Por exemplo, se fizer uma consulta SQL `-m sample -r 0.01`com os argumentos, então 1% das linhas de resultados são amostradas aleatoriamente. |
 | -n |`-n <MAXROWS>` |**MAXROWS** é um valor inteiro. O núcleo limita o número de linhas de saída a **MAXROWS**. Se **maxrows** é um número negativo como **-1**, então o número de linhas no conjunto de resultados não é limitado. |
 
 **Exemplo:**
@@ -106,8 +106,8 @@ A declaração acima faz o seguinte:
 
 - Seleciona todos os registos a partir de **colmeias.**
 - Porque usamos -q, desliga a auto-visualização.
-- Porque usamos `-m sample -r 0.1 -n 500` amostras aleatórias de 10% das linhas na colmeia e limita o tamanho do resultado definido para 500 linhas.
-- Finalmente, porque usámos `-o query2` também guarda a saída num quadro de dados chamado **consulta2**.
+- Porque o `-m sample -r 0.1 -n 500` usamos aleatoriamente amostras de 10% das linhas na colmeia e limita o tamanho do resultado definido para 500 linhas.
+- Finalmente, porque `-o query2` a usamos também guarda a saída num quadro de dados chamado **consulta2**.
 
 ## <a name="considerations-while-using-the-new-kernels"></a>Considerações ao usar os novos núcleos
 
@@ -115,7 +115,7 @@ Qualquer que seja o núcleo que usas, deixar os cadernos a funcionar consome os 
 
 ## <a name="where-are-the-notebooks-stored"></a>Onde estão guardados os cadernos?
 
-Se o seu cluster utilizar o Armazenamento Azure como conta de armazenamento predefinido, os cadernos Jupyter são guardados para a conta de armazenamento sob a pasta **/HdiNotebooks.**  Os cadernos, ficheiros de texto e pastas que cria a partir de jupyter são acessíveis a partir da conta de armazenamento.  Por exemplo, se utilizar o Jupyter para criar uma **pasta myfolder** e um **myfolder/mynotebook.ipynb,** pode aceder a esse caderno no `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro da conta de armazenamento.  O inverso também é verdade, isto é, se você enviar um caderno diretamente para a sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, o caderno também é visível de Jupyter.  Os cadernos permanecem na conta de armazenamento mesmo depois de o cluster ser eliminado.
+Se o seu cluster utilizar o Armazenamento Azure como conta de armazenamento predefinido, os cadernos Jupyter são guardados para a conta de armazenamento sob a pasta **/HdiNotebooks.**  Os cadernos, ficheiros de texto e pastas que cria a partir de jupyter são acessíveis a partir da conta de armazenamento.  Por exemplo, se utilizar o Jupyter para criar uma **pasta myfolder** e um **myfolder/mynotebook.ipynb,** pode aceder a esse caderno dentro `/HdiNotebooks/myfolder/mynotebook.ipynb` da conta de armazenamento.  O inverso também é verdade, isto é, se fizer o `/HdiNotebooks/mynotebook1.ipynb`upload de um caderno diretamente para a sua conta de armazenamento em , o caderno também é visível de Jupyter.  Os cadernos permanecem na conta de armazenamento mesmo depois de o cluster ser eliminado.
 
 > [!NOTE]  
 > Os clusters HDInsight com o Armazenamento do Lago Azure Data, uma vez que o armazenamento predefinido não armazena cadernos em armazenamento associado.
@@ -124,9 +124,9 @@ A forma como os cadernos são guardados na conta de armazenamento é compatível
 
     hdfs dfs -ls /HdiNotebooks                            # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
     hdfs dfs –copyToLocal /HdiNotebooks                   # Download the contents of the HdiNotebooks folder
-    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
+    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
 
-Independentemente de o cluster utilizar o Armazenamento Azure ou o Armazenamento de Lagos de Dados Azure como conta de armazenamento padrão, os cadernos também são guardados no headnode do cluster em `/var/lib/jupyter`.
+Independentemente de o cluster utilizar o Armazenamento Azure ou o Armazenamento de Lagos de Dados Azure `/var/lib/jupyter`como conta de armazenamento padrão, os cadernos também são guardados no headnode do cluster em .
 
 ## <a name="supported-browser"></a>Browser suportado
 
@@ -136,7 +136,7 @@ Os cadernos jupyter nos clusters Spark HDInsight são suportados apenas no Googl
 
 Os novos núcleos estão em fase de evolução e irão amadurecer com o tempo. Isto também pode significar que as APIs podem mudar à medida que estes núcleos amadurecem. Gostaríamos de ter qualquer feedback que tenha enquanto usa estes novos núcleos. Isto é útil para moldar a libertação final destes núcleos. Pode deixar os seus comentários/feedback na secção **Feedback** na parte inferior deste artigo.
 
-## <a name="seealso"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

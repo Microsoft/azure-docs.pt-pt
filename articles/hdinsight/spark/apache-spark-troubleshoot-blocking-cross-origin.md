@@ -1,6 +1,6 @@
 ---
-title: Erro 404 Jupyter-"bloqueando a API de origem cruzada"-Azure HDInsight
-description: Erro do Jupyter Server 404 "não encontrado" devido a "bloqueio da API de origem cruzada" no Azure HDInsight
+title: Erro Jupyter 404 - "Blocking Cross Origin API" - Azure HDInsight
+description: Erro do servidor Jupyter 404 "Não Encontrado" devido ao "Blocking Cross Origin API" no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,19 +8,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: e241657186582955d21981f7dfe18856724aa692
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894420"
 ---
-# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Cenário: erro do Jupyter Server 404 "não encontrado" devido a "bloquear API de origem cruzada" no Azure HDInsight
+# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Cenário: Erro do servidor Jupyter 404 "Não Encontrado" devido ao "Blocking Cross Origin API" no Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao usar componentes Apache Spark em clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Ao acessar o serviço Jupyter no HDInsight, você verá uma caixa de erro dizendo "não encontrado". Se você verificar os logs do Jupyter, verá algo assim:
+Ao aceder ao serviço Jupyter no HDInsight, vê uma caixa de erro a dizer "Não Encontrada". Se verificar os troncos de Jupyter, verá algo assim:
 
 ```log
 [W 2018-08-21 17:43:33.352 NotebookApp] 404 PUT /api/contents/PySpark/notebook.ipynb (10.16.0.144) 4504.03ms referer=https://pnhr01hdi-corpdir.msappproxy.net/jupyter/notebooks/PySpark/notebook.ipynb
@@ -28,39 +28,39 @@ Blocking Cross Origin API request.
 Origin: https://xxx.xxx.xxx, Host: pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.internal.cloudapp.net:8001
 ```
 
-Você também pode ver um endereço IP no campo "origem" no log do Jupyter.
+Pode também ver um endereço IP no campo "Origem" no diário de jupyter.
 
 ## <a name="cause"></a>Causa
 
-Esse erro pode ser causado por algumas coisas:
+Este erro pode ser causado por algumas coisas:
 
-- Se você tiver configurado regras de NSG (grupo de segurança de rede) para restringir o acesso ao cluster. Restringir o acesso com regras NSG ainda permitirá que você acesse diretamente o Apache Ambari e outros serviços usando o endereço IP em vez do nome do cluster. No entanto, ao acessar o Jupyter, você pode ver um erro 404 "não encontrado".
+- Se tiver configurado as regras do Network Security Group (NSG) para restringir o acesso ao cluster. Restringir o acesso com as regras do NSG ainda lhe permitirá aceder diretamente a Apache Ambari e outros serviços usando o endereço IP em vez do nome do cluster. No entanto, ao aceder ao Jupyter, pode ver-se um erro 404 "Não Encontrado".
 
-- Se você tiver dado ao seu gateway do HDInsight um nome DNS personalizado diferente do `xxx.azurehdinsight.net`padrão.
+- Se tiver dado ao seu portal HDInsight um `xxx.azurehdinsight.net`nome DNS personalizado que não seja o padrão .
 
 ## <a name="resolution"></a>Resolução
 
-1. Modifique os arquivos jupyter.py nestes dois locais:
+1. Modifique os ficheiros jupyter.py nestes dois locais:
 
     ```bash
     /var/lib/ambari-server/resources/common-services/JUPYTER/1.0.0/package/scripts/jupyter.py
     /var/lib/ambari-agent/cache/common-services/JUPYTER/1.0.0/package/scripts/jupyter.py
     ```
 
-1. Localize a linha que diz: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` e altere-a para: `NotebookApp.allow_origin='\"*\"'`.
+1. Encontre a linha `NotebookApp.allow_origin='\"https://{2}.{3}\"'` que diz: `NotebookApp.allow_origin='\"*\"'`E mude-a para: .
 
 1. Reinicie o serviço Jupyter de Ambari.
 
-1. Digitar `ps aux | grep jupyter` no prompt de comando deve mostrar que ele permite que qualquer URL se conecte a ele.
+1. A `ps aux | grep jupyter` dactilografia no pedido de comando deve mostrar que permite que qualquer URL se conectem a ele.
 
-Isso é menos seguro do que a configuração que já tínhamos em vigor. Mas é presumido que o acesso ao cluster seja restrito e que um de fora tenha permissão para se conectar ao cluster, pois temos NSG em vigor.
+Este é um lugar menos seguro do que o cenário que já tínhamos no lugar. Mas presume-se que o acesso ao cluster é restrito e que um de fora é permitido ligar-se ao cluster como temos NSG no lugar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, por favor reveja [como criar um pedido de apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

@@ -1,24 +1,24 @@
 ---
-title: Início rápido-criar um blob com Gerenciador de Armazenamento do Azure
+title: Quickstart - Crie uma bolha com o Azure Storage Explorer
 titleSuffix: Azure Storage
-description: Neste guia de início rápido, você aprende a usar Gerenciador de Armazenamento do Azure para criar um contêiner e um blob, baixar o blob em seu computador local e exibir todos os BLOBs no contêiner.
+description: Neste arranque rápido, aprende-se a usar o Azure Storage Explorer para criar um contentor e uma bolha, descarregue a bolha para o seu computador local e veja todas as bolhas no recipiente.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f19152b5b8bc569fa07109b6135fa85b9b55bff1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 04530844316610bb8a97e8a299b5fb41ebf49955
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892469"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061378"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Início rápido: usar Gerenciador de Armazenamento do Azure para criar um blob
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Quickstart: Use Azure Storage Explorer para criar uma bolha
 
-Neste início rápido, fica a saber como utilizar o[Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para criar um contentor e um blob. Em seguida, vai aprender como transferir o blob para o computador local e como visualizar todos os blobs num contentor. Também vai aprender a criar um instantâneo de um blob, gerir políticas de acesso do contentor e a criar uma assinatura de acesso partilhado.
+Neste arranque rápido, aprende-se a usar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para criar um recipiente e uma bolha. Em seguida, vai aprender como transferir o blob para o computador local e como visualizar todos os blobs num contentor. Também vai aprender a criar um instantâneo de um blob, gerir políticas de acesso do contentor e a criar uma assinatura de acesso partilhado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,13 +30,13 @@ Este início rápido requer que instale o Explorador de Armazenamento do Azure. 
 
 Na primeira execução, é mostrada a janela **Explorador de Armazenamento do Microsoft Azure – Ligar**. O Explorador de Armazenamento proporciona várias formas de ligar a contas de armazenamento. A tabela seguinte lista as diferentes formas de ligação:
 
-|Tarefa|Finalidade|
+|Tarefa|Objetivo|
 |---|---|
-|Adicionar uma Conta do Azure | Redireciona você para a página de entrada da sua organização para autenticar você no Azure. |
+|Adicionar uma Conta do Azure | Redireciona-o para a página de inscrição da sua organização para o autenticar ao Azure. |
 |Utilizar uma cadeia de ligação ou um URI de assinatura de acesso partilhado | Pode ser utilizado para aceder diretamente a um contentor ou conta de armazenamento com um token SAS ou uma cadeia de ligação partilhada. |
 |Utilizar o nome e a chave de uma conta de armazenamento| Utilize o nome e a chave da conta de armazenamento para ligar ao armazenamento do Azure.|
 
-Selecione **Adicionar uma conta do Azure** e clique em **entrar..** . Siga os prompts na tela para entrar em sua conta do Azure.
+Selecione **Adicionar uma Conta Azure** e clique **em Iniciar sessão..**. Siga as indicações no ecrã para iniciar sessão na sua conta Azure.
 
 ![Explorador de Armazenamento do Microsoft Azure – Janela Ligar](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -48,7 +48,7 @@ Quando a ligação for concluída, o Explorador de Armazenamento do Azure é car
 
 Os Blobs são sempre carregados para um contentor. Isto permite organizar grupos de blobs, como organiza os ficheiros em pastas no seu computador.
 
-Para criar um contentor, expanda a conta de armazenamento que criou no passo seguinte. Selecione **Contentores de Blobs**, clique com o botão direito do rato e selecione **Criar Contentor de Blobs**. Introduza o nome do contentor de blobs. Consulte a seção [criar um contêiner](storage-quickstart-blobs-dotnet.md#create-a-container) para obter uma lista de regras e restrições sobre como nomear contêineres de BLOB. Quando terminar, prima **Enter** para criar o contentor de blobs. Depois de o contentor de blobs ser criado com êxito, será apresentado na pasta **Contentores de Blobs** da conta de armazenamento selecionada.
+Para criar um contentor, expanda a conta de armazenamento que criou no passo seguinte. Selecione **Contentores de Blobs**, clique com o botão direito do rato e selecione **Criar Contentor de Blobs**. Introduza o nome do contentor de blobs. Consulte a secção Criar uma secção de [contentores](storage-quickstart-blobs-dotnet.md#create-a-container) para obter uma lista de regras e restrições na nomeação de recipientes blob. Quando terminar, prima **Enter** para criar o contentor de blobs. Depois de o contentor de blobs ser criado com êxito, será apresentado na pasta **Contentores de Blobs** da conta de armazenamento selecionada.
 
 ## <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contentor
 
@@ -58,9 +58,9 @@ No friso do contentor, selecione **Carregar**. Esta operação dá-lhe a opção
 
 Escolha os ficheiros ou pasta a carregar. Selecione o **tipo de blob**. As opções aceitáveis são **Anexar**, **Página** ou **Blob de blocos**.
 
-Se carregar um ficheiro .vhd ou .vhdx, selecione **Carregar ficheiros .vhd/.vhdx como blobs de páginas (recomendado)** .
+Se carregar um ficheiro .vhd ou .vhdx, selecione **Carregar ficheiros .vhd/.vhdx como blobs de páginas (recomendado)**.
 
-No campo **Carregar para pasta (opcional)** , selecione o nome de uma pasta para armazenar os ficheiros ou pastas numa pasta no contentor. Se não for escolhida nenhuma pasta, os ficheiros são carregados diretamente no contentor.
+No campo **Carregar para pasta (opcional)**, selecione o nome de uma pasta para armazenar os ficheiros ou pastas numa pasta no contentor. Se não for escolhida nenhuma pasta, os ficheiros são carregados diretamente no contentor.
 
 ![Explorador de Armazenamento do Microsoft Azure – Carregar um blob](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
 
@@ -84,13 +84,13 @@ O Explorador de Armazenamento do Azure permite criar e gerir [instantâneos](sto
 
 ## <a name="manage-access-policies"></a>Gerir políticas de acesso
 
-O Explorador de Armazenamento permite gerir políticas de acesso para contentores na respetiva interface de utilizador. Existem dois tipos de políticas de acesso seguro (SAS), nível de serviço e nível de conta. A SAS de nível de conta destina-se à conta de armazenamento e pode aplicar-se a vários serviços e recursos. A SAS de nível de serviço é definida num recurso de um serviço específico. Para gerar uma SAS de nível de serviço, clique com o botão direito do mouse em qualquer contêiner e selecione **gerenciar políticas de acesso...** . Para gerar uma SAS de nível de conta, clique com o botão direito do mouse na conta de armazenamento.
+O Explorador de Armazenamento permite gerir políticas de acesso para contentores na respetiva interface de utilizador. Existem dois tipos de políticas de acesso seguro (SAS), nível de serviço e nível de conta. A SAS de nível de conta destina-se à conta de armazenamento e pode aplicar-se a vários serviços e recursos. A SAS de nível de serviço é definida num recurso de um serviço específico. Para gerar um Nível de serviço SAS, clique à direita em qualquer recipiente e selecione **Manage Access Policies...**. Para gerar um Nível de conta SAS, clique à direita na conta de armazenamento.
 
 Selecione **Adicionar** para adicionar uma nova política de acesso e definir as permissões para a política. Quando terminar, selecione **Guardar** para guardar a política de acesso. Esta política está agora disponível para utilização quando configurar uma Assinatura de Acesso Partilhado.
 
 ## <a name="work-with-shared-access-signatures"></a>Utilizar Assinaturas de Acesso Partilhado
 
-As Assinaturas de Acesso Partilhado (SAS) podem ser obtidas através do Explorador de Armazenamento. Clique com o botão direito do mouse em uma conta de armazenamento, contêiner ou BLOB e escolha **obter assinatura de acesso compartilhado...** . Escolha a hora de início e expiração e as permissões para a URL de SAS e selecione **criar**. O URL completo com a cadeia de consulta, bem como a cadeia de consulta por si só, são fornecidas e podem ser copiadas a partir do ecrã seguinte.
+As Assinaturas de Acesso Partilhado (SAS) podem ser obtidas através do Explorador de Armazenamento. Clique direito numa conta de armazenamento, contentor ou bolha e escolha Obter Assinatura de **Acesso Partilhado...**. Escolha o tempo de início e expiração e permissões para o URL SAS e selecione **Criar**. O URL completo com a cadeia de consulta, bem como a cadeia de consulta por si só, são fornecidas e podem ser copiadas a partir do ecrã seguinte.
 
 ![Explorador de Armazenamento do Microsoft Azure – Listar os blobs num contentor](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 

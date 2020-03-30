@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77016515"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Criar soluções de administração pública com o Azure IoT Central
@@ -29,10 +29,10 @@ A aplicação de Monitorização da Qualidade da Água é um modelo de aplicaç�
 ![Modelo de aplicativo de monitorização da qualidade da água](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
 O modelo de aplicação consiste em:
-* Painéis de exemplo de operador
+* Tabliers do operador de amostras
 * Modelos de dispositivo de monitor de qualidade da água da amostra
 * Dispositivos de monitorização simulados de qualidade da água
-* Regras e trabalhos pré-configurados
+* Regras e empregos pré-configurados
 * Marca usando rotulagem branca 
 
 Inicie-se com o tutorial de aplicação de monitorização da [qualidade da água.](./tutorial-water-quality-monitoring.md)
@@ -48,10 +48,10 @@ A aplicação de monitorização do consumo de água é um modelo de aplicação
   ![Modelo de aplicativo de monitorização do consumo de água](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
 O modelo de aplicação de monitorização do consumo de água consiste em pré-configurado:
-* Painéis de exemplo de operador
+* Tabliers do operador de amostras
 * Modelos de dispositivo de monitor de qualidade da água da amostra
 * Dispositivos de monitorização simulados de qualidade da água
-* Regras e trabalhos pré-configurados
+* Regras e empregos pré-configurados
 * Marca usando rotulagem branca 
 
  Inicie-se com o tutorial de aplicação de monitorização do consumo de [água.](./tutorial-water-consumption-monitoring.md)
@@ -64,10 +64,10 @@ A aplicação Connected Waste Management é um modelo de aplicação IoT Central
 
 
 O modelo de aplicação de gestão de resíduos conectados consiste em pré-configurado:
-* Painéis de exemplo de operador
+* Tabliers do operador de amostras
 * Modelos de dispositivos de resíduos ligados à amostra
 * Dispositivos de resíduos ligados simulados
-* Regras e trabalhos pré-configurados
+* Regras e empregos pré-configurados
 * Marca usando rotulagem branca 
 
 Inicie-se com o tutorial de aplicação de [gestão de resíduos conectados.](./tutorial-connected-waste-management.md)

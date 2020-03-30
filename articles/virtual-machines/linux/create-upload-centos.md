@@ -1,19 +1,19 @@
 ---
 title: Crie e carregue um Linux VHD baseado no CentOS
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo Linux baseado no CentOS.
-author: mimckitt
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/25/2019
-ms.author: mimckitt
-ms.openlocfilehash: 84dfb3a24d3b3440cb929fa6c7e7f70983051a72
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.author: guybo
+ms.openlocfilehash: 8899249fd284f69fa26bab8cd70aaf6a67fbb83c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969513"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066788"
 ---
-# <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Prepare uma máquina virtual baseada em CentOS para o Azure
+# <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Prepare a CentOS-based virtual machine for Azure (Preparar uma máquina virtual baseada em CentOS para o Azure)
 
 Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo Linux baseado no CentOS.
 
@@ -31,7 +31,7 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
 * O formato VHDX não é suportado em Azure, apenas **VHD fixo**.  Pode converter o disco em formato VHD utilizando o Hyper-V Manager ou o cmdlet convert-vhd. Se estiver a utilizar o VirtualBox, isto significa selecionar o **tamanho Fixo** em oposição ao padrão dinamicamente atribuído ao criar o disco.
 * Ao instalar o sistema *Linux,* recomenda-se que utilize divisórias padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isto evitará conflitos de nome lvm com VMs clonados, especialmente se um disco de SO alguma vez precisar de ser ligado a outro VM idêntico para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser utilizados em discos de dados.
 * É necessário suporte para a montagem de sistemas de ficheiros UDF. No início do Azure, a configuração de provisionamento é passada para o Linux VM através de meios formados uDF que está ligado ao hóspede. O agente Azure Linux deve ser capaz de montar o sistema de ficheiros UDF para ler a sua configuração e fornecer o VM.
-* As versões de kernel Linux abaixo de 2.6.37 não suportam o NUMA em Hyper-V com tamanhos VM maiores. Esta questão tem principal impacto nas distribuições mais antigas utilizando o kernel 2.6.32 do Chapéu Vermelho a montante, e foi fixada em RHEL 6.6 (kernel-2.6.32-504). Os sistemas que executam núcleos personalizados com mais de 2,6.37, ou núcleos à base de RHEL com idade superior a 2,6.32-504, devem definir o parâmetro de arranque `numa=off` na linha de comando kernel em grub.conf. Para mais informações consulte Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* As versões de kernel Linux abaixo de 2.6.37 não suportam o NUMA em Hyper-V com tamanhos VM maiores. Esta questão tem principal impacto nas distribuições mais antigas utilizando o kernel 2.6.32 do Chapéu Vermelho a montante, e foi fixada em RHEL 6.6 (kernel-2.6.32-504). Os sistemas que executam núcleos personalizados com mais de 2,6.37, ou núcleos à base de RHEL com idade superior a 2.6.32-504, devem definir o parâmetro `numa=off` de arranque na linha de comando do núcleo em grub.conf. Para mais informações consulte Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Não configure uma divisória de troca no disco OS. O agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporários.  Mais informações sobre isso podem ser encontradas nos degraus abaixo.
 * Todos os VHDs em Azure devem ter um tamanho virtual alinhado a 1MB. Ao converter de um disco cru para VHD, deve certificar-se de que o tamanho do disco bruto é um múltiplo de 1MB antes da conversão. Consulte as Notas de [Instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
@@ -47,14 +47,14 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
     sudo rpm -e --nodeps NetworkManager
     ```
 
-4. Criar ou editar o ficheiro `/etc/sysconfig/network` e adicionar o seguinte texto:
+4. Criar ou editar `/etc/sysconfig/network` o ficheiro e adicionar o seguinte texto:
 
     ```console
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-5. Criar ou editar o ficheiro `/etc/sysconfig/network-scripts/ifcfg-eth0` e adicionar o seguinte texto:
+5. Criar ou editar `/etc/sysconfig/network-scripts/ifcfg-eth0` o ficheiro e adicionar o seguinte texto:
 
     ```console
     DEVICE=eth0
@@ -79,7 +79,7 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
     sudo chkconfig network on
     ```
 
-8. Se quiser utilizar os espelhos OpenLogic que estão alojados nos datacenters do Azure, substitua o ficheiro `/etc/yum.repos.d/CentOS-Base.repo` com os seguintes repositórios.  Isto também adicionará o repositório **[openlogic]** que inclui pacotes adicionais como o agente Azure Linux:
+8. Se quiser utilizar os espelhos OpenLogic que estão alojados nos datacenters do Azure, substitua o `/etc/yum.repos.d/CentOS-Base.repo` ficheiro com os seguintes repositórios.  Isto também adicionará o repositório **[openlogic]** que inclui pacotes adicionais como o agente Azure Linux:
 
    ```console
    [openlogic]
@@ -131,7 +131,7 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
    ```
 
     > [!Note]
-    > O resto deste guia assumirá que está a utilizar pelo menos o `[openlogic]` repo, que será utilizado para instalar o agente Azure Linux abaixo.
+    > O resto deste guia assumirá que `[openlogic]` está a utilizar pelo menos o repo, que será utilizado para instalar o agente Azure Linux abaixo.
 
 9. Adicione a seguinte linha a /etc/yum.conf:
 
@@ -176,7 +176,7 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
 
     O pacote WALinuxAgent removerá os pacotes NetworkManager e NetworkManager-gnono se não forem já removidos como descrito no passo 3.
 
-13. Modifique a linha de arranque do núcleo na sua configuração de larva para incluir parâmetros adicionais de kernel para o Azure. Para tal, abra `/boot/grub/menu.lst` num editor de texto e certifique-se de que o núcleo predefinido inclui os seguintes parâmetros:
+13. Modifique a linha de arranque do núcleo na sua configuração de larva para incluir parâmetros adicionais de kernel para o Azure. Para tal, `/boot/grub/menu.lst` abra num editor de texto e certifique-se de que o núcleo predefinido inclui os seguintes parâmetros:
 
     ```console
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
@@ -190,16 +190,16 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
     rhgb quiet crashkernel=auto
     ```
 
-    A bota gráfica e tranquila não é útil num ambiente de nuvem onde queremos que todos os troncos sejam enviados para a porta de série.  A opção `crashkernel` pode ser deixada configurada se desejar, mas note que este parâmetro reduzirá a quantidade de memória disponível no VM em 128MB ou mais, o que pode ser problemático nos tamanhos de VM menores.
+    A bota gráfica e tranquila não é útil num ambiente de nuvem onde queremos que todos os troncos sejam enviados para a porta de série.  A `crashkernel` opção pode ser deixada configurada se desejar, mas note que este parâmetro reduzirá a quantidade de memória disponível no VM em 128MB ou mais, o que pode ser problemático nos tamanhos de VM menores.
 
     > [!Important]
-    > CentOS 6.5 e anteriormente devem também definir o parâmetro de kernel `numa=off`. Ver Chapéu Vermelho [KB 436883](https://access.redhat.com/solutions/436883).
+    > CentOS 6.5 e anteriormente devem também `numa=off`definir o parâmetro do núcleo . Ver Chapéu Vermelho [KB 436883](https://access.redhat.com/solutions/436883).
 
 14. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no momento do arranque.  Este é geralmente o padrão.
 
 15. Não crie espaço de troca no disco OS.
 
-    O Agente Azure Linux pode configurar automaticamente o espaço de troca utilizando o disco de recursos locais que está ligado ao VM após o fornecimento no Azure. Note que o disco de recursos locais é um disco *temporário,* e pode ser esvaziado quando o VM é desprovisionado. Depois de instalar o Agente Azure Linux (ver passo anterior), modifique os seguintes parâmetros em `/etc/waagent.conf` adequadamente:
+    O Agente Azure Linux pode configurar automaticamente o espaço de troca utilizando o disco de recursos locais que está ligado ao VM após o fornecimento no Azure. Note que o disco de recursos locais é um disco *temporário,* e pode ser esvaziado quando o VM é desprovisionado. Depois de instalar o Agente Azure Linux (ver passo `/etc/waagent.conf` anterior), modifique adequadamente os seguintes parâmetros:
 
     ```console
     ResourceDisk.Format=y
@@ -217,7 +217,7 @@ Este artigo pressupõe que já instalou um sistema operativo Linux CentOS (ou de
     logout
     ```
 
-17. Clique em **Ação -> Desligue** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
+17. Clique em **Ação -> desligar** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
 
 
 
@@ -237,14 +237,14 @@ Preparar uma máquina virtual CentOS 7 para o Azure é muito semelhante ao CentO
 
 2. Clique em **Ligar** para abrir uma janela de consola para a máquina virtual.
 
-3. Criar ou editar o ficheiro `/etc/sysconfig/network` e adicionar o seguinte texto:
+3. Criar ou editar `/etc/sysconfig/network` o ficheiro e adicionar o seguinte texto:
 
     ```console
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-4. Criar ou editar o ficheiro `/etc/sysconfig/network-scripts/ifcfg-eth0` e adicionar o seguinte texto:
+4. Criar ou editar `/etc/sysconfig/network-scripts/ifcfg-eth0` o ficheiro e adicionar o seguinte texto:
 
     ```console
     DEVICE=eth0
@@ -263,7 +263,7 @@ Preparar uma máquina virtual CentOS 7 para o Azure é muito semelhante ao CentO
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     ```
 
-6. Se quiser utilizar os espelhos OpenLogic que estão alojados nos datacenters do Azure, substitua o ficheiro `/etc/yum.repos.d/CentOS-Base.repo` com os seguintes repositórios.  Isto também irá adicionar o repositório **[openlogic]** que inclui pacotes para o agente Azure Linux:
+6. Se quiser utilizar os espelhos OpenLogic que estão alojados nos datacenters do Azure, substitua o `/etc/yum.repos.d/CentOS-Base.repo` ficheiro com os seguintes repositórios.  Isto também irá adicionar o repositório **[openlogic]** que inclui pacotes para o agente Azure Linux:
 
    ```console
    [openlogic]
@@ -306,7 +306,7 @@ Preparar uma máquina virtual CentOS 7 para o Azure é muito semelhante ao CentO
    ```
     
    > [!Note]
-   > O resto deste guia assumirá que está a utilizar pelo menos o `[openlogic]` repo, que será utilizado para instalar o agente Azure Linux abaixo.
+   > O resto deste guia assumirá que `[openlogic]` está a utilizar pelo menos o repo, que será utilizado para instalar o agente Azure Linux abaixo.
 
 7. Executar o seguinte comando para limpar os metadados yum atuais e instalar quaisquer atualizações:
 
@@ -322,7 +322,7 @@ Preparar uma máquina virtual CentOS 7 para o Azure é muito semelhante ao CentO
 
     Um reboot talvez necessário depois de dirigir este comando.
 
-8. Modifique a linha de arranque do núcleo na sua configuração de larva para incluir parâmetros adicionais de kernel para o Azure. Para isso, abra `/etc/default/grub` num editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`, por exemplo:
+8. Modifique a linha de arranque do núcleo na sua configuração de larva para incluir parâmetros adicionais de kernel para o Azure. Para isso, `/etc/default/grub` abra num editor de `GRUB_CMDLINE_LINUX` texto e edite o parâmetro, por exemplo:
 
     ```console
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -334,9 +334,9 @@ Preparar uma máquina virtual CentOS 7 para o Azure é muito semelhante ao CentO
     rhgb quiet crashkernel=auto
     ```
 
-    A bota gráfica e tranquila não é útil num ambiente de nuvem onde queremos que todos os troncos sejam enviados para a porta de série. A opção `crashkernel` pode ser deixada configurada se desejar, mas note que este parâmetro reduzirá a quantidade de memória disponível no VM em 128MB ou mais, o que pode ser problemático nos tamanhos de VM menores.
+    A bota gráfica e tranquila não é útil num ambiente de nuvem onde queremos que todos os troncos sejam enviados para a porta de série. A `crashkernel` opção pode ser deixada configurada se desejar, mas note que este parâmetro reduzirá a quantidade de memória disponível no VM em 128MB ou mais, o que pode ser problemático nos tamanhos de VM menores.
 
-9. Uma vez terminada a edição `/etc/default/grub` por acima, execute o seguinte comando para reconstruir a configuração da larva:
+9. Uma vez terminada `/etc/default/grub` a edição por cima, execute o seguinte comando para reconstruir a configuração da larva:
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -344,7 +344,7 @@ Preparar uma máquina virtual CentOS 7 para o Azure é muito semelhante ao CentO
 
 10. Se construir a imagem a partir de **VMware, VirtualBox ou KVM:** Certifique-se de que os controladores Hyper-V estão incluídos nos initramfs:
 
-    Editar `/etc/dracut.conf`, adicionar conteúdo:
+    Editar, `/etc/dracut.conf`adicionar conteúdo:
 
     ```console
     add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
@@ -365,7 +365,7 @@ Preparar uma máquina virtual CentOS 7 para o Azure é muito semelhante ao CentO
 
 12. Não crie espaço de troca no disco OS.
 
-    O Agente Azure Linux pode configurar automaticamente o espaço de troca utilizando o disco de recursos locais que está ligado ao VM após o fornecimento no Azure. Note que o disco de recursos locais é um disco *temporário,* e pode ser esvaziado quando o VM é desprovisionado. Depois de instalar o Agente Azure Linux (ver passo anterior), modifique os seguintes parâmetros em `/etc/waagent.conf` adequadamente:
+    O Agente Azure Linux pode configurar automaticamente o espaço de troca utilizando o disco de recursos locais que está ligado ao VM após o fornecimento no Azure. Note que o disco de recursos locais é um disco *temporário,* e pode ser esvaziado quando o VM é desprovisionado. Depois de instalar o Agente Azure Linux (ver passo `/etc/waagent.conf` anterior), modifique adequadamente os seguintes parâmetros:
 
     ```console
     ResourceDisk.Format=y
@@ -383,7 +383,7 @@ Preparar uma máquina virtual CentOS 7 para o Azure é muito semelhante ao CentO
     logout
     ```
 
-14. Clique em **Ação -> Desligue** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
+14. Clique em **Ação -> desligar** em Hiper-V Manager. O seu VHD Linux está agora pronto para ser enviado para o Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

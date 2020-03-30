@@ -3,16 +3,16 @@ title: Melhores práticas de modelos
 description: Descreve abordagens recomendadas para a autoria de modelos do Gestor de Recursos Azure. Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248271"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156417"
 ---
-# <a name="azure-resource-manager-template-best-practices"></a>Modelo de Gestor de Recursos Azure melhores práticas
+# <a name="arm-template-best-practices"></a>As melhores práticas do modelo ARM
 
-Este artigo dá recomendações sobre como construir o seu modelo de Gestor de Recursos. Estas recomendações ajudam-no a evitar problemas comuns ao usar um modelo para implementar uma solução.
+Este artigo dá recomendações sobre como construir o seu modelo de Gestor de Recursos Azure (ARM). Estas recomendações ajudam-no a evitar problemas comuns ao utilizar um modelo ARM para implementar uma solução.
 
 Para recomendações sobre como governar as suas subscrições do Azure, consulte [o andaime da empresa Azure: Prescritiva de governação por subscrição](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
@@ -93,7 +93,7 @@ A informação nesta secção pode ser útil quando trabalha com [parâmetros](t
 
 * Não utilize um parâmetro para a versão API para um tipo de recurso. As propriedades e valores dos recursos podem variar em função do número da versão. O IntelliSense num editor de código não consegue determinar o esquema correto quando a versão API está definida para um parâmetro. Em vez disso, código rígido a versão API no modelo.
 
-* Use `allowedValues` com moderação. Utilize-o apenas quando tiver de se certificar de que alguns valores não estão incluídos nas opções permitidas. Se utilizar `allowedValues` demasiado amplamente, poderá bloquear implementações válidas não mantendo a sua lista atualizada.
+* Use `allowedValues` com moderação. Utilize-o apenas quando tiver de se certificar de que alguns valores não estão incluídos nas opções permitidas. Se utilizar `allowedValues` de forma demasiado ampla, poderá bloquear implementações válidas não mantendo a sua lista atualizada.
 
 * Quando um nome de parâmetro no seu modelo corresponde a um parâmetro no comando de implementação powerShell, o Gestor de Recursos resolve este conflito de nomeação adicionando o modelo de pós-fixação **FromTemplate.** Por exemplo, se incluir um parâmetro chamado **ResourceGroupName** no seu modelo, entra em conflito com o parâmetro **ResourceGroupName** no cmdlet [new-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) Durante a implementação, é-lhe solicitado que forneça um valor para **o ResourceGroupNameFromFromTemplate**.
 
@@ -101,7 +101,7 @@ A informação nesta secção pode ser útil quando trabalha com [parâmetros](t
 
 * Utilize sempre parâmetros para nomes de utilizadores e palavras-passe (ou segredos).
 
-* Use `securestring` para todas as palavras-passe e segredos. Se passar dados sensíveis num objeto JSON, utilize o tipo `secureObject`. Os parâmetros do modelo com cordas seguras ou tipos de objetos seguros não podem ser lidos após a implementação do recurso. 
+* Use `securestring` para todas as senhas e segredos. Se passar dados sensíveis num objeto JSON, utilize o `secureObject` tipo. Os parâmetros do modelo com cordas seguras ou tipos de objetos seguros não podem ser lidos após a implementação do recurso. 
    
    ```json
    "parameters": {
@@ -114,13 +114,13 @@ A informação nesta secção pode ser útil quando trabalha com [parâmetros](t
    }
    ```
 
-* Não forneça valores predefinidos para nomes de utilizadores, palavras-passe ou qualquer valor que exija um `secureString` tipo.
+* Não forneça valores predefinidos para nomes de utilizadores, `secureString` palavras-passe ou qualquer valor que exija um tipo.
 
 * Não forneça valores predefinidos para propriedades que aumentem a área de superfície de ataque da aplicação.
 
 ### <a name="location-recommendations-for-parameters"></a>Recomendações de localização para parâmetros
 
-* Utilize um parâmetro para especificar a localização dos recursos e defina o valor predefinido para `resourceGroup().location`. O fornecimento de um parâmetro de localização permite aos utilizadores do modelo especificar uma localização para a qual têm permissão para implantar.
+* Utilize um parâmetro para especificar a localização dos recursos `resourceGroup().location`e defina o valor predefinido para . O fornecimento de um parâmetro de localização permite aos utilizadores do modelo especificar uma localização para a qual têm permissão para implantar.
 
    ```json
    "parameters": {
@@ -134,7 +134,7 @@ A informação nesta secção pode ser útil quando trabalha com [parâmetros](t
    },
    ```
 
-* Não especifique `allowedValues` para o parâmetro de localização. Os locais que especifica podem não estar disponíveis em todas as nuvens.
+* Não especifique `allowedValues` o parâmetro de localização. Os locais que especifica podem não estar disponíveis em todas as nuvens.
 
 * Utilize o valor do parâmetro de localização para recursos que possam estar no mesmo local. Esta abordagem minimiza o número de vezes que os utilizadores são convidados a fornecer informações de localização.
 
@@ -150,7 +150,7 @@ As seguintes informações podem ser úteis quando se trabalha com [variáveis:]
 
 * Utilize variáveis para valores que constrói a partir de um arranjo complexo de funções de modelo. O seu modelo é mais fácil de ler quando a expressão complexa só aparece em variáveis.
 
-* Não use variáveis para `apiVersion` num recurso. A versão API determina o esquema do recurso. Muitas vezes, não se pode alterar a versão sem alterar as propriedades para o recurso.
+* Não use variáveis `apiVersion` num recurso. A versão API determina o esquema do recurso. Muitas vezes, não se pode alterar a versão sem alterar as propriedades para o recurso.
 
 * Não pode utilizar a função de [referência](template-functions-resource.md#reference) na secção **variáveis** do modelo. A função **de referência** obtém o seu valor a partir do estado de funcionamento do recurso. No entanto, as variáveis são resolvidas durante a análise inicial do modelo. Construa valores que necessitem da função de **referência** diretamente na secção de **recursos** ou **saídas** do modelo.
 
@@ -164,7 +164,7 @@ As seguintes informações podem ser úteis quando se trabalha com [variáveis:]
 
 Ao decidir quais [as dependências](define-resource-dependency.md) a definir, utilize as seguintes orientações:
 
-* Utilize a função **de referência** e passe no nome do recurso para definir uma dependência implícita entre os recursos que precisam de partilhar um imóvel. Não adicione um elemento `dependsOn` explícito quando já definiu uma dependência implícita. Esta abordagem reduz o risco de ter dependências desnecessárias.
+* Utilize a função **de referência** e passe no nome do recurso para definir uma dependência implícita entre os recursos que precisam de partilhar um imóvel. Não adicione um `dependsOn` elemento explícito quando já definiu uma dependência implícita. Esta abordagem reduz o risco de ter dependências desnecessárias.
 
 * Desloque um recurso para crianças como dependente do seu recurso principal.
 
@@ -236,7 +236,7 @@ As seguintes informações podem ser úteis quando trabalha com [recursos:](temp
    * [Permitir o acesso externo ao seu VM utilizando o PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Permitir o acesso externo ao seu Linux VM utilizando o Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* A propriedade **domainNameLabel** para endereços IP públicos deve ser única. O valor **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Como a função **string única** gera uma cadeia com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** está limitado a 50 caracteres:
+* A propriedade **domainNameLabel** para endereços IP públicos deve ser única. O valor **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`e seguir as regras especificadas por esta expressão regular: . Como a função **string única** gera uma cadeia com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** está limitado a 50 caracteres:
 
    ```json
    "parameters": {
@@ -279,5 +279,5 @@ As seguintes informações podem ser úteis quando trabalha com [recursos:](temp
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações sobre a estrutura do ficheiro de modelo do Gestor de Recursos, consulte [Compreender a estrutura e a sintaxe dos modelos](template-syntax.md)do Gestor de Recursos Azure .
-* Para recomendações sobre como construir modelos que funcionem em todos os ambientes de nuvem Azure, consulte desenvolver modelos de [Gestor de Recursos Azure para consistência na nuvem](templates-cloud-consistency.md).
+* Para obter informações sobre a estrutura do ficheiro do modelo, consulte [Compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para recomendações sobre como construir modelos que funcionem em todos os ambientes de nuvem Azure, consulte [Desenvolver modelos ARM para consistência da nuvem](templates-cloud-consistency.md).

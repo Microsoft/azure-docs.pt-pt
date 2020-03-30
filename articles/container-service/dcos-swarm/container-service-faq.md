@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Serviço de contêiner do Azure-perguntas frequentes
+title: (DEPRECIADO) Serviço de Contentores Azure - FAQ
 description: Respostas às perguntas mais frequentes sobre o Azure Container Service, um serviço que simplifica a criação, configuração e gestão de um cluster de máquinas virtuais para executar aplicações de contentor do Docker .
 services: container-service
 author: mlearned
@@ -10,13 +10,13 @@ ms.date: 03/28/2017
 ms.author: mlearned
 ms.custom: H1Hack27Feb201
 ms.openlocfilehash: 317862b694b93de44422ac3c28575c732ffc5be5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887925"
 ---
-# <a name="deprecated-container-service-frequently-asked-questions"></a>PRETERIDO Perguntas frequentes sobre o serviço de contêiner
+# <a name="deprecated-container-service-frequently-asked-questions"></a>(DEPRECIADO) Serviço de Contentores frequentemente feito perguntas
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -52,11 +52,11 @@ Para obter mais detalhes, veja a nossa [política de suporte para contentores](h
 
 Pode utilizar as ferramentas padrão no seu sistema operativo para criar um par de chaves SSH RSA público e privado para autenticação relativamente às máquinas virtuais Linux do cluster. Para obter os passos, consulte a documentação de orientação [SO X e Linux](../../virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../../virtual-machines/linux/ssh-from-windows.md). 
 
-Se você usar comandos de CLI do Azure para implantar um cluster do serviço de contêiner, as chaves SSH poderão ser geradas automaticamente para o cluster.
+Se utilizar comandos do CLI do Azure para implementar um cluster de serviço do contentor, as chaves SSH podem ser geradas automaticamente para o cluster.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Como posso criar um serviço principal para o meu cluster de Kubernetes?
 
-Também são necessários uma palavra-passe e o ID principal de serviço do Azure Active Directory para criar um cluster de Kubernetes no Azure Container Service. Para obter mais informações, veja [About the service principal for a Kubernetes cluster (Sobre o principal de serviço para um cluster de Kubernetes)](../../container-service/kubernetes/container-service-kubernetes-service-principal.md).
+Também são necessários uma palavra-passe e o ID principal de serviço do Azure Active Directory para criar um cluster de Kubernetes no Azure Container Service. Para mais informações, consulte [sobre o diretor de serviço para um cluster Kubernetes](../../container-service/kubernetes/container-service-kubernetes-service-principal.md).
 
 Se utilizar os [comandos do CLI do Azure](../../container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) para implementar um cluster de Kubernetes, as credenciais do principal de serviço podem ser geradas automaticamente para o cluster.
 
@@ -114,7 +114,7 @@ Para mais informações, consulte [Connect to an Azure Container Service cluster
 
 ### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>A minha resolução do nome DNS não está a funcionar no Windows. O que devo fazer?
 
-Há alguns problemas de DNS conhecidos no Windows cujas correções ainda estão sendo bloqueadas ativamente. Verifique se você está usando a versão mais atualizada do mecanismo ACS e do Windows (com [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) e [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) instalados) para que seu ambiente possa se beneficiar disso. Caso contrário, consulte a tabela abaixo para obter os passos de mitigação:
+Existem alguns problemas de DNS conhecidos no Windows cujas correções ainda estão a ser eliminadas de forma ativa. Certifique-se de que está a utilizar o motor de acs mais atualizado e a versão Windows (com [kB40745888 e](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) instalados) para que o seu ambiente possa beneficiar disso. Caso contrário, consulte a tabela abaixo para obter os passos de mitigação:
 
 | Sintoma DNS | Solução  |
 |-------------|-------------|

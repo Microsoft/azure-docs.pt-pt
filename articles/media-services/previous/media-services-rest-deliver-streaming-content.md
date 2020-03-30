@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77050011"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publique o conteúdo dos Serviços De Mídia Azure utilizando o REST 
@@ -46,7 +46,7 @@ A [secção seguinte](#types) mostra os tipos de enum cujos valores são utiliza
 Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Depois de ligar-se com sucesso a https://media.windows.net, receberá um redirecionamento 301 especificando outro Media Services URI. Deve fazer chamadas subsequentes para o novo URI.
+>Depois de ligar https://media.windows.netcom sucesso a, receberá um redirecionamento 301 especificando outro Media Services URI. Deve fazer chamadas subsequentes para o novo URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming OnDemand
 Para criar o localizador de streaming OnDemand e obter URLs, tem de fazer o seguinte:
@@ -62,7 +62,7 @@ Para criar o localizador de streaming OnDemand e obter URLs, tem de fazer o segu
 ### <a name="create-an-access-policy"></a>Criar uma política de acesso
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no lugar por muito tempo (políticas de não upload). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no lugar por muito tempo (políticas de não upload). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Pedido:
 
@@ -169,7 +169,7 @@ exemplo:
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>Tipos Enum
+## <a name="enum-types"></a><a id="types"></a>Tipos Enum
     [Flags]
     public enum AccessPermissions
     {
@@ -193,7 +193,7 @@ exemplo:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Media Services operações REST API visão geral](media-services-rest-how-to-use.md)
 
 [Configurar a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)

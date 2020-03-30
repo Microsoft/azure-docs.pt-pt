@@ -1,62 +1,62 @@
 ---
-title: CI/CD com Azure Pipelines e modelos
-description: Descreve como configurar a integração contínua no Azure Pipelines usando projetos de implantação do grupo de recursos do Azure no Visual Studio para implantar modelos do Resource Manager.
+title: CI/CD com oleodutos e modelos Azure
+description: Descreve como criar uma integração contínua em Pipelines Azure utilizando projetos de implantação do Grupo de Recursos Azure no Estúdio Visual para implementar modelos de Gestor de Recursos.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 6f5d4846d32b4880ccd3fbd82f062f57948ac15a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75478269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153459"
 ---
-# <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Integrar modelos do Resource Manager com o Azure Pipelines
+# <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos ARM com oleodutos Azure
 
-O Visual Studio fornece o projeto do grupo de recursos do Azure para criar modelos e implantá-los em sua assinatura do Azure. Você pode integrar esse projeto com Azure Pipelines para integração contínua e implantação contínua (CI/CD).
+O Visual Studio fornece o projeto do Grupo de Recursos Azure para criar modelos de Gestor de Recursos Azure (ARM) e implantá-los para a sua subscrição Azure. Pode integrar este projeto com pipelines Azure para integração contínua e implantação contínua (CI/CD).
 
-Há duas maneiras de implantar modelos com Azure Pipelines:
+Existem duas formas de implementar modelos com pipelines Azure:
 
-* **Adicionar tarefa que executa um script de Azure PowerShell**. Essa opção tem a vantagem de fornecer consistência em todo o ciclo de vida de desenvolvimento, pois você usa o mesmo script que está incluído no projeto do Visual Studio (Deploy-azureresourcegroup. ps1). O script prepara os artefatos do seu projeto para uma conta de armazenamento que o Gerenciador de recursos pode acessar. Os artefatos são itens em seu projeto, como modelos vinculados, scripts e binários de aplicativos. Em seguida, o script implanta o modelo.
+* **Adicione a tarefa que executa um script Azure PowerShell**. Esta opção tem a vantagem de proporcionar consistência ao longo do ciclo de vida de desenvolvimento porque você usa o mesmo script que está incluído no projeto Estúdio Visual (Deploy-AzureResourceGroup.ps1). O script encena artefactos do seu projeto para uma conta de armazenamento a que o Gestor de Recursos pode aceder. Os artefactos são itens do seu projeto, tais como modelos ligados, scripts e binários de aplicação. Em seguida, o script implementa o modelo.
 
-* **Adicionar tarefas para copiar e implantar tarefas**. Essa opção oferece uma alternativa conveniente ao script do projeto. Você configura duas tarefas no pipeline. Uma tarefa prepara os artefatos e a outra tarefa implanta o modelo.
+* **Adicione tarefas para copiar e implementar tarefas**. Esta opção oferece uma alternativa conveniente ao script do projeto. Configura duas tarefas no oleoduto. Uma tarefa encena os artefactos e a outra tarefa implementa o modelo.
 
-Este artigo mostra as duas abordagens.
+Este artigo mostra ambas as abordagens.
 
-## <a name="prepare-your-project"></a>Preparar seu projeto
+## <a name="prepare-your-project"></a>Prepare o seu projeto
 
-Este artigo pressupõe que seu projeto do Visual Studio e a organização do Azure DevOps estejam prontos para criar o pipeline. As etapas a seguir mostram como se certificar de que você está pronto:
+Este artigo assume que o seu projeto Visual Studio e a organização Azure DevOps estão prontos para criar o pipeline. Os seguintes passos mostram como se certificar de que está pronto:
 
-* Você tem uma organização de DevOps do Azure. Se você não tiver um, [crie um gratuitamente](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). Se sua equipe já tiver uma organização de DevOps do Azure, verifique se você é um administrador do projeto DevOps do Azure que deseja usar.
+* Tens uma organização Azure DevOps. Se não tiver um, [crie um de graça.](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops) Se a sua equipa já tem uma organização Azure DevOps, certifique-se de ser administrador do projeto Azure DevOps que pretende utilizar.
 
-* Você configurou uma [conexão de serviço](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) para sua assinatura do Azure. As tarefas no pipeline são executadas sob a identidade da entidade de serviço. Para obter as etapas para criar a conexão, consulte [criar um projeto DevOps](template-tutorial-use-azure-pipelines.md#create-a-devops-project).
+* Configurou uma [ligação](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) de serviço à sua subscrição Azure. As tarefas no gasoduto executam sob a identidade do diretor de serviço. Para passos para criar a ligação, consulte [Criar um projeto DevOps](template-tutorial-use-azure-pipelines.md#create-a-devops-project).
 
-* Você tem um projeto do Visual Studio que foi criado no modelo de início do **grupo de recursos do Azure** . Para obter informações sobre como criar esse tipo de projeto, consulte [criando e implantando grupos de recursos do Azure por meio do Visual Studio](create-visual-studio-deployment-project.md).
+* Você tem um projeto Visual Studio que foi criado a partir do modelo de arranque do **Grupo de Recursos Azure.** Para obter informações sobre a criação desse tipo de projeto, consulte [Criar e implantar grupos](create-visual-studio-deployment-project.md)de recursos Azure através do Visual Studio .
 
-* Seu projeto do Visual Studio está [conectado a um projeto DevOps do Azure](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
+* O seu projeto Visual Studio está [ligado a um projeto Azure DevOps.](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops)
 
 ## <a name="create-pipeline"></a>Criar pipeline
 
-1. Se você ainda não adicionou um pipeline anteriormente, precisará criar um novo pipeline. Na organização do Azure DevOps, selecione **pipelines** e **novo pipeline**.
+1. Se ainda não adicionou um oleoduto anteriormente, precisa de criar um novo oleoduto. Da sua organização Azure DevOps, selecione **Pipelines** e **New pipeline**.
 
-   ![Adicionar novo pipeline](./media/add-template-to-azure-pipelines/new-pipeline.png)
+   ![Adicione novo oleoduto](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
-1. Especifique onde o código está armazenado. A imagem a seguir mostra a seleção de **Azure Repos git**.
+1. Especifique onde o seu código está armazenado. A imagem que se segue mostra a seleção **de Azure Repos Git**.
 
-   ![Selecionar fonte de código](./media/add-template-to-azure-pipelines/select-source.png)
+   ![Selecione fonte de código](./media/add-template-to-azure-pipelines/select-source.png)
 
-1. Nessa fonte, selecione o repositório que tem o código para seu projeto.
+1. A partir dessa fonte, selecione o repositório que tem o código para o seu projeto.
 
-   ![Selecionar repositório](./media/add-template-to-azure-pipelines/select-repo.png)
+   ![Selecione repositório](./media/add-template-to-azure-pipelines/select-repo.png)
 
-1. Selecione o tipo de pipeline a ser criado. Você pode selecionar **pipeline de início**.
+1. Selecione o tipo de gasoduto para criar. Pode selecionar **o gasoduto Starter**.
 
-   ![Selecionar pipeline](./media/add-template-to-azure-pipelines/select-pipeline.png)
+   ![Selecione o gasoduto](./media/add-template-to-azure-pipelines/select-pipeline.png)
 
-Você está pronto para adicionar uma tarefa Azure PowerShell ou copiar arquivo e implantar tarefas.
+Está pronto para adicionar uma tarefa Azure PowerShell ou o ficheiro de cópia e implementar tarefas.
 
-## <a name="azure-powershell-task"></a>Azure PowerShell tarefa
+## <a name="azure-powershell-task"></a>Tarefa Azure PowerShell
 
-Esta seção mostra como configurar a implantação contínua usando uma única tarefa que executa o script do PowerShell em seu projeto. O seguinte arquivo YAML cria uma [tarefa Azure PowerShell](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
+Esta secção mostra como configurar a implantação contínua utilizando uma única tarefa que executa o script PowerShell no seu projeto. O seguinte ficheiro YAML cria uma [tarefa Azure PowerShell:](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops)
 
 ```yaml
 pool:
@@ -72,41 +72,41 @@ steps:
     azurePowerShellVersion: LatestVersion
 ```
 
-Quando você define a tarefa como `AzurePowerShell@3`, o pipeline usa comandos do módulo AzureRM para autenticar a conexão. Por padrão, o script do PowerShell no projeto do Visual Studio usa o módulo AzureRM. Se você atualizou o script para usar o [módulo AZ](/powershell/azure/new-azureps-module-az), defina a tarefa como `AzurePowerShell@4`.
+Quando define a `AzurePowerShell@3`tarefa, o gasoduto utiliza comandos do módulo AzureRM para autenticar a ligação. Por padrão, o script PowerShell no projeto Estúdio Visual utiliza o módulo AzureRM. Se atualizou o seu script para utilizar o módulo `AzurePowerShell@4` [Az,](/powershell/azure/new-azureps-module-az)detete a tarefa para .
 
 ```yaml
 steps:
 - task: AzurePowerShell@4
 ```
 
-Para `azureSubscription`, forneça o nome da conexão de serviço que você criou.
+Para `azureSubscription`, fornecer o nome da ligação de serviço que criou.
 
 ```yaml
 inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-Para `scriptPath`, forneça o caminho relativo do arquivo de pipeline para o seu script. Você pode procurar no repositório para ver o caminho.
+Para `scriptPath`, fornecer o caminho relativo desde o ficheiro do gasoduto até ao seu script. Pode olhar no seu repositório para ver o caminho.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
 ```
 
-Se você não precisar preparar artefatos, apenas passe o nome e o local de um grupo de recursos a ser usado para a implantação. O script do Visual Studio criará o grupo de recursos se ele ainda não existir.
+Se não precisar de encenar artefactos, basta passar o nome e a localização de um grupo de recursos para usar para implantação. O script do Estúdio Visual cria o grupo de recursos se já não existir.
 
 ```yaml
 ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>'
 ```
 
-Se você precisar preparar artefatos para uma conta de armazenamento existente, use:
+Se precisar de encenar artefactos para uma conta de armazenamento existente, utilize:
 
 ```yaml
 ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName '<your-storage-account>'
 ```
 
-Agora que você entende como criar a tarefa, vamos percorrer as etapas para editar o pipeline.
+Agora, que entende como criar a tarefa, vamos percorrer os passos para editar o oleoduto.
 
-1. Abra seu pipeline e substitua o conteúdo por seu YAML:
+1. Abra o seu oleoduto e substitua o conteúdo pelo seu YAML:
 
    ```yaml
    pool:
@@ -126,19 +126,19 @@ Agora que você entende como criar a tarefa, vamos percorrer as etapas para edit
 
    ![Guardar o pipeline](./media/add-template-to-azure-pipelines/save-pipeline.png)
 
-1. Forneça uma mensagem para a confirmação e confirme diretamente no **mestre**.
+1. Forneça uma mensagem para o compromisso, e comprometa-se diretamente a **dominar.**
 
-1. Quando você seleciona **salvar**, o pipeline de compilação é executado automaticamente. Volte para o resumo do pipeline de compilação e veja o status.
+1. Quando selecionar **Save,** o gasoduto de construção é executado automaticamente. Volte ao resumo do seu oleoduto de construção, e observe o estado.
 
    ![Ver resultados](./media/add-template-to-azure-pipelines/view-results.png)
 
-Você pode selecionar o pipeline em execução no momento para ver detalhes sobre as tarefas. Quando ele for concluído, você verá os resultados de cada etapa.
+Pode selecionar o pipeline em execução actualpara ver detalhes sobre as tarefas. Quando termina, vê-se os resultados de cada passo.
 
-## <a name="copy-and-deploy-tasks"></a>Copiar e implantar tarefas
+## <a name="copy-and-deploy-tasks"></a>Copiar e implementar tarefas
 
-Esta seção mostra como configurar a implantação contínua usando duas tarefas para preparar os artefatos e implantar o modelo.
+Esta secção mostra como configurar a implantação contínua utilizando duas tarefas para encenar os artefactos e implantar o modelo.
 
-O YAML a seguir mostra a [tarefa cópia de arquivo do Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
+O Seguinte YAML mostra a tarefa de cópia de [ficheiros Azure:](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 
 ```yaml
 - task: AzureFileCopy@3
@@ -154,26 +154,26 @@ O YAML a seguir mostra a [tarefa cópia de arquivo do Azure](/azure/devops/pipel
     sasTokenTimeOutInMinutes: '240'
 ```
 
-Há várias partes dessa tarefa a serem revisadas para o seu ambiente. O `SourcePath` indica o local dos artefatos em relação ao arquivo de pipeline. Neste exemplo, os arquivos existem em uma pasta chamada `AzureResourceGroup1` que era o nome do projeto.
+Há várias partes desta tarefa para rever para o seu ambiente. Indica `SourcePath` a localização dos artefactos relativos ao ficheiro do gasoduto. Neste exemplo, os ficheiros existem numa pasta com `AzureResourceGroup1` o nome do nome do projeto.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
 ```
 
-Para `azureSubscription`, forneça o nome da conexão de serviço que você criou.
+Para `azureSubscription`, fornecer o nome da ligação de serviço que criou.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
 ```
 
-Para o armazenamento e o nome do contêiner, forneça os nomes da conta de armazenamento e do contêiner que você deseja usar para armazenar os artefatos. A conta de armazenamento deve existir.
+Para o nome do armazenamento e do contentor, forneça os nomes da conta de armazenamento e do recipiente que pretende utilizar para armazenar os artefactos. A conta de armazenamento deve existir.
 
 ```yaml
 storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-O YAML a seguir mostra a [tarefa de implantação de modelo de Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
+O Seguinte YAML mostra a tarefa de implantação do modelo do Gestor de [Recursos Azure:](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
@@ -192,30 +192,30 @@ O YAML a seguir mostra a [tarefa de implantação de modelo de Azure Resource Ma
     deploymentMode: 'Incremental'
 ```
 
-Há várias partes dessa tarefa a serem revisadas para o seu ambiente.
+Há várias partes desta tarefa para rever para o seu ambiente.
 
-- `deploymentScope`: selecione o escopo de implantação nas opções: `Management Group`, `Subscription` e `Resource Group`. Use o **grupo de recursos** nesta passagem. Para saber mais sobre os escopos, consulte [escopos de implantação](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Selecione o âmbito `Management Group`de `Subscription` `Resource Group`implantação a partir das opções: , e . Use **o Grupo de Recursos** nesta caminhada. Para saber mais sobre os âmbitos, consulte [os âmbitos de implantação.](deploy-rest.md#deployment-scope)
 
-- `ConnectedServiceName`: forneça o nome da conexão de serviço que você criou.
+- `ConnectedServiceName`: Forneça o nome da ligação de serviço que criou.
 
     ```yaml
     ConnectedServiceName: '<your-connection-name>'
     ```
 
-- `subscriptionName`: forneça a ID da assinatura de destino. Essa propriedade só se aplica ao escopo de implantação do grupo de recursos e ao escopo de implantação da assinatura.
+- `subscriptionName`: Fornecer o ID de subscrição do alvo. Esta propriedade aplica-se apenas ao âmbito de implementação do Grupo de Recursos e ao âmbito de implementação de subscrições.
 
-- `resourceGroupName` e `location`: forneça o nome e o local do grupo de recursos no qual você deseja implantar. A tarefa cria o grupo de recursos, caso ele não exista.
+- `resourceGroupName`e `location`: fornecer o nome e a localização do grupo de recursos a que pretende implantar. A tarefa cria o grupo de recursos se não existir.
 
     ```yaml
     resourceGroupName: '<resource-group-name>'
     location: '<location>'
     ```
 
-A tarefa de implantação é vinculada a um modelo chamado `WebSite.json` e um arquivo de parâmetros chamado WebSite. Parameters. JSON. Use os nomes dos arquivos de modelo e parâmetro.
+A tarefa de implementação `WebSite.json` liga-se a um modelo nomeado e a um ficheiro de parâmetros chamado WebSite.parameters.json. Utilize os nomes do seu modelo e ficheiros de parâmetros.
 
-Agora que você entende como criar as tarefas, vamos percorrer as etapas para editar o pipeline.
+Agora, que você entende como criar as tarefas, vamos passar pelos passos para editar o oleoduto.
 
-1. Abra seu pipeline e substitua o conteúdo por seu YAML:
+1. Abra o seu oleoduto e substitua o conteúdo pelo seu YAML:
 
    ```yaml
    pool:
@@ -251,14 +251,14 @@ Agora que você entende como criar as tarefas, vamos percorrer as etapas para ed
 
 1. Selecione **Guardar**.
 
-1. Forneça uma mensagem para a confirmação e confirme diretamente no **mestre**.
+1. Forneça uma mensagem para o compromisso, e comprometa-se diretamente a **dominar.**
 
-1. Quando você seleciona **salvar**, o pipeline de compilação é executado automaticamente. Volte para o resumo do pipeline de compilação e veja o status.
+1. Quando selecionar **Save,** o gasoduto de construção é executado automaticamente. Volte ao resumo do seu oleoduto de construção, e observe o estado.
 
    ![Ver resultados](./media/add-template-to-azure-pipelines/view-results.png)
 
-Você pode selecionar o pipeline em execução no momento para ver detalhes sobre as tarefas. Quando ele for concluído, você verá os resultados de cada etapa.
+Pode selecionar o pipeline em execução actualpara ver detalhes sobre as tarefas. Quando termina, vê-se os resultados de cada passo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter um processo passo a passo sobre como usar Azure Pipelines com modelos do Resource Manager, consulte [tutorial: integração contínua de modelos de Azure Resource Manager com o Azure pipelines](template-tutorial-use-azure-pipelines.md).
+Para um processo passo a passo sobre a utilização de Pipelines Azure com modelos ARM, consulte [Tutorial: Integração contínua de modelos ARM com gasodutos Azure](template-tutorial-use-azure-pipelines.md).

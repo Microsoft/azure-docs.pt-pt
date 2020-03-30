@@ -1,16 +1,16 @@
 ---
-title: 'Início rápido: nova atribuição de política com CLI do Azure'
-description: Neste guia de início rápido, você usa CLI do Azure para criar uma atribuição de Azure Policy para identificar recursos sem conformidade.
+title: 'Quickstart: Nova atribuição de política com o Azure CLI'
+description: Neste arranque rápido, utiliza o Azure CLI para criar uma missão da Política Azure para identificar recursos não conformes.
 ms.date: 01/11/2020
 ms.topic: quickstart
 ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75978313"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Início rápido: criar uma atribuição de política para identificar recursos sem conformidade com CLI do Azure
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Quickstart: Criar uma atribuição de políticas para identificar recursos não conformes com o Azure CLI
 
 O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos.
 Este início rápido acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
@@ -21,11 +21,11 @@ A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da lin
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+- Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-- Este guia de início rápido requer que você execute CLI do Azure versão 2.0.76 ou posterior para instalar e usar a CLI localmente. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+- Este quickstart requer que execute a versão 2.0.76 do Azure CLI ou posteriormente para instalar e utilizar o CLI localmente. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
-- Registre o provedor de recursos do Azure Policy insights usando CLI do Azure. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, tem de ter permissão para a operação de fornecedor de recursos de registo. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
+- Registe o fornecedor de recursos Azure Policy Insights utilizando o Azure CLI. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, deve ter permissão para a operação do fornecedor de recursos de registo. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
 
   ```azurecli-interactive
   az provider register --namespace 'Microsoft.PolicyInsights'
@@ -39,7 +39,7 @@ A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da lin
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste início rápido, vai criar uma atribuição de política e atribuir a definição **VMs de Auditoria que não utilizam discos geridos**. Esta definição de política identifica os recursos que não estão em conformidade para as condições definidas na definição de política.
+Neste início rápido, vai criar uma atribuição de política e atribuir a definição **VMs de Auditoria que não utilizam discos geridos**. Esta definição de política identifica recursos que não estão em conformidade com as condições estabelecidas na definição de política.
 
 Execute o seguinte comando para criar uma atribuição de política:
 
@@ -50,8 +50,8 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 O comando anterior utiliza as seguintes informações:
 
 - **Nome** – O nome real da atribuição. Neste exemplo, foi utilizado _audit-vm-manageddisks_.
-- **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está usando _VMs de auditoria sem discos geridos atribuição_.
-- **Política** – O ID de definição de política, com base no qual está a utilizar para criar a atribuição. Neste caso, é o ID de definição de política _VMs de auditoria que não utilizam discos geridos_. Para obter o ID de definição de política, execute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está a utilizar _VMs de auditoria sem dispor de discos geridos_.
+- **Política** – O ID de definição de política, com base no qual está a utilizar para criar a atribuição. Neste caso, é a identificação da definição de política _Audit VMs que não usam discos geridos_. Para obter o ID de definição de política, execute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
@@ -62,7 +62,7 @@ Para ver os recursos que não estão em conformidade com esta nova atribuição,
 az policy assignment list --query "[?displayName=='Audit VMs without managed disks Assignment'].id"
 ```
 
-Para obter mais informações sobre IDs de atribuição de política, consulte [AZ Policy Assignment](/cli/azure/policy/assignment).
+Para obter mais informações sobre identificações de atribuição de políticas, consulte [az policy assignment](/cli/azure/policy/assignment).
 
 Em seguida, execute o seguinte comando para obter os ID dos recursos que não estão em conformidade produzidos num ficheiro de JSON:
 
@@ -100,7 +100,7 @@ Os resultados são comparáveis aos que normalmente vê listados em **recursos q
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover a atribuição de criado, utilize o seguinte comando:
+Para remover a atribuição criada, utilize o seguinte comando:
 
 ```azurecli-interactive
 az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
@@ -110,7 +110,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 Neste guia de introdução, atribuiu uma definição de política para identificar recursos incompatíveis no seu ambiente do Azure.
 
-Para saber mais sobre a atribuição de políticas para validar que os novos recursos estão em conformidade, avance para o tutorial para:
+Para saber mais sobre a atribuição de políticas para validar que os novos recursos estão em conformidade, continue o tutorial para:
 
 > [!div class="nextstepaction"]
 > [Criar e gerir políticas](./tutorials/create-and-manage.md)

@@ -3,26 +3,26 @@ title: Funções do modelo - comparação
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para comparar valores.
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 67cb1c1f92694ca217e99fb6528fb1d00f2cfcf6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 42009e8543e307f2d3e4643ddaa79f492f9bdfee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248713"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156366"
 ---
-# <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funções de comparação para modelos de Gestor de Recursos Azure
+# <a name="comparison-functions-for-arm-templates"></a>Funções de comparação para modelos ARM
 
-O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos.
+O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos de Gestor de Recursos Azure (ARM).
 
 * [iguais](#equals)
-* [maior](#greater)
+* [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
-* [menos](#less)
+* [less](#less)
 * [lessOrEquals](#lessorequals)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="equals"></a>é igual a
+## <a name="equals"></a>equals
 `equals(arg1, arg2)`
 
 Verifica se dois valores são iguais um ao outro.
@@ -31,16 +31,16 @@ Verifica se dois valores são iguais um ao outro.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int, string, array ou object |O primeiro valor para verificar a igualdade. |
-| arg2 |Sim |int, string, array ou object |O segundo valor para verificar a igualdade. |
+| arg1 |Sim |int, corda, matriz ou objeto |O primeiro valor para verificar a igualdade. |
+| arg2 |Sim |int, corda, matriz ou objeto |O segundo valor para verificar a igualdade. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devoluções **Verdadeiras** se os valores forem iguais; caso contrário, **Falso.**
 
 ### <a name="remarks"></a>Observações
 
-A função é frequentemente utilizada com o elemento `condition` para testar se um recurso é implantado.
+A função é igual `condition` a ser frequentemente usada com o elemento para testar se um recurso é implantado.
 
 ```json
 {
@@ -122,25 +122,25 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | Verdadeiro |
-| verificarStrings | Bool | Verdadeiro |
-| verificarArrays | Bool | Verdadeiro |
-| verificarObjetos | Bool | Verdadeiro |
+| checkInts | Booleano | Verdadeiro |
+| verificarStrings | Booleano | Verdadeiro |
+| verificarArrays | Booleano | Verdadeiro |
+| verificarObjetos | Booleano | Verdadeiro |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
+Para implementar este modelo de exemplo com o Azure CLI, utilize:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
 ```
 
-Para implementar este modelo de exemplo com o PowerShell, utilize:
+Para implementar este modelo de exemplo com powerShell, use:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
 ```
 
 O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) de exemplo seguinte [não](template-functions-logical.md#not) utiliza com **iguais**.
@@ -164,21 +164,21 @@ A saída do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Verdadeiro |
+| checkNotEquals | Booleano | Verdadeiro |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
+Para implementar este modelo de exemplo com o Azure CLI, utilize:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
-Para implementar este modelo de exemplo com o PowerShell, utilize:
+Para implementar este modelo de exemplo com powerShell, use:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
-## <a name="greater"></a>maior
+## <a name="greater"></a>greater
 `greater(arg1, arg2)`
 
 Verifica se o primeiro valor é superior ao segundo valor.
@@ -190,7 +190,7 @@ Verifica se o primeiro valor é superior ao segundo valor.
 | arg1 |Sim |int ou corda |O primeiro valor para uma maior comparação. |
 | arg2 |Sim |int ou corda |O segundo valor para uma maior comparação. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devoluções **Verdadeiras** se o primeiro valor for superior ao segundo valor; caso contrário, **Falso.**
 
@@ -235,23 +235,23 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falso |
-| verificarStrings | Bool | Verdadeiro |
+| checkInts | Booleano | Falso |
+| verificarStrings | Booleano | Verdadeiro |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
+Para implementar este modelo de exemplo com o Azure CLI, utilize:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
 ```
 
-Para implementar este modelo de exemplo com o PowerShell, utilize:
+Para implementar este modelo de exemplo com powerShell, use:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
 ```
 
 ## <a name="greaterorequals"></a>greaterOrEquals
@@ -266,7 +266,7 @@ Verifica se o primeiro valor é maior ou igual ao segundo valor.
 | arg1 |Sim |int ou corda |O primeiro valor para a comparação maior ou igual. |
 | arg2 |Sim |int ou corda |O segundo valor para a comparação maior ou igual. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devoluções **Verdadeiras** se o primeiro valor for maior ou igual ao segundo valor; caso contrário, **Falso.**
 
@@ -311,26 +311,26 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falso |
-| verificarStrings | Bool | Verdadeiro |
+| checkInts | Booleano | Falso |
+| verificarStrings | Booleano | Verdadeiro |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
+Para implementar este modelo de exemplo com o Azure CLI, utilize:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
 ```
 
-Para implementar este modelo de exemplo com o PowerShell, utilize:
+Para implementar este modelo de exemplo com powerShell, use:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
 ```
 
-## <a name="less"></a>menos
+## <a name="less"></a>less
 `less(arg1, arg2)`
 
 Verifica se o primeiro valor é inferior ao segundo valor.
@@ -342,7 +342,7 @@ Verifica se o primeiro valor é inferior ao segundo valor.
 | arg1 |Sim |int ou corda |O primeiro valor para menos comparação. |
 | arg2 |Sim |int ou corda |O segundo valor para menos comparação. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devoluções **Verdadeiras** se o primeiro valor for inferior ao segundo valor; caso contrário, **Falso.**
 
@@ -387,23 +387,23 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | Verdadeiro |
-| verificarStrings | Bool | Falso |
+| checkInts | Booleano | Verdadeiro |
+| verificarStrings | Booleano | Falso |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
+Para implementar este modelo de exemplo com o Azure CLI, utilize:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
 ```
 
-Para implementar este modelo de exemplo com o PowerShell, utilize:
+Para implementar este modelo de exemplo com powerShell, use:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
 ```
 
 ## <a name="lessorequals"></a>lessOrEquals
@@ -418,7 +418,7 @@ Verifica se o primeiro valor é inferior ou igual ao segundo valor.
 | arg1 |Sim |int ou corda |O primeiro valor para a comparação menos ou igual. |
 | arg2 |Sim |int ou corda |O segundo valor para a comparação menos ou igual. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devoluções **Verdadeiras** se o primeiro valor for inferior ou igual ao segundo valor; caso contrário, **Falso.**
 
@@ -463,23 +463,23 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | Verdadeiro |
-| verificarStrings | Bool | Falso |
+| checkInts | Booleano | Verdadeiro |
+| verificarStrings | Booleano | Falso |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
+Para implementar este modelo de exemplo com o Azure CLI, utilize:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
 ```
 
-Para implementar este modelo de exemplo com o PowerShell, utilize:
+Para implementar este modelo de exemplo com powerShell, use:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

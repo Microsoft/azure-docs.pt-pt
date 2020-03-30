@@ -1,5 +1,5 @@
 ---
-title: Criar um balanceador de carga interno do Azure com o PowerShell
+title: Criar um Balancer de Carga interno Azure utilizando a PowerShell
 titleSuffix: Azure Load Balancer
 description: Saiba como utilizar o módulo do Azure PowerShell com o Azure Resource Manager para criar um balanceador de carga interno
 services: load-balancer
@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76045487"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno com o módulo do Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Portal Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -48,7 +48,7 @@ Para implementar um balanceador de carga, têm de ser criados os objetos seguint
 * Configuração de sonda: as sondas de estado de funcionamentos para máquinas virtuais.
 * Regras NAT de entrada: as regras de porta para acesso direto às máquinas virtuais.
 
-Para obter mais informações sobre componentes do balanceador de carga, consulte [Azure Load Balancer Components](concepts-limitations.md#load-balancer-components).
+Para obter mais informações sobre componentes de equilíbrio de carga, consulte [os componentes do Equilíbrio de Carga Azure](concepts-limitations.md#load-balancer-components).
 
 Os seguintes passos explicam como configurar um balanceador de carga entre duas máquinas virtuais.
 
@@ -163,7 +163,7 @@ $NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location
 
 ## <a name="create-the-network-interfaces"></a>Criar as interfaces de rede
 
-Depois de criar o balanceador de carga interno, defina as interfaces de rede (NICs) que vão receber o tráfego de rede de entrada com balanceamento de carga, as regras NAT e a sonda. Cada interface de rede é configurada individualmente e pode ser atribuída a uma máquina virtual mais tarde.
+Depois de criar o balanceador de carga interno, defina as interfaces de rede (NICs) que vão receber o tráfego de rede de entrada com balanceamento de carga, as regras NAT e a sonda. Cada interface de rede é configurada individualmente e pode ser atribuída a uma máquina virtual mais tarde. 
 
 ### <a name="step-1-create-the-first-network-interface"></a>Passo 1: Criar a primeira interface de rede
 
@@ -251,7 +251,7 @@ Depois de a máquina virtual ter sido criada, adicione a interface de rede.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Passo 1: Armazenar o recurso de balanceador de carga
 
-Armazene o recurso do balanceador de carga numa variável (se ainda não o tiver feito). Estamos usando o nome da variável **$lb**. Para os valores de atributo no script, use os nomes para os recursos do balanceador de carga que foram criados nas etapas anteriores.
+Armazene o recurso do balanceador de carga numa variável (se ainda não o tiver feito). Estamos a usar o nome variável **$lb.** Para os valores de atributo sinuoso no script, utilize os nomes para os recursos de equilíbrio de carga que foram criados nos passos anteriores.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

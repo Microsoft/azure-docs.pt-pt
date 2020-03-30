@@ -16,10 +16,10 @@ ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
 ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77069630"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics na plataforma Media Services 
@@ -45,7 +45,7 @@ Os processadores de multimédia de Análise de Multimédia produzem ficheiros MP
 
 ## <a name="media-analytics-services"></a>Serviços Media Analytics
 
-### <a name="indexer"></a>Indexante
+### <a name="indexer"></a>Indexador
 Com o Azure Media Indexer, pode tornar o conteúdo pesquisável e gerar faixas de legendagem fechada. Para obter informações detalhadas e exemplos, consulte [Indexing Media Files com O Indexante](media-services-index-content.md)dos Media Azure .
 
 ### <a name="motion-detector"></a>Detetor de Movimento
@@ -132,7 +132,7 @@ Resposta:
        ]
     }
 
-## <a name="demos"></a>Demonstrações
+## <a name="demos"></a>Demos
 Ver [demos Azure Media Analytics.](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ## <a name="provide-feedback"></a>Enviar comentários

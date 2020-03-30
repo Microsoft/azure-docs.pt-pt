@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: 8611abd4e504e0378b744b12d0adb5fa22f5476b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920370"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456068"
 ---
 # <a name="permutation-feature-importance"></a>Importância da funcionalidade de permutação
 
@@ -54,7 +54,7 @@ Gerar um conjunto de pontuações de funcionalidades requer que tenha um modelo 
 
      Para uma descrição mais detalhada destas métricas de avaliação e como são calculadas, consulte [Modelo de Avaliação](evaluate-model.md).  
 
-6.  Executar o pipeline.  
+6.  Submeta o oleoduto.  
 
 7.  O módulo produz uma lista de colunas de funcionalidades e as pontuações associadas a elas. A lista está classificada na ordem descendente das pontuações.  
 

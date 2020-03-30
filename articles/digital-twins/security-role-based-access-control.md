@@ -1,6 +1,6 @@
 ---
-title: Entender o controle de acesso baseado em função – gêmeos digital do Azure | Microsoft Docs
-description: Saiba mais sobre o controle de acesso baseado em função e o gerenciamento de permissões no Azure digital gêmeos.
+title: Compreender o controlo de acesso baseado em papéis - Azure Digital Twins / Microsoft Docs
+description: Conheça o controlo de acesso baseado em papéis e a gestão de permissões em Gémeas Digitais Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,39 +9,39 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: feda4b3a7f21b581fb4f08aec013f87c0fabb7e5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76044916"
 ---
-# <a name="role-based-access-control-in-azure-digital-twins"></a>Controle de acesso baseado em função no Azure digital gêmeos
+# <a name="role-based-access-control-in-azure-digital-twins"></a>Controlo de acesso baseado em papéis em Gémeas Digitais Azure
 
-O Azure digital gêmeos permite o controle de acesso preciso sobre dados, recursos e ações específicos em seu grafo espacial. Ele faz isso por meio de função granular e gerenciamento de permissões chamado de RBAC ( [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/) ). O RBAC consiste em _funções_ e _atribuições de função_. As funções identificam o nível de permissões. As atribuições de função associam uma função a um usuário ou dispositivo.
+A Azure Digital Twins permite um controlo preciso do acesso sobre dados, recursos e ações específicos no seu gráfico espacial. Fá-lo através do papel granular e da gestão da permissão chamado [controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC). O RBAC é composto por _funções_ e atribuições de _papéis._ As funções identificam o nível de permissões. As atribuições de funções associam uma função a um utilizador ou dispositivo.
 
-Usando o RBAC, a permissão pode ser concedida a:
+Utilizando o RBAC, a permissão pode ser concedida para:
 
-- Um usuário.
+- Um utilizador.
 - Um dispositivo.
-- Uma entidade de serviço.
-- Uma função definida pelo usuário.
-- Todos os usuários que pertencem a um domínio.
-- Um locatário.
+- Um diretor de serviço.
+- Uma função definida pelo utilizador.
+- Todos os utilizadores que pertencem a um domínio.
+- Um inquilino.
 
-O grau de acesso também pode ser ajustado.
+O grau de acesso também pode ser afinado.
 
-O RBAC é exclusivo, pois as permissões são herdadas para baixo no grafo espacial.
+O RBAC é único na medida em que as permissões são herdadas pelo gráfico espacial.
 
 ## <a name="what-can-i-do-with-rbac"></a>O que posso fazer com o RBAC?
 
-Um desenvolvedor pode usar o RBAC para:
+Um desenvolvedor pode usar RBAC para:
 
-- Conceder a um usuário a capacidade de gerenciar dispositivos para um edifício inteiro, ou apenas para uma sala ou um andar específico.
-- Conceda a um administrador acesso global a todos os nós de grafo espaciais para um grafo inteiro ou apenas para uma seção do grafo.
-- Conceda a um especialista de suporte acesso de leitura ao grafo, exceto as chaves de acesso.
-- Conceder a cada membro de um domínio acesso de leitura a todos os objetos de grafo.
+- Conceda a um utilizador a capacidade de gerir dispositivos para um edifício inteiro, ou apenas para um quarto ou piso específico.
+- Conceda a um administrador o acesso global a todos os nós de gráficos espaciais para um gráfico inteiro, ou apenas para uma secção do gráfico.
+- Conceda a um especialista de apoio que leia o acesso ao gráfico, exceto as chaves de acesso.
+- Conceda a cada membro de um domínio que leia o acesso a todos os objetos gráficos.
 
-## <a name="rbac-best-practices"></a>Práticas recomendadas do RBAC
+## <a name="rbac-best-practices"></a>Boas práticas rBAC
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-rbac-best-practices.md)]
 
@@ -49,40 +49,40 @@ Um desenvolvedor pode usar o RBAC para:
 
 ### <a name="role-definitions"></a>Definições de função
 
-Uma definição de função é uma coleção de permissões e outros atributos que constituem uma função. Uma definição de função lista as operações permitidas, que incluem *criar*, *ler*, *Atualizar*e *excluir* que qualquer objeto com essa função possa ser executado. Ele também especifica a quais tipos de objeto as permissões se aplicam.
+Uma definição de papel é uma coleção de permissões e outros atributos que constituem um papel. Uma definição de função lista as operações permitidas, que incluem *CREATE,* *READ,* *UPDATE*, e *DELETE* que qualquer objeto com esse papel pode desempenhar. Especifica também a que tipos de objetos as permissões se aplicam.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
-> Para recuperar as definições completas das funções anteriores, consulte a API de sistema/funções.
-> Saiba mais lendo [criando e gerenciando atribuições de função](./security-create-manage-role-assignments.md#retrieve-all-roles).
+> Para recuperar as definições completas para as funções anteriores, consultar o sistema/funções API.
+> Saiba mais lendo [criando e gerindo atribuições de papéis.](./security-create-manage-role-assignments.md#retrieve-all-roles)
 
-### <a name="object-identifier-types"></a>Tipos de identificador de objeto
+### <a name="object-identifier-types"></a>Tipos de identificador de objetos
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> Saiba como conceder permissões para sua entidade de serviço lendo [criando e gerenciando atribuições de função](./security-create-manage-role-assignments.md#grant-permissions-to-your-service-principal).
+> Aprenda a conceder permissões ao seu diretor de serviço, lendo [criando e gerindo atribuições de papéis.](./security-create-manage-role-assignments.md#grant-permissions-to-your-service-principal)
 
-Os artigos de documentação de referência a seguir descrevem:
+Os seguintes artigos de documentação de referência descrevem:
 
-- Como [consultar ou a ID de objeto de um usuário](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- Como [obter a ID de objeto para uma entidade de serviço](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
-- Como [recuperar a ID de objeto para um locatário do Azure ad](../active-directory/develop/quickstart-create-new-tenant.md).
+- Como [consultar ou identificar o objeto para um utilizador](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
+- Como [obter o ID do objeto para um diretor de serviço](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
+- Como [recuperar o ID do objeto para um inquilino Azure AD](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="role-assignments"></a>Atribuições de funções
 
-Uma atribuição de função gêmeos digital do Azure associa um objeto, como um usuário ou um locatário do Azure AD, com uma função e um espaço. As permissões são concedidas a todos os objetos que pertencem a esse espaço. O espaço inclui o gráfico espacial inteiro abaixo dele.
+Uma atribuição de funções de Azure Digital Twins associa um objeto, como um utilizador ou um inquilino DaD Azure, com um papel e um espaço. Permissões são concedidas a todos os objetos que pertencem a esse espaço. O espaço inclui todo o gráfico espacial por baixo.
 
-Por exemplo, um usuário recebe uma atribuição de função com a função `DeviceInstaller` para o nó raiz de um grafo espacial, que representa um edifício. O usuário pode ler e atualizar dispositivos para esse nó e todos os outros espaços filho na construção.
+Por exemplo, um utilizador recebe uma `DeviceInstaller` atribuição de funções com o papel para o nó raiz de um gráfico espacial, que representa um edifício. O utilizador pode então ler e atualizar dispositivos para esse nó e todos os outros espaços infantis do edifício.
 
-Para conceder permissões a um destinatário, crie uma atribuição de função. Para revogar permissões, remova a atribuição de função.
+Para conceder permissões a um destinatário, crie uma atribuição de funções. Para revogar permissões, remova a atribuição do papel.
 
 >[!IMPORTANT]
-> Saiba mais sobre as atribuições de função lendo [criando e gerenciando atribuições de função](./security-create-manage-role-assignments.md).
+> Saiba mais sobre atribuições de papéis lendo Criar e gerir atribuições de [papéis.](./security-create-manage-role-assignments.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre como criar e gerenciar atribuições de função do gêmeos digital do Azure, leia [criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md).
+- Para saber mais sobre a criação e gestão de atribuições de papéis da Azure Digital Twins, leia Criar e gerir atribuições de [papéis.](./security-create-manage-role-assignments.md)
 
-- Leia mais sobre o [RBAC para Azure](https://docs.microsoft.com/azure/role-based-access-control/).
+- Leia mais sobre [rBAC para Azure](https://docs.microsoft.com/azure/role-based-access-control/).

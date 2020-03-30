@@ -15,23 +15,23 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2eeec28569cf31af4542d6cd7aca1fb27d77b1e0
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132532"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Considerações para usar a Plataforma Universal Windows com MSAL.NET
 Os desenvolvedores de aplicações que utilizam a Universal Windows Platform (UWP) com MSAL.NET devem considerar os conceitos que este artigo apresenta.
 
 ## <a name="the-usecorporatenetwork-property"></a>A propriedade UseCorporateNetwork
-Na plataforma Windows Runtime (WinRT), `PublicClientApplication` tem a propriedade Boolean `UseCorporateNetwork`. Esta propriedade permite que as aplicações do Windows 8.1 e as aplicações UWP beneficiem da autenticação Integrada do Windows (IWA) se o utilizador for contratado numa conta que tenha um inquilino do Azure Ative Directory (Azure AD) federado. Os utilizadores que estejam inscritos no sistema operativo também podem utilizar um único sinal (SSO). Ao definir a propriedade `UseCorporateNetwork`, MSAL.NET usa um corretor de autenticação web (WAB).
+Na plataforma Windows Runtime (WinRT), `PublicClientApplication` tem `UseCorporateNetwork`a propriedade Boolean . Esta propriedade permite que as aplicações do Windows 8.1 e as aplicações UWP beneficiem da autenticação Integrada do Windows (IWA) se o utilizador for contratado numa conta que tenha um inquilino do Azure Ative Directory (Azure AD) federado. Os utilizadores que estejam inscritos no sistema operativo também podem utilizar um único sinal (SSO). Ao definir `UseCorporateNetwork` a propriedade, MSAL.NET usa um corretor de autenticação web (WAB).
 
 > [!IMPORTANT]
-> A definição da propriedade `UseCorporateNetwork` como verdadeira pressupõe que o desenvolvedor de aplicações permitiu a IWA na aplicação. Para permitir o IWA:
-> - Na `Package.appxmanifest`da sua aplicação UWP, no separador **Capabilities,** ative as seguintes capacidades:
+> A `UseCorporateNetwork` definição da propriedade como verdadeira pressupõe que o desenvolvedor de aplicações permitiu a IWA na aplicação. Para permitir o IWA:
+> - Na aplicação `Package.appxmanifest`UWP, no separador **Capabilities,** ative as seguintes capacidades:
 >   - **Autenticação empresarial**
->   - **Redes Privadas (Cliente e Servidor)**
+>   - **Redes Privadas (Servidor de & cliente)**
 >   - **Certificado de utilizador compartilhado**
 
 A IWA não está ativada por padrão porque a Microsoft Store requer um alto nível de verificação antes de aceitar aplicações que solicitem as capacidades de autenticação da empresa ou certificados de utilizador partilhados. Nem todos os desenvolvedores querem fazer este nível de verificação.

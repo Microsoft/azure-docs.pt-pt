@@ -12,16 +12,16 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/29/2020
+ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: e8d251cef9e67cb8fc0c11df8ce546383f75a679
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 711e8a7ae31888c9754252d88404d90f24e8030e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248466"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131984"
 ---
-# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhe dashboards Azure utilizando o Controlo de Acesso baseado em funções
+# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções
 
 Depois de configurar um dashboard, pode publicá-lo e partilhá-lo com outros utilizadores da sua organização. Permite que outros vejam o seu painel utilizando o [Controlo de Acesso baseado em Funções](../role-based-access-control/role-assignments-portal.md) Azure (RBAC). Atribuir um utilizador ou grupo de utilizadores a uma função. Esta função define se esses utilizadores podem visualizar ou modificar o painel de instrumentos publicado.
 
@@ -38,7 +38,7 @@ Com o Controlo de Acesso baseado em Funções (RBAC), pode atribuir aos utilizad
 
 * subscrição
 * grupo de recursos
-* resource
+* recurso
 
 As permissões que atribui herdam da subscrição até ao recurso. O painel publicado é um recurso. Pode já ter utilizadores atribuídos a funções para a subscrição que se candidatam ao dashboard publicado.
 
@@ -60,7 +60,7 @@ Antes de atribuir o acesso, tem de publicar o painel de instrumentos.
 
     ![publicar o seu dashboard](./media/azure-portal-dashboard-share-access/publish-dashboard-for-access-control.png)
 
-     Por padrão, a partilha publica o seu dashboard a um grupo de recursos chamado **dashboards**.
+     Por padrão, a partilha publica o seu dashboard a um grupo de recursos chamado **dashboards**. Para selecionar um grupo de recursos diferente, limpe a caixa de verificação.
 
 O seu painel de instrumentos está agora publicado. Se as permissões herdadas da subscrição forem adequadas, não precisa de fazer mais nada. Outros utilizadores da sua organização podem aceder e modificar o dashboard com base na sua função de nível de subscrição.
 
@@ -68,15 +68,15 @@ O seu painel de instrumentos está agora publicado. Se as permissões herdadas d
 
 Pode atribuir um grupo de utilizadores a um papel nesse dashboard.
 
-1. Depois de publicar o dashboard, no **controlo de partilha + acesso,** selecione Gerir **utilizadores**.
+1. Depois de publicar o dashboard, selecione a opção **Partilhar** ou **Desfazer** para aceder ao Controlo de Partilha **+ acesso**.
+
+1. No Controlo de Partilha + controlo de **acesso,** selecione **Gerir utilizadores**.
 
     ![gerir os utilizadores para um dashboard](./media/azure-portal-dashboard-share-access/manage-users-for-access-control.png)
 
-    Para aceder ao **Controlo de Partilha + acesso** a partir de um dashboard, selecione a opção **Partilhar** ou **Despartilhar.**
-
 1. Selecione **atribuições** de Role para ver os utilizadores existentes que já estão atribuídos uma função para este dashboard.
 
-1. Para adicionar um novo utilizador ou grupo, selecione **Adicionar**.
+1. Para adicionar um novo utilizador ou grupo, selecione **Adicionar** e depois Adicionar a atribuição de **funções**.
 
     ![adicionar um utilizador para o acesso ao painel de instrumentos](./media/azure-portal-dashboard-share-access/manage-users-existing-users.png)
 
@@ -84,11 +84,7 @@ Pode atribuir um grupo de utilizadores a um papel nesse dashboard.
 
 1. Selecione o utilizador ou grupo para atribuir à função. Se não vir o utilizador ou grupo que procura na lista, utilize a caixa de pesquisa. A sua lista de grupos disponíveis depende dos grupos que criou no Diretório Ativo.
 
-1. Quando terminar de adicionar utilizadores ou grupos, selecione **OK**.
-
-    A nova atribuição é adicionada à lista de utilizadores. O seu **Acesso** está listado como **Atribuído** e não **herdado.**
-
-    ![funções atribuídas](./media/azure-portal-dashboard-share-access/assigned-roles.png)
+1. Quando terminar de adicionar utilizadores ou grupos, selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Notas de lançamento para Azure HDInsight
+title: Notas de versão do Azure HDInsight
 description: Notas de lançamento mais recentes para Azure HDInsight. Obtenha dicas de desenvolvimento e detalhes para Hadoop, Spark, R Server, Hive, e muito mais.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.openlocfilehash: b83828c3c78913598c103730e11222969fe1fddb
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.date: 03/20/2020
+ms.openlocfilehash: e5a96d2eb67937ce4eeaa1999d8168e7f5d3d926
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370173"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130193"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -30,7 +30,7 @@ Esta versão aplica-se tanto para HDInsight 3.6 como 4.0. O lançamento do HDIns
 > [!IMPORTANT]  
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para mais informações, consulte o artigo de [versão HDInsight](hdinsight-component-versioning.md).
 
-## <a name="new-features"></a>Novos recursos
+## <a name="new-features"></a>Novas funcionalidades
 ### <a name="tls-12-enforcement"></a>Imposição de TLS 1.2
 A Segurança da Camada de Transporte (TLS) e a Camada de Tomadas Seguras (SSL) são protocolos criptográficos que fornecem segurança de comunicações sobre uma rede informática. Saiba mais sobre [o TLS.](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0) O HDInsight utiliza TLS 1.2 em pontos finais públicos de HTTPs, mas o TLS 1.1 ainda é suportado para a retrocompatibilidade. 
 
@@ -65,3 +65,15 @@ O HDInsight continua a fazer melhorias na fiabilidade do cluster e no desempenho
 
 ## <a name="component-version-change"></a>Alteração da versão do componente
 Nenhuma alteração na versão do componente para esta versão. Pode encontrar aqui as versões atuais do componente para HDInsight 4.0 ad HDInsight 3.6.
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+A partir de 18 de março de 2020, alguns clientes Da Azure HDInsight na Europa Ocidental ou norte da Europa receberam notificações de erro ao criar ou escalar clusters HDInsight nestas regiões. Os erros relacionados com esta questão incluem:
+
+- Erro interno do servidor ocorreu durante o processamento do pedido. Por favor, tente novamente o pedido ou o suporte de contato.
+- Pelo menos uma operação de implantação de recursos falhou. Por favor, lista ruma as operações de implantação para mais detalhes. Consulte https://aka.ms/DeployOperations os detalhes do uso
+- O ID\<\>de subscrição do utilizador ' não\<tem núcleos para criar o nome do cluster>'. Obrigatório: \<X,\>Disponível: 0.
+
+Os engenheiros estão cientes deste problema e estão a investigar ativamente.
+
+Para obter ajuda adicional, crie um pedido de [apoio.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)

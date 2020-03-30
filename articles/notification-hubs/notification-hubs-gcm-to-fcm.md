@@ -1,6 +1,6 @@
 ---
-title: Hubs de notificação do Azure e a migração do Google firebase Cloud Messaging (FCM)
-description: Descreve como os hubs de notificação do Azure abordam o Google GCM para a migração FCM.
+title: Hubs de notificação Azure e a migração de Mensagens Cloud (FCM) da Base de Fogo do Google
+description: Descreve como o Azure Notification Hubs aborda o Google GCM à migração da FCM.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -14,51 +14,51 @@ ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/10/2019
-ms.openlocfilehash: 80eae09240bde61870995468485338db5f0b9c2d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 2f2ca4b56445b3f399477e396de579d8a8c539e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212313"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127029"
 ---
-# <a name="azure-notification-hubs-and-the-google-firebase-cloud-messaging-fcm-migration"></a>Hubs de notificação do Azure e a migração do Google firebase Cloud Messaging (FCM)
+# <a name="azure-notification-hubs-and-google-firebase-cloud-messaging-migration"></a>Hubs de notificação Azure e migração de mensagens cloud da base de incêndio do Google
 
 ## <a name="current-state"></a>Estado atual
 
-Quando o Google anunciou sua migração do Google Cloud Messaging (GCM) para o firebase Cloud Messaging (FCM), os serviços de push como os nossos tinham de ajustar as notificações para dispositivos Android para acomodar a alteração.
+Quando a Google anunciou a sua migração do Google Cloud Messaging (GCM) para o Firebase Cloud Messaging (FCM), serviços de push como o nosso tiveram de ajustar a forma como enviamos notificações para dispositivos Android para acomodar a mudança.
 
-Atualizamos nosso back-end de serviço e publicamos as atualizações em nossa API e SDKs, conforme necessário. Com nossa implementação, tomamos a decisão de manter a compatibilidade com os esquemas de notificação GCM existentes para minimizar o impacto do cliente. Isso significa que atualmente enviamos notificações para dispositivos Android usando FCM no modo herdado do FCM. Por fim, queremos adicionar o verdadeiro suporte para FCM, incluindo os novos recursos e o formato de carga. Essa é uma alteração de longo prazo e a migração atual concentra-se em manter a compatibilidade com aplicativos e SDKs existentes. Você pode usar os SDKs do GCM ou do FCM em seu aplicativo (juntamente com nosso SDK) e garantimos que a notificação seja enviada corretamente.
+Atualizámos o nosso backend de serviço, depois publicámos atualizações para os nossos API e SDKs, se necessário. Com a nossa implementação, tomámos a decisão de manter a compatibilidade com os schemas de notificação gcm existentes para minimizar o impacto do cliente. Isto significa que atualmente enviamos notificações para dispositivos Android usando fcm no Modo Legado FCM. Em última análise, queremos adicionar um verdadeiro suporte à FCM, incluindo as novas funcionalidades e formato de carga útil. Trata-se de uma mudança a longo prazo e a migração atual centra-se na manutenção da compatibilidade com as aplicações existentes e os SDKs. Pode utilizar os SDKs GCM ou FCM na sua aplicação (juntamente com o nosso SDK) e certificamo-nos de que a notificação é enviada corretamente.
 
-Alguns clientes receberam recentemente um email do Google Warning sobre aplicativos usando um ponto de extremidade do GCM para notificações. Isso era apenas um aviso e nada é quebrado – as notificações do Android do seu aplicativo ainda são enviadas ao Google para processamento e o Google ainda os processa. Alguns clientes que especificaram o ponto de extremidade do GCM explicitamente em sua configuração de serviço ainda estavam usando o ponto de extremidade preterido. Já tínhamos identificado essa lacuna e estava trabalhando na correção do problema quando o Google enviou o email.
+Alguns clientes receberam recentemente um e-mail da Google alertando sobre aplicações usando um ponto final GCM para notificações. Este foi apenas um aviso, e nada está quebrado – as notificações do Android da sua aplicação ainda são enviadas para a Google para processamento e a Google ainda as processa. Alguns clientes que especificaram explicitamente o ponto final do GCM na sua configuração de serviço ainda usavam o ponto final depreciado. Já tínhamos identificado esta lacuna e estávamos a trabalhar na resolução do problema quando a Google enviou o e-mail.
 
-Substituímos esse ponto de extremidade preterido e a correção é implantada.
+Substituímos o ponto final depreciado e a correção está implantada.
 
-## <a name="going-forward"></a>Em frente
+## <a name="going-forward"></a>Indo para a frente
 
-As perguntas frequentes do FCM do Google afirma que você não precisa fazer nada. Nas [perguntas frequentes do FCM](https://developers.google.com/cloud-messaging/faq), o Google disse que "SDKs de cliente e tokens GCM continuarão a funcionar indefinidamente. No entanto, não será possível direcionar a versão mais recente do Google Play Services em seu aplicativo Android, a menos que você migre para o FCM. "
+A FAQ da FCM da Google diz que não tens de fazer nada. Na [FCM FAQ,](https://developers.google.com/cloud-messaging/faq)a Google disse que "os SDKs de clientes e as fichas gcm continuarão a funcionar indefinidamente. No entanto, não poderá direcionar a versão mais recente do Google Play Services na sua aplicação Android, a menos que emigra para a FCM."
 
-Se seu aplicativo usar a biblioteca do GCM, vá em frente e siga as instruções do Google para atualizar para a biblioteca FCM em seu aplicativo. Nosso SDK é compatível com qualquer um, portanto, você não precisará atualizar nada em seu aplicativo em nosso lado (desde que esteja atualizado com a versão do SDK).
+Se a sua aplicação utilizar a biblioteca GCM, siga as instruções da Google para fazer o upgrade para a biblioteca da FCM na sua aplicação. O nosso SDK é compatível com qualquer um deles, pelo que não terá de atualizar nada na sua aplicação do nosso lado (desde que esteja atualizado com a nossa versão SDK).
 
 ## <a name="questions-and-answers"></a>Perguntas e respostas
 
-Aqui estão algumas respostas para perguntas comuns que ouvimos dos clientes:
+Aqui estão algumas respostas a perguntas comuns que ouvimos dos clientes:
 
-**P:** O que preciso fazer para ser compatível com a data de corte (a data de corte atual do Google pode ser 29 e pode mudar)?
+**Q:** O que preciso fazer para ser compatível até à data limite (a data limite atual da Google é 29 de maio e pode mudar)?
 
-**R:** Nada. Manteremos a compatibilidade com o esquema de notificação GCM existente. A chave do GCM continuará funcionando normalmente como qualquer SDK e biblioteca do GCM usados pelo seu aplicativo.
+**A:** Nada, nada. Manteremos a compatibilidade com o esquema de notificação gcm existente. A sua chave GCM continuará a funcionar normalmente como qualquer GCM SDKs e bibliotecas utilizadas pela sua aplicação.
 
-Se/quando você decidir atualizar para os SDKs e bibliotecas do FCM para aproveitar os novos recursos, sua chave do GCM ainda funcionará. Você pode alternar para o uso de uma chave FCM, se desejar, mas certifique-se de que você está adicionando firebase ao seu projeto GCM existente ao criar o novo projeto firebase. Isso garantirá a compatibilidade com os clientes que executam versões mais antigas do aplicativo que ainda usam SDKs e bibliotecas do GCM.
+Se/quando decidir fazer upgrade para os SDKs e bibliotecas da FCM para tirar partido de novas funcionalidades, a sua chave GCM continuará a funcionar. Pode mudar para a utilização de uma chave FCM, se desejar, mas certifique-se de que está a adicionar base de fogo ao seu projeto GCM existente ao criar o novo projeto Firebase. Isto garantirá a retrocompatibilidade com os seus clientes que estão a executar versões mais antigas da app que ainda utilizam SDKs gcm e bibliotecas.
 
-Se você estiver criando um novo projeto FCM e não estiver anexando ao projeto GCM existente, depois de atualizar os hubs de notificação com o novo segredo FCM, você perderá a capacidade de enviar notificações por push para suas instalações de aplicativo atuais, já que a nova chave FCM não tem nenhum link para o GCM antigo projeto.
+Se estiver a criar um novo projeto FCM e não se ligar ao projeto GCM existente, uma vez que atualiza os Centros de Notificação com o novo segredo da FCM, perderá a capacidade de empurrar notificações para as instalações atuais da aplicação, uma vez que a nova chave FCM não tem qualquer ligação com o antigo GCM. projeto.
 
-**P:** Por que estou recebendo esse email sobre os antigos pontos de extremidade do GCM em uso? O que preciso fazer?
+**Q:** Porque é que estou a receber este e-mail sobre os antigos pontos finais da GCM a serem usados? O que tenho que fazer?
 
-**R:** Nada. Estamos migrando para os novos pontos de extremidade e serão concluídos em breve, portanto, nenhuma alteração será necessária. Nada é quebrado, nosso ponto de extremidade perdido simplesmente causou mensagens de aviso do Google.
+**A:** Nada, nada. Temos vindo a migrar para os novos pontos finais e estaremos concluídos em breve, pelo que não é necessária qualquer alteração. Nada está partido, o nosso único ponto final perdido simplesmente causou mensagens de aviso do Google.
 
-**P:** Como posso fazer a transição para os novos SDKs e bibliotecas do FCM sem interromper os usuários existentes?
+**Q:** Como posso transitar para os novos SDKs e bibliotecas da FCM sem quebrar os utilizadores existentes?
 
-R: Atualize a qualquer momento. O Google ainda não anunciou nenhuma substituição de SDKs e bibliotecas do GCM existentes. Para garantir que você não interrompa as notificações por push para os usuários existentes, certifique-se de criar o novo projeto firebase que você está associando ao seu projeto GCM existente. Isso garantirá que os novos segredos do firebase funcionem para os usuários que executam as versões mais antigas de seu aplicativo com SDKs e bibliotecas do GCM, bem como novos usuários de seu aplicativo com SDKs e bibliotecas do FCM.
+A: Upgrade a qualquer momento. A Google ainda não anunciou qualquer depreciação dos SDKs e bibliotecas gcm existentes. Para garantir que não quebra notificações push aos utilizadores existentes, certifique-se de que quando criar o novo projeto Firebase está a associar-se ao seu projeto GCM existente. Isto irá garantir que novos segredos da Firebase funcionarão para os utilizadores que executam as versões mais antigas da sua aplicação com SDKs e bibliotecas GCM, bem como novos utilizadores da sua aplicação com SDKs e bibliotecas FCM.
 
-**P:** Quando posso usar novos recursos e esquemas do FCM para minhas notificações?
+**Q:** Quando posso usar novas funcionalidades da FCM e schemas para as minhas notificações?
 
-**R:** Depois de publicar uma atualização em nossa API e SDKs, fique atento – esperamos ter algo para você nos próximos meses.
+**A:** Assim que publicarmos uma atualização para os nossos API e SDKs, fique atento – esperamos ter algo para si nos próximos meses.

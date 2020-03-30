@@ -1,6 +1,6 @@
 ---
-title: Criando filtros com o SDK do .NET dos serviços de mídia do Azure v3
-description: Este tópico descreve como criar filtros para que o cliente possa utilizar secções específicas do fluxo de um fluxo. Serviços de multimédia cria os manifestos dinâmicos para alcançar este seletiva de transmissão em fluxo.
+title: Criação de filtros com Azure Media Services v3 .NET SDK
+description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. A Media Services cria manifestos dinâmicos para alcançar este streaming seletivo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
 ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75779251"
 ---
-# <a name="create-filters-with-media-services-net-sdk"></a>Criar filtros com o SDK do .NET dos serviços de mídia
+# <a name="create-filters-with-media-services-net-sdk"></a>Criar filtros com Media Services .NET SDK
 
-Quando a entrega de conteúdo aos clientes (transmissão em fluxo eventos em direto ou de vídeo a pedido) o cliente poderá ter mais flexibilidade do que o que é descrito no arquivo de manifesto do recurso padrão. Serviços de multimédia do Azure permite-lhe definir os filtros de conta e filtros de recurso para o seu conteúdo. 
+Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo a pedido) o seu cliente pode precisar de mais flexibilidade do que o descrito no ficheiro manifesto do ativo predefinido. O Azure Media Services permite-lhe definir filtros de conta e filtros de ativos para o seu conteúdo. 
 
-Para obter uma descrição detalhada desse recurso e dos cenários em que ele é usado, consulte manifestos e [filtros](filters-concept.md) [dinâmicos](filters-dynamic-manifest-overview.md) .
+Para uma descrição detalhada desta funcionalidade e cenários onde é utilizada, consulte [Manifestos dinâmicos](filters-dynamic-manifest-overview.md) e [filtros](filters-concept.md).
 
-Este tópico mostra como usar o SDK do .NET dos serviços de mídia para definir um filtro para um ativo de vídeo sob demanda e criar [filtros de conta](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) e [filtros de ativo](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+Este tópico mostra como usar os Media Services .NET SDK para definir um filtro para um ativo de vídeo a pedido e criar [filtros](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) de conta e [filtros de ativos](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
-> Certifique-se de examinar [presentationTimeRange](filters-concept.md#presentationtimerange).
+> Certifique-se de rever a [apresentaçãoTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- Revisão [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
-- [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de que não se esqueça de que o nome do grupo de recursos e o nome da conta dos serviços de multimédia. 
-- Obter as informações necessárias para [acessar as APIs](access-api-cli-how-to.md)
-- Examinar [carregar, codificar e transmitir usando os serviços de mídia do Azure](stream-files-tutorial-with-api.md) para saber como [começar a usar o SDK do .net](stream-files-tutorial-with-api.md#start_using_dotnet)
+- Rever [Filtros e manifestos dinâmicos.](filters-dynamic-manifest-overview.md)
+- [Criar uma conta de Media Services.](create-account-cli-how-to.md) Lembre-se do nome do grupo de recursos e do nome da conta Media Services. 
+- Obtenha informações necessárias para aceder a [APIs](access-api-cli-how-to.md)
+- [Reveja o upload, codificação e stream usando o Azure Media Services](stream-files-tutorial-with-api.md) para ver como começar a [usar .NET SDK](stream-files-tutorial-with-api.md#start_using_dotnet)
 
-## <a name="define-a-filter"></a>Definir um filtro  
+## <a name="define-a-filter"></a>Defina um filtro  
 
-No .NET, você configura as seleções de controle com as classes [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) e [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) . 
+Em .NET, configura as seleções de faixas com as classes [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) e [FilterTrackPropertyCondition.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) 
 
-O código a seguir define um filtro que inclui quaisquer faixas de áudio EC-3 e quaisquer faixas de vídeo com taxa de bits no intervalo de 0-1000000.
+O código que se segue define um filtro que inclui quaisquer faixas áudio que sejam EC-3 e quaisquer faixas de vídeo que tenham bitrate na gama 0-1000000.
 
 ```csharp
 var audioConditions = new List<FilterTrackPropertyCondition>()
@@ -66,27 +66,27 @@ List<FilterTrackSelection> includedTracks = new List<FilterTrackSelection>()
 
 ## <a name="create-account-filters"></a>Criar filtros de conta
 
-O código a seguir mostra como usar o .NET para criar um filtro de conta que inclui todas as seleções de controle [definidas acima](#define-a-filter). 
+O código que se segue mostra como utilizar .NET para criar um filtro de conta que inclua todas as seleções de [faixas definidas acima .](#define-a-filter) 
 
 ```csharp
 AccountFilter accountFilterParams = new AccountFilter(tracks: includedTracks);
 client.AccountFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, "accountFilterName1", accountFilter);
 ```
 
-## <a name="create-asset-filters"></a>Criar filtros de elemento
+## <a name="create-asset-filters"></a>Criar filtros de ativos
 
-O código a seguir mostra como usar o .NET para criar um filtro de ativo que inclui todas as seleções de controle [definidas acima](#define-a-filter). 
+O código que se segue mostra como utilizar .NET para criar um filtro de ativos que inclua todas as seleções de [faixas definidas acima .](#define-a-filter) 
 
 ```csharp
 AssetFilter assetFilterParams = new AssetFilter(tracks: includedTracks);
 client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, encodedOutputAsset.Name, "assetFilterName1", assetFilterParams);
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>Associar filtros ao localizador de streaming
+## <a name="associate-filters-with-streaming-locator"></a>Filtros associados com localizador de streaming
 
-Você pode especificar uma lista de ativos ou filtros de conta, que se aplicariam ao seu localizador de streaming. O [Gerenciador dinâmico (ponto de extremidade de streaming)](dynamic-packaging-overview.md) aplica essa lista de filtros junto com aqueles que seu cliente especifica na URL. Essa combinação gera um [manifesto dinâmico](filters-dynamic-manifest-overview.md), que é baseado em filtros na URL + filtros que você especificar no localizador de streaming. Recomendamos que você use esse recurso se desejar aplicar filtros, mas não quiser expor os nomes de filtro na URL.
+Pode especificar uma lista de filtros de ativos ou conta, que se aplicaria ao seu Localizador de Streaming. O [Pacote Dinâmico (Streaming Endpoint)](dynamic-packaging-overview.md) aplica esta lista de filtros juntamente com os especificados pelo seu cliente no URL. Esta combinação gera um [Manifesto Dinâmico,](filters-dynamic-manifest-overview.md)que é baseado em filtros no URL + filtros que especifica no Localizador de Streaming. Recomendamos que utilize esta funcionalidade se pretender aplicar filtros, mas não pretende expor os nomes dos filtros no URL.
 
-O código C# a seguir mostra como criar um localizador de streaming e especificar `StreamingLocator.Filters`. Essa é uma propriedade opcional que usa um `IList<string>` de nomes de filtro.
+O código C# seguinte mostra como criar `StreamingLocator.Filters`um Localizador de Streaming e especificar . Esta é uma propriedade `IList<string>` opcional que leva um dos nomes de filtro.
 
 ```csharp
 IList<string> filters = new List<string>();
@@ -106,9 +106,9 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
       
 ## <a name="stream-using-filters"></a>Fluxo usando filtros
 
-Depois de definir filtros, os clientes podem usá-los na URL de streaming. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptável: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming.
+Uma vez definidofiltros, os seus clientes podem usá-los no URL de streaming. Os filtros podem ser aplicados em protocolos de streaming de bitrate adaptativo: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming.
 
-A tabela a seguir mostra alguns exemplos de URLs com filtros:
+A tabela que se segue mostra alguns exemplos de URLs com filtros:
 
 |Protocolo|Exemplo|
 |---|---|
@@ -118,6 +118,6 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Vídeos do Stream](stream-files-tutorial-with-api.md) 
+[Stream vídeos](stream-files-tutorial-with-api.md) 
 
 

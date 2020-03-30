@@ -3,16 +3,19 @@ title: Automatizar os processos de insights de aplicação azure utilizando apli
 description: Saiba como pode automatizar rapidamente processos repetíveis adicionando o conector De Insights de Aplicação à sua aplicação lógica.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 9a7f411ca5ec47e3f25d8120d0388fb030b00c72
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655010"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473171"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizar processos de insights de aplicação utilizando aplicações lógicas
 
 Encontra-se repetidamente a executar as mesmas consultas nos seus dados de telemetria para verificar se o seu serviço está a funcionar corretamente? Está a tentar automatizar estas consultas para encontrar tendências e anomalias e depois construir os seus próprios fluxos de trabalho à sua volta? O conector Azure Application Insights para Aplicações Lógicas é a ferramenta certa para este fim.
+
+> [!NOTE]
+> O conector Azure Application Insights foi substituído pelo [conector Azure Monitor](../platform/logicapp-flow-connector.md) que está integrado com o Diretório Ativo Azure em vez de necessitar de uma chave API e também permite recuperar dados de um espaço de trabalho do Log Analytics.
 
 Com esta integração, pode automatizar inúmeros processos sem escrever uma única linha de código. Pode criar uma aplicação lógica com o conector Application Insights para automatizar rapidamente qualquer processo de Insights de Aplicação. 
 
@@ -23,7 +26,7 @@ Também pode adicionar ações adicionais. A funcionalidade de Aplicações Lóg
 Neste tutorial, aprende-se a criar uma aplicação lógica que utiliza o algoritmo de autocluster Analytics para atributos de grupo nos dados de uma aplicação web. O fluxo envia automaticamente os resultados por e-mail, apenas um exemplo de como pode utilizar as Aplicações Insights Analytics e Logic Apps em conjunto. 
 
 ### <a name="step-1-create-a-logic-app"></a>Passo 1: Criar uma aplicação lógica
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Clique **em Criar um recurso,** selecione Web + **Mobile,** e depois selecione **Logic App**.
 
     ![Nova janela de aplicativo lógica](./media/automate-with-logic-apps/1createlogicapp.png)

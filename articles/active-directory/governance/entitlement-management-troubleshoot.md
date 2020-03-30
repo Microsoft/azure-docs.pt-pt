@@ -3,7 +3,7 @@ title: Gestão de direitos de resolução de problemas - Azure AD
 description: Saiba mais sobre alguns itens que deve verificar para ajudá-lo a resolver a gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 10/26/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261687"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128464"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Resolução de problemas Azure Gestão de direitos da AD
 
@@ -48,6 +48,10 @@ Este artigo descreve alguns itens que deve verificar para ajudá-lo a resolver a
 * Quando remove um membro de uma equipa, este também é removido do Grupo do Office 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)
 
 * Confirme que o seu diretório não está configurado para várias regiões. De momento, a gestão de direitos não suporta localizações de várias regiões no SharePoint Online. Os sites do SharePoint Online têm de estar na localização geográfica predefinida para serem regidos pela gestão de direitos. Para mais informações, consulte [capacidades multi-Geo no OneDrive e SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+
+## <a name="access-packages"></a>Pacotes de acesso
+
+* Se tentar apagar um pacote ou uma apólice de acesso e ver uma mensagem de erro que diz que existem atribuições ativas, se não vir nenhum utilizador com atribuições, verifique se algum utilizador recentemente eliminado ainda tem atribuições. Durante a janela de 30 dias após a eliminação de um utilizador, a conta de utilizador pode ser restaurada.   
 
 ## <a name="external-users"></a>Utilizadores externos
 
@@ -140,5 +144,5 @@ Só pode cancelar um pedido pendente que ainda não tenha sido entregue ou cuja 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Governar o acesso a utilizadores externos](entitlement-management-external-users.md)
+- [Gerir o acesso dos utilizadores externos](entitlement-management-external-users.md)
 - [Ver relatórios de como os utilizadores tiveram acesso na gestão de direitos](entitlement-management-reports.md)

@@ -5,28 +5,28 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 9a829b0c84c397f297539cdb04b3ad027a18c834
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c9447d356cff792d9a70e33cc2a5e35898d8982b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79240311"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80131882"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code
+# <a name="quickstart-create-arm-templates-by-using-visual-studio-code"></a>Quickstart: Criar modelos ARM usando o Código de Estúdio Visual
 
-Aprenda a utilizar o código do Visual Studio e a extensão das Ferramentas do Azure Resource Manager para criar e editar modelos do Azure Resource Manager. Pode criar modelos do Resource Manager no Visual Studio Code sem a extensão, mas esta proporciona opções de conclusão automática que simplificam o desenvolvimento dos modelos. Para compreender os conceitos associados à implementação e gestão das suas soluções Azure, consulte a visão geral da [implementação](overview.md)do modelo .
+Saiba como usar o código do Estúdio Visual e a extensão de Ferramentas de Gestor de Recursos Azure para criar e editar modelos de Gestor de Recursos Azure (ARM). Pode criar modelos ARM no Código do Estúdio Visual sem a extensão, mas a extensão fornece opções autocompletas que simplificam o desenvolvimento do modelo. Para compreender os conceitos associados à implementação e gestão das suas soluções Azure, consulte a visão geral da [implementação](overview.md)do modelo .
 
 Neste arranque rápido, você implementa uma conta de armazenamento:
 
 ![modelo de gestor de recursos quickstart modelo de código de estúdio](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, precisa de:
 
-- [Visual Studio Code](https://code.visualstudio.com/).
+- [Código de estúdio visual.](https://code.visualstudio.com/)
 - Extensão das Ferramentas do Azure Resource Manager. Para instalar, siga estes passos:
 
     1. Abra o Visual Studio Code.
@@ -36,11 +36,11 @@ Para concluir este artigo, precisa de:
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). Os modelos Azure Quickstart é um repositório para modelos de Gestor de Recursos.
+Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). Os modelos Azure Quickstart é um repositório para modelos ARM.
 
 O modelo utilizado neste início rápido chama-se [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/). O modelo define um recurso de conta de Armazenamento do Azure.
 
-1. No Visual Studio Code, selecione **Ficheiro**>**Abrir Ficheiro**.
+1. A partir do Código do Estúdio Visual, selecione **File**>**Open File**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
 
     ```url
@@ -48,11 +48,11 @@ O modelo utilizado neste início rápido chama-se [Criar uma conta de armazename
     ```
 
 3. Selecione **Abrir** para abrir o ficheiro.
-4. Selecione **Ficheiro**>**Guardar Como** para guardar o ficheiro como **azuredeploy.json** no computador local.
+4. Selecione **File**>**Save As** para guardar o ficheiro como **azuredeploy.json** para o seu computador local.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-Para experimentar como editar um modelo usando o Código do Estúdio Visual, adicione mais um elemento na secção `outputs` para mostrar o URI de armazenamento.
+Para experimentar como editar um modelo usando o Código do `outputs` Estúdio Visual, adicione mais um elemento na secção para mostrar o URI de armazenamento.
 
 1. Adicione mais um resultado ao modelo exportado:
 
@@ -78,11 +78,11 @@ Para experimentar como editar um modelo usando o Código do Estúdio Visual, adi
     }
     ```
 
-    Se tiver copiado e colado o código no Visual Studio Code, tente voltar a escrever o elemento **valor** para experimentar a capacidade IntelliSense da extensão das Ferramentas do Resource Manager.
+    Se copiou e colou o código dentro do Código do Estúdio Visual, tente reescrever o elemento de **valor** para experimentar a capacidade IntelliSense da extensão ferramentas de gestor de recursos.
 
     ![IntelliSense Visual Studio Code de modelo do Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-2. Selecione **Ficheiro**>**Guardar** para guardar o ficheiro.
+2. Selecione**Guardar** **ficheiros**>para guardar o ficheiro.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -90,7 +90,7 @@ Existem muitos métodos para implementar modelos. A concha Azure Cloud é usada 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-1. Iniciar sessão no [Cloud shell do Azure](https://shell.azure.com)
+1. Inscreva-se na concha da [Nuvem Azure](https://shell.azure.com)
 
 2. Escolha o seu ambiente preferido selecionando **powerShell** ou **Bash**(CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
 
@@ -138,7 +138,7 @@ Existem muitos métodos para implementar modelos. A concha Azure Cloud é usada 
     echo "Enter the location (i.e. centralus):" &&
     read location &&
     az group create --name $resourceGroupName --location "$location" &&
-    az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -196,14 +196,14 @@ Para saber mais sobre como utilizar contas de armazenamento do Azure, veja [Iní
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
+1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+4. **Selecione Eliminar** o grupo de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 O foco principal deste início rápido é usar o Visual Studio Code para editar um modelo existente a partir de modelos de Início Rápido do Azure. Também aprendeu a implementar o modelo usando cli ou PowerShell da concha Azure Cloud. Os modelos de Início Rápido do Azure poderão não fornecer-lhe tudo o que precisa. Para saber mais sobre o desenvolvimento do modelo, consulte a nossa nova série tutorial de principiante:
 
 > [!div class="nextstepaction"]
-> [Tutoriais de principiantes](./template-tutorial-create-first-template.md)
+> [Tutoriais para principiantes](./template-tutorial-create-first-template.md)

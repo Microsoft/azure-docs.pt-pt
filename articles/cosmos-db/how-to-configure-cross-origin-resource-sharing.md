@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: dech
 ms.openlocfilehash: 7a487cb10965a379a0a418efaa061be88c5d10dd
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77082992"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configure partilha de recursos de origem cruzada (CORS)
@@ -28,10 +28,10 @@ Utilize os seguintes passos para permitir a partilha de recursos de origem cruza
 
 1. Navegue para a sua conta Azure cosmos DB. Abra a lâmina **CORS.**
 
-2. Especifique uma lista separada de origens que possa fazer chamadas de origem cruzada para a sua conta Azure Cosmos DB. Por exemplo, `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. Também pode utilizar um wildcard "\*" para permitir todas as origens e selecionar **Submeter**. 
+2. Especifique uma lista separada de origens que possa fazer chamadas de origem cruzada para a sua conta Azure Cosmos DB. Por `https://www.mydomain.com`exemplo, `https://mydomain.com` `https://api.mydomain.com`. . Também pode utilizar um\*wildcard " para permitir todas as origens e selecionar **Submeter**. 
 
    > [!NOTE]
-   > Atualmente, não pode usar wildcards como parte do nome de domínio. Por exemplo, `https://*.mydomain.net` formato ainda não é suportado. 
+   > Atualmente, não pode usar wildcards como parte do nome de domínio. Por `https://*.mydomain.net` exemplo, o formato ainda não é suportado. 
 
    ![Permitir a partilha de recursos de origem cruzada utilizando o portal Azure](./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png)
 

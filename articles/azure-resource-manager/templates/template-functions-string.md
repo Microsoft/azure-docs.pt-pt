@@ -3,16 +3,16 @@ title: Funções do modelo - cadeia
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com cordas.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: f8d19179461693331a6091ec7a3562f536b959e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 070133c3db538e5df76644b62c25ced916adc4af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156281"
 ---
-# <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia para modelos de Gestor de Recursos Azure
+# <a name="string-functions-for-arm-templates"></a>Funções de corda para modelos ARM
 
-O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
+O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas nos seus modelos de Gestor de Recursos Azure (ARM):
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -36,7 +36,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [saltar](#skip)
 * [dividir](#split)
 * [começaCom](#startswith)
-* [cadeia](#string)
+* [string](#string)
 * [substring](#substring)
 * [tomar](#take)
 * [toLower](#tolower)
@@ -56,11 +56,11 @@ Devolve a representação base64 da cadeia de entrada.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |Cadeia de caracteres |O valor para voltar como uma representação base64. |
+| inputString |Sim |string |O valor para voltar como uma representação base64. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma corda contendo a representação base64.
 
@@ -105,12 +105,12 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Um dois três |
+| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
+| paraStringOutput | Cadeia | Um dois três |
 | toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -121,11 +121,11 @@ Converte uma representação base64 num objeto JSON.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Valor |Sim |Cadeia de caracteres |A representação base64 para converter-se em um objeto JSON. |
+| base64Valor |Sim |string |A representação base64 para converter-se em um objeto JSON. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Um objeto JSON.
 
@@ -170,15 +170,15 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Um dois três |
+| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
+| paraStringOutput | Cadeia | Um dois três |
 | toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
 
-## <a name="base64tostring"></a>base64ToString
+## <a name="base64tostring"></a>base64Tostring
 
 `base64ToString(base64Value)`
 
@@ -186,11 +186,11 @@ Converte uma representação base64 numa corda.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Valor |Sim |Cadeia de caracteres |A representação base64 para converter-se em uma corda. |
+| base64Valor |Sim |string |A representação base64 para converter-se em uma corda. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma cadeia do valor base64 convertido.
 
@@ -235,12 +235,12 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Um dois três |
+| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
+| paraStringOutput | Cadeia | Um dois três |
 | toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
 
 ## <a name="concat"></a>concat
@@ -251,14 +251,14 @@ Combina múltiplos valores de cordas e devolve a corda concatenada, ou combina v
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |corda ou matriz |A primeira corda ou matriz para a concatenação. |
 | argumentos adicionais |Não |corda ou matriz |Cordas ou matrizes adicionais em ordem sequencial de concatenação. |
 
 Esta função pode assumir qualquer número de argumentos, e pode aceitar cordas ou matrizes para os parâmetros. No entanto, não é possível fornecer matrizes e cordas para parâmetros. As cordas só são concatenadas com outras cordas.
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma cadeia ou uma série de valores concatenados.
 
@@ -286,11 +286,11 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Cadeia | prefixo-5yj4yjf5mbg72 |
 
 O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) de exemplo mostra como combinar duas matrizes.
 
@@ -327,13 +327,13 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| retorno | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| regressar | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>Contém
+## <a name="contains"></a>contém
 
 `contains (container, itemToFind)`
 
@@ -341,12 +341,12 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave, ou uma cor
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| container |Sim |matriz, objeto ou corda |O valor que contém o valor a encontrar. |
+| contentor |Sim |matriz, objeto ou corda |O valor que contém o valor a encontrar. |
 | itemToFind |Sim |corda ou int |O valor a encontrar. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 **É verdade** se o item for encontrado; caso contrário, **Falso.**
 
@@ -403,16 +403,16 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| cordaTrue | Bool | true |
-| stringFalse | Bool | Falso |
-| objetoVerdadeiro | Bool | true |
-| objectFalse | Bool | Falso |
-| arrayTrue | Bool | true |
-| arrayFalse | Bool | Falso |
+| cordaTrue | Booleano | Verdadeiro |
+| cadeiaFalso | Booleano | Falso |
+| objetoVerdadeiro | Booleano | Verdadeiro |
+| objetoFalso | Booleano | Falso |
+| arrayTrue | Booleano | Verdadeiro |
+| arrayFalso | Booleano | Falso |
 
 ## <a name="datauri"></a>dataUri
 
@@ -422,11 +422,11 @@ Converte um valor para um URI de dados.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sim |Cadeia de caracteres |O valor para converter para um URI de dados. |
+| stringToConverter |Sim |string |O valor para converter para um URI de dados. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma corda formatada como um URI de dados.
 
@@ -462,14 +462,14 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | String | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Olá, mundo! |
+| dataUriOutput | Cadeia | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
+| paraStringOutput | Cadeia | Olá, mundo! |
 
-## <a name="datauritostring"></a>dataUriToString
+## <a name="datauritostring"></a>datauritostring
 
 `dataUriToString(dataUriToConvert)`
 
@@ -477,11 +477,11 @@ Converte um valor formatado URI de dados para uma corda.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sim |Cadeia de caracteres |Os dados URI valorizam a conversão. |
+| datauriToconverter |Sim |string |Os dados URI valorizam a conversão. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma corda contendo o valor convertido.
 
@@ -517,12 +517,12 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | String | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Olá, mundo! |
+| dataUriOutput | Cadeia | dados:texto/planície;charset=utf8;base64,SGVsbG8= |
+| paraStringOutput | Cadeia | Olá, mundo! |
 
 ## <a name="empty"></a>vazio
 
@@ -532,11 +532,11 @@ Determina se uma matriz, objeto ou corda está vazia.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sim |matriz, objeto ou corda |O valor para verificar se está vazio. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Devoluções **Verdadeiras** se o valor estiver vazio; caso contrário, **Falso.**
 
@@ -581,13 +581,13 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | true |
-| objetoVazio | Bool | true |
-| cordaVazio | Bool | true |
+| matrizVazio | Booleano | Verdadeiro |
+| objetoVazio | Booleano | Verdadeiro |
+| cordaVazio | Booleano | Verdadeiro |
 
 ## <a name="endswith"></a>endsWith
 
@@ -597,12 +597,12 @@ Determina se uma corda termina com um valor. A comparação é insensível a cas
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |Cadeia de caracteres |O valor que contém o item a encontrar. |
-| stringToFind |Sim |Cadeia de caracteres |O valor a encontrar. |
+| stringToSearch |Sim |string |O valor que contém o item a encontrar. |
+| stringToFind |Sim |string |O valor a encontrar. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 **Verdade** se o último personagem ou caracteres da corda correspondem ao valor; caso contrário, **Falso.**
 
@@ -644,16 +644,16 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| começaTrue | Bool | true |
-| startsCapTrue | Bool | true |
-| startsFalse | Bool | Falso |
-| terminaTrue | Bool | true |
-| endsCapTrue | Bool | true |
-| endsFalse | Bool | Falso |
+| começaTrue | Booleano | Verdadeiro |
+| começaCapTrue | Booleano | Verdadeiro |
+| começaFalso | Booleano | Falso |
+| terminaTrue | Booleano | Verdadeiro |
+| terminaCapTrue | Booleano | Verdadeiro |
+| terminaFalso | Booleano | Falso |
 
 ## <a name="first"></a>primeiro
 
@@ -663,11 +663,11 @@ Devolve o primeiro personagem da corda, ou primeiro elemento da matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou corda |O valor para recuperar o primeiro elemento ou personagem. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma sequência do primeiro personagem, ou do tipo (corda, int, matriz ou objeto) do primeiro elemento de uma matriz.
 
@@ -700,14 +700,14 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | um |
-| stringOutput | String | O |
+| arrayOutput | Cadeia | um |
+| cadeiaOutput | Cadeia | O |
 
-## <a name="format"></a>format
+## <a name="format"></a>formato
 
 `format(formatString, arg1, arg2, ...)`
 
@@ -715,9 +715,9 @@ Cria uma cadeia formatada a partir de valores de entrada.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| formatString | Sim | Cadeia de caracteres | A cadeia de formato composto. |
+| formatString | Sim | string | A cadeia de formato composto. |
 | arg1 | Sim | corda, inteiro, ou booleano | O valor a incluir na corda formatada. |
 | argumentos adicionais | Não | corda, inteiro, ou booleano | Valores adicionais a incluir na corda formatada. |
 
@@ -758,13 +758,13 @@ O modelo de exemplo seguinte mostra como usar a função de formato.
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| formatTest | String | Olá, Utilizador. Número formato: 8.175.133 |
+| formatoTeste | Cadeia | Olá, Utilizador. Número formato: 8.175.133 |
 
-## <a name="guid"></a>guid
+## <a name="guid"></a>guia
 
 `guid(baseString, ...)`
 
@@ -772,10 +772,10 @@ Cria um valor no formato de um identificador globalmente único com base nos val
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |Cadeia de caracteres |O valor utilizado na função hash para criar o GUID. |
-| parâmetros adicionais, conforme necessário |Não |Cadeia de caracteres |Pode adicionar o máximo de cordas necessárias para criar o valor que especifica o nível de singularidade. |
+| baseString |Sim |string |O valor utilizado na função hash para criar o GUID. |
+| parâmetros adicionais, conforme necessário |Não |string |Pode adicionar o máximo de cordas necessárias para criar o valor que especifica o nível de singularidade. |
 
 ### <a name="remarks"></a>Observações
 
@@ -803,7 +803,7 @@ Um espaço único para a implantação de um grupo de recursos
 "[guid(resourceGroup().id, deployment().name)]"
 ```
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma cadeia contendo 36 caracteres no formato de um identificador globalmente único.
 
@@ -835,7 +835,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-## <a name="indexof"></a>indexOf
+## <a name="indexof"></a>indexof
 
 `indexOf(stringToSearch, stringToFind)`
 
@@ -843,12 +843,12 @@ Devolve a primeira posição de um valor dentro de uma corda. A comparação é 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |Cadeia de caracteres |O valor que contém o item a encontrar. |
-| stringToFind |Sim |Cadeia de caracteres |O valor a encontrar. |
+| stringToSearch |Sim |string |O valor que contém o item a encontrar. |
+| stringToFind |Sim |string |O valor a encontrar. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Um inteiro que representa a posição do item a encontrar. O valor é baseado em zero. Se o item não for encontrado, -1 será devolvido.
 
@@ -886,15 +886,15 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstT | Int | 0 |
-| lastT | Int | 3 |
-| primeiraString | Int | 2 |
-| última String | Int | 0 |
-| notFound | Int | -1 |
+| primeiroT | int | 0 |
+| últimoT | int | 3 |
+| primeiraString | int | 2 |
+| última String | int | 0 |
+| não Encontrado | int | -1 |
 
 ## <a name="last"></a>última
 
@@ -904,11 +904,11 @@ Devolve o último personagem da corda, ou o último elemento da matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou corda |O valor para recuperar o último elemento ou personagem. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma sequência do último personagem, ou do tipo (corda, int, matriz ou objeto) do último elemento numa matriz.
 
@@ -941,14 +941,14 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | três |
-| stringOutput | String | e |
+| arrayOutput | Cadeia | três |
+| cadeiaOutput | Cadeia | e |
 
-## <a name="lastindexof"></a>lastIndexOf
+## <a name="lastindexof"></a>últimoIndexOf
 
 `lastIndexOf(stringToSearch, stringToFind)`
 
@@ -956,12 +956,12 @@ Devolve a última posição de um valor dentro de uma corda. A comparação é i
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |Cadeia de caracteres |O valor que contém o item a encontrar. |
-| stringToFind |Sim |Cadeia de caracteres |O valor a encontrar. |
+| stringToSearch |Sim |string |O valor que contém o item a encontrar. |
+| stringToFind |Sim |string |O valor a encontrar. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Um inteiro que representa a última posição do item a encontrar. O valor é baseado em zero. Se o item não for encontrado, -1 será devolvido.
 
@@ -999,15 +999,15 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstT | Int | 0 |
-| lastT | Int | 3 |
-| primeiraString | Int | 2 |
-| última String | Int | 0 |
-| notFound | Int | -1 |
+| primeiroT | int | 0 |
+| últimoT | int | 3 |
+| primeiraString | int | 2 |
+| última String | int | 0 |
+| não Encontrado | int | -1 |
 
 ## <a name="length"></a>length
 
@@ -1017,11 +1017,11 @@ Devolve o número de caracteres numa corda, elementos numa matriz ou propriedade
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz, corda ou objeto |A matriz a utilizar para obter o número de elementos, a corda a utilizar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível raiz. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Um int. 
 
@@ -1077,13 +1077,13 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayLength | Int | 3 |
-| stringLength | Int | 13 |
-| objetoComprimento | Int | 4 |
+| arrayLength | int | 3 |
+| stringLength | int | 13 |
+| objetoComprimento | int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
@@ -1103,7 +1103,7 @@ Num ambiente de teste, poderá ser necessário mobilizar repetidamente recursos 
 
 Tenha cuidado ao recolocar um modelo que dependa da função newGuid para um valor predefinido. Quando reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro a partir da implementação anterior.
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma cadeia contendo 36 caracteres no formato de um identificador globalmente único.
 
@@ -1136,7 +1136,7 @@ A saída do exemplo anterior varia para cada implantação, mas será semelhante
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| guidOutput | Cadeia de caracteres | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 O exemplo que se segue utiliza a nova função Guid para criar um nome único para uma conta de armazenamento. Este modelo pode funcionar para o ambiente de teste onde a conta de armazenamento existe por um curto período de tempo e não é reimplantada.
 
@@ -1179,7 +1179,7 @@ A saída do exemplo anterior varia para cada implantação, mas será semelhante
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| nameOutput | Cadeia de caracteres | storagenziwvyru7uxie |
+| nomeSaída | string | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1190,15 +1190,15 @@ Devolve uma corda alinhada à direita adicionando caracteres à esquerda até at
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sim |corda ou int |O valor para alinhar à direita. |
-| totalLength |Sim |int |O número total de caracteres na corda devolvida. |
-| paddingCharacter |Não |personagem único |O carácter a utilizar para o acolchoamento esquerdo até que o comprimento total seja atingido. O valor padrão é um espaço. |
+| totalComprimento |Sim |int |O número total de caracteres na corda devolvida. |
+| acolchoadoPersonage |Não |personagem único |O carácter a utilizar para o acolchoamento esquerdo até que o comprimento total seja atingido. O valor padrão é um espaço. |
 
 Se a cadeia original for mais comprida do que o número de caracteres a revestir, não são adicionados caracteres.
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma corda com pelo menos o número de caracteres especificados.
 
@@ -1226,11 +1226,11 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| cadeiaOutput | Cadeia | 0000000123 |
 
 ## <a name="replace"></a>substituir
 
@@ -1240,13 +1240,13 @@ Devolve uma nova corda com todos os casos de uma corda substituída por outra co
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| String original |Sim |Cadeia de caracteres |O valor que tem todos os casos de uma corda substituída por outra corda. |
-| oldString |Sim |Cadeia de caracteres |A corda a ser removida da corda original. |
-| newString |Sim |Cadeia de caracteres |A corda para adicionar no lugar da corda removida. |
+| String original |Sim |string |O valor que tem todos os casos de uma corda substituída por outra corda. |
+| oldString |Sim |string |A corda a ser removida da corda original. |
+| newString |Sim |string |A corda para adicionar no lugar da corda removida. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma corda com os caracteres substituídos.
 
@@ -1278,12 +1278,12 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| segundaSaída | String | 123-123-xxxx |
+| primeiraSaída | Cadeia | 1231231234 |
+| segundaSaída | Cadeia | 123-123-xxxx |
 
 ## <a name="skip"></a>saltar
 
@@ -1293,12 +1293,12 @@ Devolve uma corda com todos os caracteres após o número especificado de caract
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou corda |A matriz ou corda para usar para saltar. |
 | númeroToSkip |Sim |int |O número de elementos ou caracteres a saltar. Se este valor for de 0 ou menos, todos os elementos ou caracteres do valor são devolvidos. Se for maior do que o comprimento da matriz ou corda, uma matriz ou corda vazia é devolvida. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma matriz ou corda.
 
@@ -1346,14 +1346,14 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["three"] |
-| stringOutput | String | dois três |
+| arrayOutput | Matriz | ["três"] |
+| cadeiaOutput | Cadeia | dois três |
 
-## <a name="split"></a>split
+## <a name="split"></a>dividir
 
 `split(inputString, delimiter)`
 
@@ -1361,12 +1361,12 @@ Devolve uma série de cordas que contém as subcordas da cadeia de entrada que s
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |Cadeia de caracteres |A corda para partir. |
+| inputString |Sim |string |A corda para partir. |
 | delimitador |Sim |cadeia ou matriz de cordas |O delimitador a utilizar para dividir a corda. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma variedade de cordas.
 
@@ -1405,12 +1405,12 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstOutput | Array | ["um", "dois", "três"] |
-| segundaSaída | Array | ["um", "dois", "três"] |
+| primeiraSaída | Matriz | ["um", "dois", "três"] |
+| segundaSaída | Matriz | ["um", "dois", "três"] |
 
 ## <a name="startswith"></a>startsWith
 
@@ -1420,12 +1420,12 @@ Determina se uma corda começa com um valor. A comparação é insensível a cas
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |Cadeia de caracteres |O valor que contém o item a encontrar. |
-| stringToFind |Sim |Cadeia de caracteres |O valor a encontrar. |
+| stringToSearch |Sim |string |O valor que contém o item a encontrar. |
+| stringToFind |Sim |string |O valor a encontrar. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 **Verdade** se o primeiro personagem ou caracteres da corda correspondem ao valor; caso contrário, **Falso.**
 
@@ -1467,18 +1467,18 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| começaTrue | Bool | true |
-| startsCapTrue | Bool | true |
-| startsFalse | Bool | Falso |
-| terminaTrue | Bool | true |
-| endsCapTrue | Bool | true |
-| endsFalse | Bool | Falso |
+| começaTrue | Booleano | Verdadeiro |
+| começaCapTrue | Booleano | Verdadeiro |
+| começaFalso | Booleano | Falso |
+| terminaTrue | Booleano | Verdadeiro |
+| terminaCapTrue | Booleano | Verdadeiro |
+| terminaFalso | Booleano | Falso |
 
-## <a name="string"></a>Cadeia de caracteres
+## <a name="string"></a>string
 
 `string(valueToConvert)`
 
@@ -1486,11 +1486,11 @@ Converte o valor especificado numa corda.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Sim | Any |O valor para converter em corda. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
+| valorToConverter |Sim | Qualquer |O valor para converter em corda. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma cadeia do valor convertido.
 
@@ -1541,13 +1541,13 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Exemplo Texto"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objetoSaída | Cadeia | {"valueA":10,"valueB":"Exemplo Texto"} |
+| arrayOutput | Cadeia | ["a", "b", "c"] |
+| intOutput | Cadeia | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1557,13 +1557,13 @@ Devolve um substring que começa na posição de caracteres especificada e cont�
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sim |Cadeia de caracteres |A corda original a partir da qual a subcorda é extraída. |
+| stringToParse |Sim |string |A corda original a partir da qual a subcorda é extraída. |
 | startIndex |Não |int |A posição de personagem inicial de base zero para o substring. |
 | length |Não |int |O número de caracteres para o substring. Deve referir-se a um local dentro da corda. Deve ser zero ou maior. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 O substring. Ou uma corda vazia se o comprimento for zero.
 
@@ -1604,11 +1604,11 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| substringOutput | String | dois |
+| substringOutput | Cadeia | dois |
 
 ## <a name="take"></a>tomar
 
@@ -1618,12 +1618,12 @@ Devolve uma corda com o número especificado de caracteres desde o início da ca
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou corda |A matriz ou corda para retirar os elementos. |
 | númeroToTake |Sim |int |O número de elementos ou caracteres a tomar. Se este valor for de 0 ou menos, uma matriz ou corda vazia é devolvida. Se for maior do que o comprimento da dada matriz ou corda, todos os elementos da matriz ou corda são devolvidos. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma matriz ou corda.
 
@@ -1671,12 +1671,12 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["um", "dois"] |
-| stringOutput | String | em |
+| arrayOutput | Matriz | ["um", "dois"] |
+| cadeiaOutput | Cadeia | em |
 
 ## <a name="tolower"></a>toLower
 
@@ -1686,11 +1686,11 @@ Converte a corda especificada para minúscula.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |Cadeia de caracteres |O valor para converter em minúsculas. |
+| stringToChange |Sim |string |O valor para converter em minúsculas. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 A corda converteu-se em minúscula.
 
@@ -1722,12 +1722,12 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | Um dois três |
-| toUpperOutput | String | Um dois três |
+| toLowerOutput | Cadeia | Um dois três |
+| toUpperOutput | Cadeia | Um dois três |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1737,11 +1737,11 @@ Converte a corda especificada para a caixa superior.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |Cadeia de caracteres |O valor para converter em maiúscula. |
+| stringToChange |Sim |string |O valor para converter em maiúscula. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 A corda converteu-se em maiúscula.
 
@@ -1773,12 +1773,12 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | Um dois três |
-| toUpperOutput | String | Um dois três |
+| toLowerOutput | Cadeia | Um dois três |
+| toUpperOutput | Cadeia | Um dois três |
 
 ## <a name="trim"></a>aparar
 
@@ -1788,11 +1788,11 @@ Remove todos os caracteres de espaço branco líder esistantes e seguidos da cor
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sim |Cadeia de caracteres |O valor a aparar. |
+| stringToTrim |Sim |string |O valor a aparar. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 A corda sem liderar e seguir personagens do espaço branco.
 
@@ -1820,11 +1820,11 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| retorno | String | Um dois três |
+| regressar | Cadeia | Um dois três |
 
 ## <a name="uniquestring"></a>único String
 
@@ -1834,10 +1834,10 @@ Cria uma cadeia de hash determinista baseada nos valores fornecidos como parâme
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |Cadeia de caracteres |O valor utilizado na função hash para criar uma cadeia única. |
-| parâmetros adicionais, conforme necessário |Não |Cadeia de caracteres |Pode adicionar o máximo de cordas necessárias para criar o valor que especifica o nível de singularidade. |
+| baseString |Sim |string |O valor utilizado na função hash para criar uma cadeia única. |
+| parâmetros adicionais, conforme necessário |Não |string |Pode adicionar o máximo de cordas necessárias para criar o valor que especifica o nível de singularidade. |
 
 ### <a name="remarks"></a>Observações
 
@@ -1878,7 +1878,7 @@ O exemplo que se segue mostra como criar um nome único para uma conta de armaze
 
 Se precisar de criar um novo nome único cada vez que implementar um modelo, e não pretender atualizar o recurso, pode utilizar a função [utcNow](#utcnow) com string único. Poderia usar esta abordagem num ambiente de teste. Por exemplo, consulte [utcNow](#utcnow).
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma corda contendo 13 caracteres.
 
@@ -1912,10 +1912,10 @@ Cria um URI absoluto combinando a baseUri e a corda relativaUri.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |Cadeia de caracteres |A corda uri base. Tenha cuidado para observar o comportamento em relação ao manuseamento do corte de rasto ('/'), como descrito seguindo esta tabela.  |
-| relativeUri |Sim |Cadeia de caracteres |A corda uri relativa para adicionar à cadeia uri base. |
+| baseUri |Sim |string |A corda uri base. Tenha cuidado para observar o comportamento em relação ao manuseamento do corte de rasto ('/'), como descrito seguindo esta tabela.  |
+| parenteUri |Sim |string |A corda uri relativa para adicionar à cadeia uri base. |
 
 * Se **baseUri** terminar em um corte de rasto, o resultado é simplesmente **baseUri** seguido por **parenteUri**.
 
@@ -1935,7 +1935,7 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 ```
 Para mais detalhes, os parâmetros **baseUri** e **relativosUri** são resolvidos conforme especificado no [RFC 3986, secção 5](https://tools.ietf.org/html/rfc3986#section-5).
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma corda que representa o URI absoluto para a base e valores relativos.
 
@@ -1976,13 +1976,13 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentesSaída de produção | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| paraStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -1992,11 +1992,11 @@ Codifica um URI.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sim |Cadeia de caracteres |O valor para codificar. |
+| stringToEncode |Sim |string |O valor para codificar. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma cadeia do valor codificado pela URI.
 
@@ -2031,13 +2031,13 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentesSaída de produção | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| paraStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2047,11 +2047,11 @@ Devolve uma série de um valor codificado por URI.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sim |Cadeia de caracteres |O URI codificado valor para converter-se em uma corda. |
+| string uriEncoded |Sim |string |O URI codificado valor para converter-se em uma corda. |
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 Uma cadeia de valor codificado de URI descodificada.
 
@@ -2086,13 +2086,13 @@ O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master
 }
 ```
 
-O resultado do exemplo anterior com os valores predefinidos é:
+A saída do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentesSaída de produção | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| paraStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="utcnow"></a>utcNow
 
@@ -2102,9 +2102,9 @@ Devolve o valor atual da data (UTC) no formato especificado. Se não for forneci
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Required | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| format |Não |Cadeia de caracteres |O URI codificado valor para converter-se em uma corda. Utilize cordas de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| formato |Não |string |O URI codificado valor para converter-se em uma corda. Utilize cordas de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cordas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observações
 
@@ -2114,7 +2114,7 @@ Se utilizar a [opção de reimplantar uma implementação mais precoce](rollback
 
 Tenha cuidado ao recolocar um modelo que dependa da função utcNow para um valor predefinido. Quando reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro a partir da implementação anterior.
 
-### <a name="return-value"></a>Valor de retorno
+### <a name="return-value"></a>Valor devolvido
 
 O valor atual da data utc.
 
@@ -2163,9 +2163,9 @@ A saída do exemplo anterior varia para cada implantação, mas será semelhante
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| utcOutput | Cadeia de caracteres | 20190305T175318Z |
-| utcShortOutput | Cadeia de caracteres | 03/05/2019 |
-| utcCustomOutput | Cadeia de caracteres | 3 5 |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 03/05/2019 |
+| utcCustomOutput | string | 3 5 |
 
 O exemplo seguinte mostra como usar um valor a partir da função ao definir um valor de etiqueta.
 
@@ -2203,7 +2203,7 @@ O exemplo seguinte mostra como usar um valor a partir da função ao definir um 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para uma descrição das secções num modelo de Gestor de Recursos Azure, consulte os modelos de [Gestor de Recursos Azure da Autoria](template-syntax.md).
 * Para fundir vários modelos, consulte [Utilizar modelos ligados com](linked-templates.md)o Gestor de Recursos Azure .
 * Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Gestor de Recursos Azure](copy-resources.md).

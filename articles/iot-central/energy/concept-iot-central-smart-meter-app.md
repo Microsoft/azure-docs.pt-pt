@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 8f3772c1d65780337c421cfaaa7b70d7ac7186cf
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77024318"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central - arquitetura de aplicativos de contadores inteligentes
@@ -22,7 +22,7 @@ ms.locfileid: "77024318"
 Este artigo fornece uma visão geral da arquitetura do modelo de modelo de monitorização de contadores inteligentes. O diagrama abaixo mostra uma arquitetura comumente usada para app de contadores inteligentes em Azure usando a plataforma IoT Central.
 
 > [!div class="mx-imgBorder"]
-> ![](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png) de arquitetura de contadores inteligentes
+> ![arquitetura de contador inteligente](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
 
 Esta arquitetura é composta pelos seguintes componentes. Algumas soluções podem não requerer todos os componentes listados aqui.
 

@@ -3,16 +3,16 @@ title: Implantação condicional com modelos
 description: Descreve como implantar condicionalmente um recurso num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 83aa22ba57e0111d060665778922437723481c69
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207796"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153425"
 ---
-# <a name="conditional-deployment-in-resource-manager-templates"></a>Implantação condicional nos modelos do Gestor de Recursos
+# <a name="conditional-deployment-in-arm-templates"></a>Implantação condicional em modelos ARM
 
-Às vezes é preciso implementar opcionalmente um recurso num modelo. Utilize o elemento `condition` para especificar se o recurso está implantado. O valor deste elemento resolve-se a verdade ou a ser falso. Quando o valor é verdadeiro, o recurso é criado. Quando o valor é falso, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
+Por vezes, é necessário implementar opcionalmente um recurso num modelo de Gestor de Recursos Azure (ARM). Utilize `condition` o elemento para especificar se o recurso está implantado. O valor deste elemento resolve-se a verdade ou a ser falso. Quando o valor é verdadeiro, o recurso é criado. Quando o valor é falso, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
 
 ## <a name="new-or-existing-resource"></a>Recurso novo ou existente
 
@@ -35,7 +35,7 @@ Pode utilizar a implantação condicional para criar um novo recurso ou utilizar
 
 Quando o **parâmetro novoOrExisting** está definido para **novo,** a condição avalia-se verdadeiramente. A conta de armazenamento está implantada. No entanto, quando o **novo OrExisting** está definido para **existir,** a condição avalia para falso e a conta de armazenamento não é implementada.
 
-Para um modelo de exemplo completo que utiliza o elemento `condition`, consulte [vM com uma rede virtual nova ou existente, armazenamento e IP público.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)
+Para um modelo de `condition` exemplo completo que utiliza o elemento, consulte [VM com uma rede virtual nova ou existente, armazenamento e IP público.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)
 
 ## <a name="allow-condition"></a>Permitir condição
 
@@ -87,5 +87,5 @@ Se implementar um modelo com [o modo completo](deployment-modes.md) e um recurso
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para recomendações sobre a criação de modelos, consulte [as melhores práticas do modelo do Gestor de Recursos do Azure.](template-best-practices.md)
-* Para criar várias instâncias de um recurso, consulte a [iteração de recursos nos modelos do Gestor](copy-resources.md)de Recursos Azure .
+* Para recomendações sobre a criação de modelos, consulte [as melhores práticas](template-best-practices.md)do modelo ARM.
+* Para criar várias instâncias de um recurso, consulte a [iteração de recursos nos modelos ARM](copy-resources.md).

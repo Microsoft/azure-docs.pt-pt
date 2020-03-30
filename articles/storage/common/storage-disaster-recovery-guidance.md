@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365373"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Recuperação de desastres e falha na conta (pré-visualização)
@@ -68,7 +68,7 @@ A Microsoft também recomenda que desenhe a sua aplicação para se preparar par
 
 A falha na conta gerida pelo cliente (pré-visualização) permite-lhe falhar toda a sua conta de armazenamento na região secundária se a primária ficar indisponível por qualquer motivo. Quando se força uma falha na região secundária, os clientes podem começar a escrever dados para o ponto final secundário após a falha estar completa. O fracasso normalmente demora cerca de uma hora.
 
-### <a name="how-an-account-failover-works"></a>Como funciona uma falha de conta
+### <a name="how-an-account-failover-works"></a>Como funciona a ativação pós-falha de uma conta
 
 Em circunstâncias normais, um cliente escreve dados para uma conta de Armazenamento Azure na região primária, e esses dados são copiados assíncronamente para a região secundária. A imagem que se segue mostra o cenário quando a região primária está disponível:
 

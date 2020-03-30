@@ -1,6 +1,6 @@
 ---
-title: Evento inicial de redimensionamento do pool do lote do Azure
-description: Referência do evento de início de redimensionamento do pool do lote. Exemplo mostra o corpo de um evento de início de redimensionamento de pool para um redimensionamento de pool de 0 a 2 nós com um redimensionamento manual.
+title: Evento de redimensionamento da piscina do Lote Azure
+description: Referência para evento de redimensionamento de piscina de lote. O exemplo mostra o corpo de um evento de arranque de redimensionamento de piscina para uma piscina redimensionando de 0 a 2 nódosos com um redimensionamento manual.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -12,17 +12,17 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: 1866e51da30fe5ed148d019c8720755e99757df7
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023587"
 ---
 # <a name="pool-resize-start-event"></a>Evento de início de redimensionamento de conjunto
 
- Esse evento é emitido quando um redimensionamento de pool é iniciado. Como o redimensionamento do pool é um evento assíncrono, você pode esperar que um evento completo de redimensionamento do pool seja emitido após a conclusão da operação de redimensionamento.
+ Este evento é emitido quando uma piscina redimensionada. Uma vez que o redimensionado da piscina é um evento assíncrono, você pode esperar que um evento completo de redimensionar a piscina seja emitido assim que a operação de redimensionar estiver concluída.
 
- O exemplo a seguir mostra o corpo de um evento de início de redimensionamento de pool para um redimensionamento de pool de 0 a 2 nós com um redimensionamento manual.
+ O exemplo seguinte mostra o corpo de um evento de arranque de redimensionamento de piscina para uma piscina redimensionando de 0 a 2 nódosos com um redimensionamento manual.
 
 ```
 {
@@ -39,11 +39,11 @@ ms.locfileid: "77023587"
 
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
-|`id`|Cadeia|A ID do pool.|
-|`nodeDeallocationOption`|Cadeia|Especifica quando os nós podem ser removidos do pool, se o tamanho do pool estiver diminuindo.<br /><br /> Os valores possíveis são:<br /><br /> recolocar em **fila** – termine as tarefas em execução e recoloca-as na fila. As tarefas serão executadas novamente quando o trabalho for habilitado. Remova os nós assim que as tarefas forem encerradas.<br /><br /> **terminar** – encerrar tarefas em execução. As tarefas não serão executadas novamente. Remova os nós assim que as tarefas forem encerradas.<br /><br /> **taskcompletion** – permitir que as tarefas atualmente em execução sejam concluídas. Não agendar nenhuma nova tarefa enquanto aguarda. Remova os nós quando todas as tarefas tiverem sido concluídas.<br /><br /> **Retaineddata** – permitir que as tarefas atualmente em execução sejam concluídas e aguarde até que todos os períodos de retenção de dados da tarefa expirem. Não agendar nenhuma nova tarefa enquanto aguarda. Remova os nós quando todos os períodos de retenção de tarefa tiverem expirado.<br /><br /> O valor padrão é recolocar na fila.<br /><br /> Se o tamanho do pool estiver aumentando, o valor será definido como **inválido**.|
-|`currentDedicatedNodes`|Int32|O número de nós de computação atribuídos ao pool no momento.|
-|`targetDedicatedNodes`|Int32|O número de nós de computação que são solicitados para o pool.|
-|`currentLowPriorityNodes`|Int32|O número de nós de computação atribuídos ao pool no momento.|
-|`targetLowPriorityNodes`|Int32|O número de nós de computação que são solicitados para o pool.|
-|`enableAutoScale`|Bool|Especifica se o tamanho do pool se ajusta automaticamente ao longo do tempo.|
-|`isAutoPool`|Bool|Especifica se o pool foi criado por meio do mecanismo de autopool de um trabalho.|
+|`id`|Cadeia|A identificação da piscina.|
+|`nodeDeallocationOption`|Cadeia|Especifica quando os nós podem ser removidos da piscina, se o tamanho da piscina estiver a diminuir.<br /><br /> Os valores possíveis são:<br /><br /> **refilar** – Terminar tarefas de execução e refazer filas. As tarefas voltarão a funcionar quando o trabalho estiver ativado. Remova os nódosos assim que as tarefas forem terminadas.<br /><br /> **terminar** – Terminar tarefas de execução. As tarefas não voltarão a funcionar. Remova os nódosos assim que as tarefas forem terminadas.<br /><br /> **conclusão de tarefas** – Permitir que as tarefas em execução atual se concretizem. Não agende novas tarefas enquanto espera. Retire os nós quando todas as tarefas estiverem concluídas.<br /><br /> **Dados retidos** - Permita que as tarefas em execução atualmente completem e, em seguida, aguarde que todos os períodos de retenção de dados de tarefas expirem. Não agende novas tarefas enquanto espera. Remova os nós quando todos os períodos de retenção de tarefas tiverem expirado.<br /><br /> O valor padrão é a refila.<br /><br /> Se o tamanho da piscina está a aumentar, então o valor é definido para **inválido**.|
+|`currentDedicatedNodes`|Int32|O número de nós computacionais atualmente atribuídos à piscina.|
+|`targetDedicatedNodes`|Int32|O número de nós de computação que são solicitados para a piscina.|
+|`currentLowPriorityNodes`|Int32|O número de nós computacionais atualmente atribuídos à piscina.|
+|`targetLowPriorityNodes`|Int32|O número de nós de computação que são solicitados para a piscina.|
+|`enableAutoScale`|Booleano|Especifica se o tamanho da piscina se ajusta automaticamente ao longo do tempo.|
+|`isAutoPool`|Booleano|Especifica se a piscina foi criada através do mecanismo autopool de um trabalho.|

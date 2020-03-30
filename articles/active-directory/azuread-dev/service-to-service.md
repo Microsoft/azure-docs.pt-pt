@@ -2,26 +2,23 @@
 title: Aplicativos de serviço a serviço no Diretório Ativo do Azure
 description: Descreve quais as aplicações serviço-a-serviço e os fundamentos sobre o fluxo de protocolo, registo e expiração simbólica para este tipo de aplicação.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ff27ada23e45f2bbbb09e47af9458c1f83af277a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 179034533d90dbbb6ca362fc6f72996f32873729
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164230"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154768"
 ---
 # <a name="service-to-service-apps"></a>Aplicativos de serviço a serviço
 

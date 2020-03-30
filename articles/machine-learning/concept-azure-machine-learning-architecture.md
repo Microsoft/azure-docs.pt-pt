@@ -1,5 +1,5 @@
 ---
-title: Arquitetura e conceitos-chave
+title: Arquitetura & conceitos-chave
 titleSuffix: Azure Machine Learning
 description: Conheça a arquitetura, termos, conceitos e fluxos de trabalho que compõem o Azure Machine Learning.
 services: machine-learning
@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 39e6e9d500a398fd34b8b61727dee8bf11da7430
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/17/2020
+ms.custom: seoapril2019, seodec18
+ms.openlocfilehash: f779781eee81bf85f6420e5bae6b0feb62680b8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79270488"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064178"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona o Azure Machine Learning: Arquitetura e conceitos
 
@@ -27,14 +27,14 @@ Conheça a arquitetura, conceitos e fluxo de trabalho para azure machine learnin
 
 O fluxo de trabalho do modelo de aprendizagem automática geralmente segue esta sequência:
 
-1. **Comboio**
-    + Desenvolver scripts de treinamento de machine learning em **Python** ou com o designer visual.
+1. **Preparar**
+    + Desenvolver scripts de treinamento de machine learning em **Python,** **R,** ou com o designer visual.
     + Criar e configurar um **alvo de cálculo.**
-    + **Envie os scripts** para o alvo de cálculo configurado para executar nesse ambiente. Durante o treino, os scripts podem ler ou escrever para **datastore**. E os registos de execução são salvos à medida que **corre** no **espaço** de trabalho e agrupados sob **experiências.**
+    + **Envie os scripts** para um alvo de cálculo configurado para executar nesse ambiente. Durante o treino, os scripts podem ler ou escrever para **as datastores.** Os registos e a saída produzidos durante o treino são guardados como **corre** no espaço de **trabalho** e agrupados sob **experiências**.
 
 1. **Pacote** - Depois de encontrar uma execução satisfatória, registe o modelo persistente no registo do **modelo**.
 
-1. **Valide** - **Consultar a experiência** para métricas registadas a partir das correntes e do passado. Se as métricas não indicarem um resultado desejado, volte ao passo 1 e iterará-lo nos seus scripts.
+1. **Validar** - **a experiência** para métricas registadas a partir das correntes e passadas. Se as métricas não indicarem um resultado desejado, volte ao passo 1 e iterará-lo nos seus scripts.
 
 1. **Implementar** - Desenvolver um script de pontuação que utilize o modelo e **implemente o modelo** como **um serviço web** em Azure, ou para um dispositivo **IoT Edge**.
 
@@ -56,30 +56,30 @@ Utilize estas ferramentas para aprendizagem automática azure:
 ## <a name="glossary"></a>Glossário
 
 * [Atividade](#activities)
-* [Espaço de trabalho](#workspaces)
+* [Área de trabalho](#workspaces)
     * [Experiências](#experiments)
-        * [Correr](#runs) 
+        * [Executar](#runs) 
             * [Configuração de execução](#run-configurations)
             * [Instantâneo](#snapshots)
             * [Rastreio de Git](#github-tracking-and-integration)
             * [Exploração madeireira](#logging)
-    * [Oleodutos ML](#ml-pipelines)
+    * [Pipelines de ML](#ml-pipelines)
     * [Modelos](#models)
         * [Ambientes](#environments)
         * [Roteiro de treino](#training-scripts)
         * [Estimadores](#estimators)
-    * [Pontos finais](#endpoints)
-        * [Serviço web](#web-service-endpoint)
+    * [Pontos Finais](#endpoints)
+        * [Serviço Web](#web-service-endpoint)
         * [Módulos IoT](#iot-module-endpoints)
-    * [Dataset e datastores](#datasets-and-datastores)
-    * [Alvos computacionais](#compute-targets)
+    * [Dataset & datastores](#datasets-and-datastores)
+    * [Os destinos de computação](#compute-targets)
 
 ### <a name="activities"></a>Atividades
 
-Uma atividade representa uma operação de longa execução. As seguintes operações são exemplos de atividades:
+Uma atividade representa uma operação de longa duração. As seguintes operações são exemplos de atividades:
 
-* Criar ou eliminar um destino de computação
-* Executar um script num destino de computação
+* Criar ou eliminar um alvo de computação
+* Executando um script em um alvo de computação
 
 As atividades podem fornecer notificações através do SDK ou da Web UI para que possa monitorizar facilmente o progresso destas operações.
 
@@ -89,11 +89,11 @@ As atividades podem fornecer notificações através do SDK ou da Web UI para qu
 
 ### <a name="experiments"></a>Experimentações
 
-Uma experiência é um agrupamento de muitas execuções a partir de um script especificado. Sempre pertence a uma área de trabalho. Quando submete uma execução, fornece um nome de experimentação. Informações para a execução são armazenadas desse experimento. Se submeter uma corrida e especificar um nome de experiência que não existe, uma nova experiência com esse nome recentemente especificado é automaticamente criada.
+Uma experiência é um agrupamento de muitas execuções a partir de um script especificado. Pertence sempre a um espaço de trabalho. Quando submete uma corrida, fornece um nome de experiência. A informação para a execução é armazenada sob esta experiência. Se submeter uma corrida e especificar um nome de experiência que não existe, uma nova experiência com esse nome recentemente especificado é automaticamente criada.
 
 Para um exemplo de utilização de uma experiência, consulte [Tutorial: Treine o seu primeiro modelo](tutorial-1st-experiment-sdk-train.md).
 
-### <a name="runs"></a>Corre
+### <a name="runs"></a>Execuções
 
 Uma corrida é uma execução única de um roteiro de treino. Uma experiência normalmente conterá várias corridas.
 
@@ -102,9 +102,9 @@ O Azure Machine Learning regista todas as execuções e lojas as seguintes infor
 * Metadados sobre a execução (carimbo de tempo, duração, e assim por diante)
 * Métricas que são registadas pelo seu script
 * Ficheiros de saída que são recolhidos automaticamente pela experiência ou explicitamente carregados por si
-* Um instantâneo do diretório que contém os scripts, antes da execução
+* Uma foto do diretório que contém os seus scripts, antes da execução
 
-Produz-se uma corrida quando se submete um guião para treinar um modelo. Uma execução pode ter zero ou mais execuções de subordinados. Por exemplo, a corrida de alto nível pode ter duas corridas de crianças, cada uma das quais pode ter o seu próprio filho executado.
+Produz-se uma corrida quando se submete um guião para treinar um modelo. Uma corrida pode ter zero ou mais corridas de crianças. Por exemplo, a corrida de alto nível pode ter duas corridas de crianças, cada uma das quais pode ter o seu próprio filho executado.
 
 ### <a name="run-configurations"></a>Configurações de execução
 
@@ -116,7 +116,7 @@ Por exemplo, executar configurações, consulte [Select e use um alvo de cálcul
 
 ### <a name="snapshots"></a>Instantâneos
 
-Quando submete uma execução, o Azure Machine Learning comprime o diretório que contém o script como ficheiro zip e envia-o para o alvo da computação. O ficheiro zip é então extraído, e o script é executado lá. O Azure Machine Learning também armazena o ficheiro zip como um instantâneo como parte do registo de execução. Qualquer pessoa com acesso à área de trabalho pode procurar um registo de execução e transferir o instantâneo.
+Quando submete uma execução, o Azure Machine Learning comprime o diretório que contém o script como ficheiro zip e envia-o para o alvo da computação. O ficheiro zip é então extraído, e o script é executado lá. O Azure Machine Learning também armazena o ficheiro zip como instantâneo como parte do registo de execução. Qualquer pessoa com acesso ao espaço de trabalho pode navegar num registo de execução e descarregar o instantâneo.
 
 > [!NOTE]
 > Para evitar que ficheiros desnecessários sejam incluídos no instantâneo, faça um ficheiro de ignorar (.gitignore ou .amlignore). Coloque este ficheiro no diretório Snapshot e adicione os nomes de ficheiros para ignorar nele. O ficheiro .amlignore utiliza a mesma [sintaxe e padrões que o ficheiro .gitignore](https://git-scm.com/docs/gitignore). Se ambos os ficheiros existirem, o ficheiro .amlignore tem precedência.
@@ -131,9 +131,9 @@ Para mais informações, consulte a [integração de Git para Azure Machine Lear
 
 Quando desenvolver a sua solução, utilize o SDK Python de Aprendizagem automática Azure no seu script Python para registar métricas arbitrárias. Após a execução, consultar as métricas para determinar se a execução produziu o modelo que pretende implementar.
 
-### <a name="ml-pipelines"></a>Pipelines de ML
+### <a name="ml-pipelines"></a>Gasodutos ML
 
-Utiliza-se gasodutos de aprendizagem automática para criar e gerir fluxos de trabalho que cosem fases de aprendizagem automática. Por exemplo, um gasoduto pode incluir preparação de dados, formação de modelos, implantação de modelos e fases de inferência/pontuação. Cada fase pode incluir vários passos, cada um dos quais pode ser executado automaticamente em vários destinos de computação. 
+Utiliza-se gasodutos de aprendizagem automática para criar e gerir fluxos de trabalho que cosem fases de aprendizagem automática. Por exemplo, um gasoduto pode incluir preparação de dados, formação de modelos, implantação de modelos e fases de inferência/pontuação. Cada fase pode abranger vários passos, cada um dos quais pode ser executado sem vigilância em vários alvos de computação. 
 
 Os passos do gasoduto são reutilizáveis e podem ser executados sem reexecutar os passos anteriores se a saída desses passos não tiver mudado. Por exemplo, pode retreinar um modelo sem reexecutar passos de preparação de dados dispendiosos se os dados não mudarem. Os oleodutos também permitem que os cientistas de dados colaborem enquanto trabalham em áreas separadas de um fluxo de trabalho de aprendizagem automática.
 
@@ -141,9 +141,9 @@ Para obter mais informações sobre os gasodutos de aprendizagem automática com
 
 ### <a name="models"></a>Modelos
 
-Em sua forma mais simples, um modelo é um trecho de código que usa entrada e produz um resultado. A criação de um modelo de aprendizagem automática envolve selecionar um algoritmo, fornecendo dados e ajuste hiperparâmetros. O treinamento é um processo iterativo que produz um modelo preparado, que encapsula o que o modelo aprendidas durante o processo de treinamento.
+No seu mais simples, um modelo é um pedaço de código que pega numa entrada e produz saída. Criar um modelo de machine learning envolve selecionar um algoritmo, fornecer-lhe dados e afinar hiperparâmetros. A formação é um processo iterativo que produz um modelo treinado, que engloba o que o modelo aprendeu durante o processo de treino.
 
-Um modelo é produzido por uma execução no Azure Machine Learning. Também pode usar um modelo treinado fora do Azure Machine Learning. Pode registar um modelo num espaço de trabalho azure machine learning.
+Um modelo é produzido por uma corrida em Azure Machine Learning. Também pode usar um modelo treinado fora do Azure Machine Learning. Pode registar um modelo num espaço de trabalho azure machine learning.
 
 Azure Machine Learning é agnóstico-quadro. Ao criar um modelo, pode utilizar qualquer quadro popular de aprendizagem automática, como Scikit-learn, XGBoost, PyTorch, TensorFlow e Chainer.
 
@@ -151,7 +151,7 @@ Para um exemplo de formação de um modelo usando scikit-learn e um estimador, c
 
 O registo de **modelos** acompanha todos os modelos do seu espaço de trabalho Azure Machine Learning.
 
-Modelos são identificados pelo nome e versão. Cada vez que regista um modelo com o mesmo nome que um existente, o registo assume que é uma nova versão. A versão é incrementada e o novo modelo está registado com o mesmo nome.
+Os modelos são identificados pelo nome e pela versão. Cada vez que regista um modelo com o mesmo nome que um existente, o registo assume que é uma nova versão. A versão é incrementada e o novo modelo está registado com o mesmo nome.
 
 Ao registar o modelo, pode fornecer etiquetas de metadados adicionais e, em seguida, utilizar as etiquetas quando procura modelos.
 
@@ -170,9 +170,9 @@ Você pode usar um objeto ambiental na sua computação local para desenvolver o
 
 Aprenda [a criar e gerir um ambiente ML reutilizável](how-to-use-environments.md) para treino e inferência.
 
-### <a name="training-scripts"></a>Scripts de preparação
+### <a name="training-scripts"></a>Scripts de treinamento
 
-Para preparar um modelo, especifique o diretório que contém o script de formação e os ficheiros associados. Também especifica um nome de experiência, que é usado para armazenar informações recolhidas durante o treino. Durante o treino, todo o diretório é copiado para o ambiente de treino (alvo computacional), e o script especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado abaixo a experimentação na área de trabalho.
+Para treinar um modelo, especifice o diretório que contém o script de treino e os ficheiros associados. Também especifica um nome de experiência, que é usado para armazenar informações recolhidas durante o treino. Durante o treino, todo o diretório é copiado para o ambiente de treino (alvo computacional), e o script especificado pela configuração de execução é iniciado. Uma imagem do diretório também é armazenada sob a experiência no espaço de trabalho.
 
 Por exemplo, consulte [Tutorial: Treine um modelo](tutorial-train-models-with-aml.md)de classificação de imagem com Azure Machine Learning .
 
@@ -212,7 +212,7 @@ Se tiver ativado a monitorização, o Azure recolhe dados de telemetria do model
 O Azure IoT Edge garante que o seu módulo está em funcionamento e monitoriza o dispositivo que o está a hospedar.
 
 
-### <a name="compute-instance"></a>Instância computacional (pré-visualização)
+### <a name="compute-instance-preview"></a><a name="compute-instance"></a>Instância computacional (pré-visualização)
 
 Um caso de **computação azure machine learning** (anteriormente Notebook VM) é uma estação de trabalho totalmente gerida em nuvem que inclui múltiplas ferramentas e ambientes instalados para aprendizagem automática. Os casos de cálculo podem ser usados como um alvo de computação para trabalhos de formação e inferência. Para grandes tarefas, [os clusters computacionais de Aprendizagem automática Azure](how-to-set-up-training-targets.md#amlcompute) com capacidades de escala de vários nós é uma melhor escolha de alvo computacional.
 
@@ -222,19 +222,19 @@ Saiba mais sobre [os casos de computação.](concept-compute-instance.md)
 
 Os Conjuntos de Dados de **Aprendizagem Automática Azure** (pré-visualização) facilitam o acesso e o trabalho com os seus dados. Os conjuntos de dados gerem dados em vários cenários, tais como formação de modelos e criação de gasodutos. Utilizando o Azure Machine Learning SDK, pode aceder ao armazenamento subjacente, explorar dados e gerir o ciclo de vida de diferentes definições de Dataset.
 
-Os conjuntos de dados fornecem métodos para trabalhar com dados em formatos populares, tais como a utilização de `from_delimited_files()` ou `to_pandas_dataframe()`.
+Os conjuntos de dados fornecem métodos para trabalhar `from_delimited_files()` `to_pandas_dataframe()`com dados em formatos populares, tais como a utilização ou .
 
 Para mais informações, consulte Criar e registar Conjuntos de Dados de [Aprendizagem Automática Azure](how-to-create-register-datasets.md).  Para mais exemplos utilizando conjuntos de dados, consulte os [cadernos de amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
 
 Uma loja de **dados** é uma abstração de armazenamento sobre uma conta de armazenamento Azure. A loja de dados pode utilizar um recipiente de blob Azure ou uma partilha de ficheiros Azure como armazenamento final. Cada espaço de trabalho tem uma loja de dados padrão, e pode registar reservas adicionais de dados. Utilize o Python SDK API ou o Azure Machine Learning CLI para armazenar e recuperar ficheiros da loja de dados.
 
-### <a name="compute-targets"></a>Destinos de computação
+### <a name="compute-targets"></a>Os destinos de computação
 
 Um [alvo computacional](concept-compute-target.md) permite especificar o recurso computacional onde executa o seu script de treino ou hospedar a sua implementação de serviço. Esta localização pode ser a sua máquina local ou um recurso computacional baseado em nuvem.
 
 Saiba mais sobre os [objetivos de computação disponíveis para a formação e implementação.](concept-compute-target.md)
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Passos seguintes
 
 Para começar com o Azure Machine Learning, veja:
 

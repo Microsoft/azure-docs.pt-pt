@@ -4,7 +4,6 @@ description: Detalhes sobre como obter a sua aplicação AppSource certificada p
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: conceptual
@@ -13,12 +12,13 @@ ms.date: 08/21/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8b966df3f0ca59edbaa304212f05daffeb9ef17d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3ad4efa3b8126a9b9c6557822f61e3bfff3fe120
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164763"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154887"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter AppSource Certified for Azure Ative Directory
 
@@ -32,13 +32,13 @@ Para listar uma aplicação Autónoma SaaS no AppSource, a sua aplicação deve 
 
 Se quiser saber como integrar a sua aplicação com o Azure AD utilizando o Open ID connect, siga os nossos guias e amostras de código no [guia do desenvolvedor do Diretório Ativo Azure](v1-overview.md#get-started "Começar com a AD Azure para programadores").
 
-## <a name="multi-tenant-applications"></a>Aplicações multi-inquilinos
+## <a name="multi-tenant-applications"></a>Aplicações multi-inquilino
 
 Uma *aplicação multi-arrendatária* é uma aplicação que aceita inscrições de utilizadores de qualquer empresa ou organização que tenham AD Azure sem exigir uma instância, configuração ou implementação separada. O AppSource recomenda que as aplicações implementem vários arrendamentos para permitir a experiência de experimentação gratuita *de um clique.*
 
 Para permitir o arrendamento multi-arrendamento na sua aplicação, siga estes passos:
-1. Desloque `Multi-Tenanted` imóvel para `Yes` informações sobre o registo da sua candidatura no [portal Azure.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) Por padrão, as aplicações criadas no portal Azure são configuradas como *[inquilino único.](#single-tenant-applications)*
-1. Atualize o seu código para enviar pedidos para o ponto final `common`. Para tal, atualize o ponto final de `https://login.microsoftonline.com/{yourtenant}` a `https://login.microsoftonline.com/common*`.
+1. `Multi-Tenanted` Detete `Yes` imóvel para informações sobre o registo de aplicação no [portal Azure.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) Por padrão, as aplicações criadas no portal Azure são configuradas como *[inquilino único.](#single-tenant-applications)*
+1. Atualize o seu código `common` para enviar pedidos para o ponto final. Para tal, atualize o `https://login.microsoftonline.com/{yourtenant}` `https://login.microsoftonline.com/common*`ponto final de .
 1. Para algumas plataformas, como asASP .NET, também precisa de atualizar o seu código para aceitar vários emitentes.
 
 Para obter mais informações sobre o multi-arrendamento, consulte Como assinar em qualquer utilizador do [Azure Ative Directory (Azure AD) utilizando o padrão de aplicação multi-inquilino](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
@@ -117,7 +117,7 @@ Para mais informações sobre a experiência de teste AppSource, consulte [este 
 
 Para a integração da AD Azure, usamos [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a comunidade para fornecer apoio.
 
-Recomendamos vivamente que faça as suas perguntas sobre stack overflow primeiro e navegue nos problemas existentes para ver se alguém já fez a sua pergunta antes. Certifique-se de que as suas perguntas ou comentários estão marcados com [`[azure-active-directory]` e `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Recomendamos vivamente que faça as suas perguntas sobre stack overflow primeiro e navegue nos problemas existentes para ver se alguém já fez a sua pergunta antes. Certifique-se de que as suas perguntas ou comentários estão marcados [ `[azure-active-directory]` e `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Use a secção de comentários seguintes para fornecer feedback e ajudar-nos a refinar e moldar o nosso conteúdo.
 

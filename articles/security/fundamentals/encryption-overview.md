@@ -1,5 +1,5 @@
 ---
-title: Visão geral da encriptação azure  Microsoft Docs
+title: Visão geral da encriptação azure [ Microsoft Docs
 description: Conheça várias opções de encriptação em Azure
 services: security
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5d8fd578c5539c83e37a232d8425ad8bdf22129b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243539"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125054"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da encriptação azure
 
@@ -89,7 +89,7 @@ A Base de [Dados Azure SQL](../../sql-database/sql-database-technical-overview.m
 
 #### <a name="transparent-data-encryption"></a>Encriptação de Dados Transparente
 
-[O TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é utilizado para encriptar ficheiros de dados do [SQL Server,](https://www.microsoft.com/sql-server/sql-server-2016) [Azure SQL](../../sql-database/sql-database-technical-overview.md)e [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real, utilizando uma Chave de Encriptação de Base de Dados (DEK), que está armazenada no registo de boot da base de dados para disponibilidade durante a recuperação.
+[O TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é utilizado para encriptar ficheiros de dados do [SQL Server,](https://www.microsoft.com/sql-server/sql-server-2016) [Azure SQL](../../sql-database/sql-database-technical-overview.md)e [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real, utilizando uma Chave de Encriptação de Base de Dados (DEK), que está armazenada no registo de boot da base de dados para disponibilidade durante a recuperação.
 
 O TDE protege os dados e os ficheiros de registo, utilizando algoritmos de encriptação Padrão de Encriptação AES e Triple Data (3DES). A encriptação do ficheiro base de dados é realizada ao nível da página. As páginas de uma base de dados encriptada são encriptadas antes de serem escritas em disco e desencriptadas quando são lidas na memória. O TDE está agora ativado por padrão nas bases de dados Azure SQL recém-criadas.
 
@@ -105,7 +105,7 @@ A CLE tem funções incorporadas que pode utilizar para encriptar dados utilizan
 
 ### <a name="cosmos-db-database-encryption"></a>Encriptação da base de dados Cosmos DB
 
-[O Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) é a base de dados multimodelo da Microsoft distribuída globalmente. Os dados dos utilizadores armazenados no Cosmos DB em armazenamento não volátil (unidades de estado sólido) são encriptados por padrão. Não há controlos para ligá-lo ou desligar. Encriptação inativa é implementada com um número de tecnologias de segurança, incluindo sistemas de armazenamento de chaves segura, redes encriptadas e APIs criptográficas. As chaves de encriptação são geridas pela Microsoft e são giradas de acordo com as diretrizes internas da Microsoft.
+[O Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) é a base de dados multimodelo da Microsoft distribuída globalmente. Os dados dos utilizadores armazenados no Cosmos DB em armazenamento não volátil (unidades de estado sólido) são encriptados por padrão. Não há controlos para ligá-lo ou desligar. A encriptação em repouso é implementada utilizando uma série de tecnologias de segurança, incluindo sistemas de armazenamento de chaves seguras, redes encriptadas e APIs criptográficos. As chaves de encriptação são geridas pela Microsoft e são giradas de acordo com as diretrizes internas da Microsoft.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Encriptação em repouso em Data Lake
 
@@ -157,13 +157,13 @@ Para gestão remota, pode utilizar [a Secure Shell](../../virtual-machines/linux
 
 Pode ligar-se ao Azure através de uma rede privada virtual que cria um túnel seguro para proteger a privacidade dos dados que estão a ser enviados através da rede.
 
-### <a name="azure-vpn-gateways"></a>Gateways Azure VPN
+### <a name="azure-vpn-gateways"></a>Gateways de VPN do Azure
 
 Pode utilizar um [portal Azure VPN](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md) para enviar tráfego encriptado entre a sua rede virtual e a sua localização no local através de uma ligação pública, ou para enviar tráfego entre redes virtuais.
 
 As VPNs do site-a-site usam [IPsec](https://en.wikipedia.org/wiki/IPsec) para encriptação de transporte. Os gateways Azure VPN usam um conjunto de propostas padrão. Pode configurar gateways VpN Azure para utilizar uma política personalizada de IPsec/IKE com algoritmos criptográficos específicos e pontos fortes chave, em vez dos conjuntos de políticas padrão Azure.
 
-### <a name="point-to-site-vpns"></a>VPNs ponto-a-local
+### <a name="point-to-site-vpns"></a>VPNs Ponto a site
 
 As VPNs ponto-a-site permitem o acesso individual de computadores clientes a uma rede virtual Azure. O Protocolo de Túnel de [Tomada Segura (SSTP)](https://technet.microsoft.com/library/2007.06.cableguy.aspx) é utilizado para criar o túnel VPN. Pode atravessar firewalls (o túnel aparece como uma ligação HTTPS). Você pode usar a sua própria infraestrutura de infraestrutura pública interna (PKI) autoridade de certificado de raiz (CA) para conectividade ponto-a-local.
 

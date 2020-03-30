@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 742bc307c90ad58b83b7d4c92f9546b87c163c3b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77019286"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Mova a base de dados do Azure AD Connect do SQL Server Express para o SQL Server 
@@ -37,12 +37,12 @@ Utilize os seguintes passos para mover a base de dados do Azure AD Connect para 
 5. No SQL server remoto, abra o SQL Server Management Studio.
 6. Nas Bases de dados, clique com o botão direito do rato e selecione Anexar.
 7. No ecrã **Anexar Bases de Dados**, clique em **Adicionar** e navegue para o ficheiro ADSync.mdf.  Clique em **OK**.
-   ![anexar](media/how-to-connect-install-move-db/move2.png) de base de dados
+   ![anexar base de dados](media/how-to-connect-install-move-db/move2.png)
 
 8. Depois de anexar a base de dados, volte para o servidor do Azure AD Connect e instale o Azure AD Connect.
 9. Assim que a instalação do MSI estiver concluída, o assistente do Azure AD Connect é iniciado com a configuração do modo Express. Feche o ecrã ao clicar no ícone Sair.
    ![Bem-vindo](./media/how-to-connect-install-move-db/db1.png)
-10. Inicie uma nova linha de comandos ou a sessão do PowerShell. Navegue para pasta \<ficheiros drive>\program\Microsoft Azure AD Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Utilizar base de dados existente".
+10. Inicie uma nova linha de comandos ou a sessão do PowerShell. Navegue \<para unidade de pasta>\ficheiros do programa\Microsoft Azure AD Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Utilizar base de dados existente".
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. É recebido com o ecrã de Boas-vindas ao Azure AD Connect. Depois de aceitar os termos de licenciamento e o aviso de privacidade, clique em **Continuar**.
     ![Bem-vindo](./media/how-to-connect-install-move-db/db3.png)

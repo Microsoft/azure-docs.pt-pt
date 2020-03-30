@@ -3,12 +3,12 @@ title: Funcionalidades de segurança para ajudar a proteger as cargas de trabalh
 description: Aprenda a utilizar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f89d9ab3ef373ecd9a7d15ef4ec9b2109750f8de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 57c9fd76ae32aea49f480f2a88d8296538d8052d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248076"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156077"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger cargas de trabalho em nuvem que usam Backup Azure
 
@@ -20,7 +20,7 @@ A proteção de eliminação suave para máquinas virtuais Azure está geralment
 
 >[!NOTE]
 >A eliminação suave para o servidor SQL em Azure VM e eliminação suave para SAP HANA em cargas de trabalho VM Azure já está disponível na pré-visualização.<br>
->Para se inscrever na pré-estreia, escreva-nos na AskAzureBackupTeam@microsoft.com
+>Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com
 
 ## <a name="soft-delete"></a>Eliminação suave
 
@@ -42,7 +42,7 @@ A soft delete é atualmente apoiada no Centro-Oeste dos EUA, Ásia Oriental, Can
 
    ![Screenshot dos itens de backup do portal Azure](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. Na janela seguinte, será-lhe dada a opção de eliminar ou reter os dados de cópia de segurança. Se escolher **eliminar os dados** de backup e, em seguida, parar a cópia de **segurança,** a cópia de segurança VM não será eliminada permanentemente. Em vez disso, os dados de backup serão conservados durante 14 dias no estado suave apagado. Se eliminar os dados de **backup,** um alerta de e-mail de exclusão é enviado para o ID de e-mail configurado informando o utilizador de que restam 14 dias de retenção prolongada para dados de backup. Além disso, um alerta de e-mail é enviado no dia 12 informando que faltam mais dois dias para ressuscitar os dados apagados. A eliminação é adiada até ao 15º dia, quando ocorrer a eliminação permanente e é enviado um alerta final de e-mail informando sobre a eliminação permanente dos dados.
+2. Na janela seguinte, será-lhe dada a opção de eliminar ou reter os dados de cópia de segurança. Se escolher **eliminar os dados** de cópia de segurança e, em seguida, parar a cópia de **segurança,** a cópia de segurança VM não será eliminada permanentemente. Em vez disso, os dados de backup serão conservados durante 14 dias no estado suave apagado. Se eliminar os dados de **backup,** um alerta de e-mail de exclusão é enviado para o ID de e-mail configurado informando o utilizador de que restam 14 dias de retenção prolongada para dados de backup. Além disso, um alerta de e-mail é enviado no dia 12 informando que faltam mais dois dias para ressuscitar os dados apagados. A eliminação é adiada até ao 15º dia, quando ocorrer a eliminação permanente e é enviado um alerta final de e-mail informando sobre a eliminação permanente dos dados.
 
    ![Screenshot do portal Azure, ecrã stop backup](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
@@ -78,14 +78,14 @@ Este gráfico de fluxo mostra os diferentes passos e estados de um item de reser
 
 Para mais informações, consulte a secção [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) abaixo.
 
-### <a name="soft-delete-for-vms-using-azure-powershell"></a>Eliminação suave para VMs usando Azure Powershell
+### <a name="soft-delete-for-vms-using-azure-powershell"></a>Eliminação suave para VMs usando O PowerShell Azure
 
 > [!IMPORTANT]
 > A versão Az.RecoveryServices necessária para utilizar soft-delete utilizando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
-Tal como descrito acima para o portal Azure, a sequência de passos é a mesma ao utilizar também o Azure Powershell.
+Tal como descrito acima para o portal Azure, a sequência de passos é a mesma ao utilizar também o Azure PowerShell.
 
-#### <a name="delete-the-backup-item-using-azure-powershell"></a>Eliminar o item de backup utilizando o Azure Powershell
+#### <a name="delete-the-backup-item-using-azure-powershell"></a>Elimine o item de cópia de segurança utilizando o Azure PowerShell
 
 Elimine o item de backup utilizando o cmdlet de proteção ps de [deficientes-AzRecoveryServicesBackup.](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0)
 
@@ -99,7 +99,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 O 'DeleteState' do item de cópia de segurança passará de 'NotDeleted' para 'ToBeDeleted'. Os dados de cópia de segurança serão conservados durante 14 dias. Se pretender reverter a operação de eliminação, deve efetuar a eliminação do desmino.
 
-#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Desfazer a operação de eliminação utilizando a Azure Powershell
+#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Desfazer a operação de eliminação utilizando o Azure PowerShell
 
 Em primeiro lugar, pegue o item de reserva relevante que está em estado de eliminação suave (isto é, prestes a ser eliminado).
 
@@ -124,7 +124,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-O 'DeleteState' do item de cópia de segurança reverterá para 'NotDeleted'. Mas a proteção ainda está parada. Tem de [retomar o backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para reativar a proteção.
+O 'DeleteState' do item de cópia de segurança reverterá para 'NotDeleted'. Mas a proteção ainda está parada. [Retome a cópia de segurança](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para reativar a proteção.
 
 ### <a name="soft-delete-for-vms-using-rest-api"></a>Eliminação suave para VMs utilizando API REST
 
@@ -133,19 +133,19 @@ O 'DeleteState' do item de cópia de segurança reverterá para 'NotDeleted'. Ma
 
 ## <a name="disabling-soft-delete"></a>Desativar suavemente apaga-se
 
-A eliminação suave é ativada por padrão em cofres recém-criados para proteger os dados de backup de exclusões acidentais ou maliciosas.  Não é recomendada a desativação desta funcionalidade. A única circunstância em que deve considerar a desativação suave é se planeia mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de eliminar e reproteger (como num ambiente de teste).) Só o dono do cofre pode desativar esta funcionalidade. Se desativar esta funcionalidade, todas as futuras eliminações de itens protegidos resultarão em remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem em estado suave apagado antes de desativar esta funcionalidade permanecerão em estado suave apagado durante o período de 14 dias. Se pretender eliminá-las permanentemente imediatamente, então terá de os eliminar e apagar novamente para ser eliminado permanentemente.
+A eliminação suave é ativada por padrão em cofres recém-criados para proteger os dados de backup de exclusões acidentais ou maliciosas.  Não é recomendável desativar esta funcionalidade. A única circunstância em que deve considerar desativar o soft delete é se planeia mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reproteger (como num ambiente de teste).) Só o dono do cofre pode desativar esta funcionalidade. Se desativar esta funcionalidade, todas as futuras eliminações de itens protegidos resultarão em remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem em estado suave apagado antes de desativar esta funcionalidade permanecerão em estado suave apagado durante o período de 14 dias. Se pretender eliminá-las permanentemente imediatamente, então terá de os eliminar e apagar novamente para ser eliminado permanentemente.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Desativar soft delete usando portal Azure
 
 Para desativar a eliminação suave, siga estes passos:
 
-1. No portal Azure, vá ao seu cofre e, em seguida, vá ao **Definições** -> **Propriedades**.
-2. No painel de propriedades, selecione **Definições** de Segurança -> **Atualização**.  
+1. No portal Azure, vá ao seu cofre e depois vá para **definições** -> **propriedades**.
+2. No painel de propriedades, selecione**Atualização**de **Definições** -> de Segurança .  
 3. No painel de definições de segurança, em **Soft Delete,** selecione **Desativar**.
 
 ![Desativar a eliminação suave](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
 
-### <a name="disabling-soft-delete-using-azure-powershell"></a>Desativar soft delete usando Azure Powershell
+### <a name="disabling-soft-delete-using-azure-powershell"></a>Desativar soft delete usando Azure PowerShell
 
 > [!IMPORTANT]
 > A versão Az.RecoveryServices necessária para utilizar soft-delete utilizando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
@@ -198,7 +198,7 @@ Siga estes passos.
 
 7. Para eliminar os dados de cópia de segurança do artigo, **selecione Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de backup foram eliminados.
 
-### <a name="using-azure-powershell"></a>Usando a Powershell Azure
+### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
 Se os itens foram eliminados antes de a eliminação suave ter sido desativada, então estarão em estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e executada novamente.
 
@@ -245,28 +245,30 @@ Se os itens foram eliminados antes de a eliminação suave ter sido desativada, 
 
 ## <a name="encryption"></a>Encriptação
 
-### <a name="encryption-of-backup-data-using-microsoft-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pela Microsoft
+Todos os seus dados de reserva são automaticamente encriptados quando armazenados na nuvem utilizando encriptação de Armazenamento Azure, o que o ajuda a cumprir os seus compromissos de segurança e conformidade. Estes dados em repouso são encriptados utilizando encriptação AES de 256 bits, uma das cifras de blocomais fortes disponíveis, e é compatível com o FIPS 140-2.
 
-Os dados de backup são automaticamente encriptados utilizando encriptação do Armazenamento Azure. A encriptação protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e conformidade. Os dados são encriptados e desencriptados de forma transparente utilizando encriptação AES de 256 bits, uma das cifras de blocos mais fortes disponíveis, e é compatível com o FIPS 140-2. A encriptação azure Storage é semelhante à encriptação BitLocker no Windows.
-
-Dentro do Azure, os dados em trânsito entre o armazenamento do Azure e o cofre estão protegidos por HTTPS. Estes dados permanecem na rede de espinha dorsal Azure.
+Além da encriptação em repouso, todos os seus dados de backup em trânsito são transferidos em HTTPS. Permanece sempre na rede de espinha dorsal Azure.
 
 Para mais informações, consulte [a encriptação do Armazenamento Azure para obter dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Consulte o [FaQ de Backup Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para responder a quaisquer perguntas que possa ter sobre encriptação.
 
+### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pela plataforma
+
+Por predefinição, todos os seus dados são encriptados utilizando chaves geridas pela plataforma. Não precisa de tomar nenhuma ação explícita do seu lado para permitir esta encriptação e aplica-se a todas as cargas de trabalho que estão a ser apoiadas no seu cofre de Serviços de Recuperação.
+
 ### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
-Ao fazer backup das Máquinas Virtuais Azure, também tem a opção de encriptar os seus dados de backup no Cofre de Serviços de Recuperação utilizando as chaves de encriptação armazenadas no Cofre de Chaves Azure.
+Ao fazer backup das suas Máquinas Virtuais Azure, pode agora encriptar os seus dados utilizando chaves próprias e geridas por si. O Azure Backup permite-lhe utilizar as chaves RSA armazenadas no Cofre de Chaves Azure para encriptar as suas cópias de segurança. A chave de encriptação utilizada para encriptar cópias de segurança pode ser diferente da utilizada para a fonte. Os dados estão protegidos utilizando uma chave de encriptação de dados baseada em AES 256 (DEK), que está, por sua vez, protegida utilizando as suas chaves. Isto dá-lhe total controlo sobre os dados e as chaves. Para permitir a encriptação, é necessário que o cofre dos Serviços de Recuperação tenha acesso à chave de encriptação no Cofre de Chaves Azure. Pode desativar a chave ou revogar o acesso sempre que necessário. No entanto, deve ativar a encriptação utilizando as suas chaves antes de tentar proteger quaisquer itens para o cofre.
 
 >[!NOTE]
->Esta funcionalidade encontra-se atualmente em uso precoce. Preencha [este inquérito](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) se pretender encriptar os seus dados de backup utilizando as chaves geridas pelo cliente. Note que a capacidade de utilização desta funcionalidade está sujeita à aprovação do serviço de backup Azure.
+>Esta funcionalidade encontra-se atualmente em disponibilidade limitada. Preencha [este inquérito](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) e AskAzureBackupTeam@microsoft.com envie-nos um e-mail se pretender encriptar os seus dados de backup utilizando as chaves geridas pelo cliente. Note que a capacidade de utilização desta funcionalidade está sujeita à aprovação do serviço de backup Azure.
 
-### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>Backup do VM de disco gerido encriptado usando chaves geridas pelo cliente
+### <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Backup de VMs de disco gerido encriptado usando chaves geridas pelo cliente
 
-O Azure Backup permite-lhe fazer backup de Máquinas Virtuais Azure contendo discos encriptados utilizando chaves geridas pelo cliente. Para mais detalhes, consulte a [Encriptação de discos geridos com chaves geridas](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)pelo cliente .
+O Azure Backup também lhe permite fazer backup dos seus VMs Azure que utilizam a sua chave para encriptação do lado do servidor. A chave utilizada para encriptar os discos é armazenada no Cofre de Chaves Azure e gerida por si. A encriptação do lado do servidor utilizando chaves geridas pelo cliente difere da encriptação do disco Azure, uma vez que a ADE aproveita o BitLocker (para Windows) e o DM-Crypt (para o Linux) para executar encriptação no hóspede, a SSE encripta dados no serviço de armazenamento, permitindo-lhe utilizar qualquer SISTEMA ou imagens para os seus VMs. Consulte a [Encriptação de discos geridos com chaves geridas](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) pelo cliente para mais detalhes.
 
-### <a name="backup-of-encrypted-vms"></a>Backup de VMs encriptados
+### <a name="backup-of-vms-encrypted-using-ade"></a>Backup de VMs encriptados usando ADE
 
-Pode fazer backup e restaurar as máquinas virtuais Windows ou Linux Azure (VMs) com discos encriptados utilizando o serviço de backup Azure. Para obter instruções, consulte [Back up e restaure as máquinas virtuais encriptadas com cópia](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)de segurança Azure .
+Com o Azure Backup, também pode fazer backup das suas máquinas Azure Virtual que têm os seus OS ou discos de dados encriptados utilizando encriptação do disco Azure. O ADE utiliza o BitLocker para VMs windows e DM-Crypt para VMs Linux para executar encriptação no hóspede. Para mais detalhes, consulte [Back up e restaure as máquinas virtuais encriptadas com Backup Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ## <a name="private-endpoints"></a>Pontos Finais Privados
 
@@ -290,7 +292,7 @@ Não, é construído e habilitado por padrão para todos os cofres dos serviços
 
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>Posso configurar o número de dias para os quais os meus dados serão retidos em estado de eliminação suave após a eliminação da operação?
 
-Não, é fixado a 14 dias de retenção adicional após a operação de eliminação.
+Não, está fixado a 14 dias de retenção adicional após a operação de eliminação.
 
 #### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>Preciso pagar o custo por esta retenção adicional de 14 dias?
 
@@ -306,24 +308,24 @@ Sim.
 
 #### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso voltar a ativar as cópias de segurança programadas para um recurso apagado?
 
-A eliminação seguida de retoma irá proteger novamente o recurso. Retomar a operação associa uma política de backup para desencadear as cópias de segurança programadas com o período de retenção selecionado. Além disso, o coletor de lixo funciona assim que a operação de retoma estiver concluída. Se desejar efetuar um restauro a partir de um ponto de recuperação que já ultrapasse a data de validade, é aconselhável fazê-lo antes de desencadear a operação de retoma.
+A eliminação seguida de retoma irá proteger novamente o recurso. Retomar a operação associa uma política de backup para desencadear as cópias de segurança programadas com o período de retenção selecionado. Além disso, o coletor de lixo funciona assim que a operação de retoma estiver concluída. Se desejar efetuar um restauro a partir de um ponto de recuperação que já ultrapassou a data de validade, é aconselhável fazê-lo antes de desencadear a operação de retoma.
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso apagar o meu cofre se houver itens apagados macios no cofre?
 
-O cofre dos Serviços de Recuperação não pode ser apagado se houver itens de reserva em estado de eliminação suave no cofre. Os artigos apagados são eliminados permanentemente 14 dias após a eliminação da operação. Se não puder esperar 14 dias, [desative suavemente,](#disabling-soft-delete)desapague os itens apagados macios e elimine-os novamente para ser eliminado permanentemente. Depois de garantir que não existem itens protegidos e não há itens apagados macios, o cofre pode ser apagado.  
+O cofre dos Serviços de Recuperação não pode ser apagado se houver itens de reserva em estado de apagar suavemente no cofre. Os artigos apagados são eliminados permanentemente 14 dias após a eliminação da operação. Se não puder esperar 14 dias, [desative suavemente,](#disabling-soft-delete)desapague os itens apagados macios e elimine-os novamente para ser eliminado permanentemente. Depois de garantir que não existem itens protegidos e não há itens apagados macios, o cofre pode ser apagado.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso apagar os dados mais cedo do que os 14 dias de eliminação suave após a eliminação?
 
-Não. Não é possível forçar a eliminação dos itens apagados, estes são automaticamente apagados após 14 dias. Esta funcionalidade de segurança está ativada para salvaguardar os dados de back-up de exclusões acidentais ou maliciosas.  Deve esperar 14 dias antes de realizar qualquer outra ação no VM.  Os itens apagados não serão carregados.  Se precisar de reproteger os VMs marcados para apagar suavemente dentro de 14 dias para um novo cofre, contacte o suporte da Microsoft.
+Não. Não pode forçar a eliminação dos itens apagados, são automaticamente apagados após 14 dias. Esta funcionalidade de segurança está ativada para salvaguardar os dados de back-up de exclusões acidentais ou maliciosas.  Deve esperar 14 dias antes de realizar qualquer outra ação no VM.  Os itens apagados serão cobrados.  Se precisar de reproteger os VMs marcados para apagar suavemente dentro de 14 dias para um novo cofre, contacte o suporte da Microsoft.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>As operações de eliminação suave podem ser realizadas em PowerShell ou CLI?
 
-As operações de eliminação suave podem ser efetuadas através da [Powershell](#soft-delete-for-vms-using-azure-powershell). Atualmente, o CLI não é suportado.
+As operações de eliminação suave podem ser efetuadas através [do PowerShell](#soft-delete-for-vms-using-azure-powershell). Atualmente, o CLI não é suportado.
 
 #### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>O soft delete é suportado para outras cargas de trabalho em nuvem, como o SQL Server em VMs Azure e SAP HANA em VMs Azure?
 
 Não. Atualmente, o soft delete é suportado apenas para máquinas virtuais Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre os controlos de [segurança para o Backup Azure](backup-security-controls.md).

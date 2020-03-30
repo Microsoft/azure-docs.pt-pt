@@ -1,6 +1,6 @@
 ---
-title: Configurar uma rede virtual existente para a instância gerenciada
-description: Este artigo descreve como configurar uma rede virtual e uma sub-rede existentes onde você pode implantar Instância Gerenciada do Banco de Dados SQL do Azure.
+title: Configure uma rede virtual existente para instância gerida
+description: Este artigo descreve como configurar uma rede virtual e uma subnet existentes onde pode implementar a Instância Gerida pela Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,35 +10,35 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-ms.date: 01/15/2019
-ms.openlocfilehash: 6dfc0a59ab4150173196fae82d90eca4880d5364
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/17/2020
+ms.openlocfilehash: 50b832baa9253f47b5f10980ae1764c9425ed4d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818882"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476954"
 ---
-# <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurar uma rede virtual existente para Instância Gerenciada do Banco de Dados SQL do Azure
+# <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurar uma rede virtual existente para a Instância Gerida da Base de Dados SQL do Azure
 
-Instância Gerenciada do Banco de Dados SQL do Azure deve ser implantado em uma [rede virtual](../virtual-network/virtual-networks-overview.md) do Azure e a sub-rede dedicada somente para instâncias gerenciadas. Você pode usar a rede virtual e a sub-rede existentes se ela estiver configurada de acordo com os [requisitos de rede virtual instância gerenciada](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+A Instância Gerida pela Base de Dados Azure SQL deve ser implantada dentro de uma [rede virtual](../virtual-network/virtual-networks-overview.md) Azure e da subrede dedicada apenas a Instâncias Geridas. Pode utilizar a rede virtual existente e a sub-rede se estiver configurada de acordo com os requisitos de [rede virtual Managed Instance](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-Se um dos casos a seguir se aplicar a você, você poderá validar e modificar sua rede usando o script explicado neste artigo:
+Se um dos seguintes casos se aplicar a si, pode validar e modificar a sua rede utilizando o script explicado neste artigo:
 
-- Você tem uma nova sub-rede que ainda não está configurada.
-- Você não tem certeza de que a sub-rede está alinhada com os [requisitos](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
-- Você deseja verificar se a sub-rede ainda está em conformidade com os [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements) depois de fazer as alterações.
+- Tens uma nova sub-rede que ainda não está configurada.
+- Não tem a certeza se a sub-rede está alinhada com os [requisitos.](sql-database-managed-instance-connectivity-architecture.md#network-requirements)
+- Deverá verificar se a sub-rede ainda cumpre os [requisitos](sql-database-managed-instance-connectivity-architecture.md#network-requirements) da rede depois de ter feito alterações.
 
 > [!Note]
-> Você pode criar um Instância Gerenciada somente em redes virtuais criadas por meio do modelo de implantação de Azure Resource Manager. Não há suporte para redes virtuais do Azure criadas por meio do modelo de implantação clássico. Calcule o tamanho da sub-rede seguindo as diretrizes no artigo [determinar o tamanho da sub-rede para instâncias gerenciadas](sql-database-managed-instance-determine-size-vnet-subnet.md) . Você não pode redimensionar a sub-rede depois de implantar os recursos dentro do.
+> Só é possível criar uma Instância Gerida apenas em redes virtuais criadas através do modelo de implementação do Gestor de Recursos Azure. As redes virtuais Azure criadas através do modelo de implantação clássica não são suportadas. Calcular o tamanho da sub-rede seguindo as diretrizes no artigo Determinar o tamanho da sub-rede para o artigo [Casos Geridos.](sql-database-managed-instance-determine-size-vnet-subnet.md) Não podes redimensionar a sub-rede depois de distribuires os recursos lá dentro.
 >
-> Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
+> Após a criação de uma instância gerida, a mudança da instância gerida ou vNet para outro grupo de recursos ou subscrição não é suportada.
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>Validar e modificar uma rede virtual existente
 
-Se você quiser criar um Instância Gerenciada dentro de uma sub-rede existente, recomendamos o seguinte script do PowerShell para preparar a sub-rede:
+Se quiser criar uma Instância Gerida dentro de uma subnet existente, recomendamos o seguinte script PowerShell para preparar a sub-rede:
 
 ```powershell
-$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'
 
 $parameters = @{
     subscriptionId = '<subscriptionId>'
@@ -47,17 +47,17 @@ $parameters = @{
     subnetName = '<subnetName>'
     }
 
-Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delegateSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
 
-O script prepara a sub-rede em três etapas:
+O guião prepara a sub-rede em três passos:
 
-1. Validar: valida a rede virtual e a sub-rede selecionadas para Instância Gerenciada requisitos de rede.
-2. Confirmar: mostra ao usuário um conjunto de alterações que precisam ser feitas para preparar a sub-rede para Instância Gerenciada implantação. Ele também pede consentimento.
-3. Preparar: configura corretamente a rede virtual e a sub-rede.
+1. Valida: Valida a rede virtual selecionada e a subnet para os requisitos de rede de instâncias geridas.
+2. Confirmar: Mostra ao utilizador um conjunto de alterações que devem ser feitas para preparar a sub-rede para a implementação de Instância Gerida. Também pede consentimento.
+3. Preparar: Ele configura corretamente a rede virtual e a sub-rede.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma visão geral, consulte [o que é um instância gerenciada?](sql-database-managed-instance.md).
-- Para obter um tutorial que mostra como criar uma rede virtual, criar um Instância Gerenciada e restaurar um banco de dados de um backup de banco de dados, consulte [criar um instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-get-started.md).
-- Para problemas de DNS, consulte [Configurando um DNS personalizado](sql-database-managed-instance-custom-dns.md).
+- Para uma visão geral, veja [o que é um caso gerido?](sql-database-managed-instance.md)
+- Para um tutorial que mostre como criar uma rede virtual, criar uma Instância Gerida e restaurar uma base de dados a partir de uma cópia de dados, consulte [Create a Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md).
+- Para problemas dNS, consulte [Configurar um DNS personalizado](sql-database-managed-instance-custom-dns.md).

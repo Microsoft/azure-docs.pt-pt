@@ -1,6 +1,6 @@
 ---
-title: Exibir informações de recurso no Azure Maps SDK do Android | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a exibir informações de recursos em um mapa usando o SDK do Android mapas de Microsoft Azure.
+title: Mostrar informações no Azure Maps Android SDK [ Microsoft Azure Maps
+description: Neste artigo, você aprenderá a exibir informações de funcionalidades num mapa usando o Microsoft Azure Maps Android SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 26f41a7fd88a3c2018592e89ae95e3b962c1a9e9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75911696"
 ---
 # <a name="display-feature-information"></a>Apresentar informações da funcionalidade
 
-Os dados espaciais geralmente são representados usando pontos, linhas e polígonos. Esses dados geralmente têm informações de metadados associadas a ele. Por exemplo, um ponto pode representar o local de um repositório e os metadados sobre esse restaurante podem ser seu nome, endereço e tipo de comida que ele atende. Esses metadados podem ser adicionados como propriedades desses recursos usando uma `JsonObject`. O código a seguir cria um recurso de ponto simples com uma propriedade `title` que tem um valor de "Olá, Mundo!"
+Os dados espaciais são frequentemente representados usando pontos, linhas e polígonos. Estes dados têm frequentemente informações de metadados associadas a ele. Por exemplo, um ponto pode representar a localização de uma loja e metadados sobre aquele restaurante podem ser o seu nome, endereço e tipo de comida que serve. Estes metadados podem ser adicionados como `JsonObject`propriedades destas funcionalidades usando a . O seguinte código cria uma `title` característica de ponto simples com uma propriedade que tem um valor de "Hello World!"
 
 ```java
 //Create a data source and add it to the map.
@@ -32,7 +32,7 @@ properties.addProperty("title", "Hello World!");
 dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64), properties));
 ```
 
-Quando um usuário interage com um recurso no mapa, os eventos podem ser usados para reagir a essas ações. Um cenário comum é exibir uma mensagem composta das propriedades de metadados de um recurso com o qual o usuário interagiu. O evento `OnFeatureClick` é o principal evento usado para detectar quando o usuário tocou em um recurso no mapa. Também há um evento `OnLongFeatureClick`. Ao adicionar o evento `OnFeatureClick` ao mapa, ele pode ser limitado a uma única camada passando a ID de uma camada para limitar a ela. Se nenhuma ID de camada for passada, tocar em qualquer recurso no mapa, independentemente da camada em que ele está, acionaria esse evento. O código a seguir cria uma camada de símbolo para renderizar dados de ponto no mapa e, em seguida, adiciona um evento de `OnFeatureClick` e o limita a essa camada de símbolo.
+Quando um utilizador interage com uma funcionalidade no mapa, os eventos podem ser usados para reagir a essas ações. Um cenário comum é exibir uma mensagem feita das propriedades dos metadados de uma funcionalidade com a quais o utilizador interagiu. O `OnFeatureClick` evento é o evento principal usado para detetar quando o utilizador tocou numa funcionalidade no mapa. Há também um `OnLongFeatureClick` evento. Ao adicionar `OnFeatureClick` o evento ao mapa, pode limitar-se a uma única camada, passando a identificação de uma camada para limitá-lo. Se não for passado nenhum ID de camada, tocando em qualquer recurso no mapa, independentemente da camada em que se encontre, dispararia este evento. O código seguinte cria uma camada de símbolo para `OnFeatureClick` renderizar dados de pontos no mapa, em seguida, adiciona um evento e limita-o a esta camada de símbolo.
 
 ```java
 //Create a symbol and add it to the map.
@@ -48,9 +48,9 @@ map.events.add((OnFeatureClick) (features) -> {
 }, symbolLayer.getId());    //Limit this event to the symbol layer.
 ```
 
-## <a name="display-a-toast-message"></a>Exibir uma mensagem do sistema
+## <a name="display-a-toast-message"></a>Mostrar uma mensagem de torrada
 
-Uma mensagem do sistema é uma das maneiras mais fáceis de exibir informações para o usuário e está disponível em todas as versões do Android. Ele não dá suporte a nenhum tipo de entrada de usuário e só é exibido por um curto período de tempo. Se você quiser permitir que o usuário saiba rapidamente algo sobre o que ele tocou, uma mensagem do sistema poderá ser uma boa opção. O código a seguir mostra como uma mensagem do sistema pode ser usada com o evento `OnFeatureClick`.
+Uma mensagem de torrada é uma das formas mais fáceis de mostrar informações ao utilizador e está disponível em todas as versões do Android. Não suporta qualquer tipo de entrada do utilizador e é apresentado apenas por um curto período de tempo. Se quiser informar rapidamente o utilizador sobre o que tocou, uma mensagem de torrada pode ser uma boa opção. O código seguinte mostra como uma mensagem `OnFeatureClick` de torrada pode ser usada com o evento.
 
 ```java
 //Add a feature click event to the map.
@@ -65,14 +65,14 @@ map.events.add((OnFeatureClick) (features) -> {
 
 <center>
 
-![animação de um recurso que está sendo tocado e uma mensagem do sistema sendo exibida](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
+![Animação de uma funcionalidade a ser tocada e uma mensagem de torrada a ser exibida](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
 
-Além das mensagens do sistema, há muitas outras maneiras de apresentar as propriedades de metadados de um recurso, como:
+Além de mensagens de torradas, existem muitas outras formas de apresentar as propriedades dos metadados de uma funcionalidade, tais como:
 
-- [Snakbar widget](https://developer.android.com/training/snackbar/showing.html) – snackbars fornece comentários leves sobre uma operação. Eles mostram uma breve mensagem na parte inferior da tela no celular e na parte inferior esquerda em dispositivos maiores. Snackbars aparecem acima de todos os outros elementos na tela e apenas um pode ser exibido de cada vez.
-- [Caixas de diálogo](https://developer.android.com/guide/topics/ui/dialogs) -uma caixa de diálogo é uma pequena janela que solicita que o usuário tome uma decisão ou insira informações adicionais. Uma caixa de diálogo não preenche a tela e é normalmente usada para eventos modais que exigem que os usuários executem uma ação antes que possam continuar.
-- Adicione um [fragmento](https://developer.android.com/guide/components/fragments) à atividade atual.
-- Navegue até outra atividade ou exibição.
+- [Snakbar widget](https://developer.android.com/training/snackbar/showing.html) - Snackbars fornecem feedback leve sobre uma operação. Mostram uma breve mensagem na parte inferior do ecrã no telemóvel e na esquerda inferior em dispositivos maiores. As snackbars aparecem acima de todos os outros elementos no ecrã e apenas um pode ser exibido de cada vez.
+- [Diálogos](https://developer.android.com/guide/topics/ui/dialogs) - Um diálogo é uma pequena janela que leva o utilizador a tomar uma decisão ou a introduzir informações adicionais. Um diálogo não preenche o ecrã e é normalmente utilizado para eventos modais que exigem que os utilizadores tomem uma ação antes de poderem continuar.
+- Adicione um [Fragmento](https://developer.android.com/guide/components/fragments) à atividade atual.
+- Navegue para outra atividade ou vista.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -82,4 +82,4 @@ Para adicionar mais dados ao seu mapa:
 > [Adicionar uma camada de símbolo](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar formas a um mapa do Android](how-to-add-shapes-to-android-map.md)
+> [Adicione formas a um mapa Android](how-to-add-shapes-to-android-map.md)

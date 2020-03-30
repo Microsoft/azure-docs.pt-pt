@@ -1,5 +1,5 @@
 ---
-title: Sinal de chave de segurança sem palavras-passe (pré-visualização) - Diretório Ativo Azure
+title: Entrada de chave de segurança sem palavras-passe (pré-visualização) - Diretório Ativo Azure
 description: Ativar o acesso à chave de segurança sem palavras-passe para o Azure AD utilizando as teclas de segurança FIDO2 (pré-visualização)
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: e088d239a91edeff34ecd1a7dc5be7a9f8628da3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263897"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129151"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Ativar o sinal de entrada da chave de segurança sem palavras-passe (pré-visualização)
 
@@ -31,7 +31,7 @@ Este documento centra-se em permitir a autenticação sem palavras-passe baseada
 
 ## <a name="requirements"></a>Requisitos
 
-- [Autenticação azure multi-factor](howto-mfa-getstarted.md)
+- [Multi-Factor Authentication do Azure](howto-mfa-getstarted.md)
 - [Pré-visualização combinada de registo de informações de segurança](concept-registration-mfa-sspr-combined.md)
 - Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
 - WebAuthN requer versão 1809 do Windows 1809 ou superior**
@@ -52,8 +52,8 @@ As funcionalidades de registo dos métodos de autenticação sem palavras-passe 
 
 ### <a name="enable-fido2-security-key-method"></a>Ativar o método da chave de segurança FIDO2
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Consulte o **Diretório Ativo** do Diretório ativo do Azure > **métodos** de **autenticação** >  > a política do método de **autenticação (Pré-visualização)** .
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Navegue > nos métodos de autenticação de**autenticação** > de segurança **do Diretório** > Ativo Azure **(Pré-visualização)**.**Authentication methods**
 1. No método **FIDO2 Security Key,** escolha as seguintes opções:
    1. **Habilitar** - Sim ou Não
    1. **Alvo** - Todos os utilizadores ou utilizadores Selecionados
@@ -61,7 +61,7 @@ As funcionalidades de registo dos métodos de autenticação sem palavras-passe 
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registo e gestão de chaves de segurança FIDO2
 
-1. Navegue para [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+1. Navegue [https://myprofile.microsoft.com](https://myprofile.microsoft.com)para .
 1. Inscreva-se se ainda não.
 1. Clique em **Informações**de Segurança .
    1. Se o utilizador já tiver pelo menos um método de autenticação multi-factor Azure registado, pode registar imediatamente uma chave de segurança FIDO2.

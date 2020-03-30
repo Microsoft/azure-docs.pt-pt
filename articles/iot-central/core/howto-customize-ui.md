@@ -1,19 +1,19 @@
 ---
-title: Personalize a UI Central Azure IoT  Microsoft Docs
+title: Personalize a UI Central Azure IoT [ Microsoft Docs
 description: Como personalizar o tema e ajudar links para a sua aplicação central Azure IoT
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3afa86aae3b51ea20610dcbff5211e59fb341650
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8f76f143b6c6a26b88b78e20d8d5d8ae1ae48553
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018436"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158029"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Personalize a UI Central Azure IoT
 
@@ -77,5 +77,5 @@ Também pode adicionar novas entradas ao menu de ajuda e remover as entradas pre
 
 Agora que aprendeu a personalizar o UI na sua aplicação IoT Central, aqui estão alguns passos sugeridos:
 
-- [Administre seu aplicativo](./howto-administer.md)
-- [Adicione azulejos ao seu painel de instrumentos](howto-add-tiles-to-your-dashboard.md)
+- [Administrar a sua aplicação](./howto-administer.md)
+- [Adicionar mosaicos ao dashboard](howto-add-tiles-to-your-dashboard.md)

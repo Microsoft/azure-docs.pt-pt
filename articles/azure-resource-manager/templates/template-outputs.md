@@ -3,12 +3,12 @@ title: Saídas em modelos
 description: Descreve como definir valores de saída num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: ec96b45cdc5ccf488d46c2d8da03caf16d002dfa
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622846"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460029"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo de Gestor de Recursos Azure
 
@@ -16,7 +16,7 @@ Este artigo descreve como definir valores de saída no seu modelo de Gestor de R
 
 ## <a name="define-output-values"></a>Definir valores de saída
 
-O exemplo seguinte mostra como devolver o ID de recurso para um endereço IP público:
+O exemplo que se segue mostra como devolver o ID de recurso para um endereço IP público:
 
 ```json
 "outputs": {
@@ -79,7 +79,7 @@ O exemplo seguinte mostra como definir o endereço IP num equilibrante de carga,
 }
 ```
 
-Não pode utilizar a função `reference` na secção de saídas de um [modelo aninhado](linked-templates.md#nested-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado.
+Não pode utilizar `reference` a função na secção de saídas de um [modelo aninhado](linked-templates.md#nested-template). Para devolver os valores de um recurso implantado num modelo aninhado, converta o seu modelo aninhado num modelo ligado.
 
 ## <a name="get-output-values"></a>Obter valores de saída
 
@@ -95,10 +95,10 @@ Para obter valores de saída a partir do histórico de implementação, pode usa
   -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group deployment show \
+az deployment group show \
   -g <resource-group-name> \
   -n <deployment-name> \
   --query properties.outputs.resourceID.value
@@ -112,9 +112,9 @@ Os exemplos que se seguem demonstram cenários para a utilização de saídas.
 
 |Modelo  |Descrição  |
 |---------|---------|
-|[Copiar variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria variáveis complexo e produz esses valores. Não implemente todos os recursos. |
-|[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e devolve o ID de recurso. |
-|[Balanceador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ligações para o modelo anterior. Utiliza o ID de recurso na saída, ao criar o Balanceador de carga. |
+|[Copiar variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria variáveis complexas e produz esses valores. Não distribui recursos. |
+|[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e produz o ID do recurso. |
+|[Equilibrador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ligações ao modelo anterior. Utiliza o ID de recurso na saída ao criar o equilibrador de carga. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

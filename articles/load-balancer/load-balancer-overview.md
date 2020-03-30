@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: ce8ae7f2f4de3659dc8dde98dc71d39886341498
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2853b1567618127866a4e9c61d81e599d3100823
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602149"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064270"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -40,7 +40,7 @@ Um **[equilibrista de carga interno (ou privado)](./concepts-limitations.md#inte
 Para obter mais informações sobre os componentes individuais do equilíbrio de carga, consulte componentes e limitações do [Equilíbrio de Carga Azure](./concepts-limitations.md)
 
 >[!NOTE]
-> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se precisa de alto desempenho, baixa latência, equilíbrio de carga camada 4, veja o que é o Portal de [Aplicação Azure?](../application-gateway/overview.md) Se procura o equilíbrio global de carga slédi, veja o que é o Gestor de [Tráfego?](../traffic-manager/traffic-manager-overview.md) Os seus cenários de ponta a ponta podem beneficiar da combinação destas soluções.
+> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se precisa de alto desempenho, baixa latência, equilíbrio de carga camada 7, veja o que é o Portal de [Aplicação Azure?](../application-gateway/overview.md) Se procura o equilíbrio global de carga slédi, veja o que é o Gestor de [Tráfego?](../traffic-manager/traffic-manager-overview.md) Os seus cenários de ponta a ponta podem beneficiar da combinação destas soluções.
 >
 > Para uma comparação de opções de equilíbrio de carga Azure, consulte [a visão geral das opções de equilíbrio de carga em Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
@@ -59,7 +59,7 @@ Os cenários-chave que pode realizar usando o Standard Load Balancer incluem:
 
 - Utilize **[o encaminhamento](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** do porto para aceder a máquinas virtuais numa rede virtual através de endereço IP público e porta.
 
-- Ativar o suporte para **[o equilíbrio de carga](https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell)** do **[IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)** .
+- Ativar o suporte para **[o equilíbrio de carga](https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell)** do **[IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)**.
 
 - O Standard Load Balancer fornece métricas multidimensionais através do [Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview).  Estas métricas podem ser filtradas, agrunadas e partidas para uma determinada dimensão.  Fornecem insights atuais e históricos sobre o desempenho e a saúde do seu serviço.  A Saúde dos Recursos também é apoiada. Reveja os **[diagnósticos de balanceadores de carga padrão](load-balancer-standard-diagnostics.md)** para mais detalhes.
 
@@ -67,9 +67,9 @@ Os cenários-chave que pode realizar usando o Standard Load Balancer incluem:
 
 - Mover recursos de equilíbrio de carga **[internos](https://docs.microsoft.com/azure/load-balancer/move-across-regions-internal-load-balancer-portal)** e **[externos](https://docs.microsoft.com/azure/load-balancer/move-across-regions-external-load-balancer-portal)** em todas as regiões de Azure.
 
-- Balanço de carga Fluxo de TCP e UDP em todas as portas simultaneamente utilizando **[portas HA](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)** .
+- Balanço de carga Fluxo de TCP e UDP em todas as portas simultaneamente utilizando **[portas HA](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)**.
 
-### <a name="securebydefault"></a>Seguro por padrão
+### <a name="secure-by-default"></a><a name="securebydefault"></a>Seguro por padrão
 
 O Standard Load Balancer baseia-se no modelo de segurança da rede zero trust no seu núcleo. O Balancer de Carga Standard é seguro por defeito e faz parte da sua rede virtual. A rede virtual é uma rede privada e isolada.  Isto significa que os equilibradores de carga padrão e os endereços IP públicos padrão estão fechados a fluxos de entrada, a menos que sejam abertos por Grupos de Segurança da Rede. Os NSGs são usados para permitir explicitamente o tráfego permitido.  Se não tiver um NSG numa subnet ou NIC do seu recurso virtual de máquina, o tráfego não está autorizado a chegar a este recurso. Para saber mais sobre nsgs e como aplicá-los para o seu cenário, consulte [Network Security Groups](../virtual-network/security-overview.md).
 O Equilíbrio de Carga Básico está aberto à internet por padrão.

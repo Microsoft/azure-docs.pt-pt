@@ -1,19 +1,19 @@
 ---
-title: Executar múltiplas ações a partir de uma regra Central Azure IoT  Microsoft Docs
+title: Executar múltiplas ações a partir de uma regra Central Azure IoT [ Microsoft Docs
 description: Execute múltiplas ações a partir de uma única regra IoT Central e crie grupos reutilizáveis de ações que você pode executar a partir de várias regras.
 services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: 7c60728ab501d03e9c40928e730225575e76efbc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023825"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157692"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Grupo múltiplas ações para executar a partir de uma ou mais regras
 
@@ -37,7 +37,7 @@ Um grupo de ação pode:
 
 A imagem seguinte mostra um grupo de ação que envia notificações de e-mail e SMS e chama um webhook:
 
-![Grupo de ação](media/howto-use-action-groups/actiongroup.png)
+![Grupo de ações](media/howto-use-action-groups/actiongroup.png)
 
 Para utilizar um grupo de ação numa regra IoT Central, o grupo de ação deve estar na mesma subscrição azure que a aplicação IoT Central.
 
@@ -59,7 +59,7 @@ O quadro seguinte resume as informações enviadas aos tipos de ação suportado
 
 | Tipo de ação | Formato de saída |
 | ----------- | -------------- |
-| E-mail       | Modelo padrão de e-mail IoT Central |
+| Email       | Modelo padrão de e-mail IoT Central |
 | SMS         | Alerta central Azure IoT: ${applicationName} - "${ruleName}" disparado em "${deviceName}" em ${triggerDate} ${triggerTime} |
 | Voz       | Alerta central Azure I.O.T: regra "${ruleName}" ativado no dispositivo "${deviceName}" a ${triggerDate} ${triggerTime}, na aplicação ${applicationName} |
 | Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[carga útil regular do webhook](howto-create-webhooks.md#payload)}} |

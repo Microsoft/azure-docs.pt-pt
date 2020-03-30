@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
 ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989914"
 ---
 # <a name="animated-character-detection-preview"></a>Deteção de caracteres animados (pré-visualização)
@@ -43,8 +43,8 @@ Dependendo de um tipo da sua conta de Indexer de Vídeo, diferentes conjuntos de
 |Funcionalidade|Avaliação|Pago|
 |---|---|---|
 |Conta Visão Personalizada|Gerido nos bastidores pelo Video Indexer. |A sua conta Custom Vision está ligada ao Indexer de Vídeo.|
-|Número de modelos de animação|1|Até 100 modelos por conta (limitação de Visão Personalizada).|
-|Formação do modelo|O Indexer de vídeo treina o modelo para novos personagens exemplos adicionais de caracteres existentes.|O dono da conta treina o modelo quando está pronto para fazer alterações.|
+|Número de modelos de animação|Um|Até 100 modelos por conta (limitação de Visão Personalizada).|
+|Preparar o modelo|O Indexer de vídeo treina o modelo para novos personagens exemplos adicionais de caracteres existentes.|O dono da conta treina o modelo quando está pronto para fazer alterações.|
 |Opções avançadas em Visão Personalizada|Sem acesso ao portal Visão Personalizada.|Você pode ajustar os modelos no portal Visão Personalizada.|
 
 ## <a name="use-the-animated-character-detection-with-portal"></a>Use a deteção de caracteres animados com portal 
@@ -94,7 +94,7 @@ Siga estes passos para ligar a sua conta De Visão Personalizada ao Indexante de
 ### <a name="create-an-animated-characters-model"></a>Criar um modelo de personagens animados
 
 1. Aceda ao site do [Video Indexer](https://vi.microsoft.com/) e inicie sessão.
-1. Clique no botão personalização do modelo de conteúdo no canto superior direito da página.
+1. Clique no botão de personalização do modelo de conteúdo no canto superior direito da página.
 
     ![Personalização do modelo de conteúdo](./media/animated-characters-recognition/content-model-customization.png)
 1. Vá ao separador **de caracteres animados** na secção de personalização do modelo.
@@ -173,7 +173,7 @@ Siga estes passos para ligar a sua conta De Visão Personalizada ao Indexante de
 
     Utilize o modelo de [animação do comboio](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag) API.
 
-### <a name="view-the-output"></a>Exibir a saída
+### <a name="view-the-output"></a>Ver a saída
 
 Veja os caracteres animados no ficheiro JSON gerado.
 

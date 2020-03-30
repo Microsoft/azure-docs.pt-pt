@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Elium para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Elium para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo Azure para fornecer automaticamente e desfornecer contas de utilizador ao Elium.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: a3e1c936d46e0d9b0ad3b98dafeda7df0b4a23db
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058496"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: Configure Elium para fornecimento automático de utilizadores
@@ -29,13 +29,13 @@ Este tutorial mostra como configurar o Elium e o Azure Ative Directory (Azure AD
 > [!NOTE]
 > Este tutorial descreve um conector que é construído em cima do serviço de provisionamento de utilizadores da AD Azure. Para detalhes importantes sobre o que este serviço faz e como funciona, e para perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores da Automatização para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 >
-> Este conector está atualmente em pré-visualização. Para os termos gerais de utilização das funcionalidades Do Azure na pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> Este conector encontra-se atualmente em pré-visualização. Para os termos gerais de utilização das funcionalidades Do Azure na pré-visualização, consulte [os Termos Suplementares de Utilização para as Pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial assume que já tem os seguintes pré-requisitos:
 
-* Um locatário do Azure AD
+* Um inquilino da AD Azure
 * [Um inquilino de Elium](https://www.elium.com/pricing/)
 * Uma conta de utilizador em Elium, com permissões de administração
 
@@ -55,7 +55,7 @@ Ao atribuir um utilizador ao Elium, deve selecionar uma função válida e espec
 
 Antes de configurar o Elium para o fornecimento automático de utilizadores com a AD Azure, deve ativar o fornecimento de Sistema de Gestão de Identidade de Domínio Transversal (SCIM) no Elium. Siga estes passos.
 
-1. Inscreva-se no Elium e vá ao **My Profile** > **Definições**.
+1. Inscreva-se no Elium e vá às**definições** **do meu perfil.** > 
 
     ![Itens de menu de definições em Elium](media/Elium-provisioning-tutorial/setting.png)
 
@@ -112,7 +112,7 @@ Para configurar o fornecimento automático de utilizadores para elium em Azure A
 
     ![Regulação automática para modo de provisionamento](common/provisioning-automatic.png)
 
-1. Na secção **credenciais de administrador,** **escreva\<\>/scim/v2** no campo URL do **Arrendatário.** (O **tenantURL** é o valor recuperado anteriormente da consola de administração Elium.) Escreva também o valor simbólico do Elium Secret no campo **Secreto Token.** Por fim, selecione **Test Connection** para verificar se o Azure AD pode ligar-se ao Elium. Se a ligação falhar, certifique-se de que a sua conta Elium tem permissões de administração e tente novamente.
+1. Na secção **credenciais de administrador,** ** \<digite o tenantURL\>/scim/v2** no campo URL do **Arrendatário.** (O **tenantURL** é o valor recuperado anteriormente da consola de administração Elium.) Escreva também o valor simbólico do Elium Secret no campo **Secreto Token.** **Secret token** Por fim, selecione **Test Connection** para verificar se o Azure AD pode ligar-se ao Elium. Se a ligação falhar, certifique-se de que a sua conta Elium tem permissões de administração e tente novamente.
 
     ![URL do inquilino e campos secretos de token em credenciais de administrador](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -136,7 +136,7 @@ Para configurar o fornecimento automático de utilizadores para elium em Azure A
 
     ![Estado de provisionamento definido para on](common/provisioning-toggle-on.png)
 
-1. Defina os utilizadores e grupos que deseja fornecer ao Elium selecionando os valores que deseja na caixa de listas de drop-down scope na secção **Definições.**
+1. Defina os utilizadores e grupos que deseja fornecer ao Elium **Scope** selecionando os valores que deseja na caixa de listas de drop-down scope na secção **Definições.**
 
     ![Caixa de lista de âmbito de provisionamento](common/provisioning-scope.png)
 

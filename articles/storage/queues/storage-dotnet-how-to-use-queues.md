@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de filas do Azure usando o .NET-armazenamento do Azure
+title: Começar com o armazenamento de fila Azure usando .NET - Armazenamento Azure
 description: As Filas do Azure fornecem um serviço de mensagens fiável e assíncrono entre componentes da aplicação. O serviço de mensagens na nuvem permite que os componentes da sua aplicação sejam dimensionados de forma independente.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,19 +9,19 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: 0806c1101c0bc93a1b917cb2d18709721ff0c6d6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75968311"
 ---
-# <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de Filas do Azure com o .NET
+# <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 O armazenamento de Filas do Azure fornece um serviço de mensagens na nuvem entre componentes da aplicação. Ao conceber aplicações para o dimensionamento, os componentes da aplicação, muitas vezes, são desacoplados para um dimensionamento independente. O Armazenamento de filas fornece um serviço de mensagens assíncrono para uma comunicação entre os componentes da aplicação, quer estejam a ser executados na nuvem, no ambiente de trabalho, num servidor no local ou num dispositivo móvel. O Armazenamento de filas também suporta a gestão das tarefas assíncronas e a criação de fluxos de trabalho do processo.
 
@@ -34,76 +34,76 @@ Este tutorial demonstra como escrever código .NET para alguns cenários comuns 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Biblioteca de cliente comum do armazenamento do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-* [Biblioteca de cliente de fila de armazenamento do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Biblioteca comum de clientes azure Storage para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+* [Biblioteca de clientes azure Storage Queue para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [Gestor de Configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* Uma [Conta do Storage do Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* Uma [conta de armazenamento Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="set-up-your-development-environment"></a>Configurar o seu ambiente de desenvolvimento
+## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
 
 Em seguida, configure o ambiente de desenvolvimento no Visual Studio, para estar pronto para experimentar os exemplos de código deste guia.
 
 ### <a name="create-a-windows-console-application-project"></a>Criar um projeto de aplicação de consola do Windows
 
-No Visual Studio, crie uma nova aplicação de consola do Windows. As etapas a seguir mostram como criar um aplicativo de console no Visual Studio 2019. Os passos são semelhantes aos de outras versões do Visual Studio.
+No Visual Studio, crie uma nova aplicação de consola do Windows. Os seguintes passos mostram-lhe como criar uma aplicação de consola no Visual Studio 2019. Os passos são semelhantes aos de outras versões do Visual Studio.
 
-1. Selecione **Ficheiro** > **Novo** > **Projeto**
-2. Selecionar **plataforma** > **Windows**
-3. Selecione **Aplicação da Consola (.NET Framework)**
-4. Selecione **Seguinte**
-5. No campo **nome do projeto** , insira um nome para seu aplicativo
+1. Selecione **Arquivar** > **Novo** > **Projeto**
+2. Selecione**Janelas de** **plataforma** > 
+3. Selecione **App de Consola (.QUADRO NET)**
+4. Selecione **Next**
+5. No campo de **nome do Projeto,** insira um nome para a sua aplicação
 6. Selecione **Criar**
 
-Todos os exemplos de código neste tutorial podem ser adicionados ao método **Main ()** do arquivo **Program.cs** do seu aplicativo de console.
+Todos os exemplos de código neste tutorial podem ser adicionados ao método **principal** do ficheiro **Program.cs** da sua aplicação de consola.
 
-Você pode usar as bibliotecas de cliente de armazenamento do Azure em qualquer tipo de aplicativo .NET, incluindo um serviço de nuvem do Azure ou aplicativo Web, e aplicativos móveis e de desktop. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
+Pode utilizar as bibliotecas de clientes do Azure Storage em qualquer tipo de aplicação .NET, incluindo um serviço de nuvem Azure ou aplicação web, e aplicações de desktop e mobile. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Utilizar o NuGet para instalar os pacotes necessários
 
-Você precisa fazer referência aos três pacotes a seguir em seu projeto para concluir este tutorial:
+Você precisa fazer referência aos seguintes três pacotes do seu projeto para completar este tutorial:
 
-* [Armazenamento do Microsoft Azure biblioteca de cliente comum para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este pacote fornece acesso programático a recursos de dados em sua conta de armazenamento.
-* [Biblioteca de fila de armazenamento do Microsoft Azure para .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): essa biblioteca de cliente permite trabalhar com o serviço Fila de armazenamento do Microsoft Azure para armazenar mensagens que podem ser acessadas por um cliente.
+* [Microsoft Azure Storage Common Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este pacote fornece acesso programático aos recursos de dados na sua conta de armazenamento.
+* [Microsoft Azure Storage Queue Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Esta biblioteca de clientes permite trabalhar com o serviço de fila de armazenamento Microsoft Azure para armazenar mensagens que possam ser acedidas por um cliente.
 * [Biblioteca do Gestor de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação estiver a ser executada.
 
-Você pode usar o NuGet para obter esses pacotes. Siga estes passos.
+Pode utilizar o NuGet para obter estes pacotes. Siga estes passos.
 
-1. Clique com o botão direito do rato no projeto no **Explorador de Soluções** e escolha **Gerir Pacotes NuGet**.
-2. Selecione **procurar**
-3. Pesquise online "Microsoft. Azure. Storage. Queue" e selecione **instalar** para instalar a biblioteca de cliente de armazenamento e suas dependências. Isso também instalará a biblioteca Microsoft. Azure. Storage. Common, que é uma dependência da biblioteca de filas.
-4. Pesquise online por "Microsoft. Azure. ConfigurationManager" e selecione **instalar** para instalar o Configuration Manager do Azure.
+1. Clique no seu projeto no **Solution Explorer**e escolha **Gerir pacotes NuGet**.
+2. Selecione **Browse**
+3. Procure online "Microsoft.Azure.Storage.Queue", e selecione **Instalar** para instalar a biblioteca do cliente storage e as suas dependências. Isto também irá instalar a biblioteca Microsoft.Azure.Storage.Common, que é uma dependência da biblioteca de filas.
+4. Procure online "Microsoft.Azure.ConfigurationManager", e selecione **Instalar** para instalar o Gestor de Configuração Do Azure.
 
 > [!NOTE]
-> Os pacotes de bibliotecas de cliente de armazenamento também estão incluídos no [SDK do Azure para .net](https://azure.microsoft.com/downloads/). No entanto, recomendamos que você também instale as bibliotecas de cliente de armazenamento do NuGet para garantir que você sempre tenha as versões mais recentes.
+> Os pacotes de bibliotecas de clientes de armazenamento também estão incluídos no [SDK Azure para .NET](https://azure.microsoft.com/downloads/). No entanto, recomendamos que também instale as bibliotecas de clientes do Armazenamento da NuGet para garantir que tem sempre as versões mais recentes.
 >
-> As dependências de ODataLib nas bibliotecas de cliente de armazenamento para .NET são resolvidas pelos pacotes ODataLib disponíveis no NuGet, não da WCF Data Services. As bibliotecas ODataLib podem ser transferidas diretamente ou referenciadas pelo seu projeto de código através do NuGet. Os pacotes ODataLib específicos usados pelas bibliotecas de cliente de armazenamento são [OData](https://nuget.org/packages/Microsoft.Data.OData/), [EDM](https://nuget.org/packages/Microsoft.Data.Edm/)e [Spatial](https://nuget.org/packages/System.Spatial/). Embora essas bibliotecas sejam usadas pelas classes de armazenamento de tabelas do Azure, elas são dependências necessárias para a programação com as bibliotecas de cliente de armazenamento.
+> As dependências oDataLib nas bibliotecas de clientes de Armazenamento para .NET são resolvidas pelos pacotes ODataLib disponíveis no NuGet, e não nos Serviços de Dados da WCF. As bibliotecas ODataLib podem ser transferidas diretamente ou referenciadas pelo seu projeto de código através do NuGet. Os pacotes ODataLib específicos utilizados pelas bibliotecas de clientes de Armazenamento são [OData,](https://nuget.org/packages/Microsoft.Data.OData/) [Edm](https://nuget.org/packages/Microsoft.Data.Edm/)e [Spatial.](https://nuget.org/packages/System.Spatial/) Embora estas bibliotecas sejam utilizadas pelas classes de armazenamento da Mesa Azure, são necessárias dependências para programação com as bibliotecas de clientes do Armazenamento.
 
 ### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
 
 Tem duas opções de ambiente para executar os exemplos neste guia:
 
 * Pode executar o código numa conta de armazenamento do Azure na nuvem.
-* Pode executar o código no emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar o seu código enquanto a aplicação está em desenvolvimento. O emulador utiliza uma conta e chave bem conhecidas. Para obter mais informações, veja [Utilizar o emulador de armazenamento do Azure para programação e teste](../common/storage-use-emulator.md).
+* Pode executar o código no emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar o seu código enquanto a aplicação está em desenvolvimento. O emulador utiliza uma conta e chave bem conhecidas. Para mais informações, consulte [Utilize o emulador de armazenamento Azure para desenvolvimento e teste.](../common/storage-use-emulator.md)
 
-Se estiver a filtrar uma conta de armazenamento na cloud, copie a chave de acesso primária para a sua conta de armazenamento a partir do portal do Azure. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](../common/storage-account-keys-manage.md).
+Se estiver a filtrar uma conta de armazenamento na cloud, copie a chave de acesso primária para a sua conta de armazenamento a partir do portal do Azure. Para mais informações, consulte Gerir as chaves de [acesso à conta](../common/storage-account-keys-manage.md)de armazenamento .
 
 > [!NOTE]
 > Pode filtrar o emulador de armazenamento para evitar incorrer em custos associados ao Storage do Azure. No entanto, se optar por filtrar uma conta de armazenamento do Azure na nuvem, os custos para efetuar este tutorial serão negligenciável.
 
 ### <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 
-As bibliotecas de cliente de armazenamento do Azure para .NET dão suporte ao uso de uma cadeia de conexão de armazenamento para configurar pontos de extremidade e credenciais para acessar serviços de armazenamento. A melhor forma para manter a cadeia de ligação de armazenamento é num ficheiro de configuração.
+As bibliotecas de clientes do Azure Storage para suporte .NET usando uma cadeia de conexão de armazenamento para configurar pontos finais e credenciais para aceder a serviços de armazenamento. A melhor forma para manter a cadeia de ligação de armazenamento é num ficheiro de configuração.
 
-Para obter mais informações sobre as cadeias de ligação, veja [Configurar uma cadeia de ligação para o Armazenamento do Azure](../common/storage-configure-connection-string.md).
+Para obter mais informações sobre as cordas de ligação, consulte Configurar uma cadeia de [ligação ao Armazenamento Azure](../common/storage-configure-connection-string.md).
 
 > [!NOTE]
 > A chave da conta de armazenamento é semelhante à palavra-passe de raiz da conta de armazenamento. Tenha sempre o cuidado de proteger a chave da conta de armazenamento. Evite distribui-la a outros utilizadores, pré-programá-la ou guardá-la num ficheiro de texto simples que seja acessível a outras pessoas. Regenere a sua chave através do portal do Azure se considerar que poderá ter sido comprometida.
 
-Para configurar a cadeia de conexão, abra o arquivo **app. config** de Gerenciador de soluções no Visual Studio. Adicione o conteúdo do elemento **\<appsettings\>** mostrado abaixo. Substitua *Account-Name* pelo nome da sua conta de armazenamento e da *chave de conta* pela chave de acesso da conta:
+Para configurar a sua cadeia de ligação, abra o ficheiro **app.config** do Solution Explorer no Visual Studio. Adicione o conteúdo do elemento ** \<appDefinições\> ** mostrado abaixo. Substitua o *nome da conta* pelo nome da sua conta de armazenamento e chave de *conta* com a chave de acesso à conta:
 
 ```xml
 <configuration>
@@ -142,7 +142,7 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 
 O código de exemplo tem de autorizar o acesso à sua conta de armazenamento. Para autorizar, forneça à aplicação as credenciais da conta de armazenamento sob a forma de uma cadeia de ligação. Para ver as credenciais da conta de armazenamento:
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
+1. Navegue para o [portal Azure.](https://portal.azure.com)
 2. Localize a sua conta de armazenamento.
 3. Na secção **Definições** da descrição geral da conta de armazenamento, selecione **Chaves de acesso**. As chaves de acesso da conta são apresentadas, bem como a cadeia de ligação completa para cada chave.
 4. Encontre o valor da **Cadeia de ligação** em **key1**e clique no botão **Copiar** para copiar a cadeia de ligação. Irá adicionar o valor da cadeia de ligação para uma variável de ambiente no próximo passo.
@@ -376,7 +376,7 @@ Agora que aprendeu as noções básicas do Armazenamento de filas, siga estas li
 * Ver a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
   * [Referência da Biblioteca de Clientes do Storage para o .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   * [Referência da API REST](https://msdn.microsoft.com/library/azure/dd179355)
-* Saiba como simplificar o código de escrita para trabalhar com o Storage do Azure utilizando o [SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki).
+* Aprenda a simplificar o código que escreve para trabalhar com o Azure Storage utilizando o [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
   * [Introdução ao Table Storage do Azure utilizando o .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para armazenar dados estruturados.
   * [Introdução ao Blob Storage do Azure utilizando o .NET](../blobs/storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.

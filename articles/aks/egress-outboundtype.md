@@ -3,13 +3,13 @@ title: Personalizar rotas definidas pelo utilizador (UDR) no Serviço Azure Kube
 description: Saiba como definir uma rota de saída personalizada no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/31/2020
-ms.openlocfilehash: d108c6f49a8f483dc489fd644db6b480fc0e74fc
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/16/2020
+ms.openlocfilehash: fa64294939ea487b3123d1db5ef6c8a5f30fcf72
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595812"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129396"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalizar a saída do cluster com uma rota definida pelo utilizador (Pré-visualização)
 
@@ -26,7 +26,7 @@ Este artigo passa por personalizar a rota de saída de um cluster para suportar 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Versão Azure CLI 2.0.81 ou superior
 * Versão de extensão de pré-visualização Azure CLI 0.4.28 ou superior
-* Versão API de `2020-01-01` ou superior
+* Versão API `2020-01-01` de ou maior
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instale a mais recente extensão de pré-visualização Azure CLI AKS
 Para definir o tipo de saída de um cluster, precisa da versão de extensão de pré-visualização Azure CLI AKS 0.4.18 ou posterior. Instale a extensão de pré-visualização Azure CLI AKS utilizando o comando de adição de extensão az e, em seguida, verifique se há quaisquer atualizações disponíveis utilizando o seguinte comando de atualização de extensão az:
@@ -40,29 +40,29 @@ az extension update --name aks-preview
 ```
 
 ## <a name="limitations"></a>Limitações
-* Durante a pré-visualização, `outboundType` só podem ser definidos no cluster criar tempo e não podem ser atualizados posteriormente.
-* Durante a pré-visualização, `outboundType` os clusters AKS devem utilizar o Azure CNI. Kubenet é configurável, o uso requer associações manuais da tabela de rotas para a subnet AKS.
-* A definição `outboundType` requer aglomerados AKS com uma `vm-set-type` de `VirtualMachineScaleSets` e `load-balancer-sku` de `Standard`.
-* Definir `outboundType` a um valor de `UDR` requer uma rota definida pelo utilizador com conectividade de saída válida para o cluster.
-* A definição `outboundType` a um valor de `UDR` implica que a fonte de entrada IP direcionada para o equilibrador de carga não pode **corresponder** ao endereço de destino de saída do cluster.
+* Durante a `outboundType` pré-visualização, só pode ser definido no cluster criar tempo e não pode ser atualizado posteriormente.
+* Durante a `outboundType` pré-visualização, os clusters AKS devem utilizar o Azure CNI. Kubenet é configurável, o uso requer associações manuais da tabela de rotas para a subnet AKS.
+* A `outboundType` definição requer aglomerados `vm-set-type` `VirtualMachineScaleSets` AKS com um de e `load-balancer-sku` de `Standard`.
+* A `outboundType` definição `UDR` para um valor requer uma rota definida pelo utilizador com conectividade de saída válida para o cluster.
+* A `outboundType` definição `UDR` de um valor implica que a fonte de entrada IP direcionada para o equilibrador de carga não pode **corresponder** ao endereço de destino de saída do cluster.
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Visão geral dos tipos de saída em AKS
 
-Um cluster AKS pode ser personalizado com um `outboundType` único de balanceor de carga tipo ou encaminhamento definido pelo utilizador.
+Um cluster AKS pode ser `outboundType` personalizado com um único equilíbrior de carga ou encaminhamento definido pelo utilizador.
 
 > [!IMPORTANT]
 > O tipo de saída afeta apenas o tráfego de saída do seu cluster. Consulte a [configuração de controladores](ingress-basic.md) de ingresso para obter mais informações.
 
 ### <a name="outbound-type-of-loadbalancer"></a>Tipo de carga de saídaBalancer
 
-Se `loadBalancer` estiver definido, o AKS completa automaticamente a seguinte configuração. O equilibrista de carga é utilizado para a saída através de um IP público atribuído à AKS. Um tipo de `loadBalancer` de saída suporta serviços kubernetes de tipo `loadBalancer`, que esperam saída do equilibrador de carga criado pelo fornecedor de recursos AKS.
+Se `loadBalancer` estiver definido, o AKS completa automaticamente a seguinte configuração. O equilibrista de carga é utilizado para a saída através de um IP público atribuído à AKS. Um tipo de `loadBalancer` suporte de saída dos `loadBalancer`serviços kubernetes de tipo, que esperam saída do equilibrador de carga criado pelo fornecedor de recursos AKS.
 
 A seguinte configuração é feita pela AKS.
    * Um endereço IP público está previsto para a saída do cluster.
    * O endereço IP público é atribuído ao recurso do equilibrador de carga.
    * As piscinas de backend para o equilibrador de carga são configuradas para nós de agente no cluster.
 
-Abaixo está uma topologia de rede implantada em clusters AKS por padrão, que usam um `outboundType` de `loadBalancer`.
+Abaixo está uma topologia de rede implantada em `outboundType` clusters AKS por padrão, que usam um de `loadBalancer`.
 
 ![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
 
@@ -301,7 +301,7 @@ Um diretor de serviço é usado pela AKS para criar recursos de cluster. O princ
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 ```
 
-Agora substitua a `APPID` e a `PASSWORD` abaixo com o appid principal do serviço e a senha principal de serviço autogerada pela saída de comando anterior. Vamos fazer referência ao ID de recursos VNET para conceder as permissões ao diretor de serviço para que o AKS possa implantar recursos nele.
+Agora substitua o `APPID` e abaixo pela appid principal do `PASSWORD` serviço e a palavra-passe principal de serviço autogerada pela saída de comando anterior. Vamos fazer referência ao ID de recursos VNET para conceder as permissões ao diretor de serviço para que o AKS possa implantar recursos nele.
 
 ```azure-cli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
@@ -318,7 +318,11 @@ az role assignment list --assignee $APPID --all -o table
 
 ### <a name="deploy-aks"></a>Implementar AKS
 
-Finalmente, o cluster AKS pode ser implantado na subnet existente que dedicámos para o cluster. A sub-rede-alvo a ser implantada é definida com a variável ambiental, `$SUBNETID`.
+Finalmente, o cluster AKS pode ser implantado na subnet existente que dedicámos para o cluster. A sub-rede-alvo a ser implantada `$SUBNETID`é definida com a variável ambiental, . Não definimos a `$SUBNETID` variável nos passos anteriores. Para definir o valor para o ID da sub-rede, pode utilizar o seguinte comando:
+
+```azurecli
+SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
+```
 
 Definiremos o tipo de saída para seguir o UDR que existe na subnet, permitindo que o AKS ignore a configuração e o fornecimento de IP para o equilibrante de carga que pode agora ser estritamente interno.
 
@@ -389,7 +393,7 @@ kubectl apply -f internal-lb.yaml
 
 Uma vez que o tipo de saída do cluster é definido como UDR, associando os nós do agente como o pool de backend para o equilibrante de carga não é concluído automaticamente pelo AKS no cluster criar tempo. No entanto, a associação de piscinas backend é tratada pelo fornecedor de nuvem Kubernetes Azure quando o serviço Kubernetes é implantado.
 
-Implemente a aplicação da aplicação de votação Azure copiando o yaml abaixo para um ficheiro chamado `example.yaml`.
+Implemente a aplicação da aplicação de votação Azure `example.yaml`copiando o yaml abaixo para um ficheiro chamado .
 
 ```yaml
 apiVersion: apps/v1

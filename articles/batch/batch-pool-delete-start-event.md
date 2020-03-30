@@ -1,6 +1,6 @@
 ---
 title: Piscina de Lote Azure elimina evento de início
-description: Referência do evento de início de exclusão do pool do lote. Esse evento é emitido quando uma operação de exclusão de pool é iniciada.
+description: Referência para lote piscina excluir evento de início. Este evento é emitido quando uma operação de eliminação de piscinas tiver começado.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -12,17 +12,17 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: 24a68c6656bd13f0c353d53870a51cdc940fd141
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022210"
 ---
 # <a name="pool-delete-start-event"></a>Evento de início de eliminação de conjunto
 
- Esse evento é emitido quando uma operação de exclusão de pool é iniciada. Como a exclusão do pool é um evento assíncrono, você pode esperar que um evento de exclusão de pool completo seja emitido quando a operação de exclusão for concluída.
+ Este evento é emitido quando uma operação de eliminação de piscinas tiver começado. Uma vez que a eliminação da piscina é um evento assíncrono, pode esperar que um evento completo de piscina seja emitido um evento completo assim que a operação de exclusão esteja concluída.
 
- O exemplo a seguir mostra o corpo de um evento de início de exclusão de pool.
+ O exemplo seguinte mostra o corpo de uma piscina apagar evento de início.
 
 ```
 {
@@ -32,4 +32,4 @@ ms.locfileid: "77022210"
 
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
-|`id`|Cadeia|A ID do pool.|
+|`id`|Cadeia|A identificação da piscina.|

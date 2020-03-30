@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 2aee5c56b267f9243b69a48dfd0f5f64196c5f23
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77021496"
 ---
 # <a name="building-healthcare-solutions-with-azure-iot-central"></a>Criar soluções para os cuidados de saúde com o Azure IoT Central 
@@ -37,7 +37,7 @@ Este modelo de aplicação pode ser usado para construir soluções para ambas a
 * Exportar os conhecimentos agregados sobre as aplicações comerciais existentes ou novas.
 
 >[!div class="mx-imgBorder"] 
->![](media/in-patient-dashboard.png) do painel de instrumentos CPM
+>![Painel de instrumentos CPM](media/in-patient-dashboard.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

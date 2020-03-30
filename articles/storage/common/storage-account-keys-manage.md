@@ -1,7 +1,7 @@
 ---
 title: Gerir chaves de acesso à conta
 titleSuffix: Azure Storage
-description: Saiba como exibir, gerenciar e girar suas chaves de acesso da conta de armazenamento.
+description: Aprenda a visualizar, gerir e rodar as chaves de acesso à sua conta de armazenamento.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,51 +9,51 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
 ms.openlocfilehash: 13adf6de420b54299d04a226dab81e75cbb9fef2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75975792"
 ---
-# <a name="manage-storage-account-access-keys"></a>Gerenciar chaves de acesso da conta de armazenamento
+# <a name="manage-storage-account-access-keys"></a>Gerir as chaves de acesso à conta de armazenamento
 
-Quando você cria uma conta de armazenamento, o Azure gera chaves de acesso da conta de armazenamento de 2 512 bits. Essas chaves podem ser usadas para autorizar o acesso a dados em sua conta de armazenamento por meio da autorização de chave compartilhada.
+Ao criar uma conta de armazenamento, o Azure gera duas chaves de acesso à conta de armazenamento de 512 bits. Estas chaves podem ser utilizadas para autorizar o acesso aos dados na sua conta de armazenamento através de autorização de Chave Partilhada.
 
-A Microsoft recomenda que você use Azure Key Vault para gerenciar suas chaves de acesso e que você regularmente gira e regenera suas chaves. O uso de Azure Key Vault facilita a rotação de suas chaves sem interrupções em seus aplicativos. Você também pode girar manualmente suas chaves.
+A Microsoft recomenda que utilize o Cofre de Chaves Azure para gerir as suas teclas de acesso e que rode e regenera regularmente as suas teclas. A utilização do Cofre de Chaves Azure facilita a rotação das chaves sem interrupção das suas aplicações. Também pode rodar manualmente as chaves.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-## <a name="view-access-keys-and-connection-string"></a>Exibir chaves de acesso e cadeia de conexão
+## <a name="view-access-keys-and-connection-string"></a>Ver chaves de acesso e fio de ligação
 
 [!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
-## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Usar Azure Key Vault para gerenciar suas chaves de acesso
+## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Utilize o Cofre de Chaves Azure para gerir as suas chaves de acesso
 
-A Microsoft recomenda o uso de Azure Key Vault para gerenciar e girar suas chaves de acesso. Seu aplicativo pode acessar com segurança suas chaves no Key Vault, para que você possa evitar armazená-las com o código do aplicativo. Para obter mais informações sobre como usar Key Vault para o gerenciamento de chaves, consulte os seguintes artigos:
+A Microsoft recomenda a utilização do Cofre de Chaves Azure para gerir e rodar as suas teclas de acesso. A sua aplicação pode aceder de forma segura às suas chaves no Cofre de Chaves, para que possa evitar armazená-las com o seu código de aplicação. Para obter mais informações sobre a utilização do Key Vault para gestão de chaves, consulte os seguintes artigos:
 
-- [Gerenciar chaves de conta de armazenamento com o Azure Key Vault e o PowerShell](../../key-vault/key-vault-overview-storage-keys-powershell.md)
-- [Gerenciar chaves de conta de armazenamento com Azure Key Vault e o CLI do Azure](../../key-vault/key-vault-ovw-storage-keys.md)
+- [Gerir as chaves da conta de armazenamento com o Cofre de Chaves Azure e a PowerShell](../../key-vault/key-vault-overview-storage-keys-powershell.md)
+- [Gerir as chaves da conta de armazenamento com o Cofre de Chaves Azure e o Azure CLI](../../key-vault/key-vault-ovw-storage-keys.md)
 
-## <a name="manually-rotate-access-keys"></a>Girar manualmente as chaves de acesso
+## <a name="manually-rotate-access-keys"></a>Manualmente, roda manuais chaves de acesso
 
-A Microsoft recomenda que você gire suas chaves de acesso periodicamente para ajudar a manter sua conta de armazenamento segura. Se possível, use Azure Key Vault para gerenciar suas chaves de acesso. Se você não estiver usando Key Vault, será necessário girar suas chaves manualmente.
+A Microsoft recomenda que rode periodicamente as suas chaves de acesso para ajudar a manter a sua conta de armazenamento segura. Se possível, utilize o Cofre de Chaves Azure para gerir as suas chaves de acesso. Se não estiver a utilizar o Cofre de Chaves, terá de rodar manualmente as chaves.
 
-Duas chaves de acesso são atribuídas para que você possa girar suas chaves. Ter duas chaves garante que seu aplicativo Mantenha o acesso ao armazenamento do Azure durante todo o processo.
+Duas chaves de acesso são atribuídas para que possa rodar as chaves. Ter duas chaves garante que a sua aplicação mantém o acesso ao Armazenamento Azure durante todo o processo.
 
 > [!WARNING]
-> A regeneração de suas chaves de acesso pode afetar qualquer aplicativo ou serviço do Azure que seja dependente da chave da conta de armazenamento. Todos os clientes que usam a chave de conta para acessar a conta de armazenamento devem ser atualizados para usar a nova chave, incluindo serviços de mídia, nuvem, aplicativos móveis e de desktop e aplicativos de interface gráfica do usuário para o armazenamento do Azure, como o [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
+> Regenerar as chaves de acesso pode afetar quaisquer aplicações ou serviços Azure que estejam dependentes da chave da conta de armazenamento. Todos os clientes que utilizem a chave da conta para aceder à conta de armazenamento devem ser atualizados para utilizar a nova chave, incluindo serviços de mídia, aplicações de nuvem, ambiente de trabalho e mobile, e aplicações gráficas de interface de utilizador para o Armazenamento Azure, como [o Azure Storage Explorer.](https://azure.microsoft.com/features/storage-explorer/)
 
-Siga este processo para girar suas chaves de conta de armazenamento:
+Siga este processo para rodar as chaves da sua conta de armazenamento:
 
-1. Atualize as cadeias de conexão no código do aplicativo para usar a chave secundária.
-2. Volte a gerar a chave de acesso primária para a sua conta do Storage. Na folha **chaves de acesso** na portal do Azure, clique em **regenerar key1**e, em seguida, clique em **Sim** para confirmar que deseja gerar uma nova chave.
+1. Atualize as cordas de ligação no seu código de aplicação para utilizar a tecla secundária.
+2. Volte a gerar a chave de acesso primária para a sua conta do Storage. Na lâmina de **Chaves** de Acesso no portal Azure, clique em **Regenerar Key1**, e depois clique **em Sim** para confirmar que pretende gerar uma nova tecla.
 3. Atualize as cadeias de ligação no código para fazer referência à nova chave de acesso primária.
 4. Volte a gerar a chave de acesso secundária da mesma forma.
 
 > [!NOTE]
-> A Microsoft recomenda usar apenas uma das chaves em todos os seus aplicativos ao mesmo tempo. Se você usar a chave 1 em alguns lugares e a chave 2 em outros, não poderá girar suas chaves sem que algum aplicativo perca o acesso.
+> A Microsoft recomenda a utilização de apenas uma das chaves em todas as suas aplicações ao mesmo tempo. Se utilizar a Chave 1 em alguns locais e a Chave 2 noutros, não poderá rodar as chaves sem que alguma aplicação perca acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral da conta de armazenamento do Azure](storage-account-overview.md)
+- [Visão geral da conta de armazenamento azure](storage-account-overview.md)
 - [Criar uma conta de armazenamento](storage-account-create.md)

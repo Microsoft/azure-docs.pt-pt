@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0f2e0257c5bf855b0d9be61c43b68b4e30b3d80d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943664"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125112"
 ---
 # <a name="azure-database-security-best-practices"></a>Melhores práticas de segurança de bases de dados do Azure
 Este artigo descreve as melhores práticas para a segurança da base de dados.
@@ -75,7 +75,7 @@ Se utilizar a autenticação do Servidor SQL, deve:
 - (Potencialmente) proteger as credenciais transmitidas sobre a rede do servidor web para a base de dados. Para mais informações, consulte [Como: Ligar ao servidor SQL utilizando a autenticação SQL em ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticação do Diretório Ativo Azure (AD)*
-A autenticação Azure AD é um mecanismo de ligação à Base de Dados Azure SQL e ao [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades em Azure AD. Com a autenticação da AD Azure, pode gerir as identidades dos utilizadores de bases de dados e de outros serviços da Microsoft numa localização central. A gestão central de ID fornece um único lugar para gerir utilizadores de bases de dados e simplifica a gestão de permissões.
+A autenticação Azure AD é um mecanismo de ligação à Base de Dados Azure SQL e ao [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades em Azure AD. Com a autenticação da AD Azure, pode gerir as identidades dos utilizadores de bases de dados e de outros serviços da Microsoft numa localização central. A gestão de IDs centralizada disponibiliza um único local para gerir utilizadores da base de dados e simplifica a gestão de permissões.
 
 > [!NOTE]
 > Recomendamos a utilização da autenticação Azure AD sobre a utilização da autenticação do Servidor SQL.
@@ -104,7 +104,7 @@ Os passos de configuração incluem os seguintes procedimentos para configurar e
 Pode encontrar informações detalhadas na [autenticação do Diretório Ativo Do Azure para autenticação com base de dados SQL, Instância Gerida ou Armazém de Dados SQL](../../sql-database/sql-database-aad-authentication.md).
 
 ## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>Proteja os seus dados utilizando encriptação e segurança ao nível da linha
-A encriptação transparente de dados transparente da Base de [Dados Azure SQL](../../sql-database/transparent-data-encryption-azure-sql.md) ajuda a proteger dados no disco e protege contra o acesso não autorizado ao hardware. Executa encriptação em tempo real e desencriptação da base de dados, cópias de segurança associadas e ficheiros de registo de transações em repouso sem exigir alterações na aplicação. A encriptação transparente de dados encripta o armazenamento de uma base de dados inteira utilizando uma chave simétrica chamada chave de encriptação da base de dados.
+A encriptação transparente de dados transparente da Base de [Dados Azure SQL](../../sql-database/transparent-data-encryption-azure-sql.md) ajuda a proteger dados no disco e protege contra o acesso não autorizado ao hardware. Realiza a encriptação e desencriptação em tempo real da base de dados, cópias de segurança associadas e ficheiros de registo de transações inativos e não carece de alterações à aplicação. A encriptação transparente de dados encripta o armazenamento de uma base de dados inteira utilizando uma chave simétrica chamada chave de encriptação da base de dados.
 
 Mesmo quando todo o armazenamento está encriptado, é importante também encriptar a própria base de dados. Trata-se de uma implementação da abordagem de defesa aprofundada para a proteção de dados. Se estiver a utilizar a Base de Dados Azure SQL e pretender proteger dados sensíveis (como cartões de crédito ou números de segurança social), pode encriptar bases de dados com encriptação AES validada por 140-2. Esta encriptação satisfaz os requisitos de muitos padrões da indústria (por exemplo, HIPAA e PCI).
 
@@ -167,9 +167,9 @@ Permitir estas capacidades ajuda-o:
 
 Além disso, a Deteção de Ameaças integra alertas com o Azure Security Center para uma visão central do estado de segurança de todos os seus recursos Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança azure para obter mais práticas de segurança para usar quando está a projetar, implementar e gerir as suas soluções em nuvem utilizando o Azure.
 
 Os seguintes recursos estão disponíveis para fornecer informações mais gerais sobre segurança Azure e serviços relacionados com a Microsoft:
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - para informações atualizadas sobre as últimas novidades em Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail para secure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail parasecure@microsoft.com

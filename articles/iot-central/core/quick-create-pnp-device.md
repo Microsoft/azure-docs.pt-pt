@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 489bf81388c1bb889756d54957e791282054f0f7
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77169628"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Quickstart: Adicione um dispositivo simulado à sua aplicação IoT Central
@@ -30,7 +30,7 @@ Neste arranque rápido, adicione um modelo de dispositivo para uma placa *MXChip
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Complete a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) para criar uma aplicação IoT Central utilizando o modelo de **aplicação Personalizado > Custom.**
+Complete a [aplicação Create a Azure IoT Central](./quick-deploy-iot-central.md) rapidamente para criar uma aplicação IoT Central utilizando a aplicação Custom > modelo de **aplicação Personalizada.**
 
 ## <a name="create-a-template"></a>Criar um modelo
 
@@ -48,7 +48,7 @@ Existem várias opções para adicionar um modelo de capacidade de dispositivo �
 
 Os seguintes passos mostram como usar o catálogo do dispositivo para importar o modelo de capacidade para um dispositivo **MXChip IoT DevKit.** Estes dispositivos enviam telemetria, como temperatura, para a sua aplicação:
 
-1. Para adicionar um novo modelo de dispositivo, selecione **+** na página de modelos do **Dispositivo.**
+1. Para adicionar um novo **+** modelo de dispositivo, selecione na página de modelos do **Dispositivo.**
 
 1. Na página do **modelo Select,** desloque-se para baixo até encontrar o azulejo **MXChip IoT DevKit.**
 
@@ -70,7 +70,7 @@ Um modelo de dispositivo pode incluir propriedades na nuvem. As propriedades da 
 
     | Nome a Apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhuma          | Data   |
+    | Data da Última Assistência | Nenhuma          | Date   |
     | Nome do cliente     | Nenhuma          | Cadeia |
 
 1. Selecione **Guardar** para guardar as alterações:
@@ -128,7 +128,7 @@ Para adicionar um dispositivo simulado à sua aplicação, utiliza o modelo de d
 
 1. Para adicionar um novo dispositivo como operador, escolha **dispositivos** no painel esquerdo. O separador **Dispositivos** mostra **todos os dispositivos** e o modelo de dispositivo **MXChip IoT DevKit.** Selecione **MXChip IoT DevKit**.
 
-1. Para adicionar um dispositivo DevKit simulado, selecione **+** . Utilize o **ID** do dispositivo sugerido ou introduza o seu próprio **ID do dispositivo**minúsculo . Também pode introduzir um nome para o seu novo dispositivo. Certifique-se de que o toggle **simulado** está **ligado** e, em seguida, selecione **Criar**.
+1. Para adicionar um dispositivo DevKit **+** simulado, selecione . Utilize o **ID** do dispositivo sugerido ou introduza o seu próprio **ID do dispositivo**minúsculo . Também pode introduzir um nome para o seu novo dispositivo. Certifique-se de que o toggle **simulado** está **ligado** e, em seguida, selecione **Criar**.
 
     ![Dispositivo simulado](./media/quick-create-pnp-device/simulated-device.png)
 

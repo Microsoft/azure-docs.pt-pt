@@ -1,6 +1,6 @@
 ---
-title: Usando a ferramenta de importação/exportação do Azure-v1 | Microsoft Docs
-description: Saiba como usar a ferramenta de importação/exportação para preparar discos rígidos para um trabalho de importação, reparar um trabalho de importação ou reparar um trabalho de exportação.
+title: Utilização da Ferramenta de Importação/Exportação Azure - v1 / Microsoft Docs
+description: Aprenda a utilizar a ferramenta de importação/exportação para preparar discos rígidos para um trabalho de importação, reparar um trabalho de importação ou reparar um trabalho de exportação.
 author: twooley
 services: storage
 ms.service: storage
@@ -9,27 +9,27 @@ ms.date: 1/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: aaceee65ae91a22dc658d185a874e2040b1e0f04
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75975658"
 ---
-# <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Usando a ferramenta de importação/exportação do Azure (modelo de implantação clássico)
+# <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Utilização da Ferramenta de Importação/Exportação Azure (modelo de implantação clássica)
 
-A ferramenta de importação/exportação do Azure (WAImportExport. exe) é usada para criar e gerenciar trabalhos para o serviço de importação/exportação do Azure, permitindo que você transfira grandes quantidades de dados para dentro ou para fora do armazenamento de BLOBs do Azure.
+A Ferramenta de Importação/Exportação Azure (WAImportExport.exe) é utilizada para criar e gerir postos de trabalho para o serviço azure import/exportação, permitindo-lhe transferir grandes quantidades de dados para dentro ou para fora do Armazenamento de Blob Azure.
 
-Esta documentação é para o modelo de implantação clássico da ferramenta de importação/exportação do Azure. Para obter informações sobre como usar a versão mais recente da ferramenta, consulte [usando a ferramenta de importação/exportação do Azure](../storage-import-export-tool-how-to.md).
+Esta documentação destina-se ao modelo clássico de implantação da Ferramenta de Importação/Exportação Azure. Para obter informações sobre a utilização da versão mais recente da ferramenta, consulte A Utilização da Ferramenta de [Importação/Exportação Azure](../storage-import-export-tool-how-to.md).
 
-Os artigos a seguir mostram como:
+Os seguintes artigos mostram-lhe como:
 
-- Instale e configure a ferramenta de importação/exportação.
-- Prepare seus discos rígidos para um trabalho em que você importe dados de suas unidades para o armazenamento de BLOBs do Azure.
-- Examine o status de um trabalho com arquivos de log de cópia.
+- Instale e instale a ferramenta de importação/exportação.
+- Prepare os seus discos rígidos para um trabalho onde importe dados dos seus discos para o Armazenamento De Blob Azure.
+- Reveja o estado de um trabalho com Ficheiros de Registo de Cópia.
 - Reparar um trabalho de importação.
-- Reparar um trabalho de exportação.
-- Solucione problemas da ferramenta de importação/exportação do Azure, caso você tenha um problema durante o processo.
+- Repare um trabalho de exportação.
+- Problemas na Ferramenta de Importação/Exportação Azure, caso tenha sofrido um problema durante o processo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configurando a ferramenta WAImportExport](../storage-import-export-tool-how-to.md)
+* [Configuração da ferramenta WAImportExport](../storage-import-export-tool-how-to.md)

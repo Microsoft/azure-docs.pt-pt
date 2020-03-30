@@ -5,17 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9392855f98dbee2badbe87bb4a0bf11bf2fc073e
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 4eb63fe4bd8f8a8b0961aa6a7fccb8de9b7c2f16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128021"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80123412"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
+
+>[!IMPORTANT]
+>A partir de 16 de março de 2020, desativamos temporariamente consultas de diagnóstico que afetaram a experiência do utilizador devido ao aumento da procura no serviço. Isto fará com que a ferramenta deixe de funcionar porque depende dessas consultas para funcionar. Atualizaremos este artigo quando as consultas de diagnóstico estiverem novamente disponíveis.
+>
+>Até lá, recomendamos vivamente que [utilize o Log Analytics](diagnostics-log-analytics.md) para uma monitorização contínua.
 
 Eis o que a ferramenta de diagnóstico do Windows Virtual Desktop pode fazer por si:
 
@@ -37,7 +42,7 @@ Você precisa criar um Registo de App de Diretório Ativo Azure e um espaço de 
 
 Também precisa de instalar estes dois módulos PowerShell antes de começar:
 
-- [Módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
 - [Módulo Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
 Certifique-se de que tem o seu ID de subscrição pronto para quando iniciar a sua inscrição.
@@ -51,7 +56,7 @@ Esta secção irá mostrar-lhe como usar o PowerShell para criar a aplicação A
 >[!NOTE]
 >As permissões API são as permissões Windows Virtual Desktop, Log Analytics e Microsoft Graph API são adicionadas à Aplicação de Diretório Ativo Azure.
 
-1. Open PowerShell como administrador.
+1. Abra o PowerShell como Administrador.
 2. Inscreva-se no Azure com uma conta que tenha permissões do Proprietário ou do Colaborador na subscrição do Azure que gostaria de utilizar para a ferramenta de diagnóstico:
    ```powershell
    Login-AzAccount
@@ -107,13 +112,13 @@ Aqui está como configurar manualmente os contadores de desempenho recomendados:
 1. Abra o seu navegador de Internet e inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta administrativa.
 2. Em seguida, vá aos espaços de **trabalho do Log Analytics** para rever os contadores de desempenho configurados do Windows.
 3. Na secção **Definições,** selecione **Definições Avançadas**.
-4. Depois disso, navegue para **Data** > **Windows Performance Counters** e adicione os seguintes contadores:
+4. Depois disso, navegue **para** > **Data Windows Performance Counters** e adicione os seguintes contadores:
 
     -   LogicalDisk,\*\\%Free Space
     -   LogicalDisk (C:)\\Avg. Comprimento da fila do disco
-    -   Memória,\\\*Mbytes disponíveis
-    -   Informação do Processador(\*)\\Tempo do Processador
-    -   Atraso de entrada de utilizador por sessão(\*)\\atraso de entrada máxima
+    -   Memória(\*\\) Mbytes disponíveis
+    -   Informação\*do\\Processador( ) Tempo do Processador
+    -   Atraso de entrada do\*\\utilizador por sessão( ) Atraso de entrada max
 
 Saiba mais sobre os contadores de desempenho do [Windows e do Linux no Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -139,14 +144,14 @@ Para se certificar de que o seu espaço de trabalho log Analytics tem os contado
 
 1. No [portal Azure,](https://portal.azure.com/)vá a espaços de **trabalho do Log Analytics** para rever os contadores de desempenho configurados do Windows.
 2. Em **Definições,** selecione **Definições avançadas**.
-3. Depois disso, vá aos Contadores de Desempenho do **Windows** > **Data** .
+3. Depois disso, vá aos Contadores de Desempenho do**Windows**de **Dados** > .
 4. Certifique-se de que os seguintes contadores estão pré-configurados:
 
-   - O LogicalDisk,\*\\%Free Space: Exibe em percentagem a quantidade de espaço livre do espaço total utilizável no disco.
-   - LogicalDisk(C:)\\Avg. Disk Queue Length: O comprimento do pedido de transferência do disco para a sua unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
-   - Memória,\*\\Mbytes Disponíveis: A memória disponível para o sistema em megabytes.
-   - Informação do Processador(\*)\\Tempo do Processador: a percentagem de tempo decorrido que o processador gasta para executar uma linha não ociosa.
-   - Atraso de entrada de utilizador por sessão(\*)\\atraso de entrada máxima
+   - LogicalDisk,\*\\%Free Space: Exibe em percentagem a quantidade de espaço livre do espaço total utilizável no disco.
+   - LogicalDisk (C:)\\Avg. Comprimento da fila do disco: O comprimento do pedido de transferência do disco para a sua unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
+   - Memória:\*\\Mbytes disponível: A memória disponível para o sistema em megabytes.
+   - Informações\*\\do Processador: a percentagem de tempo decorrido que o processador gasta para executar uma linha não ociosa.
+   - Atraso de entrada do\*\\utilizador por sessão( ) Atraso de entrada max
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Ligue-se a VMs no seu espaço de trabalho Log Analytics
 
@@ -189,7 +194,7 @@ Para definir o Redirecionamento URI:
 
    ![A página URI redirecionamento](media/redirect-uri-page.png)
 
-8. Agora, vá aos seus recursos Azure, selecione o recurso Azure App Services com o nome que forneceu no modelo e navegue para o URL associado ao mesmo. (Por exemplo, se o nome da aplicação que usou no modelo fosse `contosoapp45`, então o seu URL associado é <https://contosoapp45.azurewebsites.net>).
+8. Agora, vá aos seus recursos Azure, selecione o recurso Azure App Services com o nome que forneceu no modelo e navegue para o URL associado ao mesmo. (Por exemplo, se o nome da `contosoapp45`aplicação que usou <https://contosoapp45.azurewebsites.net>no modelo fosse, então o seu URL associado é).
 9. Inscreva-se na utilização da conta de utilizador do Diretório Ativo Azure apropriado.
 10.   Selecione **Aceitar**.
 
@@ -234,7 +239,7 @@ Também pode interagir com os utilizadores no anfitrião da sessão:
 
 ### <a name="windows-performance-counter-thresholds"></a>Limiares de contra-limite de desempenho do Windows
 
-- LogicalDisk(\*)\\%Free Space:
+- LogicalDisk,\*\\%Free Space:
 
     - Exibe a percentagem do espaço total utilizável no disco lógico que é gratuito.
     - Limiar: Menos de 20% é marcado como insalubre.
@@ -244,16 +249,16 @@ Também pode interagir com os utilizadores no anfitrião da sessão:
     - Representa condições do sistema de armazenamento.
     - Limiar: Mais de 5 é marcado como insalubre.
 
-- Memória,\*\\Mbytes disponíveis:
+- Memória(\*\\) Mbytes disponíveis:
 
     - A memória disponível para o sistema.
     - Limiar: Menos de 500 megabytes marcados como insalubres.
 
-- Informação do processador(\*)\\Tempo do Processador:
+- Informações\*sobre\\processadores( ) Tempo do processador:
 
     - Limiar: Mais de 80% é marcado como insalubre.
 
-- Atraso de entrada do [utilizador por sessão\*\\atraso](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/)de entrada máxima:
+- Atraso de entrada do [utilizador por\*sessão( )\\Atraso](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/)de entrada máxima :
 
     - Limiar: Mais de 2000 ms é marcado como insalubre.
 

@@ -9,18 +9,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 9883256fc801d37acd4ea10226bd9e541f9135f7
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 9857de0470baa35dcc8005e1622e5e593da95751
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268646"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128355"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma máquina virtual linux data science em Azure
 
 Este walkthrough mostra-lhe como completar várias tarefas comuns de ciência de dados usando a Máquina Virtual de Ciência de Dados Linux (DSVM). O Linux DSVM é uma imagem virtual da máquina disponível no Azure que é pré-instalada com uma coleção de ferramentas comumente usadas para análise de dados e machine learning. Os principais componentes do software são itens na [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md). A imagem DSVM facilita o início da ciência dos dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar o DSVM se necessário, e pode detê-lo quando não estiver a ser utilizado. O recurso DSVM é elástico e rentável.
 
-As tarefas de ciência de dados demonstradas neste walkthrough seguem os passos delineados no Que é o Processo de [Ciência de Dados da Equipa?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) O Processo de Ciência de Dados da Equipa é uma abordagem sistemática da ciência dos dados que ajuda equipas de cientistas de dados a colaborar eficazmente ao longo do ciclo de vida da construção de aplicações inteligentes. O processo de ciência de dados também fornece uma estrutura iterativa para ciência de dados que pode ser seguida por uma pessoa.
+As tarefas de ciência de dados demonstradas neste walkthrough seguem os passos delineados no Que é o Processo de [Ciência de Dados da Equipa?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) O Processo de Ciência de Dados da Equipa é uma abordagem sistemática da ciência dos dados que ajuda equipas de cientistas de dados a colaborar eficazmente ao longo do ciclo de vida da construção de aplicações inteligentes. O processo de ciência dos dados também fornece um quadro iterativo para a ciência dos dados que pode ser seguido por um indivíduo.
 
 Neste walkthrough, analisamos o conjunto de dados da [base de spam.](https://archive.ics.uci.edu/ml/datasets/spambase) Spambase é um conjunto de e-mails marcados quer por spam quer por presunto (não spam). A base de spam também contém algumas estatísticas sobre o conteúdo dos e-mails. Falamos das estatísticas mais tarde na passagem.
 
@@ -28,13 +28,13 @@ Neste walkthrough, analisamos o conjunto de dados da [base de spam.](https://arc
 
 Antes de poder utilizar um Linux DSVM, deve ter os seguintes pré-requisitos:
 
-* **Subscrição do Azure**. Para obter uma subscrição Azure, consulte [Criar a sua conta Azure gratuita hoje](https://azure.microsoft.com/free/).
+* **Assinatura Azure.** Para obter uma subscrição Azure, consulte [Criar a sua conta Azure gratuita hoje](https://azure.microsoft.com/free/).
 * [**Máquina virtual linux data science**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre o fornecimento da máquina virtual, consulte [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) instalado no seu computador com uma sessão de XFCE aberta. Para mais informações, consulte [Instalar e configurar o cliente X2Go](linux-dsvm-intro.md#x2go).
-* Para uma experiência de scrolling mais suave, no navegador web Firefox da DSVM, alternar a bandeira `gfx.xrender.enabled` em `about:config`. [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também definir `mousewheel.enable_pixel_scrolling` para `False`. [Saiba mais](https://support.mozilla.org/questions/981140).
+* Para uma experiência de scrolling mais suave, no navegador web Firefox `gfx.xrender.enabled` da `about:config`DSVM, altere a bandeira em . [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também `mousewheel.enable_pixel_scrolling` `False`definir para . [Saiba mais](https://support.mozilla.org/questions/981140).
 * **Conta de Aprendizagem automática Azure.** Se ainda não tem uma, inscreva-se para uma nova conta na página inicial do [Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
-## <a name="download-the-spambase-dataset"></a>Transferir o conjunto de dados spambase
+## <a name="download-the-spambase-dataset"></a>Descarregue o conjunto de dados da base de spam
 
 O conjunto de dados da base de [spam](https://archive.ics.uci.edu/ml/datasets/spambase) é um conjunto relativamente pequeno de dados que contém 4.601 exemplos. O conjunto de dados é um tamanho conveniente para demonstrar algumas das principais características do DSVM porque mantém os requisitos de recursos modestos.
 
@@ -47,7 +47,7 @@ Para descarregar os dados, abra uma janela terminal e, em seguida, executar este
 
     wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
-O ficheiro descarregado não tem uma linha de cabeçalho. Vamos criar outro ficheiro que tenha um cabeçalho. Execute este comando para criar um ficheiro com os cabeçalhos apropriados:
+O ficheiro descarregado não tem uma linha de cabeçalho. Vamos criar outro ficheiro que tenha um cabeçalho. Executar este comando para criar um ficheiro com os cabeçalhos apropriados:
 
     echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
 
@@ -58,11 +58,11 @@ Em seguida, concatena os dois ficheiros juntos:
 
 O conjunto de dados tem vários tipos de estatísticas para cada e-mail:
 
-* Colunas como **a palavra\_freq\__WORD_**  indicam a percentagem de palavras no e-mail que correspondem ao *WORD*. Por exemplo, se **a palavra\_freq\_fazer** é **1**, então 1% de todas as palavras no e-mail foram *tornadas*.
-* Colunas como **o char\_freq\__CHAR_**  indicam a percentagem de todos os caracteres no e-mail que são *CHAR*.
-* **capital\_\_comprimento\_mais longo** é o comprimento mais longo de uma sequência de letras maiúsculas.
-* **capital\_executado\_comprimento\_média** é o comprimento médio de todas as sequências de letras maiúsculas.
-* **capital\_executar\_comprimento\_total** é o comprimento total de todas as sequências de letras maiúsculas.
+* Colunas **como\_\_palavra freq WORD** indicam a percentagem de palavras no e-mail que *correspondem*word . Por exemplo, se a **\_palavra freq\_make** é **1**, então 1% de todas as palavras no e-mail foram *tornadas*.
+* Colunas como **o char\_\_freq CHAR** indicam a percentagem de todos os caracteres no e-mail que são *CHAR*.
+* **o\_\_comprimento\_mais longo** do capital é o comprimento mais longo de uma sequência de letras maiúsculas.
+* **a\_\_média\_** de comprimento de execução de capital é o comprimento médio de todas as sequências de letras maiúsculas.
+* **o\_\_comprimento\_total** do capital é o comprimento total de todas as sequências de letras maiúsculas.
 * **o spam** indica se o e-mail foi considerado spam ou não (1 = spam, 0 = não spam).
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>Explore o conjunto de dados usando o R Open
@@ -80,17 +80,17 @@ Importar os dados e criar o ambiente:
     data <- read.csv("spambaseHeaders.data")
     set.seed(123)
 
-Para ver estatísticas de resumo sobre cada coluna:
+Para ver estatísticas sumárias sobre cada coluna:
 
     summary(data)
 
-Para obter uma exibição diferente dos dados:
+Para uma visão diferente dos dados:
 
     str(data)
 
 Esta visão mostra-lhe o tipo de cada variável e os primeiros valores no conjunto de dados.
 
-A coluna de **spam** foi lida como uma inteiro, mas na verdade é uma variável categórica (ou fator). Para definir o tipo:
+A coluna de **spam** foi lida como uma inteiro, mas na verdade é uma variável categórica (ou fator). Para definir o seu tipo:
 
     data$spam <- as.factor(data$spam)
 
@@ -143,21 +143,21 @@ Aqui está o resultado:
 
 ![Um diagrama da árvore de decisão que é criada](./media/linux-dsvm-walkthrough/decision-tree.png)
 
-Para determinar a eficiência com que ele executa no conjunto de treinamento, utilize o seguinte código:
+Para determinar o seu bom desempenho no conjunto de treino, utilize o seguinte código:
 
     trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
     t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Para determinar a eficiência com que ele executa o conjunto de teste:
+Para determinar o seu bom desempenho no conjunto de testes:
 
     testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
     t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Vamos também experimentar um modelo de floresta aleatório. Florestas aleatórias treinam uma infinidade de árvores de decisão e produzem uma classe que é o modo das classificações de todas as árvores de decisão individuais. Eles fornecem uma abordagem de aprendizagem automática mais poderosa porque corrigem para a tendência de um modelo de árvore de decisão para sobreajustar um conjunto de dados de treino.
+Vamos também tentar um modelo de floresta aleatória. Florestas aleatórias treinam uma infinidade de árvores de decisão e produzem uma classe que é o modo das classificações de todas as árvores de decisão individuais. Eles fornecem uma abordagem de aprendizagem automática mais poderosa porque corrigem para a tendência de um modelo de árvore de decisão para sobreajustar um conjunto de dados de treino.
 
     require(randomForest)
     trainVars <- setdiff(colnames(data), 'spam')
@@ -176,7 +176,7 @@ Vamos também experimentar um modelo de floresta aleatório. Florestas aleatóri
 
 [O Azure Machine Learning Studio (clássico)](https://studio.azureml.net/) é um serviço na nuvem que facilita a construção e implementação de modelos de análise preditiva. Uma boa característica do Azure Machine Learning Studio (clássico) é a sua capacidade de publicar qualquer função R como serviço web. O pacote Azure Machine Learning Studio (clássico) R facilita a implementação, desde a sua sessão R no DSVM.
 
-Para implementar o código da árvore de decisão a partir da secção anterior, inscreva-se no Azure Machine Learning Studio (clássico). Terá do ID de área de trabalho e um token de autorização para iniciar sessão. Para encontrar estes valores e inicializar com eles as variáveis azure machine learning, complete estes passos:
+Para implementar o código da árvore de decisão a partir da secção anterior, inscreva-se no Azure Machine Learning Studio (clássico). Precisa da sua identificação do espaço de trabalho e de um sinal de autorização para iniciar sessão. Para encontrar estes valores e inicializar com eles as variáveis azure machine learning, complete estes passos:
 
 1. No menu esquerdo, selecione **Definições**. Note o valor para **ID WORKSPACE**.
 
@@ -194,14 +194,14 @@ Para implementar o código da árvore de decisão a partir da secção anterior,
         wsAuth = "<authorization-token>"
         wsID = "<workspace-id>"
 
-1. Vamos simplificar o modelo para fazer esta demonstração mais fácil de implementar. Escolha as três variáveis na árvore de decisão mais próxima da raiz e construa uma nova árvore usando apenas essas três variáveis:
+1. Vamos simplificar o modelo para facilitar a implementação desta demonstração. Escolha as três variáveis na árvore de decisão mais próxima da raiz e construa uma nova árvore usando apenas essas três variáveis:
 
         colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
         smallTrainSet <- trainSet[, colNames]
         smallTestSet <- testSet[, colNames]
         model.rpart <- rpart(spam ~ ., method = "class", data = smallTrainSet)
 
-1. Precisamos de uma função de predição que usa os recursos como entrada e retorna os valores previstos:
+1. Precisamos de uma função de previsão que tome as funcionalidades como entrada e retorne os valores previstos:
 
         predictSpam <- function(newdata) {
         predictDF <- predict(model.rpart, newdata = newdata)
@@ -235,7 +235,7 @@ Para implementar o código da árvore de decisão a partir da secção anterior,
         ep <- endpoints(ws,s)
         ep
 
-1. Para experimentá-lo no primeiro conjunto de 10 linhas do teste:
+1. Para experimentá-lo nas primeiras 10 linhas do conjunto de testes:
 
         consume(ep, smallTestSet[1:10, ])
 
@@ -243,15 +243,15 @@ Para implementar o código da árvore de decisão a partir da secção anterior,
 
 ## <a name="deep-learning-tutorials-and-walkthroughs"></a>Tutoriais e passeios de aprendizagem profunda
 
-Para além das amostras baseadas em quadros, é também fornecido um conjunto de walkthroughs abrangentes. Esta instruções passo a passo ajudam a promover seu desenvolvimento de aplicativos de aprendizagem profunda em domínios, como a imagem e compreensão de idiomas de texto /.
+Para além das amostras baseadas em quadros, é também fornecido um conjunto de walkthroughs abrangentes. Estes passadiços ajudam-no a iniciar o seu desenvolvimento de aplicações de aprendizagem profunda em domínios como imagem e compreensão de texto/linguagem.
 
 - [Executar redes neurais em diferentes estruturas](https://github.com/ilkarman/DeepLearningFrameworks): Um passe abrangente que mostra como migrar código de uma estrutura para outra. Também demonstra como comparar o desempenho do modelo e do tempo de execução entre as estruturas. 
 
-- [Um guia de como construir uma solução de ponta a ponta para detetar produtos dentro](https://github.com/Azure/cortana-intelligence-product-detection-from-images)de imagens : A deteção de imagem é uma técnica que pode localizar e classificar objetos dentro das imagens. A tecnologia tem o potencial de trazer enormes recompensas em muitos domínios empresariais da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar o produto que um cliente tenha escolhido do prateleira. Estas informações ajudam, por sua vez, arquivos de gerir o inventário de produtos. 
+- [Um guia de como construir uma solução de ponta a ponta para detetar produtos dentro](https://github.com/Azure/cortana-intelligence-product-detection-from-images)de imagens : A deteção de imagem é uma técnica que pode localizar e classificar objetos dentro das imagens. A tecnologia tem o potencial de trazer enormes recompensas em muitos domínios empresariais da vida real. Por exemplo, os retalhistas podem usar esta técnica para determinar que produto um cliente pegou na prateleira. Esta informação, por sua vez, ajuda as lojas a gerir o inventário do produto. 
 
 - [Aprendizagem profunda para áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): Este tutorial mostra como treinar um modelo de aprendizagem profunda para deteção de eventos áudio no conjunto de dados de [sons urbanos](https://urbansounddataset.weebly.com/). O tutorial fornece uma visão geral de como trabalhar com dados áudio.
 
-- [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): Este passadiço demonstra como construir e treinar duas diferentes arquiteturas de rede neural: Rede de Atenção Hierárquica e Memória de Longo Prazo (LSTM). Estas redes neurais utilizam a API Keras para aprendizagem profunda para classificar documentos de texto. Keras é um front-end a três da estruturas de aprendizagem mais popular: Microsoft Cognitive Toolkit, TensorFlow e Theano.
+- [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): Este passadiço demonstra como construir e treinar duas diferentes arquiteturas de rede neural: Rede de Atenção Hierárquica e Memória de Longo Prazo (LSTM). Estas redes neurais utilizam a API Keras para uma aprendizagem profunda para classificar documentos de texto. Keras é uma frente para três dos mais populares quadros de aprendizagem profunda: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
 ## <a name="other-tools"></a>Outras ferramentas
 
@@ -262,7 +262,7 @@ As restantes secções mostram-lhe como utilizar algumas das ferramentas instala
 * JupyterHub
 * Rattle
 * PostgreSQL e SQuirreL SQL
-* Armazém de dados do SQL Server
+* Armazém de dados do servidor SQL
 
 ### <a name="xgboost"></a>XGBoost
 
@@ -338,17 +338,17 @@ Para publicar o modelo à Azure Machine Learning:
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-A distribuição da Anaconda no DSVM vem com um Caderno Jupyter, um ambiente transversal para a partilha de código e análise python, R ou Julia. O Caderno Jupyter é acedido através do JupyterHub. Insere-se utilizando o nome de utilizador e senha de utilizador do Linux local em https://\<nome DNS DNS ou endereço IP\>:8000/. Todos os ficheiros de configuração para JupyterHub são encontrados em /etc/jupyterhub.
+A distribuição da Anaconda no DSVM vem com um Caderno Jupyter, um ambiente transversal para a partilha de código e análise python, R ou Julia. O Caderno Jupyter é acedido através do JupyterHub. Insere-se utilizando o nome de utilizador\<e senha de utilizador do\>Linux local em https:// nome DNS DNS ou endereço IP :8000/. Todos os ficheiros de configuração para JupyterHub são encontrados em /etc/jupyterhub.
 
 > [!NOTE]
-> Para utilizar o Gestor de Pacotes Python (através do comando `pip`) a partir de um Caderno Jupyter no núcleo atual, utilize este comando na célula de código:
+> Para utilizar o Gestor de `pip` Pacotes Python (através do comando) a partir de um Caderno Jupyter no núcleo atual, utilize este comando na célula de código:
 >
 >   ```python
 >    import sys
 >    ! {sys.executable} -m pip install numpy -y
 >   ```
 > 
-> Para utilizar o instalador Conda (através do comando `conda`) a partir de um Caderno Jupyter no núcleo atual, utilize este comando numa célula de código:
+> Para utilizar o instalador Conda (através do `conda` comando) a partir de um Caderno Jupyter no núcleo atual, utilize este comando numa célula de código:
 >
 >   ```python
 >    import sys
@@ -379,22 +379,22 @@ Instale e inicie o Rattle executando estes comandos:
 > [!NOTE]
 > Não precisas de instalar o Rattle no DSVM. No entanto, pode ser solicitado a instalar pacotes adicionais quando o Rattle abrir.
 
-Rattle usa uma interface baseada em guias. A maioria dos separadores corresponde a passos no Processo de Ciência de Dados da [Equipa](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), como carregar dados ou explorar dados. O processo de ciência de dados flui da esquerda para direita nos separadores. O último separador contém um registo dos comandos R que foram dirigidos por Rattle.
+Rattle usa uma interface baseada em separadores. A maioria dos separadores corresponde a passos no Processo de Ciência de Dados da [Equipa](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), como carregar dados ou explorar dados. O processo de ciência de dados flui da esquerda para a direita através dos separadores. O último separador contém um registo dos comandos R que foram dirigidos por Rattle.
 
 Para carregar e configurar o conjunto de dados:
 
 1. Para carregar o ficheiro, selecione o separador **Dados.**
 1. Escolha o seletor ao lado do Nome de **Ficheiro**, e, em seguida, selecione **spambaseHeaders.data**.
-1. Ao carregar o ficheiro. selecionar **Executar**. Deve ver um resumo de cada coluna, incluindo o seu tipo de dados identificado; seja uma entrada, um alvo ou outro tipo de variável; e o número de valores únicos.
+1. Para carregar o ficheiro. selecionar **Executar**. Deve ver um resumo de cada coluna, incluindo o seu tipo de dados identificado; seja uma entrada, um alvo ou outro tipo de variável; e o número de valores únicos.
 1. O Chocalho identificou corretamente a coluna de **spam** como o alvo. Selecione a coluna **de spam** e, em seguida, detete o Tipo de **Dados do Alvo** para **Categórico**.
 
 Para explorar os dados:
 
 1. Selecione o separador **Explore.**
-1. Para ver informações sobre os tipos variáveis e algumas estatísticas sumárias, selecione **Resumo** > **Executar**.
+1. Para ver informações sobre os tipos variáveis e algumas estatísticas sumárias, selecione **Executar Resumo** > **.**
 1. Para ver outros tipos de estatísticas sobre cada variável, selecione outras opções, como **Descrever** ou **Básicos**.
 
-Também pode usar o separador **Explore** para gerar enredos perspicazes. Para desenhar um histograma dos dados:
+Também pode usar o separador **Explore** para gerar enredos perspicazes. Para traçar um histograma dos dados:
 
 1. Selecione **Distribuições**.
 1. Para **word_freq_remove** e **word_freq_you,** selecione **Histogram**.
@@ -404,15 +404,15 @@ Os enredos da **Correlation** também são interessantes. Para criar um enredo:
 
 1. Para **tipo,** selecione **Correlation**.
 1. Selecione **Executar**.
-1. Rattle avisa-o de que ele recomenda um máximo de 40 variáveis. Selecione **Sim** para ver o enredo.
+1. Rattle avisa que recomenda um máximo de 40 variáveis. Selecione **Sim** para ver o enredo.
 
 Há algumas correlações interessantes que surgem: a _tecnologia_ está fortemente correlacionada com _HP_ e _laboratórios,_ por exemplo. Também está fortemente correlacionado com _650_ porque o código de área dos dadores de conjunto de dados é de 650.
 
 Os valores numéricos para as correlações entre palavras estão disponíveis na janela **Explore.** É interessante notar, por exemplo, que a _tecnologia_ está negativamente correlacionada com _o seu_ _dinheiro._
 
-Rattle pode transformar o conjunto de dados para lidar com alguns problemas comuns. Por exemplo, pode reformular funcionalidades, imputar valores em falta, lidar com outliers e remover variáveis ou observações que tenham dados em falta. O chocalho também pode identificar regras de associação entre observações e variáveis. Estes separadores não estão cobertos por esta passagem introdutória.
+O chocalho pode transformar o conjunto de dados para lidar com algumas questões comuns. Por exemplo, pode reformular funcionalidades, imputar valores em falta, lidar com outliers e remover variáveis ou observações que tenham dados em falta. O chocalho também pode identificar regras de associação entre observações e variáveis. Estes separadores não estão cobertos por esta passagem introdutória.
 
-O chocalho também pode executar a análise do cluster. Vamos excluir alguns recursos para facilitar a leitura de saída. No separador **Dados,** **selecione Ignore** ao lado de cada uma das variáveis, exceto estes 10 itens:
+O chocalho também pode executar a análise do cluster. Vamos excluir algumas funcionalidades para facilitar a leitura da saída. No separador **Dados,** **selecione Ignore** ao lado de cada uma das variáveis, exceto estes 10 itens:
 
 * word_freq_hp
 * word_freq_technology
@@ -425,7 +425,7 @@ O chocalho também pode executar a análise do cluster. Vamos excluir alguns rec
 * word_freq_business
 * spam
 
-Volte ao separador **Cluster.** Selecione **KMeans**, e, em seguida, coloque **o número de clusters** para **4**. Selecione **Executar**. Os resultados são exibidos na janela de saída. Um cluster tem alta frequência de _George_ e _HP_, e é provavelmente um e-mail de negóciolegítimo.
+Volte ao separador **Cluster.** Selecione **KMeans**, e, em seguida, coloque **o número de clusters** para **4**. Selecione **Executar**. Os resultados são apresentados na janela de saída. Um cluster tem alta frequência de _George_ e _HP_, e é provavelmente um e-mail de negóciolegítimo.
 
 Para construir um modelo básico de aprendizagem de máquinas de árvores:
 
@@ -444,17 +444,17 @@ Uma característica útil do Rattle é a sua capacidade de executar vários mét
 Quando terminar os modelos de construção, selecione o separador **Log** para visualizar o código R que foi executado pela Rattle durante a sua sessão. Pode selecionar o botão **Export** para o guardar.
 
 > [!NOTE]
-> A libertação atual de Rattle contém um bug. Para modificar o script ou utilizá-lo para repetir os seus passos mais tarde, deve inserir um **#** caracteres em frente à *Exportação deste registo...* no texto do registo.
+> A libertação atual de Rattle contém um bug. Para modificar o script ou utilizá-lo para repetir **#** os seus passos mais tarde, deve inserir um personagem em frente à *Exportação deste registo...* no texto do registo.
 
 ### <a name="postgresql-and-squirrel-sql"></a>PostgreSQL e SQuirreL SQL
 
-A DSVM vem com o PostgreSQL instalado. PostgreSQL é um banco de dados relacional sofisticado e código-fonte aberto. Esta secção mostra-lhe como carregar o conjunto de dados da base de spam no PostgreSQL e, em seguida, questioná-lo.
+O DSVM vem com postgreSQL instalado. PostgreSQL é uma base de dados relacional sofisticada e de código aberto. Esta secção mostra-lhe como carregar o conjunto de dados da base de spam no PostgreSQL e, em seguida, questioná-lo.
 
 Antes de poder carregar os dados, tem de permitir a autenticação de palavra-passe do local. Numa linha de comandos, execute:
 
     sudo gedit /var/lib/pgsql/data/pg_hba.conf
 
-Perto da parte inferior do ficheiro de configuração são várias linhas que detalham as conexões permitidas:
+Perto da parte inferior do ficheiro de config estão várias linhas que detalham as ligações permitidas:
 
     # "local" is only for Unix domain socket connections:
     local   all             all                                     trust
@@ -497,30 +497,30 @@ Importar os dados para uma nova base de dados:
 
 Agora, vamos explorar os dados e executar algumas consultas usando o SQuirreL SQL, uma ferramenta gráfica que você pode usar para interagir com bases de dados através de um controlador JDBC.
 
-Para começar, no menu **aplicações,** abra o SQuirreL SQL. Para configurar o controlador:
+Para começar, no menu **aplicações,** abra o SQuirreL SQL. Para configurar o condutor:
 
-1. Selecione **Windows** > **Ver Controladores**.
+1. Selecione**Controladores de visualização do** **Windows** > .
 1. Clique à direita **PostgreSQL** e selecione **Modificar o Controlador**.
-1. Selecione **caminho extra de classe** > **adicionar**.
+1. Selecione **extra class path** > **add**.
 1. Para **nome de ficheiro**, insira **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
 1. Selecione **Open** (Abrir).
 1. Selecione **Lista de Condutores**. Para **nome de classe**, selecione **org.postgresql.Driver**, e, em seguida, selecione **OK**.
 
 Para configurar a ligação ao servidor local:
 
-1. Selecione **Windows** > **Ver Pseudónimos.**
-1. Selecione o botão **+** para criar um novo pseudónimo. Para obter o novo nome, introduza a **base de dados de spam**. 
+1. Selecione **Windows** > **View Aliases.**
+1. Selecione o **+** botão para criar um novo pseudónimo. Para obter o novo nome, introduza a **base de dados de spam**. 
 1. Para **driver**, selecione **PostgreSQL**.
 1. Delineie o URL para **jdbc:postgresql://localhost/spam**.
-1. Introduza o seu nome de utilizador e senha.
+1. Introduza o nome de utilizador e a palavra-passe.
 1. Selecione **OK**.
 1. Para abrir a janela **de ligação,** clique duas vezes no pseudónimo da base de dados de **spam.**
 1. Selecione **Ligar**.
 
-Para executar algumas consultas:
+Para fazer algumas perguntas:
 
 1. Selecione o **separador SQL.**
-1. Na caixa de consulta na parte superior do separador **SQL,** introduza uma consulta básica, como `SELECT * from data;`.
+1. Na caixa de consulta na parte superior do **separador SQL,** introduza uma consulta básica, como `SELECT * from data;`.
 1. Prima Ctrl+Enter para executar a consulta. Por predefinição, o SQuirreL SQL devolve as primeiras 100 linhas da sua consulta.
 
 Há muitas mais consultas que pode fazer para explorar estes dados. Por exemplo, como é que a frequência da palavra *difere* entre spam e presunto?
@@ -537,9 +537,9 @@ Se pretender fazer machine learning utilizando dados armazenados numa base de da
 
 ### <a name="sql-data-warehouse"></a>SQL Data Warehouse
 
-O Azure SQL Data Warehouse é uma base de dados baseada em nuvem e escala que pode processar volumes maciços de dados, tanto relacionais como não relacionais. Para mais informações, consulte o armazém de [dados Azure SQL?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+O Azure SQL Data Warehouse é uma base de dados baseada em nuvem e escala que pode processar volumes maciços de dados, tanto relacionais como não relacionais. Para mais informações, consulte o armazém de [dados Azure SQL?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-Para ligar ao armazém de dados e criar a tabela, execute o seguinte comando numa linha de comandos:
+Para ligar ao armazém de dados e criar a tabela, executar o seguinte comando a partir de um pedido de comando:
 
     sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
 
@@ -566,4 +566,4 @@ Também pode consultar utilizando sQuirreL SQL. Siga passos semelhantes ao Postg
 
 Para uma visão geral dos artigos que o percorrem através das tarefas que compõem o processo de ciência de dados em Azure, consulte o Processo de Ciência de [Dados da Equipa](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
-Para uma descrição de walkthroughs de ponta a ponta que demonstram os passos no Processo de Ciência de Dados da equipa para cenários específicos, consulte os [walkthroughs do Processo](../team-data-science-process/walkthroughs.md)de Ciência de Dados da Equipa . A instruções passo a passo também mostram como combinar as ferramentas de nuvem e no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente.
+Para uma descrição de walkthroughs de ponta a ponta que demonstram os passos no Processo de Ciência de Dados da equipa para cenários específicos, consulte os [walkthroughs do Processo](../team-data-science-process/walkthroughs.md)de Ciência de Dados da Equipa . Os passadiços também ilustram como combinar ferramentas e serviços de nuvem e no local num fluxo de trabalho ou oleoduto para criar uma aplicação inteligente.

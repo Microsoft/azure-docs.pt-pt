@@ -1,28 +1,25 @@
 ---
-title: Amostras de código para Diretório Ativo Azure v1.0  Microsoft Docs
+title: Amostras de código para Diretório Ativo Azure v1.0 [ Microsoft Docs
 description: Fornece um índice de amostras de código azure Ative (v1.0 endpoint), organizadas por cenário.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9b4479436077dbad8cf2fb4dc40954194c138981
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ROBOTS: NOINDEX
+ms.openlocfilehash: ae283529abb3b71ee50fc710dd1ebe0d17a12be0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263572"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154836"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Amostras de código de diretório ativo Azure (v1.0 ponto final)
 
@@ -78,22 +75,22 @@ As seguintes amostras ilustram aplicações de clientes públicos (aplicações 
 - Silenciosamente (com autenticação integrada do Windows no Windows, ou nome de utilizador/palavra-passe)
 - Delegando o sessão interativo noutro dispositivo (fluxo de código do dispositivo utilizado em dispositivos que não fornecem controlos web)
 
-aplicação cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph | Chama um ASP.NET ou ASP.NET Core 2.x Web API
+Aplicação do cliente | Plataforma | Fluxo/Concessão | Chamadas Microsoft Graph | Chama um ASP.NET ou ASP.NET Core 2.x Web API
 ------------------ | -------- | ---------- | -------------------- | -------------------------
-Ambiente de trabalho (WPF)           | ![Esta imagem mostra oC# logótipo .NET/](media/sample-v2-code/logo-net.png)  | Interativo | Parte do [dotnet-nativo-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-nativo-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validação](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-Móvel (UWP)            | .![Esta imagem mostra oC#.NET/ /UWP](media/sample-v2-code/logo-windows.png)   | Interativo | [dotnet-nativo-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Esta amostra utiliza [WAM,](/windows/uwp/security/web-account-manager)não [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (aplicação UWP usando ADAL.NET para chamar um único inquilino Web API) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (aplicação UWP usando ADAL.NET para chamar uma API Web multi-inquilino)|
-Mobile (Android, iOS, UWP)   | ![Esta imagem mostra oC# .NET/ (Xamarin)](media/sample-v2-code/logo-xamarin.png) | Interativo | [dotnet-nativo-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
+Ambiente de trabalho (WPF)           | ![Esta imagem mostra o logótipo .NET/C#](media/sample-v2-code/logo-net.png)  | Interativo | Parte do [dotnet-nativo-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-nativo-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validação](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
+Móvel (UWP)            | .![Esta imagem mostra o .NET/C#/UWP](media/sample-v2-code/logo-windows.png)   | Interativo | [dotnet-nativo-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Esta amostra utiliza [WAM,](/windows/uwp/security/web-account-manager)não [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (aplicação UWP usando ADAL.NET para chamar um único inquilino Web API) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (aplicação UWP usando ADAL.NET para chamar uma API Web multi-inquilino)|
+Mobile (Android, iOS, UWP)   | ![Esta imagem mostra o .NET/C# (Xamarin)](media/sample-v2-code/logo-xamarin.png) | Interativo | [dotnet-nativo-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Mobile (Android)           | ![Esta imagem mostra o logótipo Android](media/sample-v2-code/logo-android.png) | Interativo |   [android](https://github.com/Azure-Samples/active-directory-android) |
 Móvel (iOS)           | ![Esta imagem mostra iOS / Objetivo C ou Swift](media/sample-v2-code/logo-ios.png) | Interativo |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-Ambiente de trabalho (Consola)          | ![Esta imagem mostra oC# logótipo .NET/](media/sample-v2-code/logo-net.png) | Nome de utilizador / Palavra-passe </p>  Autenticação Integrada do Windows | | [dotnet-nativo-cabeça sem cabeça](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+Ambiente de trabalho (Consola)          | ![Esta imagem mostra o logótipo .NET/C#](media/sample-v2-code/logo-net.png) | Nome de utilizador / Palavra-passe </p>  Autenticação Integrada do Windows. | | [dotnet-nativo-cabeça sem cabeça](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Ambiente de trabalho (Consola)          | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo-java.png) | Nome de utilizador / Palavra-passe | | [java-nativo-cabeça sem cabeça](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Ambiente de trabalho (Consola)           | ![Esta imagem mostra oC# .NET Core/ logotipo](media/sample-v2-code/logo-netcore.png) | Fluxo de código do dispositivo | | [dotnet-dispositivoperfil](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Ambiente de trabalho (Consola)           | ![Esta imagem mostra o logótipo .NET Core/C#](media/sample-v2-code/logo-netcore.png) | Fluxo de código do dispositivo | | [dotnet-dispositivoperfil](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Aplicações Daemon (aceder a APIs web com a identidade da aplicação)
 
 As seguintes amostras mostram aplicações de desktop ou web que acedem ao Microsoft Graph ou a uma API web sem utilizador (com a identidade da aplicação).
 
-aplicação cliente | Plataforma | Fluxo/Concessão | Chama um ASP.NET ou ASP.NET Core 2.0 Web API
+Aplicação do cliente | Plataforma | Fluxo/Concessão | Chama um ASP.NET ou ASP.NET Core 2.0 Web API
 ------------------ | -------- | ---------- | -------------------- 
 Aplicação Daemon (Consola)          | ![Esta imagem mostra o logótipo .NET](media/sample-v2-code/logo-netframework.png) | Credenciais de cliente com segredo de aplicação ou certificado | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificado-credencial](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Aplicação Daemon (Consola)         | ![Esta imagem mostra o logótipo .NET](media/sample-v2-code/logo-netcore.png) | Credenciais de cliente com certificado| [dotnetcore-daemon-certificado-credencial](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
@@ -121,7 +118,7 @@ As seguintes amostras demonstram uma API web que chama outra API web. A segunda 
 
 ## <a name="other-microsoft-graph-samples"></a>Outras amostras do Microsoft Graph
 
-Para amostras e tutoriais que demonstrem diferentes padrões de utilização para a Microsoft Graph API, incluindo a autenticação com a AD Azure, consulte [o Microsoft Graph Community Samples & Tutorials](https://github.com/microsoftgraph/msgraph-community-samples).
+Para amostras e tutoriais que demonstrem diferentes padrões de utilização para a Microsoft Graph API, incluindo a autenticação com a AD Azure, consulte as [amostras comunitárias do Microsoft Graph & Tutoriais](https://github.com/microsoftgraph/msgraph-community-samples).
 
 ## <a name="see-also"></a>Consulte também
 

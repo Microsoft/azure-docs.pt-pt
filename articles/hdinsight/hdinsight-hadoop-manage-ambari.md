@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: d8cb8bfa32db958b6dfdda0df23429669ce2a439
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: bf780897317d41c7da85140f64313546cf5c31d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063803"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064682"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir os clusters HDInsight utilizando o Apache Ambari Web UI
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU da Web do Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
@@ -23,13 +23,13 @@ Apache Ambari simplifica a gestão e monitorização de um cluster Apache Hadoop
 
 Neste documento, aprende-se a utilizar o Ambari Web UI com um cluster HDInsight.
 
-## <a id="whatis"></a>O que é Apache Ambari?
+## <a name="what-is-apache-ambari"></a><a id="whatis"></a>O que é Apache Ambari?
 
 [Apache Ambari](https://ambari.apache.org) simplifica a gestão hadoop fornecendo um UI web fácil de usar. Pode usar Ambari para gerir e monitorizar os aglomerados Hadoop. Os desenvolvedores podem integrar estas capacidades nas suas aplicações utilizando as [APIs Ambari REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 ## <a name="connectivity"></a>Conectividade
 
-O Ambari Web UI está disponível no seu cluster HDInsight em `https://CLUSTERNAME.azurehdinsight.net`, onde `CLUSTERNAME` é o nome do seu cluster.
+O Ambari Web UI está disponível `https://CLUSTERNAME.azurehdinsight.net`no `CLUSTERNAME` seu cluster HDInsight em, onde está o nome do seu cluster.
 
 > [!IMPORTANT]  
 > Ligar a Ambari no HDInsight requer HTTPS. Quando solicitado para autenticação, utilize o nome da conta de administração e a palavra-passe que forneceu quando o cluster foi criado. Se não for solicitado por credenciais, verifique as definições da sua rede para confirmar que não existe qualquer problema de conectividade entre o cliente e os Clusters Azure HDInsight.
@@ -38,7 +38,7 @@ O Ambari Web UI está disponível no seu cluster HDInsight em `https://CLUSTERNA
 
 Enquanto Ambari para o seu cluster é acessível diretamente através da Internet, algumas ligações do Ambari Web UI (como o JobTracker) não estão expostas na internet. Para aceder a estes serviços, tem de criar um túnel SSH. Para mais informações, consulte [Utilize o Túnel SSH com hDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="ambari-web-ui"></a>Interface do usuário da Web do amAmbari
+## <a name="ambari-web-ui"></a>Ambari Web UI
 
 > [!WARNING]  
 > Nem todas as funcionalidades do Ambari Web UI são suportadas no HDInsight. Para mais informações, consulte a secção de [operações não apoiadas](#unsupported-operations) deste documento.
@@ -47,7 +47,7 @@ Ao ligar-se à Ambari Web UI, é solicitado que autenticar a página. Utilize o 
 
 Quando a página abrir, note o bar no topo. Esta barra contém as seguintes informações e controlos:
 
-![Visão geral do painel do Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
+![Visão geral do painel apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
 |Item |Descrição |
 |---|---|
@@ -58,7 +58,7 @@ Quando a página abrir, note o bar no topo. Esta barra contém as seguintes info
 |Serviços|Definições de informação e configuração para os serviços do cluster.|
 |Anfitriões|Definições de informação e configuração para os nós do cluster.|
 |Alertas|Um registo de informações, avisos e alertas críticos.|
-|administrador|Pilha de software/serviços que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.|
+|Administrador|Pilha de software/serviços que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.|
 |Botão de administração|Gestão ambari, configurações do utilizador e assinar.|
 
 ## <a name="monitoring"></a>Monitorização
@@ -67,7 +67,7 @@ Quando a página abrir, note o bar no topo. Esta barra contém as seguintes info
 
 A lista que se segue contém os estados de alerta comuns utilizados por Ambari:
 
-* **Ok**
+* **OK**
 * **Aviso**
 * **CRÍTICO**
 * **DESCONHECIDO**
@@ -87,6 +87,8 @@ Também pode gerir métodos de alerta e criar notificações de alerta a partir 
 ![Apache Ambari cria notificação de alerta](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
 Por fim, selecionar Definições de __'Gerir alerta'__ do menu __Ações__ permite-lhe definir o número de vezes que um alerta deve ocorrer antes de ser enviada uma notificação. Esta definição pode ser utilizada para evitar notificações de erros transitórios.
+
+Para um tutorial de notificação de alerta utilizando uma [conta SendGrid](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email)gratuita, consulte as notificações de [email do Configure Apache Ambari no Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Cluster
 
@@ -136,7 +138,7 @@ A seleção de qualquer um destes links abre um novo separador no seu navegador,
 Trabalhar com utilizadores, grupos e permissões são suportados quando se utiliza um cluster HDInsight [de domínio.](./domain-joined/hdinsight-security-overview.md) Para obter informações sobre a utilização do UI de Gestão Ambari num cluster unido ao domínio, consulte [Gerir os clusters HDInsight unidos](./domain-joined/hdinsight-security-overview.md)pelo domínio .
 
 > [!WARNING]  
-> Não altere a senha do Watchdog do Ambari (hdinsightwatchdog) em seu cluster HDInsight baseado em Linux. A alteração da senha interrompe a capacidade de usar ações de script ou executar operações de dimensionamento com o cluster.
+> Não altere a palavra-passe do cão de guarda Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. Alterar a palavra-passe quebra a capacidade de utilizar ações de script ou realizar operações de escala com o seu cluster.
 
 ### <a name="hosts"></a>Anfitriões
 
@@ -164,7 +166,7 @@ A página **dos Anfitriões** lista todos os anfitriões do agrupamento. Para ge
     |Desmantelamento|Remove um hospedeiro do aglomerado. **Não utilize esta ação em clusters HDInsight.**|
     |Recomissão|Adiciona um hospedeiro previamente desativado ao cluster. **Não utilize esta ação em clusters HDInsight.**|
 
-### <a id="service"></a>Serviços
+### <a name="services"></a><a id="service"></a>Serviços
 
 A partir da página **dashboard** ou **Serviços,** use o botão **Ações** na parte inferior da lista de serviços para parar e iniciar todos os serviços.
 

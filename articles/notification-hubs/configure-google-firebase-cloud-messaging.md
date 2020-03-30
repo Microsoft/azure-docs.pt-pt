@@ -1,6 +1,6 @@
 ---
-title: Configurar o Google firebase Cloud Messaging nos hubs de notificação do Azure | Microsoft Docs
-description: Saiba como configurar um hub de notificação do Azure com as configurações de mensagens de nuvem do Google firebase.
+title: Configure Google Firebase Cloud Messaging em Hubs de Notificação Azure / Microsoft Docs
+description: Saiba como configurar um hub de notificação Azure com as definições de Mensagens Cloud da Base de Fogo do Google.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -12,29 +12,30 @@ ms.date: 03/25/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 803289476d4d8869f7828b2843a983ee0c86bfbd
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 1adbce654bc5c057270df9a874911731a0135034
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212492"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127475"
 ---
-# <a name="configure-google-firebase-cloud-messaging-fcm-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurar as configurações do FCM (Google firebase Cloud Messaging) para um hub de notificação no portal do Azure
-Este artigo mostra como configurar as configurações do FCM (Google firebase Cloud Messaging) para um hub de notificação do Azure usando o portal do Azure.  
+# <a name="configure-google-firebase-settings-for-a-notification-hub-in-the-azure-portal"></a>Configure as definições da Base de Fogo do Google para um centro de notificação no portal Azure
+
+Este artigo mostra-lhe como configurar as definições de Google Firebase Cloud Messaging (FCM) para um hub de notificação Azure utilizando o portal Azure.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se você ainda não criou um hub de notificação, crie um agora. Para obter mais informações, consulte [criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md). 
+Se ainda não criou um centro de notificação, crie um agora. Para mais informações, consulte Criar um hub de [notificação Azure no portal Azure.](create-notification-hub-portal.md) 
 
-## <a name="configure-google-firebase-cloud-messaging-fcm"></a>Configurar o Google firebase Cloud Messaging (FCM)
+## <a name="configure-google-firebase-cloud-messaging-fcm"></a>Configure Google Firebase Cloud Messaging (FCM)
 
-O procedimento a seguir fornece as etapas para configurar as configurações do FCM (Google firebase Cloud Messaging) para um hub de notificação: 
+O seguinte procedimento dá-lhe passos para configurar as definições de Google Firebase Cloud Messaging (FCM) para um centro de notificação: 
 
-1. Na portal do Azure, na página **Hub de notificação** , selecione **Google (GCM/FCM)** no menu à esquerda. 
-2. Cole a **chave de API** para o projeto FCM que você salvou anteriormente. 
+1. No portal Azure, na página Do Hub de **Notificação,** selecione **google (GCM/FCM)** no menu esquerdo. 
+2. Colar a **Chave API** para o projeto FCM que guardou anteriormente. 
 3. Selecione **Guardar**. 
 
-   ![Captura de tela que mostra como configurar os hubs de notificação para o Google FCM](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
+   ![Screenshot que mostra como configurar Centros de Notificação para o Google FCM](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter um tutorial com as instruções passo a passo para enviar notificações para dispositivos Android usando os hubs de notificação do Azure e o Google firebase Cloud Messaging, consulte [notificações por push para dispositivos Android usando hubs de notificação e o Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Para um tutorial com instruções passo a passo para empurrar notificações para dispositivos Android utilizando hubs de notificação Azure e Google Firebase Cloud Messaging, consulte [notificações push para dispositivos Android utilizando Centros de Notificação e Google FCM.](notification-hubs-android-push-notification-google-fcm-get-started.md)
 

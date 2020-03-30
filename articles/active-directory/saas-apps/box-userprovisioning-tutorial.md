@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Box para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Box para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Box .
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1397b4189a9c2c15e3878687ea8c67c1da7567f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058574"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configure Box para fornecimento automático de utilizadores
@@ -27,13 +27,13 @@ ms.locfileid: "77058574"
 O objetivo deste tutorial é mostrar os passos necessários para executar em Box e Azure AD para fornecer e desfornecer automaticamente contas de utilizador de Azure AD para Box.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração da AD Azure com a Box, precisa dos seguintes itens:
 
-- Um locatário do Azure AD
+- Um inquilino da AD Azure
 - Um plano de negócios box ou melhor
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Antes de configurar e ativar o serviço de provisionamento, tem de decidir quais
 [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ## <a name="assign-users-and-groups"></a>Atribuir utilizadores e grupos
-O separador **Box > Utilizadores e Grupos** no portal Azure permite especificar quais os utilizadores e grupos que devem ter acesso à Caixa. A atribuição de um utilizador ou grupo faz com que ocorram as seguintes coisas:
+O separador **Caixa > Utilizadores e Grupos** no portal Azure permite especificar quais os utilizadores e grupos que devem ter acesso à Caixa. A atribuição de um utilizador ou grupo faz com que ocorram as seguintes coisas:
 
 * A Azure AD permite que o utilizador designado (seja por atribuição direta ou por associação de grupo) autentique à Caixa. Se um utilizador não for atribuído, o Azure AD não permite que eles instem no Box e devolve um erro na página de entrada de anúncios da AD Azure.
 * Um azulejo de aplicação para Box é adicionado ao lançador de [aplicações](../manage-apps/end-user-experiences.md)do utilizador .
@@ -62,11 +62,11 @@ O separador **Box > Utilizadores e Grupos** no portal Azure permite especificar 
   * Se apenas os objetos de utilizador foram configurados para serem provisionados, então todos os utilizadores diretamente atribuídos são colocados na fila de provisionamento, e todos os utilizadores que são membros de quaisquer grupos designados são colocados na fila de provisionamento. 
   * Se os objetos de grupo foram configurados para serem provisionados, então todos os objetos de grupo atribuídos são aprovisionados para box, e todos os utilizadores que são membros desses grupos. Os membros do grupo e dos utilizadores são preservados ao serem escritos à Box.
 
-Pode utilizar o separador **Atributos > Single Sign-On** para configurar quais os atributos (ou reclamações) apresentados ao Box durante a autenticação baseada em SAML, e o separador **Atributos > Provisioning** para configurar como os atributos do utilizador e do grupo fluem do Azure AD para o Box durante as operações de provisionamento.
+Pode utilizar os **Atributos >** separador Sign-On único para configurar quais os atributos (ou reclamações) apresentados ao Utilizador durante a autenticação baseada em SAML, e o separador **Deatributos > Provisioning** para configurar como os atributos do utilizador e do grupo fluem do Azure AD para o Box durante as operações de provisionamento.
 
 ### <a name="important-tips-for-assigning-users-to-box"></a>Dicas importantes para atribuir utilizadores à Box 
 
-*   Recomenda-se que um único utilizador da AD Azure atribuído à Box teste da configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+*   Recomenda-se que um único utilizador da AD Azure atribuído à Box teste da configuração de provisionamento. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
 
 *   Ao atribuir um utilizador à caixa, deve selecionar uma função de utilizador válida. A função "Acesso Predefinido" não funciona para o provisionamento.
 
@@ -87,7 +87,7 @@ Se o fornecimento automático estiver ativado, os utilizadores e/ou grupos desig
 
 O objetivo desta secção é delinear como permitir o fornecimento de contas de utilizadores do Diretório Ativo à Caixa.
 
-1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > todas as aplicações.**
 
 2. Se já configurou a Caixa para um único sinal, procure a sua instância de Box utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **Box** na galeria de aplicações. Selecione Box a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
@@ -115,13 +115,13 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 11. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to Box.**
 
-12. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Box. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Box para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+12. Na secção **DeMapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Box. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar as contas de utilizador em Box para operações de atualização. Selecione o botão Guardar para elegiro qualquer alteração.
 
 13. Para ativar o serviço de provisionamento de AD Azure para caixa, altere o Estado de **Provisionamento** para **Ligado** na secção Definições
 
 14. Clique em **Guardar.**
 
-Isto inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Caixa na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Box.
+Isto inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à Caixa na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a realizar do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento na sua aplicação Box.
 
 Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 

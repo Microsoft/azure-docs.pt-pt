@@ -1,7 +1,7 @@
 ---
-title: Criar pools de recursos com o mapeamento de assinatura do Azure
-description: Descreve como criar piscinas de recursos para a sua Nuvem Privada AVS através do mapeamento de subscrição do Azure
+title: Criar piscinas de recursos com mapeamento de subscrição Azure
 titleSuffix: Azure VMware Solution by CloudSimple
+description: Descreve como criar piscinas de recursos para a sua Nuvem Privada através do mapeamento de subscrição do Azure
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -9,24 +9,24 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ab7549650e4e20d27d3ad11a96d77ba943797f88
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 474ef03d482288b6bf7b5a8b1c224349a8e2d3a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77014968"
 ---
-# <a name="create-resource-pools-for-your-avs-private-cloud-with-azure-subscription-mapping"></a>Crie piscinas de recursos para a sua Nuvem Privada AVS com mapeamento de subscrição Azure
-O mapeamento de subscrição Azure permite-lhe criar piscinas de recursos para a sua Nuvem Privada AVS a partir dos recursos vSphere disponíveis. No portal AVS, pode ver e gerir a subscrição Azure para as suas Nuvens Privadas AVS.
+# <a name="create-resource-pools-for-your-private-cloud-with-azure-subscription-mapping"></a>Crie piscinas de recursos para a sua Nuvem Privada com mapeamento de subscrição Azure
+O mapeamento de subscrição Azure permite-lhe criar piscinas de recursos para a sua Nuvem Privada a partir dos conjuntos de recursos vSphere disponíveis. No portal CloudSimple, pode ver e gerir a subscrição Azure para as suas Nuvens Privadas.
 
 > [!NOTE]
-> O mapeamento de um pool de recursos também mapeia os pools de recursos filho. Um pool de recursos pai não poderá ser mapeado se algum pool de recursos filho já estiver mapeado.
+> Mapear um conjunto de recursos também mapeia quaisquer piscinas de recursos infantis. Um conjunto de recursos parentais não pode ser mapeado se algum conjunto de recursos infantis já estiver mapeado.
 
-1. [Aceda ao portal AVS.](access-cloudsimple-portal.md)
-2. Abra a página **recursos** e selecione **mapeamento de assinaturas do Azure**.  
-3. Clique em **Editar mapeamento de assinatura do Azure**.  
-4. Para mapear os pools de recursos disponíveis, selecione-os à esquerda e clique na seta para a direita. 
-5. Para remover mapeamentos, selecione-os à direita e clique na seta para a esquerda. 
+1. [Aceda ao portal CloudSimple](access-cloudsimple-portal.md).
+2. Abra a página **Recursos** e selecione o mapeamento de **subscrições do Azure.**  
+3. Clique em editar mapeamento de **subscrição Do Azure**.  
+4. Para mapear os conjuntos de recursos disponíveis, selecione-os à esquerda e clique na seta virada para a direita. 
+5. Para remover mapeamentos, selecione-os à direita e clique na seta virada para a esquerda. 
 
     ![Subscrições do Azure](media/resources-azure-mapping.png)
 

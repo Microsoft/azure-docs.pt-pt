@@ -1,6 +1,6 @@
 ---
-title: Provisionar e gerenciar um ambiente de visualização – série temporal do Azure | Microsoft Docs
-description: Saiba como provisionar e gerenciar um ambiente de visualização de Azure Time Series Insights.
+title: Provision and manage a Preview environment - Azure Time Series [ Microsoft Docs
+description: Aprenda a fornecer e gerir um ambiente de pré-visualização da Série De Tempo Azure Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1ec0d9c7ecf16c60c32abdf08b358268f460edb0
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087210"
 ---
-# <a name="provision-and-manage-azure-time-series-insights-preview"></a>Provisionar e gerenciar Azure Time Series Insights visualização
+# <a name="provision-and-manage-azure-time-series-insights-preview"></a>Provision and manage Azure Time Series Insights Preview
 
 Este artigo descreve como criar e gerir um ambiente de pré-visualização da Série De Tempo Azure Insights utilizando o [portal Azure](https://portal.azure.com/).
 
@@ -25,11 +25,11 @@ Este artigo descreve como criar e gerir um ambiente de pré-visualização da S�
 
 Os ambientes de pré-visualização da Série De Tempo Azure Insights são ambientes *pay-as-you-go* (PAYG).
 
-Ao provisionar um ambiente de visualização de Azure Time Series Insights, você cria esses recursos do Azure:
+Ao fornecer um ambiente de pré-visualização de Insights da Série De Tempo Azure, cria estes recursos Azure:
 
-* Um ambiente de visualização Azure Time Series Insights  
-* Uma conta v1 de uso geral do armazenamento do Azure
-* Um armazenamento inesperado opcional para consultas mais rápidas e ilimitadas
+* Um ambiente de pré-visualização da série de tempo azure Insights  
+* Uma conta V1 de uso geral de armazenamento azure
+* Uma loja quente opcional para consultas mais rápidas e ilimitadas
 
 > [!TIP]
 > * Aprenda [a planear o seu ambiente.](./time-series-insights-update-plan.md)
@@ -37,64 +37,64 @@ Ao provisionar um ambiente de visualização de Azure Time Series Insights, voc�
 
 Vai aprender a:
 
-1. **(Opcional)** Associe cada ambiente de pré-visualização da Série de Tempo Azure com uma fonte de evento. Você também fornecerá uma propriedade de ID de carimbo de data/hora e um grupo de consumidores exclusivo para garantir que o ambiente tenha acesso aos eventos apropriados.
+1. **(Opcional)** Associe cada ambiente de pré-visualização da Série de Tempo Azure com uma fonte de evento. Você também fornecerá uma propriedade timestamp ID e um grupo de consumidores único para garantir que o ambiente tem acesso aos eventos apropriados.
 
    > [!NOTE]
-   > A etapa anterior é opcional ao provisionar um ambiente. Se você ignorar esta etapa, deverá anexar uma origem do evento ao ambiente posteriormente para que os dados possam ser acessados no ambiente.
+   > O passo anterior é facultativo ao providenciar um ambiente. Se saltar este passo, deve anexar uma fonte de evento ao ambiente mais tarde para que os dados possam ser acedidos no ambiente.
 
-1. Após a conclusão do provisionamento, você pode modificar suas políticas de acesso e outros atributos de ambiente para atender às suas necessidades de negócios.
+1. Após o fornecimento estar completo, pode modificar as suas políticas de acesso e outros atributos ambientais de acordo com os seus requisitos de negócio.
 
 ## <a name="create-the-environment"></a>Criar o ambiente
 
-Para criar um ambiente de visualização de Azure Time Series Insights:
+Para criar um ambiente de pré-visualização da Série De Tempo Azure Insights:
 
-1. Selecione **PAYG** como o **Tier**. Forneça um nome de ambiente e escolha o grupo de assinaturas e o grupo de recursos a serem usados. Em seguida, selecione um local com suporte para hospedar o ambiente.
+1. Selecione **PAYG** como o **Tier**. Forneça um nome de ambiente e escolha o grupo de subscrição e o grupo de recursos para usar. Em seguida, selecione um local suportado para hospedar o ambiente.
 
-   [![Criar um exemplo de Insights da Série Temporal Azure.](media/v2-update-manage/create-and-manage-configuration.png)](media/v2-update-manage/create-and-manage-configuration.png#lightbox)
+   [![Crie um exemplo de Insights da Série Temporal Azure.](media/v2-update-manage/create-and-manage-configuration.png)](media/v2-update-manage/create-and-manage-configuration.png#lightbox)
 
-1. Insira uma ID de série temporal.
+1. Introduza um ID da Série De Tempo.
 
     > [!NOTE]
-    > * O ID da Série Time é *sensível a casos* e *imutável.* (Ele não pode ser alterado após ser definido.)
+    > * O ID da Série Time é *sensível a casos* e *imutável.* (Não pode ser mudado depois de definido.)
     > * Os IDs da Série Tempora podem chegar a *três* chaves.
     > * Leia mais sobre [como escolher um ID](time-series-insights-update-how-to-id.md) da Série De Tempo
 
-1. Crie uma conta de armazenamento do Azure selecionando um nome de conta de armazenamento e designando uma opção de replicação. Fazer isso cria automaticamente uma conta v1 de uso geral do armazenamento do Azure. A conta é criada na mesma região que o ambiente de visualização de Azure Time Series Insights que você selecionou anteriormente.
+1. Crie uma conta de Armazenamento Azure selecionando um nome de conta de armazenamento e designando uma escolha de replicação. Fazê-lo automaticamente cria uma conta V1 de uso geral de armazenamento azure. A conta é criada na mesma região que o ambiente de pré-visualização da Série De Tempo Azure insights que selecionou anteriormente.
 
-    [configuração de armazenamento frio ![](media/v2-update-manage/create-and-manage-cold-store.png)](media/v2-update-manage/create-and-manage-cold-store.png#lightbox)
+    [![Configuração de armazenamento frio](media/v2-update-manage/create-and-manage-cold-store.png)](media/v2-update-manage/create-and-manage-cold-store.png#lightbox)
 
 1. **(Opcional)** Ative uma loja quente para o seu ambiente se quiser consultas mais rápidas e ilimitadas sobre os dados mais recentes no seu ambiente. Também pode criar ou eliminar uma loja quente através da opção **configuração** de armazenamento no painel de navegação esquerdo, depois de criar um ambiente de pré-visualização de Insights da Série De Tempo.
 
     [![Configuração de armazenamento quente](media/v2-update-manage/create-and-manage-warm-storage.png)](media/v2-update-manage/create-and-manage-warm-storage.png#lightbox)
 
-1. **(Opcional)** Pode adicionar uma fonte de evento agora. Você também pode aguardar até que a instância tenha sido provisionada.
+1. **(Opcional)** Pode adicionar uma fonte de evento agora. Também pode esperar até que a instância tenha sido prevista.
 
-   * Time Series Insights suporta [O Hub Azure IoT](./time-series-insights-how-to-add-an-event-source-iothub.md) e [o Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) como opções de fonte de eventos. Embora seja possível adicionar apenas uma única origem do evento ao criar o ambiente, você pode adicionar outra origem do evento posteriormente. 
+   * Time Series Insights suporta [O Hub Azure IoT](./time-series-insights-how-to-add-an-event-source-iothub.md) e [o Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) como opções de fonte de eventos. Embora possa adicionar apenas uma única fonte de evento quando criar o ambiente, pode adicionar outra fonte de evento mais tarde. 
    
-     Você pode selecionar um grupo de consumidores existente ou criar um novo grupo de consumidores ao adicionar a origem do evento. É melhor criar um grupo de consumidores exclusivo para garantir que todos os eventos estejam visíveis para o ambiente de visualização de Azure Time Series Insights.
+     Pode selecionar um grupo de consumidores existente ou criar um novo grupo de consumidores quando adicionar a fonte do evento. É melhor criar um grupo de consumidores único para garantir que todos os eventos são visíveis para o seu ambiente de pré-visualização da Série de Tempo Azure Insights.
 
-   * Escolha a propriedade de carimbo de data/hora apropriada. Por padrão, Azure Time Series Insights usa o tempo de enfileiramento de mensagens para cada origem de evento.
+   * Escolha a propriedade timestamp apropriada. Por padrão, a Azure Time Series Insights utiliza o tempo enquecto de mensagem para cada fonte de evento.
 
      > [!TIP]
-     > O tempo de enfileiramento de mensagens pode não ser a configuração mais adequada para uso em cenários de eventos de lote ou em cenários de carregamento de dados históricos. Nesses casos, certifique-se de verificar sua decisão de usar ou não usar uma propriedade Timestamp.
+     > O tempo enqueuado por mensagens pode não ser a melhor configuração configurada para usar em cenários de eventos de lote ou cenários históricos de upload de dados. Nesses casos, certifique-se de verificar a sua decisão de utilizar ou não utilizar uma propriedade timestamp.
 
-     [separador de configuração de fonte de evento ![](media/v2-update-manage/create-and-manage-event-source.png)](media/v2-update-manage/create-and-manage-event-source.png#lightbox)
+     [![Separador de configuração de origem de eventos](media/v2-update-manage/create-and-manage-event-source.png)](media/v2-update-manage/create-and-manage-event-source.png#lightbox)
 
-1. Confirme se o seu ambiente foi provisionado e configurado da maneira desejada.
+1. Confirme que o seu ambiente foi aprovisionado e configurado da forma que pretende.
 
-    [![Review + Criar o separador](media/v2-update-manage/create-and-manage-review-and-confirm.png)](media/v2-update-manage/create-and-manage-review-and-confirm.png#lightbox)
+    [![Rever + Criar o separador](media/v2-update-manage/create-and-manage-review-and-confirm.png)](media/v2-update-manage/create-and-manage-review-and-confirm.png#lightbox)
 
-## <a name="manage-the-environment"></a>Gerenciar o ambiente
+## <a name="manage-the-environment"></a>Gerir o ambiente
 
-Você pode gerenciar seu ambiente de Azure Time Series Insights visualização usando o portal do Azure. Há algumas diferenças importantes entre um ambiente de visualização do PAYG Azure Time Series Insights e os ambientes S1 ou S2 geralmente disponíveis para se lembrar ao gerenciar seu ambiente por meio do portal do Azure:
+Pode gerir o seu ambiente de pré-visualização da Série De Tempo Azure através do portal Azure. Existem algumas diferenças fundamentais entre um ambiente de pré-visualização da Série de Tempo PAYG Azure Insights e os ambientes S1 ou S2 geralmente disponíveis para ter em conta quando gere o seu ambiente através do portal Azure:
 
 * A lâmina de **visualização do** portal Azure Preview tem as seguintes alterações:
 
-  * A capacidade é removida porque não se aplica a ambientes PAYG.
-  * A propriedade id da **série time** é adicionada. Ele determina como os dados são particionados.
+  * A capacidade é removida porque não se aplica aos ambientes PAYG.
+  * A propriedade id da **série time** é adicionada. Determina como os seus dados são divididos.
   * Os conjuntos de dados de referência são removidos.
   * O URL apresentado direciona-o para o explorador de [pré-visualização](./time-series-insights-update-explorer.md)da Série de Tempo Azure Insights .
-  * O nome da conta de armazenamento do Azure está listado.
+  * O nome da sua conta Azure Storage está listado.
 
 * A lâmina **configure** do portal Azure é removida na Pré-visualização da Série de Tempo Azure Porque os ambientes PAYG não são configuráveis. No entanto, pode utilizar a **Configuração** de Armazenamento para configurar a loja quente recém-introduzida.
 

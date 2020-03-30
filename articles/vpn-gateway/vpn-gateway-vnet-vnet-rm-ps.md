@@ -1,5 +1,5 @@
 ---
-title: 'Conectar uma VNet a outra VNet usando uma conexão VNet a VNet do gateway de VPN do Azure: PowerShell'
+title: 'Ligue um VNet a outro VNet utilizando uma ligação Azure VPN Gateway VNet-to-VNet: PowerShell'
 description: Ligue redes virtuais entre si com uma ligação VNet a VNet e o PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75860543"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com o PowerShell
@@ -21,14 +21,14 @@ Este artigo ajuda-o a ligar redes virtuais com o tipo de ligação VNet a VNet. 
 Os passos deste artigo aplicam-se ao modelo de implementação Resource Manager e o PowerShell. Também pode criar esta configuração ao utilizar uma ferramenta de implementação diferente ou modelo de implementação ao selecionar uma opção diferente da lista seguinte:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Portal Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Ligue diferentes modelos de implementação - portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Ligue diferentes modelos de implementação - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 
-## <a name="about"></a>Sobre a ligação de VNets
+## <a name="about-connecting-vnets"></a><a name="about"></a>Sobre a ligação de VNets
 
 Existem múltiplas formas de ligar VNets. As secções abaixo descrevem as diferentes formas de ligar redes virtuais.
 
@@ -40,11 +40,11 @@ Configurar uma ligação VNet a VNet é uma boa forma de ligar facilmente as VNe
 
 Se estiver a trabalhar com uma configuração de rede mais complicada, poderá preferir ligar as VNets utilizando os passos [Site a Site](vpn-gateway-create-site-to-site-rm-powershell.md), em vez de utilizar os passos de VNet a VNet. Quando utilizar os passos de Site a Site, pode criar e configurar manualmente os gateways de rede local. O gateway de rede local para cada VNet trata a outra VNet como um site local. Desta forma, pode especificar um espaço de endereços adicional para o gateway de rede local, de modo a encaminhar o tráfego. Se o espaço de endereço para uma VNet for alterado, terá de atualizar o gateway de rede local correspondente para refletir a alteração. Não será atualizado automaticamente.
 
-### <a name="vnet-peering"></a>VNet Peering
+### <a name="vnet-peering"></a>VNet peering
 
 Poderá querer considerar ligar às VNets utilização o VNet Peering. O VNet peering não utiliza um gateway de VPN e tem restrições de diferentes. Além disso, o [preço do VNet peering](https://azure.microsoft.com/pricing/details/virtual-network) é calculado de forma diferente que os [preços dos Gateways VPN de VNet a VNet](https://azure.microsoft.com/pricing/details/vpn-gateway). Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="why"></a>Porquê criar uma ligação VNet a VNet?
+## <a name="why-create-a-vnet-to-vnet-connection"></a><a name="why"></a>Porquê criar uma ligação VNet a VNet?
 
 Poderá pretender ligar redes virtuais utilizando uma ligação VNet a VNet pelos seguintes motivos:
 
@@ -58,32 +58,32 @@ Poderá pretender ligar redes virtuais utilizando uma ligação VNet a VNet pelo
 
 A comunicação VNet a VNet pode ser combinada com configurações multilocal. Este procedimento permite-lhe estabelecer topologias de rede que combinam uma conetividade em vários locais com uma conetividade de rede intervirtual.
 
-## <a name="steps"></a>Que passos de VNet a VNet devo utilizar?
+## <a name="which-vnet-to-vnet-steps-should-i-use"></a><a name="steps"></a>Que passos de VNet a VNet devo utilizar?
 
 Neste artigo, verá dois conjuntos de passos diferentes. Um conjunto de passos para [VNets que residem na mesma subscrição](#samesub) e outro para [VNets que residem em diferentes subscrições](#difsub).
 A principal diferente entre ambos os conjuntos é que tem de utilizar sessões do PowerShell separadas quando configurar as ligações para VNets que residem em subscrições diferentes. 
 
 Neste exercício, pode combinar configurações ou escolher apenas aquela com que quer trabalhar. Todas as configurações utilizam o tipo de ligação VNet a VNet. O tráfego de rede flui entre as VNets que estão ligadas diretamente entre si. Neste exercício, o tráfego de TestVNet4 não é encaminhado para TestVNet5.
 
-* [VNets que residem na mesma subscrição](#samesub): os passos para esta configuração utilizam TestVNet1 e TestVNet4.
+* [VNets que residem na mesma subscrição](#samesub): Os passos para esta configuração usam TestVNet1 e TestVNet4.
 
   ![Diagrama v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [VNets que residem em diferentes subscrições](#difsub): os passos para esta configuração utilizam TestVNet1 e TestVNet5.
+* [VNets que residem em diferentes subscrições](#difsub): Os passos para esta configuração usam TestVNet1 e TestVNet5.
 
   ![Diagrama v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-## <a name="samesub"></a>Como ligar VNets que estão na mesma subscrição
+## <a name="how-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Como ligar VNets que estão na mesma subscrição
 
 ### <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Como demora até 45 minutos para criar um gateway, Azure Cloud Shell o tempo limite será atingido periodicamente durante este exercício. Você pode reiniciar Cloud Shell clicando no canto superior esquerdo do terminal. Lembre-se de redeclarar todas as variáveis ao reiniciar o terminal.
+* Como leva até 45 minutos para criar um portal, a Azure Cloud Shell irá esgotar-se periodicamente durante este exercício. Pode reiniciar a Cloud Shell clicando na parte superior esquerda do terminal. Certifique-se de que redeclara quaisquer variáveis quando reiniciar o terminal.
 
-* Se você preferir instalar a versão mais recente do módulo Azure PowerShell localmente, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+* Se preferir instalar a versão mais recente do módulo PowerShell Azure localmente, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-### <a name="Step1"></a>Passo 1 - Planear os intervalos de endereços IP
+### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Passo 1 - Planear os intervalos de endereços IP
 
 Nos passos seguintes, vai criar duas redes virtuais, juntamente com as respetivas sub-redes de gateway e configurações. Depois, vai criar uma ligação de VPN entre as duas VNets. É importante planear os intervalos de endereços IP da configuração da rede. Nota: precisa confirmar que nenhum dos intervalos de VNet ou intervalos de rede local se sobrepõe de modo algum. Nestes exemplos, não incluímos um servidor DNS. Se pretender a resolução de nomes para as suas redes virtuais, veja [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) (Resolução de nomes).
 
@@ -121,11 +121,11 @@ Utilizamos os seguintes valores nos exemplos:
 * ConnectionType: VNet2VNet
 
 
-### <a name="Step2"></a>Passo 2 - Criar e configurar a TestVNet1
+### <a name="step-2---create-and-configure-testvnet1"></a><a name="Step2"></a>Passo 2 - Criar e configurar a TestVNet1
 
-1. Verifique suas configurações de assinatura.
+1. Verifique as definições de subscrição.
 
-   Conecte-se à sua conta se você estiver executando o PowerShell localmente em seu computador. Se você estiver usando Azure Cloud Shell, você será conectado automaticamente.
+   Ligue-se à sua conta se estiver a executar o PowerShell localmente no seu computador. Se estiver a utilizar a Casca de Nuvem Azure, está ligado automaticamente.
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -137,7 +137,7 @@ Utilizamos os seguintes valores nos exemplos:
    Get-AzSubscription
    ```
 
-   Se você tiver mais de uma assinatura, especifique a assinatura que deseja usar.
+   Se tiver mais de uma subscrição, especifique a subscrição que pretende utilizar.
 
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName nameofsubscription
@@ -166,7 +166,7 @@ Utilizamos os seguintes valores nos exemplos:
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. Criar as configurações de sub-rede da TestVNet1. Este exemplo cria uma rede virtual com o nome TestVNet1 e três sub-redes, uma chamada GatewaySubnet, outra FrontEnd e a última BackEnd. Quando estiver a substituir os valores, é importante que dê sempre à sub-rede do gateway o nome específico GatewaySubnet. Se der outro nome, a criação da gateway falha. Por esse motivo, ele não é atribuído por meio da variável abaixo.
+4. Criar as configurações de sub-rede da TestVNet1. Este exemplo cria uma rede virtual com o nome TestVNet1 e três sub-redes, uma chamada GatewaySubnet, outra FrontEnd e a última BackEnd. Quando estiver a substituir os valores, é importante que dê sempre à sub-rede do gateway o nome específico GatewaySubnet. Se der outro nome, a criação da gateway falha. Por esta razão, não é atribuído através de variável abaixo.
 
    O exemplo seguinte utiliza as variáveis que definiu anteriormente. Neste exemplo, a sub-rede do gateway está a utilizar um /27. Embora seja possível criar uma sub-rede de gateway tão pequena como /29, recomendamos que crie uma sub-rede maior que inclui mais endereços selecionando pelo menos /28 ou /27. Desta forma, se quiser ter mais configurações no futuro, haverá endereços suficientes para as acomodar.
 
@@ -203,13 +203,13 @@ Utilizamos os seguintes valores nos exemplos:
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-Depois de concluir os comandos, levará até 45 minutos para criar esse gateway. Se você estiver usando Azure Cloud Shell, poderá reiniciar sua sessão do CloudShell clicando no canto superior esquerdo do terminal do Cloud Shell e, em seguida, configurará o TestVNet4. Você não precisa aguardar até que o gateway TestVNet1 seja concluído.
+Depois de terminar os comandos, levará até 45 minutos para criar esta porta de entrada. Se estiver a utilizar a Azure Cloud Shell, pode reiniciar a sua sessão CloudShell clicando na parte superior esquerda do terminal Cloud Shell e, em seguida, configurar o TestVNet4. Não precisa esperar até que o portal TestVNet1 termine.
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Passo 3 – Criar e configurar a TestVNet4
 
 Assim que tiver configurado a TestVNet1, crie a TestVNet4. Siga os passos abaixo, substituindo os valores pelos seus, quando necessário.
 
-1. Conecte e declare suas variáveis. Confirme que substitui os valores pelos que pretende utilizar para a configuração.
+1. Conecte e declare as suas variáveis. Confirme que substitui os valores pelos que pretende utilizar para a configuração.
 
    ```azurepowershell-interactive
    $RG4 = "TestRG4"
@@ -268,7 +268,7 @@ Assim que tiver configurado a TestVNet1, crie a TestVNet4. Siga os passos abaixo
 
 ### <a name="step-4---create-the-connections"></a>Passo 4 - Criar as ligações
 
-Aguarde até que os dois gateways sejam concluídos. Reinicie a sessão de Azure Cloud Shell e copie e cole as variáveis do início da etapa 2 e da etapa 3 no console para redeclarar valores.
+Aguarde até que ambos os portões estejam concluídos. Reinicie a sua sessão Azure Cloud Shell e copie e cole as variáveis desde o início do Passo 2 e Passo 3 na consola para redeclarar valores.
 
 1. Obter os gateways da rede virtual.
 
@@ -292,13 +292,13 @@ Aguarde até que os dois gateways sejam concluídos. Reinicie a sessão de Azure
    ```
 4. Verifique a ligação. Veja a secção [Como verificar a ligação](#verify).
 
-## <a name="difsub"></a>Como ligar VNets que estão em subscrições diferentes
+## <a name="how-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Como ligar VNets que estão em subscrições diferentes
 
-Neste cenário, vai ligar TestVNet1 e TestVNet5. TestVNet1 e TestVNet5 residem em assinaturas diferentes. As subscrições não têm de estar associadas ao mesmo inquilino do Active Directory.
+Neste cenário, vai ligar TestVNet1 e TestVNet5. TestVNet1 e TestVNet5 residem em diferentes subscrições. As subscrições não têm de estar associadas ao mesmo inquilino do Active Directory.
 
 A diferença entre estes passos e as definições anteriores é que alguns dos passos de configuração têm de ser realizados numa sessão separada do PowerShell no contexto da segunda subscrição. especialmente quando as duas subscrições pertencem a organizações distintas.
 
-Devido à alteração do contexto de assinatura neste exercício, você pode achar mais fácil usar o PowerShell localmente em seu computador, em vez de usar o Azure Cloud Shell, quando chegar à etapa 8.
+Devido à mudança do contexto de subscrição neste exercício, poderá ser mais fácil utilizar o PowerShell localmente no seu computador, em vez de utilizar a Casca de Nuvem Azure, quando chegar ao Passo 8.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Passo 5 - Criar e configurar a TestVNet1
 
@@ -406,7 +406,7 @@ Este passo tem de ser realizado no contexto da nova subscrição. Esta parte pod
 
 Neste exemplo, uma vez que os gateways estão em subscrições diferentes, dividimos este passo em duas sessões do PowerShell marcadas como [Subscrição 1] e [Subscrição 5].
 
-1. **[Subscrição 1]** Obter o gateway de rede virtual da Subscrição 1. Entre e conecte-se à assinatura 1 antes de executar o exemplo a seguir:
+1. **[Assinatura 1]** Obtenha o portal de rede virtual para subscrição 1. Iniciar sessão e ligar à Subscrição 1 antes de executar o seguinte exemplo:
 
    ```azurepowershell-interactive
    $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
@@ -427,7 +427,7 @@ Neste exemplo, uma vez que os gateways estão em subscrições diferentes, divid
    PS D:\> $vnet1gw.Id
    /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
    ```
-2. **[Subscrição 5]** Obter o gateway de rede virtual da Subscrição 5. Entre e conecte-se à assinatura 5 antes de executar o exemplo a seguir:
+2. **[Assinatura 5]** Obtenha o portal de rede virtual para subscrição 5. Iniciar sessão e ligar à Subscrição 5 antes de executar o seguinte exemplo:
 
    ```azurepowershell-interactive
    $vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
@@ -448,7 +448,7 @@ Neste exemplo, uma vez que os gateways estão em subscrições diferentes, divid
    PS C:\> $vnet5gw.Id
    /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
    ```
-3. **[Subscrição 1]** Criar a ligação da TestVNet1 para a TestVNet5. Neste passo, vai criar a ligação da TestVNet1 à TestVNet5. A diferença aqui é que $vnet5gw não pode ser obtido diretamente porque se está numa subscrição diferente. Terá de criar um novo objeto do PowerShell com os valores comunicados da Subscrição 1 nos passos acima. Utilize o exemplo abaixo. Substitua o Nome, o ID e a chave partilhada pelos seus valores. Importante: a chave partilhada tem de corresponder a ambas as ligações. A criação de uma ligação pode demorar algum tempo.
+3. **[Assinatura 1]** Crie a ligação TestVNet1 para TestVNet5. Neste passo, vai criar a ligação da TestVNet1 à TestVNet5. A diferença aqui é que $vnet5gw não pode ser obtido diretamente porque se está numa subscrição diferente. Terá de criar um novo objeto do PowerShell com os valores comunicados da Subscrição 1 nos passos acima. Utilize o exemplo abaixo. Substitua o Nome, o ID e a chave partilhada pelos seus valores. Importante: a chave partilhada tem de corresponder a ambas as ligações. A criação de uma ligação pode demorar algum tempo.
 
    Ligue-se à Subscrição 1 antes de executar o exemplo a seguir:
 
@@ -459,7 +459,7 @@ Neste exemplo, uma vez que os gateways estão em subscrições diferentes, divid
    $Connection15 = "VNet1toVNet5"
    New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
-4. **[Subscrição 5]** Criar a ligação da TestVNet5 para a TestVNet1. Este passo é semelhante ao de cima, exceto que está a criar a ligação da TestVNet5 para a TestVNet1. Aplica-se também aqui o mesmo processo de criação de um objeto do PowerShell basedo nos valores obtidos na Subscrição 1. Neste passo, verifique se as chaves partilhadas correspondem.
+4. **[Assinatura 5]** Crie a ligação TestVNet5 para TestVNet1. Este passo é semelhante ao de cima, exceto que está a criar a ligação da TestVNet5 para a TestVNet1. Aplica-se também aqui o mesmo processo de criação de um objeto do PowerShell basedo nos valores obtidos na Subscrição 1. Neste passo, verifique se as chaves partilhadas correspondem.
 
    Ligue-se à Subscrição 5 antes de executar o exemplo a seguir:
 
@@ -471,17 +471,17 @@ Neste exemplo, uma vez que os gateways estão em subscrições diferentes, divid
    New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
 
-## <a name="verify"></a>Como verificar uma ligação
+## <a name="how-to-verify-a-connection"></a><a name="verify"></a>Como verificar uma ligação
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="faq"></a>FAQ da ligação VNet a VNet
+## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>FAQ da ligação VNet a VNet
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja a documentação das [Máquinas Virtuais](https://docs.microsoft.com/azure/) para obter mais informações.
+* Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Consulte a documentação das [Máquinas Virtuais](https://docs.microsoft.com/azure/) para obter mais informações.
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

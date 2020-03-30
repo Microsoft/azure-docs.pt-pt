@@ -1,7 +1,7 @@
 ---
-title: Habilidade cognitiva de detecção de linguagem
+title: Habilidade cognitiva de deteção de linguagem
 titleSuffix: Azure Cognitive Search
-description: Avalia o texto não estruturado e, para cada registro, retorna um identificador de idioma com uma pontuação indicando a força da análise em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
+description: Avalia o texto não estruturado e, para cada registo, devolve um identificador linguístico com uma pontuação indicando a força da análise num pipeline de enriquecimento de IA em Pesquisa Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,33 +9,33 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 8439788c63ec1b9feaea148ab52aba498791dc12
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76045028"
 ---
-#   <a name="language-detection-cognitive-skill"></a>Habilidade cognitiva de detecção de linguagem
+#   <a name="language-detection-cognitive-skill"></a>Habilidade cognitiva de deteção de linguagem
 
-A **detecção de idioma** habilidade detecta o idioma do texto de entrada e relata um único código de idioma para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a força da análise. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) em serviços cognitivas.
+A habilidade de **Deteção de Idiomas** deteta a linguagem do texto de entrada e reporta um único código linguístico para cada documento submetido a pedido. O código linguístico é emparelhado com uma pontuação indicando a força da análise. Esta habilidade utiliza os modelos de machine learning fornecidos pela [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) em Serviços Cognitivos.
 
-Esse recurso é especialmente útil quando você precisa fornecer o idioma do texto como entrada para outras habilidades (por exemplo, a habilidade de [análise de sentimento](cognitive-search-skill-sentiment.md) ou [habilidade de divisão de texto](cognitive-search-skill-textsplit.md)).
+Esta capacidade é especialmente útil quando é necessário fornecer a linguagem do texto como entrada para outras competências (por exemplo, a habilidade de Análise de [Sentimentos](cognitive-search-skill-sentiment.md) ou habilidade de [Divisão de Texto).](cognitive-search-skill-textsplit.md)
 
-A detecção de idioma aproveita as bibliotecas de processamento de idioma natural do Bing, que excedem o número de [idiomas e regiões com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) listados para análise de texto. A lista exata de idiomas não é publicada, mas inclui todas as linguagens amplamente faladas, além de variantes, dialetos e algumas linguagens regionais e culturais. Se você tiver conteúdo expresso em uma linguagem usada com menos frequência, poderá [tentar a API detecção de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para ver se ela retorna um código. A resposta para idiomas que não podem ser detectados é `unknown`.
+A deteção de linguagens aproveita as bibliotecas de processamento de linguagem natural de Bing, que excede o número de [línguas e regiões apoiadas](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) listadas para o Text Analytics. A lista exata de línguas não é publicada, mas inclui todas as línguas amplamente faladas, além de variantes, dialetos e algumas línguas regionais e culturais. Se tiver conteúdo expresso num idioma menos utilizado, pode [experimentar a API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) de Deteção de Idiomas para ver se devolve um código. A resposta para línguas que `unknown`não podem ser detetadas é .
 
 > [!NOTE]
-> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
+> À medida que expande o âmbito aumentando a frequência do processamento, adicionando mais documentos, ou adicionando mais algoritmos de IA, terá de [anexar um recurso de Serviços Cognitivos faturados.](cognitive-search-attach-cognitive-services.md) As acusações acumulam-se quando se ligam para apis em Serviços Cognitivos, e para extração de imagem como parte da fase de quebra de documentos na Pesquisa Cognitiva Azure. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de competências incorporadas é cobrada pelo preço de pagamento dos [Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. Os preços de extração de imagem são descritos na página de preços da [Pesquisa Cognitiva Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para a habilidade de detecção de idioma, poderá usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um disco deve ser de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)50.000 caracteres medido por . Se precisar de separar os seus dados antes de enviá-los para a habilidade de deteção de idiomas, poderá utilizar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-inputs"></a>Entradas de habilidades
+## <a name="skill-inputs"></a>Inputs de habilidade
 
 Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
@@ -45,13 +45,13 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Nome da saída    | Descrição |
+| Nome de saída    | Descrição |
 |--------------------|-------------|
-| languageCode | O código de idioma ISO 6391 para o idioma identificado. Por exemplo, "en". |
-| LanguageName | O nome do idioma. Por exemplo, "inglês". |
-| pontuação | Um valor entre 0 e 1. A probabilidade de o idioma ser identificado corretamente. A pontuação pode ser inferior a 1 se a frase tiver idiomas mistos.  |
+| languageCode | O código linguístico ISO 6391 para a língua identificada. Por exemplo, "en". |
+| nome de idioma | O nome da linguagem. Por exemplo, "Inglês". |
+| classificação | Um valor entre 0 e 1. A probabilidade de a linguagem estar corretamente identificada. A pontuação pode ser inferior a 1 se a frase tiver línguas mistas.  |
 
-##  <a name="sample-definition"></a>Definição de exemplo
+##  <a name="sample-definition"></a>Definição de amostra
 
 ```json
  {
@@ -80,7 +80,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
   }
 ```
 
-##  <a name="sample-input"></a>Entrada de exemplo
+##  <a name="sample-input"></a>Entrada da amostra
 
 ```json
 {
@@ -132,9 +132,9 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 
 ## <a name="error-cases"></a>Casos de erro
-Se o texto for expresso em um idioma sem suporte, um erro será gerado e nenhum identificador de idioma será retornado.
+Se o texto for expresso numa linguagem não suportada, gera-se um erro e nenhum identificador de linguagem é devolvido.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Habilidades internas](cognitive-search-predefined-skills.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
++ [Competências incorporadas](cognitive-search-predefined-skills.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)

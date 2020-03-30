@@ -3,13 +3,13 @@ title: 'QuickStart: Recipiente windows (Pré-visualização)'
 description: Desloque o seu primeiro recipiente personalizado para o Serviço de Aplicações Azure. Aproveite a contentorização, personalize o recipiente Windows da forma que quiser.
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.custom: seodec18
-ms.openlocfilehash: 7901498772b8e746fb2c87a5237f06ab279e3b64
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241473"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047110"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contentor do Windows personalizado no Azure (Pré-visualização)
 
@@ -26,8 +26,8 @@ Para concluir este tutorial:
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Mude o Docker para executar contentores do Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Instale o Visual Studio 2019</a> com o **ASP.NET e desenvolvimento web** e cargas de trabalho de **desenvolvimento azure.** Se já instalou o Visual Studio 2019:
 
-    - Instale as últimas atualizações no Estúdio Visual selecionando **ajuda** > **verificar se há atualizações**.
-    - Adicione as cargas de trabalho no Estúdio Visual selecionando **Ferramentas** > **Obter Ferramentas e Funcionalidades**.
+    - Instale as últimas atualizações no Estúdio Visual selecionando **A Verificação de Ajuda** > **para Atualizações**.
+    - Adicione as cargas de trabalho no Estúdio Visual selecionando **Ferramentas** > **Get Tools e Recursos**.
 
 ## <a name="create-an-aspnet-web-app"></a>Criar uma aplicação Web ASP.NET
 
@@ -35,7 +35,7 @@ Crie uma aplicação web ASP.NET seguindo estes passos:
 
 1. Abra o Estúdio Visual e, em seguida, selecione **Criar um novo projeto**.
 
-1. Em **Criar um novo projeto,** encontre e escolha ASP.NET **Aplicação Web (.QUADRO NET)** para, C#em seguida, selecione **Next**.
+1. Em **Criar um novo projeto,** encontre e escolha ASP.NET **Aplicação Web (.QUADRO NET)** para C#, em seguida, selecione **Next**.
 
 1. No **Configure o seu novo projeto,** nomeie a aplicação _myFirstAzureWebApp_, e depois selecione **Create**.
 
@@ -79,7 +79,7 @@ Crie uma aplicação web ASP.NET seguindo estes passos:
 
 ## <a name="create-a-windows-container-app"></a>Criar uma aplicação de contentor do Windows
 
-1. Inicie sessão no [portal do Azure]( https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure]( https://portal.azure.com).
 
 1. Selecione **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
@@ -121,7 +121,7 @@ Aguarde alguns minutos e tente novamente, até ver a home page de ASP.NET predef
 
 ## <a name="see-container-start-up-logs"></a>Ver os registos de arranque do contentor
 
-O contentor do Windows poderá demorar algum tempo até ser carregado. Para ver o progresso, navegue para o seguinte URL, substituindo *\<app_name>* pelo nome da sua aplicação.
+O contentor do Windows poderá demorar algum tempo até ser carregado. Para ver o progresso, navegue para * \<* o seguinte URL substituindo app_name>com o nome da sua aplicação.
 ```
 https://<app_name>.scm.azurewebsites.net/api/logstream
 ```
@@ -138,14 +138,14 @@ Os registos transmitidos têm o seguinte aspeto:
 
 ## <a name="update-locally-and-redeploy"></a>Atualizar localmente e reimplementar
 
-1. No Visual Studio, no **Solution Explorer,** abra **vistas** > **Home** > **Index.cshtml**.
+1. No Estúdio Visual, no **Solution Explorer,** abra **views** > **home** > **index.cshtml**.
 
 1. Localize a etiqueta HTML `<div class="jumbotron">` na parte superior e substitua todo o elemento pelo código seguinte:
 
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 
@@ -153,7 +153,7 @@ Os registos transmitidos têm o seguinte aspeto:
 
 1. Na página de publicação, selecione **Publicar** e aguarde até a publicação estar concluída.
 
-1. Para dizer ao Serviço de Aplicações para obter a nova imagem do Hub do Docker, reinicie a aplicação. Na página da aplicação no portal, clique em **Reiniciar** > **Sim**.
+1. Para dizer ao Serviço de Aplicações para obter a nova imagem do Hub do Docker, reinicie a aplicação. De volta à página da aplicação no portal, clique em **Reiniciar** > **Sim**.
 
    ![Reiniciar a aplicação Web no Azure](./media/app-service-web-get-started-windows-container/portal-restart-app.png)
 
@@ -173,7 +173,7 @@ O carregamento das imagens principais durante o arranque da aplicação demora a
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2 windowsservercore-ltsc2019
 - [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 - esta imagem é o recipiente base utilizado em imagens do Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/) Microsoft Windows Nano Server.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Migrar para o contentor do Windows no Azure](app-service-web-tutorial-windows-containers-custom-fonts.md)

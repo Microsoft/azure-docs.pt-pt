@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 2/20/2020
 ms.author: allensu
 ms.openlocfilehash: 89a945f146601084795b2e12a721a03a1b96aaea
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371482"
 ---
-# <a name="how-to-protect-dns-zones-and-records"></a>Como proteger as zonas e registos dNS
+# <a name="how-to-protect-dns-zones-and-records"></a>Como proteger os registos e as zonas DNS
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -162,8 +162,8 @@ O exemplo que se segue mostra uma definição de função personalizada para a g
 
 A propriedade Actions define as seguintes permissões específicas do DNS:
 
-* `Microsoft.Network/dnsZones/CNAME/*` concede controlo total sobre os registos CNAME
-* `Microsoft.Network/dnsZones/read` concede permissão para ler zonas de DNS, mas não modificá-las, permitindo-lhe ver a zona em que o CNAME está a ser criado.
+* `Microsoft.Network/dnsZones/CNAME/*`concede controlo total sobre os registos CNAME
+* `Microsoft.Network/dnsZones/read`concede permissão para ler zonas DeNS, mas não para modificá-las, permitindo-lhe ver a zona em que o CNAME está sendo criado.
 
 As restantes Ações são copiadas do papel integrado do [DNS Zone Contributor.](../role-based-access-control/built-in-roles.md#dns-zone-contributor)
 
@@ -188,7 +188,7 @@ O papel pode então ser atribuído da mesma forma que as funções incorporadas,
 
 Para obter mais informações sobre como criar, gerir e atribuir papéis personalizados, consulte [Papéis Personalizados em Azure RBAC](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Bloqueios de recursos
+## <a name="resource-locks"></a>Bloqueios de recurso
 
 O Azure Resource Manager suporta outro tipo de controlo de segurança, a capacidade de bloquear recursos. Os bloqueios de recursos são aplicados ao recurso e são eficazes em todos os utilizadores e funções. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 

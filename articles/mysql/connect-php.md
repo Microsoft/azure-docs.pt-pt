@@ -1,24 +1,24 @@
 ---
-title: Conectar-se usando PHP-banco de dados do Azure para MySQL
+title: Conecte-se usando PHP - Base de Dados Azure para MySQL
 description: Este guia de início rápido proporciona vários exemplos de código PHP que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: b8923000b0bbc75e6d96b1b27a1154ef8ff87f24
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 58683cb6eb74fcc3bc2f90245d6f76ef65bdf2e6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770718"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067926"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o PHP para se ligar e consultar dados
 Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação [PHP](https://secure.php.net/manual/intro-whatis.php). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com PHP e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
+Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
 - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -26,21 +26,21 @@ Este guia de início rápido utiliza os recursos criados em qualquer um destes g
 Instale o PHP no seu próprio servidor ou crie uma [aplicação Web](../app-service/overview.md) do Azure que inclua o PHP.
 
 ### <a name="macos"></a>MacOS
-- Transfira a [versão 7.1.4 do PHP](https://secure.php.net/downloads.php).
-- Instale o PHP e consulte o [manual do PHP](https://secure.php.net/manual/install.macosx.php) para mais configurações.
+- Baixar versão [PHP 7.1.4.](https://secure.php.net/downloads.php)
+- Instale PHP e consulte o [manual PHP](https://secure.php.net/manual/install.macosx.php) para posterior configuração.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- Transfira a [versão 7.1.4 do PHP (x64) não segura para threads](https://secure.php.net/downloads.php).
-- Instale o PHP e consulte o [manual do PHP](https://secure.php.net/manual/install.unix.php) para mais configurações.
+- Descarregue [a versão php 7.1.4 sem fios (x64)](https://secure.php.net/downloads.php)de segurança .
+- Instale PHP e consulte o [manual PHP](https://secure.php.net/manual/install.unix.php) para posterior configuração.
 
 ### <a name="windows"></a>Windows
-- Transfira a [versão 7.1.4 do PHP (x64) não segura para threads](https://windows.php.net/download#php-7.1).
-- Instale o PHP e consulte o [manual do PHP](https://secure.php.net/manual/install.windows.php) para mais configurações.
+- Descarregue [a versão php 7.1.4 sem fios (x64)](https://windows.php.net/download#php-7.1)de segurança .
+- Instale PHP e consulte o [manual PHP](https://secure.php.net/manual/install.windows.php) para posterior configuração.
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure.](https://portal.azure.com/)
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.

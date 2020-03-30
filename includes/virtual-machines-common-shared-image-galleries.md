@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: a028a0b5d79b2c79f1da336f033d3e8cac21a2e2
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: a477114bda7d138a6860d21f2fad75e27d968833
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77474279"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80117080"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens geridas. Galerias de Imagem Partilhada fornecem:
 
@@ -51,9 +51,9 @@ Existem três parâmetros para cada definição de imagem que são usados em com
 
 |Definição da Imagem|Publicador|Oferta|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Finanças|Backend|
-|myImage2|Contoso|Finanças|Frontend|
-|myImage3|Testar|Finanças|Frontend|
+|myImage1|Contoso|Finanças|Back-end|
+|myImage2|Contoso|Finanças|Front-end|
+|myImage3|Testar|Finanças|Front-end|
 
 Todos estes três têm conjuntos únicos de valores. O formato é semelhante ao que pode atualmente especificar a editora, a oferta e a SKU para [imagens do Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) no Azure PowerShell para obter a versão mais recente de uma imagem do Marketplace. Cada definição de imagem precisa de ter um conjunto único destes valores.
 
@@ -71,31 +71,31 @@ Seguem-se outros parâmetros que podem ser definidos na definição de imagem pa
 
 ## <a name="generalized-and-specialized-images"></a>Imagens generalizadas e especializadas
 
-Existem dois estados do sistema operativo apoiados pela Shared Image Gallery. Normalmente, as imagens requerem que o VM usado para criar a imagem tenha sido generalizado antes de tirar a imagem. Generalizar é um processo que remove informações específicas da máquina e do utilizador do VM. Para windows, o Sysprep também é usado. Para o Linux, pode utilizar `-deprovision` de [waagent](https://github.com/Azure/WALinuxAgent) ou `-deprovision+user` parâmetros.
+Existem dois estados do sistema operativo apoiados pela Shared Image Gallery. Normalmente, as imagens requerem que o VM usado para criar a imagem tenha sido generalizado antes de tirar a imagem. Generalizar é um processo que remove informações específicas da máquina e do utilizador do VM. Para windows, o Sysprep também é usado. Para o Linux, pode `-deprovision+user` utilizar [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou parâmetros.
 
-Os VMs especializados não passaram por um processo para remover informações e contas específicas da máquina. Além disso, os VMs criados a partir de imagens especializadas não têm uma `osProfile` associada a elas. Isto significa que imagens especializadas terão algumas limitações.
+Os VMs especializados não passaram por um processo para remover informações e contas específicas da máquina. Além disso, os VMs criados `osProfile` a partir de imagens especializadas não têm um associado a eles. Isto significa que imagens especializadas terão algumas limitações.
 
 - As contas que poderiam ser usadas para iniciar sessão no VM também podem ser usadas em qualquer VM criado usando a imagem especializada que é criada a partir desse VM.
 - VMs terão o nome de **computador** do VM de onde a imagem foi tirada. Deve alterar o nome do computador para evitar colisões.
-- O `osProfile` é como algumainformação sensível é transmitida ao VM, utilizando `secrets`. Isto pode causar problemas usando KeyVault, WinRM e outras funcionalidades que usam `secrets` no `osProfile`. Em alguns casos, pode utilizar identidades de serviço geridas (MSI) para contornar estas limitações.
+- É `osProfile` assim que algumainformação sensível é `secrets`passada para o VM, usando . Isto pode causar problemas usando KeyVault, WinRM `secrets` e `osProfile`outras funcionalidades que usam na . Em alguns casos, pode utilizar identidades de serviço geridas (MSI) para contornar estas limitações.
 
 > [!IMPORTANT]
 > Imagens especializadas estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 >
 > **Limitações de pré-visualização conhecidas** Os VMs só podem ser criados a partir de imagens especializadas utilizando o portal ou API. O suporte não é CLI ou PowerShell para a pré-visualização.
 
 
 ## <a name="regional-support"></a>Apoio Regional
 
-As regiões-fonte estão listadas na tabela abaixo. Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição listada em branco. Para solicitar a lista geminada, vá a: https://azure.microsoft.com/global-infrastructure/australia/contact/
+As regiões-fonte estão listadas na tabela abaixo. Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição listada em branco. Para solicitar a lista geminada, vá a:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
 | Regiões-fonte        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
-| Austrália Central     | China Leste        | Sul da Índia        | Europa Ocidental        |
+| Austrália Central     | Leste da China        | Sul da Índia        | Europa ocidental        |
 | Austrália Central 2   | China Leste 2      | Ásia Sudeste     | Sul do Reino Unido           |
-| Leste da Austrália        | China Norte       | Leste do Japão         | Oeste do Reino Unido            |
+| Leste da Austrália        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
 | Austrália Sudeste   | China Norte 2     | Oeste do Japão         | US DoD Centro     |
 | Sul do Brasil          | Ásia Leste         | Coreia do Sul Central      | US DoD - Leste        |
 | Canadá Central        | E.U.A. Leste           | Sul da Coreia do Sul        | US Gov - Arizona     |
@@ -111,7 +111,7 @@ As regiões-fonte estão listadas na tabela abaixo. Todas as regiões públicas 
 
 Existem limites, por subscrição, para a implantação de recursos utilizando galerias de imagem partilhada:
 - 100 galerias de imagem partilhada, por subscrição, por região
-- 1\.000 definições de imagem, por subscrição, por região
+- 1.000 definições de imagem, por subscrição, por região
 - 10.000 versões de imagem, por subscrição, por região
 - Qualquer disco ligado à imagem deve ser inferior ou igual a 1TB em tamanho
 
@@ -120,7 +120,7 @@ Para mais informações, consulte Verifique a [utilização de recursos contra l
 ## <a name="scaling"></a>Dimensionamento
 A Galeria de Imagem Partilhada permite especificar o número de réplicas que pretende que o Azure mantenha nas imagens. Isto ajuda em cenários de implantação multi-VM, uma vez que as implementações vm podem ser espalhadas para diferentes réplicas reduzindo a possibilidade de o processamento da criação de instâncias ser estrangulado devido à sobrecarga de uma única réplica.
 
-Com a Galeria de Imagem Partilhada, pode agora implantar até 1.000 casos de VM numa escala de máquina virtual (até 600 com imagens geridas). As réplicas de imagem proporcionam um melhor desempenho de implementação, fiabilidade e consistência.  Pode definir uma contagem de réplicas diferente em cada região-alvo, com base nas necessidades de escala para a região. Uma vez que cada réplica é uma cópia profunda da sua imagem, isto ajuda a escalar as suas implementações linearmente com cada réplica extra. Embora compreendamos que não há duas imagens ou regiões iguais, aqui está a nossa orientação geral sobre como usar réplicas numa região:
+Com a Galeria de Imagem Partilhada, pode agora implantar até 1.000 casos de VM numa escala de máquina virtual (até 600 com imagens geridas). As réplicas de imagem proporcionam um melhor desempenho de implementação, fiabilidade e consistência. Pode definir uma contagem de réplicas diferente em cada região-alvo, com base nas necessidades de escala para a região. Uma vez que cada réplica é uma cópia profunda da sua imagem, isto ajuda a escalar as suas implementações linearmente com cada réplica extra. Embora compreendamos que não há duas imagens ou regiões iguais, aqui está a nossa orientação geral sobre como usar réplicas numa região:
 
 - Para implementações não virtuais de escala de máquina (VMSS) - Para cada 20 VMs que cria simultaneamente, recomendamos que mantenha uma réplica. Por exemplo, se estiver a criar 120 VMs simultaneamente usando a mesma imagem numa região, sugerimos que mantenha pelo menos 6 réplicas da sua imagem. 
 - Para as implementações de conjuntos de escala de máquina virtual (VMSS) - Para cada conjunto de escala com até 600 instâncias, recomendamos que mantenha pelo menos uma réplica. Por exemplo, se estiver a criar 5 conjuntos de escala em simultâneo, cada um com 600 casos de VM usando a mesma imagem numa única região, sugerimos que mantenha pelo menos 5 réplicas da sua imagem. 
@@ -133,7 +133,7 @@ Recomendamos sempre que oferecê-lo em excesso o número de réplicas devido a f
 
 [O Armazenamento Redundante da Zona Azure (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) proporciona resiliência contra uma falha na Zona de Disponibilidade na região. Com a disponibilidade geral da Galeria de Imagem Partilhada, pode optar por armazenar as suas imagens em contas ZRS em regiões com Zonas de Disponibilidade. 
 
-Pode também escolher o tipo de conta para cada uma das regiões-alvo. O tipo de conta de armazenamento padrão é Standard_LRS, mas pode escolher Standard_ZRS para regiões com Zonas de Disponibilidade. Consulte aqui a disponibilidade regional [](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)do ZRS.
+Pode também escolher o tipo de conta para cada uma das regiões-alvo. O tipo de conta de armazenamento padrão é Standard_LRS, mas pode escolher Standard_ZRS para regiões com Zonas de Disponibilidade. Consulte aqui a disponibilidade regional [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)do ZRS.
 
 ![Gráfico mostrando ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -144,7 +144,7 @@ As regiões que uma versão De Imagem Partilhada é replicada para ser atualizad
 
 ![Gráfico mostrando como pode replicar imagens](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Acesso
 
 Como a Galeria de Imagem Partilhada, definição de imagem e versão imagem são todos os recursos, podem ser partilhados usando os controlos Azure RBAC nativo incorporados. Utilizando o RBAC pode partilhar estes recursos com outros utilizadores, diretores de serviço e grupos. Você pode até partilhar acesso a indivíduos fora do inquilino que foram criados dentro. Uma vez que um utilizador tenha acesso à versão Shared Image, pode implementar um VM ou um Conjunto de Escala de Máquina Virtual.  Aqui está a matriz de partilha que ajuda a entender a que o utilizador tem acesso:
 
@@ -181,15 +181,15 @@ Versão de imagem:
 - Excluir dos mais recentes
 - Data de fim de vida
 
-## <a name="sdk-support"></a>Suporte SDK
+## <a name="sdk-support"></a>Suporte de SKDs
 
 Os seguintes SDKs apoiam a criação de Galerias de Imagem Partilhada:
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/azure/go/)
+- [Nó.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
+- [Pitão](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Ir](https://docs.microsoft.com/azure/go/)
 
 ## <a name="templates"></a>Modelos
 
@@ -222,7 +222,7 @@ Pode criar recurso da Galeria de Imagem Partilhada utilizando modelos. Existem v
 
 Para listar todos os recursos da Galeria de Imagem Partilhada através de subscrições a que tem acesso no portal Azure, siga os passos abaixo:
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Abra o [portal Azure.](https://portal.azure.com)
 1. Ir a **Todos os Recursos.**
 1. Selecione todas as subscrições sob as quais gostaria de listar todos os recursos.
 1. Procure recursos de **tipo galeria privada.**
@@ -231,7 +231,7 @@ Para listar todos os recursos da Galeria de Imagem Partilhada através de subscr
  
    Para listar todos os recursos da Galeria de Imagem Partilhada através de subscrições a que tem permissões, utilize o seguinte comando no Azure CLI:
 
-   ```bash
+   ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
    ```
 
@@ -291,7 +291,7 @@ Para especificar a contagem de réplicas regionais, passe o local juntamente com
 
 Se a contagem de réplicas regionais não for especificada em cada local, então o número padrão de réplicas será a contagem comum de réplicas que especificou. 
 
-Para especificar a contagem comum de réplicas no CLI, utilize o argumento **de --réplica-contagem** no comando `az sig image-version create`.
+Para especificar a contagem comum de réplicas no CLI, utilize o argumento **de --réplica-contagem** no `az sig image-version create` comando.
 
 ### <a name="can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>Posso criar a galeria de imagens partilhadas num local diferente do da definição de imagem e versão de imagem?
 

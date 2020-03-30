@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2e50d226282536fa4e8c044d2ee3d91df4cfd1ee
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 34972e70039fef17161bdef66f64278cbabf908f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131474"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130804"
 ---
-# <a name="azure-data-factory-faq"></a>FaQ da Fábrica de Dados Azure
+# <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
 Este artigo fornece respostas a perguntas frequentes sobre a Azure Data Factory.  
 
 ## <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory? 
@@ -78,15 +78,15 @@ Pode monitorizar as suas Fábricas de Dados através do PowerShell, SDK ou das F
 ### <a name="new-features-for-ssis-in-data-factory"></a>Novas funcionalidades para o SSIS na Fábrica de Dados
 Desde o lançamento inicial da pré-visualização pública em 2017, data Factory adicionou as seguintes funcionalidades para o SSIS:
 
--   Suporte para mais três configurações/variantes da Base de Dados SQL Azure para acolher a base de dados SSIS (SSISDB) de projetos/pacotes:
--   Base de Dados SQL com pontos finais de serviço de rede virtual
--   Instância gerida
--   Conjunto elástico
--   Suporte para uma rede virtual do Gestor de Recursos Azure para além de uma rede virtual clássica a ser depreciada no futuro, o que permite injetar/aderir ao seu tempo de integração Azure-SSIS a uma rede virtual configurada para base de dados SQL com pontos finais de serviço de rede virtual/acesso de dados MI/on-local. Para mais informações, consulte também Adere a um tempo de execução de [integração Azure-SSIS para uma rede virtual.](join-azure-ssis-integration-runtime-virtual-network.md)
--   Suporte para autenticação de Diretório Ativo Azure (Azure AD) e autenticação SQL para ligar ao SSISDB, permitindo a autenticação adada com a sua Fábrica de Dados gerida identidade para recursos Azure
--   Suporte para trazer a sua própria licença SQL Server no local para obter poupanças de custos substanciais da opção Benefício Híbrido Azure
--   Suporte para A Edição Empresarial do tempo de execução de integração Azure-SSIS que lhe permite utilizar funcionalidades avançadas/premium, uma interface de configuração personalizada para instalar componentes/extensões adicionais e um ecossistema parceiro. Para mais informações, consulte também [a Enterprise Edition, Custom Setup e a 3ª Extensibility de Festas para O SSIS em ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
--   Uma integração mais profunda do SSIS na Fábrica de Dados que permite invocar/desencadear atividades do Pacote Execute SSIS em pipelines de Fábrica de Dados e programá-las através de SSMS. Para mais informações, consulte também modernizar e alargar os seus fluxos de [trabalho ETL/ELT com atividades SSIS em pipelines ADF](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
+-    Suporte para mais três configurações/variantes da Base de Dados SQL Azure para acolher a base de dados SSIS (SSISDB) de projetos/pacotes:
+-    Base de Dados SQL com pontos finais de serviço de rede virtual
+-    Instância gerida
+-    Conjunto elástico
+-    Suporte para uma rede virtual do Gestor de Recursos Azure para além de uma rede virtual clássica a ser depreciada no futuro, o que permite injetar/aderir ao seu tempo de integração Azure-SSIS a uma rede virtual configurada para base de dados SQL com pontos finais de serviço de rede virtual/acesso de dados MI/on-local. Para mais informações, consulte também Adere a um tempo de execução de [integração Azure-SSIS para uma rede virtual.](join-azure-ssis-integration-runtime-virtual-network.md)
+-    Suporte para autenticação de Diretório Ativo Azure (Azure AD) e autenticação SQL para ligar ao SSISDB, permitindo a autenticação adada com a sua Fábrica de Dados gerida identidade para recursos Azure
+-    Suporte para trazer a sua própria licença SQL Server no local para obter poupanças de custos substanciais da opção Benefício Híbrido Azure
+-    Suporte para A Edição Empresarial do tempo de execução de integração Azure-SSIS que lhe permite utilizar funcionalidades avançadas/premium, uma interface de configuração personalizada para instalar componentes/extensões adicionais e um ecossistema parceiro. Para mais informações, consulte também [a Enterprise Edition, Custom Setup e a 3ª Extensibility de Festas para O SSIS em ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
+-    Uma integração mais profunda do SSIS na Fábrica de Dados que permite invocar/desencadear atividades do Pacote Execute SSIS em pipelines de Fábrica de Dados e programá-las através de SSMS. Para mais informações, consulte também modernizar e alargar os seus fluxos de [trabalho ETL/ELT com atividades SSIS em pipelines ADF](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
 
 
 ## <a name="what-is-the-integration-runtime"></a>Qual é o tempo de execução da integração?
@@ -133,7 +133,7 @@ Os gatilhos representam unidades de processamento que determinam quando uma exec
 Uma execução de gasoduto é um exemplo de execução de um oleoduto. Normalmente, você instantaneamente um gasoduto executado passando argumentos para os parâmetros que são definidos no oleoduto. Pode passar os argumentos manualmente ou dentro da definição do gatilho.
 
 ### <a name="parameters"></a>Parâmetros
-Os parâmetros são pares de valor-chave numa configuração apenas para leitura. Define-se parâmetros num oleoduto e passa-se os argumentos para os parâmetros definidos durante a execução a partir de um contexto de execução. O contexto de execução é criado por um gatilho ou a partir de um oleoduto que executa manualmente. As atividades dentro do pipeline consomem os valores dos parâmetros.
+Os parâmetros são pares de valor-chave numa configuração apenas para leitura.Define-se parâmetros num oleoduto e passa-se os argumentos para os parâmetros definidos durante a execução a partir de um contexto de execução. O contexto de execução é criado por um gatilho ou a partir de um oleoduto que executa manualmente. As atividades dentro do pipeline consomem os valores dos parâmetros.
 
 Um conjunto de dados é um parâmetro fortemente digitado e uma entidade que pode reutilizar ou fazer referência. Uma atividade pode referenciar conjuntos de dados, e pode consumir as propriedades que são definidas na definição de conjunto de dados.
 
@@ -155,7 +155,7 @@ Para obter detalhes sobre os preços da Fábrica de Dados Azure, consulte os det
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Como posso manter-me atualizado com informações sobre a Fábrica de Dados?
 Para obter as informações mais atualizadas sobre a Azure Data Factory, vá aos seguintes sites:
 
-- [Blogue](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Página inicial da documentação](/azure/data-factory)
 - [Página inicial do produto](https://azure.microsoft.com/services/data-factory/)
 
@@ -171,13 +171,13 @@ Sim, os parâmetros são um conceito de primeira classe, de alto nível na Fábr
 Sim. Pode definir valores predefinidos para os parâmetros dos gasodutos. 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Pode uma atividade num oleoduto consumir argumentos que são passados para uma corrida de gasodutos? 
-Sim. Cada atividade dentro do oleoduto pode consumir o valor do parâmetro que passou para o oleoduto e correr com a construção `@parameter`. 
+Sim. Cada atividade dentro do oleoduto pode consumir o valor do parâmetro `@parameter` que passou para o oleoduto e correr com a construção. 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Uma propriedade de produção de atividade pode ser consumida em outra atividade? 
-Sim. Uma saída de atividade pode ser consumida numa atividade subsequente com a construção `@activity`.
+Sim. Uma saída de atividade pode ser consumida numa atividade subsequente com a `@activity` construção.
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como lido graciosamente com valores nulos numa saída de atividade? 
-Pode utilizar o `@coalesce` construir nas expressões para lidar com valores nulos graciosamente. 
+Pode utilizar `@coalesce` a construção nas expressões para lidar com valores nulos graciosamente. 
 
 ## <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento
 
@@ -207,7 +207,6 @@ O fluxo de dados de luta é atualmente suportado nas fábricas de dados criadas 
 * Leste da Austrália
 * Canadá Central
 * Índia Central
-* E.U.A. Central
 * E.U.A. Leste
 * E.U.A. Leste 2
 * Leste do Japão
@@ -216,7 +215,7 @@ O fluxo de dados de luta é atualmente suportado nas fábricas de dados criadas 
 * E.U.A. Centro-Sul
 * Sul do Reino Unido
 * E.U.A. Centro-Oeste
-* Europa Ocidental
+* Europa ocidental
 * E.U.A. Oeste
 * E.U.A.Oeste 2
 
@@ -262,12 +261,12 @@ A confraternde fluxo de dados suporta os seguintes tipos de dados no SQL. Terá 
 * smallint
 * tinyint
 * bigint
-* long
+* longo
 * texto
 * date
 * datetime
 * datetime2
-* smalldatetime
+* tempo de data pequena
 * carimbo de data/hora
 * uniqueidentifier
 * xml

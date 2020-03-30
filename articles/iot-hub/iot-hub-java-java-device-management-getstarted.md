@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: f68e25a618f5c6499ccc9d76c510eab8f1650330
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110876"
 ---
 # <a name="get-started-with-device-management-java"></a>Começar com a gestão de dispositivos (Java)
@@ -22,7 +22,7 @@ ms.locfileid: "77110876"
 
 Este tutorial mostrar-lhe como:
 
-* Use o portal do Azure para criar um hub IoT e criar uma identidade de dispositivo no Hub IoT.
+* Utilize o portal Azure para criar um Hub IoT e criar uma identidade de dispositivo no seu hub IoT.
 
 * Crie uma aplicação simulada de dispositivo que implemente um método direto para reiniciar o dispositivo. Os métodos diretos são invocados da nuvem.
 
@@ -69,13 +69,13 @@ reiniciar o **gatilho.** Esta aplicação:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Disparar uma reinicialização remota no dispositivo usando um método direto
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Desencadear um reboot remoto no dispositivo utilizando um método direto
 
 Nesta secção, cria-se uma aplicação de consola Java que:
 
@@ -109,7 +109,7 @@ Esta aplicação de consola conecta-se ao seu IoT Hub para invocar o método dir
     ```
 
     > [!NOTE]
-    > Pode consultar a versão mais recente do **iot-service-client** usando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **iot-service-client** utilizando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Adicione o nó de **construção** seguinte após o nó de **dependências.** Esta configuração instrui Maven a usar Java 1.8 para construir a aplicação:
 
@@ -129,7 +129,7 @@ Esta aplicação de consola conecta-se ao seu IoT Hub para invocar o método dir
     </build>
     ```
 
-6. Guarde e feche o ficheiro **pom.xml.**
+6. Guarde e feche o ficheiro **pom.xml**.
 
 7. Utilizando um editor de texto, abra o **trigger-reboot\src\main\java\com\mycompany\app\app\app\java** source file.
 
@@ -148,7 +148,7 @@ Esta aplicação de consola conecta-se ao seu IoT Hub para invocar o método dir
     import java.util.concurrent.ExecutorService;
     ```
 
-9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{youriothubconnectionstring}` com a cadeia de ligação IoT Hub que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
+9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua-a `{youriothubconnectionstring}` com a cadeia de ligação IoT Hub que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -259,7 +259,7 @@ Nesta secção, cria-se uma aplicação de consola Java que simula um dispositiv
     ```
 
     > [!NOTE]
-    > Pode verificar a versão mais recente do **iot-device-client** usando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **iot-device-client** utilizando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Adicione a seguinte dependência ao nó de **dependências.** Esta dependência configura um NOP para a fachada de exploração de apache [SLF4J,](https://www.slf4j.org/) que é usada pelo cliente do dispositivo SDK para implementar a exploração madeireira. Esta configuração é opcional, mas, se a omitir, poderá ver um aviso na consola quando executar a aplicação. Para obter mais informações sobre o login no cliente do dispositivo SDK, consulte [o Registo de Registos](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) nas *Amostras para o dispositivo Azure IoT SDK para java* readme file.
 
@@ -289,7 +289,7 @@ Nesta secção, cria-se uma aplicação de consola Java que simula um dispositiv
     </build>
     ```
 
-6. Guarde e feche o ficheiro **pom.xml.**
+6. Guarde e feche o ficheiro **pom.xml**.
 
 7. Utilizando um editor de texto, abra o ficheiro de fonte do **dispositivo simulado\src\java\com\mycompany\app\app\.**
 
@@ -307,7 +307,7 @@ Nesta secção, cria-se uma aplicação de consola Java que simula um dispositiv
     import java.util.HashSet;
     ```
 
-9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{yourdeviceconnectionstring}` com a cadeia de ligação do dispositivo que observou no Registo um novo dispositivo na secção [do hub IoT:](#register-a-new-device-in-the-iot-hub)
+9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua-a `{yourdeviceconnectionstring}` pela cadeia de ligação do dispositivo que observou no Registo um novo dispositivo na secção [ioT:](#register-a-new-device-in-the-iot-hub)
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -450,7 +450,7 @@ Nesta secção, cria-se uma aplicação de consola Java que simula um dispositiv
     System.out.println("Shutting down...");
     ```
 
-19. Guarde e feche o ficheiro simulated-device\src\main\java\com\mycompany\app\app.Java.
+19. Guarde e feche o ficheiro simulado\src\main\java\com\mycompany\app\app\app.java.
 
 20. Construa a aplicação **de dispositivo simulado** e corrija quaisquer erros. A seu pedido de comando, navegue para a pasta **do dispositivo simulado** e execute o seguinte comando:
 
@@ -460,7 +460,7 @@ Nesta secção, cria-se uma aplicação de consola Java que simula um dispositiv
 
 ## <a name="run-the-apps"></a>Executar as aplicações
 
-Agora você está pronto para executar os aplicativos.
+Está pronto para executar as aplicações.
 
 1. Num pedido de comando na pasta **do dispositivo simulado,** execute o seguinte comando para começar a ouvir chamadas de método de reinicialização do seu hub IoT:
 

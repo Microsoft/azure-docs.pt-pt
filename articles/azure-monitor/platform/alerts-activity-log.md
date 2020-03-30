@@ -4,12 +4,12 @@ description: Crie alertas de registo de atividade utilizando o portal Azure, um 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 9791ebaadeb1ee724692a9e1a0d61aff5cbae6a3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: bfbe2bc3ae3edf9285d3ec006ab0451f070cabd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668490"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132398"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo de atividade utilizando o Monitor Azure  
 
@@ -37,7 +37,7 @@ Pode utilizar o portal Azure para criar e modificar as regras de alerta de regis
 
 Utilize o seguinte procedimento.
 
-1. No portal Azure, selecione **Monitor > ** **Alertas**.
+1. No portal Azure, selecione **Monitor** > **Alerts**.
 2. Selecione **Nova regra** de alerta no canto superior esquerdo da janela **Alertas.**
 
      ![Nova regra de alerta](media/alerts-activity-log/AlertsPreviewOption.png)
@@ -48,7 +48,7 @@ Utilize o seguinte procedimento.
 
 3. Sob a condição de **alerta Defina,** forneça as seguintes informações e selecione **Feito:**
 
-   - **Alvo de alerta:** Para visualizar e selecionar o alvo para o novo alerta, utilize **o Filtro por subscrição** / **Filter por tipo de recurso**. Selecione o grupo de recursos ou recursos da lista apresentada.
+   - **Alvo de alerta:** Para visualizar e selecionar o alvo para o novo alerta, utilize **o Filtro por filtro de subscrição** / por tipo de**recurso**. Selecione o grupo de recursos ou recursos da lista apresentada.
 
      > [!NOTE]
      > 
@@ -89,7 +89,7 @@ Utilize o seguinte procedimento.
 5. No **grupo Action**, a partir do menu suspenso, especifique o grupo de ação que pretende atribuir a esta nova regra de alerta. Ou [criar um novo grupo](../../azure-monitor/platform/action-groups.md) de ação e atribuí-lo à nova regra. Para criar um novo grupo, selecione **+ Novo grupo**.
 
 6. Para ativar as regras após a sua criação, selecione **Sim** para a regra Enable sobre a opção **criação.**
-7. Selecione **Criar regra**de alerta .
+7. Selecione **Criar regra de alerta**.
 
     A nova regra de alerta para o registo de atividade é criada, e uma mensagem de confirmação aparece no canto superior direito da janela.
 
@@ -103,9 +103,9 @@ Uma simples analogia para compreender as condições em que as regras de alerta 
 
 ### <a name="view-and-manage-in-the-azure-portal"></a>Ver e gerir no portal Azure
 
-1. No portal Azure, selecione **Monitor > ** **Alertas**. **Selecione Gerir as regras** de alerta no canto superior esquerdo da janela.
+1. No portal Azure, selecione **Monitor** > **Alerts**. **Selecione Gerir as regras** de alerta no canto superior esquerdo da janela.
 
-    ![Gerir as regras de alerta](media/alerts-activity-log/manage-alert-rules.png)
+    ![Gere regras do alerta](media/alerts-activity-log/manage-alert-rules.png)
 
     A lista de regras disponíveis aparece.
 
@@ -121,13 +121,13 @@ Uma simples analogia para compreender as condições em que as regras de alerta 
 
 3. Selecione a regra e clique duas vezes para editar as opções de regra. Faça as alterações necessárias e, em seguida, selecione **Guardar**.
 
-   ![Gerir as regras de alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
+   ![Gere regras do alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
 4. Pode ativar, desativar ou eliminar uma regra. Selecione a opção adequada na parte superior da janela depois de selecionar a regra conforme descrito no passo 2.
 
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-Para criar um alerta de registo de atividade utilizando um modelo de Gestor de Recursos Azure, cria um recurso do tipo `microsoft.insights/activityLogAlerts`. Depois preenchetodas as propriedades relacionadas. Aqui está um modelo que cria um alerta de registo de atividade:
+Para criar uma regra de alerta de registo de atividade utilizando um `microsoft.insights/activityLogAlerts`modelo de Gestor de Recursos Azure, cria-se um recurso do tipo . Depois preenchetodas as propriedades relacionadas. Aqui está um modelo que cria uma regra de alerta de registo de atividade:
 
 ```json
 {
@@ -195,6 +195,39 @@ Para criar um alerta de registo de atividade utilizando um modelo de Gestor de R
 }
 ```
 A amostra anterior JSON pode ser guardada como, por exemplo, sampleActivityLogAlert.json para efeitos deste walk-through e pode ser implementada utilizando o Gestor de [Recursos Azure no portal Azure](../../azure-resource-manager/templates/deploy-portal.md).
+
+Os seguintes campos são as opções que pode utilizar no modelo do Gestor de Recursos Azure para os campos de condições: Note que "Saúde dos Recursos", "Advisor" e "Service Health" têm campos de propriedades extra para os seus campos especiais. 
+1. recursosId: O id de recurso do recurso impactado no caso do registo de atividade em que o alerta deve ser gerado.
+2. categoria: A categoria do evento de registo de atividade. Por exemplo: Administrativo, ServiceHealth, ResourceHealth, Autoscale, Segurança, Recomendação, Política.
+3. chamada: O endereço de e-mail ou identificador de Diretório Ativo Azure do utilizador que realizou o funcionamento do evento de registo de atividade.
+4. nível: Nível da atividade no caso do registo de atividade em que o alerta deve ser gerado. Por exemplo: Crítico, Erro, Aviso, Informacional, Verbose.
+5. nome: O nome da operação no evento de registo de atividade. Por exemplo: Microsoft.Recursos/implementações/escrita
+6. recursosGroup: Nome do grupo de recursos para o recurso impactado no evento de registo de atividade.
+7. recursosFornecedor: [Fornecedores de recursos azure e explicação de tipos](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fresource-providers-and-types&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373543634&sdata=4RjpTkO5jsdOgPdt%2F%2FDOlYjIFE2%2B%2BuoHq5%2F7lHpCwQw%3D&reserved=0). Para uma lista que mapeie os fornecedores de recursos para os serviços Azure, consulte os fornecedores de [recursos para os serviços Azure.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fazure-services-resource-providers&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373553639&sdata=0ZgJPK7BYuJsRifBKFytqphMOxMrkfkEwDqgVH1g8lw%3D&reserved=0)
+8. estado: Cadeia que descreve o estado da operação no evento de atividade. Por exemplo: Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo, Resolvido
+9. subEstatuto: Normalmente, o código de estado HTTP da chamada DE REPOUSO correspondente, mas também pode incluir outras cordas descrevendo um subestatuto.   Por exemplo: OK (Código de Estado HTTP: 200), Criado (Código de Estado HTTP: 201), Aceito (Código de Estado HTTP: 202), Sem Conteúdo (Código de Estado HTTP: 204), Pedido De Mau Pedido (Código de Estado HTTP: 400), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409), Servidor Interno Erro (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503), Prazo gateway (Código de Estado HTTP: 504).
+10. recursoTipo: O tipo do recurso que foi afetado pelo evento. Por exemplo: Microsoft.Recursos/implementações
+
+Por exemplo:
+
+```json
+"condition": {
+          "allOf": [
+            {
+              "field": "category",
+              "equals": "Administrative"
+            },
+            {
+              "field": "resourceType",
+              "equals": "Microsoft.Resources/deployments"
+            }
+          ]
+        }
+
+```
+Mais detalhes sobre os campos de registo de atividade que pode encontrar [aqui](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
+
+
 
 > [!NOTE]
 > Pode levar até 5 minutos para que a nova regra de alerta de registo de atividade satifique ativa.

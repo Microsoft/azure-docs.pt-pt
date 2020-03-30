@@ -1,6 +1,6 @@
 ---
-title: Instalar o Azure IoT Edge para Linux no Windows | Microsoft Docs
-description: Azure IoT Edge instruções de instalação para contêineres do Linux no Windows 10, Windows Server e Windows IoT Core
+title: Instale a Borda Azure IoT para Linux no Windows [ Microsoft Docs
+description: Instruções de instalação do Azure IoT Edge para recipientes Linux no Windows 10, Windows Server e Windows IoT Core
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
@@ -9,108 +9,108 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 40e6f850a00a8f77e846d9574caedc345aa94cef
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509993"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80133168"
 ---
-# <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Usar IoT Edge no Windows para executar contêineres do Linux
+# <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Use ioT Edge nas janelas para executar recipientes Linux
 
-Testar módulos de IoT Edge para dispositivos Linux usando um computador Windows.
+Teste os módulos IoT Edge para dispositivos Linux utilizando uma máquina Windows.
 
-Em um cenário de produção, os dispositivos Windows só devem executar contêineres do Windows. No entanto, um cenário de desenvolvimento comum é usar um computador Windows para criar módulos IoT Edge para dispositivos Linux. O tempo de execução do IoT Edge para Windows permite que você execute contêineres do Linux para fins de **teste e desenvolvimento** .
+Num cenário de produção, os dispositivos Windows só devem executar contentores Windows. No entanto, um cenário comum de desenvolvimento é usar um computador Windows para construir módulos IoT Edge para dispositivos Linux. O tempo de execução do IoT Edge para Windows permite-lhe executar recipientes Linux para fins de **teste e desenvolvimento.**
 
-Este artigo lista as etapas para instalar o Azure IoT Edge tempo de execução usando contêineres do Linux em seu sistema Windows x64 (AMD/Intel). Para saber mais sobre o instalador do IoT Edge Runtime, incluindo detalhes sobre todos os parâmetros de instalação, consulte [instalar o Azure IOT Edge Runtime no Windows](how-to-install-iot-edge-windows.md).
+Este artigo lista os passos para instalar o tempo de funcionação do Azure IoT Edge utilizando recipientes Linux no seu sistema Windows x64 (AMD/Intel). Para saber mais sobre o instalador de tempo de execução IoT Edge, incluindo detalhes sobre todos os parâmetros de instalação, consulte Instalar o tempo de [execução do Azure IoT Edge no Windows](how-to-install-iot-edge-windows.md).
+
+Para obter informações sobre o que está incluído na versão mais recente do IoT Edge, consulte os [lançamentos do Azure IoT Edge.](https://github.com/Azure/azure-iotedge/releases)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Use esta seção para examinar se o dispositivo Windows pode dar suporte a IoT Edge e prepará-lo para um mecanismo de contêiner antes da instalação.
+Utilize esta secção para analisar se o seu dispositivo Windows pode suportar o IoT Edge e prepará-lo para um motor de contentores antes da instalação.
 
 ### <a name="supported-windows-versions"></a>Versões suportadas do Windows
 
-Azure IoT Edge com contêineres do Linux podem ser executados em qualquer versão do Windows que atenda aos [requisitos do Docker desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
+Os contentores Azure IoT Edge com recipientes Linux podem ser executados em qualquer versão do Windows que cumpra os [requisitos para docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
-Para obter mais informações sobre o que está incluído na versão mais recente do IoT Edge, consulte [Azure IOT Edge versões](https://github.com/Azure/azure-iotedge/releases).
+Se pretender instalar o IoT Edge numa máquina virtual, ative a virtualização aninhada e aloque pelo menos 2-GB de memória. A forma como permite a virtualização aninhada é diferente dependendo do hipervisor que utiliza. Para o Hyper-V, as máquinas virtuais da geração 2 têm anestesia a virtualização ativada por padrão. Para o VMWare, existe um alternância para ativar a funcionalidade na sua máquina virtual.
 
-Se você quiser instalar o IoT Edge em uma máquina virtual, habilite a virtualização aninhada e aloque pelo menos 2 GB de memória. A maneira como você habilita a virtualização aninhada é diferente dependendo do hipervisor que seu uso. Para Hyper-V, as máquinas virtuais de geração 2 têm virtualização aninhada habilitada por padrão. Para o VMWare, há uma alternância para habilitar o recurso em sua máquina virtual.
+### <a name="prepare-the-container-engine"></a>Prepare o motor do recipiente
 
-### <a name="prepare-the-container-engine"></a>Preparar o mecanismo de contêiner
+O Azure IoT Edge conta com um motor de contentor [compatível com OCI.](https://www.opencontainers.org/) A maior diferença de configuração entre executar os recipientes Windows e Linux numa máquina windows é que a instalação IoT Edge inclui um tempo de funcionamento do recipiente Windows, mas você precisa fornecer o seu próprio tempo de funcionamento para os recipientes Linux antes de instalar o IoT Edge.
 
-Azure IoT Edge se baseia em um mecanismo de contêiner [compatível com o OCI](https://www.opencontainers.org/) . A maior diferença de configuração entre a execução de contêineres do Windows e do Linux em um computador com Windows é que a instalação do IoT Edge inclui um tempo de execução de contêiner do Windows, mas você precisa fornecer seu próprio tempo de execução para contêineres do Linux antes de instalar o IoT Edge.
+Para configurar uma máquina Windows para desenvolver e testar recipientes para dispositivos Linux, pode utilizar o [Docker Desktop](https://www.docker.com/docker-windows) como motor de contentores. É necessário instalar o Docker e configurá-lo para [utilizar recipientes Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) antes de instalar o IoT Edge.  
 
-Para configurar um computador Windows para desenvolver e testar contêineres para dispositivos Linux, você pode usar o [Docker desktop](https://www.docker.com/docker-windows) como seu mecanismo de contêiner. Você precisa instalar o Docker e configurá-lo para [usar contêineres do Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) antes de instalar o IOT Edge.  
+Se o seu dispositivo IoT Edge for um computador Windows, verifique se cumpre os [requisitos](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) do sistema para o Hyper-V.
 
-Se o dispositivo de IoT Edge for um computador com Windows, verifique se ele atende aos [requisitos de sistema](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) do Hyper-V.
-
-## <a name="install-iot-edge-on-a-new-device"></a>Instalar IoT Edge em um novo dispositivo
+## <a name="install-iot-edge-on-a-new-device"></a>Instale o IoT Edge num novo dispositivo
 
 >[!NOTE]
->Pacotes de software do Azure IoT Edge são sujeita aos termos de licença localizados nos pacotes (no diretório de licença). Leia os termos de licença antes de utilizar o pacote. A instalação e a utilização do pacote constitui a sua aceitação destes termos. Se não concordar com os termos de licenciamento, não utilize o pacote.
+>Os pacotes de software Azure IoT Edge estão sujeitos aos termos de licença localizados nos pacotes (no diretório LICENSE). Leia os termos da licença antes de utilizar o pacote. A sua instalação e utilização do pacote constitui a sua aceitação destes termos. Se não concordar com os termos da licença, não utilize o pacote.
 
-Um script do PowerShell baixa e instala o daemon de segurança Azure IoT Edge. Em seguida, o daemon de segurança inicia o primeiro de dois módulos de tempo de execução, o agente de IoT Edge, que habilita as implantações remotas de outros módulos.
+Um script PowerShell descarrega e instala o daemon de segurança Azure IoT Edge. O daemon de segurança inicia então o primeiro de dois módulos de tempo de execução, o agente IoT Edge, que permite a implantação remota de outros módulos.
 
-Ao instalar o IoT Edge Runtime pela primeira vez em um dispositivo, você precisa provisionar o dispositivo com uma identidade de um hub IoT. Um único dispositivo de IoT Edge pode ser provisionado manualmente usando uma cadeia de conexão de dispositivo fornecida pelo Hub IoT. Ou, você pode usar o serviço de provisionamento de dispositivos para provisionar dispositivos automaticamente, o que é útil quando você tem muitos dispositivos para configurar.
+Quando instalar o tempo de execução do IoT Edge pela primeira vez num dispositivo, é necessário fornecer o dispositivo com uma identidade a partir de um hub IoT. Um único dispositivo IoT Edge pode ser fornecido manualmente utilizando uma cadeia de ligações do dispositivo fornecida pelo seu hub IoT. Ou, pode utilizar o Serviço de Fornecimento de Dispositivos para fornecer automaticamente dispositivos, o que é útil quando tem muitos dispositivos para configurar.
 
-Você pode ler mais sobre as diferentes opções de instalação e parâmetros no artigo [instalar o Azure IOT Edge tempo de execução no Windows](how-to-install-iot-edge-windows.md). Depois de instalar e configurar o Docker desktop para contêineres do Linux, a principal diferença de instalação é declarar o Linux com o parâmetro **-ContainerOs** . Por exemplo:
+Pode ler mais sobre as diferentes opções e parâmetros de instalação no artigo Instale o tempo de execução do [Azure IoT Edge no Windows](how-to-install-iot-edge-windows.md). Uma vez instalado e configurado o Docker Desktop para os recipientes Linux, a principal diferença de instalação é declarar o Linux com o parâmetro **-ContainerOs.** Por exemplo:
 
-1. Se você ainda não fez isso, registre um novo dispositivo de IoT Edge e recupere a cadeia de conexão do dispositivo. Copie a cadeia de conexão a ser usada posteriormente nesta seção. Você pode concluir esta etapa usando as seguintes ferramentas:
+1. Se ainda não o fez, registe um novo dispositivo IoT Edge e recupere a cadeia de ligação do dispositivo. Copie a cadeia de ligação para utilizar mais tarde nesta secção. Pode completar este passo utilizando as seguintes ferramentas:
 
-   * [Portal do Azure](how-to-register-device.md#register-in-the-azure-portal)
-   * [CLI do Azure](how-to-register-device.md#register-with-the-azure-cli)
-   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
+   * [Portal Azure](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
+   * [Código de estúdio visual](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Execute o PowerShell como um administrador.
 
    >[!NOTE]
-   >Use uma sessão AMD64 do PowerShell para instalar IoT Edge, não o PowerShell (x86). Se você não tiver certeza de qual tipo de sessão está usando, execute o seguinte comando:
+   >Utilize uma sessão AMD64 da PowerShell para instalar o IoT Edge, não o PowerShell (x86). Se não tiver a certeza de que tipo de sessão está a usar, execute o seguinte comando:
    >
    >```powershell
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. O comando **Deploy-IoTEdge** verifica se o computador Windows está em uma versão com suporte, ativa o recurso de contêineres e, em seguida, baixa o tempo de execução do Moby (que não é usado para contêineres do Linux) e o tempo de execução de IOT Edge. O padrão do comando para contêineres do Windows, portanto, declare o Linux como o sistema operacional do contêiner desejado.
+3. O comando **Deploy-IoTEdge** verifica se a sua máquina Windows está numa versão suportada, liga a funcionalidade de contentores e, em seguida, descarrega o tempo de execução moby (que não é usado para recipientes Linux) e o tempo de execução do IoT Edge. O comando não se aplica aos recipientes windows, por isso declare o Linux como o sistema operativo de contentores pretendido.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge -ContainerOs Linux
    ```
 
-4. Neste ponto, os dispositivos IoT Core podem ser reiniciados automaticamente. Outros dispositivos Windows 10 ou Windows Server podem solicitar a reinicialização. Nesse caso, reinicie o dispositivo agora. Quando o dispositivo estiver pronto, execute o PowerShell como administrador novamente.
+4. Neste ponto, os dispositivos IoT Core podem reiniciar automaticamente. Outros dispositivos do Windows 10 ou Do Windows Server podem pedir-lhe para reiniciar. Em caso afirmativo, reinicie o seu dispositivo agora. Uma vez que o seu dispositivo esteja pronto, execute a PowerShell como administrador novamente.
 
-5. O comando **Initialize-IoTEdge** configura o tempo de execução de IOT Edge em seu computador. O comando usa como padrão o provisionamento manual com uma cadeia de conexão de dispositivo. Declare o Linux como o sistema operacional do contêiner desejado novamente.
+5. O comando **Initialize-IoTEdge** configura o tempo de execução do IoT Edge na sua máquina. O comando predefinido para o fornecimento manual com uma cadeia de ligação do dispositivo. Declare o Linux como o sistema de funcionamento desejado para o contentor novamente.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Linux
    ```
 
-6. Quando solicitado, forneça a cadeia de conexão do dispositivo que você recuperou na etapa 1. A cadeia de conexão do dispositivo associa o dispositivo físico a uma ID do dispositivo no Hub IoT.
+6. Quando solicitado, forneça a cadeia de ligação do dispositivo que recuperou no passo 1. A cadeia de ligação do dispositivo associa o dispositivo físico a um ID do dispositivo no IoT Hub.
 
-   A cadeia de conexão do dispositivo usa o seguinte formato e não deve incluir aspas: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   A cadeia de ligação do dispositivo toma o seguinte formato e não deve incluir aspas:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
-## <a name="verify-successful-installation"></a>Certifique-se a instalação com êxito
+## <a name="verify-successful-installation"></a>Verificar instalação bem sucedida
 
-Verifique o status do serviço de IoT Edge:
+Verifique o estado do serviço IoT Edge:
 
 ```powershell
 Get-Service iotedge
 ```
 
-Examine os logs de serviço dos últimos 5 minutos:
+Examine os registos de serviço dos últimos 5 minutos:
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Execute uma verificação automatizada para os erros mais comuns de configuração e rede:
+Faça uma verificação automatizada para os erros de configuração e de rede mais comuns:
 
 ```powershell
 iotedge check
 ```
 
-Lista de módulos em execução. Após uma nova instalação, o único módulo que você deve ver em execução é **edgeAgent**. Depois de [implantar os módulos do IOT Edge](how-to-deploy-modules-portal.md) pela primeira vez, o outro módulo do sistema, **edgeHub**, também será iniciado no dispositivo.
+Lista de módulos de execução. Depois de uma nova instalação, o único módulo que deve ver a correr é **o EdgeAgent**. Depois de implementar pela primeira vez [módulos IoT Edge,](how-to-deploy-modules-portal.md) o outro módulo de sistema, **edgeHub,** também começará no dispositivo.
 
 ```powershell
 iotedge list
@@ -118,8 +118,8 @@ iotedge list
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tiver um dispositivo IoT Edge aprovisionado com o tempo de execução instalado, pode [implementar módulos IoT Edge](how-to-deploy-modules-portal.md).
+Agora que tem um dispositivo IoT Edge aprovisionado com o tempo de funcionar instalado, pode [implementar módulos IoT Edge](how-to-deploy-modules-portal.md).
 
-Se você estiver tendo problemas para instalar o IoT Edge corretamente, confira a página de [solução de problemas](troubleshoot.md) .
+Se estiver com problemas em instalar o IoT Edge corretamente, consulte a página de resolução de [problemas.](troubleshoot.md)
 
-Para atualizar uma instalação existente para a versão mais recente do IoT Edge, consulte [atualizar o daemon de segurança IOT Edge e o tempo de execução](how-to-update-iot-edge.md).
+Para atualizar uma instalação existente para a versão mais recente do IoT Edge, consulte [Atualizar o daemon de segurança IoT Edge e o tempo](how-to-update-iot-edge.md)de execução .

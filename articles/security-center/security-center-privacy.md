@@ -1,6 +1,6 @@
 ---
-title: Gerenciar dados do usuário na central de segurança do Azure | Microsoft Docs
-description: Saiba como gerenciar os dados do usuário na central de segurança do Azure. O gerenciamento de dados do usuário inclui a capacidade de acessar, excluir ou exportar dados.
+title: Gerir os dados dos utilizadores no Azure Security Center [ Microsoft Docs
+description: Saiba como gerir os dados dos utilizadores no Azure Security Center. A gestão dos dados dos utilizadores inclui a capacidade de aceder, eliminar ou exportar dados.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,90 +14,90 @@ ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
 ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978609"
 ---
-# <a name="manage-user-data-in-azure-security-center"></a>Gerenciar dados do usuário na central de segurança do Azure
-Este artigo fornece informações sobre como você pode gerenciar os dados do usuário na central de segurança do Azure. O gerenciamento de dados do usuário inclui a capacidade de acessar, excluir ou exportar dados.
+# <a name="manage-user-data-in-azure-security-center"></a>Manage user data in Azure Security Center (Gerir dados de utilizadores no Centro de Segurança do Azure)
+Este artigo fornece informações sobre como pode gerir os dados dos utilizadores no Azure Security Center. A gestão dos dados dos utilizadores inclui a capacidade de aceder, eliminar ou exportar dados.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-Um usuário da central de segurança atribuiu a função de leitor, proprietário, colaborador ou administrador da conta pode acessar dados do cliente dentro da ferramenta. Para saber mais sobre a função de administrador da conta, consulte [funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md) para saber mais sobre as funções leitor, proprietário e colaborador. Consulte [Administradores de assinatura do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
+Um utilizador do Security Center atribuiu o papel de Leitor, Proprietário, Contribuinte ou Administrador de Conta pode aceder aos dados do cliente dentro da ferramenta. Para saber mais sobre o papel de Administrador de Conta, consulte as funções incorporadas para o controlo de [acesso baseado em funções azure](../role-based-access-control/built-in-roles.md) para saber mais sobre as funções de Leitor, Proprietário e Contribuinte. Consulte [os administradores de subscrição do Azure.](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Procurar e identificar dados pessoais
-Um usuário da central de segurança pode exibir seus dados pessoais por meio do portal do Azure. A central de segurança só armazena detalhes de contato de segurança, como endereços de email e números de telefone. Para obter mais informações, consulte [fornecer detalhes de contato de segurança na central de segurança do Azure](security-center-provide-security-contact-details.md).
+Um utilizador do Security Center pode ver os seus dados pessoais através do portal Azure. O Security Center apenas armazena dados de contacto de segurança, tais como endereços de e-mail e números de telefone. Para mais informações, consulte Fornecer detalhes de contacto de [segurança no Centro de Segurança Azure](security-center-provide-security-contact-details.md).
 
-No portal do Azure, um usuário pode exibir as configurações de IP permitidas usando o recurso de acesso à VM just-in-time da central de segurança. Para obter mais informações, consulte [gerenciar o acesso à máquina virtual usando just-in-time](security-center-just-in-time.md).
+No portal Azure, um utilizador pode visualizar configurações IP permitidas utilizando a funcionalidade de acesso VM just-in-time do Security Center. Para mais informações, consulte Gerir o acesso virtual à [máquina utilizando o tempo justo](security-center-just-in-time.md).
 
-No portal do Azure, um usuário pode exibir os alertas de segurança fornecidos pela central de segurança, incluindo os endereços IP e os detalhes do invasor. Para obter mais informações, consulte [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md).
+No portal Azure, um utilizador pode visualizar alertas de segurança fornecidos pelo Security Center, incluindo endereços IP e detalhes do atacante. Para mais informações, consulte Gerir e responder a alertas de segurança no Centro de [Segurança Azure.](security-center-managing-and-responding-alerts.md)
 
-## <a name="classifying-personal-data"></a>Classificando dados pessoais
-Você não precisa classificar os dados pessoais encontrados no recurso de contato de segurança da central de segurança. Os dados salvos são um endereço de email (ou vários endereços de email) e um número de telefone. [Os dados de contato](security-center-provide-security-contact-details.md) são validados pela central de segurança.
+## <a name="classifying-personal-data"></a>Classificação de dados pessoais
+Não precisa de classificar os dados pessoais encontrados na funcionalidade de contacto de segurança do Security Center. Os dados guardados são um endereço de e-mail (ou múltiplos endereços de e-mail) e um número de telefone. [Os dados de contacto](security-center-provide-security-contact-details.md) são validados pelo Security Center.
 
-Você não precisa classificar os endereços IP e os números de porta salvos pelo recurso [just-in-time](security-center-just-in-time.md) da central de segurança.
+Não é necessário classificar os endereços IP e os números de porta guardados pela funcionalidade [just-in-time](security-center-just-in-time.md) do Security Center.
 
-Somente um usuário atribuído à função de administrador pode classificar dados pessoais [exibindo alertas](security-center-managing-and-responding-alerts.md) na central de segurança.
+Apenas um utilizador designado o papel de Administrador pode classificar os dados pessoais [visualizando alertas](security-center-managing-and-responding-alerts.md) no Centro de Segurança.
 
-## <a name="securing-and-controlling-access-to-personal-data"></a>Protegendo e controlando o acesso a dados pessoais
-Um usuário da central de segurança atribuiu a função de leitor, proprietário, colaborador ou administrador de conta pode acessar [dados de contato de segurança](security-center-provide-security-contact-details.md).
+## <a name="securing-and-controlling-access-to-personal-data"></a>Garantir e controlar o acesso aos dados pessoais
+Um utilizador do Security Center atribuiu o papel de Leitor, Proprietário, Contribuinte ou Administrador de Conta pode aceder a dados de contacto de [segurança](security-center-provide-security-contact-details.md).
 
-Um usuário da central de segurança atribuiu a função de leitor, proprietário, colaborador ou administrador da conta pode acessar suas políticas [just-in-time](security-center-just-in-time.md) .
+Um utilizador do Security Center atribuiu o papel de Leitor, Proprietário, Contribuinte ou Administrador de Conta pode aceder às suas políticas [just-in-time.](security-center-just-in-time.md)
 
-Um usuário da central de segurança atribuiu a função de leitor, proprietário, colaborador ou administrador da conta pode exibir seus [alertas](security-center-managing-and-responding-alerts.md).
+Um utilizador do Security Center atribuiu o papel de Leitor, Proprietário, Contribuinte ou Administrador de Conta pode ver os seus [alertas](security-center-managing-and-responding-alerts.md).
 
-## <a name="updating-personal-data"></a>A atualizar os dados pessoais
-Um usuário da central de segurança que atribuiu a função de proprietário, colaborador ou administrador da conta pode atualizar [dados de contato de segurança](security-center-provide-security-contact-details.md) por meio do portal do Azure.
+## <a name="updating-personal-data"></a>Atualizar dados pessoais
+Um utilizador do Security Center atribuiu o papel de Proprietário, Colaborador ou Administrador de Conta pode atualizar [os dados](security-center-provide-security-contact-details.md) de contacto de segurança através do portal Azure.
 
-Um usuário da central de segurança que atribuiu a função de proprietário, colaborador ou administrador da conta pode atualizar suas [políticas just-in-time](security-center-just-in-time.md).
+Um utilizador do Security Center atribuiu o papel de Proprietário, Contribuinte ou Administrador de Conta pode atualizar as suas [políticas just-in-time](security-center-just-in-time.md).
 
-Um administrador de conta não pode editar incidentes de alerta. Um [incidente de alerta](security-center-managing-and-responding-alerts.md) é considerado dados de segurança e é somente leitura.
+Um administrador de conta não pode editar incidentes de alerta. Um [incidente de alerta](security-center-managing-and-responding-alerts.md) é considerado dados de segurança e é lido apenas.
 
-## <a name="deleting-personal-data"></a>A eliminar os dados pessoais
-Um usuário da central de segurança que atribuiu a função de proprietário, colaborador ou administrador da conta pode excluir [dados de contato de segurança](security-center-provide-security-contact-details.md) por meio do portal do Azure.
+## <a name="deleting-personal-data"></a>Eliminar dados pessoais
+Um utilizador do Security Center atribuiu o papel de Proprietário, Colaborador ou Administrador de Conta pode eliminar dados de contacto de [segurança](security-center-provide-security-contact-details.md) através do portal Azure.
 
-Um usuário da central de segurança que atribuiu a função de proprietário, colaborador ou administrador da conta pode excluir as [políticas just-in-time](security-center-just-in-time.md) por meio do portal do Azure.
+Um utilizador do Security Center atribuiu o papel de Proprietário, Contribuinte ou Administrador de Conta pode eliminar as [políticas just-in-time](security-center-just-in-time.md) através do portal Azure.
 
-Um usuário da central de segurança não pode excluir incidentes de alerta. Por motivos de segurança, um [incidente de alerta](security-center-managing-and-responding-alerts.md) é considerado dados somente leitura.
+Um utilizador do Centro de Segurança não pode apagar incidentes de alerta. Por razões de segurança, um incidente de [alerta](security-center-managing-and-responding-alerts.md) é considerado apenas dados de leitura.
 
-## <a name="exporting-personal-data"></a>Exportar os dados pessoais
-Um usuário da central de segurança que atribuiu a função de leitor, proprietário, colaborador ou administrador de conta pode exportar [dados de contato de segurança](security-center-provide-security-contact-details.md) :
+## <a name="exporting-personal-data"></a>Exportar dados pessoais
+Um utilizador do Security Center atribuiu o papel de Leitor, Proprietário, Contribuinte ou Administrador de Conta pode exportar dados de contacto de [segurança](security-center-provide-security-contact-details.md) por:
 
-- Copiando do portal do Azure
-- Executando a chamada à API REST do Azure, GET HTTP:
+- Cópia do portal Azure
+- Executando a chamada Azure REST API, GET HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
   ```
 
-Um usuário da central de segurança que atribuiu a função de administrador da conta pode exportar as [políticas just-in-time](security-center-just-in-time.md) que contêm os endereços IP:
+Um utilizador do Security Center atribuiu o papel de Administrador de Conta pode exportar as [políticas just-in-time](security-center-just-in-time.md) contendo os endereços IP por:
 
-- Copiando do portal do Azure
-- Executando a chamada à API REST do Azure, GET HTTP:
+- Cópia do portal Azure
+- Executando a chamada Azure REST API, GET HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
   ```
 
-Um administrador de conta pode exportar os detalhes do alerta:
+Um Administrador de Conta pode exportar os detalhes do alerta por:
 
-- Copiando do portal do Azure
-- Executando a chamada à API REST do Azure, GET HTTP:
+- Cópia do portal Azure
+- Executando a chamada Azure REST API, GET HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-Para obter mais informações, consulte [obter alertas de segurança (obter coleção)](https://msdn.microsoft.com/library/mt704050.aspx).
+Para mais informações, consulte Obter Alertas de [Segurança (Get Collection)](https://msdn.microsoft.com/library/mt704050.aspx).
 
-## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Restringindo o uso de dados pessoais para criação de perfil ou marketing sem consentimento
-Um usuário da central de segurança pode optar por recusar excluindo seus [dados de contato de segurança](security-center-provide-security-contact-details.md).
+## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Restringir a utilização de dados pessoais para perfis ou marketing sem consentimento
+Um utilizador do Security Center pode optar por não optar por eliminar os seus dados de contacto de [segurança](security-center-provide-security-contact-details.md).
 
-[Os dados Just-in-time](security-center-just-in-time.md) são considerados dados não identificáveis e são mantidos por um período de 30 dias.
+[Os dados just-in-time](security-center-just-in-time.md) são considerados dados não identificáveis e são conservados por um período de 30 dias.
 
-[Os dados de alerta](security-center-managing-and-responding-alerts.md) são considerados dados de segurança e são mantidos por um período de dois anos.
+[Os dados de alerta](security-center-managing-and-responding-alerts.md) são considerados dados de segurança e são conservados por um período de dois anos.
 
 ## <a name="auditing-and-reporting"></a>Auditoria e relatórios
-Os logs de auditoria de contato de segurança, just-in-time e atualizações de alertas são mantidos nos [logs de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).
+Os registos de auditoria do contacto de segurança, just-in-time e atualizações de alerta são mantidos em Registos de [Atividade sinuoso](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre como gerenciar dados de usuário, consulte [gerenciar dados de usuário encontrados em uma investigação da central de segurança do Azure](security-center-investigation-user-data.md).
+Para obter mais informações sobre a gestão dos dados dos utilizadores, consulte [Gerir os dados dos utilizadores encontrados numa investigação do Azure Security Center.](security-center-investigation-user-data.md)

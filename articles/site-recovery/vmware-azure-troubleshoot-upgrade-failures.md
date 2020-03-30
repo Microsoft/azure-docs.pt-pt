@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de atualização do provedor de Site Recovery de Microsoft Azure
-description: Resolva problemas comuns que ocorrem ao atualizar o provedor de Site Recovery de Microsoft Azure.
+title: Atualização de problemas do Fornecedor de Recuperação de Sites do Microsoft Azure
+description: Resolver problemas comuns que ocorrem ao atualizar o fornecedor de recuperação de websites do Microsoft Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,61 +8,61 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75893904"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Resolver problemas de falhas de atualização do Fornecedor do Microsoft Azure Site Recovery
 
-Este artigo ajuda você a resolver problemas que podem causar falhas durante uma atualização de provedor de Site Recovery Microsoft Azure.
+Este artigo ajuda-o a resolver problemas que podem causar falhas durante uma atualização do Microsoft Azure Site Recovery Provider.
 
-## <a name="the-upgrade-fails-reporting-that-the-latest-site-recovery-provider-is-already-installed"></a>A atualização falha ao relatar que o provedor de Site Recovery mais recente já está instalado
+## <a name="the-upgrade-fails-reporting-that-the-latest-site-recovery-provider-is-already-installed"></a>A atualização falha em informar que o mais recente Fornecedor de Recuperação do Site já está instalado
 
-Ao atualizar Microsoft Azure o provedor de Site Recovery (DRA), a atualização de instalação unificada falha e emite a mensagem de erro:
+Ao atualizar o Fornecedor de Recuperação de Websites do Microsoft Azure (DRA), a atualização unificada de configuração falha e emite a mensagem de erro:
 
-Não há suporte para a atualização porque uma versão mais recente do software já está instalada.
+A atualização não é suportada, uma vez que uma versão mais alta do software já está instalada.
 
-Para atualizar, use as seguintes etapas:
+Para atualizar, utilize os seguintes passos:
 
-1. Baixe a configuração unificada do Microsoft Azure Site Recovery:
-   1. Na seção "links para pacotes cumulativos de atualizações com suporte no momento" do artigo [atualizações de serviço no Azure site Recovery](service-updates-how-to.md#links-to-currently-supported-update-rollups) , selecione o provedor para o qual você está atualizando.
-   2. Na página ROLLUP, localize a seção **informações de atualização** e baixe o pacote cumulativo de atualizações para Microsoft Azure site Recovery configuração unificada.
+1. Descarregue a configuração unificada de recuperação do site do Microsoft Azure:
+   1. Na secção "Links to currently supported update rollups" das atualizações do Serviço no artigo de Recuperação de [Sites Do Azure,](service-updates-how-to.md#links-to-currently-supported-update-rollups) selecione o fornecedor para o qual está a atualizar.
+   2. Na página de rollup, localize a secção de **informações do Update** e descarregue o Rollup de Atualização para a Configuração Unificada de Recuperação do Site microsoft Azure.
 
-2. Abra um prompt de comando e navegue até a pasta para a qual você baixou o arquivo de instalação unificada. Extraia os arquivos de instalação do download usando o comando a seguir, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x:&lt;caminho da pasta para os arquivos extraídos&gt;.
+2. Abra um pedido de comando e navegue para a pasta para a qual descarregou o ficheiro De Configuração Unificada. Extrair os ficheiros de configuração do download utilizando o seguinte comando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;caminho da pasta para os ficheiros extraídos&gt;.
     
     Comando de exemplo:
 
-    MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
+    MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extratou
 
-3. No prompt de comando, navegue até a pasta para a qual você extraiu os arquivos e execute os seguintes comandos de instalação:
+3. No pedido de comando, navegue para a pasta para a qual extraiu os ficheiros e execute os seguintes comandos de instalação:
    
-    CX_THIRDPARTY_SETUP.EXE /VERYSILENT /SUPPRESSMSGBOXES /NORESTART  UCX_SERVER_SETUP.EXE /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /UPGRADE
+    CX_THIRDPARTY_SETUP. EXE /VERYSILENT /SUPPRESSMSGBOXES /NORESTART UCX_SERVER_SETUP. EX /VERYSILENT /SUPRESSma /SUPRESSÃO /NORESTART /UPGRADE
 
-1. Retorne à pasta para a qual você baixou a configuração unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup. exe para concluir a atualização. 
+1. Volte à pasta para a qual descarregou a Configuração Unificada e execute o MicrosoftAzureSiteRecoveryUnifiedSetup.exe para terminar a atualização. 
 
-## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Falha de atualização devido à pasta de terceiros sendo renomeada
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Falha de upgrade devido à renome da pasta de terceiros
 
-Para que a atualização seja realizada com sucesso, a pasta de terceiros não deve ser renomeada.
+Para que a atualização tenha sucesso, a pasta de terceiros não deve ser renomeada.
 
 Para resolver o problema.
 
-1. Inicie o editor do registro (regedit. exe) e abra o HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 Branch.
-1. Inspecione o valor da chave de `Build_Version`. Se estiver definido como a versão mais recente, reduza o número de versão. Por exemplo, se a versão mais recente for 9,22.\* e a chave de `Build_Version` configurada para esse valor e, em seguida, reduza-a para 9,21.\*.
-1. Baixe o Microsoft Azure mais recente Site Recovery configuração unificada:
-   1. Na seção "links para pacotes cumulativos de atualizações com suporte no momento" do artigo [atualizações de serviço no Azure site Recovery](service-updates-how-to.md#links-to-currently-supported-update-rollups) , selecione o provedor para o qual você está atualizando.
-   2. Na página ROLLUP, localize a seção **informações de atualização** e baixe o pacote cumulativo de atualizações para Microsoft Azure site Recovery configuração unificada.
-1. Abra um prompt de comando e navegue até a pasta para a qual você baixou o arquivo de instalação unificado e extraia os arquivos de instalação do download usando o comando a seguir, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x:&lt;caminho da pasta para os arquivos extraídos&gt;.
+1. Inicie o Editor de Registo (regedit.exe) e abra a filial HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10.
+1. Inspecione `Build_Version` o valor-chave. Se estiver definido para a versão mais recente, reduza o número da versão. Por exemplo, se a versão mais recente for 9.22. \* e `Build_Version` a chave definida para esse valor, em seguida, reduzi-lo para 9.21. \*.
+1. Faça o download da mais recente configuração unificada de recuperação do site do Microsoft Azure:
+   1. Na secção "Links to currently supported update rollups" das atualizações do Serviço no artigo de Recuperação de [Sites Do Azure,](service-updates-how-to.md#links-to-currently-supported-update-rollups) selecione o fornecedor para o qual está a atualizar.
+   2. Na página de rollup, localize a secção de **informações do Update** e descarregue o Rollup de Atualização para a Configuração Unificada de Recuperação do Site microsoft Azure.
+1. Abra um pedido de comando e navegue para a pasta para a qual descarregou o ficheiro De configuração Unificada e o extrato dos ficheiros de configuração do download utilizando o seguinte comando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;caminho de pasta para os ficheiros extraídos&gt;.
 
     Comando de exemplo:
 
-    MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
+    MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extratou
 
-1. No prompt de comando, navegue até a pasta para a qual você extraiu os arquivos e execute os seguintes comandos de instalação:
+1. No pedido de comando, navegue para a pasta para a qual extraiu os ficheiros e execute os seguintes comandos de instalação:
    
-    CX_THIRDPARTY_SETUP.EXE /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
+    CX_THIRDPARTY_SETUP. EX /VERYSILENT /SUPRESSor /NORESTART
 
-1. Use o Gerenciador de tarefas para monitorar o progresso da instalação. Quando o processo para CX_THIRDPARTY_SETUP. EXE não estará mais visível no Gerenciador de tarefas, vá para a próxima etapa.
-1. Verifique se C:\thirdparty existe e se a pasta contém as bibliotecas RRD.
-1. Retorne à pasta para a qual você baixou a configuração unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup. exe para concluir a atualização. 
+1. Utilize o gestor de tarefas para monitorizar o progresso da instalação. Quando o processo para CX_THIRDPARTY_SETUP. ExE já não é visível no gestor de tarefas, passar para o próximo passo.
+1. Verifique se c:\terceiro existe e que a pasta contém as bibliotecas RRD.
+1. Volte à pasta para a qual descarregou a Configuração Unificada e execute o MicrosoftAzureSiteRecoveryUnifiedSetup.exe para terminar a atualização. 

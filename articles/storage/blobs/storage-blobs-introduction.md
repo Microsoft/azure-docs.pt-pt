@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: aeb6971d37601367e62b8f883ccbc576e9534cdb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ff1d34462680ddd6be7f1a47d9a27594bcce4ff6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79240535"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061492"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -29,7 +29,7 @@ O armazenamento blob oferece três tipos de recursos:
 
 O diagrama seguinte mostra a relação entre estes recursos.
 
-![relação entre o recurso De conta Blob e Container](./media/storage-blobs-introduction/blob1.png)
+![Diagrama mostrando a relação entre uma conta de armazenamento, recipientes e bolhas](./media/storage-blobs-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 
@@ -60,7 +60,7 @@ O Armazenamento Azure suporta três tipos de bolhas:
 
 Para obter mais informações sobre os diferentes tipos de bolhas, consulte [Understanding Block Blobs, Append Blobs e Page Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
-## <a name="move-data-to-blob-storage"></a>Mova dados para o armazenamento blob
+## <a name="move-data-to-blob-storage"></a>Move data to Blob storage (Mover dados para o armazenamento de Blobs)
 
 Existem várias soluções para a migração dos dados existentes para o armazenamento da Blob:
 

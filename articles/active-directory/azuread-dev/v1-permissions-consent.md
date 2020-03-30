@@ -5,24 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: jesakowi, justhu
+ms.reviewer: jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: cde2d286be7180458d997f6db06e4ff16a993dff
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164009"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154479"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no Diretório Ativo Azure v1.0 endpoint
 
@@ -101,9 +98,9 @@ As aplicações no Azure AD dependem de consentimento para ter acesso a recursos
 - Os recursos devem definir explicitamente as permissões `Read` e `ReadWrite` em separado.
 - Os recursos devem marcar todas as permissões que permitem acesso aos dados em limites do utilizador como permissões `Admin`.
 - Os recursos devem seguir o padrão de nomenclatura `Subject.Permission[.Modifier]`, em que:
-  - `Subject` corresponde ao tipo de dados disponíveis
-  - `Permission` corresponde à ação que um utilizador pode tomar sobre esses dados
-  - `Modifier` é usado opcionalmente para descrever especializações de outra permissão
+  - `Subject`corresponde ao tipo de dados que está disponível
+  - `Permission`corresponde à ação que um utilizador pode assumir sobre que os dados
+  - `Modifier`é usado opcionalmente para descrever especializações de outra permissão
     
     Por exemplo:
   - Mail.Read - permite aos utilizadores lerem correio.

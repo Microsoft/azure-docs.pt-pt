@@ -1,6 +1,6 @@
 ---
-title: Introdução ao armazenamento de BLOBs do Azure usando o Visual Studio (ASP.NET Core)
-description: Como começar a usar o armazenamento de BLOBs do Azure em um projeto ASP.NET Core no Visual Studio, depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio
+title: Inicie-se com o armazenamento Azure Blob usando o Visual Studio (ASP.NET Core)
+description: Como começar a usar o armazenamento Azure Blob num projeto ASP.NET Core no Visual Studio, depois de se ligar a uma conta de armazenamento utilizando serviços conectados ao Visual Studio
 services: storage
 documentationcenter: ''
 author: ghogen
@@ -16,21 +16,21 @@ ms.date: 12/07/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ff221a32ff6c995d019b13f20ca2c3f9e2027f63
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75980737"
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao armazenamento de BLOBs do Azure e aos serviços conectados do Visual Studio (ASP.NET Core)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Inicie com serviços conectados de armazenamento Azure Blob e Visual Studio (ASP.NET Core)
 
 > [!div class="op_single_selector"]
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-O armazenamento de BLOBs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos ou BLOBs. O Blob Storage pode armazenar qualquer tipo de texto ou de dados binários, tal como um documento, um ficheiro de multimédia ou um instalador da aplicação. O Blob Storage também é referido como um armazenamento de objetos. Para saber mais sobre o armazenamento de BLOBs, consulte [introdução ao armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md).
+O armazenamento azure Blob é um serviço que armazena dados não estruturados na nuvem como objetos ou bolhas. O Blob Storage pode armazenar qualquer tipo de texto ou de dados binários, tal como um documento, um ficheiro de multimédia ou um instalador da aplicação. O Blob Storage também é referido como um armazenamento de objetos. Para saber mais sobre o armazenamento blob, consulte [Introdução ao armazenamento De Blob Azure](../storage/blobs/storage-blobs-introduction.md).
 
-Este tutorial mostra como escrever ASP.NET Core código para alguns cenários comuns que usam o armazenamento de BLOBs. Os cenários incluem a criação de um contêiner de BLOBs e o carregamento, a listagem, o download e a exclusão de BLOBs.
+Este tutorial mostra como escrever ASP.NET código Core para alguns cenários comuns que usam o armazenamento blob. Os cenários incluem a criação de um recipiente de bolha, e o upload, listagem, descarregamento e apagando bolhas.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
@@ -40,57 +40,57 @@ Este tutorial mostra como escrever ASP.NET Core código para alguns cenários co
 
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
 
-Esta seção orienta a configuração do ambiente de desenvolvimento. Isso inclui a criação de um aplicativo MVC (Model-View-Controller) ASP.NET, a adição de uma conexão de serviços conectados, a adição de um controlador e a especificação das diretivas de namespace necessárias.
+Esta secção passa pela criação do ambiente de desenvolvimento. Isto inclui a criação de uma aplicação ASP.NET Model-View-Controller (MVC), adicionando uma ligação de serviços conectados, adicionando um controlador e especificando as diretivas de espaço de nome exigidas.
 
-### <a name="create-an-aspnet-mvc-app-project"></a>Criar um projeto de aplicativo do ASP.NET MVC
+### <a name="create-an-aspnet-mvc-app-project"></a>Criar um ASP.NET projeto de aplicação MVC
 
 1. Abra o Visual Studio.
 
-1. No menu principal, selecione **arquivo** > **novo** **projeto**de > .
+1. A partir do menu principal, selecione **File** > **New** > **Project**.
 
-1. Na caixa de diálogo **novo projeto** , selecione **Web** > **ASP.NET Core aplicativo Web** > **AspNetCoreStorage**. Em seguida, selecione **OK**.
+1. Na caixa de diálogo **New Project,** selecione **Web** > **ASP.NET Core Web Application** > **AspNetCoreStorage**. Em seguida, selecione **OK**.
 
-    ![Captura de tela da caixa de diálogo novo projeto do Visual Studio](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
+    ![Screenshot da caixa de diálogo do estúdio visual Novo projeto](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
-1. Na caixa de diálogo **novo aplicativo web ASP.NET Core** , selecione **.net Core** > **ASP.NET Core 2,0** > **aplicativo Web (Model-View-Controller)** . Em seguida, selecione **OK**.
+1. Na caixa de diálogo **New ASP.NET Core Web Application,** selecione **.NET Core** > **ASP.NET Core 2.0** > **Web Application (Model-View-Controller)**. Em seguida, selecione **OK**.
 
-    ![Captura de tela da caixa de diálogo novo aplicativo Web ASP.NET Core](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
+    ![Screenshot da nova caixa de diálogo da aplicação web do núcleo de ASP.NET](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Usar serviços conectados para se conectar a uma conta de armazenamento do Azure
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Utilize serviços conectados para se conectar a uma conta de armazenamento Azure
 
-1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto.
+1. No **Solution Explorer,** clique no projeto.
 
-2. No menu de contexto, selecione **adicionar** > **serviço conectado**.
+2. A partir do menu de contexto, selecione **Adicionar** > **Serviço Conectado**.
 
-1. Na caixa de diálogo **Serviços conectados** , selecione **armazenamento em nuvem com o armazenamento do Azure**e, em seguida, selecione **Configurar**.
+1. Na caixa de diálogo **Connected Services,** selecione **Cloud Storage com Armazenamento Azure**, e, em seguida, selecione **Configurar**.
 
-    ![Captura de tela da caixa de diálogo serviços conectados](./media/vs-storage-aspnet-core-getting-started-blobs/connected-services.png)
+    ![Screenshot da caixa de diálogo de serviços conectados](./media/vs-storage-aspnet-core-getting-started-blobs/connected-services.png)
 
-1. Na caixa de diálogo **armazenamento do Azure** , selecione a conta de armazenamento do Azure a ser usada para este tutorial. Para criar uma nova conta de armazenamento do Azure, selecione **criar uma nova conta de armazenamento**e preencha o formulário. Depois de selecionar uma conta de armazenamento existente ou criar uma nova, selecione **Adicionar**. O Visual Studio instala o pacote NuGet para o armazenamento do Azure e uma cadeia de conexão de armazenamento para **appSettings. JSON**.
+1. Na caixa de diálogo **Azure Storage,** selecione a conta de armazenamento Azure a utilizar para este tutorial. Para criar uma nova conta de armazenamento Azure, selecione **Criar uma Nova Conta**de Armazenamento e preencher o formulário. Depois de selecionar uma conta de armazenamento existente ou criar uma nova, **selecione Adicionar**. O Visual Studio instala o pacote NuGet para armazenamento azure, e uma cadeia de ligação de armazenamento para **appsettings.json**.
 
 > [!TIP]
-> Para saber como criar uma conta de armazenamento com o [portal do Azure](https://portal.azure.com), consulte [criar uma conta de armazenamento](../storage/common/storage-account-create.md).
+> Para aprender a criar uma conta de armazenamento com o [portal Azure,](https://portal.azure.com)consulte [Criar uma conta](../storage/common/storage-account-create.md)de armazenamento .
 >
-> Você também pode criar uma conta de armazenamento usando [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [CLI do Azure](../storage/common/storage-azure-cli.md)ou [Azure cloud Shell](../cloud-shell/overview.md).
+> Também pode criar uma conta de armazenamento utilizando [o Azure PowerShell,](../storage/common/storage-powershell-guide-full.md) [o Azure CLI](../storage/common/storage-azure-cli.md)ou [o Azure Cloud Shell.](../cloud-shell/overview.md)
 
 
 ### <a name="create-an-mvc-controller"></a>Criar um controlador MVC 
 
-1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **controladores**.
+1. No **Solution Explorer,** **controladores**de clique sintetizados .
 
-2. No menu de contexto, selecione **adicionar** > **controlador**.
+2. A partir do menu de contexto, selecione **Adicionar** > **Controlador**.
 
-    ![Captura de tela de Gerenciador de Soluções](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-menu.png)
+    ![Screenshot do Explorador de Soluções](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-menu.png)
 
-1. Na caixa de diálogo **Adicionar Scaffold** , selecione **controlador MVC-vazio**e selecione **Adicionar**.
+1. Na caixa de diálogo **Add Scaffold,** selecione **Controlador MVC - Vazio**, e selecione **Adicionar**.
 
-    ![Captura de tela da caixa de diálogo Adicionar Scaffold](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller.png)
+    ![Screenshot da caixa de diálogo add andaime](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller.png)
 
-1. Na caixa de diálogo **Adicionar controlador MVC vazio** , nomeie o controlador *BlobsController*e selecione **Adicionar**.
+1. Na caixa de diálogo **do controlador Add Empty MVC,** nomeie o controlador *BlobsController*, e selecione **Adicionar**.
 
-    ![Captura de tela da caixa de diálogo Adicionar controlador MVC vazio](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-name.png)
+    ![Screenshot de adicionar caixa de diálogo do controlador MVC vazio](./media/vs-storage-aspnet-core-getting-started-blobs/add-controller-name.png)
 
-1. Adicione as seguintes diretivas de `using` ao arquivo de `BlobsController.cs`:
+1. Adicione as `using` seguintes `BlobsController.cs` diretivas ao ficheiro:
 
     ```csharp
     using System.IO;
@@ -99,15 +99,15 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Isso inclu
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-## <a name="connect-to-a-storage-account-and-get-a-container-reference"></a>Conectar-se a uma conta de armazenamento e obter uma referência de contêiner
+## <a name="connect-to-a-storage-account-and-get-a-container-reference"></a>Ligue-se a uma conta de armazenamento e obtenha uma referência de contentor
 
-Um contêiner de blob é uma hierarquia aninhada de BLOBs e pastas. O restante das etapas neste documento requer uma referência a um contêiner de BLOBs, de modo que o código deve ser colocado em seu próprio método para reutilização.
+Um recipiente de bolhas é uma hierarquia aninhada de bolhas e pastas. O resto das etapas deste documento requerem uma referência a um recipiente de bolha, de modo a que o código seja colocado no seu próprio método de reutilização.
 
-As etapas a seguir criam um método para se conectar à conta de armazenamento usando a cadeia de conexão em **appSettings. JSON**. As etapas também criam uma referência a um contêiner. A configuração da cadeia de conexão em **appSettings. JSON** é nomeada com o formato `<storageaccountname>_AzureStorageConnectionString`. 
+Os seguintes passos criam um método de ligação à conta de armazenamento utilizando a cadeia de ligação em **definições.json**. Os passos também criam uma referência a um recipiente. A definição de cordas de ligação em `<storageaccountname>_AzureStorageConnectionString` **definições.json** é nomeada com o formato . 
 
 1. Abra o ficheiro `BlobsController.cs`.
 
-1. Adicione um método chamado **GetCloudBlobContainer** que retorna um **CloudBlobContainer**. Certifique-se de substituir `<storageaccountname>_AzureStorageConnectionString` pelo nome real da chave em **Web. config**.
+1. Adicione um método chamado **GetCloudBlobContainer** que devolve um **CloudBlobContainer**. Certifique-se `<storageaccountname>_AzureStorageConnectionString` de que substitui o nome real da chave em **Web.config**.
     
     ```csharp
     private CloudBlobContainer GetCloudBlobContainer()
@@ -125,13 +125,13 @@ As etapas a seguir criam um método para se conectar à conta de armazenamento u
     ```
 
 > [!NOTE]
-> Embora *Test-blob-container* ainda não exista, esse código cria uma referência a ele. Isso é para que o contêiner possa ser criado com o método `CreateIfNotExists` mostrado na próxima etapa.
+> Mesmo que o *recipiente de teste* ainda não exista, este código cria uma referência a ele. Isto é para que o recipiente `CreateIfNotExists` possa ser criado com o método mostrado no próximo passo.
 
 ## <a name="create-a-blob-container"></a>Criar um contentor de blobs
 
-As etapas a seguir ilustram como criar um contêiner de BLOBs:
+Os seguintes passos ilustram como criar um recipiente de bolhas:
 
-1. Adicione um método chamado `CreateBlobContainer` que retorna um `ActionResult`.
+1. Adicione um `CreateBlobContainer` método chamado `ActionResult`que devolve um .
 
     ```csharp
     public ActionResult CreateBlobContainer()
@@ -142,25 +142,25 @@ As etapas a seguir ilustram como criar um contêiner de BLOBs:
     }
     ```
  
-1. Obtenha um objeto `CloudBlobContainer` que representa uma referência ao nome do contêiner de blob desejado. 
+1. Obtenha `CloudBlobContainer` um objeto que represente uma referência ao nome de recipiente de bolhas desejado. 
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Chame o método `CloudBlobContainer.CreateIfNotExists` para criar o contêiner, se ele ainda não existir. O método `CloudBlobContainer.CreateIfNotExists` retornará **true** se o contêiner não existir e for criado com êxito. Caso contrário, o método retornará **false**.    
+1. Ligue `CloudBlobContainer.CreateIfNotExists` para o método para criar o recipiente, se ainda não existir. O `CloudBlobContainer.CreateIfNotExists` método retorna **verdadeiro** se o recipiente não existir, e é criado com sucesso. Caso contrário, o método devolve **falsos.**    
 
     ```csharp
     ViewBag.Success = container.CreateIfNotExistsAsync().Result;
     ```
 
-1. Atualize `ViewBag` com o nome do contêiner de BLOB.
+1. Atualização `ViewBag` com o nome do recipiente de bolhas.
 
     ```csharp
     ViewBag.BlobContainerName = container.Name;
     ```
     
-    O seguinte mostra o método de `CreateBlobContainer` concluído:
+    O seguinte mostra `CreateBlobContainer` o método completo:
 
     ```csharp
     public ActionResult CreateBlobContainer()
@@ -173,17 +173,17 @@ As etapas a seguir ilustram como criar um contêiner de BLOBs:
     }
     ```
 
-1. Em **Gerenciador de soluções**, clique com o botão direito do mouse na pasta **exibições** .
+1. No **Solution Explorer,** clique à direita na pasta **Views.**
 
-2. No menu de contexto, selecione **adicionar** > **nova pasta**. Nomeie os novos *BLOBs*de pastas. 
+2. A partir do menu de contexto, selecione **Adicionar** > **Nova Pasta**. Nomeie a nova pasta *Blobs*. 
 
-1. Em **Gerenciador de soluções**, expanda a pasta **exibições** e clique com o botão direito do mouse em **BLOBs**.
+1. No **Solution Explorer,** expanda a pasta **Views** e clique à direita **em Blobs**.
 
-4. No menu de contexto, selecione **adicionar** > **exibição**.
+4. A partir do menu de contexto, selecione **Adicionar** > **Ver**.
 
-1. Na caixa de diálogo **Adicionar exibição** , digite **CreateBlobContainer** para o nome da exibição e selecione **Adicionar**.
+1. Na caixa de diálogo **Add View,** introduza o **CreateBlobContainer** para o nome da vista e selecione **Adicionar**.
 
-1. Abra `CreateBlobContainer.cshtml`e modifique-o para que fique semelhante ao seguinte trecho de código:
+1. Abra `CreateBlobContainer.cshtml`e modifique-o de modo a parecer o seguinte código:
 
     ```csharp
     @{
@@ -195,27 +195,27 @@ As etapas a seguir ilustram como criar um contêiner de BLOBs:
     Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. Em **Gerenciador de soluções**, expanda as **exibições** > pasta **compartilhada** e abra `_Layout.cshtml`.
+1. No **Solution Explorer,** expanda a `_Layout.cshtml`pasta **Views** > **Shared** e abre.
 
-1. Procure a lista não ordenada parecida com esta: `<ul class="nav navbar-nav">`.  Após o último `<li>` elemento na lista, adicione o seguinte HTML para adicionar outro item de menu de navegação:
+1. Procure a lista não ordenada que `<ul class="nav navbar-nav">`se pareça com esta: .  Depois do `<li>` último elemento da lista, adicione o seguinte HTML para adicionar outro item do menu de navegação:
 
     ```html
     <li><a asp-area="" asp-controller="Blobs" asp-action="CreateBlobContainer">Create blob container</a></li>
     ```
 
-1. Execute o aplicativo e selecione **criar contêiner de blob** para ver resultados semelhantes à captura de tela a seguir:
+1. Executar a aplicação e selecionar **Recipiente Criar Blob** para ver resultados semelhantes aos seguintes screenshot:
   
-    ![Captura de tela de criar contêiner de BLOB](./media/vs-storage-aspnet-core-getting-started-blobs/create-blob-container-results.png)
+    ![Screenshot do recipiente de bolha Criar](./media/vs-storage-aspnet-core-getting-started-blobs/create-blob-container-results.png)
 
-    Como mencionado anteriormente, o método `CloudBlobContainer.CreateIfNotExists` retorna **true** somente quando o contêiner não existe e é criado. Portanto, se o aplicativo for executado quando o contêiner existir, o método retornará **false**.
+    Como mencionado anteriormente, o `CloudBlobContainer.CreateIfNotExists` método só retorna **verdadeiro** quando o recipiente não existe e é criado. Portanto, se a aplicação for executada quando o recipiente existe, o método devolve **falsos**.
 
-## <a name="upload-a-blob-into-a-blob-container"></a>Carregar um blob em um contêiner de BLOBs
+## <a name="upload-a-blob-into-a-blob-container"></a>Faça upload de uma bolha em um recipiente de bolhas
 
-Quando o [contêiner de blob é criado](#create-a-blob-container), carregue os arquivos nesse contêiner. Esta seção orienta o carregamento de um arquivo local para um contêiner de BLOB. As etapas pressupõem que há um contêiner de blob chamado *Test-blob-container*. 
+Quando o [recipiente de bolhas for criado,](#create-a-blob-container)faça upload de ficheiros para esse recipiente. Esta secção passa por enviar um ficheiro local para um contentor de bolhas. Os passos assumem que há um recipiente de bolhas chamado *recipiente de bolhas de ensaio*. 
 
 1. Abra o ficheiro `BlobsController.cs`.
 
-1. Adicione um método chamado `UploadBlob` que retorna uma cadeia de caracteres.
+1. Adicione um `UploadBlob` método chamado que devolve uma corda.
 
     ```csharp
     public string UploadBlob()
@@ -226,22 +226,22 @@ Quando o [contêiner de blob é criado](#create-a-blob-container), carregue os a
     }
     ```
  
-1. Dentro do método `UploadBlob`, obtenha um objeto `CloudBlobContainer` que representa uma referência ao nome do contêiner de BLOBs desejado. 
+1. Dentro `UploadBlob` do método, `CloudBlobContainer` obtenha um objeto que represente uma referência ao nome de recipiente de bolhas desejado. 
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. O armazenamento do Azure dá suporte a diferentes tipos de BLOB. Este tutorial usa blobs de bloco. Para recuperar uma referência a um blob de blocos, chame o método `CloudBlobContainer.GetBlockBlobReference`.
+1. O armazenamento azure suporta diferentes tipos de bolhas. Este tutorial usa bolhas de bloco. Para recuperar uma referência a uma `CloudBlobContainer.GetBlockBlobReference` bolha de bloco, ligue para o método.
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
     
     > [!NOTE]
-    > O nome do blob é parte da URL usada para recuperar um blob e pode ser qualquer cadeia de caracteres, incluindo o nome do arquivo.
+    > O nome blob faz parte do URL usado para recuperar uma bolha, e pode ser qualquer corda, incluindo o nome do ficheiro.
 
-1. Depois de haver uma referência de BLOB, você pode carregar qualquer fluxo de dados para ele chamando o método de `UploadFromStream` do objeto de referência de BLOB. O método `UploadFromStream` criará o blob, se ele não existir, ou o substituirá se ele existir. (Altere *&lt;arquivo para carregar >* para um caminho totalmente qualificado para um arquivo a ser carregado.)
+1. Depois de existir uma referência blob, pode enviar-lhe qualquer fluxo de `UploadFromStream` dados, chamando o método do objeto de referência blob. O `UploadFromStream` método cria a bolha se não existir, ou a substitui se existir. (Alterar o>de * &lt;envio de ficheiros* para um caminho totalmente qualificado para um ficheiro a ser carregado.)
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
@@ -250,7 +250,7 @@ Quando o [contêiner de blob é criado](#create-a-blob-container), carregue os a
     }
     ```
     
-    O seguinte mostra o método de `UploadBlob` concluído (com um caminho totalmente qualificado para o arquivo a ser carregado):
+    O seguinte mostra `UploadBlob` o método concluído (com um caminho totalmente qualificado para o ficheiro a ser carregado):
 
     ```csharp
     public string UploadBlob()
@@ -265,25 +265,25 @@ Quando o [contêiner de blob é criado](#create-a-blob-container), carregue os a
     }
     ```
 
-1. Em **Gerenciador de soluções**, expanda as **exibições** > pasta **compartilhada** e abra `_Layout.cshtml`.
+1. No **Solution Explorer,** expanda a `_Layout.cshtml`pasta **Views** > **Shared** e abre.
 
-1. Após o último `<li>` elemento na lista, adicione o seguinte HTML para adicionar outro item de menu de navegação:
+1. Depois do `<li>` último elemento da lista, adicione o seguinte HTML para adicionar outro item do menu de navegação:
 
     ```html
     <li><a asp-area="" asp-controller="Blobs" asp-action="UploadBlob">Upload blob</a></li>
     ```
 
-1. Execute o aplicativo e selecione **carregar blob**. A palavra *sucesso!* deve aparecer.
+1. Executar a aplicação e selecionar **upload blob**. A palavra *sucesso!* deve aparecer.
     
-    ![Captura de tela de verificação de êxito](./media/vs-storage-aspnet-core-getting-started-blobs/upload-blob.png)
+    ![Screenshot da verificação de sucesso](./media/vs-storage-aspnet-core-getting-started-blobs/upload-blob.png)
   
-## <a name="list-the-blobs-in-a-blob-container"></a>Listar os BLOBs em um contêiner de BLOBs
+## <a name="list-the-blobs-in-a-blob-container"></a>Liste as bolhas num recipiente de bolhas
 
-Esta seção ilustra como listar os BLOBs em um contêiner de BLOBs. O código de exemplo faz referência ao *contêiner Test-blob-* criado na seção [criar um contêiner de blob](#create-a-blob-container).
+Esta secção ilustra como listar as bolhas num recipiente de bolhas. O código da amostra refere o *recipiente de teste-blob* criado na secção, [Criar um recipiente de bolha](#create-a-blob-container).
 
 1. Abra o ficheiro `BlobsController.cs`.
 
-1. Adicione um método chamado `ListBlobs` que retorna um `ActionResult`.
+1. Adicione um `ListBlobs` método chamado `ActionResult`que devolve um .
 
     ```csharp
     public ActionResult ListBlobs()
@@ -293,13 +293,13 @@ Esta seção ilustra como listar os BLOBs em um contêiner de BLOBs. O código d
     }
     ```
  
-1. Dentro do método `ListBlobs`, obtenha um objeto `CloudBlobContainer` que representa uma referência ao contêiner de BLOB. 
+1. Dentro `ListBlobs` do método, `CloudBlobContainer` obtenha um objeto que represente uma referência ao recipiente de bolhas. 
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
    
-1. Para listar os BLOBs em um contêiner de BLOBs, use o método `CloudBlobContainer.ListBlobsSegmentedAsync`. O método `CloudBlobContainer.ListBlobsSegmentedAsync` retorna um `BlobResultSegment`. Ela contém `IListBlobItem` objetos que podem ser convertidos em objetos `CloudBlockBlob`, `CloudPageBlob`ou `CloudBlobDirectory`. O trecho de código a seguir enumera todos os BLOBs em um contêiner de BLOB. Cada blob é convertido no objeto apropriado, com base em seu tipo. Seu nome (ou URI no caso de um `CloudBlobDirectory`) é adicionado a uma lista.
+1. Para enumerar as bolhas num recipiente de `CloudBlobContainer.ListBlobsSegmentedAsync` bolhas, utilize o método. O `CloudBlobContainer.ListBlobsSegmentedAsync` método `BlobResultSegment`devolve um . Isto `IListBlobItem` contém objetos que `CloudBlockBlob` `CloudPageBlob`podem `CloudBlobDirectory` ser lançados para, ou objetos. O seguinte código de corte enumera todas as bolhas num recipiente de bolhas. Cada bolha é lançada para o objeto apropriado, com base no seu tipo. O seu nome (ou URI `CloudBlobDirectory`no caso de a) é adicionado a uma lista.
 
     ```csharp
     List<string> blobs = new List<string>();
@@ -325,7 +325,7 @@ Esta seção ilustra como listar os BLOBs em um contêiner de BLOBs. O código d
 
     return View(blobs);
     ```
-    O seguinte mostra o método de `ListBlobs` concluído:
+    O seguinte mostra `ListBlobs` o método completo:
 
     ```csharp
     public ActionResult ListBlobs()
@@ -356,13 +356,13 @@ Esta seção ilustra como listar os BLOBs em um contêiner de BLOBs. O código d
     }
     ```
 
-1. Em **Gerenciador de soluções**, expanda a pasta **exibições** e clique com o botão direito do mouse em **BLOBs**.
+1. No **Solution Explorer,** expanda a pasta **Views** e clique à direita **em Blobs**.
 
-2. No menu de contexto, selecione **adicionar** > **exibição**.
+2. A partir do menu de contexto, selecione **Adicionar** > **Ver**.
 
-1. Na caixa de diálogo **Adicionar exibição** , digite `ListBlobs` para o nome da exibição e selecione **Adicionar**.
+1. Na caixa de diálogo Add `ListBlobs` **View,** introduza para o nome da visualização e selecione **Adicionar**.
 
-1. Abra `ListBlobs.cshtml`e substitua o conteúdo pelo código a seguir:
+1. Abra, `ListBlobs.cshtml`e substitua o conteúdo pelo seguinte código:
 
     ```html
     @model List<string>
@@ -380,25 +380,25 @@ Esta seção ilustra como listar os BLOBs em um contêiner de BLOBs. O código d
     </ul>
     ```
 
-1. Em **Gerenciador de soluções**, expanda as **exibições** > pasta **compartilhada** e abra `_Layout.cshtml`.
+1. No **Solution Explorer,** expanda a `_Layout.cshtml`pasta **Views** > **Shared** e abre.
 
-1. Após o último `<li>` elemento na lista, adicione o seguinte HTML para adicionar outro item de menu de navegação:
+1. Depois do `<li>` último elemento da lista, adicione o seguinte HTML para adicionar outro item do menu de navegação:
 
     ```html
     <li><a asp-area="" asp-controller="Blobs" asp-action="ListBlobs">List blobs</a></li>
     ```
 
-1. Execute o aplicativo e selecione **listar BLOBs** para ver resultados semelhantes à captura de tela a seguir:
+1. Executar a aplicação e selecionar bolhas de lista para ver **resultados** semelhantes aos seguintes screenshot:
   
-    ![Captura de tela da lista de BLOBs](./media/vs-storage-aspnet-core-getting-started-blobs/listblobs.png)
+    ![Screenshot de bolhas de lista](./media/vs-storage-aspnet-core-getting-started-blobs/listblobs.png)
 
 ## <a name="download-blobs"></a>Transferir blobs
 
-Esta seção ilustra como baixar um blob. Você pode mantê-lo no armazenamento local ou ler o conteúdo em uma cadeia de caracteres. O código de exemplo faz referência ao *contêiner Test-blob-* criado na seção [criar um contêiner de blob](#create-a-blob-container).
+Esta secção ilustra como descarregar uma bolha. Pode persistir no armazenamento local ou ler o conteúdo numa corda. O código da amostra refere o *recipiente de teste-blob* criado na secção, [Criar um recipiente de bolha](#create-a-blob-container).
 
 1. Abra o ficheiro `BlobsController.cs`.
 
-1. Adicione um método chamado `DownloadBlob` que retorna uma cadeia de caracteres.
+1. Adicione um `DownloadBlob` método chamado que devolve uma corda.
 
     ```csharp
     public string DownloadBlob()
@@ -409,19 +409,19 @@ Esta seção ilustra como baixar um blob. Você pode mantê-lo no armazenamento 
     }
     ```
  
-1. Dentro do método `DownloadBlob`, obtenha um objeto `CloudBlobContainer` que representa uma referência ao contêiner de BLOB.
+1. Dentro `DownloadBlob` do método, `CloudBlobContainer` obtenha um objeto que represente uma referência ao recipiente de bolhas.
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Obtenha um objeto de referência de blob chamando o método `CloudBlobContainer.GetBlockBlobReference`. 
+1. Obtenha um objeto de referência `CloudBlobContainer.GetBlockBlobReference` blob chamando o método. 
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. Para baixar um blob, use o método `CloudBlockBlob.DownloadToStream`. O código a seguir transfere o conteúdo de um blob para um objeto de fluxo. Esse objeto é persistido em um arquivo local. (Altere *&lt;nome de arquivo local >* para o nome de arquivo totalmente qualificado que representa onde o blob será baixado.) 
+1. Para descarregar uma bolha, `CloudBlockBlob.DownloadToStream` use o método. O código seguinte transfere o conteúdo de uma bolha para um objeto de fluxo. Esse objeto é então persistiu a um ficheiro local. (Alterar o * &lt;nome de ficheiro local>* para o nome de ficheiro totalmente qualificado que representa o local onde a bolha deve ser descarregada.) 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -430,7 +430,7 @@ Esta seção ilustra como baixar um blob. Você pode mantê-lo no armazenamento 
     }
     ```
     
-    O seguinte mostra o método de `ListBlobs` concluído (com um caminho totalmente qualificado para o arquivo local que está sendo criado):
+    O seguinte mostra `ListBlobs` o método concluído (com um caminho totalmente qualificado para o arquivo local sendo criado):
     
     ```csharp
     public string DownloadBlob()
@@ -445,23 +445,23 @@ Esta seção ilustra como baixar um blob. Você pode mantê-lo no armazenamento 
     }
     ```
 
-1. Em **Gerenciador de soluções**, expanda as **exibições** > pasta **compartilhada** e abra `_Layout.cshtml`.
+1. No **Solution Explorer,** expanda a `_Layout.cshtml`pasta **Views** > **Shared** e abre.
 
-1. Após o último `<li>` elemento na lista, adicione o seguinte HTML para adicionar outro item de menu de navegação:
+1. Depois do `<li>` último elemento da lista, adicione o seguinte HTML para adicionar outro item do menu de navegação:
 
     ```html
     <li><a asp-area="" asp-controller="Blobs" asp-action="DownloadBlob">Download blob</a></li>
     ```
 
-1. Execute o aplicativo e selecione **baixar blob** para baixar o blob. O blob especificado na chamada do método `CloudBlobContainer.GetBlockBlobReference` é baixado para o local especificado na chamada do método `File.OpenWrite`. O texto *sucesso!* deve aparecer no navegador. 
+1. Execute a aplicação e selecione **Baixar blob** para baixar a bolha. A bolha especificada `CloudBlobContainer.GetBlockBlobReference` no método de chamada descarregamentos para o local especificado na chamada do `File.OpenWrite` método. O sucesso do *texto!* deve aparecer no navegador. 
 
 ## <a name="delete-blobs"></a>Eliminar blobs
 
-As etapas a seguir ilustram como excluir um blob:
+Os seguintes passos ilustram como eliminar uma bolha:
 
 1. Abra o ficheiro `BlobsController.cs`.
 
-1. Adicione um método chamado `DeleteBlob` que retorna uma cadeia de caracteres.
+1. Adicione um `DeleteBlob` método chamado que devolve uma corda.
 
     ```csharp
     public string DeleteBlob()
@@ -472,25 +472,25 @@ As etapas a seguir ilustram como excluir um blob:
     }
     ```
 
-1. Dentro do método `DeleteBlob`, obtenha um objeto `CloudBlobContainer` que representa uma referência ao contêiner de BLOB.
+1. Dentro `DeleteBlob` do método, `CloudBlobContainer` obtenha um objeto que represente uma referência ao recipiente de bolhas.
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Obtenha um objeto de referência de blob chamando o método `CloudBlobContainer.GetBlockBlobReference`. 
+1. Obtenha um objeto de referência `CloudBlobContainer.GetBlockBlobReference` blob chamando o método. 
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. Para excluir um blob, use o método `Delete`.
+1. Para eliminar uma bolha, `Delete` utilize o método.
 
     ```csharp
     blob.DeleteAsync().Wait();
     ```
     
-    O método de `DeleteBlob` concluído deve aparecer da seguinte maneira:
+    O método `DeleteBlob` completo deve figurar da seguinte forma:
     
     ```csharp
     public string DeleteBlob()
@@ -502,19 +502,19 @@ As etapas a seguir ilustram como excluir um blob:
     }
     ```
 
-1. Em **Gerenciador de soluções**, expanda as **exibições** > pasta **compartilhada** e abra `_Layout.cshtml`.
+1. No **Solution Explorer,** expanda a `_Layout.cshtml`pasta **Views** > **Shared** e abre.
 
-1. Após o último `<li>` elemento na lista, adicione o seguinte HTML para adicionar outro item de menu de navegação:
+1. Depois do `<li>` último elemento da lista, adicione o seguinte HTML para adicionar outro item do menu de navegação:
 
     ```html
     <li><a asp-area="" asp-controller="Blobs" asp-action="DeleteBlob">Delete blob</a></li>
     ```
 
-1. Execute o aplicativo e selecione **excluir blob** para excluir o blob especificado na chamada do método `CloudBlobContainer.GetBlockBlobReference`. O texto *sucesso!* deve aparecer no navegador. Selecione o botão **voltar** do navegador e, em seguida, selecione **listar BLOBs** para verificar se o BLOB não está mais no contêiner.
+1. Executar a aplicação e selecionar **Apagar blob** para `CloudBlobContainer.GetBlockBlobReference` eliminar a bolha especificada na chamada do método. O sucesso do *texto!* deve aparecer no navegador. Selecione o botão **back** do navegador e, em seguida, selecione **'List blobs'** para verificar se a bolha já não se encontra no recipiente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a armazenar, listar e recuperar blobs no armazenamento do Azure usando ASP.NET Core. Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
+Neste tutorial, aprendeu a armazenar, listar e recuperar bolhas no Armazenamento Azure usando ASP.NET Core. Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
 
-  * [Introdução ao armazenamento de tabelas do Azure e aos serviços conectados do Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
-  * [Introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)
+  * [Inicie com serviços de armazenamento de mesa Azure e serviços conectados ao Estúdio Visual (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Inicie com o armazenamento de fila Azure e serviços conectados ao Estúdio Visual (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)

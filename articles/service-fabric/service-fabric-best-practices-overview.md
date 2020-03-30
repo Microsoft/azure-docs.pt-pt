@@ -1,53 +1,53 @@
 ---
-title: Práticas recomendadas de aplicativo e Cluster Service Fabric do Azure
-description: Práticas recomendadas e considerações de design para gerenciar clusters, aplicativos e serviços usando o Azure Service Fabric.
+title: Aplicação azure service fabric e boas práticas de cluster
+description: Boas práticas e considerações de design para a gestão de clusters, apps e serviços usando o Tecido de Serviço Azure.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: pepogors
 ms.openlocfilehash: 46601fd91fccb5bd0866bd999cc7643c37c6d582
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551782"
 ---
-# <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Práticas recomendadas de aplicativo e Cluster Service Fabric do Azure
+# <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Aplicação azure service fabric e boas práticas de cluster
 
-Este artigo fornece links para as práticas recomendadas para o gerenciamento de clusters e aplicativos do Azure Service Fabric. É altamente recomendável que você implemente essas práticas para otimizar a confiabilidade do seu ambiente de produção. Use um dos [modelos de cluster Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates) para começar a projetar sua solução de produção ou atualize seu modelo existente para incorporar essas práticas.
+Este artigo fornece ligações às melhores práticas para a gestão de aplicações e clusters azure Service Fabric. Recomendamos vivamente que implemente estas práticas para otimizar a fiabilidade do seu ambiente de produção. Utilize um dos [modelos](https://github.com/Azure-Samples/service-fabric-cluster-templates) de cluster service Fabric para começar a desenhar a sua solução de produção, ou atualizar o seu modelo existente para incorporar estas práticas.
 
 ## <a name="security"></a>Segurança
 
-* [Práticas recomendadas de segurança](service-fabric-best-practices-security.md)
+* [Boas práticas para a segurança](service-fabric-best-practices-security.md)
 
-## <a name="networking"></a>Funcionamento em Rede
+## <a name="networking"></a>Redes
 
-* [Práticas recomendadas para rede](service-fabric-best-practices-networking.md)
+* [Boas práticas para networking](service-fabric-best-practices-networking.md)
 
 ## <a name="compute-planning-and-scaling"></a>Planeamento e dimensionamento de computação
 
-* [Práticas recomendadas para o dimensionamento de computação](service-fabric-best-practices-capacity-scaling.md)
-* [Planejamento de capacidade de computação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+* [Boas práticas para a escala de cálculo](service-fabric-best-practices-capacity-scaling.md)
+* [Planeamento da capacidade da computação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
 
 ## <a name="infrastructure-as-code"></a>Infraestrutura como código
 
-* [Práticas recomendadas para implementar a infraestrutura como código](service-fabric-best-practices-infrastructure-as-code.md)
+* [Boas práticas para a implementação de infraestruturas como código](service-fabric-best-practices-infrastructure-as-code.md)
 
 ## <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 
-* [Práticas recomendadas para monitoramento e diagnóstico de cluster](service-fabric-best-practices-monitoring.md)
+* [Boas práticas para monitorização e diagnóstico de clusters](service-fabric-best-practices-monitoring.md)
 
 ## <a name="application-design"></a>Design da aplicação
 
-* [Práticas recomendadas para design de aplicativos](service-fabric-best-practices-applications.md)
+* [Boas práticas para design de aplicações](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>Lista de Verificação
 
-Depois de implementar as práticas sugeridas nas seções anteriores, verifique se você integrou todas as práticas recomendadas na lista de verificação de preparação de produção:
-* [Lista de verificação de preparação de produção do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+Depois de implementar as práticas sugeridas nas secções anteriores, certifique-se de que integrou todas as melhores práticas na lista de verificação de prontidão de produção:
+* [Lista de verificação de prontidão de produção de tecido de serviço Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Criar um cluster em VMs ou computadores que executam o Windows Server: [Service Fabric a criação de cluster para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Criar um cluster em VMs ou computadores que executam [o Linux: criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)
-* Solucionar problemas Service Fabric: [guias de solução de problemas](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+* Criar um cluster em VMs ou computadores que executam o Windows Server: [Criação](service-fabric-cluster-creation-for-windows-server.md) de cluster de tecido de serviço para Windows Server
+* Criar um cluster em VMs ou computadores em execução linux: [Criar um cluster Linux](service-fabric-cluster-creation-via-portal.md)
+* Tecido de serviço de resolução de [problemas: guias de resolução de problemas](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)

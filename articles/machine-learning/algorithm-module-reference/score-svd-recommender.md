@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/10/2020
-ms.openlocfilehash: a3eafc28dc6d0f44a1f1019cb3393259aa2a698a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920353"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455983"
 ---
 # <a name="score-svd-recommender"></a>Classificar Recomendador SVD
 
@@ -53,7 +53,7 @@ Quando prevê classificações, o modelo calcula como um utilizador irá reagir 
 
    O conjunto de dados pode conter uma terceira coluna opcional de classificações para o par de artigos de utilizador na primeira e segunda colunas. Mas a terceira coluna será ignorada durante a previsão.
 
-4. Executar o pipeline.
+4. Submeta o oleoduto.
 
 ### <a name="results-for-rating-predictions"></a>Resultados das previsões de classificação 
 
@@ -73,7 +73,7 @@ Para recomendar itens para utilizadores, fornece uma lista de utilizadores e ite
 
     - **A partir de Itens Avaliados (para avaliação**do modelo) : Selecione esta opção se estiver a desenvolver ou a testar um modelo. Esta opção permite o modo de *avaliação*. O módulo faz recomendações apenas a partir dos itens no conjunto de dados de entrada que foram avaliados.
     
-    - **A partir de Itens Não Classificados (para sugerir novos itens aos utilizadores)** : Selecione esta opção se quiser que o módulo faça recomendações apenas a partir desses itens no conjunto de dados de formação que não tenham sido avaliados. 
+    - **A partir de Itens Não Classificados (para sugerir novos itens aos utilizadores)**: Selecione esta opção se quiser que o módulo faça recomendações apenas a partir desses itens no conjunto de dados de formação que não tenham sido avaliados. 
 
 4. Adicione o conjunto de dados para o qual pretende fazer previsões e conecte-o ao **Dataset para marcar**.
 
@@ -85,7 +85,7 @@ Para recomendar itens para utilizadores, fornece uma lista de utilizadores e ite
 
       O conjunto de dados pode incluir uma terceira coluna de classificações de itens de utilizador, mas esta coluna é ignorada.
 
-    - Para **a partir de itens não avaliados (para sugerir novos itens para os utilizadores)** , o conjunto de dados de entrada deve consistir em pares de itens de utilizador. A primeira coluna deve conter o identificador do utilizador. A segunda coluna deve conter os identificadores de objectocorrespondentes.
+    - Para **a partir de itens não avaliados (para sugerir novos itens para os utilizadores)**, o conjunto de dados de entrada deve consistir em pares de itens de utilizador. A primeira coluna deve conter o identificador do utilizador. A segunda coluna deve conter os identificadores de objectocorrespondentes.
 
      O conjunto de dados pode incluir uma terceira coluna de classificações de itens de utilizador, mas esta coluna é ignorada.
 
@@ -93,13 +93,13 @@ Para recomendar itens para utilizadores, fornece uma lista de utilizadores e ite
 
 6. **Tamanho mínimo do pool de recomendação por utilizador**: Introduza um valor que indique quantas recomendações anteriores são necessárias. Por padrão, este parâmetro está definido para 2, o que significa que pelo menos dois outros utilizadores recomendaram o item.
 
-   Utilize esta opção apenas se estiver a marcar em modo de avaliação. A opção não está disponível se selecionar **De Todos os Itens** ou de Itens Não **Avaliados (para sugerir novos itens aos utilizadores)** .
+   Utilize esta opção apenas se estiver a marcar em modo de avaliação. A opção não está disponível se selecionar **De Todos os Itens** ou de Itens Não **Avaliados (para sugerir novos itens aos utilizadores)**.
 
-7.  Para **itens não avaliados (para sugerir novos itens para os utilizadores)** , utilize a terceira porta de entrada, denominada Dados de **Formação,** para remover itens que já tenham sido avaliados a partir dos resultados da previsão.
+7.  Para **itens não avaliados (para sugerir novos itens para os utilizadores)**, utilize a terceira porta de entrada, denominada Dados de **Formação,** para remover itens que já tenham sido avaliados a partir dos resultados da previsão.
 
     Para aplicar este filtro, ligue o conjunto de dados de treino original à porta de entrada.
 
-8. Executar o pipeline.
+8. Submeta o oleoduto.
 
 ### <a name="results-of-item-recommendation"></a>Resultados da recomendação do item
 

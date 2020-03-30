@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas da ferramenta de importação/exportação do Azure | Microsoft Docs
-description: Saiba mais sobre alguns dos problemas comuns vistos ao usar a ferramenta de importação/exportação do Azure e como tratá-los.
+title: Resolução de problemas da Ferramenta de Importação/Exportação Azure [ Microsoft Docs
+description: Conheça algumas das questões comuns vistas ao utilizar a Ferramenta de Importação/Exportação Azure e como lidar com elas.
 author: twooley
 services: storage
 ms.service: storage
@@ -9,31 +9,31 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 4eeeb538bcd39eed40a92dd45e7ba7bed25558e2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978403"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Resolver problemas da Ferramenta de Importação /Exportação do Azure
-A ferramenta de Importação/Exportação do Microsoft Azure retornará mensagens de erro se ele for executado em problemas. Este tópico lista alguns problemas comuns que os usuários podem encontrar.  
+A Ferramenta de Importação/Exportação do Microsoft Azure devolve mensagens de erro se se depara com problemas. Este tópico enumera algumas questões comuns que os utilizadores podem encontrar.  
 
-## <a name="a-copy-session-fails-what-i-should-do"></a>Uma sessão de cópia falha, o que devo fazer?  
- Quando uma sessão de cópia falha, há duas opções:  
+## <a name="a-copy-session-fails-what-i-should-do"></a>Uma sessão de cópiafalha, o que devo fazer?  
+ Quando uma sessão de cópia falha, existem duas opções:  
 
- Se o erro for com nova tentativa, por exemplo, se o compartilhamento de rede estava offline por um curto período e agora está online novamente, você pode retomar a sessão de cópia. Se o erro não for repetido, por exemplo, se você especificou o diretório de arquivo de origem errado nos parâmetros de linha de comando, será necessário anular a sessão de cópia. Consulte [preparando discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md) para obter mais informações sobre como retomar e anular sessões de cópia.  
+ Se o erro for retível, por exemplo, se a parte da rede estiver offline por um curto período de tempo e agora estiver novamente on-line, pode retomar a sessão de cópia. Se o erro não for retível, por exemplo, se tiver especificado o diretório de ficheiros de origem errado nos parâmetros da linha de comando, terá de abortar a sessão de cópia. Consulte [a Preparação de Discos Rígidos para um Trabalho de Importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md) para obter mais informações sobre o reinício e aborto das sessões de cópia.  
 
-## <a name="i-cant-resume-or-abort-a-copy-session"></a>Não consigo retomar ou anular uma sessão de cópia.  
- Se a sessão de cópia for a primeira sessão de cópia para uma unidade, a mensagem de erro deverá indicar: "a primeira sessão de cópia não pode ser retomada ou abortada". Nesse caso, você pode excluir o arquivo de diário antigo e executar o comando novamente.  
+## <a name="i-cant-resume-or-abort-a-copy-session"></a>Não posso retomar ou abortar uma sessão de cópias.  
+ Se a sessão de cópia for a primeira sessão de cópia para uma unidade, então a mensagem de erro deve indicar: "A primeira sessão de cópia não pode ser retomada ou abortada." Neste caso, pode eliminar o ficheiro do diário antigo e reexecutar o comando.  
 
- Se uma sessão de cópia não for a primeira para uma unidade, ela sempre poderá ser retomada ou abortada.  
+ Se uma sessão de cópia não for a primeira para uma unidade, pode sempre ser retomada ou abortada.  
 
-## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>Perdi o arquivo de diário, ainda posso criar o trabalho?  
- O arquivo de diário de uma unidade contém as informações completas de cópia de dados para essa unidade e é necessário para adicionar mais arquivos à unidade e será usado para criar um trabalho de importação. Se o arquivo de diário for perdido, você precisará refazer todas as sessões de cópia da unidade.  
+## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>Perdi o ficheiro do diário, ainda posso criar o emprego?  
+ O ficheiro do diário para uma unidade contém a informação completa de copiar dados para esta unidade, e é necessário adicionar mais ficheiros à unidade e será usado para criar um emprego de importação. Se o ficheiro do diário estiver perdido, terá de refazer todas as sessões de cópia para a unidade.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configurando a ferramenta de importação/exportação do Azure](../storage-import-export-tool-setup-v1.md)   
+* [Criação da ferramenta de importação/exportação azul](../storage-import-export-tool-setup-v1.md)   
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Revisão do estado da tarefa com ficheiros de registo de cópia](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparação de uma tarefa de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76d3be0fc00465c35dbc79a258b57db962969cc8
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 152ff52ce52b573d7f24cbb2fafc944b1794f6d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672336"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129264"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie a sua direção ativa híbrida Azure aderir à implementação
 
@@ -55,8 +55,9 @@ A adesão da Hybrid Azure ad suporta uma ampla gama de dispositivos Windows. Uma
 
 ### <a name="windows-current-devices"></a>Dispositivos atuais do Windows
 
-- Windows 10
+- Windows 10
 - Windows Server 2016
+  - **Nota:** Clientes da nuvem Nacional Azure exigem versão 1809
 - Windows Server 2019
 
 Para dispositivos que executam o sistema operativo Windows desktop, a versão suportada está listada neste artigo Informações de lançamento do [Windows 10](/windows/release-information/). Como uma boa prática, a Microsoft recomenda-lhe o upgrade para a versão mais recente do Windows 10.
@@ -73,7 +74,7 @@ Como primeiro passo de planeamento, deve rever o seu ambiente e determinar se pr
 
 ## <a name="review-things-you-should-know"></a>Reveja as coisas que deve saber
 
-### <a name="unsupported-scenarios"></a>Cenários não apoiados
+### <a name="unsupported-scenarios"></a>Cenários não suportados
 - A adesão à Hybrid Azure AD não é atualmente suportada se o seu ambiente consistir numa única floresta ad synchronizing dados de identidade para mais de um inquilino Azure AD.
 
 - A adesão a Hybrid Azure AD não é suportada para o Windows Server que executa a função de Controlador de Domínio (DC).
@@ -92,7 +93,7 @@ Como primeiro passo de planeamento, deve rever o seu ambiente e determinar se pr
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Dispositivos de manuseamento com estado registado pela Azure AD
 Se os dispositivos de domínio do Windows 10 forem [Azure AD registados no](overview.md#getting-devices-in-azure-ad) seu inquilino, poderá levar a um duplo estado de AD Hybrid Azure e dispositivo registado em Azure AD. Recomendamos a atualização para o Windows 10 1803 (com kB4489894 aplicado) ou acima para abordar automaticamente este cenário. Nos lançamentos anteriores a 1803, terá de remover manualmente o estado registado pela Azure AD antes de permitir a adesão da Hybrid Azure AD. Em 1803 e acima de lançamentos, foram feitas as seguintes alterações para evitar este duplo estado:
 
-- Qualquer estado registado em Azure AD existente seria automaticamente removido <i>após a adesão do dispositivo Hybrid Azure AD</i>.
+- Qualquer estado registado em Azure AD existente para um utilizador seria automaticamente removido <i>após a adesão do Hybrid Azure AD e os mesmos registos</i>de utilizador em . Por exemplo, se o Utilizador A tiver um estado registado em AD Azure no dispositivo, o estado duplo para o Utilizador A só é limpo quando o utilizador A iniciar sessão no dispositivo. se houver vários utilizadores no mesmo dispositivo, o estado duplo é limpo individualmente quando esses utilizadores fazem login.
 - Pode evitar que o seu dispositivo de domínio se junte ao registo da AD Azure adicionando esta chave de registo - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:000000001.
 - No Windows 10 1803, se tiver o Windows Hello for Business configurado, o utilizador precisa de reinstalar o Windows Hello for Business após a limpeza do estado duplo. Esta questão foi abordada com kB4512509
 
@@ -102,7 +103,9 @@ Se os dispositivos de domínio do Windows 10 forem [Azure AD registados no](over
 ### <a name="additional-considerations"></a>Considerações adicionais
 - Se o seu ambiente utilizar infraestruturas de ambiente de trabalho virtuais (VDI), consulte [a identidade do dispositivo e a virtualização do ambiente](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure)de trabalho.
 
-- A adesão à Hybrid Azure AD é suportada para TPM 2.0 compatível com FIPS e não suportada para TPM 1.2. Se os seus dispositivos tiverem TPM 1.2 compatível com FIPS, deve desativá-los antes de prosseguir com a adesão da Hybrid Azure AD. A Microsoft não fornece nenhuma ferramenta para desativar o modo FIPS para TPMs, uma vez que está dependente do fabricante tpm. Contacte o seu hardware OEM para obter suporte. A partir do lançamento do Windows 10 1903, os TPMs 1.2 não são utilizados para a adesão híbrida do Azure AD e os dispositivos com esses TPMs serão considerados como se não tivessem um TPM.
+- A adesão à Hybrid Azure AD é suportada para TPM 2.0 compatível com FIPS e não suportada para TPM 1.2. Se os seus dispositivos tiverem TPM 1.2 compatível com FIPS, deve desativá-los antes de prosseguir com a adesão da Hybrid Azure AD. A Microsoft não fornece nenhuma ferramenta para desativar o modo FIPS para TPMs, uma vez que está dependente do fabricante tpm. Contacte o seu hardware OEM para obter suporte. 
+
+- A partir do lançamento do Windows 10 1903, os TPMs 1.2 não são utilizados com a adesão híbrida do Azure AD e os dispositivos com esses TPMs serão considerados como se não tivessem um TPM.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Análise controlada validação da adiazur híbrida Azure
 
@@ -125,7 +128,7 @@ Estes cenários não requerem que configure um servidor da federação para aute
 Um ambiente federado deve ter um fornecedor de identidade que suporte os seguintes requisitos. Se tiver um ambiente federado utilizando serviços da Federação de Diretórios Ativos (AD FS), então os requisitos abaixo já são suportados.
 
 - **WiAorMULTIAUTHN reivindica:** Esta alegação é necessária para fazer a adesão híbrida azure para dispositivos de nível inferior Windows.
-- **Protocolo WS-Trust:** Este protocolo é necessário para autenticar os dispositivos ad sinuosos do Windows atual ida e voltado com a AD Azure. Quando estiver a utilizar AD FS, tem de ativar os seguintes pontos finais wS-Trust: `/adfs/services/trust/2005/windowstransport`  
+- **Protocolo WS-Trust:** Este protocolo é necessário para autenticar os dispositivos ad sinuosos do Windows atual ida e voltado com a AD Azure. Quando estiver a utilizar AD FS, tem de ativar os seguintes pontos finais wS-Trust:`/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -133,7 +136,7 @@ Um ambiente federado deve ter um fornecedor de identidade que suporte os seguint
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Tanto as **adfs/services/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** devem ser ativadas apenas como pontos finais intranet e NÃO devem ser expostas como pontos finais virados para a extranet através do Proxy de Aplicação Web. Para saber mais sobre como desativar os pontos finais do WS-Trust Windows, consulte [desativar os pontos finais do WS-Trust Windows no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais ativados através da consola de gestão AD FS no âmbito do **Serviço** > **Endpoints**.
+> Tanto as **adfs/services/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** devem ser ativadas apenas como pontos finais intranet e NÃO devem ser expostas como pontos finais virados para a extranet através do Proxy de Aplicação Web. Para saber mais sobre como desativar os pontos finais do WS-Trust Windows, consulte [desativar os pontos finais do WS-Trust Windows no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais ativados através da consola de gestão AD FS em**pontos finais**de **serviço** > .
 
 > [!NOTE]
 > A Azure AD não suporta smartcards ou certificados em domínios geridos.
@@ -145,27 +148,30 @@ Com base no cenário que corresponde à sua infraestrutura de identidade, consul
 - [Configure hybrid Azure Ative Directory junta-se para ambiente federado](hybrid-azuread-join-federated-domains.md)
 - [Configure hybrid Azure Ative Directory junta-se para ambiente gerido](hybrid-azuread-join-managed-domains.md)
 
-## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Review on-premises Apoio AD UPN para hybrid Azure AD aderir
+## <a name="review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join"></a>Reveja no local os utilizadores de AD UPN suportam a adesão à Hybrid Azure AD
 
-Às vezes, as suas UPNs AD no local podem ser diferentes das suas UPNs AD Azure. Nestes casos, a adesão ao Windows 10 Hybrid Azure AD fornece suporte limitado para UPNs AD no local com base no método de [autenticação](/azure/security/fundamentals/choose-ad-authn), tipo de domínio e versão Windows 10. Existem dois tipos de UPNs AD no local que podem existir no seu ambiente:
+Por vezes, os utilizadores de AD no local UPNs podem ser diferentes dos seus UPNs AD Azure. Nestes casos, a adesão ao Windows 10 Hybrid Azure AD fornece suporte limitado para UPNs AD no local com base no método de [autenticação](/azure/security/fundamentals/choose-ad-authn), tipo de domínio e versão Windows 10. Existem dois tipos de UPNs AD no local que podem existir no seu ambiente:
 
-- UpN routable: Uma UPN enrugável tem um domínio verificado válido, que está registado com um registo de domínio. Por exemplo, se contoso.com é o domínio primário em Azure AD, contoso.org é o domínio primário em anúncios no local propriedade de Contoso e [verificado em Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
-- UPN não-enredaível: Uma UPN não-enrrotada não tem um domínio verificado. Só é aplicável dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio primário em Azure AD, contoso.local é o domínio primário no local, mas não é um domínio verificável na internet e apenas utilizado dentro da rede de Contoso.
+- Utilizadores enrugáveis UPN: Uma UPN resaída tem um domínio verificado válido, que está registado com um registo de domínio. Por exemplo, se contoso.com é o domínio primário em Azure AD, contoso.org é o domínio primário em anúncios no local propriedade de Contoso e [verificado em Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
+- Utilizadores não-enrsaídaS UPN: Uma UPN não-enrcorrida não tem um domínio verificado. Só é aplicável dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio primário em Azure AD, contoso.local é o domínio primário no local, mas não é um domínio verificável na internet e apenas utilizado dentro da rede de Contoso.
+
+> [!NOTE]
+> As informações nesta secção aplicam-se apenas a uma UPN dos utilizadores no local. Não é aplicável a um sufixo de domínio de computador no local (exemplo: computer1.contoso.local).
 
 A tabela abaixo fornece detalhes sobre o suporte para estas UPNs AD no local no Windows 10 Hybrid Azure AD juntam-se
 
 | Tipo de ad upn no local | Tipo de domínio | Versão do Windows 10 | Descrição |
 | ----- | ----- | ----- | ----- |
-| Routable | Federado | A partir de 1703 lançamento | Disponível em geral |
-| Não-encaminhamento | Federado | A partir do lançamento de 1803 | Disponível em geral |
-| Routable | Managed | A partir do lançamento de 1803 | Geralmente disponível, Azure AD SSPR no ecrã de bloqueio do Windows não é suportado |
-| Não-encaminhamento | Managed | Não suportado | |
+| Routable | Federados | A partir de 1703 lançamento | Disponível em Geral |
+| Não-encaminhamento | Federados | A partir do lançamento de 1803 | Disponível em Geral |
+| Routable | Geridos | A partir do lançamento de 1803 | Geralmente disponível, Azure AD SSPR no ecrã de bloqueio do Windows não é suportado |
+| Não-encaminhamento | Geridos | Não suportado | |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Configure hybrid Azure Ative Directory juntam-se para ambiente federado](hybrid-azuread-join-federated-domains.md)
-> [Configure hybrid Azure Ative Directory juntam-se para ambiente gerido](hybrid-azuread-join-managed-domains.md)
+> [Configure hybrid Azure Ative Directory juntam-se para ambiente](hybrid-azuread-join-federated-domains.md)
+> federado[Configure híbrido Azure Ative Diretório juntam-se para ambiente gerido](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

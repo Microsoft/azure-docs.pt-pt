@@ -1,5 +1,5 @@
 ---
-title: Modificar as contas de aplicativo da plataforma Microsoft Identify | Azure
+title: Modificar a Microsoft identificar contas de aplicações da plataforma [ Azure
 description: Configure uma aplicação registada na plataforma de identidade da Microsoft para alterar quem ou que contas podem aceder à aplicação.
 services: active-directory
 author: rwike77
@@ -12,14 +12,14 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160694"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050232"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início rápido: modificar as contas com suporte em um aplicativo
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Quickstart: Modificar as contas suportadas por uma aplicação
 
 Quando registar uma aplicação na plataforma de identidade da Microsoft, poderá querer que a mesma seja acedida apenas pelos utilizadores da sua organização. Em alternativa, também pode querer que a aplicação seja acedida pelos utilizadores em organizações externas, ou por utilizadores em organizações externas e utilizadores que não fazem necessariamente parte de uma organização (contas pessoais).
 
@@ -40,7 +40,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **os registos**da App .
-1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação ou a página de registo principal.
+1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
 1. Siga os passos para [alterar o registo de aplicação para suportar diferentes contas](#change-the-application-registration-to-support-different-accounts).
 1. Se tiver uma aplicação de página única, [ative a concessão implícita de OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).
 
@@ -49,7 +49,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 Se estiver a escrever uma aplicação e pretende disponibilizá-la aos seus clientes ou parceiros fora da sua organização, tem de atualizar a definição da mesma no portal do Azure.
 
 > [!IMPORTANT]
-> O Azure AD precisa que o URI do ID da Aplicação das aplicações multi-inquilino seja globalmente exclusivo. O URI do ID da Aplicação é uma das formas através das quais as aplicações são identificadas nas mensagens de protocolo. Relativamente às aplicações de inquilino único, basta que o URI do ID da Aplicação seja exclusivo nesse inquilino. Nas aplicações multi-inquilinos, tem de ser globalmente exclusivo, para que o Azure AD consiga encontrar a aplicação em todos os inquilinos. Para aplicar a exclusividade global, o URI do ID da App tem de ter um nome de anfitrião que corresponda a um domínio verificado do inquilino do Azure AD. Por exemplo, se o nome do inquilino for contoso.onmicrosoft.com, https://contoso.onmicrosoft.com/myapp seria um URI de ID da Aplicação válido. Se o seu inquilino tiver o domínio verificado contoso.com, https://contoso.com/myapp também seria um URI de ID da Aplicação válido. Se o URI não seguir este padrão, a definição da aplicação como multi-inquilinos falha.
+> O Azure AD precisa que o URI do ID da Aplicação das aplicações multi-inquilino seja globalmente exclusivo. O URI do ID da Aplicação é uma das formas através das quais as aplicações são identificadas nas mensagens de protocolo. Relativamente às aplicações de inquilino único, basta que o URI do ID da Aplicação seja exclusivo nesse inquilino. Nas aplicações multi-inquilinos, tem de ser globalmente exclusivo, para que o Azure AD consiga encontrar a aplicação em todos os inquilinos. Para aplicar a exclusividade global, o URI do ID da App tem de ter um nome de anfitrião que corresponda a um domínio verificado do inquilino do Azure AD. Por exemplo, se o nome do inquilino for contoso.onmicrosoft.com, `https://contoso.onmicrosoft.com/myapp` seria um URI de ID da Aplicação válido. Se o seu inquilino tiver o domínio verificado contoso.com, `https://contoso.com/myapp` também seria um URI de ID da Aplicação válido. Se o URI não seguir este padrão, a definição da aplicação como multi-inquilinos falha.
 
 ### <a name="to-change-who-can-access-your-application"></a>Para alterar quem pode aceder à sua aplicação
 

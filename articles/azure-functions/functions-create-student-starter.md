@@ -1,29 +1,29 @@
 ---
-title: Criar uma função usando o Azure for Students Starter
-description: Saiba como criar uma função do Azure de dentro de uma assinatura inicial do Azure for Student
+title: Criar uma função usando Azure para entrada de estudantes
+description: Saiba como criar uma Função Azure a partir de uma subscrição azure para starter de estudante
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
 ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75921122"
 ---
-# <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando o Azure for Students Starter
+# <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando Azure para entrada de estudantes
 
-Neste tutorial, criaremos uma função HTTP "Olá, mundo" em uma assinatura inicial do Azure for students. Também vamos examinar o que está disponível em Azure Functions nesse tipo de assinatura.
+Neste tutorial, criaremos uma função HTTP "hello world" numa subscrição Azure for Students Starter. Também vamos percorrer o que está disponível nas Funções Azure neste tipo de subscrição.
 
-O Microsoft *Azure for Students Starter* o inicia com os produtos do Azure que você precisa para desenvolver na nuvem sem nenhum custo para você. [Saiba mais sobre esta oferta aqui.](https://azure.microsoft.com/offers/ms-azr-0144p/)
+O Microsoft *Azure para Estudantes Starter* inicia-te com os produtos Azure que precisas de desenvolver na nuvem sem qualquer custo para ti. [Saiba mais sobre esta oferta aqui.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
-As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/solutions/serverless/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web. [Saiba mais sobre as funções aqui.](./functions-overview.md)
+As Funções Azure permitem executar o seu código num ambiente [sem servidores](https://azure.microsoft.com/solutions/serverless/) sem ter de criar primeiro um VM ou publicar uma aplicação web. [Saiba mais sobre as Funções aqui.](./functions-overview.md)
 
 ## <a name="create-a-function"></a>Criar uma função
 
- Neste tópico, saiba como usar funções para criar uma função "Hello World" disparada por HTTP no portal do Azure.
+ Neste tópico, aprenda a usar funções para criar uma função de "hello world" desencadeada em HTTP no portal Azure.
 
 ![Criar uma aplicação de função no portal do Azure](./media/functions-create-student-starter/function-app-in-portal-editor.png)
 
@@ -33,9 +33,9 @@ Inicie sessão no portal do Azure em <https://portal.azure.com> com a sua conta 
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-Precisa de uma aplicação Function App para alojar a execução das suas funções. Um aplicativo de funções permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
+Precisa de uma aplicação Function App para alojar a execução das suas funções. Uma aplicação de função permite-lhe agrupar funções como uma unidade lógica para uma gestão mais fácil, implementação, escalae e partilha de recursos.
 
-1. Selecione o botão **criar um recurso** encontrado no canto superior esquerdo da portal do Azure. Em seguida, selecione **computação** > **aplicativo de funções**.
+1. Selecione o botão **Criar um botão de recurso** encontrado no canto superior esquerdo do portal Azure. Em seguida, selecione **Compute** > **Function App**.
 
     ![Criar uma aplicação de função no portal do Azure](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -46,17 +46,17 @@ Precisa de uma aplicação Function App para alojar a execução das suas funç�
     | Definição      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome da aplicação** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os carateres válidos são `a-z`, `0-9` e `-`.  | 
-    | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. | 
+    | **Assinatura** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. | 
     | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
-   | **[Local/plano do serviço de aplicativo](./functions-scale.md)** | Novo | O plano de hospedagem que controla em qual região seu aplicativo de funções é implantado e a densidade de seus recursos. Vários aplicativos de funções implantados no mesmo plano compartilharão a mesma única instância gratuita. Essa é uma restrição do plano de início do aluno. As opções de hospedagem completa são [explicadas aqui.](./functions-scale.md)|
+   | **[Plano de Serviço de Aplicações/Localização](./functions-scale.md)** | Novo | O plano de hospedagem que controla a região para onde a sua aplicação de função está implantada e a densidade dos seus recursos. Aplicações de funções múltiplas implementadas para o mesmo plano partilharão todos a mesma instância livre. Esta é uma restrição do plano de arranque de estudante. As opções de hospedagem completas são [explicadas aqui.](./functions-scale.md)|
     | **Pilha de tempo de execução** | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. Selecione **.NET** para funções C# e F#. |
-    |**[Application Insights](./functions-monitoring.md)**| Ativado | Application Insights é usado para armazenar e analisar os logs do aplicativo de funções. Ele será habilitado por padrão se você escolher um local com suporte a Application Insights. Application Insights pode ser habilitado para qualquer função, escolhendo manualmente uma região próxima para implantar Application Insights. Sem Application Insights, você só poderá exibir logs de transmissão ao vivo.
+    |**[Application Insights](./functions-monitoring.md)**| Ativado | Application Insights é usado para armazenar e analisar os registos da sua aplicação de função. Está ativado por padrão se escolher um local que suporte os Insights da Aplicação. Os Insights de Aplicação podem ser ativados para qualquer função, escolhendo manualmente uma região próxima para implementar Insights de Aplicação. Sem Informações de Aplicação, só poderá ver registos de streaming ao vivo.
 
-3. Selecione o **plano/local do serviço de aplicativo** acima para escolher um local diferente
+3. Selecione **plano/localização** do serviço de aplicações acima para escolher um local diferente
 
-4. Selecione **criar novo** e dê um nome exclusivo ao seu plano.
+4. Selecione **Criar novo** e, em seguida, dar ao seu plano um nome único.
 
-5. Selecione o local mais próximo de você. [Veja aqui um mapa completo das regiões do Azure.](https://azure.microsoft.com/global-infrastructure/regions/) 
+5. Selecione o local mais próximo de si. [Veja aqui um mapa completo das regiões de Azure.](https://azure.microsoft.com/global-infrastructure/regions/) 
 
     <img src="./media/functions-create-student-starter/Create-ASP.png" width="800">
 
@@ -72,9 +72,9 @@ Precisa de uma aplicação Function App para alojar a execução das suas funç�
 
 Em seguida, vai criar uma função na aplicação Function App nova.
 
-## <a name="create-function"></a>Criar uma função acionada por HTTP
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Criar uma função acionada por HTTP
 
-1. Expanda a sua nova aplicação de funções, selecione o botão **+** junto a **Funções**, escolha **No portal** e selecione **Continuar**.
+1. Expanda a sua nova **+** aplicação de funções e, em seguida, selecione o botão ao lado das **Funções,** escolha **o Portal In**, e selecione **Continuar**.
 
     ![Início rápido das Funções, escolher a plataforma.](./media/functions-create-student-starter/function-app-quickstart-choose-portal.png)
 
@@ -108,29 +108,29 @@ Agora, pode enviar um pedido HTTP para executar a função nova.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="supported-features-in-azure-for-students-starter"></a>Recursos com suporte no Azure for Students Starter
+## <a name="supported-features-in-azure-for-students-starter"></a>Funcionalidades suportadas em Azure para Entrada de Estudantes
 
-No iniciador do Azure for Students, você tem acesso à maioria dos recursos do tempo de execução de Azure Functions, com várias limitações principais listadas abaixo:
+Em Azure for Students Starter tem acesso à maioria das funcionalidades do tempo de funcionamento das Funções Azure, com várias limitações chave listadas abaixo:
 
-* O gatilho HTTP é o único tipo de gatilho com suporte.
-    * Todas as associações de entrada e de saída são suportadas! [Consulte a lista completa aqui.](functions-triggers-bindings.md)
-* Idiomas com suporte: 
-    * C#(.NET Core 2)
-    * JavaScript (Node. js 8 & 10)
-    * F#(.NET Core 2)
-    * [Veja os idiomas com suporte em planos mais altos aqui](supported-languages.md)
-* O Windows é o único sistema operacional com suporte.
-* A escala é restrita a [uma instância de camada gratuita](https://azure.microsoft.com/pricing/details/app-service/windows/) em execução por até 60 minutos por dia. Você irá serverlessly dimensionar de 0 para 1 instância automaticamente, pois o tráfego HTTP é recebido, mas não há mais.
-* Somente a [versão 2. x e posterior](functions-versions.md) do tempo de execução do Functions tem suporte.
-* Todas as ferramentas de desenvolvedor têm suporte para edição e publicação de funções. Isso inclui VS Code, o Visual Studio, o CLI do Azure e o portal do Azure. Se você quiser usar algo diferente do portal, será necessário primeiro criar um aplicativo no portal e, em seguida, escolher esse aplicativo como um destino de implantação em sua ferramenta preferida.
+* O gatilho HTTP é o único tipo de gatilho suportado.
+    * Todas as inputs e todas as encadernações de saída são suportadas! [Veja a lista completa aqui.](functions-triggers-bindings.md)
+* Línguas suportadas: 
+    * C# (.NET Core 2)
+    * JavaScript (Node.js 8 & 10)
+    * F# (.NET Core 2)
+    * [Ver línguas suportadas em planos mais elevados aqui](supported-languages.md)
+* O Windows é o único sistema operativo suportado.
+* A escala é restrita a [uma instância de nível livre](https://azure.microsoft.com/pricing/details/app-service/windows/) que funciona até 60 minutos por dia. Escalará de 0 a 1 de forma sem servidor automaticamente à medida que o tráfego HTTP é recebido, mas não mais.
+* Apenas a [versão 2.x e posterior](functions-versions.md) mente suportada pelo tempo de funcionamento das Funções.
+* Todas as ferramentas do desenvolvedor são suportadas para editar e publicar funções. Isto inclui o Código VS, o Estúdio Visual, o Azure CLI e o portal Azure. Se quiser utilizar outra coisa que não o portal, terá primeiro de criar uma aplicação no portal e, em seguida, escolher essa aplicação como alvo de implementação na sua ferramenta preferida.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você criou um aplicativo de funções com uma simples função disparada por HTTP! Agora você pode explorar ferramentas locais, mais linguagens, monitoramento e integrações.
+Criou uma aplicação de função com uma função simples de gatilho http! Agora você pode explorar ferramentas locais, mais idiomas, monitorização e integrações.
 
  * [Criar a sua primeira função com o Visual Studio](./functions-create-your-first-function-visual-studio.md)
- * [Criar sua primeira função usando Visual Studio Code](./functions-create-first-function-vs-code.md)
- * [Guia do desenvolvedor do Azure Functions JavaScript](./functions-reference-node.md)
- * [Usar Azure Functions para se conectar a um banco de dados SQL do Azure](./functions-scenario-database-table-cleanup.md)
- * [Saiba mais sobre associações HTTP Azure Functions](./functions-bindings-http-webhook.md).
- * [Monitorar seu Azure Functions](./functions-monitoring.md)
+ * [Criar a sua primeira função com o Visual Studio Code](./functions-create-first-function-vs-code.md)
+ * [Guia de desenvolvedores de funções azure JavaScript](./functions-reference-node.md)
+ * [Utilize funções Azure para ligar a uma base de dados Azure SQL](./functions-scenario-database-table-cleanup.md)
+ * [Saiba mais sobre as ligações Azure Functions HTTP](./functions-bindings-http-webhook.md).
+ * [Monitorize as suas Funções Azure](./functions-monitoring.md)

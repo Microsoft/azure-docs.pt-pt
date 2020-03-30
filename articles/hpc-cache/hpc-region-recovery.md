@@ -1,61 +1,61 @@
 ---
-title: Redundância regional e recuperação de failover com o cache HPC do Azure
-description: Técnicas para fornecer recursos de failover para recuperação de desastre com o cache HPC do Azure
+title: Redundância regional e recuperação de falhas com cache Azure HPC
+description: Técnicas para fornecer capacidades de failover para recuperação de desastres com Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 4eb203915c8fedbef6af0e5a3bc14eff1835a92b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75982163"
 ---
-# <a name="use-multiple-caches-for-regional-failover-recovery"></a>Usar vários caches para recuperação de failover regional
+# <a name="use-multiple-caches-for-regional-failover-recovery"></a>Use vários caches para recuperação regional de falhas
 
-Cada instância de cache do Azure HPC é executada em uma assinatura específica e em uma região. Isso significa que o fluxo de trabalho do cache poderia possivelmente ser interrompido se a região tiver uma interrupção completa.
+Cada instância de Cache Azure HPC funciona dentro de uma subscrição particular e numa região. Isto significa que o seu fluxo de trabalho em cache pode ser interrompido se a região tiver uma paragem total.
 
-Este artigo descreve uma estratégia para reduzir o risco de interrupções de trabalho usando uma segunda região para failover de cache.
+Este artigo descreve uma estratégia para reduzir o risco de perturbação do trabalho utilizando uma segunda região para a falha da cache.
 
-A chave está usando armazenamento de back-end que pode ser acessado de várias regiões. Esse armazenamento pode ser um sistema NAS local com suporte DNS apropriado ou o armazenamento de BLOBs do Azure que reside em uma região diferente do cache.
+A chave é usar armazenamento de back-end que é acessível a partir de várias regiões. Este armazenamento pode ser um sistema NAS no local com suporte DNS apropriado, ou armazenamento Azure Blob que reside em uma região diferente da cache.
 
-Conforme o fluxo de trabalho continua em sua região primária, os dados são salvos no armazenamento de longo prazo fora da região. Se a região de cache ficar indisponível, você poderá criar uma instância duplicada de cache do Azure HPC em uma região secundária, conectar-se ao mesmo armazenamento e retomar o trabalho do novo cache.
+À medida que o seu fluxo de trabalho prossegue na sua região primária, os dados são guardados no armazenamento a longo prazo fora da região. Se a região de cache ficar indisponível, pode criar uma instância de cache Azure HPC duplicada numa região secundária, ligar-se ao mesmo armazenamento e retomar os trabalhos a partir da nova cache.
 
-## <a name="planning-for-regional-failover"></a>Planejando o failover regional
+## <a name="planning-for-regional-failover"></a>Planeamento para a falha regional
 
-Para configurar um cache que está preparado para um possível failover, siga estas etapas:
+Para configurar uma cache preparada para uma possível falha, siga estes passos:
 
-1. Verifique se o armazenamento de back-end está acessível em uma segunda região.
-1. Ao planejar a criação da instância de cache primária, você também deve se preparar para replicar esse processo de instalação na segunda região. Incluir estes itens:
+1. Certifique-se de que o seu armazenamento traseiro é acessível numa segunda região.
+1. Ao planear criar a instância principal de cache, deve também preparar-se para replicar este processo de configuração na segunda região. Inclua estes itens:
 
-   1. Estrutura de rede virtual e de sub-rede
+   1. Rede virtual e estrutura de sub-rede
    1. Capacidade de cache
-   1. Detalhes de destino de armazenamento, nomes e caminhos de namespace
-   1. Detalhes sobre computadores cliente, se estiverem localizados na mesma região que o cache
-   1. Comando mount para uso por clientes de cache
+   1. Detalhes do alvo de armazenamento, nomes e caminhos do espaço de nome
+   1. Detalhes sobre máquinas de clientes, se estiverem localizados na mesma região que o cache
+   1. Monte comando para uso por clientes cache
 
    > [!NOTE]
-   > O cache do HPC do Azure pode ser criado programaticamente, por meio de um [modelo de Azure Resource Manager](../azure-resource-manager/templates/overview.md) ou acessando diretamente sua API. Contate a equipe de cache do Azure HPC para obter detalhes.
+   > A Cache Azure HPC pode ser criada programáticamente, seja através de um modelo de Gestor de [Recursos Azure](../azure-resource-manager/templates/overview.md) ou através do acesso direto à sua API. Contacte a equipa azure HPC Cache para obter mais detalhes.
 
 ## <a name="failover-example"></a>Exemplo de failover
 
-Como exemplo, imagine que você deseja localizar o cache do Azure HPC na região leste dos EUA do Azure. Ele acessará os dados armazenados em seu data center local.
+Como exemplo, imagine que quer localizar o seu Cache Azure HPC na região leste dos EUA de Azure. Acederá aos dados armazenados no seu centro de dados no local.
 
-Você pode usar um cache na região oeste dos EUA 2 como um backup de failover.
+Você pode usar um cache na região oeste dos EUA 2 como um backup de falha.
 
-Ao criar o cache no leste dos EUA, prepare um segundo cache para implantação no oeste dos EUA 2. Você pode usar scripts ou modelos para automatizar essa preparação.
+Ao criar a cache no Leste dos EUA, prepare uma segunda cache para implantação em West US 2. Pode utilizar scripts ou modelos para automatizar esta preparação.
 
-No caso de uma falha em toda a região no leste dos EUA, crie o cache que você preparou na região oeste dos EUA 2.
+Em caso de falha na região dos EUA, crie o cache que preparou na região oeste dos EUA 2.
 
-Depois que o cache for criado, adicione destinos de armazenamento que apontem para os mesmos armazenamentos de dados locais e use os mesmos caminhos de namespace agregados que os destinos de armazenamento do cache antigo.
+Após a criação da cache, adicione alvos de armazenamento que apontem para as mesmas lojas de dados no local e utilizem os mesmos caminhos agregados do espaço de nome saque tamanha que os alvos de armazenamento da cache antiga.
 
-Se os clientes originais forem afetados, crie novos clientes na região oeste dos EUA 2 para uso com o novo cache.
+Se os clientes originais forem afetados, crie novos clientes na região oeste dos EUA 2 para uso com a nova cache.
 
-Todos os clientes precisarão montar o novo cache, mesmo que os clientes não tenham sido afetados pela interrupção da região. O novo cache tem endereços de montagem diferentes do antigo.
+Todos os clientes terão de montar a nova cache, mesmo que os clientes não tenham sido afetados pela paralisação da região. A nova cache tem diferentes endereços de montagem do antigo.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
-O guia de arquitetura do aplicativo do Azure inclui mais informações sobre como se [recuperar de uma interrupção de serviço em toda a região](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>).
+O guia de arquitetura de aplicações Azure inclui mais informações sobre como recuperar de uma perturbação de serviço em [toda a região.](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>)
 <!-- this should be an internal link instead of a URL but I can't find the tree  -->

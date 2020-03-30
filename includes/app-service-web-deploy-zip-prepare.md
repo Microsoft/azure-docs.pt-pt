@@ -9,23 +9,23 @@ ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 6b5aa4f409b8c2f5a9125ab01e8587f4ac9c4ee5
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75945169"
 ---
 ## <a name="create-a-project-zip-file"></a>Criar um ficheiro ZIP do projeto
 
 >[!NOTE]
-> Se você baixou os arquivos em um arquivo ZIP, extraia os arquivos primeiro. Por exemplo, se você baixou um arquivo ZIP do GitHub, não poderá implantar esse arquivo no estado em que se encontra. O GitHub adiciona diretórios aninhados adicionais, que não funcionam com o serviço de aplicativo. 
+> Se descarregou os ficheiros num ficheiro ZIP, extrai os ficheiros primeiro. Por exemplo, se descarregou um ficheiro ZIP do GitHub, não pode implementar esse ficheiro como está. O GitHub adiciona diretórios aninhados adicionais, que não funcionam com o App Service. 
 >
 
-Em uma janela de terminal local, navegue até o diretório raiz do seu projeto de aplicativo. 
+Numa janela de terminal local, navegue para o diretório raiz do seu projeto de aplicação. 
 
-Esse diretório deve conter o arquivo de entrada para seu aplicativo Web, como _index. html_, _index. php_e _app. js_. Ele também pode conter arquivos de gerenciamento de pacotes como _Project. JSON_, _Composer. JSON_, _Package. JSON_, _Bower. JSON_e _requirements. txt_.
+Este diretório deve conter o ficheiro de entrada na sua aplicação web, tais como _index.html,_ _index.php_, e _app.js_. Também pode conter ficheiros de gestão de pacotes como _project.json_, _composer.json,_ _package.json,_ _bower.json_, e _requirements.txt_.
 
-A menos que você queira que o serviço de aplicativo execute a automação de implantação para você, execute todas as tarefas de compilação (por exemplo, `npm`, `bower`, `gulp`, `composer`e `pip`) e certifique-se de ter todos os arquivos necessários para executar o aplicativo. Esta etapa será necessária se você quiser [executar o pacote diretamente](../articles/app-service/deploy-run-package.md).
+A menos que pretenda que o Serviço de Aplicações execute `npm` `bower`a `gulp` `composer`automatização de implementação para si, execute todas as tarefas de construção (por exemplo, , , e ) e `pip`certifique-se de que tem todos os ficheiros necessários para executar a app. Este passo é necessário se quiser [executar o seu pacote diretamente](../articles/app-service/deploy-run-package.md).
 
 Crie um arquivo ZIP de tudo no seu projeto. O comando seguinte utiliza a ferramenta predefinida no seu terminal:
 

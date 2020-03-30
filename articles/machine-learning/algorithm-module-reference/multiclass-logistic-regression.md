@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 40193a2547959b44c5753cfcc6ccad9344ab9486
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ca446b0ab67a8a202c1f4d505262660ac55f42db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920438"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456170"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo de Regressão Logística Multiclasse
 
@@ -48,7 +48,7 @@ Em regressão logística multiclasse, o classificador pode ser usado para prever
 
     A regularização é um método para prevenir o excesso de montagem penalizando modelos com valores de coeficiente extremos. A regularização funciona adicionando a penalidade associada aos valores de coeficiente ao erro da hipótese. Um modelo preciso com valores de coeficiente extremos seria penalizado mais, mas um modelo menos preciso com valores mais conservadores seria menos penalizado.
 
-     A regularização L1 e L2 tem efeitos e usos diferentes. A L1 pode ser aplicada a modelos escassos, o que é útil quando se trabalha com dados de alta dimensão. Em contraste, a regularização L2 é preferível para dados que não são escassos.  Este algoritmo suporta uma combinação linear de valores de regularização L1 e L2: isto é, se `x = L1` e `y = L2`, `ax + by = c` define o período linear dos termos de regularização.
+     A regularização L1 e L2 tem efeitos e usos diferentes. A L1 pode ser aplicada a modelos escassos, o que é útil quando se trabalha com dados de alta dimensão. Em contraste, a regularização L2 é preferível para dados que não são escassos.  Este algoritmo suporta uma combinação linear de valores de regularização `y = L2` `ax + by = c` L1 e L2: isto é, se `x = L1` e define o período linear dos termos de regularização.
 
      Foram concebidas diferentes combinações lineares de termos L1 e L2 para modelos de regressão logística, como a [regularização elástica da rede.](https://wikipedia.org/wiki/Elastic_net_regularization)
 
@@ -58,7 +58,7 @@ Em regressão logística multiclasse, o classificador pode ser usado para prever
 
     + Se definir o modo Criar modo **de treinador** para um parâmetro **único,** utilize o módulo Modelo de [Comboio.](./train-model.md)
 
-9. Executar o pipeline.
+9. Submeta o oleoduto.
 
 
 

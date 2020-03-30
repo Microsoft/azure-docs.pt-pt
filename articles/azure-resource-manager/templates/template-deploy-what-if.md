@@ -5,19 +5,19 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: jgao
-ms.openlocfilehash: b9d4150779842614a5dc284a2b3a489593fabfe1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: bc42585204e5cc2c3ece5293a3934fd22fe8507b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388507"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156451"
 ---
-# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Implementação do modelo do Gestor de Recursos que-se operação (Pré-visualização)
+# <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM que-se operação (Pré-visualização)
 
-Antes de implementar um modelo, é melhor visualizar as alterações que irão acontecer. O Azure Resource Manager fornece a operação "what-if" para que veja como os recursos vão mudar se implementar o modelo. A operação "e se" não faz alterações nos recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implantado.
+Antes de implementar um modelo de Gestor de Recursos Azure (ARM), é melhor visualizar as alterações que irão acontecer. O Azure Resource Manager fornece a operação "what-if" para que veja como os recursos vão mudar se implementar o modelo. A operação "e se" não faz alterações nos recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implantado.
 
 > [!NOTE]
-> A operação "e se" está atualmente em pré-visualização. Para usá-lo, deve [inscrever-se para a pré-visualização](https://aka.ms/armtemplatepreviews). Como um lançamento de pré-visualização, os resultados podem por vezes mostrar que um recurso mudará quando, na verdade, nenhuma mudança acontecerá. Estamos a trabalhar para reduzir estes problemas, mas precisamos da sua ajuda. Por favor, informe estas questões em [https://aka.ms/whatifissues. ](https://aka.ms/whatifissues)
+> A operação "e se" está atualmente em pré-visualização. Para usá-lo, deve [inscrever-se para a pré-visualização](https://aka.ms/armtemplatepreviews). Como um lançamento de pré-visualização, os resultados podem por vezes mostrar que um recurso mudará quando, na verdade, nenhuma mudança acontecerá. Estamos a trabalhar para reduzir estes problemas, mas precisamos da sua ajuda. Por favor, informe estas questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
 Pode utilizar a operação "what-if" com os comandos PowerShell ou as operações REST API.
 
@@ -60,25 +60,25 @@ Pode utilizar a API Azure PowerShell ou Azure REST para a operação "e se".
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Para ver uma pré-visualização das alterações antes de implementar um modelo, adicione o parâmetro de comutação `-Whatif` ao comando de implantação.
+Para ver uma pré-visualização das alterações `-Whatif` antes de implementar um modelo, adicione o parâmetro do interruptor ao comando de implantação.
 
-* `New-AzResourceGroupDeployment -Whatif` para implantações de grupos de recursos
-* `New-AzSubscriptionDeployment -Whatif` e `New-AzDeployment -Whatif` para implementações de nível de subscrição
+* `New-AzResourceGroupDeployment -Whatif`para implantações de grupos de recursos
+* `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` para implementações de nível de subscrição
 
-Ou, pode utilizar o parâmetro `-Confirm` mudar para pré-visualizar as alterações e ser solicitado para continuar com a implementação.
+Ou, pode utilizar `-Confirm` o parâmetro do interruptor para pré-visualizar as alterações e ser solicitado para continuar com a implementação.
 
-* `New-AzResourceGroupDeployment -Confirm` para implantações de grupos de recursos
-* `New-AzSubscriptionDeployment -Confirm` e `New-AzDeployment -Confirm` para implementações de nível de subscrição
+* `New-AzResourceGroupDeployment -Confirm`para implantações de grupos de recursos
+* `New-AzSubscriptionDeployment -Confirm`e `New-AzDeployment -Confirm` para implementações de nível de subscrição
 
 Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualmente. Para obter um objeto que possa inspecionar programáticamente para obter alterações, utilize:
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf` para implantações de grupos de recursos
-* `$results = Get-AzSubscriptionDeploymentWhatIf` ou `$results = Get-AzDeploymentWhatIf` para implementações de nível de subscrição
+* `$results = Get-AzResourceGroupDeploymentWhatIf`para implantações de grupos de recursos
+* `$results = Get-AzSubscriptionDeploymentWhatIf`ou `$results = Get-AzDeploymentWhatIf` para implementações de nível de subscrição
 
 > [!NOTE]
-> Antes do lançamento da versão 2.0.1-alpha5, usou o comando `New-AzDeploymentWhatIf`. Este comando foi substituído pelos comandos `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf`e `Get-AzSubscriptionDeploymentWhatIf`. Se usou uma versão anterior, precisa atualizar essa sintaxe. O parâmetro `-ScopeType` foi removido.
+> Antes do lançamento da versão 2.0.1-alpha5, usaste o `New-AzDeploymentWhatIf` comando. Este comando foi substituído `Get-AzDeploymentWhatIf` `Get-AzResourceGroupDeploymentWhatIf`pelos `Get-AzSubscriptionDeploymentWhatIf` comandos e comandos. Se usou uma versão anterior, precisa atualizar essa sintaxe. O `-ScopeType` parâmetro foi removido.
 
-### <a name="azure-rest-api"></a>API de DESCANSO Azul
+### <a name="azure-rest-api"></a>API REST do Azure
 
 Para a API REST, utilize:
 
@@ -95,15 +95,15 @@ A operação "e se" enumera seis tipos diferentes de alterações:
 
 - **Ignore**: O recurso existe, mas não está definido no modelo. O recurso não será implantado ou modificado.
 
-- **NoChange**: O recurso existe e é definido no modelo. O recurso será redistribuído, mas as propriedades do recurso não mudarão. Este tipo de alteração é devolvido quando o [ResultFormat](#result-format) está definido para `FullResourcePayloads`, que é o valor padrão.
+- **NoChange**: O recurso existe e é definido no modelo. O recurso será redistribuído, mas as propriedades do recurso não mudarão. Este tipo de alteração é devolvido `FullResourcePayloads`quando o [ResultFormat](#result-format) está definido para , que é o valor padrão.
 
-- **Modificar**: O recurso existe e é definido no modelo. O recurso será redistribuído e as propriedades do recurso mudarão. Este tipo de alteração é devolvido quando o [ResultFormat](#result-format) está definido para `FullResourcePayloads`, que é o valor padrão.
+- **Modificar**: O recurso existe e é definido no modelo. O recurso será redistribuído e as propriedades do recurso mudarão. Este tipo de alteração é devolvido `FullResourcePayloads`quando o [ResultFormat](#result-format) está definido para , que é o valor padrão.
 
-- **Implementação**: O recurso existe e é definido no modelo. O recurso será redistribuído. As propriedades do recurso podem ou não mudar. A operação devolve este tipo de alteração quando não tem informação suficiente para determinar se alguma propriedade irá mudar. Só vê esta condição quando o [Formato de Resultados](#result-format) está definido para `ResourceIdOnly`.
+- **Implementação**: O recurso existe e é definido no modelo. O recurso será redistribuído. As propriedades do recurso podem ou não mudar. A operação devolve este tipo de alteração quando não tem informação suficiente para determinar se alguma propriedade irá mudar. Só se vê esta condição quando `ResourceIdOnly`o [Formato de Resultados](#result-format) está definido para .
 
 ## <a name="result-format"></a>Formato resultado
 
-Pode controlar o nível de detalhe que é devolvido sobre as alterações previstas. Nos comandos de implantação (`New-Az*Deployment`), utilize o parâmetro **-WhatIfResultFormat.** Nos comandos programáticos do objeto (`Get-Az*DeploymentWhatIf`), utilize o parâmetro **ResultFormat.**
+Pode controlar o nível de detalhe que é devolvido sobre as alterações previstas. Nos comandos de`New-Az*Deployment`implantação (), utilize o parâmetro **-WhatIfResultFormat.** Nos comandos programáticos`Get-Az*DeploymentWhatIf`do objeto ( ), utilize o parâmetro **ResultFormat.**
 
 Defina o parâmetro de formato para **FullResourcePayloads** para obter uma lista de recursos que irão alterar e detalhes sobre as propriedades que irão mudar. Defina o parâmetro de formato para **O RecursoIdOnly** para obter uma lista de recursos que irão mudar. O valor predefinido é **FullResourcePayloads**.  
 
@@ -241,7 +241,7 @@ foreach ($change in $results.Changes)
 
 A operação "e se" suporta a utilização do modo de [implantação](deployment-modes.md). Quando definido para completar o modo, os recursos não no modelo são eliminados. O exemplo seguinte implementa um [modelo que não tem recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) em modo completo.
 
-Para pré-visualizar alterações antes de implementar um modelo, utilize o parâmetro de comutação `-Confirm` com o comando de implantação. Se as alterações forem como esperava, confirme que pretende que a implementação esteja concluída.
+Para pré-visualizar alterações antes `-Confirm` de implementar um modelo, utilize o parâmetro do interruptor com o comando de implantação. Se as alterações forem como esperava, confirme que pretende que a implementação esteja concluída.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -286,6 +286,6 @@ Vê as alterações esperadas e pode confirmar que quer que a implantação seja
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se notar resultados incorretos a partir da versão prévia do que-se, por favor reporte os problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- Para implementar modelos com O PowerShell Azure, consulte [a implantação de recursos com modelos](deploy-powershell.md)de Gestor de Recursos e PowerShell Azure .
-- Para implementar modelos com REST, consulte implementar recursos com modelos de Gestor de [Recursos e Gestor de Recursos REST API](deploy-rest.md).
+- Se notar resultados incorretos a partir da versão prévia [https://aka.ms/whatifissues](https://aka.ms/whatifissues)do que-se, por favor, informe os problemas em .
+- Para implementar modelos com O PowerShell Azure, consulte [a implantação de recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
+- Para implementar modelos com REST, consulte [Implementar recursos com modelos ARM e Gestor de Recursos REST API](deploy-rest.md).

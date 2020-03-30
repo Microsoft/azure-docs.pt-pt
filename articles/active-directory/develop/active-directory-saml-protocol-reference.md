@@ -1,5 +1,5 @@
 ---
-title: Como a Azure AD utiliza o protocolo SAML  Microsoft Docs
+title: Como a Azure AD utiliza o protocolo SAML [ Microsoft Docs
 description: Este artigo fornece uma visão geral dos perfis SAML de entrada única e de inscrição única no Diretório Ativo Azure.
 services: active-directory
 author: rwike77
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: dc7771f29fb5d00aedfe5162a98f5f0c14544a7b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161176"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Como o Azure AD utiliza o protocolo SAML
@@ -28,12 +28,12 @@ O Protocolo SAML exige que o fornecedor de identidade (Azure AD) e o prestador d
 
 Quando uma aplicação é registada na Azure AD, o desenvolvedor de aplicações regista informações relacionadas com a federação com a Azure AD. Estas informações incluem o **Redirect URI** e **metadata URI** da aplicação.
 
-A Azure AD utiliza o **Metadata URI** do serviço na nuvem para recuperar a chave de assinatura e o logout URI. O cliente pode abrir a aplicação em **Azure AD -> Registo** de Aplicações e, em seguida, em **Definições -> Propriedades,** podem atualizar o URL de Logout. Desta forma, o Azure AD pode enviar a resposta para o URL correto. 
+A Azure AD utiliza o **Metadata URI** do serviço na nuvem para recuperar a chave de assinatura e o logout URI. O cliente pode abrir a aplicação no Registo de **Aplicações > Azure E,** em seguida, em **Definições -> Propriedades,** pode atualizar o URL de Logout. Desta forma, o Azure AD pode enviar a resposta para o URL correto. 
 
 O Azure Ative Directory expõe os pontos finais de inscrição simples e únicos (independentes de inquilinos) e de entrada única. Estes URLs representam localizações endereçáveis, não são apenas identificadores, por isso pode supor que pode ir ao ponto final para ler os metadados.
 
-* O ponto final específico do inquilino está localizado em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. O *\<TenantDomainName>* o espaço reservado representa um nome de domínio registado ou O TenantID GUID de um inquilino da AD Azure. Por exemplo, os metadados da federação do inquilino contoso.com estão em: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* O ponto final específico do `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`inquilino está localizado em . O * \<TenantDomainName>* espaço reservado representa um nome de domínio registado ou 'TenantID GUID' de um inquilino da AD Azure. Por exemplo, os metadados da federação do contoso.com inquilino está em:https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
-* O ponto final independente do inquilino está localizado em `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Neste endereço final, aparece **comum** em vez de um nome de domínio ou ID do inquilino.
+* O ponto final independente do `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`inquilino está localizado em . Neste endereço final, aparece **comum** em vez de um nome de domínio ou ID do inquilino.
 
 Para obter informações sobre os documentos de metadados da federação que a Azure AD publica, consulte [metadados da Federação](../azuread-dev/azure-ad-federation-metadata.md).

@@ -1,34 +1,34 @@
 ---
 title: Atualizar um cluster para usar o nome comum do certificado
-description: Saiba como alternar um Cluster Service Fabric usando impressões digitais de certificado para usar o nome comum do certificado.
+description: Aprenda a mudar um cluster de tecido de serviço de usar impressões digitais de certificado para usar o nome comum do certificado.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 66c49ccb7b7633d0eff392b676bb381118eb64a2
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610204"
 ---
-# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster da impressão digital do certificado para o nome comum
-Dois certificados não podem ter a mesma impressão digital, o que torna difícil a substituição ou o gerenciamento do certificado do cluster. No entanto, vários certificados podem ter o mesmo nome ou assunto comum.  Alternar um cluster implantado do uso de impressões digitais de certificado para usar nomes comuns de certificado torna o gerenciamento de certificados muito mais simples. Este artigo descreve como atualizar um Cluster Service Fabric em execução para usar o nome comum do certificado em vez da impressão digital do certificado.
+# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster do thumbprint do certificado para o nome comum
+Nenhum certificado pode ter a mesma impressão digital, o que dificulta a capotamento ou a gestão do certificado de cluster. Vários certificados, no entanto, podem ter o mesmo nome ou assunto comum.  Trocar um cluster implantado de usar impressões digitais de certificado para usar nomes comuns de certificado torna a gestão de certificados muito mais simples. Este artigo descreve como atualizar um cluster de tecido de serviço em execução para usar o nome comum do certificado em vez da impressão digital do certificado.
 
 >[!NOTE]
-> Se você tiver duas impressões digitais declaradas em seu modelo, precisará executar duas implantações.  A primeira implantação é feita antes de seguir as etapas neste artigo.  A primeira implantação define sua propriedade de **impressão digital** no modelo para o certificado que está sendo usado e remove a propriedade **thumbprintSecondary** .  Para a segunda implantação, siga as etapas neste artigo.
+> Se tiver duas impressões digitais declaradas no seu modelo, terá de realizar duas implementações.  A primeira implementação é feita antes de seguir os passos deste artigo.  A primeira implementação define a sua propriedade de **impressão digital** no modelo para o certificado que está a ser usado e remove a propriedade **thumbprintSecondary.**  Para a segunda implementação, siga os passos deste artigo.
  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Obter um certificado
-Primeiro, obtenha um certificado de uma [autoridade de certificação (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser o nome do host do cluster.  Por exemplo, "myclustername.southcentralus.cloudapp.azure.com".  
+Primeiro, obtenha um certificado de uma autoridade de [certificados (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser o nome anfitrião do cluster.  Por exemplo, "myclustername.southcentralus.cloudapp.azure.com".  
 
-Para fins de teste, você pode obter um certificado assinado por uma autoridade de certificação de uma autoridade de certificação gratuita ou aberta.
+Para efeitos de teste, pode obter um certificado assinado pela AC de uma autoridade de certificados gratuitos ou abertos.
 
 > [!NOTE]
-> Os certificados autoassinados, incluindo aqueles gerados ao implantar um cluster de Service Fabric no portal do Azure, não têm suporte.
+> Os certificados auto-assinados, incluindo os gerados na implementação de um cluster de tecido de serviço no portal Azure, não são suportados.
 
-## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Carregar o certificado e instalá-lo no conjunto de dimensionamento
-No Azure, um Cluster Service Fabric é implantado em um conjunto de dimensionamento de máquinas virtuais.  Carregue o certificado em um cofre de chaves e, em seguida, instale-o no conjunto de dimensionamento de máquinas virtuais no qual o cluster está sendo executado.
+## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Faça upload do certificado e instale-o no conjunto de escala
+Em Azure, um cluster de tecido de serviço é implantado num conjunto de escala de máquina virtual.  Faça o upload do certificado para um cofre chave e instale-o no conjunto de escala virtual da máquina em que o cluster está a funcionar.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -88,25 +88,25 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> Os segredos do conjunto de dimensionamento não dão suporte à mesma ID de recurso para dois segredos separados, pois cada segredo é um recurso com versão e exclusivo. 
+> Os segredos conjuntos de escala não suportam o mesmo ID de recurso para dois segredos separados, uma vez que cada segredo é um recurso exclusivo e versão. 
 
-## <a name="download-and-update-the-template-from-the-portal"></a>Baixar e atualizar o modelo no portal
-O certificado foi instalado no conjunto de dimensionamento subjacente, mas você também precisa atualizar o cluster de Service Fabric para usar esse certificado e seu nome comum.  Agora, baixe o modelo para a implantação do cluster.  Entre no [portal do Azure](https://portal.azure.com) e navegue até o grupo de recursos que hospeda o cluster.  Em **configurações**, selecione **implantações**.  Selecione a implantação mais recente e clique em **Exibir modelo**.
+## <a name="download-and-update-the-template-from-the-portal"></a>Descarregue e atualize o modelo a partir do portal
+O certificado foi instalado no conjunto de escala subjacente, mas também precisa atualizar o cluster Service Fabric para utilizar esse certificado e o seu nome comum.  Agora, descarregue o modelo para a sua implementação do cluster.  Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para o grupo de recursos que acolhe o cluster.  Em **Definições,** selecione **Implementações**.  Selecione a implementação mais recente e clique no **modelo 'Ver'.**
 
-![Exibir modelos][image1]
+![Ver modelos][image1]
 
-Baixe os arquivos JSON de modelo e parâmetros para o computador local.
+Descarregue o modelo e os parâmetros dos ficheiros JSON para o seu computador local.
 
-Primeiro, abra o arquivo de parâmetros em um editor de texto e adicione o seguinte valor de parâmetro:
+Em primeiro lugar, abra o ficheiro de parâmetros num editor de texto e adicione o seguinte valor parâmetro:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
 ```
 
-Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualizações para dar suporte ao nome comum do certificado.
+Em seguida, abra o ficheiro do modelo num editor de texto e faça três atualizações para apoiar o nome comum do certificado.
 
-1. Na seção **parâmetros** , adicione um parâmetro *certificateCommonName* :
+1. Na secção **de parâmetros,** adicione um *parâmetro de nome comum* certificado:
     ```json
     "certificateCommonName": {
         "type": "string",
@@ -116,9 +116,9 @@ Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualiz
     },
     ```
 
-    Além disso, considere remover o *certificateThumbprint*, ele não poderá mais ser referenciado no modelo do Resource Manager.
+    Considere também a remoção do *certificadoImpressão Polegar,* pode deixar de ser referenciado no modelo de Gestor de Recursos.
 
-2. No recurso **Microsoft. Compute/virtualMachineScaleSets** , atualize a extensão da máquina virtual para usar o nome comum nas configurações de certificado em vez da impressão digital.  Em **virtualMachineProfile**->**extensionProfile**->**extensões**->**propriedades**->**configurações**->**certificado**, adicione `"commonNames": ["[parameters('certificateCommonName')]"],` e remova `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. No recurso **Microsoft.Compute/virtualMachineScaleSets,** atualize a extensão da máquina virtual para utilizar o nome comum nas definições do certificado em vez da impressão digital.  No**properties**->**settings**-> **virtualMachineProfile**->**extensões De definições**->de `"thumbprint": "[parameters('certificateThumbprint')]",`**extensões,**->adicione**certificate** `"commonNames": ["[parameters('certificateCommonName')]"],` e remova .
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {
@@ -152,7 +152,7 @@ Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualiz
                 },
     ```
 
-3.  No recurso **Microsoft. perfabric/clusters** , atualize a versão da API para "2018-02-01".  Adicione também uma configuração de **certificateCommonNames** com uma propriedade **comumnames** e remova a configuração de **certificado** (com a propriedade de impressão digital), como no exemplo a seguir:
+3.  No recurso **Microsoft.ServiceFabric/clusters,** atualize a versão API para "2018-02-01".  Adicione também uma definição de **certificateCommonNames** com uma propriedade **commonNames** e remova a definição do **certificado** (com a propriedade de impressão digital) como no seguinte exemplo:
     ```json
     {
         "apiVersion": "2018-02-01",
@@ -179,10 +179,10 @@ Em seguida, abra o arquivo de modelo em um editor de texto e faça três atualiz
         ...
     ```
 
-Para obter informações adicionais [, consulte Implantar um Service Fabric cluster que usa o nome comum do certificado em vez da impressão digital.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+Para obter informações adicionais consulte [A implantação de um cluster de tecido de serviço que utilize o nome comum do certificado em vez da impressão digital.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
 
-## <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
-Reimplante o modelo atualizado depois de fazer as alterações.
+## <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
+Reutilizar o modelo atualizado depois de efazer as alterações.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -192,8 +192,8 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
-* Saiba como [sobrepor um certificado de cluster](service-fabric-cluster-rollover-cert-cn.md)
-* [Atualizar e gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
+* Saiba mais sobre [a segurança do cluster.](service-fabric-cluster-security.md)
+* Saiba como [reverter um certificado](service-fabric-cluster-rollover-cert-cn.md) de cluster
+* [Atualizar e Gerir certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
 
 [image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

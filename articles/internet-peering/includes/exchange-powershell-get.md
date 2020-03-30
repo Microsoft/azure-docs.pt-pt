@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 33ae3c3f9a2a213bd8135af846b4e72901b3df0d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774448"
 ---
-Para obter a lista de emparelhamentos, execute o comando `Get-AzPeering`:
+Para obter a lista de pares, executar o `Get-AzPeering` comando:
 
 ```powershell
 Get-AzPeering ResourceGroupName "PeeringResourceGroup" -Name "SeattleExchangePeering"
 ```
 
-Abaixo está um exemplo de resposta quando o provisionamento de ponta a ponta foi concluído com êxito:
+Abaixo está uma resposta exemplo quando o fornecimento de ponta a ponta foi concluído com sucesso:
 
 ```powershell
     Name                     : SeattleExchangePeering

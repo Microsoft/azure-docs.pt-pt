@@ -1,6 +1,6 @@
 ---
-title: Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento
-description: O provedor de recursos de armazenamento do Azure é um serviço que fornece acesso a recursos de gerenciamento para o armazenamento do Azure. Você pode usar o provedor de recursos de armazenamento do Azure para criar, atualizar, gerenciar e excluir recursos como contas de armazenamento, pontos de extremidade privados e chaves de acesso de conta.
+title: Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
+description: O fornecedor de recursos de armazenamento Azure é um serviço que fornece acesso a recursos de gestão para armazenamento Azure. Pode utilizar o fornecedor de recursos de Armazenamento Azure para criar, atualizar, gerir e eliminar recursos como contas de armazenamento, pontos finais privados e chaves de acesso à conta.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,72 +10,72 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972353"
 ---
-# <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento
+# <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
 
-O Azure Resource Manager é o serviço de implementação e gestão do Azure. O provedor de recursos de armazenamento do Azure é um serviço baseado em Azure Resource Manager e que fornece acesso a recursos de gerenciamento para o armazenamento do Azure. Você pode usar o provedor de recursos de armazenamento do Azure para criar, atualizar, gerenciar e excluir recursos como contas de armazenamento, pontos de extremidade privados e chaves de acesso de conta. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](/azure/azure-resource-manager/resource-group-overview).
+O Azure Resource Manager é o serviço de implementação e gestão do Azure. O fornecedor de recursos de armazenamento Azure é um serviço baseado no Azure Resource Manager e que fornece acesso a recursos de gestão para armazenamento Azure. Pode utilizar o fornecedor de recursos de Armazenamento Azure para criar, atualizar, gerir e eliminar recursos como contas de armazenamento, pontos finais privados e chaves de acesso à conta. Para mais informações sobre o Gestor de Recursos Azure, consulte a [visão geral do Gestor de Recursos do Azure.](/azure/azure-resource-manager/resource-group-overview)
 
-Você pode usar o provedor de recursos de armazenamento do Azure para executar ações como criar ou excluir uma conta de armazenamento ou obter uma lista de contas de armazenamento em uma assinatura. Para autorizar solicitações no provedor de recursos de armazenamento do Azure, use Azure Active Directory (Azure AD). Este artigo descreve como atribuir permissões a recursos de gerenciamento e aponta para exemplos que mostram como fazer solicitações no provedor de recursos de armazenamento do Azure.
+Pode utilizar o fornecedor de recursos de Armazenamento Azure para executar ações como criar ou apagar uma conta de armazenamento ou obter uma lista de contas de armazenamento numa subscrição. Para autorizar pedidos contra o fornecedor de recursos de armazenamento Azure, utilize o Azure Ative Directory (Azure AD). Este artigo descreve como atribuir permissões aos recursos de gestão, e aponta exemplos que mostram como fazer pedidos contra o fornecedor de recursos de armazenamento Azure.
 
-## <a name="management-resources-versus-data-resources"></a>Recursos de gerenciamento versus recursos de dados
+## <a name="management-resources-versus-data-resources"></a>Recursos de gestão versus recursos de dados
 
-A Microsoft fornece duas APIs REST para trabalhar com recursos de armazenamento do Azure. Essas APIs formam a base de todas as ações que você pode executar no armazenamento do Azure. A API REST do armazenamento do Azure permite que você trabalhe com dados em sua conta de armazenamento, incluindo dados de BLOB, fila, arquivo e tabela. A API REST do provedor de recursos de armazenamento do Azure permite que você trabalhe com a conta de armazenamento e os recursos relacionados.
+A Microsoft fornece duas APIs REST para trabalhar com os recursos de Armazenamento Azure. Estas APIs formam a base de todas as ações que pode executar contra o Armazenamento Azure. A API do Rest de Armazenamento Azure permite-lhe trabalhar com dados na sua conta de armazenamento, incluindo blob, fila, ficheiro e dados de mesa. O fornecedor de recursos de armazenamento Azure REST API permite-lhe trabalhar com a conta de armazenamento e recursos relacionados.
 
-Uma solicitação que lê ou grava dados de blob requer permissões diferentes de uma solicitação que executa uma operação de gerenciamento. O RBAC fornece controle refinado sobre permissões para ambos os tipos de recursos. Quando você atribuir uma função de RBAC a uma entidade de segurança, certifique-se de que você entendeu quais permissões o principal será concedido. Para obter uma referência detalhada que descreve quais ações estão associadas a cada função RBAC interna, consulte [funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
+Um pedido que lê ou escreve dados blob requer permissões diferentes do que um pedido que executa uma operação de gestão. O RBAC fornece um controlo fino sobre permissões a ambos os tipos de recursos. Quando atribuir um papel RBAC a um diretor de segurança, certifique-se de que compreende as permissões que esse diretor será concedido. Para uma referência detalhada que descreve quais as ações associadas a cada papel rBAC incorporado, consulte [funções incorporadas para os recursos Azure.](../../role-based-access-control/built-in-roles.md)
 
-O armazenamento do Azure dá suporte ao uso do Azure AD para autorizar solicitações no armazenamento de BLOBs e filas. Para obter informações sobre as funções RBAC para operações de BLOB e de dados de fila, consulte [autorizar o acesso a BLOBs e filas usando o Active Directory](storage-auth-aad.md).
+O Azure Storage suporta a utilização de AD Azure para autorizar pedidos contra o armazenamento de Blob e Fila. Para obter informações sobre as funções RBAC para operações de dados blob e fila, consulte [Autorizar o acesso a blobs e filas utilizando o Diretório Ativo](storage-auth-aad.md).
 
-## <a name="assign-management-permissions-with-role-based-access-control-rbac"></a>Atribuir permissões de gerenciamento com o RBAC (controle de acesso baseado em função)
+## <a name="assign-management-permissions-with-role-based-access-control-rbac"></a>Atribuir permissões de gestão com controlo de acesso baseado em funções (RBAC)
 
-Cada assinatura do Azure tem um Azure Active Directory associado que gerencia usuários, grupos e aplicativos. Um usuário, grupo ou aplicativo também é conhecido como uma entidade de segurança no contexto da [plataforma de identidade da Microsoft](/azure/active-directory/develop/). Você pode conceder acesso a recursos em uma assinatura para uma entidade de segurança que é definida no Active Directory usando o controle de acesso baseado em função (RBAC).
+Cada subscrição do Azure tem um Diretório Ativo Azure associado que gere utilizadores, grupos e aplicações. Um utilizador, grupo ou aplicação também é referido como um principal de segurança no contexto da [plataforma de identidade microsoft](/azure/active-directory/develop/). Pode conceder acesso a recursos numa subscrição a um diretor de segurança definido no Diretório Ativo utilizando o controlo de acesso baseado em funções (RBAC).
 
-Ao atribuir uma função de RBAC a uma entidade de segurança, você também indica o escopo no qual as permissões concedidas pela função estão em vigor. Para operações de gerenciamento, você pode atribuir uma função no nível da assinatura, no grupo de recursos ou na conta de armazenamento. Você pode atribuir uma função de RBAC a uma entidade de segurança usando o [portal do Azure](https://portal.azure.com/), as [ferramentas de CLI do Azure](../../cli-install-nodejs.md), o [PowerShell](/powershell/azureps-cmdlets-docs)ou a [API REST do provedor de recursos de armazenamento do Azure](/rest/api/storagerp).
+Ao atribuir uma função RBAC a um diretor de segurança, também indica o âmbito a que estão em vigor as permissões concedidas pelo papel. Para operações de gestão, pode atribuir uma função ao nível da subscrição, do grupo de recursos ou da conta de armazenamento. Pode atribuir uma função RBAC a um diretor de segurança utilizando o [portal Azure,](https://portal.azure.com/)as [ferramentas Azure CLI,](../../cli-install-nodejs.md) [PowerShell](/powershell/azureps-cmdlets-docs)ou o fornecedor de recursos de [armazenamento Azure REST API](/rest/api/storagerp).
 
-Para obter mais informações sobre o RBAC, consulte [o que é o RBAC (controle de acesso baseado em função) para recursos do Azure?](../../role-based-access-control/overview.md) e [funções de administrador de assinatura clássica, funções de RBAC do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Para obter mais informações sobre o RBAC, consulte O que é [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)o controlo de acesso baseado [em papéis (RBAC) para os recursos Azure?](../../role-based-access-control/overview.md)
 
-### <a name="built-in-roles-for-management-operations"></a>Funções internas para operações de gerenciamento
+### <a name="built-in-roles-for-management-operations"></a>Funções incorporadas para operações de gestão
 
-O Azure fornece funções internas que concedem permissões para chamar operações de gerenciamento. O armazenamento do Azure também fornece funções internas especificamente para uso com o provedor de recursos de armazenamento do Azure.
+A Azure fornece funções incorporadas que concedem permissões para operações de gestão de chamadas. O Azure Storage também fornece funções incorporadas especificamente para utilização com o fornecedor de recursos de armazenamento Azure.
 
-Funções internas que concedem permissões para chamar operações de gerenciamento de armazenamento incluem as funções descritas na tabela a seguir:
+As funções incorporadas que concedem permissões para operações de gestão de armazenamento incluem as funções descritas no quadro seguinte:
 
-|    Função RBAC    |    Descrição    |    Inclui acesso a chaves de conta?    |
+|    Função RBAC    |    Descrição    |    Inclui acesso às chaves da conta?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| **Proprietário** | Pode gerenciar todos os recursos de armazenamento e acesso aos recursos.  | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
-| **Contribuidor**  | Pode gerenciar todos os recursos de armazenamento, mas não pode gerenciar a atribuição de recursos. | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
-| **Leitor** | Pode exibir informações sobre a conta de armazenamento, mas não pode exibir as chaves de conta. | Não. |
-| **Contribuidor de Conta de Armazenamento** | Pode gerenciar a conta de armazenamento, obter informações sobre os grupos de recursos e recursos da assinatura e criar e gerenciar implantações de grupo de recursos de assinatura. | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
-| **Administrador de Acesso de Utilizador** | Pode gerenciar o acesso à conta de armazenamento.   | Sim, permite que uma entidade de segurança atribua qualquer permissão a si mesma e a outras. |
-| **Contribuidor de Máquina Virtual** | Pode gerenciar máquinas virtuais, mas não a conta de armazenamento à qual elas estão conectadas.   | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
+| **Proprietário** | Pode gerir todos os recursos de armazenamento e acesso aos recursos.  | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
+| **Contribuinte**  | Pode gerir todos os recursos de armazenamento, mas não consegue gerir a atribuição de recursos. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
+| **Leitor** | Pode ver informações sobre a conta de armazenamento, mas não pode ver as chaves da conta. | Não. |
+| **Contribuidor de Conta de Armazenamento** | Pode gerir a conta de armazenamento, obter informações sobre os grupos e recursos da subscrição e criar e gerir implementações de grupos de recursos de subscrição. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
+| **Administrador de Acesso do Utilizador** | Pode gerir o acesso à conta de armazenamento.   | Sim, permite que um diretor de segurança atribua permissões a si e aos outros. |
+| **Contribuidor de Máquina Virtual** | Pode gerir máquinas virtuais, mas não a conta de armazenamento à qual estão ligadas.   | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
 
-A terceira coluna na tabela indica se a função interna dá suporte a **Microsoft. Storage/storageAccounts/listkeys/Action**. Essa ação concede permissões para ler e regenerar as chaves da conta de armazenamento. As permissões para acessar os recursos de gerenciamento de armazenamento do Azure também não incluem permissões para acessar dados. No entanto, se um usuário tiver acesso às chaves de conta, ele poderá usar as chaves de conta para acessar os dados do armazenamento do Azure por meio da autorização de chave compartilhada.
+A terceira coluna da tabela indica se a função incorporada suporta a **Microsoft.Storage/storageAccounts/listkeys/action**. Esta ação concede permissões para ler e regenerar as chaves da conta de armazenamento. As permissões para aceder aos recursos de gestão do Armazenamento Azure também não incluem permissões para aceder a dados. No entanto, se um utilizador tiver acesso às chaves da conta, poderá utilizar as chaves da conta para aceder aos dados do Armazenamento Azure através da autorização da Chave Partilhada.
 
-### <a name="custom-roles-for-management-operations"></a>Funções personalizadas para operações de gerenciamento
+### <a name="custom-roles-for-management-operations"></a>Funções personalizadas para operações de gestão
 
-O Azure também dá suporte à definição de funções RBAC personalizadas para acesso a recursos de gerenciamento. Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas para recursos do Azure](../../role-based-access-control/custom-roles.md).
+O Azure também apoia a definição de funções rBAC personalizadas para o acesso aos recursos de gestão. Para obter mais informações sobre papéis personalizados, consulte [funções personalizadas para os recursos Do Azure.](../../role-based-access-control/custom-roles.md)
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Para obter exemplos de código que mostram como autorizar e chamar operações de gerenciamento das bibliotecas de gerenciamento de armazenamento do Azure, consulte os seguintes exemplos:
+Para exemplos de código que mostrem como autorizar e chamar operações de gestão de chamadas a partir das bibliotecas de gestão de armazenamento azure, consulte as seguintes amostras:
 
 - [.NET](https://github.com/Azure-Samples/storage-dotnet-resource-provider-getting-started)
 - [Java](https://github.com/Azure-Samples/storage-java-manage-storage-accounts)
-- [Node.js](https://github.com/Azure-Samples/storage-node-resource-provider-getting-started)
-- [Python](https://github.com/Azure-Samples/storage-python-manage)
+- [Nó.js](https://github.com/Azure-Samples/storage-node-resource-provider-getting-started)
+- [Pitão](https://github.com/Azure-Samples/storage-python-manage)
 
-## <a name="azure-resource-manager-versus-classic-deployments"></a>Implantações Azure Resource Manager versus clássicas
+## <a name="azure-resource-manager-versus-classic-deployments"></a>Gestor de Recursos Azure versus implantações clássicas
 
-Estes modelos representam duas formas distingas de implementar e gerir as suas soluções do Azure. A Microsoft recomenda usar o modelo de implantação Azure Resource Manager ao criar uma nova conta de armazenamento. Se possível, a Microsoft também recomenda que você recrie contas de armazenamento clássica existentes com o modelo do Resource Manager. Embora você possa criar uma conta de armazenamento usando o modelo de implantação clássico, o modelo clássico é menos flexível e, eventualmente, será preterido.
+Estes modelos representam duas formas distingas de implementar e gerir as suas soluções do Azure. A Microsoft recomenda a utilização do modelo de implementação do Gestor de Recursos Azure quando criar uma nova conta de armazenamento. Se possível, a Microsoft também recomenda que recrie as contas de armazenamento clássicas existentes com o modelo DeS Manager. Embora possa criar uma conta de armazenamento utilizando o modelo de implementação clássico, o modelo clássico é menos flexível e acabará por ser depreciado.
 
-Para obter mais informações sobre os modelos de implantação do Azure, consulte [Resource Manager e implantação clássica](../../azure-resource-manager/management/deployment-models.md).
+Para obter mais informações sobre os modelos de implantação do Azure, consulte [O Gestor de Recursos e a implantação clássica.](../../azure-resource-manager/management/deployment-models.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-- [O que é o RBAC (controle de acesso baseado em função) para recursos do Azure?](../../role-based-access-control/overview.md)
-- [Metas de escalabilidade para o provedor de recursos de armazenamento do Azure](scalability-targets-resource-provider.md)
+- [Visão geral do Gestor de Recursos Azure](/azure/azure-resource-manager/resource-group-overview)
+- [O que é o controlo de acesso baseado em funções (RBAC) dos recursos do Azure?](../../role-based-access-control/overview.md)
+- [Metas de escalabilidade para o fornecedor de recursos de armazenamento Azure](scalability-targets-resource-provider.md)

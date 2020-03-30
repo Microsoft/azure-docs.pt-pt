@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 811e3bc206b4d98106bdbb1ce2655cd69c8585a2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 5a89c3f7d52c5717b902a69e9c64b3fcc422c481
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589254"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067201"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remova um protetor transparente de encriptação de dados (TDE) utilizando powerShell
 
@@ -33,7 +33,7 @@ ms.locfileid: "77589254"
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager (RM) ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para mais informações sobre a sua compatibilidade, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Para a instalação, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
 
@@ -68,11 +68,11 @@ SELECT * FROM sys.dm_db_log_info (database_id)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-O comando PowerShell **Get-AzureRmSqlServerKeyKey ** fornece a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a manter e quais as teclas a eliminar no AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre de Chaves Azure.
+O comando PowerShell **Get-AzureRmSqlServerKeyKeyfornece** a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a manter e quais as teclas a eliminar no AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre de Chaves Azure.
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-O programa de teclas do **servidor az sql** de comando PowerShell fornece a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a manter e quais as teclas a eliminar no AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre de Chaves Azure.
+O programa de teclas do servidor powerShell **az sql**fornece a impressão digital do Protetor TDE utilizado na consulta, para que possa ver quais as teclas a manter e quais as teclas a eliminar no AKV. Apenas as chaves que já não são utilizadas pela base de dados podem ser eliminadas com segurança do Cofre de Chaves Azure.
 
 * * *
 
@@ -126,7 +126,7 @@ Este guia como orientar passa por duas abordagens dependendo do resultado deseja
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
    ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Para referência ao comando, consulte o cofre de [chaves Azure CLI](/cli/azure/keyvault/key).
 
@@ -134,7 +134,7 @@ Para referência ao comando, consulte o cofre de [chaves Azure CLI](/cli/azure/k
 
 2. Adicione a nova chave ao servidor e atualize-a como o novo protetor TDE do servidor.
 
-   ```powershell
+   ```azurecli
    # add the key from Key Vault to the server  
    az sql server key create --kid <KeyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
 
@@ -147,26 +147,26 @@ Para referência ao comando, consulte o cofre de [chaves Azure CLI](/cli/azure/k
    > [!NOTE]
    > Pode levar alguns minutos para que o novo protetor TDE se propague a todas as bases de dados e bases de dados secundárias no servidor.
 
-   ```powershell
+   ```azurecli
    az sql server tde-key show --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
    ```
 
 4. Pegue uma cópia da nova chave no Cofre chave.
 
-   ```powershell
+   ```azurecli
    # --file parameter is optional; if removed, a file name is automatically generated.
    az keyvault key backup --file <DesiredBackupFilePath> --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
 5. Apague a chave comprometida do Cofre chave.
 
-   ```powershell
+   ```azurecli
    az keyvault key delete --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
 6. Para restaurar a chave do Cofre chave no futuro.
 
-   ```powershell
+   ```azurecli
    az keyvault key restore --file <BackupFilePath> --vault-name <KeyVaultName>
    ```
 

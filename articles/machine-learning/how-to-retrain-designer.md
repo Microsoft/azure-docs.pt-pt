@@ -10,13 +10,13 @@ ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
 ms.openlocfilehash: 264b169eefde18880f50feae2554aa3ca7037b1f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368167"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Remodelar modelos com designer de Machine Learning Azure (pré-visualização)
+# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Preparar novamente modelos com o Azure Machine Learning Designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Neste artigo de como fazer, aprende-se a usar o designer de Machine Learning Azure para retreinar um modelo de aprendizagem automática. Descubra como utilizar os gasodutos publicados para automatizar fluxos de trabalho de aprendizagem automática para reciclagem.
@@ -31,7 +31,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://aka.ms/AMLFree)
 * Um espaço de trabalho azure machine learning com a Enterprise SKU.
 
 Este artigo assume que você tem conhecimento básico de construção de oleodutos no designer. Para uma introdução guiada ao designer, complete o [tutorial.](tutorial-designer-automobile-price-train-score.md) 

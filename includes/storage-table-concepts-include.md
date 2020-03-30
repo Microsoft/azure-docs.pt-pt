@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 91a52e7eac40c0ac2ab682f251a2ae0013259b25
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77013651"
 ---
 ## <a name="what-is-table-storage"></a>O que é o armazenamento de Tabelas
@@ -21,7 +21,7 @@ O armazenamento de Tabelas do Azure armazena grandes quantidades de dados estrut
 
 Pode utilizar o armazenamento de Tabelas para armazenar e consultar conjuntos enormes de dados estruturados não relacionais. As suas tabelas serão dimensionadas à medida que aumenta a procura.
 
-## <a name="table-storage-concepts"></a>Conceitos de armazenamento de tabela
+## <a name="table-storage-concepts"></a>Conceitos de armazenamento de tabelas
 O armazenamento de tabelas contém os seguintes componentes:
 
 ![diagrama de componente de armazenamento de tabelas][Table1]
@@ -30,7 +30,7 @@ O armazenamento de tabelas contém os seguintes componentes:
 
   As Contas da API de Tabela do Azure Cosmos DB utilizam este formato: `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
-  Pode também endereçar diretamente as tabelas do Azure utilizando este endereço com o protocolo OData. Para obter mais informações, consulte [OData.org][OData.org].
+  Pode também endereçar diretamente as tabelas do Azure utilizando este endereço com o protocolo OData. Para obter mais informações, veja [OData.org][OData.org].
 * **Contas:** todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Para obter mais informações sobre contas de armazenamento, consulte a [visão geral da conta de armazenamento](../articles/storage/common/storage-account-overview.md).
 
     Todos os acessos ao Azure Cosmos DB são realizados através de uma conta de API de Tabela. Veja [Criar uma conta da API de Tabela](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) para mais detalhes sobre a criação de uma conta de API de Tabela.

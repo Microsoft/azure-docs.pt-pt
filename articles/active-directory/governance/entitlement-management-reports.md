@@ -1,9 +1,9 @@
 ---
-title: Ver relatórios e registos na gestão de direitos - Azure AD
+title: Ver relatórios & registos na gestão de direitos - Azure AD
 description: Saiba como visualizar o relatório de atribuição de utilizadores e os registos de auditoria na gestão de direitos do Diretório Ativo azure.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/28/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c98a583e2aa8ac679842e16d1c0cc36811db90de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 514f8e86d6bd28cc5212e0f0058f00e270f43e35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261739"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128426"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Ver relatórios e registos na gestão de direitos da Azure AD
 
@@ -79,17 +79,17 @@ Este relatório permite-lhe listar os recursos atualmente atribuídos a um utili
 
 ## <a name="determine-the-status-of-a-users-request"></a>Determinar o estado do pedido de um utilizador
 
-Para obter detalhes adicionais sobre como um utilizador solicitou e recebeu acesso a um pacote de acesso, pode utilizar o registo de auditoria da AD Azure. Em particular, pode utilizar os registos de registo nas categorias `EntitlementManagement` e `UserManagement` para obter detalhes adicionais sobre as etapas de processamento para cada pedido.  
+Para obter detalhes adicionais sobre como um utilizador solicitou e recebeu acesso a um pacote de acesso, pode utilizar o registo de auditoria da AD Azure. Em particular, pode utilizar os `EntitlementManagement` registos de registo nas e `UserManagement` categorias para obter detalhes adicionais sobre as etapas de processamento para cada pedido.  
 
 1. Clique em **Diretório Ativo Azure** e, em seguida, clique em **registos de auditoria**.
 
-1. No topo, mude a **categoria** para `EntitlementManagement` ou `UserManagement`, dependendo do registo de auditoria que procura.  
+1. No topo, mude **Category** a `EntitlementManagement` categoria `UserManagement`para qualquer um ou, dependendo do registo de auditoria que procura.  
 
 1. Clique em **Aplicar**.
 
 1. Para descarregar os registos, clique em **Baixar**.
 
-Quando a Azure AD recebe um novo pedido, escreve um registo de auditoria, no qual a **categoria** é `EntitlementManagement` e a **Atividade** é tipicamente `User requests access package assignment`.  No caso de uma atribuição direta criada no portal Azure, o campo **de atividade** do registo de auditoria é `Administrator directly assigns user to access package`, e o utilizador que executa a atribuição é identificado pelo **Nome ActorUserPrincipal**.
+Quando a Azure AD recebe um novo pedido, escreve **Category** um `EntitlementManagement` registo de auditoria, no qual a categoria está e a **Atividade** é tipicamente `User requests access package assignment`.  No caso de uma atribuição direta criada no portal Azure, `Administrator directly assigns user to access package`o campo de **atividade** do registo de auditoria é , e o utilizador que executa a atribuição é identificado pelo Nome **ActorUserPrincipal**.
 
 A Azure AD escreverá registos de auditoria adicionais enquanto o pedido estiver em curso, incluindo:
 
@@ -101,11 +101,11 @@ A Azure AD escreverá registos de auditoria adicionais enquanto o pedido estiver
 | `EntitlementManagement` | `Approve access package assignment request` | Pedido aprovado |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |Pedido aprovado ou não requer aprovação |
 
-Quando um utilizador é atribuído acesso, a Azure AD escreve um registo de auditoria para a categoria `EntitlementManagement` com `Fulfill access package assignment`de **Atividade** .  O utilizador que recebeu o acesso é identificado pelo campo **ActorUserPrincipalName.**
+Quando um utilizador é atribuído acesso, a Azure AD escreve um registo de auditoria para a `EntitlementManagement` categoria com **Atividade** `Fulfill access package assignment`.  O utilizador que recebeu o acesso é identificado pelo campo **ActorUserPrincipalName.**
 
-Se o acesso não for atribuído, a Azure AD escreve um registo de auditoria para a categoria `EntitlementManagement` com **atividade** `Deny access package assignment request`, se o pedido foi negado por um aprovador, ou `Access package assignment request timed out (no approver action taken)`, se o pedido tiver sido cronometrado antes de um aprovador poder aprovar.
+Se o acesso não for atribuído, a Azure AD escreve um registo de auditoria para a `EntitlementManagement` `Access package assignment request timed out (no approver action taken)`categoria com `Deny access package assignment request` **atividade,** se o pedido foi negado por um executor, ou , se o pedido tiver sido cronometrado antes de um aprovador poder aprovar.
 
-Quando a atribuição do pacote de acesso do utilizador expirar, é cancelada pelo utilizador, ou removida por um administrador, então a Azure AD escreve um registo de auditoria para a categoria `EntitlementManagement` com **atividade** de `Remove access package assignment`.
+Quando a atribuição do pacote de acesso do utilizador expirar, é cancelada pelo utilizador, ou removida por `EntitlementManagement` um administrador, `Remove access package assignment`então a Azure AD escreve um registo de auditoria para a categoria com **atividade** de .
 
 ## <a name="next-steps"></a>Passos seguintes
 

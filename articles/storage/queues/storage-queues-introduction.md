@@ -1,29 +1,29 @@
 ---
-title: Introdução às filas do Azure-armazenamento do Azure
-description: Introdução às filas do Azure
+title: Introdução às filas Azure - Armazenamento Azure
+description: Introdução às filas Azure
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/07/2019
+ms.date: 03/18/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 0e8bac8344bec06b58a22b8c9162cd8bd22ee700
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a2bea77578282d68d86bc1a8cea765aa2cbd555
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750431"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80060854"
 ---
 # <a name="what-are-azure-queues"></a>O que são as filas do Azure?
 
-O Armazenamento de Filas do Azure é um serviço para alojar grandes quantidades de mensagens. Você acessa mensagens de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma mensagem da fila pode ter até 64 KB de tamanho. Uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento. As filas são normalmente usadas para criar uma lista de pendências de trabalho para processar de forma assíncrona.
+O Armazenamento de Filas do Azure é um serviço para alojar grandes quantidades de mensagens. Acede a mensagens de qualquer parte do mundo através de chamadas autenticadas utilizando HTTP ou HTTPS. Uma mensagem de fila pode ter até 64 KB de tamanho. Uma fila pode conter milhões de mensagens, até ao limite total de capacidade de uma conta de armazenamento. As filas são comumente usadas para criar um atraso de trabalho para processar assincronicamente.
 
-## <a name="queue-service-concepts"></a>Conceitos de serviço Fila
+## <a name="queue-service-concepts"></a>Conceitos de serviço de fila
 
 O serviço Fila contém os seguintes componentes:
 
-![Conceitos de fila](./media/storage-queues-introduction/queue1.png)
+![Diagrama mostrando a relação entre uma conta de armazenamento, filas e mensagens](./media/storage-queues-introduction/queue1.png)
 
 * **Formato do URL:** os ficheiros são endereçáveis com o seguinte formato de URL:
 
@@ -33,13 +33,13 @@ O serviço Fila contém os seguintes componentes:
   
     `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **Conta de armazenamento:** Todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Para obter informações sobre a capacidade da conta de armazenamento, consulte [escalabilidade e metas de desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+* **Conta de armazenamento:** Todo o acesso ao Armazenamento Azure é feito através de uma conta de armazenamento. Para obter informações sobre a capacidade da conta de armazenamento, consulte [a escalabilidade e os objetivos](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)de desempenho para as contas de armazenamento padrão .
 
-* **Fila:** uma fila contém um conjunto de mensagens. O nome da fila **deve** estar em letras minúsculas. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Fila:** uma fila contém um conjunto de mensagens. O nome da fila **deve** ser todo minúsculo. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Mensagem:** uma mensagem, em qualquer formato, até 64 KB. Antes da versão 2017-07-29, o tempo de vida máximo permitido é de sete dias. Para a versão 2017-07-29 ou posterior, o tempo de vida máximo pode ser qualquer número positivo ou-1 indicando que a mensagem não expira. Se esse parâmetro for omitido, o tempo de vida padrão será de sete dias.
+* **Mensagem:** uma mensagem, em qualquer formato, até 64 KB. Antes da versão 2017-07-29, o tempo máximo de vida permitido é de sete dias. Para a versão 2017-07-29 ou mais tarde, o tempo máximo de vida pode ser qualquer número positivo, ou -1 indicando que a mensagem não expira. Se este parâmetro for omitido, o tempo de vida padrão é de sete dias.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta de armazenamento](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [Introdução às filas usando o .NET](storage-dotnet-how-to-use-queues.md)
+* [Começar com filas usando .NET](storage-dotnet-how-to-use-queues.md)

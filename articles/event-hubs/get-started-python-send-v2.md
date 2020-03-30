@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 7c971dcac702318d15a27736828092e987468ca3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162978"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Envie eventos ou receba eventos de centros de eventos utilizando Python (versão azure-eventhub 5)
@@ -24,13 +24,13 @@ Este quickstart mostra como enviar eventos e receber eventos de um hub de evento
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](event-hubs-about.md) antes de fazer este quickstart. 
 
-Para concluir este guia de início rápido, você precisa dos seguintes pré-requisitos:
+Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
 - Python 2.7 ou 3.5 ou mais tarde, com PIP instalado e atualizado.
-- O pacote do Python para hubs de eventos. 
+- O pacote Python para Centros de Eventos. 
 
-    Para instalar o pacote, execute este comando em um prompt de comando que tenha o Python em seu caminho:
+    Para instalar o pacote, execute este comando num pedido de comando que tenha python no seu caminho:
 
     ```cmd
     pip install azure-eventhub
@@ -87,15 +87,15 @@ Este quickstart utiliza o armazenamento Azure Blob como uma loja de controlo. A 
 Crie uma conta de armazenamento Azure e um recipiente de bolhas, fazendo os seguintes passos:
 
 1. [Criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)
-2. [Criar um recipiente de bolhas](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+2. [Criar um contentor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
 
 Certifique-se de que regista o nome da cadeia de ligação e do recipiente para posterior utilização no código de receção.
 
 
-### <a name="create-a-python-script-to-receive-events"></a>Criar um script de Python para receber eventos
+### <a name="create-a-python-script-to-receive-events"></a>Crie um roteiro Python para receber eventos
 
-Nesta seção, você cria um script Python para receber eventos do hub de eventos:
+Nesta secção, você cria um script Python para receber eventos do seu centro de eventos:
 
 1. Abra o seu editor favorito da Python, como [Visual Studio Code.](https://code.visualstudio.com/)
 2. Crie um guião chamado *recv.py.*
@@ -135,17 +135,17 @@ Nesta seção, você cria um script Python para receber eventos do hub de evento
     > Para obter o código fonte completo, incluindo comentários informísticos adicionais, aceda à [página GitHub recv_with_checkpoint_store_async.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py).
 
 
-### <a name="run-the-receiver-app"></a>Executar o aplicativo receptor
+### <a name="run-the-receiver-app"></a>Executar a aplicação recetor
 
-Para executar o script, abra um prompt de comando que tem o Python no respetivo caminho e, em seguida, execute este comando:
+Para executar o script, abra um pedido de comando que tenha Python no seu caminho, e, em seguida, executar este comando:
 
 ```bash
 python recv.py
 ```
 
-### <a name="run-the-sender-app"></a>Executar o aplicativo remetente
+### <a name="run-the-sender-app"></a>Executar a aplicação de remetente
 
-Para executar o script, abra um prompt de comando que tem o Python no respetivo caminho e, em seguida, execute este comando:
+Para executar o script, abra um pedido de comando que tenha Python no seu caminho, e, em seguida, executar este comando:
 
 ```bash
 python send.py

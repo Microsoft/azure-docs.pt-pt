@@ -1,65 +1,65 @@
 ---
-title: Gerenciar modelos de visualização de Plug and Play de IoT no repositório | Microsoft Docs '
-description: Como gerenciar modelos de capacidade de dispositivo no repositório usando o portal do Azure Certified para IoT, o CLI do Azure e o Visual Studio Code.
+title: Gerencie os modelos IoT Plug e Play Preview no repositório. Microsoft Docs'
+description: Como gerir os modelos de capacidade do dispositivo no repositório utilizando o Portal Azure Certified para ioT, o Azure CLI e o código Visual Studio.
 author: Philmea
 manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/26/2019
 ms.author: philmea
-ms.openlocfilehash: 7e71c940d0c083642954114cf4fa1617b93335b9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 78406175090521af70381f61f4e33dfb6c35ac8c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531265"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159154"
 ---
-# <a name="manage-models-in-the-repository"></a>Gerenciar modelos no repositório
+# <a name="manage-models-in-the-repository"></a>Gerir modelos no repositório
 
-O repositório do modelo de visualização de IoT Plug and Play armazena modelos e interfaces de funcionalidade do dispositivo. O repositório torna os modelos e as interfaces detectáveis e consumíveis pelos desenvolvedores de soluções.
+O modelo ioT Plug e Play Preview repositório de reprodução armazena modelos e interfaces de capacidade de dispositivo. O repositório torna os modelos e interfaces detetáveis e consumíveis por desenvolvedores de soluções.
 
-Há três ferramentas que você pode usar para gerenciar o repositório:
+Existem três ferramentas que pode usar para gerir o repositório:
 
-- O portal do Azure Certified para IoT
+- O Portal Azure Certified for IoT
 - A CLI do Azure
 - Visual Studio Code
 
-## <a name="model-repositories"></a>Repositórios de modelo
+## <a name="model-repositories"></a>Repositórios-modelo
 
-Há dois tipos de repositório de modelo para armazenar interfaces e modelos de funcionalidade de dispositivo:
+Existem dois tipos de repositório de modelos para armazenar modelos e interfaces de capacidade do dispositivo:
 
-- Há um único _repositório público_ que armazena os modelos e as interfaces de funcionalidade do dispositivo para dispositivos no [Catálogo de dispositivos certificado pelo Azure para IOT](https://aka.ms/iotdevcat). Esse repositório também armazena [interfaces comuns](./concepts-common-interfaces.md) e [DCMs e interfaces publicadas por parceiros da Microsoft](./howto-onboard-portal.md). Para saber como certificar um dispositivo e adicionar seu modelo de capacidade de dispositivo ao repositório público, consulte o tutorial [certificar seu dispositivo de plug and Play de IOT](./tutorial-certification-test.md).
-- Há vários _repositórios da empresa_. Um repositório da empresa é criado automaticamente para sua organização quando você se integra [ao portal do Azure Certified para IOT](./howto-onboard-portal.md). Você pode usar o repositório de sua empresa para armazenar as interfaces e os modelos de funcionalidade do dispositivo durante o desenvolvimento e o teste.
+- Existe um único _repositório público_ que armazena os modelos e interfaces de capacidade do dispositivo para dispositivos no [catálogo de dispositivos Azure Certified for IoT](https://aka.ms/iotdevcat). Este repositório também armazena [interfaces comuns](./concepts-common-interfaces.md) e [DCMs e interfaces publicadas pela Microsoft Partners.](./howto-onboard-portal.md) Para aprender a certificar um dispositivo e adicionar o seu modelo de capacidade do dispositivo ao repositório público, consulte o tutorial [Certify your IoT Plug and Play device](./tutorial-certification-test.md).
+- Existem vários _repositórios da Empresa._ Um repositório da empresa é automaticamente criado para a sua organização quando você [está a bordo do portal Azure Certified for IoT](./howto-onboard-portal.md). Pode utilizar o repositório da sua empresa para armazenar os modelos e interfaces da sua capacidade de dispositivo durante o desenvolvimento e teste.
 
-## <a name="azure-certified-for-iot-portal"></a>Portal do Azure Certified para IoT
+## <a name="azure-certified-for-iot-portal"></a>Azure Certified para portal IoT
 
-No [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com), você pode concluir as seguintes tarefas:
+No [portal Azure Certified for IoT,](https://preview.catalog.azureiotsolutions.com)pode completar as seguintes tarefas:
 
-- [Conclua o processo de certificação para seu dispositivo IOT](./tutorial-certification-test.md).
-- Encontre modelos de capacidade de dispositivo de Plug and Play de IoT. Você pode usar esses modelos para [criar rapidamente dispositivos preparados para IOT e integrá-los a soluções](./quickstart-connect-pnp-device-solution-node.md).
+- [Complete o processo de certificação para o seu dispositivo IoT](./tutorial-certification-test.md).
+- Encontre os modelos de capacidade do dispositivo IoT Plug e Play. Pode utilizar estes modelos para [construir rapidamente dispositivos prontos ioT e integrá-los com soluções.](./quickstart-connect-pnp-device-solution-node.md)
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O CLI do Azure fornece comandos para gerenciar modelos de capacidade de dispositivo e interfaces nos repositórios de modelo público e da empresa de IoT Plug and Play. Para obter mais informações, consulte o guia de instruções [instalar e usar a extensão de IOT do Azure para CLI do Azure](./howto-install-pnp-cli.md) .
+O Azure CLI fornece comandos para gerir modelos e interfaces de capacidade de dispositivo nos repositórios públicos e modelos ioT Plug e Play e modelo selecionais. Para mais informações, consulte a [instalação e utilize a extensão Azure IoT para guia Azure CLI.](./howto-install-pnp-cli.md)
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
-Para abrir a exibição do **repositório de modelos** no Visual Studio Code.
+Para abrir a visão do **Modelo repositório** no Código do Estúdio Visual.
 
-1. Abra Visual Studio Code, use **Ctrl + Shift + P**, digite e selecione **IOT plug and Play: Abra o repositório de modelos**.
+1. Código de estúdio visual aberto, utilize **Ctrl+Shift+P,** escreva e selecione **IoT Plug and Play: Open Model Repositório**.
 
-1. Você pode optar por **abrir o repositório de modelos públicos** ou **abrir o repositório de modelos organizacionais**. Para o repositório de modelos da empresa, você precisa inserir a cadeia de conexão do repositório de modelos. Você pode encontrar essa cadeia de conexão no [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com) na guia **cadeias de conexão** do **repositório da sua empresa**.
+1. Pode optar por abrir o **Repositório de Modelos Públicos** ou **o Repositório de Modelos Organizacionais Abertos.** Para o repositório modelo da empresa, você precisa introduzir a sua cadeia de ligação repositório modelo. Pode encontrar esta cadeia de ligação no [portal Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com) no separador de **cordas De ligação** para o seu **repositório da Empresa**.
 
-1. Uma nova guia abre a exibição do **repositório de modelos** .
+1. Um novo separador abre a vista do **Repositório Modelo.**
 
-    Use esta exibição para adicionar, baixar e excluir modelos e interfaces de funcionalidade do dispositivo. Você pode usar um filtro para localizar itens específicos na lista.
+    Utilize esta vista para adicionar, descarregar e eliminar modelos e interfaces de capacidade do dispositivo. Pode utilizar um filtro para encontrar itens específicos na lista.
 
-1. Para alternar entre o repositório de modelos da empresa e o repositório de modelos públicos, use **Ctrl + Shift + P**, digite e selecione **IOT plug and Play: sair do repositório de modelos**. Em seguida, use o comando **IoT plug and Play: abrir o repositório de modelos** novamente.
+1. Para alternar entre o repositório do modelo da empresa e o repositório de modelopúblico, utilize **Ctrl+Shift+P,** escreva e selecione **IoT Plug and Play: Assine o Repositório modelo**. Em seguida, utilize o **IoT Plug and Play: Open Model Repository** Command again.
 
 > [!NOTE]
-> No VS Code, o repositório de modelo público é somente leitura. Os parceiros da Microsoft podem atualizar o repositório público no [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com).
+> No Código VS, o repositório de modelos públicos é apenas para leitura. A Microsoft Partners pode atualizar o repositório público no [portal Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A próxima etapa sugerida é aprender a [enviar um dispositivo de plug and Play de IOT para certificação](tutorial-certification-test.md).
+O próximo passo sugerido é aprender a [submeter um dispositivo IoT Plug and Play para certificação](tutorial-certification-test.md).

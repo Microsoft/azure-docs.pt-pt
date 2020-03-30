@@ -3,12 +3,12 @@ title: Visão geral da Saúde dos Recursos Azure
 description: Visão geral da Saúde dos Recursos Azure
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: f22b41e66f15dd12d973c5744870969fae795bc1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79258203"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159256"
 ---
 # <a name="resource-health-overview"></a>Visão geral da Saúde dos Recursos
  
@@ -22,7 +22,7 @@ Um *recurso* é uma instância específica de um serviço Azure, como uma máqui
 
 Para obter mais informações sobre a forma como a saúde é avaliada, consulte a lista de tipos de recursos e verificações de saúde na [Azure Resource Health](resource-health-checks-resource-types.md).
 
-## <a name="health-status"></a>Estado da saúde
+## <a name="health-status"></a>Estado de funcionamento
 
 A saúde de um recurso é apresentada como um dos seguintes estados.
 
@@ -76,7 +76,7 @@ Se achar que o estado de saúde atual está incorreto, pode dizer-nos selecionan
 
 ## <a name="history-information"></a>Informação de história
 
-Pode aceder a 14 dias de história na secção de História da **Saúde** da Saúde.
+Pode aceder até 30 dias de história na secção de História da **Saúde** da Saúde.
 
 ![Lista de eventos de saúde de recursos nas últimas duas semanas](./media/resource-health-overview/history-blade.png)
 

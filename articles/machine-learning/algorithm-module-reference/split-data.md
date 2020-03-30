@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: b705b342708a038a7f3d8c15d6a4298e9fc17c75
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 9eba6f2c47629b708dde4a5a2888b76dbd24b4e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79369816"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455898"
 ---
 # <a name="split-data-module"></a>Módulo de Dados Divididos
 
@@ -66,7 +66,7 @@ Este módulo é útil quando precisa de separar os dados em conjuntos de treino 
 
    Com amostragem estratificada, os dados são divididos de modo a que cada conjunto de dados de saída obtenha aproximadamente a mesma percentagem de cada valor-alvo. Por exemplo, é possível garantir que os seus conjuntos de treino e teste são aproximadamente equilibrados no que diz respeito ao resultado ou a outra coluna (como o género).
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
 
 ## <a name="select-a-regular-expression"></a>Selecione uma expressão regular
@@ -79,7 +79,7 @@ Este módulo é útil quando precisa de separar os dados em conjuntos de treino 
   
    A expressão regular deve seguir a sintaxe python para expressões regulares.
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
    Com base na expressão regular que fornece, o conjunto de dados é dividido em dois conjuntos de linhas: linhas com valores que correspondem à expressão e a todas as linhas restantes. 
 
@@ -87,13 +87,13 @@ Os exemplos seguintes demonstram como dividir um conjunto de dados utilizando a 
 
 ### <a name="single-whole-word"></a>Palavra inteira única 
 
-Este exemplo coloca no primeiro conjunto de dados todas as linhas que contêm o texto `Gryphon` na coluna `Text`. Coloca outras linhas na segunda saída de **Dados Divididos.**
+Este exemplo coloca no primeiro conjunto de dados `Gryphon` todas as `Text`linhas que contêm o texto na coluna . Coloca outras linhas na segunda saída de **Dados Divididos.**
 
 ```text
     \"Text" Gryphon  
 ```
 
-### <a name="substring"></a>substring
+### <a name="substring"></a>Substring
 
 Este exemplo procura a cadeia especificada em qualquer posição dentro da segunda coluna do conjunto de dados. A posição é denotada aqui pelo valor do índice de 1. A correspondência é sensível ao caso.
 
@@ -101,7 +101,7 @@ Este exemplo procura a cadeia especificada em qualquer posição dentro da segun
 (\1) ^[a-f]
 ```
 
-O conjunto de dados do primeiro resultado contém todas as linhas onde a coluna de índice saem com um destes caracteres: `a`, `b`, `c`, `d`, `e`, `f`. Todas as outras linhas são direcionadas para a segunda saída.
+O conjunto de dados do primeiro resultado contém todas as `a`linhas `b` `c`onde `d` `e`a coluna de índice começa com um destes caracteres: , , , , . `f` Todas as outras linhas são direcionadas para a segunda saída.
 
 ## <a name="select-a-relative-expression"></a>Selecione uma expressão relativa
 
@@ -114,14 +114,14 @@ O conjunto de dados do primeiro resultado contém todas as linhas onde a coluna 
    Para **coluna numérica:**
    - A coluna contém números de qualquer tipo de dados numéricos, incluindo tipos de dados de data e hora.
    - A expressão pode referenciar um máximo de um nome de coluna.
-   - Utilize o caráter ampersand, `&`, para a operação E. Utilize o caracteres do tubo, `|`, para a operação OR.
-   - São apoiados os seguintes operadores: `<`, `>`, `<=`, `>=`, `==`, `!=`.
-   - Não se pode agrupar operações usando `(` e `)`.
+   - Use o caráter ampersand, `&`para o e funcionamento. Utilize o caracteres `|`do tubo, para a operação OR.
+   - Os seguintes operadores `<` `>`são `<=` `>=`apoiados: , , , , `==`. `!=`
+   - Não se pode agrupar operações usando `(` e. `)`
    
    Para **a coluna String:**
-   - São apoiados os seguintes operadores: `==`, `!=`.
+   - São apoiados os `==`seguintes operadores: . `!=`
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
    A expressão divide o conjunto de dados em dois conjuntos de linhas: linhas com valores que cumprem a condição, e todas as linhas restantes.
 
@@ -129,7 +129,7 @@ Os exemplos seguintes demonstram como dividir um conjunto de dados utilizando a 
 
 ### <a name="calendar-year"></a>Ano civil
 
-Um cenário comum é dividir um conjunto de dados por anos. A expressão seguinte seleciona todas as linhas onde os valores da coluna `Year` são superiores a `2010`.
+Um cenário comum é dividir um conjunto de dados por anos. A seguinte expressão seleciona todas as `Year` linhas onde `2010`os valores da coluna são maiores do que .
 
 ```text
 \"Year" > 2010
@@ -137,7 +137,7 @@ Um cenário comum é dividir um conjunto de dados por anos. A expressão seguint
 
 A expressão da data deve ser responsável por todas as partes da data incluídas na coluna de dados. O formato das datas na coluna de dados deve ser consistente. 
 
-Por exemplo, numa coluna de data que usa o formato `mmddyyyy`, a expressão deve ser algo assim:
+Por exemplo, numa coluna de `mmddyyyy`data que usa o formato, a expressão deve ser algo assim:
 
 ```text
 \"Date" > 1/1/2010

@@ -17,32 +17,32 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: bd848fa6f74f049f97956ef1736ac2b08f3a6148
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160156"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Ligue para uma Web API de uma aplicação móvel
 
 Depois de a sua aplicação assinar num utilizador e receber fichas, a Microsoft Authentication Library (MSAL) expõe informações sobre o utilizador, o ambiente do utilizador e os tokens emitidos. A sua aplicação pode utilizar estes valores para chamar uma API web ou apresentar uma mensagem de boas-vindas ao utilizador.
 
-Neste artigo, vamos primeiro olhar para o resultado da MSAL. Depois vamos ver como usar um sinal de acesso de `AuthenticationResult` ou `result` para chamar uma API protegida.
+Neste artigo, vamos primeiro olhar para o resultado da MSAL. Então vamos ver como usar um sinal `AuthenticationResult` `result` de acesso de ou chamar uma API protegida.
 
 ## <a name="msal-result"></a>Resultado da MSAL
 A MSAL fornece os seguintes valores: 
 
-- `AccessToken` chama APIs protegidos web num pedido de portador http.
-- `IdToken` contém informações úteis sobre o utilizador inscrito. Estas informações incluem o nome do utilizador, o inquilino da casa, e um identificador único para armazenamento.
-- `ExpiresOn` é o tempo de validade do símbolo. A MSAL trata da atualização automática de uma aplicação.
-- `TenantId` é o identificador do inquilino onde o utilizador inscreveu. Para os utilizadores convidados do Azure Ative Directory (Azure AD) B2B, este valor identifica o inquilino onde o utilizador inscreveu. O valor não identifica o inquilino da casa do utilizador.  
-- `Scopes` indica os âmbitos que foram concedidos com o seu símbolo. Os âmbitos concedidos podem ser um subconjunto dos âmbitos que solicitou.
+- `AccessToken`chamadas APIs web protegidas num pedido de portador http.
+- `IdToken`contém informações úteis sobre o utilizador inscrito. Estas informações incluem o nome do utilizador, o inquilino da casa, e um identificador único para armazenamento.
+- `ExpiresOn`é o tempo de validade do símbolo. A MSAL trata da atualização automática de uma aplicação.
+- `TenantId`é o identificador do inquilino onde o utilizador assinou. Para os utilizadores convidados do Azure Ative Directory (Azure AD) B2B, este valor identifica o inquilino onde o utilizador inscreveu. O valor não identifica o inquilino da casa do utilizador.  
+- `Scopes`indica os âmbitos que foram concedidos com o seu símbolo. Os âmbitos concedidos podem ser um subconjunto dos âmbitos que solicitou.
 
-A MSAL também fornece uma abstração para um valor `Account`. Um valor `Account` representa a conta de assinatura do utilizador atual:
+A MSAL também fornece uma `Account` abstração por um valor. Um `Account` valor representa a conta de assinatura do utilizador atual:
 
-- `HomeAccountIdentifier` identifica o inquilino da casa do utilizador.
-- `UserName` é o nome de utilizador preferido do utilizador. Este valor pode estar vazio para os utilizadores do Azure AD B2C.
-- `AccountIdentifier` identifica o utilizador inscrito. Na maioria dos casos, este valor é o mesmo que o valor `HomeAccountIdentifier`, a menos que o utilizador seja hóspede de outro inquilino.
+- `HomeAccountIdentifier`identifica o inquilino da casa do utilizador.
+- `UserName`é o nome de utilizador preferido do utilizador. Este valor pode estar vazio para os utilizadores do Azure AD B2C.
+- `AccountIdentifier`identifica o utilizador inscrito. Na maioria dos casos, este `HomeAccountIdentifier` valor é o mesmo que o valor, a menos que o utilizador seja hóspede de outro inquilino.
 
 ## <a name="call-an-api"></a>Chame uma API
 
@@ -90,7 +90,7 @@ Depois de ter o sinal de acesso, pode chamar uma API web. A sua aplicação util
 
 ### <a name="msal-for-ios-and-macos"></a>MSAL para iOS e macOS
 
-Os métodos para adquirir fichas devolvem um objeto `MSALResult`. `MSALResult` expõe uma propriedade `accessToken`. Pode usar `accessToken` para chamar uma API web. Adicione esta propriedade ao cabeçalho de autorização http antes de ligar para aceder à API da web protegida.
+Os métodos para adquirir `MSALResult` fichas devolvem um objeto. `MSALResult`expõe uma `accessToken` propriedade. Pode usar `accessToken` para chamar uma API web. Adicione esta propriedade ao cabeçalho de autorização http antes de ligar para aceder à API da web protegida.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -128,7 +128,7 @@ Se precisar de ligar várias vezes para a mesma API, ou se precisar de ligar par
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Ligue para várias APIs usando o consentimento incremental e o acesso condicional
 
-Se necessitar de ligar para várias APIs para o mesmo utilizador, depois de adquirir um símbolo para o utilizador, pode evitar repetidamente pedir credenciais ao utilizador, ligando posteriormente para `AcquireTokenSilent` para obter um símbolo:
+Se necessitar de ligar para várias APIs para o mesmo utilizador, depois de adquirir um símbolo para `AcquireTokenSilent` o utilizador, pode evitar repetidamente pedir credenciais ao utilizador, ligando posteriormente para obter um sinal:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -140,7 +140,7 @@ result = await app.AcquireTokenSilent("scopeApi2")
 
 A interação é necessária quando:
 
-- O usuário consentiu para a primeira API, mas agora precisa consentir para mais escopos. Neste caso, usa o consentimento incremental.
+- O utilizador consentiu na primeira API, mas agora precisa de consentir mais âmbitos. Neste caso, usa o consentimento incremental.
 - A primeira API não requer autenticação de vários fatores, mas a próxima API requer.
 
 ```csharp
@@ -163,4 +163,4 @@ catch(MsalUiRequiredException ex)
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Passar para a produção](scenario-mobile-production.md)
+> [Mover para produção](scenario-mobile-production.md)

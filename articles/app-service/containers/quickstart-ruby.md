@@ -5,17 +5,17 @@ keywords: serviço de aplicações do azure, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.custom: seodec18
-ms.openlocfilehash: 2fcbc40bf78357700e59551b77b7e4d2da1bd82d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 33723e6dd8fbcd91d2d5863816786c0f08cdf923
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524075"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80045835"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Criar uma aplicação Ruby on Rails com o Serviço de Aplicações no Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial de arranque rápido mostra como implementar uma aplicação Ruby on Rails para o Azure App Service em Linux usando a [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este tutorial de arranque rápido mostra como implementar uma aplicação Ruby on Rails para o Azure App Service em Linux usando a [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 > [!NOTE]
 > A pilha de desenvolvimento Ruby só suporta o Ruby on Rails neste momento. Se quiser utilizar uma plataforma diferente, como o Sinatra, ou se quiser utilizar uma [versão Ruby não suportada,](app-service-linux-intro.md)tem de a [executar num recipiente personalizado.](quickstart-docker-go.md)
@@ -27,7 +27,7 @@ O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um ser
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Instale Ruby 2.6 ou superior</a>
-* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Execute a aplicação localmente, para ver que aspeto deveria ter quando a implemente no Azure. Abra uma janela de terminal, mude para o diretório `hello-world` e utilize o comando `rails server` para iniciar o servidor.
 
-O primeiro passo é instalar os gems necessários. Há um `Gemfile` incluído na amostra, então basta executar o seguinte comando:
+O primeiro passo é instalar os gems necessários. Há uma `Gemfile` incluída na amostra, então basta executar o seguinte comando:
 
 ```bash
 bundle install
@@ -69,7 +69,7 @@ Com o seu browser, navegue para `http://localhost:3000` para testar a aplicaçã
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-Navegue na aplicação para ver a sua aplicação web recém-criada com imagem incorporada. Substitua _&lt;nome da aplicação>_ pelo nome da sua aplicação Web.
+Navegue na aplicação para ver a sua aplicação web recém-criada com imagem incorporada. Substitua o _ &lt;nome da aplicação>_ pelo nome da sua aplicação web.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -116,7 +116,7 @@ http://<app-name>.azurewebsites.net
 ![aplicação Web atualizada](./media/quickstart-ruby/hello-world-configured.png)
 
 > [!NOTE]
-> Enquanto a aplicação está a reiniciar, poderá observar o código de estado HTTP `Error 503 Server unavailable` no navegador ou a página padrão `Hey, Ruby developers!`. Pode levar alguns minutos para a aplicação reiniciar completamente.
+> Enquanto a aplicação está a reiniciar, `Error 503 Server unavailable` poderá observar o `Hey, Ruby developers!` código de estado HTTP no navegador ou a página predefinida. Pode levar alguns minutos para a aplicação reiniciar completamente.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]

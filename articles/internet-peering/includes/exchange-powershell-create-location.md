@@ -9,30 +9,30 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 6f5d2dc30ac0f6316587fa0836b87cbd4efc0a8b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774396"
 ---
-O cmdlet **Get-AzPeeringLocation** do PowerShell retorna uma lista de locais de emparelhamento com o parâmetro obrigatório `Kind`, que você usará em etapas posteriores:
+PowerShell cmdlet **Get-AzPeeringLocation** devolve uma lista de locais `Kind`de observação com o parâmetro obrigatório , que utilizará em etapas posteriores:
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"
 ```
 
-Os locais de emparelhamento do Exchange contêm os seguintes campos:
-* Exchangname
-* PeeringLocation
+Locais de troca de pares contêm os seguintes campos:
+* Nome de câmbio
+* Localização de peering
 * País
 * PeeringDBFacilityId
 * PeeringDBFacilityLink
-* MicrosoftIPv4Address
-* MicrosoftIPv6Address
+* Endereço MicrosoftIPv4
+* Endereço MicrosoftIPv6
 
-Valide se você está presente na instalação de emparelhamento desejada fazendo referência a [PeeringDB](https://w www.peeringdb.com).
+Valide que está presente na instalação de peering desejada, referindo-se ao [PeeringDB](https://wwww.peeringdb.com).
 
-Veja abaixo um exemplo que mostra como usar Seattle como o local de emparelhamento para criar um emparelhamento:
+Abaixo está um exemplo que mostra como usar Seattle como o local de observação para criar um olhar:
 
 ```powershell
 $exchangeLocations = Get-AzPeeringLocation -Kind Exchange

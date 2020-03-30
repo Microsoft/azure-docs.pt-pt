@@ -1,28 +1,24 @@
 ---
-title: Serviço Azure AD para servir Auth usando OAuth2.0  Microsoft Docs
+title: Serviço Azure AD para servir Auth usando OAuth2.0 [ Microsoft Docs
 description: Este artigo descreve como usar mensagens HTTP para implementar o serviço de autenticação de serviço utilizando o fluxo de concessão de credenciais de cliente OAuth2.0.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 24c9c4385f23b68e9a3efb65d2582457219fa10d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: f2d1eaec80c8925eb7b38af848e29e944f1ebf69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164126"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154547"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Serviço a chamadas de serviço utilizando credenciais de cliente (segredo ou certificado partilhado)
 
@@ -36,7 +32,7 @@ O diagrama seguinte explica como as credenciais de cliente concedem fluxo funcio
 ![OAuth2.0 Credenciais de cliente Grant Flow](./media/v1-oauth2-client-creds-grant-flow/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
 
 1. A aplicação do cliente autentica-se no ponto final de emissão de fichas da AD Azure e solicita um sinal de acesso.
-2. O ponto de extremidade de emissão de token do Azure AD emite o token de acesso.
+2. O ponto final de emissão de fichas da AD Azure emite o sinal de acesso.
 3. O sinal de acesso é usado para autenticar o recurso seguro.
 4. Os dados do recurso seguro são devolvidos à aplicação do cliente.
 
@@ -58,13 +54,13 @@ Ao utilizar um segredo partilhado, um pedido de acesso serviço-a-serviço cont�
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |Necessário |Especifica o tipo de subvenção solicitado. Num fluxo de concessão de credenciais de cliente, o valor deve ser **client_credentials**. |
-| client_id |Necessário |Especifica a identificação do cliente da AD Azure do serviço web de chamada. Para encontrar o ID do cliente da aplicação de chamada, no [portal Azure,](https://portal.azure.com)clique no **Azure Ative Directory,** clique nos registos da **App,** clique na aplicação. O client_id é o ID de *aplicação* |
-| client_secret |Necessário |Introduza uma chave registada para o serviço web de chamada ou aplicação daemon em Azure AD. Para criar uma chave, no portal Azure, clique no **Diretório Ativo do Azure,** clique nas inscrições da **App,** clique na aplicação, clique em **Definições,** clique em **Teclas**e adicione uma Chave.  Url-codifica este segredo ao fornecê-lo. |
-| resource |Necessário |Introduza o ID da aplicação URI do serviço web recetor. Para encontrar o ID da aplicação URI, no portal Azure, clique no **Diretório Ativo do Azure,** clique nas inscrições da **App,** clique na aplicação de serviço e clique em **Definições** e **Propriedades**. |
+| grant_type |necessário |Especifica o tipo de subvenção solicitado. Num fluxo de concessão de credenciais de cliente, o valor deve ser **client_credentials**. |
+| client_id |necessário |Especifica a identificação do cliente da AD Azure do serviço web de chamada. Para encontrar o ID do cliente da aplicação de chamada, no [portal Azure,](https://portal.azure.com)clique no **Azure Ative Directory,** clique nos registos da **App,** clique na aplicação. O client_id é o ID de *aplicação* |
+| client_secret |necessário |Introduza uma chave registada para o serviço web de chamada ou aplicação daemon em Azure AD. Para criar uma chave, no portal Azure, clique no **Diretório Ativo do Azure,** clique nas inscrições da **App,** clique na aplicação, clique em **Definições,** clique em **Teclas**e adicione uma Chave.  Url-codifica este segredo ao fornecê-lo. |
+| recurso |necessário |Introduza o ID da aplicação URI do serviço web recetor. Para encontrar o ID da aplicação URI, no portal Azure, clique no **Diretório Ativo do Azure,** clique nas inscrições da **App,** clique na aplicação de serviço e clique em **Definições** e **Propriedades**. |
 
 #### <a name="example"></a>Exemplo
-O seguinte HTTP POST solicita um [sinal de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para o serviço web https://service.contoso.com/. O `client_id` identifica o serviço web que solicita o sinal de acesso.
+O seguinte HTTP POST solicita um `https://service.contoso.com/` sinal de [acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para o serviço web. O `client_id` serviço web identifica o serviço web que solicita o sinal de acesso.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -79,16 +75,16 @@ Um pedido de acesso serviço-a-serviço com um certificado contém os seguintes 
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |Necessário |Especifica o tipo de resposta solicitado. Num fluxo de concessão de credenciais de cliente, o valor deve ser **client_credentials**. |
-| client_id |Necessário |Especifica a identificação do cliente da AD Azure do serviço web de chamada. Para encontrar o ID do cliente da aplicação de chamada, no [portal Azure,](https://portal.azure.com)clique no **Azure Ative Directory,** clique nos registos da **App,** clique na aplicação. O client_id é o ID de *aplicação* |
-| client_assertion_type |Necessário |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Necessário | Uma afirmação (um Token Web JSON) que precisa de criar e assinar com o certificado que registou como credenciais para a sua aplicação. Leia sobre [credenciais](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) de certificado para saber como registar o seu certificado e o formato da afirmação.|
-| resource | Necessário |Introduza o ID da aplicação URI do serviço web recetor. Para encontrar o ID da aplicação URI, no portal Azure, clique no **Diretório Ativo do Azure,** clique nas inscrições da **App,** clique na aplicação de serviço e clique em **Definições** e **Propriedades**. |
+| grant_type |necessário |Especifica o tipo de resposta solicitado. Num fluxo de concessão de credenciais de cliente, o valor deve ser **client_credentials**. |
+| client_id |necessário |Especifica a identificação do cliente da AD Azure do serviço web de chamada. Para encontrar o ID do cliente da aplicação de chamada, no [portal Azure,](https://portal.azure.com)clique no **Azure Ative Directory,** clique nos registos da **App,** clique na aplicação. O client_id é o ID de *aplicação* |
+| client_assertion_type |necessário |O valor deve ser`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |necessário | Uma afirmação (um Token Web JSON) que precisa de criar e assinar com o certificado que registou como credenciais para a sua aplicação. Leia sobre [credenciais](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) de certificado para saber como registar o seu certificado e o formato da afirmação.|
+| recurso | necessário |Introduza o ID da aplicação URI do serviço web recetor. Para encontrar o ID da aplicação URI, no portal Azure, clique no **Diretório Ativo do Azure,** clique nas inscrições da **App,** clique na aplicação de serviço e clique em **Definições** e **Propriedades**. |
 
 Note-se que os parâmetros são quase os mesmos que no caso do pedido por segredo partilhado, exceto que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
 
 #### <a name="example"></a>Exemplo
-O seguinte HTTP POST solicita um sinal de acesso para o serviço web https://service.contoso.com/ com um certificado. O `client_id` identifica o serviço web que solicita o sinal de acesso.
+O seguinte HTTP POST solicita um `https://service.contoso.com/` sinal de acesso para o serviço web com um certificado. O `client_id` serviço web identifica o serviço web que solicita o sinal de acesso.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1
@@ -109,7 +105,7 @@ Uma resposta de sucesso contém uma resposta JSON OAuth 2.0 com os seguintes par
 | expires_in |Quanto tempo o token de acesso é válido (em segundos). |
 | expires_on |O tempo em que o sinal de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até ao tempo de validade. Este valor é usado para determinar a vida útil de fichas em cache. |
 | not_before |O tempo a partir do qual o sinal de acesso se torna utilizável. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até à hora de validade para o símbolo.|
-| resource |O App ID URI do serviço web recetor. |
+| recurso |O App ID URI do serviço web recetor. |
 
 #### <a name="example-of-response"></a>Exemplo de resposta
 O exemplo seguinte mostra uma resposta de sucesso a um pedido de acesso a um serviço web.
@@ -124,6 +120,6 @@ O exemplo seguinte mostra uma resposta de sucesso a um pedido de acesso a um ser
 }
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [OAuth 2.0 em Azure AD](v1-protocols-oauth-code.md)
-* [Amostra C# do serviço para chamada de serviço com um segredo partilhado](https://github.com/Azure-Samples/active-directory-dotnet-daemon) e Amostra no [ C# serviço para chamada de serviço com certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+* [Amostra em C# do serviço de serviço com um segredo partilhado](https://github.com/Azure-Samples/active-directory-dotnet-daemon) e Amostra em [C# do serviço para chamada de serviço com certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

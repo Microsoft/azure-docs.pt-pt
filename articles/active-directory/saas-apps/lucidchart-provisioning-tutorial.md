@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5d946c6e257c7676178f9bc3c234f66ba6fe622
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057333"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configure LucidChart para fornecimento automático de utilizadores
@@ -28,7 +28,7 @@ O objetivo deste tutorial é mostrar-lhe os passos necessários para executar em
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino de diretório Azure Ative
 * Um inquilino LucidChart com o [plano Enterprise](https://www.lucidchart.com/user/117598685#/subscriptionLevel) ou melhor habilitado
@@ -44,7 +44,7 @@ Antes de configurar e ativar o serviço de provisionamento, tem de decidir quais
 
 ### <a name="important-tips-for-assigning-users-to-lucidchart"></a>Dicas importantes para atribuir utilizadores à LucidChart
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído à LucidChart para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído à LucidChart para testar a configuração de provisionamento. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
 
 * Ao atribuir um utilizador ao LucidChart, deve selecionar a função **utilizador,** ou outra função específica de aplicação válida (se disponível) no diálogo de atribuição. A função **De Acesso Predefinido** não funciona para o provisionamento, e estes utilizadores são ignorados.
 
@@ -57,7 +57,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 ### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Configure o fornecimento automático de conta de utilizador para lucidchart em AD Azure
 
-1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > Todas as aplicações.**
+1. No [portal Azure,](https://portal.azure.com)navegue até ao **Azure Ative Directory > Enterprise Apps > todas as aplicações.**
 
 2. Se já configurou o LucidChart para um único sinal, procure a sua instância de LucidChart utilizando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procurar **lucidChart** na galeria de aplicações. Selecione LucidChart a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
@@ -67,7 +67,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
     ![Provisionamento LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. No âmbito da secção **de Credenciais de Administrador,** insere o **Token Secreto** gerado pela conta da LucidChart (pode encontrar o símbolo na sua conta: **Team** > **App Integration** > **SCIM).**
+5. Na secção **credenciais de administrador,** insere o **Token Secreto** gerado pela conta da LucidChart (pode encontrar o símbolo na sua conta: **Team** > **App Integration** > **SCIM**).
 
     ![Provisionamento LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 
@@ -79,13 +79,13 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 9. Na secção Mapeamentos, **selecione Synchronize Azure Ative Directory Users to LucidChart**.
 
-10. Na secção **DeMapeamentos** de Atributos, reveja os atributos do utilizador que são sincronizados de Azure AD para LucidChart. Os atributos selecionados como propriedades **correspondentes** são usados para combinar as contas de utilizador no LucidChart para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+10. Na secção **DeMapeamentos** de Atributos, reveja os atributos do utilizador que são sincronizados de Azure AD para LucidChart. Os atributos selecionados como propriedades **correspondentes** são usados para combinar as contas de utilizador no LucidChart para operações de atualização. Selecione o botão Guardar para elegiro qualquer alteração.
 
 11. Para ativar o serviço de provisionamento de AD Azure para lucidChart, altere o Estado de **Provisionamento** para **On** na secção **Definições**
 
 12. Clique em **Guardar**.
 
-Esta operação inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à LucidChart na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento.
+Esta operação inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos à LucidChart na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a realizar do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações aos registos de atividades de provisionamento, que descrevem todas as ações realizadas pelo serviço de provisionamento.
 
 Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 

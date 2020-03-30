@@ -1,55 +1,55 @@
 ---
 title: Testar as Funções do Azure
-description: Criar testes automatizados para um C# função no Visual Studio e a função de JavaScript no VS Code
+description: Criar testes automatizados para uma função C# no Estúdio Visual e Função JavaScript no Código VS
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: a37fd886e1bc70226b2e54750540dfcb79ee5973
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75768882"
 ---
-# <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código nas funções do Azure
+# <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar o seu código nas Funções do Azure
 
-Este artigo demonstra como criar testes automatizados para as funções do Azure. 
+Este artigo demonstra como criar testes automatizados para funções azure. 
 
-Todo o código de teste é recomendada, no entanto pode obter os melhores resultados, concluindo a lógica de uma função e a criação de testes fora da função. Abstrair a lógica de distância limita as linhas de uma função de código e permite que a função para ser o único responsável por chamar outras classes ou módulos. Este artigo, no entanto, demonstra como criar testes automatizados em relação a um HTTP e a funções disparadas por temporizador.
+O teste de todo o código é recomendado, no entanto pode obter os melhores resultados, encerrando a lógica de uma Função e criando testes fora da Função. A abstração da lógica de afastamento limita as linhas de código de uma Função e permite que a Função seja a única responsável por chamar outras classes ou módulos. Este artigo, no entanto, demonstra como criar testes automatizados contra um HTTP e funções acionadas pelo temporizador.
 
-O conteúdo que se segue é dividido em duas seções diferentes destinadas a diferentes idiomas e ambientes de destino. Pode aprender a testes de compilação:
+O conteúdo que se segue é dividido em duas secções diferentes destinadas a direcionar diferentes línguas e ambientes. Pode aprender a fazer testes em:
 
-- [C#no Visual Studio com xUnit](#c-in-visual-studio)
-- [JavaScript no VS Code com Jest](#javascript-in-vs-code)
+- [C# em Estúdio Visual com xUnit](#c-in-visual-studio)
+- [JavaScript em código VS com Jest](#javascript-in-vs-code)
 
-O repositório de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
+O repositório da amostra está disponível no [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
-## <a name="c-in-visual-studio"></a>C#no Visual Studio
-O exemplo a seguir descreve como criar um C# função de aplicação no Visual Studio e executar e testes com [xUnit](https://xunit.github.io).
+## <a name="c-in-visual-studio"></a>C# no Estúdio Visual
+O exemplo seguinte descreve como criar uma aplicação de função C# no Estúdio Visual e executar e testar com [xUnit](https://xunit.github.io).
 
-![Testar as funções do Azure com o C# no Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
+![Testar funções azure com C# em Estúdio Visual](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### <a name="setup"></a>Configuração
 
-Para configurar o ambiente, criar uma função e testar a aplicação. Os passos seguintes ajudam-o a criar as aplicações e as funções necessárias para suportar os testes:
+Para configurar o seu ambiente, crie uma aplicação de Função e teste. Os seguintes passos ajudam a criar as aplicações e funções necessárias para suportar os testes:
 
-1. [Criar uma nova aplicação de funções](./functions-create-first-azure-function.md) e designe- *funções*
-2. [Criar uma função HTTP a partir do modelo](./functions-create-first-azure-function.md) e o nomeio *HttpTrigger*.
-3. [Criar uma função de temporizador a partir do modelo](./functions-create-scheduled-function.md) e o nomeio *TimerTrigger*.
-4. [Crie um aplicativo de teste do xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) no Visual Studio clicando em **arquivo > novo > projeto C# > Visual > .NET Core > projeto de teste do xUnit** e nomeie-o como *functions. Test*. 
-5. Use o NuGet para adicionar uma referência do aplicativo de teste a [Microsoft. AspNetCore. Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Referência a *funções* aplicação](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) partir *Functions.Test* aplicação.
+1. [Criar uma nova app Funções](./functions-create-first-azure-function.md) e nomeá-lo *Funções*
+2. [Crie uma função HTTP a partir do modelo](./functions-create-first-azure-function.md) e nomeie-o *HttpTrigger*.
+3. [Crie uma função temporizador a partir do modelo](./functions-create-scheduled-function.md) e nomeie-o *TimerTrigger*.
+4. [Crie uma aplicação xUnit Test](https://xunit.github.io/docs/getting-started-dotnet-core) no Estúdio Visual clicando em **File > New > Project > Visual C# > .NET Core > xUnit Test Project** e nomeá-lo *Functions.Test*. 
+5. Use nuGet para adicionar uma referência da aplicação de teste para [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. [Consulte a aplicação *Funções* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) a partir de *Funções.Teste* aplicação.
 
-### <a name="create-test-classes"></a>Criar classes de teste
+### <a name="create-test-classes"></a>Criar aulas de teste
 
-Agora que os aplicativos são criados, pode criar as classes usadas para executar os testes automatizados.
+Agora que as aplicações são criadas, pode criar as classes usadas para executar os testes automatizados.
 
-Cada função obtém uma instância da [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) para lidar com o log de mensagens. Alguns testes não inicie as mensagens ou não ter nenhuma preocupação de como o Registro em log é implementado. Outros testes necessário avaliar com sessão iniciadas para determinar se um teste consiste na passagem de mensagens.
+Cada função requer uma instância do [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) para lidar com o registo de mensagens. Alguns testes ou não registam mensagens ou não têm qualquer preocupação com a forma como o registo é implementado. Outros testes precisam avaliar as mensagens registadas para determinar se um teste está a passar.
 
-A classe `ListLogger` implementa a interface `ILogger` e mantém uma lista interna de mensagens para avaliação durante um teste.
+A `ListLogger` classe implementa a `ILogger` interface e detém uma lista interna de mensagens para avaliação durante um teste.
 
-**Clique com o botão direito do mouse** no aplicativo *functions. Test* e selecione **Adicionar > classe**, nomeie-o **NullScope.cs** e insira o código a seguir:
+**Clique à direita** na aplicação *Functions.Teste* e selecione **Adicionar > Class,** nomeá-lo **NullScope.cs** e introduzir o seguinte código:
 
 ```csharp
 using System;
@@ -67,7 +67,7 @@ namespace Functions.Tests
 }
 ```
 
-Em seguida, clique com o **botão direito do mouse** no aplicativo *functions. Test* e selecione **Adicionar > classe**, nomeie-o **ListLogger.cs** e insira o código a seguir:
+Em seguida, **clique à direita** na aplicação *Funções.Teste* e selecione **Adicionar > Classe,** nomeie-o **ListLogger.cs** e introduza o seguinte código:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -103,17 +103,17 @@ namespace Functions.Tests
 }
 ```
 
-O `ListLogger` classe implementa os seguintes membros como contratado pelo `ILogger` interface:
+A `ListLogger` classe implementa os seguintes `ILogger` membros contratados pela interface:
 
-- **BeginScope**: âmbitos Adicionar contexto para seu registro de log. Nesse caso, o teste apenas aponta para a instância estática na classe `NullScope` para permitir que o teste funcione.
+- **BeginScope**: Os âmbitos adicionam contexto à sua exploração madeireira. Neste caso, o teste apenas aponta `NullScope` para a instância estática da classe para permitir que o teste funcione.
 
-- **IsEnabled**: um valor padrão de `false` é fornecido.
+- **IsEnabled**: `false` É fornecido um valor predefinido.
 
-- **Registo**: Este método utiliza fornecido `formatter` funcionar para formatar a mensagem e, em seguida, adiciona o texto resultante para o `Logs` coleção.
+- **Início do registo**: `formatter` Este método utiliza a função fornecida `Logs` para formatar a mensagem e, em seguida, adiciona o texto resultante à recolha.
 
-O `Logs` coleção é uma instância de `List<string>` e é inicializada no construtor.
+A `Logs` coleção é `List<string>` um exemplo de e é inicializada no construtor.
 
-Em seguida, **com o botão direito** sobre o *Functions.Test* aplicativo e selecione **adicionar > classe**, um nome **LoggerTypes.cs** e introduza o código a seguir:
+Em seguida, **clique à direita** na aplicação *Funções.Teste* e selecione **Adicionar > Classe,** nomeie-o **LoggerTypes.cs** e introduza o seguinte código:
 
 ```csharp
 namespace Functions.Tests
@@ -125,9 +125,9 @@ namespace Functions.Tests
     }
 }
 ```
-Esta enumeração Especifica o tipo de logger utilizado pelos testes. 
+Esta enumeração especifica o tipo de madeireiro utilizado pelos testes. 
 
-Em seguida, **com o botão direito** sobre o *Functions.Test* aplicativo e selecione **adicionar > classe**, um nome **TestFactory.cs** e introduza o código a seguir:
+Em seguida, **clique à direita** na aplicação *Funções.Teste* e selecione **Adicionar > Classe,** nomeie-o **TestFactory.cs** e introduza o seguinte código:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -188,17 +188,17 @@ namespace Functions.Tests
     }
 }
 ```
-O `TestFactory` classe implementa os seguintes membros:
+A `TestFactory` classe implementa os seguintes membros:
 
-- **Dados**: Esta propriedade devolve um [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) recolha de dados de exemplo. Os pares de chave-valor representam valores que são transmitidas numa cadeia de caracteres de consulta.
+- **Dados**: Esta propriedade devolve uma recolha [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) de dados da amostra. Os pares de valor-chave representam valores que são passados para uma corda de consulta.
 
-- **CreateDictionary**: Este método aceita um par chave/valor como argumentos e devolve um novo `Dictionary` utilizado para criar `QueryCollection` para representar valores de cadeia de caracteres de consulta.
+- **CreateDictionary**: Este método aceita um par chave/valor `Dictionary` como argumentos `QueryCollection` e devolve um novo usado para criar para representar valores de cordas de consulta.
 
-- **CreateHttpRequest**: Este método cria um pedido HTTP foi inicializado com os parâmetros de cadeia de caracteres de consulta especificada.
+- **CreateHttpRequest**: Este método cria um pedido HTTP inicializado com os parâmetros de corda de consulta dada.
 
-- **CreateLogger**: com base no tipo de agente de log, esse método retorna uma classe logger usada para teste. O `ListLogger` mantém um registro de mensagens anteriormente registadas disponíveis para avaliação em testes.
+- **CreateLogger**: Com base no tipo de logger, este método devolve uma classe de logger utilizada para o teste. O `ListLogger` registo de mensagens registadas disponíveis para avaliação em testes.
 
-Em seguida, **com o botão direito** sobre o *Functions.Test* aplicativo e selecione **adicionar > classe**, um nome **FunctionsTests.cs** e introduza o código a seguir:
+Em seguida, **clique à direita** na aplicação *Funções.Teste* e selecione **Adicionar > Class,** nomeá-lo **FunctionsTests.cs** e introduzir o seguinte código:
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -239,45 +239,45 @@ namespace Functions.Tests
     }
 }
 ```
-Os membros implementados nessa classe são:
+Os membros implementados nesta classe são:
 
-- **Http_trigger_should_return_known_string**: Este teste cria um pedido com a consulta de valores de cadeia de caracteres de `name=Bill` para uma função HTTP e verifica se a resposta esperada é devolvida.
+- **Http_trigger_should_return_known_string**: Este teste cria um pedido `name=Bill` com os valores de cadeia de consulta de uma função HTTP e verifica se a resposta esperada é devolvida.
 
-- **Http_trigger_should_return_string_from_member_data**: Este teste usa atributos de xUnit para fornecer dados de exemplo para a função HTTP.
+- **Http_trigger_should_return_string_from_member_data**: Este teste utiliza atributos xUnit para fornecer dados da amostra à função HTTP.
 
-- **Timer_should_log_message**: Este teste cria uma instância de `ListLogger` e o transmite para funções de um temporizador. Assim que a função é executada, o registo é verificado para garantir que a mensagem esperada está presente.
+- **Timer_should_log_message**: Este teste `ListLogger` cria uma instância e passa-o para funções temporizadoras. Uma vez executada a função, o registo é verificado para garantir que a mensagem esperada está presente.
 
-Se você quiser acessar as configurações do aplicativo em seus testes, você pode usar [System. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+Se pretender aceder às definições de aplicações nos seus testes, pode utilizar [system.environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
-### <a name="run-tests"></a>Executar testes
+### <a name="run-tests"></a>Realizar testes
 
-Para executar os testes, navegue para o **Gerenciador de testes** e clique em **executar todos**.
+Para executar os testes, navegue para o Explorador de **Teste** e clique em **Executar tudo**.
 
-![Testar as funções do Azure com o C# no Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
+![Testar funções azure com C# em Estúdio Visual](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="debug-tests"></a>Depurar testes
+### <a name="debug-tests"></a>Testes de depuração
 
-Para depurar os testes, defina um ponto de interrupção num teste, navegue para o **Gerenciador de testes** e clique em **executar > executar última depurar**.
+Para depurar os testes, detete um ponto de rutura num teste, navegue para o **Test Explorer** e clique em Executar **> Debug Last Run**.
 
-## <a name="javascript-in-vs-code"></a>JavaScript no VS Code
+## <a name="javascript-in-vs-code"></a>JavaScript no Código VS
 
-O exemplo a seguir descreve como criar uma aplicação de função de JavaScript no VS Code e executar e testar com [Jest](https://jestjs.io). Este procedimento utiliza a [extensão de funções de código de VS](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para criar as funções do Azure.
+O exemplo seguinte descreve como criar uma aplicação JavaScript Function no Código VS e executar e testar com [Jest](https://jestjs.io). Este procedimento utiliza a [extensão funções](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) do código VS para criar funções Azure.
 
-![Testar as funções do Azure com o JavaScript no VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+![Testar funções azure com JavaScript no código VS](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
 ### <a name="setup"></a>Configuração
 
-Para configurar o seu ambiente, inicializar uma nova aplicação de node. js numa pasta vazia executando `npm init`.
+Para configurar o seu ambiente, inicie uma nova aplicação `npm init`Node.js numa pasta vazia executando .
 
 ```bash
 npm init -y
 ```
-Em seguida, instale Jest executando o seguinte comando:
+Em seguida, instale o Jest executando o seguinte comando:
 
 ```bash
 npm i jest
 ```
-Atualizar agora _Package. JSON_ para substituir o comando de teste existente com o seguinte comando:
+Agora atualize _o pacote.json_ para substituir o comando de teste existente pelo seguinte comando:
 
 ```bash
 "scripts": {
@@ -286,18 +286,18 @@ Atualizar agora _Package. JSON_ para substituir o comando de teste existente com
 ```
 
 ### <a name="create-test-modules"></a>Criar módulos de teste
-Com o projeto foi inicializado, pode criar os módulos utilizados para executar os testes automatizados. Comece por criar uma nova pasta chamada *teste* para manter os módulos de suporte.
+Com o projeto inicializado, pode criar os módulos utilizados para executar os testes automatizados. Comece por criar uma nova pasta chamada *teste* para manter os módulos de suporte.
 
-Na *teste* pasta adicionar um novo ficheiro, nomeie- **defaultContext.js**e adicione o seguinte código:
+Na pasta de *teste* adicione um novo ficheiro, nomeie-o **padrãoContext.js**, e adicione o seguinte código:
 
 ```javascript
 module.exports = {
     log: jest.fn()
 };
 ```
-Este módulo mocks a *log* função para representar o contexto de execução padrão.
+Este módulo ridiculariza a função de *registo* para representar o contexto de execução padrão.
 
-Em seguida, adicione um novo ficheiro, atribua o nome **defaultTimer.js**e adicione o seguinte código:
+Em seguida, adicione um novo ficheiro, nomeie-o **predefinidoTimer.js**, e adicione o seguinte código:
 
 ```javascript
 module.exports = {
@@ -305,9 +305,9 @@ module.exports = {
 };
 ```
 
-Este módulo implementa a `IsPastDue` propriedade para se destacar é como uma instância de temporizador falsa. Configurações de temporizador como expressões NCRONTAB não são necessárias aqui, pois o equipamento de teste está simplesmente chamando a função diretamente para testar o resultado.
+Este módulo implementa a `IsPastDue` propriedade para ficar é como uma instância de temporizador falso. Configurações temporizadoras como expressões NCRONTAB não são necessárias aqui, uma vez que o arnês de teste está simplesmente chamando a função diretamente para testar o resultado.
 
-Em seguida, utilize a extensão de funções de código VS [criar uma nova função de HTTP de JavaScript](/azure/javascript/tutorial-vscode-serverless-node-01) e o nomeio *HttpTrigger*. Assim que a função é criada, adicione um novo ficheiro na mesma pasta com o nome **index.test.js**e adicione o seguinte código:
+Em seguida, utilize a extensão de funções de código VS para [criar uma nova função JavaScript HTTP](/azure/javascript/tutorial-vscode-serverless-node-01) e nomeá-la *HttpTrigger*. Assim que a função for criada, adicione um novo ficheiro na mesma pasta chamada **index.test.js**e adicione o seguinte código:
 
 ```javascript
 const httpFunction = require('./index');
@@ -325,9 +325,9 @@ test('Http trigger should return known text', async () => {
     expect(context.res.body).toEqual('Hello Bill');
 });
 ```
-A função HTTP do modelo devolve uma cadeia "Olá", concatenado com o nome fornecido na cadeia de consulta. Este teste cria uma instância falsa de um pedido e passa-o para a função HTTP. O teste verifica se o *log* método é chamado uma vez e texto devolvido é igual a "Hello Bill".
+A função HTTP do modelo devolve uma série de "Olá" concatenado com o nome fornecido na corda de consulta. Este teste cria uma instância falsa de um pedido e passa-o para a função HTTP. O teste verifica que o método de *registo* é chamado uma vez e o texto devolvido é igual a "Hello Bill".
 
-Em seguida, utilize a extensão de funções de código do VS para criar uma nova função de temporizador de JavaScript e o nomeio *TimerTrigger*. Assim que a função é criada, adicione um novo ficheiro na mesma pasta com o nome **index.test.js**e adicione o seguinte código:
+Em seguida, utilize a extensão de funções de código VS para criar uma nova função do temporizador JavaScript e nomeá-lo *TimerTrigger*. Assim que a função for criada, adicione um novo ficheiro na mesma pasta chamada **index.test.js**e adicione o seguinte código:
 
 ```javascript
 const timerFunction = require('./index');
@@ -339,20 +339,20 @@ test('Timer trigger should log message', () => {
     expect(context.log.mock.calls.length).toBe(1);
 });
 ```
-A função de temporizador do modelo regista uma mensagem no final do corpo da função. Esse teste assegura a *log* função é chamada uma vez.
+A função temporizador do modelo regista uma mensagem no final do corpo da função. Este teste garante que a função de *registo* é chamada uma vez.
 
-### <a name="run-tests"></a>Executar testes
-Para executar os testes, prima **CTRL + ~** para abrir a janela de comando e executar `npm test`:
+### <a name="run-tests"></a>Realizar testes
+Para eexecutar os testes, prima **CTRL +** ~ `npm test`para abrir a janela de comando e executar:
 
 ```bash
 npm test
 ```
 
-![Testar as funções do Azure com o JavaScript no VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+![Testar funções azure com JavaScript no código VS](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="debug-tests"></a>Depurar testes
+### <a name="debug-tests"></a>Testes de depuração
 
-Para depurar seus testes, adicione a seguinte configuração para seus *Launch* ficheiro:
+Para desinserir os seus testes, adicione a seguinte configuração ao ficheiro *launch.json:*
 
 ```json
 {
@@ -368,11 +368,11 @@ Para depurar seus testes, adicione a seguinte configuração para seus *Launch* 
 }
 ```
 
-Em seguida, defina um ponto de interrupção em seu teste e prima **F5**.
+Em seguida, detete um ponto de rutura no seu teste e prima **F5**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu como escrever testes automatizados para as suas funções, continue com estes recursos:
-- [Executar manualmente uma função não disparada por HTTP](./functions-manually-run-non-http.md)
-- [Tratamento de erros de funções do Azure](./functions-bindings-error-pages.md)
-- [Função do Azure Event Grid acionador Local depuração](./functions-debug-event-grid-trigger-local.md)
+Agora que aprendeu a escrever testes automatizados para as suas funções, continue com estes recursos:
+- [Executar manualmente uma função não acionada por HTTP](./functions-manually-run-non-http.md)
+- [Manipulação de erros das Funções Azure](./functions-bindings-error-pages.md)
+- [Rede de eventos de função azure gatilho depuração local](./functions-debug-event-grid-trigger-local.md)

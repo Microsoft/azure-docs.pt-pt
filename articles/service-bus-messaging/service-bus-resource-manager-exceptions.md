@@ -1,6 +1,6 @@
 ---
-title: Exceções do Gerenciador de recursos do barramento de serviço do Azure | Microsoft Docs
-description: Lista de exceções do barramento de serviço na superfície por Azure Resource Manager e ações sugeridas.
+title: Exceções ao Gestor de Recursos de Autocarros de Serviço sintetizar a Azure Service Bus Resource Manager [ Microsoft Docs
+description: Lista de exceções de ônibus de serviço surgiu por Azure Resource Manager e sugeriu ações.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,77 +15,77 @@ ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
 ms.openlocfilehash: 0f328651ac4422226071d2de12e9cbc787ef64be
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978261"
 ---
-# <a name="service-bus-resource-manager-exceptions"></a>Exceções do Gerenciador de recursos do barramento de serviço
+# <a name="service-bus-resource-manager-exceptions"></a>Exceções ao Gestor de Recursos de Autocarros de Serviços
 
-Este artigo lista exceções geradas ao interagir com o barramento de serviço do Azure usando modelos Azure Resource Manager ou chamadas diretas.
+Este artigo lista exceções geradas ao interagir com o Azure Service Bus utilizando o Gestor de Recursos Azure - através de modelos ou chamadas diretas.
 
 > [!IMPORTANT]
-> Este documento é atualizado com frequência. Verifique novamente se há atualizações.
+> Este documento é frequentemente atualizado. Por favor, verifique se há novidades.
 
-Abaixo estão as várias exceções/erros que são exibidos por meio do Azure Resource Manager.
+Abaixo estão as várias exceções/erros que são surgidas através do Gestor de Recursos Azure.
 
-## <a name="error-bad-request"></a>Erro: solicitação inadequada
+## <a name="error-bad-request"></a>Erro: Pedido mau
 
-"Solicitação inadequada" implica que a solicitação recebida pelo Gerenciador de recursos falhou na validação.
+"Pedido Mau" implica que o pedido recebido pelo Gestor de Recursos não foi validado.
 
 | Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| Pedido Incorreto | 40000 | Subcódigo = 40000. A propriedade *' nome da propriedade '* não pode ser definida ao criar uma fila porque o namespace *' nome do namespace '* está usando a camada ' básica '. Esta operação só tem suporte na camada ' Standard ' ou ' Premium '. | Na camada básica do barramento de serviço do Azure, as propriedades abaixo não podem ser definidas ou atualizadas- <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> Tópicos </li> </ul> | Considere atualizar da camada básica para Standard ou Premium para usar essa funcionalidade. |
-| Pedido Incorreto | 40000 | Subcódigo = 40000. O valor da propriedade ' requiresDuplicateDetection ' de uma fila (ou tópico) existente não pode ser alterado. | A detecção de duplicidades deve ser habilitada/desabilitada no momento da criação da entidade. O parâmetro de configuração de detecção de duplicidades não pode ser alterado após a criação. | Para habilitar a detecção de duplicidades em uma fila/tópico criado anteriormente, você pode criar uma nova fila/tópico com detecção de duplicidades e, em seguida, encaminhar da fila original para a nova fila/tópico. |
-| Pedido Incorreto | 40000 | Subcódigo = 40000. O valor especificado 16384 é inválido. A propriedade ' MaxSizeInMegabytes ' deve ser um dos seguintes valores: 1024; 2048; 3072; 4096; 5120. | O valor de MaxSizeInMegabytes é inválido. | Verifique se o MaxSizeInMegabytes é um dos seguintes-1024, 2048, 3072, 4096, 5120. |
-| Pedido Incorreto | 40000 | Subcódigo = 40000. O particionamento não pode ser alterado para a fila/tópico. | O particionamento não pode ser alterado para a entidade. | Crie uma nova entidade (fila ou tópico) e habilite partições. | 
-| Pedido Incorreto | nenhuma | O namespace *' nome do namespace '* não existe. | O namespace não existe em sua assinatura do Azure. | Para resolver esse erro, tente o seguinte <ul> <li> Verifique se a assinatura do Azure está correta. </li> <li> Verifique se o namespace existe. </li> <li> Verifique se o nome do namespace está correto (sem erros de ortografia ou cadeias de caracteres nulas). </li> </ul> | 
-| Pedido Incorreto | 40400 | Subcódigo = 40400. A entidade de destino de encaminhamento automático não existe. | O destino para a entidade de destino de encaminhamento automático não existe. | A entidade de destino (fila ou tópico) deve existir antes que a origem seja criada. Tente novamente depois de criar a entidade de destino. |
-| Pedido Incorreto | 40000 | Subcódigo = 40000. O tempo de bloqueio fornecido excede o máximo permitido de ' 5 ' minutos. | A hora para a qual uma mensagem pode ser bloqueada deve estar entre 1 minuto (mínimo) e 5 minutos (máximo). | Verifique se o tempo de bloqueio fornecido está entre 1 minuto e 5 minutos. |
-| Pedido Incorreto | 40000 | Subcódigo = 40000. A propriedade DelayedPersistence e RequiresDuplicateDetection não podem ser habilitadas juntas. | As entidades com detecção de duplicidades habilitadas nelas devem ser persistentes, portanto, a persistência não pode ser atrasada. | Saiba mais sobre [detecção de duplicidades](duplicate-detection.md) |
-| Pedido Incorreto | 40000 | Subcódigo = 40000. O valor da propriedade RequiresSession de uma fila existente não pode ser alterado. | O suporte para sessões deve ser habilitado no momento da criação da entidade. Depois de criado, você não pode habilitar/desabilitar sessões em uma entidade existente (fila ou assinatura) | Exclua e recrie uma nova fila (ou assinatura) com a propriedade "RequiresSession" habilitada. |
-| Pedido Incorreto | 40000 | Subcódigo = 40000. ' URI_PATH ' contém caractere (s) que não é permitido pelo barramento de serviço. Os segmentos de entidade podem conter apenas letras, números, pontos (.), hifens (-) e sublinhados (_). | Os segmentos de entidade podem conter apenas letras, números, pontos (.), hifens (-) e sublinhados (_). Quaisquer outros caracteres causam a falha da solicitação. | Verifique se não há caracteres inválidos no caminho do URI. |
+| Pedido Incorreto | 40000 | Subcode=40000. O *'nome de propriedade'* da propriedade não pode ser definido na criação de uma fila porque o nome do espaço de nome *'namespace'* está a usar o 'Basic' Tier. Esta operação só é suportada em nível 'Standard' ou 'Premium'. | No Azure Service Bus Basic Tier, as propriedades abaixo não podem ser definidas ou atualizadas - <ul> <li> RequerDetecção duplicada </li> <li> AutodeleteOnidle </li> <li>RequerSSession</li> <li>Tempo de mensagem padrãopara viver </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> Para a frente </li> <li> Tópicos </li> </ul> | Considere atualizar de nível Basic para Standard ou Premium para utilizar esta funcionalidade. |
+| Pedido Incorreto | 40000 | Subcode=40000. O valor para a propriedade 'requerDuplicateDetection' de uma fila ou tópico existente não pode ser alterado. | A deteção duplicada deve ser ativada/desativada no momento da criação da entidade. O parâmetro de configuração de deteção duplicado não pode ser alterado após a criação. | Para permitir a deteção de duplicados numa fila/tópico previamente criado, pode criar uma nova fila/tópico com deteção duplicada e, em seguida, avançar da fila original para a nova fila/tópico. |
+| Pedido Incorreto | 40000 | Subcode=40000. O valor especificado 16384 é inválido. A propriedade 'MaxSizeInMegabytes', deve ser um dos seguintes valores: 1024;2048;3072;4096;5120. | O valor MaxSizeInMegabytes é inválido. | Certifique-se de que o MaxSizeInMegabytes é um dos seguintes - 1024, 2048, 3072, 4096, 5120. |
+| Pedido Incorreto | 40000 | Subcode=40000. A partilha não pode ser alterada para fila/tópico. | A partilha não pode ser alterada para entidade. | Criar uma nova entidade (fila ou tópico) e ativar divisórias. | 
+| Pedido Incorreto | nenhuma | O espaço de nome *'namespace'* não existe. | O espaço de nome não existe dentro da sua subscrição Azure. | Para resolver este erro, por favor tente o abaixo <ul> <li> Certifique-se de que a Subscrição Azure está correta. </li> <li> Certifique-se de que o espaço de nomeexiste. </li> <li> Verifique se o nome do espaço de nome está correto (sem erros ortográficos ou cordas nulas). </li> </ul> | 
+| Pedido Incorreto | 40400 | Subcódigo=40400. A entidade de destino de reencaminhamento automático não existe. | O destino para a entidade de destino de reencaminhamento automático não existe. | A entidade de destino (fila ou tópico), deve existir antes da criação da fonte. Voltar a tentar depois de criar a entidade de destino. |
+| Pedido Incorreto | 40000 | Subcode=40000. O tempo de bloqueio fornecido excede o máximo permitido de minutos de '5'. | O tempo para o qual uma mensagem pode ser bloqueada deve ser entre 1 minuto (mínimo) e 5 minutos (máximo). | Certifique-se de que o tempo de bloqueio fornecido é entre 1 min e 5 minutos. |
+| Pedido Incorreto | 40000 | Subcode=40000. Tanto a propriedade Retardada Persistência como requer a propriedade DuplicateDetection não podem ser ativadas em conjunto. | As entidades com deteção duplicada ativadas devem ser persistentes, pelo que a persistência não pode ser adiada. | Saiba mais sobre [a Deteção de Duplicados](duplicate-detection.md) |
+| Pedido Incorreto | 40000 | Subcode=40000. O valor para a propriedade RequiresSession de uma fila existente não pode ser alterado. | O apoio às sessões deve ser ativado no momento da criação de entidades. Uma vez criado, não é possível ativar/desativar sessões numa entidade existente (fila ou subscrição) | Eliminar e recriar uma nova fila (ou subscrição) com a propriedade "RequiresSession" ativada. |
+| Pedido Incorreto | 40000 | Subcode=40000. 'URI_PATH' contém caracteres que não são permitidos pela Service Bus. Os segmentos de entidades só podem conter letras, números, períodos(.), hífenes (-) e sublinhados (_). | Os segmentos de entidades só podem conter letras, números, períodos(.), hífenes (-) e sublinhados (_). Qualquer outro caracteres faz com que o pedido falhe. | Certifique-se de que não existem caracteres inválidos no Caminho URI. |
 
 
 ## <a name="error-code-429"></a>Código de erro: 429
 
-Assim como no HTTP, "código de erro 429" indica "muitas solicitações". Isso implica que o recurso específico (namespace) está sendo limitado devido a muitas solicitações (ou devido a operações conflitantes) nesse recurso.
+Tal como em HTTP, o "Error code 429" indica "pedidos a mais". Implica que o recurso específico (espaço de nome) está a ser estrangulado devido a demasiados pedidos (ou devido a operações contraditórias) sobre esse recurso.
 
 | Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| 429 | 50004 | Subcódigo = 50004. A solicitação foi encerrada porque o namespace *do namespace* está sendo limitado. | Essa condição de erro é pressionada quando o número de solicitações de entrada excede a limitação do recurso. | Aguarde alguns segundos e tente novamente. <br/> <br/> Saiba mais sobre as [cotas](service-bus-quotas.md) e os [limites de solicitação de Azure Resource Manager](../azure-resource-manager/management/request-limits-and-throttling.md)|
-| 429 | 40901 | Subcódigo = 40901. Outra operação conflitante está em andamento. | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação em andamento atual antes de tentar novamente. |
-| 429 | 40900 | Subcódigo = 40900. Houver. Você está solicitando uma operação que não é permitida no estado atual do recurso. | Essa condição pode ser atingida quando várias solicitações são feitas para executar as operações na mesma entidade (fila, tópico, assinatura ou regra) ao mesmo tempo. | Aguarde alguns segundos e tente novamente |
-| 429 | 40901 | A solicitação na entidade *' nome da entidade '* entrou em conflito com outra solicitação | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação anterior antes de tentar novamente |
-| 429 | 40901 | Outra solicitação de atualização está em andamento para a entidade *' nome da entidade '* . | Outra operação conflitante está em andamento no mesmo recurso/entidade | Aguarde a conclusão da operação anterior antes de tentar novamente |
-| 429 | nenhuma | Conflito de recursos ocorrido. Outra operação conflitante pode estar em andamento. Se esta for uma nova tentativa para uma operação com falha, a limpeza em segundo plano ainda estará pendente. Tente novamente mais tarde. | Essa condição pode ser atingida quando há uma operação pendente na mesma entidade. | Aguarde a conclusão da operação anterior antes de tentar novamente. |
+| 429 | 50004 | Subcódigo=50004. O pedido foi cancelado porque o espaço de nome *do seu espaço* de nome está a ser estrangulado. | Esta condição de erro é atingida quando o número de pedidos de entrada excede a limitação do recurso. | Espere alguns segundos e tente de novo. <br/> <br/> Saiba mais sobre as [quotas](service-bus-quotas.md) e limites de pedidos do Gestor de [Recursos Azure](../azure-resource-manager/management/request-limits-and-throttling.md)|
+| 429 | 40901 | Subcódigo=40901. Outra operação conflituosa está em curso. | Outra operação conflituosa está em curso sobre o mesmo recurso/entidade | Aguarde que a atual operação em curso esteja concluída antes de tentar novamente. |
+| 429 | 40900 | Subcódigo=40900. Um conflito. Está a pedir uma operação que não seja permitida no estado atual do recurso. | Esta condição pode ser atingida quando são feitos vários pedidos para realizar as operações na mesma entidade (fila, tópico, subscrição ou regra) ao mesmo tempo. | Espere por alguns segundos e tente novamente |
+| 429 | 40901 | Pedido sobre *'nome de entidade'* conflituoso com outro pedido | Outra operação conflituosa está em curso sobre o mesmo recurso/entidade | Aguarde que a operação anterior termine antes de tentar novamente |
+| 429 | 40901 | Está em curso outro pedido de atualização para o *'nome da entidade'.* | Outra operação conflituosa está em curso sobre o mesmo recurso/entidade | Aguarde que a operação anterior termine antes de tentar novamente |
+| 429 | nenhuma | Conflito de recursos ocorreu. Outra operação conflituosa pode estar em curso. Se isto for uma nova tentativa de operação falhada, a limpeza de antecedentes ainda está pendente. Tente novamente mais tarde. | Esta condição pode ser atingida quando houver uma operação pendente contra a mesma entidade. | Aguarde que a operação anterior esteja concluída antes de tentar novamente. |
 
 
-## <a name="error-code-not-found"></a>Código de erro: não encontrado
+## <a name="error-code-not-found"></a>Código de erro: Não Encontrado
 
-Essa classe de erros indica que o recurso não foi encontrado.
-
-| Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
-| ---------- | ------------- | ------------- | ----------- | -------------- |
-| Não encontrado | nenhuma | A entidade *' nome da entidade '* não foi encontrada. | A entidade na qual a operação não foi encontrada. | Verifique se a entidade existe e tente a operação novamente. |
-| Não encontrado | nenhuma | Não encontrado. A operação não existe. | A operação que você está tentando executar não existe. | Verifique a operação e tente novamente. |
-| Não encontrado | nenhuma | A solicitação de entrada não é reconhecida como uma solicitação de Put de política de namespace. | O corpo da solicitação de entrada é nulo e, portanto, não pode ser executado como uma solicitação Put. | Verifique o corpo da solicitação para garantir que ele não seja nulo. | 
-| Não encontrado | nenhuma | Não foi possível encontrar a entidade de mensagens *' nome da entidade '* . | A entidade na qual você está tentando executar a operação não foi encontrada. | Verifique se a entidade existe e tente a operação novamente. |
-
-## <a name="error-code-internal-server-error"></a>Código de erro: erro interno do servidor
-
-Essa classe de erros indica que houve um erro interno do servidor
+Esta classe de erros indica que o recurso não foi encontrado.
 
 | Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| Erro interno do servidor | 50000 | Subcódigo = 50000. Erro interno do servidor| Pode ocorrer por vários motivos. Alguns dos sintomas são- <ul> <li> A solicitação/o corpo do cliente está corrompido e leva a um erro. </li> <li> A solicitação do cliente atingiu o tempo limite devido a problemas de processamento no serviço. </li> </ul> | Para resolver isso <ul> <li> Verifique se os parâmetros de solicitações não são nulos ou malformados. </li> <li> Repita a solicitação. </li> </ul> |
+| Não encontrado | nenhuma | Entidade *'nome de entidade'* não foi encontrada. | A entidade contra a qual a operação não foi encontrada. | Verifique se a entidade existe e tente novamente a operação. |
+| Não encontrado | nenhuma | Não encontrado. A Operação não existe. | A operação que está a tentar realizar não existe. | Verifique a operação e tente de novo. |
+| Não encontrado | nenhuma | O pedido de entrada não é reconhecido como um pedido de política de espaço de nome. | O órgão de pedido de entrada é nulo e, portanto, não pode ser executado como um pedido de colocação. | Verifique o organismo de pedido para se certificar de que não é nulo. | 
+| Não encontrado | nenhuma | O *"nome da entidade de mensagens"* não foi encontrado. | A entidade contra a qual está a tentar executar a operação não foi encontrada. | Por favor, verifique se a entidade existe e tente a operação novamente. |
 
-## <a name="error-code-unauthorized"></a>Código de erro: não autorizado
+## <a name="error-code-internal-server-error"></a>Código de erro: Erro do servidor interno
 
-Essa classe de erros indica a ausência de autorização para executar o comando.
+Esta classe de erros indica que houve um erro interno do servidor
 
 | Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| Não autorizado | nenhuma | Operação inválida no namespace secundário. O namespace secundário é somente leitura. | A operação foi executada em relação ao namespace secundário, que é configurado como um namespace ReadOnly. | Repita o comando no namespace primário. Saiba mais sobre o [namespace secundário](service-bus-geo-dr.md) |
-| Não autorizado | nenhuma | MissingToken: o cabeçalho de autorização não foi encontrado. | Esse erro ocorre quando a autorização tem valores nulos ou incorretos. | Verifique se o valor do token mencionado no cabeçalho de autorização está correto e não é nulo. |
+| Erro interno do servidor | 50000 | Subcode=50000. Erro interno do servidor| Pode acontecer por várias razões. Alguns dos sintomas são... <ul> <li> O pedido/corpo do cliente é corrupto e leva a um erro. </li> <li> O pedido do cliente foi cronometrado devido a problemas de processamento no serviço. </li> </ul> | Para resolver isto <ul> <li> Certifique-se de que os parâmetros dos pedidos não são nulos ou mal informados. </li> <li> Tente o pedido. </li> </ul> |
+
+## <a name="error-code-unauthorized"></a>Código de erro: Não autorizado
+
+Esta classe de erros indica a ausência de autorização para dirigir o comando.
+
+| Código de erro | Subcódigo de erro | Mensagem de erro | Descrição | Recomendação |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Não autorizado | nenhuma | Operação inválida no espaço de nome secundário. O espaço de nome secundário é apenas para leitura. | A operação foi realizada contra o espaço de nome secundário, que é configurado como um espaço de nome sem nome. | Tente o comando contra o espaço de nome principal. Saiba mais sobre [o espaço de nome secundário](service-bus-geo-dr.md) |
+| Não autorizado | nenhuma | DesaparecidoToken: O cabeçalho de autorização não foi encontrado. | Este erro ocorre quando a autorização tem valores nulos ou incorretos. | Certifique-se de que o valor simbólico mencionado no cabeçalho de autorização está correto e não nulo. |

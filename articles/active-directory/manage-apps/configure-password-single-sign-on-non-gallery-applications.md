@@ -1,5 +1,5 @@
 ---
-title: Como configurar o único sign-on de senha para aplicações da AD Azure  Microsoft Docs
+title: Como configurar o único sign-on de senha para aplicações da AD Azure [ Microsoft Docs
 description: Como configurar o insessão individual de senha (SSO) para as suas aplicações empresariais Azure AD na plataforma de identidade da Microsoft (Azure AD)
 services: active-directory
 author: msmimart
@@ -12,10 +12,10 @@ ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063531"
 ---
 # <a name="configure-password-single-sign-on"></a>Configure o sinal único da palavra-passe
@@ -44,7 +44,7 @@ Se a aplicação não tiver sido adicionada ao seu inquilino DaD Azure, consulte
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de aplicação em nuvem ou administrador de candidatura para o seu inquilino Azure AD.
 
-2. Navegue para **as aplicações**de Diretório Ativo > **Azure.** Aparece uma amostra aleatória das aplicações no seu inquilino DaD Azure. 
+2. Navegue para aplicações **da Azure Ative Directory** > **Enterprise.** Aparece uma amostra aleatória das aplicações no seu inquilino DaD Azure. 
 
 3. No menu **Tipo de Aplicação,** selecione **Todas as aplicações,** e, em seguida, selecione **Aplicar**.
 
@@ -68,7 +68,7 @@ Se a aplicação não tiver sido adicionada ao seu inquilino DaD Azure, consulte
 
 Se a tentativa de análise da Azure AD falhar, pode configurar o início manual.
 
-1. Em **\<nome de aplicação> Configuração**, selecione Configurar \<nome de **aplicação> Definições de inscrição individual de palavra-passe** para visualizar a página de início de **'Configurar'.** 
+1. Sob ** \<o nome da aplicação> Configuração,** **selecione \<configurar o nome da aplicação configurar> Definições de sinal único de palavra-passe** para visualizar a página de início de **sessão de configuração.** 
 
 2. Selecione **manualmente detetar campos de sessão**. São apresentados instruções adicionais que descrevem a deteção manual dos campos de inscrição.
 

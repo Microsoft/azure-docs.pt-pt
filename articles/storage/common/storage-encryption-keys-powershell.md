@@ -1,7 +1,7 @@
 ---
 title: Utilize o PowerShell para configurar as chaves geridas pelo cliente
 titleSuffix: Azure Storage
-description: Aprenda a usar o PowerShell para configurar as chaves geridas pelo cliente para encriptação de Armazenamento Azure. As chaves geridas pelo cliente permitem criar, rodar, desativar e revogar os controlos de acesso.
+description: Aprenda a usar o PowerShell para configurar as chaves geridas pelo cliente para encriptação de Armazenamento Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 03/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d7e4843bfbd622ad99cad4d9048e91a0cb49b1c1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 264dbbaedca5a28c8741d699a683b3e2b2385383
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136249"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061145"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configure as chaves geridas pelo cliente com o Cofre de Chaves Azure utilizando a PowerShell
 
@@ -66,7 +66,7 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get,recover
 ```
 
-## <a name="create-a-new-key"></a>Criar uma chave nova
+## <a name="create-a-new-key"></a>Criar uma nova chave
 
 Em seguida, crie uma nova chave no cofre chave. Para criar uma nova tecla, ligue para [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
 
@@ -108,7 +108,7 @@ Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
 
 ## <a name="disable-customer-managed-keys"></a>Desativar as chaves geridas pelo cliente
 
-Quando desativa as chaves geridas pelo cliente, a sua conta de armazenamento é novamente encriptada com chaves geridas pela Microsoft. Para desativar as chaves geridas pelo cliente, ligue para [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) com a opção `-StorageEncryption`, como mostra o seguinte exemplo. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
+Quando desativa as chaves geridas pelo cliente, a sua conta de armazenamento é novamente encriptada com chaves geridas pela Microsoft. Para desativar as chaves geridas pelo cliente, `-StorageEncryption` ligue para [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) com a opção, como mostra o seguinte exemplo. Lembre-se de substituir os valores do espaço reservado em parênteses por valores próprios e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `

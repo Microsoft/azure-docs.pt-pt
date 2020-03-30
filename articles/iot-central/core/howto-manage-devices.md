@@ -1,19 +1,19 @@
 ---
-title: Gerencie os dispositivos na sua aplicação Azure IoT Central  Microsoft Docs
+title: Gerencie os dispositivos na sua aplicação Azure IoT Central [ Microsoft Docs
 description: Como operador, aprenda a gerir dispositivos na sua aplicação Azure IoT Central.
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 12/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dfbfd65223ddad5e8a20958d62ef86b5aa16af43
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271580"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157947"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação Azure IoT Central
 
@@ -71,7 +71,7 @@ Para registar dispositivos a granel na sua aplicação:
     > [!NOTE]
     > Se ainda não tiver um modelo de dispositivo, pode importar dispositivos em **todos os dispositivos** e registá-los sem um modelo. Depois de os dispositivos terem sido importados, pode emigrar para um modelo.
 
-1. Selecione **Import**.
+1. Selecione **Importar**.
 
     ![Ação de Importação](./media/howto-manage-devices/bulkimport1a.png)
 
@@ -147,7 +147,7 @@ Para dispositivos de exportação a granel da sua aplicação:
 
 Para obter mais informações sobre cordas de ligação e ligar dispositivos reais à sua aplicação IoT Central, consulte a [conectividade do Dispositivo em Azure IoT Central](concepts-get-connected.md).
 
-## <a name="delete-a-device"></a>Apagar um dispositivo
+## <a name="delete-a-device"></a>Eliminar um dispositivo
 
 Para eliminar um dispositivo real ou simulado da sua aplicação Central Azure IoT:
 
@@ -157,7 +157,7 @@ Para eliminar um dispositivo real ou simulado da sua aplicação Central Azure I
 
 1. Utilize as ferramentas do filtro para filtrar e procurar os seus dispositivos. Verifique a caixa ao lado dos dispositivos para apagar.
 
-1. Escolha **Apagar**. Pode rastrear o estado desta eliminação no painel de Operações de Dispositivos.
+1. Escolha **Eliminar**. Pode rastrear o estado desta eliminação no painel de Operações de Dispositivos.
 
 ## <a name="change-a-property"></a>Alterar um imóvel
 

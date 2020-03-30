@@ -1,5 +1,5 @@
 ---
-title: Conectar usando go-banco de dados do Azure para MySQL
+title: Conecte-se usando Go - Base de Dados Azure para MySQL
 description: Este início rápido proporciona vários exemplos de código Go que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,19 +7,19 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: b3ee0caa380cacc697a87307c3107b93aa241afb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 5b55c457f5e30b1b844aafd0114f73b62bdbcac7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770769"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067965"
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilize a linguagem Go para ligar e consultar dados
 Este guia de introdução demonstra como se pode ligar a uma Base de Dados do Azure para MySQL a partir de plataformas Windows, Ubuntu, Linux e Apple macOS com código escrito na linguagem [Go](https://golang.org/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com Go e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
+Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
 - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -60,7 +60,7 @@ Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](ht
    ```
 
 ### <a name="apple-macos"></a>Apple macOS
-1. Transfira e instale o Go em conformidade com as [instruções de instalação](https://golang.org/doc/install) da sua plataforma. 
+1. Descarregue e instale Vá de acordo com as instruções de [instalação correspondentes](https://golang.org/doc/install) à sua plataforma. 
 2. Inicie a shell de Bash.
 3. Crie uma pasta para o projeto no seu diretório raiz, como `mkdir -p ~/go/src/mysqlgo/`.
 4. Altere o diretório para a pasta, como `cd ~/go/src/mysqlgo/`.
@@ -78,7 +78,7 @@ Instale o [Go](https://golang.org/doc/install) e o [go-sql-driver para MySQL](ht
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure.](https://portal.azure.com/)
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
@@ -86,7 +86,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
    
 
 ## <a name="build-and-run-go-code"></a>Criar e executar código Go 
-1. Para escrever o código Golang, pode utilizar um editor de textos simples, como o Blobo de Notas no Microsoft Windows, o [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou o [Nano](https://www.nano-editor.org/) no Ubuntu ou o TextEdit em macOS. Se preferir um Ambiente de Desenvolvimento Interativo (IDE) rico, experimente o [Gogland](https://www.jetbrains.com/go/), da Jetbrains, o [Visual Studio Code](https://code.visualstudio.com/), da Microsoft, ou o [Atom](https://atom.io/).
+1. Para escrever o código Golang, pode utilizar um editor de textos simples, como o Blobo de Notas no Microsoft Windows, o [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou o [Nano](https://www.nano-editor.org/) no Ubuntu ou o TextEdit em macOS. Se preferir um Ambiente de Desenvolvimento Interativo mais rico (IDE), experimente [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft ou [Atom](https://atom.io/).
 2. Cole o código Go das secções seguintes em ficheiros de texto e, em seguida, guarde-os na pasta do projeto com a extensão de ficheiro \*.go, (como, por exemplo, o caminho do Windows `%USERPROFILE%\go\src\mysqlgo\createtable.go` ou o caminho do Linux `~/go/src/mysqlgo/createtable.go`).
 3. Localize as constantes `HOST`, `DATABASE`, `USER` e `PASSWORD` no código e, em seguida, substitua os valores de exemplo pelos seus próprios valores. 
 4. Inicie a linha de comandos ou a shell de Bash. Altere o diretório para a pasta do projeto . Por exemplo, no Windows `cd %USERPROFILE%\go\src\mysqlgo\`. No Linux, `cd ~/go/src/mysqlgo/`.  Alguns dos editores de IDE mencionados oferecem capacidades de depuração e runtime sem que sejam necessários comandos da shell.
@@ -240,7 +240,7 @@ func main() {
 ```
 
 ## <a name="update-data"></a>Atualizar dados
-Utilize o código seguinte para se ligar e atualizar os dados com uma instrução SQL **UPDATE**. 
+Utilize o código seguinte para se ligar e atualizar os dados com a instrução SQL **UPDATE**. 
 
 O código importa três pacotes: o [pacote sql](https://golang.org/pkg/database/sql/), o [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) como um controlador para comunicar com a Base de Dados do Azure para MySQL e o [pacote fmt](https://golang.org/pkg/fmt/) para entrada e saída de dados impressos na linha de comandos.
 

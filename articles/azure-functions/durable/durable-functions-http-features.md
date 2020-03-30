@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 29d837446960b7535b26284efdfab7a1c59ea968
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278067"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132504"
 ---
 # <a name="http-features"></a>Características http
 
@@ -41,7 +41,7 @@ Consulte o [artigo HTTP APIs](durable-functions-http-api.md) para obter uma desc
 
 A [ligação do cliente de orquestração](durable-functions-bindings.md#orchestration-client) expõe APIs que podem gerar cargas de resposta http convenientes. Por exemplo, pode criar uma resposta contendo ligações às APIs de gestão para uma instância de orquestração específica. Os seguintes exemplos mostram uma função http-trigger que demonstra como usar esta API para uma nova instância de orquestração:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
@@ -57,13 +57,13 @@ A [ligação do cliente de orquestração](durable-functions-bindings.md#orchest
 
 ---
 
-Iniciar uma função de orquestrador utilizando as funções de gatilho HTTP mostradas anteriormente pode ser feita usando qualquer cliente HTTP. O seguinte comando cURL inicia uma função orquestradora chamada `DoWork`:
+Iniciar uma função de orquestrador utilizando as funções de gatilho HTTP mostradas anteriormente pode ser feita usando qualquer cliente HTTP. O seguinte comando cURL inicia `DoWork`uma função orquestradora chamada:
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
 ```
 
-Segue-se uma resposta exemplo para uma orquestração que `abc123` como identificação. Alguns detalhes foram removidos para maior clareza.
+Segue-se uma resposta exemplo para `abc123` uma orquestração que tem como identificação. Alguns detalhes foram removidos para maior clareza.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -80,7 +80,7 @@ Retry-After: 10
 }
 ```
 
-No exemplo anterior, cada um dos campos que terminam em `Uri` corresponde a uma Http API incorporada. Pode usar estas APIs para gerir a instância de orquestração alvo.
+No exemplo anterior, cada um `Uri` dos campos que terminam corresponde a uma API HTTP incorporada. Pode usar estas APIs para gerir a instância de orquestração alvo.
 
 > [!NOTE]
 > O formato dos URLs webhook depende da versão do anfitrião das Funções Azure que está a executar. O exemplo anterior é para o hospedeiro Azure Functions 2.0.
@@ -114,7 +114,7 @@ Começando com as Funções Duráveis 2.0, as orquestrações podem consumir de 
 
 O seguinte código de exemplo mostra uma função orquestradora fazendo um pedido http de saída:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -172,7 +172,7 @@ As Funções Duráveis suportam nativamente chamadas a APIs que aceitam fichas d
 
 O seguinte código é um exemplo de uma função de orquestrador .NET. A função faz chamadas autenticadas para reiniciar uma máquina virtual utilizando as [máquinas virtuais REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines)do Gestor de Recursos Azure .
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -224,7 +224,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-No exemplo anterior, o parâmetro `tokenSource` está configurado para adquirir tokens Azure AD para O Gestor de [Recursos Azure](../../azure-resource-manager/management/overview.md). As fichas são identificadas pelo recurso URI `https://management.core.windows.net`. O exemplo pressupõe que a aplicação de funções atuais esteja a funcionar localmente ou foi implementada como uma aplicação de função com uma identidade gerida. Presume-se que a identidade local ou a identidade gerida têm permissão para gerir os VMs no grupo de recursos especificado `myRG`.
+No exemplo anterior, `tokenSource` o parâmetro está configurado para adquirir tokens Azure AD para O Gestor de [Recursos Azure](../../azure-resource-manager/management/overview.md). As fichas são identificadas pelo `https://management.core.windows.net`recurso URI . O exemplo pressupõe que a aplicação de funções atuais esteja a funcionar localmente ou foi implementada como uma aplicação de função com uma identidade gerida. Presume-se que a identidade local ou a identidade gerida têm permissão `myRG`para gerir os VMs no grupo de recursos especificado.
 
 No tempo de funcionação, a fonte de ficha configurada devolve automaticamente um token de acesso OAuth 2.0. A fonte adiciona então o símbolo como um símbolo portador ao cabeçalho de autorização do pedido de saída. Este modelo é uma melhoria sobre a adição manual de cabeçalhos de autorização aos pedidos http pelas seguintes razões:
 
@@ -258,7 +258,7 @@ Se alguma destas limitações puder afetar o seu caso de utilização, considere
 
 Personalizar o comportamento do cliente interno da orquestração http é possível usando [funções Azure .NET injeção de dependência](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Esta capacidade pode ser útil para fazer pequenas mudanças comportamentais. Também pode ser útil para testar o cliente HTTP injetando objetos falsos.
 
-O exemplo seguinte demonstra a utilização de uma injeção de dependência para desativar a validação de certificados SSL para funções orquestradoras que chamam pontos finais http externos.
+O exemplo seguinte demonstra a utilização de uma injeção de dependência para desativar a validação de certificados TLS/SSL para funções orquestradoras que chamam pontos finais http externos.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -276,7 +276,7 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 {
     public HttpMessageHandler CreateHttpMessageHandler()
     {
-        // Disable SSL certificate validation (not recommended in production!)
+        // Disable TLS/SSL certificate validation (not recommended in production!)
         return new HttpClientHandler
         {
             ServerCertificateCustomValidationCallback =
