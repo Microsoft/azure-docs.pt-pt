@@ -8,19 +8,19 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.openlocfilehash: a2cb8919ac0752c42f22e064d6201c7120fbc9b6
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78970538"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Quickstart: Crie e criptografe um Linux VM em Azure com a Azure PowerShell
 
 O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este quickstart mostra-lhe como usar o módulo Azure PowerShell para criar uma máquina virtual Linux (VM), criar um Cofre chave para o armazenamento de chaves de encriptação e encriptar o VM. Este quickstart utiliza a imagem de mercado Ubuntu 16.04 LTS da Canonical e um VM Standard_D2S_V3 tamanho. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos:
 
@@ -45,7 +45,7 @@ Irá demorar alguns minutos até a VM ser implementada.
 A encriptação do disco Azure armazena a sua chave de encriptação num Cofre de Chaves Azure. Crie um cofre chave com [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). Para ativar o Cofre de Chaves para armazenar chaves de encriptação, utilize o parâmetro -EnabledForDiskEncryption.
 
 > [!Important]
-> Todos os cofres devem ter um nome único em Azure. Nos exemplos abaixo, substitua <your-unique-keyvault-name> com o nome que escolher.
+> Todos os cofres devem ter um nome único em Azure. Nos exemplos abaixo, substitua <seu nome único de teclado> pelo nome que escolher.
 
 ```azurepowershell-interactive
 New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location EastUS -EnabledForDiskEncryption

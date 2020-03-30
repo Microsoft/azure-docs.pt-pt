@@ -9,51 +9,51 @@ ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 2aca4f2c236112b80e9fc985cf80ccad6d82bde3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75902002"
 ---
-As tabelas a seguir fornecem cotas e limites específicos para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para obter informações sobre os preços dos hubs de eventos, consulte [preços dos hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
+As tabelas seguintes fornecem quotas e limites específicos aos Hubs de [Eventos Azure.](https://azure.microsoft.com/services/event-hubs/) Para obter informações sobre os preços dos Hubs de Eventos, consulte os preços dos Centros de [Eventos.](https://azure.microsoft.com/pricing/details/event-hubs/)
 
-Os limites a seguir são comuns em camadas básica, Standard e dedicada. 
+Os seguintes limites são comuns em níveis básicos, standard e dedicados. 
 
 | Limite | Âmbito | Notas | Valor |
 | --- | --- | --- | --- |
-| Número de namespaces de hubs de eventos por assinatura |Subscrição |- |100 |
-| Número de hubs de eventos por namespace |Espaço de Nomes |As solicitações subsequentes para a criação de um novo hub de eventos são rejeitadas. |10 |
-| Número de partições por Hub de eventos |Entidade |- |32 |
-| Tamanho máximo de um nome de Hub de eventos |Entidade |- |50 caracteres |
-| Número de receptores de não época por grupo de consumidores |Entidade |- |5 |
-| Unidades de débito máximas |Espaço de Nomes |Exceder o limite de unidade de produtividade faz com que os dados sejam restringidos e gera uma [exceção de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um número maior de unidades de produtividade para uma camada Standard, arquivo uma [solicitação de suporte](/azure/azure-portal/supportability/how-to-create-azure-support-request). [Unidades de produtividade adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20 em uma base de compra confirmada. |20 |
-| Número de regras de autorização por namespace |Espaço de Nomes|As solicitações subsequentes para a criação da regra de autorização são rejeitadas.|12 |
+| Número de espaços de nome sinos de eventos por subscrição |Subscrição |- |100 |
+| Número de centros de eventos por espaço de nome |Espaço de nomes |Os pedidos subsequentes de criação de um novo centro de eventos são rejeitados. |10 |
+| Número de divisórias por centro de eventos |Entidade |- |32 |
+| Tamanho máximo de um nome de centro de eventos |Entidade |- |50 caracteres |
+| Número de recetores não época por grupo de consumidores |Entidade |- |5 |
+| Unidades de entrada máximas |Espaço de nomes |Exceder o limite da unidade de entrada faz com que os seus dados sejam estrangulados e gera uma [exceção ocupada pelo servidor](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um maior número de unidades de entrada para um nível Standard, preencha um pedido de [suporte](/azure/azure-portal/supportability/how-to-create-azure-support-request). [Unidades](../articles/event-hubs/event-hubs-auto-inflate.md) de entrada adicionais estão disponíveis em blocos de 20 numa base de compra comprometida. |20 |
+| Número de regras de autorização por espaço de nome |Espaço de nomes|Os pedidos subsequentes de criação de regras de autorização são rejeitados.|12 |
 | Número de chamadas para o método GetRuntimeInformation | Entidade | - | 50 por segundo | 
-| Número de regras de rede virtual (VNet) e de configuração de IP | Entidade | - | 128 | 
+| Número de regras de rede virtual (VNet) e IP Config | Entidade | - | 128 | 
 
-### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Hubs de eventos básico e padrão-cotas e limites
-| Limite | Âmbito | Notas | Basic | Padrão |
+### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Centros de Eventos Básicos e Standard - quotas e limites
+| Limite | Âmbito | Notas | Básico | Standard |
 | --- | --- | --- | -- | --- |
-| Tamanho máximo do evento de hubs de eventos|Entidade | &nbsp; | 256 KB | 1 MB |
-| Número de grupos de consumidores por Hub de eventos |Entidade | &nbsp; |1 |20 |
-| Número de conexões AMQP por namespace |Espaço de Nomes |As solicitações subsequentes para conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |100 |5000|
-| Período de retenção máximo de dados de evento |Entidade | &nbsp; |1 dia |1-7 dias |
-|Apache Kafka namespace habilitado|Espaço de Nomes |Namespace de hubs de eventos transmite aplicativos usando o protocolo Kafka |Não | Sim |
-|Captura |Entidade | Quando habilitado, micro lotes no mesmo fluxo |Não |Sim |
+| Tamanho máximo do evento Event Hubs|Entidade | &nbsp; | 256 KB | 1 MB |
+| Número de grupos de consumidores por centro de eventos |Entidade | &nbsp; |1 |20 |
+| Número de ligações AMQP por espaço de nome |Espaço de nomes |Os pedidos subsequentes de ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |100 |5000|
+| Período máximo de retenção dos dados do evento |Entidade | &nbsp; |1 dia |1-7 dias |
+|Apache Kafka habilitado espaço de nome|Espaço de nomes |Aplicações de fluxos de espaço de espaço de eventos Hubs usando o protocolo de Kafka |Não | Sim |
+|Captura |Entidade | Quando ativado, microlotes no mesmo fluxo |Não |Sim |
 
 
-### <a name="event-hubs-dedicated---quotas-and-limits"></a>Hubs de Eventos Dedicados-cotas e limites
-A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um mínimo de 4 horas de uso. A camada dedicada oferece todos os recursos do plano padrão, mas com capacidade e limites de escala empresarial para clientes com cargas de trabalho exigentes. 
+### <a name="event-hubs-dedicated---quotas-and-limits"></a>Hubs de eventodedicados - quotas e limites
+A oferta dedicada do Event Hubs é faturada a um preço mensal fixo, com um mínimo de 4 horas de utilização. O nível Dedicado oferece todas as funcionalidades do plano Standard, mas com capacidade de escala empresarial e limites para clientes com cargas de trabalho exigentes. 
 
 | Funcionalidade | Limites |
 | --- | ---|
-| Largura de Banda |  20 CUs |
+| Largura de banda |  20 CUs |
 | Espaços de nomes | 50 por CU |
-| Event Hubs |  1000 por namespace |
-| Eventos de entrada | Incluído |
-| Tamanho da Mensagem | 1 MB |
+| Event Hubs |  1000 por espaço de nome |
+| Eventos de ingresso | Incluído |
+| Tamanho da mensagem | 1 MB |
 | Partições | 2000 por CU |
-| Grupos de consumidores | Nenhum limite por CU, 1000 por Hub de eventos |
-| Ligações mediadas | 100 mil incluídos |
+| Grupos de consumidores | Sem limite por CU, 1000 por centro de eventos |
+| Ligações intermediadas | 100 K incluídos |
 | Retenção de Mensagens | 90 dias, 10 TB incluídos por CU |
 | Captura | Incluído |

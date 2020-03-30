@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao Ruby-banco de dados do Azure para PostgreSQL-servidor único
-description: Este guia de início rápido fornece um exemplo de código do Ruby que você pode usar para se conectar e consultar dados de um servidor único para PostgreSQL.
+title: Conecte-se com Ruby - Base de Dados Azure para PostgreSQL - Servidor Único
+description: Este quickstart fornece uma amostra de código Ruby que pode usar para ligar e consultar dados da Base de Dados Azure para PostgreSQL - Servidor Único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,35 +9,35 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
 ms.openlocfilehash: 5dd4cfe9bee0db6f14f736c79fe91770641008fb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74766910"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-ruby-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL-servidor único: usar Ruby para conectar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-ruby-to-connect-and-query-data"></a>Base de Dados Azure para PostgreSQL - Servidor Único: Use a Ruby para ligar e consultar dados
 Este início rápido explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação [Ruby](https://www.ruby-lang.org). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com Ruby e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
+Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
 - [Criar BD - Portal](quickstart-create-server-database-portal.md)
 - [Criar BD - CLI do Azure](quickstart-create-server-database-azure-cli.md)
 
-Você também precisa ter instalado:
+Também precisa de ter instalado:
 - [Ruby](https://www.ruby-lang.org/en/downloads/)
-- PG do Ruby, o módulo PostgreSQL para Ruby
+- Ruby pg, o módulo PostgreSQL para Ruby
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para PostgreSQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure.](https://portal.azure.com/)
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  ![Nome do servidor da Base de Dados do Azure para PostgreSQL](./media/connect-ruby/1-connection-string.png)
 
 > [!NOTE]
-> O símbolo de `@` no nome de usuário postgres do Azure foi codificado de URL como `%40` em todas as cadeias de conexão. 
+> O `@` símbolo no nome de utilizador Azure Postgres `%40` foi codificado como em todas as cordas de ligação. 
 
 ## <a name="connect-and-create-a-table"></a>Ligar e criar uma tabela
 Utilize o código seguinte para ligar e criar uma tabela com a instrução SQL **CREATE TABLE**, seguida das instruções SQL **INSERT INTO** para adicionar linhas à tabela.
@@ -118,7 +118,7 @@ end
 ```
 
 ## <a name="update-data"></a>Atualizar dados
-Utilize o código seguinte para se ligar e atualizar os dados com uma instrução SQL **UPDATE**.
+Utilize o código seguinte para se ligar e atualizar os dados com a instrução SQL **UPDATE**.
 
 O código utiliza um objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) com o construtor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para se ligar à Base de Dados do Azure para PostgreSQL. Em seguida, chama o método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para executar o comando UPDATE. O código procura erros através da classe [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). Em seguida, chama o método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para fechar a ligação antes de terminar.
 
@@ -152,7 +152,7 @@ end
 
 
 ## <a name="delete-data"></a>Eliminar dados
-Utilize o código seguinte para se ligar e ler os dados com a instrução SQL **DELETE**. 
+Utilize o código seguinte para se ligar e ler os dados com uma instrução SQL **DELETE**. 
 
 O código utiliza um objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) com o construtor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para se ligar à Base de Dados do Azure para PostgreSQL. Em seguida, chama o método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para executar o comando UPDATE. O código procura erros através da classe [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). Em seguida, chama o método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para fechar a ligação antes de terminar.
 

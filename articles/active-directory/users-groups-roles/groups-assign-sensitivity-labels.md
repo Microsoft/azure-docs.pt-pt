@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 667fb39aabfec14cff01221b82a45ba8ad1d68d4
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78329737"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Atribuir etiquetas de sensibilidade aos grupos do Office 365 no Diretório Ativo azure (pré-visualização)
@@ -91,7 +91,7 @@ O seu grupo é criado e as definições do site e do grupo associadas à etiquet
 
    ![Atribuir uma etiqueta de sensibilidade na página geral para um grupo](./media/groups-assign-sensitivity-labels/assign-to-existing.png)
 
-1. Selecione **Guardar** para guardar as suas alterações.
+1. Selecione **Guardar** para guardar as alterações.
 
 ## <a name="remove-a-label-from-an-existing-group-in-azure-portal"></a>Remova um rótulo de um grupo existente no portal Azure
 
@@ -104,9 +104,9 @@ O seu grupo é criado e as definições do site e do grupo associadas à etiquet
 
 ## <a name="using-classic-azure-ad-classifications"></a>Usando classificações clássicas de AD Azure
 
-Depois de ativar esta funcionalidade, as classificações "clássicas" para grupos aparecerão apenas grupos e sites existentes, e você deve usá-los para novos grupos apenas se criar grupos em apps que não suportem rótulos de sensibilidade. A sua administração pode convertê-las em etiquetas de sensibilidade mais tarde, se necessário. As classificações clássicas são as classificações antigas que configura, definindo valores para a definição `ClassificationList` em Azure AD PowerShell. Quando esta funcionalidade estiver ativada, essas classificações não serão aplicadas aos grupos.
+Depois de ativar esta funcionalidade, as classificações "clássicas" para grupos aparecerão apenas grupos e sites existentes, e você deve usá-los para novos grupos apenas se criar grupos em apps que não suportem rótulos de sensibilidade. A sua administração pode convertê-las em etiquetas de sensibilidade mais tarde, se necessário. Classificações clássicas são as classificações antigas que `ClassificationList` configura, definindo valores para a definição em Azure AD PowerShell. Quando esta funcionalidade estiver ativada, essas classificações não serão aplicadas aos grupos.
 
-## <a name="troubleshooting-issues"></a>Problemas de resolução de problemas
+## <a name="troubleshooting-issues"></a>Resolução de problemas
 
 ### <a name="sensitivity-labels-are-not-available-for-assignment-on-a-group"></a>Etiquetas de sensibilidade não estão disponíveis para atribuição num grupo
 

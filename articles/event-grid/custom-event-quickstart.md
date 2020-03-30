@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Envie eventos personalizados com Grid de Eventos e Azure CLI'
-description: Quickstart Use Azure Event Grid e Azure CLI para publicar um tópico personalizado, e subscrever eventos para esse tema. Os eventos são processados por um aplicativo web.
+description: Quickstart Use Azure Event Grid e Azure CLI para publicar um tópico personalizado, e subscrever eventos para esse tema. Os eventos são tratados por uma aplicação web.
 services: event-grid
 keywords: ''
 author: spelluru
@@ -13,13 +13,13 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 ms.openlocfilehash: eee6c453b4e30880034a048a3d2b63388927a753
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78674533"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Início rápido: Encaminhar eventos personalizados para o ponto final da web com a CLI do Azure e o Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Quickstart: Rota eventos personalizados para web endpoint com Azure CLI e Grid de Eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado.
 
@@ -33,11 +33,11 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão mais recente do Azure CLI (2.0.70 ou mais tarde). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão mais recente do Azure CLI (2.0.70 ou mais tarde). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 Se não estiver a utilizar o Cloud Shell, primeiro tem de iniciar sessão com `az login`.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
@@ -53,7 +53,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico personalizado deve ser exclusivo, porque faz parte da entrada DNS. Além disso, tem de ter entre 3 e 50 carateres e conter apenas valores-z, A-Z, 0-9, e "-"
+Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico personalizado deve ser exclusivo, porque faz parte da entrada DNS. Além disso, deve ser entre 3-50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-"
 
 ```azurecli-interactive
 topicname=<your-topic-name>

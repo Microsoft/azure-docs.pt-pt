@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: e82f8feae0096202e48a58296dd2e9d21bb61885
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768564"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Python para consultar uma base de dados SQL do Azure
@@ -28,21 +28,21 @@ Neste arranque rápido, utiliza a Python para se ligar a uma base de dados Azure
 - Uma [base de dados Azure SQL](sql-database-single-database-get-started.md)
 - [Python](https://python.org/downloads) 3 e software relacionado
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Para instalar Homebrew e Python, o controlador ODBC e o SQLCMD, e o condutor Python para o SQL Server, utilize os passos **1.2**, **1.3**e **2.1** na criação de [aplicações Python utilizando o SQL Server no macOS.](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)
 
   Para mais informações, consulte o [Condutor Microsoft ODBC no macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  Para instalar python e outros pacotes necessários, use `sudo apt-get install python python-pip gcc g++ build-essential`.
+  Para instalar python e outros pacotes necessários, utilize. `sudo apt-get install python python-pip gcc g++ build-essential`
 
   Para instalar o controlador ODBC, O SQLCMD e o condutor python para o SQL Server, consulte um ambiente para o [desenvolvimento de Pyodbc Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
 
   Para mais informações, consulte [o Microsoft ODBC Driver no Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Para instalar python, o controlador ODBC e OQLCMD, e o condutor Python para o SQL Server, consulte [um ambiente para o desenvolvimento pyodbc Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
 
@@ -62,24 +62,24 @@ Neste arranque rápido, utiliza a Python para se ligar a uma base de dados Azure
 
 Para explorar ainda mais a base de dados Python e a base de dados Azure SQL, consulte as bibliotecas de bases de [dados Azure SQL para Python](/python/api/overview/azure/sql), o [repositório pyodbc](https://github.com/mkleehammer/pyodbc/wiki/)e uma [amostra pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
-## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
+## <a name="get-sql-server-connection-information"></a>Obtenha informações de ligação ao servidor SQL
 
-Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
+Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Vá às bases de **dados SQL** ou página de **instâncias geridas pela SQL.**
 
-3. Na página **visão geral** , examine o nome do servidor totalmente qualificado ao lado de **nome do servidor** para um único banco de dados ou o nome do servidor totalmente qualificado ao lado de **host** para uma instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone de **cópia** .
+3. Na página **Overview,** reveja o nome do servidor totalmente qualificado ao lado do **nome do Servidor** para uma única base de dados ou o nome de servidor totalmente qualificado ao lado do **Anfitrião** para uma instância gerida. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copiar.**
 
 ## <a name="create-code-to-query-your-sql-database"></a>Crie código para consultar a sua base de dados SQL 
 
 1. Num editor de texto, crie um novo ficheiro chamado *sqltest.py*.  
    
-1. Adicione o seguinte código. Substitua os seus próprios valores por \<servidor>, \<base de dados>, \<username>e \<password>.
+1. Adicione o seguinte código. Substitua os \<seus próprios valores por> de servidor, \<> de base de dados, \<> de nome de utilizador e \<> de palavra-passe.
    
    >[!IMPORTANT]
-   >O código neste exemplo usa os dados AdventureWorksLT de exemplo, que você pode escolher como fonte ao criar o banco de dado. Se o seu banco de dados tiver um dado diferente, use tabelas do seu próprio banco na consulta SELECT. 
+   >O código neste exemplo utiliza os dados adventureWorksLT da amostra, que pode escolher como fonte ao criar a sua base de dados. Se a sua base de dados tiver dados diferentes, utilize as tabelas da sua própria base de dados na consulta SELECT. 
    
    ```python
    import pyodbc
@@ -100,7 +100,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Em um prompt de comando, execute o seguinte comando:
+1. Num pedido de comando, execute o seguinte comando:
 
    ```cmd
    python sqltest.py

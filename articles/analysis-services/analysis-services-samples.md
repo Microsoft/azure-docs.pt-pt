@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2b5b95349b8a84cc8294dbcf9ab80eff8c7b86b9
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78247845"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras de Serviços de Análise Azure
@@ -46,5 +46,5 @@ Se tiver um servidor de Serviços de Análise no portal Azure, pode criar de for
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Aventura Works tutorial](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Tutorial de Obras de Aventura](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
 [Gateway de dados azure on-instalações](analysis-services-gateway.md)  

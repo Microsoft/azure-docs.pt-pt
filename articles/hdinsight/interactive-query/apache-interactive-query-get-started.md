@@ -9,15 +9,15 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
 ms.openlocfilehash: e133e08e333cb478269a93cce963566e195d6949
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271961"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>O que é consulta interativa no Azure HDInsight
 
-Consulta interativa (também chamada Apache Hive LLAP, ou [Processamento Analítico de Baixa Latência)](https://cwiki.apache.org/confluence/display/Hive/LLAP)é um tipo de [cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type)Azure HDInsight . A Consulta Interativa suporta o cache na memória, o que torna as consultas da Apache Hive mais rápidas e muito mais interativas. Os clientes usam a Consulta Interativa para consultar os dados armazenados no armazenamento e armazenamento do Lago Azure data de forma super rápida. A consulta interativa facilita que os desenvolvedores e cientistas de dados trabalhem com os big data usando ferramentas BI que mais amam. A HDInsight Interactive Query suporta várias ferramentas para aceder aos big data de forma fácil.
+Consulta interativa (também chamada Apache Hive LLAP, ou [Processamento Analítico de Baixa Latência)](https://cwiki.apache.org/confluence/display/Hive/LLAP)é um tipo de [cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type)Azure HDInsight . A Consulta Interativa suporta o cache na memória, o que torna as consultas da Apache Hive mais rápidas e muito mais interativas. Os clientes usam a Consulta Interativa para consultar os dados armazenados no armazenamento do Azure & Armazenamento do Lago Azure Data de forma super rápida. A consulta interativa facilita que os desenvolvedores e cientistas de dados trabalhem com os big data usando ferramentas BI que mais amam. A HDInsight Interactive Query suporta várias ferramentas para aceder aos big data de forma fácil.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
@@ -47,7 +47,7 @@ Para executar consultas da Hive, tem as seguintes opções:
 
 Para encontrar a linha de ligação Java Database Connectivity (JDBC):
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, onde `CLUSTERNAME` é o nome do seu cluster.
+1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`onde `CLUSTERNAME` está o nome do seu cluster.
 1. Para copiar o URL, selecione o ícone da área de sobre-colar:
 
    ![HDInsight Hadoop Consulta Interativa LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)

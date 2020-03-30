@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184929"
 ---
-## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificar a definição da estrutura para conjuntos de dados retangulares
-A seção de estrutura em conjuntos de dados JSON é um **opcional** secção para tabelas retangulares (com linhas e colunas) e contém uma coleção de colunas da tabela. Irá utilizar a secção de estrutura para qualquer um com informações de tipo para conversões de tipo ou fazer o mapeamento de colunas. As secções seguintes descrevem estas funcionalidades em detalhes. 
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificação da definição de estrutura para conjuntos de dados retangulares
+A secção de estrutura nos conjuntos de dados JSON é uma secção **opcional** para tabelas retangulares (com linhas & colunas) e contém uma coleção de colunas para a tabela. Utilizará a secção da estrutura para fornecer informações do tipo para conversões de tipos ou para fazer mapeamentos de colunas. As seguintes secções descrevem estas características em detalhe. 
 
 Cada coluna contém as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |Nome da coluna. |Sim |
-| type |Tipo de dados da coluna. Consulte a secção de conversões de tipo abaixo para obter mais detalhes sobre quando deve especificar as informações de tipo |Não |
-| culture |.NET com a base de cultura a ser utilizado quando o tipo especificado e é o tipo de .NET Datetime ou Datetimeoffset. A predefinição é "en-us". |Não |
-| format |Formato de cadeia de caracteres a ser utilizado quando o tipo especificado e é o tipo de .NET Datetime ou Datetimeoffset. |Não |
+| nome |Nome da coluna. |Sim |
+| tipo |Tipo de dados da coluna. Consulte a secção de conversões de tipo abaixo para obter mais detalhes sobre quando deve especificar as informações do tipo |Não |
+| cultura |Cultura baseada em .NET a ser utilizada quando o tipo é especificado e é .NET tipo Datatime ou Datetimeoffset. Padrão é "en-us". |Não |
+| formato |Cadeia de formato a utilizar quando o tipo é especificado e é .NET tipo Datatime ou Datetimeoffset. |Não |
 
-O exemplo a seguir mostra a secção de estrutura JSON para uma tabela com três colunas ID de utilizador, o nome e lastlogindate.
+A amostra que se segue mostra a secção de estrutura JSON para uma tabela que tem três colunas usadas, nome e última data.
 
 ```json
 "structure": 
@@ -34,31 +34,31 @@ O exemplo a seguir mostra a secção de estrutura JSON para uma tabela com três
 ],
 ```
 
-Utilize as seguintes diretrizes para quando incluir informações de "estrutura" e o que incluir na **estrutura** secção.
+Por favor, utilize as seguintes diretrizes para quando incluir informações de "estrutura" e o que incluir na secção **de estrutura.**
 
-* **Para origens de dados estruturados** que dados esquema e o tipo de informações da loja, juntamente com os dados propriamente ditos (origens, como tabelas do Azure do SQL Server, Oracle, etc.), deverá especificar a seção de "estrutura" apenas se desejar façam o mapeamento de colunas de origem específico colunas a colunas específicas nos seus nomes e de sink não são os mesmos (ver detalhes na seção de mapeamento de coluna abaixo). 
+* **Para fontes de dados estruturadas** que armazenam informações de dados e suem informações juntamente com os próprios dados (fontes como SQL Server, Oracle, tabela Azure, etc.), deve especificar a secção "estrutura" apenas se pretender fazer o mapeamento de colunas específicas de colunas específicas para colunas específicas na pia e os seus nomes não são os mesmos (ver detalhes na secção de mapeamento de colunas abaixo). 
   
-    Conforme mencionado acima, as informações de tipo são opcionais na seção de "estrutura". Para origens de estruturados, informações de tipo já estão disponíveis como parte da definição de conjunto de dados no arquivo de dados, por isso, não deve incluir informações sobre o tipo ao incluir a seção de "estrutura".
-* **Para o esquema em origens de dados de leitura (especificamente BLOBs do Azure)** pode optar por armazenar os dados sem armazenar as informações de esquema ou tipo com os dados. Para estes tipos de origens de dados deve incluir "estrutura" nos seguintes 2 casos:
-  * Deseja fazer o mapeamento de colunas.
-  * Quando o conjunto de dados é uma origem numa atividade de cópia, pode fornecer informações de tipo "estrutura" e o data factory irá utilizar estas informações de tipo para a conversão para tipos nativos para o sink. Ver [mover dados de Blobs do Azure e para](../articles/data-factory/v1/data-factory-azure-blob-connector.md) artigo para obter mais informações.
+    Como mencionado acima, a informação do tipo é opcional na secção "estrutura". Para fontes estruturadas, a informação do tipo já está disponível como parte da definição de dataset no datastore, pelo que não deve incluir informações de tipo quando inclui a secção "estrutura".
+* **Para esquemas sobre fontes de dados de leitura (especificamente blob Azure)** pode optar por armazenar dados sem armazenar qualquer esquema ou digitar informações com os dados. Para este tipo de fontes de dados deve incluir "estrutura" nos seguintes 2 casos:
+  * Queres fazer mapeamento de colunas.
+  * Quando o conjunto de dados é uma fonte numa atividade de Cópia, pode fornecer informações de tipo em "estrutura" e a fábrica de dados usará este tipo de informação para conversão para tipos nativos para o lavatório. Consulte o artigo do [Move de e para o Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) para mais informações.
 
-### <a name="supported-net-based-types"></a>Suportado. Tipos baseados em NET
-Fábrica de dados suporta os seguintes CLS compatível com .NET com base em tipo valores por fornecer informações de tipo "estrutura" para o esquema nas origens de dados de leitura, como BLOBs do Azure.
+### <a name="supported-net-based-types"></a>Apoiado. Tipos baseados em NET
+A fábrica de dados suporta os seguintes valores de tipo cls compatíveis com CLS para fornecer informações de tipo em "estrutura" para schema sobre fontes de dados lidas como o Blob Azure.
 
 * Int16
 * Int32 
 * Int64
-* Single
+* Único
 * Double
 * Decimal
 * Byte[]
 * Booleano
-* String 
-* Guid
+* Cadeia 
+* GUID
 * Datetime
-* Datetimeoffset
+* Datatimeoffset
 * Timespan 
 
-Para Datetime & Datetimeoffset, opcionalmente, também é possível especificar "Cultura" & "format" cadeia de caracteres para facilitar a análise da sua cadeia de Datetime personalizada. Veja o exemplo para a conversão de tipo abaixo.
+Para datas & Datatimeoffset também pode especificar opcionalmente "cultura" & "formato" para facilitar a análise da sua cadeia de datas personalizada. Consulte a amostra para a conversão do tipo abaixo.
 

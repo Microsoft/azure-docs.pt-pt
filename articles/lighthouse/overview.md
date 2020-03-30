@@ -1,42 +1,42 @@
 ---
 title: O que é o Azure Lighthouse?
-description: O Azure Lighthouse permite que os provedores de serviços forneçam serviços gerenciados para seus clientes com maior automação e eficiência em escala.
+description: O Azure Lighthouse permite que os prestadores de serviços ofereçam serviços geridos aos seus clientes com maior automatização e eficiência em escala.
 ms.date: 11/11/2019
 ms.topic: overview
 ms.openlocfilehash: 0bec1f5b727ca3ecd604d2654358ca9a5507abe4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75646199"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
-O Azure Lighthouse oferece aos provedores de serviços um único plano de controle para exibir e gerenciar o Azure em todos os seus clientes com maior automação, escala e governança aprimorada. Com o Azure Lighthouse, os provedores de serviços podem entregar serviços gerenciados usando ferramentas de gerenciamento abrangentes e robustas incorporadas à plataforma Azure. Essa oferta também pode beneficiar as organizações de ti empresariais Gerenciando recursos em vários locatários.
+O Azure Lighthouse oferece aos prestadores de serviços um único plano de controlo para visualizar e gerir o Azure em todos os seus clientes com maior automação, escala e governação reforçada. Com o Farol Azure, os prestadores de serviços podem fornecer serviços geridos utilizando ferramentas de gestão abrangentes e robustas incorporadas na plataforma Azure. Esta oferta também pode beneficiar as organizações de TI da empresa que gerem recursos em vários inquilinos.
 
-![Diagrama de visão geral do Azure Lighthouse](media/azure-lighthouse-overview.jpg)
+![Diagrama de visão geral do Farol de Azure](media/azure-lighthouse-overview.jpg)
 
 ## <a name="benefits"></a>Vantagens
 
-O Azure Lighthouse ajuda a criar e fornecer de forma lucrativa e eficiente serviços gerenciados para seus clientes. Os benefícios incluem:
+O Azure Lighthouse ajuda-o a construir e prestar serviços geridos de forma rentável e eficiente para os seus clientes. Os benefícios incluem:
 
-- **Gerenciamento em escala**: o envolvimento do cliente e as operações do ciclo de vida para gerenciar os recursos do cliente são mais fáceis e escaláveis.
-- **Maior visibilidade e precisão para os clientes**: os clientes cujos recursos você está gerenciando terão maior visibilidade de suas ações e controle preciso sobre o escopo delegado para gerenciamento, enquanto o IP é preservado.
-- **Ferramentas de plataforma unificadas e abrangentes**: nossa experiência de ferramentas aborda os principais cenários de provedor de serviços, incluindo vários modelos de licenciamento, como ea, CSP e pré-pago. Os novos recursos funcionam com ferramentas e APIs existentes, modelos de licenciamento e programas de parceiros, como o [CSP (programa de provedor de soluções na nuvem)](https://docs.microsoft.com/partner-center/csp-overview). As opções de Lighthouse do Azure escolhidas podem ser integradas aos seus fluxos de trabalho e aplicativos existentes, e você pode acompanhar seu impacto nos compromissos do cliente [vinculando sua ID de parceiro](../billing/billing-partner-admin-link-started.md).
+- **Gestão à escala**: O envolvimento do cliente e as operações de ciclo de vida para gerir os recursos dos clientes são mais fáceis e escaláveis.
+- **Maior visibilidade e precisão para os clientes**: Os clientes cujos recursos está a gerir terão maior visibilidade nas suas ações e controlo preciso sobre o âmbito que delegam para a gestão, enquanto o seu IP é preservado.
+- **Ferramentas abrangentes e unificadas de plataforma**: A nossa experiência de ferramentas aborda cenários de prestadores de serviços chave, incluindo vários modelos de licenciamento como EA, CSP e pay-as-you-go. As novas capacidades funcionam com ferramentas e APIs existentes, modelos de licenciamento e programas parceiros como o [programa Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/csp-overview). As opções do Farol Azure que escolher podem ser integradas nos seus fluxos de trabalho e aplicações existentes, e pode acompanhar o seu impacto nos compromissos do cliente [ligando o ID do seu parceiro](../billing/billing-partner-admin-link-started.md).
 
-Não há custos adicionais associados ao uso do Azure Lighthouse para gerenciar os recursos do Azure dos seus clientes.
+Não existem custos adicionais associados à utilização do Farol Azure para gerir os recursos Azure dos seus clientes.
 
-## <a name="capabilities"></a>Funções
+## <a name="capabilities"></a>Capacidades
 
-O Azure Lighthouse inclui várias maneiras de ajudar a simplificar o envolvimento do cliente e o gerenciamento:
+O Farol Azure inclui múltiplas formas de ajudar a agilizar o envolvimento e gestão do cliente:
 
-- **Gerenciamento de recursos delegados do Azure**: Gerencie os recursos do Azure de seus clientes com segurança em seu próprio locatário, sem precisar alternar os planos de contexto e de controle. Para obter mais informações, consulte [Azure delegated Resource Management](concepts/azure-delegated-resource-management.md).
-- **Novas experiências de portal do Azure**: exibir informações de locatário cruzado na página novos **meus clientes** no [portal do Azure](https://portal.azure.com). Uma folha de **provedores de serviços** correspondente permite que seus clientes exibam e gerenciem o acesso do provedor de serviço. Para obter mais informações, consulte [Exibir e gerenciar clientes](./how-to/view-manage-customers.md) e [Exibir e gerenciar provedores de serviços](how-to/view-manage-service-providers.md).
-- **Modelos de Azure Resource Manager**: Execute tarefas de gerenciamento mais facilmente, incluindo clientes de integração para o gerenciamento de recursos delegado do Azure. Para obter mais informações, consulte nosso [repositório de exemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) e integre [um cliente ao gerenciamento de recursos delegado do Azure](how-to/onboard-customer.md).
-- **Ofertas de serviços gerenciados no Azure Marketplace**: ofereça seus serviços aos clientes por meio de ofertas públicas ou privadas e faça com que eles sejam integrados automaticamente ao gerenciamento de recursos delegado do Azure, como uma alternativa à integração usando modelos de Azure Resource Manager. Para obter mais informações, consulte [ofertas de serviços gerenciados no Azure Marketplace](concepts/managed-services-offers.md).
-- **Aplicativos gerenciados do Azure**: empacotar e enviar aplicativos que são fáceis para seus clientes de implantar e usar em suas próprias assinaturas. O aplicativo é implantado em um grupo de recursos que você acessa do seu locatário, permitindo que você gerencie o serviço como parte da experiência geral do Azure Lighthouse. Para obter mais informações, consulte [visão geral dos aplicativos gerenciados do Azure](../azure-resource-manager/managed-applications/overview.md).
+- **Gestão de recursos delegados da Azure**: Gerencie os recursos Azure dos seus clientes de forma segura dentro do seu próprio inquilino, sem ter de mudar de contexto e controlar aviões. Para mais informações, consulte a [gestão de recursos delegados do Azure.](concepts/azure-delegated-resource-management.md)
+- **Novas experiências do portal Azure**: Veja informações sobre inquilinos cruzados na nova página dos **meus clientes** no [portal Azure.](https://portal.azure.com) Uma lâmina de **prestador de serviços** correspondente permite que os seus clientes vejam e gerem o acesso ao prestador de serviços. Para mais informações, consulte [ver e gerir os clientes](./how-to/view-manage-customers.md) e ver e gerir os [prestadores de serviços.](how-to/view-manage-service-providers.md)
+- **Modelos**de Gestor de Recursos Azure : Execute tarefas de gestão mais facilmente, incluindo clientes de bordo para gestão de recursos delegados do Azure. Para mais informações, consulte as [nossas amostras repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) e Onboard um cliente para a [gestão de recursos delegados do Azure.](how-to/onboard-customer.md)
+- **Ofertas de Serviços Geridos no Azure Marketplace**: Ofereça os seus serviços aos clientes através de ofertas privadas ou públicas, e coloque-os automaticamente a bordo para a gestão de recursos delegados do Azure, como um suplente para o embarque utilizando modelos do Gestor de Recursos Azure. Para mais informações, consulte [ofertas de serviços geridos no Azure Marketplace.](concepts/managed-services-offers.md)
+- **Aplicações geridas pela Azure**: Pacote e aplicações de envio que são fáceis de implantar e utilizar nas suas próprias subscrições. A aplicação é implantada num grupo de recursos a que acede ao seu inquilino, permitindo-lhe gerir o serviço como parte da experiência global do Farol Azure. Para mais informações, consulte a [visão geral das aplicações geridas pelo Azure.](../azure-resource-manager/managed-applications/overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [Gestão de recursos delegados do Azure](concepts/azure-delegated-resource-management.md).
-- Saiba mais sobre as [experiências de gerenciamento entre locatários](concepts/cross-tenant-management-experience.md).
+- Conheça [as experiências de gestão de inquilinos cruzados.](concepts/cross-tenant-management-experience.md)

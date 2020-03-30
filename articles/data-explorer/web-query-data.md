@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Consultar dados na IU da Web do Azure Data Explorer'
-description: Neste guia de introdução, saiba como consultar e partilhar os dados na IU da Web do Azure Data Explorer.
+title: 'Quickstart: Dados de consulta na Web UI do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web'
+description: Neste arranque rápido, aprende-se a consultar e a partilhar dados na Azure Data Explorer Web UI.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/04/2019
 ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67797180"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Início rápido: Consultar dados na IU da Web do Azure Data Explorer
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Quickstart: Dados de consulta na Web UI do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web do Web
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece uma aplicação Web que lhe permite executar e partilhar consultas. A aplicação está disponível no portal do Azure e como uma aplicação Web autónoma. Neste artigo, vai trabalhar na versão autónoma, que permite ligar a vários clusters e partilhar ligações avançadas para as suas consultas.
 
@@ -26,7 +26,7 @@ Além de uma subscrição do Azure, precisa de [um cluster e uma base de dados d
 
 ## <a name="sign-in-to-the-application"></a>Iniciar sessão na aplicação
 
-Inicie sessão [na aplicação](https://dataexplorer.azure.com/).
+Inscreva-se [na inscrição](https://dataexplorer.azure.com/).
 
 ## <a name="add-clusters"></a>Adicionar clusters
 
@@ -38,11 +38,11 @@ Tem de adicionar uma ligação, pelo menos, a um cluster antes de começar a exe
 
 1. Na parte superior esquerda da aplicação, selecione **Adicionar cluster**.
 
-1. Na **adicionar cluster** caixa de diálogo, introduza o URI, em seguida, selecione **Add**.
+1. Na caixa de diálogo **do cluster Adicionar,** introduza o URI e, em seguida, selecione **Adicionar**.
 
-   Pode utilizar o cluster de ajuda do URI, `https://help.kusto.windows.net`. Se tiver o seu próprio cluster, forneça o URI do cluster. Por exemplo, `https://mydataexplorercluster.westus.kusto.windows.net` conforme a imagem seguinte:
+   Pode utilizar o cluster `https://help.kusto.windows.net`de ajuda URI, . Se tiver o seu próprio aglomerado, forneça o URI do seu cluster. Por exemplo, `https://mydataexplorercluster.westus.kusto.windows.net` como na seguinte imagem:
 
-    ![URI no Portal do servidor](media/web-query-data/server-uri.png)
+    ![Servidor URI no Portal](media/web-query-data/server-uri.png)
 
 1. No painel esquerdo, deverá ver agora o cluster **help**. Expanda a base de dados **Exemplos** para que possa ver as tabelas de exemplo às quais tem acesso.
 
@@ -151,7 +151,7 @@ Agora que viu como funcionam as consultas básicas, vamos ver como pode usar a g
 
     Este painel funciona da mesma forma que a lista de campos de tabela dinâmica no Excel, que lhe permite fazer mais análises na própria grelha.
 
-1. Selecione **Pivot modo**, em seguida, arraste as colunas da seguinte forma: **Estado** para **linha grupos**; **DamageProperty** ao **valores**; e **EventType** para **etiquetas de coluna**.  
+1. Selecione **Modo Dinâmico** e arraste as colunas da seguinte forma: **Estado** para **Grupos de linhas**, **DamageProperty** para **Valores** e **EventType** para **Etiquetas de coluna**.  
 
     ![Modo dinâmico](media/web-query-data/pivot-mode.png)
 
@@ -189,6 +189,6 @@ O Data Explorer está atualmente em pré-visualização e agradecemos comentári
 
 Não criou recursos neste início rápido, mas se quiser remover um ou ambos os clusters da aplicação, clique com o botão direito do rato no cluster e selecione **Remover ligação**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Escrever consultas do Azure Data Explorer](write-queries.md)

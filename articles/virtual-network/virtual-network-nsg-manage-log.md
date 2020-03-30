@@ -1,7 +1,7 @@
 ---
-title: Log de diagnóstico para um grupo de segurança de rede
+title: Registo de diagnóstico para um grupo de segurança de rede
 titlesuffix: Azure Virtual Network
-description: Saiba como habilitar logs de diagnóstico do contador de regras e eventos para um grupo de segurança de rede do Azure.
+description: Aprenda a ativar registos de diagnóstico de eventos e regras contra diagnósticos para um grupo de segurança de rede Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,54 +14,54 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: 9829e713f19ab9755e9dc79d676446c8048e09b3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75751177"
 ---
-# <a name="diagnostic-logging-for-a-network-security-group"></a>Log de diagnóstico para um grupo de segurança de rede
+# <a name="diagnostic-logging-for-a-network-security-group"></a>Registo de diagnóstico para um grupo de segurança de rede
 
-Um NSG (grupo de segurança de rede) inclui regras que permitem ou negam o tráfego para uma sub-rede de rede virtual, interface de rede ou ambos. Ao habilitar o log de diagnóstico para um NSG, você pode registrar em log as seguintes categorias de informações:
+Um grupo de segurança de rede (NSG) inclui regras que permitem ou negam o tráfego a uma subnet de rede virtual, interface de rede, ou ambos. Quando ativa o registo de diagnóstico para um NSG, pode registar as seguintes categorias de informação:
 
-* **Evento:** As entradas são registradas para as quais as regras NSG são aplicadas às VMs, com base no endereço MAC.
-* **Contador de regras:** Contém entradas para quantas vezes cada regra NSG é aplicada para negar ou permitir o tráfego. O status dessas regras é coletado a cada 60 segundos.
+* **Evento:** As inscrições são registadas para as quais as regras de NSG são aplicadas aos VMs, com base no endereço MAC.
+* **Contador de regras:** Contém entradas para quantas vezes cada regra do NSG é aplicada para negar ou permitir o tráfego. O estatuto destas regras é recolhido a cada 60 segundos.
 
-Os logs de diagnóstico estão disponíveis somente para NSGs implantados por meio do modelo de implantação Azure Resource Manager. Não é possível habilitar o log de diagnóstico para o NSGs implantado por meio do modelo de implantação clássico. Para uma melhor compreensão dos dois modelos, consulte [noções básicas sobre modelos de implantação do Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Os registos de diagnóstico só estão disponíveis para NSGs implantados através do modelo de implementação do Gestor de Recursos Azure. Não é possível permitir o registo de diagnóstico para NSGs implantado através do modelo de implementação clássico. Para uma melhor compreensão dos dois modelos, consulte os modelos de [implementação Understanding Azure.](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-O log de diagnóstico é habilitado separadamente para *cada* NSG para a qual você deseja coletar dados de diagnóstico. Se você estiver interessado em logs operacionais ou de atividade, consulte [registro em log de atividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)do Azure.
+O registo de diagnóstico está ativado separadamente para *cada* NSG para o que pretende recolher dados de diagnóstico. Se estiver interessado em operações operacionais, ou atividade, faça login, consulte a [exploração madeireira](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)da atividade do Azure.
 
 ## <a name="enable-logging"></a>Ativar registo
 
-Você pode usar o [portal do Azure](#azure-portal), o [PowerShell](#powershell)ou o [CLI do Azure](#azure-cli) para habilitar o log de diagnóstico.
+Pode utilizar o [Portal Azure,](#azure-portal) [powerShell](#powershell)ou o [Azure CLI](#azure-cli) para permitir o registo de diagnóstico.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. Inicie sessão no [portal](https://portal.azure.com).
-2. Selecione **todos os serviços**e digite *grupos de segurança de rede*. Quando os **grupos de segurança de rede** aparecerem nos resultados da pesquisa, selecione-os.
-3. Selecione o NSG para o qual você deseja habilitar o registro em log.
-4. Em **monitoramento**, selecione **logs de diagnóstico**e, em seguida, selecione **Ativar diagnóstico**, conforme mostrado na figura a seguir:
+2. Selecione **todos os serviços,** em seguida, digite *grupos de segurança de rede*. Quando os **grupos** de segurança da Rede aparecerem nos resultados da pesquisa, selecione-os.
+3. Selecione o NSG para o que pretende ativar a exploração de madeira.
+4. Em **monitorização,** selecione **registos**de diagnósticos, e, em seguida, selecione **ligar os diagnósticos,** como mostra a seguinte imagem:
 
    ![Ativar os diagnósticos](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
 
-5. Em **configurações de diagnóstico**, insira ou selecione as informações a seguir e, em seguida, selecione **salvar**:
+5. Sob **as definições de Diagnóstico,** introduza ou selecione as seguintes informações e, em seguida, selecione **Guardar:**
 
     | Definição                                                                                     | Valor                                                          |
     | ---------                                                                                   |---------                                                       |
-    | Nome                                                                                        | Um nome de sua escolha.  Por exemplo: *myNsgDiagnostics*      |
-    | **Arquivar em uma conta de armazenamento**, **transmitir para um hub de eventos**e **Enviar para log Analytics** | Você pode selecionar quantos destinos quiser. Para saber mais sobre cada um, consulte [destinos de log](#log-destinations).                                                                                                                                           |
-    | LOG                                                                                         | Selecione uma ou ambas as categorias de log. Para saber mais sobre os dados registrados para cada categoria, consulte [categorias de log](#log-categories).                                                                                                                                             |
-6. Exibir e analisar logs. Para obter mais informações, consulte [Exibir e analisar logs](#view-and-analyze-logs).
+    | Nome                                                                                        | Um nome à sua escolha.  Por exemplo: *myNsgDiagnostics*      |
+    | **Arquivar para uma conta**de armazenamento , **Stream para um centro de eventos**, e **Enviar para Log Analytics** | Pode selecionar quantos destinos quiser. Para saber mais sobre cada um, consulte [os destinos de Registo.](#log-destinations)                                                                                                                                           |
+    | LOG                                                                                         | Selecione qualquer uma, ou ambas as categorias de registo. Para saber mais sobre os dados registados para cada categoria, consulte [as categorias de Registo](#log-categories).                                                                                                                                             |
+6. Ver e analisar registos. Para mais informações, consulte [Ver e analisar registos](#view-and-analyze-logs).
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Você pode executar os comandos a seguir no [Azure cloud Shell](https://shell.azure.com/powershell)ou executando o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se você executar o PowerShell do seu computador, precisará do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` em seu computador para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para entrar no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando a PowerShell a partir do seu computador. A Casca de Nuvem Azure é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Navere `Get-Module -ListAvailable Az` no seu computador, para encontrar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell `Connect-AzAccount` localmente, também precisa de correr para iniciar sessão no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
-Para habilitar o log de diagnóstico, você precisa da ID de um NSG existente. Se você não tiver um NSG existente, poderá criar um com [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+Para permitir o registo de diagnóstico, precisa da identificação de um NSG existente. Se não tiver um NSG existente, pode criar um com [o New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
-Recupere o grupo de segurança de rede para o qual você deseja habilitar o log de diagnóstico com [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Por exemplo, para recuperar um NSG chamado *myNsg* que existe em um grupo de recursos chamado *MyResource*Group, digite o seguinte comando:
+Recupere o grupo de segurança da rede que pretende ativar o registo de diagnóstico com [o Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). Por exemplo, para recuperar um NSG chamado *myNsg* que existe num grupo de recursos chamado *myResourceGroup,* insira o seguinte comando:
 
 ```azurepowershell-interactive
 $Nsg=Get-AzNetworkSecurityGroup `
@@ -69,7 +69,7 @@ $Nsg=Get-AzNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-Você pode gravar logs de diagnóstico em três tipos de destino. Para obter mais informações, consulte [destinos de log](#log-destinations). Neste artigo, os logs são enviados para o destino de *log Analytics* , como um exemplo. Recupere um espaço de trabalho Log Analytics existente com [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Por exemplo, para recuperar um espaço de trabalho existente chamado *MyWorkspace* em um grupo de recursos chamado *myworkspaces*, digite o seguinte comando:
+Pode escrever registos de diagnóstico para três tipos de destino. Para mais informações, consulte os [destinos de Registo](#log-destinations). Neste artigo, os registos são enviados para o destino *Log Analytics,* como exemplo. Recupere um espaço de trabalho existente no Log Analytics com [o Get-AzOperationalInsightsWorkspacespace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). Por exemplo, para recuperar um espaço de trabalho existente chamado *myWorkspace* num grupo de recursos chamado *myWorkspaces,* insira o seguinte comando:
 
 ```azurepowershell-interactive
 $Oms=Get-AzOperationalInsightsWorkspace `
@@ -77,9 +77,9 @@ $Oms=Get-AzOperationalInsightsWorkspace `
   -Name myWorkspace
 ```
 
-Se você não tiver um espaço de trabalho existente, poderá criar um com [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
+Se não tiver um espaço de trabalho existente, pode criar um com [o Espaço New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Há duas categorias de registro em log para os quais você pode habilitar logs. Para obter mais informações, consulte [categorias de log](#log-categories). Habilite o log de diagnóstico para o NSG com [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). O exemplo a seguir registra dados de categoria de evento e de contador no espaço de trabalho para um NSG, usando as IDs para o NSG e o espaço de trabalho que você recuperou anteriormente:
+Existem duas categorias de loga para as quais pode ativar registos. Para mais informações, consulte [as categorias de Registo](#log-categories). Ative o registo de diagnóstico para o NSG com [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). O exemplo seguinte regista dados de categoria seleção e contra-categoria para o espaço de trabalho de um NSG, utilizando os IDs para o NSG e espaço de trabalho que recuperou anteriormente:
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `
@@ -88,17 +88,17 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-Se você quiser apenas registrar dados para uma categoria ou outro, em vez de ambos, adicione a opção `-Categories` ao comando anterior, seguido por *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se você quiser fazer logon em um [destino](#log-destinations) diferente de um espaço de trabalho log Analytics, use os parâmetros apropriados para uma [conta de armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure ou Hub de [eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se pretender apenas registar dados para uma categoria ou para `-Categories` outra, em vez de ambas, adicione a opção ao comando anterior, seguido do *NetworkSecurityGroupEvent* ou *do NetworkSecurityGroupRuleCounter*. Se pretender iniciar sessão num [destino](#log-destinations) diferente de um espaço de trabalho log Analytics, utilize os parâmetros apropriados para uma conta de [Armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure ou Hub de [Eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Exibir e analisar logs. Para obter mais informações, consulte [Exibir e analisar logs](#view-and-analyze-logs).
+Ver e analisar registos. Para mais informações, consulte [Ver e analisar registos](#view-and-analyze-logs).
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Você pode executar os comandos a seguir no [Azure cloud Shell](https://shell.azure.com/bash)ou executando o CLI do Azure do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se você executar a CLI do seu computador, precisará da versão 2.0.38 ou posterior. Execute `az --version` em seu computador para localizar a versão instalada. Se você precisar atualizar, consulte [instalar CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Se você estiver executando a CLI localmente, também precisará executar `az login` para entrar no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell.azure.com/bash)ou executando o Azure CLI a partir do seu computador. A Casca de Nuvem Azure é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o CLI a partir do seu computador, precisa da versão 2.0.38 ou posterior. Navere `az --version` no seu computador, para encontrar a versão instalada. Se precisar de fazer o upgrade, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Se estiver a executar o CLI localmente, também precisa de correr `az login` para iniciar sessão no Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
 
-Para habilitar o log de diagnóstico, você precisa da ID de um NSG existente. Se você não tiver um NSG existente, poderá criar um com [AZ Network NSG Create](/cli/azure/network/nsg#az-network-nsg-create).
+Para permitir o registo de diagnóstico, precisa da identificação de um NSG existente. Se não tiver um NSG existente, pode criar um com a [rede az nsg criar](/cli/azure/network/nsg#az-network-nsg-create).
 
-Recupere o grupo de segurança de rede para o qual você deseja habilitar o log de diagnósticos com [AZ Network NSG show](/cli/azure/network/nsg#az-network-nsg-show). Por exemplo, para recuperar um NSG chamado *myNsg* que existe em um grupo de recursos chamado *MyResource*Group, digite o seguinte comando:
+Recupere o grupo de segurança da rede que pretende ativar o registo de diagnóstico com [o programa nsg da rede Az](/cli/azure/network/nsg#az-network-nsg-show). Por exemplo, para recuperar um NSG chamado *myNsg* que existe num grupo de recursos chamado *myResourceGroup,* insira o seguinte comando:
 
 ```azurecli-interactive
 nsgId=$(az network nsg show \
@@ -108,9 +108,9 @@ nsgId=$(az network nsg show \
   --output tsv)
 ```
 
-Você pode gravar logs de diagnóstico em três tipos de destino. Para obter mais informações, consulte [destinos de log](#log-destinations). Neste artigo, os logs são enviados para o destino de *log Analytics* , como um exemplo. Para obter mais informações, consulte [categorias de log](#log-categories).
+Pode escrever registos de diagnóstico para três tipos de destino. Para mais informações, consulte os [destinos de Registo](#log-destinations). Neste artigo, os registos são enviados para o destino *Log Analytics,* como exemplo. Para mais informações, consulte [as categorias de Registo](#log-categories).
 
-Habilite o log de diagnóstico para o NSG com [AZ monitor Diagnostics-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). O exemplo a seguir registra dados de categoria de evento e de contador em um espaço de trabalho existente chamado *MyWorkspace*, que existe em um grupo de recursos chamado *myworkspaces*e a ID do NSG que você recuperou anteriormente:
+Ative o registo de diagnóstico para o NSG com [a criação de definições de diagnóstico az monitor .](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) O exemplo seguinte regista dados de eventos e contracategorias para um espaço de trabalho existente chamado *myWorkspace*, que existe num grupo de recursos chamado *myWorkspaces*, e o ID do NSG que recuperou anteriormente:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \
@@ -121,26 +121,26 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Se você não tiver um espaço de trabalho existente, poderá criar um usando o [portal do Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou o [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Há duas categorias de registro em log para os quais você pode habilitar logs.
+Se não tiver um espaço de trabalho existente, pode criar um utilizando o [portal Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [powerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Existem duas categorias de loga para as quais pode ativar registos.
 
-Se você quiser apenas registrar dados para uma categoria ou outra, remova a categoria para a qual você não deseja registrar dados no comando anterior. Se você quiser fazer logon em um [destino](#log-destinations) diferente de um espaço de trabalho log Analytics, use os parâmetros apropriados para uma [conta de armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure ou Hub de [eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se pretender registar dados para uma categoria ou outra, remova a categoria para a qual não pretende registar dados no comando anterior. Se pretender iniciar sessão num [destino](#log-destinations) diferente de um espaço de trabalho log Analytics, utilize os parâmetros apropriados para uma conta de [Armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure ou Hub de [Eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Exibir e analisar logs. Para obter mais informações, consulte [Exibir e analisar logs](#view-and-analyze-logs).
+Ver e analisar registos. Para mais informações, consulte [Ver e analisar registos](#view-and-analyze-logs).
 
 ## <a name="log-destinations"></a>Destinos de log
 
 Os dados de diagnóstico podem ser:
-- [Gravado em uma conta de armazenamento do Azure](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), para auditoria ou inspeção manual. Você pode especificar o tempo de retenção (em dias) usando as configurações de diagnóstico de recurso.
-- [Transmitido para um hub de eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ingestão por um serviço de terceiros, ou solução de análise personalizada, como o PowerBI.
-- [Gravados em logs de Azure monitor](../azure-monitor/platform/resource-logs-collect-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- [Escrito numa conta de Armazenamento Azure,](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)para auditoria ou inspeção manual. Pode especificar o tempo de retenção (em dias) utilizando as definições de diagnóstico de recursos.
+- [Transmitido para um hub de evento](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ingestão por um serviço de terceiros, ou solução de análise personalizada, como o PowerBI.
+- [Escrito para os registos do Monitor Azure](../azure-monitor/platform/resource-logs-collect-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="log-categories"></a>Categorias de log
+## <a name="log-categories"></a>Categorias de registo
 
-Os dados formatados em JSON são gravados para as seguintes categorias de log:
+Os dados formados pela JSON são escritos para as seguintes categorias de registo:
 
 ### <a name="event"></a>Evento
 
-O log de eventos contém informações sobre quais regras do NSG são aplicadas às VMs, com base no endereço MAC. Os dados a seguir são registrados para cada evento. No exemplo a seguir, os dados são registrados em log para uma máquina virtual com o endereço IP 192.168.1.4 e um endereço MAC de 00-0D-3A-92-6A-7C:
+O registo do evento contém informações sobre as regras de NSG aplicadas aos VMs, com base no endereço MAC. Os seguintes dados são registados para cada evento. No exemplo seguinte, os dados são registados para uma máquina virtual com o endereço IP 192.168.1.4 e um endereço MAC de 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -171,7 +171,7 @@ O log de eventos contém informações sobre quais regras do NSG são aplicadas 
 
 ### <a name="rule-counter"></a>Contador de regras
 
-O log do contador de regras contém informações sobre cada regra aplicada aos recursos. Os dados de exemplo a seguir são registrados toda vez que uma regra é aplicada. No exemplo a seguir, os dados são registrados em log para uma máquina virtual com o endereço IP 192.168.1.4 e um endereço MAC de 00-0D-3A-92-6A-7C:
+O contra-registo de regras contém informações sobre cada regra aplicada aos recursos. Os seguintes dados de exemplo são registados cada vez que uma regra é aplicada. No exemplo seguinte, os dados são registados para uma máquina virtual com o endereço IP 192.168.1.4 e um endereço MAC de 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -194,22 +194,22 @@ O log do contador de regras contém informações sobre cada regra aplicada aos 
 ```
 
 > [!NOTE]
-> O endereço IP de origem para a comunicação não está registrado. Você pode habilitar o [log de fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md) para um NSG no entanto, que registra todas as informações do contador de regras, bem como o endereço IP de origem que iniciou a comunicação. Os dados de registo de fluxo do NSG são escritos numa conta de Armazenamento do Microsoft Azure. Você pode analisar os dados com o recurso de [análise de tráfego](../network-watcher/traffic-analytics.md) do observador de rede do Azure.
+> O endereço IP de origem para a comunicação não está registado. No entanto, pode ativar o registo de [fluxo sancionatório de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md) para um NSG, que regista todas as informações do contador de regras, bem como o endereço IP de origem que iniciou a comunicação. Os dados de registo de fluxo do NSG são escritos numa conta de Armazenamento do Microsoft Azure. Pode analisar os dados com a capacidade de análise de [tráfego](../network-watcher/traffic-analytics.md) do Azure Network Watcher.
 
-## <a name="view-and-analyze-logs"></a>Exibir e analisar logs
+## <a name="view-and-analyze-logs"></a>Ver e analisar registos
 
-Para saber como exibir dados de log de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você enviar dados de diagnóstico para:
-- **Logs de Azure monitor**: você pode usar a solução de [análise do grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
-) para obter informações avançadas. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede em uma máquina virtual.
-- **Conta de armazenamento do Azure**: os dados são gravados em um arquivo PT1H. JSON. Você pode encontrar:
-  - Log de eventos no seguinte caminho: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
-  - Log do contador de regras no seguinte caminho: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+Para aprender a visualizar os dados de registo de diagnóstico, consulte a visão geral dos [Registos de Diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se enviar dados de diagnóstico para:
+- **Registos do Monitor Azure:** Pode utilizar a solução de análise do grupo de segurança da [rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
+) para obter informações melhoradas. A solução fornece visualizações para regras de NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede numa máquina virtual.
+- **Conta de Armazenamento Azure**: Os dados são escritos num ficheiro PT1H.json. Pode encontrar o:
+  - Registo do evento no seguinte caminho:`insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Registo do contador de regras no seguinte caminho:`insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [log de atividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conhecido como logs de auditoria ou operacionais. O log de atividades é habilitado por padrão para o NSGs criado por meio do modelo de implantação do Azure. Para determinar quais operações foram concluídas em NSGs no log de atividades, procure entradas que contenham os seguintes tipos de recursos:
+- Saiba mais sobre [o registo de atividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conhecidos como registos de auditoria ou operacionais. O registo de atividades é ativado por padrão para NSGs criados através de qualquer modelo de implementação Azure. Para determinar quais as operações concluídas nos NSGs no registo de atividade, procure entradas que contenham os seguintes tipos de recursos:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups
   - Microsoft.Network/networkSecurityGroups/securityRules
-- Para saber como registrar em log as informações de diagnóstico, para incluir o endereço IP de origem para cada fluxo, consulte [log de fluxo do NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Para aprender a registar informações de diagnóstico, para incluir o endereço IP de origem para cada fluxo, consulte o [registo de fluxo sancionatório de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

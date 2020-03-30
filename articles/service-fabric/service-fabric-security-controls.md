@@ -1,63 +1,63 @@
 ---
-title: Controles de segurança para o Azure Service Fabric
-description: Saiba mais sobre os controles de segurança do Azure Service Fabric. Inclui uma lista de verificação de controles de segurança internos.
+title: Controlos de segurança para tecido de serviço Azure
+description: Conheça os controlos de segurança da Azure Service Fabric. Inclui uma lista de controlos de segurança incorporados.
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a8bb49e20ec5812a4882966c6918cf2bd59f36a0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645434"
 ---
-# <a name="security-controls-for-azure-service-fabric"></a>Controles de segurança para o Azure Service Fabric
+# <a name="security-controls-for-azure-service-fabric"></a>Controlos de segurança para tecido de serviço Azure
 
-Este artigo documenta os controles de segurança criados no Azure Service Fabric. 
+Este artigo documenta os controlos de segurança incorporados no Tecido de Serviço Azure. 
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Notas |
+| Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte ao ponto de extremidade de serviço| Sim |  |
-| Suporte à injeção de VNet| Sim |  |
-| Isolamento de rede e suporte de firewall| Sim | Usando NSG (grupos de segurança de rede). |
-| Suporte a túnel forçado| Sim | A rede do Azure fornece túnel forçado. |
+| Suporte final de serviço| Sim |  |
+| Suporte à injeção VNet| Sim |  |
+| Isolamento da rede e suporte de firewalling| Sim | Utilização de grupos de segurança em rede (NSG). |
+| Apoio de túnel forçado| Sim | A rede Azure fornece túneis forçados. |
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitorização & exploração madeireira
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Usando o suporte ao monitoramento do Azure e o suporte de terceiros. |
-| Registro e auditoria do plano de gerenciamento e controle| Sim | Todas as operações do plano de controle são executadas por meio de processos para auditoria e aprovações. |
-| Log e auditoria do plano de dados| N/A | O cliente possui o cluster.  |
+| Suporte de monitorização Azure (Análise de registo, insights de aplicações, etc.)| Sim | Utilizando o suporte de monitorização azure e apoio de terceiros. |
+| Registo e auditoria de planos de controlo e gestão| Sim | Todas as operações de controlo dos aviões passam por processos de auditoria e aprovação. |
+| Registo e auditoria de planos de dados| N/D | O cliente é dono do cluster.  |
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | A autenticação é por meio de Azure Active Directory. |
-| Autorização| Sim | IAM (gerenciamento de acesso e identidade) para chamadas via SFRP. Chamadas diretamente para o ponto de extremidade de cluster dão suporte a duas funções: usuário e administrador. O cliente pode mapear as APIs para qualquer função. |
+| Autenticação| Sim | A autenticação é através do Diretório Ativo Azure. |
+| Autorização| Sim | Gestão de identidade e acesso (IAM) para chamadas via SFRP. As chamadas diretamente para o ponto final do cluster suportam duas funções: Utilizador e Administrador. O cliente pode mapear as APIs para qualquer uma das funções. |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Notas |
+| Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | O cliente possui o cluster e o conjunto de dimensionamento de máquinas virtuais no qual o cluster foi criado. A criptografia de disco do Azure pode ser habilitada no conjunto de dimensionamento de máquinas virtuais. |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim | O cliente possui o cluster e o conjunto de dimensionamento de máquinas virtuais no qual o cluster foi criado. A criptografia de disco do Azure pode ser habilitada no conjunto de dimensionamento de máquinas virtuais. |
-| Criptografia em nível de coluna (serviços de dados do Azure)| N/A |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim |  |
-| Chamadas de API criptografadas| Sim | Service Fabric chamadas à API são feitas por meio de Azure Resource Manager. Um JWT (token Web JSON) válido é necessário. |
+| Encriptação do lado do servidor em repouso: Chaves geridas pela Microsoft | Sim | O cliente é dono do cluster e da escala de máquina virtual em que o cluster é construído. A encriptação do disco azure pode ser ativada no conjunto de escala de máquina virtual. |
+| Encriptação do lado do servidor em repouso: chaves geridas pelo cliente (BYOK) | Sim | O cliente é dono do cluster e da escala de máquina virtual em que o cluster é construído. A encriptação do disco azure pode ser ativada no conjunto de escala de máquina virtual. |
+| Encriptação de nível de coluna (Serviços de Dados Azure)| N/D |  |
+| Encriptação em trânsito (como encriptação ExpressRoute, encriptação VNet e encriptação VNet-VNet)| Sim |  |
+| Chamadas api encriptadas| Sim | As chamadas a API de tecido de serviço são feitas através do Gestor de Recursos Azure. É necessário um token web JSON válido (JWT). |
 
-## <a name="configuration-management"></a>Gestão de configurações
+## <a name="configuration-management"></a>Gestão da configuração
 
-| Controle de segurança | Sim/Não | Notas|
+| Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | |
+| Suporte de gestão de configuração (versão de configuração, etc.)| Sim | |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).
+- Saiba mais sobre os [controlos de segurança incorporados em todos os serviços do Azure.](../security/fundamentals/security-controls.md)

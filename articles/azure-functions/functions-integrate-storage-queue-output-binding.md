@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769188"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure
@@ -26,7 +26,7 @@ Para concluir este guia de início rápido:
 
 * Instale o [Explorador de Armazenamento do Microsoft Azure](https://storageexplorer.com/). Esta é uma ferramenta que irá utilizar para examinar as mensagens de fila que o seu enlace de saída cria.
 
-## <a name="add-binding"></a>Adicionar um enlace de saída
+## <a name="add-an-output-binding"></a><a name="add-binding"></a>Adicionar um enlace de saída
 
 Nesta secção, utilize a IU do portal para adicionar um enlace de saída de armazenamento de filas à função que criou anteriormente. Este enlace irá possibilitar a escrita de código mínimo para criar uma mensagem numa fila. Não tem de escrever código para tarefas, tais como abrir uma ligação de armazenamento, criar uma fila ou obter uma referência para uma fila. O tempo de execução das Funções do Azure e o enlace de saída da fila tratam dessas tarefas por si.
 
@@ -34,7 +34,7 @@ Nesta secção, utilize a IU do portal para adicionar um enlace de saída de arm
 
 1. Selecione a função que criou no início rápido anterior.
 
-1. Selecione **integrar > nova saída > armazenamento de filas do Azure**.
+1. Selecione Integrar > nova saída > armazenamento de **fila Azure**.
 
 1. Clique em **Selecionar**.
 
@@ -66,7 +66,7 @@ Nesta secção, adicione código que escreve uma mensagem para a fila de saída.
 
 1. Atualize o código de função consoante a linguagem da sua função:
 
-    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+    # <a name="c"></a>[C\#](#tab/csharp)
 
     Adicionar um parâmetro **outputQueueItem** à assinatura de método conforme mostrado no exemplo seguinte.
 
@@ -84,7 +84,7 @@ Nesta secção, adicione código que escreve uma mensagem para a fila de saída.
     outputQueueItem.Add("Name passed to the function: " + name);
     ```
 
-    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+    # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
     Adicione o código que utiliza o enlace de saída no objeto `context.bindings` para criar uma mensagem de fila. Adicione este código antes da declaração `context.done`.
 

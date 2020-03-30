@@ -1,22 +1,22 @@
 ---
-title: Elemento de interface do usuário TagsByResource
-description: Descreve o elemento de interface do usuário Microsoft. Common. TagsByResource para portal do Azure. Use para aplicar marcas a um recurso durante a implantação.
+title: Elemento UI TagsByResource
+description: Descreve o elemento Microsoft.Common.TagsByResource UI para o portal Azure. Utilize para aplicar etiquetas num recurso durante a implantação.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 23a7c54a84ec083b8fa470f26582913fcc3d2ee6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652206"
 ---
-# <a name="microsoftcommontagsbyresource-ui-element"></a>Elemento de interface do usuário Microsoft. Common. TagsByResource
+# <a name="microsoftcommontagsbyresource-ui-element"></a>Microsoft.Common.TagsByResource UI
 
-Um controle para associar [marcas](../management/tag-resources.md) com os recursos em uma implantação.
+Um controlo para associar [tags](../management/tag-resources.md) com os recursos numa implantação.
 
-## <a name="ui-sample"></a>Exemplo de interface do usuário
+## <a name="ui-sample"></a>Amostra de UI
 
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.tagsbyresource.png)
 
@@ -49,9 +49,9 @@ Um controle para associar [marcas](../management/tag-resources.md) com os recurs
 
 ## <a name="remarks"></a>Observações
 
-- Pelo menos um item na matriz de `resources` deve ser especificado.
-- Cada elemento em `resources` deve ser um tipo de recurso totalmente qualificado. Esses elementos aparecem na lista suspensa de **recursos** e são taggable pelo usuário.
-- A saída do controle é formatada para facilitar a atribuição de valores de marca em um modelo de Azure Resource Manager. Para receber a saída do controle em um modelo, inclua um parâmetro em seu modelo, conforme mostrado no exemplo a seguir:
+- Deve especificar-se pelo `resources` menos um item da matriz.
+- Cada elemento `resources` deve ser um tipo de recurso totalmente qualificado. Estes elementos aparecem no dropdown do **Recurso** e são marcados pelo utilizador.
+- A saída do controlo é formatada para uma fácil atribuição de valores de etiqueta num modelo de Gestor de Recursos Azure. Para receber a saída do controlo num modelo, inclua um parâmetro no seu modelo, como mostra o seguinte exemplo:
 
   ```json
   "parameters": {
@@ -59,7 +59,7 @@ Um controle para associar [marcas](../management/tag-resources.md) com os recurs
   }
   ```
 
-  Para cada recurso que pode ser marcado, atribua a propriedade Tags ao valor do parâmetro para esse tipo de recurso:
+  Para cada recurso que possa ser marcado, atribua a propriedade de etiquetas ao valor do parâmetro para esse tipo de recurso:
 
   ```json
   {
@@ -69,9 +69,9 @@ Um controle para associar [marcas](../management/tag-resources.md) com os recurs
     ...
   ```
 
-- Use a função [If](../templates/template-functions-logical.md#if) ao acessar o parâmetro tagsByResource. Ele permite que você atribua um objeto vazio quando nenhuma marca é atribuída ao tipo de recurso fornecido.
+- Utilize a função [se](../templates/template-functions-logical.md#if) ao aceder ao parâmetro tagsByResource. Permite-lhe atribuir um objeto vazio quando não são atribuídas etiquetas ao tipo de recurso dado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-- Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
+- Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
+- Para obter uma descrição das propriedades comuns nos elementos UI, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

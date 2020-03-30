@@ -5,10 +5,10 @@ keywords: azure devops terraforma instalar configuração
 ms.topic: quickstart
 ms.date: 03/09/2020
 ms.openlocfilehash: 82635f59ec8165add2046a230a040b06f89d9898
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78943508"
 ---
 # <a name="quickstart-install-and-configure-terraform-to-provision-azure-resources"></a>Quickstart: Instale e configure a Terraform para fornecer recursos Azure
@@ -33,7 +33,7 @@ A terraforme é instalada por padrão na [Cloud Shell](/azure/terraform/terrafor
 
 Para instalar a Terraform, [descarregue](https://www.terraform.io/downloads.html) o pacote apropriado para o seu sistema operativo num diretório de instalação separado. O download contém um único ficheiro executável, para o qual também deve definir um caminho global. Para obter instruções sobre como definir o caminho em Linux e Mac, vá a [esta página web](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Para obter instruções sobre como definir o caminho no Windows, vá a [esta página web](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
 
-Verifique a configuração do seu caminho com o comando `terraform`. É apresentada uma lista das opções disponíveis da Terraform, como na seguinte saída de exemplo:
+Verifique a configuração `terraform` do seu caminho com o comando. É apresentada uma lista das opções disponíveis da Terraform, como na seguinte saída de exemplo:
 
 ```console
 azureuser@Azure:~$ terraform
@@ -50,7 +50,7 @@ Se tiver várias subscrições do Azure, primeiro questione a sua conta com a li
 az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
-Para utilizar uma subscrição selecionada, detete a subscrição para esta sessão com um conjunto de [conta az](/cli/azure/account#az-account-set). Desconte a variável ambiente `SUBSCRIPTION_ID` para manter o valor do campo `id` devolvido da subscrição que pretende utilizar:
+Para utilizar uma subscrição selecionada, detete a subscrição para esta sessão com um conjunto de [conta az](/cli/azure/account#az-account-set). Desdefinir a `SUBSCRIPTION_ID` variável ambiental `id` para manter o valor do campo devolvido a partir da subscrição que pretende utilizar:
 
 ```azurecli-interactive
 az account set --subscription="${SUBSCRIPTION_ID}"
@@ -62,7 +62,7 @@ Agora pode criar um diretor de serviço para uso com terraforma. Utilize [az ad 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Os seus `appId`, `password`, `sp_name`e `tenant` são devolvidos. Tome nota da `appId` e `password`.
+O `appId` `password`seu, `sp_name` `tenant` e são devolvidos. Tome nota `appId` do `password`e .
 
 ## <a name="configure-terraform-environment-variables"></a>Configure variáveis ambientais terraformes
 
@@ -90,7 +90,7 @@ export ARM_ENVIRONMENT=public
 
 ## <a name="run-a-sample-script"></a>Executar um script de amostra
 
-Crie um ficheiro `test.tf` num diretório vazio e cola no seguinte script.
+Crie `test.tf` um ficheiro num diretório vazio e faça cola no seguinte script.
 
 ```hcl
 provider "azurerm" {
@@ -119,7 +119,7 @@ O resultado é semelhante ao seguinte exemplo:
 Terraform has been successfully initialized!
 ```
 
-Pode visualizar as ações a serem concluídas pelo roteiro Terraform com `terraform plan`. Quando estiver pronto para criar o grupo de recursos, aplique o seu plano Terraform da seguinte forma:
+Pode visualizar as ações a completar pelo `terraform plan`script Terraform com . Quando estiver pronto para criar o grupo de recursos, aplique o seu plano Terraform da seguinte forma:
 
 ```bash
 terraform apply
@@ -147,7 +147,7 @@ azurerm_resource_group.rg: Creating...
 azurerm_resource_group.rg: Creation complete after 1s
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, instalou terrafora ou usou a Cloud Shell para configurar credenciais Azure e começar a criar recursos na sua subscrição Azure. Para criar uma implantação terraforme mais completa em Azure, consulte o seguinte artigo:
 

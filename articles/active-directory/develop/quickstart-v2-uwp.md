@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade da Microsoft Windows UWP quickstart  Azure
+title: Plataforma de identidade da Microsoft Windows UWP quickstart [ Azure
 description: Saiba como uma aplicação Universal Windows Platform (XAML) pode obter um sinal de acesso e chamar um API protegido pelo ponto final da plataforma de identidade da Microsoft.
 services: active-directory
 author: jmprieur
@@ -12,10 +12,10 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.openlocfilehash: e78477b9c046bbdbcb67a3ff1a5420c0808a748e
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78274310"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
@@ -39,21 +39,21 @@ Este quickstart contém uma amostra de código que demonstra como uma aplicaçã
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, siga os passos a seguir:
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 > 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://aka.ms/MobileAppReg)
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
->      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `UWP-App-calling-MsGraph`.
->      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)** .
+>      - Na secção **Nome,** introduza um nome de aplicação significativo que `UWP-App-calling-MsGraph`será apresentado aos utilizadores da aplicação, por exemplo.
+>      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
 >      - Selecione **Registar** para criar a aplicação.
 > 1. Na lista de páginas da aplicação, selecione **Autenticação**.
-> 1. Na secção **Redirecionamento** de URIs | **Sugerido Redirecionamento de URIs para clientes públicos (mobile, desktop),** verifique **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> 1. Na secção **Redirecionamento** | **de URIs sugerida para clientes públicos (mobile, desktop),** verifique **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > 1. Selecione **Guardar**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Passo 1: Configurar a aplicação
-> Para a amostra de código para este arranque rápido, você precisa adicionar um URI redirecionado como **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> Para a amostra de código para este arranque rápido, você **https://login.microsoftonline.com/common/oauth2/nativeclient**precisa adicionar um URI redirecionado como .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >
@@ -79,11 +79,11 @@ Este quickstart contém uma amostra de código que demonstra como uma aplicaçã
 > > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Transferir o seu projeto do Visual Studio
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o projeto do Visual Studio
 > 
 > 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
 > 1. Abra o projeto no Visual Studio. Pode ser solicitado a instalar um UWP SDK. Nesse caso, aceite.
-> 1. Editar **MainPage.Xaml.cs** e substituir os valores do campo `ClientId`:
+> 1. Editar **MainPage.Xaml.cs** e substituir `ClientId` os valores do campo:
 >
 >    ```csharp
 >    private const string ClientId = "Enter_the_Application_Id_here";
@@ -99,7 +99,7 @@ Este quickstart contém uma amostra de código que demonstra como uma aplicaçã
 Se quiser experimentar o arranque rápido na sua máquina Windows:
 
 1. Na barra de ferramentas Do Estúdio Visual, escolha a plataforma certa (provavelmente **x64** ou **x86**, não ARM). Observará que o dispositivo-alvo muda de *Dispositivo* para *Máquina Local*
-1. Selecione Debug  **Comece sem depuração**
+1. Selecione Debug [ **Comece sem depuração**
 
 ## <a name="more-information"></a>Mais informações
 
@@ -137,7 +137,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
-### <a name="requesting-tokens"></a>Solicitar tokens
+### <a name="requesting-tokens"></a>Pedir tokens
 
 A MSAL tem dois métodos para adquirir fichas numa aplicação da UWP: `AcquireTokenInteractive` e `AcquireTokenSilent`.
 
@@ -148,7 +148,7 @@ Algumas situações exigem forçar os utilizadores a interagir com o ponto final
 - Os utilizadores pela primeira vez assinam a aplicação
 - Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado
 - Quando a sua aplicação está a solicitar acesso a um recurso, que o utilizador precisa de consentir
-- Quando é precisa a autenticação de dois fatores
+- Quando é necessária autenticação de dois fatores
 
 ```csharp
 authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
@@ -161,7 +161,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-Utilize o método `AcquireTokenSilent` para obter fichas para aceder a recursos protegidos após o método inicial `AcquireTokenInteractive`. Não pretende exigir que o utilizador valide as suas credenciais sempre que precisa de aceder a um recurso. Na maior parte do tempo pretende aquisições simbólicas e renovação sem qualquer interação do utilizador
+Utilize `AcquireTokenSilent` o método para obter fichas para aceder `AcquireTokenInteractive` a recursos protegidos após o método inicial. Não pretende exigir que o utilizador valide as suas credenciais sempre que precisa de aceder a um recurso. Na maior parte do tempo pretende aquisições simbólicas e renovação sem qualquer interação do utilizador
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

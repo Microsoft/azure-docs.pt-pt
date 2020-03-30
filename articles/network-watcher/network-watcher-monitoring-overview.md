@@ -15,19 +15,19 @@ ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844994"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
-O Observador de Rede do Azure oferece ferramentas para monitorizar, diagnosticar, ver métricas e ativar ou desativar registos de recursos numa rede virtual do Azure. O observador de rede foi projetado para monitorar e reparar a integridade da rede de produtos IaaS (infraestrutura como serviço) que incluem máquinas virtuais, redes virtuais, gateways de aplicativo, balanceadores de carga, etc. Observação: ele não se destina e não funcionará para monitoramento de PaaS ou análise da Web. 
+O Observador de Rede do Azure oferece ferramentas para monitorizar, diagnosticar, ver métricas e ativar ou desativar registos de recursos numa rede virtual do Azure. O Network Watcher foi concebido para monitorizar e reparar a saúde da rede dos produtos IaaS (Infraestrutura-as-a-Service), que inclui Máquinas Virtuais, Redes Virtuais, Gateways de Aplicações, Equilibradores de Carga, etc. Nota: Não se destina nem funcionará para monitorização paaS ou análise web. 
 
 ## <a name="monitoring"></a>Monitorização
 
-### <a name = "connection-monitor"></a>Monitorizar a comunicação entre uma máquina virtual e um ponto final
+### <a name="monitor-communication-between-a-virtual-machine-and-an-endpoint"></a><a name = "connection-monitor"></a>Monitorizar a comunicação entre uma máquina virtual e um ponto final
 
 Os pontos finais podem ser outra máquina virtual (VM), um nome de domínio completamente qualificado (FQDN), um identificador de recursos uniforme (URI) ou um endereço IPv4. A capacidade de *monitorização da ligação* monitoriza a comunicação em intervalos regulares e informa-o do alcance, da latência e das alterações à topologia de rede entre a VM e o ponto final. Por exemplo, pode ter uma VM de servidor Web que comunica com uma VM de servidor de bases de dados. Sem o seu conhecimento, uma pessoa da sua organização poderá aplicar uma rota personalizada ou uma regra de segurança de rede à VM de servidor Web ou de servidor de bases de dados ou à sub-rede.
 
@@ -45,7 +45,7 @@ O monitor de desempenho de rede é uma solução de monitorização da rede híb
 
 Pode transferir uma versão editável da imagem em formato svg. Saiba mais sobre a [vista da topologia](view-network-topology.md).
 
-## <a name="diagnostics"></a>Diagnósticos
+## <a name="diagnostics"></a>Diagnóstico
 
 ### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Diagnosticar problemas de filtragem de tráfego de rede de ou para uma VM
 
@@ -55,7 +55,7 @@ Quando implementa uma VM, o Azure aplica várias regras de segurança predefinid
 
 Quando cria uma rede virtual, o Azure cria várias rotas de saída predefinidas para o tráfego de rede. O tráfego de saída de todos os recursos, como VMs, implementados numa rede virtual, são encaminhados com base nas rotas predefinidas do Azure. Pode substituir as rotas predefinidas do Azure ou criar rotas adicionais. Pode aperceber-se de que uma VM já não consegue comunicar com outros recursos devido a uma rota específica. A capacidade de *próximo salto* permite-lhe especificar um endereço IPv4 de origem e de destino. Depois, o próximo salto testa a comunicação e informa-o do tipo de próximo salto que é utilizado para encaminhar o tráfego. Pode, em seguida, remover, alterar ou adicionar uma rota, para resolver um problema de encaminhamento. Saiba mais sobre a capacidade de [próximo salto](diagnose-vm-network-routing-problem.md).
 
-### <a name="connection-troubleshoot"></a>Diagnosticar ligações de saída a partir de uma VM
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnosticar ligações de saída a partir de uma VM
 
 A capacidade de *resolução de problemas de ligação* permite-lhe testar uma ligação entre uma VM e outra VM, um FQDN, um URI ou um endereço IPv4. O teste devolve informações semelhantes às que são devolvidas quando é utilizada a capacidade de [monitorização da ligação](#connection-monitor), mas testa a ligação num ponto no tempo, em vez de a monitorizar ao longo do tempo, que é o que acontece com a monitorização da ligação. Saiba mais sobre como resolver problemas de ligações com a [resolução de problemas de ligações](network-watcher-connectivity-overview.md).
 
@@ -95,10 +95,10 @@ Saiba mais sobre os registos de fluxo do NSG ao concluir o tutorial [Registar o 
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Ver registos de diagnóstico de recursos de rede
 
-Pode ativar o registo de diagnóstico para recursos de rede do Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e gateways de aplicação. A capacidade de *registos de diagnóstico* oferece uma interface única para ativar e desativar os registos de diagnóstico de recursos de rede para qualquer recurso de rede existente que gere um registo de diagnóstico. Você pode exibir os logs de diagnóstico usando ferramentas como o Microsoft Power BI e os logs de Azure Monitor. Para saber mais sobre como analisar os logs de diagnóstico de rede do Azure, confira [soluções de rede do Azure em logs de Azure monitor](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Pode ativar o registo de diagnóstico para recursos de rede do Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e gateways de aplicação. A capacidade de *registos de diagnóstico* oferece uma interface única para ativar e desativar os registos de diagnóstico de recursos de rede para qualquer recurso de rede existente que gere um registo de diagnóstico. Pode ver registos de diagnóstico utilizando ferramentas como registos Microsoft Power BI e Azure Monitor. Para saber mais sobre a análise dos registos de diagnóstico da rede Azure, consulte as soluções da [rede Azure nos registos do Monitor Azure.](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 
-## <a name="network-watcher-automatic-enablement"></a>Habilitação automática do observador de rede
-Quando criar ou atualizar uma rede virtual na sua subscrição, o Observador de Rede será ativado automaticamente na região da rede Virtual. Não há impacto nos seus recursos ou cobrança associada para ativar automaticamente o Observador da Rede. Para obter mais informações, consulte [criação do observador de rede](network-watcher-create.md).
+## <a name="network-watcher-automatic-enablement"></a>Habilitação automática do Observador de Rede
+Quando criar ou atualizar uma rede virtual na subscrição, o Observador de Rede será ativado automaticamente na região da Rede Virtual. Não existe impacto sobre os seus recursos ou custos associados à ativação automática do Observador de Rede. Para mais informações, consulte [Network Watcher criar](network-watcher-create.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

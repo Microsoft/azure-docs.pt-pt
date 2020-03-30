@@ -1,24 +1,24 @@
 ---
-title: Artefato CreateUiDefinition
-description: Mostra como criar o artefato createUiDefinition para um aplicativo gerenciado do Azure. O arquivo é denominado createUiDefinition. JSON.
+title: Artefacto CreateUiDefinition
+description: Mostra como criar o artefacto createUiDefinition para uma Aplicação Gerida Azure. O ficheiro é nomeado createUiDefinition.json.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 9be1cb02c419314a33b9487bf183ef3659b2b549
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651491"
 ---
-# <a name="reference-user-interface-elements-artifact"></a>Referência: artefato dos elementos da interface do usuário
+# <a name="reference-user-interface-elements-artifact"></a>Referência: Artefacto de elementos de interface do utilizador
 
-Este artigo é uma referência para um artefato *createUiDefinition. JSON* em aplicativos gerenciados do Azure. Para obter mais informações sobre a criação de elementos da interface do usuário, consulte [criar elementos da interface do usuário](create-uidefinition-elements.md).
+Este artigo é uma referência para um artefacto *createUiDefinition.json* em Aplicações Geridas azure. Para obter mais informações sobre a autoria de elementos de interface do utilizador, consulte [Criar elementos](create-uidefinition-elements.md)de interface do utilizador .
 
 ## <a name="user-interface-elements"></a>Elementos da interface de utilizador
 
-O JSON a seguir mostra um exemplo de arquivo *createUiDefinition. JSON* para aplicativos gerenciados do Azure:
+O seguinte JSON mostra um exemplo de *ficheiro createUiDefinition.json* para Aplicações Geridas Azure:
 
 ```json
 {
@@ -81,6 +81,6 @@ O JSON a seguir mostra um exemplo de arquivo *createUiDefinition. JSON* para apl
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: criar um aplicativo gerenciado com ações e recursos personalizados](tutorial-create-managed-app-with-custom-provider.md)
-- [Referência: artefato do modelo de implantação](reference-main-template-artifact.md)
-- [Referência: Exibir artefato de definição](reference-view-definition-artifact.md)
+- [Tutorial: Criar aplicação gerida com ações e recursos personalizados](tutorial-create-managed-app-with-custom-provider.md)
+- [Referência: Artefacto do modelo de implantação](reference-main-template-artifact.md)
+- [Referência: Ver artefacto de definição](reference-view-definition-artifact.md)

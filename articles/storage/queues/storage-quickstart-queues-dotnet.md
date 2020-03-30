@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.openlocfilehash: c69aa91596ff203445aa4fa3ccd59001ffe16649
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78197492"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Quickstart: Biblioteca de clientes de armazenamento de fila Azure v12 para .NET
@@ -31,7 +31,7 @@ Utilize a biblioteca de clientes de armazenamento Azure Queue v12 para.NET para:
 * Apagar mensagens de uma fila
 * Eliminar uma fila
 
-[Documentação de referência da API](/dotnet/api/azure.storage.queues) | [código fonte da Biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | Pacote [(NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+[Documentação de](/dotnet/api/azure.storage.queues) | referência API[Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,7 +47,7 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
 
 Crie uma aplicação .NET Core chamada *QueuesQuickstartV12*.
 
-1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o comando `dotnet new` para criar uma nova aplicação de consola com o nome *QueuesQuickstartV12*. Este comando cria um simples C# projeto "Hello World" com um único ficheiro fonte: *Program.cs*.
+1. Numa janela de consola (como cmd, PowerShell `dotnet new` ou Bash), utilize o comando para criar uma nova aplicação de consola com o nome *QueuesQuickstartV12*. Este comando cria um simples projeto C# "Hello World" com um único ficheiro fonte: *Program.cs*.
 
    ```console
    dotnet new console -n QueuesQuickstartV12
@@ -61,7 +61,7 @@ Crie uma aplicação .NET Core chamada *QueuesQuickstartV12*.
 
 ### <a name="install-the-package"></a>Instale o pacote
 
-Ainda no diretório de aplicações, instale a biblioteca de clientes de armazenamento Azure Queue para o pacote .NET utilizando o comando `dotnet add package`.
+Ainda no diretório de aplicações, instale a biblioteca de clientes `dotnet add package` de armazenamento Azure Queue para o pacote .NET utilizando o comando.
 
 ```console
 dotnet add package Azure.Storage.Queues
@@ -72,9 +72,9 @@ dotnet add package Azure.Storage.Queues
 Do diretório do projeto:
 
 1. Abra o ficheiro *Program.cs* no seu editor
-1. Remova a declaração de `Console.WriteLine("Hello World!");`
-1. Adicionar diretivas `using`
-1. Atualizar a declaração de método `Main` para apoiar o [código assinizador](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
+1. Remova `Console.WriteLine("Hello World!");` a declaração
+1. Adicionar `using` diretivas
+1. Atualizar `Main` a declaração de método para apoiar o [código assync](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
 
 
 
@@ -114,28 +114,28 @@ O diagrama seguinte mostra a relação entre estes recursos.
 
 Utilize as seguintes classes .NET para interagir com estes recursos:
 
-* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): O `QueueServiceClient` permite-lhe gerir todas as filas na sua conta de armazenamento.
-* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): A classe `QueueClient` permite-lhe gerir e manipular uma fila individual e as suas mensagens.
-* [Mensagem de fila](/dotnet/api/azure.storage.queues.models.queuemessage): A classe `QueueMessage` representa os objetos individuais devolvidos ao ligar para [receber Mensagens](/dotnet/api/azure.storage.queues.queueclient.receivemessages) numa fila.
+* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): `QueueServiceClient` O permite-lhe gerir todas as filas na sua conta de armazenamento.
+* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): `QueueClient` A classe permite-lhe gerir e manipular uma fila individual e as suas mensagens.
+* [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage): `QueueMessage` A classe representa os objetos individuais devolvidos ao ligar para [receber Mensagens](/dotnet/api/azure.storage.queues.queueclient.receivemessages) numa fila.
 
 ## <a name="code-examples"></a>Exemplos de código
 
 Estes snippets de código de exemplo mostram-lhe como fazer as seguintes ações com a biblioteca de clientes de armazenamento azure fila para .NET:
 
-* [Obter a corda de ligação](#get-the-connection-string)
+* [Obter a cadeia de ligação](#get-the-connection-string)
 * [Criar uma fila](#create-a-queue)
 * [Adicione mensagens a uma fila](#add-messages-to-a-queue)
 * [Espreite as mensagens em uma fila](#peek-at-messages-in-a-queue)
 * [Atualizar uma mensagem em uma fila](#update-a-message-in-a-queue)
 * [Receber mensagens de uma fila](#receive-messages-from-a-queue)
 * [Apagar mensagens de uma fila](#delete-messages-from-a-queue)
-* [Apagar uma fila](#delete-a-queue)
+* [Eliminar uma fila](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obter a cadeia de ligação
 
 O código abaixo recupera a cadeia de ligação para a conta de armazenamento. A cadeia de ligação é armazenada na variável ambiental criada na secção de cordas de ligação de [armazenamento Configure.](#configure-your-storage-connection-string)
 
-Adicione este código dentro do método `Main`:
+Adicione este código `Main` dentro do método:
 
 ```csharp
 Console.WriteLine("Azure Queue storage v12 - .NET quickstart sample\n");
@@ -159,7 +159,7 @@ Decida um nome para a nova fila. O código abaixo anexa um valor GUID para o nom
 
 Crie uma instância da classe [QueueClient.](/dotnet/api/azure.storage.queues.queueclient) Em seguida, ligue para o método [CreateAsync](/dotnet/api/azure.storage.queues.queueclient.createasync) para criar a fila na sua conta de armazenamento.
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 // Create a unique name for the queue
@@ -177,9 +177,9 @@ await queueClient.CreateAsync();
 
 ### <a name="add-messages-to-a-queue"></a>Adicione mensagens a uma fila
 
-O código seguinte snippet sincroniamente adiciona mensagens à fila, ligando para o método [SendMessageAsync.](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) Também guarda um [Envio Recibo](/dotnet/api/azure.storage.queues.models.sendreceipt) devolvido de uma chamada `SendMessageAsync`. O recibo é usado para atualizar a mensagem mais tarde no programa.
+O código seguinte snippet sincroniamente adiciona mensagens à fila, ligando para o método [SendMessageAsync.](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) Também guarda um [Envio Recibo](/dotnet/api/azure.storage.queues.models.sendreceipt) `SendMessageAsync` devolvido de uma chamada. O recibo é usado para atualizar a mensagem mais tarde no programa.
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 Console.WriteLine("\nAdding messages to the queue...");
@@ -194,9 +194,9 @@ SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>Espreite as mensagens em uma fila
 
-Espreite as mensagens na fila, ligando para o método [PeekMessagesAsync.](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) O método `PeekMessagesAsync` recupera uma ou mais mensagens da frente da fila, mas não altera a visibilidade da mensagem.
+Espreite as mensagens na fila, ligando para o método [PeekMessagesAsync.](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) O `PeekMessagesAsync` método recupera uma ou mais mensagens da frente da fila, mas não altera a visibilidade da mensagem.
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 Console.WriteLine("\nPeek at the messages in the queue...");
@@ -213,7 +213,7 @@ foreach (PeekedMessage peekedMessage in peekedMessages)
 
 ### <a name="update-a-message-in-a-queue"></a>Atualizar uma mensagem em uma fila
 
-Atualize o conteúdo de uma mensagem ligando para o método [UpdateMessageAsync.](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) O método `UpdateMessageAsync` pode alterar o tempo de visibilidade e o conteúdo da mensagem. O conteúdo da mensagem deve ser uma cadeia codificada UTF-8 com até 64 KB de tamanho. Juntamente com o novo conteúdo para a mensagem, passe os valores do `SendReceipt` que foi guardado anteriormente no código. Os `SendReceipt` valores identificam qual mensagem atualizar.
+Atualize o conteúdo de uma mensagem ligando para o método [UpdateMessageAsync.](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) O `UpdateMessageAsync` método pode alterar o tempo de visibilidade e o conteúdo da mensagem. O conteúdo da mensagem deve ser uma cadeia codificada UTF-8 com até 64 KB de tamanho. Juntamente com o novo conteúdo para a `SendReceipt` mensagem, passe os valores do que foi guardado mais cedo no código. Os `SendReceipt` valores identificam qual mensagem atualizar.
 
 ```csharp
 Console.WriteLine("\nUpdating the third message in the queue...");
@@ -226,7 +226,7 @@ await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Thi
 
 Descarregue as mensagens anteriormente adicionadas através do método [ReceiveMessagesAsync.](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync)
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 Console.WriteLine("\nReceiving messages from the queue...");
@@ -239,9 +239,9 @@ QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10
 
 Apague as mensagens da fila depois de processadas. Neste caso, o processamento está apenas a exibir a mensagem na consola.
 
-A aplicação faz uma pausa para a entrada do utilizador, ligando para `Console.ReadLine` antes de processar e eliminar as mensagens. Verifique no seu [portal Azure](https://portal.azure.com) que os recursos foram criados corretamente, antes de serem apagados. Quaisquer mensagens não explicitamente eliminadas acabarão por voltar a ser visíveis na fila para mais uma oportunidade de as processar.
+A aplicação faz uma pausa `Console.ReadLine` para a entrada do utilizador, ligando antes de processar e eliminando as mensagens. Verifique no seu [portal Azure](https://portal.azure.com) que os recursos foram criados corretamente, antes de serem apagados. Quaisquer mensagens não explicitamente eliminadas acabarão por voltar a ser visíveis na fila para mais uma oportunidade de as processar.
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 Console.WriteLine("\nPress Enter key to 'process' messages and delete them from the queue...");
@@ -263,7 +263,7 @@ foreach (QueueMessage message in messages)
 
 O código seguinte limpa os recursos que a app criou eliminando a fila utilizando o método [DeleteAsync.](/dotnet/api/azure.storage.queues.queueclient.deleteasync)
 
-Adicione este código ao fim do método `Main`:
+Adicione este código ao `Main` fim do método:
 
 ```csharp
 Console.WriteLine("\nPress Enter key to delete the queue...");

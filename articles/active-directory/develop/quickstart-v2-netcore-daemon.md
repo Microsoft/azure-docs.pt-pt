@@ -1,5 +1,5 @@
 ---
-title: Obter token & call Microsoft Graph com identidade de app de consola / Azure
+title: Obter ficha & ligue para o Microsoft Graph com identidade de app de consolas Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a obter um símbolo e ligue para um Microsoft Graph API protegido com ele a partir de uma aplicação .NET Core
 services: active-directory
@@ -14,10 +14,10 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: e42be651de6fc70f5fe075a1bc1bee8010b886d7
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78274340"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um símbolo e ligue para a Microsoft Graph API usando a identidade da app de consola
@@ -47,13 +47,13 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 > 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
 > 1. Selecione **Novo registo**.
 > 1. Quando aparecer uma página de **inscrição,** insira as informações de registo da sua candidatura. 
-> 1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `Daemon-console`, em seguida, selecione **Register** para criar a aplicação.
-> 1. Uma vez registado, selecione o menu **Certificados e segredos.**
+> 1. Na secção **Nome,** introduza um nome de aplicação significativo que `Daemon-console`será apresentado aos utilizadores da aplicação, por exemplo, e selecione **O Registo** para criar a aplicação.
+> 1. Uma vez registado, selecione o menu **de Certificados & segredos.**
 > 1. Sob **os segredos do Cliente**, selecione + Novo segredo de **cliente.** Dê-lhe um nome e selecione **Adicionar**. Copie o segredo num local seguro. Vai precisar que seja usado no seu código.
 > 1. Agora, selecione o menu **DePermissões API,** selecione + Adicione um botão **de permissão,** selecione **Microsoft Graph**.
 > 1. Selecione **permissões de pedido**.
@@ -85,11 +85,11 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 > > Enter_the_Supported_Account_Info_Here
     
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Transferir o seu projeto do Visual Studio
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o projeto do Visual Studio
 > 
 > 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
 > 1. Abra a solução em Visual Studio - **1-Call-MSGraph\daemon-console.sln** (opcional).
-> 1. Editar **appssettings.json** e substituir os valores dos campos `ClientId`, `Tenant` e `ClientSecret` com os seguintes:
+> 1. Editar **appssettings.json** e substituir os `ClientId` `Tenant` valores dos campos, e `ClientSecret` com os seguintes:
 > 
 >    ```json
 >    "Tenant": "Enter_the_Tenant_Id_Here",
@@ -98,12 +98,12 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 >    ```
 >   Em que:
 >   - `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
->   - `Enter_the_Tenant_Id_Here` - substitua este valor pelo nome **id do arrendatário** ou **do inquilino** (por exemplo, contoso.microsoft.com)
->   - `Enter_the_Client_Secret_Here` - substitua este valor pelo segredo do cliente criado no passo 1.
+>   - `Enter_the_Tenant_Id_Here`- substituir este valor pelo nome id ou inquilino **do arrendatário** (por exemplo, contoso.microsoft.com) **Tenant name**
+>   - `Enter_the_Client_Secret_Here`- substitua este valor pelo segredo do cliente criado no passo 1.
 
 > [!div renderon="docs"]
 > > [!TIP]
-> > Para encontrar os valores de Id de **Aplicação (cliente),** **Id de Diretório (inquilino),** vá à página de **visão geral** da aplicação no portal Azure. Para gerar uma nova chave, vá à página **de Certificados e segredos.**
+> > Para encontrar os valores de Id de **Aplicação (cliente),** **Id de Diretório (inquilino),** vá à página de **visão geral** da aplicação no portal Azure. Para gerar uma nova chave, vá à página **de Certificados & segredos.**
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Passo 3: Consentimento do administrador
@@ -111,7 +111,7 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 > [!div renderon="docs"]
 > #### <a name="step-4-admin-consent"></a>Passo 4: Consentimento do administrador
 
-Se tentar executar a aplicação neste momento, receberá *HTTP 403 -* Erro proibido: `Insufficient privileges to complete the operation`. Isto acontece porque qualquer *permissão apenas de aplicações* requer consentimento da Admin, o que significa que um administrador global do seu diretório deve dar consentimento à sua aplicação. Selecione uma das opções abaixo, dependendo do seu papel:
+Se tentar executar a aplicação neste momento, receberá *HTTP 403* `Insufficient privileges to complete the operation`- Erro proibido: . Isto acontece porque qualquer *permissão apenas de aplicações* requer consentimento da Admin, o que significa que um administrador global do seu diretório deve dar consentimento à sua aplicação. Selecione uma das opções abaixo, dependendo do seu papel:
 
 ##### <a name="global-tenant-administrator"></a>Administrador global de inquilinos
 
@@ -133,7 +133,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Em que:
->> * `Enter_the_Tenant_Id_Here` - substitua este valor pelo nome **id do arrendatário** ou **do inquilino** (por exemplo, contoso.microsoft.com)
+>> * `Enter_the_Tenant_Id_Here`- substituir este valor pelo nome id ou inquilino **do arrendatário** (por exemplo, contoso.microsoft.com) **Tenant name**
 >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 
 > [!NOTE]
@@ -204,13 +204,13 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > |---------|---------|
 > | `config.ClientSecret` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config.ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
-> | `config.Authority`    | (Opcional) O ponto final do STS para o utilizador autenticar. Normalmente <https://login.microsoftonline.com/{tenant}> para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu inquilino ID.|
+> | `config.Authority`    | (Opcional) O ponto final do STS para o utilizador autenticar. Normalmente <https://login.microsoftonline.com/{tenant}> para a nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu inquilino ID.|
 
-Para mais informações, por favor leia as [informações sobre](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet) a documentação de referência para `ConfidentialClientApplication`
+Para mais informações, consulte a [documentação `ConfidentialClientApplication` ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet) de referência para
 
-### <a name="requesting-tokens"></a>Solicitar tokens
+### <a name="requesting-tokens"></a>Pedir tokens
 
-Para solicitar um símbolo utilizando a identidade da app, utilize `AcquireTokenForClient` método:
+Para solicitar um símbolo utilizando a `AcquireTokenForClient` identidade da aplicação, utilize o método:
 
 ```csharp
 result = await app.AcquireTokenForClient(scopes)
@@ -219,9 +219,9 @@ result = await app.AcquireTokenForClient(scopes)
 
 > |Em que:| |
 > |---------|---------|
-> | `scopes` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante ao `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os definidos estáticamente definidos no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, `{Application ID URI}` aponta para `https://graph.microsoft.com`). Para APIs web personalizados, `{Application ID URI}` é definido em Expor uma secção **DeAPi** no Registo de Aplicação do Portal Azure (Pré-visualização). |
+> | `scopes` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve `{Application ID URI}/.default` utilizar o formato semelhante ao que indica que os âmbitos que estão a ser `{Application ID URI}` solicitados `https://graph.microsoft.com`são os que são definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta para ). Para APIs web `{Application ID URI}` personalizados, é definido em Expor uma secção **DeAPi** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 
-Para mais informações, por favor leia as [informações sobre](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet) a documentação de referência para `AcquireTokenForClient`
+Para mais informações, consulte a [documentação `AcquireTokenForClient` ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet) de referência para
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

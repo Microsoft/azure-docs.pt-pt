@@ -9,22 +9,22 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184198"
 ---
-Máquinas virtuais do Azure (VMs) passar por Estados diferentes que podem ser categorizados em *aprovisionamento* e *power* Estados. O objetivo deste artigo é descrever esses Estados e realçar especificamente quando os clientes são faturados por exemplo utilização. 
+As Máquinas Virtuais Azure (VMs) passam por diferentes estados que podem ser categorizados em estados de *provisionamento* e *energia.* O objetivo deste artigo é descrever estes estados e destacar especificamente quando os clientes são cobrados, por exemplo, o uso. 
 
 ## <a name="power-states"></a>Estados de energia
 
-O estado de energia representa o último estado conhecido da VM.
+O estado de poder representa o último estado conhecido da VM.
 
-![Diagrama de estado de energia VM](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
+![Diagrama do estado de potência VM](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
-A tabela seguinte fornece uma descrição de cada Estado de instância e indica se ele é faturado pela utilização de instância ou não.
+A tabela seguinte fornece uma descrição de cada estado de cada instância e indica se é faturada, por exemplo, ou não.
 
 <table>
 <tr>
@@ -35,15 +35,15 @@ Estado
 Descrição
 </th>
 <th>
-Faturação da utilização de instância
+Faturação de utilização por exemplo
 </th>
 </tr>
 <tr>
 <td>
-<p><b>A partir de</b></p>
+<p><b>Início</b></p>
 </td>
 <td>
-<p>VM está a ser iniciado.</p>
+<p>A VM está a começar.</p>
 <code>"statuses": [<br>
    {<br>
       "code": "PowerState/starting",<br>
@@ -53,15 +53,15 @@ Faturação da utilização de instância
     ]</code><br>
 </td>
 <td>
-<p><b>Não lhe é faturada</b></p>
+<p><b>Não cobrado</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Em execução</b></p>
+<p><b>A executar</b></p>
 </td>
 <td>
-<p>Estado de funcionamento normal para uma VM</p>
+<p>Estado de trabalho normal para um VM</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/running",<br>
@@ -79,7 +79,7 @@ Faturação da utilização de instância
 <p><b>A parar</b></p>
 </td>
 <td>
-<p>Este é o estado de transição. Quando concluída, será mostrado como **parado**.</p>
+<p>Este é um estado de transição. Quando estiver concluído, mostrará como **Stop**.</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/stopping",<br>
@@ -94,11 +94,11 @@ Faturação da utilização de instância
 </tr>
 <tr>
 <td>
-<p><b>Parado</b></p>
+<p><b>Parada</b></p>
 </td>
 <td>
-<p>A VM foi encerrada para baixo de dentro do SO convidado ou com as APIs de desligado.</p>
-<p>Hardware ainda está alocado para a VM e permanece no anfitrião. </p>
+<p>O VM foi desligado de dentro do SISTEMA de hóspedes ou utilizando as APIs PowerOff.</p>
+<p>O hardware ainda está atribuído ao VM e permanece no hospedeiro. </p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/stopped",<br>
@@ -108,7 +108,7 @@ Faturação da utilização de instância
  ]</code><br>
 </td>
 <td>
-<p><b>Faturado&#42;</b></p>
+<p><b>&#42;cobrado</b></p>
 </td>
 </tr>
 <tr>
@@ -116,7 +116,7 @@ Faturação da utilização de instância
 <p><b>A desalocar</b></p>
 </td>
 <td>
-<p>Estado de transição. Quando concluída, a VM será mostrado como **Desalocado**.</p>
+<p>Estado de transição. Quando concluído, o VM mostrará como **Deallocated**.</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/deallocating",<br>
@@ -126,7 +126,7 @@ Faturação da utilização de instância
  ]</code><br>
 </td>
 <td>
-<p><b>Não lhe é faturada&#42;</b></p>
+<p><b>Não cobrado&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -134,7 +134,7 @@ Faturação da utilização de instância
 <p><b>Desalocada</b></p>
 </td>
 <td>
-<p>A VM foi parada com êxito e removida do anfitrião. </p>
+<p>O VM foi interrompido com sucesso e removido do hospedeiro. </p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/deallocated",<br>
@@ -144,30 +144,30 @@ Faturação da utilização de instância
  ]</code><br>
 </td>
 <td>
-<p><b>Não lhe é faturada</b></p>
+<p><b>Não cobrado</b></p>
 </td>
 </tr>
 </tbody>
 </table>
 
 
-&#42;Alguns recursos do Azure, tais como discos e redes, incorrer em custos. Licenças de software na instância não incorrem em custos.
+&#42;Alguns recursos azure, como Discos e Networking, incorrem em encargos. As licenças de software na instância não incorrem em encargos.
 
-## <a name="provisioning-states"></a>A aprovisionar Estados
+## <a name="provisioning-states"></a>Estados de provisionamento
 
-Estado de aprovisionamento é o estado de uma operação iniciada pelo utilizador, plano de controlo na VM. Esses Estados são separados do Estado de energia de uma VM.
+Um estado de provisionamento é o estatuto de uma operação de controlo e de controlo iniciado pelo utilizador no VM. Estes estados estão separados do estado de poder de um VM.
 
-- **Criar** – a criação da VM.
+- **Criar** – Criação VM.
 
-- **Atualização** – atualiza o modelo para uma VM existente. Alguns não modelo muda a VM, como o início/reinicialização também se enquadram na atualização.
+- **Atualização** – atualiza o modelo para um VM existente. Algumas alterações não-modelo em VM, como Start/Restart, também estão em atualização.
 
-- **Eliminar** – eliminação da VM.
+- **Eliminar** – Eliminação VM.
 
-- **Desalocar** – é onde uma VM é parada e removida do anfitrião. A desalocar uma VM é considerada uma atualização, para que ele irá apresentar Estados de aprovisionamento relacionados com a atualização.
+- **Deslocar** – é onde um VM é parado e removido do hospedeiro. A colocação de um VM é considerada uma atualização, pelo que irá exibir estados de provisionamento relacionados com a atualização.
 
 
 
-Aqui estão os Estados de transição de operação depois da plataforma aceitou uma ação iniciada pelo utilizador:
+Aqui estão os estados de operação transitórios após a plataforma ter aceite uma ação iniciada pelo utilizador:
 
 <br>
 
@@ -183,7 +183,7 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
 </tr>
 <tr>
 <td width="162">
-<p><b>A criar</b></p>
+<p><b>Criação</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -196,7 +196,7 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
 </tr>
 <tr>
 <td width="162">
-<p><b>Updating</b></p>
+<p><b>Atualização</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -210,7 +210,7 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
 </tr>
 <tr>
 <td width="162">
-<p><b>A eliminar</b></p>
+<p><b>Apagando</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -224,11 +224,11 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
 </tr>
 <tr>
 <td width="162">
-<p><b>Estados de aprovisionamento do SO</b></p>
+<p><b>Estados de provisionamento de Os</b></p>
 </td>
 <td width="366">
-<p>Se uma VM for criada com uma imagem de SO e não com uma imagem especializada, podem ser observados substates seguintes:</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; a VM está em execução e instalação do SO convidado está em curso. <p /> 
+<p>Se um VM for criado com uma imagem de OS e não com uma imagem especializada, então podem observar-se sub-afirmações seguintes:</p>
+<p>1. <b>OSProvisioningInprogress</b> &ndash; O VM está em execução, e a instalação de OS convidadoestá em andamento. <p /> 
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
@@ -236,7 +236,7 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
  "displayStatus": "OS Provisioning In progress"<br>
  }<br>
 ]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; estado de curta duração. A VM passa rapidamente para **êxito** , a menos que quaisquer extensões têm de ser instalados. Instalar extensões pode demorar tempo. <br />
+<p>2. <b>OSProvisioningComplete</b> &ndash; Estado de curta duração. O VM transita rapidamente para o **Sucesso,** a menos que sejam necessárias extensões. Instalar extensões pode levar tempo. <br />
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
@@ -244,15 +244,15 @@ Aqui estão os Estados de transição de operação depois da plataforma aceitou
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>Nota</b>: Aprovisionamento do SO pode fazer a transição para **falhada** se ocorrer uma falha de sistema operacional ou o sistema operacional não for instalado no tempo. Os clientes serão faturados pela VM implantada na infraestrutura.</p>
+<p><b>Nota:</b>O fornecimento de OS pode transitar para **Falha se** houver uma falha de Os ou se o Sistema operativo não instalar a tempo. Os clientes serão cobrados para o VM implantado na infraestrutura.</p>
 </td>
 </tr>
 </table>
 
 
-Quando a operação estiver concluída, a VM irão transitar para um dos seguintes Estados:
+Uma vez concluída a operação, o VM passará para um dos seguintes estados:
 
-- **Foi efetuada com êxito** – concluíram as ações iniciadas pelo usuário.
+- **Sucesso** – as ações iniciadas pelo utilizador foram concluídas.
 
     ```
   "statuses": [ 
@@ -267,7 +267,7 @@ Quando a operação estiver concluída, a VM irão transitar para um dos seguint
 
  
 
-- **Falha ao** – representa uma operação que falhou. Consulte os códigos de erro para obter mais informações e possíveis soluções.
+- **Falhado** – representa uma operação falhada. Consulte os códigos de erro para obter mais informações e possíveis soluções.
 
     ```
   "statuses": [
@@ -283,11 +283,11 @@ Quando a operação estiver concluída, a VM irão transitar para um dos seguint
 
 
 
-## <a name="vm-instance-view"></a>Vista de instância VM
+## <a name="vm-instance-view"></a>Visão de instância VM
 
-A vista de instância API fornece as informações de estado de execução da VM. Para obter mais informações, consulte a [máquinas virtuais - vista de instância](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) documentação da API.
+A visão de exemplo A API fornece informações sobre o estado de execução vm. Para mais informações, consulte a documentação da API por [exemplo - Visualizar](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) a API.
 
-O Explorador de recursos do Azure fornece uma interface do Usuário simple para ver a Estado de execução de VM: [Explorador de recursos](https://resources.azure.com/).
+O explorador de recursos azure fornece uma UI simples para visualizar o estado de execução vm: [Resource Explorer](https://resources.azure.com/).
 
-Estados de aprovisionamento são visíveis nas propriedades da VM e vista de instância. Estados de energia estão disponíveis na vista de instância de VM. 
+Os estados de provisionamento são visíveis nas propriedades vm e na vista de exemplo. Os estados de energia estão disponíveis, por exemplo, na visão da VM. 
 

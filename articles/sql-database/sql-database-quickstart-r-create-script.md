@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 5b2f8231952d25f5858f8e06a957f1056ecc3651
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768497"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Quickstart: Crie e execute scripts R simples em Serviços de Machine Learning de Base de Dados Azure SQL (pré-visualização)
@@ -52,13 +52,13 @@ d <- a*b
 print(c(c, d))
 ```
 
-1. Abra o **SQL Server Management Studio** e ligue à sua base de dados SQL.
+1. Abra o **Estúdio de Gestão de Servidores SQL** e ligue-se à sua base de dados SQL.
 
    Se precisar de ajuda para se ligar, consulte [Quickstart: Use o Estúdio de Gestão de Servidores SQL para ligar e consultar uma base de dados Azure SQL](sql-database-connect-query-ssms.md).
 
 1. Passe o script R completo para o [procedimento sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) armazenado.
 
-   O guião é passado através do argumento `@script`. Tudo dentro do argumento `@script` deve ser válido código R.
+   O guião é `@script` passado através do argumento. Tudo dentro `@script` do argumento deve ser válido código R.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -75,11 +75,11 @@ print(c(c, d))
 
    > [!NOTE]
    > Se for administrador, pode executar código externo automaticamente. Pode conceder permissão a outros utilizadores que utilizem o comando:
-   <br>**CONCESSÃO EXECUTAR QUALQUER script externo para**\<nome de utilizador *\>* .
+   <br>**CONCESSÃO EXECUTAR QUALQUER SCRIPT EXTERNO ao** * \<\>nome de utilizador*.
 
-2. O resultado correto é calculado e a função R `print` devolve o resultado à janela **Mensagens.**
+2. O resultado correto é `print` calculado e a função R devolve o resultado à janela **Mensagens.**
 
-   Ele deve ser semelhante a este.
+   Deve ser algo assim.
 
     **Resultados**
 
@@ -90,7 +90,7 @@ print(c(c, d))
 
 ## <a name="run-a-hello-world-script"></a>Executar um roteiro hello world
 
-Um típico exemplo script é aquele que apenas produz a corda "Hello World". Executar o seguinte comando.
+Um típico exemplo script é aquele que apenas produz a corda "Hello World". Execute o seguinte comando.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -115,7 +115,7 @@ O comando envia o seguinte texto:
 |-------------|
 | 1 |
 
-## <a name="use-inputs-and-outputs"></a>Utilizar inputs e saídas
+## <a name="use-inputs-and-outputs"></a>Utilizar entradas e saídas
 
 Por predefinição, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) aceita um único conjunto de dados como entrada, que normalmente fornece sob a forma de uma consulta SQL válida. Em seguida, devolve um único quadro de dados R como saída.
 
@@ -137,7 +137,7 @@ Por enquanto, vamos utilizar as variáveis de entrada e saída predefinidas de [
     GO
     ```
 
-1. Use a declaração `SELECT` para consultar a mesa.
+1. Use `SELECT` o depoimento para consultar a mesa.
   
     ```sql
     SELECT *
@@ -148,7 +148,7 @@ Por enquanto, vamos utilizar as variáveis de entrada e saída predefinidas de [
 
     ![Conteúdos da tabela RTestData](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
-1. Executar o seguinte guião R. Recupera os dados da tabela utilizando a declaração `SELECT`, passa-os através do tempo de execução R e devolve os dados como um quadro de dados. A cláusula `WITH RESULT SETS` define o esquema da tabela de dados devolvida para a Base de Dados SQL, adicionando o nome de coluna *NewColName*.
+1. Executar o seguinte guião R. Recupera os dados da tabela `SELECT` utilizando a declaração, passa-os através do tempo de execução R e devolve os dados como um quadro de dados. A `WITH RESULT SETS` cláusula define o esquema da tabela de dados devolvida para a Base de Dados SQL, adicionando o nome de coluna *NewColName*.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -172,12 +172,12 @@ Por enquanto, vamos utilizar as variáveis de entrada e saída predefinidas de [
     WITH RESULT SETS(([NewColName] INT NOT NULL));
     ```
 
-    Note que R é sensível a casos. As variáveis de entrada e saída utilizadas no script R (**SQL_out,** **SQL_in**) precisam de corresponder aos valores definidos com `@input_data_1_name` e `@output_data_1_name`, incluindo caso.
+    Note que R é sensível a casos. As variáveis de entrada e saída utilizadas no script R **(SQL_out,** **SQL_in**) precisam de corresponder aos valores definidos `@input_data_1_name` `@output_data_1_name`e, incluindo caso.
 
    > [!TIP]
    > Apenas um conjunto de dados de entrada pode ser transmitido como parâmetro e só pode ser devolvido um conjunto de dados. No entanto, pode chamar outros conjuntos de dados no código R e devolver saídas de outros tipos para além do conjunto de dados. Também pode adicionar a palavra-chave OUTPUT a qualquer parâmetro, para que seja devolvida com os resultados.
 
-1. Também pode gerar valores usando o script R sem dados de entrada (`@input_data_1` está definido em branco).
+1. Também pode gerar valores usando o script R`@input_data_1` sem dados de entrada (está definido em branco).
 
    O seguinte guião produz o texto "olá" e "mundo".
 
@@ -247,7 +247,7 @@ WITH result sets((
             ));
 ```
 
-A saída é de `installed.packages()` em R e é devolvida como resultado definido.
+A saída `installed.packages()` é de R e é devolvida como resultado definido.
 
 **Resultados**
 

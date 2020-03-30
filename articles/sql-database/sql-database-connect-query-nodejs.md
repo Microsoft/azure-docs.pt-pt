@@ -12,10 +12,10 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: c0da38a41bf613237ea3b164d70e4729a7284ca7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768608"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Node.js para consultar uma base de dados SQL do Azure
@@ -28,15 +28,15 @@ Neste arranque rápido, utiliza o Node.js para se ligar a uma base de dados Azur
 - Uma [base de dados Azure SQL](sql-database-single-database-get-started.md)
 - Software relacionado com [node.js](https://nodejs.org)
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Instale homebrew e Node.js, em seguida, instale o controlador ODBC e o SQLCMD utilizando os passos **1.2** e **1.3** nas [aplicações Create Node.js utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
   Instale o Node.js e, em seguida, instale o controlador ODBC e o SQLCMD utilizando os passos **1.2** e **1.3** nas [aplicações Create Node.js utilizando o SQL Server em Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Instale as aplicações Chocolatey e Node.js e, em seguida, instale o controlador ODBC e o SQLCMD utilizando os passos **1.2** e **1.3** nas [aplicações Create Node.js utilizando o Servidor SQL no Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
@@ -52,15 +52,15 @@ Neste arranque rápido, utiliza o Node.js para se ligar a uma base de dados Azur
 >
 > Para carregar dados, consulte restaurar com o [FICHEIRO BACPAC](sql-database-import.md) com o ficheiro [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) ou ver restaurar a base de dados dos [Importadores](sql-database-managed-instance-get-started-restore.md)do Mundo Wide .
 
-## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
+## <a name="get-sql-server-connection-information"></a>Obtenha informações de ligação ao servidor SQL
 
-Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
+Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Vá às bases de **dados SQL** ou página de **instâncias geridas pela SQL.**
 
-3. Na página **visão geral** , examine o nome do servidor totalmente qualificado ao lado de **nome do servidor** para um único banco de dados ou o nome do servidor totalmente qualificado ao lado de **host** para uma instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone de **cópia** . 
+3. Na página **Overview,** reveja o nome do servidor totalmente qualificado ao lado do **nome do Servidor** para uma única base de dados ou o nome de servidor totalmente qualificado ao lado do **Anfitrião** para uma instância gerida. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copiar.** 
 
 ## <a name="create-the-project"></a>Criar o projeto
 

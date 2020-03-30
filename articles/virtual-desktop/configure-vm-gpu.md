@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
 ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78384821"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop
@@ -49,7 +49,7 @@ Por padrão, aplicações e desktops em configurações multi-sessões são rend
 
 1. Ligue-se ao ambiente de trabalho do VM utilizando uma conta com privilégios de administrador local.
 2. Abra o menu Iniciar e escreva "gpedit.msc" para abrir o Editor de Política do Grupo.
-3. Navegue a árvore para **configuração** de computador > **modelos administrativos** > componentes do Windows > **serviços** de ambiente de **trabalho remoto** > anfitrião de **sessão remota** de secretária > ambiente de **sessão remota**.
+3. Navigate the tree to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
 4. Selecione política **Utilize o adaptador de gráficos padrão de hardware para todas as sessões** de Serviços de Ambiente de Trabalho Remoto e detetete tea política para **ativar** a renderização de GPU na sessão remota.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configure codificação de quadros acelerados por GPU
@@ -74,7 +74,7 @@ O Remote Desktop codifica todos os gráficos renderizados por apps e desktops (s
 
 Para verificar se as aplicações estão a utilizar a GPU para renderização, experimente qualquer uma das seguintes aplicações:
 
-* Para Os VMs Azure com um GPU NVIDIA, utilize o utilitário `nvidia-smi` conforme descrito na [instalação do controlador Verifique](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) se há utilização de GPU ao executar as suas apps.
+* Para Os VMs Azure com um GPU NVIDIA, utilize o `nvidia-smi` utilitário conforme descrito na [instalação do controlador Verifique](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) se há utilização de GPU ao executar as suas apps.
 * Nas versões do sistema operativo suportado, pode utilizar o Gestor de Tarefas para verificar se há utilização de GPU. Selecione a GPU no separador "Performance" para ver se as aplicações estão a utilizar a GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Verifique a codificação de quadros acelerados pela GPU
@@ -82,7 +82,7 @@ Para verificar se as aplicações estão a utilizar a GPU para renderização, e
 Para verificar se o Ambiente de Trabalho Remoto está a utilizar codificação acelerada por GPU:
 
 1. Ligue-se ao ambiente de trabalho do VM utilizando o cliente Windows Virtual Desktop.
-2. Lance o Espectador de Eventos e navegue para o seguinte nó: Registos de **aplicações e serviços** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operacional**
+2. Lance o Espectador de Eventos e navegue para o seguinte nó: **Aplicações e serviços Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operacional**
 3. Para determinar se é utilizada codificação acelerada por GPU, procure o ID 170 do evento. Se vir "Codificador de hardware AVC ativado: 1" então a codificação de GPU é utilizada.
 4. Para determinar se o modo AVC 444 é utilizado, procure o ID 162 do evento. Se vir "AVC Disponível: 1 Perfil Inicial: 2048" então é utilizado O Vc 444.
 

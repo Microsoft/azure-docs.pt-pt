@@ -8,10 +8,10 @@ ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: c9cea52e04a991e6e3ac64426f0443939f8aaa3a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77914386"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior do Azure Migrate
@@ -37,7 +37,7 @@ Não é possível atualizar projetos ou componentes na versão anterior para a n
 
 Encontre projetos da versão anterior da seguinte forma:
 
-1. No portal Azure > **Todos os serviços,** procure e selecione **Azure Migrate**. 
+1. No portal Azure > **Todos os serviços,** procure e selecione **Azure Migrate.** 
 2. No painel de migração Azure, há uma notificação e um link para aceder a antigos projetos azure migrate.
 3. Clique no link para abrir projetos v1.
 
@@ -56,7 +56,7 @@ Criar uma avaliação da seguinte forma:
 3. Crie o grupo e especifique um nome.
 4. Selecione as máquinas que quer adicionar ao grupo.
 5. Clique em **Criar Avaliação**, para criar o grupo e a avaliação.
-6. Após a criação da avaliação, visualize-a em **Descrição geral** > **Dashboard**.
+6. Após a criação da avaliação, veja-a no**Painel de Visão** **Geral** > .
 7. Clique em **Exportar avaliação**, para transferi-la como um ficheiro do Excel.
 
 Se quiser atualizar uma avaliação existente com os dados de desempenho mais recentes, poderá utilizar o comando **Recalcular** na avaliação para a atualizar.
@@ -91,8 +91,8 @@ A prontidão tem em conta uma série de propriedades VM, para identificar se o V
 **Propriedade** | **Detalhes** | **Prontidão**
 --- | --- | ---
 **Tipo de arranque** | BIOS suportado. UeFI não apoiado. | Pronto condicionalmente se o tipo de arranque for UEFI.
-**Núcleos** | Núcleo de máquinas <= o número máximo de núcleos (128) suportados para um VM Azure.<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera os núcleos utilizados.<br/>Se um fator de conforto for especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, a Azure Migrate usa os núcleos atribuídos, sem aplicar o fator de conforto. | Pronto se for inferior ou igual a limites.
-**Memória** | O tamanho da memória da máquina <= a memória máxima (3892 GB na série Azure M Standard_M128m&nbsp;<sup>2</sup>) para um VM Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera a memória utilizada.<br/><br/>Se for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a memória atribuída é usada, sem aplicar o fator de conforto.<br/><br/> | Pronto se dentro dos limites.
+**Núcleos** | As máquinas core <= o número máximo de núcleos (128) suportados para um VM Azure.<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera os núcleos utilizados.<br/>Se um fator de conforto for especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, a Azure Migrate usa os núcleos atribuídos, sem aplicar o fator de conforto. | Pronto se for inferior ou igual a limites.
+**Memória** | O tamanho da memória da máquina <= a memória máxima&nbsp;(3892 GB na série Azure M Standard_M128m<sup>2</sup>) para um VM Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera a memória utilizada.<br/><br/>Se for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a memória atribuída é usada, sem aplicar o fator de conforto.<br/><br/> | Pronto se dentro dos limites.
 **Disco de armazenamento** | O tamanho atribuído de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos ligados à máquina deve ser de 65 ou menos, incluindo o disco OS. | Pronto se dentro dos limites.
 **Redes** | Uma máquina deve ter 32 NICs ou menos ligados a ela. | Pronto se dentro dos limites.
 
@@ -130,7 +130,7 @@ Sistemas operativos de 32 bits | A máquina pode arrancar em Azure, mas o Azure 
 - Se o tamanho for baseado no desempenho, a recomendação de tamanho considera o histórico de desempenho dos VMs (CPU e memória) e discos (IOPS e entrada).
 - Se o critério de dimensionamento for "como no local", a recomendação de dimensão em Azure baseia-se na dimensão do VM no local. O tamanho do disco baseia-se no tipo de Armazenamento especificado nas propriedades de avaliação (padrão são discos premium). A Azure Migrate não considera os dados de desempenho do VM e dos discos.
 
-### <a name="review-cost-estimates"></a>Estimativas de custos de revisão
+### <a name="review-cost-estimates"></a>Rever as estimativas de custos
 
 As estimativas de custos mostram o custo total de cálculo e armazenamento de funcionamento dos VMs em Azure, juntamente com os detalhes para cada máquina.
 
@@ -198,7 +198,7 @@ Para configurar a visualização da dependência, associa um espaço de trabalho
 
 Para utilizar a visualização da dependência, associa um espaço de trabalho log Analytics a um projeto de migração. Só é possível criar ou anexar um espaço de trabalho na mesma subscrição onde o projeto de migração é criado.
 
-1. Para anexar um espaço de trabalho de Log Analytics a um projeto, em **Visão Geral,** > **Essencial,** clique **requer configuração .**
+1. Para anexar um espaço de trabalho de Log Analytics a um projeto, em **Visão Geral,**> **Essencial,** clique **requer configuração**.
 2. Pode criar um novo espaço de trabalho, ou anexar um existente:
   - Para criar um novo espaço de trabalho, especifique um nome. O espaço de trabalho é criado numa região da mesma [geografia Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
   - Quando anexa um espaço de trabalho existente, pode escolher entre todos os espaços de trabalho disponíveis na mesma subscrição que o projeto de migração. Apenas esses espaços de trabalho estão listados que foram criados numa região de Mapa de [Serviços suportado.](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites) Para fixar um espaço de trabalho, certifique-se de que tem acesso ao 'Leitor' ao espaço de trabalho.
@@ -210,7 +210,7 @@ Para utilizar a visualização da dependência, associa um espaço de trabalho l
 
 Depois de configurar um espaço de trabalho, descarrega e instala agentes em cada máquina no local que pretende avaliar. Além disso, se tiver máquinas sem conectividade de internet, precisa de descarregar e instalar o [gateway Log Analytics.](../azure-monitor/platform/gateway.md)
 
-1. Em **resumo,** clique em **Gerir** > **Máquinas**, e selecione a máquina necessária.
+1. Em **visão geral,** clique em **Gerir** > **máquinas**e selecione a máquina necessária.
 2. Na coluna **Dependências,** clique em **instalar agentes**.
 3. Na página **Dependencies,** faça o download e instale o Microsoft Monitoring Agent (MMA) e o agente Dependency em cada VM que pretende avaliar.
 4. Copie o ID e a chave da área de trabalho. Precisa destes quando instalar o MMA na máquina no local.
@@ -226,7 +226,7 @@ Para instalar o agente numa máquina do Windows:
 1. Faça duplo clique no agente transferido.
 2. Na página **Bem-vindo**, clique em **Seguinte**. Na página **Termos de Licenciamento**, clique em **Concordo** para aceitar a licença.
 3. Na **pasta destino,** guarde ou modifique a pasta de instalação predefinida > **Seguinte**.
-4. Nas opções de configuração do **agente,** selecione **Azure Log Analytics** > **Seguinte**.
+4. Nas opções de **configuração do agente,** selecione **Azure Log Analytics** > **Next**.
 5. Clique em **Adicionar** para adicionar um novo espaço de trabalho log Analytics. Colhe no ID do espaço de trabalho e na chave que copiou do portal. Clique em **Seguinte**.
 
 Pode instalar o agente a partir da linha de comando ou utilizar um método automatizado, como o 'Gestor de Configuração'. [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sobre a utilização destes métodos para instalar o agente MMA.
@@ -261,7 +261,7 @@ Para máquinas monitorizadas pelo System Center Operations Manager 2012 R2 ou po
 
 ### <a name="create-a-group-with-dependency-mapping"></a>Criar um grupo com mapeamento de dependência
 
-1. Depois de instalar os agentes, dirija-se ao portal e clique em **Gerir** > **Máquinas**.
+1. Depois de instalar os agentes, dirija-se ao portal e clique em **Gerir** > **máquinas**.
 2. Procure a máquina onde instalou os agentes.
 3. A coluna **Dependencies** para a máquina deve agora mostrar como Dependências de **Visualização**. Clique na coluna para ver as dependências da máquina.
 4. O mapa de dependência da máquina mostra os seguintes detalhes:
@@ -295,7 +295,7 @@ Para executar as consultas de Kusto:
 
 1. Depois de instalar os agentes, vá ao portal e clique em **Visão Geral**.
 2. Em **visão geral,** vá à secção **Essencial do** projeto e clique no nome do espaço de trabalho fornecido ao lado do **Workspace OMS**.
-3. Na página do espaço de trabalho Log Analytics, clique em **Registos** **gerais** de > .
+3. Na página do espaço de trabalho Log Analytics, clique em**Registos** **Gerais** > .
 4. Escreva a sua consulta para recolher dados de dependência utilizando registos do Monitor Azure. Encontre consultas de amostra na secção seguinte.
 5. Execute a sua consulta clicando em Run. 
 

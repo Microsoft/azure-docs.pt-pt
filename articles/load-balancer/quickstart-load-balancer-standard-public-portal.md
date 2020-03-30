@@ -16,27 +16,27 @@ ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78898838"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um Balancer de carga para carregar VMs de equilíbrio utilizando o portal Azure
 
 O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por várias máquinas virtuais. Pode utilizar o Portal do Azure para criar um balanceador de carga que faça o balanceamento de carga das máquinas virtuais (VMs). Este quickstart mostra-lhe como carregar VMs de equilíbrio usando um Balancer de Carga público.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
-## <a name="create-a-load-balancer"></a>Criar um Balancer de Carga
+## <a name="create-a-load-balancer"></a>Criar um Balanceador de Carga
 
 Nesta secção, cria-se um Balancer de carga que ajuda a carregar máquinas virtuais de equilíbrio. Pode criar um Balancer de Carga público ou um Balancer de Carga interna. Quando criar um Balancer de Carga público, também deve criar um novo endereço IP público que esteja configurado como o frontend (nomeado como *LoadBalancerFrontend* por padrão) para o Balancer de Carga.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > **Networking** > **Load Balancer**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um** > equilíbrio de**carga**de**rede** > de recursos .
 2. No separador **Basics** da página **'Criar balanceor de carga',** introduzir ou selecionar as seguintes informações, aceitar as predefinições para as restantes definições e, em seguida, selecionar **Rever + criar**:
 
     | Definição                 | Valor                                              |
@@ -48,7 +48,7 @@ Nesta secção, cria-se um Balancer de carga que ajuda a carregar máquinas virt
     | Tipo          | Selecione **Public**.                                        |
     | SKU           | Selecione **Standard** ou **Basic**. A Microsoft recomenda a Standard para cargas de trabalho de produção. |
     | Endereço IP público | Selecione **Criar novo**. Se tiver um IP público existente que gostaria de utilizar, selecione **Use existente** |
-    | Nome do endereço IP público              | Digite *o meu PublicIP* na caixa de texto.   Use ```-SKU Basic``` para criar um IP Público Básico. Os IPs públicos básicos não são compatíveis com o equilíbrio de carga **Standard.** A Microsoft recomenda a utilização **do Standard** para cargas de trabalho de produção.|
+    | Nome do endereço IP público              | Digite *o meu PublicIP* na caixa de texto.   Utilizar ```-SKU Basic``` para criar um IP Público Básico. Os IPs públicos básicos não são compatíveis com o equilíbrio de carga **Standard.** A Microsoft recomenda a utilização **do Standard** para cargas de trabalho de produção.|
     | Zona de disponibilidade | Digite *zona redundante* para criar um equilibrador de carga resiliente. Para criar um Balancer de Carga zonal, selecione uma zona específica de 1, 2 ou 3 |
 
 > [!IMPORTANT]
@@ -84,7 +84,7 @@ Para permitir que o Balancer de carga monitorize o estado da sua aplicação, ut
     | Protocolo | Selecione **HTTP**. |
     | Porta | Insira *80*.|
     | Intervalo | Introduza *15* para o número de **intervalos** em segundos entre as tentativas de sonda. |
-    | Limiar insalubre | Selecione **2** para o número de falhas de **limiar não saudáveis** ou de sonda consecutivas que devem ocorrer antes de um VM ser considerado insalubre.|
+    | Limiar com funcionamento incorreto | Selecione **2** para o número de falhas de **limiar não saudáveis** ou de sonda consecutivas que devem ocorrer antes de um VM ser considerado insalubre.|
     | | |
 4. Selecione **OK**.
 
@@ -101,7 +101,7 @@ Pode utilizar uma regra de Balanceador de Carga para definir a forma como o trá
     | Protocolo | Selecione **TCP**. |
     | Porta | Insira *80*.|
     | Porto backend | Insira *80*. |
-    | Piscina de backend | Selecione *myBackendPool*.|
+    | Conjunto de back-end | Selecione *myBackendPool*.|
     | Sonda de estado de funcionamento | Selecione *myHealthProbe*. |
 4. Deixe o resto das predefinições e, em seguida, selecione **OK**.
 
@@ -116,12 +116,12 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
-| **\<nome de grupo de recursos>**  | myResourceGroupSLB |
-| **\<nome de rede virtual>** | myVNet          |
-| **\<nome da região>**          | Europa Ocidental      |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
-| **\<sub-nome>**          | myBackendSubnet        |
-| **\<sub-endereço-gama>** | 10.1.0.0\24          |
+| **\<>de nome de grupo de recursos**  | myResourceGroupSLB |
+| **\<>de nome de rede virtual** | myVNet          |
+| **\<>de nome da região**          | Europa ocidental      |
+| **\<>espaço de endereçoI4**   | 10.1.0.0\16          |
+| **\<>de nome de subnet**          | myBackendSubnet        |
+| **\<>de endereços-endereço de subnet** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -131,23 +131,23 @@ As SKUs públicas ip e load Balancer SKUs devem corresponder. Para o Standard Lo
 1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Compute** > **Windows Server 2019 Datacenter**. 
    
 1. Em **Criar uma máquina virtual,** digite ou selecione os seguintes valores no separador **Basics:**
-   - **Grupo de** **recursos** > de assinatura : Selecione **myResourceGroupSLB**.
-   - **Detalhes > ** **nome virtual**da máquina : Digite *myVM1*.
-   - **Detalhes de exemplo** > **Região** > selecione **Europa Ocidental**.
-   - **Detalhes da > ** **Opções de Disponibilidade** > Selecione zonas de **disponibilidade**. 
-   - **Detalhes da > ** **zona de disponibilidade** > Selecione **1**.
-   - **Conta administradora**> Introduza o nome de **utilizador,** **palavra-passe** e confirme informações **de palavra-passe.**
+   - **Subscription** > **Grupo de recursos**de subscrição : Selecione **myResourceGroupSLB**.
+   - **Detalhes da** > ocorrência**Nome da máquina virtual**: Digite *myVM1*.
+   - **Detalhes de exemplo****Região** > selecionar Europa Ocidental . **West Europe** > 
+   - **Detalhes da** > ocorrência**Opções** de disponibilidade > Selecione **zonas de disponibilidade**. 
+   - **Detalhes da** > ocorrência**A zona** de disponibilidade > Selecione **1**.
+   - **Conta administrador>** Insira o nome de **utilizador,** **palavra-passe** e confirme informações **de palavra-passe.**
    - Selecione o separador **de rede** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**.
   
 1. No separador **de rede** certifique-se de que são selecionados os seguintes:
    - **Rede virtual**: *myVnet*
    - **Subnet**: *myBackendSubnet*
-   - Ip &gt **público;** selecione **Criar uma nova**, e na janela de **endereços IP públicos,** para **SKU,** selecione **Standard**, e para a zona **de disponibilidade,** selecione **Zone-redundante,** e depois selecione **OK**. Se criou um Equilíbrio de Carga Básico, selecione Basic. A Microsoft recomenda a utilização do Standard SKU para cargas de trabalho de produção.
+   - **Ip público** > selecione **Criar nova**, e na janela de **endereçoip público Criar,** para **SKU**, selecione **Standard**, e para a zona **de disponibilidade,** selecione **Zone-redundante**, e, em seguida, selecione **OK**. Se criou um Equilíbrio de Carga Básico, selecione Basic. A Microsoft recomenda a utilização do Standard SKU para cargas de trabalho de produção.
    - Para criar um novo grupo de segurança de rede (NSG), um tipo de firewall, no **Network Security Group,** selecione **Advanced**. 
        1. No campo do grupo de segurança de **rede Configure,** selecione **Criar nova**. 
        1. Digite *myNetworkSecurityGroup*, e selecione **OK**.
    - Para fazer do VM uma parte da piscina de backend do Balancer de Carga, complete os seguintes passos:
-        - Em **Balanceamento de Carga**, para colocar esta máquina **virtual atrás de uma solução de equilíbrio**de carga existente?
+        - Em **Balanceamento de Carga**, para colocar esta máquina **Yes** **virtual atrás de uma solução de equilíbrio**de carga existente?
         - Nas **definições de equilíbrio de carga**, para opções de equilíbrio de **carga,** selecione o equilíbrio de **carga Azure**.
         - Para **selecionar um equilíbrior**de carga, *myLoadBalancer*.
         - Selecione o separador **Gestão** ou selecione **Next** > **Management**.
@@ -191,7 +191,7 @@ Nesta secção, cria uma regra do grupo de segurança da rede para permitir liga
 1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e depois da lista de recursos, selecione **myVM1** que está localizado no grupo de recursos *myResourceGroupSLB.*
 2. Na página **Descrição geral**, selecione **Ligar** para estabelecer o RDP para a VM.
 5. Inicie sessão na VM com as credenciais que forneceu durante a criação desta VM. Esta ação inicia uma sessão de ambiente de trabalho remoto com a máquina virtual *myVM1*.
-6. No ambiente de trabalho do servidor, navegue para **Ferramentas Administrativas do Windows**>**Windows PowerShell**.
+6. No ambiente de trabalho do servidor, navegue para **windows administrative tools**>**Windows PowerShell**.
 7. Na Janela do PowerShell, execute os seguintes comandos para instalar o servidor IIS, remova o ficheiro iisstart.htm predefinido e, em seguida, adicione um novo ficheiro iisstart.htm que apresenta o nome da VM:
 
    ```azurepowershell-interactive

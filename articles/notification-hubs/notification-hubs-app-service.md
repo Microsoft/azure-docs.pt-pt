@@ -1,6 +1,6 @@
 ---
-title: Integração de hubs de notificação com aplicativos móveis do serviço de aplicativo
-description: Saiba como os hubs de notificação do Azure funcionam com os aplicativos móveis do serviço Azure App.
+title: Integração de Centros de Notificação com aplicações móveis do serviço de aplicações
+description: Saiba como o Azure Notification Hubs funciona com aplicações móveis do Azure App Service.
 author: sethmanheim
 manager: femila
 editor: jwargo
@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e6c4fb767e6237f390cdb467b35c323f637bebf2
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76264157"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>Integração com as Aplicações Móveis do Serviço de Aplicações
@@ -45,4 +45,4 @@ Aqui estão algumas das conveniências que esta integração proporciona a progr
   - *Enviar para o dispositivo*: os SDKs utilizam automaticamente o ID de Instalação das Aplicações Móveis como o GUID para se registarem nos Hubs de Notificação, poupando aos programadores o trabalho de manterem GUIDs para vários serviços.
 - **Modelo de instalação**: as Aplicações Móveis funcionam com o modelo push mais recente dos Hubs de Notificação para representar todas as propriedades de push associadas a um dispositivo numa instalação JSON que se alinha com os Serviço de Notificações Push e é fácil de utilizar.
 - **Flexibilidade**: os programadores podem sempre optar por trabalhar diretamente com os Hubs de Notificação, mesmo com a integração instalada.
-- **Experiência integrada no [portal do Azure](https://portal.azure.com)** : o push como capacidade está representado visualmente nas Aplicações Móveis e os programadores podem trabalhar facilmente com o hub de notificação associado através daquelas.
+- **Experiência integrada no [portal do Azure](https://portal.azure.com)**: o push como capacidade está representado visualmente nas Aplicações Móveis e os programadores podem trabalhar facilmente com o hub de notificação associado através daquelas.

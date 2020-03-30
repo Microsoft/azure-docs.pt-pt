@@ -9,10 +9,10 @@ ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: a0837790b70de42073338bf085ee0f3976b866f6
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969609"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Mova ficheiros de e para um VM Linux usando SCP
@@ -41,9 +41,9 @@ Como exemplos, movemos um ficheiro de configuração Azure até um VM Linux e re
 
 ## <a name="ssh-key-pair-authentication"></a>Autenticação do par de chaves SSH
 
-O SCP utiliza SSH para a camada de transporte. O SSH trata da autenticação no anfitrião do destino e move o ficheiro num túnel encriptado fornecido por padrão com SSH. Para a autenticação SSH, podem ser utilizados nomes de utilizador e palavras-passe. No entanto, a autenticação de chaves públicas e privadas ssh é recomendada como uma melhor prática de segurança. Uma vez que o SSH tenha autenticado a ligação, o SCP começa a copiar o ficheiro. Utilizando uma `~/.ssh/config` e chaves públicas e privadas corretamente configuradas, a ligação SCP pode ser estabelecida apenas utilizando um nome de servidor (ou endereço IP). Se tiver apenas uma chave SSH, a SCP procura-a no diretório `~/.ssh/` e utiliza-a por defeito para iniciar sessão no VM.
+O SCP utiliza SSH para a camada de transporte. O SSH trata da autenticação no anfitrião do destino e move o ficheiro num túnel encriptado fornecido por padrão com SSH. Para a autenticação SSH, podem ser utilizados nomes de utilizador e palavras-passe. No entanto, a autenticação de chaves públicas e privadas ssh é recomendada como uma melhor prática de segurança. Uma vez que o SSH tenha autenticado a ligação, o SCP começa a copiar o ficheiro. Utilizando uma chave `~/.ssh/config` pública e privada ssh devidamente configurada e ssh, a ligação SCP pode ser estabelecida apenas utilizando um nome de servidor (ou endereço IP). Se tiver apenas uma chave SSH, a `~/.ssh/` SCP procura-a no diretório e utiliza-a por defeito para iniciar sessão no VM.
 
-Para obter mais informações sobre a configuração das suas chaves públicas e privadas `~/.ssh/config` e SSH, consulte [As teclas Create SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais informações sobre a configuração `~/.ssh/config` das suas chaves públicas e privadas SSH, consulte Create [SSH keys](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="scp-a-file-to-a-linux-vm"></a>SCP um ficheiro para um Linux VM
 
@@ -65,7 +65,7 @@ Os seguintes ficheiros de cópias de comando no */home/azureuser/logs/ diretóri
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-A bandeira `-r` instrui a SCP a copiar recursivamente os ficheiros e diretórios a partir do ponto do diretório listado no comando.  Note também que a sintaxe da linha de comando é semelhante a um comando de cópia `cp`.
+A `-r` bandeira instrui a SCP a copiar recursivamente os ficheiros e diretórios a partir do ponto do diretório listado no comando.  Note também que a sintaxe `cp` da linha de comando é semelhante a um comando de cópia.
 
 ## <a name="next-steps"></a>Passos seguintes
 

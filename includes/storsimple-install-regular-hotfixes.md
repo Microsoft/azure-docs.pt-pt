@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67184291"
 ---
-#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Instalar correções regulares através do Windows PowerShell para StorSimple
-1. Ligar a consola de série do dispositivo. Para obter mais informações, consulte [passo 1: Ligar à consola de série](../articles/storsimple/storsimple-update-device.md#step1).
-2. No menu da consola de série, selecione a opção 1, **iniciar sessão com acesso total**. Escreva a palavra-passe. A palavra-passe predefinido é **Password1**.
+#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Para instalar hotfixes regulares via Windows PowerShell para StorSimple
+1. Ligue-se à consola em série do dispositivo. Para mais informações, consulte [passo 1: Ligue-se à consola em série](../articles/storsimple/storsimple-update-device.md#step1).
+2. No menu de consola em série, selecione a opção 1, **inicie sessão com acesso total**. Digite a senha. A palavra-passe padrão é **Password1**.
 3. Na linha de comandos, escreva:
    
     ```
@@ -22,9 +22,9 @@ ms.locfileid: "67184291"
    
     > [!IMPORTANT]
     >
-    > Este comando só se aplica a correções regulares. Execute este comando num controlador de apenas uma, mas ambos os controladores serão atualizadas.
-    > Pode observar uma ativação pós-falha de controlador durante o processo de atualização; No entanto, a ativação pós-falha não irá afetar a disponibilidade de sistema ou a operação.
+    > Este comando aplica-se apenas a fixações regulares. Manere este comando num único controlador, mas ambos os controladores serão atualizados.
+    > Pode notar uma falha no controlador durante o processo de atualização; no entanto, a falha não afetará a disponibilidade ou operação do sistema.
 
-4. Quando lhe for pedido, forneça o caminho para a pasta compartilhada de rede que contém os ficheiros de correção.
-5. Será solicitado para confirmação. Tipo **Y** para prosseguir com a instalação da correção.
+4. Quando solicitado, forneça o caminho para a pasta partilhada pela rede que contenha os ficheiros hotfix.
+5. Ser-lhe-á pedido que confirme. Digite **Y** para prosseguir com a instalação hotfix.
 

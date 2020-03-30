@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
 ms.openlocfilehash: 505e2d8eec20853fba3743b40cbe289585d14d61
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
-ms.translationtype: HT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78305068"
 ---
-| Recurso | Gratuito | Partilhada | Básica | Standard | Premium (v2) | Isolado </th> |
+| Recurso | Gratuito | Partilhado | Básico | Standard | Premium (v2) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicações Web, móveis ou API](https://azure.microsoft.com/services/app-service/) por plano de serviço de [aplicações Azure](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
-| [Plano do Serviço de Aplicações](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
-| Tipo de instância computacional |Partilhada |Partilhada |Dedicado<sup>3</sup> |Dedicado<sup>3</sup> |Dedicado<sup>3</sup></p> |Dedicado<sup>3</sup>|
+| [Plano de serviço de aplicações](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
+| Tipo de instância computacional |Partilhado |Partilhado |Dedicado<sup>3</sup> |Dedicado<sup>3</sup> |Dedicado<sup>3</sup></p> |Dedicado<sup>3</sup>|
 | [Escala para fora](../articles/app-service/manage-scale-up.md) (instâncias máximas) |1 partilhado |1 partilhado |3<sup>dedicado3</sup> |10<sup>dedicados 3</sup> |30<sup>dedicados 3</sup>|100<sup>dedicados 4</sup>|
 | Armazenamento<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
 | Tempo de CPU (5 minutos)<sup>6</sup> |3 minutos |3 minutos |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a>|
 | Hora do CPU (dia)<sup>6</sup> |60 minutos |240 minutos |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |Ilimitado, pague a [taxas](https://azure.microsoft.com/pricing/details/app-service/) padrão</a> |
-| Memória (1 hora) |1\.024 MB por plano de serviço de aplicações |1\.024 MB por app |N/D |N/D |N/D |N/D |
+| Memória (1 hora) |1.024 MB por plano de serviço de aplicações |1.024 MB por app |N/D |N/D |N/D |N/D |
 | Largura de banda |165 MB |Tarifas ilimitadas de [transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |Tarifas ilimitadas de [transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |Tarifas ilimitadas de [transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |Tarifas ilimitadas de [transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |Tarifas ilimitadas de [transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |
 | Arquitetura da aplicação |32 bits |32 bits |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
 | Tomadas web por instância<sup>7</sup> |5 |35 |350 |Ilimitado |Ilimitado |Ilimitado |
-| Ligações IP | 600 | 600 | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | 16,000 |
+| Ligações IP | 600 | 600 | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | 16 000 |
 | Conexões de [debugger](../articles/app-service/troubleshoot-dotnet-visual-studio.md) simultâneas por aplicação |1 |1 |1 |5 |5 |5 |
 | Certificados de serviço de aplicações por subscrição<sup>9</sup>| Não suportado | Não suportado |10 |10 |10 |10 |
 | Domínios personalizados por app</a> |0 (apenas subdomínio azurewebsites.net)|500 |500 |500 |500 |500 |
@@ -45,7 +45,7 @@ ms.locfileid: "78305068"
 <sup>4</sup> Mais são permitidos mediante pedido.  
 <sup>5</sup> O limite de armazenamento é o tamanho total do conteúdo em todas as aplicações no mesmo plano de serviço app. O tamanho total do conteúdo de todas as aplicações em todos os planos de serviço seletiva de um único grupo de recursos e região não pode exceder 500GB.  
 <sup>6</sup> Estes recursos são limitados por recursos físicos nas instâncias dedicadas (a dimensão da instância e o número de instâncias).  
-<sup>7</sup> Se escalar uma aplicação no nível Básico para dois casos, tem 350 ligações simultâneas para cada uma das duas instâncias. Para o nível Standard e acima, não existem limites teóricos para as tomadas web, mas outros fatores podem limitar o número de tomadas web. Por exemplo, os pedidos máximos simultâneos permitidos (definidos por `maxConcurrentRequestsPerCpu`) são: 7.500 por pequeno VM, 15.000 por VM médio (7.500 x 2 núcleos) e 75.000 por VM grande (18.750 x 4 núcleos).  
+<sup>7</sup> Se escalar uma aplicação no nível Básico para dois casos, tem 350 ligações simultâneas para cada uma das duas instâncias. Para o nível Standard e acima, não existem limites teóricos para as tomadas web, mas outros fatores podem limitar o número de tomadas web. Por exemplo, os pedidos máximos `maxConcurrentRequestsPerCpu`simultâneos permitidos (definidos por ) são: 7.500 por pequeno VM, 15.000 por VM médio (7.500 x 2 núcleos) e 75.000 por VM grande (18.750 x 4 núcleos).  
 <sup>8</sup> As ligações IP máximas são por exemplo e dependem do tamanho da instância: 1.920 por instância B1/S1/P1V2, 3.968 por instância B2/S2/P2V2, 8.064 por instância B3/S3/P3V2.  
 <sup>9</sup> O limite de quota de certificado de serviço de aplicação por subscrição pode ser aumentado através de um pedido de suporte para um limite máximo de 200.  
 <sup>10</sup> Serviço de aplicações SKUs isolados podem ser equilibrados internamente (ILB) com Azure Load Balancer, por isso não há conectividade pública da internet. Como resultado, algumas funcionalidades de um Serviço de Aplicações Isoladas ILB devem ser utilizadas a partir de máquinas que tenham acesso direto ao ponto final da rede ILB.  

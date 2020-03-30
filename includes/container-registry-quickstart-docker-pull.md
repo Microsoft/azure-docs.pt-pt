@@ -9,15 +9,15 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: cd97c61e7493249785293ae331713ba1a98efee3
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67184814"
 ---
-## <a name="run-image-from-registry"></a>Executar imagem do registro
+## <a name="run-image-from-registry"></a>Executar imagem do registo
 
-Agora, você pode efetuar pull e `hello-world:v1` executar a imagem de contêiner do registro de contêiner usando a [execução][docker-run]do Docker:
+Agora, pode puxar e `hello-world:v1` executar a imagem do recipiente do seu registo de contentores utilizando [o docker run:][docker-run]
 
 ```
 docker run <acrLoginServer>/hello-world:v1  

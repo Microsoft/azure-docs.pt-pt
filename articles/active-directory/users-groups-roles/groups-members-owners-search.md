@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206117"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Grupos de pesquisa e membros (pré-visualização) no Diretório Ativo do Azure
@@ -45,7 +45,7 @@ Se tiver algum problema, pode mudar a experiência do legado selecionando o bann
 
 ## <a name="group-search-and-sorting"></a>Pesquisa e triagem em grupo
 
-A pesquisa da lista de grupos foi melhorada de modo a que, quando pode introduzir uma cadeia de pesquisa, a pesquisa execute automaticamente uma pesquisa de `startswith` e substring na lista de nomes de grupos. A pesquisa substring é realizada apenas em palavras inteiras, e não inclui caracteres especiais. A procura de subcordas é sensível a casos.
+A pesquisa da lista de grupos foi melhorada de modo a que, `startswith` quando pode introduzir uma cadeia de pesquisa, a pesquisa execute automaticamente uma pesquisa e substring na lista de nomes de grupos. A pesquisa substring é realizada apenas em palavras inteiras, e não inclui caracteres especiais. A procura de subcordas é sensível a casos.
 
 ![novas pesquisas substring na página De Todos os Grupos](./media/groups-members-owners-search/groups-search-preview.png)
 

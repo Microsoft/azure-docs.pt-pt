@@ -14,10 +14,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8994079cf18a9af5f5e1368761015bbd8b836bd9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74790905"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Início Rápido: criar uma máquina virtual do SQL Server do Windows com o Azure PowerShell
@@ -28,28 +28,28 @@ Estes passos de início rápido explicam a criação de uma máquina virtual do 
 > - Este início rápido proporciona um caminho para aprovisionar e ligar a uma VM do SQL de forma rápida. Para obter mais informações sobre outras opções do Azure PowerShell para a criação de VMs do SQL, veja o [Guia de aprovisionamento para VMs do SQL Server com o Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 > - Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
-## <a id="subscription"></a> Obter uma subscrição do Azure
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a>Obtenha uma subscrição azure
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
-## <a id="powershell"></a> Obter Azure PowerShell
+## <a name="get-azure-powershell"></a><a id="powershell"></a> Obter Azure PowerShell
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ## <a name="configure-powershell"></a>Configurar o PowerShell
 
-1. Abra o PowerShell e estabeleça o acesso à sua conta do Azure executando o comando **Connect-AzAccount** .
+1. Abra a PowerShell e estabeleça o acesso à sua conta Azure executando o comando **Connect-AzAccount.**
 
    ```powershell
    Connect-AzAccount
    ```
 
-1. Você deverá ver uma tela para inserir suas credenciais. Utilize o mesmo e-mail e palavra-passe que utiliza para iniciar sessão no portal do Azure.
+1. Devia ver um ecrã para introduzir as suas credenciais. Utilize o mesmo e-mail e palavra-passe que utiliza para iniciar sessão no portal do Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-1. Defina uma variável com um nome de grupo de recursos exclusivo. Para simplificar o restante do início rápido, os comandos restantes usam esse nome como base para outros nomes de recursos.
+1. Defina uma variável com um nome de grupo de recursos exclusivo. Para simplificar o resto do arranque rápido, os restantes comandos usam este nome como base para outros nomes de recursos.
 
    ```powershell
    $ResourceGroupName = "sqlvm1"
@@ -120,7 +120,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-the-sql-vm"></a>Criar a VM do SQL
 
-1. Defina suas credenciais para entrar na VM. O nome de usuário é "azureadmin". Certifique-se de alterar \<> de senha antes de executar o comando.
+1. Defina as suas credenciais para iniciar sessão no VM. O nome de utilizador é "azureadmin". Certifique-se \<de que muda a palavra-passe> antes de executar o comando.
 
    ``` PowerShell
    # Define a credential object
@@ -146,9 +146,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    > [!TIP]
    > Demora alguns minutos a criar a VM.
 
-## <a name="install-the-sql-iaas-agent"></a>Instalar o agente IaaS do SQL
+## <a name="install-the-sql-iaas-agent"></a>Instale o Agente SQL IaaS
 
-Para obter a integração do portal e as funcionalidades da VM do SQL, tem de instalar a [Extensão do Agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para instalar o agente na nova VM, execute o comando a seguir depois que a VM for criada.
+Para obter a integração do portal e as funcionalidades da VM do SQL, tem de instalar a [Extensão do Agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para instalar o agente no novo VM, execute o seguinte comando após a criação do VM.
 
    ```powershell
    Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
@@ -156,37 +156,37 @@ Para obter a integração do portal e as funcionalidades da VM do SQL, tem de in
 
 ## <a name="remote-desktop-into-the-vm"></a>Ambiente de trabalho remoto na VM
 
-1. Use o comando a seguir para recuperar o endereço IP público para a nova VM.
+1. Utilize o seguinte comando para recuperar o endereço IP público para o novo VM.
 
    ```powershell
    Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. Passe o endereço IP retornado como um parâmetro de linha de comando para **mstsc** para iniciar uma sessão de área de trabalho remota na nova VM.
+1. Passe o endereço IP devolvido como parâmetro de linha de comando para **mstsc** para iniciar uma sessão de Ambiente de Trabalho Remoto no novo VM.
 
    ```
    mstsc /v:<publicIpAddress>
    ```
 
-1. Quando lhe forem pedidas as credenciais, introduza credenciais para uma conta diferente. Insira o nome de usuário com uma barra invertida precedente (por exemplo, `\azureadmin`) e a senha que você definiu anteriormente neste guia de início rápido.
+1. Quando lhe forem pedidas as credenciais, introduza credenciais para uma conta diferente. Introduza o nome de utilizador com um `\azureadmin`backslash anterior (por exemplo, e a palavra-passe que definiu anteriormente neste arranque rápido.
 
 ## <a name="connect-to-sql-server"></a>Ligar ao SQL Server
 
-1. Depois de entrar na sessão de Área de Trabalho Remota, inicie o **SQL Server Management Studio 2017** no menu iniciar.
+1. Depois de iniciar sessão no Remote Desktop, lance o **SQL Server Management Studio 2017** a partir do menu inicial.
 
-1. Na caixa de diálogo **conectar ao servidor** , mantenha os padrões. O nome do servidor é o nome da VM. A autenticação está definida como **Autenticação do Windows**. Selecione **Ligar**.
+1. Na caixa de diálogo **Connect to Server,** mantenha as predefinições. O nome do servidor é o nome da VM. A autenticação está definida como **Autenticação do Windows**. Selecione **Ligar**.
 
-Agora você está conectado a SQL Server localmente. Se você quiser se conectar remotamente, deverá [Configurar a conectividade](virtual-machines-windows-sql-connect.md) no portal ou manualmente.
+Está agora ligado ao SQL Server localmente. Se pretender ligar-se remotamente, tem de [configurar a conectividade](virtual-machines-windows-sql-connect.md) a partir do portal ou manualmente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não precisar que a VM seja executada continuamente, poderá evitar encargos desnecessários interrompendo-o quando não estiver em uso. O comando seguinte para a VM, mas deixa-a disponível para utilização futura.
+Se não precisar que o VM seja executado continuamente, pode evitar encargos desnecessários, impedindo-o quando não estiver a ser utilizado. O comando seguinte para a VM, mas deixa-a disponível para utilização futura.
 
 ```powershell
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Você também pode excluir permanentemente todos os recursos associados à máquina virtual com o comando **Remove-AzResourceGroup** . Isso também exclui permanentemente a máquina virtual, portanto, use esse comando com cuidado.
+Também pode eliminar permanentemente todos os recursos associados à máquina virtual com o comando **Remove-AzResourceGroup.** Ao fazê-lo, também elimina permanentemente a máquina virtual, por isso use este comando com cuidado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

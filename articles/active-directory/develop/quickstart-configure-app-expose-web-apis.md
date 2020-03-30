@@ -1,5 +1,5 @@
 ---
-title: Configurar um aplicativo para expor APIs Web-plataforma de identidade da Microsoft | Azure
+title: Configure uma aplicação para expor APIs web - plataforma de identidade da Microsoft Azure
 description: Saiba como configurar uma aplicação para expor uma nova permissão/âmbito e função para disponibilizar a aplicação às aplicações cliente.
 services: active-directory
 author: rwike77
@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76704226"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Início rápido: configurar um aplicativo para expor APIs Web
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Quickstart: Configure uma aplicação para expor APIs web
 
 Pode programar uma API Web e expor [permissões/âmbitos](developer-glossary.md#scopes) e [funções](developer-glossary.md#roles) para a disponibilizar às aplicações cliente. As APIs Web configuradas corretamente são disponibilizadas tal e qual as outras APIs Web da Microsoft, incluindo a Graph API e as APIs do Office 365.
 
@@ -39,7 +39,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**.
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **os registos**da App .
 1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
 1. Escolha o método que quer utilizar, a IU ou o manifesto de aplicação para expor um novo âmbito:
     * [Expor um novo âmbito através da IU](#expose-a-new-scope-through-the-ui)
@@ -47,7 +47,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Expor um novo âmbito através da IU
 
-[![mostra como expor uma API usando a interface do usuário](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Mostra como expor uma API usando a UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Para expor um novo âmbito através da IU:
 
@@ -79,7 +79,7 @@ Para expor um novo âmbito através da IU:
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Expor um novo âmbito ou função através do manifesto de aplicação
 
-[![Expor um novo âmbito com a coleção oauth2Permissions no manifesto](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+[![Expor um novo âmbito usando a coleção oauth2Permissions no manifesto](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
 
 Para expor um novo âmbito através do manifesto de aplicação:
 
@@ -112,8 +112,8 @@ Para expor um novo âmbito através do manifesto de aplicação:
 
 1. Regresse ao seu inquilino do Azure AD, selecione **Registos de aplicações**, localize e selecione a aplicação cliente que quer configurar.
 1. Repita os passos descritos em [Configurar uma aplicação cliente para aceder a APIs Web](quickstart-configure-app-access-web-apis.md).
-1. Quando chegar à etapa para [selecionar uma API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
-), selecione o recurso. Deverá ver o novo âmbito disponível para pedidos de permissão de cliente.
+1. Quando chegar ao passo para [selecionar um API,](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+)selecione o seu recurso. Deverá ver o novo âmbito disponível para pedidos de permissão de cliente.
 
 ## <a name="more-on-the-application-manifest"></a>Mais sobre o manifesto da aplicação
 

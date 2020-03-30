@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273312"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Alterar processador de feed em Azure Cosmos DB 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB 
 
 O processador de feed de mudança faz parte do [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Simplifica o processo de leitura do feed de mudança e distribui eficazmente o processamento do evento por vários consumidores.
 
@@ -39,7 +39,7 @@ Para entender ainda como estes quatro elementos do processador de feed de mudan�
 
 ## <a name="implementing-the-change-feed-processor"></a>Implementação do processador de feed de mudança
 
-O ponto de entrada é sempre o recipiente monitorizado, de um `Container` instância a que chama `GetChangeFeedProcessorBuilder`:
+O ponto de entrada é sempre o `Container` recipiente `GetChangeFeedProcessorBuilder`monitorizado, a partir de um caso a que se chama:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -50,16 +50,16 @@ Um exemplo de um delegado seria:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Por fim, define um nome para esta instância de processador com `WithInstanceName` e que é o recipiente para manter o estado de arrendamento com `WithLeaseContainer`.
+Finalmente, define um nome para `WithInstanceName` esta instância do processador com `WithLeaseContainer`e qual é o recipiente para manter o estado de arrendamento com .
 
-Ligar `Build` lhe dará a instância do processador que pode começar por ligar para `StartAsync`.
+A `Build` chamada irá dar-lhe a instância `StartAsync`do processador que pode começar por ligar .
 
 ## <a name="processing-life-cycle"></a>Processamento do ciclo de vida
 
 O ciclo de vida normal de um hospedeiro é:
 
 1. Leia o feed de mudança.
-1. Se não houver alterações, durma durante um período de tempo predefinido (personalizável com `WithPollInterval` no Construtor) e vá para #1.
+1. Se não houver alterações, durma durante um período `WithPollInterval` de tempo predefinido (personalizável com o Construtor) e vá para #1.
 1. Se houver alterações, envie-as ao **delegado.**
 1. Quando o delegado terminar de processar as alterações **com sucesso,** atualize a loja de arrendamento com o mais recente ponto processado no tempo e vá para #1.
 
@@ -73,7 +73,7 @@ Como mencionado durante a introdução, o processador de feed de mudança pode d
 
 1. Todas as instâncias devem ter a mesma configuração de contentor de aluguer.
 1. Todos os casos devem ter o mesmo nome de fluxo de trabalho.
-1. Cada instância precisa de ter um nome de instância diferente (`WithInstanceName`).
+1. Cada instância precisa de ter`WithInstanceName`um nome de instância diferente ( ).
 
 Se estas três condições se aplicarem, o processador de feed de mudança irá, usando um algoritmo de distribuição igual, distribuir todos os arrendamentos no contentor de aluguer em todas as instâncias de execução e paralelamente a computação. Um contrato de arrendamento só pode ser propriedade de um caso num dado momento, pelo que o número máximo de casos equivale ao número de locações.
 
@@ -97,5 +97,5 @@ Pode agora proceder a mais informações sobre o processador de feed de mudança
 
 * [Visão geral do feed de mudança](change-feed.md)
 * [Como migrar da biblioteca de processadores de feed de mudança](how-to-migrate-from-change-feed-library.md)
-* [Utilização do estimador de alimentação de alteração](how-to-use-change-feed-estimator.md)
-* [Alterar a hora de início do processador de feed](how-to-configure-change-feed-start-time.md)
+* [Utilizar o calculador do feed de alterações](how-to-use-change-feed-estimator.md)
+* [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)

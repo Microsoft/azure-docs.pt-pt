@@ -1,7 +1,7 @@
 ---
-title: Habilidade cognitiva do modelador
+title: Competência cognitiva do formulador
 titleSuffix: Azure Cognitive Search
-description: Extraia metadados e informações estruturadas de dados não estruturados e formate-os como um tipo complexo em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
+description: Extrair metadados e informação estruturada a partir de dados não estruturados e moldá-lo como um tipo complexo num oleoduto de enriquecimento de IA em Pesquisa Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,33 +9,33 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75754127"
 ---
-# <a name="shaper-cognitive-skill"></a>Habilidade cognitiva do modelador
+# <a name="shaper-cognitive-skill"></a>Competência cognitiva do formulador
 
-A habilidade de **modelador** consolida várias entradas em um [tipo complexo](search-howto-complex-data-types.md) que pode ser referenciado posteriormente no pipeline de enriquecimento. A habilidade de **modelador** permite criar essencialmente uma estrutura, definir o nome dos membros dessa estrutura e atribuir valores a cada membro. Exemplos de campos consolidados úteis em cenários de pesquisa incluem a combinação de um nome e sobrenome em uma única estrutura, cidade e estado em uma única estrutura, ou nome e DataDeNascimento em uma única estrutura para estabelecer identidade exclusiva.
+A habilidade **Shaper** consolida várias inputs num [tipo complexo](search-howto-complex-data-types.md) que pode ser referenciado mais tarde no pipeline de enriquecimento. A habilidade **Shaper** permite-lhe essencialmente criar uma estrutura, definir o nome dos membros dessa estrutura e atribuir valores a cada membro. Exemplos de campos consolidados úteis em cenários de pesquisa incluem combinar um primeiro e último nome numa única estrutura, cidade e estado numa única estrutura, ou nome e data de nascimento numa única estrutura para estabelecer uma identidade única.
 
-Além disso, a habilidade de **modelador** ilustrada no [cenário 3](#nested-complex-types) adiciona uma propriedade *sourceContext* opcional à entrada. As propriedades *Source* e *sourceContext* são mutuamente exclusivas. Se a entrada estiver no contexto da habilidade, simplesmente use *Source*. Se a entrada estiver em um contexto *diferente* do contexto de habilidade, use o *sourceContext*. O *sourceContext* exige que você defina uma entrada aninhada com o elemento específico que está sendo endereçado como a origem. 
+Adicionalmente, a habilidade **Shaper** ilustrada no [cenário 3](#nested-complex-types) adiciona uma propriedade de *origem opcionalContexto* à entrada. As propriedades *de origem* e *origemContexto* são mutuamente exclusivas. Se a entrada estiver no contexto da habilidade, utilize simplesmente a *fonte*. Se a entrada estiver num contexto *diferente* do contexto de habilidade, utilize o *contexto de origem*. O *SourceContext* requer que defina uma entrada aninhada com o elemento específico a ser abordado como a fonte. 
 
-O nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText", conforme mostrado nos exemplos abaixo, mas a própria habilidade de **modelador** retorna "output" na resposta. Isso pode ser importante se você estiver Depurando documentos aprimorados e perceber a discrepância de nomenclatura, ou se você criar uma habilidade personalizada e estiver estruturando a resposta por conta própria.
+O nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "texto analisado" como mostram os exemplos abaixo, mas a habilidade **shaper** em si devolve "output" na resposta. Isto pode ser importante se estiver a depurar documentos enriquecidos e notar a discrepância de nomeação, ou se você mesmo constrói uma habilidade personalizada e está estruturando a resposta.
 
 > [!NOTE]
-> A habilidade do **modelador** não está associada a uma API de serviços cognitivas e você não é cobrado por usá-la. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md)para substituir a opção de recurso **gratuito** que limita você a um pequeno número de aprimoramentos diários por dia.
+> A habilidade **shaper** não está ligada a uma API de Serviços Cognitivos e você não é cobrado por usá-lo. No entanto, deve ainda [anexar um recurso dos Serviços Cognitivos](cognitive-search-attach-cognitive-services.md)para anular a opção de recursos **gratuitos** que o limita a um pequeno número de enriquecimentos diários por dia.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Cenário 1: tipos complexos
 
-Considere um cenário em que você deseja criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimentos*, respectivamente. Em um índice, um campo pesquisável de várias partes é chamado de *tipo complexo* e geralmente é criado quando os dados de origem têm uma estrutura complexa correspondente que mapeia para ele.
+Considere um cenário em que pretende criar uma estrutura chamada *texto analisado* que tenha dois membros: *texto* e *sentimento,* respectivamente. Num índice, um campo pesquisável em várias partes é chamado *de tipo complexo* e é frequentemente criado quando os dados de origem têm uma estrutura complexa correspondente que lhe mapeia.
 
-No entanto, outra abordagem para a criação de tipos complexos é por meio da habilidade do **modelador** . Ao incluir essa habilidade em um configurador, as operações na memória durante o processamento do Configurador de habilidades podem gerar formas de dados com estruturas aninhadas, que podem então ser mapeadas para um tipo complexo no índice. 
+No entanto, outra abordagem para criar tipos complexos é através da habilidade **Shaper.** Ao incluir esta habilidade num skillset, as operações de memória durante o processamento de skillset podem obter formas de dados com estruturas aninhadas, que podem então ser mapeadas para um tipo complexo no seu índice. 
 
-A definição de habilidade de exemplo a seguir fornece os nomes de membro como a entrada. 
+A definição de habilidade de exemplo seguinte fornece os nomes dos membros como entrada. 
 
 
 ```json
@@ -61,9 +61,9 @@ A definição de habilidade de exemplo a seguir fornece os nomes de membro como 
 }
 ```
 
-### <a name="sample-index"></a>Índice de exemplo
+### <a name="sample-index"></a>Índice de amostras
 
-Um configurador de qualificações é invocado por um indexador e um indexador requer um índice. Uma representação de campo complexo no índice pode ser semelhante ao exemplo a seguir. 
+Um skillset é invocado por um indexante, e um indexante requer um índice. Uma representação de campo complexa no seu índice pode parecer o seguinte exemplo. 
 
 ```json
 
@@ -88,9 +88,9 @@ Um configurador de qualificações é invocado por um indexador e um indexador r
                 },
 ```
 
-### <a name="skill-input"></a>Entrada de habilidade
+### <a name="skill-input"></a>Entrada de habilidades
 
-Um documento JSON de entrada que fornece entrada utilizável para essa habilidade de **forma** pode ser:
+Um documento jSON que fornece uma entrada utilizável para esta habilidade **Shaper** pode ser:
 
 ```json
 {
@@ -109,7 +109,7 @@ Um documento JSON de entrada que fornece entrada utilizável para essa habilidad
 
 ### <a name="skill-output"></a>Saída de habilidades
 
-A habilidade de **modelador** gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e de *sentimentos*. Essa saída está em conformidade com o esquema de índice. Ele será importado e indexado em um índice de Pesquisa Cognitiva do Azure.
+A habilidade **Shaper** gera um novo elemento chamado *texto analisado* com os elementos combinados de *texto* e *sentimento*. Esta saída está em conformidade com o esquema do índice. Será importado e indexado num índice de Pesquisa Cognitiva Azure.
 
 ```json
 {
@@ -129,11 +129,11 @@ A habilidade de **modelador** gera um novo elemento chamado *analyzedText* com o
 }
 ```
 
-## <a name="scenario-2-input-consolidation"></a>Cenário 2: consolidação de entrada
+## <a name="scenario-2-input-consolidation"></a>Cenário 2: consolidação do input
 
-Em outro exemplo, imagine que em diferentes estágios de processamento de pipeline, você extraiu o título de um livro e títulos de capítulo em diferentes páginas do livro. Agora você pode criar uma única estrutura composta por essas várias entradas.
+Noutro exemplo, imagine que em diferentes fases do processamento de gasodutos, extraiu o título de um livro, e capítulo títulos em diferentes páginas do livro. Agora poderia criar uma única estrutura composta por estas várias inputs.
 
-A definição de habilidade do **modelador** para esse cenário pode ser semelhante ao exemplo a seguir:
+A definição de habilidade **shaper** para este cenário pode parecer o seguinte exemplo:
 
 ```json
 {
@@ -159,7 +159,7 @@ A definição de habilidade do **modelador** para esse cenário pode ser semelha
 ```
 
 ### <a name="skill-output"></a>Saída de habilidades
-Nesse caso, o **Shaper** mescla todos os títulos de capítulo para criar uma única matriz. 
+Neste caso, o **Shaper** achata todos os títulos do capítulo para criar uma única matriz. 
 
 ```json
 {
@@ -183,11 +183,11 @@ Nesse caso, o **Shaper** mescla todos os títulos de capítulo para criar uma ú
 
 <a name="nested-complex-types"></a>
 
-## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Cenário 3: consolidação de entrada de contextos aninhados
+## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Cenário 3: consolidação de entrada a partir de contextos aninhados
 
-Imagine que você tenha o título, os capítulos e o conteúdo de um livro e tenha executado o reconhecimento de entidade e frases-chave sobre o conteúdo e agora precisa agregar resultados das diferentes habilidades em uma única forma com o nome do capítulo, entidades e frases-chave.
+Imagine que tem o título, capítulos e conteúdos de um livro e executou o reconhecimento de entidades e frases-chave sobre os conteúdos e agora precisa agregar resultados das diferentes competências numa única forma com o nome do capítulo, entidades e frases-chave.
 
-A definição de habilidade do **modelador** para esse cenário pode ser semelhante ao exemplo a seguir:
+A definição de habilidade **shaper** para este cenário pode parecer o seguinte exemplo:
 
 ```json
 {
@@ -224,7 +224,7 @@ A definição de habilidade do **modelador** para esse cenário pode ser semelha
 ```
 
 ### <a name="skill-output"></a>Saída de habilidades
-Nesse caso, o **modelador** cria um tipo complexo. Essa estrutura existe na memória. Se você quiser salvá-lo em uma [loja de conhecimento](knowledge-store-concept-intro.md), deverá criar uma projeção em seu Skills que define as características de armazenamento.
+Neste caso, o **Shaper** cria um tipo complexo. Esta estrutura existe na memória. Se quiser guardá-lo para uma loja de [conhecimentos,](knowledge-store-concept-intro.md)deve criar uma projeção no seu skillset que defina as características de armazenamento.
 
 ```json
 {
@@ -246,10 +246,10 @@ Nesse caso, o **modelador** cria um tipo complexo. Essa estrutura existe na mem�
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Habilidades internas](cognitive-search-predefined-skills.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
++ [Competências incorporadas](cognitive-search-predefined-skills.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
 + [Como usar tipos complexos](search-howto-complex-data-types.md)
-+ [Loja de conhecimento (visualização)](knowledge-store-concept-intro.md)
-+ [Criar um repositório de conhecimento em repouso](knowledge-store-create-rest.md)
++ [Arquivo de dados de conhecimento (pré-visualização)](knowledge-store-concept-intro.md)
++ [Criar uma loja de conhecimentos em REST](knowledge-store-create-rest.md)

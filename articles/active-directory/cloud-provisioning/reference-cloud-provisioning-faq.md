@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77916579"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Ative Directory Connect FAQ
@@ -74,7 +74,7 @@ Ao eliminar a configuração, o fornecimento de nuvens não limpa os objetos sin
 
 **P: O que significa que o Exchange hybrid não é suportado?**
 
-A funcionalidade Implementação Híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Office 365. O Azure AD Connect está a sincronizar um conjunto específico de atributos do Azure AD de volta ao seu diretório no local.  O agente de fornecimento de nuvem atualmente não sincroniza estes atributos de volta ao seu diretório no local e, portanto, não é suportado como substituto do Azure AD Connect.
+A funcionalidade Implementação Híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Office 365. O Azure AD Connect está a sincronizar um conjunto específico de atributos do Azure AD para o diretório no local.  O agente de fornecimento de nuvem atualmente não sincroniza estes atributos de volta ao seu diretório no local e, portanto, não é suportado como substituto do Azure AD Connect.
 
 **P: Posso instalar o agente de fornecimento de nuvem no Núcleo do Servidor do Windows?**
 
@@ -82,5 +82,5 @@ Não, a instalação do agente no núcleo do servidor não é suportada.
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- [O que é o provisionamento?](what-is-provisioning.md)
-- [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)
+- [O que é o aprovisionamento?](what-is-provisioning.md)
+- [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

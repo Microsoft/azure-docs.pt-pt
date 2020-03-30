@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78298824"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamento na cloud piloto de uma floresta do AD sincronizada existente 
@@ -59,10 +59,10 @@ O sincronização do Azure AD Connect sincroniza as alterações que ocorrem no 
 ## <a name="create-custom-user-inbound-rule"></a>Criar regra de entrada personalizada do utilizador
 
  1. Lance o editor de sincronização a partir do menu de aplicações no ambiente de trabalho, como mostrado abaixo:</br>
- ![Sincronização Do menu do editor](media/how-to-cloud-custom-user-rule/user8.png)</br>
+ ![Menu de editor de regras de sincronização](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
  2. **Selecione Inbound** a partir da lista de "drop-down" para Direction e clique em **Adicionar nova regra**.
- ![](media/how-to-cloud-custom-user-rule/user1.png) de regras personalizadas</br>
+ ![Regra personalizada](media/how-to-cloud-custom-user-rule/user1.png)</br>
  
  3. Na página **Descrição,** introduza o seguinte e clique **em Seguinte:**
 
@@ -74,9 +74,9 @@ O sincronização do Azure AD Connect sincroniza as alterações que ocorrem no 
     **Tipo de ligação:** Junte-se<br>
     **Precedência:** Fornecer um valor único no sistema<br>
     **Etiqueta:** Deixe isto vazio.<br>
-    ![](media/how-to-cloud-custom-user-rule/user2.png) de regras personalizadas</br>
+    ![Regra personalizada](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
- 4. On the **Scoping filter** page, enter the OU or security group that you want the pilot based off.  Para filtrar em Ou, adicione a porção ou do nome distinto. Esta regra será aplicada a todos os utilizadores que estejam nessa U.  Assim, se o DN terminar com "OU=CPUsers,DC=contoso,DC=com, adicionaria este filtro.  Clique depois em **Seguinte**. 
+ 4. On the **Scoping filter** page, enter the OU or security group that you want the pilot based off.  Para filtrar em Ou, adicione a porção ou do nome distinto. Esta regra será aplicada a todos os utilizadores que estejam nessa U.  Assim, se o DN terminar com "OU=CPUsers,DC=contoso,DC=com, adicionaria este filtro.  Em seguida, clique em **Seguinte**. 
 
     |Regra|Atributo|Operador|Valor|
     |-----|----|----|-----|
@@ -87,14 +87,14 @@ O sincronização do Azure AD Connect sincroniza as alterações que ocorrem no 
  
  5. Na página regras **De Juntar,** clique em **Seguinte**.
  6. Na página **Transformações,** adicione uma transformação constante: fluxo verdadeiro para cloudNoFlow atributo. Clique em **Adicionar**.
- ![](media/how-to-cloud-custom-user-rule/user4.png) de regras personalizadas</br>
+ ![Regra personalizada](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 Devem ser seguidos os mesmos passos para todos os tipos de objetos (utilizador, grupo e contacto). Repita os passos por Conector AD configurado / por floresta AD. 
 
 ## <a name="create-custom-user-outbound-rule"></a>Criar regra de saída personalizada do utilizador
 
  1. Selecione **Outbound** a partir da lista de "drop-down" para Direction e clique na **regra adicionar**.
- ![](media/how-to-cloud-custom-user-rule/user5.png) de regras personalizadas</br>
+ ![Regra personalizada](media/how-to-cloud-custom-user-rule/user5.png)</br>
  
  2. Na página **Descrição,** introduza o seguinte e clique **em Seguinte:**
 
@@ -109,8 +109,8 @@ Devem ser seguidos os mesmos passos para todos os tipos de objetos (utilizador, 
     
     ![Regra personalizada](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
- 3. Na página do **filtro Scoping,** escolha **cloudNoFlow** igual **True**. Clique depois em **Seguinte**.
- ![](media/how-to-cloud-custom-user-rule/user7.png) de regras personalizadas</br>
+ 3. Na página do **filtro Scoping,** escolha **cloudNoFlow** igual **True**. Em seguida, clique em **Seguinte**.
+ ![Regra personalizada](media/how-to-cloud-custom-user-rule/user7.png)</br>
  
  4. Na página regras **De Juntar,** clique em **Seguinte**.
  5. Na página **Transformações,** clique em **Adicionar**.
@@ -142,13 +142,13 @@ A verificação do agente ocorre no portal Azure e no servidor local que está a
 Para verificar se o agente está a ser visto pelo Azure siga estes passos:
 
 1. Inicie sessão no Portal do Azure.
-2. À esquerda, selecione **Azure Ative Directory,** clique em **Azure AD Connect** e no centro selecione **Gerir o fornecimento (pré-visualização)** .</br>
+2. À esquerda, selecione **Azure Ative Directory,** clique em **Azure AD Connect** e no centro selecione **Gerir o fornecimento (pré-visualização)**.</br>
 ![Portal do Azure](media/how-to-install/install6.png)</br>
 
 3.  No ecrã **azure AD Provisioning (pré-visualização)** clique em **Rever todos os agentes**.
-![](media/how-to-install/install7.png) de fornecimento de anúncios Azure</br>
+![Provisionamento de AD Azure](media/how-to-install/install7.png)</br>
  
-4. No ecrã dos **agentes de provisionamento no local,** verá os agentes instalados.  Verifique se o agente em questão está lá e está marcado **para deficientes**.  O agente é desativado por padrão ![agentes de provisionamento](media/how-to-install/verify1.png)</br>
+4. No ecrã dos **agentes de provisionamento no local,** verá os agentes instalados.  Verifique se o agente em questão está lá e está marcado **para deficientes**.  O agente é desativado por agentes de provisionamento por defeito ![](media/how-to-install/verify1.png)</br>
 
 ### <a name="on-the-local-server"></a>No servidor local
 Para verificar se o agente está em execução siga estes passos:
@@ -164,9 +164,9 @@ Utilize os seguintes passos para configurar o fornecimento:
  1. Inscreva-se no portal Azure AD.
  2. Clique em **Diretório Ativo Azure**
  3. Clique em **Azure AD Connect**
- 4. Selecione **Gerir o fornecimento (Pré-visualização)** 
+ 4. Selecione **gerir o fornecimento (Pré-visualização)**
  ![](media/how-to-configure/manage1.png)</br>
- 5.  Clique em **nova configuração**
+ 5.  Clique em **Nova Configuração**
  ![](media/tutorial-single-forest/configure1.png)</br>
  6.  No ecrã de configuração, introduza um **e-mail de Notificação,** mova o seletor para **ativar** e clique em **Guardar**.
  ![](media/tutorial-single-forest/configure2.png)</br>
@@ -182,7 +182,7 @@ Utilize os seguintes passos para configurar o fornecimento:
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Verifique se os utilizadores são aprovisionados por fornecimento de nuvem
 Irá agora verificar se os utilizadores que tinha no nosso diretório no local foram sincronizados e existem agora no inquilino da AD Azure.  Esteja ciente de que isto pode levar algumas horas para ser concluído.  Para verificar se os utilizadores estão a fornecer através do fornecimento de nuvem, siga estas etapas:
 
-1. Navegue no [portal Azure](https://portal.azure.com) e inscreva-se com uma conta que tenha uma subscrição Azure.
+1. Navegue para o [portal do Azure](https://portal.azure.com) e inicie sessão com uma conta que tenha uma subscrição do Azure.
 2. À esquerda, selecione **Azure Ative Diretório**
 3. Clique em **Azure AD Connect**
 4. Clique em **Gerir o provisionamento (pré-visualização)**
@@ -201,7 +201,7 @@ O sincronização do Azure AD Connect sincroniza as alterações que ocorrem no 
 >[!NOTE] 
 >Se estiver a executar o seu próprio programador personalizado para sincronização aAD Connect, por favor, ative o programador. 
 
-## <a name="something-went-wrong"></a>Alguma coisa correu mal.
+## <a name="something-went-wrong"></a>Algo correu mal
 Caso o piloto não funcione como esperado, pode voltar à configuração da sincronização Azure AD Connect seguindo os passos abaixo:
 1.  Desative a configuração de provisionamento no portal Azure. 
 2.  Desative todas as regras de sincronização personalizadas criadas para o Fornecimento de Cloud utilizando a ferramenta Sync Rule Editor. A desativação deve causar uma sincronização total em todos os conectores.
@@ -216,13 +216,13 @@ Uma vez verificado que os utilizadores da Ou piloto são geridos com sucesso atr
  5. No **ecrã Connect your directdirecties** clique **em Seguinte**.
  6. No ecrã de **filtragem Domain e U,** selecione **Domínios selecionados**sync e OUs .
  7. Expanda o seu domínio e **desselecione** os **CPUsers** OU.  Clique em **Seguinte**.
-](media/tutorial-existing-forest/scope1.png) de âmbito ![</br>
+![âmbito](media/tutorial-existing-forest/scope1.png)</br>
  9. No ecrã **de funcionalidades Opcionais,** clique em **Next**.
  10. No **pronto para configurar o** ecrã clique **em Configurar**.
  11. Uma vez concluído, clique em **Saída**. 
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- [O que é o provisionamento?](what-is-provisioning.md)
-- [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)
+- [O que é o aprovisionamento?](what-is-provisioning.md)
+- [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)
 

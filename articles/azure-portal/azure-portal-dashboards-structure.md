@@ -1,6 +1,6 @@
 ---
-title: A estrutura dos painéis do Azure | Microsoft Docs
-description: Percorra a estrutura JSON de um painel do Azure usando um painel de exemplo. Inclui referência a propriedades de recurso.
+title: A estrutura dos Tabliers Azure [ Microsoft Docs
+description: Caminhe pela estrutura JSON de um Painel Azure utilizando um painel de instrumentos de exemplo. Inclui referência às propriedades dos recursos.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -14,18 +14,18 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.openlocfilehash: 18125e119e7ffdd2f8fa8ca3c5c1b12c8c9a94e0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75640368"
 ---
-# <a name="the-structure-of-azure-dashboards"></a>A estrutura dos painéis do Azure
-Este documento percorre a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
+# <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
+Este documento percorre a estrutura de um painel de instrumentos Azure, utilizando o seguinte painel de instrumentos como exemplo:
 
 ![dashboard de exemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Como os [painéis do Azure compartilhados são recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), esse painel pode ser representado como JSON.  O JSON a seguir representa o painel visualizado acima.
+Uma vez que [os dashboards Azure partilhados são recursos,](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)este dashboard pode ser representado como JSON.  O jSON seguinte representa o painel visualizado acima.
 
 ```json
 
@@ -289,62 +289,62 @@ Como os [painéis do Azure compartilhados são recursos](https://docs.microsoft.
 
 ```
 
-## <a name="common-resource-properties"></a>Propriedades de recursos comuns
+## <a name="common-resource-properties"></a>Propriedades comuns de recursos
 
-Vamos dividir as seções relevantes do JSON.  As propriedades de nível superior, __ID__, __nome__, __tipo__, __local__e __marcas__ são compartilhadas entre todos os tipos de recursos do Azure. Ou seja, eles não têm muito a ver com o conteúdo do painel.
+Vamos dividir as secções relevantes do JSON.  As propriedades de alto nível, __id__, __nome,__ __tipo,__ __localização,__ e propriedades de etiquetas são __partilhadas__ em todos os tipos de recursos Azure. Ou seja, não têm muito a ver com o conteúdo do painel de instrumentos.
 
 ### <a name="the-id-property"></a>A propriedade ID
 
-A ID de recurso do Azure, sujeita às [convenções de nomenclatura dos recursos do Azure](/azure/architecture/best-practices/resource-naming). Quando o portal cria um painel, ele geralmente escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criá-los programaticamente. 
+O ID de recursos Azure, sujeito às [convenções de nomeação dos recursos Azure.](/azure/architecture/best-practices/resource-naming) Quando o portal cria um dashboard, geralmente escolhe um ID sob a forma de um guia, mas é livre de usar qualquer nome válido quando os criar programáticamente. 
 
-### <a name="the-name-property"></a>A propriedade Name
-O nome é o segmento da ID do recurso que não inclui a assinatura, o tipo de recurso ou as informações do grupo de recursos. Basicamente, é o último segmento da ID do recurso.
+### <a name="the-name-property"></a>A propriedade do nome
+O nome é o segmento do ID de recurso que não inclui a informação de subscrição, tipo de recurso ou grupo de recursos. Essencialmente, é o último segmento do ID de recurso.
 
-### <a name="the-type-property"></a>A propriedade Type
-Todos os painéis são do tipo __Microsoft. Portal/dashboards__.
+### <a name="the-type-property"></a>A propriedade tipo
+Todos os dashboards são do tipo __Microsoft.Portal/dashboards__.
 
-### <a name="the-location-property"></a>A propriedade Location
-Ao contrário de outros recursos, os painéis não têm um componente de tempo de execução.  Para painéis, o local indica a localização geográfica primária que armazena a representação JSON do painel. O valor deve ser um dos códigos de localização que podem ser buscados usando a [API Locations no recurso de assinaturas](https://docs.microsoft.com/rest/api/resources/subscriptions).
+### <a name="the-location-property"></a>A propriedade de localização
+Ao contrário de outros recursos, os dashboards não têm um componente de tempo de execução.  Para os dashboards, a localização indica a localização geográfica primária que armazena a representação JSON do painel de instrumentos. O valor deve ser um dos códigos de localização que podem ser recolhidos utilizando as [localizações API no recurso de subscrições](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
-### <a name="the-tags-property"></a>A propriedade Tags
-As marcas são um recurso comum dos recursos do Azure que permitem organizar seu recurso por pares de valor de nome arbitrário. Para painéis, há uma marca especial denominada __Hidden-título__. Se o seu painel tiver essa propriedade populada, ela será usada como o nome de exibição do seu painel no Portal. As IDs de recursos do Azure não podem ser renomeadas, mas as marcas podem. Essa marca fornece uma maneira de ter um nome de exibição de renomeável para seu painel.
+### <a name="the-tags-property"></a>A propriedade de tags
+As tags são uma característica comum dos recursos Azure que lhe permitem organizar o seu recurso através de pares de valor de nome arbitrário. Para os dashboards, há uma etiqueta especial chamada __título escondido__. Se o seu painel de instrumentos tiver esta propriedade povoada, então é usado como o nome de exibição para o seu painel no portal. Os ids de recursos azure não podem ser renomeados, mas as etiquetas podem. Esta etiqueta dá-lhe uma forma de ter um nome de exibição reamável para o seu painel de instrumentos.
 
 `"tags": { "hidden-title": "Created via API" }`
 
-### <a name="the-properties-object"></a>O objeto Properties
-O objeto Properties contém duas propriedades, __lentes__ e __metadados__. A propriedade __lentes__ contém informações sobre os blocos no painel.  A propriedade __Metadata__ está lá para possíveis recursos futuros.
+### <a name="the-properties-object"></a>As propriedades objeto
+O objeto de propriedades contém duas propriedades, __lentes__ e __metadados.__ A propriedade __das lentes__ contém informações sobre os azulejos no tablier.  A propriedade __de metadados__ está lá para potenciais funcionalidades futuras.
 
-### <a name="the-lenses-property"></a>A propriedade lentes
-A propriedade __lentes__ contém o painel. Observe que o objeto de lentes neste exemplo contém uma única propriedade chamada "0". As lentes são um conceito de agrupamento que não está implementado atualmente em painéis. Por enquanto, todos os seus painéis têm essa propriedade única no objeto Lens, novamente, chamado "0".
+### <a name="the-lenses-property"></a>A propriedade das lentes
+A propriedade __das lentes__ contém o tablier. Note que as lentes objetam neste exemplo contém uma única propriedade chamada "0". As lentes são um conceito de agrupamento que não é atualmente implementado em dashboards. Por enquanto, todos os seus tabliers têm esta única propriedade no objeto da lente, novamente, chamada "0".
 
-### <a name="the-lens-object"></a>O objeto de lente
-O objeto sob o "0" contém duas propriedades, __Order__ e __Parts__.  Na versão atual dos painéis, o __pedido__ é sempre 0. A propriedade __Parts__ contém um objeto que define as partes individuais (também chamadas de blocos) no painel.
+### <a name="the-lens-object"></a>O objeto da lente
+O objeto por baixo do "0" contém duas propriedades, __ordem__ e __peças.__  Na versão atual dos dashboards, a __ordem__ é sempre 0. A propriedade das __peças__ contém um objeto que define as partes individuais (também referidas como azulejos) no tablier.
 
-O objeto __Parts__ contém uma propriedade para cada parte, em que o nome da propriedade é um número. Esse número não é significativo. 
+O objeto de __peças__ contém uma propriedade para cada peça, onde o nome da propriedade é um número. Este número não é significativo. 
 
 ### <a name="the-part-object"></a>O objeto da parte
-Cada objeto da parte individual tem uma __posição__e __metadados__.
+Cada objeto de peça individual tem uma __posição,__ e __metadados.__
 
-### <a name="the-position-object"></a>O objeto Position
-A propriedade __Position__ contém as informações de tamanho e local da parte expressa como __x__, __y__, __RowSpan__e __ColSpan__. Os valores estão em termos de unidades de grade. Essas unidades de grade ficam visíveis quando o painel está no modo de personalização, como mostrado aqui. Se você quiser que um bloco tenha uma largura de duas unidades de grade, uma altura de uma unidade de grade e um local no canto superior esquerdo do painel, o objeto de posição terá esta aparência:
+### <a name="the-position-object"></a>O objeto de posição
+A propriedade de __posição__ contém o tamanho e a informação de localização para a peça expressa como __x,__ __y,__ __rowSpan,__ e __colSpan__. Os valores são em termos de unidades de rede. Estas unidades de grelha são visíveis quando o painel de instrumentos está no modo personalizado, como mostrado aqui. Se quiser que um azulejo tenha uma largura de duas unidades de grelha, uma altura de uma unidade de grelha, e uma localização no canto superior esquerdo do tablier, então o objeto de posição é assim:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![unidades de grade](./media/azure-portal-dashboards-structure/grid-units.png)
+![unidades de grelha](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>O objeto de metadados
-Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedade necessária chamada __Type__. Essa cadeia de caracteres informa ao Portal qual bloco mostrar. Nosso painel de exemplo usa estes tipos de blocos:
+Cada peça tem uma propriedade de metadados, um objeto tem apenas uma propriedade necessária chamada __tipo__. Esta corda diz ao portal que azulejos mostrar. O nosso painel de exemplo utiliza este tipo de azulejos:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – usado para mostrar as métricas de monitoramento
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – usado para mostrar com texto ou imagens com formatação básica para listas, links, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – usado para mostrar vídeos do YouTube, channel9 e qualquer outro tipo de vídeo que funcione em uma marca de vídeo HTML.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – usado para mostrar o nome e o status de uma máquina virtual do Azure.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`– Usado para mostrar métricas de monitorização
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`– Usado para mostrar com texto ou imagens com formatação básica para listas, links, etc.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart`– Usado para mostrar vídeos do YouTube, Channel9 e qualquer outro tipo de vídeo que funcione numa etiqueta de vídeo HTML.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`– Usado para mostrar o nome e o estado de uma máquina virtual Azure.
 
-Cada tipo de parte tem sua própria configuração. As propriedades de configuração possíveis são chamadas de __entradas__, __configurações__e __ativos__. 
+Cada tipo de peça tem a sua própria configuração. As possíveis propriedades de configuração são chamadas __inputs,__ __configurações,__ e __ativo__. 
 
-### <a name="the-inputs-object"></a>O objeto de entradas
-O objeto de entradas geralmente contém informações que associam um bloco a uma instância de recurso.  A parte da máquina virtual em nosso painel de exemplo contém uma única entrada que usa a ID de recurso do Azure para expressar a associação.  Esse formato de ID de recurso é consistente em todos os recursos do Azure.
+### <a name="the-inputs-object"></a>O objeto de entrada
+O objeto de entrada geralmente contém informações que ligam um azulejo a uma instância de recursos.  A parte da máquina virtual no nosso painel de amostras contém uma única entrada que utiliza o ID de recurso Azure para expressar a ligação.  Este formato id de recurso é consistente em todos os recursos Do Azure.
 
 ```json
 "inputs":
@@ -356,7 +356,7 @@ O objeto de entradas geralmente contém informações que associam um bloco a um
 ]
 
 ```
-A parte do gráfico de métricas tem uma única entrada que expressa o recurso para associar, bem como informações sobre as métricas que estão sendo exibidas. Aqui está a entrada para o bloco que mostra as métricas de rede e saída de rede.
+A parte do gráfico de métricas tem uma única entrada que expressa o recurso a que se ligar, bem como informações sobre as métricas que estão sendo exibidas. Aqui está a entrada para o azulejo que mostra as métricas Network In e Network out.
 
 ```json
 “inputs”:
@@ -390,8 +390,8 @@ A parte do gráfico de métricas tem uma única entrada que expressa o recurso p
 
 ```
 
-### <a name="the-settings-object"></a>O objeto de configurações
-O objeto Settings contém os elementos configuráveis de uma parte.  Em nosso painel de exemplo, a parte de redução usa as configurações para armazenar o conteúdo de redução personalizada, bem como um título e subtítulo configuráveis.
+### <a name="the-settings-object"></a>O objeto de definições
+O objeto de definições contém os elementos configuráveis de uma peça.  No nosso painel de amostras, a parte Markdown utiliza configurações para armazenar o conteúdo de marcação personalizado, bem como um título e legenda configuráveis.
 
 ```json
 "settings": 
@@ -409,7 +409,7 @@ O objeto Settings contém os elementos configuráveis de uma parte.  Em nosso pa
 
 ```
 
-Da mesma forma, o bloco de vídeo tem suas próprias configurações que contêm um ponteiro para o vídeo a ser reproduzido, uma configuração de reprodução automática e informações de título opcionais.
+Da mesma forma, o azulejo de vídeo tem as suas próprias configurações que contêm um ponteiro para o vídeo para reproduzir, uma definição de reprodução automática e informações opcionais do título.
 
 ```json
 "settings": 
@@ -428,7 +428,7 @@ Da mesma forma, o bloco de vídeo tem suas próprias configurações que contêm
 
 ```
 
-### <a name="the-asset-object"></a>O objeto Asset
-Blocos que são associados a objetos de portal gerenciáveis de primeira classe (chamados ativos) têm essa relação expressa por meio do objeto de ativo.  Em nosso painel de exemplo, o bloco da máquina virtual contém essa descrição do ativo.  A propriedade __idInputName__ informa ao portal que a entrada de ID contém o identificador exclusivo para o ativo, nesse caso, a ID do recurso. A maioria dos tipos de recursos do Azure tem ativos definidos no Portal.
+### <a name="the-asset-object"></a>O objeto de ativo
+Os azulejos que estão ligados a objetos portais manejáveis de primeira classe (chamados ativos) têm esta relação expressa através do objeto do ativo.  No nosso painel de exemplo, o azulejo da máquina virtual contém esta descrição do ativo.  A propriedade __idInputName__ diz ao portal que a entrada de ID contém o identificador único para o ativo, neste caso o ID do recurso. A maioria dos tipos de recursos Azure têm ativos definidos no portal.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

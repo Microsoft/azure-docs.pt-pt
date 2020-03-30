@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 106b1f0b765700803d2cd55b5e049fae5be3dfad
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76847202"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual
@@ -20,7 +20,7 @@ Empregos que não produzam resultados ou resultados inesperados são cenários c
 
 ## <a name="debug-a-query-using-job-diagram"></a>Depurar uma consulta usando diagrama de trabalho
 
-Um script Azure Stream Analytics é usado para transformar dados de entrada em dados de saída. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Event Hub, IoT Hub, etc.) através de múltiplos passos de consulta e, finalmente, para afundações de saída. Cada passo de consulta é mapeado para um conjunto de resultados temporário definido no script usando uma declaração `WITH`. Pode ver os dados, bem como as métricas de cada passo de consulta em cada resultado intermédio definido para encontrar a origem de um problema.
+Um script Azure Stream Analytics é usado para transformar dados de entrada em dados de saída. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Event Hub, IoT Hub, etc.) através de múltiplos passos de consulta e, finalmente, para afundações de saída. Cada passo de consulta é mapeado para um `WITH` conjunto de resultados temporário definido no script usando uma declaração. Pode ver os dados, bem como as métricas de cada passo de consulta em cada resultado intermédio definido para encontrar a origem de um problema.
 
 > [!NOTE]
 > Este diagrama de trabalho apenas mostra os dados e métricas para testes locais num único nó. Não deve ser utilizado para afinação de desempenho e resolução de problemas.
@@ -55,14 +55,14 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 |Métrica|Descrição|
 |-|-|
 |**TaxiRide**| O nome da entrada.|
-|**Hub de Eventos** | Tipo de fonte de entrada.|
+|**Hub de eventos** | Tipo de fonte de entrada.|
 |**Eventos**|O número de eventos lidos.|
 |**Fontes de eventos atrasados**|Quantas mais mensagens precisam de ser lidas para os Centros de Eventos e inputs do IoT Hub.|
 |**Eventos em Bytes**|O número de bytes lidos.|
 | **Eventos Degradados**|A contagem de eventos que teve um problema que não seja a desserialização.|
 |**Eventos Iniciais**| O número de eventos que têm um carimbo de tempo de aplicação antes da marca de água elevada.|
 |**Eventos Tardios**| O número de eventos que têm um carimbo de tempo de aplicação após a marca de água elevada.|
-|**Fontes de eventos**| O número de unidades de dados lidas. Por exemplo, o número de BLOBs.|
+|**Fontes de eventos**| O número de unidades de dados lidas. Por exemplo, o número de bolhas.|
 
 #### <a name="input-sources-local-input"></a>Fontes de entrada (entrada local)
 
@@ -75,7 +75,7 @@ Nesta secção, você explora as métricas disponíveis para cada parte do diagr
 |**Tamanho dos dados**| O tamanho dos dados gerados a partir deste passo.|
 |**Entrada local**| Use os dados locais como entrada.|
 
-#### <a name="query-steps"></a>Passos de consulta
+#### <a name="query-steps"></a>Passos da consulta
 
 ![Passo de consulta do diagrama de trabalho](./media/debug-locally-using-job-diagram/query-step.png)
 
@@ -119,10 +119,10 @@ Outras métricas de nível de trabalho aparecem na consola pop-up. Prima **Ctrl+
 
 * Os lavatórios de saída do Power BI e do Azure Data Lake Gen1 não são suportados devido a limitações do modelo de autenticação.
 
-* Apenas as opções de entrada nuvem têm [políticas de tempo](stream-analytics-out-of-order-and-late-events.md) suportar, ao contrário opções de entrada locais.
+* Apenas as opções de entrada em nuvem têm apoio de políticas de [tempo,](stream-analytics-out-of-order-and-late-events.md) enquanto as opções locais de entrada não.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Início rápido: criar um trabalho de Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Use o Visual Studio para ver tarefas do Azure Stream Analytics](stream-analytics-vs-tools.md)
-* [Testar dados dinâmicos localmente usando o Azure Stream Analytics Tools para Visual Studio (visualização)](stream-analytics-live-data-local-testing.md)
+* [Quickstart: Criar um trabalho de Stream Analytics usando o Estúdio Visual](stream-analytics-quick-create-vs.md)
+* [Use o Estúdio Visual para ver empregos da Azure Stream Analytics](stream-analytics-vs-tools.md)
+* [Teste dados ao vivo localmente utilizando ferramentas Azure Stream Analytics para Estúdio Visual (Pré-visualização)](stream-analytics-live-data-local-testing.md)

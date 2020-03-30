@@ -1,27 +1,27 @@
 ---
-title: Diferenças de Service Fabric do Azure entre Linux e Windows
+title: Diferenças de tecido de serviço Azure entre Linux e Windows
 description: Diferenças entre o Azure Service Fabric no Linux e o Azure Service Fabric no Windows.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: sfrev
 ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75748523"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Diferenças entre o Service Fabric no Linux e no Windows
 
-Existem algumas funcionalidades que são suportadas no Windows, mas no Linux ainda não. Eventualmente, os conjuntos de funcionalidades estarão em paridade e, com cada versão, esta diferença de funcionalidades diminuirá. Existem as seguintes diferenças entre as versões mais recentes disponíveis.
+Existem algumas funcionalidades que são suportadas no Windows, mas no Linux ainda não. Eventualmente, os conjuntos de funcionalidades estarão em paridade e, com cada versão, esta diferença de funcionalidades diminuirá. As seguintes diferenças existem entre os últimos lançamentos disponíveis.
 
-* Envoy (proxy reverso) está em versão prévia no Linux
+* Enviado (Procuração Inversa) está em pré-estreia no Linux
 * O instalador autónomo para Linux ainda não está disponível no Linux
 * Redirecionamento da consola (não suportado em clusters de produção do Windows ou Linux)
 * O Serviço de Análise de Falhas (FAS) no Linux
 * Serviço DNS para serviços do Service Fabric (o serviço DNS é suportado para contentores no Linux)
 * Equivalentes de comandos da CLI de determinados comandos do Powershell (lista abaixo, a maioria da qual é aplicável apenas a clusters autónomos)
-* [Diferenças na implementação de log que podem afetar a escalabilidade](service-fabric-concepts-scalability.md#choosing-a-platform)
+* [Diferenças na implementação de registos que podem afetar a escalabilidade](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlets do PowerShell que não funcionam num cluster do Service Fabric do Linux
 
@@ -83,6 +83,6 @@ Existem algumas funcionalidades que são suportadas no Windows, mas no Linux ain
 * [Preparar o ambiente de desenvolvimento no Linux](service-fabric-get-started-linux.md)
 * [Prepare your development environment on OSX (Preparar o ambiente de desenvolvimento no OSX)](service-fabric-get-started-mac.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
-* [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Plug-in do Service Fabric para Eclipse](service-fabric-get-started-eclipse.md)
+* [Crie e implemente a sua primeira aplicação de Serviço Fabric Java no Linux usando plugin de tecido de serviço para eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux (Criar a sua primeira aplicação CSharp no Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Utilizar a CLI do Service Fabric para gerir as aplicações](service-fabric-application-lifecycle-sfctl.md)

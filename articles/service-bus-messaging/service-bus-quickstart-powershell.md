@@ -1,6 +1,6 @@
 ---
-title: Usar Azure PowerShell para criar uma fila do barramento de serviço
-description: Neste guia de início rápido, você aprende a usar Azure PowerShell para criar uma fila do barramento de serviço. Em seguida, você usa um aplicativo de exemplo para enviar mensagens e receber mensagens da fila.
+title: Use a Azure PowerShell para criar uma fila de ônibus de serviço
+description: Neste arranque rápido, aprende-se a usar o Azure PowerShell para criar uma fila de autocarros de serviço. Em seguida, utiliza uma aplicação de amostra para enviar mensagens e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: spelluru
 ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75426941"
 ---
-# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Início rápido: usar Azure PowerShell para criar uma fila do barramento de serviço
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Quickstart: Use azure PowerShell para criar uma fila de ônibus de serviço
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Service Bus, com o PowerShell para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização nesse espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila através da [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -29,11 +29,11 @@ Este início rápido descreve como enviar e receber mensagens de e para uma fila
 
 Para concluir este tutorial, confirme que tem instalada:
 
-- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita][] antes de começar. 
-- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Você usa o Visual Studio para criar um exemplo que envia mensagens para e recebe a mensagem de uma fila. O exemplo é testar a fila que você criou no Portal. 
+- Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita][] antes de começar. 
+- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Usa o Estúdio Visual para construir uma amostra que envia mensagens e recebe mensagens de uma fila. A amostra é para testar a fila que criou no portal. 
 - [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
-Este início rápido requer a utilização da versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, veja [Instalar e Configurar o Azure PowerShell][]. Se você estiver familiarizado com o Azure Cloud Shell, poderá usá-lo sem instalar o Azure PowerShell em seu computador. Para obter detalhes sobre Azure Cloud Shell, consulte [visão geral do Azure cloud Shell](../cloud-shell/overview.md)
+Este início rápido requer a utilização da versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, veja [Instalar e Configurar o Azure PowerShell][]. Se estiver familiarizado com a Azure Cloud Shell, poderá utilizá-la sem instalar o Azure PowerShell na sua máquina. Para mais detalhes sobre a Casca de Nuvem Azure, consulte [a visão geral da Casca de Nuvem Azure](../cloud-shell/overview.md)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -128,7 +128,7 @@ Esta secção contém mais detalhes sobre o que faz o código de exemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obter a cadeia de ligação e a fila
 
-A cadeia de conexão e o nome da fila são passados para o método `Main()` como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
+A corda de ligação e `Main()` o nome da fila são passados para o método como argumentos de linha de comando. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)
@@ -165,7 +165,7 @@ Em seguida, o método `Main()` inicia o ciclo de mensagens assíncronas, `MainAs
 
 ### <a name="message-loop"></a>Ciclo de mensagens
 
-O método MainAsync () cria um cliente de fila com os argumentos de linha de comando, chama um manipulador de mensagens de recebimento chamado `RegisterOnMessageHandlerAndReceiveMessages()`e envia o conjunto de mensagens:
+O método MainAsync() cria um cliente de fila com os argumentos `RegisterOnMessageHandlerAndReceiveMessages()`da linha de comando, chama um manipulador de mensagens recetora chamado , e envia o conjunto de mensagens:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -256,14 +256,14 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 ```
 
 > [!NOTE]
-> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
+> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre como escrever código para enviar e receber mensagens, continue nos tutoriais na seção **Enviar e receber mensagens** . 
+Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre escrever código para enviar e receber mensagens, continue aos tutoriais na secção **Enviar e receber mensagens.** 
 
 > [!div class="nextstepaction"]
 > [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Instalar e Configurar o Azure PowerShell]: /powershell/azure/install-Az-ps
+[Instalar e Configurar powershell azure]: /powershell/azure/install-Az-ps

@@ -1,6 +1,6 @@
 ---
-title: Proteger seu cluster no Azure Data Explorer
-description: Este artigo descreve como proteger seu cluster no Azure Data Explorer no portal do Azure.
+title: Proteja o seu cluster no Azure Data Explorer
+description: Este artigo descreve como proteger o seu cluster no Azure Data Explorer dentro do portal Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
@@ -8,31 +8,31 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 0f935999b68a7283c032d43c42d688b273d5c450
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75720349"
 ---
-# <a name="secure-your-cluster-in-azure-data-explorer---azure-portal"></a>Proteger seu cluster no Azure Data Explorer-portal do Azure
+# <a name="secure-your-cluster-in-azure-data-explorer---azure-portal"></a>Proteja o seu cluster no Azure Data Explorer - Portal Azure
 
-[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) ajuda a proteger e proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Ele fornece criptografia de volume para o sistema operacional e discos de dados de suas máquinas virtuais de cluster. Ele também se integra com [Azure Key Vault](/azure/key-vault/), que nos permite controlar e gerenciar as chaves e os segredos de criptografia de disco e garantir que todos os dados nos discos de VM sejam criptografados. 
+[A Encriptação do Disco Azure](/azure/security/azure-security-disk-encryption-overview) ajuda a proteger e salvaguardar os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. Fornece encriptação de volume para o OS e discos de dados das suas máquinas virtuais cluster. Integra-se também com o [Azure Key Vault,](/azure/key-vault/)que nos permite controlar e gerir as chaves e segredos de encriptação do disco, e garantir que todos os dados nos discos VM estão encriptados. 
   
-## <a name="enable-encryption-at-rest-in-the-azure-portal"></a>Habilitar a criptografia em repouso no portal do Azure
+## <a name="enable-encryption-at-rest-in-the-azure-portal"></a>Ativar encriptação em repouso no portal Azure
   
-As configurações de segurança do cluster permitem habilitar a criptografia de disco no cluster. Habilitar a [criptografia em repouso](/azure/security/fundamentals/encryption-atrest) no cluster fornece proteção de dados para dados armazenados (em repouso). 
+As definições de segurança do cluster permitem ativar a encriptação do disco no seu cluster. Permitir a [encriptação em repouso](/azure/security/fundamentals/encryption-atrest) no seu cluster fornece proteção de dados para dados armazenados (em repouso). 
 
-1. Na portal do Azure, vá para o recurso de cluster de Data Explorer do Azure. No título **configurações** , selecione **segurança**. 
+1. No portal Azure, aceda ao seu recurso de cluster Azure Data Explorer. Sob a rubrica **Definições,** selecione **Security**. 
 
-    ![Ativar a criptografia em repouso](media/manage-cluster-security/security-encryption-at-rest.png)
+    ![Ligue a encriptação em repouso](media/manage-cluster-security/security-encryption-at-rest.png)
 
-1. Na janela **segurança** , selecione **ativado** para a configuração de segurança de **criptografia de disco** . 
+1. Na janela **De Segurança,** selecione **On** para a definição de segurança de **encriptação do disco.** 
 
 1. Selecione **Guardar**.
  
 > [!NOTE]
-> Selecione **desativado** para desabilitar a criptografia depois que ela tiver sido habilitada.
+> Selecione **Off** para desativar a encriptação depois de ativada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Verificar integridade do cluster](/azure/data-explorer/check-cluster-health)
+[Verificar estado de funcionamento do cluster](/azure/data-explorer/check-cluster-health)

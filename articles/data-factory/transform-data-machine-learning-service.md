@@ -1,6 +1,6 @@
 ---
-title: Executar pipelines de Azure Machine Learning
-description: Saiba como executar seus pipelines de Azure Machine Learning em seus pipelines de Azure Data Factory.
+title: Executar oleodutos de aprendizagem automática Azure
+description: Aprenda a executar os seus oleodutos Azure Machine Learning nos seus oleodutos Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,17 +11,17 @@ author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
 ms.openlocfilehash: b54504cf8ca7b32bf14bd4b7e0c561ffd56d4098
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76155168"
 ---
-# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Executar pipelines de Azure Machine Learning no Azure Data Factory
+# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Executar oleodutos de aprendizagem automática azure em Fábrica de Dados Azure
 
-Execute seus pipelines de Azure Machine Learning como uma etapa em seus pipelines de Azure Data Factory. A atividade Machine Learning executar pipeline permite cenários de previsão de lote, como a identificação de possíveis padrões de empréstimo, a determinação de sentimentos e a análise de padrões de comportamento do cliente.
+Execute os seus oleodutos Azure Machine Learning como um passo nos seus oleodutos Azure Data Factory. A atividade do Pipeline de Execução de Machine Learning permite cenários de previsão de lotes, tais como identificar possíveis incumprimentos de empréstimos, determinar o sentimento e analisar padrões de comportamento do cliente.
 
-O vídeo abaixo apresenta uma introdução de seis minutos e uma demonstração desse recurso.
+O vídeo abaixo apresenta uma introdução de seis minutos e demonstração desta funcionalidade.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
@@ -46,28 +46,28 @@ O vídeo abaixo apresenta uma introdução de seis minutos e uma demonstração 
 
 ```
 
-## <a name="type-properties"></a>Propriedades do tipo
+## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade no pipeline | Cadeia | Sim
-tipo | O tipo de atividade é ' AzureMLExecutePipeline ' | Cadeia | Sim
-linkedServiceName | Serviço vinculado para Azure Machine Learning | Referência de serviço vinculado | Sim
-mlPipelineId | ID do pipeline de Azure Machine Learning publicado | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Sim
-Experimentoname | Nome de teste de execução do histórico da execução do pipeline de Machine Learning | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não
-mlPipelineParameters | Pares de chave, valor a serem passados para o ponto de extremidade do pipeline de Azure Machine Learning publicado. As chaves devem corresponder aos nomes dos parâmetros de pipeline definidos no pipeline de Machine Learning publicado | Objeto com pares chave-valor (ou expressão com o objeto ResultType) | Não
-mlParentRunId | A ID de execução do pipeline Azure Machine Learning pai | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não
-continueOnStepFailure | Se deseja continuar a execução de outras etapas no pipeline de Machine Learning executar se uma etapa falhar | boolean | Não
+nome | Nome da atividade no oleoduto | Cadeia | Sim
+tipo | Tipo de atividade é 'AzureMLExecutePipeline' | Cadeia | Sim
+linkedServiceName | Serviço Ligado à Aprendizagem automática Azure | Referência de serviço ligada | Sim
+mlPipelineId | ID do oleoduto azure machine learning publicado | Corda (ou expressão com resultadoTipo de corda) | Sim
+experimentoNome | Executar nome da experiência de história da corrida do pipeline machine learning | Corda (ou expressão com resultadoTipo de corda) | Não
+mlPipelineParameters | Chave, pares de valor a serem passados para o ponto final do pipeline Azure Machine Learning publicado. As teclas devem coincidir com os nomes dos parâmetros do gasoduto definidos no gasoduto de Aprendizagem automática publicado | Objeto com pares de valor chave (ou Expressão com objeto resultaType) | Não
+mlParentRunId | O pipeline de machine learning azure-mãe executar ID | Corda (ou expressão com resultadoTipo de corda) | Não
+continuarOnStepFailure | Se continuar a execução de outros passos no gasoduto machine learning executado se um passo falhar | boolean | Não
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes artigos que explicam como transformar dados de outras maneiras:
+Consulte os seguintes artigos que explicam como transformar dados de outras formas:
 
-* [Executar atividade de fluxo de dados](control-flow-execute-data-flow-activity.md)
-* [Atividade de U-SQL](transform-data-using-data-lake-analytics.md)
-* [Atividade do hive](transform-data-using-hadoop-hive.md)
-* [Atividade Pig](transform-data-using-hadoop-pig.md)
-* [Atividade MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Atividade de streaming do Hadoop](transform-data-using-hadoop-streaming.md)
-* [Atividade do Spark](transform-data-using-spark.md)
+* [Executar atividade de Fluxo de Dados](control-flow-execute-data-flow-activity.md)
+* [Atividade U-SQL](transform-data-using-data-lake-analytics.md)
+* [Atividade da colmeia](transform-data-using-hadoop-hive.md)
+* [Atividade de porco](transform-data-using-hadoop-pig.md)
+* [MapReduzir a atividade](transform-data-using-hadoop-map-reduce.md)
+* [Atividade de streaming de hadoop](transform-data-using-hadoop-streaming.md)
+* [Atividade de faísca](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

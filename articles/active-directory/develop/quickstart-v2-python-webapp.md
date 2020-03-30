@@ -1,5 +1,5 @@
 ---
-title: Adicione o sessão com a Microsoft a uma aplicação web da plataforma de identidade Microsoft Python  Azure
+title: Adicione o sessão com a Microsoft a uma aplicação web da plataforma de identidade Microsoft Python [ Azure
 description: Saiba como implementar o Microsoft Sign-In numa aplicação web python usando o OAuth2
 services: active-directory
 author: abhidnya13
@@ -12,10 +12,10 @@ ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
 ms.openlocfilehash: 34f0fb57b4432a8153f2cbaa8cb60edbb9a6f494
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271088"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Quickstart: Adicione o sessão com a Microsoft a uma aplicação web Python
@@ -30,7 +30,7 @@ Quando tiver concluído o guia, a sua aplicação aceitará inscrições de cont
 Para executar esta amostra, você precisará:
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) ou [Python 3+](https://www.python.org/downloads/release/python-364/)
-- Pedido de [balão,](http://flask.pocoo.org/) [flask-session](https://pythonhosted.org/Flask-Session/) [](https://requests.kennethreitz.org/en/master/)
+- Pedido de [balão,](http://flask.pocoo.org/) [flask-session](https://pythonhosted.org/Flask-Session/) [requests](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
@@ -52,16 +52,16 @@ Para executar esta amostra, você precisará:
 >
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 > 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
->      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `python-webapp`.
+>      - Na secção **Nome,** introduza um nome de aplicação significativo que `python-webapp`será apresentado aos utilizadores da aplicação, por exemplo.
 >      - Nos tipos de **conta suportados,** selecione **Contas em qualquer diretório organizacional e contas pessoais**da Microsoft .
->      - Sob a secção **Redirecionamento URI,** na lista de drop-down, selecione a plataforma **Web** e, em seguida, detete o valor para `http://localhost:5000/getAToken`.
+>      - Sob a secção **Redirecionamento URI,** na **Web** lista de drop-down, `http://localhost:5000/getAToken`selecione a plataforma Web e, em seguida, detete o valor para .
 >      - Selecione **Registar**. Na página de **visão geral** da aplicação, note o valor de ID da **Aplicação (cliente)** para posterior utilização.
-> 1. No menu da mão esquerda, escolha **Certificados e segredos** e clique em **novo segredo** do cliente na secção Segredos do **Cliente:**
+> 1. No menu da mão esquerda, escolha **Certificados & segredos** e clique em **novo segredo** de cliente na secção Segredos do **Cliente:**
 >
 >      - Digite uma descrição chave (de caso de segredo de aplicação).
 >      - Selecione uma duração chave de **1 ano**.
@@ -81,7 +81,7 @@ Para executar esta amostra, você precisará:
 >
 > Para a amostra de código para este início rápido funcionar, é necessário:
 >
-> 1. Adicione um URL de resposta como `http://localhost:5000/getAToken`.
+> 1. Adicione um URL `http://localhost:5000/getAToken`de resposta como .
 > 1. Criar um Segredo de Cliente.
 > 1. Adicione o utilizador da Microsoft Graph API.ReadBasic.Todas as permissões delegadas.
 >
@@ -114,8 +114,8 @@ Para executar esta amostra, você precisará:
 > Em que:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
-> - `Enter_the_Client_Secret_Here` - é o Segredo do **Cliente** que criou em **Certificados e Segredos** para a aplicação que registou.
-> - `Enter_the_Tenant_Name_Here` - é o valor de id do **Diretório (inquilino)** do pedido que registou.
+> - `Enter_the_Client_Secret_Here`- é o Segredo do **Cliente** que criou em **Certificados & Segredos** para a aplicação que registou.
+> - `Enter_the_Tenant_Name_Here`- o valor de id do **Diretório (inquilino)** do pedido que registou.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-run-the-code-sample"></a>Passo 3: Executar a amostra de código

@@ -1,6 +1,6 @@
 ---
-title: Como adicionar um evento de Hub IoT fonte-Azure Time Series Insights | Microsoft Docs
-description: Saiba como adicionar uma origem de evento do Hub IoT ao seu ambiente de Time Series Insights.
+title: Como adicionar uma fonte de evento de hub IoT - Azure Time Series Insights [ Microsoft Docs
+description: Aprenda a adicionar uma fonte de evento de hub IoT ao seu ambiente Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,43 +12,43 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: 3ea73e2ca20faea30294bc5d5e1788415095c39f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905366"
 ---
-# <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem de evento do Hub IoT ao seu ambiente de Time Series Insights
+# <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicione uma fonte de evento de hub IoT ao seu ambiente Time Series Insights
 
-Este artigo descreve como usar o portal do Azure para adicionar uma origem de evento que lê dados do Hub IoT do Azure para seu ambiente de Azure Time Series Insights.
+Este artigo descreve como usar o portal Azure para adicionar uma fonte de evento que lê dados do Azure IoT Hub para o seu ambiente Azure Time Series Insights.
 
 > [!NOTE]
-> As instruções neste artigo se aplicam a Azure Time Series Insights GA e Time Series Insights ambientes de visualização.
+> As instruções deste artigo aplicam-se tanto aos insights da Série De Tempo Azure GA como aos ambientes de pré-visualização da Time Series Insights.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Crie um [ambiente de Azure Time Series insights](time-series-insights-update-create-environment.md).
-* Crie um [Hub IOT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md).
-* O Hub IoT deve ter eventos de mensagem ativos sendo enviados no.
-* Crie um grupo de consumidores dedicado no Hub IoT no qual o ambiente de Time Series Insights será consumido. Cada origem de eventos do Time Series Insights tem de ter seu próprio grupo de consumidores dedicado que não seja partilhado com qualquer outro tipo de consumidor. Se vários leitores consomem eventos do mesmo grupo de consumidores, é provável que todos os leitores apresentem falhas. Para obter detalhes, leia o [Guia do desenvolvedor do Hub IOT do Azure](../iot-hub/iot-hub-devguide.md).
+* Crie um ambiente de Insights da [Série De Tempo Azure.](time-series-insights-update-create-environment.md)
+* Crie um [hub IoT utilizando o portal Azure.](../iot-hub/iot-hub-create-through-portal.md)
+* O centro ioT deve ter eventos de mensagens ativas sendo enviados.
+* Crie um grupo de consumidores dedicado no hub IoT para que o ambiente Time Series Insights consuma. Cada fonte de evento da Time Series Insights deve ter o seu próprio grupo de consumidores dedicado que não é partilhado com qualquer outro consumidor. Se vários leitores consumirem eventos do mesmo grupo de consumidores, todos os leitores são suscetíveis de apresentar falhas. Para mais detalhes, leia o guia de desenvolvimento do [Azure IoT Hub](../iot-hub/iot-hub-devguide.md).
 
-### <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao Hub IoT
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicione um grupo de consumidores ao seu hub IoT
 
-Os aplicativos usam grupos de consumidores para efetuar pull de dados do Hub IoT do Azure. Para ler de forma confiável dados de seu hub IoT, forneça um grupo de consumidores dedicado que é usado somente por esse ambiente de Time Series Insights.
+As aplicações utilizam grupos de consumidores para retirar dados do Azure IoT Hub. Para ler de forma fiável os dados do seu hub IoT, forneça um grupo de consumidores dedicado que é usado apenas por este ambiente time series Insights.
 
 Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
-1. Na [portal do Azure](https://portal.azure.com), localize e abra o Hub IOT.
+1. No [portal Azure,](https://portal.azure.com)encontre e abra o seu hub IoT.
 
-1. Em **configurações**, selecione **pontos de extremidade internos**e, em seguida, selecione o ponto final de **eventos** .
+1. Em **Definições**, selecione **Pontos Finais Incorporados**e, em seguida, selecione o ponto final do **Evento.**
 
-   [![na página Build-in Endpoints, selecione o botão Eventos](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png#lightbox)
+   [![Na página Build-in Endpoints, selecione o botão Eventos](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png#lightbox)
 
-1. Em **grupos de consumidores**, insira um nome exclusivo para o grupo de consumidores. Use esse mesmo nome em seu ambiente de Time Series Insights ao criar uma nova origem de evento.
+1. No âmbito dos **grupos de consumidores,** insira um nome único para o grupo de consumidores. Use este mesmo nome no ambiente time series Insights quando criar uma nova fonte de evento.
 
 1. Selecione **Guardar**.
 
-## <a name="add-a-new-event-source"></a>Adicionar uma nova origem de evento
+## <a name="add-a-new-event-source"></a>Adicione uma nova fonte de evento
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
@@ -58,58 +58,58 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
    [![Selecione Fontes de Evento e, em seguida, selecione o botão Adicionar](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 
-1. No **novo painel origem do evento** , para **nome da origem do evento**, insira um nome que seja exclusivo para esse time Series insights ambiente. Por exemplo, insira **Event-Stream**.
+1. No novo painel de origem do **evento,** para **nome de origem do evento,** insira um nome único para este ambiente Time Series Insights. Por exemplo, introduza **o fluxo de eventos**.
 
-1. Para **origem**, selecione **Hub IOT**.
+1. Para **origem,** selecione **IoT Hub**.
 
-1. Selecione um valor para a **opção de importação**:
+1. Selecione um valor para **a opção Import:**
 
-   * Se você já tiver um hub IoT em uma de suas assinaturas, selecione usar o **Hub IOT de assinaturas disponíveis**. Esta opção é a abordagem mais fácil.
+   * Se já tem um hub IoT numa das suas subscrições, selecione **Use IoT Hub a partir de subscrições disponíveis**. Esta opção é a abordagem mais fácil.
    
      [![Selecione opções no painel de origem do novo evento](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png#lightbox)
 
-    * A tabela a seguir descreve as propriedades que são necessárias para a opção **usar o Hub IOT de assinaturas disponíveis** :
+    * O quadro seguinte descreve as propriedades que são necessárias para o **Hub de Utilização IoT a partir da** opção de subscrição disponível:
 
        [![Novo painel de fonte de eventos - Propriedades para definir no Hub use IoT a partir da opção de subscrição disponível](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
        | Propriedade | Descrição |
        | --- | --- |
-       | Subscrição | A assinatura à qual o Hub IOT desejado pertence. |
-       | Nome do Hub IoT | O nome do Hub IOT selecionado. |
-       | Nome da política do Hub IoT | Selecione a política de acesso partilhado. Você pode encontrar a política de acesso compartilhado na guia Configurações do Hub IoT. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **conexão de serviço** . |
-       | Chave de política do Hub IoT | A chave está preenchida previamente. |
+       | Subscrição | A subscrição a que o centro iot desejado pertence. |
+       | Nome do hub ioT | O nome do centro de iot selecionado. |
+       | Nome da política do hub IoT | Selecione a política de acesso partilhado. Pode encontrar a política de acesso partilhado no separador de definições do hub IoT. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. A política de acesso partilhado para a sua fonte de evento *deve* ter permissões de **ligação do serviço.** |
+       | Chave política do hub IoT | A chave está pré-povoada. |
 
-    * Se o Hub IoT for externo às suas assinaturas ou se você quiser escolher opções avançadas, selecione **fornecer configurações do Hub IOT manualmente**.
+    * Se o hub IoT for externo às suas subscrições, ou se pretender escolher opções avançadas, selecione fornecer as definições do **Hub IoT manualmente**.
 
-      A tabela a seguir descreve as propriedades necessárias para **fornecer as configurações do Hub IOT manualmente**:
-
-       | Propriedade | Descrição |
-       | --- | --- |
-       | ID de Subscrição | A assinatura à qual o Hub IOT desejado pertence. |
-       | Grupo de recursos | O nome do grupo de recursos no qual o Hub IoT foi criado. |
-       | Nome do Hub IoT | O nome do Hub IoT. Quando você criou o Hub IoT, você inseriu um nome para o Hub IoT. |
-       | Nome da política do Hub IoT | A política de acesso partilhado. Você pode criar a política de acesso compartilhado na guia Configurações do Hub IoT. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **conexão de serviço** . |
-       | Chave de política do Hub IoT | A chave de acesso compartilhado que é usada para autenticar o acesso ao namespace do barramento de serviço do Azure. Introduza a chave primária ou secundária aqui. |
-
-    * Ambas as opções compartilham as seguintes opções de configuração:
+      A tabela seguinte descreve manualmente as propriedades necessárias para as definições do **Hub Provide IoT:**
 
        | Propriedade | Descrição |
        | --- | --- |
-       | Grupo de consumidores do Hub IoT | O grupo de consumidores que lê eventos do Hub IoT. Recomendamos vivamente que utilize um grupo de consumidores dedicado para a origem do evento. |
-       | Formato de serialização de eventos | Atualmente, o JSON é o formato de serialização só estão disponíveis. As mensagens de evento devem estar nesse formato ou nenhum dado pode ser lido. |
-       | Nome da propriedade Timestamp | Para determinar esse valor, você precisa entender o formato da mensagem dos dados da mensagem que são enviados para o Hub IoT. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de hora do evento. O valor diferencia maiúsculas de minúsculas. Se deixado em branco, o **tempo de colocar em fila de eventos** de eventos de origem é utilizada como o carimbo de hora do evento. |
+       | ID da subscrição | A subscrição a que o centro iot desejado pertence. |
+       | Grupo de recursos | O nome do grupo de recursos em que o centro IoT foi criado. |
+       | Nome do hub ioT | O nome do seu centro de iot. Quando criaste o teu centro de IoT, entraste num nome para o centro ioT. |
+       | Nome da política do hub IoT | A política de acesso partilhado. Pode criar a política de acesso partilhado no separador de definições do hub IoT. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. A política de acesso partilhado para a sua fonte de evento *deve* ter permissões de **ligação do serviço.** |
+       | Chave política do hub IoT | A chave de acesso partilhada que é usada para autenticar o acesso ao espaço de nome do Azure Service Bus. Insira a chave primária ou secundária aqui. |
+
+    * Ambas as opções partilham as seguintes opções de configuração:
+
+       | Propriedade | Descrição |
+       | --- | --- |
+       | Grupo de consumidores hub IoT | O grupo de consumidores que lê os acontecimentos do centro ioT. Recomendamos vivamente que utilize um grupo de consumidores dedicado para a sua fonte de evento. |
+       | Formato de serialização de eventos | Atualmente, a JSON é o único formato de serialização disponível. As mensagens de evento devem estar neste formato ou não se podem ler dados. |
+       | Nome da propriedade Carimbo de data/hora | Para determinar este valor, é necessário compreender o formato de mensagem dos dados de mensagem que são enviados para o centro ioT. Este valor é o **nome** da propriedade específica do evento nos dados da mensagem que pretende utilizar como carimbo temporal do evento. O valor é sensível ao caso. Se ficar em branco, o **evento enfila** o tempo na fonte do evento é usado como carimbo de tempo do evento. |
 
 
-1. Adicione o nome do grupo de consumidores de Time Series Insights dedicado que você adicionou ao seu hub IoT.
+1. Adicione o nome de grupo de consumidores dedicado time series Insights que adicionou ao seu hub IoT.
 
 1. Selecione **Criar**.
 
-1. Depois de criar a origem do evento, Time Series Insights iniciar automaticamente os dados de streaming para o seu ambiente.
+1. Depois de criar a fonte do evento, a Time Series Insights inicia automaticamente o streaming de dados para o seu ambiente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Definir políticas de acesso de dados](time-series-insights-data-access.md) para proteger os dados.
+* [Defina políticas de acesso](time-series-insights-data-access.md) a dados para proteger os dados.
 
-* [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
+* [Envie eventos](time-series-insights-send-events.md) para a fonte do evento.
 
-* Aceder ao seu ambiente no [Explorador do Time Series Insights](https://insights.timeseries.azure.com).
+* Aceda ao seu ambiente no explorador time [series Insights](https://insights.timeseries.azure.com).

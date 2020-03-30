@@ -1,6 +1,6 @@
 ---
-title: Comunicar para dispositivo C# app em com streams de dispositivos Azure IoT Hub
-description: Neste arranque rápido, executa C# duas aplicações de amostra que comunicam através de um fluxo de dispositivos estabelecido através do IoT Hub.
+title: Comunicar para dispositivo app em C# com streams de dispositivos Azure IoT Hub
+description: Neste arranque rápido, executa duas aplicações C# de amostra que comunicam através de um fluxo de dispositivo sintetado através do IoT Hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -10,23 +10,23 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: 64af62cb6c2c56ca8c7e67e2f1467d4a7e8335a0
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675525"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma C# aplicação do dispositivo através de streams de dispositivos IoT Hub (pré-visualização)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma aplicação do dispositivo em C# através de fluxos de dispositivos IoT Hub (pré-visualização)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
 O Azure IoT Hub suporta atualmente os streams do dispositivo como recurso de [pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Os streams de [dispositivos IoT Hub](./iot-hub-device-streams-overview.md) permitem que as aplicações de serviço e dispositivo saem de forma segura e amiga da firewall. Este quickstart envolve C# duas aplicações que aproveitam os fluxos do dispositivo para enviar dados para trás e para a frente (eco).
+Os streams de [dispositivos IoT Hub](./iot-hub-device-streams-overview.md) permitem que as aplicações de serviço e dispositivo saem de forma segura e amiga da firewall. Este quickstart envolve duas aplicações C# que aproveitam os fluxos do dispositivo para enviar dados para trás e para a frente (eco).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,9 +36,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
   * Europa do Norte
   * Ásia Sudeste
 
-* As duas aplicações de amostra que executa C#neste arranque rápido estão escritas em . Você precisa do .NET Core SDK 2.1.0 ou mais tarde na sua máquina de desenvolvimento.
+* As duas aplicações de amostra que executa neste quickstart estão escritas em C#. Você precisa do .NET Core SDK 2.1.0 ou mais tarde na sua máquina de desenvolvimento.
   * Descarregue o [.NET Core SDK para várias plataformas a partir de .NET](https://www.microsoft.com/net/download/all).
-  * Verifique a versão C# atual da sua máquina de desenvolvimento utilizando o seguinte comando:
+  * Verifique a versão atual de C# na sua máquina de desenvolvimento utilizando o seguinte comando:
 
    ```
    dotnet --version
@@ -52,7 +52,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-* [Descarregue as amostras Azure IoT C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) e extrai a arquivação ZIP. Precisa dele tanto no lado do dispositivo como no lado do serviço.
+* [Descarregue as amostras Azure IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) e extrai o arquivo ZIP. Precisa dele tanto no lado do dispositivo como no lado do serviço.
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -104,7 +104,7 @@ Nesta secção, executa tanto a aplicação do lado do dispositivo como a aplica
 
 ### <a name="run-the-service-side-application"></a>Executar a aplicação do lado do serviço
 
-Numa janela de terminal local, navegue para o diretório `iot-hub/Quickstarts/device-streams-echo/service` na sua pasta de projeto desapertada. Mantenha as seguintes informações à mão:
+Numa janela de terminal local, navegue para o `iot-hub/Quickstarts/device-streams-echo/service` diretório na sua pasta de projeto sem fecho. Mantenha as seguintes informações à mão:
 
 | Nome do parâmetro | Valor do parâmetro |
 |----------------|-----------------|
@@ -133,7 +133,7 @@ A aplicação aguardará a disponibilização da aplicação do dispositivo.
 
 ### <a name="run-the-device-side-application"></a>Executar a aplicação do lado do dispositivo
 
-Noutra janela de terminal local, navegue para o diretório `iot-hub/Quickstarts/device-streams-echo/device` na sua pasta de projeto desapertada. Mantenha as seguintes informações à mão:
+Noutra janela de terminal local, navegue para o `iot-hub/Quickstarts/device-streams-echo/device` diretório na sua pasta de projeto sem fecho. Mantenha as seguintes informações à mão:
 
 | Nome do parâmetro | Valor do parâmetro |
 |----------------|-----------------|
@@ -173,7 +173,7 @@ O tráfego que está a ser enviado sobre o riacho é túnel através do centro i
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um hub IoT, registou um C# dispositivo, estabeleceu um fluxo de dispositivos entre aplicações no dispositivo e laterais de serviço, e utilizou o fluxo para enviar dados para trás e para a frente entre as aplicações.
+Neste arranque rápido, criou um hub IoT, registou um dispositivo, estabeleceu um fluxo de dispositivos entre aplicações C# no dispositivo e laterais de serviço, e utilizou o fluxo para enviar dados para trás e para a frente entre as aplicações.
 
 Para saber mais sobre os fluxos de dispositivos, consulte:
 

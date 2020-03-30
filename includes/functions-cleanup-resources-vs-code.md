@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
 ms.openlocfilehash: fcfc86a3aca4aae042ce3589988aa91d821dce98
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76842210"
 ---
-1. Em Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comando, procure e selecione `Azure Functions: Open in portal`.
+1. No Visual Studio Code, prima F1 para abrir a paleta de comando. Na paleta de comando, `Azure Functions: Open in portal`procure e selecione .
 
 1. Escolha a sua aplicação de função e prima Enter. A página da aplicação de funções é aberta no [portal Azure.](https://portal.azure.com)
 

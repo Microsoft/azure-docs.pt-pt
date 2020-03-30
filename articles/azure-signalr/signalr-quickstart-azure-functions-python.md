@@ -1,5 +1,5 @@
 ---
-title: Início rápido sem servidor do serviço de Signaler do Azure-Python
+title: Serviço De Sinalização Azure quickstart sem servidor - Python
 description: Um início rápido para utilizar o Serviço Azure SignalR e as Funções do Azure para criar uma sala de chat.
 author: anthonychu
 ms.service: signalr
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.openlocfilehash: 0cf8705cf2567a60129681c2db41b0868f8fe182
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75392129"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Início rápido: criar uma sala de chat com Azure Functions e o serviço de Signalr usando o Python
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Quickstart: Criar uma sala de chat com funções Azure e serviço de sinalização usando Python
 
 O Serviço Azure SignalR permite-lhe adicionar facilmente funcionalidades em tempo real à sua aplicação. As Funções do Azure são uma plataforma sem servidor que lhe permite executar código sem ter de gerir qualquer infraestrutura. Neste início rápido, saiba como utilizar o Serviço SignalR e as Funções para criar uma aplicação de chat em tempo real sem servidor.
 
@@ -24,9 +24,9 @@ Este início rápido pode ser executado no macOS, Windows ou Linux.
 
 Certifique-se de que tem um editor de código como o [Visual Studio Code](https://code.visualstudio.com/) instalado.
 
-Instale o [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (versão 2.7.1505 ou superior) para executar aplicativos do Azure function do Python localmente.
+Instale as [Ferramentas Core funções do Azure](https://github.com/Azure/azure-functions-core-tools#installing) (versão 2.7.1505 ou superior) para executar as aplicações Python Azure Function localmente.
 
-Azure Functions requer [Python 3,6 ou 3,7](https://www.python.org/downloads/).
+Funções Azure requer [Python 3.6 ou 3.7](https://www.python.org/downloads/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,9 +50,9 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
     ![Criar o Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. No editor de código, abra a pasta *src/chat/Python* no repositório clonado.
+1. No seu editor de código, abra a pasta *src/chat/python* no repositório clonado.
 
-1. Para desenvolver e testar localmente funções Python, você deve trabalhar em um ambiente Python 3,6 ou 3,7. Execute os seguintes comandos para criar e ativar um ambiente virtual com o nome `.venv`.
+1. Para desenvolver e testar localmente as funções Python, deve trabalhar num ambiente Python 3.6 ou 3.7. Executar os seguintes comandos para criar `.venv`e ativar um ambiente virtual chamado .
 
     **Linux ou macOS:**
 
@@ -61,7 +61,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
     source .venv/bin/activate
     ```
 
-    **Windows:**
+    **Janelas:**
 
     ```powershell
     py -3.7 -m venv .venv
@@ -72,12 +72,12 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 1. Em **local.settings.json**, cole a cadeia de ligação no valor da definição **AzureSignalRConnectionString**. Guarde o ficheiro.
 
-1. As funções do Python são organizadas em pastas. Em cada pasta há dois arquivos: o *Function. JSON* define as associações que são usadas na função e *\_\_init\_\_. py* é o corpo da função. Existem duas funções acionadas por HTTP nesta aplicação de funções:
+1. As funções python são organizadas em pastas. Em cada pasta estão dois ficheiros: *function.json* define as encadernações que são usadas na função, e * \_ \_inite\_\_.py* é o corpo da função. Existem duas funções acionadas por HTTP nesta aplicação de funções:
 
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **mensagens** - Recebe uma mensagem de chat no corpo do pedido e utiliza o enlace de saída *SignalR* para difundir a mensagem a todas as aplicações cliente ligadas.
 
-1. No terminal com o ambiente virtual ativado, verifique se você está na pasta *src/chat/Python* . Instale os pacotes python necessários usando PIP.
+1. No terminal com o ambiente virtual ativado, certifique-se de que está na pasta *src/chat/python.* Instale os pacotes Python necessários utilizando PIP.
 
     ```bash
     python -m pip install -r requirements.txt
@@ -89,7 +89,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
     func start
     ```
 
-    ![Executar aplicativo de funções](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
+    ![Executar aplicativo de função](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
@@ -97,7 +97,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou e executou um aplicativo sem servidor em tempo real no VS Code. Em seguida, saiba mais sobre como implementar as Funções do Azure a partir do VS Code.
+Neste arranque rápido, construíste e executaste uma aplicação sem servidor em tempo real no Código VS. Em seguida, saiba mais sobre como implementar as Funções do Azure a partir do VS Code.
 
 > [!div class="nextstepaction"]
 > [Implementar as Funções do Azure com o VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)

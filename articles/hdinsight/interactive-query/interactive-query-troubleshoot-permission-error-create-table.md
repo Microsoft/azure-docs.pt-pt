@@ -1,6 +1,6 @@
 ---
-title: Erro de permissão negada com a tabela Apache Hive no Azure HDInsight
-description: Permissão negada ao tentar criar uma tabela de Apache Hive no Azure HDInsight
+title: Permissão negada erro com tabela Apache Hive no Azure HDInsight
+description: Permissão negada erro ao tentar criar uma tabela Apache Hive em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,25 +8,25 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
 ms.openlocfilehash: 8ebad9300c126193ddb96d5f07057b9a825dbfcd
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895149"
 ---
-# <a name="scenario-permission-denied-error-when-trying-to-create-an-apache-hive-table-in-azure-hdinsight"></a>Cenário: erro de permissão negada ao tentar criar uma tabela de Apache Hive no Azure HDInsight
+# <a name="scenario-permission-denied-error-when-trying-to-create-an-apache-hive-table-in-azure-hdinsight"></a>Cenário: Permissão negada erro ao tentar criar uma tabela Apache Hive em Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar componentes de consulta interativa em clusters do Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao utilizar componentes de Consulta Interativa em clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Você verá o seguinte erro ao tentar criar uma tabela:
+Verá o seguinte erro ao tentar criar uma tabela:
 
 ```
 java.sql.SQLException: Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hdiuser] does not have [ALL] privilege on [wasbs://data@xxxxx.blob.core.windows.net/path/table]
 ```
 
-Você verá uma mensagem de erro semelhante se executar o seguinte comando de armazenamento HDFS:
+Verá uma mensagem de erro semelhante se executar o seguinte comando de armazenamento HDFS:
 
 ```
 hdfs dfs -mkdir wasbs://data@xxxxx.blob.core.windows.net/path/table
@@ -34,18 +34,18 @@ hdfs dfs -mkdir wasbs://data@xxxxx.blob.core.windows.net/path/table
 
 ## <a name="cause"></a>Causa
 
-A capacidade de criar uma tabela no Apache Hive é decidida pelas permissões aplicadas à conta de armazenamento do cluster. Se as permissões da conta de armazenamento de cluster estiverem incorretas, você não poderá criar tabelas. Isso significa que você pode ter as políticas corretas do Ranger para a criação da tabela e ainda ver erros de "permissão negada".
+A capacidade de criar uma tabela em Apache Hive é decidida pelas permissões aplicadas à conta de armazenamento do cluster. Se as permissões da conta de armazenamento do cluster estiverem incorretas, não poderá criar tabelas. Isto significa que pode ter as políticas corretas dos Rangers para a criação de mesa, e ainda ver erros de "Permissão Negada".
 
 ## <a name="resolution"></a>Resolução
 
-Isso é causado por uma falta de permissões suficientes no contêiner de armazenamento que está sendo usado. O usuário que cria a tabela Hive precisa de permissões de leitura, gravação e execução no contêiner. Para obter mais informações, consulte [práticas recomendadas para a autorização do hive usando o Apache Ranger no HDP 2,2](https://hortonworks.com/blog/best-practices-for-hive-authorization-using-apache-ranger-in-hdp-2-2/).
+Isto é causado pela falta de permissões suficientes no recipiente de armazenamento que está a ser utilizado. O utilizador que cria a mesa da Colmeia precisa de ser lido, escrito e executado permissões contra o recipiente. Para mais informações, consulte [as Melhores Práticas para A Autorização de Colmeia Utilizando o Apache Ranger em HDP 2.2](https://hortonworks.com/blog/best-practices-for-hive-authorization-using-apache-ranger-in-hdp-2-2/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, por favor reveja [como criar um pedido de apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

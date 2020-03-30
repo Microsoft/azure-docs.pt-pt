@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
 ms.openlocfilehash: f4af3c202d4f00c4ac3041921175c92226f0db7c
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76964156"
 ---
 ## <a name="run-the-function-locally"></a>Executar localmente a função
@@ -21,7 +21,7 @@ O Visual Studio Code integra-se com as [Ferramentas Core funções do Azure](../
 
     ![Resultado local do Azure](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 
-1. Com as Ferramentas Core em execução, navegue para o seguinte URL para executar um pedido GET, que inclui `?name=Functions` corda de consulta.
+1. Com as Ferramentas Core em execução, navegue `?name=Functions` para o seguinte URL para executar um pedido GET, que inclui a corda de consulta.
 
     <http://localhost:7071/api/HttpExample?name=Functions>
 

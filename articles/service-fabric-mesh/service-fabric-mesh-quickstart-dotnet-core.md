@@ -1,16 +1,16 @@
 ---
-title: Início rápido-implantar um aplicativo Web no Azure Service Fabric malha
-description: Este guia de início rápido mostra como criar um site ASP.NET Core e publicá-lo no Azure Service Fabric malha usando o Visual Studio.
+title: Quickstart - Implemente uma aplicação web para a Malha de Tecido de Serviço Azure
+description: Este quickstart mostra-lhe como criar um website ASP.NET Core e publicá-lo na Malha de Tecido de Serviço Azure usando o Visual Studio.
 author: dkkapur
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75459061"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guia de Início Rápido: criar e implementar uma aplicação Web no Azure Service Fabric Mesh
@@ -25,7 +25,7 @@ Precisará de uma subscrição do Azure. Se não tiver uma subscrição do Azure
 
 ## <a name="create-a-service-fabric-mesh-project"></a>Criar um projeto do Service Fabric Mesh
 
-Abra o Visual Studio e selecione **File** (Ficheiro)  > **New** (Novo)  > **Project...** (Projeto...)
+Open Visual Studio e selecione **File** > **New** > **Project...**
 
 Na caixa de diálogo **Novo Projeto**, na parte superior da caixa **Pesquisar**, escreva `mesh`. Selecione o modelo **Aplicação do Service Fabric Mesh**. (Se não vir o modelo, certifique-se de que instalou o SDK do Mesh e a pré-visualização das ferramentas do VS, conforme descrito em [configurar o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
 

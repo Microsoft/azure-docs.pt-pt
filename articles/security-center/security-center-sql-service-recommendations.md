@@ -1,6 +1,6 @@
 ---
-title: Recomendações de armazenamento de & de dados – central de segurança do Azure
-description: Este documento aborda as recomendações na central de segurança do Azure que ajudam a proteger seus dados e o serviço SQL do Azure e manter a conformidade com as políticas de segurança.
+title: Recomendações de armazenamento de dados & - Centro de Segurança Azure
+description: Este documento aborda recomendações no Azure Security Center que o ajudam a proteger os seus dados e o serviço Azure SQL e a manter-se em conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,60 +14,60 @@ ms.workload: na
 ms.date: 12/19/2019
 ms.author: memildin
 ms.openlocfilehash: 74ed55e1d460495bfa8d3d4c00bd37bb7f05260e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552870"
 ---
-# <a name="protect-azure-data-and-storage-services"></a>Proteger serviços de armazenamento e dados do Azure
-Quando a central de segurança do Azure identifica possíveis vulnerabilidades de segurança, ele cria recomendações que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
+# <a name="protect-azure-data-and-storage-services"></a>Proteja os serviços de dados e armazenamento do Azure
+Quando o Azure Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiam através do processo de configuração dos controlos necessários para endurecer e proteger os seus recursos.
 
-Este artigo explica a **página segurança de dados** da seção segurança de recursos da central de segurança.
+Este artigo explica a página de Segurança de **Dados** da secção de segurança de recursos do Centro de Segurança.
 
-Para obter uma lista completa das recomendações que podem ser exibidas nesta página, consulte [recomendações de armazenamento e dados](recommendations-reference.md#recs-datastorage).
+Para obter uma lista completa das recomendações que poderá ver nesta página, consulte [recomendações](recommendations-reference.md#recs-datastorage)de Dados e Armazenamento .
 
 
-## <a name="view-your-data-security-information"></a>Exibir suas informações de segurança de dados
+## <a name="view-your-data-security-information"></a>Consulte as informações de segurança dos dados
 
-1. Na seção **higiene de segurança de recursos** , clique em **dados e recursos de armazenamento**.
+1. Na secção de higiene de **segurança do Recurso,** clique em **Dados e recursos de armazenamento.**
 
-    ![Recursos de dados e armazenamento](./media/security-center-monitoring/click-data.png)
+    ![Recursos de armazenamento de dados &](./media/security-center-monitoring/click-data.png)
 
-    A página **segurança de dados** é aberta com recomendações para recursos de dados.
+    A página de **segurança de Dados** abre com recomendações para os recursos de dados.
 
-    [![recursos de dados](./media/security-center-monitoring/sql-overview.png)](./media/security-center-monitoring/sql-overview.png#lightbox)
+    [![Recursos de Dados](./media/security-center-monitoring/sql-overview.png)](./media/security-center-monitoring/sql-overview.png#lightbox)
 
-    Nessa página, você pode:
+    Nesta página, pode:
 
-    * Clique na guia **visão geral** para listar todas as recomendações de recursos de dados a serem corrigidas. 
-    * Clique em cada guia e exiba as recomendações por tipo de recurso.
+    * Clique no separador **Overview** lista todas as recomendações de recursos de dados a remediar. 
+    * Clique em cada separador e veja as recomendações por tipo de recurso.
 
     > [!NOTE]
-    > Para obter mais informações sobre criptografia de armazenamento, consulte [criptografia de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md).
+    > Para obter mais informações sobre encriptação de armazenamento, consulte [a encriptação do Armazenamento Azure para obter dados em repouso](../storage/common/storage-service-encryption.md).
 
 
-## <a name="remediate-a-recommendation-on-a-data-resource"></a>Corrigir uma recomendação em um recurso de dados
+## <a name="remediate-a-recommendation-on-a-data-resource"></a>Remediar uma recomendação sobre um recurso de dados
 
-1. Em qualquer uma das guias de recurso, clique em um recurso. A página informações é aberta, listando as recomendações a serem corrigidas.
+1. De qualquer um dos separadores de recursos, clique num recurso. A página de informação abre a lista das recomendações a remediar.
 
-    ![Informações do recurso](./media/security-center-monitoring/sql-recommendations.png)
+    ![Informação sobre recursos](./media/security-center-monitoring/sql-recommendations.png)
 
-2. Clique em uma recomendação. A página recomendação é aberta e exibe as **etapas de correção** para implementar a recomendação.
+2. Clique numa recomendação. A página de Recomendação abre e exibe os passos de **Reparação** para implementar a recomendação.
 
-   ![Passos de remediação](./media/security-center-monitoring/remediate1.png)
+   ![Passos de reparação](./media/security-center-monitoring/remediate1.png)
 
-3. Clique em **executar ação**. A página Configurações de recurso é exibida.
+3. Clique em **Tomar medidas.** A página de definições de recursos aparece.
 
-    ![Habilitar recomendação](./media/security-center-monitoring/remediate2.png)
+    ![Ativar recomendação](./media/security-center-monitoring/remediate2.png)
 
-4. Siga as **etapas de correção** e clique em **salvar**.
+4. Siga os **passos de reparação** e clique em **Guardar**.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes tópicos:
+Para saber mais sobre recomendações aplicáveis a outros tipos de recursos Azure, consulte os seguintes tópicos:
 
-* [Lista de referências completa das recomendações de segurança da central de segurança do Azure](recommendations-reference.md)
+* [Lista completa de referência das recomendações de segurança do Azure Security Center](recommendations-reference.md)
 * [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
 * [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)

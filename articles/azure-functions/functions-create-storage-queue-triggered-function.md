@@ -1,15 +1,15 @@
 ---
-title: Criar uma função no Azure disparada por mensagens da fila
+title: Criar uma função em Azure desencadeada por mensagens de fila
 description: Utilize as Funções do Azure para criar uma função sem servidores que é invocada por mensagens que são submetidas para filas do Armazenamento do Azure.
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 3d4cfc40f1849ecd2745b1d662973c7f64a0a60c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769256"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função acionada pelo Armazenamento de filas do Azure
@@ -36,7 +36,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-a-queue-triggered-function"></a>Criar uma função acionada por Fila
 
-1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
+1. Expanda a sua **+** aplicação de função e clique no botão ao lado das **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
    ![Início rápido das funções no portal do Azure](./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-portal.png)
 
@@ -46,7 +46,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. No campo de pesquisa, escreva `queue` e escolha o modelo **Acionador de fila**.
 
-1. Se solicitado, selecione **instalar** para instalar a extensão de armazenamento do Azure e quaisquer dependências no aplicativo de funções. Depois de instalar com êxito, selecione **Continuar**.
+1. Se for solicitado, selecione **Instalar** para instalar a extensão de Armazenamento Azure e quaisquer dependências na aplicação de funções. Depois de instalar com êxito, selecione **Continuar**.
 
     ![Instalar as extensões de enlace](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
@@ -78,7 +78,7 @@ Em seguida, vai ligar à sua conta de Armazenamento do Azure e criar a fila de a
 
     ![Introduza as credenciais de armazenamento e ligue-se.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expanda a conta de armazenamento anexada, clique com o botão direito do rato em **Filas**, clique em **Criar Fila**, escreva `myqueue-items` e prima Enter.
+1. Expanda a conta de armazenamento anexada, clique `myqueue-items`nas **filas**de cliques à direita, clique em Criar **Fila,** tipo e, em seguida, prima introduzir.
 
     ![Crie uma fila de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
@@ -86,9 +86,9 @@ Agora que tem uma fila de armazenamento, pode adicionar uma mensagem à mesma pa
 
 ## <a name="test-the-function"></a>Testar a função
 
-1. Novamente no portal do Azure, navegue para a função, expanda os **Registos**, na parte inferior da página, e confirme que a transmissão de registos não está em pausa.
+1. De volta ao portal Azure, navegue para a sua função, expanda os **Registos** na parte inferior da página e certifique-se de que o streaming de registos não é interrompido.
 
-1. Em Gerenciador de Armazenamento, expanda sua conta de armazenamento, **filas**e **MyQueue-itens**e clique em **Adicionar mensagem**.
+1. No Storage Explorer, expanda a sua conta de armazenamento, **filas,** e **itens myqueue,** em seguida, clique em **Adicionar Mensagem**.
 
     ![Adicione uma mensagem à fila.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
@@ -108,7 +108,7 @@ Agora que tem uma fila de armazenamento, pode adicionar uma mensagem à mesma pa
 
 Criou uma função que é executada quando uma mensagem é adicionada a uma fila de armazenamento. Para obter mais informações sobre os acionadores do Armazenamento de filas, veja [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Enlaces da fila de Armazenamento das Funções do Azure).
 
-Agora que você criou sua primeira função, vamos adicionar uma associação de saída à função que grava uma mensagem de volta em outra fila.
+Agora que criou a sua primeira função, vamos adicionar uma ligação de saída à função que escreve uma mensagem de volta a outra fila.
 
 > [!div class="nextstepaction"]
 > [Add messages to an Azure Storage queue using Functions](functions-integrate-storage-queue-output-binding.md) (Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure)

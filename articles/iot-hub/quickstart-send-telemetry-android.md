@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
 ms.openlocfilehash: e239f8c6a7738500176b84589f2032636eeb71e5
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675430"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Quickstart: Envie telemetria IoT a partir de um dispositivo Android
@@ -97,7 +97,7 @@ az extension add --name azure-iot
    > * As versões do plugin E Gradle do Android Gradle referenciados no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para referência e instale as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e baixar o SDK.
 
-4. Uma vez concluída a construção, clique em **Executar** > **Executar 'app'** . Configure a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
+4. Uma vez concluída a construção, clique em **Executar** > **Executar 'app'.** Configure a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Assim que a aplicação estiver carregada, clique no botão **Iniciar** para começar a enviar telemetria para o seu Hub IoT:
 

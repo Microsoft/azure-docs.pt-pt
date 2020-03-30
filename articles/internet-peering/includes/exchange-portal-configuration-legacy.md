@@ -9,39 +9,39 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 7d7b9f847cdcc4ab4b1ff065425eebe07fb4d888
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75775215"
 ---
-1. Na página **criar um emparelhamento** , na guia **configuração** , preencha os campos, conforme mostrado abaixo.
+1. Na página **Criar uma página De Espreitar,** sob o separador **Configuração,** preencha os campos como mostrado abaixo.
 
     > [!div class="mx-imgBorder"]
-    > Configuração de emparelhamento de ![-](../media/setup-exchange-conf-tab.png) de troca
+    > ![Configuração de peering - Troca](../media/setup-exchange-conf-tab.png)
 
-    * Para **tipo de emparelhamento**, selecione *Exchange*.
-    * Selecione **SKU** como *básico gratuito*.
-    * Escolha o local do **Metro** para o qual você deseja converter o emparelhamento no recurso do Azure. Se você tiver conexões de emparelhamento com a Microsoft no local **Metro** selecionado que não são convertidos no recurso do Azure, essas conexões serão listadas na seção **conexões de emparelhamento** , conforme mostrado abaixo. Agora você pode converter essas conexões de emparelhamento para o recurso do Azure.
+    * Para **o tipo de peering,** selecione *Exchange*.
+    * Selecione **SKU** como *Basic Free*.
+    * Escolha a localização do **Metro** para onde pretende converter o seu olhar para o recurso Azure. Se tiver ligações com a Microsoft na localização do **Metro** selecionada que não sejam convertidas para recurso Azure, então tais ligações serão listadas na secção de **ligações Peering,** como mostrado abaixo. Agora pode converter estas ligações de observação para o recurso Azure.
 
         > [!div class="mx-imgBorder"]
-        > Configuração de emparelhamento ![-Exchange-conexões herdadas](../media/setup-exchange-legacy-conf-tab.png)
+        > ![Configuração de peering - Troca - Conexões Legacy](../media/setup-exchange-legacy-conf-tab.png)
 
         > [!NOTE]
-        > Você não pode modificar as configurações para conexões de emparelhamento herdadas. Se você quiser adicionar conexões de emparelhamento adicionais com a Microsoft no local **Metro** selecionado, você pode fazer isso clicando em **criar novo** botão. Consulte [criar ou modificar um emparelhamento do Exchange usando o portal](../howto-exchange-portal.md) para obter mais informações.
+        > Não é possível modificar as definições para ligações de observação de legados. Se pretender adicionar ligações adicionais de pares com a Microsoft na localização do **Metro** selecionada, pode fazê-lo clicando em **Criar um novo** botão. Consulte [criar ou modificar um 'Exchange' utilizando o portal](../howto-exchange-portal.md) para obter mais informações.
         >
 
-1. Clique em **examinar + criar**. Observe que o portal executa a validação básica das informações inseridas. Isso é exibido em uma faixa de forma na parte superior, como *executando a validação final...* .
+1. Clique em **Rever + criar**. Observe que o portal executa a validação básica da informação que inseriu. Isto é exibido numa fita no topo, como *validação final de execução...*.
 
     > [!div class="mx-imgBorder"]
-    > Guia validação de emparelhamento ![](../media/setup-direct-review-tab-validation.png)
+    > ![Separador de validação de observação](../media/setup-direct-review-tab-validation.png)
 
-1. Depois que ele se transformar em *validação aprovada*, verifique suas informações e envie a solicitação clicando em **criar**. Se você precisar modificar sua solicitação, clique em **anterior** e repita as etapas acima.
-
-    > [!div class="mx-imgBorder"]
-    > ](../media/setup-exchange-review-tab-submit.png) de envio de emparelhamento de ![
-
-1. Depois de enviar a solicitação, aguarde até que ela conclua a implantação. Se a implantação falhar, entre em contato com [o emparelhamento da Microsoft](mailto:peering@microsoft.com). Uma implantação bem-sucedida será exibida como a seguir.
+1. Depois de se recorrer a *Validação Passada,* verifique as suas informações e submeta o pedido clicando em **Criar**. Se precisar modificar o seu pedido, clique em **Anterior e** repita os passos acima.
 
     > [!div class="mx-imgBorder"]
-    > ![êxito de emparelhamento](../media/setup-direct-success.png)
+    > ![Submeter-se](../media/setup-exchange-review-tab-submit.png)
+
+1. Assim que submeter o pedido, aguarde que termine a implantação. Se a implementação falhar, contacte [o peering](mailto:peering@microsoft.com)da Microsoft . Uma implantação bem sucedida aparecerá como abaixo.
+
+    > [!div class="mx-imgBorder"]
+    > ![O sucesso do peering](../media/setup-direct-success.png)

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/04/2019
 ms.author: rohink
 ms.openlocfilehash: 0ab7392b4fa6e248d51392706fedaed156344a99
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76934807"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Quickstart: Criar um perfil de Gestor de Tráfego para uma aplicação web altamente disponível usando o Azure PowerShell
@@ -128,10 +128,10 @@ Get-AzTrafficManagerProfile -Name $mytrafficmanagerprofile `
 -ResourceGroupName MyResourceGroup
 ```
 
-Copie o valor **relativodnsnome.** O nome DNS do seu perfil de Traffic Manager é *http://<* relativednsname *>.trafficmanager.net*. 
+Copie o valor **relativodnsnome.** O nome DNS do seu perfil do Traffic Manager é *http://<* nome de *>.trafficmanager.net*. 
 
 ### <a name="view-traffic-manager-in-action"></a>Ver o Gestor de Tráfego em ação
-1. Num navegador web, introduza o nome DNS do seu perfil de Traffic Manager *(http://<* relativednsname *>.trafficmanager.net*) para ver o website predefinido da sua Web App.
+1. Num navegador web, introduza o nome DNS do seu perfil de Traffic Manager *(http://<* nome de *>.trafficmanager.net*) para visualizar o website predefinido da sua Web App.
 
     > [!NOTE]
     > Neste cenário de arranque rápido, todos os pedidos de rota para o ponto final primário. Está definido para a **Prioridade 1**.
@@ -144,7 +144,7 @@ Copie o valor **relativodnsnome.** O nome DNS do seu perfil de Traffic Manager �
     -ResourceGroupName MyResourceGroup `
     -Force
    ```
-3. Copie o nome DNS do seu perfil de Traffic Manager *(http://<* relativednsname *>.trafficmanager.net*) para ver o website numa nova sessão de navegador web.
+3. Copie o nome DNS do seu perfil de Traffic Manager *(http://<* nome de *>.trafficmanager.net*) para ver o website numa nova sessão de navegador web.
 4. Verifique se a aplicação da web ainda está disponível.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

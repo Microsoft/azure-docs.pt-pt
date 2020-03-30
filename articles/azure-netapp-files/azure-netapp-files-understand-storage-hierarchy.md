@@ -1,5 +1,5 @@
 ---
-title: Qual é a hierarquia de armazenamento dos Ficheiros Azure NetApp  Microsoft Docs
+title: Qual é a hierarquia de armazenamento dos Ficheiros Azure NetApp [ Microsoft Docs
 description: Descreve a hierarquia de armazenamento, incluindo contas, conjuntos de capacidade e volumes do Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: b-juche
 ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78163969"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Qual é a hierarquia de armazenamento dos Ficheiros Azure NetApp
@@ -28,14 +28,14 @@ Antes de criar um volume no Azure NetApp Files, tem de comprar e configurar um c
 > [!IMPORTANT] 
 > Atualmente, o Azure NetApp Files não suporta a migração de recursos entre subscrições.
 
-## <a name="azure_netapp_files_account"></a>Contas NetApp
+## <a name="netapp-accounts"></a><a name="azure_netapp_files_account"></a>Contas NetApp
 
 - Uma conta NetApp serve de agrupamento administrativo dos conjuntos de capacidade constituintes.  
 - Uma conta NetApp não é igual à sua conta de armazenamento do Azure geral. 
 - Uma conta NetApp é regional no âmbito.   
 - Pode ter várias contas NetApp numa região, mas cada uma está associada a uma única região.
 
-## <a name="capacity_pools"></a>Conjuntos de capacidade
+## <a name="capacity-pools"></a><a name="capacity_pools"></a>Conjuntos de capacidade
 
 - Um conjunto de capacidade é medido pela sua capacidade aprovisionada.  
 - A capacidade é aprovisionada pelas SKUs fixas que adquiriu (por exemplo, uma capacidade de 4 TiB).
@@ -45,7 +45,7 @@ Antes de criar um volume no Azure NetApp Files, tem de comprar e configurar um c
   Por exemplo, no [Diagrama conceptual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, não é possível mover o Conjunto de Capacidade 1 da conta NetApp E.U.A. Leste para a conta NetApp E.U.A. Oeste 2.  
 - Um conjunto de capacidades não pode ser eliminado até que todos os volumes dentro do conjunto de capacidades tenham sido eliminados.
 
-## <a name="volumes"></a>Volumes
+## <a name="volumes"></a><a name="volumes"></a>Volumes
 
 - Um volume é medido pelo consumo lógico de capacidade e é escalável. 
 - O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto.
@@ -54,12 +54,12 @@ Antes de criar um volume no Azure NetApp Files, tem de comprar e configurar um c
   Por exemplo, no [diagrama conceptual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, não é possível mover os volumes do Pool 1 de Capacidade para o Pool de Capacidade 2.
 - Um volume não pode ser eliminado até que todos os seus instantâneos tenham sido eliminados.
 
-## <a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceptual da hierarquia de armazenamento 
+## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceptual da hierarquia de armazenamento 
 O exemplo seguinte mostra as relações da subscrição do Azure, contas NetApp, conjuntos de capacidade e volumes.   
 
 ![Diagrama conceptual da hierarquia de armazenamento](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
-- [Registo de Ficheiros Azure NetApp](azure-netapp-files-register.md)
+- [Limites de recurso para os Azure NetApp Files](azure-netapp-files-resource-limits.md)
+- [Registar nos Azure NetApp Files](azure-netapp-files-register.md)

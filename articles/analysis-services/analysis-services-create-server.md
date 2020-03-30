@@ -1,6 +1,6 @@
 ---
-title: Início rápido-criar um servidor de Analysis Services no portal do Azure | Microsoft Docs
-description: Saiba como criar rapidamente uma instância do Azure Analysis Services Server usando o portal do Azure.
+title: Quickstart - Criar um servidor de Serviços de Análise no portal Azure [ Microsoft Docs
+description: Aprenda a criar rapidamente uma instância de servidor de Serviços de Análise Azure utilizando o portal Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 4c1b22d4871d3e490f59be71b63569fdf563ce45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75442827"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor - Portal
@@ -25,18 +25,18 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure 
 
-[Entrar no portal](https://portal.azure.com)
+[Inscreva-se no portal](https://portal.azure.com)
 
 
 ## <a name="create-a-server"></a>Criar um servidor
 
-1. Clique em **+ criar um recurso** > **Analytics** > **Analysis Services**.
+1. Clique **+ Crie um recurso** > **Analytics** > **Analysis Services**.
 
     ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
 2. No **Analysis Services**, preencha os campos obrigatórios e, em seguida, prima **Criar**.
    
-   * **Nome do servidor**: escreva um nome exclusivo utilizado para referenciar o servidor. O nome do servidor deve começar com um caractere minúsculo e conter entre 3 e 128 caracteres minúsculos e números. Espaços em branco e caracteres especiais não são permitidos.
+   * **Nome do servidor**: escreva um nome exclusivo utilizado para referenciar o servidor. O nome do servidor deve começar com um caracteres minúsculos e conter entre 3 a 128 caracteres e números minúsculos. Espaços brancos e personagens especiais não são permitidos.
    * **Subscrição**: selecione a subscrição à qual este servidor será associado.
    * **Grupo de recursos**: crie um novo grupo de recursos ou selecione um que já tenha. Os grupos de recursos são concebidos para ajudá-lo a gerir uma coleção de recursos do Azure. Para saber mais, veja [grupos de recursos](../azure-resource-manager/management/overview.md).
    * **Localização**: esta localização do datacenter do Azure aloja o servidor. Escolha a localização mais perto da sua base de utilizadores.
@@ -45,7 +45,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
    * **Definição do Armazenamento de Cópias de Segurança**: opcional. Se já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), pode especificá-la como a predefinição para a cópia de segurança de base de dados modelo. Também pode especificar as definições da [cópia de segurança e restauro](analysis-services-backup.md) mais tarde.
    * **Expiração da chave de armazenamento**: opcional. Especifique um período de expiração da chave de armazenamento.
 
-Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto. Os servidores dão suporte a modelos de tabela nos níveis de compatibilidade 1200 e superiores. O nível de compatibilidade do modelo é especificado no Visual Studio ou no SSMS.
+Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou, navegue para **todos os serviços** > **de análise de serviços** para ver se o seu servidor está pronto. Os servidores suportam modelos tabular nos níveis de compatibilidade 1200 e mais elevados. O nível de compatibilidade do modelo é especificado no Visual Studio ou SSMS.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -58,6 +58,6 @@ Quando já não precisar, elimine o seu servidor. Na **Descrição Geral** do se
 Neste início rápido, aprendeu a criar um servidor na sua subscrição do Azure. Agora que tem o servidor, pode ajudar a protegê-lo ao configurar uma firewall do servidor (opcional). Também pode adicionar um modelo de dados de exemplo básico ao seu servidor diretamente a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)   
+> [Quickstart: Configurar firewall do servidor - Portal](analysis-services-qs-firewall.md)   
 > [!div class="nextstepaction"]
 > [Tutorial: Adicionar um modelo de exemplo ao servidor](analysis-services-create-sample-model.md)

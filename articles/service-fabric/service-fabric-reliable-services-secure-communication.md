@@ -1,29 +1,29 @@
 ---
-title: Proteger comunicações remotas do serviço comC#
-description: Saiba como proteger a comunicação baseada em Remoting do C# serviço para Reliable Services que estão em execução em um cluster de Service Fabric do Azure.
+title: 'Serviço seguro de remo de comunicações com C #'
+description: Aprenda a garantir a comunicação baseada em remo do serviço para serviços fiáveis C# que estão a funcionar num cluster Azure Service Fabric.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609626"
 ---
-# <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteger comunicações remotas de serviço C# em um serviço
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Serviço seguro de remo comunicações em um serviço C#
 > [!div class="op_single_selector"]
 > * [C# no Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java em Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-A segurança é um dos aspectos mais importantes da comunicação. A estrutura de aplicativo Reliable Services fornece algumas pilhas e ferramentas de comunicação predefinidas que você pode usar para aprimorar a segurança. Este artigo discute como melhorar a segurança quando você está usando a comunicação remota do serviço C# em um serviço. Ele se baseia em um [exemplo](service-fabric-reliable-services-communication-remoting.md) existente que explica como configurar a comunicação remota para Reliable Services C#gravados no. 
+A segurança é um dos aspetos mais importantes da comunicação. O quadro de aplicação de Serviços Fiáveis fornece algumas pilhas e ferramentas de comunicação pré-construídas que pode usar para melhorar a segurança. Este artigo discute como melhorar a segurança quando está a usar o serviço de remoing num serviço C#. Baseia-se num [exemplo](service-fabric-reliable-services-communication-remoting.md) existente que explica como configurar o remoing para serviços fiáveis escritos em C#. 
 
-Para ajudar a proteger um serviço quando você estiver usando a comunicação C# remota do serviço com serviços, siga estas etapas:
+Para ajudar a garantir um serviço quando estiver a utilizar o serviço de remoing com os serviços C#, siga estes passos:
 
-1. Crie uma interface, `IHelloWorldStateful`, que define os métodos que estarão disponíveis para uma chamada de procedimento remoto em seu serviço. Seu serviço usará `FabricTransportServiceRemotingListener`, que é declarado no namespace `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Essa é uma implementação `ICommunicationListener` que fornece recursos de comunicação remota.
+1. Crie uma `IHelloWorldStateful`interface, que defina os métodos que estarão disponíveis para uma chamada de procedimento remoto no seu serviço. O seu `FabricTransportServiceRemotingListener`serviço será utilizado, `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` que é declarado no espaço de nome. Esta é `ICommunicationListener` uma implementação que fornece capacidades de remo.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -46,16 +46,16 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
         }
     }
     ```
-2. Adicionar configurações de ouvinte e credenciais de segurança.
+2. Adicione as definições do ouvinte e as credenciais de segurança.
 
-    Verifique se o certificado que você deseja usar para ajudar a proteger a comunicação do serviço está instalado em todos os nós no cluster. 
+    Certifique-se de que o certificado que pretende utilizar para ajudar a proteger a comunicação de serviço está instalado em todos os nós do cluster. 
     
     > [!NOTE]
-    > Em nós do Linux, o certificado deve estar presente como arquivos formatados por PEM no diretório */var/lib/sfcerts* Para saber mais, confira [localização e formato dos certificados X. 509 em nós do Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+    > Nos nós linux, o certificado deve estar presente como ficheiros formados em PEM no diretório */var/lib/sfcerts.* Para saber mais, consulte [localização e formato de certificados X.509 nos nós linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
 
-    Há duas maneiras de fornecer configurações de ouvinte e credenciais de segurança:
+    Existem duas formas de fornecer configurações de ouvintes e credenciais de segurança:
 
-   1. Forneça-os diretamente no código do serviço:
+   1. Forneça-os diretamente no código de serviço:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -88,9 +88,9 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
            return x509Credentials;
        }
        ```
-   2. Forneça-os usando um [pacote de configuração](service-fabric-application-and-service-manifests.md):
+   2. Forneça-as utilizando uma [embalagem de config:](service-fabric-application-and-service-manifests.md)
 
-       Adicione uma seção `TransportSettings` nomeada no arquivo Settings. xml.
+       Adicione uma `TransportSettings` secção nomeada no ficheiro definições.xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -106,7 +106,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
        </Section>
        ```
 
-       Nesse caso, o método `CreateServiceReplicaListeners` terá a seguinte aparência:
+       Neste caso, `CreateServiceReplicaListeners` o método será assim:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -120,7 +120,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
        }
        ```
 
-        Se você adicionar uma seção `TransportSettings` no arquivo Settings. xml, `FabricTransportRemotingListenerSettings` carregará todas as configurações desta seção por padrão.
+        Se adicionar `TransportSettings` uma secção no ficheiro definições.xml, `FabricTransportRemotingListenerSettings` carregará todas as definições desta secção por padrão.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -128,7 +128,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
             ...
         </Section>
         ```
-        Nesse caso, o método `CreateServiceReplicaListeners` terá a seguinte aparência:
+        Neste caso, `CreateServiceReplicaListeners` o método será assim:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -141,7 +141,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
             };
         }
         ```
-3. Quando você chama métodos em um serviço protegido usando a pilha de comunicação remota, em vez de usar a classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` para criar um proxy de serviço, use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Passe `FabricTransportRemotingSettings`, que contém `SecurityCredentials`.
+3. Quando ligar para métodos num serviço seguro utilizando a pilha `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` de remo, em `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`vez de utilizar a classe para criar um representante de serviço, utilize . `FabricTransportRemotingSettings`Passe, que `SecurityCredentials`contém.
 
     ```csharp
 
@@ -171,7 +171,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
 
     ```
 
-    Se o código do cliente estiver sendo executado como parte de um serviço, você poderá carregar `FabricTransportRemotingSettings` do arquivo Settings. xml. Crie uma seção HelloWorldClientTransportSettings semelhante ao código de serviço, conforme mostrado anteriormente. Faça as seguintes alterações no código do cliente:
+    Se o código do cliente estiver a funcionar `FabricTransportRemotingSettings` como parte de um serviço, pode carregar a partir do ficheiro definições.xml. Crie uma secção HelloWorldClientTransportSettings semelhante ao código de serviço, como mostrado anteriormente. Faça as seguintes alterações ao código do cliente:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -184,9 +184,9 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
 
     ```
 
-    Se o cliente não estiver sendo executado como parte de um serviço, você poderá criar um arquivo client_name. Settings. xml no mesmo local em que o client_name. exe é. Em seguida, crie uma seção TransportSettings nesse arquivo.
+    Se o cliente não estiver a funcionar como parte de um serviço, pode criar um ficheiro client_name.definições.xml no mesmo local onde está o client_name.exe. Em seguida, crie uma secção De TransporteS Nesse ficheiro.
 
-    Semelhante ao serviço, se você adicionar uma seção `TransportSettings` em Client Settings. xml/client_name. Settings. xml, `FabricTransportRemotingSettings` carregará todas as configurações desta seção por padrão.
+    Semelhante ao serviço, se `TransportSettings` adicionar uma secção nas definições do cliente.xml/client_name.xml, `FabricTransportRemotingSettings` carrega todas as definições desta secção por padrão.
 
     Nesse caso, o código anterior é ainda mais simplificado:  
 
@@ -200,4 +200,4 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
     ```
 
 
-Como uma próxima etapa, leia [API da Web com OWIN em Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+Como próximo passo, leia [a Web API com o OWIN em Serviços Fiáveis](service-fabric-reliable-services-communication-webapi.md).

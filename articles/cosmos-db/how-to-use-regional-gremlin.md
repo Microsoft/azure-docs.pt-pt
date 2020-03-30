@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897868"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos finais regionais para a conta Do Gráfico DB da Azure Cosmos
@@ -27,7 +27,7 @@ Razões para escolher mais do que uma região:
 
 O motor de base de dados Cosmos DB Graph está a funcionar em várias regiões, cada uma das quais contém vários clusters. Cada aglomerado tem centenas de máquinas. Cosmos DB Graph conta DNS CNAME *accountname.gremlin.cosmos.azure.com* resolve ao DNS Um registo de um cluster. Um único endereço IP de um equilibrador de carga esconde topologia interna do cluster.
 
-Um registo regional do DNS CNAME é criado para todas as regiões da conta Cosmos DB Graph. O formato do ponto final regional é *accountname-region.gremlin.cosmos.azure.com.* O segmento regional do ponto final regional é obtido removendo todos os espaços do nome da região de [Azure.](https://azure.microsoft.com/global-infrastructure/regions) Por exemplo, `"East US 2"` região para `"contoso"` conta de base de dados global teria um DNS CNAME *contoso-eastus2.gremlin.cosmos.azure.com*
+Um registo regional do DNS CNAME é criado para todas as regiões da conta Cosmos DB Graph. O formato do ponto final regional é *accountname-region.gremlin.cosmos.azure.com.* O segmento regional do ponto final regional é obtido removendo todos os espaços do nome da região de [Azure.](https://azure.microsoft.com/global-infrastructure/regions) Por exemplo, `"East US 2"` `"contoso"` a região da conta de base de dados global teria um DNS CNAME *contoso-eastus2.gremlin.cosmos.azure.com*
 
 O cliente TinkerPop Gremlin foi concebido para trabalhar com um único servidor. A aplicação pode usar DNS CNAME global para ler e escrever tráfego. As aplicações conscientes da região devem utilizar pontos finais regionais para a leitura do tráfego. Utilize o ponto final regional para escrever o tráfego apenas se uma região específica estiver configurada para aceitar escritos. 
 

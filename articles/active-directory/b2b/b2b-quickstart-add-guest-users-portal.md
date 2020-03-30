@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f3d96926221a69e1cf216be81368a2eb87c938a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76758343"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Guia de Início Rápido: Adicionar utilizadores convidados ao seu diretório no portal do Azure
@@ -25,7 +25,7 @@ Pode convidar qualquer pessoa a colaborar com a sua organização ao adicioná-l
 
 Neste guia de início rápido, irá adicionar um novo utilizador convidado ao Azure Active Directory, enviar um convite e ver como funciona o processo de resgate do convite do utilizador convidado.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Para concluir o cenário deste tutorial, precisa de:
 
 ## <a name="add-a-new-guest-user-in-azure-ad"></a>Adicionar um novo utilizador convidado no Azure Active Directory
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador do Azure AD.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador do Azure Active Directory.
 2. No painel esquerdo, selecione **Azure Active Directory**.
 3.  Em **Gerir**, selecione **Utilizadores**.
 
@@ -49,7 +49,7 @@ Para concluir o cenário deste tutorial, precisa de:
 5. Na página **de utilizador Nova,** selecione **Convidar o utilizador** e, em seguida, adicionar as informações do utilizador convidado. 
 
    - **O nome.** O primeiro e último nome do utilizador convidado.
-   - **Endereço de e-mail (obrigatório)** . O endereço de e-mail do utilizador convidado.
+   - **Endereço de e-mail (obrigatório)**. O endereço de e-mail do utilizador convidado.
    - **Mensagem pessoal (opcional)** Inclua uma mensagem de boas-vindas pessoal ao utilizador convidado.
    - **Grupos**: Pode adicionar o utilizador convidado a um ou mais grupos existentes, ou pode fazê-lo mais tarde.
    - **Função de diretório**: Se necessitar de permissões administrativas da AD Azure para o utilizador, pode adicioná-las a uma função Azure AD. 
@@ -95,4 +95,4 @@ Quando já não forem necessários, elimine o utilizador convidado de teste e a 
 7.  Selecione o utilizador de teste e, em seguida, selecione **Eliminar utilizador**.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, criou um utilizador convidado no portal do Azure e enviou um convite para partilhar aplicações. Em seguida, viu o processo de resgate na perspetiva do utilizador convidado e verificou que a aplicação era apresentada no Painel de Acesso do utilizador convidado. Para saber mais sobre como adicionar utilizadores convidados para colaboração, veja [Adicionar utilizadores de colaboração B2B do Azure Active Directory no portal do Azure](add-users-administrator.md).
+Neste tutorial, criou um utilizador convidado no portal do Azure e enviou um convite para partilhar aplicações. Em seguida, viu o processo de resgate na perspetiva do utilizador convidado e verificou que a aplicação era apresentada no Painel de Acesso do utilizador convidado. Para saber mais sobre como adicionar utilizadores para colaboração, veja [Adicionar utilizadores de colaboração B2B do Azure Active Directory no portal do Azure](add-users-administrator.md).

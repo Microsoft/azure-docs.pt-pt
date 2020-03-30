@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: badba278e88e5065d8a4ff57ca9506fe1f9ad203
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774201"
 ---
-1. Exibir conexões no emparelhamento direto selecionado.
+1. Ver ligações no vislumremento direto selecionado.
     ```powershell
     $directPeering.Connections
 
@@ -31,7 +31,7 @@ ms.locfileid: "75774201"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Selecione a conexão que você deseja habilitar para o serviço de emparelhamento. Para este exemplo, usaremos a única conexão disponível.
+1. Selecione a ligação que deseja ativar para o Serviço de Peering. Para este exemplo, utilizaremos a única ligação disponível.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
@@ -47,12 +47,12 @@ ms.locfileid: "75774201"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Agora, salve as alterações feitas no emparelhamento direto usando o comando a seguir.
+1. Agora guarde as alterações feitas ao desvio direto utilizando o comando abaixo.
     ```powershell
     $directPeering | Update-AzPeering
     ```
     
-    Abaixo está um exemplo de saída:
+    Abaixo está uma saída de amostra:
     
     ```powershell
         Name                 : SeattleDirectPeering

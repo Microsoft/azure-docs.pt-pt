@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.openlocfilehash: 8c49b53cae08415633e1405317742a8a5d4e64b0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78196897"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o cofre chave azure com a política azure
@@ -83,7 +83,7 @@ O seu serviço pode sofrer uma paragem se um certificado que não está a ser mo
 Gere-se um cofre de chaves usado por várias equipas que contém 100 certificados, e quer ter a certeza de que nenhum dos certificados no cofre de chaves é válido por mais de 2 anos.
 
 1. Atribui a política de prazo de validade do [certificado De gestão,](#manage-certificate-validity-period-preview) especifica que o prazo máximo de validade de um certificado é de 24 meses e define o efeito da apólice para "auditoria". 
-1. Você vê o relatório de [conformidade no portal Azure](#view-compliance-results), e descobre que 20 certificados são incompatíveis e válidos por > 2 anos, e os restantes certificados são conformes. 
+1. Vê o relatório de [conformidade no portal Azure](#view-compliance-results)e descobre que 20 certificados não cumprem e são válidos por > 2 anos, e os restantes certificados estão em conformidade. 
 1. Contacte os proprietários destes certificados e comunique o novo requisito de segurança de que os certificados não podem ser válidos por mais de 2 anos. Algumas equipas respondem e 15 dos certificados foram renovados com um prazo máximo de validade de 2 anos ou menos. Outras equipas não respondem, e ainda tens 5 certificados não conformes no teu cofre chave.
 1. Muda-se o efeito da política que atribuiu para "negar". Os 5 certificados não conformes não são revogados e continuam a funcionar. No entanto, não podem ser renovados com um período de validade superior a 2 anos. 
 

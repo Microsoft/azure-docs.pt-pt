@@ -1,6 +1,6 @@
 ---
-title: 'Gateway de VPN do Azure: requisitos de criptografia'
-description: Este artigo discute os requisitos criptográficos e os gateways de VPN do Azure
+title: 'Gateway Azure VPN: Requisitos criptográficos'
+description: Este artigo discute os requisitos criptográficos e os gateways Azure VPN
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
@@ -8,57 +8,57 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75902830"
 ---
-# <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre requisitos de criptografia e gateways de VPN do Azure
+# <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre requisitos criptográficos e gateways Azure VPN
 
-Este artigo discute como você pode configurar gateways de VPN do Azure para atender aos seus requisitos de criptografia para túneis de VPN S2S entre locais e conexões de VNet para VNet no Azure.
+Este artigo discute como pode configurar gateways Azure VPN para satisfazer os seus requisitos criptográficos para ambos os túneis S2S VPN e ligações VNet-to-VNet dentro do Azure.
 
-## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Sobre IKEv1 e IKEv2 para conexões VPN do Azure
+## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Sobre IKEv1 e IKEv2 para ligações Azure VPN
 
-Tradicionalmente, permitimos conexões IKEv1 somente para SKUs básicas e conexões IKEv2 permitidas para todas as SKUs de gateway de VPN diferentes de SKUs básicas. Os SKUs básicos permitem apenas uma conexão e, juntamente com outras limitações, como desempenho, os clientes que usam dispositivos herdados que dão suporte apenas a protocolos IKEv1 têm experiência limitada. Para aprimorar a experiência de clientes que usam protocolos IKEv1, agora estamos permitindo conexões IKEv1 para todas as SKUs de gateway de VPN, exceto SKU básico. Para obter mais informações, consulte [SKUs de gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Tradicionalmente, permitimos ligações IKEv1 apenas para UsC Básico e permitimos ligações IKEv2 para todas as SKUs de gateway VPN que não as SKUs Básicas. As SKUs básicas permitem apenas 1 ligação e, juntamente com outras limitações, tais como o desempenho, os clientes que usam dispositivos legados que suportam apenas protocolos IKEv1 estavam tendo experiência limitada. De forma a melhorar a experiência dos clientes que utilizam protocolos IKEv1, estamos agora a permitir ligações IKEv1 para todas as SKUs de gateway VPN, exceto SKU Básico. Para mais informações, consulte [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
 
-![Conexões IKEv1 e IKEv2 do gateway de VPN do Azure](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
+![Ligações Azure VPN Gateway IKEv1 e IKEv2](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 
-Quando as conexões IKEv1 e IKEv2 são aplicadas ao mesmo gateway de VPN, o trânsito entre essas duas conexões é habilitado automaticamente.
+Quando as ligações IKEv1 e IKEv2 são aplicadas à mesma porta de entrada VPN, o trânsito entre estas duas ligações é ativado automaticamente.
 
-## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Sobre os parâmetros de política IKE e IPsec para gateways de VPN do Azure
+## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Sobre os parâmetros políticos IPsec e IKE para gateways Azure VPN
 
-O IPsec e o protocolo IKE Standard dão suporte a uma ampla gama de algoritmos criptográficos em várias combinações. Se você não solicitar uma combinação específica de parâmetros e algoritmos de criptografia, os gateways de VPN do Azure usarão um conjunto de propostas padrão. Os conjuntos de políticas padrão foram escolhidos para maximizar a interoperabilidade com uma ampla variedade de dispositivos VPN de terceiros nas configurações padrão. Como resultado, as políticas e o número de propostas não podem abranger todas as combinações possíveis de algoritmos criptográficos e forças de chave disponíveis.
+O protocolo IPsec e o ike standard suportam uma ampla gama de algoritmos criptográficos em várias combinações. Se não solicitar uma combinação específica de algoritmos e parâmetros criptográficos, os gateways Azure VPN utilizam um conjunto de propostas predefinidas. Os conjuntos de políticas padrão foram escolhidos para maximizar a interoperabilidade com uma ampla gama de dispositivos VPN de terceiros em configurações padrão. Como resultado, as políticas e o número de propostas não podem abranger todas as combinações possíveis de algoritmos criptográficos disponíveis e pontos fortes fundamentais.
 
-A política padrão definida para o gateway de VPN do Azure está listada no artigo: [sobre dispositivos VPN e parâmetros de IPSec/IKE para conexões de gateway de VPN site a site](vpn-gateway-about-vpn-devices.md).
+A definição de política padrão para gateway VpN Azure está listada no artigo: [Sobre dispositivos VPN e parâmetros IPsec/IKE para ligações de Gateway VPN site-to-site](vpn-gateway-about-vpn-devices.md).
 
-## <a name="cryptographic-requirements"></a>Requisitos de criptografia
+## <a name="cryptographic-requirements"></a>Requisitos criptográficos
 
-Para comunicações que exigem algoritmos ou parâmetros criptográficos específicos, normalmente devido a requisitos de conformidade ou de segurança, agora você pode configurar seus gateways de VPN do Azure para usar uma política de IPsec/IKE personalizada com algoritmos de criptografia e forças de chave específicos, em vez dos conjuntos de políticas padrão do Azure.
+Para comunicações que requerem algoritmos ou parâmetros criptográficos específicos, normalmente devido a requisitos de conformidade ou segurança, pode agora configurar os seus gateways VpN Azure para usar uma política personalizada de IPsec/IKE com algoritmos criptográficos específicos e pontos fortes chave, em vez dos conjuntos de políticas padrão Azure.
 
-Por exemplo, as políticas de modo principal IKEv2 para gateways de VPN do Azure utilizam apenas o grupo Diffie-Hellman 2 (1024 bits), enquanto talvez seja necessário especificar grupos mais fortes a serem usados no IKE, como o grupo 14 (2048 bits), grupo 24 (grupo de MODP bits de 2048 bits) ou ECP (curva elíptica grupos) 256 ou 384 bits (grupo 19 e grupo 20, respectivamente). Requisitos semelhantes também se aplicam às políticas de modo rápido do IPsec.
+Por exemplo, as políticas de modo principal IKEv2 para gateways Azure VPN utilizam apenas diffie-Hellman Group 2 (1024 bits), enquanto que você pode precisar especificar grupos mais fortes para serem usados em IKE, tais como Grupo 14 (2048-bit), Grupo 24 (Grupo MODP 2048-bit), ou ECP (curva elíptica curva) grupos) 256 ou 384 bits (Grupo 19 e Grupo 20, respectivamente). Requisitos semelhantes aplicam-se também às políticas de modo rápido IPsec.
 
-## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Política de IPsec/IKE personalizada com gateways de VPN do Azure
+## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Política personalizada iPsec/IKE com gateways Azure VPN
 
-Os gateways de VPN do Azure agora dão suporte à política de IPsec/IKE personalizada por conexão. Para uma conexão site a site ou VNet a VNet, você pode escolher uma combinação específica de algoritmos de criptografia para IPsec e IKE com a restrição de chave desejada, conforme mostrado no exemplo a seguir:
+Os gateways Azure VPN agora suportam por conexão, política personalizada IPsec/IKE. Para uma ligação Site-to-Site ou VNet-to-VNet, pode escolher uma combinação específica de algoritmos criptográficos para IPsec e IKE com a força chave desejada, como mostra o seguinte exemplo:
 
-![IPSec-IKE-política](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+![ipsec-ike-política](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
-Você pode criar uma política de IPsec/IKE e aplicar a uma conexão nova ou existente.
+Pode criar uma política IPsec/IKE e aplicar-se a uma ligação nova ou existente.
 
-### <a name="workflow"></a>Fluxo de Trabalho
+### <a name="workflow"></a>Fluxo de trabalho
 
-1. Crie as redes virtuais, gateways de VPN ou gateways de rede local para sua topologia de conectividade, conforme descrito em outros documentos de instruções
-2. Criar uma política de IPsec/IKE
-3. Você pode aplicar a política ao criar uma conexão S2S ou VNet para VNet
-4. Se a conexão já tiver sido criada, você poderá aplicar ou atualizar a política para uma conexão existente
+1. Crie as redes virtuais, gateways VPN ou gateways de rede locais para a sua topologia de conectividade, conforme descrito em outros documentos de como-a-
+2. Criar uma política IPsec/IKE
+3. Pode aplicar a política quando criar uma ligação S2S ou VNet-to-VNet
+4. Se a ligação já estiver criada, pode aplicar ou atualizar a política para uma ligação existente
 
-## <a name="ipsecike-policy-faq"></a>Perguntas frequentes sobre política de IPsec/IKE
+## <a name="ipsecike-policy-faq"></a>FaQ política IPsec/IKE
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [Configurar a política de IPSec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter instruções passo a passo sobre como configurar a política de IPSec/IKE personalizada em uma conexão.
+Consulte a [política Configure IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter instruções passo a passo sobre a configuração da política personalizada IPsec/IKE numa ligação.
 
-Consulte também [conectar vários dispositivos VPN com base em políticas](vpn-gateway-connect-multiple-policybased-rm-ps.md) para saber mais sobre a opção UsePolicyBasedTrafficSelectors.
+Consulte também [a Connect multiple policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) to learn more about the UsePolicyBasedTrafficSselect option.

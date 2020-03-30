@@ -12,10 +12,10 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
 ms.openlocfilehash: 034f92ca3b7552373ae69148d09d58d3a5dd166a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768648"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Java para consultar uma base de dados SQL do Azure
@@ -28,15 +28,15 @@ Neste arranque rápido, utiliza a Java para se ligar a uma base de dados Azure S
 - Uma [base de dados Azure SQL](sql-database-single-database-get-started.md)
 - [Software](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)relacionado com Java
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Instale Homebrew e Java e, em seguida, instale maven usando os passos **1.2** e **1.3** em [Create Java aplicações usando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
   Instale java, o Kit de Desenvolvimento Java, em seguida, instale Maven usando os passos **1.2**, **1.3**, e **1.4** em [create java apps usando O Servidor SQL em Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Instale o Java e instale o Maven utilizando os passos **1.2** e **1.3** na [Create Java utilizando o SQL Server no Windows](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
 
@@ -52,15 +52,15 @@ Neste arranque rápido, utiliza a Java para se ligar a uma base de dados Azure S
 >
 > Para carregar dados, consulte restaurar com o [FICHEIRO BACPAC](sql-database-import.md) com o ficheiro [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) ou ver restaurar a base de dados dos [Importadores](sql-database-managed-instance-get-started-restore.md)do Mundo Wide .
 
-## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
+## <a name="get-sql-server-connection-information"></a>Obtenha informações de ligação ao servidor SQL
 
-Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
+Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione bases de **dados SQL** ou abra a página de **instâncias geridas pela SQL.**
 
-3. Na página **visão geral** , examine o nome do servidor totalmente qualificado ao lado de **nome do servidor** para um único banco de dados ou o nome do servidor totalmente qualificado ao lado de **host** para uma instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone de **cópia** . 
+3. Na página **Overview,** reveja o nome do servidor totalmente qualificado ao lado do **nome do Servidor** para uma única base de dados ou o nome de servidor totalmente qualificado ao lado do **Anfitrião** para uma instância gerida. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copiar.** 
 
 ## <a name="create-the-project"></a>Criar o projeto
 
@@ -95,7 +95,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Você já deve ter um arquivo chamado *App.java* no seu projeto Maven localizado em:
 
-   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
+   *.. \sqltest\src\main\java\com\sqldbsamples\App.java*
 
 1. Abra o ficheiro e substitua o conteúdo pelo seguinte código. Em seguida, adicione os valores apropriados para o seu servidor, base de dados, utilizador e senha.
 

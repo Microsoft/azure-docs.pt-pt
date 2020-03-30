@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 52f9e6529329c5bb1abb176082294dc26e64baa3
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675533"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma aplicação do dispositivo em C através de fluxos de dispositivos IoT Hub (pré-visualização)
@@ -24,7 +24,7 @@ O Azure IoT Hub suporta atualmente os streams do dispositivo como recurso de [pr
 
 Os streams de [dispositivos IoT Hub](iot-hub-device-streams-overview.md) permitem que as aplicações de serviço e dispositivo saem de forma segura e amiga da firewall. Durante a pré-visualização pública, o C SDK suporta fluxos de dispositivos apenas no lado do dispositivo. Como resultado, este arranque rápido cobre instruções para executar apenas a aplicação do lado do dispositivo. Para executar uma aplicação do lado do serviço correspondente, consulte estes artigos:
 
-* [Comunicar com aplicações de dispositivos através C# de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-csharp.md)
+* [Comunicar para aplicações de dispositivos em C# através de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-csharp.md)
 
 * [Comunicar com aplicações de dispositivos no Node.js através de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-nodejs.md)
 
@@ -38,13 +38,13 @@ O código demonstra o processo de iniciação de um fluxo de dispositivos, bem c
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Precisa dos seguintes pré-requisitos:
 
-* Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com o desenvolvimento do **Ambiente de Trabalho com C++**  carga de trabalho ativada.
+* Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com o desenvolvimento do Ambiente de Trabalho com carga de trabalho **C++** ativada.
 
 * Instale a versão mais recente do [Git](https://git-scm.com/download/).
 
@@ -68,7 +68,7 @@ A visualização dos fluxos de dispositivos é atualmente suportada apenas para 
 Para este arranque rápido, utilize o [dispositivo Azure IoT SDK para C](iot-hub-device-sdk-c-intro.md). Prepara-se um ambiente de desenvolvimento usado para clonar e construir o [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) a partir do GitHub. O SDK no GitHub inclui o código de amostra que é usado neste arranque rápido.
 
    > [!NOTE]
-   > Antes de iniciar este procedimento, certifique-se de que o Estúdio Visual está instalado com o desenvolvimento do Ambiente de **Trabalho com C++**  carga de trabalho.
+   > Antes de iniciar este procedimento, certifique-se de que o Estúdio Visual está instalado com o desenvolvimento do Ambiente de Trabalho com carga de trabalho **C+++** .
 
 1. Instale o [sistema de construção CMake](https://cmake.org/download/) conforme descrito na página de descarregamento.
 
@@ -153,7 +153,7 @@ Nesta secção, executa tanto a aplicação do lado do dispositivo como a aplica
 
 Para executar a aplicação do lado do dispositivo, siga estes passos:
 
-1. Forneça as credenciais do seu dispositivo editando o ficheiro **fonte iothub_client_c2d_streaming_sample.c** na pasta `iothub_client/samples/iothub_client_c2d_streaming_sample` e adicionando a sua cadeia de ligação ao dispositivo.
+1. Forneça as credenciais do seu dispositivo editando o ficheiro **fonte iothub_client_c2d_streaming_sample.c** na pasta e adicionando a `iothub_client/samples/iothub_client_c2d_streaming_sample` corda de ligação do dispositivo.
 
    ```C
    /* Paste in your iothub connection string  */
@@ -192,7 +192,7 @@ Para executar a aplicação do lado do dispositivo, siga estes passos:
 
 Como mencionado anteriormente, o IoT Hub C SDK suporta fluxos de dispositivos apenas no lado do dispositivo. Para construir e executar a aplicação do lado do serviço que acompanha, siga as instruções numa das seguintes acelerações:
 
-* [Comunicar a uma C# aplicação de dispositivo sintetante através de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-csharp.md)
+* [Comunicar a uma aplicação de dispositivo em C# através de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-csharp.md)
 
 * [Comunicar a uma aplicação de dispositivo no Node.js através de fluxos de dispositivos IoT Hub](./quickstart-device-streams-echo-nodejs.md)
 

@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
 ms.openlocfilehash: 3775070320b8c6e96dd06031bd87ea53f37046c5
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78894861"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
@@ -28,7 +28,7 @@ Para concluir este guia de início rápido:
     - Desenvolvimento do Azure
 
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
@@ -44,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 4. Selecione a sua subscrição e clique em **Registo**.
 
-5. Selecione **Project** > **Manage NuGet Packages** > **Package source: nuget.org > ** **Atualizar** os pacotes SDK de Aplicação Insights para a mais recente versão estável.
+5. Selecione **Project** > **Manage NuGet Packages** > **Package source: nuget.org** > **Update** the Application Insights SDK packages to the latest stable release.
 
 6. Execute a sua aplicação selecionando **Iniciar Depuração** no menu **Depurar** ou premindo a tecla F5.
 
@@ -52,7 +52,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 O Application Insights recolhe dados de telemetria da sua aplicação, independentemente de estar ou não em execução. Utilize os passos seguintes para começar a ver estes dados.
 
-1. Abra o Application Insights com um clique em **Vista** -> **Outras Janelas** -> **Application Insights Search**.  É apresentada a telemetria da sua sessão atual.<BR><br>![Telemetria no Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Abra insights de aplicação clicando em **Ver** -> **Outras** -> Pesquisas de Insights de**Aplicação**do Windows .  É apresentada a telemetria da sua sessão atual.<BR><br>![Telemetria no Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Clique no primeiro pedido na lista (GET Home/Index neste exemplo) para ver os detalhes do pedido. Tenha em atenção que o código de estado e o tempo de resposta são incluídos juntamente com outras informações importantes sobre o pedido.<br><br>![Detalhes de resposta no Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -68,7 +68,7 @@ Agora, pode abrir o Application Insights no portal do Azure para ver os vários 
 
     ![Mapeamento de Aplicações](media/quick-monitor-portal/05-appmap.png)
 
-3. Clique no ícone do **App Analytics** ![Mapa de aplicações](media/quick-monitor-portal/app-viewinlogs-icon.png) **Visualização em Registos (Analytics)** num dos componentes da aplicação. Isto abre **Registos (Analytics),** que fornece uma linguagem de consulta rica para analisar todos os dados recolhidos pela Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Clique no **App Analytics** mapa ![do](media/quick-monitor-portal/app-viewinlogs-icon.png) mapa do ícone app Analytics **em Registos (Analytics)** num dos componentes da aplicação. Isto abre **Registos (Analytics),** que fornece uma linguagem de consulta rica para analisar todos os dados recolhidos pela Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
     ![Análise](media/quick-monitor-portal/6viewanalytics.png)
 

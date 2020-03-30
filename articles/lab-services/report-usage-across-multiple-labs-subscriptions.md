@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs o uso em vários laboratórios e assinaturas
-description: Saiba como relatar o uso de Azure DevTest Labs em vários laboratórios e assinaturas.
+title: Utilização de Laboratórios Azure DevTest em vários laboratórios e subscrições
+description: Saiba como reportar o uso do Azure DevTest Labs em vários laboratórios e subscrições.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: tanmayeekamath
@@ -14,83 +14,83 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: takamath
 ms.openlocfilehash: 912f510f6380c0ba1eb92b7c485091801123558e
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169188"
 ---
-# <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Relatório de Azure DevTest Labs uso em vários laboratórios e assinaturas
+# <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Reportar o uso de Laboratórios Azure DevTest em vários laboratórios e subscrições
 
-A maioria das grandes organizações deseja controlar o uso de recursos para ser mais eficiente com esses recursos visualizando tendências e exceções no uso. Com base no uso de recursos, os proprietários ou gerentes de laboratório podem personalizar os laboratórios para [melhorar o uso de recursos e os custos](https://docs.microsoft.com/azure/billing/billing-getting-started). No Azure DevTest Labs, você pode baixar o uso de recursos por laboratório, permitindo uma análise mais profunda dos padrões de uso. Esses padrões de uso podem ajudar a identificar as alterações para melhorar a eficiência. A maioria das empresas quer o uso de laboratório individual e o uso geral em [vários laboratórios e assinaturas](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+A maioria das grandes organizações quer acompanhar o uso de recursos para ser mais eficaz com esses recursos visualizando tendências e outliers no uso. Com base no uso de recursos, os proprietários ou gestores de laboratóriopodem personalizar os laboratórios para melhorar o [uso e os custos](https://docs.microsoft.com/azure/billing/billing-getting-started)dos recursos. Em Azure DevTest Labs, você pode baixar o uso de recursos por laboratório, permitindo um olhar histórico mais profundo sobre os padrões de uso. Estes padrões de utilização podem ajudar a identificar alterações para melhorar a eficiência. A maioria das empresas quer tanto o uso individual de laboratório como o uso geral em [vários laboratórios e subscrições.](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) 
 
-Este artigo discute como lidar com informações de uso de recursos em vários laboratórios e assinaturas.
+Este artigo discute como lidar com informações de uso de recursos em vários laboratórios e subscrições.
 
 ![Comunicar utilização](./media/report-usage-across-multiple-labs-subscriptions/report-usage.png)
 
-## <a name="individual-lab-usage"></a>Uso de laboratório individual
+## <a name="individual-lab-usage"></a>Utilização individual do laboratório
 
-Esta seção discute como exportar o uso de recursos para um único laboratório.
+Esta secção discute como exportar o uso de recursos para um único laboratório.
 
-Antes de poder exportar o uso de recursos do DevTest Labs, você precisa configurar uma conta de armazenamento do Azure para permitir que os diferentes arquivos que contêm os dados de uso sejam armazenados. Há duas maneiras comuns de executar a exportação de dados:
+Antes de poder exportar o uso de recursos da DevTest Labs, tem de configurar uma conta de Armazenamento Azure para permitir que os diferentes ficheiros que contenham os dados de utilização sejam armazenados. Existem duas formas comuns de executar a exportação de dados:
 
-* [API REST do DevTest Labs](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* O módulo AZ. Resource do PowerShell [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) com a ação de `exportResourceUsage`, a ID de recurso do laboratório e os parâmetros necessários. 
+* [DevTest Labs REST API](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
+* O módulo PowerShell Az.Resource [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) com a ação de , o ID de recurso de `exportResourceUsage`laboratório, e os parâmetros necessários. 
 
-    O artigo [exportar ou excluir dados pessoais](personal-data-delete-export.md) contém um exemplo de script do PowerShell com informações detalhadas sobre os dados exportados. 
+    O artigo [de exportação ou eliminação](personal-data-delete-export.md) de dados pessoais contém um script powerShell da amostra com informações detalhadas sobre os dados que são exportados. 
 
     > [!NOTE]
-    > O parâmetro date não inclui um carimbo de data/hora para que os dados incluam tudo, da meia-noite, com base no fuso horário em que o laboratório está localizado.
+    > O parâmetro da data não inclui um carimbo de tempo, por isso os dados incluem tudo a partir da meia-noite com base no fuso horário onde o laboratório está localizado.
 
-Quando a exportação for concluída, haverá vários arquivos CSV no armazenamento de BLOBs com as diferentes informações de recurso.
+Uma vez concluída a exportação, haverá vários ficheiros CSV no armazenamento de blob com as diferentes informações de recursos.
   
-Atualmente, há dois arquivos CSV:
+Atualmente existem dois ficheiros CSV:
 
-* *VirtualMachines. csv* -contém informações sobre as máquinas virtuais no laboratório
-* *disks. csv* -contém informações sobre os diferentes discos no laboratório 
+* *virtualmachines.csv* - contém informações sobre as máquinas virtuais no laboratório
+* *disks.csv* - contém informações sobre os diferentes discos no laboratório 
 
-Esses arquivos são armazenados no contêiner de blob *labresourceusage* sob o nome do laboratório, ID exclusiva do laboratório, data de execução e completa ou a data de início que foi baseada na solicitação de exportação. Um exemplo de estrutura de blob seria:
+Estes ficheiros são armazenados no recipiente blob de uso de *labresource* sob o nome de laboratório, identificação única do laboratório, data executada, e ou completa ou a data de início que foi baseada no pedido de exportação. Um exemplo de estrutura blob seria:
 
 * `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD26-MM6-2019YYYY/full/virtualmachines.csv`
 * `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD-MM-YYYY/26-6-2019/20-6-2019<Start>DD-MM-YYYY/virtualmachines.csv`
 
-## <a name="exporting-usage-for-all-labs"></a>Exportando o uso de todos os laboratórios
+## <a name="exporting-usage-for-all-labs"></a>Exportação de utilização para todos os laboratórios
 
-Para exportar as informações de uso para vários laboratórios, considere o uso do 
+Para exportar a informação de uso para vários laboratórios considere usar 
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), disponível em muitas linguagens, incluindo o PowerShell ou 
-* [Runbook de automação do Azure](https://docs.microsoft.com/azure/automation/), use o PowerShell, o Python ou um designer gráfico personalizado para gravar o código de exportação.
+* [Funções Azure](https://docs.microsoft.com/azure/azure-functions/), disponíveis em muitos idiomas, incluindo PowerShell, ou 
+* O livro de [execução Azure Automation](https://docs.microsoft.com/azure/automation/), use PowerShell, Python ou um designer gráfico personalizado para escrever o código de exportação.
 
-Usando essas tecnologias, você pode executar exportações de laboratório individuais em todos os laboratórios em uma data e hora específicas. 
+Usando estas tecnologias, você pode executar as exportações individuais de laboratório em todos os laboratórios em uma data e hora específicas. 
 
-Sua função do Azure deve enviar os dados por push para o armazenamento de longo prazo. Ao exportar dados para vários laboratórios, a exportação pode levar algum tempo. Para ajudar no desempenho e reduzir a possibilidade de duplicação de informações, é recomendável executar cada laboratório em paralelo. Para realizar o paralelismo, execute Azure Functions de forma assíncrona. Aproveite também o gatilho de temporizador que Azure Functions oferece.
+A sua função Azure deve empurrar os dados para o armazenamento a mais longo prazo. Ao exportar dados para vários laboratórios, a exportação pode demorar algum tempo. Para ajudar no desempenho e reduzir a possibilidade de duplicação de informação, recomendamos executar cada laboratório em paralelo. Para realizar o paralelismo, executar funções Azure assincronicamente. Aproveite também o gatilho do temporizador que as Funções Azure oferecem.
 
-## <a name="using-a-long-term-storage"></a>Usando um armazenamento de longo prazo
+## <a name="using-a-long-term-storage"></a>Usando um armazenamento a longo prazo
 
-Um armazenamento de longo prazo consolida as informações de exportação de diferentes laboratórios em uma única fonte de dados. Outro benefício de usar o armazenamento de longo prazo é a capacidade de remover os arquivos da conta de armazenamento para reduzir a duplicação e o custo. 
+Um armazenamento a longo prazo consolida a informação de exportação de diferentes laboratórios numa única fonte de dados. Outro benefício da utilização do armazenamento a longo prazo é conseguir remover os ficheiros da conta de armazenamento para reduzir a duplicação e o custo. 
 
-O armazenamento de longo prazo pode ser usado para fazer qualquer manipulação de texto, por exemplo: 
+O armazenamento a longo prazo pode ser usado para fazer qualquer manipulação de texto, por exemplo: 
 
 * adicionando nomes amigáveis
-* Criando agrupamentos complexos
+* criando agrupamentos complexos
 * agregando os dados.
 
-Algumas soluções de armazenamento comuns são: [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)e [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Escolher a solução de armazenamento de longo prazo que você escolher dependerá da preferência. Você pode considerar a escolha da ferramenta, dependendo do que ela oferece em termos de disponibilidade de interação ao visualizar os dados.
+Algumas soluções comuns de armazenamento são: [SQL Server,](https://azure.microsoft.com/services/sql-database/) [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)e [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Escolher qual a solução de armazenamento a longo prazo que escolher, depende da preferência. Pode considerar escolher a ferramenta dependendo do que oferece em termos de disponibilidade de interação ao visualizar os dados.
 
-## <a name="visualizing-data-and-gathering-insights"></a>Visualizando dados e coletando informações
+## <a name="visualizing-data-and-gathering-insights"></a>Visualizar dados e recolher insights
 
-Use uma ferramenta de visualização de dados de sua escolha para se conectar ao armazenamento de longo prazo para exibir os dados de uso e coletar informações para verificar a eficiência do uso. Por exemplo, [Power bi](https://docs.microsoft.com/power-bi/power-bi-overview) pode ser usado para organizar e exibir os dados de uso. 
+Utilize uma ferramenta de visualização de dados à sua escolha para se ligar ao seu armazenamento a longo prazo para mostrar os dados de utilização e recolher insights para verificar a eficiência de utilização. Por exemplo, o [Power BI](https://docs.microsoft.com/power-bi/power-bi-overview) pode ser usado para organizar e exibir os dados de utilização. 
 
-Você pode usar [Azure data Factory](https://azure.microsoft.com/services/data-factory/) para criar, vincular e gerenciar seus recursos em uma única interface de local. Se for necessário um controle maior, o recurso individual poderá ser criado dentro de um único grupo de recursos e gerenciado independentemente do serviço de Data Factory.  
+Pode utilizar a [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para criar, ligar e gerir os seus recursos numa única interface de localização. Se for necessário um maior controlo, o recurso individual pode ser criado dentro de um único grupo de recursos e gerido independentemente do serviço data Factory.  
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-Quando o sistema estiver configurado e os dados estiverem mudando para o armazenamento de longo prazo, a próxima etapa será criar as perguntas que os dados precisam responder. Por exemplo: 
+Uma vez que o sistema é configurado e os dados estão se movendo para o armazenamento a longo prazo, o próximo passo é chegar às perguntas que os dados precisam responder. Por exemplo: 
 
--   Qual é o uso do tamanho da VM?
+-   Qual é o uso do tamanho vm?
 
-    Os usuários estão selecionando tamanhos de VM de alto desempenho (mais caros)?
--   Quais imagens do Marketplace estão sendo usadas?
+    Os utilizadores estão a selecionar tamanhos VM de alto desempenho (mais caros) ?
+-   Que imagens do Marketplace estão a ser usadas?
 
-    As imagens personalizadas são a base de VM mais comum, caso um repositório de imagens comum seja criado como a [Galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md) ou a [fábrica de imagens](image-factory-create.md).
--   Quais imagens personalizadas estão sendo usadas ou não são usadas?
+    São imagens personalizadas a base VM mais comum, caso uma loja de imagem comum seja construída como Galeria de [Imagem Partilhada](../virtual-machines/windows/shared-image-galleries.md) ou Fábrica [de Imagem.](image-factory-create.md)
+-   Que imagens personalizadas estão a ser usadas ou não?

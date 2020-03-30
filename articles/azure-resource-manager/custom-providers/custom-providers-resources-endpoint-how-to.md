@@ -1,26 +1,26 @@
 ---
-title: Adicionando recursos personalizados à API REST do Azure
-description: Saiba como adicionar recursos personalizados à API REST do Azure. Este artigo abordará os requisitos e as práticas recomendadas para pontos de extremidade que desejam implementar recursos personalizados.
+title: Adicionar recursos personalizados à API Do REST Azure
+description: Saiba como adicionar recursos personalizados à API Azure REST. Este artigo irá percorrer os requisitos e as melhores práticas para pontos finais que desejem implementar recursos personalizados.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75650529"
 ---
-# <a name="adding-custom-resources-to-azure-rest-api"></a>Adicionando recursos personalizados à API REST do Azure
+# <a name="adding-custom-resources-to-azure-rest-api"></a>Adicionar recursos personalizados à API do REST Azure
 
-Este artigo abordará os requisitos e as práticas recomendadas para a criação de pontos de extremidade do provedor de recursos personalizados do Azure que implementam recursos personalizados. Se você não estiver familiarizado com os provedores de recursos personalizados do Azure, consulte [a visão geral sobre provedores de recursos personalizados](overview.md).
+Este artigo irá analisar os requisitos e as melhores práticas para criar pontos finais do Azure Custom Resource Provider que implementa recursos personalizados. Se não está familiarizado com os Fornecedores de Recursos Personalizados Da Azure, consulte a visão geral sobre os fornecedores de [recursos personalizados.](overview.md)
 
-## <a name="how-to-define-a-resource-endpoint"></a>Como definir um ponto de extremidade de recurso
+## <a name="how-to-define-a-resource-endpoint"></a>Como definir um ponto final de recurso
 
-Um **ponto de extremidade** é uma URL que aponta para um serviço, que implementa o contrato subjacente entre ele e o Azure. O ponto de extremidade é definido no provedor de recursos personalizado e pode ser qualquer URL acessível publicamente. O exemplo a seguir tem um **ResourceType** chamado `myCustomResource` implementado pelo `endpointURL`.
+Um **ponto final** é um URL que aponta para um serviço, que implementa o contrato subjacente entre ele e o Azure. O ponto final é definido no fornecedor de recursos personalizados e pode ser qualquer URL acessível ao público. A amostra abaixo tem `myCustomResource` um **recursoType** chamado implementado por `endpointURL`.
 
-Exemplo de **resourceprovider**:
+**Provedor de Recursos**da Amostra:
 
 ```JSON
 {
@@ -40,48 +40,48 @@ Exemplo de **resourceprovider**:
 }
 ```
 
-## <a name="building-a-resource-endpoint"></a>Criando um ponto de extremidade de recurso
+## <a name="building-a-resource-endpoint"></a>Construção de um ponto final de recurso
 
-Um **ponto de extremidade** que implementa um **ResourceType** deve lidar com a solicitação e a resposta para a nova API no Azure. Quando um provedor de recursos personalizado com um **ResourceType** é criado, ele irá gerar um novo conjunto de APIs no Azure. Nesse caso, o **ResourceType** gerará uma nova API de recurso do Azure para `PUT`, `GET`e `DELETE` para executar CRUD em um único recurso, bem como `GET` para recuperar todos os recursos existentes:
+Um **ponto final** que implemente um **recursoType** deve lidar com o pedido e resposta para a nova API em Azure. Quando um fornecedor de recursos personalizados com um **recursoType** é criado, irá gerar um novo conjunto de APIs em Azure. Neste caso, o **resourceType** gerará uma nova `PUT`API de recursos Azure para, `GET` `DELETE` e `GET` para executar CRUD num único recurso, bem como para recuperar todos os recursos existentes:
 
-Manipular recurso único (`PUT`, `GET`e `DELETE`):
+Manipular um`PUT`recurso `GET`único `DELETE`( e ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource/{myCustomResourceName}
 ```
 
-Recuperar todos os recursos (`GET`):
+Recuperar todos`GET`os recursos ():
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
 ```
 
-Para recursos personalizados, os provedores de recursos personalizados oferecem dois tipos de **routingTypes**: "`Proxy`" e "`Proxy, Cache`".
+Para recursos personalizados, os fornecedores de recursos`Proxy`personalizados`Proxy, Cache`oferecem dois tipos de tipos de tipos de **encaminhamento**: " e " ".
 
-### <a name="proxy-routing-type"></a>tipo de roteamento de proxy
+### <a name="proxy-routing-type"></a>tipo de encaminhamento proxy
 
-Os proxies de **Roteamento** de "`Proxy`" para o ponto de **extremidade** especificado no provedor de recursos personalizado. Quando usar "`Proxy`":
+O`Proxy`" **routingType** proxies todos os métodos de pedido para o **ponto final** especificado no fornecedor de recursos personalizados. Quando usar`Proxy`" ":
 
-- O controle total sobre a resposta é necessário.
+- É necessário controlo total sobre a resposta.
 - Integração de sistemas com recursos existentes.
 
-Para saber mais sobre os recursos de "`Proxy`", consulte [a referência de proxy de recurso personalizado](proxy-resource-endpoint-reference.md)
+Para saber mais`Proxy`sobre " recursos ", consulte [a referência de procuração](proxy-resource-endpoint-reference.md) de recursos personalizados
 
-### <a name="proxy-cache-routing-type"></a>tipo de roteamento do cache de proxy
+### <a name="proxy-cache-routing-type"></a>tipo de encaminhamento de cache proxy
 
-Os proxies de **RoutingType** "`Proxy, Cache`" `PUT` apenas e `DELETE` métodos de solicitação para o **ponto de extremidade** especificado no provedor de recursos personalizado. O provedor de recursos personalizado retornará automaticamente `GET` solicitações com base no que ele armazenou em seu cache. Se um recurso personalizado for marcado com cache, o provedor de recursos personalizado também adicionará/substituirá campos na resposta para tornar as APIs em conformidade com o Azure. Quando usar "`Proxy, Cache`":
+Os`Proxy, Cache`proxies " **routtype** `PUT` `DELETE` apenas e solicitar métodos para o **ponto final** especificado no fornecedor de recursos personalizados. O fornecedor de recursos `GET` personalizados devolverá automaticamente pedidos com base no que armazenou na sua cache. Se um recurso personalizado for marcado com cache, o fornecedor de recursos personalizados também adicionará/substituirá campos na resposta para tornar o APIs Azure conforme. Quando usar`Proxy, Cache`" ":
 
-- Criando um novo sistema que não tem recursos existentes.
-- Trabalhe com o ecossistema do Azure existente.
+- Criar um novo sistema que não tenha recursos existentes.
+- Trabalhe com o ecossistema Azure existente.
 
-Para saber mais sobre os recursos de "`Proxy, Cache`", consulte [a referência de cache de recurso personalizado](proxy-cache-resource-endpoint-reference.md)
+Para saber mais`Proxy, Cache`sobre " recursos ", consulte [a referência de cache de recursos personalizados](proxy-cache-resource-endpoint-reference.md)
 
-## <a name="creating-a-custom-resource"></a>Criando um recurso personalizado
+## <a name="creating-a-custom-resource"></a>Criar um recurso personalizado
 
-Há duas maneiras principais de criar um recurso personalizado a partir de um provedor de recursos personalizado:
+Existem duas formas principais de criar um recurso personalizado a partir de um fornecedor de recursos personalizados:
 
 - CLI do Azure
-- Modelos de Azure Resource Manager
+- Modelos de gestor de recursos azure
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -102,40 +102,40 @@ az resource create --is-full-object \
                     }'
 ```
 
-Parâmetro | Obrigatório | Descrição
+Parâmetro | Necessário | Descrição
 ---|---|---
-é-Full-Object | *Ok* | Indica que o objeto de propriedades inclui outras opções, como localização, marcas, SKU e/ou plano.
-ID | *Ok* | A ID de recurso do recurso personalizado. Isso deve existir fora do **resourceprovider**
-propriedades | *Ok* | O corpo da solicitação que será enviado ao **ponto de extremidade**.
+é objeto cheio | *Sim,* | Indica que o objeto de propriedades inclui outras opções, tais como localização, tags, sku e/ou plano.
+ID | *Sim,* | A identificação de recursos do recurso personalizado. Isto deve existir fora do **ResourceProvider**
+propriedades | *Sim,* | O órgão de pedido que será enviado para o **ponto final.**
 
-Excluir um recurso personalizado do Azure:
+Eliminar um recurso personalizado Azure:
 
 ```azurecli-interactive
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parâmetro | Obrigatório | Descrição
+Parâmetro | Necessário | Descrição
 ---|---|---
-ID | *Ok* | A ID de recurso do recurso personalizado. Isso deve existir fora do **resourceprovider**.
+ID | *Sim,* | A identificação de recursos do recurso personalizado. Isto deve existir fora do **ResourceProvider**.
 
-Recuperar um recurso personalizado do Azure:
+Recupere um recurso personalizado Azure:
 
 ```azurecli-interactive
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parâmetro | Obrigatório | Descrição
+Parâmetro | Necessário | Descrição
 ---|---|---
-ID | *Ok* | A ID de recurso do recurso personalizado. Isso deve existir fora do **resourceprovider**
+ID | *Sim,* | A identificação de recursos do recurso personalizado. Isto deve existir fora do **ResourceProvider**
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
 > [!NOTE]
-> Os recursos exigem que a resposta contenha um `id`apropriado, `name`e `type` do **ponto de extremidade**.
+> Os recursos exigem que `id` `name`a `type` resposta contenha um adequado , e do **ponto final**.
 
-Os modelos de Azure Resource Manager exigem que `id`, `name`e `type` sejam retornados corretamente do ponto de extremidade downstream. Uma resposta de recurso retornada deve estar no formato:
+Os modelos de gestor `id` `name`de `type` recursos Azure requerem isso, e são devolvidos corretamente a partir do ponto final a jusante. Uma resposta de recursos devolvido deve estar na forma:
 
-Exemplo de resposta de **ponto de extremidade** :
+Resposta **final** da amostra:
 
 ``` JSON
 {
@@ -151,7 +151,7 @@ Exemplo de resposta de **ponto de extremidade** :
 }
 ```
 
-Modelo de Azure Resource Manager de exemplo:
+Modelo de gestor de recursos azure da amostra:
 
 ```JSON
 {
@@ -174,17 +174,17 @@ Modelo de Azure Resource Manager de exemplo:
 }
 ```
 
-Parâmetro | Obrigatório | Descrição
+Parâmetro | Necessário | Descrição
 ---|---|---
-resourceTypeName | *Ok* | O **nome** do **ResourceType** definido no provedor personalizado.
-resourceProviderName | *Ok* | O nome da instância do provedor de recursos personalizado.
-customResourceName | *Ok* | O nome do recurso personalizado.
+recursoTypeName | *Sim,* | O **nome** do **recursoType** definido no fornecedor personalizado.
+nome fornecedor de recursos | *Sim,* | O nome da instância do fornecedor de recursos personalizados.
+nome personalizado DeRecursos | *Sim,* | O nome de recurso personalizado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral dos provedores de recursos personalizados do Azure](overview.md)
-- [Início rápido: criar um provedor de recursos personalizado do Azure e implantar recursos personalizados](./create-custom-provider.md)
-- [Tutorial: criar ações e recursos personalizados no Azure](./tutorial-get-started-with-custom-providers.md)
-- [Como adicionar ações personalizadas à API REST do Azure](./custom-providers-action-endpoint-how-to.md)
-- [Referência: referência de proxy de recurso personalizado](proxy-resource-endpoint-reference.md)
-- [Referência: referência de cache de recurso personalizado](proxy-cache-resource-endpoint-reference.md)
+- [Visão geral sobre fornecedores de recursos personalizados Azure](overview.md)
+- [Quickstart: Criar o Fornecedor de Recursos Personalizados Azure e implementar recursos personalizados](./create-custom-provider.md)
+- [Tutorial: Criar ações e recursos personalizados em Azure](./tutorial-get-started-with-custom-providers.md)
+- [Como: Adicionar ações personalizadas à API Do REST Azure](./custom-providers-action-endpoint-how-to.md)
+- [Referência: Referência de procuração de recursos personalizados](proxy-resource-endpoint-reference.md)
+- [Referência: Referência de cache de recursos personalizados](proxy-cache-resource-endpoint-reference.md)
