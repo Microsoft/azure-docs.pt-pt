@@ -12,10 +12,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 595a89ca58e970a9c886d0b6c2dd05aecd1411ef
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159391"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu ao meu projeto WebAPI (serviço conectado visual Studio Azure Ative Directory)
@@ -34,42 +34,42 @@ Afeta o ficheiro do projeto *.NET referências) e `packages.config` (referência
 
 | Tipo | Referência |
 | --- | --- |
-| .NET; NuGet | Microsoft.Owin |
-| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
-| .NET; NuGet | Microsoft.Owin.Security |
-| .NET; NuGet | Microsoft.Owin.Security.ActiveDirectory |
-| .NET; NuGet | Microsoft.Owin.Security.Jwt |
-| .NET; NuGet | Microsoft.Owin.Security.OAuth |
-| .NET; NuGet | Rio Owin |
-| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
+| .net; Nuget | Microsoft.Owin |
+| .net; Nuget | Microsoft.Owin.Host.SystemWeb |
+| .net; Nuget | Microsoft.Owin.Security |
+| .net; Nuget | Microsoft.Owin.Security.ActiveDirectory |
+| .net; Nuget | Microsoft.Owin.Security.Jwt |
+| .net; Nuget | Microsoft.Owin.Security.OAuth |
+| .net; Nuget | Rio Owin |
+| .net; Nuget | System.IdentityModel.Tokens.Jwt |
 
 Referências adicionais se selecionou a opção de dados do **diretório Ler:**
 
 | Tipo | Referência |
 | --- | --- |
-| .NET; NuGet | EntityFramework |
+| .net; Nuget | Estrutura de Entidades |
 | .NET        | EntityFramework.SqlServer (apenas Visual Studio 2015) |
-| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
-| .NET; NuGet | Microsoft.Data.Edm |
-| .NET; NuGet | Microsoft.Data.OData |
-| .NET; NuGet | Microsoft.Data.Services.Client |
-| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .net; Nuget | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .net; Nuget | Microsoft.Data.Edm |
+| .net; Nuget | Microsoft.data.OData |
+| .net; Nuget | Microsoft.Data.Services.Client |
+| .net; Nuget | Microsoft.IdentityModel.Clients.ActiveDirectory |
 | .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<br>(Apenas Visual Studio 2015) |
-| .NET; NuGet | System.Spatial |
+| .net; Nuget | Sistema.Espacial |
 
 As seguintes referências são removidas (ASP.NET apenas 4 projetos, como no Visual Studio 2015):
 
 | Tipo | Referência |
 | --- | --- |
-| .NET; NuGet | Microsoft.AspNet.Identity.Core |
-| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
-| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
+| .net; Nuget | Microsoft.AspNet.Identity.Core |
+| .net; Nuget | Microsoft.AspNet.Identity.EntityFramework |
+| .net; Nuget | Microsoft.AspNet.Identity.Owin |
 
 ## <a name="project-file-changes"></a>Alterações no ficheiro do projeto
 
-- Deteto a propriedade `IISExpressSSLPort` para um número distinto.
-- Detete a propriedade `WebProject_DirectoryAccessLevelKey` a 0, ou 1 se tiver selecionado a opção de dados do **diretório Read.**
-- Detete a `IISUrl` da propriedade para `https://localhost:<port>/` onde `<port>` corresponda ao valor `IISExpressSSLPort`.
+- Coloque a `IISExpressSSLPort` propriedade num número distinto.
+- Desloque a propriedade `WebProject_DirectoryAccessLevelKey` para 0, ou 1 se tiver selecionado a opção de dados do **diretório Read.**
+- Detete `IISUrl` `https://localhost:<port>/` a `<port>` propriedade `IISExpressSSLPort` para onde corresponda ao valor.
 
 ## <a name="webconfig-or-appconfig-changes"></a>web.config ou app.config alterações
 
@@ -83,15 +83,15 @@ As seguintes referências são removidas (ASP.NET apenas 4 projetos, como no Vis
     </appSettings>
     ```
 
-- Visual Studio 2017 apenas: Acrescentou também a seguinte entrada sob `<appSettings>`"
+- Visual Studio 2017 apenas: Também `<appSettings>`acrescentou a seguinte entrada em "
 
     ```xml
     <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />
     ```
 
-- Adicione `<dependentAssembly>` elementos sob o nó `<runtime><assemblyBinding>` para `System.IdentityModel.Tokens.Jwt`.
+- Elementos `<dependentAssembly>` adicionados `<runtime><assemblyBinding>` sob `System.IdentityModel.Tokens.Jwt`o nó para .
 
-- Se selecionou a opção de dados do **diretório Read,** adicione a seguinte entrada de configuração em `<appSettings>`:
+- Se selecionou a opção de dados do `<appSettings>` **diretório Read,** adicione a seguinte entrada de configuração em :
 
     ```xml
     <add key="ida:Password" value="<Your Azure AD app's new password>" />
@@ -99,13 +99,13 @@ As seguintes referências são removidas (ASP.NET apenas 4 projetos, como no Vis
 
 ## <a name="code-changes-and-additions"></a>Alterações e adições de código
 
-- Acrescentou o atributo `[Authorize]` à `Controllers/ValueController.cs` e a quaisquer outros controladores existentes.
+- Acrescentou `[Authorize]` o `Controllers/ValueController.cs` atributo e quaisquer outros controladores existentes.
 
-- Adicionou uma classe de startupde autenticação, `App_Start/Startup.Auth.cs`, contendo lógica de startup para autenticação AD Azure, ou modificou-a em conformidade. Se selecionou a opção de dados do **diretório Read,** este ficheiro também contém código para receber um código OAuth e trocá-lo por um token de acesso.
+- Adicionou uma classe `App_Start/Startup.Auth.cs`de startup de autenticação, contendo lógica de arranque para autenticação ad.audazes da Azure AD, ou modificou-a em conformidade. Se selecionou a opção de dados do **diretório Read,** este ficheiro também contém código para receber um código OAuth e trocá-lo por um token de acesso.
 
-- (Visual Studio 2015 apenas com ASP.NET 4 aplicações) Removido `App_Start/IdentityConfig.cs` e adicionado `Controllers/AccountController.cs`, `Models/IdentityModel.cs`e `Providers/ApplicationAuthProvider.cs`.
+- (Visual Studio 2015 apenas com ASP.NET 4 aplicações) Removido `App_Start/IdentityConfig.cs` e `Controllers/AccountController.cs` `Models/IdentityModel.cs`adicionado, `Providers/ApplicationAuthProvider.cs`e .
 
-- Acrescentou `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), contendo informações que o Visual Studio utiliza para acompanhar a adição do serviço conectado.
+- Adicionado `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), contendo informações que o Visual Studio usa para acompanhar a adição do serviço conectado.
 
 ### <a name="file-backup-visual-studio-2015"></a>Backup de ficheiros (Estúdio Visual 2015)
 

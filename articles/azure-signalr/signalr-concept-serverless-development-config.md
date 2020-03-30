@@ -1,5 +1,5 @@
 ---
-title: Desenvolver e configurar app Funções Azure - Azure SignalR
+title: Desenvolver & configurar a aplicação Funções Azure - Azure SignalR
 description: Detalhes sobre como desenvolver e configurar aplicações em tempo real sem servidor usando funções Azure e Serviço de Sinalização Azure
 author: anthonychu
 ms.service: signalr
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77523175"
 ---
-# <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desenvolvimento e configuração de funções Azure com serviço de sinalização Azure
+# <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service
 
 As aplicações Azure Functions podem alavancar as ligações do [Serviço De Sinalização Azure](../azure-functions/functions-bindings-signalr-service.md) para adicionar capacidades em tempo real. As aplicações do cliente utilizam SDKs clientes disponíveis em vários idiomas para se conectarem ao Serviço De Sinalização Azure e receberem mensagens em tempo real.
 
@@ -38,7 +38,7 @@ Uma aplicação em tempo real sem servidor criada com as Funções do Azure e o 
 
 Uma aplicação de cliente requer um sinal de acesso válido para ligar ao Serviço De Sinalização Azure. Um sinal de acesso pode ser anónimo ou autenticado a uma determinada identificação do utilizador. As aplicações do Serviço signalr sem servidor requerem um ponto final http chamado "negociar" para obter uma informação de ligação simbólica e outras informações de ligação, tais como o URL final do SignalR Service.
 
-Utilize uma função Azure ativada em HTTP e a ligação de entrada *SignalRConnectionInfo* para gerar o objeto de informação de ligação. A função deve ter uma rota HTTP que termine em `/negotiate`.
+Utilize uma função Azure ativada em HTTP e a ligação de entrada *SignalRConnectionInfo* para gerar o objeto de informação de ligação. A função deve ter uma `/negotiate`rota HTTP que termine em .
 
 Para obter mais informações sobre como criar a função de negociação, consulte a referência vinculativa da entrada [ *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service-input.md).
 
@@ -67,7 +67,7 @@ Para ligar ao SignalR Service, um cliente deve concluir uma negociação de cone
 1. Faça um pedido para o ponto final da *negociação* HTTP discutido acima para obter informações de conexão válidas
 1. Ligue-se ao Serviço SignalR utilizando o URL final do serviço e o token de acesso obtido a partir do ponto final de *negociação*
 
-Os SDKs do cliente SignalR já contêm a lógica necessária para realizar o aperto de mão de negociação. Passe o URL do ponto final da negociação, menos o segmento `negotiate`, para o `HubConnectionBuilder`do SDK . Aqui está um exemplo no JavaScript:
+Os SDKs do cliente SignalR já contêm a lógica necessária para realizar o aperto de mão de negociação. Passe o URL do ponto final `negotiate` da negociação, menos `HubConnectionBuilder`o segmento, para o SDK. Aqui está um exemplo no JavaScript:
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -75,7 +75,7 @@ const connection = new signalR.HubConnectionBuilder()
   .build()
 ```
 
-Por convenção, o SDK automaticamente anexa `/negotiate` ao URL e usa-o para iniciar a negociação.
+Por convenção, o SDK `/negotiate` anexa automaticamente ao URL e usa-o para iniciar a negociação.
 
 > [!NOTE]
 > Se estiver a utilizar o JavaScript/TypeScript SDK num browser, tem de ativar a [partilha de recursos de origem cruzada (CORS)](#enabling-cors) na sua App de Funções.
@@ -100,12 +100,12 @@ No entanto, existem algumas considerações especiais para apps que usam as enca
 
 O cliente JavaScript/TypeScript faz pedidos HTTP para a função de negociação para iniciar a negociação de ligação. Quando a aplicação do cliente é alojada num domínio diferente da aplicação Azure Function, a partilha de recursos de origem cruzada (CORS) deve ser ativada na aplicação 'Fun' ou o navegador irá bloquear os pedidos.
 
-#### <a name="localhost"></a>hospedeiro local
+#### <a name="localhost"></a>Localhost
 
-Ao executar a aplicação Função no seu computador local, pode adicionar uma secção `Host` ao *local.settings.json* para ativar o CORS. Na secção `Host`, adicione duas propriedades:
+Ao executar a aplicação Função no `Host` seu computador local, pode adicionar uma secção a *locais.configurações.json* para ativar o CORS. Na `Host` secção, adicione duas propriedades:
 
-* `CORS` - insira o URL base que é a origem da aplicação do cliente
-* `CORSCredentials` - delineá-lo para `true` para permitir pedidos "com credenciais"
+* `CORS`- insira o URL base que é a origem da aplicação do cliente
+* `CORSCredentials`- defini-lo para `true` permitir pedidos "com credenciais"
 
 Exemplo:
 
@@ -167,9 +167,9 @@ A Azure Functions tem autenticação incorporada, apoiando fornecedores populare
 
 No portal Azure, na plataforma da aplicação *Fun' apresente* separador, abra a janela de definições de *Autenticação/Autorização.* Siga a documentação para autenticação do serviço de [aplicações](../app-service/overview-authentication-authorization.md) para configurar a autenticação utilizando um fornecedor de identidade à sua escolha.
 
-Uma vez configurados, os pedidos http autenticados incluirão `x-ms-client-principal-name` e `x-ms-client-principal-id` cabeçalhos contendo o nome de utilizador e identificação do utilizador autenticados, respectivamente.
+Uma vez configurados, os pedidos `x-ms-client-principal-name` http `x-ms-client-principal-id` autenticados incluirão e cabeçalhos contendo o nome de utilizador e identificação do utilizador autenticados, respectivamente.
 
-Pode utilizar estes cabeçalhos na configuração de ligação *SignalRConnectionInfo* para criar ligações autenticadas. Aqui está C# um exemplo de função de negociação que usa o cabeçalho `x-ms-client-principal-id`.
+Pode utilizar estes cabeçalhos na configuração de ligação *SignalRConnectionInfo* para criar ligações autenticadas. Aqui está um exemplo C# `x-ms-client-principal-id` negociar função que usa o cabeçalho.
 
 ```csharp
 [FunctionName("negotiate")]
@@ -184,7 +184,7 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-Em seguida, pode enviar mensagens a esse utilizador definindo a propriedade `UserId` de uma mensagem SignalR.
+Em seguida, pode enviar mensagens `UserId` a esse utilizador definindo a propriedade de uma mensagem SignalR.
 
 ```csharp
 [FunctionName("SendMessage")]

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: rogarana
 ms.openlocfilehash: aeb15fbb8da44a203789e06a359cb664998602ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77123212"
 ---
 O agente Dessincronização de Ficheiros Azure é atualizado regularmente para adicionar novas funcionalidades e resolver problemas. Recomendamos que configure o Microsoft Update para obter atualizações para o agente Dessincronização de Ficheiros Azure, uma vez que estão disponíveis.
 
 #### <a name="major-vs-minor-agent-versions"></a>Versões de agente menor
-* As versões principais de agentes muitas vezes contêm novas funcionalidades e têm um número crescente como a primeira parte do número da versão. Por exemplo: \*2.\*.\*\*
-* As versões de agente menor também são chamadas de "patches" e são lançadas com mais frequência do que as principais versões. Muitas vezes contêm correções de bugs e melhorias menores, mas sem novas funcionalidades. Por exemplo: \*\*.3.\*\*
+* As versões principais de agentes muitas vezes contêm novas funcionalidades e têm um número crescente como a primeira parte do número da versão. Por exemplo: \*\*2. .\*\*
+* As versões de agente menor também são chamadas de "patches" e são lançadas com mais frequência do que as principais versões. Muitas vezes contêm correções de bugs e melhorias menores, mas sem novas funcionalidades. Por exemplo: \* \*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Upgrade caminhos
 Existem quatro formas aprovadas e testadas de instalar as atualizações do agente Azure File Sync. 
@@ -43,7 +43,7 @@ cd 'C:\Program Files\Azure\StorageSyncAgent'
 Import-Module -Name .\StorageSync.Management.ServerCmdlets.dll
 ```
 
-Pode executar `Get-StorageSyncAgentAutoUpdatePolicy` para verificar a definição de política atual e determinar se quer alterá-la.
+Pode correr `Get-StorageSyncAgentAutoUpdatePolicy` para verificar a definição de política atual e determinar se quer alterá-la.
 
 Para alterar a definição de política atual para a pista de atualização retardada, pode utilizar:
 ```powershell
@@ -61,7 +61,7 @@ O Azure File Sync é um serviço na nuvem, que introduz continuamente novas func
 - As versões de agente principal são suportadas durante pelo menos seis meses a partir da data de lançamento inicial.
 - Garantimos que há uma sobreposição de pelo menos três meses entre o apoio das principais versões de agentes. 
 - Os avisos são emitidos para servidores registados utilizando um agente em breve expirado pelo menos três meses antes da expiração. Pode verificar se um servidor registado está a utilizar uma versão mais antiga do agente sob a secção de servidores registado de um Serviço de Sincronização de Armazenamento.
-- A vida útil de uma versão de agente menor está ligada à versão principal associada. Por exemplo, quando a versão 3.0 do agente é lançada, as versões do agente 2.\* todos estarão prontos para expirar juntos.
+- A vida útil de uma versão de agente menor está ligada à versão principal associada. Por exemplo, quando a versão 3.0 do agente é lançada, as versões do agente 2. \* será tudo definido para expirar juntos.
 
 > [!Note]
 > Instalar uma versão do agente com um aviso de validade mostrará um aviso, mas terá sucesso. Tentar instalar ou ligar-se a uma versão de agente expirado não é suportado e será bloqueado.

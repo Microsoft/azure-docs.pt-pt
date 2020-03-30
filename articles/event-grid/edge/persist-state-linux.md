@@ -1,5 +1,5 @@
 ---
-title: Persistir estado em Linux - Azure Event Grid IoT Edge  Microsoft Docs
+title: Persistir estado em Linux - Azure Event Grid IoT Edge [ Microsoft Docs
 description: Persistir metadados em Linux
 author: VidyaKukke
 manager: rajarv
@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086653"
 ---
 # <a name="persist-state-in-linux"></a>Persistir estado em Linux
@@ -25,7 +25,7 @@ Por padrão, apenas os metadados são persistidos e os eventos ainda são armaze
 Este artigo fornece os passos para implementar o módulo De Rede de Eventos com persistência nas implementações do Linux.
 
 > [!NOTE]
->O módulo Event Grid funciona como um utilizador de baixo privilégio com `2000` UID e nome `eventgriduser`.
+>O módulo Event Grid funciona como um utilizador `2000` de `eventgriduser`baixo privilégio com UID e nome .
 
 ## <a name="persistence-via-volume-mount"></a>Persistência através do volume de montagem
 
@@ -170,7 +170,7 @@ Coisas importantes a notar sobre eventos persistentes:
 * A persistência do evento é configurada numa Subscrição de Eventos no momento da criação e não pode ser modificada uma vez que a Subscrição do Evento é criada. Para alternar a persistência do evento, deve eliminar e recriar a Subscrição do Evento.
 * Os eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto a diferença de velocidade depende muito das características da unidade. A troca entre a velocidade e a fiabilidade é inerente a todos os sistemas de mensagens, mas geralmente só se torna percetível em larga escala.
 
-Para permitir a persistência do evento numa Subscrição de Eventos, detete `persistencePolicy` para `true`:
+Para permitir a persistência do `persistencePolicy` evento `true`numa Subscrição de Eventos, definida para:
 
  ```json
         {

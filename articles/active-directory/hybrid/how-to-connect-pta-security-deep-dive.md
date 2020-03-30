@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ddce8d4d7ca1f03c0a57d0f0c8c41ac122973e0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77185564"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Ative Directory Pass-through Autenticação segurança profunda
@@ -72,7 +72,7 @@ As seguintes secções discutem estas fases em detalhe.
 
 ### <a name="authentication-agent-installation"></a>Instalação do Agente de Autenticação
 
-Apenas administradores globais podem instalar um Agente de Autenticação (utilizando o Azure AD Connect ou autónomo) num servidor no local. A instalação adiciona duas novas entradas à lista de **programas** > **do Painel de Controlo** > Programas e **Funcionalidades:**
+Apenas administradores globais podem instalar um Agente de Autenticação (utilizando o Azure AD Connect ou autónomo) num servidor no local. A instalação adiciona duas novas entradas à lista de > **Programas e**  > **Funcionalidades**do **Painel de Controlo:**
 - A aplicação do Agente de Autenticação em si. Esta aplicação funciona com privilégios [NetworkService.](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx)
 - A aplicação Atualizador que é usada para atualizar automaticamente o Agente de Autenticação. Esta aplicação funciona com privilégios [Do Sistema Local.](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx)
 

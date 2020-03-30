@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: d3e267eab056589ed38c436620dd0db185291da1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425906"
 ---
-# <a name="multitenant-applications-in-azure"></a>Aplicações multiarrendatárias em Azure
+# <a name="multitenant-applications-in-azure"></a>Aplicações Multi-inquilino no Azure
 Uma aplicação multiarrendatária é um recurso partilhado que permite que "utilizadores em inquilinos separados" vejam a aplicação como se fosse sua. Um cenário típico que se presta a uma aplicação multiarrendatária é aquele em que todos os utilizadores da aplicação de diferentes inquilinos podem querer personalizar a experiência do utilizador, mas de outra forma têm os mesmos requisitos básicos de negócio. Exemplos de grandes aplicações multiarrendatárias são o Office 365, Outlook.com e visualstudio.com.
 
 Do ponto de vista de um fornecedor de aplicações, os benefícios do multiarrendamento dizem principalmente respeito à eficiência operacional e aos custos. Uma versão da sua aplicação pode atender às necessidades de muitos inquilinos/clientes, permitindo a consolidação de tarefas de administração do sistema, tais como monitorização, afinação de desempenho, manutenção de software e backups de dados.

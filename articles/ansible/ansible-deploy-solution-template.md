@@ -5,10 +5,10 @@ keywords: ansível, azul, devops, modelo de solução, máquina virtual, identid
 ms.topic: quickstart
 ms.date: 04/30/2019
 ms.openlocfilehash: cc3a6c1f0ef36b51b62e6aa58f317aee13149589
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77193791"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Quickstart: Implemente o modelo de solução Ansible para Azure para o CentOS
@@ -39,9 +39,9 @@ O modelo de solução Ansible para o Azure foi concebido para configurar uma ins
    - Nome do **utilizador:** - Especifique o nome de utilizador que terá acesso à instância Ansible. Para fins de demonstração, o nome `ansibleuser` é usado.
    - **Tipo de autenticação:** - Selecione **palavra-passe** ou **chave pública SSH**. Para fins de demonstração, a **chave pública SSH** é selecionada.
    - **Palavra-passe** e **confirme a palavra-passe** - Se selecionar **palavra-passe** para **tipo de autenticação,** introduza a sua palavra-passe para estes valores.
-   - **Chave pública SSH** - Se selecionar **a chave pública SSH** para o tipo de **autenticação,** introduza a sua chave pública RSA no formato de linha única - a começar por `ssh-rsa`.
+   - **Chave pública SSH** - Se selecionar **a chave pública SSH** para o tipo de **autenticação,** `ssh-rsa`introduza a sua chave pública RSA no formato de linha única - começando por .
    - **Subscrição** - Selecione a subscrição do Azure na lista de dropdown.
-   - **Grupo de recursos** - Selecione um grupo de recursos existente da lista de dropdown, ou selecione **Criar novo** e especificar um nome para um novo grupo de recursos. Para fins de demonstração, é utilizado um novo grupo de recursos chamado `ansiblerg`.
+   - **Grupo de recursos** - Selecione um grupo de recursos existente da lista de dropdown, ou selecione **Criar novo** e especificar um nome para um novo grupo de recursos. Para fins de demonstração, é `ansiblerg` utilizado um novo grupo de recursos chamado.
    - **Localização** - Selecione a localização da lista de dropdown que é apropriada para o seu cenário.
 
      ![Separador de portal Azure para configurações básicas ansíveis](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-1.png)
@@ -54,9 +54,9 @@ O modelo de solução Ansible para o Azure foi concebido para configurar uma ins
    - Tipo de **disco VM** - Selecione **SSD** (Unidade de Estado Sólido Premium) ou **HDD** (Disco Rígido). Para fins de demonstração, **o SSD** é selecionado para os seus benefícios de desempenho. Para obter mais informações sobre cada tipo de armazenamento em disco, consulte os seguintes artigos:
        - [Armazenamento Premium e discos geridos de elevado desempenho para VMs](/azure/virtual-machines/windows/premium-storage)
        - [Discos geridos standard SSD para cargas de trabalho de máquinas azure virtual](/azure/virtual-machines/windows/disks-standard-ssd)
-   - **Endereço IP público** - Especifique esta definição se pretender comunicar com a máquina virtual de fora da máquina virtual. O predefinido é um novo endereço IP público que tem o nome `ansible-pip`. Para especificar um endereço IP diferente, selecione a seta especificar os atributos - como nome, SKU e Atribuição, desse endereço IP. 
+   - **Endereço IP público** - Especifique esta definição se pretender comunicar com a máquina virtual de fora da máquina virtual. O predefinido é um novo endereço `ansible-pip`IP público que tem o nome . Para especificar um endereço IP diferente, selecione a seta especificar os atributos - como nome, SKU e Atribuição, desse endereço IP. 
    - **Etiqueta de nome** de domínio - Introduza o nome de domínio virado para o público da máquina virtual. O nome deve ser único e satisfazer os requisitos de nomeação. Para obter mais informações sobre a especificação de um nome para a máquina virtual, consulte [as convenções de nomeação para os recursos do Azure](/azure/architecture/best-practices/resource-naming).
-   - **Versão ansível** - Especifique um número de versão ou o valor `latest` para implementar a versão mais recente. Selecione o ícone de informação ao lado da **versão Ansible** para ver mais informações sobre as versões disponíveis.
+   - **Versão ansível** - Especifique `latest` um número de versão ou o valor para implementar a versão mais recente. Selecione o ícone de informação ao lado da **versão Ansible** para ver mais informações sobre as versões disponíveis.
 
      ![Separador de portal Azure para configurações adicionais ansíveis](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)
 

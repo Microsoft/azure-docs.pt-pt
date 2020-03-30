@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77120700"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilize ações de escala automática para enviar notificações de alerta de e-mail e webhook no Monitor Azure
@@ -58,16 +58,16 @@ Ao utilizar o modelo REST API ou Gestor de Recursos, inclua o elemento notifica�
 
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| operation |sim |valor deve ser "Escala" |
-| sendToSubscriptionAdministrator |sim |valor deve ser "verdadeiro" ou "falso" |
-| sendToSubscriptionCoAdministrators |sim |valor deve ser "verdadeiro" ou "falso" |
+| operação |sim |valor deve ser "Escala" |
+| enviarAdministrador de subscrição |sim |valor deve ser "verdadeiro" ou "falso" |
+| enviarAdministradores Coadministradores de EnviodeSubscrições |sim |valor deve ser "verdadeiro" ou "falso" |
 | emails personalizados |sim |valor pode ser nulo [] ou cadeia de e-mails |
 | webhooks |sim |valor pode ser nulo ou válido Uri |
 | serviceUri |sim |um https válido Uri |
-| propriedades |sim |valor deve ser vazio {} ou pode conter pares de valor-chave |
+| propriedades |sim |valor deve {} ser vazio ou pode conter pares de valor-chave |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
-O webhook pode autenticar usando autenticação baseada em token, onde você guarda o webhook URI com um ID simbólico como parâmetro de consulta. Por exemplo, https:\//mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+O webhook pode autenticar usando autenticação baseada em token, onde você guarda o webhook URI com um ID simbólico como parâmetro de consulta. Por exemplo,\/https: /mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Esquema de carga útil de webhook de notificação automática
 Quando a notificação de escala automática é gerada, os seguintes metadados são incluídos na carga útil do webhook:
@@ -102,12 +102,12 @@ Quando a notificação de escala automática é gerada, os seguintes metadados s
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | status |sim |O estado que indica que uma ação de escala automática foi gerada |
-| operation |sim |Para um aumento de casos, será "Scale out" e para uma diminuição de casos, será "Scale In" |
+| operação |sim |Para um aumento de casos, será "Scale out" e para uma diminuição de casos, será "Scale In" |
 | contexto |sim |O contexto de ação de escala automática |
 | carimbo de data/hora |sim |Carimbo de tempo quando a ação de escala automática foi desencadeada |
 | ID |Sim |ID do Gestor de Recursos da definição de escala automática |
 | nome |Sim |O nome da definição de escala automática |
-| details |Sim |Explicação da ação que o serviço de escala automática tomou e a mudança na contagem de exemplos |
+| detalhes |Sim |Explicação da ação que o serviço de escala automática tomou e a mudança na contagem de exemplos |
 | subscriptionId |Sim |Id de subscrição do recurso-alvo que está a ser escalado |
 | resourceGroupName |Sim |Nome do Grupo de Recursos do recurso-alvo que está a ser escalado |
 | resourceName |Sim |Nome do recurso-alvo que está a ser escalado |
@@ -116,5 +116,5 @@ Quando a notificação de escala automática é gerada, os seguintes metadados s
 | portalLink |Sim |Link do portal Azure para a página sumária do recurso-alvo |
 | oldCapacity |Sim |A contagem atual (antiga) de instância quando a Escala Automática tomou uma ação de escala |
 | novaCapacidade |Sim |A nova contagem de casos que autoescala escala o recurso para |
-| propriedades |Não |Opcional. Conjunto de <Key, Value> pares (por exemplo, Dicionário <String, String>). O campo de propriedades é opcional. Numa interface personalizada do utilizador ou no fluxo de trabalho baseado em aplicações lógicas, pode introduzir chaves e valores que podem ser passados através da carga útil. Uma forma alternativa de passar propriedades personalizadas de volta à chamada de webhook de saída é usar o próprio WEBhook URI (como parâmetros de consulta) |
+| propriedades |Não |Opcional. Conjunto de pares <Key, Value> (por exemplo, Dicionário <String, String>). O campo de propriedades é opcional. Numa interface personalizada do utilizador ou no fluxo de trabalho baseado em aplicações lógicas, pode introduzir chaves e valores que podem ser passados através da carga útil. Uma forma alternativa de passar propriedades personalizadas de volta à chamada de webhook de saída é usar o próprio WEBhook URI (como parâmetros de consulta) |
 

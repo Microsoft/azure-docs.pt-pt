@@ -1,5 +1,5 @@
 ---
-title: Implementar e configurar firewall Azure em rede híbrida usando powerShell
+title: Implementar & configurar firewall Azure em rede híbrida utilizando powerShell
 description: Neste artigo, aprende-se a implementar e configurar o Azure Firewall utilizando o Azure PowerShell.
 services: firewall
 author: vhorne
@@ -9,10 +9,10 @@ ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 37bb28419f23fee2c179171a2e5c0e4e851ac9a0
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471759"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
@@ -71,7 +71,7 @@ Consulte a secção [Rotas Create](#create-the-routes) neste artigo para ver com
 
 Para rever a documentação de referência relacionada com o PowerShell, consulte [a Referência Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="declare-the-variables"></a>Declarar as variáveis
 
@@ -139,7 +139,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Solicite um endereço IP público para ser atribuído ao gateway VPN que irá criar para a sua rede virtual. Tenha em atenção que o *AllocationMethod* é **Dinâmico**. Não é possível especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway de VPN.
+Solicite um endereço IP público para ser atribuído ao gateway VPN que irá criar para a sua rede virtual. Note que o Método de *Alocação* é **Dinâmico**. Não é possível especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway de VPN.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -178,7 +178,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Solicite um endereço IP público para ser atribuído ao portal que irá criar para a rede virtual. Tenha em atenção que o *AllocationMethod* é **Dinâmico**. Não é possível especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway.
+Solicite um endereço IP público para ser atribuído ao portal que irá criar para a rede virtual. Note que o Método de *Alocação* é **Dinâmico**. Não é possível especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -293,7 +293,7 @@ Crie as instalações para centralar a ligação de rede virtual. Este passo é 
 
 #### <a name="verify-the-connection"></a>Verificar a ligação
 
-Pode verificar uma ligação bem sucedida utilizando o cmdlet *Get-AzVirtualNetworkGatewayConnection,* com ou sem *-Debug*. Utilize o seguinte exemplo de cmdlet, configurando os valores para corresponder aos seus. Se lhe for pedido, selecione **A** para executar **Todos**. No exemplo,  *-Name* refere-se ao nome da ligação que pretende testar.
+Pode verificar uma ligação bem sucedida utilizando o cmdlet *Get-AzVirtualNetworkGatewayConnection,* com ou sem *-Debug*. Utilize o seguinte exemplo de cmdlet, configurando os valores para corresponder aos seus. Se lhe for pedido, selecione **A** para executar **Todos**. No exemplo, *-O nome* refere-se ao nome da ligação que pretende testar.
 
 ```azurepowershell
 Get-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1
@@ -464,7 +464,7 @@ No portal do Azure, ligue à máquina virtual **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-Abra um navegador web no **VM-Onprem**e navegue para http://\<\>IP privada vM-spoke-01.
+Abra um navegador web no **VM-Onprem**\<e navegue para http://\>IP privado vM-spoke-01 .
 
 Deverá ver a página predefinida dos Serviços de Informação Internet.
 

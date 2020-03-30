@@ -1,6 +1,6 @@
 ---
-title: Criar soluções de recuperação de desastre
-description: Saiba como projetar sua solução de nuvem para recuperação de desastres escolhendo o padrão de failover correto.
+title: Soluções de recuperação de desastres de design
+description: Aprenda a desenhar a sua solução de nuvem para recuperação de desastres, escolhendo o padrão de failover certo.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -12,164 +12,164 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: 4eeaa187142a6d0d97b12f685ebc455f3844606f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825864"
 ---
-# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastre para aplicativos que usam pools elásticos do banco de dados SQL
+# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicações usando piscinas elásticas SQL Database
 
-Ao longo dos anos, aprendemos que os serviços de nuvem não são à prova de falhas e incidentes catastróficos acontecem. O banco de dados SQL fornece vários recursos para fornecer a continuidade dos negócios de seu aplicativo quando esses incidentes ocorrem. [Pools elásticos](sql-database-elastic-pool.md) e bancos de dados individuais dão suporte ao mesmo tipo de recursos de Dr (recuperação de desastre). Este artigo descreve várias estratégias de DR para pools elásticos que aproveitam esses recursos de continuidade de negócios do banco de dados SQL.
+Ao longo dos anos, aprendemos que os serviços em nuvem não são infalíveis e que incidentes catastróficos acontecem. A Base de Dados SQL fornece várias capacidades para fornecer a continuidade do negócio da sua aplicação quando estes incidentes ocorrerem. [Piscinas elásticas](sql-database-elastic-pool.md) e bases de dados individuais suportam o mesmo tipo de capacidades de recuperação de desastres (DR). Este artigo descreve várias estratégias de DR para piscinas elásticas que alavancam estas funcionalidades de continuidade do negócio da Base de Dados SQL.
 
-Este artigo usa o padrão de aplicativo de ISV do SaaS canônico a seguir:
+Este artigo utiliza o seguinte padrão de aplicação canónica SaaS ISV:
 
-Um aplicativo Web moderno baseado em nuvem provisiona um banco de dados SQL para cada usuário final. O ISV tem muitos clientes e, portanto, usa muitos bancos de dados, conhecidos como bancos de dados de locatário. Como os bancos de dados de locatário normalmente têm padrões de atividade imprevisíveis, o ISV usa um pool elástico para tornar o banco de custos muito previsível em longos períodos de tempo. O pool elástico também simplifica o gerenciamento de desempenho quando a atividade do usuário é propiconte. Além dos bancos de dados de locatário, o aplicativo também usa vários bancos de dados para gerenciar perfis de usuário, segurança, coletar padrões de uso, etc. A disponibilidade dos locatários individuais não afeta a disponibilidade do aplicativo como um todo. No entanto, a disponibilidade e o desempenho dos bancos de dados de gerenciamento são essenciais para a função do aplicativo e, se os bancos de dados de gerenciamento estiverem offline, todo o aplicativo estará offline.
+Uma aplicação web moderna baseada na nuvem disponibiliza uma base de dados SQL para cada utilizador final. O ISV tem muitos clientes e, portanto, utiliza muitas bases de dados, conhecidas como bases de dados de inquilinos. Como as bases de dados dos inquilinos normalmente têm padrões de atividade imprevisíveis, o ISV usa uma piscina elástica para tornar o custo da base de dados muito previsível durante longos períodos de tempo. O pool elástico também simplifica a gestão do desempenho quando a atividade do utilizador aumenta. Além das bases de dados dos inquilinos, a aplicação também utiliza várias bases de dados para gerir perfis de utilizador, segurança, recolha de padrões de utilização, etc. A disponibilidade dos inquilinos individuais não afeta a disponibilidade da aplicação no seu conjunto. No entanto, a disponibilidade e desempenho das bases de dados de gestão é fundamental para a função da aplicação e se as bases de dados de gestão estiverem offline, toda a aplicação está offline.
 
-Este artigo discute estratégias de DR que abrangem uma variedade de cenários de aplicativos de inicialização sensíveis ao custo para aqueles com requisitos de disponibilidade rigorosos.
+Este artigo discute estratégias de DR que abrangem uma série de cenários, desde aplicações de startups sensíveis a custos até aquelas com rigorosos requisitos de disponibilidade.
 
 > [!NOTE]
-> Se você estiver usando bancos de dados Premium ou Comercialmente Crítico e pools elásticos, poderá torná-los resilientes a interrupções regionais, convertendo-os para a configuração de implantação com redundância de zona. Consulte [bancos de dados com redundância de zona](sql-database-high-availability.md).
+> Se estiver a utilizar bases de dados Premium ou Business Critical e piscinas elásticas, pode torná-las resilientes a interrupções regionais, convertendo-as em configuração de implantação redundante da zona. Consulte [bases de dados redundantes](sql-database-high-availability.md)da Zona .
 
-## <a name="scenario-1-cost-sensitive-startup"></a>Cenário 1. Inicialização sensível ao custo
+## <a name="scenario-1-cost-sensitive-startup"></a>Cenário 1. Startup sensível ao custo
 
-Sou uma empresa de inicialização e é extremamente sensível ao custo.  Quero simplificar a implantação e o gerenciamento do aplicativo e posso ter um SLA limitado para clientes individuais. Mas quero garantir que o aplicativo como um todo nunca fique offline.
+Sou um negócio de startups e sou extremamente sensível aos custos.  Quero simplificar a implementação e gestão da aplicação e posso ter um SLA limitado para clientes individuais. Mas quero garantir que a aplicação como um todo nunca esteja offline.
 
-Para atender ao requisito de simplicidade, implante todos os bancos de dados de locatário em um pool elástico na região do Azure de sua escolha e implante bancos de dados de gerenciamento como bancos de dados únicos replicados geograficamente. Para a recuperação de desastre de locatários, use a restauração geográfica, que não tem nenhum custo adicional. Para garantir a disponibilidade dos bancos de dados de gerenciamento, replique-os geograficamente para outra região usando um grupo de failover automático (etapa 1). O custo contínuo da configuração de recuperação de desastre nesse cenário é igual ao custo total dos bancos de dados secundários. Essa configuração é ilustrada no próximo diagrama.
+Para satisfazer o requisito de simplicidade, coloque todas as bases de dados de inquilinos numa piscina elástica na região azure à sua escolha e implemente bases de dados de gestão como bases de dados individuais geo-replicadas. Para a recuperação de desastres dos inquilinos, use geo-restauro, que não tem custos adicionais. Para garantir a disponibilidade das bases de dados de gestão, geo-replica-as para outra região utilizando um grupo de auto-failover (passo 1). O custo contínuo da configuração de recuperação de desastres neste cenário é igual ao custo total das bases de dados secundárias. Esta configuração é ilustrada no próximo diagrama.
 
 ![Figura 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
-Se ocorrer uma interrupção na região primária, as etapas de recuperação para colocar seu aplicativo online serão ilustradas pelo próximo diagrama.
+Se ocorrer uma paragem na região primária, as etapas de recuperação para colocar a sua aplicação online são ilustradas pelo próximo diagrama.
 
-* O grupo de failover inicia o failover automático do banco de dados de gerenciamento para a região de recuperação de desastres. O aplicativo é automaticamente reconectado ao novo primário e todas as novas contas e bancos de dados de locatário são criados na região de DR. Os clientes existentes veem seus dados temporariamente indisponíveis.
-* Crie o pool elástico com a mesma configuração do pool original (2).
-* Use a restauração geográfica para criar cópias dos bancos de dados de locatário (3). Você pode considerar disparar as restaurações individuais pelas conexões do usuário final ou usar algum outro esquema de prioridade específico do aplicativo.
+* O grupo failover inicia a falha automática da base de dados de gestão para a região DR. A aplicação é automaticamente reconectada às novas primárias e todas as novas contas e bases de dados dos inquilinos são criadas na região de DR. Os clientes existentes vêem os seus dados temporariamente indisponíveis.
+* Crie a piscina elástica com a mesma configuração que a piscina original (2).
+* Utilize geo-restauro para criar cópias das bases de dados dos inquilinos (3). Pode considerar desencadear as restaurações individuais através das ligações do utilizador final ou utilizar outro esquema prioritário específico para a aplicação.
 
-Neste ponto, seu aplicativo está online novamente na região de recuperação de desastre, mas alguns clientes experimentam atraso ao acessar seus dados.
+Neste momento, a sua aplicação está novamente online na região DR, mas alguns clientes experimentam atrasos ao aceder aos seus dados.
 
 ![Figura 2](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-2.png)
 
-Se a interrupção for temporária, é possível que a região primária seja recuperada pelo Azure antes que todas as restaurações de banco de dados sejam concluídas na região de DR. Nesse caso, orquestrar a movimentação do aplicativo de volta para a região primária. O processo executa as etapas ilustradas no próximo diagrama.
+Se a paralisação foi temporária, é possível que a região primária seja recuperada pelo Azure antes que todas as restaurações da base de dados estejam completas na região de DR. Neste caso, orquestrar a mudança da aplicação para a região primária. O processo dá os passos ilustrados no próximo diagrama.
 
-* Cancele todas as solicitações de restauração geográfica pendentes.
-* Faça failover dos bancos de dados de gerenciamento para a região primária (5). Após a recuperação da região, os primários antigos se tornaram secundários automaticamente. Agora, eles alternam funções novamente.
-* Altere a cadeia de conexão do aplicativo para apontar de volta para a região primária. Agora, todas as novas contas e bancos de dados de locatário são criados na região primária. Alguns clientes existentes veem seus dados temporariamente indisponíveis.
-* Defina todos os bancos de dados no pool de recuperação de desastres como somente leitura para garantir que eles não possam ser modificados na região de DR (6).
-* Para cada banco de dados no pool de recuperação de desastre que foi alterado desde a recuperação, renomeie ou exclua os bancos de dados correspondentes no pool primário (7).
-* Copie os bancos de dados atualizados do pool de recuperação de desastres para o pool primário (8).
-* Excluir o pool de DR (9)
+* Cancele todos os pedidos de georestauro pendentes.
+* Falhar nas bases de dados de gestão da região primária (5). Após a recuperação da região, as antigas primárias tornaram-se automaticamente secundárias. Agora mudam de papéis de novo.
+* Mude a cadeia de ligação da aplicação para apontar de volta para a região primária. Agora todas as novas contas e bases de dados dos inquilinos são criadas na região primária. Alguns clientes existentes vêem os seus dados temporariamente indisponíveis.
+* Desloque todas as bases de dados do conjunto DR para leitura apenas para garantir que não podem ser modificadas na região DR (6).
+* Para cada base de dados do conjunto DR que tenha mudado desde a recuperação, renomeou ou elimine as bases de dados correspondentes no pool primário (7).
+* Copie as bases de dados atualizadas da piscina DR para a piscina primária (8).
+* Eliminar a piscina DR (9)
 
-Neste ponto, seu aplicativo está online na região primária com todos os bancos de dados de locatário disponíveis no pool primário.
+Neste momento, a sua candidatura está online na região primária com todas as bases de dados de inquilinos disponíveis na piscina primária.
 
 ![Figura 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
-O principal **benefício** dessa estratégia é o baixo custo contínuo para a redundância da camada de dados. Os backups são feitos automaticamente pelo serviço de banco de dados SQL sem reescrita de aplicativo e sem custo adicional.  O custo é incorrido apenas quando os bancos de dados elásticos são restaurados. A **desvantagem** é que a recuperação completa de todos os bancos de dados de locatário leva um tempo significativo. O período de tempo depende do número total de restaurações que você inicia na região de recuperação de desastres e do tamanho geral dos bancos de dados de locatário. Mesmo que você Priorize as restaurações de alguns locatários sobre outras pessoas, você está competindo com todas as outras restaurações iniciadas na mesma região que o serviço arbitra e limita para minimizar o impacto geral nos bancos de dados dos clientes existentes. Além disso, a recuperação dos bancos de dados de locatário não pode ser iniciada até que o novo pool elástico na região de DR seja criado.
+O **principal benefício** desta estratégia é o baixo custo contínuo para a redundância do nível de dados. As cópias de segurança são tomadas automaticamente pelo serviço Debase de dados SQL sem reescrita da aplicação e sem custoadicional.  O custo só é incorrido quando as bases de dados elásticas são restauradas. A **compensação** é que a recuperação completa de todas as bases de dados de inquilinos leva um tempo significativo. O tempo depende do número total de restauros iniciados na região DR e da dimensão global das bases de dados dos inquilinos. Mesmo que dê prioridade aos restauros de alguns inquilinos em detrimento de outros, está a competir com todos os outros restauros que são iniciados na mesma região que os árbitros e aceleradores de serviço para minimizar o impacto global nas bases de dados dos clientes existentes. Além disso, a recuperação das bases de dados dos inquilinos não pode começar até que seja criada a nova piscina elástica na região DR.
 
-## <a name="scenario-2-mature-application-with-tiered-service"></a>Cenário 2. Aplicativo maduro com serviço em camadas
+## <a name="scenario-2-mature-application-with-tiered-service"></a>Cenário 2. Aplicação madura com serviço hierárquico
 
-Sou um aplicativo SaaS maduro com ofertas de serviço em camadas e diferentes SLAs para clientes de avaliação e para pagar clientes. Para os clientes de avaliação, preciso reduzir o custo o máximo possível. Os clientes de avaliação podem ter tempo de inatividade, mas quero reduzir sua probabilidade. Para os clientes pagantes, qualquer tempo de inatividade é um risco de voo. Portanto, quero ter certeza de que os clientes pagantes sempre poderão acessar seus dados.
+Sou uma aplicação SaaS madura com ofertas de serviço seletivas e Diferentes SLAs para clientes experimentais e para clientes pagadores. Para os clientes do julgamento, tenho de reduzir o custo o máximo possível. Os clientes do julgamento podem fazer um tempo de descanso, mas quero reduzir a sua probabilidade. Para os clientes pagadores, qualquer tempo de inatividade é um risco de fuga. Por isso, quero ter a certeza de que os clientes pagadores são sempre capazes de aceder aos seus dados.
 
-Para dar suporte a esse cenário, separe os locatários de avaliação dos locatários pagos colocando-os em pools elásticos separados. Os clientes de avaliação têm menos eDTU ou vCores por locatário e um SLA menor com um tempo de recuperação mais longo. Os clientes pagantes estão em um pool com maior eDTU ou vCores por locatário e um SLA superior. Para garantir o menor tempo de recuperação, os bancos de dados de locatário dos clientes pagantes são replicados geograficamente. Essa configuração é ilustrada no próximo diagrama.
+Para apoiar este cenário, separe os inquilinos do julgamento dos inquilinos pagos colocando-os em piscinas elásticas separadas. Os clientes de ensaio têm eDTU ou vCores mais baixos por inquilino e SLA mais baixo com um tempo de recuperação mais longo. Os clientes pagadores estão numa piscina com eDTU ou vCores mais elevado sacana e um SLA mais elevado. Para garantir o menor tempo de recuperação, as bases de dados dos inquilinos dos clientes pagadores são geo-replicadas. Esta configuração é ilustrada no próximo diagrama.
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-Como no primeiro cenário, os bancos de dados de gerenciamento estão bastante ativos, portanto, você usa um banco de dados único replicado geograficamente para ele (1). Isso garante o desempenho previsível para novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. A região na qual residem os primários dos bancos de dados de gerenciamento é a região primária e a região em que os secundários dos bancos de dados de gerenciamento residem é a região de DR.
+Tal como no primeiro cenário, as bases de dados de gestão estão bastante ativas, pelo que utiliza uma única base de dados geo-replicada para ele (1). Isto garante o desempenho previsível para novas subscrições de clientes, atualizações de perfis e outras operações de gestão. A região em que residem as primárias das bases de dados de gestão é a região primária e a região em que residem os secundários das bases de dados de gestão.
 
-Os bancos de dados de locatário dos clientes pagantes têm bancos de dados ativos no pool "pago" provisionado na região primária. Provisione um pool secundário com o mesmo nome na região de recuperação de desastres. Cada locatário é replicado geograficamente para o pool secundário (2). Isso permite a recuperação rápida de todos os bancos de dados de locatário usando o failover.
+As bases de dados dos inquilinos pagadores têm bases de dados ativas no pool "pago" provisionado na região primária. Provisão de uma piscina secundária com o mesmo nome na região de DR. Cada inquilino é geo-replicado para a piscina secundária (2). Isto permite uma rápida recuperação de todas as bases de dados de inquilinos usando o failover.
 
-Se ocorrer uma interrupção na região primária, as etapas de recuperação para colocar seu aplicativo online serão ilustradas no próximo diagrama:
+Se ocorrer uma paragem na região primária, as etapas de recuperação para colocar a sua aplicação online são ilustradas no diagrama seguinte:
 
 ![Figura 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
-* Faça o failover imediato dos bancos de dados de gerenciamento para a região de DR (3).
-* Altere a cadeia de conexão do aplicativo para apontar para a região de DR. Agora, todas as novas contas e bancos de dados de locatário são criados na região de DR. Os clientes de avaliação existentes veem seus dados temporariamente indisponíveis.
-* Faça failover dos bancos de dados do locatário pago para o pool na região de recuperação de desastres para restaurar imediatamente sua disponibilidade (4). Como o failover é uma alteração rápida no nível de metadados, considere uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final.
-* Se o tamanho de eDTU do pool secundário ou o valor vCore fosse menor do que o primário porque os bancos de dados secundários exigiam apenas a capacidade de processar os logs de alteração enquanto eram secundários, aumente imediatamente a capacidade do pool agora para acomodar a carga de trabalho completa de todos os locatários (5).
-* Crie o novo pool elástico com o mesmo nome e a mesma configuração na região de DR para os bancos de dados dos clientes de avaliação (6).
-* Depois que o pool de clientes de avaliação for criado, use a restauração geográfica para restaurar os bancos de dados de locatário de avaliação individuais no novo pool (7). Considere disparar as restaurações individuais pelas conexões do usuário final ou usar algum outro esquema de prioridade específico do aplicativo.
+* Falhar imediatamente nas bases de dados de gestão para a região DR (3).
+* Altere a cadeia de ligação da aplicação para apontar para a região DR. Agora todas as novas contas e bases de dados dos inquilinos são criadas na região de DR. Os clientes de ensaio existentes vêem os seus dados temporariamente indisponíveis.
+* Falhar nas bases de dados pagas do arrendatário para a piscina na região de DR para restaurar imediatamente a sua disponibilidade (4). Uma vez que o failover é uma rápida alteração do nível de metadados, considere uma otimização onde as falhas individuais são desencadeadas a pedido pelas ligações do utilizador final.
+* Se o seu tamanho eDTU de piscina secundária ou valor vCore fosse inferior ao principal porque as bases de dados secundárias apenas requeriam a capacidade de processar os registos de mudança enquanto eram secundários, aumentar imediatamente a capacidade do pool agora para acomodar toda a carga de trabalho de todos os inquilinos (5).
+* Crie o novo conjunto elástico com o mesmo nome e a mesma configuração na região DR para as bases de dados dos clientes experimentais (6).
+* Uma vez criada a piscina dos clientes experimentais, utilize geo-restauro para restaurar as bases de dados individuais de inquilinos experimentais na nova piscina (7). Considere desencadear as restaurações individuais através das ligações do utilizador final ou utilize outro esquema prioritário específico para a aplicação.
 
-Neste ponto, seu aplicativo está novamente online na região de recuperação de desastre. Todos os clientes pagantes têm acesso aos seus dados enquanto os clientes de avaliação experimentam atrasos ao acessar seus dados.
+Neste momento, a sua candidatura está novamente online na região de DR. Todos os clientes pagadores têm acesso aos seus dados enquanto os clientes do teste experimentam atrasos no acesso aos seus dados.
 
-Quando a região primária for recuperada pelo Azure *após* a restauração do aplicativo na região de recuperação de desastres, você poderá continuar executando o aplicativo nessa região ou poderá optar por fazer failback para a região primária. Se a região primária for recuperada *antes* da conclusão do processo de failover, considere fazer failback imediatamente. O failback executa as etapas ilustradas no próximo diagrama:
+Quando a região primária for recuperada pelo Azure *depois* de ter restaurado a aplicação na região DR pode continuar a executar a aplicação naquela região ou pode decidir falhar na região primária. Se a região primária for recuperada *antes* de o processo de failover estar concluído, considere falhar imediatamente. O failback dá os passos ilustrados no próximo diagrama:
 
 ![Figura 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
-* Cancele todas as solicitações de restauração geográfica pendentes.
-* Faça failover dos bancos de dados de gerenciamento (8). Após a recuperação da região, o primário antigo se tornará o secundário automaticamente. Agora ele se torna o primário novamente.  
-* Fazer failover dos bancos de dados de locatário pagos (9). Da mesma forma, após a recuperação da região, os primários antigos se tornam os secundários automaticamente. Agora eles se tornam os primários novamente.
-* Defina os bancos de dados de avaliação restaurados que foram alterados na região de DR para somente leitura (10).
-* Para cada banco de dados no pool de DR de clientes de avaliação que foi alterado desde a recuperação, renomeie ou exclua o banco de dados correspondente no pool primário de clientes de avaliação (11).
-* Copie os bancos de dados atualizados do pool de recuperação de desastres para o pool primário (12).
-* Exclua o pool de DR (13).
+* Cancele todos os pedidos de georestauro pendentes.
+* Falhar nas bases de dados de gestão (8). Após a recuperação da região, as primárias antigas tornam-se automaticamente secundárias. Agora torna-se a primária de novo.  
+* Falhar nas bases de dados pagas de inquilinos (9). Da mesma forma, após a recuperação da região, as primárias antigas tornam-se automaticamente os secundários. Agora voltam a ser as primárias.
+* Detete as bases de dados de ensaio restauradas que mudaram na região de DR para apenas leitura (10).
+* Para cada base de dados no pool de clientes de ensaio DR que mudou desde a recuperação, renomeou ou elimina a base de dados correspondente no pool primário dos clientes experimentais (11).
+* Copie as bases de dados atualizadas da piscina DR para a piscina primária (12).
+* Eliminar a piscina DR (13).
 
 > [!NOTE]
-> A operação de failover é assíncrona. Para minimizar o tempo de recuperação, é importante que você execute o comando de failover bancos de dados de locatário em lotes de pelo menos 20 bancos de dados.
+> A operação de failover é assíncrona. Para minimizar o tempo de recuperação, é importante que execute o comando de failover das bases de dados dos inquilinos em lotes de pelo menos 20 bases de dados.
 
-O principal **benefício** dessa estratégia é que ela fornece o SLA mais alto para os clientes pagantes. Ele também garante que as novas avaliações sejam desbloqueadas assim que o pool de recuperação de desastres de avaliação for criado. A **desvantagem** é que essa configuração aumenta o custo total dos bancos de dados de locatário pelo custo do pool de recuperação de desastres secundário para clientes pagos. Além disso, se o pool secundário tiver um tamanho diferente, os clientes pagantes terão um desempenho menor após o failover até que a atualização do pool na região de DR seja concluída.
+O **principal benefício** desta estratégia é que fornece o SLA mais elevado para os clientes pagadores. Também garante que os novos ensaios são desbloqueados assim que o conjunto DR do ensaio é criado. A **compensação** é que esta configuração aumenta o custo total das bases de dados dos inquilinos pelo custo do conjunto secundário de DR para clientes pagos. Além disso, se a piscina secundária tiver um tamanho diferente, os clientes pagadores experimentam um desempenho mais baixo após a falha até que a atualização da piscina na região DER esteja concluída.
 
-## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Cenário 3. Aplicativo distribuído geograficamente com serviço em camadas
+## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Cenário 3. Aplicação distribuída geograficamente com serviço hierárquico
 
-Tenho um aplicativo SaaS maduro com ofertas de serviço em camadas. Quero oferecer um SLA muito agressivo para meus clientes pagos e minimizar o risco de impacto quando ocorrem interrupções porque até mesmo uma breve interrupção pode causar insatisfação do cliente. É fundamental que os clientes pagantes sempre possam acessar seus dados. As avaliações são gratuitas e um SLA não é oferecido durante o período de avaliação.
+Tenho uma aplicação SaaS madura com ofertas de serviço seletivas. Quero oferecer um SLA muito agressivo aos meus clientes pagos e minimizar o risco de impacto quando ocorrem interrupções porque mesmo uma breve interrupção pode causar insatisfação do cliente. É fundamental que os clientes pagadores possam sempre aceder aos seus dados. Os julgamentos são gratuitos e um SLA não é oferecido durante o período experimental.
 
-Para dar suporte a esse cenário, use três pools elásticos separados. Provisione dois pools de tamanho igual com alto eDTUs ou vCores por banco de dados em duas regiões diferentes para conter os bancos de dados de locatário dos clientes pagos. O terceiro pool que contém os locatários de avaliação pode ter menos eDTUs ou vCores por banco de dados e ser provisionado em uma das duas regiões.
+Para apoiar este cenário, utilize três piscinas elásticas separadas. Provisão de dois pools de tamanho igual com eDTUs ou vCores por base de dados em duas regiões diferentes para conter as bases de dados dos inquilinos dos clientes pagos. O terceiro pool contendo os inquilinos experimentais pode ter eDTUs inferiores ou vCores por base de dados e ser provisionado numa das duas regiões.
 
-Para garantir o menor tempo de recuperação durante interrupções, os bancos de dados de locatário dos clientes pagantes são replicados geograficamente com 50% dos bancos de dados primários em cada uma das duas regiões. Da mesma forma, cada região tem 50% dos bancos de dados secundários. Dessa forma, se uma região estiver offline, somente 50% dos bancos de dados dos clientes pagos serão impactados e precisarão fazer failover. Os outros bancos de dados permanecem intactos. Essa configuração é ilustrada no diagrama a seguir:
+Para garantir o menor tempo de recuperação durante as interrupções, as bases de dados dos inquilinos dos clientes pagadores são geo-replicadas com 50% das bases de dados primárias em cada uma das duas regiões. Da mesma forma, cada região tem 50% das bases de dados secundárias. Desta forma, se uma região estiver offline, apenas 50% das bases de dados dos clientes pagos são impactadas e têm de falhar. As outras bases de dados permanecem intactas. Esta configuração é ilustrada no seguinte diagrama:
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-Como nos cenários anteriores, os bancos de dados de gerenciamento estão bem ativos, portanto, configure-os como bancos de dados únicos replicados geograficamente (1). Isso garante o desempenho previsível das novas assinaturas de cliente, atualizações de perfil e outras operações de gerenciamento. A região a é a região primária dos bancos de dados de gerenciamento e a região B é usada para recuperação dos bancos de dados de gerenciamento.
+Tal como nos cenários anteriores, as bases de dados de gestão estão bastante ativas, por isso configurá-las como bases de dados únicas geo-replicadas (1). Isto garante o desempenho previsível das novas subscrições de clientes, atualizações de perfis e outras operações de gestão. A região A é a região principal das bases de dados de gestão e a região B é utilizada para a recuperação das bases de dados de gestão.
 
-Os bancos de dados de locatário dos clientes pagantes também são replicados geograficamente, mas com primários e secundários divididos entre A região A e A região B (2). Dessa forma, os bancos de dados primários do locatário impactados pela interrupção podem fazer failover para a outra região e ficar disponíveis. A outra metade dos bancos de dados de locatário não é afetada.
+As bases de dados dos inquilinos pagadores também são geo-replicadas, mas com primárias e secundárias divididas entre a região A e a região B (2). Desta forma, as bases de dados primárias dos inquilinos impactadas pela paralisação podem falhar na outra região e ficar disponíveis. A outra metade das bases de dados dos inquilinos não é afetada.
 
-O próximo diagrama ilustra as etapas de recuperação a serem executadas se ocorrer uma interrupção na região A.
+O diagrama seguinte ilustra os passos de recuperação a tomar se ocorrer uma paragem na região A.
 
 ![Figura 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
-* Faça o failover imediato dos bancos de dados de gerenciamento para a região B (3).
-* Altere a cadeia de conexão do aplicativo para apontar para os bancos de dados de gerenciamento na região B. modifique os bancos de dados de gerenciamento para garantir que as novas contas e os bancos de dados de locatário sejam criados na região B e que os bancos de dados de locatário existentes também sejam encontrados lá. Os clientes de avaliação existentes veem seus dados temporariamente indisponíveis.
-* Faça failover dos bancos de dados do locatário pago para o pool 2 na região B para restaurar imediatamente sua disponibilidade (4). Como o failover é uma alteração rápida no nível de metadados, você pode considerar uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final.
-* Como agora o pool 2 contém somente bancos de dados primários, a carga de trabalho total no pool aumenta e pode aumentar imediatamente seu tamanho de eDTU (5) ou o número de vCores.
-* Crie o novo pool elástico com o mesmo nome e a mesma configuração na região B para os bancos de dados dos clientes de avaliação (6).
-* Depois que o pool é criado, use restauração geográfica para restaurar o banco de dados de locatário de avaliação individual para o pool (7). Você pode considerar disparar as restaurações individuais pelas conexões do usuário final ou usar algum outro esquema de prioridade específico do aplicativo.
+* Falhar imediatamente nas bases de dados de gestão para a região B (3).
+* Alterar a cadeia de ligação da aplicação para apontar para as bases de dados de gestão na região B. Modificar as bases de dados de gestão para garantir que as novas contas e bases de dados dos inquilinos são criadas na região B e as bases de dados de inquilinos existentes também são encontradas lá. Os clientes de ensaio existentes vêem os seus dados temporariamente indisponíveis.
+* Falhar nas bases de dados pagas do arrendatário para a piscina 2 na região B para restaurar imediatamente a sua disponibilidade (4). Uma vez que a falha é uma rápida alteração do nível de metadados, pode considerar uma otimização em que as falhas individuais são desencadeadas a pedido pelas ligações do utilizador final.
+* Uma vez que agora o pool 2 contém apenas bases de dados primárias, a carga de trabalho total na piscina aumenta e pode aumentar imediatamente o seu tamanho eDTU (5) ou o número de vCores.
+* Crie o novo conjunto elástico com o mesmo nome e a mesma configuração na região B para as bases de dados dos clientes experimentais (6).
+* Uma vez que a piscina é criada use geo-restauro para restaurar a base de dados individual de inquilinos experimentais na piscina (7). Pode considerar desencadear as restaurações individuais através das ligações do utilizador final ou utilizar outro esquema prioritário específico para a aplicação.
 
 > [!NOTE]
-> A operação de failover é assíncrona. Para minimizar o tempo de recuperação, é importante que você execute o comando de failover dos bancos de dados de locatário em lotes de pelo menos 20 bancos de dados.
+> A operação de failover é assíncrona. Para minimizar o tempo de recuperação, é importante que execute o comando de failover das bases de dados de inquilinos em lotes de pelo menos 20 bases de dados.
 
-Neste ponto, seu aplicativo está novamente online na região B. Todos os clientes pagantes têm acesso aos seus dados enquanto os clientes de avaliação experimentam atrasos ao acessar seus dados.
+Neste momento, a sua candidatura está novamente online na região B. Todos os clientes pagadores têm acesso aos seus dados enquanto os clientes do teste experimentam atrasos no acesso aos seus dados.
 
-Quando a região A é recuperada, você precisa decidir se deseja usar a região B para clientes de avaliação ou failback para usar o pool de clientes de avaliação na região A. Um critério pode ser o% dos bancos de dados de locatário de avaliação modificados desde a recuperação. Independentemente dessa decisão, você precisa balancear novamente os locatários pagos entre dois pools. o próximo diagrama ilustra o processo quando os bancos de dados de locatário de avaliação executam failback para a região A.  
+Quando a região A é recuperada, você precisa decidir se você quer usar a região B para clientes experimentais ou não usar o pool de clientes experimentais na região A. Um dos critérios poderia ser a % das bases de dados de inquilinos experimentais modificadas desde a recuperação. Independentemente dessa decisão, é preciso reequilibrar os inquilinos pagos entre duas piscinas. o diagrama seguinte ilustra o processo quando as bases de dados de inquilinos de julgamento não voltarem à região A.  
 
 ![Figura 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
-* Cancele todas as solicitações de restauração geográfica pendentes para o pool de recuperação de desastres de avaliação.
-* Fazer failover do banco de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se torna o secundário automaticamente. Agora ele se torna o primário novamente.  
-* Selecione quais bancos de dados de locatários pagos failback para o pool 1 e inicie o failover para seus secundários (9). Após a recuperação da região, todos os bancos de dados no pool 1 se tornaram secundários automaticamente. Agora, 50% delas se tornam primárias novamente.
-* Reduza o tamanho do pool 2 para o eDTU original (10) ou o número de vCores.
-* Defina todos os bancos de dados de avaliação restaurados na região B para somente leitura (11).
-* Para cada banco de dados no pool de recuperação de desastres de avaliação que foi alterado desde a recuperação, renomeie ou exclua o banco de dados correspondente no pool primário de avaliação (12).
-* Copie os bancos de dados atualizados do pool de recuperação de desastres para o pool primário (13).
-* Exclua o pool de recuperação de desastres (14).
+* Cancele todos os pedidos de georestauro pendentes para a piscina DR experimental.
+* Falhar na base de dados de gestão (8). Após a recuperação da região, as primárias antigas tornaram-se automaticamente secundárias. Agora torna-se a primária de novo.  
+* Selecione quais bases de dados pagas de inquilinos não voltam à piscina 1 e inicia madeixa para os seus secundários (9). Após a recuperação da região, todas as bases de dados da piscina 1 tornaram-se automaticamente secundárias. Agora 50% deles voltam a ser primárias.
+* Reduza o tamanho da piscina 2 para o eDTU original (10) ou o número de vCores.
+* Deteto todas as bases de dados de ensaio restauradas na região B para leitura (11).
+* Para cada base de dados do conjunto de DR experimental que tenha mudado desde a recuperação, renomeação ou exclusão da base de dados correspondente no pool primário experimental (12).
+* Copie as bases de dados atualizadas da piscina DR para a piscina primária (13).
+* Eliminar a piscina DR (14).
 
-Os principais **benefícios** dessa estratégia são:
+Os principais **benefícios** desta estratégia são:
 
-* Ele dá suporte ao SLA mais agressivo para os clientes pagantes, pois garante que uma interrupção não possa afetar mais de 50% dos bancos de dados de locatário.
-* Ele garante que as novas avaliações sejam desbloqueadas assim que o pool de DR da trilha for criado durante a recuperação.
-* Ele permite um uso mais eficiente da capacidade do pool como 50% dos bancos de dados secundários no pool 1 e o pool 2 é garantido como menos ativo do que os bancos de dados primários.
+* Suporta o SLA mais agressivo para os clientes pagadores porque garante que uma paralisação não pode afetar mais de 50% das bases de dados dos inquilinos.
+* Garante que os novos ensaios são desbloqueados assim que a piscina trail DR é criada durante a recuperação.
+* Permite uma utilização mais eficiente da capacidade da piscina, uma vez que 50% das bases de dados secundárias na piscina 1 e na piscina 2 são garantidas menos ativas do que as bases de dados primárias.
 
-As principais **vantagens** são:
+As principais **compensações** são:
 
-* As operações CRUD nos bancos de dados de gerenciamento têm menor latência para os usuários finais conectados à região A do que para os usuários finais conectados à região B, pois são executados no primário dos bancos de dados de gerenciamento.
-* Ele requer um design mais complexo do banco de dados de gerenciamento. Por exemplo, cada registro de locatário tem uma marca de local que precisa ser alterada durante o failover e o failback.  
-* Os clientes pagantes podem ter um desempenho menor do que o normal até que a atualização do pool na região B seja concluída.
+* As operações crud contra as bases de dados de gestão têm menor latência para os utilizadores finais ligados à região A do que para os utilizadores finais ligados à região B, uma vez que são executados contra as principais bases de dados de gestão.
+* Requer um design mais complexo da base de dados de gestão. Por exemplo, cada registo de inquilino tem uma etiqueta de localização que precisa de ser alterada durante o failover e failback.  
+* Os clientes pagadores podem experimentar um desempenho inferior ao habitual até que a atualização da piscina na região B esteja concluída.
 
 ## <a name="summary"></a>Resumo
 
-Este artigo se concentra nas estratégias de recuperação de desastres para a camada de banco de dados usada por um aplicativo de multilocatários de SaaS do SaaS. A estratégia escolhida é baseada nas necessidades do aplicativo, como o modelo de negócios, o SLA que você deseja oferecer a seus clientes, restrição de orçamento, etc. Cada estratégia descrita descreve os benefícios e a compensação para que você possa tomar uma decisão informada. Além disso, seu aplicativo específico provavelmente inclui outros componentes do Azure. Portanto, você examina suas diretrizes de continuidade de negócios e orquestra a recuperação da camada de banco de dados com elas. Para saber mais sobre como gerenciar a recuperação de aplicativos de banco de dados no Azure, consulte [Projetando soluções de nuvem para recuperação de desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
+Este artigo centra-se nas estratégias de recuperação de desastres para o nível de base de dados utilizado por uma aplicação multi-arrendatária SaaS ISV. A estratégia que escolhe baseia-se nas necessidades da aplicação, como o modelo de negócio, o SLA que pretende oferecer aos seus clientes, restrição orçamental, etc. Cada estratégia descrita descreve os benefícios e a compensação para que possa tomar uma decisão informada. Além disso, a sua aplicação específica provavelmente inclui outros componentes Azure. Então, revê a orientação de continuidade do negócio deles e orquestra a recuperação do nível de base de dados com eles. Para saber mais sobre a gestão da recuperação de aplicações de base de dados em Azure, consulte o Design de [soluções em nuvem para recuperação de desastres.](sql-database-designing-cloud-solutions-for-disaster-recovery.md)  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre backups automatizados do banco [de dados SQL](sql-database-automated-backups.md)
-* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
-* Para saber mais sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados dos backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
-* Para saber mais sobre as opções de recuperação mais rápidas, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md) e [grupos de failover automático](sql-database-auto-failover-group.md).
-* Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md).
+* Para saber sobre cópias de segurança automatizadas da Base de Dados Azure SQL, consulte cópias de segurança automatizadas da Base de [Dados SQL](sql-database-automated-backups.md).
+* Para uma visão geral da continuidade do negócio e cenários, consulte a [visão geral da continuidade do Negócio.](sql-database-business-continuity.md)
+* Para aprender a utilizar cópias de segurança automatizadas para recuperação, consulte [restaurar uma base de dados das cópias de segurança iniciadas pelo serviço](sql-database-recovery-using-backups.md).
+* Para aprender sobre opções de recuperação mais rápidas, consulte a [geo-replicação ativa](sql-database-active-geo-replication.md) e [os grupos de auto-failover](sql-database-auto-failover-group.md).
+* Para aprender sobre a utilização de cópias automáticas para arquivamento, consulte [a cópia da base de dados](sql-database-copy.md).

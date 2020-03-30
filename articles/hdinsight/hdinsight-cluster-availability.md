@@ -1,5 +1,5 @@
 ---
-title: 'Monitorização: Apache Ambari & Azure Monitor - Azure HDInsight'
+title: 'Monitorização: Apache Ambari & Registos Azure Monitor - Azure HDInsight'
 description: Aprenda a usar os registos ambari e azure monitor para monitorizar a saúde e disponibilidade do cluster.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/06/2020
 ms.openlocfilehash: 383366fa3e436c79bed28a7c47f1e9daa5f0d9de
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77060184"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-and-azure-monitor-logs"></a>Como monitorizar a disponibilidade do cluster com os registos Apache Ambari e Azure Monitor
@@ -25,7 +25,7 @@ Este doc mostra como usar estas ferramentas para monitorizar o seu cluster e per
 
 ### <a name="dashboard"></a>Dashboard
 
-O painel ambari pode ser acedido selecionando o link **doméstico Ambari** na secção de **dashboards cluster** da visão geral do HDInsight no portal Azure, como mostrado abaixo. Em alternativa, pode ser acedido navegando para `https://CLUSTERNAME.azurehdinsight.net` num navegador onde clusterNAME é o nome do seu cluster.
+O painel ambari pode ser acedido selecionando o link **doméstico Ambari** na secção de **dashboards cluster** da visão geral do HDInsight no portal Azure, como mostrado abaixo. Em alternativa, pode ser acedido `https://CLUSTERNAME.azurehdinsight.net` navegando num browser onde clusterNAME é o nome do seu cluster.
 
 ![Vista do portal de recursos HDInsight](media/hdinsight-cluster-availability/azure-portal-dashboard-ambari.png)
 
@@ -59,10 +59,10 @@ Ambari oferece muitos alertas predefinidos relacionados com a disponibilidade, i
 
 | Nome do Alerta                        | Descrição   |
 |---|---|
-| Resumo de integridade do datanode           | Esse alerta de nível de serviço é disparado se houver datanodes não íntegros|
-| Integridade de alta disponibilidade do NameNode | Este alerta de nível de serviço é acionado se o Nome Ativo ou o Nome de Standby Node não estiverem em funcionamento.|
-| Porcentagem de JournalNodes disponíveis    | Esse alerta será disparado se o número de JournalNodes inativos no cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo do JournalNode. |
-| Porcentagem de datanodes disponíveis       | Esse alerta será disparado se o número de datanodes inativos no cluster for maior que o limite crítico configurado. Ele agrega os resultados de verificações de processo de datanode.|
+| Resumo da Saúde dataNode           | Este alerta de nível de serviço é desencadeado se não houver DataNodes saudáveis|
+| NomeNode Alta Disponibilidade Saúde | Este alerta de nível de serviço é acionado se o Nome Ativo ou o Nome de Standby Node não estiverem em funcionamento.|
+| Por cento de revistas disponíveis    | Este alerta é desencadeado se o número de JournalNodes no cluster for maior do que o limiar crítico configurado. Agrega os resultados dos controlos do processo JournalNode. |
+| Por cento dataNodes disponíveis       | Este alerta é desencadeado se o número de DataNodes no cluster for maior do que o limiar crítico configurado. Agrega os resultados dos controlos do processo DataNode.|
 
 Uma lista completa de alertas de Ambari que ajudam a monitorizar a disponibilidade de um cluster pode ser encontrada [aqui,](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui)
 
@@ -82,12 +82,12 @@ Também pode configurar opcionalmente notificações de e-mail para alertas Amba
 
 ![Ambari gere ação de notificações](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-Será aberto um diálogo para a gestão de notificações de alerta. Selecione o **+** na parte inferior do diálogo e preencha os campos necessários para fornecer à Ambari detalhes do servidor de e-mail a partir do qual enviar e-mails.
+Será aberto um diálogo para a gestão de notificações de alerta. Selecione a **+** parte inferior do diálogo e preencha os campos necessários para fornecer à Ambari detalhes do servidor de e-mail a partir dos quais enviar e-mails.
 
 > [!TIP]
 > Configurar notificações de e-mail ambari pode ser uma boa maneira de receber alertas num só local ao gerir muitos clusters HDInsight.
 
-## <a name="azure-monitor-logs-integration"></a>Integração de logs de Azure Monitor
+## <a name="azure-monitor-logs-integration"></a>Integração de registos do Monitor Azure
 
 Os registos do Monitor Azure permitem que os dados gerados por vários recursos, como os clusters HDInsight, sejam recolhidos e agregados num só local para alcançar uma experiência de monitorização unificada.
 

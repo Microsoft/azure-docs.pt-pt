@@ -15,10 +15,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e933c82229415a71182096a6aca9a2e535934d89
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159051"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema configurando o único sinal de senha para uma aplicação da Galeria AD Azure
@@ -39,15 +39,15 @@ Para resolver esta questão, tente primeiro estas coisas:
 
 - O utilizador tem primeiro a oportunidade de **iniciar sessão no site da aplicação diretamente** com as credenciais armazenadas para os mesmos.
 
-  * Se o início de sessão funcionar, mande o utilizador clicar no botão **de credenciais De atualização** na secção **Aplicações** do Painel de Acesso a **Aplicações** para os atualizar ao mais recente nome de utilizador e palavra-passe conhecidos. [](https://myapps.microsoft.com/)
+  * Se o início de sessão funcionar, mande o utilizador clicar no botão **de credenciais De atualização** na secção **Aplicações** do Painel de Acesso a **Aplicações** para os atualizar ao mais recente nome de utilizador e palavra-passe conhecidos. [Application Access Panel](https://myapps.microsoft.com/)
 
-  * Se você, ou outro administrador atribuir as credenciais para este utilizador, encontre a atribuição de aplicação do utilizador ou do grupo navegando para o separador **Utilizadores e Grupos** da aplicação, selecionando a atribuição e clicando no botão **'Credenciais de Actualização'.**
+  * Se você, ou outro administrador atribuir as credenciais para este utilizador, encontre a atribuição de aplicação do utilizador ou do grupo navegando para o separador **Grupos & utilizadores** da aplicação, selecionando a atribuição e clicando no botão **'Credenciais de actualização'.**
 
 - Se o utilizador atribuiu as suas próprias credenciais, faça com que o utilizador verifique se a **sua palavra-passe não expirou na aplicação** e, em caso afirmativo, atualize a sua senha expirada, inserindo diretamente a sua **senha caducada.**
 
   * Depois de a palavra-passe ter sido atualizada na aplicação, solicite ao utilizador que clique no botão **de credenciais de Atualização** na secção **Aplicação Tile** na secção **Apps** access [Panel](https://myapps.microsoft.com/) para atualizá-las com o mais recente nome de utilizador e senha de trabalho conhecidos.
 
-  * Se você, ou outro administrador atribuir as credenciais para este utilizador, encontre a atribuição de aplicação do utilizador ou do grupo navegando para o separador **Utilizadores e Grupos** da aplicação, selecionando a atribuição e clicando no botão **'Credenciais de Actualização'.**
+  * Se você, ou outro administrador atribuir as credenciais para este utilizador, encontre a atribuição de aplicação do utilizador ou do grupo navegando para o separador **Grupos & utilizadores** da aplicação, selecionando a atribuição e clicando no botão **'Credenciais de actualização'.**
 
 - Tenha a atualização do utilizador da extensão do navegador do painel de acesso seguindo as etapas abaixo na secção de extensão do Navegador do [Painel de Acesso.](#how-to-install-the-access-panel-browser-extension)
 

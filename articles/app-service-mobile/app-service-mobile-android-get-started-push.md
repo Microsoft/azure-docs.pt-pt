@@ -7,10 +7,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 6fec85c028e992c15fb9503ffb599023e668c58f
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459944"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Adicione notificações push à sua aplicação Android
@@ -19,7 +19,7 @@ ms.locfileid: "77459944"
 
 ## <a name="overview"></a>Descrição geral
 
-Neste tutorial, adiciona notificações push ao projeto [Início rápido do Android] do Android para que seja enviada uma notificação push para o dispositivo sempre que um registo é inserido.
+Neste tutorial, adiciona notificações push ao projeto [de arranque rápido] do Android para que seja enviada uma notificação push para o dispositivo sempre que um registo é inserido.
 
 Se não utilizar o projeto de servidor de arranque rápido descarregado, necessita do pacote de extensão de notificação push. Para mais informações, consulte [Trabalhar com o servidor de backend .NET SDK para aplicações móveis Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -32,7 +32,7 @@ Precisa do seguinte:
   * [Android Studio](https://developer.android.com/sdk/index.html) se esta aplicação tiver um node.js back end.
   * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) ou mais tarde se esta aplicação tiver uma extremidade traseira microsoft .NET.
 * Android 2.3 ou mais tarde, revisão do Repositório do Google 27 ou posterior, e Google Play Services 9.0.2 ou mais tarde para Firebase Cloud Messaging.
-* Complete o arranque rápido do [Início rápido do Android]
+* Complete o arranque rápido do [Android.]
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Criar um projeto que suporte o Firebase Cloud Messaging
 
@@ -60,7 +60,7 @@ Nesta secção, atualiza a sua aplicação Android para lidar com notificações
 
 O próximo passo é instalar os serviços do Google Play. A Firebase Cloud Messaging tem alguns requisitos mínimos de nível de API para desenvolvimento e teste, aos quais a propriedade **minSdkVersion** no manifesto deve estar em conformidade.
 
-Se estiver a testar com um dispositivo mais antigo, consulte [Adicione firebase ao seu projeto Android] para determinar até que ponto pode definir este valor e defina-o adequadamente.
+Se estiver a testar com um dispositivo mais antigo, consulte [add Firebase ao seu Projeto Android] para determinar até que ponto pode definir este valor e defina-o adequadamente.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Adicione mensagens cloud firebase ao projeto
 
@@ -81,8 +81,8 @@ Agora que completou este tutorial, considere continuar a um dos seguintes tutori
 * [Adicione a autenticação à sua aplicação Android.](app-service-mobile-android-get-started-users.md)
   Saiba como adicionar autenticação ao projeto de arranque rápido todo-lista no Android utilizando um fornecedor de identidade suportado.
 * [Ative a sincronização offline para a sua aplicação Android.](app-service-mobile-android-get-started-offline-data.md)
-  Aprenda a adicionar suporte offline à sua aplicação utilizando uma extremidade de apps móveis. Com sincronização offline, os utilizadores podem interagir com uma aplicação móvel&mdash;visualização, adição ou modificação de dados&mdash;mesmo quando não há ligação de rede.
+  Aprenda a adicionar suporte offline à sua aplicação utilizando uma extremidade de apps móveis. Com sincronização offline, os utilizadores&mdash;podem interagir com uma&mdash;visualização de aplicações móveis, adicionar ou modificar dados mesmo quando não há ligação de rede.
 
 <!-- URLs -->
 [Início rápido do Android]: app-service-mobile-android-get-started.md
-[Adicione firebase ao seu projeto Android]: https://firebase.google.com/docs/android/setup
+[Adicione firebase ao seu projeto Android]:https://firebase.google.com/docs/android/setup

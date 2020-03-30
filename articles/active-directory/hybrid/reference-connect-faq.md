@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5aa30bc819531ee8cc9cd337648a6cbc661bb29
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77149818"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Ative Directory Connect FAQ
@@ -62,7 +62,7 @@ Sim, este cenário é apoiado. Consulte [vários domínios.](how-to-connect-inst
 **P: Pode ter vários conectores para o mesmo domínio de Diretório Ativo no Azure AD Connect?**  
 Não, não são suportados múltiplos conectores para o mesmo domínio AD. 
 
-**P: Posso mover a base de dados Azure AD Connect da base de dados local para uma instância remota do Servidor SQL?**    
+**P: Posso mover a base de dados Azure AD Connect da base de dados local para uma instância remota do Servidor SQL?**   
 Sim, os seguintes passos fornecem orientações gerais sobre como fazê-lo. Estamos neste momento a trabalhar num documento mais detalhado.
 1. Volte a ser a base de dados LocalDB ADSync.
 A forma mais simples de o fazer é utilizar o Estúdio de Gestão de Servidores SQL instalado na mesma máquina que o Azure AD Connect. Ligue-se a *(LocalDb).\ADSync*, e, em seguida, volte a ser a base de dados ADSync.
@@ -150,7 +150,7 @@ Use a orientação descrita no artigo [renovar certificados.](how-to-connect-fed
 Não. Alterar o nome do servidor torna o motor sincronizado incapaz de se ligar à instância de base de dados SQL, e o serviço não pode arrancar.
 
 **P: As regras de sincronização criptográfica (NGC) da próxima geração são suportadas numa máquina ativada por FIPS?**  
-Não.  Não são apoiados.
+Não.  Não são suportadas.
 
 **P. Se desativei um dispositivo sincronizado (por exemplo: HAADJ) no portal Azure, por que é reativado?**<br>
 Os dispositivos sincronizados podem ser da autoria ou dominados nas instalações. Se um dispositivo sincronizado estiver ativado nas instalações, poderá ser reativado no portal Azure, mesmo que tenha sido previamente desativado por um administrador. Para desativar um dispositivo sincronizado, utilize o Diretório Ativo no local para desativar a conta do computador.
@@ -218,7 +218,7 @@ Sim, ainda precisa de fazer upgrade para a versão 1.1.750.0 ou mais tarde. Ativ
 Não é necessário saber o nome de utilizador e a palavra-passe que foi inicialmente utilizado para atualizar o Azure AD Connect. Utilize qualquer conta Azure AD que tenha o papel de Administrador Global.
 
 **P: Como posso encontrar qual a versão do Azure AD Connect que estou a usar?**  
-Para verificar qual a versão do Azure AD Connect instalada no seu servidor, vá ao Painel de Controlo e procure a versão instalada do Microsoft Azure AD Connect selecionando **programas** > **Programas e Funcionalidades,** como mostrado aqui:
+Para verificar qual a versão do Azure AD Connect instalada no seu servidor, vá ao Painel de Controlo e procure a versão instalada do Microsoft Azure AD Connect selecionando Programas e **Funcionalidades** > **Programs and Features**de Programas, como mostrado aqui:
 
 ![Versão Azure AD Connect no Painel de Controlo](./media/reference-connect-faq/faq1.png)
 
@@ -269,7 +269,7 @@ Se precisar de ajuda para atualizar para uma versão mais recente do Azure AD Co
 
 * Procure perguntas e respostas técnicas ou faça as suas próprias perguntas indo para [a comunidade ad.](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)
 
-[Obtenha suporte para Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+[Obter suporte para o Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 **P: Porque é que estou a ver os Eventos 6311 e 6401 a ocorrerem após erros de sync step?**
 

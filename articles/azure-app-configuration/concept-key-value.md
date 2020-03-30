@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.openlocfilehash: 0b83a35d912c97ae25bc2d69d076e8eae8ca490f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77523609"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
@@ -33,11 +33,11 @@ Aqui estão dois exemplos de nomes-chave estruturados numa hierarquia:
         AppName:Region1:DbEndpoint
         AppName:Region2:DbEndpoint
 
-A utilização de dados de configuração dentro dos quadros de aplicação pode ditar esquemas específicos de nomeação para valores-chave. Por exemplo, o quadro da Nuvem de primavera de Java define `Environment` recursos que fornecem configurações a uma aplicação da primavera.  Estes são parametrizados por variáveis que incluem nome e *perfil*de *aplicação* . As teclas para os dados de configuração relacionados com a Nuvem de primavera normalmente começam com estes dois elementos separados por um delimitador.
+A utilização de dados de configuração dentro dos quadros de aplicação pode ditar esquemas específicos de nomeação para valores-chave. Por exemplo, o quadro da `Environment` Nuvem de primavera de Java define recursos que fornecem configurações a uma aplicação da primavera.  Estes são parametrizados por variáveis que incluem nome e *perfil*de *aplicação* . As teclas para os dados de configuração relacionados com a Nuvem de primavera normalmente começam com estes dois elementos separados por um delimitador.
 
 As chaves armazenadas na Configuração da Aplicação são cordas sensíveis a casos, baseadas em unicódigo. As *teclas app1* e *App1* são distintas numa loja de Configuração de Aplicações. Tenha isto em mente quando utilizar as definições de configuração dentro de uma aplicação, porque algumas estruturas lidam com as teclas de configuração de forma insensível. Não recomendamos a utilização do caso para diferenciar as teclas.
 
-Pode utilizar qualquer personagem uni-código em nomes-chave, exceto `*`, `,`e `\`.  Se precisar de incluir um destes caracteres reservados, escape-o usando `\{Reserved Character}`. 
+Pode utilizar qualquer personagem uni-código `*` `,`em `\`nomes-chave exceto, e .  Se precisar de incluir um destes caracteres `\{Reserved Character}`reservados, escape-o usando . 
 
 Há um limite de tamanho combinado de 10 KB num par de valor-chave. Este limite inclui todos os caracteres na chave, o seu valor e todos os atributos opcionais associados. Dentro deste limite, pode ter muitos níveis hierárquicos para chaves.
 
@@ -65,15 +65,15 @@ O rótulo fornece uma forma conveniente de criar variantes de uma chave. Uma uti
 
 A Configuração da Aplicação não versão os valores-chave automaticamente. Utilize os rótulos como forma de criar múltiplas versões de um valor-chave. Por exemplo, pode inserir um número de versão de aplicação ou um Git cometer id nas etiquetas para identificar valores-chave associados a uma determinada construção de software.
 
-Pode utilizar qualquer caracteres unicódigo sem exceção `*`, `,`e `\`. Estes personagens estão reservados. Para incluir um personagem reservado, deve escapar-lhe usando `\{Reserved Character}`.
+Pode utilizar qualquer caracteres unicódigo sinuosos nos rótulos, exceto `*`em , `,`e `\`. Estes personagens estão reservados. Para incluir um personagem reservado, `\{Reserved Character}`deve escapar-lhe usando .
 
 ### <a name="query-key-values"></a>Valores-chave de consulta
 
-Cada valor-chave é identificado exclusivamente pela sua chave mais um rótulo que pode ser `null`. Consulta uma loja de configuração de aplicações para valores-chave, especificando um padrão. A loja de configuração de aplicações devolve todos os valores-chave que correspondem ao padrão e aos seus valores e atributos correspondentes. Utilize os seguintes padrões-chave nas chamadas REST API para configuração de aplicações:
+Cada valor-chave é identificado exclusivamente pela sua `null`chave mais um rótulo que pode ser . Consulta uma loja de configuração de aplicações para valores-chave, especificando um padrão. A loja de configuração de aplicações devolve todos os valores-chave que correspondem ao padrão e aos seus valores e atributos correspondentes. Utilize os seguintes padrões-chave nas chamadas REST API para configuração de aplicações:
 
 | Chave | |
 |---|---|
-| `key` é omitida ou `key=*` | Corresponde a todas as chaves |
+| `key`é omitido ou`key=*` | Corresponde a todas as chaves |
 | `key=abc` | Corresponde exatamente ao nome-chave **abc** |
 | `key=abc*` | Corresponde a nomes-chave que começam com **o ABC** |
 | `key=abc,xyz` | Corresponde aos nomes-chave **abc** ou **xyz.** Limitado a cinco CSVs |
@@ -82,11 +82,11 @@ Também pode incluir os seguintes padrões de etiqueta:
 
 | Etiqueta | |
 |---|---|
-| `label` é omitida ou `label=*` | Corresponde a qualquer etiqueta, que inclui `null` |
-| `label=%00` | Combina com `null` etiqueta |
+| `label`é omitido ou`label=*` | Corresponde a qualquer etiqueta, que inclui`null` |
+| `label=%00` | Etiqueta `null` de correspondência |
 | `label=1.0.0` | Etiqueta de correspondência **1.0.0** exatamente |
 | `label=1.0.*` | Combina com rótulos que começam com **1.0.** |
-| `label=%00,1.0.0` | Etiquetas de correspondência `null` ou **1.0.0,** limitadas a cinco CSVs |
+| `label=%00,1.0.0` | Etiquetas `null` de correspondência ou **1.0.0,** limitada a cinco CSVs |
 
 ## <a name="values"></a>Valores
 
@@ -96,5 +96,5 @@ Os dados de configuração armazenados numa loja de configuração de aplicaçõ
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Instantâneo pontual](./concept-point-time-snapshot.md)  
-* [Gestão de recursos](./concept-feature-management.md)  
+* [Instantâneo para um ponto anterior no tempo](./concept-point-time-snapshot.md)  
+* [Gestão de funcionalidades](./concept-feature-management.md)  

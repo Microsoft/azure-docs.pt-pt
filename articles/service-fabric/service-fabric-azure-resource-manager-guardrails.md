@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
 ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77368574"
 ---
 # <a name="service-fabric-guardrails"></a>Guarda-costas de tecido de serviço 
@@ -72,8 +72,8 @@ Um cluster de tecido de serviço tem uma propriedade [de nível](https://docs.mi
 
 ### <a name="error-messages"></a>Mensagens de erro 
 A operação de remoção do nó de sementes foi detetada e será rejeitada. 
-* Esta operação resultaria apenas em {0} potenciais nós de sementes permanecerem no aglomerado, enquanto {1} são necessárias como mínimo.
-* Remover {0} nós de sementes de {1} resultaria na queda do aglomerado devido à perda de quórum node de sementes. O número máximo de nós de sementes que podem ser removidos de cada vez é {2}.
+* Esta operação resultaria {0} apenas em potenciais nós de sementes {1} a permanecer no aglomerado, enquanto necessário sê-lo como mínimo.
+* Remover {0} os nós de {1} sementes resultaria na queda do aglomerado devido à perda de quórum node de sementes. O número máximo de nós de sementes que {2}podem ser removidos de cada vez é .
  
 ### <a name="mitigation"></a>Mitigação 
 Certifique-se de que o seu tipo principal de nó tem máquinas virtuais suficientes para a fiabilidade especificada no seu cluster. Não poderá remover uma Máquina Virtual se colocar o Conjunto de Escala de Máquina Virtual abaixo do número mínimo de nós para o determinado nível de fiabilidade.

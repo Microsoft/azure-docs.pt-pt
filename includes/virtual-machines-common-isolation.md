@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 3aeb0369ee4a04dbbe89a4d0684b2a6c97378d13
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77123203"
 ---
 A Azure Compute oferece tamanhos de máquinas virtuais que estão isolados a um tipo de hardware específico e dedicados a um único cliente.  Estes tamanhos de máquinas virtuais são mais adequados para cargas de trabalho que requerem um elevado grau de isolamento de outros clientes para cargas de trabalho envolvendo elementos como conformidade e requisitos regulamentares.  Os clientes também podem optar por subdividir ainda mais os recursos destas máquinas virtuais isoladas utilizando suporte [Azure para máquinas virtuais aninhadas.](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)
@@ -51,7 +51,7 @@ Se o isolamento for necessário para si, antes de 15 de maio de 2020, terá de o
 Para mais detalhes veja abaixo:
 
 ## <a name="timeline"></a>Linha cronológica
-| Data | Ação | 
+| Date | Ação | 
 | --- | --- |
 | 18 de novembro de 2019 | Disponibilidade de D/DS15i_v2 (PAYG, RI de 1 ano) |
 | 14 de maio de 2020  | Último dia para comprar D/DS15i_v2 RI de 1 ano | 

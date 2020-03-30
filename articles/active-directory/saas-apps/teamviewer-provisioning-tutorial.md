@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure TeamViewer para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure TeamViewer para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para TeamViewer.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
 ms.openlocfilehash: dc33cf9249a5b804ef46e75ff1822eaa5c6f9d6a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77366427"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: Configure TeamViewer para fornecimento automático de utilizadores
@@ -101,7 +101,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
     ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. Sob a secção **de Credenciais de Administrador,** introduza `ttps://webapi.teamviewer.com/scim/v2` no campo **URL do Tentant** e introduza o símbolo do script criado anteriormente no **Token Secreto**. Clique em **Ligação** de Teste para garantir que o Azure AD pode ligar-se ao TeamViewer. Se a ligação falhar, certifique-se de que a sua conta TeamViewer tem permissões de Administrador e tente novamente.
+5. Sob a secção de `ttps://webapi.teamviewer.com/scim/v2` **Credenciais de Administrador,** insira no campo URL do **Tentant** e introduza o símbolo do script criado anteriormente no **Token Secreto**. Clique em **Ligação** de Teste para garantir que o Azure AD pode ligar-se ao TeamViewer. Se a ligação falhar, certifique-se de que a sua conta TeamViewer tem permissões de Administrador e tente novamente.
 
     ![provisionamento](./media/teamViewer-provisioning-tutorial/provisioning.png)
 

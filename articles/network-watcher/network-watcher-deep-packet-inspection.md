@@ -1,5 +1,5 @@
 ---
-title: Inspeção de pacotes com O Observador da Rede Azure  Microsoft Docs
+title: Inspeção de pacotes com O Observador da Rede Azure [ Microsoft Docs
 description: Este artigo descreve como usar o Network Watcher para realizar uma inspeção de pacotes profundos recolhida de um VM
 services: network-watcher
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152929"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com Vigilante da Rede Azure
@@ -59,7 +59,7 @@ Para ver mais facilmente os dois primeiros pacotes no aperto de mão tridireccio
 
 Para aplicar o filtro no WireShark, expanda o segmento "Protocolo de Controlo de Transmissão" de um pacote [SYN] na sua captura e examine as bandeiras colocadas no cabeçalho do TCP.
 
-Uma vez que estamos à procura de filtrar todos os pacotes [SYN] e [SYN, ACK], sob bandeiras confirmam que a broca Syn está definida para 1, em seguida, clique à direita no bit Syn -> Apply as Filter &> Selecionado.
+Uma vez que estamos à procura de filtrar todos os pacotes [SYN] e [SYN, ACK], sob bandeiras confirmam que a broca Syn está definida para 1, em seguida, clique à direita no syn bit -> Apply as Filter -> Selecionado.
 
 ![figura 7][7]
 
@@ -77,7 +77,7 @@ Neste exemplo, revemos uma captura de pacotes anteriores para protocolos indesej
 
 ### <a name="step-1"></a>Passo 1
 
-Utilizando a mesma captura no cenário anterior clique **em estatísticas** > **Hierarquia protocolar**
+Utilizando a mesma captura no cenário anterior clique na Hierarquia do**Protocolo** **de Estatística** > 
 
 ![menu de hierarquia de protocolo][2]
 
@@ -93,7 +93,7 @@ Compreender os tipos de tráfego, os pontos finais e as portas comunicadas é im
 
 ### <a name="step-1"></a>Passo 1
 
-Utilizando a mesma captura no cenário anterior clique **estatísticas** > **Estatísticas IPv4** > **Destinos e Portos**
+Utilizando a mesma captura no cenário anterior clique em **Estatísticas** > **IPv4 Destinos** > **e Portos**
 
 ![janela de captura de pacote][4]
 

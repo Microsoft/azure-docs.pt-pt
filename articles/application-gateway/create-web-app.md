@@ -1,5 +1,5 @@
 ---
-title: Configurar o serviço de aplicativo usando o PowerShell
+title: Configure App Service usando PowerShell
 titleSuffix: Azure Application Gateway
 description: Este artigo fornece orientação sobre como configurar aplicações Web como anfitriões de back-end num gateway de aplicação novo ou existente.
 services: application-gateway
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74089517"
 ---
-# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configurar o serviço de aplicativo com o gateway de aplicativo usando o PowerShell
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configure o serviço de aplicações com gateway de aplicação usando powerShell
 
-O gateway de aplicativo permite que você tenha um aplicativo do serviço de aplicativo ou outro serviço de vários locatários como um membro do pool de back-end. Neste artigo, você aprenderá a configurar um aplicativo do serviço de aplicativo com o gateway de aplicativo. O primeiro exemplo mostra como configurar um gateway de aplicação existente para utilizar uma aplicação Web como membro do conjunto de back-end. O segundo exemplo mostra como criar um novo gateway de aplicação com uma aplicação Web como membro do conjunto de back-end.
+O gateway da aplicação permite-lhe ter uma app de Serviço de Aplicações ou outro serviço multi-inquilino como membro da piscina de back-end. Neste artigo, aprende-se a configurar uma aplicação de Serviço de Aplicações com Gateway de Aplicações. O primeiro exemplo mostra como configurar um gateway de aplicação existente para utilizar uma aplicação Web como membro do conjunto de back-end. O segundo exemplo mostra como criar um novo gateway de aplicação com uma aplicação Web como membro do conjunto de back-end.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -158,11 +158,11 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="restrict-access"></a>Acesso restrito
+## <a name="restrict-access"></a>Restringir o acesso
 
-Os aplicativos Web implantados nesses exemplos usam endereços IP públicos que podem ser acessados diretamente da Internet. Isso ajuda na solução de problemas quando você está aprendendo sobre um novo recurso e experimentando novas coisas. Mas se você pretende implantar um recurso na produção, convém adicionar mais restrições.
+As aplicações web implementadas nestes exemplos utilizam endereços IP públicos que podem ser acedidos diretamente a partir da Internet. Isto ajuda na resolução de problemas quando se está a aprender sobre uma nova funcionalidade e a experimentar coisas novas. Mas se pretende implementar uma funcionalidade em produção, vai querer adicionar mais restrições.
 
-Uma maneira de restringir o acesso aos seus aplicativos Web é usar [Azure app restrições de IP estático do serviço](../app-service/app-service-ip-restrictions.md). Por exemplo, você pode restringir o aplicativo Web para que ele só receba tráfego do gateway de aplicativo. Use o recurso de restrição de IP do serviço de aplicativo para listar o VIP do gateway de aplicativo como o único endereço com acesso.
+Uma das formas de restringir o acesso às suas aplicações web é utilizar [restrições ip estáticas do Azure App Service.](../app-service/app-service-ip-restrictions.md) Por exemplo, pode restringir a aplicação web para que receba apenas tráfego a partir do gateway da aplicação. Utilize a funcionalidade de restrição IP do serviço de aplicação para listar o gateway DE aplicação VIP como o único endereço com acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

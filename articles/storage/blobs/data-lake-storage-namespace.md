@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 6ce94590a1d0de6941c27d972bdd1c4194080e95
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77153082"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espaço hierárquico de armazenamento de lagos Azure Data Gen2
@@ -41,7 +41,7 @@ Além disso, embora o apoio às funcionalidades de armazenamento blob e ao ecoss
 
 Em geral, recomendamos que ligue um espaço hierárquico para cargas de trabalho de armazenamento que sejam projetados para sistemas de ficheiros que manipulam diretórios. Isto inclui todas as cargas de trabalho que são principalmente para processamento de análise. Os conjuntos de dados que requerem um elevado grau de organização também beneficiarão permitindo um espaço de nome hierárquico.
 
-As razões para permitir um espaço hierárquico são determinadas por uma análise de TCO. De um modo geral, as melhorias na latência da carga de trabalho devido à aceleração do armazenamento exigirão recursos computacionais por menos tempo. A latência para muitas cargas de trabalho pode ser melhorada devido à manipulação do diretório atómico que é ativada por um espaço de nome hierárquico. Em muitas cargas de trabalho, o recurso computacional representa > 85% do custo total e, portanto, mesmo uma redução modesta da latência da carga de trabalho equivale a uma quantidade significativa de poupança de TCO. Mesmo nos casos em que permitir um espaço hierárquico aumenta os custos de armazenamento, o TCO continua a ser reduzido devido à redução dos custos do cálculo.
+As razões para permitir um espaço hierárquico são determinadas por uma análise de TCO. De um modo geral, as melhorias na latência da carga de trabalho devido à aceleração do armazenamento exigirão recursos computacionais por menos tempo. A latência para muitas cargas de trabalho pode ser melhorada devido à manipulação do diretório atómico que é ativada por um espaço de nome hierárquico. Em muitas cargas de trabalho, o recurso computacional representa > 85% do custo total e, por isso, mesmo uma redução modesta da latência da carga de trabalho equivale a uma quantidade significativa de poupanças de TCO. Mesmo nos casos em que permitir um espaço hierárquico aumenta os custos de armazenamento, o TCO continua a ser reduzido devido à redução dos custos do cálculo.
 
 Para analisar diferenças nos preços de armazenamento de dados, preços de transação e preços de reserva de capacidade de armazenamento entre contas que têm um espaço de nome hierárquico plano versus um espaço hierárquico, consulte o preço do Armazenamento [do Lago Dedados Do Azure.](https://azure.microsoft.com/pricing/details/storage/data-lake/)
 

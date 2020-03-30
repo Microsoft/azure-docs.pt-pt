@@ -1,5 +1,5 @@
 ---
-title: 'Depuração interativa: Vs Code & ML compute instances'
+title: 'Depuração interativa: Código VS & instâncias computacionais ml'
 titleSuffix: Azure Machine Learning
 description: Configurar o Código VS Remote para depurar interativamente o seu código com o Azure Machine Learning.
 services: machine-learning
@@ -10,10 +10,10 @@ ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
 ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77169743"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Depurar interativamente em uma instância de computação de aprendizagem automática Azure com vs código remoto
@@ -34,7 +34,7 @@ Nas plataformas Windows, tem de [instalar um cliente SSH compatível com OpenSSH
 
 ## <a name="get-ip-and-ssh-port"></a>Obtenha porta IP e SSH 
 
-1. Vá ao estúdio de Aprendizagem automática Azure na https://ml.azure.com/.
+1. Vá ao estúdio de Aprendizagem automática Azure em https://ml.azure.com/.
 
 2. Selecione o seu [espaço de trabalho](concept-workspace.md).
 1. Clique no separador **Compute Instances.**
@@ -42,12 +42,12 @@ Nas plataformas Windows, tem de [instalar um cliente SSH compatível com OpenSSH
 1. No diálogo, tome nota do endereço IP e da porta SSH. 
 1. Guarde a sua chave privada para o diretório ~/.ssh/ no seu computador local; por exemplo, abra um editor para um novo ficheiro e colhe a chave em: 
 
-   **Linux**: 
+   **Linux:** 
    ```sh
    vi ~/.ssh/id_azmlcitest_rsa  
    ```
 
-   **Windows**: 
+   **Janelas:** 
    ```
    notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa 
    ```
@@ -70,7 +70,7 @@ Nas plataformas Windows, tem de [instalar um cliente SSH compatível com OpenSSH
 
 ## <a name="add-instance-as-a-host"></a>Adicione instância como hospedeiro 
 
-Abra o ficheiro `~/.ssh/config` (Linux) ou `C:\Users<username>.ssh\config` (Windows) num editor e adicione uma nova entrada semelhante a esta:
+Abra o `~/.ssh/config` ficheiro (Linux) ou `C:\Users<username>.ssh\config` (Windows) num editor e adicione uma nova entrada semelhante a esta:
 
 ```
 Host azmlci1 
@@ -89,12 +89,12 @@ Aqui alguns detalhes sobre os campos:
 |Campo|Descrição|
 |----|---------|
 |Anfitrião|Use o que quiser para a instância de cálculo |
-|nome de anfitrião|Este é o endereço IP da instância computacional |
+|NomedeAnfitrião|Este é o endereço IP da instância computacional |
 |Porta|Esta é a porta mostrada no diálogo SSH acima |
 |Utilizador|Isto tem de ser `azureuser` |
 |Ficheiro de Identidade|Deve apontar para o arquivo onde guardou a chave privada |
 
-Agora, deve ser capaz de se esguijar para a sua instância de cálculo usando a abreviatura que usou acima, `ssh azmlci1`. 
+Agora, deve ser capaz de se esguijar para a sua `ssh azmlci1`instância de cálculo usando a abreviatura que usou acima, . 
 
 ## <a name="connect-vs-code-to-the-instance"></a>Ligue o Código VS à instância 
 

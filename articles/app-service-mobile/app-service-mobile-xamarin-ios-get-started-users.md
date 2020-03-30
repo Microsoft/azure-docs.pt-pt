@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 05e936accbcd5c6fa2760c4f8682d907557f23b5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461322"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Adicione a autenticação à sua aplicação Xamarin.iOS
@@ -20,7 +20,7 @@ ms.locfileid: "77461322"
 
 Este tópico mostra como autenticar os utilizadores de uma aplicação móvel do Serviço de Aplicações a partir da sua aplicação cliente. Neste tutorial, adiciona-se autenticação ao projeto de quickstart Xamarin.iOS utilizando um fornecedor de identidade que é apoiado pelo App Service. Depois de ter sido autenticado e autorizado com sucesso pela sua Aplicação Móvel, o valor de ID do utilizador é apresentado e poderá aceder a dados de tabela restritos.
 
-Primeiro deve completar o tutorial [Crie uma app Xamarin.iOS]. Se não utilizar o projeto de servidor de arranque rápido descarregado, tem de adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre os pacotes de extensão do servidor, consulte [Trabalhar com o servidor de backend .NET SDK para Aplicações Móveis Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Primeiro deve completar o tutorial [Criar uma aplicação Xamarin.iOS]. Se não utilizar o projeto de servidor de arranque rápido descarregado, tem de adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre os pacotes de extensão do servidor, consulte [Trabalhar com o servidor de backend .NET SDK para Aplicações Móveis Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registe a sua aplicação para autenticação e configure serviços de aplicações
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -51,7 +51,7 @@ Em seguida, irá atualizar a app do cliente para solicitar recursos do backend d
 ## <a name="add-authentication-to-the-app"></a>Adicionar autenticação à app
 Nesta secção, irá modificar a aplicação para exibir um ecrã de login antes de apresentar dados. Quando a aplicação começar, não se ligará ao seu Serviço de Aplicações e não apresentará quaisquer dados. Após a primeira vez que o utilizador executa o gesto de atualização, aparecerá o ecrã de login; após o login bem sucedido, a lista de itens todo-o-dia será exibida.
 
-1. No projeto do cliente, abra o ficheiro **QSTodoService.cs** e adicione o seguinte usando a declaração e `MobileServiceUser` com o acessório para a classe QSTodoService:
+1. No projeto do cliente, **QSTodoService.cs** abra o ficheiro QSTodoService.cs `MobileServiceUser` e adicione o seguinte usando o comunicado e com o acessório à classe QSTodoService:
 
     ```csharp
     using UIKit;
@@ -133,4 +133,4 @@ Nesta secção, irá modificar a aplicação para exibir um ecrã de login antes
 <!-- URLs. -->
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Crie uma app Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
+[Criar uma aplicação Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md

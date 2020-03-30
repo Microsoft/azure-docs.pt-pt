@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
 ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77469770"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitar diagnósticos azure em serviços de nuvem azure
@@ -124,7 +124,7 @@ namespace WorkerRole1
 
 1. Implemente o seu papel de trabalhador para o Azure a partir do Visual Studio selecionando o projeto **WadExample** no Solution Explorer **e depois publique** a partir do menu **Build.**
 2. Escolha a sua subscrição.
-3. No diálogo **Microsoft Azure Publish Settings,** selecione **Create New...** .
+3. No diálogo **Microsoft Azure Publish Settings,** selecione **Create New...**.
 4. No diálogo **create Cloud Service and Storage Account,** introduza um **Nome** (por exemplo, "WadExample") e selecione uma região ou grupo de afinidade.
 5. Desloque o **Ambiente** à **Encenação**.
 6. Modifique quaisquer outras **Definições** conforme apropriado e clique **em Publicar**.
@@ -136,7 +136,7 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Adicione um ficheiro XML ao seu projeto **WorkerRole1** clicando no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item...** ->  **C# Itens visuais** -> **Data** -> **Ficheiro XML**. Nomeie o ficheiro "WadExample.xml".
+2. Adicione um ficheiro XML ao seu projeto **WorkerRole1** clicando no projeto **WorkerRole1** e selecione **Adicionar** -> **Novo Item...** -> **Itens visuais C# itens** -> **Data** -> **XML File**. Nomeie o ficheiro "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 3. Associe o WadConfig.xsd ao ficheiro de configuração. Certifique-se de que a janela do editor WadExample.xml é a janela ativa. Pressione **F4** para abrir a janela **Propriedades.** Clique na propriedade **Schemas** na janela **Propriedades.** Clique no **...** na propriedade **de Schemas.** Clique no botão **Adicionar…** botão e navegar para o local onde guardou o ficheiro XSD e selecione o ficheiro WadConfig.xsd. Clique em **OK**.
@@ -192,7 +192,7 @@ O ficheiro de configuração de Diagnóstico define valores que são usados para
 ## <a name="troubleshooting"></a>Resolução de problemas
 Se tiver problemas, consulte a [Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md) para obter ajuda com problemas comuns.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 [Consulte uma lista de artigos de diagnóstico de máquinas virtuais relacionadas azure](../azure-monitor/platform/diagnostics-extension-overview.md) para alterar os dados que está a recolher, problemas de resolução de problemas ou saber mais sobre diagnósticos em geral.
 
 [EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Dropbox para Negócios para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Dropbox para Negócios para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo do Azure para fornecer e desfornecer automaticamente contas de utilizadores ao Dropbox for Business.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 3acc2c271e590bddb13aaa01498f404da4340036
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058457"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configure Dropbox para Negócios para fornecimento automático de utilizadores
@@ -27,13 +27,13 @@ ms.locfileid: "77058457"
 O objetivo deste tutorial é demonstrar os passos a serem realizados no Dropbox para o Business e o Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecer e desfornecer automaticamente utilizadores e/ou grupos para o Dropbox for Business.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Da AD Azure. Para detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte o fornecimento e o [desprovisionamento de utilizadores automate para aplicações SaaS com o Diretório Ativo Azure.](../app-provisioning/user-provisioning.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
+O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* Um locatário do Azure AD
+* Um inquilino da AD Azure
 * [Uma dropbox para inquilino de negócios](https://www.dropbox.com/business/pricing)
 * Uma conta de utilizador no Dropbox para o Negócios com permissões de Administrador.
 
@@ -45,15 +45,15 @@ Antes de configurar o Dropbox para o Negócio para o fornecimento automático de
 
 1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação esquerdo, selecione **Azure Ative Directory**.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Ative Directory](common/select-azuread.png)
 
 2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
 3. Para adicionar uma nova aplicação, selecione o novo botão de **aplicação** na parte superior do painel.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
 4. Na caixa de pesquisa, introduza **o Dropbox para negócios,** selecione **Dropbox para Negócios** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
@@ -61,7 +61,7 @@ Antes de configurar o Dropbox para o Negócio para o fornecimento automático de
 
 ## <a name="assigning-users-to-dropbox-for-business"></a>Atribuir utilizadores ao Dropbox para negócios
 
-O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Ative Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do fornecimento automático de utilizadores, apenas os utilizadores e/ou grupos que tenham sido atribuídos a uma aplicação em AD Azure são sincronizados.
 
 Antes de configurar e ativar o fornecimento automático de utilizadores, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Dropbox para negócios. Uma vez decidido, pode atribuir estes utilizadores e/ou grupos ao Dropbox for Business seguindo as instruções aqui:
 
@@ -69,7 +69,7 @@ Antes de configurar e ativar o fornecimento automático de utilizadores, deve de
 
 ### <a name="important-tips-for-assigning-users-to-dropbox-for-business"></a>Dicas importantes para atribuir utilizadores ao Dropbox para negócios
 
-* Recomenda-se que um único utilizador da AD Azure seja atribuído ao Dropbox para o Negócios para testar a configuração automática de fornecimento de utilizadores. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
+* Recomenda-se que um único utilizador da AD Azure seja atribuído ao Dropbox para o Negócios para testar a configuração automática de fornecimento de utilizadores. Posteriormente, os utilizadores e/ou grupos adicionais podem ser atribuídos.
 
 * Ao atribuir um utilizador ao Dropbox for Business, deve selecionar qualquer função específica de aplicação válida (se disponível) no diálogo de atribuição. Os utilizadores com a função **de Acesso Predefinido** estão excluídos do fornecimento.
 
@@ -78,13 +78,13 @@ Antes de configurar e ativar o fornecimento automático de utilizadores, deve de
 Esta secção guia-o através dos passos para configurar o serviço de provisionamento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Dropbox para Negócios com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Também pode optar por ativar um único sign-on baseado em SAML para o Dropbox for Business, seguindo as instruções fornecidas no tutorial de [inscrição única dropbox para negócios](dropboxforbusiness-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+> Também pode optar por ativar um único sign-on baseado em SAML para o Dropbox for Business, seguindo as instruções fornecidas no tutorial de [inscrição única dropbox para negócios](dropboxforbusiness-tutorial.md). O único sinal de inscrição pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente.
 
 ### <a name="to-configure-automatic-user-provisioning-for-dropbox-for-business-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para dropbox para negócios em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Dropbox para Negócios**.
 
@@ -92,11 +92,11 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 3. Selecione o separador **Provisioning.**
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia de provisionamento](common/provisioning.png)
 
 4. Detete o **modo de provisionamento** para **automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia de provisionamento](common/provisioning-automatic.png)
 
 5. Na secção **credenciais de administrador,** clique **em Autorizar**. Abre um diálogo de login dropbox para negócios numa nova janela do navegador.
 
@@ -136,17 +136,17 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 15. Para ativar o serviço de provisionamento de AD Azure para o Dropbox, altere o Estado de **Provisionamento** para **On** na secção **Definições.**
 
-    ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
+    ![Estatuto de provisionamento Alternado](common/provisioning-toggle-on.png)
 
 16. Defina os utilizadores e/ou grupos que deseja fornecer ao Dropbox, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Escopo de provisionamento](common/provisioning-scope.png)
+    ![Âmbito de provisionamento](common/provisioning-scope.png)
 
 17. Quando estiver pronto para fornecer, clique em **Guardar**.
 
-    ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
+    ![Configuração de fornecimento de poupança](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividadede provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure no Dropbox.
+Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser desempenhada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento AD Azure esteja em funcionamento. Pode utilizar a secção Detalhes de **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividadede provisionamento, que descreve todas as ações realizadas pelo serviço de provisionamento de AD Azure no Dropbox.
 
 Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](../app-provisioning/check-status-user-account-provisioning.md)de conta de utilizador .
 

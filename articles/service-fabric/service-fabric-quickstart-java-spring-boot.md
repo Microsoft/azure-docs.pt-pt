@@ -7,10 +7,10 @@ ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: eb96989b4a2731e78471b848d690b48352408d1c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121480"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Quickstart: Implemente uma aplicação Java Spring Boot no Tecido de Serviço Azure
@@ -19,16 +19,16 @@ Neste arranque rápido, você implementa uma aplicação Java Spring Boot para o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 - [Ambiente Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) e [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-- [Interface de linha de comando de tecido de serviço SDK e serviço (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Interface de linha de comando de tecido de serviço SDK & (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
-#### <a name="macostabmacos"></a>[MacOS](#tab/macos)
+#### <a name="macos"></a>[MacOS](#tab/macos)
 
 - [Ambiente Java e Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-- [Interface de linha de comando de tecido de serviço SDK e serviço (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
+- [Interface de linha de comando de tecido de serviço SDK & (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
 - [Git](https://git-scm.com/downloads)
 
 --- 
@@ -49,7 +49,7 @@ Dentro do *gs-spring-boot/diretório completo,* executar o comando abaixo para c
 ``` 
 
 ## <a name="package-the-spring-boot-application"></a>Empacotar a aplicação Spring Boot 
-1. Dentro do diretório *gs-spring-boot* no seu clone, executar o comando `yo azuresfguest`. 
+1. Dentro do diretório *gs-spring-boot* no seu `yo azuresfguest` clone, executar o comando. 
 
 1. Introduza os detalhes seguintes para cada pedido.
 
@@ -119,7 +119,7 @@ Nesta fase, já criou uma aplicação de Service Fabric para o exemplo da Introd
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    O arranque do cluster local demora algum tempo. Para confirmar que o cluster está totalmente em funcionar, aceda ao Service Fabric Explorer em `http://localhost:19080`. Os cinco nós em bom estado indicam que o cluster local está a funcionar. 
+    O arranque do cluster local demora algum tempo. Para confirmar que o cluster está totalmente operacional, aceda ao Service Fabric Explorer em `http://localhost:19080`. Os cinco nós em bom estado indicam que o cluster local está a funcionar. 
     
     ![Service Fabric Explorer mostra nódoas saudáveis](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
@@ -135,7 +135,7 @@ Nesta fase, já criou uma aplicação de Service Fabric para o exemplo da Introd
     ./install.sh
     ```
 
-1. Abra o seu navegador web favorito e aceda à aplicação acedendo a `http://localhost:8080`.
+1. Abra o browser favorito e aceda à aplicação em `http://localhost:8080`.
 
     ![Amostra de tecido de serviço de arranque de primavera](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
@@ -152,7 +152,7 @@ O Service Fabric Explorer é executado em todos os clusters do Service Fabric e 
 Para dimensionar o serviço de front-end da Web, faça o seguinte:
 
 1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `http://localhost:19080`.
-1. Selecione a elipse **(...** ) ao lado do **tecido:/SpringServiceFabric/SpringGettingStarted** nó na vista da árvore e selecione **Scale Service**.
+1. Selecione a elipse **(...**) ao lado do **tecido:/SpringServiceFabric/SpringGettingStarted** nó na vista da árvore e selecione **Scale Service**.
 
     ![Amostra de serviço de serviço de serviço de explorador de tecido de serviço](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
@@ -196,7 +196,7 @@ Neste início rápido, aprendeu a:
 
 * Implementar uma Aplicação Spring Boot no Service Fabric
 * Implementar a aplicação no seu cluster local
-* Aumentar horizontalmente a aplicação em vários nós
+* Escalar horizontalmente a aplicação em vários nós
 * Efetuar ativação pós-falha do seu serviço com nenhum resultado de disponibilidade
 
 Para saber mais sobre como trabalhar com aplicações Java no Service Fabric, avance para o tutorial para aplicações Java.

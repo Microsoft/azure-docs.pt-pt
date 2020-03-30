@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f087ffe824a198c578f076857cca7fdf0f0a60c
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77498685"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configure Funções personalizadas da AD Azure na Gestão de Identidade Privilegiada
@@ -37,7 +37,7 @@ Um administrador privilegiado pode alterar as definições de funções que se a
 Siga estes passos para abrir as definições para uma função de Anúncio Azure.
 
 1. Inscreva-se na [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) no portal Azure com uma conta de utilizador que é atribuída ao papel de administrador de funções privilegiada.
-1. Selecione **funções personalizadas Azure AD (Pré-visualização)** .
+1. Selecione **funções personalizadas Azure AD (Pré-visualização)**.
 
     ![Selecione visualização de funções personalizadas da Azure AD para ver atribuições de papéis elegíveis](./media/azure-ad-custom-roles-configure/settings-list.png)
 
@@ -98,7 +98,7 @@ Se quiser obter aprovação para ativar um papel, siga estes passos.
 1. Selecione pelo menos um membro ou grupo e, em seguida, clique em **Selecionar**. Deve selecionar pelo menos um aprovador. Não há aprovadores por defeito. As suas seleções aparecerão na lista de aprovadores selecionados.
 1. Depois de especificar as definições de função, selecione **'Actualizar'** para guardar as alterações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar uma função personalizada da AD Azure](azure-ad-custom-roles-activate.md)
 - [Atribuir uma função personalizada azure AD](azure-ad-custom-roles-assign.md)

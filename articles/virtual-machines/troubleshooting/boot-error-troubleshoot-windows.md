@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
 ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77371368"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Paragem do Azure Windows VM está presa em "Restarting", "Shutdown Down" ou "Stop services"
@@ -55,7 +55,7 @@ Utilize a [Consola em Série](https://docs.microsoft.com/azure/virtual-machines/
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Obtenha uma amostra de despejo de memória do processo suspenso <STOPPING SERVICE>.
+3. Obtenha uma amostra de despejo <STOPPING SERVICE>de memória do processo de suspensão.
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
@@ -99,7 +99,7 @@ Se não encontrar o ficheiro de despejo, desloque o próximo passo para ativar o
 
 **Ativar o registo de despejo e a consola em série**
 
-Para ativar o registo de despejo e consola de série, execute o seguinte script.
+Para ativar o registo de despejo e a Consola em Série, execute o seguinte script.
 
 1. Abrir a sessão de solicitação de comando elevado (Executar como administrador).
 
@@ -152,6 +152,6 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
 
 8. Fixe o disco OS a um VM de recuperação novamente, colete ficheiro de despejo.
 
-## <a name="contact-microsoft-support"></a>Contacte o suporte da Microsoft
+## <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 
 Depois de recolher o ficheiro de despejo, contacte o suporte da Microsoft para determinar a causa principal.

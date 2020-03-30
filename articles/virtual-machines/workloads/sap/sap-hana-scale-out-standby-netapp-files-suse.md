@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2020
 ms.author: radeltch
 ms.openlocfilehash: c594ef3a62d45fb68002ec2b21fb89115f7a30af
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77565813"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implemente um sistema de escala SAP HANA com nó de standby em VMs Azure utilizando ficheiros Azure NetApp no SUSE Linux Enterprise Server 
@@ -33,17 +33,17 @@ ms.locfileid: "77565813"
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
-[SAP 2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[SAP 2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[SAP 2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[SAP 2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[SAP 2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[SAP 1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[SAP 1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
-[SAP 1900823]: https://launchpad.support.sap.com/#/notes/1900823
+[1900823]:https://launchpad.support.sap.com/#/notes/1900823
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
@@ -91,7 +91,7 @@ Antes de começar, consulte as seguintes notas e documentos SAP:
 Um método para alcançar a alta disponibilidade da HANA é configurando a falha automática do anfitrião. Para configurar a falha automática do anfitrião, adicione uma ou mais máquinas virtuais ao sistema HANA e configure-as como nós de espera. Quando o nó ativo falha, um nó de espera assume automaticamente. Na configuração apresentada com máquinas virtuais Azure, obtém-se falhas automáticas utilizando [o NFS em Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
 
 > [!NOTE]
-> O nó de espera precisa de acesso a todos os volumes de base de dados. Os volumes HANA devem ser montados como volumes NFSv4. O mecanismo de bloqueio melhorado baseado no aluguer de ficheiros no protocolo NFSv4 é utilizado para `I/O` esgrima. 
+> O nó de espera precisa de acesso a todos os volumes de base de dados. Os volumes HANA devem ser montados como volumes NFSv4. O mecanismo de bloqueio melhorado baseado no aluguer de ficheiros `I/O` no protocolo NFSv4 é utilizado para esgrima. 
 
 > [!IMPORTANT]
 > Para construir a configuração suportada, deve implantar os dados hana e os volumes de registo como volumes NFSv4.1 e montá-los utilizando o protocolo NFSv4.1. A configuração de falha automática do hospedeiro HANA com nó de standby não é suportada com NFSv3.
@@ -107,10 +107,10 @@ Os volumes Azure NetApp estão em subnet separada, [delegada em Ficheiros Azure 
 
 Para esta configuração de exemplo, as subredes são:  
 
-  - `client` 10.23.0.0/24  
-  - `storage` 10.23.2.0/24  
-  - `hana` 10.23.3.0/24  
-  - `anf` 10.23.1.0/26  
+  - `client`10.23.0.0/24  
+  - `storage`10.23.2.0/24  
+  - `hana`10.23.3.0/24  
+  - `anf`10.23.1.0/26  
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Configurar a infraestrutura de ficheiros Azure NetApp 
 
@@ -211,14 +211,14 @@ Primeiro, é necessário criar os volumes de Ficheiros Azure NetApp. Em seguida,
 1. Implante os VMs. 
 1. Crie as interfaces de rede adicionais e fixe as interfaces de rede aos VMs correspondentes.  
 
-   Cada máquina virtual tem três interfaces de rede, que correspondem às três redes virtuais Azure (`client`, `storage` e `hana`). 
+   Cada máquina virtual tem três interfaces de rede, que correspondem `storage` `hana`às três redes virtuais Azure (e).`client` 
 
    Para mais informações, consulte [Criar uma máquina virtual Linux em Azure com vários cartões](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics)de interface de rede .  
 
 > [!IMPORTANT]
 > Para as cargas de trabalho da SAP HANA, a baixa latência é crítica. Para obter baixa latência, trabalhe com o seu representante da Microsoft para garantir que as máquinas virtuais e os volumes de Ficheiros Azure NetApp são implantados nas proximidades. Quando estiver [a embarcar no novo sistema SAP HANA](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) que está a utilizar ficheiros SAP HANA Azure NetApp, submeta as informações necessárias. 
  
-As próximas instruções assumem que já criou o grupo de recursos, a rede virtual Azure e as três redes virtuais Azure: `client`, `storage` e `hana`. Quando implementar os VMs, selecione a subnet do cliente, de modo a que a interface de rede do cliente seja a interface principal nos VMs. Também terá de configurar uma rota explícita para a sub-rede delegada dos Ficheiros Azure Net através do portal de sub-rede de armazenamento. 
+As próximas instruções assumem que já criou o grupo de recursos, a rede virtual `client` `storage` Azure e as três redes virtuais Azure: e `hana`. Quando implementar os VMs, selecione a subnet do cliente, de modo a que a interface de rede do cliente seja a interface principal nos VMs. Também terá de configurar uma rota explícita para a sub-rede delegada dos Ficheiros Azure Net através do portal de sub-rede de armazenamento. 
 
 > [!IMPORTANT]
 > Certifique-se de que o SISTEMA selecionado é certificado por SAP HANA nos tipos de VM específicos que está a utilizar. Para obter uma lista de tipos vM certificados SAP HANA e lançamentos de SO para esses tipos, vá ao site de [plataformas IaaS certificadas sAP HANA.](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) Clique nos detalhes do tipo VM listado para obter a lista completa de lançamentos de SAP HANA suportados por SAP HANA para esse tipo.  
@@ -235,9 +235,9 @@ As próximas instruções assumem que já criou o grupo de recursos, a rede virt
 
    Quando se implanta as máquinas virtuais, o nome da interface de rede é gerado automaticamente. Nestas instruções de simplicidade, referimo-nos às interfaces de rede geradas automaticamente, que estão ligadas à subnet de rede virtual do cliente Azure, como **hanadb1-cliente**, **hanadb2-client,** e **hanadb3-client**. 
 
-3. Crie três interfaces de rede, uma para cada máquina virtual, para a `storage` subnet de rede virtual (neste exemplo, **hanadb1-storage,** **hanadb2-storage,** e **hanadb3-storage).**  
+3. Crie três interfaces de rede, uma `storage` para cada máquina virtual, para a subnet de rede virtual (neste exemplo, **hanadb1-storage,** **hanadb2-storage,** e **hanadb3-storage).**  
 
-4. Crie três interfaces de rede, uma para cada máquina virtual, para a `hana` subnet de rede virtual (neste exemplo, **hanadb1-hana**, **hanadb2-hana**, e **hanadb3-hana).**  
+4. Crie três interfaces de rede, uma `hana` para cada máquina virtual, para a subnet de rede virtual (neste exemplo, **hanadb1-hana,** **hanadb2-hana**, e **hanadb3-hana).**  
 
 5. Fixe as interfaces de rede virtual recém-criadas às máquinas virtuais correspondentes, fazendo os seguintes passos:  
 
@@ -247,7 +247,7 @@ As próximas instruções assumem que já criou o grupo de recursos, a rede virt
 
     c. No painel **de visão geral,** selecione **Parar** para desalojar a máquina virtual.  
 
-    d. Selecione **Networking**e, em seguida, fixe a interface de rede. Na lista de drop-down da interface da **rede Attach,** selecione as interfaces de rede já criadas para as `storage` e `hana` subnets.  
+    d. Selecione **Networking**e, em seguida, fixe a interface de rede. Na lista de drop-down da interface da **rede Attach,** selecione as interfaces de rede já criadas para as `storage` redes e `hana` subnets.  
     
     e. Selecione **Guardar**. 
  
@@ -255,11 +255,11 @@ As próximas instruções assumem que já criou o grupo de recursos, a rede virt
  
     g. Deixe as máquinas virtuais em estado de parada por enquanto. Em seguida, permitiremos uma [rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para todas as interfaces de rede recém-anexadas.  
 
-6. Ativar a ligação acelerada da rede para as interfaces de rede adicionais para as `storage` e `hana` subnets, fazendo os seguintes passos:  
+6. Ativar a ligação acelerada de rede `storage` `hana` para as interfaces de rede adicionais para as e subnets adicionais, fazendo os seguintes passos:  
 
     a. Abra a [Nuvem Azure](https://azure.microsoft.com/features/cloud-shell/) no [portal Azure.](https://portal.azure.com/#home)  
 
-    b. Execute os seguintes comandos para permitir a ligação de rede acelerada para as interfaces de rede adicionais, que estão ligadas às `storage` e `hana` subredes.  
+    b. Execute os seguintes comandos para permitir a ligação de rede `storage` acelerada para as interfaces de rede adicionais, que estão ligadas às e `hana` subredes.  
 
     <pre><code>
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-storage</b> --accelerated-networking true
@@ -281,14 +281,14 @@ As próximas instruções assumem que já criou o grupo de recursos, a rede virt
 ## <a name="operating-system-configuration-and-preparation"></a>Configuração e preparação do sistema operativo
 
 As instruções nas secções seguintes são pré-fixadas com uma das seguintes:
-* **[A]** : Aplicável a todos os nós
-* **[1]** : Aplicável apenas ao nó 1
-* **[2]** : Aplicável apenas ao nó 2
-* **[3]** : Aplicável apenas ao nó 3
+* **[A]**: Aplicável a todos os nós
+* **[1]**: Aplicável apenas ao nó 1
+* **[2]**: Aplicável apenas ao nó 2
+* **[3]**: Aplicável apenas ao nó 3
 
 Configure e prepare o seu SISTEMA fazendo os seguintes passos:
 
-1. **[A]** Mantenha os ficheiros do anfitrião nas máquinas virtuais. Incluir entradas para todas as subredes. As seguintes entradas foram adicionadas à `/etc/hosts` para este exemplo.  
+1. **[A]** Mantenha os ficheiros do anfitrião nas máquinas virtuais. Incluir entradas para todas as subredes. Para este exemplo, `/etc/hosts` foram adicionadas as seguintes entradas.  
 
     <pre><code>
     # Storage
@@ -307,7 +307,7 @@ Configure e prepare o seu SISTEMA fazendo os seguintes passos:
 
 2. **[A]** Alterar as definições de DHCP e cloud config para a interface de rede para armazenamento para evitar alterações não intencionais do nome de anfitrião.  
 
-    As seguintes instruções pressupõem que a interface da rede de armazenamento é `eth1`. 
+    As seguintes instruções pressupõem `eth1`que a interface da rede de armazenamento é . 
 
     <pre><code>
     vi /etc/sysconfig/network/dhcp
@@ -321,7 +321,7 @@ Configure e prepare o seu SISTEMA fazendo os seguintes passos:
 
 2. **[A]** Adicione uma rota de rede, de modo que a comunicação aos Ficheiros Azure NetApp vá através da interface da rede de armazenamento.  
 
-    As seguintes instruções pressupõem que a interface da rede de armazenamento é `eth1`.  
+    As seguintes instruções pressupõem `eth1`que a interface da rede de armazenamento é .  
 
     <pre><code>
     vi /etc/sysconfig/network/ifroute-<b>eth1</b>
@@ -402,10 +402,10 @@ Configure e prepare o seu SISTEMA fazendo os seguintes passos:
     umount /mnt/tmp
     </code></pre>
 
-3. **[A]** Verifique a definição de domínio NFS. Certifique-se de que o domínio está configurado como o domínio padrão dos Ficheiros Azure NetApp, ou seja, **`defaultv4iddomain.com`** e o mapeamento não está definido para **ninguém**.  
+3. **[A]** Verifique a definição de domínio NFS. Certifique-se de que o domínio está configurado como o domínio **`defaultv4iddomain.com`** padrão dos Ficheiros Azure NetApp, ou seja, e o mapeamento não está definido para **ninguém**.  
 
     > [!IMPORTANT]
-    > Certifique-se de que define o domínio NFS em `/etc/idmapd.conf` no VM para corresponder à configuração de domínio predefinido nos Ficheiros Azure NetApp: **`defaultv4iddomain.com`** . Se houver uma incompatibilidade entre a configuração de domínio no cliente NFS (isto é, o VM) e o servidor NFS, ou seja, a configuração Azure NetApp, então as permissões para ficheiros nos volumes Azure NetApp que são montados nos VMs serão apresentadas como `nobody`.  
+    > Certifique-se de que configura `/etc/idmapd.conf` o domínio NFS no VM para corresponder **`defaultv4iddomain.com`** à configuração de domínio predefinido nos Ficheiros Azure NetApp: . Se houver uma incompatibilidade entre a configuração de domínio no cliente NFS (isto é, o VM) e o servidor NFS, ou seja, a configuração Azure NetApp, então `nobody`as permissões para ficheiros em volumes Azure NetApp que são montados nos VMs serão apresentadas como .  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -419,7 +419,7 @@ Configure e prepare o seu SISTEMA fazendo os seguintes passos:
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** Verificar `nfs4_disable_idmapping`. Deve ser definido para **Y.** Para criar a estrutura do diretório onde está localizada `nfs4_disable_idmapping`, execute o comando do suporte. Não poderá criar manualmente o diretório em /sys/módulos, porque o acesso é reservado para o núcleo/controladores.  
+4. **[A]** `nfs4_disable_idmapping`Verificar . Deve ser definido para **Y.** Para criar a estrutura `nfs4_disable_idmapping` do diretório onde está localizada, execute o comando do suporte. Não poderá criar manualmente o diretório em /sys/módulos, porque o acesso é reservado para o núcleo/controladores.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -516,7 +516,7 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
 
 ### <a name="prepare-for-hana-installation"></a>Preparar para a instalação HANA
 
-1. **[A]** Antes da instalação da HANA, desloque a palavra-passe de raiz. Pode desativar a palavra-passe da raiz depois de concluída a instalação. Execute como `root` comando `passwd`.  
+1. **[A]** Antes da instalação da HANA, desloque a palavra-passe de raiz. Pode desativar a palavra-passe da raiz depois de concluída a instalação. Executar `root` como `passwd`comando .  
 
 2. **[1]** Verifique se pode fazer login via SSH para **hanadb2** e **hanadb3**, sem ser solicitado por uma senha.  
 
@@ -531,7 +531,7 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
     sudo zypper install libgcc_s1 libstdc++6 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Mude a propriedade dos diretórios sap HANA `data` e `log` para **hn1**adm.   
+4. **[2], [3]** Mude a propriedade da `data` `log` SAP HANA e os diretórios para **hn1**adm.   
 
     <pre><code>
     # Execute as root
@@ -543,7 +543,7 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
 
 1. **[1]** Instale o SAP HANA seguindo as instruções no guia de [instalação e atualização SAP HANA 2.0](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.04/en-US/7eb0167eb35e4e2885415205b8383584.html). Neste exemplo, instalamos sap HANA scale-out com mestre, um trabalhador, e um nó de espera.  
 
-   a. Inicie o programa **hdblcm** a partir do diretório de software de instalação HANA. Utilize o parâmetro `internal_network` e passe o espaço de endereço para a sub-rede, que é utilizado para a comunicação inter-nó interna HANA.  
+   a. Inicie o programa **hdblcm** a partir do diretório de software de instalação HANA. Utilize `internal_network` o parâmetro e passe o espaço de endereço para a sub-rede, que é utilizado para a comunicação inter-nó interna HANA.  
 
     <pre><code>
     ./hdblcm --internal_network=10.23.3.0/24
@@ -555,13 +555,13 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
      * Para **componentes adicionais para instalação:** insira **2, 3**
      * Para o caminho de instalação: prima Enter (predefinições para /hana/partilhado)
      * Para nome do **anfitrião local**: prima Introduza para aceitar o padrão
-     * Sob **o seu deseja adicionar anfitriões ao sistema?**
+     * Sob **o seu deseja adicionar anfitriões ao sistema?** **y**
      * Para **nomes de anfitriões separados com vírina a adicionar:** insira **hanadb2, hanadb3**
      * Para o nome do **utilizador raiz** [raiz]: prima Introduza para aceitar o padrão
      * Para **palavra-passe**do utilizador raiz : introduza a palavra-passe do utilizador-raiz
      * Para funções para o anfitrião hanadb2: insira **1** (para trabalhador)
      * Para **o Grupo de Failover do Anfitrião** para o anfitrião hanadb2 [padrão]: prima Entrar para aceitar o padrão
-     * Para **o número de partição** de armazenamento para o anfitrião hanadb2 [<<assign automatically>>]: prima Introduza para aceitar o padrão
+     * Para **o número de partição** <assign automatically> de armazenamento para o anfitrião hanadb2 [<>]: prima Introduza para aceitar o padrão
      * Para **o Grupo de Trabalhadores** para o anfitrião hanadb2 [padrão]: prima Entrar para aceitar o padrão
      * Para **selecionar funções** para o anfitrião hanadb3: insira **2** (para standby)
      * Para **o Grupo de Failover do Anfitrião** para o anfitrião hanadb3 [padrão]: prima Entrar para aceitar o padrão
@@ -569,7 +569,7 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
      * Para **Identificação do Sistema SAP HANA**: insira **HN1**
      * Por **exemplo número** [00]: insira **03**
      * Para o **Grupo local de trabalho anfitrião** [padrão]: prima Entrar para aceitar o padrão
-     * Para **selecionar a utilização do sistema / Entrar no índice [4]** : introduzir **4** (para personalizado)
+     * Para **selecionar a utilização do sistema / Entrar no índice [4]**: introduzir **4** (para personalizado)
      * Para **a localização dos volumes de dados** [/hana/data/HN1]: prima Introduza para aceitar o padrão
      * Para **a localização dos volumes de registo** [/hana/log/HN1]: prima Introduza para aceitar o padrão
      * Para restringir a **atribuição máxima de memória?** [n]: inserir **n**
@@ -580,12 +580,12 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
      * Para o **utilizador (sistema) utilizador (sistema) utilizador**do sistema : introduza a palavra-passe do sistema
      * Para confirmar a **palavra-passe do utilizador (sistema)** do utilizador do sistema : introduzir a palavra-passe do sistema
      * Para **reiniciar o sistema após a reinicialização da máquina?** [n]: inserir **n** 
-     * Pois **você quer continuar (y/n)** : validar o resumo e se tudo parecer bom, insira **y**
+     * Pois **você quer continuar (y/n)**: validar o resumo e se tudo parecer bom, insira **y**
 
 
 2. **[1]** Verificar global.ini  
 
-   Exiba global.ini e certifique-se de que a configuração para a comunicação inter-nó interna SAP HANA está em vigor. Verifique a secção de **comunicação.** Deve ter o espaço de endereço para a sub-rede `hana`, devendo `listeninterface` ser definido para `.internal`. Verifique a secção **internal_hostname_resolution.** Deve ter os endereços IP das máquinas virtuais HANA que pertencem à sub-rede `hana`.  
+   Exiba global.ini e certifique-se de que a configuração para a comunicação inter-nó interna SAP HANA está em vigor. Verifique a secção de **comunicação.** Deve ter o espaço `hana` de endereço `listeninterface` para a `.internal`sub-rede e deve ser definido para . Verifique a secção **internal_hostname_resolution.** Deve ter os endereços IP das máquinas virtuais `hana` HANA que pertencem à sub-rede.  
 
    <pre><code>
     sudo cat /usr/sap/<b>HN1</b>/SYS/global/hdb/custom/config/global.ini
@@ -600,7 +600,7 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
     <b>10.23.3.6</b> = <b>hanadb3</b>
    </code></pre>
 
-3. **[1]** Adicione o mapeamento do anfitrião para garantir que os endereços IP do cliente são usados para a comunicação do cliente. Adicione a secção `public_host_resolution`e adicione os endereços IP correspondentes da subnet do cliente.  
+3. **[1]** Adicione o mapeamento do anfitrião para garantir que os endereços IP do cliente são usados para a comunicação do cliente. Adicione `public_host_resolution`a secção e adicione os endereços IP correspondentes da subnet do cliente.  
 
    <pre><code>
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
@@ -618,7 +618,7 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
     sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StartSystem HDB
    </code></pre>
 
-5. **[1]** Verifique se a interface do cliente utilizará os endereços IP da subnet `client` para comunicação.  
+5. **[1]** Verifique se a interface do cliente utilizará os endereços IP da `client` subnet para comunicação.  
 
    <pre><code>
     sudo -u hn1adm /usr/sap/HN1/HDB03/exe/hdbsql -u SYSTEM -p "<b>password</b>" -i 03 -d SYSTEMDB 'select * from SYS.M_HOST_INFORMATION'|grep net_publicname
@@ -632,21 +632,21 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
 
 6. Para otimizar o SAP HANA para o armazenamento subjacente aos Ficheiros Azure NetApp, defina os seguintes parâmetros SAP HANA:
 
-   - `max_parallel_io_requests` **128**
-   - `async_read_submit`
-   - `async_write_submit_active`
-   - `async_write_submit_blocks` **todos**
+   - `max_parallel_io_requests`**128**
+   - `async_read_submit`**em**
+   - `async_write_submit_active`**em**
+   - `async_write_submit_blocks`**todos os**
 
    Para mais informações, consulte [SAP HANA nos sistemas NetApp AFF com guia de configuração NFS](https://www.netapp.com/us/media/tr-4435.pdf). 
 
-   A partir dos sistemas SAP HANA 2.0, pode definir os parâmetros em `global.ini`. Para mais informações, consulte SAP Nota [1999930](https://launchpad.support.sap.com/#/notes/1999930).  
+   A partir dos sistemas SAP HANA 2.0, `global.ini`pode definir os parâmetros em . Para mais informações, consulte SAP Nota [1999930](https://launchpad.support.sap.com/#/notes/1999930).  
    
    Para versões de sistemas SAP HANA 1.0 SPS12 e anteriores, estes parâmetros podem ser definidos durante a instalação, conforme descrito na Nota SAP [2267798](https://launchpad.support.sap.com/#/notes/2267798).  
 
 7. O armazenamento utilizado pelos Ficheiros Azure NetApp tem uma limitação de tamanho de ficheiro de 16 terabytes (TB). O SAP HANA não está implicitamente ciente da limitação de armazenamento, e não criará automaticamente um novo ficheiro de dados quando o limite de tamanho de ficheiro de 16 TB for atingido. À medida que o SAP HANA tenta aumentar o ficheiro para além de 16 TB, essa tentativa resultará em erros e, eventualmente, num crash de servidor de índice. 
 
    > [!IMPORTANT]
-   > Para evitar que o SAP HANA tente cultivar ficheiros de dados para além do limite de [16 TB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) do subsistema de armazenamento, defina os seguintes parâmetros em `global.ini`.  
+   > Para evitar que o SAP HANA tente cultivar ficheiros de dados para além do `global.ini`limite de [16 TB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) do subsistema de armazenamento, defina os seguintes parâmetros em .  
    > - datavolume_striping = verdadeiro
    > - datavolume_striping_size_gb = 15000 Para mais informações, consulte a Nota SAP [2400005](https://launchpad.support.sap.com/#/notes/2400005).
    > Esteja atento à Nota [2631285](https://launchpad.support.sap.com/#/notes/2631285). 
@@ -706,7 +706,7 @@ Neste exemplo para a implementação do SAP HANA em configuração de escala-out
    </code></pre>
 
    > [!IMPORTANT]
-   > Quando um nó experimenta o pânico do kernel, evite atrasos com a falha do SAP HANA, definindo `kernel.panic` a 20 segundos em *todas as* máquinas virtuais HANA. A configuração é feita em `/etc/sysctl`. Reinicie as máquinas virtuais para ativar a mudança. Se esta mudança não for realizada, a falha pode demorar 10 ou mais minutos quando um nó está a sentir pânico no núcleo.  
+   > Quando um nó experimenta o pânico do kernel, evite atrasos com a falha do SAP HANA, fixando-se `kernel.panic` em 20 segundos em todas *as* máquinas virtuais HANA. A configuração `/etc/sysctl`é feita em . Reinicie as máquinas virtuais para ativar a mudança. Se esta mudança não for realizada, a falha pode demorar 10 ou mais minutos quando um nó está a sentir pânico no núcleo.  
 
 2. Mate o servidor de nomes fazendo o seguinte:
 

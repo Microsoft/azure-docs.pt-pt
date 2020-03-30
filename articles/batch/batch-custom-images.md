@@ -1,6 +1,6 @@
 ---
-title: Provisionar um pool personalizado de uma imagem gerenciada-Azure batch | Microsoft Docs
-description: Crie um pool do lote de um recurso de imagem gerenciada para provisionar nós de computação com o software e os dados para seu aplicativo.
+title: Fornecer uma piscina personalizada a partir de uma imagem gerida - Azure Batch [ Microsoft Docs
+description: Crie um pool de Lote a partir de um recurso de imagem gerido para fornecer nódos de computação com o software e dados para a sua aplicação.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -9,113 +9,113 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: labrenne
 ms.openlocfilehash: 1ef6be2ba9364203dceba54ab51325c05dbbbe41
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77020153"
 ---
-# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem gerenciada para criar um pool de máquinas virtuais
+# <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Use uma imagem gerida para criar uma piscina de máquinas virtuais
 
-Para criar uma imagem personalizada para as VMs (máquinas virtuais) do seu pool do lote, você pode usar a [Galeria de imagens compartilhadas](batch-sig-images.md)ou um recurso de *imagem gerenciada* .
+Para criar uma imagem personalizada para as máquinas virtuais do seu Pool Batch (VMs), pode utilizar a Galeria de [Imagem Partilhada,](batch-sig-images.md)ou um recurso de *imagem gerido.*
 
 > [!TIP]
-> Na maioria dos casos, você deve criar imagens personalizadas usando a Galeria de imagens compartilhadas. Usando a Galeria de imagens compartilhadas, você pode provisionar pools mais rapidamente, dimensionar quantidades maiores de VMs e aumentar a confiabilidade ao provisionar VMs. Para saber mais, confira [usar a Galeria de imagens compartilhadas para criar um pool personalizado](batch-sig-images.md).
+> Na maioria dos casos, deve criar imagens personalizadas utilizando a Galeria de Imagem Partilhada. Ao utilizar a Galeria de Imagem Partilhada, pode fornecer piscinas mais rapidamente, escalar quantidades maiores de VMs e ter uma maior fiabilidade ao fornecer VMs. Para saber mais, consulte [Use a Galeria de Imagem Partilhada para criar uma piscina personalizada.](batch-sig-images.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Um recurso de imagem gerenciada**. Para criar um pool de máquinas virtuais usando uma imagem personalizada, você precisa ter ou criar um recurso de imagem gerenciada na mesma assinatura e região do Azure que a conta do lote. A imagem deve ser criada a partir de instantâneos do disco do sistema operacional da VM e, opcionalmente, dos discos de dados anexados. Para obter mais informações e etapas para preparar uma imagem gerenciada, consulte a seção a seguir.
-  - Use uma imagem personalizada exclusiva para cada pool que você criar.
-  - Para criar um pool com a imagem usando as APIs do lote, especifique a **ID de recurso** da imagem, que é do formulário `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Para usar o portal, use o **nome** da imagem.  
-  - O recurso de imagem gerenciada deve existir durante o tempo de vida do pool para permitir a expansão e pode ser removido após a exclusão do pool.
+- **Um recurso de imagem gerido.** Para criar um conjunto de máquinas virtuais usando uma imagem personalizada, você precisa ter ou criar um recurso de imagem gerido na mesma subscrição Azure e região como a conta Batch. A imagem deve ser criada a partir de instantâneos do disco osso do VM e opcionalmente dos seus discos de dados anexados. Para obter mais informações e passos para preparar uma imagem gerida, consulte a secção seguinte.
+  - Use uma imagem personalizada única para cada piscina que cria.
+  - Para criar uma piscina com a imagem utilizando as APIs do lote, `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`especifique o ID de **recurso** da imagem, que é do formulário . Para utilizar o portal, use o **nome** da imagem.  
+  - O recurso de imagem gerido deve existir durante toda a vida útil da piscina para permitir a escala e pode ser removido após a eliminação da piscina.
 
-- **Autenticação do Azure Active Directory (AAD)** . A API do cliente do lote deve usar a autenticação do AAD. O suporte do lote do Azure para o AAD está documentado em [autenticar soluções de serviço de lote com Active Directory](batch-aad-auth.md).
+- Autenticação do **Diretório Ativo Azure (AAD).** A API do cliente Batch deve utilizar a autenticação AAD. O suporte do Lote Azure para AAD está documentado em soluções de [serviço Authenticate Batch com Diretório Ativo](batch-aad-auth.md).
 
 ## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
 
-No Azure, você pode preparar uma imagem gerenciada de:
+Em Azure, pode preparar uma imagem gerida a partir de:
 
-- Instantâneos de um sistema operacional e discos de dados de uma VM do Azure
-- Uma VM do Azure generalizada com discos gerenciados
-- Um VHD local generalizado carregado para a nuvem
+- Instantâneos de um Sistema operativo e discos de dados de um Azure VM
+- Um Azure VM generalizado com discos geridos
+- Um VHD generalizado no local carregado para a nuvem
 
-Para dimensionar os pools do lote de forma confiável com uma imagem personalizada, é recomendável criar uma imagem gerenciada usando *apenas* o primeiro método: usando instantâneos dos discos da VM. Consulte as etapas a seguir para preparar uma VM, tirar um instantâneo e criar uma imagem a partir do instantâneo.
+Para escalar as piscinas de Lote de forma fiável com uma imagem personalizada, recomendamos a criação de uma imagem gerida usando *apenas* o primeiro método: utilizando instantâneos dos discos do VM. Veja os seguintes passos para preparar um VM, tire uma foto e crie uma imagem a partir do instantâneo.
 
-### <a name="prepare-a-vm"></a>Preparar uma VM
+### <a name="prepare-a-vm"></a>Preparar um VM
 
-Se você estiver criando uma nova VM para a imagem, use uma imagem de terceiros do Azure Marketplace com suporte pelo lote como a imagem base para a imagem gerenciada. Somente imagens de terceiros podem ser usadas como uma imagem de base. Para obter uma lista completa de referências de imagem do Azure Marketplace com suporte pelo lote do Azure, consulte a [lista de SKUs de agente de nó de listas](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) .
-
-> [!NOTE]
-> Você não pode usar uma imagem de terceiros que tenha licença adicional e termos de compra como sua imagem base. Para obter informações sobre essas imagens do Marketplace, consulte as [diretrizes](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) para VMs [do Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) do Linux ou .
-
-- Verifique se a VM foi criada com um disco gerenciado. Essa é a configuração de armazenamento padrão quando você cria uma VM.
-- Não instale extensões do Azure, como a extensão de script personalizado, na VM. Se a imagem contiver uma extensão pré-instalada, o Azure poderá encontrar problemas ao implantar o pool do lote.
-- Ao usar discos de dados anexados, você precisa montar e formatar os discos de dentro de uma VM para usá-los.
-- Verifique se a imagem do sistema operacional base que você forneceu usa a unidade temporária padrão. O agente de nó de lote atualmente espera a unidade temporária padrão.
-- Depois que a VM estiver em execução, conecte-se a ela via RDP (para Windows) ou SSH (para Linux). Instale qualquer software necessário ou copie os dados desejados.  
-
-### <a name="create-a-vm-snapshot"></a>Criar um instantâneo de VM
-
-Um instantâneo é uma cópia completa e somente leitura de um VHD. Para criar um instantâneo do sistema operacional ou dos discos de dados de uma VM, você pode usar o portal do Azure ou as ferramentas de linha de comando. Para obter as etapas e opções para criar um instantâneo, consulte as diretrizes para VMs do [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) ou do [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md) .
-
-### <a name="create-an-image-from-one-or-more-snapshots"></a>Criar uma imagem de um ou mais instantâneos
-
-Para criar uma imagem gerenciada de um instantâneo, use as ferramentas de linha de comando do Azure, como o comando [AZ Image Create](/cli/azure/image) . Você pode criar uma imagem especificando um instantâneo de disco do sistema operacional e, opcionalmente, um ou mais instantâneos de disco de dados.
-
-## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Criar um pool com base em uma imagem personalizada no portal
-
-Depois de salvar a imagem personalizada e souber sua ID de recurso ou nome, crie um pool do lote a partir dessa imagem. As etapas a seguir mostram como criar um pool do portal do Azure.
+Se está a criar um novo VM para a imagem, utilize uma imagem de primeira parte do Azure Marketplace apoiada pelo Batch como imagem base para a sua imagem gerida. Apenas as imagens da primeira festa podem ser usadas como imagem base. Para obter uma lista completa de referências de imagem do Azure Marketplace suportadas pelo Azure Batch, consulte a operação do agente de [nóso lista SKUs.](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus)
 
 > [!NOTE]
-> Se você estiver criando o pool usando uma das APIs do lote, certifique-se de que a identidade usada para a autenticação do AAD tenha permissões para o recurso de imagem. Consulte [autenticar soluções de serviço de lote com Active Directory](batch-aad-auth.md).
+> Não pode usar uma imagem de terceiros que tenha licença adicional e termos de compra como imagem base. Para obter informações sobre estas imagens do Marketplace, consulte as orientações para Os VMs [linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) ou [Windows.](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+)
+
+- Certifique-se de que o VM é criado com um disco gerido. Esta é a definição de armazenamento padrão quando cria um VM.
+- Não instale extensões Azure, como a extensão do Script Personalizado, no VM. Se a imagem contiver uma extensão pré-instalada, o Azure poderá encontrar problemas ao implantar a piscina do Lote.
+- Ao utilizar discos de dados anexados, é necessário montar e formatar os discos de dentro de um VM para os utilizar.
+- Certifique-se de que a imagem base de OS que fornece utiliza a unidade temporária predefinida. O agente do nó batch espera atualmente a unidade temporária padrão.
+- Uma vez que o VM esteja em execução, ligue-o via RDP (para Windows) ou SSH (para Linux). Instale qualquer software ou copiar dados desejados.  
+
+### <a name="create-a-vm-snapshot"></a>Criar um instantâneo VM
+
+Um instantâneo é uma cópia completa e só de leitura de um VHD. Para criar uma imagem instantânea de um Sistema operativo ou de dados de um VM, pode utilizar o portal Azure ou ferramentas de linha de comando. Para passos e opções para criar um instantâneo, consulte a orientação para [VMs Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) ou [Windows.](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+
+### <a name="create-an-image-from-one-or-more-snapshots"></a>Criar uma imagem a partir de um ou mais instantâneos
+
+Para criar uma imagem gerida a partir de um instantâneo, utilize ferramentas de linha de comando Azure, como a [imagem az criar](/cli/azure/image) comando. Pode criar uma imagem especificando um instantâneo de disco OS e opcionalmente um ou mais instantâneos de disco de dados.
+
+## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Crie uma piscina a partir de uma imagem personalizada no portal
+
+Depois de ter guardado a sua imagem personalizada e conhecer o seu ID de recurso ou nome, crie uma piscina de Lote a partir dessa imagem. Os seguintes passos mostram-lhe como criar uma piscina a partir do portal Azure.
+
+> [!NOTE]
+> Se estiver a criar a piscina utilizando uma das APIs do Lote, certifique-se de que a identidade que utiliza para autenticação AAD tem permissões para o recurso de imagem. Consulte soluções de [serviço Authenticate Batch com Diretório Ativo](batch-aad-auth.md).
 >
-> O recurso para a imagem gerenciada deve existir durante o tempo de vida do pool. Se o recurso subjacente for excluído, o pool não poderá ser dimensionado.
+> O recurso para a imagem gerida deve existir durante toda a vida útil da piscina. Se o recurso subjacente for eliminado, a piscina não pode ser dimensionada.
 
-1. No portal do Azure, navegue para a sua conta do Batch. Essa conta deve estar na mesma assinatura e região que o grupo de recursos que contém a imagem personalizada.
-2. Na janela **configurações** à esquerda, selecione o item de menu **pools** .
-3. Na janela **pools** , selecione o comando **Adicionar** .
-4. Na janela **Adicionar pool** , selecione **imagem personalizada (Linux/Windows)** na lista suspensa **tipo de imagem** . Na lista suspensa **imagem de VM personalizada** , selecione o nome da imagem (forma abreviada da ID do recurso).
-5. Selecione o **Publicador/oferta/SKU** correto para sua imagem personalizada.
-6. Especifique as configurações necessárias restantes, incluindo o **tamanho do nó**, os **nós dedicados de destino**e os **nós de baixa prioridade**, bem como as configurações opcionais desejadas.
+1. No portal do Azure, navegue para a sua conta do Batch. Esta conta deve estar na mesma subscrição e região que o grupo de recursos que contém a imagem personalizada.
+2. Na janela **Definições** à esquerda, selecione o item do menu **Pools.**
+3. Na janela **Pools,** selecione o comando **Adicionar.**
+4. Na janela **Add Pool,** selecione **Custom Image (Linux/Windows)** a partir do dropdown do **Tipo de Imagem.** A partir da queda de **imagem Custom VM,** selecione o nome de imagem (forma curta do ID do recurso).
+5. Selecione o **Editor/Oferta/Sku** correto para a sua imagem personalizada.
+6. Especifique as definições restantes, incluindo o tamanho do **nó,** **os nós dedicados**ao alvo e **os nós de baixa prioridade,** bem como quaisquer configurações opcionais desejadas.
 
-    Por exemplo, para uma imagem personalizada do Microsoft Windows Server Datacenter 2016, a janela **Adicionar pool** aparece como mostrado abaixo:
+    Por exemplo, para uma imagem personalizada do Microsoft Windows Server Datacenter 2016, a janela **Add Pool** aparece como mostrado abaixo:
 
-    ![Adicionar pool de imagem personalizada do Windows](media/batch-custom-images/add-pool-custom-image.png)
+    ![Adicione piscina a partir da imagem personalizada do Windows](media/batch-custom-images/add-pool-custom-image.png)
   
-Para verificar se um pool existente é baseado em uma imagem personalizada, consulte a propriedade **sistema operacional** na seção Resumo de recursos da janela **pool** . Se o pool tiver sido criado a partir de uma imagem personalizada, ele será definido como **imagem de VM personalizada**.
+Para verificar se uma piscina existente é baseada numa imagem personalizada, consulte a propriedade do **Sistema Operativo** na secção de resumo de recursos da janela **pool.** Se a piscina foi criada a partir de uma imagem personalizada, está definida para **Imagem VM Personalizada**.
 
-Todas as imagens personalizadas associadas a um pool são exibidas na janela **Propriedades** do pool.
+Todas as imagens personalizadas associadas a uma piscina são exibidas na janela **Propriedades** da piscina.
 
-## <a name="considerations-for-large-pools"></a>Considerações para grandes pools
+## <a name="considerations-for-large-pools"></a>Considerações para grandes piscinas
 
-Se você planeja criar um pool com centenas de VMs ou mais usando uma imagem personalizada, é importante seguir as diretrizes anteriores para usar uma imagem criada a partir de um instantâneo de VM.
+Se planeia criar uma piscina com centenas de VMs ou mais usando uma imagem personalizada, é importante seguir a orientação anterior para usar uma imagem criada a partir de um instantâneo VM.
 
-Observe também as seguintes considerações:
+Note também as seguintes considerações:
 
-- **Limites de tamanho** – o lote limita o tamanho do pool a 2500 nós de computação dedicados ou 1000 nós de baixa prioridade, quando você usa uma imagem personalizada.
+- **Limites** de tamanho - O lote limita o tamanho da piscina a 2500 nós de computação dedicados, ou 1000 nós de baixa prioridade, quando se utiliza uma imagem personalizada.
 
-  Se você usar a mesma imagem (ou várias imagens com base no mesmo instantâneo subjacente) para criar vários pools, o total de nós de computação nos pools não poderá exceder os limites anteriores. Não é recomendável usar uma imagem ou seu instantâneo subjacente para mais de um único pool.
+  Se utilizar a mesma imagem (ou múltiplas imagens com base no mesmo instantâneo subjacente) para criar várias piscinas, os nós totais de computação nas piscinas não podem exceder os limites anteriores. Não recomendamos usar uma imagem ou o seu instantâneo subjacente para mais do que uma única piscina.
 
-  Os limites podem ser reduzidos se você configurar o pool com [pools NAT de entrada](pool-endpoint-configuration.md).
+  Os limites podem ser reduzidos se configurar a piscina com [piscinas NAT de entrada](pool-endpoint-configuration.md).
 
-- **Redimensionar tempo limite** – se o pool contiver um número fixo de nós (não dimensionamento automático), aumente a propriedade resizeTimeout do pool para um valor como 20-30 minutos. Se o pool não atingir seu tamanho de destino dentro do período de tempo limite, execute outra [operação de redimensionamento](/rest/api/batchservice/pool/resize).
+- **Redimensionar** o tempo limite - Se a sua piscina contiver um número fixo de nós (não escala automática), aumente a propriedade redimensionada Timeout da piscina para um valor como 20-30 minutos. Se a sua piscina não atingir o seu tamanho-alvo dentro do período de tempo, execute outra operação de [redimensionação](/rest/api/batchservice/pool/resize).
 
-  Se você planejar um pool com mais de 300 nós de computação, talvez seja necessário redimensionar o pool várias vezes para alcançar o tamanho do destino.
+  Se você planeja uma piscina com mais de 300 nós de computação, você pode precisar redimensionar a piscina várias vezes para alcançar o tamanho do alvo.
   
-Usando a [Galeria de imagens compartilhadas](batch-sig-images.md), você pode criar pools maiores com suas imagens personalizadas juntamente com mais réplicas de imagem compartilhadas. Utilizando imagens partilhadas, o tempo que a piscina leva para chegar ao estado estável é até 25% mais rápido, e a latência vm idle é até 30% mais curta.
+Ao utilizar a Galeria de [Imagem Partilhada,](batch-sig-images.md)pode criar piscinas maiores com as suas imagens personalizadas juntamente com mais réplicas de Imagem Partilhada. Utilizando imagens partilhadas, o tempo que a piscina leva para chegar ao estado estável é até 25% mais rápido, e a latência vm idle é até 30% mais curta.
 
-## <a name="considerations-for-using-packer"></a>Considerações sobre o uso do Packr
+## <a name="considerations-for-using-packer"></a>Considerações para a utilização de Packer
 
-Criar um recurso de imagem gerenciada diretamente com o Packer só pode ser feito com contas do lote no modo de assinatura do usuário. Para contas do modo de serviço de lote, você precisa primeiro criar um VHD e, em seguida, importar o VHD para um recurso de imagem gerenciada. Dependendo do modo de alocação do pool (assinatura do usuário ou serviço de lote), suas etapas para criar um recurso de imagem gerenciada irão variar.
+A criação de um recurso de imagem gerido diretamente com o Packer só pode ser feita com as contas do modo de subscrição do utilizador. Para as contas do modo de serviço do Lote, você precisa criar um VHD primeiro, em seguida, importar o VHD para um recurso de imagem gerido. Dependendo do modo de alocação de piscina (subscrição do utilizador ou serviço de Lote), os seus passos para criar um recurso de imagem gerido variarão.
 
-Verifique se o recurso usado para criar a imagem gerenciada existe para os tempos de vida de qualquer pool que referencie a imagem personalizada. A falha em fazer isso pode resultar em falhas de alocação de pool e/ou em redimensionamento de falhas.
+Certifique-se de que o recurso utilizado para criar a imagem gerida existe para a vida útil de qualquer piscina que refira a imagem personalizada. Se não o fizer, pode resultar em falhas na atribuição de piscinas e/ou falhas de redimensionação.
 
-Se a imagem ou o recurso subjacente for removido, você poderá receber um erro semelhante a: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Se você receber esse erro, verifique se o recurso subjacente não foi removido.
+Se a imagem ou o recurso subjacente forremovido, `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`poderá obter um erro semelhante ao: . Se tiver este erro, certifique-se de que o recurso subjacente não foi removido.
 
-Para obter mais informações sobre como usar o Packer para criar uma VM, consulte [criar uma imagem do Linux com o packr](../virtual-machines/linux/build-image-with-packer.md) ou [criar uma imagem do Windows com o packr](../virtual-machines/windows/build-image-with-packer.md).
+Para obter mais informações sobre a utilização do Packer para criar um VM, consulte [Construir uma imagem Linux com packer](../virtual-machines/linux/build-image-with-packer.md) ou construir uma imagem do Windows com [packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma visão geral detalhada do lote, consulte [desenvolver soluções de computação paralela em larga escala com o lote](batch-api-basics.md).
+Para uma visão geral aprofundada do Lote, consulte Desenvolver soluções de [computação paralela em larga escala com lote](batch-api-basics.md).

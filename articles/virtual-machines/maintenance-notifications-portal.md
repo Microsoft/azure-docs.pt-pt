@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: 46fcc825ac49f0181ac74e9c3e2deaea577f3329
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77115735"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Manuseamento de notificações de manutenção planeadas utilizando o portal
@@ -34,7 +34,7 @@ Pode utilizar o portal Azure e procurar VMs programados para manutenção.
       
       | Valor | Descrição |
       |-------|-------------|
-      | Comece agora. | O VM está na janela de manutenção de self-service que permite iniciar a manutenção por si mesmo. Veja abaixo como iniciar a manutenção no seu VM. | 
+      | Iniciar agora | O VM está na janela de manutenção de self-service que permite iniciar a manutenção por si mesmo. Veja abaixo como iniciar a manutenção no seu VM. | 
       | Agendado | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. Pode aprender a janela de manutenção selecionando a janela de manutenção - Programada nesta vista ou clicando no VM. | 
       | Já atualizado | O seu VM já está atualizado e não são necessárias mais medidas neste momento. | 
       | Voltar a tentar mais tarde | Iniciou a manutenção sem sucesso. Poderá utilizar a opção de manutenção de self-service mais tarde. | 

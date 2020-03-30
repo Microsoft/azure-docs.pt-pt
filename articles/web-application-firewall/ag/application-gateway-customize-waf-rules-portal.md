@@ -1,6 +1,6 @@
 ---
-title: Personalizar regras usando o portal – Firewall do aplicativo Web do Azure
-description: Este artigo fornece informações sobre como personalizar as regras de firewall do aplicativo Web no gateway de aplicativo com o portal do Azure.
+title: Personalize regras usando portal - Firewall de aplicação web Azure
+description: Este artigo fornece informações sobre como personalizar as regras de Firewall de aplicação web no Gateway de Aplicações com o portal Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,64 +8,64 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74048368"
 ---
-# <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Personalizar regras de firewall do aplicativo Web usando o portal do Azure
+# <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Personalize as regras de firewall de aplicação web usando o portal Azure
 
-O WAF (firewall do aplicativo Web) Aplicativo Azure Gateway fornece proteção para aplicativos Web. Essas proteções são fornecidas pelo CRS (conjunto de regras principais) do OWASP (projeto de segurança de aplicativo Web aberto). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o gateway de aplicativo fornece a capacidade de personalizar grupos de regras e regras. Para obter mais informações sobre grupos de regras e regras específicas, consulte [lista de regras e grupos de regras CRS de firewall do aplicativo Web](application-gateway-crs-rulegroups-rules.md).
+O Firewall de aplicação web da Aplicação Gateway (WAF) da Aplicação Azure Application (WAF) fornece proteção para aplicações web. Estas proteções são fornecidas pelo Conjunto de Regras de Regra do Núcleo de Segurança de Aplicações Abertas (OWASP) (CRS). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esta razão, o Application Gateway fornece a capacidade de personalizar grupos e regras de regras. Para obter mais informações sobre os grupos e regras de regras específicas, consulte [lista de grupos e regras](application-gateway-crs-rulegroups-rules.md)de regras DO FIREWALL de aplicação web .
 
 >[!NOTE]
-> Se o seu gateway de aplicativo não estiver usando a camada WAF, a opção de atualizar o gateway de aplicativo para a camada WAF aparecerá no painel direito. 
+> Se o gateway da aplicação não estiver a utilizar o nível WAF, a opção de atualizar o portal de aplicação para o nível WAF aparece no painel certo. 
 
-![Habilitar WAF][fig1]
+![Ativar waf][fig1]
 
-## <a name="view-rule-groups-and-rules"></a>Exibir regras e grupos de regras
+## <a name="view-rule-groups-and-rules"></a>Ver grupos de regras e regras
 
-**Para exibir regras e grupos de regras**
-1. Navegue até o gateway de aplicativo e selecione **Firewall do aplicativo Web**.  
-2. Selecione sua **política do WAF**.
-2. Selecione **regras gerenciadas**.
+**Ver grupos de regras e regras**
+1. Navegue no gateway da aplicação e, em seguida, selecione firewall de **aplicação Web**.  
+2. Selecione a sua **Política WAF**.
+2. Selecione **Regras Geridas**.
 
-   Esta exibição mostra uma tabela na página de todos os grupos de regras fornecidos com o conjunto de regras escolhido. Todas as caixas de seleção da regra estão marcadas.
+   Esta vista mostra uma tabela na página de todos os grupos de regras fornecidos com o conjunto de regras escolhido. Todas as caixas de verificação da regra são selecionadas.
 
-## <a name="disable-rule-groups-and-rules"></a>Desabilitar grupos de regras e regras
+## <a name="disable-rule-groups-and-rules"></a>Desativar grupos e regras
 
 > [!IMPORTANT]
-> Tome cuidado ao desabilitar quaisquer regras ou grupos de regras. Isso pode expô-lo a maiores riscos de segurança.
+> Tenha cuidado ao desativar quaisquer grupos ou regras de regras. Isto pode expô-lo a riscos de segurança acrescidos.
 
-Quando estiver desabilitando regras, você poderá desabilitar um grupo de regras inteiro ou regras específicas em um ou mais grupos de regras. 
+Quando se está a desativar as regras, pode desativar todo um grupo de regras ou regras específicas sob um ou mais grupos de regras. 
 
-**Para desabilitar grupos de regras ou regras específicas**
+**Para desativar grupos de regras ou regras específicas**
 
-   1. Pesquise as regras ou os grupos de regras que você deseja desabilitar.
-   2. Marque as caixas de seleção das regras que você deseja desabilitar. 
-   3. Selecione a ação na parte superior da página (habilitar/desabilitar) para as regras selecionadas.
+   1. Procure as regras ou grupos de regras que pretende desativar.
+   2. Selecione as caixas de verificação para as regras que pretende desativar. 
+   3. Selecione a ação na parte superior da página (ativar/desativar) para as regras selecionadas.
    2. Selecione **Guardar**. 
 
-![Salvar alterações][3]
+![Guardar alterações][3]
 
 ## <a name="mandatory-rules"></a>Regras obrigatórias
 
-A lista a seguir contém condições que fazem com que o WAF bloqueie a solicitação no modo de prevenção. No modo de detecção, eles são registrados como exceções.
+A lista seguinte contém condições que fazem com que o WAF bloqueie o pedido enquanto está no Modo de Prevenção. No Modo de Deteção, são registados como exceções.
 
-Eles não podem ser configurados ou desabilitados:
+Estes não podem ser configurados ou desativados:
 
-* Falha ao analisar os resultados do corpo da solicitação na solicitação sendo bloqueada, a menos que a inspeção do corpo seja desativada (XML, JSON, dados de formulário)
-* O comprimento de dados do corpo da solicitação (sem arquivos) é maior que o limite configurado
-* O corpo da solicitação (incluindo arquivos) é maior que o limite
-* Ocorreu um erro interno no mecanismo de WAF
+* A não análise do organismo de pedido resulta no bloqueio do pedido, a menos que a inspeção corporal seja desligada (XML, JSON, dados de formulário)
+* O comprimento de dados do corpo de pedidos (sem ficheiros) é maior do que o limite configurado
+* O organismo de pedido (incluindo ficheiros) é maior do que o limite
+* Um erro interno aconteceu no motor WAF
 
-Específico do CRS 3. x:
+CRS 3.x específico:
 
-* Limite de Pontuação de anomalias de entrada excedido
+* Pontuação de anomalia de entrada excedida limiar
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de configurar suas regras desabilitadas, você pode aprender a exibir os logs do WAF. Para obter mais informações, consulte [diagnóstico do gateway de aplicativo](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+Depois de configurar as suas regras de incapacidade, pode aprender a ver os seus registos WAF. Para mais informações, consulte [diagnósticos de Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)de aplicação .
 
 [fig1]: ../media/application-gateway-customize-waf-rules-portal/1.png
 [3]: ../media/application-gateway-customize-waf-rules-portal/figure3.png

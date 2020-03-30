@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c91b9ffc9e3487e492c91cb0f5825d0b725f9410
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77120094"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Crie coleções no portal My Apps
@@ -34,7 +34,7 @@ Os seus utilizadores podem utilizar o portal My Apps para visualizar e iniciar a
 
 1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como administrador de utilizador ou administrador global.
 
-2. Vá ao **Diretório Ativo do Azure** > **definições de utilizador**.
+2. Vá às > **definições**de utilizador **do Diretório Ativo Azure**.
 
 3. Nas **pré-visualizações**da funcionalidade user , selecione Gerir as definições de **pré-visualização**do utilizador .
 
@@ -43,7 +43,7 @@ Os seus utilizadores podem utilizar o portal My Apps para visualizar e iniciar a
    * **Tudo** - Permite as funcionalidades para todos os utilizadores.
 
 > [!NOTE]
-> Para abrir o portal My Apps, os utilizadores podem usar o link `https://myapps.microsoft.com` ou o link personalizado para a sua organização, como `https://myapps.microsoft.com/contoso.com`. Depois de ativar a nova experiência My Apps, a **experiência An update My Applications está disponível** no topo da página My Apps, e os utilizadores podem selecionar **Experimentá-lo** para ver a nova experiência. Para parar de usar a nova experiência, os utilizadores podem selecionar **Sim** do banner leave **new experience** no topo da página.
+> Para abrir o portal My Apps, `https://myapps.microsoft.com` os utilizadores podem usar o `https://myapps.microsoft.com/contoso.com`link ou o link personalizado para a sua organização, como . Depois de ativar a nova experiência My Apps, a **experiência An update My Applications está disponível** no topo da página My Apps, e os utilizadores podem selecionar **Experimentá-lo** para ver a nova experiência. Para parar de usar a nova experiência, os utilizadores podem selecionar **Sim** do banner leave **new experience** no topo da página.
 
 ## <a name="create-a-collection"></a>Criar uma coleção
 
@@ -51,7 +51,7 @@ Para criar uma coleção, deve ter uma licença Azure AD Premium P1 ou P2.
 
 1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como administrador com uma licença Azure AD Premium P1 ou P2.
 
-2. Vá ao **Azure Ative Directory** > **Aplicações empresariais.**
+2. Vá a > **Aplicações empresariais**de **diretório ativo azure.**
 
 3. Under **Manage**, selecione **Collections**.
 
@@ -63,7 +63,7 @@ Para criar uma coleção, deve ter uma licença Azure AD Premium P1 ou P2.
 
    ![Adicione uma aplicação à coleção](media/acces-panel-collections/add-applications.png)
 
-6. Quando terminar de adicionar aplicações, **selecione Adicionar**. Aparece a lista de aplicações selecionadas. Pode utilizar as setas para alterar a ordem das aplicações na lista. Para deslocalizar uma aplicação ou eliminá-la da coleção, selecione o menu **Mais** ( **...** ).
+6. Quando terminar de adicionar aplicações, **selecione Adicionar**. Aparece a lista de aplicações selecionadas. Pode utilizar as setas para alterar a ordem das aplicações na lista. Para deslocalizar uma aplicação ou eliminá-la da coleção, selecione o menu **Mais** (**...**).
 
 7. Selecione o separador **Owners.** Selecione **+ Adicione utilizadores e grupos,** e depois na página adicionar utilizadores e **grupos,** selecione os utilizadores ou grupos a que pretende atribuir a propriedade. Quando terminar de selecionar utilizadores e grupos, escolha **Selecionar**.
 
@@ -85,17 +85,17 @@ Os registos de auditoria registam as minhas operações de recolha de apps, incl
 * Adição de aplicação self-service (utilizador final)
 * Eliminação da aplicação self-service (utilizador final)
 
-Pode aceder a registos de auditoria no [portal Azure](https://portal.azure.com) selecionando o **Azure Ative Directory** > **Enterprise Applications** > **Registos** de Auditoria na secção Atividade. Para **serviço,** selecione **Minhas Apps**.
+Pode aceder a registos de auditoria no [portal Azure](https://portal.azure.com) selecionando**registos** de auditoria de > **aplicações** > empresariais de **diretório ativo azure**na secção Atividade. Para **serviço,** selecione **Minhas Apps**.
 
 ## <a name="get-support-for-my-account-pages"></a>Obtenha suporte para as páginas da Minha Conta
 
-A partir da página My Apps, um utilizador pode selecionar **a minha conta** > ver a minha **conta** para abrir as definições da sua conta. Na página Azure AD **My Account,** os utilizadores podem gerir as suas informações de segurança, dispositivos, senhas e muito mais. Também podem aceder às definições da sua conta do Office.
+A partir da página My Apps, um utilizador pode selecionar **a minha conta** > Ver a**minha conta** para abrir as definições da sua conta. Na página Azure AD **My Account,** os utilizadores podem gerir as suas informações de segurança, dispositivos, senhas e muito mais. Também podem aceder às definições da sua conta do Office.
 
 Caso necessite de submeter um pedido de apoio para um problema com a página da conta Azure AD ou a página da conta do Office, siga estes passos para que o seu pedido seja encaminhado corretamente: 
 
-* Para problemas com a página **Azure AD "AD My Account",** abra um pedido de apoio dentro do portal Azure. Vá ao **portal Azure** > **Diretório Ativo Azure** > Novo pedido de **apoio.**
+* Para problemas com a página **Azure AD "AD My Account",** abra um pedido de apoio dentro do portal Azure. Vá ao **portal** > **Azure Azure Ative Directory** > Novo pedido de**apoio.**
 
-* Para problemas com a página **"A minha conta" do Office,** abra um pedido de suporte dentro do centro de administração da Microsoft 365. Vá ao **Microsoft 365 centro de administração** > **Suporte**. 
+* Para problemas com a página **"A minha conta" do Office,** abra um pedido de suporte dentro do centro de administração da Microsoft 365. Vá ao > **Suporte**do centro de **administração microsoft 365**. 
 
 ## <a name="next-steps"></a>Passos seguintes
 [Experiências de utilizador final para aplicações no Diretório Ativo do Azure](end-user-experiences.md)

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77120680"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configure ficheiros Azure num recipiente do Windows no serviço de aplicações
@@ -43,7 +43,7 @@ Este guia mostra como aceder ao Armazenamento Azure em Recipientes Windows. Apen
 
 ## <a name="link-storage-to-your-web-app-preview"></a>Link armazenamento para a sua aplicação web (pré-visualização)
 
- Para montar um Azure Files Share para um diretório na sua aplicação App Service, utiliza o comando [`az webapp config storage-account add`.](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) O Tipo de Armazenamento deve ser AzureFiles.
+ Para montar um Azure Files Share para um diretório [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) na sua aplicação App Service, utiliza o comando. O Tipo de Armazenamento deve ser AzureFiles.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory of form c:<directory name> >

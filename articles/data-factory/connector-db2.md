@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: jingwang
 ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77423832"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 utilizando a Azure Data Factory
@@ -30,7 +30,7 @@ Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Az
 Este conector de base de dados DB2 é suportado para as seguintes atividades:
 
 - [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
 Pode copiar dados da base de dados DB2 para qualquer loja de dados de sink suportado. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
@@ -61,24 +61,24 @@ O Tempo de Funcionamento de Integração fornece um controlador DB2 incorporado,
 
 As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector DB2.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
 As seguintes propriedades são suportadas para o serviço ligado ao DB2:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Db2** | Sim |
-| servidor |Nome do servidor DB2. Pode especificar o número de porta seguindo o nome do servidor delimitado por cólon, por exemplo, `server:port`. |Sim |
-| database |Nome da base de dados DB2. |Sim |
+| servidor |Nome do servidor DB2. Pode especificar o número de porta seguindo o nome `server:port`do servidor delimitado pelo cólon, por exemplo. |Sim |
+| base de dados |Nome da base de dados DB2. |Sim |
 | authenticationType |Tipo de autenticação utilizada para ligar à base de dados DB2.<br/>O valor permitido é: **Básico**. |Sim |
 | o nome de utilizador |Especifique o nome do utilizador para se ligar à base de dados DB2. |Sim |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
 | pacoteColeção | Especifique em que os pacotes necessários são criados automaticamente pela ADF ao consultar a base de dados. | Não |
 | certificadoNome Comum | Quando utilizar a encriptação Secure Sockets Layer (SSL) ou Transport Layer Security (TLS), deve introduzir um valor para o nome comum do Certificado. | Não |
-| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não especificado, utiliza o tempo de funcionar de integração azure padrão. |Não |
 
 > [!TIP]
-> Se receber uma mensagem de erro que indique `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, a razão é que um pacote necessário não é criado para o utilizador. Por padrão, a ADF tentará criar um pacote sob a sua designação como o utilizador que usou para ligar ao DB2. Especifique a propriedade de recolha de pacotes para indicar onde pretende que a ADF crie os pacotes necessários ao consultar a base de dados.
+> Se receber uma mensagem `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`de erro que indique , a razão é que um pacote necessário não é criado para o utilizador. Por padrão, a ADF tentará criar um pacote sob a sua designação como o utilizador que usou para ligar ao DB2. Especifique a propriedade de recolha de pacotes para indicar onde pretende que a ADF crie os pacotes necessários ao consultar a base de dados.
 
 **Exemplo:**
 
@@ -105,7 +105,7 @@ As seguintes propriedades são suportadas para o serviço ligado ao DB2:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas por conjunto de dados DB2.
 
@@ -114,9 +114,9 @@ Para copiar dados do DB2, são suportadas as seguintes propriedades:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **Db2Table** | Sim |
-| schema | Nome do esquema. |Não (se for especificada "query" na origem de atividade)  |
-| table | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
-| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Use `schema` e `table` para uma nova carga de trabalho. | Não (se for especificada "query" na origem de atividade) |
+| schema | Nome do esquema. |Não (se for especificada a "consulta" na fonte de atividade)  |
+| tabela | Nome da mesa. |Não (se for especificada a "consulta" na fonte de atividade)  |
+| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` `table` e para nova carga de trabalho. | Não (se for especificada a "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -136,7 +136,7 @@ Para copiar dados do DB2, são suportadas as seguintes propriedades:
 }
 ```
 
-Se estiver a utilizar `RelationalTable` conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
+Se estiver `RelationalTable` a utilizar o conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
@@ -149,7 +149,7 @@ Para copiar dados do DB2, as seguintes propriedades são suportadas na secção 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **Db2Source** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
+| consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -183,38 +183,38 @@ Para copiar dados do DB2, as seguintes propriedades são suportadas na secção 
 ]
 ```
 
-Se estava a usar `RelationalSource` fonte dactilografada, ainda é suportada como está, enquanto é sugerido que utilize o novo para a frente.
+Se estiver `RelationalSource` a usar a fonte dactilografada, continua a ser suportada como está, enquanto é sugerido que utilize o novo para a frente.
 
 ## <a name="data-type-mapping-for-db2"></a>Mapeamento de tipo de dados para DB2
 
 Ao copiar dados do DB2, os seguintes mapeamentos são utilizados desde tipos de dados DB2 para tipos de dados provisórios da Azure Data Factory. Consulte [schema e mapeamentos](copy-activity-schema-and-type-mapping.md) de tipo de dados para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para a pia.
 
-| Tipo de base de dados DB2 | Tipo de dados intermediárias de fábrica de dados |
+| Tipo de base de dados DB2 | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
 | BigInt |Int64 |
 | Binário |Byte[] |
 | Blobs |Byte[] |
-| char |Cadeia |
-| Clob |Cadeia |
-| Data |Datetime |
+| Char |Cadeia |
+| Estação Clob |Cadeia |
+| Date |Datetime |
 | DB2DynArray |Cadeia |
 | DbClob |Cadeia |
-| decimal |decimal |
-| DecimalFloat |decimal |
-| Valor de duplo |Valor de duplo |
-| Float |Valor de duplo |
-| Graphic |Cadeia |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Double |Double |
+| Float |Double |
+| Gráfico |Cadeia |
 | Número inteiro |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Cadeia |
+| LongVarchar |Cadeia |
 | Longvargraphic |Cadeia |
-| Numeric |decimal |
+| Numérico |Decimal |
 | Real |Único |
 | SmallInt |Int16 |
 | Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | VarBinary |Byte[] |
-| VarChar |Cadeia |
+| Rio Varchar |Cadeia |
 | Vargraphic |Cadeia |
 | Xml |Byte[] |
 

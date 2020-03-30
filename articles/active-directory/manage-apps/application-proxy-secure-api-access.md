@@ -12,10 +12,10 @@ ms.date: 02/12/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: ecd5d8bae22d67f8d9f5b99d5c94eecf54a4a1f3
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77165989"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro a APIs no local com procuração de aplicação ad-a.azure
@@ -43,7 +43,7 @@ Uma vez que a autenticação e autorização da Aplicação AD Azure proxy são 
 Para acompanhar este passeio, precisa de:
 
 - Acesso a administrador a um diretório Azure, com uma conta que pode criar e registar apps
-- A amostra web API e aplicativos de clientes nativos de [https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp) 
+- A amostra web API e aplicativos de clientes nativos de[https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp) 
 
 ## <a name="publish-the-api-through-application-proxy"></a>Publicar a API através de Procuração de Aplicações
 
@@ -120,7 +120,7 @@ Para registar a aplicação nativa AppProxyNativeAppSample:
    
 Já registou a aplicação AppProxyNativeAppSample no Diretório Ativo Azure. Para dar acesso à sua aplicação nativa à API web SecretAPI:
 
-1. Na **visão geral** do Diretório Ativo do Azure > página de Registos de **Aplicações,** selecione a aplicação **AppProxyNativeAppSample.** 
+1. Na página de Registos de**Aplicações** de **Visão** > Geral do Diretório Ativo do Azure, selecione a aplicação **AppProxyNativeAppSample.** 
    
 1. Na página **AppProxyNativeAppSample,** selecione **permissões API** na navegação à esquerda. 
    
@@ -157,15 +157,15 @@ O último passo é configurar a aplicação nativa. O seguinte corte do ficheiro
    
 Para configurar a aplicação nativa para ligar ao Azure Ative Directory e ligar para a API App Proxy, atualize os valores do espaço reservado no ficheiro *App.config* da aplicação de amostra NativeClient com valores do Azure AD: 
 
-- Colar a identificação do **Diretório (inquilino)** no campo `<add key="ida:Tenant" value="" />`. Pode encontrar e copiar este valor (um GUID) a partir da página **de visão geral** de qualquer uma das suas aplicações. 
+- Colar a identificação do **Diretório (inquilino)** no `<add key="ida:Tenant" value="" />` terreno. Pode encontrar e copiar este valor (um GUID) a partir da página **de visão geral** de qualquer uma das suas aplicações. 
   
-- Colar o ID appProxyNativeAppSample **Application (cliente)** no campo `<add key="ida:ClientId" value="" />`. Pode encontrar e copiar este valor (um GUID) a partir da página de **visão geral** da AppProxyNativeAppSample.
+- Colar o ID appProxyNativeAppSample **Application (cliente)** no `<add key="ida:ClientId" value="" />` campo. Pode encontrar e copiar este valor (um GUID) a partir da página de **visão geral** da AppProxyNativeAppSample.
   
-- Colar o AppProxyNativeAppSample **Redirecionamento URI** no campo `<add key="ida:RedirectUri" value="" />`. Pode encontrar e copiar este valor (um URI) na página de **autenticação** AppProxyNativeAppSample. 
+- Colar o AppProxyNativeAppSample **Redirecionamento URI** no `<add key="ida:RedirectUri" value="" />` campo. Pode encontrar e copiar este valor (um URI) na página de **autenticação** AppProxyNativeAppSample. 
   
-- Colhe o **ID DE APLICAÇÃO** SecretAPI URI no campo `<add key="todo:TodoListResourceId" value="" />`. Pode encontrar e copiar este valor (um URI) a partir do SecretAPI Expor uma página **aPI.**
+- Colhe o **ID DE APLICAÇÃO** SecretAPI URI no `<add key="todo:TodoListResourceId" value="" />` campo. Pode encontrar e copiar este valor (um URI) a partir do SecretAPI Expor uma página **aPI.**
   
-- Colhe o URL da **Página Inicial** SecretAPI no campo `<add key="todo:TodoListBaseAddress" value="" />`. Pode encontrar e copiar este valor (um URL) na página de **Branding** SecretAPI.
+- Colhe o URL da **página** `<add key="todo:TodoListBaseAddress" value="" />` inicial secretano no campo. Pode encontrar e copiar este valor (um URL) na página de **Branding** SecretAPI.
 
 Depois de configurar os parâmetros, construa e execute a aplicação nativa. Quando seleciona o botão **Sign In,** a aplicação permite-lhe iniciar sessão e, em seguida, exibe um ecrã de sucesso para confirmar que está ligado com sucesso ao SecretAPI.
 

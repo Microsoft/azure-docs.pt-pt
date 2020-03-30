@@ -1,6 +1,6 @@
 ---
-title: Experiências do usuário com o Azure AD Identity Protection
-description: Experiência do usuário de Azure AD Identity Protection
+title: Experiências de utilizador com proteção de identidade Azure AD
+description: Experiência do utilizador da Proteção de Identidade Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -12,76 +12,76 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72887003"
 ---
-# <a name="user-experiences-with-azure-ad-identity-protection"></a>Experiências do usuário com o Azure AD Identity Protection
+# <a name="user-experiences-with-azure-ad-identity-protection"></a>Experiências de utilizador com proteção de identidade Azure AD
 
-Com Azure Active Directory Identity Protection, você pode:
+Com a Proteção de Identidade do Diretório Ativo Azure, pode:
 
-* Exigir que os usuários se registrem na MFA (autenticação multifator) do Azure
-* Automatizar a correção de entradas arriscadas e usuários comprometidos
+* Exigir que os utilizadores se registem para autenticação multi-factor (MFA)
+* Automatizar a reparação de inscrições arriscadas e utilizadores comprometidos
 
-Todas as políticas de proteção de identidade têm um impacto na experiência de entrada para os usuários. Permitir que os usuários se registrem e usem ferramentas como o Azure MFA e a redefinição de senha de autoatendimento pode diminuir o impacto. Essas ferramentas, juntamente com as opções de política apropriadas, oferecem aos usuários uma opção de AutoCorreção quando precisam.
+Todas as políticas de Proteção de Identidade têm impacto no sinal de experiência para os utilizadores. Permitir que os utilizadores se registem e utilizem ferramentas como o Azure MFA e o reset de passwords self-service pode diminuir o impacto. Estas ferramentas, juntamente com as opções políticas adequadas, conferem aos utilizadores uma opção de autorreparação quando precisam.
 
-## <a name="multi-factor-authentication-registration"></a>Registro de autenticação multifator
+## <a name="multi-factor-authentication-registration"></a>Registo de autenticação de vários fatores
 
-Habilitar a política de proteção de identidade que requer o registro da autenticação multifator e direcionar todos os seus usuários garantirá que eles tenham a capacidade de usar o Azure MFA para corrigir automaticamente no futuro. Configurar essa política dá aos seus usuários um período de 14 dias em que eles podem optar por se registrar e, no final, são forçados a se registrar. A experiência para os usuários é descrita abaixo. Mais informações podem ser encontradas na documentação do usuário final no artigo [visão geral da verificação de dois fatores e sua conta corporativa ou de estudante](../user-help/user-help-two-step-verification-overview.md).
+Ativar a política de Proteção de Identidade que exija o registo de autenticação de vários fatores e direciona todos os seus utilizadores, certificar-se-á de que têm a capacidade de utilizar o Azure MFA para se auto-remediarem no futuro. Configurar esta política dá aos seus utilizadores um período de 14 dias onde podem optar por se registar e no final são obrigados a registar-se. A experiência para os utilizadores está descrita abaixo. Mais informações podem ser encontradas na documentação do utilizador final no artigo, [visão geral para verificação de dois fatores e sua conta de trabalho ou escola](../user-help/user-help-two-step-verification-overview.md).
 
-### <a name="registration-interrupt"></a>Interrupção de registro
+### <a name="registration-interrupt"></a>Interrupção de inscrições
 
-1. Ao entrar em qualquer aplicativo integrado ao Azure AD, o usuário recebe uma notificação sobre a necessidade de configurar a conta para autenticação multifator. Essa política também é disparada na experiência do Windows 10 pronta para uso para novos usuários com um novo dispositivo.
+1. No início do início de qualquer aplicação integrada em AD Azure, o utilizador recebe uma notificação sobre a exigência de configurar a conta para autenticação multifactor. Esta política também é desencadeada no Windows 10 out of Box Experience para novos utilizadores com um novo dispositivo.
    
     ![Mais informações necessárias](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
 
-1. Conclua as etapas guiadas para se registrar para a autenticação multifator do Azure e concluir sua entrada.
+1. Complete os passos guiados para se registar para autenticação de multi-factores Azure e complete o seu início de sessão.
 
-## <a name="risky-sign-in-remediation"></a>Correção de entrada arriscada
+## <a name="risky-sign-in-remediation"></a>Reparação de inscrição arriscada
 
-Quando um administrador configurou uma política para riscos de entrada, os usuários afetados são notificados quando tentam entrar e disparam o nível de risco das políticas. 
+Quando um administrador configura uma política de riscos de inscrição, os utilizadores afetados são notificados quando tentam iniciar o sessão e desencadear o nível de risco das políticas. 
 
-### <a name="risky-sign-in-self-remediation"></a>AutoCorreção de entrada arriscada
+### <a name="risky-sign-in-self-remediation"></a>Auto-remediação de inscrição arriscada
 
-1. O usuário é informado de que algo incomum foi detectado sobre sua entrada, como entrar de um novo local, dispositivo ou aplicativo.
+1. O utilizador é informado de que algo de invulgar foi detetado sobre o seu sessão, como iniciar sessão a partir de um novo local, dispositivo ou app.
    
-    ![Algo de aviso incomum](./media/concept-identity-protection-user-experience/120.png)
+    ![Algo incomum de pronta](./media/concept-identity-protection-user-experience/120.png)
 
-1. O usuário precisa provar sua identidade concluindo o Azure MFA com um de seus métodos anteriormente registrados. 
+1. O utilizador é obrigado a provar a sua identidade completando o Azure MFA com um dos seus métodos previamente registados. 
 
-### <a name="risky-sign-in-administrator-unblock"></a>Desbloqueio de administrador de entrada arriscada
+### <a name="risky-sign-in-administrator-unblock"></a>Administrador de inscrição arriscado desbloqueia
 
-Os administradores podem optar por bloquear os usuários após a entrada, dependendo do nível de risco. Para ser desbloqueado, os usuários finais devem entrar em contato com sua equipe de ti ou tentar entrar de um dispositivo ou local familiar. A AutoCorreção executando a autenticação multifator não é uma opção nesse caso.
+Os administradores podem optar por bloquear os utilizadores no momento do sessão, dependendo do seu nível de risco. Para serem desbloqueados, os utilizadores finais devem contactar os seus funcionários de TI, ou podem tentar iniciar sessão a partir de um local ou dispositivo familiar. A autorreparação através da autenticação multifactor não é uma opção neste caso.
 
-![Bloqueado pela política de risco de entrada](./media/concept-identity-protection-user-experience/200.png)
+![Bloqueado por política de risco de inscrição](./media/concept-identity-protection-user-experience/200.png)
 
-A equipe de ti pode seguir as instruções na seção [desbloqueando os usuários](howto-identity-protection-remediate-unblock.md#unblocking-based-on-sign-in-risk) para permitir que os usuários entrem novamente.
+O pessoal de TI pode seguir as instruções na secção [Desbloqueio dos utilizadores](howto-identity-protection-remediate-unblock.md#unblocking-based-on-sign-in-risk) para permitir que os utilizadores voltem a entrar.
 
-## <a name="risky-user-remediation"></a>Remediação de usuário arriscada
+## <a name="risky-user-remediation"></a>Remediação arriscada dos utilizadores
 
-Quando uma política de risco do usuário tiver sido configurada, os usuários que atenderem à probabilidade de comprometimento do nível de risco do usuário deverão passar pelo fluxo de recuperação de comprometimento do usuário antes que possam entrar. 
+Quando uma política de risco do utilizador estiver configurada, os utilizadores que satisfaçam a probabilidade de compromisso do nível de risco do utilizador devem passar pelo fluxo de recuperação de compromisso do utilizador antes de poderem iniciar sessão. 
 
-### <a name="risky-user-self-remediation"></a>AutoCorreção de usuário arriscado
+### <a name="risky-user-self-remediation"></a>Auto-remediação do utilizador arriscado
 
-1. O usuário é informado de que sua segurança de conta está em risco devido à atividade suspeita ou credenciais vazadas.
+1. O utilizador é informado de que a sua segurança da conta está em risco devido a atividade suspeita ou credenciais vazadas.
    
-    ![Corre](./media/concept-identity-protection-user-experience/101.png)
+    ![Remediação](./media/concept-identity-protection-user-experience/101.png)
 
-1. O usuário precisa provar sua identidade concluindo o Azure MFA com um de seus métodos anteriormente registrados. 
-1. Por fim, o usuário é forçado a alterar sua senha usando a redefinição de senha de autoatendimento, já que outra pessoa pode ter tido acesso à sua conta.
+1. O utilizador é obrigado a provar a sua identidade completando o Azure MFA com um dos seus métodos previamente registados. 
+1. Por fim, o utilizador é obrigado a alterar a sua palavra-passe utilizando o reset da palavra-passe self-service, uma vez que outra pessoa pode ter tido acesso à sua conta.
 
-## <a name="risky-sign-in-administrator-unblock"></a>Desbloqueio de administrador de entrada arriscada
+## <a name="risky-sign-in-administrator-unblock"></a>Administrador de inscrição arriscado desbloqueia
 
-Os administradores podem optar por bloquear os usuários após a entrada, dependendo do nível de risco. Para ser desbloqueado, os usuários finais devem entrar em contato com a equipe de ti. A AutoCorreção executando a autenticação multifator e a redefinição de senha de autoatendimento não é uma opção nesse caso.
+Os administradores podem optar por bloquear os utilizadores no momento do sessão, dependendo do seu nível de risco. Para desbloquear, os utilizadores finais devem contactar o seu pessoal de TI. A autorreparação através da autenticação multi-factor e do reset da palavra-passe self-service não é uma opção neste caso.
 
-![Bloqueado pela política de risco do usuário](./media/concept-identity-protection-user-experience/104.png)
+![Bloqueado pela política de risco do utilizador](./media/concept-identity-protection-user-experience/104.png)
 
-A equipe de ti pode seguir as instruções na seção [desbloqueando os usuários](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) para permitir que os usuários entrem novamente.
+O pessoal de TI pode seguir as instruções na secção [Desbloqueio dos utilizadores](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) para permitir que os utilizadores voltem a entrar.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-- [Corrigir riscos e desbloquear usuários](howto-identity-protection-remediate-unblock.md)
+- [Remediar riscos e desbloquear utilizadores](howto-identity-protection-remediate-unblock.md)
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
+- [Proteção de Identidade do Diretório Ativo Azure](../active-directory-identityprotection.md) 

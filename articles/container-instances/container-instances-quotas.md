@@ -4,10 +4,10 @@ description: Quotas, limites e disponibilidade da região do serviço Deocorrên
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: b3e7f2f67d806bd2fca74f58d446b0de9a4b8f44
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77117896"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Quotas e limites para instâncias de contentores azure
@@ -22,7 +22,7 @@ Disponibilidade de recursos de computação, memória e armazenamento para inst�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Podem ser aumentados determinados limites e quotas predefinidos. Para solicitar um aumento de um ou mais recursos que apoiem tal aumento, por favor, apresente um pedido de [apoio Azure][azure-support] (selecione "Quota" para **tipo de emissão).**
+Podem ser aumentados determinados limites e quotas predefinidos. Para pedir um aumento de um ou mais recursos que suportam tal aumento, submeta um [pedido de suporte do Azure][azure-support] (selecione "Quota" no **Tipo de problema**).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

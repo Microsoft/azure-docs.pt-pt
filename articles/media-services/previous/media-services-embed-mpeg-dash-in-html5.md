@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564861"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporar um Vídeo de Streaming Adaptativo MPEG-DASH numa aplicação HTML5 com DASH.js  
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporar um Vídeo de Transmissão em fluxo Adaptivo MPEG-DASH numa Aplicação HTML5 com DASH.js  
 
 ## <a name="overview"></a>Descrição geral
 O MPEG-DASH é um padrão ISO para o streaming adaptativo de conteúdos de vídeo, que oferece benefícios significativos para os desenvolvedores que querem fornecer uma saída de streaming de vídeo adaptável de alta qualidade. Com o MPEG-DASH, o fluxo de vídeo ajusta-se automaticamente a uma definição mais baixa quando a rede fica congestionada. Isto reduz a probabilidade de o espectador ver um vídeo "pausado" enquanto o leitor descarrega os próximos segundos para jogar (isto é, reduz a probabilidade de tampão). À medida que o congestionamento da rede diminui, o leitor de vídeo regressará, por sua vez, a um fluxo de maior qualidade. Esta capacidade de adaptação da largura de banda necessária também resulta num tempo de início mais rápido para o vídeo. Isto significa que os primeiros segundos podem ser jogados num segmento de qualidade mais baixa e, em seguida, subir para uma qualidade mais alta uma vez que o conteúdo suficiente foi tamponado.
@@ -86,7 +86,7 @@ Em seguida, instantiate a classe primária do quadro dash.js, MediaPlayer. Esta 
 
 A função de arranque da classe MediaPlayer é chamada para garantir que o jogador está pronto para reproduzir o vídeo. Entre outras coisas, a função garante que todas as classes necessárias (conforme definido pelo contexto) foram carregadas. Uma vez que o leitor esteja pronto, pode ligar o elemento de vídeo a ele utilizando a função attachView(). A função de arranque permite ao MediaPlayer injetar o fluxo de vídeo no elemento e também controlar a reprodução conforme necessário.
 
-Passe o URL do ficheiro MPD para o MediaPlayer para que saiba sobre o vídeo que se espera que seja reproduzido. A função configuraçãoVideo() acabada de ser executada terá de ser executada uma vez que a página esteja totalmente carregada. Faça-o utilizando o evento de carga do elemento do corpo. Mude o seu elemento `<body>` para:
+Passe o URL do ficheiro MPD para o MediaPlayer para que saiba sobre o vídeo que se espera que seja reproduzido. A função configuraçãoVideo() acabada de ser executada terá de ser executada uma vez que a página esteja totalmente carregada. Faça-o utilizando o evento de carga do elemento do corpo. Mude `<body>` o seu elemento para:
 
 ```html
     <body onload="setupVideo()">
@@ -112,7 +112,7 @@ Para reproduzir um vídeo, aponte o seu navegador para o ficheiro basicPlayback.
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
 
 [Repositório GitHub dash.js](https://github.com/Dash-Industry-Forum/dash.js) 
 

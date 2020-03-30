@@ -9,10 +9,10 @@ ms.author: laobri
 ms.date: 02/24/2020
 ms.topic: reference
 ms.openlocfilehash: d607e2a45c3a13cdb1b6e107158b04f9f10ae83a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77582607"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Notas de lançamento da Máquina Virtual da Ciência dos Dados do Azure

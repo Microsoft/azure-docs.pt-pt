@@ -1,7 +1,7 @@
 ---
-title: Soluções Azure VMware (AVS) - Visão geral das máquinas virtuais
-description: Saiba mais sobre as máquinas virtuais AVS e os seus benefícios.
-titleSuffix: Azure VMware Solutions (AVS)
+title: Visão geral das máquinas virtuais
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Saiba mais sobre as máquinas virtuais CloudSimple e os seus benefícios.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,33 +9,33 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0e6cc6d51e37cea98cc553a236295311d21f595a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024913"
 ---
-# <a name="avs-virtual-machines-overview"></a>Visão geral das máquinas virtuais AVS
+# <a name="cloudsimple-virtual-machines-overview"></a>Visão geral das máquinas virtuais CloudSimple
 
-O AVS permite-lhe gerir máquinas virtuais VMware (VMs) a partir do portal Azure. Um cluster ou um pool de recursos do seu cluster vSphere é gerenciado por meio do Azure, mapeando-o para sua assinatura.
+O CloudSimple permite-lhe gerir máquinas virtuais VMware (VMs) a partir do portal Azure.  Um cluster ou um conjunto de recursos do seu cluster vSphere é gerido através do Azure mapeando-o para a sua subscrição.
 
-Para criar um VM AVS a partir de Azure, um modelo VM deve existir no seu VCenter De Nuvem Privada AVS. O modelo é usado para personalizar o sistema operacional e os aplicativos. A VM de modelo pode ser protegida para atender às políticas de segurança corporativa. Você pode usar o modelo para criar VMs e, em seguida, consumi-las do portal do Azure usando um modelo de autoatendimento.
+Para criar um VM CloudSimple a partir de Azure, um modelo VM deve existir no seu vCenter De Nuvem Privada.  O modelo é usado para personalizar o sistema operativo e aplicações.  O modelo VM pode ser endurecido para atender às políticas de segurança da empresa.  Pode usar o modelo para criar VMs e depois consumi-los a partir do portal Azure usando um modelo de self-service.
 
 ## <a name="benefits"></a>Vantagens
 
-As máquinas virtuais AVS do portal Azure fornecem um mecanismo de self-service para os utilizadores criarem e gerirem máquinas virtuais VMware.
+As máquinas virtuais CloudSimple do portal Azure fornecem um mecanismo de self-service para os utilizadores criarem e gerirem máquinas virtuais VMware.
 
-* Crie um VM AVS no seu VCenter De Nuvem Privada AVS
-* Gerenciar Propriedades da VM
+* Crie um VM CloudSimple no seu vCenter de Nuvem Privada
+* Gerir propriedades VM
   * Adicionar/remover discos
   * Adicionar/remover NICs
-* Operações de energia do seu VM AVS
-  * Ligar e desligar
-  * Redefinir VM
-* Excluir VM
+* Operações de energia do seu CloudSimple VM
+  * Energia e desligar
+  * Repor VM
+* Eliminar VM
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
-* Saiba como [mapear sua assinatura do Azure](azure-subscription-mapping.md)
+* Saiba como mapear a [sua subscrição do Azure](azure-subscription-mapping.md)

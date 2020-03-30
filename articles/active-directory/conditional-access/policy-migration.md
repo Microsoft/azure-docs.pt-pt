@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77185915"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Acesso Condicional migração política clássica
@@ -33,7 +33,7 @@ Este artigo explica o que precisa de saber para migrar as suas políticas de Ace
 
 ## <a name="classic-policies"></a>Políticas clássicas
 
-No [portal Azure,](https://portal.azure.com)as políticas de Acesso Condicional podem ser encontradas no **diretório Ativo do Azure** > **Segurança** > **Acesso Condicional.** A sua organização também pode ter políticas de Acesso Condicional mais antigas não criadas usando esta página. Estas políticas são conhecidas como *políticas clássicas.* As políticas clássicas são políticas de Acesso Condicional, criadas em:
+No [portal Azure,](https://portal.azure.com)as políticas de Acesso Condicional podem ser encontradas no âmbito do**Acesso Condicional**à**Segurança** >  **do Diretório** > Ativo do Azure. A sua organização também pode ter políticas de Acesso Condicional mais antigas não criadas usando esta página. Estas políticas são conhecidas como *políticas clássicas.* As políticas clássicas são políticas de Acesso Condicional, criadas em:
 
 - O portal clássico azure
 - O portal clássico intune

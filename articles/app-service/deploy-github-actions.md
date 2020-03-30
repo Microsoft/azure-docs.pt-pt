@@ -7,10 +7,10 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.openlocfilehash: 4a8b3cf47235e061e5dbcc08a409fce84d421771
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562212"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implemente para o Serviço de Aplicações usando ações GitHub
@@ -21,14 +21,14 @@ ms.locfileid: "77562212"
 > A GitHub Actions está atualmente em versão beta. Primeiro deve [inscrever-se para se juntar à pré-visualização](https://github.com/features/actions) utilizando a sua conta GitHub.
 > 
 
-Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho `/.github/workflows/` no seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
+Um fluxo de trabalho é definido por um ficheiro `/.github/workflows/` YAML (.yml) no caminho do seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
 
 Para um fluxo de trabalho do Serviço de Aplicações Azure, o ficheiro tem três secções:
 
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. Definir um diretor de serviço <br /> 2. Criar um segredo GitHub |
-|**Construir** | 1. Criar o ambiente <br /> 2. Construir a aplicação web |
+|**Compilação** | 1. Criar o ambiente <br /> 2. Construir a aplicação web |
 |**Implementar** | 1. Implementar a aplicação web |
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
@@ -53,13 +53,13 @@ Também pode utilizar credenciais de nível de aplicações, ou seja, publicar o
 
 1. Descarregue o perfil de publicação da aplicação App Service a partir do portal utilizando a opção **de perfil Get Publish.**
 
-2. No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Secrets > Adicione um novo segredo**
+2. No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Segredos > Adicione um novo segredo**
 
     ![segredos](media/app-service-github-actions/secrets.png)
 
 3. Colhe o conteúdo do ficheiro de perfil de publicação descarregado no campo de valor do segredo.
 
-4. Agora, no ficheiro workflow no seu ramo: `.github/workflows/workflow.yml` substituir o segredo para a entrada `publish-profile` da implementação da aplicação Da Web Web do Azure.
+4. Agora, no ficheiro workflow `.github/workflows/workflow.yml` no seu ramo: `publish-profile` substitua o segredo para a entrada da ação da Implementação da Web App azure.
     
     ```yaml
         - uses: azure/webapps-deploy@v1
@@ -75,12 +75,12 @@ Também pode utilizar credenciais de nível de aplicações, ou seja, publicar o
 
 A criação do ambiente pode ser feita utilizando uma das ações de configuração.
 
-|**Language** (Idioma)  |**Ação de configuração**  |
+|**Língua**  |**Ação de configuração**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
 |**JavaScript** | `actions/setup-node` |
-|**python**     | `actions/setup-python` |
+|**Pitão**     | `actions/setup-python` |
 
 Os seguintes exemplos mostram a parte do fluxo de trabalho que cria o ambiente para as várias línguas apoiadas:
 
@@ -92,7 +92,7 @@ Os seguintes exemplos mostram a parte do fluxo de trabalho que cria o ambiente p
       with:
         node-version: '10.x'
 ```
-**python**
+**Pitão**
 
 ```yaml
     - name: Setup Python 3.6
@@ -142,7 +142,7 @@ Os exemplos seguintes mostram a parte do fluxo de trabalho que constrói a aplic
         popd
 ```
 
-**python**
+**Pitão**
 
 ```yaml
     - name: 'Run pip'
@@ -182,7 +182,7 @@ Os exemplos seguintes mostram a parte do fluxo de trabalho que constrói a aplic
 ```
 ## <a name="deploy-to-app-service"></a>Implementar no Serviço de Aplicações
 
-Para implementar o seu código numa aplicação do App Service, utilize a ação `azure/webapps-deploy@v1 `. Esta ação tem quatro parâmetros:
+Para implementar o seu código numa `azure/webapps-deploy@v1 ` aplicação do App Service, utilize a ação. Esta ação tem quatro parâmetros:
 
 | **Parâmetro**  | **Explicação**  |
 |---------|---------|
@@ -274,7 +274,7 @@ Pode encontrar o nosso conjunto de Ações agrupadas em diferentes repositórios
 
 - [Ações fluxo de trabalho para implantar para Azure](https://github.com/Azure/actions-workflow-samples)
 
-- [Login azure](https://github.com/Azure/login)
+- [Início de sessão no Azure](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
 

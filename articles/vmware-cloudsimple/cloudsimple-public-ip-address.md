@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - Endereço IP público
-description: Conheça os endereços IP públicos e os seus benefícios em Soluções Azure VMware (AVS)
+title: Solução Azure VMware by CloudSimple - Endereço IP público
+description: Conheça os endereços IP públicos e os seus benefícios na Solução Azure VMware by CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cb9d0e33da4447760ae0be216c1dd9868c498bd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024981"
 ---
-# <a name="avs-public-ip-address-overview"></a>Visão geral do endereço IP público da AVS
+# <a name="cloudsimple-public-ip-address-overview"></a>CloudSimple visão geral do endereço IP público
 
-Um endereço IP público permite que os recursos da Internet comuniquem os recursos da AVS Private Cloud num endereço IP privado. O endereço IP privado é uma máquina virtual ou um balancer de carga de software no seu VCenter De Nuvem Privada AVS. O endereço IP público permite-lhe expor serviços que estão a funcionar na sua Nuvem Privada AVS à internet.
+Um endereço IP público permite que os recursos da Internet comuniquem os recursos da Cloud Privada num endereço IP privado. O endereço IP privado é uma máquina virtual ou um balancer de carga de software no seu vCenter Private Cloud. O endereço IP público permite-lhe expor serviços que correm na sua Cloud Privada à internet.
 
 O endereço IP público é dedicado ao endereço IP privado até que o desalestá. Um endereço IP público só pode ser atribuído a um endereço IP privado.
 
