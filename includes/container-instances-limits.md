@@ -4,29 +4,29 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
-ms.openlocfilehash: 055fbc652d0d72925cccfae40efff8b8eef2a8c2
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 33a82a55b03cde79d2d80826041ee6d43565476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904470"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334604"
 ---
-| Recurso | Limite predefinido |
+| Recurso | Limite |
 | --- | :--- |
-| Grupos de contêineres SKU padrão por região por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
-| Grupos de contêineres de SKU dedicados por região por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) | 0<sup>1</sup> |
+| Grupos de contentores padrão sku por região por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
+| Grupos de contentores sku dedicados por região por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) | 0<sup>1</sup> |
 | Número de contentores por grupo de contentores | 60 |
 | Número de volumes por grupo de contentores | 20 |
 | Portas por IP | 5 |
-| Tamanho do log da instância de contêiner-instância em execução | 4 MB |
-| Tamanho do log da instância de contêiner-instância interrompida | 16 KB ou 1.000 linhas |
+| Tamanho do registo da instância do recipiente - instância de execução | 4 MB |
+| Tamanho do registo da instância do recipiente - instância parada | 16 KB ou 1.000 linhas |
 | Contentor cria por hora |300<sup>1</sup> |
 | Contentor cria por 5 minutos | 100<sup>1</sup> |
 | Contentor elimina por hora | 300<sup>1</sup> |
 | Contentor elimina por 5 minutos | 100<sup>1</sup> |
 
 
-<sup>1</sup> Para solicitar um aumento de limite, crie um [solicitação de suporte do Azure][azure-support].<br />
+<sup>1</sup> Para solicitar um aumento de limite, crie um pedido de [apoio azure.][azure-support]<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

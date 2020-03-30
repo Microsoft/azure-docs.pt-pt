@@ -1,19 +1,19 @@
 ---
 title: Cobertura meteorológica Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre a cobertura meteorológica no Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fdae00a07b364252ae6d297a6df5eb242beac262
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207949"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333576"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura meteorológica do Azure Maps
 
@@ -30,9 +30,9 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 
 ## <a name="americas"></a>Américas
 
-| País/região              |  Azulejos via satélite | Previsão do Minuto, Azulejos de Radar | Outros* | 
+| Pais/região              |  Azulejos via satélite | Previsão do Minuto, Azulejos de Radar | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
-| Anguilla                                 | ✓ |   |  ✓| 
+| Anguila                                 | ✓ |   |  ✓| 
 | Antártica                               | ✓ |   |  ✓|
 | Antígua e Barbuda                      | ✓ |   |  ✓| 
 | Argentina                                | ✓ |   |  ✓| 
@@ -51,7 +51,7 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | Colômbia                                 | ✓ |   |  ✓| 
 | Costa Rica                               | ✓ |   |  ✓| 
 | Cuba                                     | ✓ |   |  ✓| 
-| Curaçao                                  | ✓ |   |  ✓| 
+| Curaçau                                  | ✓ |   |  ✓| 
 | Dominica                                 | ✓ |   |  ✓| 
 | República Dominicana                       | ✓ |   |  ✓| 
 | Equador                                  | ✓ |   |  ✓| 
@@ -68,7 +68,7 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | Jamaica                                  | ✓ |   |  ✓| 
 | Martinica                               | ✓ |   |  ✓| 
 | México                                   | ✓ |   |  ✓| 
-| Montserrat                               | ✓ |   |  ✓| 
+| Montserrate                               | ✓ |   |  ✓| 
 | Nicarágua                                | ✓ |   |  ✓| 
 | Panamá                                   | ✓ |   |  ✓| 
 | Paraguai                                 | ✓ |   |  ✓| 
@@ -77,11 +77,11 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | São Barthélemy                         | ✓ |   |  ✓| 
 | São Cristóvão e Neves                    | ✓ |   |  ✓| 
 | Santa Lúcia                              | ✓ |   |  ✓| 
-| São Martinho                             | ✓ |   |  ✓| 
+| São Martinho (Saint Martin)                             | ✓ |   |  ✓| 
 | São Pierre e Miquelon                | ✓ |   |  ✓| 
 | São Vicente e Granadinas         | ✓ |   |  ✓| 
 | Sint Eustatius                           | ✓ |   |  ✓|  
-| Sint Maarten                             | ✓ |   |  ✓| 
+| São Martinho (Sint Maarten)                             | ✓ |   |  ✓| 
 | Ilhas Sandwich do Sul e do Sul | ✓ |   |  ✓| 
 | Suriname                                 | ✓ |   |  ✓| 
 | Trindade e Tobago                      | ✓ |   |  ✓| 
@@ -95,7 +95,7 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 
 ## <a name="middle-east-and-africa"></a>Médio Oriente e África
 
-| País/região              |  Azulejos via satélite | Previsão do Minuto, Azulejos de Radar | Outros* | 
+| Pais/região              |  Azulejos via satélite | Previsão do Minuto, Azulejos de Radar | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Argélia                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
@@ -108,17 +108,17 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | Camarões                    | ✓               |                              |        ✓| 
 | Cabo Verde                  | ✓               |                              |        ✓| 
 | República Centro-Africana    | ✓               |                              |        ✓| 
-| Rio Chade                        | ✓               |                              |        ✓| 
-| Comores                     | ✓               |                              |        ✓| 
-| Congo (RDC)                 | ✓               |                              |        ✓|
+| Chade                        | ✓               |                              |        ✓| 
+| Comoros                     | ✓               |                              |        ✓| 
+| República Democrática do Congo                 | ✓               |                              |        ✓|
 | Costa do Marfim               | ✓               |                              |        ✓| 
-| Djibuti                    | ✓               |                              |        ✓| 
+| Jibuti                    | ✓               |                              |        ✓| 
 | Egito                       | ✓               |                              |        ✓| 
 | Guiné Equatorial           | ✓               |                              |        ✓| 
 | Eritreia                     | ✓               |                              |        ✓| 
 | eSwatini                    | ✓               |                              |        ✓| 
 | Etiópia                    | ✓               |                              |        ✓| 
-| Territórios do Sul franceses | ✓               |                              |        ✓| 
+| Territórios Austrais Franceses | ✓               |                              |        ✓| 
 | Gabão                       | ✓               |                              |        ✓| 
 | Gâmbia                      | ✓               |                              |        ✓| 
 | Gana                       | ✓               |                              |        ✓| 
@@ -139,7 +139,7 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | Mali                        | ✓               |                              |        ✓| 
 | Mauritânia                  | ✓               |                              |        ✓| 
 | Maurícia                   | ✓               |                              |        ✓| 
-| Mayotte                     | ✓               |                              |        ✓| 
+| Maiote                     | ✓               |                              |        ✓| 
 | Marrocos                     | ✓               |                              |        ✓| 
 | Moçambique                  | ✓               |                              |        ✓| 
 | Namíbia                     | ✓               |                              |        ✓| 
@@ -154,7 +154,7 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | São Tomé e Príncipe       | ✓               |                              |        ✓| 
 | Arábia Saudita                | ✓               |                              |        ✓| 
 | Senegal                     | ✓               |                              |        ✓| 
-| Seychelles                  | ✓               |                              |        ✓| 
+| Seicheles                  | ✓               |                              |        ✓| 
 | Serra Leoa                | ✓               |                              |        ✓| 
 | Somália                     | ✓               |                              |        ✓| 
 | África do Sul                | ✓               |                              |        ✓| 
@@ -174,23 +174,23 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 
 ## <a name="asia-pacific"></a>Ásia-Pacífico
 
-| País/região              |  Azulejos via satélite | Previsão do Minuto, Azulejos de Radar | Outros* | 
+| Pais/região              |  Azulejos via satélite | Previsão do Minuto, Azulejos de Radar | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afeganistão                       | ✓ |   |  ✓| 
 | Samoa Americana                    | ✓ |   |  ✓| 
 | Austrália                         | ✓ | ✓ |  ✓| 
 | Bangladeche                        | ✓ |   |  ✓| 
 | Butão                            | ✓ |   |  ✓| 
-| Território britânico do Oceano Índico    | ✓ |   |  ✓| 
-| Rio Brunei                            | ✓ |   |  ✓| 
+| Território Britânico do Oceano Índico    | ✓ |   |  ✓| 
+| Brunei                            | ✓ |   |  ✓| 
 | Camboja                          | ✓ |   |  ✓| 
 | China                             | ✓ | ✓ |  ✓| 
-| Ilha de Natal                  | ✓ |   |  ✓| 
-| Ilhas Cocos (Keeling)           | ✓ |   |  ✓| 
+| Ilha do Natal                  | ✓ |   |  ✓| 
+| Ilhas dos Cocos (Keeling)           | ✓ |   |  ✓| 
 | Ilhas Cook                      | ✓ |   |  ✓| 
 | Fiji                              | ✓ |   |  ✓| 
 | Polinésia Francesa                  | ✓ |   |  ✓| 
-| Rio Guam                              | ✓ |   |  ✓| 
+| Guame                              | ✓ |   |  ✓| 
 | Ilha Heard e Ilhas McDonald | ✓ |   |  ✓| 
 | RAE de Hong Kong                     | ✓ |   |  ✓| 
 | Índia                             | ✓ |   |  ✓| 
@@ -210,15 +210,15 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | Myanmar                           | ✓ |   |  ✓| 
 | Nauru                             | ✓ |   |  ✓| 
 | Nepal                             | ✓ |   |  ✓| 
-| Nova Caledonia                     | ✓ |   |  ✓| 
+| Nova Caledónia                     | ✓ |   |  ✓| 
 | Nova Zelândia                       | ✓ |   |  ✓| 
-| Rio Niue                              | ✓ |   |  ✓| 
+| Niuê                              | ✓ |   |  ✓| 
 | Ilha Norfolk                    | ✓ |   |  ✓| 
 | Coreia do Norte                       | ✓ |   |  ✓| 
 | Ilhas Marianas do Norte          | ✓ |   |  ✓| 
 | Paquistão                          | ✓ |   |  ✓| 
 | Palau                             | ✓ |   |  ✓| 
-| Papua Nova Guiné                  | ✓ |   |  ✓| 
+| Papua-Nova Guiné                  | ✓ |   |  ✓| 
 | Filipinas                       | ✓ |   |  ✓| 
 | Ilhas Pitcairn                  | ✓ |   |  ✓| 
 | Samoa                             | ✓ |   |  ✓| 
@@ -229,10 +229,10 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | Tajiquistão                        | ✓ |   |  ✓| 
 | Tailândia                          | ✓ |   |  ✓| 
 | Timor-Leste                       | ✓ |   |  ✓| 
-| Rio Tokelau                           | ✓ |   |  ✓| 
+| Toquelau                           | ✓ |   |  ✓| 
 | Tonga                             | ✓ |   |  ✓| 
 | Turquemenistão                      | ✓ |   |  ✓| 
-| Rio Tuvalu                            | ✓ |   |  ✓| 
+| Tuvalu                            | ✓ |   |  ✓| 
 | Uzbequistão                        | ✓ |   |  ✓| 
 | Vanuatu                           | ✓ |   |  ✓| 
 | Vietname                           | ✓ |   |  ✓| 
@@ -241,7 +241,7 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 
 ## <a name="europe"></a>Europa
 
-| País/região              |  Azulejos via satélite | Previsão do Minuto, Azulejos de Radar | Outros* | 
+| Pais/região              |  Azulejos via satélite | Previsão do Minuto, Azulejos de Radar | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albânia                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
@@ -264,7 +264,7 @@ A tabela seguinte fornece informações sobre que tipo de informação meteorol�
 | Alemanha                | ✓ | ✓ |  ✓| 
 | Gibraltar              | ✓ | ✓ |  ✓| 
 | Grécia                 | ✓ |   |  ✓| 
-| Guernsey               | ✓ |   |  ✓| 
+| Guernesey               | ✓ |   |  ✓| 
 | Hungria                | ✓ | ✓ |  ✓| 
 | Islândia                | ✓ |   |  ✓| 
 | Irlanda                | ✓ | ✓ |  ✓| 

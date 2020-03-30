@@ -1,134 +1,133 @@
 ---
-title: Painel de pedidos do Partner Center na análise do Marketplace comercial
-description: Saiba como acessar relatórios analíticos sobre seus pedidos de oferta do Marketplace em um formato gráfico e baixável.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Partner Center Orders dashboard in Commercial Marketplace analytics
+description: Saiba como aceder a relatórios analíticos sobre o seu marketplace, oferecem encomendas num formato gráfico e descarregável.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: bf4b48fafa5b877053abe653b569cf27eb50d57b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75481064"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281413"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de pedidos na análise do Marketplace comercial
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de encomendas na análise do Mercado Comercial
 
-Este artigo fornece informações sobre o **painel de pedidos** no Partner Center. Esse painel exibe informações sobre seus pedidos em um formato gráfico e baixável.
+Este artigo fornece informações sobre o **dashboard encomendas** no Partner Center. Este dashboard exibe informações sobre as suas encomendas num formato gráfico e descarregável.
 
-Para acessar o **painel pedidos** nas ferramentas de análise do Partner Center, abra o **[painel analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace comercial.
+Para aceder ao **dashboard De Encomendas** nas ferramentas de análise do Partner Center, abra o dashboard **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no âmbito do Mercado Comercial.
 
 >[!NOTE]
-> Para obter definições detalhadas de terminologia de análise, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+> Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise](./faq-terminology.md)do Mercado Comercial.
 
 ## <a name="orders-dashboard"></a>Dashboard de pedidos
 
-O **painel Orders** do menu **analisar** exibe os pedidos atuais para todas as suas ofertas de SaaS. Você pode exibir representações gráficas dos seguintes itens:
+O **dashboard Encomendas** do menu **Analyze** exibe as encomendas atuais para todas as suas ofertas SaaS. Pode ver representações gráficas dos seguintes itens:
 
-- [Resumo do pedido](#order-summary)
-- [Pedidos por geografia](#orders-by-geography)
-- [Pedidos por ofertas](#orders-by-offers)
-- [Tendência de pedidos por site versus por estação](#orders-trend-per-site-versus-per-seat)
-- [Pedidos por SKUs](#orders-by-skus)
-- [Tendência de pedidos e estações](#orders-and-seats-trend)
-- [Tabela de detalhes do pedido](#order-details-table)
+- [Resumo da ordem](#order-summary)
+- [Encomendas por geografia](#orders-by-geography)
+- [Encomendas por ofertas](#orders-by-offers)
+- [Tendência de encomendas por site versus por assento](#orders-trend-per-site-versus-per-seat)
+- [Encomendas por SKUs](#orders-by-skus)
+- [Tendência de encomendas e lugares](#orders-and-seats-trend)
+- [Tabela de detalhes de encomenda](#order-details-table)
 
 > [!NOTE]
-> Há diferenças entre o modo como os relatórios de análise são exibidos no Portal do Cloud Partner (CPP) e no novo programa do Marketplace comercial no Partner Center. Uma maneira específica é que o **vendedor insights** em cpp tem uma guia **Orders & Usage** , que exibe dados para ofertas baseadas em uso e ofertas não baseadas em uso. No Partner Center, a página **pedidos** tem uma guia separada para ofertas de SaaS.
+> Existem diferenças entre a forma como os relatórios de análise apresentam no Portal dos Parceiros da Nuvem (CPP) e o novo programa de Marketplace Comercial no Partner Center. Uma forma específica é que o **Seller Insights** em CPP tem um separador **de utilização & Encomendas,** que apresenta dados para ofertas baseadas na utilização e ofertas não baseadas em uso. No Partner Center, a página **Encomendas** tem um separador para Ofertas SaaS.
 
-## <a name="order-dashboard-details"></a>Detalhes do painel do pedido
+## <a name="order-dashboard-details"></a>Encomende detalhes do dashboard
 
-Esta seção descreve os relatórios de análise em mais detalhes.
+Esta secção descreve os relatórios de análise mais detalhadamente.
 
-### <a name="order-summary"></a>Resumo do pedido
+### <a name="order-summary"></a>Resumo da encomenda
 
-A seção Resumo do pedido exibe uma contagem de todos os pedidos comprados (excluindo pedidos cancelados), pedidos cancelados e estações.
+A secção Resumo da Encomenda apresenta uma contagem de todas as encomendas adquiridas (excluindo encomendas canceladas), encomendas canceladas e lugares.
 
-O valor percentual ao lado de pedidos totais representa a quantidade de crescimento do intervalo de datas selecionado.
+O valor percentual próximo do Total de Encomendas representa a quantidade de crescimento da gama de datas selecionada.
 
-![Resumo do pedido de análise do Partner Center](./media/order-summary.png)
+![Resumo da ordem do Partner Center Analise](./media/order-summary.png)
 
-- Um triângulo verde apontando para cima indica uma tendência de crescimento positivo.
-- Um triângulo vermelho apontando para baixo indica uma tendência de crescimento negativo relativa ao mês anterior.
-- As tendências de crescimento são representadas por gráficos micro bar. Você pode exibir o valor de cada mês passando o mouse sobre as colunas dentro do gráfico.
-- Pedidos cancelados são uma contagem de pedidos que foram comprados anteriormente e cancelados durante o intervalo de datas selecionado.
-- Estações são uma contagem de estações criadas durante o intervalo de datas selecionado.
+- Um triângulo verde apontando para cima indica uma tendência de crescimento positiva.
+- Um triângulo vermelho que aponta para baixo indica uma tendência de crescimento negativa em relação ao mês anterior.
+- As tendências de crescimento são representadas por gráficos de micro barras. Pode mostrar o valor por cada mês pairando sobre as colunas dentro da tabela.
+- As encomendas canceladas são uma contagem de encomendas que foram previamente adquiridas e depois canceladas durante o intervalo de datas selecionadas.
+- Os assentos são uma contagem de lugares criados durante a gama de datas selecionadas.
 
-### <a name="orders-by-geography"></a>Pedidos por geografia
+### <a name="orders-by-geography"></a>Encomendas por geografia
 
-O calor dos **pedidos por geografia** exibe uma contagem de seus pedidos em um mapa mundial e mostra os assentos mapeados com base no país do cliente. Esse calor funciona da mesma forma que o **[cliente pela geografia calor](./customer-dashboard.md#customer-by-geography)** .
+As Encomendas por mapa de **calor de geografia** exibem uma contagem das suas encomendas num mapa mundial e mostram lugares mapeados com base no País do Cliente. Este mapa de calor funciona da mesma forma que o **[Cliente por mapa de calor de geografia.](./customer-dashboard.md#customer-by-geography)**
 
-![Partner Center analisar pedidos por geografia](./media/orders-by-geography.png)
+![Partner Center Analisar encomendas por geografia](./media/orders-by-geography.png)
 
-### <a name="orders-by-offers"></a>Pedidos por ofertas
+### <a name="orders-by-offers"></a>Encomendas por ofertas
 
-Os **pedidos por oferece** gráficos de rosca organizam ordens (incluindo pedidos cancelados) de acordo com seus nomes de oferta.
+As **Encomendas por ofertas** do nut graph organizam encomendas (incluindo encomendas canceladas) de acordo com os seus nomes de oferta.
 
-- As principais ofertas são exibidas no grafo e o restante das ofertas é agrupado como ' Rest all'.
-- Você pode selecionar ofertas específicas na legenda para exibir somente as ofertas no grafo.
-- Passar o mouse sobre uma fatia no grafo exibirá o número de pedidos e a porcentagem dessa oferta, em comparação com o número total de pedidos em todas as ofertas.
-- Os **pedidos por ofertas de tendência** exibem as tendências de crescimento mês a mês. A coluna mês representa o número de pedidos por nome de oferta. O gráfico de linhas exibe a tendência de percentual de crescimento plotada em um eixo z.
-- Você pode usar o controle deslizante na parte superior do gráfico para rolar para a direita e para a esquerda ao longo do eixo x e se concentrar em pontos de dados específicos.
-- Você pode exibir o gráfico de tendência selecionando um item específico na legenda.
-- Você também pode optar por exibir tendências e dados para **pedidos cancelados**. O grafo funcionará da mesma maneira que o grafo **Orders by offers** .
+- As ofertas superiores são apresentadas no gráfico e as restantes ofertas são agruparadas como 'Rest All'.
+- Pode selecionar ofertas específicas na legenda para exibir apenas as ofertas no gráfico.
+- Pairar sobre uma fatia no gráfico mostrará o número de encomendas e percentagem dessa oferta em comparação com o seu número total de encomendas em todas as ofertas.
+- As **encomendas por ofertas de tendência** mostram tendências de crescimento mensais. A coluna mensal representa o número de encomendas por nome de oferta. O gráfico de linha mostra a tendência percentual de crescimento traçada num eixo z.
+- Pode utilizar o slider na parte superior da tabela para rolar para a direita e para a esquerda ao longo do eixo x e concentrar-se em pontos de dados específicos.
+- Pode exibir o gráfico de tendências selecionando um item específico na legenda.
+- Também pode optar por apresentar tendências e dados para **encomendas canceladas.** O gráfico funcionará da mesma forma que as encomendas por gráfico de **ofertas.**
 
-### <a name="orders-trend-per-site-versus-per-seat"></a>Tendência de pedidos por site versus por estação
+### <a name="orders-trend-per-site-versus-per-seat"></a>Encomendas Tendência por site versus por assento
 
-O gráfico de rosca **por site versus por estação** representa a divisão de SaaS por site e pedidos de SaaS por estação adquiridos pelos clientes (este gráfico inclui pedidos cancelados). O gráfico de colunas representa a tendência de SaaS por site e pedidos de SaaS por estação adquiridos pelos clientes (este gráfico inclui pedidos cancelados).
+O gráfico de donut **por site versus assento** representa a desagregação de por site SaaS e por assento As encomendas SaaS compradas pelos clientes (este gráfico inclui encomendas canceladas). O gráfico de colunas representa a tendência de por site SaaS e por assento as encomendas SaaS compradas pelos clientes (este gráfico inclui encomendas canceladas).
 
-### <a name="orders-by-skus"></a>Pedidos por SKUs
+### <a name="orders-by-skus"></a>Encomendas por SKUs
 
-O gráfico **pedidos por SKUs** representa a tendência de pedidos no nível de SKU (unidade de manutenção de estoque) para todas as suas ofertas (isso inclui pedidos cancelados). O gráfico de rosca representa a divisão das cinco principais ordens de SKU e o gráfico de colunas representa a tendência de pedidos para as cinco SKUs principais.
+O gráfico de **Encomendas por SKUs** representa a tendência das encomendas ao nível da Unidade de Armazenamento de Stock (SKU) para todas as suas ofertas (isto inclui encomendas canceladas). O gráfico de donuts representa a desagregação das cinco principais encomendas SKU e o gráfico de colunas representa a tendência das encomendas para os cinco principais SKUs.
 
-### <a name="orders-and-seats-trend"></a>Tendência de pedidos e estações
+### <a name="orders-and-seats-trend"></a>Tendência encomendas e assentos
 
-O gráfico de **tendência de pedidos e estações** apresenta as principais ofertas de 50 com o maior número de pedidos. Eles são exibidos em um tabuleiro de preenchimento e são classificados por contagem de pedidos e porcentagem de pedidos mais altos.
+O gráfico de tendências de **encomendas e assentos** apresenta as 50 melhores ofertas com o maior número de encomendas. Estes são exibidos num quadro de líderes e são classificados pela maior contagem de encomendas e percentagem de encomendas.
 
-- **Pedidos por SKUs**: selecione uma oferta para exibir a divisão da contagem de pedidos das cinco principais SKUs no gráfico.
-- **Estações por SKUs**: a tendência mensal de estações para as cinco SKUs principais. Se a oferta selecionada não for uma oferta por estação, você não verá nenhum dado nesse gráfico de área.
+- **Encomendas por SKUs**: Selecione uma oferta para visualizar a contagem de encomendas para os cinco melhores SKUs da tabela.
+- **Assentos por SKUs**: A tendência mensal de lugares para os cinco melhores SKUs. Se a oferta que selecionar não for uma oferta por assento, não verá quaisquer dados nesta tabela de área.
 
 ### <a name="canceled-orders-by-offers"></a>Pedidos cancelados por ofertas
 
-As **ordens canceladas por ofertas** de gráfico de pizza organizam todas as suas ordens canceladas de acordo com seus nomes de oferta. As principais ofertas são exibidas no grafo e o restante das ofertas é agrupado como "Rest". Você pode selecionar ofertas específicas na legenda para exibir no grafo.
+As **encomendas canceladas por ofertas** de gráfico de tarteorganizatodas as suas encomendas canceladas de acordo com os nomes das suas ofertas. As principais ofertas são exibidas no gráfico e as restantes ofertas são agruparadas como "Rest All". Pode selecionar ofertas específicas na legenda para exibir no gráfico.
 
-- Passar o mouse sobre uma fatia no grafo exibirá o número de pedidos e a porcentagem da oferta selecionada, em comparação com o número total de pedidos em todas as ofertas.
-- O gráfico de colunas exibe as tendências mês a mês. As colunas representam o número de pedidos cancelados por nome de oferta. Você pode usar o controle deslizante na parte superior do gráfico para rolar para a direita e para a esquerda ao longo do eixo x e se concentrar em pontos de dados específicos. Você pode exibir o gráfico de tendência selecionando um item específico na legenda.
+- Pairar sobre uma fatia no gráfico mostrará o número de encomendas e a percentagem da oferta selecionada em comparação com o número total de encomendas em todas as ofertas.
+- O gráfico da coluna apresenta tendências mensais. As colunas representam o número de encomendas canceladas pelo nome da oferta. Pode utilizar o slider em cima da tabela para rolar para a direita e para a esquerda ao longo do eixo x e concentrar-se em pontos de dados específicos. Pode exibir o gráfico de tendências selecionando um item específico na legenda.
 
-### <a name="order-details-table"></a>Tabela de detalhes do pedido
+### <a name="order-details-table"></a>Tabela de detalhes de encomenda
 
-A tabela detalhes do pedido exibe uma lista numerada dos 1000 principais pedidos classificados por data de aquisição.
+A tabela de detalhes da Ordem apresenta uma lista numerada das 1000 encomendas de topo ordenadas por data de aquisição.
 
-- Cada coluna na grade é classificável.
-- Os dados podem ser extraídos para um arquivo TSV se a contagem dos registros for menor que 1000.
-- Se o número de registros acima de 1000, os dados exportados serão colocados de forma assíncrona em uma página de downloads para os próximos 30 dias.
-- Os filtros podem ser aplicados à **tabela detalhes do pedido** para exibir apenas os dados nos quais você está interessado. Os dados podem ser filtrados por país, tipo de licença do Azure, tipo de licença do Marketplace, tipo de oferta, status do pedido, trilhas gratuitas, ID da assinatura do Marketplace, ID do cliente e nome da empresa.
+- Cada coluna na grelha é ordenada.
+- Os dados podem ser extraídos para um ficheiro TSV se a contagem dos registos for inferior a 1000.
+- Se os registos forem superiores a 1000, os dados exportados serão colocados assincronicamente numa página de downloads durante os próximos 30 dias.
+- Os filtros podem ser aplicados na **tabela de detalhes** da Encomenda para mostrar apenas os dados que lhe interessam. Os dados podem ser filtrados pelo Country, do tipo de licença Azure, do tipo de licença marketplace, do tipo de oferta, do estado da Encomenda, dos trilhos gratuitos, do ID de subscrição do Marketplace, do ID do cliente e do nome da Empresa.
 
-#### <a name="orders-page-filters"></a>Filtros de página de pedidos
+#### <a name="orders-page-filters"></a>Encomendas Filtros de página
 
-Esses filtros são aplicados no nível da página.
+Estes filtros são aplicados ao nível da página.
 
-Você pode selecionar vários filtros para renderizar o gráfico para os critérios escolhidos para exibição e os dados que deseja exibir na grade de **dados de ordem detalhada** /exportar. Os filtros são aplicados nos dados extraídos para o intervalo de dados selecionado no canto superior direito da página pedidos.
+Pode selecionar vários filtros para tornar o gráfico pelos critérios que escolher visualizar e os dados que pretende visualizados na grelha/exportação de Dados de **Encomendas Detalhadas.** Os filtros são aplicados nos dados extraídos para a gama de dados selecionada no canto superior direito da página de encomendas.
 
-- Os tipos de oferta e os nomes de oferta são listados apenas para ofertas das quais você tem pedidos durante o intervalo de datas selecionado. Os nomes de oferta na lista são exibidos para os tipos de ofertas que você selecionou na lista.
-- Filtros aplicados mostram as métricas totais dentro de cada seleção para cada filtro selecionado. Os filtros aplicados não são exibidos quando a seleção padrão é escolhida.
-- Se **tudo** estiver selecionado para uma das listas suspensas, todas as métricas na página selecionada serão agregadas. Por exemplo: "todos" na opção de filtro tipos de oferta significa que todos os tipos de oferta foram selecionados. Essa é a seleção padrão para as listas suspensas. Filtros aplicados exibe não mostrará nada **quando for** selecionado.
-- **Seleção de vários valores**: todas as métricas na página serão agregadas para todas as seleções feitas na lista suspensa. Se várias seleções forem feitas, o filtro aplicado mostrará a contagem de todas as seleções feitas. Consulte a imagem abaixo para obter referência.
+- Os tipos de oferta e os nomes de oferta estão listados apenas para ofertas que você tem encomendas durante o intervalo de datas selecionados. Os nomes de oferta na lista são apresentados para ofertas que selecionou na lista.
+- Os filtros aplicados mostram as métricas totais dentro de cada s seleção para cada filtro selecionado. Os filtros aplicados não são apresentados quando a seleção predefinida é escolhida.
+- Se **Tudo** estiver selecionado para uma das listas de abandono, todas as métricas da página selecionada serão agregadas. Por exemplo: "All" na opção de filtro de tipos de oferta significa que todos os tipos de oferta foram selecionados. Esta é a seleção padrão para as listas de abandono. Os ecrãs de filtros aplicados não mostram nada quando **tudo** é selecionado.
+- **Seleção de vários valores**: Todas as métricas da página serão agregadas para todas as seleções feitas no âmbito da lista de abandono. Se forem feitas várias seleções, o filtro aplicado mostrará a contagem de todas as seleções feitas. Veja a imagem abaixo para referência.
 
-    ![Ordem de análise do Partner Center com vários valores aplicados ao filtro](./media/filters-applied.png)
+    ![Partner Center Analisar ordem com vários valores aplicados ao filtro](./media/filters-applied.png)
 
-- **Seleção de valor único**: se um valor for selecionado, o filtro aplicado mostrará a contagem de um filtro selecionado. Consulte a imagem abaixo para obter referência.
+- **Seleção**de valor único : Se for selecionado um valor, o filtro aplicado mostrará a contagem do filtro que foi selecionado. Veja abaixo a imagem para referência.
 
-     ![Ordem de análise do Partner Center com valor único aplicado ao filtro](./media/filters-applied-single.png)
+     ![Partner Center Analisar a ordem com um valor único aplicado ao filtro](./media/filters-applied-single.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma visão geral dos relatórios de análise disponíveis no Marketplace comercial do Partner Center, consulte [análise do Marketplace comercial no Partner Center](./analytics.md).
-- Para grafos, tendências e valores de dados agregados que resumem a atividade do Marketplace para sua oferta, consulte [painel de resumo na análise do Marketplace comercial](./summary-dashboard.md).
-- Para VM (máquina virtual) oferece métricas de uso e cobrança limitada, consulte [painel de uso na análise do Marketplace comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [painel do cliente na análise do Marketplace comercial](./customer-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte o [painel de downloads na análise do Marketplace comercial](./downloads-dashboard.md).
-- Para ver uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [painel classificações e revisões na análise do Marketplace comercial](./ratings-reviews.md).
-- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+- Para uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [o Analytics para o Mercado Comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumam a atividade do mercado para a sua oferta, consulte o [dashboard Sumário na análise do Mercado Comercial.](./summary-dashboard.md)
+- Para máquina virtual (VM) oferece métricas de utilização e faturação medida, consulte [o dashboard de utilização na análise do Mercado Comercial](./usage-dashboard.md).
+- Para obter informações detalhadas sobre os seus clientes, incluindo tendências de crescimento, consulte o [dashboard do Cliente na análise do Mercado Comercial.](./customer-dashboard.md)
+- Para obter uma lista dos seus pedidos de descarregamento ao longo dos últimos 30 dias, consulte [downloads dashboard na análise do Mercado Comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para as ofertas no Azure Marketplace e appSource, consulte [ratings e análises dashboard na análise](./ratings-reviews.md)do Mercado Comercial.
+- Para perguntas frequentes sobre análise do Mercado Comercial e para um dicionário abrangente de termos de dados, consulte [frequentemente perguntas e terminologia para análise](./faq-terminology.md)do Mercado Comercial.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e6d2d6cf602bca74c8899586eef0a8108fde3c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: bb14369275a111476867f2263766e1bb87b7c87d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263338"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295337"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
 
@@ -62,7 +62,7 @@ As políticas de Acesso Condicional por padrão aplicam-se a aplicações e apli
 
 - Browser
    - Estas incluem aplicações baseadas na Web que utilizam protocolos como SAML, WS-Federation, OpenID Connect ou serviços registados como um cliente confidencial da OAuth.
-- Aplicações móveis e clientes de ambiente de trabalho
+- Aplicativos móveis e clientes de desktop
    - Clientes modernos de autenticação
       - Esta opção inclui aplicações como o desktop do Office e aplicações telefónicas.
    - Clientes ActiveSync de intercâmbio
@@ -88,9 +88,9 @@ Estas condições são comumente usadas quando se exige um dispositivo gerido, b
 
 Esta definição funciona com todos os navegadores. No entanto, para satisfazer uma política de dispositivos, como um requisito de dispositivo compatível, os seguintes sistemas operativos e navegadores são suportados:
 
-| SO | Browsers |
+| SO | Navegadores |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows 8 / 8.1 | Internet Explorer |
 | Windows 7 | Internet Explorer |
 | iOS | Microsoft Edge, Navegador Gerido intune, Safari |
@@ -99,8 +99,8 @@ Esta definição funciona com todos os navegadores. No entanto, para satisfazer 
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
-| Windows Server 2008 R2 | Internet Explorer |
-| macOS | Chrome, Safari |
+| Windows Server 2008 R2 | Internet Explorer |
+| macOS | Chrome |
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Por que vejo um pedido de certificado no navegador
 
@@ -116,7 +116,7 @@ Para implementar automaticamente esta extensão para os navegadores Chrome, crie
 | --- | --- |
 | Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Nome | 1 |
-| Tipo | REG_SZ (String) |
+| Tipo | REG_SZ (Corda) |
 | Dados | ppnbnpeolgkicgegkkkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 Para suporte chrome no **Windows 8.1 e 7,** crie a seguinte tecla de registo:
@@ -125,7 +125,7 @@ Para suporte chrome no **Windows 8.1 e 7,** crie a seguinte tecla de registo:
 | --- | --- |
 | Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Nome | 1 |
-| Tipo | REG_SZ (String) |
+| Tipo | REG_SZ (Corda) |
 | Dados | {"pattern":"https://device.login.microsoftonline.com"filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Estes navegadores suportam a autenticação do dispositivo, permitindo que o dispositivo seja identificado e validado contra uma apólice. A verificação do dispositivo falha se o navegador estiver em funcionamento em modo privado.
@@ -136,23 +136,23 @@ As organizações podem selecionar **aplicações móveis e clientes** de deskto
 
 Esta definição tem impacto nas tentativas de acesso feitas a partir das seguintes aplicações móveis e clientes de desktop:
 
-| Aplicativos para clientes | Serviço alvo | Plataforma |
+| Aplicações do cliente | Serviço alvo | Plataforma |
 | --- | --- | --- |
 | App DE CRM dynamics | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
-| Aplicação Mail/Calendar/People, Outlook 2016, Outlook 2013 (com autenticação moderna)| Escritório 365 Exchange Online | Windows 10 |
+| Aplicação Mail/Calendar/People, Outlook 2016, Outlook 2013 (com autenticação moderna)| Escritório 365 Exchange Online | Windows 10 |
 | MFA e política de localização para apps. As políticas baseadas em dispositivos não são suportadas.| Qualquer serviço de aplicativo saqueado das Minhas Aplicações | Android e iOS |
 | Microsoft Teams Services - isto controla todos os serviços que suportam as Equipas microsoft e todas as suas Aplicações de Clientes - Windows Desktop, iOS, Android, WP e cliente web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
 | Aplicações do Office 2016, Office 2013 (com autenticação moderna), [cliente de sincronização OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Aplicações do Office 2016, aplicações do Universal Office, Office 2013 (com autenticação moderna), [cliente sincronizado OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
+| Aplicações do Office 2016, aplicações do Universal Office, Office 2013 (com autenticação moderna), [cliente sincronizado OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (Palavra, Excel, PowerPoint, OneNote apenas). | Office 365 SharePoint Online | macOS |
-| Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
+| Escritório 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | Aplicativos móveis de escritório | Office 365 SharePoint Online | Android, iOS |
 | App Office Yammer | Escritório 365 Yammer | Windows 10, iOS, Android |
-| Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
+| Perspetivas 2019 | Office 365 SharePoint Online | Windows 10, macOS |
 | Outlook 2016 (Office for macOS) | Escritório 365 Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (com autenticação moderna), Skype para Negócios (com autenticação moderna) | Escritório 365 Exchange Online | Windows 8.1, Windows 7 |
 | Aplicação móvel Outlook | Escritório 365 Exchange Online | Android, iOS |
-| Aplicativo Power BI | Serviço Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
+| Aplicação Power BI | Serviço Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
 | Skype para Empresas | Escritório 365 Exchange Online| Android, iOS |
 | Aplicativo Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 

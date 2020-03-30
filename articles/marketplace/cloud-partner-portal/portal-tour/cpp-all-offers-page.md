@@ -1,32 +1,31 @@
 ---
-title: Página todas as ofertas do Azure Marketplace
-description: Visão geral da página todas as ofertas no Portal do Cloud Partner para o Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Todas as ofertas de página para o Azure Marketplace
+description: Visão geral da página de todos os ofertas no Portal do Parceiro cloud para o Mercado Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: pabutler
-ms.openlocfilehash: cb67ac44ee73d4d8074b577b2157f5846f451210
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: e4001651d422d9197a849be5e7985107f9bf43dd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821594"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288993"
 ---
 # <a name="all-offers-page"></a>Página com todas as ofertas
 
-A página [**todas as ofertas**](https://cloudpartner.azure.com/#alloffers) permite que os parceiros exibam uma lista de ofertas criadas, incluindo seu nome, tipo, editor e status atual.  Você pode especificar uma cadeia de caracteres para filtrar os resultados.   A área de status na parte inferior da página exibe a agregação e as contagens de página e permite que você navegue entre as páginas da lista. A seleção de uma oferta nesta lista exibirá essa oferta no editor de oferta associado. 
+A página [**All oferece**](https://cloudpartner.azure.com/#alloffers) aos parceiros a visualização de uma lista de ofertas criadas, incluindo o seu nome, tipo, editor e estado atual.  Pode especificar uma corda para filtrar os resultados.   A área de estado na parte inferior da página apresenta contagem agregada e página, e permite-lhe navegar entre páginas de listas. Selecionando uma oferta nesta lista irá exibir essa oferta no editor de oferta associado. 
 
 
 ## <a name="example-page"></a>Página de exemplo
 
-A imagem a seguir mostra a página **todas as ofertas** filtradas na cadeia de caracteres `Contoso`.
+A imagem que se segue mostra a `Contoso`página All **oferece** página filtrada na corda .
 
 ![Página com todas as ofertas](./media/all-offers-page1.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O próximo item de menu de navegação exibe uma [página aprovações](./cpp-approvals-page.md), que lista as ofertas aprovadas.  As ofertas aprovadas já estão publicadas ou no processo de serem publicadas.
+O próximo item de menus de navegação apresenta uma [página de Aprovações,](./cpp-approvals-page.md)que lista as ofertas aprovadas.  As ofertas aprovadas já estão publicadas ou em processo de publicação.

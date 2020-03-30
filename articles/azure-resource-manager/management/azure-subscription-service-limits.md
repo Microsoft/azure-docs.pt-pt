@@ -2,15 +2,15 @@
 title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço do Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
-ms.date: 02/24/2020
-ms.openlocfilehash: f7fefecddaf50feda247dd711505aef1b4f206f0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/26/2020
+ms.openlocfilehash: 325f7b3d03435945779c1f42e13681dcfd9604b6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274531"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334655"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limites de subscrição e serviço do Azure, quotas e constrangimentos
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e limitações do serviço (Azure subscription and service limits, quotas, and constraints)
 
 Este documento enumera alguns dos limites mais comuns do Microsoft Azure, que também são por vezes chamados de quotas.
 
@@ -18,7 +18,14 @@ Para saber mais sobre os preços do Azure, consulte a [visão geral dos preços 
 
 ## <a name="managing-limits"></a>Limites de gestão
 
-Se pretender elevar o limite ou quota acima do limite de incumprimento, abra um pedido de apoio ao [cliente online gratuitamente.](../templates/error-resource-quota.md) Os limites não podem ser elevados acima do valor-limite máximo indicado nas tabelas seguintes. Se não houver uma coluna de limite máximo, o recurso não tem limites ajustáveis.
+> [!NOTE]
+> Alguns serviços têm limites ajustáveis.
+>
+> Quando um serviço não tem limites ajustáveis, as tabelas seguintes utilizam o **limite**do cabeçalho . Nesses casos, o incumprimento e os limites máximos são os mesmos.
+>
+> Quando o limite pode ser ajustado, as tabelas incluem **o limite predefinido** e os cabeçalhos **limite máximos.** O limite pode ser elevado acima do limite de incumprimento, mas não acima do limite máximo.
+>
+> Se pretender elevar o limite ou quota acima do limite de incumprimento, abra um pedido de apoio ao [cliente online gratuitamente.](../templates/error-resource-quota.md)
 
 [As subscrições de Teste Gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para mais informações, consulte [O upgrade da subscrição Do Teste Gratuito Do Azure para uma subscrição Pay-As-You-Go](../../billing/billing-upgrade-azure-subscription.md) e a faQ de [subscrição free Trial](https://azure.microsoft.com/free/free-account-faq).
 
@@ -33,6 +40,12 @@ Como resultado, decida quais as suas quotas de grupo de recursos Azure para a su
 Para limites aos nomes de recursos, consulte [regras de nomeação e restrições para os recursos Azure.](resource-name-rules.md)
 
 Para obter informações sobre o Gestor de Recursos API leia e escreva limites, consulte [os pedidos do Throttling Resource Manager](request-limits-and-throttling.md).
+
+### <a name="management-group-limits"></a>Limites de grupo de gestão
+
+Os seguintes limites aplicam-se aos [grupos de gestão.](../../governance/management-groups/overview.md)
+
+[!INCLUDE [management-group-limits](../../../includes/management-group-limits.md)]
 
 ### <a name="subscription-limits"></a>Limites da subscrição
 
@@ -308,7 +321,7 @@ Para os limites da Base de Dados SQL, consulte os limites de recursos de base de
 
 ## <a name="sql-data-warehouse-limits"></a>Limites do Armazém de Dados SQL
 
-Para os limites do Armazém de Dados SQL, consulte os limites de recursos do Armazém de [Dados SQL](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+Para os limites do Armazém de Dados SQL, consulte os limites de recursos do Armazém de [Dados SQL](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="storage-limits"></a>Limites de armazenamento
 
@@ -385,7 +398,7 @@ Os seguintes limites aplicam-se quando utiliza o Gestor de Recursos Azure e os g
 Existem limites, por subscrição, para a implantação de recursos utilizando galerias de imagem partilhada:
 
 - 100 galerias de imagem partilhada, por subscrição, por região
-- 1\.000 definições de imagem, por subscrição, por região
+- 1.000 definições de imagem, por subscrição, por região
 - 10.000 versões de imagem, por subscrição, por região
 
 ## <a name="virtual-machine-scale-sets-limits"></a>A escala de máquina virtual estabelece limites
@@ -397,4 +410,4 @@ Existem limites, por subscrição, para a implantação de recursos utilizando g
 * [Compreender limites e aumentos de Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de serviço de máquina virtual e nuvem para Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Tamanhos para serviços de nuvem azure](../../cloud-services/cloud-services-sizes-specs.md)
-* [Regras e restrições de nomeação para os recursos do Azure](resource-name-rules.md)
+* [Regras de nomenclatura e restrições para recursos do Azure](resource-name-rules.md)

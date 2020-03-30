@@ -1,21 +1,19 @@
 ---
-title: Gerenciar o perfil do Azure Marketplace e do AppSource Publisher | Azure Marketplace
-description: Artigo de CPP preterido, artigo vinculado ao PC; foi "explica como gerenciar perfis do Azure Marketplace e do AppSource Publisher"
-services: Azure, Marketplace, AppSource, Cloud Partner Portal, Partner Center
-author: ChJenk
-manager: pbutlerm
+title: Gerir o perfil da editora Azure Marketplace e AppSource [ Mercado Azure
+description: Artigo de CPP precatied, ligado ao artigo pc; foi "Explica como gerir os perfis da editora Azure Marketplace e AppSource"
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
-ms.openlocfilehash: e2fdbd8720fe80a7d647f908a78614123202c657
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.author: dsindona
+ms.openlocfilehash: bc75ebbba807aa981e8de29c40947516fea6638d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666448"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288500"
 ---
-# <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Gerenciar seu perfil do Azure Marketplace e do AppSource Publisher
+# <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Gerencie o seu perfil de editor Azure Marketplace e AppSource
 
-Essa funcionalidade foi movida para o portal do Microsoft [Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [como gerenciar sua conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
+Esta funcionalidade foi transferida para o portal Microsoft [Partner Center.](https://partner.microsoft.com/) Para mais informações, consulte [como gerir a sua conta de Mercado Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).

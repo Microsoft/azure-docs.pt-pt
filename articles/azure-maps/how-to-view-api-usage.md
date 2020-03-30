@@ -1,19 +1,19 @@
 ---
-title: Ver as métricas de utilização da API do Azure Maps  Microsoft Azure Maps
+title: Ver as métricas de utilização da API do Azure Maps [ Microsoft Azure Maps
 description: Neste artigo, você vai aprender a ver as métricas para as suas chamadas API Microsoft Azure Maps no portal Azure.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cc9834f4e1df1a68f78230ec587254c72aeabbcf
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 0eb117af712b3b1f63a3f99c96cba9775f8e3996
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208690"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335156"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Ver as métricas de utilização da API do Azure Maps
 
@@ -42,7 +42,7 @@ Continue na secção seguinte se precisar personalizar estes gráficos para a su
 
       ![Painel de métricas de utilização do Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Em seguida, poderá selecionar a *gama de tempo* clicando nas **últimas 24 horas (Automáticas)** . Por predefinição, o intervalo de tempo está definido para 24 horas. Depois de clicar, verá todos os intervalos de tempo selecionáveis. Pode selecionar a *granularidade* do tempo e optar por mostrar o tempo como *local* ou *GMT* na mesma queda. Clique em **Aplicar**.
+5. Em seguida, poderá selecionar a *gama de tempo* clicando nas **últimas 24 horas (Automáticas)**. Por predefinição, o intervalo de tempo está definido para 24 horas. Depois de clicar, verá todos os intervalos de tempo selecionáveis. Pode selecionar a *granularidade* do tempo e optar por mostrar o tempo como *local* ou *GMT* na mesma queda. Clique em **Aplicar**.
 
     ![Alcance de tempo das métricas do Azure Maps](media/how-to-view-api-usage/time-range.png)
 

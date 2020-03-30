@@ -1,6 +1,6 @@
 ---
-title: Frente do Azure de porta de serviço - URL de redirecionamento | Documentos da Microsoft
-description: Este artigo ajuda-o a compreender como serviço de porta de entrada do Azure suporta redirecionamento de URL para suas rotas, se configurado.
+title: Porta da Frente Azure - URL Redirecionamento / Microsoft Docs
+description: Este artigo ajuda-o a entender como a Porta Frontal Azure suporta a redirecção de URL para as suas rotas, se configurado.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,47 +11,47 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 3d77a16d24a1a843b39d97904a675518c43a525a
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332530"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295480"
 ---
 # <a name="url-redirect"></a>Redirecionamento de URL
-Pode utilizar o serviço de porta de entrada do Azure para redirecionar o tráfego. Pode redirecionar o tráfego em vários níveis (protocolo, nome de anfitrião, caminho, cadeia de consulta) e todas as funcionalidades podem ser configuradas para microsserviços individuais como o redirecionamento é baseado no caminho. Isso simplifica a configuração da aplicação, otimiza a utilização de recursos e oferece suporte a novos cenários de redirecionamento, incluindo global e com base no caminho de redirecionamento.
+Pode usar a Porta frontal azure para redirecionar o tráfego. Pode redirecionar o tráfego a vários níveis (protocolo, nome de anfitrião, caminho, corda de consulta) e toda a funcionalidade pode ser configurada para microserviços individuais, uma vez que a reorientação é baseada na trajetória. Isto simplifica a configuração da aplicação, otimiza o uso de recursos e suporta novos cenários de reorientação, incluindo a reorientação global e baseada em caminhos.
 </br>
 
-![Redirecionamento de URL de porta de entrada do Azure][1]
+![Redirecionamento de URL da porta da frente azure][1]
 
-## <a name="redirection-types"></a>Tipos de redirecionamento
-Um tipo de redirecionamento define o código de estado de resposta para os clientes compreender a finalidade de redirecionamento. São suportados os seguintes tipos de redirecionamento de:
+## <a name="redirection-types"></a>Tipos de reorientação
+Um tipo de redirecionamento define o código de estado de resposta para que os clientes compreendam o propósito do redirecionamento. São apoiados os seguintes tipos de reorientação:
 
-- **301 (movido permanentemente)** : Indica que o recurso de destino foi atribuído um novo URI permanente e quaisquer referências futuras para este recurso deve utilizar um dos URIs circunscritas. Utilize o código de estado 301 para HTTP para redirecionamento a HTTPS. 
-- **302 (Found)** : Indica que o recurso de destino temporariamente reside num URI diferente. Uma vez que o redirecionamento pode ser alterado ocasionalmente, o cliente deve continuar a utilizar o URI do pedido em vigor para futuros pedidos.
-- **307 (Redirecionamento temporário)** : Indica que o recurso de destino temporariamente reside num URI diferente e o agente de utilizador não deve alterar o método de pedido, se ele realiza um redirecionamento automático para esse URI. Uma vez que o redirecionamento pode mudar ao longo do tempo, o cliente deve continuar a utilizar o URI do pedido em vigor original para futuros pedidos.
-- **308 (redirecionamento permanente)** : Indica que o recurso de destino foi atribuído um novo URI permanente e quaisquer referências futuras para este recurso deve utilizar um dos URIs circunscritas. Os clientes com a ligação de recursos, de edição deve para automaticamente relink referências a em vigor a partir da URI do pedido para uma ou mais das novas referências enviadas pelo servidor, sempre que possível.
+- **301 (Movido permanentemente)**: Indica que o recurso-alvo foi atribuído a um novo URI permanente e quaisquer referências futuras a este recurso devem utilizar uma das URIs fechadas. Utilize o código de estado 301 para http para a reorientação HTTPS. 
+- **302 (Encontrado)**: Indica que o recurso-alvo reside temporariamente sob um URI diferente. Uma vez que a reorientação pode ser alterada ocasionalmente, o cliente deve continuar a utilizar o pedido eficaz URI para futuros pedidos.
+- **307 (Redirecionamento temporário)**: Indica que o recurso-alvo reside temporariamente sob um URI diferente e o agente utilizador NÃO DEVE alterar o método de pedido se realizar uma reorientação automática para esse URI. Uma vez que a reorientação pode mudar ao longo do tempo, o cliente deve continuar a utilizar o pedido original e eficaz URI para futuros pedidos.
+- **308 (Redirecionamento Permanente)**: Indica que o recurso-alvo foi atribuído a um novo URI permanente e quaisquer referências futuras a este recurso devem utilizar uma das URIs fechadas. Os clientes com capacidades de edição de link, devem religar automaticamente as referências ao pedido eficaz URI a uma ou mais das novas referências enviadas pelo servidor, sempre que possível.
 
-## <a name="redirection-protocol"></a>Protocolo de redirecionamento
-Pode definir o protocolo que será utilizado para o redirecionamento. Isso permite que um dos casos de utilização mais comuns da funcionalidade de redirecionamento, o que é a definição de HTTP para redirecionamento a HTTPS.
+## <a name="redirection-protocol"></a>Protocolo de reorientação
+Pode definir o protocolo que será usado para reorientação. Isto permite um dos casos de utilização mais comuns de recurso de redirecionamento, ou seja, definir HTTP para redirecionamento HTTPS.
 
-- **Apenas HTTPS**: Defina o protocolo como HTTPS apenas, se estiver à procura para redirecionar o tráfego de HTTP para HTTPS. O serviço de porta de entrada do Azure recomenda que deve sempre definir o redirecionamento a HTTPS apenas.
-- **Apenas HTTP**: Isso redireciona o pedido de entrada para HTTP. Utilize este valor apenas se pretender manter o tráfego HTTP, que é, não encriptada.
-- **Pedido de correspondência**: Esta opção mantém o protocolo utilizado pela solicitação de entrada. Então, uma solicitação HTTP permanece HTTP e um pedido HTTPS permanece post redirecionamento a HTTPS.
+- **HTTPS apenas:** Desloque o protocolo apenas para HTTPS, se estiver a tentar redirecionar o tráfego de HTTP para HTTPS. A Porta Frontal Azure recomenda que deva sempre definir a reorientação apenas para HTTPS.
+- **Apenas HTTP**: Isto redireciona o pedido de entrada para HTTP. Utilize este valor apenas se quiser manter o seu tráfego HTTP que não esteja encriptado.
+- **Pedido de jogo**: Esta opção mantém o protocolo utilizado pelo pedido de entrada. Assim, um pedido HTTP permanece HTTP e um pedido HTTPS permanece HTTPS post redirection.
 
 ## <a name="destination-host"></a>Anfitrião de destino
-Como parte da configuração de um redirecionamento, encaminhamento, também pode alterar o nome de anfitrião ou o domínio para o pedido de redirecionamento. Pode definir este campo para alterar o nome de anfitrião no URL para o redirecionamento ou caso contrário, preservar o nome do anfitrião da solicitação recebida. Então, utilizar este campo pode redirecionar todos os pedidos enviados https://www.contoso.com/ * para https://www.fabrikam.com/ *.
+Como parte da configuração de um encaminhamento de redirecionamento, também pode alterar o nome de anfitrião ou domínio para o pedido de redirecionamento. Pode definir este campo para alterar o nome de anfitrião no URL para a reorientação ou, de outra forma, preservar o nome de anfitrião do pedido de entrada. Assim, usando este campo pode redirecionar todos `https://www.contoso.com/*` `https://www.fabrikam.com/*`os pedidos enviados para .
 
 ## <a name="destination-path"></a>Caminho de destino
-Nos casos em que pretende substituir o segmento de caminho de uma URL como parte de redirecionamento, pode definir este campo com o novo valor de caminho. Caso contrário, pode optar por manter o valor do caminho como parte de redirecionamento. Então, utilizar este campo, pode redirecionar todos os pedidos enviados para o https://www.contoso.com/ * para https://www.contoso.com/redirected-site.
+Para casos em que pretende substituir o segmento de percurso de um URL como parte da reorientação, pode definir este campo com o novo valor de percurso. Caso contrário, pode optar por preservar o valor do percurso como parte do redirecionamento. Assim, usando este campo, pode redirecionar todos `https://www.contoso.com/\*` `https://www.contoso.com/redirected-site`os pedidos enviados para .
 
-## <a name="query-string-parameters"></a>Parâmetros de cadeia de caracteres de consulta
-Também pode substituir os parâmetros de cadeia de caracteres de consulta no URL redirecionada. Para substituir qualquer cadeia de consulta existente a partir do URL de pedido de entrada, defina este campo 'Replace' e, em seguida, defina o valor apropriado. Caso contrário, pode manter o conjunto original de cadeias de caracteres de consulta ao definir o campo 'Preserve'. Por exemplo, através deste campo, pode redirecionar todo o tráfego enviado para https://www.contoso.com/foo/bar para https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F. 
+## <a name="query-string-parameters"></a>Parâmetros de corda de consulta
+Também pode substituir os parâmetros de cadeia de consulta no URL redirecionado. Para substituir qualquer cadeia de consulta existente do URL de pedido de entrada, delineie este campo para 'Substituir' e, em seguida, definir o valor apropriado. Caso contrário, pode reter o conjunto original de cordas de consulta, definindo o campo para 'Preservar'. Como exemplo, utilizando este campo, pode redirecionar `https://www.contoso.com/foo/bar` `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`todo o tráfego enviado para . 
 
 ## <a name="destination-fragment"></a>Fragmento de destino
-O fragmento de destino é a parte do URL depois de "#", normalmente usado pelos navegadores para direcionado para uma secção específica numa página. Pode definir este campo para adicionar um fragmento para o URL de redirecionamento.
+O fragmento de destino é a porção de URL após '#', normalmente usado pelos navegadores para aterrar numa secção específica numa página. Pode definir este campo para adicionar um fragmento ao URL de redirecionamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

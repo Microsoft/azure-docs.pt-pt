@@ -1,91 +1,171 @@
 ---
-title: Atualizações automáticas de imagem do sistema operacional com conjuntos de dimensionamento de máquinas virtuais do Azure
-description: Saiba como atualizar automaticamente a imagem do sistema operacional em instâncias de VM em um conjunto de dimensionamento
-author: shandilvarun
+title: Atualizações automáticas de imagem do OS com conjuntos de escala de máquinas virtuais Azure
+description: Aprenda a atualizar automaticamente a imagem de OS em instâncias VM num conjunto de escala
+author: mayanknayar
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.author: vashan
-ms.openlocfilehash: c452ba5b8abfce4227d72922139824d639c62755
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 03/18/2020
+ms.author: manayar
+ms.openlocfilehash: 6d550e8e960cb8e212702796467c91d1cd1ebb23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278164"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235183"
 ---
-# <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Conjunto de dimensionamento de máquinas virtuais do Azure atualizações automáticas de imagem de so
+# <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>A escala de máquina virtual Azure define atualizações automáticas de imagem de OS
 
-A habilitação de atualizações automáticas de imagem de so no conjunto de dimensionamento ajuda a facilitar o gerenciamento de atualizações, atualizando com segurança e automaticamente o disco do sistema operacional para todas as instâncias no conjunto de dimensionamento
+Permitir atualizações automáticas de imagem de OS no seu conjunto de escala ajuda a facilitar a gestão da atualização, atualizando de forma segura e automática o disco OS para todas as instâncias do conjunto de escala.
 
-A atualização automática do sistema operacional tem as seguintes características:
+A atualização automática do OS tem as seguintes características:
 
-- Uma vez configurado, a imagem de sistema operacional mais recente publicada por editores de imagem é aplicada automaticamente ao conjunto de dimensionamento sem intervenção do usuário.
-- Atualiza lotes de instâncias de forma contínua toda vez que uma nova imagem de plataforma é publicada pelo Publicador.
-- Integra-se com investigações de integridade do aplicativo e [extensão de integridade do aplicativo](virtual-machine-scale-sets-health-extension.md).
-- Funciona para todos os tamanhos de VM e para imagens de plataforma Windows e Linux.
-- Você pode recusar atualizações automáticas a qualquer momento (as atualizações do so também podem ser iniciadas manualmente).
-- O disco do sistema operacional de uma VM é substituído pelo novo disco do sistema operacional criado com a versão mais recente da imagem. As extensões configuradas e os scripts de dados personalizados são executados, enquanto os discos de dados persistentes são mantidos.
-- Há suporte para [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md) .
-- A atualização automática da imagem do sistema operacional pode ser habilitada em um conjunto de dimensionamento de qualquer tamanho.
+- Uma vez configurada, a mais recente imagem de OS publicada pelos editores de imagem é automaticamente aplicada à escala definida sem a intervenção do utilizador.
+- Atualiza os lotes de instâncias de forma rolante cada vez que uma nova imagem é publicada pela editora.
+- Integra-se com sondas de saúde de aplicação e extensão de saúde de [aplicação.](virtual-machine-scale-sets-health-extension.md)
+- Funciona para todos os tamanhos vm, e para imagens Windows e Linux.
+- Pode optar por não fazer upgrades automáticos a qualquer momento (as atualizações de OS podem ser iniciadas manualmente também).
+- O Disco OS de um VM é substituído pelo novo Disco OS criado com a versão mais recente da imagem. As extensões configuradas e os scripts de dados personalizados são executados, enquanto os discos de dados persistidos são mantidos.
+- [A sequenciação](virtual-machine-scale-sets-extension-sequencing.md) da extensão é suportada.
+- A atualização automática da imagem do OS pode ser ativada num conjunto de escala de qualquer tamanho.
 
-## <a name="how-does-automatic-os-image-upgrade-work"></a>Como funciona a atualização automática da imagem do sistema operacional?
+## <a name="how-does-automatic-os-image-upgrade-work"></a>Como funciona a atualização automática de imagem do OS?
 
-Uma atualização funciona substituindo o disco do sistema operacional de uma VM por um novo disco criado usando a versão mais recente da imagem. Todas as extensões configuradas e scripts de dados personalizados são executados no disco do sistema operacional, enquanto os discos de dados persistentes são mantidos. Para minimizar o tempo de inatividade do aplicativo, as atualizações ocorrem em lotes, com no máximo 20% do conjunto de dimensionamento atualizando a qualquer momento. Também é possível integrar uma investigação de integridade do aplicativo ou uma extensão de integridade do [aplicativo](virtual-machine-scale-sets-health-extension.md)do Azure Load Balancer. Recomendamos incorporar uma pulsação de aplicativo e validar o êxito da atualização para cada lote no processo de atualização.
+Uma atualização funciona substituindo o disco OS de um VM por um novo disco criado utilizando a versão mais recente da imagem. Quaisquer extensões configuradas e scripts de dados personalizados são executados no disco OS, enquanto os discos de dados persistidos são retidos. Para minimizar o tempo de inatividade da aplicação, as atualizações ocorrem em lotes, com não mais de 20% da escala configurada em qualquer momento. Também pode integrar uma sonda de saúde de aplicação Azure Load Balancer ou extensão de saúde de [aplicação.](virtual-machine-scale-sets-health-extension.md) Recomendamos incorporar um batimento cardíaco de aplicação e validar o sucesso de upgrade para cada lote no processo de upgrade.
 
-O processo de atualização funciona da seguinte maneira:
-1. Antes de iniciar o processo de atualização, o orquestrador garantirá que no máximo 20% das instâncias em todo o conjunto de dimensionamento não estejam íntegros (por qualquer motivo).
-2. O orquestrador de atualização identifica o lote de instâncias de VM a serem atualizadas, com um lote com um máximo de 20% da contagem total de instâncias. Para conjuntos de dimensionamento menores com 5 ou menos instâncias, o tamanho do lote para uma atualização é uma instância de máquina virtual.
-3. O disco do sistema operacional do lote selecionado de instâncias de VM é substituído por um novo disco do sistema operacional criado a partir da imagem mais recente. Todas as extensões e configurações especificadas no modelo do conjunto de dimensionamento são aplicadas à instância atualizada.
-4. Para conjuntos de dimensionamento com investigações de integridade de aplicativo configuradas ou extensão de integridade de aplicativos, a atualização aguarda até 5 minutos para que a instância se torne íntegra, antes de prosseguir para atualizar o próximo lote. Se uma instância não recuperar sua integridade em 5 minutos após uma atualização, por padrão, o disco do sistema operacional anterior para a instância será restaurado.
-5. O orquestrador de atualização também controla a porcentagem de instâncias que se tornam não íntegras após uma atualização. A atualização será interrompida se mais de 20% das instâncias atualizadas se tornarem não íntegras durante o processo de atualização.
-6. O processo acima continua até que todas as instâncias no conjunto de dimensionamento tenham sido atualizadas.
+O processo de atualização funciona da seguinte forma:
+1. Antes de iniciar o processo de atualização, o orquestrador garantirá que não mais de 20% dos casos em toda a escala não são saudáveis (por qualquer motivo).
+2. O orquestrador de upgrade identifica o lote de instâncias VM para atualizar, com qualquer lote com um máximo de 20% da contagem total de instâncias, sujeito a um tamanho mínimo de lote de uma máquina virtual.
+3. O disco OS do lote selecionado de instâncias VM é substituído por um novo disco OS criado a partir da imagem mais recente. Todas as extensões e configurações especificadas no modelo de conjunto de escala são aplicadas à instância atualizada.
+4. Para conjuntos de escala com sondas de saúde de aplicação configuradas ou extensão de saúde de aplicação, a atualização aguarda até 5 minutos para que a instância fique saudável, antes de avançar para a atualização do próximo lote. Se uma instância não recuperar a sua saúde em 5 minutos após uma atualização, então, por padrão, o disco de SO anterior para a instância é restaurado.
+5. O orquestrador de upgrade também rastreia a percentagem de casos que se tornam insalubres após uma atualização. A atualização irá parar se mais de 20% das instâncias atualizadas ficarem insalubres durante o processo de atualização.
+6. O processo acima continua até que todas as instâncias do conjunto de escala tenham sido atualizadas.
 
-O orquestrador de atualização do so do conjunto de dimensionamento verifica a integridade geral do conjunto de dimensionamento antes de atualizar cada lote. Durante a atualização de um lote, pode haver outras atividades de manutenção planejadas ou não planejadas simultâneas que poderiam afetar a integridade das instâncias do conjunto de dimensionamento. Nesses casos, se mais de 20% das instâncias do conjunto de dimensionamento se tornarem não íntegros, a atualização do conjunto de dimensionamento será interrompida no final do lote atual.
+A escala definiu os controlos de atualização de osso para a escala geral definir a saúde antes de atualizar cada lote. Durante a atualização de um lote, pode haver outras atividades de manutenção planeadas ou não planeadas simultâneas que possam afetar a saúde das instâncias definidas pela sua escala. Nesses casos, se mais de 20% das instâncias do conjunto de escala se tornarem insalubres, então a atualização definida pela escala para no final do lote atual.
 
-## <a name="supported-os-images"></a>Imagens do sistema operacional com suporte
-No momento, só há suporte para determinadas imagens da plataforma do sistema operacional. Atualmente, não há suporte para imagens personalizadas.
+## <a name="supported-os-images"></a>Imagens de Os suportadas
+Atualmente, apenas algumas imagens da plataforma OS são suportadas. O suporte personalizado de imagem está disponível [na pré-visualização](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) para imagens personalizadas através [da Galeria de Imagem Partilhada.](shared-image-galleries.md)
 
-Atualmente, há suporte para os seguintes SKUs (e mais são adicionados periodicamente):
+As seguintes plataformas SKUs são atualmente suportadas (e mais são adicionadas periodicamente):
 
-| Publicador               | Oferta do sistema operacional      |  SKU               |
+| Publicador               | Oferta de OS      |  Sku               |
 |-------------------------|---------------|--------------------|
-| Canonical               | UbuntuServer  | 16.04-LTS          |
-| Canonical               | UbuntuServer  | 18.04-LTS          |
-| Wave não autorizado (OpenLogic)  | CentOS        | 7.5                |
+| Canónico               | UbuntuServer  | 16.04-LTS          |
+| Canónico               | UbuntuServer  | 18.04-LTS          |
+| Onda Desonesto (OpenLogic)  | CentOS        | 7,5                |
 | CoreOS                  | CoreOS        | Estável             |
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016-datacenter    |
-| Microsoft Corporation   | WindowsServer | 2016-datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | Centro de Dados 2016    |
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | 2019-datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | Centro de Dados 2019-Datacenter |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-com-containers-smalldisk |
+| Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
 
 
-## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar a atualização automática da imagem do sistema operacional
+## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar atualização automática de imagem do OS
 
-- A propriedade *version* da imagem da plataforma deve ser definida como *mais recente*.
-- Use investigações de integridade do aplicativo ou [extensão de integridade do aplicativo](virtual-machine-scale-sets-health-extension.md) para conjuntos de dimensionamento não Service Fabric.
-- Use a API de computação versão 2018-10-01 ou superior.
-- Verifique se os recursos externos especificados no modelo do conjunto de dimensionamento estão disponíveis e atualizados. Os exemplos incluem o URI de SAS para carga de inicialização em Propriedades de extensão de VM, carga na conta de armazenamento, referência a segredos no modelo e muito mais.
-- Para conjuntos de dimensionamento usando máquinas virtuais do Windows, começando com a API de computação versão 2019-03-01, a propriedade *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* deve ser definida como *false* na definição do modelo do conjunto de dimensionamento. A propriedade acima habilita atualizações na VM em que "Windows Update" aplica patches do sistema operacional sem substituir o disco do sistema operacional. Com as atualizações automáticas de imagem do sistema operacional habilitadas no conjunto de dimensionamento, uma atualização adicional por meio de "Windows Update" não é necessária.
+- A propriedade da *versão* da imagem deve ser definida para o *mais recente*.
+- Utilize sondas de saúde de aplicação ou extensão de saúde de [aplicação](virtual-machine-scale-sets-health-extension.md) para conjuntos de escala de tecido não-serviço.
+- Utilize a versão Compute API 2018-10-01 ou superior.
+- Certifique-se de que os recursos externos especificados no modelo de conjunto de escala estão disponíveis e atualizados. Exemplos incluem SAS URI para a carga útil de botas em propriedades de extensão VM, carga útil na conta de armazenamento, referência a segredos no modelo, e muito mais.
+- Para conjuntos de escala utilizando máquinas virtuais do Windows, começando com a versão Compute API 2019-03-01, a propriedade *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* property deve definir *para falso* na definição de modelo definido em escala. A propriedade acima permite atualizações in-VM onde "Windows Update" aplica patches do sistema operativo sem substituir o disco OS. Com atualizações automáticas de imagem de OS ativadas no seu conjunto de escala, não é necessária uma atualização adicional através do "Windows Update".
 
-### <a name="service-fabric-requirements"></a>Requisitos de Service Fabric
+### <a name="service-fabric-requirements"></a>Requisitos de Tecido de Serviço
 
-Se você estiver usando Service Fabric, verifique se as seguintes condições foram atendidas:
--   Service Fabric [nível de durabilidade](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) é prata ou ouro, e não bronze.
--   A extensão de Service Fabric na definição do modelo do conjunto de dimensionamento deve ter TypeHandlerVersion 1,1 ou superior.
--   O nível de durabilidade deve ser o mesmo no Cluster Service Fabric e na extensão Service Fabric na definição do modelo do conjunto de dimensionamento.
+Se estiver a utilizar o Tecido de Serviço, certifique-se de que estão reunidas as seguintes condições:
+-   Serviço O [nível de durabilidade](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) do tecido é prata ou ouro, e não bronze.
+-   A extensão do tecido de serviço na definição do modelo de conjunto de escala deve ter TypeHandlerVersion 1.1 ou superior.
+-   O nível de durabilidade deve ser o mesmo no cluster de tecido de serviço e na extensão do tecido de serviço na definição do modelo de conjunto de escala.
 
-Verifique se as configurações de durabilidade não são correspondentes no Cluster Service Fabric e na extensão de Service Fabric, pois uma incompatibilidade resultará em erros de atualização. Os níveis de durabilidade podem ser modificados de acordo com as diretrizes descritas nesta [página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+Certifique-se de que as definições de durabilidade não são desajustadas no cluster de tecido de serviço e na extensão do tecido de serviço, uma vez que uma incompatibilidade resultará em erros de atualização. Os níveis de durabilidade podem ser modificados de acordo com as diretrizes descritas [nesta página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
-## <a name="configure-automatic-os-image-upgrade"></a>Configurar a atualização automática da imagem do sistema operacional
-Para configurar a atualização automática da imagem do sistema operacional, verifique se a propriedade *automaticOSUpgradePolicy. enableAutomaticOSUpgrade* está definida como *true* na definição do modelo do conjunto de dimensionamento.
+
+## <a name="automatic-os-image-upgrade-for-custom-images-preview"></a>Upgrade automático de imagem osso para imagens personalizadas (pré-visualização)
+
+> [!IMPORTANT]
+> O upgrade automático de imagem do OS para imagens personalizadas está atualmente em Visualização Pública. É necessário um procedimento de opt-in para utilizar a funcionalidade de pré-visualização pública descrita abaixo.
+> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+
+A atualização automática de imagem do OS está disponível na pré-visualização para imagens personalizadas implementadas através da [Galeria de Imagem Partilhada](shared-image-galleries.md). Outras imagens personalizadas não são suportadas para upgrades automáticos de imagem de OS.
+
+Ativar a funcionalidade de pré-visualização requer um opt-in único para a funcionalidade *AutomaticOSUpgradeWithGalleryImage* por subscrição, conforme detalhado abaixo.
 
 ### <a name="rest-api"></a>API REST
-O exemplo a seguir descreve como definir atualizações automáticas do sistema operacional em um modelo de conjunto de dimensionamento:
+O exemplo que se segue descreve como ativar a pré-visualização para a sua subscrição:
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
+```
+
+O registo de funcionalidades pode demorar até 15 minutos. Para verificar o estado de registo:
+
+```
+GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
+```
+
+Uma vez registada a funcionalidade para a sua subscrição, complete o processo de opt-in propagando a alteração para o fornecedor de recursos Compute.
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-10-01`
+```
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Utilize o [cmdlet Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para ativar a pré-visualização da sua subscrição.
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+O registo de funcionalidades pode demorar até 15 minutos. Para verificar o estado de registo:
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+Uma vez registada a funcionalidade para a sua subscrição, complete o processo de opt-in propagando a alteração para o fornecedor de recursos Compute.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+Utilize o registo de [funcionalidades Az](/cli/azure/feature#az-feature-register) para ativar a pré-visualização da sua subscrição.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+O registo de funcionalidades pode demorar até 15 minutos. Para verificar o estado de registo:
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+Uma vez registada a funcionalidade para a sua subscrição, complete o processo de opt-in propagando a alteração para o fornecedor de recursos Compute.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
+
+### <a name="additional-requirements-for-custom-images"></a>Requisitos adicionais para imagens personalizadas
+- O processo de opt-in acima descrito deve ser concluído apenas uma vez por subscrição. A realização de pós-opt-in, atualizações automáticas de SO podem ser ativadas para qualquer escala definida nessa subscrição.
+- A Galeria de Imagem Partilhada pode estar em qualquer subscrição e não precisa de ser optada separadamente. Apenas a subscrição definida em escala requer o opt-in da funcionalidade.
+- O processo de configuração para a atualização automática da imagem do OS é o mesmo para todos os conjuntos de escala, conforme detalhado na secção de [configuração](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) desta página.
+- A escala define as instâncias configuradas para atualizações automáticas de imagem de OS serão atualizadas para a versão mais recente da imagem partilhada da Imagem Gallery quando uma nova versão da imagem for publicada e [replicada](shared-image-galleries.md#replication) para a região desse conjunto de escala. Se a nova imagem não for replicada para a região onde a escala é implantada, as instâncias de conjunto de escala não serão atualizadas para a versão mais recente. A replicação regional da imagem permite controlar o lançamento da nova imagem para os seus conjuntos de escala.
+- A nova versão de imagem não deve ser excluída da versão mais recente para aquela imagem da galeria. As versões de imagem excluídas da versão mais recente da imagem da galeria não são lançadas para a escala definida através de atualização automática de imagem do OS.
+
+> [!NOTE]
+>Pode levar até 2 horas para que uma escala definida obtenha o primeiro lançamento de imagem após o conjunto de escala estar configurado para atualizações automáticas de SO. Este é um atraso único por conjunto de escala. Os lançamentos de imagem subsequentes são aplicados à escala definida sem este atraso.
+
+
+## <a name="configure-automatic-os-image-upgrade"></a>Configure atualização automática de imagem do OS
+Para configurar a atualização automática da imagem do OS, certifique-se de que a propriedade *automáticaOSUpgrade.enableOsUpgrade* está definida como *verdadeira* na definição do modelo de conjunto de escala.
+
+### <a name="rest-api"></a>API REST
+O exemplo seguinte descreve como definir atualizações automáticas de SO num modelo de conjunto de escala:
 
 ```
 PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2018-10-01`
@@ -104,31 +184,31 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para configurar atualizações automáticas de imagem do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir configura as atualizações automáticas para o conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
+Utilize o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para configurar atualizações automáticas de imagem de OS para o seu conjunto de escala. O exemplo seguinte configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
-Use [AZ vmss Update](/cli/azure/vmss#az-vmss-update) para configurar atualizações automáticas de imagem do sistema operacional para seu conjunto de dimensionamento. Use CLI do Azure 2.0.47 ou superior. O exemplo a seguir configura as atualizações automáticas para o conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+Utilize a [atualização az vmss](/cli/azure/vmss#az-vmss-update) para configurar atualizações automáticas de imagem de OS para o seu conjunto de escala. Utilize o Azure CLI 2.0.47 ou superior. O exemplo seguinte configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
 
-## <a name="using-application-health-probes"></a>Usando investigações de integridade do aplicativo
+## <a name="using-application-health-probes"></a>Utilização de sondas de saúde de aplicação
 
-Durante uma atualização do sistema operacional, as instâncias de VM em um conjunto de dimensionamento são atualizadas em um lote por vez. A atualização deve continuar somente se o aplicativo do cliente estiver íntegro nas instâncias de VM atualizadas. Recomendamos que o aplicativo forneça sinais de integridade para o mecanismo de atualização do sistema operacional do conjunto de dimensionamento. Por padrão, durante as atualizações do so, a plataforma considera o estado de energia da VM e o estado de provisionamento da extensão para determinar se uma instância de VM está íntegra após uma atualização. Durante a atualização do sistema operacional de uma instância de VM, o disco do sistema operacional em uma instância de VM é substituído por um novo disco baseado na versão mais recente da imagem. Depois que a atualização do sistema operacional for concluída, as extensões configuradas serão executadas nessas VMs. O aplicativo é considerado Íntegro somente quando todas as extensões na instância são provisionadas com êxito.
+Durante uma atualização do OS, as instâncias vm num conjunto de escala são atualizadas um lote de cada vez. A atualização só deverá continuar se a aplicação do cliente for saudável nas instâncias vm atualizadas. Recomendamos que a aplicação forneça sinais de saúde ao motor de upgrade de osso definido em escala. Por padrão, durante as atualizações do OS, a plataforma considera o estado de alimentação vM e o estado de fornecimento de extensão para determinar se uma instância vm é saudável após uma atualização. Durante o Upgrade osS de uma instância VM, o disco OS numa instância VM é substituído por um novo disco baseado na versão mais recente da imagem. Após a atualização do OS concluída, as extensões configuradas são executadas nestes VMs. O pedido só é considerado saudável quando todas as extensões da instância forem aprovisionadas com sucesso.
 
-Um conjunto de dimensionamento pode, opcionalmente, ser configurado com investigações de integridade do aplicativo para fornecer à plataforma informações precisas sobre o estado em andamento do aplicativo. As investigações de integridade do aplicativo são investigações de Load Balancer personalizadas que são usadas como um sinal de integridade. O aplicativo em execução em uma instância de VM do conjunto de dimensionamento pode responder a solicitações HTTP ou TCP externas indicando se ele está íntegro. Para obter mais informações sobre como funcionam as investigações de Load Balancer personalizadas, consulte para [entender as investigações do balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Não há suporte para investigações de integridade de aplicativo para Service Fabric conjuntos de dimensionamento. Os conjuntos de dimensionamento não Service Fabric exigem investigações de integridade do aplicativo Load Balancer ou a [extensão de integridade do aplicativo](virtual-machine-scale-sets-health-extension.md).
+Um conjunto de escala pode ser configurado opcionalmente com sondas de saúde de aplicação para fornecer à plataforma informações precisas sobre o estado em curso da aplicação. Aplicação As sondas de saúde são sondas de equilíbrio de carga personalizadas que são usadas como um sinal de saúde. A aplicação em execução numa instância vM definida em escala pode responder a pedidos externos de HTTP ou TCP indicando se é saudável. Para obter mais informações sobre como funcionam as sondas de equilíbrio de carga personalizadas, consulte para [compreender as sondas](../load-balancer/load-balancer-custom-probe-overview.md)de equilíbrio de carga . Aplicações As sondas de saúde não são suportadas para conjuntos de escala de tecido de serviço. Os conjuntos de balança de tecidos não-serviço requerem sondas de saúde de aplicação load Balancer ou extensão de saúde de [aplicação](virtual-machine-scale-sets-health-extension.md).
 
-Se o conjunto de dimensionamento estiver configurado para usar vários grupos de posicionamento, as investigações usando um [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) precisarão ser usadas.
+Se o conjunto de escala estiver configurado para utilizar vários grupos de colocação, as sondas que utilizam um [Balancer de Carga Padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) precisam de ser utilizadas.
 
-### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configurando uma investigação de Load Balancer personalizada como investigação de integridade do aplicativo em um conjunto de dimensionamento
-Como prática recomendada, crie uma investigação de balanceador de carga explicitamente para integridade do conjunto de dimensionamento. O mesmo ponto de extremidade para uma investigação HTTP ou investigação TCP existente pode ser usado, mas uma investigação de integridade pode exigir um comportamento diferente de uma investigação de balanceador de carga tradicional. Por exemplo, uma investigação de balanceador de carga tradicional poderia retornar não íntegro se a carga na instância for muito alta, mas isso não seria apropriado para determinar a integridade da instância durante uma atualização automática do sistema operacional. Configure a investigação para ter uma alta taxa de investigação de menos de dois minutos.
+### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configurar uma sonda de equilíbrio de carga personalizada como sonda de saúde de aplicação em um conjunto de escala
+Como uma boa prática, crie uma sonda de equilíbrio de carga explicitamente para a saúde definida pela escala. O mesmo ponto final para uma sonda HTTP existente ou sonda TCP pode ser usado, mas uma sonda de saúde pode exigir um comportamento diferente de uma sonda tradicional de equilíbrio de carga. Por exemplo, uma sonda de equilíbrio de carga tradicional poderia regressar pouco saudável se a carga na instância for demasiado elevada, mas isso não seria apropriado para determinar a saúde por exemplo durante uma atualização automática do SO. Configure a sonda para ter uma alta taxa de sondagem de menos de dois minutos.
 
-A investigação do balanceador de carga pode ser referenciada no *networkProfile* do conjunto de dimensionamento e pode ser associada a um balanceador de carga interno ou público, como a seguir:
+A sonda de equilíbrio de carga pode ser referenciada na *redePerfil* do conjunto de escala e pode ser associada a um equilibrador de carga interno ou público da seguinte forma:
 
 ```json
 "networkProfile": {
@@ -141,36 +221,36 @@ A investigação do balanceador de carga pode ser referenciada no *networkProfil
 ```
 
 > [!NOTE]
-> Ao usar atualizações automáticas do sistema operacional com o Service Fabric, a nova imagem do sistema operacional é distribuída no domínio de atualização por domínio de atualização para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para utilizar atualizações automáticas do sistema operacional no Service Fabric o cluster deve ser configurado para usar a camada de durabilidade prateada ou superior. Para obter mais informações sobre as características de durabilidade de clusters Service Fabric, consulte [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> Ao utilizar atualizações automáticas de OS com tecido de serviço, a nova imagem de OS é lançada domínio de atualização por Domínio de Atualização para manter a elevada disponibilidade dos serviços em funcionamento no Tecido de Serviço. Para utilizar atualizações automáticas de OS em Tecido de Serviço, o seu cluster deve ser configurado para utilizar o Nível de Durabilidade prateada ou superior. Para obter mais informações sobre as características de durabilidade dos clusters de Tecido de Serviço, consulte [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-### <a name="keep-credentials-up-to-date"></a>Manter as credenciais atualizadas
-Se o conjunto de dimensionamento usar quaisquer credenciais para acessar recursos externos, como uma extensão de VM configurada para usar um token SAS para a conta de armazenamento, verifique se as credenciais estão atualizadas. Se alguma credencial, incluindo certificados e tokens, tiver expirado, a atualização falhará e o primeiro lote de VMs será deixado em um estado de falha.
+### <a name="keep-credentials-up-to-date"></a>Mantenha as credenciais atualizadas
+Se o seu conjunto de escala utilizar quaisquer credenciais para aceder a recursos externos, como uma extensão VM configurada para utilizar um token SAS para a conta de armazenamento, então certifique-se de que as credenciais são atualizadas. Se alguma suparticipaa, incluindo certificados e fichas, tiver expirado, a atualização falhará e o primeiro lote de VMs será deixado em estado falhado.
 
-As etapas recomendadas para recuperar VMs e reabilitar a atualização automática do sistema operacional se houver uma falha de autenticação de recurso:
+As medidas recomendadas para recuperar VMs e reativar a atualização automática de OS se houver uma falha de autenticação de recursos são:
 
-* Gere novamente o token (ou qualquer outra credencial) passado para suas extensões.
-* Certifique-se de que qualquer credencial usada de dentro da VM para se comunicar com entidades externas esteja atualizada.
-* Atualize as extensões no modelo do conjunto de dimensionamento com quaisquer tokens novos.
-* Implante o conjunto de dimensionamento atualizado, que atualizará todas as instâncias de VM, incluindo as que falharam.
+* Regenerar o símbolo (ou quaisquer outras credenciais) passados para a sua extensão.
+* Certifique-se de que qualquer credencial utilizada a partir de dentro do VM para falar com entidades externas está atualizada.
+* Extensão de atualização no modelo de conjunto de escala com quaisquer novos tokens.
+* Implementar o conjunto de escala atualizado, que atualizará todos os casos de VM, incluindo os falhados.
 
-## <a name="using-application-health-extension"></a>Usando a extensão de integridade do aplicativo
-A extensão de integridade do aplicativo é implantada em uma instância do conjunto de dimensionamento de máquinas virtuais e relata a integridade da VM de dentro da instância do conjunto de dimensionamento. Você pode configurar a extensão para investigação em um ponto de extremidade do aplicativo e atualizar o status do aplicativo nessa instância. Esse status de instância é verificado pelo Azure para determinar se uma instância está qualificada para operações de atualização.
+## <a name="using-application-health-extension"></a>Utilização da extensão da saúde da aplicação
+A extensão de saúde de aplicação é implantada dentro de uma instância de conjunto de escala de máquina virtual e relatórios sobre a saúde vm de dentro da instância definida de escala. Pode configurar a extensão para sondar um ponto final da aplicação e atualizar o estado da aplicação nessa instância. Este estado de exemplo é verificado pelo Azure para determinar se uma instância é elegível para operações de atualização.
 
-Como a extensão relata a integridade de dentro de uma VM, a extensão pode ser usada em situações em que investigações externas, como investigações de integridade do aplicativo (que utilizam [investigações](../load-balancer/load-balancer-custom-probe-overview.md)de Azure Load Balancer personalizadas), não podem ser usadas.
+Como a extensão reporta a saúde de dentro de um VM, a extensão pode ser usada em situações em que sondas externas como sondas de saúde de aplicação (que utilizam [sondas personalizadas](../load-balancer/load-balancer-custom-probe-overview.md)do Equilíbrio de Carga Azure) não podem ser usadas.
 
-Há várias maneiras de implantar a extensão de integridade do aplicativo em seus conjuntos de dimensionamento, conforme detalhado nos exemplos [deste artigo](virtual-machine-scale-sets-health-extension.md#deploy-the-application-health-extension).
+Existem várias formas de implementar a extensão da Saúde de Aplicação aos seus conjuntos de escala, conforme detalhado nos exemplos [deste artigo.](virtual-machine-scale-sets-health-extension.md#deploy-the-application-health-extension)
 
-## <a name="get-the-history-of-automatic-os-image-upgrades"></a>Obter o histórico de atualizações automáticas de imagem do sistema operacional
-Você pode verificar o histórico da atualização do sistema operacional mais recente executada em seu conjunto de dimensionamento com Azure PowerShell, CLI do Azure 2,0 ou as APIs REST. Você pode obter o histórico das últimas cinco tentativas de atualização do sistema operacional nos últimos dois meses.
+## <a name="get-the-history-of-automatic-os-image-upgrades"></a>Obtenha o histórico de atualizações automáticas de imagem do OS
+Pode verificar o histórico da mais recente atualização de OS realizada na sua escala com Azure PowerShell, Azure CLI 2.0 ou as APIs REST. Pode sacá-lo nas últimas cinco tentativas de upgrade de somas nos últimos dois meses.
 
 ### <a name="rest-api"></a>API REST
-O exemplo a seguir usa a [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para verificar o status do conjunto de dimensionamento chamado *myscaleset* no grupo de recursos chamado *MyResource*Group:
+O exemplo seguinte utiliza [a API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para verificar o estado do conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup:*
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
 ```
 
-A chamada GET retorna propriedades semelhantes à seguinte saída de exemplo:
+A chamada GET devolve propriedades semelhantes à seguinte saída de exemplo:
 
 ```json
 {
@@ -208,22 +288,22 @@ A chamada GET retorna propriedades semelhantes à seguinte saída de exemplo:
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir fornece detalhes sobre como examinar o status de atualização do sistema operacional de um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
+Utilize o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para verificar o histórico de atualização do OS para o seu conjunto de escala. O exemplo seguinte detalha como revê o estado de atualização do OS para um conjunto de escala chamado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
-Use [AZ vmss Get-os-upgrade-History](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para verificar o histórico de atualização do sistema operacional de seu conjunto de dimensionamento. Use CLI do Azure 2.0.47 ou superior. O exemplo a seguir fornece detalhes sobre como examinar o status de atualização do sistema operacional de um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para verificar o histórico de upgrade de SO para o seu conjunto de escala. Utilize o Azure CLI 2.0.47 ou superior. O exemplo seguinte detalha como revê o estado de atualização do OS para um conjunto de escala chamado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
 ```
 
-## <a name="how-to-get-the-latest-version-of-a-platform-os-image"></a>Como obter a versão mais recente de uma imagem do sistema operacional da plataforma?
+## <a name="how-to-get-the-latest-version-of-a-platform-os-image"></a>Como obter a versão mais recente de uma imagem de OS da plataforma?
 
-Você pode obter as versões de imagem disponíveis para SKUs de atualização automática do so com suporte usando os exemplos abaixo:
+Pode obter as versões de imagem disponíveis para a atualização automática de SKUs suportada pelo SKUs usando os exemplos abaixo:
 
 ### <a name="rest-api"></a>API REST
 ```
@@ -235,45 +315,45 @@ GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{lo
 Get-AzVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 ```azurecli-interactive
 az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServer" --sku "16.04-LTS" --all
 ```
 
-## <a name="manually-trigger-os-image-upgrades"></a>Disparar manualmente atualizações de imagem do so
-Com a atualização automática de imagem do sistema operacional habilitada no conjunto de dimensionamento, não é necessário disparar manualmente as atualizações de imagem no conjunto de dimensionamento. O orquestrador de atualização do so aplicará automaticamente a versão de imagem mais recente disponível às instâncias do conjunto de dimensionamento sem qualquer intervenção manual.
+## <a name="manually-trigger-os-image-upgrades"></a>Desencadear manualmente as atualizações de imagem do OS
+Com a atualização automática da imagem OS ativada no seu conjunto de escala, não precisa de ativar manualmente atualizações de imagem no seu conjunto de escala. O orquestrador de atualização osso aplicará automaticamente a versão de imagem mais recente disponível nas instâncias do conjunto de escala sem qualquer intervenção manual.
 
-Para casos específicos em que você não deseja esperar que o orquestrador aplique a imagem mais recente, você pode disparar uma atualização de imagem do sistema operacional manualmente usando os exemplos abaixo.
+Para casos específicos em que não pretende esperar que o orquestrador aplique a imagem mais recente, pode desencadear uma atualização de imagem de OS manualmente utilizando os exemplos abaixo.
 
 > [!NOTE]
-> O gatilho manual de atualizações de imagem do sistema operacional não fornece recursos de reversão automática. Se uma instância não recuperar sua integridade após uma operação de atualização, o disco do so anterior não poderá ser restaurado.
+> O gatilho manual das atualizações de imagem de OS não fornece capacidades automáticas de reversão. Se uma instância não recuperar a sua saúde após uma operação de atualização, o disco de SO anterior não pode ser restaurado.
 
 ### <a name="rest-api"></a>API REST
-Use a chamada à API de [atualização do sistema operacional](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar uma atualização sem interrupção para mover todas as instâncias do conjunto de dimensionamento de máquinas virtuais para a versão mais recente do sistema operacional da imagem de plataforma disponível. As instâncias que já estão executando a versão mais recente do so disponível não são afetadas. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem interrupção em um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
+Utilize a chamada Start [OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API para iniciar uma atualização rolante para mover todas as instâncias de conjunto de escala de máquina virtual para a mais recente versão ossia de imagem disponível. Os casos que já estão a executar a mais recente versão de SO disponível não são afetados. O exemplo seguinte detalha como pode iniciar uma atualização de OS rolante num conjunto de escala chamado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use o cmdlet [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem interrupção em um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
+Utilize o [cmdlet Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para verificar o histórico de atualização do OS para o seu conjunto de escala. O exemplo seguinte detalha como pode iniciar uma atualização de OS rolante num conjunto de escala chamado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
-Use [AZ vmss upgradeing-upgrade Start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para verificar o histórico de atualização do sistema operacional de seu conjunto de dimensionamento. Use CLI do Azure 2.0.47 ou superior. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem interrupção em um conjunto de dimensionamento chamado *Myscalemodeset* no grupo de recursos chamado *MyResource*Group:
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+Use [aaz vmss rolling-upgrade começar](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para verificar o histórico de upgrade de SO para o seu conjunto de escala. Utilize o Azure CLI 2.0.47 ou superior. O exemplo seguinte detalha como pode iniciar uma atualização de OS rolante num conjunto de escala chamado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"
 ```
 
-## <a name="deploy-with-a-template"></a>Implantar com um modelo
+## <a name="deploy-with-a-template"></a>Implementar com um modelo
 
-Você pode usar modelos para implantar um conjunto de dimensionamento com atualizações automáticas do sistema operacional para imagens com suporte, como [Ubuntu 16, 4-LTS](https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json).
+Pode utilizar modelos para implementar um conjunto de escala com atualizações automáticas de SO para imagens suportadas como [Ubuntu 16.04-LTS](https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais exemplos de como usar atualizações automáticas do sistema operacional com conjuntos de dimensionamento, examine o [repositório GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).
+Para mais exemplos sobre como utilizar atualizações automáticas de SO com conjuntos de escala, reveja o [repo GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

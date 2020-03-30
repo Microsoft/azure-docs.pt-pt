@@ -1,99 +1,98 @@
 ---
-title: Configurar a VM hospedada em Microsoft Azure para o Azure Marketplace
-description: Explica como dimensionar, atualizar e generalizar uma VM hospedada no Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Configure o VM hospedado no Microsoft Azure para o Mercado Azure
+description: Explica como dimensionar, atualizar e generalizar um VM hospedado no Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
-ms.openlocfilehash: ce7fe49b07dc250a9f56ff73229e347b997f0cc0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b0ed430098203c5c1a0d00eb7bf17da1be0000cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824485"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278097"
 ---
-# <a name="configure-the-azure-hosted-vm"></a>Configurar a VM hospedada no Azure
+# <a name="configure-the-azure-hosted-vm"></a>Configure o VM hospedado em Azure
 
-Este artigo explica como dimensionar, atualizar e generalizar uma VM (máquina virtual) hospedada no Azure.  Essas etapas são necessárias para preparar a VM a ser implantada no Azure Marketplace.
+Este artigo explica como dimensionar, atualizar e generalizar uma máquina virtual (VM) hospedada no Azure.  Estes passos são necessários para preparar o seu VM para ser implantado a partir do Mercado Azure.
 
 
-## <a name="sizing-the-vhds"></a>Dimensionando os VHDs
+## <a name="sizing-the-vhds"></a>Dimensionamento dos VHDs
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-Se você tiver selecionado uma das VMs pré-configuradas com um sistema operacional (e, opcionalmente, serviços adicionais), você já selecionou um tamanho de VM do Azure padrão, conforme descrito na [guia SKUs da máquina virtual](./cpp-skus-tab.md).  Iniciar sua solução com um sistema operacional pré-configurado é a abordagem recomendada.  No entanto, se você estiver instalando um so manualmente, deverá dimensionar seu VHD primário em sua imagem de VM:
+Se selecionou um dos VMs pré-configurado com um sistema operativo (e serviços opcionalmente adicionais), então já escolheu um tamanho De VM Azul padrão, como descrito no [separador SKUs da máquina virtual](./cpp-skus-tab.md).  Iniciar a sua solução com um Sistema operativo pré-configurado é a abordagem recomendada.  No entanto, se estiver a instalar um SO manualmente, então deve dimensionar o seu VHD primário na sua imagem VM:
 
-- Para o Windows, o VHD do sistema operacional deve ser criado como um VHD de formato fixo de 127-128 GB. 
-- Para o Linux, esse VHD deve ser criado como um VHD de formato fixo de 30-50 GB.
+- Para windows, o vHD do sistema operativo deve ser criado como um VHD de formato fixo de 127-128 GB. 
+- Para o Linux, este VHD deve ser criado como um VHD de formato fixo de 30-50 GB.
 
-Se o tamanho físico for menor que 127-128 GB, o VHD deverá ser esparso. As imagens base do Windows e do SQL Server fornecidas já atendem a esses requisitos, portanto, não altere o formato ou o tamanho do VHD obtido. 
+Se o tamanho físico for inferior a 127-128 GB, o VHD deve ser escasso. As imagens base do Windows e do SQL Server fornecidas já satisfazem estes requisitos, pelo que não altera o formato ou o tamanho do VHD obtido. 
 
-Os discos de dados podem ser tão grandes quanto 1 TB. Ao decidir sobre seu tamanho, lembre-se de que os clientes não podem redimensionar VHDs em uma imagem no momento da implantação. Os VHDs de disco de dados devem ser criados como VHDs de formato fixo. Eles também devem ser esparsos. Os discos de dados podem inicialmente estar vazios ou conter dados.
-
-
-## <a name="install-the-most-current-updates"></a>Instalar as atualizações mais recentes
-
-As imagens base das VMs do sistema operacional contêm as atualizações mais recentes até a data de publicação. Antes de publicar o VHD do sistema operacional que você criou, certifique-se de atualizar o sistema operacional e todos os serviços instalados com todos os patches de segurança e manutenção mais recentes.
-
-Para o Windows Server 2016, execute o comando **verificar atualizações** .  Caso contrário, para versões mais antigas do Windows, consulte [como obter uma atualização por meio de Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  O Windows Update instalará automaticamente as atualizações de segurança críticas e importantes mais recentes.
-
-Para distribuições do Linux, as atualizações são normalmente baixadas e instaladas por meio de uma ferramenta de linha de comando ou um utilitário gráfico.  Por exemplo, Ubuntu Linux fornece o comando [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) e a ferramenta [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) para atualizar o sistema operacional.
+Os discos de dados podem ser tão grandes como 1 TB. Ao decidir sobre o seu tamanho, lembre-se que os clientes não podem redimensionar Os VHDs dentro de uma imagem no momento da implementação. Os VHDs do disco de dados devem ser criados como VHDs de formação fixa. Também devem ser escassos. Os discos de dados podem inicialmente estar vazios ou conter dados.
 
 
-## <a name="perform-additional-security-checks"></a>Executar verificações de segurança adicionais
+## <a name="install-the-most-current-updates"></a>Instale as atualizações mais atuais
 
-Você deve manter um alto nível de segurança para suas imagens de solução no Azure Marketplace.  O artigo a seguir fornece uma lista de verificação de configurações e procedimentos de segurança para ajudá-lo neste objetivo: [recomendações de segurança para imagens do Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Algumas dessas recomendações são específicas para imagens baseadas em Linux, mas a maioria se aplica a qualquer imagem de VM. 
+As imagens base dos VMs do sistema operativo contêm as últimas atualizações até à data publicada. Antes de publicar o sistema operativo VHD que criou, certifique-se de que atualiza o SISTEMA e todos os serviços instalados com todos os patches de segurança e manutenção mais recentes.
+
+Para o Windows Server 2016, execute o comando **'Verificar' Atualizações.**  Caso contrário, para versões mais antigas do Windows, veja [como obter uma atualização através do Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  A atualização do Windows irá instalar automaticamente as mais recentes atualizações de segurança críticas e importantes.
+
+Para as distribuições do Linux, as atualizações são geralmente descarregadas e instaladas através de uma ferramenta de linha de comando ou de um utilitário gráfico.  Por exemplo, o Ubuntu Linux fornece o comando [de get apt e](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) a ferramenta Update [Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) para atualizar o OS.
 
 
-## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Executar configurações personalizadas e tarefas agendadas
+## <a name="perform-additional-security-checks"></a>Realizar verificações de segurança adicionais
 
-Se for necessária configuração adicional, a abordagem recomendada é usar uma tarefa agendada que é executada na inicialização para fazer quaisquer alterações finais na VM após sua implantação.  Considere também as seguintes recomendações:
-- Se for uma tarefa de execução única, é recomendável que a própria tarefa seja excluída após a conclusão bem-sucedida.
-- As configurações não devem depender de unidades diferentes de C ou D, pois apenas essas duas unidades têm a garantia de que existem sempre. A unidade C é o disco do sistema operacional e a unidade D é o disco local temporário.
+Deverá manter um alto nível de segurança para as suas imagens de solução no Mercado Azure.  O seguinte artigo fornece uma lista de configurações e procedimentos de segurança para ajudá-lo neste objetivo: Recomendações de [segurança para imagens do Mercado Azure](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Algumas destas recomendações são específicas das imagens baseadas em Linux, mas a maioria aplica-se a qualquer imagem VM. 
 
-Para obter mais informações sobre personalizações do Linux, consulte [recursos e extensões de máquina virtual para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux).
+
+## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Execute a configuração personalizada e as tarefas programadas
+
+Se for necessária uma configuração adicional, a abordagem recomendada é utilizar uma tarefa programada que funciona no arranque para fazer quaisquer alterações finais no VM depois de implementado.  Considere também as seguintes recomendações:
+- Se for uma tarefa executada, recomenda-se que a tarefa se elimine depois de concluída com sucesso.
+- As configurações não devem depender de unidades que não sejam C ou D, porque apenas estas duas unidades que estão sempre garantidas para existir. A unidade C é o disco do sistema operativo, e a unidade D é o disco local temporário.
+
+Para obter mais informações sobre as personalizações do Linux, consulte [extensões e funcionalidades da máquina virtual para linux](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux).
 
 
 ## <a name="generalize-the-image"></a>Generalizar a imagem
 
-Todas as imagens no Azure Marketplace devem ser reutilizáveis de maneira genérica. Para atingir essa reusabilidade, o VHD do sistema operacional deve ser *generalizado*, uma operação que remove todos os identificadores específicos da instância e drivers de software de uma VM.
+Todas as imagens no Mercado Azure devem ser reutilizáveis de forma genérica. Para alcançar esta reutilização, o sistema operativo VHD deve ser *generalizado,* uma operação que remova todos os identificadores específicos de instâncias e controladores de software de um VM.
 
 ### <a name="windows"></a>Windows
 
-Os discos do sistema operacional Windows são generalizados com a [ferramenta Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Se, posteriormente, você atualizar ou reconfigurar o sistema operacional, deverá executar novamente o Sysprep. 
+Os discos Do Windows OS são generalizados com a [ferramenta de sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Se posteriormente atualizar ou reconfigurar o Sistema operativo, tem de reexecutar a sysprep. 
 
 > [!WARNING]
->  Como as atualizações podem ser executadas automaticamente, depois de executar o Sysprep, você deve desativar a VM até que ela seja implantada.  Esse desligamento evitará que as atualizações subsequentes façam alterações específicas da instância no sistema operacional VHD ou nos serviços instalados.
+>  Uma vez que as atualizações podem ser executadas automaticamente, uma vez executada sysprep, deve desligar o VM até que seja implantado.  Esta paragem evitará atualizações subsequentes de fazer alterações específicas de exemplo sao o VHD OS ou serviços instalados.
 
-Para obter mais informações sobre como executar o Sysprep, consulte [etapas para generalizar um VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+Para mais informações sobre a execução de sysprep, consulte [Steps para generalizar um VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 
-O processo de duas etapas a seguir generaliza uma VM Linux e a implanta novamente como uma VM separada. Essas duas etapas são apenas os conceitos básicos do processo. Para obter mais informações sobre essas duas etapas e por que elas devem ser feitas, consulte [como criar uma imagem de uma máquina virtual ou VHD](../../../virtual-machines/linux/capture-image.md). Para fins de criação do VHD para sua oferta do Azure Marketplace, você pode parar quando chegar à seção "criar uma VM com base na imagem capturada".
+O processo de duas etapas seguintegeneraliza um VM Linux e reimplanta-o como um VM separado. Estes dois passos são apenas o essencial do processo. Para obter mais informações sobre estes dois passos e por que devem ser feitos, consulte [como criar uma imagem de uma máquina virtual ou VHD](../../../virtual-machines/linux/capture-image.md). Para efeitos de criação do VHD para a sua oferta azure Marketplace, pode parar quando chegar à secção "Criar um VM a partir da imagem capturada".
 
-#### <a name="remove-the-azure-linux-agent"></a>Remover o agente Linux do Azure
-1.  Conecte-se à sua VM do Linux usando um cliente SSH.
+#### <a name="remove-the-azure-linux-agent"></a>Remova o agente Azure Linux
+1.  Ligue-se ao seu VM Linux utilizando um cliente SSH.
 2.  Na janela SSH, digite o seguinte comando: <br/>
     `sudo waagent -deprovision+user`
-3.  Digite `y` para continuar. (Você pode adicionar o parâmetro `-force` ao comando anterior evitar esta etapa de confirmação.)
-4.  Após a conclusão do comando, digite `exit` para fechar o cliente SSH.
+3.  Escreva `y` para continuar. (Pode adicionar `-force` o parâmetro ao comando anterior evitar este passo de confirmação.)
+4.  Depois do comando terminar, escreva `exit` para fechar o cliente SSH.
 
 <!-- TD: I need to add meat and/or references to the following steps -->
-#### <a name="capture-the-image"></a>Capturar a imagem
-1.  Vá para o portal do Azure, selecione seu grupo de recursos (RG) e desaloque a VM.
-2.  Seu VHD está generalizado agora e você pode criar uma nova VM usando este VHD.
+#### <a name="capture-the-image"></a>Capturar a Imagem
+1.  Vá ao portal Azure, selecione o seu grupo de recursos (RG) e desloque o VM.
+2.  O seu VHD está generalizado agora e pode criar um novo VM utilizando este VHD.
 
 
 ## <a name="create-one-or-more-copies"></a>Criar uma ou mais cópias
 
-A criação de cópias da VM é geralmente útil para backup, teste, failover personalizado ou balanceamento de carga, para oferecer configurações diferentes de uma solução e assim por diante. Para obter informações sobre como duplicar e baixar um VHD primário, para fazer um clone não gerenciado, consulte:
+A criação de cópias de VM é muitas vezes útil para backup, teste, falha personalizada ou equilíbrio de carga, para oferecer diferentes configurações de uma solução, e assim por diante. Para obter informações sobre como duplicar e descarregar um VHD primário, para fazer um clone não gerido, consulte:
 
-- VM do Linux: [baixar um VHD do Linux do Azure](../../../virtual-machines/linux/download-vhd.md)
-- VM do Windows: [baixar um VHD do Windows do Azure](../../../virtual-machines/windows/download-vhd.md)
+- Linux VM: [Descarregue um Linux VHD do Azure](../../../virtual-machines/linux/download-vhd.md)
+- Windows VM: [Descarregue um VHD windows a partir do Azure](../../../virtual-machines/windows/download-vhd.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois que a VM for generalizada, tiver sido desalocada e você tiver criado uma imagem da VM, você estará pronto para [implantar uma máquina virtual de um disco rígido virtual](./cpp-deploy-vm-vhd.md).
+Depois do seu VM ser generalizado, foi deallocalizado, e você criou uma imagem do VM, você está pronto para [implantar uma máquina virtual a partir de um disco rígido virtual](./cpp-deploy-vm-vhd.md).

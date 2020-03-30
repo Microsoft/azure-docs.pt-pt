@@ -1,53 +1,52 @@
 ---
-title: Guia unidade de teste da máquina virtual no Portal do Cloud Partner para o Azure Marketplace
-description: Descreve a guia Test Drive usada na criação de uma oferta de VM do Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+title: Separador de test drive de máquina virtual no Portal do Parceiro cloud para o Mercado Azure
+description: Descreve o separador Test Drive utilizado na criação de uma oferta De VM do Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 94ebbcca50916f1675ab990a4b45f3b90e069104
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d4fc8762e25825b21637b16b751d57a0dcbf369e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808863"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288806"
 ---
-# <a name="virtual-machine-test-drive-tab"></a>Guia unidade de teste da máquina virtual
+# <a name="virtual-machine-test-drive-tab"></a>Separador de test drive de máquina virtual
 
-A guia **Test Drive** da nova página de **oferta** permite que você forneça a seus clientes potenciais uma demonstração prática e Autoguiada dos principais recursos e benefícios do seu produto, demonstrados em um cenário padronizado.  O Test Drive é um recurso opcional para os tipos de oferta que dão suporte ao Test Drive.  O Test Drive requer que os ativos de suporte sejam implementados corretamente.  Para obter mais informações, consulte o artigo [test drive do Azure Marketplace](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TD: Replace with migrated version of Test Drive article! -->
+O separador **Test Drive** da página **New Offer** permite-lhe fornecer aos seus potenciais clientes uma demonstração prática e auto-guiada das principais funcionalidades e benefícios do seu produto, demonstrado num cenário padronizado.  Test Drive é uma característica opcional para os tipos de oferta que suportam test drive.  Test Drive requer que os ativos de apoio sejam corretamente implementados.  Para mais informações, consulte o artigo [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TD: Replace with migrated version of Test Drive article! -->
 
-Para habilitar esse recurso, na guia **Test Drive** , clique na opção **Sim** em **habilitar um test drive**.  A guia **Test Drive** exibe os campos disponíveis para edição.  Um asterisco anexado (*) no nome do campo indica que ele é necessário.
+Para ativar esta funcionalidade, no separador **Test Drive,** clique na opção **Sim** em **Ativar um Test Drive**.  O separador **Test Drive** apresenta os campos disponíveis para edição.  Um asterisco anexado (*) no nome do campo indica que é necessário.
 
-![Guia Test Drive no novo formulário de oferta para máquinas virtuais](./media/publishvm_007.png)
+![Separador Test Drive no formulário New Offer para máquinas virtuais](./media/publishvm_007.png)
 
 
 ## <a name="field-values"></a>Valores de campo
 
-A tabela a seguir descreve a finalidade e o conteúdo desses campos.  Os campos obrigatórios são indicted por um asterisco (*).
+A tabela seguinte descreve o propósito e o conteúdo destes campos.  Os campos necessários são indiciados por um asterisco (*).
 
 
 |    Campo                  |       Descrição                                                            |
 |  ---------                |     ---------------                                                          |
 |  *Detalhes*   |  |
-| **Descrição\***           | Forneça uma visão geral do cenário do Test Drive. Esse texto será mostrado ao usuário enquanto o Test Drive estiver sendo provisionado. Este campo oferece suporte a HTML básico se você quiser fornecer conteúdo formatado.  |
-| **\* manual do usuário**           | Carregue um manual de usuário Detalhado (. pdf) que ajuda a testar os usuários do drive a entender como usar sua solução.  |
-| **Vídeo de demonstração do Test Drive** | Carregue um vídeo que demonstra sua solução.  Se você escolher essa opção, deverá fornecer um nome, uma URL para o vídeo (hospedado no YouTube ou Vimeo) e uma miniatura (533x324 pixel) para o vídeo. |
-| *Configuração técnica* |  |
-| **Instâncias\***             | Especifique a disponibilidade de região e relativamente disponibilidade da instância de VM (clique no ícone de informações para obter mais detalhes).  <br/>As sessões de unidade de teste simultâneas potenciais não devem exceder o limite de cota para sua assinatura.  O primeiro é calculado como: [número de regiões selecionadas] x [instâncias quentes] + [número de regiões selecionadas] x [instâncias quentes] + [número de regiões selecionadas] x [instâncias frias] |
-| **Duração da unidade de teste\***   | Duração máxima da sessão em horas. A sessão do Test Drive é encerrada automaticamente após esse período de tempo ser excedido.  |
-|**Testar o modelo ARM\***| Carregue o modelo de Azure Resource Manager associado a este Test Drive. Para obter mais informações, consulte [transformando o modelo de implantação de máquina virtual para o Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive). |
-| **Informações de acesso\***    | Azure Resource Manager informações de logon e de avaliação de acesso, escritas como texto sem formatação ou HTML simples. |
-| *Detalhes da assinatura de implantação do Test Drive* |  |
-| **ID da assinatura do Azure\*** | Pode ser obtido entrando no [portal do Microsoft Azure](https://ms.portal.azure.com) e clicando em **assinaturas** na barra de menus à esquerda. (Exemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")    Esse identificador deve ser um GUID do formulário `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
-| **ID de locatário do Azure AD\***    | Azure Active Directory ID do locatário.  Pode ser obtido entrando na [portal do Microsoft Azure](https://ms.portal.azure.com) e clicando em **Azure Active Directory** na barra de menus à esquerda e, em seguida, clicando em **Propriedades** na barra de menus do meio, copiando a **ID do diretório** do formulário.  Esse identificador também deve ser um GUID.  Se estiver em branco, você deverá criar uma ID de locatário para sua organização. |
-| **ID de Aplicativo Azure AD\***       | Identificador para sua solução de VM do Azure registrada  |
-| **Chave de Aplicativo Azure AD\***      | Chave de autenticação para sua solução registrada |
+| **Descrição\***           | Forneça uma visão geral do seu cenário de Test Drive. Este texto será mostrado ao utilizador enquanto o Test Drive está a ser aprovisionado. Este campo suporta HTML básico se pretender fornecer conteúdo formatado.  |
+| **Manual do utilizador\***           | Faça upload de um manual detalhado do utilizador (.pdf) que ajuda os utilizadores do Test Drive a entender como usar a sua solução.  |
+| **Vídeo de demonstração de test drive** | Faça upload de um vídeo que mostre a sua solução.  Se escolheu esta opção, deve fornecer um nome, URL para o vídeo (hospedado no YouTube ou Vimeo) e uma miniatura (533x324 pixel) para o vídeo. |
+| *Configuração Técnica* |  |
+| **de Instâncias\***             | Especifique a disponibilidade da região e a disponibilidade relativa da instância vm (clique no ícone da informação para mais detalhes).  <br/>As sessões de Test Drive simultâneas potenciais não devem exceder o limite de quota para a sua subscrição.  O primeiro é calculado como: [Número de Regiões Selecionadas] x [Casos quentes] + [Número de Regiões Selecionadas] x [Casos quentes] + [Número de Regiões Selecionadas] x [Casos frios] |
+| **Duração do test drive\***   | Duração máxima da sessão em horas. A sessão test drive termina automaticamente após este período de tempo ser ultrapassado.  |
+|**Modelo de braço de acionamento de teste\***| Faça upload do modelo de Gestor de Recursos Azure associado a esta Unidade de Teste. Para mais informações, consulte o modelo de implementação da [máquina virtual transformadora para test drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive). |
+| **Informação de acesso\***    | Informação de acesso e login do Gestor de Recursos Azure, escrita como texto simples ou HTML simples. |
+| *Detalhes da subscrição de implementação de unidade de teste* |  |
+| **ID de Subscrição do Azure\*** | Pode ser obtido através da sessão no [portal microsoft Azure](https://ms.portal.azure.com) e clicando em **Subscrições** na barra de menus esquerda. (Exemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")    Este identificador deve ser um `a83645ac-1234-5ab6-6789-1h234g764ghty`GUID da forma .|
+| **Id de inquilino azure AD\***    | Id de inquilino do Diretório Ativo Azure.  Pode ser obtido assinando no portal do [Microsoft Azure](https://ms.portal.azure.com) e clicando no **Azure Ative Directory** na barra de menus esquerda, clicando em **Propriedades** na barra de menu sinuosa e, em seguida, copiando o ID do **Diretório** a partir do formulário.  Este identificador também deve ser um GUID.  Se estiver em branco, então deve criar uma identificação de inquilino para a sua organização. |
+| **Azure AD App Id\***       | Identificador para a sua solução Azure VM registada  |
+| **Chave da aplicação Azure AD\***      | Chave de autenticação para a sua solução registada |
 |   |   |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Na próxima guia do [Marketplace](./cpp-marketplace-tab.md) , você fornecerá informações legais e de marketing sobre sua solução.
+No próximo separador [Marketplace,](./cpp-marketplace-tab.md) irá fornecer informações de marketing e informações legais sobre a sua solução.

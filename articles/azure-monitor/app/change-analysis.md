@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 143f55a02a856b536172bd5fc2bac15903a228b9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 036b8c084bdfdc11c02274758c550c76bdc7b1e7
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655689"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348738"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar análise de alterações de aplicações (pré-visualização) no Monitor Azure
 
@@ -37,7 +37,7 @@ Consulte as alterações de *Visualização de todos os recursos na* secção Az
 Utilizando o [Azure Resource Graph,](https://docs.microsoft.com/azure/governance/resource-graph/overview)a Change Analysis fornece um registo histórico de como os recursos Azure que acolhem a sua aplicação mudaram ao longo do tempo. Configurações rastreadas, tais como identidades geridas, upgrade do Os da Plataforma e nomes de anfitriões podem ser detetados.
 
 ### <a name="azure-resource-manager-proxied-setting-changes"></a>Gestor de Recursos Azure proxiu alterações de definição
-As definições como a regra de configuração IP, as definições de SSL e as versões de extensão ainda não estão disponíveis em ARG, por isso as consultas de Análise de Alteração e calcula estas alterações de forma segura para fornecer mais detalhes sobre o que mudou na aplicação. Estas informações ainda não estão disponíveis no Azure Resource Graph, mas estarão disponíveis em breve.
+As definições como a regra de configuração IP, as definições de TLS e as versões de extensão ainda não estão disponíveis em ARG, por isso as consultas de Análise de Alteração e calcula estas alterações de forma segura para fornecer mais detalhes sobre o que mudou na aplicação. Esta informação ainda não está disponível no Azure Resource Graph, mas estará disponível em breve.
 
 ### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Alterações na implementação e configuração da aplicação web (alterações no hóspede)
 
@@ -53,7 +53,7 @@ Atualmente, apoiam-se as seguintes dependências:
 - Storage do Azure
 - SQL do Azure
 
-### <a name="enablement"></a>Habilitação
+### <a name="enablement"></a>Enablement
 O fornecedor de recursos "Microsoft.ChangeAnalysis" precisa de ser registado com uma subscrição para o Gestor de Recursos Azure, rastreadas propriedades e configurações de configurações proxidas que alteram dados para estarem disponíveis. À medida que entra na ferramenta de diagnóstico e resolução de problemas da Web App ou se levanta o separador 'Change Analysis' autónomo, este fornecedor de recursos é automaticamente registado. Não possui qualquer desempenho e implementação de custos para a sua subscrição. Quando ativar a Change Analysis para aplicações web (ou ativar na ferramenta diagnosticar e resolver problemas), terá um impacto de desempenho negligenciável na aplicação web e nenhum custo de faturação.
 Para alterações na aplicação web no hóspede, é necessária uma ativação separada para digitalizar ficheiros de código dentro de uma aplicação web. Para mais informações, consulte [a Enable Change Analysis no Diagnóstico e resolva](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#enable-change-analysis-in-the-diagnose-and-solve-problems-tool) os problemas da secção de ferramentas mais tarde neste artigo para obter mais detalhes.
 
@@ -72,12 +72,12 @@ Selecione Grupo de Recursos e recursos para começar a visualizar alterações.
 Pode ver Insights e recursos de dependências relacionadas que acolhem a sua aplicação. Esta visão foi concebida para ser centrada na aplicação para os desenvolvedores resolverem problemas.
 
 Os recursos atualmente apoiados incluem:
-- Virtual Machines
+- Máquinas Virtuais
 - Conjunto de escala de máquina virtual
 - Recursos de Networking Azure
 - Aplicação web com rastreio de ficheiros no hóspede e alterações de variáveis ambientais
 
-Para qualquer feedback, utilize o botão de feedback de envio na lâmina ou no e-mail changeanalysisteam@microsoft.com.
+Para qualquer feedback, utilize o botão changeanalysisteam@microsoft.comde feedback de envio na lâmina ou no e-mail .
 
 ![Screenshot do botão de feedback na lâmina de análise de mudança](./media/change-analysis/change-analysis-feedback.png)
 
@@ -106,7 +106,7 @@ No Monitor Azure, a Change Analysis também está integrada no autosserviço Dia
     ![Screenshot da interface de utilizador "Enable Change Analysis"](./media/change-analysis/change-analysis-on.png)
 
 
-1. Para aceder à Análise de Alterações, **selecione Diagnosticar e resolver problemas** > Disponibilidade e **Desempenho** > Falhas de **aplicação**. Verá um gráfico que resume o tipo de mudanças ao longo do tempo juntamente com detalhes sobre essas alterações. Por predefinição, as alterações nas últimas 24 horas são apresentadas para ajudar com problemas imediatos.
+1. Para aceder à Análise de Alterações, selecione **Diagnosticar e resolver problemas** > **Disponibilidade e**Falhas de > **Aplicação**de Desempenho . Verá um gráfico que resume o tipo de mudanças ao longo do tempo juntamente com detalhes sobre essas alterações. Por predefinição, as alterações nas últimas 24 horas são apresentadas para ajudar com problemas imediatos.
 
      ![Screenshot da visão difusa de mudança](./media/change-analysis/change-view.png)
 

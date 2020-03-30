@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 11bc97be7ff8d924f7ccd0b4672a8f4cb0a178ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 65aa83731be97b59a36a5baf60ea308690a0dcf8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254862"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297753"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Utilize o serviço StorSimple Device Manager para gerir as credenciais da sua conta de armazenamento
 
@@ -40,7 +40,7 @@ As contas de armazenamento contêm as credenciais que o dispositivo StorSimple u
 Na folha de **credenciais da conta de Armazenamento,** todas as contas de armazenamento criadas para a subscrição de faturação são apresentadas num formato tabular contendo as seguintes informações:
 
 * **Nome** – O nome único atribuído à conta quando foi criado.
-* **SSL ativado** – Se o SSL está ativado e a comunicação dispositivo-nuvem está sobre o canal de segurança.
+* **SSL ativado** – Se o TLS está ativado e a comunicação dispositivo-nuvem está sobre o canal de segurança.
 * **Utilizado por** – O número de volumes que utilizam a conta de armazenamento.
 
 As tarefas mais comuns relacionadas com contas de armazenamento que podem ser executadas são:
@@ -60,7 +60,7 @@ Existem três tipos de contas de armazenamento que podem ser usadas com o seu di
 
 ## <a name="add-a-storage-account"></a>Adicione uma conta de armazenamento
 
-Pode adicionar uma conta de armazenamento fornecendo um nome único e credenciais de acesso amigáveis que estão ligadas à conta de armazenamento (com o prestador de serviços na nuvem especificado). Também tem a opção de ativar o modo de camada de tomadas seguras (SSL) para criar um canal seguro para a comunicação de rede entre o seu dispositivo e a nuvem.
+Pode adicionar uma conta de armazenamento fornecendo um nome único e credenciais de acesso amigáveis que estão ligadas à conta de armazenamento (com o prestador de serviços na nuvem especificado). Também tem a opção de ativar o modo De Segurança da Camada de Transporte (TLS), anteriormente conhecido como modo Secure Sockets Layer (SSL), para criar um canal seguro para a comunicação de rede entre o seu dispositivo e a nuvem.
 
 Pode criar várias contas para um determinado fornecedor de serviços na nuvem. Esteja ciente, no entanto, que após a criação de uma conta de armazenamento, não pode alterar o fornecedor de serviços na nuvem.
 
@@ -86,7 +86,7 @@ Utilize os seguintes procedimentos para adicionar credenciais de conta de armaze
    
     3. Na caixa de texto chave de acesso à **conta de armazenamento,** forneça a chave de acesso primária para a sua credencial de conta de armazenamento Azure. Para obter esta chave, vá ao serviço de Armazenamento Azure, selecione a credencial da sua conta de armazenamento e clique em **Gerir as teclas da conta**. Agora pode copiar a chave de acesso principal.
    
-    4. Para ativar o SSL, clique no botão **'Activar'** para criar um canal seguro para a comunicação de rede entre o serviço StorSimple Device Manager e a nuvem. Clique no botão **Desativar** apenas se estiver a funcionar dentro de uma nuvem privada.
+    4. Para ativar o TLS, clique no botão **'Activar'** para criar um canal seguro para a comunicação de rede entre o serviço StorSimple Device Manager e a nuvem. Clique no botão **Desativar** apenas se estiver a funcionar dentro de uma nuvem privada.
    
     5. Clique em **Adicionar**. É notificado após a credencial da conta de armazenamento ser criada com sucesso.
 

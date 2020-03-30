@@ -1,16 +1,16 @@
 ---
-title: Exportação contínua de telemetria a partir de Insights de Aplicação  Microsoft Docs
+title: Exportação contínua de telemetria a partir de Insights de Aplicação [ Microsoft Docs
 description: Exportar dados de diagnóstico e utilização para armazenamento no Microsoft Azure, e descarregá-lo a partir daí.
 ms.topic: conceptual
-ms.date: 07/25/2019
-ms.openlocfilehash: 33158919980514b70c3b0e438691427a34eed834
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/25/2020
+ms.openlocfilehash: f6afe42e483ab7ad5810169fc301946c75308c29
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663918"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298292"
 ---
-# <a name="export-telemetry-from-application-insights"></a>Telemetria de exportação de Insights de Aplicação
+# <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
 Quer manter a sua telemetria por mais tempo do que o período padrão de retenção? Ou processá-lo de alguma forma especializada? A Exportação Contínua é ideal para isso. Os eventos que vê no portal Application Insights podem ser exportados para armazenamento no Microsoft Azure em formato JSON. A partir daí, pode descarregar os seus dados e escrever qualquer código que precise para processá-lo.  
 
 Antes de configurar a exportação contínua, existem algumas alternativas que talvez deseja considerar:
@@ -34,7 +34,7 @@ A Exportação Contínua **não suporta** as seguintes funcionalidades/configura
 
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
-## <a name="setup"></a>Criar uma Exportação Contínua
+## <a name="create-a-continuous-export"></a><a name="setup"></a>Criar uma Exportação Contínua
 
 1. No recurso Application Insights para a sua app sob configuração à esquerda, abra a Exportação Contínua e escolha **Adicionar:**
 
@@ -53,6 +53,18 @@ Uma vez criada a sua exportação, começa a funcionar. Só obtém dados que che
 
 Pode haver um atraso de cerca de uma hora antes que os dados apareçam no armazenamento.
 
+Uma vez concluída a primeira exportação, encontrará uma estrutura semelhante à seguinte no seu recipiente de armazenamento Azure Blob: (Isto variará consoante os dados que está a recolher.)
+
+|Nome | Descrição |
+|:----|:------|
+| [Disponibilidade](export-data-model.md#availability) | Relatórios de disponibilidade de [testes web](../../azure-monitor/app/monitor-web-app-availability.md).  |
+| [Evento](export-data-model.md#events) | Eventos personalizados gerados pelo [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
+| [Exceções](export-data-model.md#exceptions) |Reporta [exceções](../../azure-monitor/app/asp-net-exceptions.md) no servidor e no navegador.
+| [Mensagens](export-data-model.md#trace-messages) | Enviado por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace), e pelos adaptadores de [exploração madeireira](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Métricas](export-data-model.md#metrics) | Gerado por chamadas API métricas.
+| [Contadores de Desempenho](export-data-model.md) | Contadores de Desempenho recolhidos pela Application Insights.
+| [Pedidos](export-data-model.md#requests)| Enviado por [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Os módulos padrão usam isto para reportar o tempo de resposta do servidor, medido no servidor.| 
+
 ### <a name="to-edit-continuous-export"></a>Para editar exportação contínua
 
 Clique na exportação contínua e selecione a conta de armazenamento para editar.
@@ -66,7 +78,7 @@ Para parar a exportação permanentemente, apague-a. Ao fazê-lo, não apaga os 
 ### <a name="cant-add-or-change-an-export"></a>Não pode adicionar ou mudar uma exportação?
 * Para adicionar ou alterar exportações, precisa de Direitos de Acesso do Proprietário, Colaborador ou De Aplicação Insights. [Saiba sobre papéis.][roles]
 
-## <a name="analyze"></a>Que eventos obtém?
+## <a name="what-events-do-you-get"></a><a name="analyze"></a>Que eventos obtém?
 Os dados exportados são a telemetria bruta que recebemos da sua aplicação, exceto que adicionamos dados de localização, que calculamos a partir do endereço IP do cliente.
 
 Os dados que foram descartados por [amostragem](../../azure-monitor/app/sampling.md) não estão incluídos nos dados exportados.
@@ -76,14 +88,14 @@ Outras métricas calculadas não estão incluídas. Por exemplo, não exportamos
 Os dados também incluem os resultados de qualquer disponibilidade de [testes web](../../azure-monitor/app/monitor-web-app-availability.md) que tenha configurado.
 
 > [!NOTE]
-> **A provar.** Se a sua aplicação enviar muitos dados, a função de amostragem pode funcionar e enviar apenas uma fração da telemetria gerada. [Saiba mais sobre a amostragem.](../../azure-monitor/app/sampling.md)
+> **A provar.** Se a sua aplicação enviar muitos dados, a função de amostragem pode funcionar e enviar apenas uma fração da telemetria gerada. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
 >
 >
 
-## <a name="get"></a>Inspecione os dados
+## <a name="inspect-the-data"></a><a name="get"></a>Inspecione os dados
 Pode inspecionar o armazenamento diretamente no portal. Clique em casa no menu mais à esquerda, na parte superior onde diz "Serviços Azure" selecione **contas de armazenamento,** selecione o nome da conta de armazenamento, na página de visão geral selecione **Blobs** sob serviços e, finalmente, selecione o nome do recipiente.
 
-Para inspecionar o armazenamento azure em Visual Studio, **vista**aberta, **Cloud Explorer.** (Se não tiver esse comando de menu, tem de instalar o Azure SDK: C#Abra o diálogo do Novo **Projeto,** expanda visual/cloud e escolha Get Microsoft **Azure SDK para .NET**.)
+Para inspecionar o armazenamento azure em Visual Studio, **vista**aberta, **Cloud Explorer.** (Se não tiver esse comando de menu, tem de instalar o Azure SDK: Abra o diálogo **do Novo Projeto,** expanda visual C#/Cloud e escolha **Get Microsoft Azure SDK para .NET**.)
 
 Quando abrir a sua loja de blob, verá um contentor com um conjunto de ficheiros blob. O URI de cada ficheiro derivado do nome do recurso Application Insights, a sua chave de instrumentação, o tipo de telemetria/data/hora. (O nome do recurso é todo minúsculo, e a chave de instrumentação omite traços.)
 
@@ -97,10 +109,10 @@ Aqui está a forma do caminho:
 
 Onde
 
-* `blobCreationTimeUtc` é tempo em que a bolha foi criada no armazenamento interno de encenação
-* `blobDeliveryTimeUtc` é o momento em que a bolha é copiada para o armazenamento de destino de exportação
+* `blobCreationTimeUtc`é o momento em que blob foi criado no armazenamento interno de encenação
+* `blobDeliveryTimeUtc`é o momento em que a bolha é copiada para o armazenamento de destino de exportação
 
-## <a name="format"></a>Formato de dados
+## <a name="data-format"></a><a name="format"></a>Formato de dados
 * Cada bolha é um ficheiro de texto que contém várias linhas separadas '\n'. Contém a telemetria processada durante um período de tempo de aproximadamente meio minuto.
 * Cada linha representa um ponto de dados de telemetria, como um pedido ou visualização de página.
 * Cada linha é um documento JSON não formado. Se quiser sentar-se e olhar para ele, abra-o no Estúdio Visual e escolha Editar, Avançado, Arquivo formato:
@@ -137,7 +149,7 @@ Em pequena escala, pode escrever algum código para desmontar os seus dados, lê
 
 Para obter uma amostra de código maior, consulte [o uso de uma função de trabalhador][exportasa].
 
-## <a name="delete"></a>Elimine os seus dados antigos
+## <a name="delete-your-old-data"></a><a name="delete"></a>Elimine os seus dados antigos
 É responsável por gerir a sua capacidade de armazenamento e apagar os dados antigos, se necessário.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se regenerar a sua chave de armazenamento...
@@ -149,12 +161,12 @@ A exportação contínua reiniciará.
 
 ## <a name="export-samples"></a>Amostras de exportação
 
-* [Exportação para SQL usando stream analytics][exportasa]
+* [Exportar para o SQL com o Stream Analytics][exportasa]
 * [Amostra de Análise de Fluxo 2](export-stream-analytics.md)
 
 Em escalas maiores, considere os clusters [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop na nuvem. O HDInsight fornece uma variedade de tecnologias para gerir e analisar big data, e você poderia usá-lo para processar dados que foram exportados de Application Insights.
 
-## <a name="q--a"></a>Q e A
+## <a name="q--a"></a>Perguntas e Respostas
 * *Mas tudo o que quero é um download único de um gráfico.*  
 
     Sim, podes fazer isso. Na parte superior do separador, clique em Dados de **Exportação**.
@@ -179,12 +191,12 @@ Em escalas maiores, considere os clusters [HDInsight](https://azure.microsoft.co
     Editar a exportação e abrir o separador de destino de exportação. Deixe o mesmo armazenamento selecionado como antes e clique em OK para confirmar. A exportação vai recomeçar. Se a mudança foi nos últimos dias, não perderá dados.
 * *Posso parar a exportação?*
 
-    Sim. Clique em Desativar.
+    Sim. Clique em Disable.
 
 ## <a name="code-samples"></a>Exemplos de código
 
 * [Amostra de Análise de Fluxo](export-stream-analytics.md)
-* [Exportação para SQL usando stream analytics][exportasa]
+* [Exportar para o SQL com o Stream Analytics][exportasa]
 * [Referência detalhada do modelo de dados para os tipos e valores de propriedade.](export-data-model.md)
 
 <!--Link references-->

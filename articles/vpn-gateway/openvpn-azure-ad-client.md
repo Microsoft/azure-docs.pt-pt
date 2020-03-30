@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: 3559a139ff89c949ee691310ae25af7d6950abdf
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: 9250464e3d28bdac20840aa9f69cfac707f73b30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79138965"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371494"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configure um cliente VPN para ligações de protocolo P2S OpenVPN: Autenticação Azure AD
 
@@ -22,33 +22,39 @@ Este artigo ajuda-o a configurar um cliente VPN para se conectar a uma rede virt
 > A autenticação Azure AD é suportada apenas para ligações de protocolo openVPN®.
 >
 
-## <a name="profile"></a>Trabalhar com perfis de clientes
+## <a name="working-with-client-profiles"></a><a name="profile"></a>Trabalhar com perfis de clientes
 
 Para se conectar, precisa de descarregar o Cliente VpN Azure e configurar um perfil de cliente VPN em todos os computadores que queiram ligar-se ao VNet. Pode criar um perfil de cliente num computador, exportá-lo e depois importá-lo para computadores adicionais.
 
 ### <a name="to-download-the-azure-vpn-client"></a>Para baixar o cliente Azure VPN
 
-Utilize este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para descarregar o Cliente VpN Azure.
+Utilize este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para descarregar o Cliente VpN Azure. Certifique-se de que o Cliente VPN Azure tem permissão para correr em segundo plano. Para verificar/ativar a permissão siga os passos abaixo:
 
-### <a name="cert"></a>Para criar um perfil de cliente baseado em certificados
+1. Vá iniciar e, em seguida, selecione Definições > Aplicações de Privacidade > Fundo.
+2. Em Aplicativos de Fundo, **certifique-se de que as aplicações executadas em segundo plano** estão ligadas.
+3. Em 'Escolha quais as aplicações que podem ser executadas em segundo plano', rode as definições para O Cliente VPN Azure para **On**.
+
+  ![permissão](./media/openvpn-azure-ad-client/backgroundpermission.png)
+
+### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>Para criar um perfil de cliente baseado em certificados
 
 Ao trabalhar com um perfil baseado em certificado, certifique-se de que os certificados apropriados são instalados no computador cliente. Para obter mais informações sobre certificados, consulte [Instalar certificados de cliente.](point-to-site-how-to-vpn-client-install-azure-cert.md)
 
   ![cert](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
 
-### <a name="radius"></a>Para criar um perfil de cliente RADIUS
+### <a name="to-create-a-radius-client-profile"></a><a name="radius"></a>Para criar um perfil de cliente RADIUS
 
-  ![Raio](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  ![raio](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
   
 > [!NOTE]
 > O Segredo do Servidor pode ser exportado no perfil de cliente P2S VPN.  As instruções sobre como exportar um perfil de cliente podem ser encontradas [aqui](about-vpn-profile-download.md).
 >
 
-### <a name="export"></a>Para exportar e distribuir um perfil de cliente
+### <a name="to-export-and-distribute-a-client-profile"></a><a name="export"></a>Para exportar e distribuir um perfil de cliente
 
 Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utilizadores, pode exportá-lo usando os seguintes passos:
 
-1. Realce o perfil de cliente VPN que pretende exportar, selecione o **...** , em seguida, selecione **Export**.
+1. Realce o perfil de cliente VPN que pretende exportar, selecione o **...**, em seguida, selecione **Export**.
 
     ![exportação](./media/openvpn-azure-ad-client/export/export1.jpg)
 
@@ -56,29 +62,29 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
     ![exportação](./media/openvpn-azure-ad-client/export/export2.jpg)
 
-### <a name="import"></a>Para importar um perfil de cliente
+### <a name="to-import-a-client-profile"></a><a name="import"></a>Para importar um perfil de cliente
 
 1. Na página, selecione **Import**.
 
-    ![importação](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. Navegue no ficheiro xml de perfil e selecione-o. Com o ficheiro selecionado, selecione **Open**.
 
-    ![importação](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. Especifique o nome do perfil e selecione **Guardar**.
 
-    ![importação](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Selecione **Ligar** para ligar à VPN.
 
-    ![importação](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. Uma vez ligado, o ícone ficará verde e dirá **Connected**.
 
-    ![importação](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import5.jpg)
 
-### <a name="delete"></a>Para eliminar um perfil de cliente
+### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Para eliminar um perfil de cliente
 
 1. Selecione as elipses ao lado do perfil do cliente que pretende eliminar. Em seguida, selecione **Remover**.
 
@@ -88,9 +94,9 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
-## <a name="connection"></a>Criar uma ligação
+## <a name="create-a-connection"></a><a name="connection"></a>Criar uma ligação
 
-1. Na página, selecione **+,** em seguida+ **Adicionar**.
+1. Na página, **+** selecione, em seguida+ **Adicionar**.
 
     ![ligação](./media/openvpn-azure-ad-client/create/create1.jpg)
 
@@ -110,7 +116,7 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
     ![ligação](./media/openvpn-azure-ad-client/create/create5.jpg)
 
-### <a name="autoconnect"></a>Para ligar automaticamente
+### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Para ligar automaticamente
 
 Estes passos ajudam-no a configurar a sua ligação para se ligar automaticamente ao Always-on.
 
@@ -130,7 +136,7 @@ Estes passos ajudam-no a configurar a sua ligação para se ligar automaticament
 
     ![Automático](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
-## <a name="diagnose"></a>Diagnosticar problemas de conexão
+## <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnosticar problemas de conexão
 
 1. Para diagnosticar problemas de ligação, pode utilizar a ferramenta **Diagnosticar.** Selecione o **...** ao lado da ligação VPN que pretende diagnosticar para revelar o menu. Em seguida, **selecione Diagnosticar**.
 
@@ -152,7 +158,7 @@ Estes passos ajudam-no a configurar a sua ligação para se ligar automaticament
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Como adiciono sufixos DNS ao cliente VPN?
 
-Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<dnssufixs>\<dnssufix> \</dnssufix>\</dnssufixs>** tags
+Pode modificar o ficheiro XML de perfil descarregado e adicionar os ** \<dnssufixos>\<dnssufixo> \</dnssufix>\</dnssufixos>** tags
 
 ```
 <azvpnprofile>
@@ -170,7 +176,7 @@ Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<dnssufixs
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Como adiciono servidores DNS personalizados ao cliente VPN?
 
-Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags
+Pode modificar o ficheiro XML de perfil descarregado e adicionar os ** \<dnsservers \<>dnsserver> \</dnsserver>\</dnsservers>** tags
 
 ```
 <azvpnprofile>
@@ -191,7 +197,7 @@ Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<dnsserver
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Como adiciono rotas personalizadas ao cliente VPN?
 
-Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<incluiroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags
+Pode modificar o ficheiro XML de perfil descarregado e adicionar as ** \<rotas>\<>\<destino \<>\< \<máscara \<> /destino>\</máscara>/route>/incluir rotas>** etiquetas
 
 ```
 <azvpnprofile>
@@ -209,7 +215,7 @@ Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<incluirou
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Como bloquear (excluo) rotas do cliente VPN?
 
-Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<excluirotas>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags
+Pode modificar o ficheiro XML de perfil descarregado e adicionar as ** \<rotas>>\<destino>>\< \<máscara \<>/destino>\</máscara>\</rota>\</excluirotas>** etiquetas
 
 ```
 <azvpnprofile>

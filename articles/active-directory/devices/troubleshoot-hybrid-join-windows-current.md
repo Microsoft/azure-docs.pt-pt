@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3ce27c59ead4e126cb143d1831ece0e93e119ef
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 26e52930211611673b6fe2309e2dca067a91ebc8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672249"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331775"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Resolução de problemas híbrido Azure Ative Directory juntou-se a dispositivos 
 
@@ -131,7 +131,7 @@ O campo 'Error Phase' denota a fase da falha de adesão enquanto o 'Código de E
 
 Utilize os registos do Visualizador de Eventos para localizar a fase e o código de erro para as falhas de união.
 
-1. Abra os registos do evento de registo do **dispositivo do utilizador** no espectador do evento. Localizado sob registo de **aplicações e serviços** > **Microsoft** > Registo de **dispositivos de utilizador** > **Windows**
+1. Abra os registos do evento de registo do **dispositivo do utilizador** no espectador do evento. Localizado sob **aplicações e serviços log** > **Microsoft** > **Windows** > User**Registration**
 2. Procure eventos com os seguintes eventosIDs 304, 305, 307.
 
 ![Evento de log de falha](./media/troubleshoot-hybrid-join-windows-current/1.png)
@@ -155,10 +155,10 @@ Possíveis razões para o fracasso:
    - É necessário um objeto SCP válido na floresta AD, a que o dispositivo pertence, que aponta para um nome de domínio verificado em Azure AD.
    - Os detalhes podem ser encontrados na secção [Configurar um ponto](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join)de ligação de serviço .
 - Falha em ligar e recolher os metadados de descoberta do ponto final da descoberta.
-   - O dispositivo deverá poder aceder `https://enterpriseregistration.windows.net`, no contexto DO SISTEMA, a descobrir os pontos finais de registo e autorização. 
+   - O dispositivo deve poder `https://enterpriseregistration.windows.net`aceder, no contexto DO SISTEMA, para descobrir os pontos finais de registo e autorização. 
    - Se o ambiente no local necessitar de um proxy de saída, o administrador informático deve certificar-se de que a conta de computador do dispositivo é capaz de descobrir e autenticar silenciosamente o representante de saída.
 - Falha na ligação ao ponto final do reino do utilizador e na realização da descoberta do reino. (Versão 1809 do Windows 10 e mais tarde apenas)
-   - O dispositivo deve poder aceder `https://login.microsoftonline.com`, no contexto DO SISTEMA, para realizar a descoberta do reino para o domínio verificado e determinar o tipo de domínio (gerido/federado).
+   - O dispositivo deve ser `https://login.microsoftonline.com`capaz de aceder, no contexto DO SISTEMA, para realizar a descoberta do reino para o domínio verificado e determinar o tipo de domínio (gerido/federado).
    - Se o ambiente no local necessitar de um proxy de saída, o administrador de TI deve assegurar que o contexto DO SISTEMA no dispositivo seja capaz de descobrir e autenticar silenciosamente o representante de saída.
 
 **Códigos de erro comuns:**
@@ -171,7 +171,7 @@ Possíveis razões para o fracasso:
    - Resolução: Encontre o suberro abaixo para investigar mais aprofundadamente.
 - **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT** (0x801c001f/-2145648609)
    - Razão: A operação temprazo durante a realização do Discovery.
-   - Resolução: Certifique-se de que `https://enterpriseregistration.windows.net` está acessível no contexto DO SISTEMA. Para mais informações, consulte os [requisitos](hybrid-azuread-join-managed-domains.md#prerequisites)de conectividade da rede da secção .
+   - Resolução: `https://enterpriseregistration.windows.net` Certifique-se de que está acessível no contexto SYSTEM. Para mais informações, consulte os [requisitos](hybrid-azuread-join-managed-domains.md#prerequisites)de conectividade da rede da secção .
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
    - Razão: Falha genérica da descoberta do reino. Não conseguiu determinar o tipo de domínio (gerido/federado) a partir de STS. 
    - Resolução: Encontre o suberro abaixo para investigar mais aprofundadamente.
@@ -206,7 +206,7 @@ Procure 'DRS Discovery Test' na secção 'Dados de Diagnóstico' da saída do es
 
 Utilize os registos do Visualizador de Eventos para localizar a fase e código de erro para as falhas de união.
 
-1. Abra os registos do evento de registo do **dispositivo do utilizador** no espectador do evento. Localizado sob registo de **aplicações e serviços** > **Microsoft** > Registo de **dispositivos de utilizador** > **Windows**
+1. Abra os registos do evento de registo do **dispositivo do utilizador** no espectador do evento. Localizado sob **aplicações e serviços log** > **Microsoft** > **Windows** > User**Registration**
 2. Procure eventos com os seguintes eventosIDs 201
 
 ![Evento de log de falha](./media/troubleshoot-hybrid-join-windows-current/5.png)
@@ -223,7 +223,7 @@ Utilize os registos do Visualizador de Eventos para localizar a fase e código d
    - Razão: A pilha de rede não foi capaz de descodificar a resposta do servidor.
    - Resolução: Certifique-se de que o proxy da rede não está a interferir e a modificar a resposta do servidor.
 
-###### <a name="http-errors"></a>Erros HTTP
+###### <a name="http-errors"></a>Erros de HTTP
 
 - **DSREG_DISCOVERY_TENANT_NOT_FOUND** (0x801c003a/-2145648582)
    - Razão: Objeto SCP configurado com id de inquilino errado. Ou não foram encontradas assinaturas ativas no inquilino.
@@ -251,7 +251,7 @@ Razões para o fracasso:
 
 Utilize os registos do Visualizador de Eventos para localizar o código de erro, o código de erro, o código de erro do servidor e a mensagem de erro do servidor.
 
-1. Abra os registos do evento de registo do **dispositivo do utilizador** no espectador do evento. Localizado sob registo de **aplicações e serviços** > **Microsoft** > Registo de **dispositivos de utilizador** > **Windows**
+1. Abra os registos do evento de registo do **dispositivo do utilizador** no espectador do evento. Localizado sob **aplicações e serviços log** > **Microsoft** > **Windows** > User**Registration**
 2. Procure eventos com o seguinte eventoID 305
 
 ![Evento de log de falha](./media/troubleshoot-hybrid-join-windows-current/3.png)
@@ -272,16 +272,16 @@ Utilize os registos do Visualizador de Eventos para localizar o código de erro,
 
 - **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614)
    - Razão: Intervalo geral da rede.
-   - Resolução: Certifique-se de que `https://login.microsoftonline.com` está acessível no contexto DO SISTEMA. Certifique-se de que o fornecedor de identidade no local está acessível no contexto DO SISTEMA. Para obter mais informações, consulte os requisitos de [conectividade da rede.](hybrid-azuread-join-managed-domains.md#prerequisites)
+   - Resolução: `https://login.microsoftonline.com` Certifique-se de que está acessível no contexto SYSTEM. Certifique-se de que o fornecedor de identidade no local está acessível no contexto DO SISTEMA. Para obter mais informações, consulte os requisitos de [conectividade da rede.](hybrid-azuread-join-managed-domains.md#prerequisites)
 - **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586)
    - Razão: A ligação com o ponto final foi abortada.
    - Resolução: Tente depois de algum tempo ou tente juntar-se a partir de uma localização de rede estável alternativa.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
-   - Razão: O certificado Secure Sockets Layer (SSL) enviado pelo servidor não pôde ser validado.
+   - Razão: A Segurança da Camada de Transporte (TLS), anteriormente conhecida como Secure Sockets Layer (SSL), o certificado enviado pelo servidor não pôde ser validado.
    - Resolução: Verifique o tempo do cliente distorcido. Tente de novo após algum tempo ou tente juntar-se a partir de uma localização de rede estável alternativa. 
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
-   - Razão: A tentativa de ligação a `https://login.microsoftonline.com` falhou.
-   - Resolução: Verifique a ligação da rede à `https://login.microsoftonline.com`.
+   - Razão: A tentativa `https://login.microsoftonline.com` de ligação ao fracasso.
+   - Resolução: Verifique `https://login.microsoftonline.com`a ligação da rede a .
 
 ##### <a name="other-errors"></a>Outros erros
 
@@ -326,7 +326,7 @@ O campo 'Tipo de registo' denota o tipo de adesão realizado.
 
 Utilize os registos do Visualizador de Eventos para localizar a fase e código de erro para as falhas de união.
 
-1. Abra os registos do evento de registo do **dispositivo do utilizador** no espectador do evento. Localizado sob registo de **aplicações e serviços** > **Microsoft** > Registo de **dispositivos de utilizador** > **Windows**
+1. Abra os registos do evento de registo do **dispositivo do utilizador** no espectador do evento. Localizado sob **aplicações e serviços log** > **Microsoft** > **Windows** > User**Registration**
 2. Procure eventos com os seguintes eventosIDs 204
 
 ![Evento de log de falha](./media/troubleshoot-hybrid-join-windows-current/4.png)
@@ -362,10 +362,10 @@ Utilize os registos do Visualizador de Eventos para localizar a fase e código d
 
 - **WININET_E_TIMEOUT** (0x80072ee2/-2147012894)
    - Razão: Tempo geral de rede para tentar registar o dispositivo na DRS
-   - Resolução: Verifique a conectividade da rede para `https://enterpriseregistration.windows.net`.
+   - Resolução: Verifique a `https://enterpriseregistration.windows.net`conectividade da rede para .
 - **WININET_E_NAME_NOT_RESOLVED** (0x80072ee7/-2147012889)
    - Razão: O nome ou endereço do servidor não poderia ser resolvido.
-   - Resolução: Verifique a conectividade da rede para `https://enterpriseregistration.windows.net`. Certifique-se de que a resolução DNS para o nome de anfitrião é exata no n/w e no dispositivo.
+   - Resolução: Verifique a `https://enterpriseregistration.windows.net`conectividade da rede para . Certifique-se de que a resolução DNS para o nome de anfitrião é exata no n/w e no dispositivo.
 - **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866)
    - Razão: A ligação com o servidor foi terminada anormalmente.
    - Resolução: Tente depois de algum tempo ou tente juntar-se a partir de uma localização de rede estável alternativa.
@@ -380,18 +380,18 @@ Utilize os registos do Visualizador de Eventos para localizar a fase e código d
 
 | Código de erro do servidor | Mensagem de erro do servidor | Possíveis razões | Resolução |
 | --- | --- | --- | --- |
-| Error do Diretório | AADSTS90002: Inquilino <UUID> não encontrado. Este erro pode acontecer se não houver subscrições ativas para o inquilino. Consulte o seu administrador de subscrição. | Id do inquilino no objeto SCP é incorreto | Certifique-se de que o objeto SCP está configurado com o ID de inquilino Azure AD correto e subscrições ativas e presente no inquilino. |
+| Error do Diretório | AADSTS90002: <UUID> Inquilino não encontrado. Este erro pode acontecer se não houver subscrições ativas para o inquilino. Consulte o seu administrador de subscrição. | Id do inquilino no objeto SCP é incorreto | Certifique-se de que o objeto SCP está configurado com o ID de inquilino Azure AD correto e subscrições ativas e presente no inquilino. |
 | Error do Diretório | O objeto do dispositivo pelo ID dado não é encontrado. | Erro esperado para sincronização aderir. O objeto do dispositivo não se sincronizou de AD para Azure AD | Aguarde que a sincronização Azure AD Connect esteja concluída e a próxima tentativa de adesão após a conclusão da sincronização resolverá o problema |
 | Erro de autenticação | A verificação do SID do computador-alvo | O certificado do dispositivo Azure AD não corresponde ao certificado utilizado para assinar a bolha durante a sincronização. Este erro normalmente significa que a sincronização ainda não está concluída. |  Aguarde que a sincronização Azure AD Connect esteja concluída e a próxima tentativa de adesão após a conclusão da sincronização resolverá o problema |
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Passo 5: Recolher registos e contactar o Suporte da Microsoft
 
-Obtenha roteiros públicos aqui: [https://1drv.ms/u/s! AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+Obtenha roteiros públicos aqui: [ https://1drv.ms/u/s! AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
 
-1. Abra um pedido de comando administrativo e corra `start_ngc_tracing_public.cmd`.
+1. Abra um pedido de `start_ngc_tracing_public.cmd`comando administrativo e corra.
 2. Execute os passos para reproduzir a questão.
-3. Pare de executar o script de registo executando `stop_ngc_tracing_public.cmd`.
-4. Feche e envie os registos sob `%SYSTEMDRIVE%\TraceDJPP\*` para análise.
+3. Pare de executar o `stop_ngc_tracing_public.cmd`script de registo executando .
+4. Feche e envie os `%SYSTEMDRIVE%\TraceDJPP\*` registos para análise.
 
 ## <a name="troubleshoot-post-join-issues"></a>Problemas de pós-adesão
 
@@ -406,7 +406,7 @@ Estes campos indicam se o utilizador autenticou com sucesso à Azure AD ao inici
 - HTTP Proxy não encontrado
 
 ## <a name="known-issues"></a>Problemas conhecidos
-- Em Definições -> Contas -> Trabalho de Acesso ou Escola, dispositivos híbridos azure ad podem apresentar duas contas diferentes, uma para Azure AD e outra para a AD no local, quando ligadas a hotspots móveis ou redes Wi-Fi externas. Este é apenas um problema de UI e não tem qualquer impacto na funcionalidade. 
+- Em Definições -> Contas -> Trabalho de Acesso ou Escola, os dispositivos adesados do Hybrid Azure AD podem apresentar duas contas diferentes, uma para a AD Azure e outra para a AD no local, quando ligadas a hotspots móveis ou redes Wi-Fi externas. Este é apenas um problema de UI e não tem qualquer impacto na funcionalidade. 
  
 ## <a name="next-steps"></a>Passos seguintes
 

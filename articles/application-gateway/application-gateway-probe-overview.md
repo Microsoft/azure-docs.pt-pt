@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: a4427c05d16a42879d37fdbd2e8b8be9095fcc9b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c5a53167c6a4ca6c886b858a1608eaa173185bd8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279133"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335848"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral da monitorização da saúde gateway aplicação
 
-O Portal de Aplicações Azure por padrão monitoriza a saúde de todos os recursos na sua piscina traseira e remove automaticamente qualquer recurso considerado insalubre da piscina. Application Gateway continua a monitorizar os casos pouco saudáveis e adiciona-os de volta ao saudável pool back-end assim que ficam disponíveis e respondem a sondas de saúde. O gateway de aplicação envia as sondas de saúde com a mesma porta que é definida nas definições http-end. Esta configuração garante que a sonda está a testar a mesma porta que os clientes estariam a usar para se ligarem ao backend. 
+O Portal de Aplicações Azure por padrão monitoriza a saúde de todos os recursos na sua piscina traseira e remove automaticamente qualquer recurso considerado insalubre da piscina. O Gateway de Aplicação continua a monitorizar as instâncias em mau estado de funcionamento e adiciona-as novamente ao conjunto de back-end em bom estado de funcionamento quando estas ficam disponíveis e respondem às pesquisas de estado de funcionamento. O gateway de aplicação envia as sondas de saúde com a mesma porta que é definida nas definições http-end. Esta configuração garante que a sonda está a testar a mesma porta que os clientes estariam a usar para se ligarem ao backend. 
 
 O endereço IP de origem Aplicação Gateway utiliza para sondas de saúde depende do pool de backend:
  
@@ -47,7 +47,7 @@ Seguem-se critérios correspondentes:
 - **Correspondência** do código de resposta HTTP - Critério de correspondência da sonda para aceitar código de resposta de http especificado pelo utilizador ou intervalos de código de resposta. São apoiados códigos de estado de resposta separados por vírpostas individuais ou uma série de códigos de estado.
 - **CORRESPONDÊNCIA DO corpo** de resposta HTTP - Critério de correspondência da sonda que olha para o corpo de resposta HTTP e combina com uma corda especificada pelo utilizador. A partida apenas procura a presença de cordas especificadas pelo utilizador no corpo de resposta e não é uma correspondência de expressão regular completa.
 
-Os critérios de correspondência podem ser especificados utilizando o `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
+Os critérios de correspondência `New-AzApplicationGatewayProbeHealthResponseMatch` podem ser especificados utilizando o cmdlet.
 
 Por exemplo:
 
@@ -55,7 +55,7 @@ Por exemplo:
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
-Uma vez especificados os critérios de correspondência, pode ser anexado à configuração da sonda utilizando um parâmetro `-Match` no PowerShell.
+Uma vez especificados os critérios de correspondência, pode `-Match` ser ligado à configuração da sonda utilizando um parâmetro no PowerShell.
 
 ### <a name="default-health-probe-settings"></a>Definições de sonda de saúde padrão
 
@@ -63,13 +63,13 @@ Uma vez especificados os critérios de correspondência, pode ser anexado à con
 | --- | --- | --- |
 | URL da sonda |http://127.0.0.1:\<port\>/ |Caminho de URL |
 | Intervalo |30 |O tempo em segundos para esperar antes da próxima sonda de saúde ser enviada.|
-| Intervalo |30 |A quantidade de tempo em segundos o gateway da aplicação aguarda uma resposta da sonda antes de marcar a sonda como insalubre. Se uma sonda voltar como saudável, o backend correspondente é imediatamente marcado como saudável.|
-| Limiar insalubre |3 |Governa quantas sondas enviar para o caso de haver uma falha da sonda de saúde normal. Estas sondas de saúde adicionais são enviadas em rápida sucessão para determinar a saúde do backend rapidamente e não esperar pelo intervalo da sonda. O servidor de back-end é marcado para baixo após a contagem de falhas de sonda consecutiva atingir o limiar insalubre. |
+| Limite de Tempo Excedido |30 |A quantidade de tempo em segundos o gateway da aplicação aguarda uma resposta da sonda antes de marcar a sonda como insalubre. Se uma sonda voltar como saudável, o backend correspondente é imediatamente marcado como saudável.|
+| Limiar com funcionamento incorreto |3 |Governa quantas sondas enviar para o caso de haver uma falha da sonda de saúde normal. Estas sondas de saúde adicionais são enviadas em rápida sucessão para determinar a saúde do backend rapidamente e não esperar pelo intervalo da sonda. Este behaivor é apenas v1 SKU. No caso do V2 SKU, as sondas de saúde aguardam o intervalo. O servidor de back-end é marcado para baixo após a contagem de falhas de sonda consecutiva atingir o limiar insalubre. |
 
 > [!NOTE]
 > A porta é a mesma porta que as definições http-end.
 
-A sonda padrão olha apenas para http:\//127.0.0.1:\<\> portuário para determinar o estado de saúde. Se precisar de configurar a sonda de saúde para ir a um URL personalizado ou modificar quaisquer outras definições, deve utilizar sondas personalizadas.
+A sonda padrão olha\/apenas em http: /127.0.0.1:\<porta\> para determinar o estado de saúde. Se precisar de configurar a sonda de saúde para ir a um URL personalizado ou modificar quaisquer outras definições, deve utilizar sondas personalizadas.
 
 ### <a name="probe-intervals"></a>Intervalos de sonda
 
@@ -88,16 +88,16 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de saú
 | Propriedade da sonda | Descrição |
 | --- | --- |
 | Nome |Nome da sonda. Este nome é utilizado para se referir à sonda nas definições http back-end. |
-| Protocol |O protocolo costumava enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
+| Protocolo |O protocolo costumava enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
 | Anfitrião |Nome anfitrião para enviar a sonda. Aplicável apenas quando vários sites estiverem configurados no Gateway da Aplicação, utilize de outra forma '127.0.0.1'. Este valor é diferente do nome de anfitrião vm. |
 | Caminho |Caminho relativo da sonda. O caminho válido começa a partir de '/'. |
 | Intervalo |Intervalo da sonda em segundos. Este valor é o intervalo de tempo entre duas sondas consecutivas. |
-| Intervalo |Intervalo da sonda em segundos. Se uma resposta válida não for recebida dentro deste período de tempo, a sonda está marcada como falhada.  |
-| Limiar insalubre |Contagem de tentativas de nova contagem. O servidor de back-end é marcado para baixo após a contagem de falhas de sonda consecutiva atingir o limiar insalubre. |
+| Limite de Tempo Excedido |Intervalo da sonda em segundos. Se uma resposta válida não for recebida dentro deste período de tempo, a sonda está marcada como falhada.  |
+| Limiar com funcionamento incorreto |Contagem de tentativas de nova contagem. O servidor de back-end é marcado para baixo após a contagem de falhas de sonda consecutiva atingir o limiar insalubre. |
 
 > [!IMPORTANT]
 > Se o Gateway da Aplicação estiver configurado para um único site, por padrão, o nome anfitrião deve ser especificado como '127.0.0.1', salvo configuração em contrário em sonda personalizada.
-> Para referência, uma sonda personalizada é enviada para \<protocolo\>://\<anfitrião\>:\<porta\>\<caminho\>. A porta utilizada será a mesma porta definida nas definições http-end.
+> Para referência, uma sonda \<\>personalizada\<\>é\<\>\<enviada\>para o protocolo :// anfitrião : caminho portuário . A porta utilizada será a mesma porta definida nas definições http-end.
 
 ## <a name="nsg-considerations"></a>Considerações de NSG
 
@@ -107,7 +107,7 @@ Além disso, a conectividade de saída da Internet não pode ser bloqueada, e o 
 
 Para mais informações, consulte a visão geral da [configuração do Gateway](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet)de aplicação .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois de aprender sobre a monitorização da saúde application Gateway, pode configurar uma sonda de [saúde personalizada](application-gateway-create-probe-portal.md) no portal Azure ou uma [sonda de saúde personalizada](application-gateway-create-probe-ps.md) utilizando o PowerShell e o modelo de implementação do Gestor de Recursos Azure.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

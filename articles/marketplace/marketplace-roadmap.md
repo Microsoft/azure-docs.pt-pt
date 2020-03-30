@@ -1,48 +1,46 @@
 ---
-title: Roteiro do Azure Marketplace e do AppSource | Azure
-description: Um roteiro para o que está acontecendo no Marketplace
-services: Azure, Marketplace, Compute
+title: Azure Marketplace e AppSource Roadmap
+description: Um roteiro para o que está a acontecer no Mercado
 author: qianw211
-manager: MaggiePucciEvans
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/02/2019
-ms.author: blevens
-ms.openlocfilehash: ce2390f1aa71b6cfc10bbb5144127d46fc82fb19
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c9c69bb475c943003f78a69df1142653c3d5249e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826431"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288381"
 ---
-# <a name="microsoft-commercial-marketplace-roadmap"></a>Roteiro do Microsoft Commercial Marketplace
+# <a name="microsoft-commercial-marketplace-roadmap"></a>Roteiro do mercado comercial da Microsoft
 
-Este documento fornece uma visão do que vem a seguir para o mercado comercial da Microsoft para Publicadores, vendedores e clientes. Ele captura alguns dos recursos significativos que confirmamos, um período de tempo aproximado para quando você pode esperar vê-los e será atualizado mensalmente. Não é uma lista abrangente de todos os novos recursos, mas destina-se a fornecer visibilidade de nossos principais investimentos. Esses conjuntos de recursos e os quadros de tempo de entrega são atuais e estão sujeitos a alterações.
+Este documento fornece uma visão do que vem a seguir para o mercado comercial da Microsoft para editores, vendedores e clientes. Captura algumas das características significativas que cometemos, um período de tempo difícil para quando se pode esperar vê-las e será renovada mensalmente. Não é uma lista completa de todas as novas funcionalidades, mas destina-se a dar visibilidade aos nossos principais investimentos. Estes conjuntos de funcionalidades e os prazos de entrega estão atuais e sujeitos a alterações.
 
-Agradecemos suas sugestões! Junte-se à conversa na [comunidade de parceiros da Microsoft](https://www.microsoftpartnercommunity.com/) para obter as atualizações mais recentes sobre novos recursos, programas e eventos.
+Congratulamo-nos com as suas sugestões! Junte-se à conversa na Comunidade parceiro da [Microsoft](https://www.microsoftpartnercommunity.com/) para obter as mais recentes atualizações sobre novas capacidades, programas e eventos.
 
 ## <a name="roadmap"></a>Mapa
-![Roteiro do Marketplace de novembro de 2019](./media/marketplace-publishers-guide/roadmap-nov19.png)
+![Roteiro do mercado para novembro de 2019](./media/marketplace-publishers-guide/roadmap-nov19.png)
 
-## <a name="recent-releases"></a>Versões recentes
+## <a name="recent-releases"></a>Lançamentos recentes
 
-Quando um recurso estiver ativo, ele será removido do roteiro. A funcionalidade que foi adicionada ao Marketplace pode ser encontrada na documentação a seguir.
+Uma vez que uma capacidade é ao vivo, será removida do roteiro. A funcionalidade que foi adicionada ao mercado pode ser encontrada na seguinte documentação.
 
-* [Blog de atualização do Marketplace + CSP](https://aka.ms/marketplacemarchupdateblog)
-* [Publicar ofertas no canal CSP (ISV)](https://aka.ms/publishtocsp)
-* [Revenda de ofertas do Marketplace (CSP)](h https://aka.ms/marketplaceincsp)
+* [Marketplace + CSP Update Blog](https://aka.ms/marketplacemarchupdateblog)
+* [Publique ofertas no canal CSP (ISV)](https://aka.ms/publishtocsp)
+* [Revender ofertas do Marketplace (CSP)](hhttps://aka.ms/marketplaceincsp)
 * [Contrato Padrão](https://aka.ms/standardcontract)
-* [API de preenchimento de SaaS](https://aka.ms/saasapiv2)
-* [Áreas geográficas e moedas do Marketplace](https://aka.ms/marketplacegeos)
-* [Informações do vendedor](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
-* [Blog do Microsoft Build Marketplace](https://aka.ms/marketplacebuildblog)
-* [Blog pode atualizar o Marketplace](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
-* Partner Center: [criar conta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [gerenciar a conta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [migração do CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
-* Partner Center: [criar uma oferta de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [Status de publicação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
-) / [Atualizar oferta existente](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer) / oferecer [análise](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
-* [Obtenha suporte para o Marketplace no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
+* [API de Realização saaS](https://aka.ms/saasapiv2)
+* [Geos e Moedas do Mercado](https://aka.ms/marketplacegeos)
+* [Informações do Vendedor](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+* [Microsoft Build Marketplace Blog](https://aka.ms/marketplacebuildblog)
+* [Blog de atualizações do Marketplace May](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
+* Centro de Parceiros: [Criar a](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / migração de[conta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [gerida por Conta a partir de CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
+* Partner Center: Criar a tualização de[estado](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
+) / [Offer Analytics](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics) da oferta / de oferta da [Oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)Existente de[Oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer) / Existente
+* [Obtenha apoio para marketplace no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Visite a página do [Guia do Azure Marketplace e do AppSource Publisher](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) .
+Visite a página do Guia da [Editora Azure Marketplace e AppSource.](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)

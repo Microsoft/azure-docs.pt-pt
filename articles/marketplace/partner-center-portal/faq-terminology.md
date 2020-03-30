@@ -1,19 +1,18 @@
 ---
 title: Perguntas e terminologia frequentes para a análise do Mercado Comercial no Partner Center
 description: Saiba como abordar perguntas comumente feitas sobre análises do Mercado Comercial. Inclui um dicionário de dados para terminologia de análise.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 081109c2208e2006eb1628fbf0cfb99b1e6bd8f9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: d53ae01fb302382ca5bc2d31e729e153aea6c838
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462144"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286086"
 ---
 # <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Perguntas frequentes e terminologia para análise do Mercado Comercial
 
@@ -41,7 +40,7 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 
 ## <a name="dictionary-of-data-terms"></a>Dicionário de termos de dados
 
-| Nome de atributo | Relatórios | Definição|
+| Nome do atributo | Relatórios | Definição|
 |---|---|---|
 | Tipo de licença Azure | Cliente, Encomenda | O tipo de contrato de licenciamento utilizado pelos clientes para a compra do Azure. Também conhecido como Canal |
 | Tipo de licença Azure: Fornecedor de soluções em nuvem | Cliente, Encomenda | O cliente final adquire a oferta do Azure e do seu Marketplace através do seu Fornecedor de Soluções Cloud, que atua como o seu revendedor.|
@@ -57,7 +56,7 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 | País cliente | Cliente, Encomenda | O nome do país fornecido pelo cliente. O país pode ser diferente do país na subscrição do Azure de um cliente.|  |
 | E-mail do cliente| Cliente| O endereço de e-mail fornecido pelo cliente final. O e-mail pode ser diferente do endereço de e-mail na Subscrição Azure de um cliente.||
 | Primeiro nome do cliente| Cliente| O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na Subscrição Azure de um cliente.| |
-| ID do cliente | Cliente, Encomenda | O identificador único atribuído a um cliente. Um cliente pode ter zero ou mais subscrições do Azure Marketplace.|  |
+| ID de Cliente | Cliente, Encomenda | O identificador único atribuído a um cliente. Um cliente pode ter zero ou mais subscrições do Azure Marketplace.|  |
 | Código Postal do Cliente  | Cliente| O código postal fornecido pelo cliente. O código pode ser diferente do código postal fornecido na Assinatura Azure de um cliente.| |
 | Estado cliente| Cliente| O estado (endereço) fornecido pelo cliente. O Estado pode ser diferente do estado fornecido na Subscrição Azure de um cliente.| |
 | Data Adquirida| Cliente| A primeira data em que o cliente adquiriu qualquer oferta publicada por si.| |
@@ -91,7 +90,7 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 | Estado da encomenda: Ativo  | Encomenda| O cliente comprou uma encomenda e não cancelou a encomenda.|         |
 | Estado da Encomenda: cancelado | Encomenda| O cliente previamente adquiriu uma encomenda e posteriormente cancelou a sua encomenda.||
 | Email do fornecedor| Cliente| O endereço de e-mail do fornecedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma Enterprise através do Revendedor, este será o revendedor. Se estiver envolvido um Fornecedor de Soluções cloud (CSP), este será o CSP.|
-| Nome do Fornecedor| Cliente| O nome do fornecedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma Enterprise através do Revendedor, este será o revendedor. Se estiver envolvido um Fornecedor de Soluções cloud (CSP), este será o CSP.|
+| Nome do fornecedor| Cliente| O nome do fornecedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma Enterprise através do Revendedor, este será o revendedor. Se estiver envolvido um Fornecedor de Soluções cloud (CSP), este será o CSP.|
 | SKU| Encomenda| Nome SKU definido durante a publicação. Uma oferta pode ter muitos SKUs, mas um SKU só pode ser associado a uma única oferta.||
 | Data final do julgamento| Encomenda| A data em que o período experimental desta ordem terminará ou terminou.||
 

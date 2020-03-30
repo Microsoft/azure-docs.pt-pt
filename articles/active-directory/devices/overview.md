@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 03/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 594f0ed55b5ce5c31e87fd2011f3bc1522a12380
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79240801"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80331816"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade de dispositivo?
 
@@ -38,13 +38,14 @@ Para obter um dispositivo em Azure AD, tem várias opções:
 
 - **Azure AD registado**
    - Os dispositivos registados pela Azure AD são normalmente propriedade pessoal ou dispositivos móveis, e são assinados com uma conta pessoal da Microsoft ou outra conta local.
-      - Windows 10
+      - Windows 10
       - iOS
       - Android
       - MacOS
-- **Azure AD juntou-se**
+- **Azure AD associado**
    - Os dispositivos que são Azure AD aderidos são propriedade de uma organização, e são assinados com uma conta Azure AD pertencente a essa organização. Só existem na nuvem.
-      - Windows 10 
+      - Windows 10 
+      - Windows Server 2019 (Núcleo do servidor não é suportado)
 - **associado ao Azure AD Híbrido**
    - Os dispositivos híbridos Azure AD aqueridos são propriedade de uma organização, e são assinados com uma conta Azure AD pertencente a essa organização. Existem na nuvem e no local.
       - Windows 7, 8.1 ou 10
@@ -85,7 +86,7 @@ A entrada de dispositivos no Azure AD pode ser feita de forma auto-prestatória 
 Com a gestão de identidade do dispositivo em Azure AD, pode:
 
 - Simplificar o processo de trazer e gerir dispositivos em Azure AD
-- Proporcionar aos utilizadores um acesso fácil de utilizar aos recursos baseados na cloud da sua organização
+- Forneça aos seus utilizadores um acesso fácil de usar aos recursos baseados na nuvem da sua organização
 
 ## <a name="license-requirements"></a>Requisitos de licença
 

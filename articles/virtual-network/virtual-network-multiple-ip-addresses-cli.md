@@ -1,7 +1,7 @@
 ---
-title: VM com vários endereços IP usando o CLI do Azure
+title: VM com vários endereços IP usando o Azure CLI
 titlesuffix: Azure Virtual Network
-description: Saiba como atribuir vários endereços IP a uma máquina virtual usando a CLI (interface de linha de comando) do Azure.
+description: Saiba como atribuir vários endereços IP a uma máquina virtual utilizando a interface de linha de comando Azure (CLI).
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: kumud
-ms.openlocfilehash: b99e5e6809a909184d775c70b56c249c11734cb9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 144f30463adb3dfbce1717e06548baccc8286f8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646613"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240229"
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Atribuir vários endereços IP a máquinas virtuais usando o CLI do Azure
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Atribuir vários endereços IP a máquinas virtuais utilizando o Azure CLI
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Este artigo explica como criar uma VM (máquina virtual) por meio do modelo de implantação Azure Resource Manager usando o CLI do Azure. Vários endereços IP não podem ser atribuídos a recursos criados por meio do modelo de implantação clássico. Para saber mais sobre os modelos de implantação do Azure, leia o artigo [entender os modelos de implantação](../resource-manager-deployment-model.md) .
+Este artigo explica como criar uma máquina virtual (VM) através do modelo de implementação do Gestor de Recursos Azure utilizando o Azure CLI. Vários endereços IP não podem ser atribuídos aos recursos criados através do modelo de implementação clássico. Para saber mais sobre os modelos de implementação do Azure, leia o artigo dos [modelos de implementação Da Understand.](../resource-manager-deployment-model.md)
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name = "create"></a>Criar uma VM com vários endereços IP
+## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Criar uma VM com vários endereços IP
 
-As etapas a seguir explicam como criar uma máquina virtual de exemplo com vários endereços IP, conforme descrito no cenário. Altere os valores de variáveis em "" e os tipos de endereço IP, conforme necessário, para sua implementação. 
+Os passos que se seguem explicam como criar um exemplo de máquina virtual com vários endereços IP, como descrito no cenário. Altere os valores variáveis nos tipos de endereços "" e IP, conforme necessário, para a sua implementação. 
 
-1. Instale o [CLI do Azure](/cli/azure/install-azure-cli) se você ainda não o tiver instalado.
-2. Crie um par de chaves SSH pública e privada para VMs Linux concluindo as etapas em [criar um par de chaves SSH pública e privada para VMs do Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-3. Em um shell de comando, faça logon com o comando `az login` e selecione a assinatura que você está usando.
-4. Crie a VM executando o script a seguir em um computador Linux ou Mac. O script cria um grupo de recursos, uma rede virtual (VNet), uma NIC com três configurações de IP e uma VM com as duas NICs anexadas a ela. A NIC, o endereço IP público, a rede virtual e os recursos da VM devem existir no mesmo local e assinatura. Embora os recursos não precisem existir no mesmo grupo de recursos, no script a seguir eles são.
+1. Instale o [Azure CLI](/cli/azure/install-azure-cli) se ainda não o tiver instalado.
+2. Crie um par de chaves públicos e privados para VMs Linux, completando os passos no par de [chaves públicos e privados Create a SSH para VMs Linux.](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+3. A partir de uma concha `az login` de comando, inicie sessão com o comando e selecione a subscrição que está a utilizar.
+4. Crie o VM executando o script que se segue num computador Linux ou Mac. O script cria um grupo de recursos, uma rede virtual (VNet), um NIC com três configurações IP, e um VM com os dois NICs ligados a ele. Os recursos NIC, IP públicos, rede virtual e VM devem existir todos no mesmo local e subscrição. Embora os recursos não tenham de existir todos no mesmo grupo de recursos, no seguinte guião eles existem.
 
 ```bash
     
@@ -153,30 +153,30 @@ az vm create \
 --ssh-key-value $SshKeyValue
 ```
 
-Além de criar uma VM com uma NIC com 3 configurações de IP, o script cria:
+Além de criar um VM com um NIC com configurações de 3 IP, o script cria:
 
-- Um único disco gerenciado Premium por padrão, mas você tem outras opções para o tipo de disco que pode criar. Leia o artigo [criar uma VM Linux usando o CLI do Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter detalhes.
-- Uma rede virtual com uma sub-rede e dois endereços IP públicos. Como alternativa, você pode usar a rede virtual *existente* , a sub-rede, a NIC ou os recursos de endereço IP público. Para saber como usar os recursos de rede existentes em vez de criar recursos adicionais, digite `az vm create -h`.
+- Um único disco gerido premium por padrão, mas tem outras opções para o tipo de disco que pode criar. Leia o [VM Create a Linux utilizando o artigo do Azure CLI](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para mais detalhes.
+- Uma rede virtual com uma subnet e dois endereços IP públicos. Em alternativa, pode *utilizar* recursos de endereços de endereços ip existentes, rede, NIC ou IP públicos. Para aprender a utilizar os recursos de rede `az vm create -h`existentes em vez de criar recursos adicionais, entre.
 
-Os endereços IP públicos têm uma taxa nominal. Para saber mais sobre preços de endereço IP, leia a página de [preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Azure limites](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) (Limites do artigo).
+Os endereços IP públicos têm uma taxa nominal. Para saber mais sobre os preços do endereço IP, leia a página de preços do [endereço IP.](https://azure.microsoft.com/pricing/details/ip-addresses) Existe um limite para o número de endereços IP públicos que podem ser usados numa subscrição. Para saber mais sobre os limites, leia o artigo [Azure limites](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) (Limites do artigo).
 
-Depois que a VM for criada, insira o comando `az network nic show --name MyNic1 --resource-group myResourceGroup` para exibir a configuração da NIC. Insira o `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` para exibir uma lista das configurações de IP associadas à NIC.
+Depois de criado o VM, introduza o `az network nic show --name MyNic1 --resource-group myResourceGroup` comando para visualizar a configuração NIC. Introduza `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` a lista para visualizar uma lista das configurações IP associadas ao NIC.
 
-Adicione os endereços IP privados ao sistema operacional da VM concluindo as etapas para seu sistema operacional na seção [adicionar endereços IP a um sistema operacional da VM](#os-config) deste artigo.
+Adicione os endereços IP privados ao sistema operativo VM, preenchendo as etapas do seu sistema operativo nos [endereços ADD IP a uma](#os-config) secção do sistema operativo VM deste artigo.
 
-## <a name="add"></a>Adicionar endereços IP a uma VM
+## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Adicione endereços IP a um VM
 
-Você pode adicionar endereços IP públicos e privados adicionais a uma interface de rede do Azure existente concluindo as etapas a seguir. Os exemplos se baseiam no [cenário](#scenario) descrito neste artigo.
+Pode adicionar endereços IP privados e públicos adicionais a uma interface de rede Azure existente, completando os passos que se seguem. Os exemplos baseiam-se no [cenário](#scenario) descrito neste artigo.
 
-1. Abra um shell de comando e conclua as etapas restantes nesta seção em uma única sessão. Se você ainda não tiver CLI do Azure instalado e configurado, conclua as etapas no artigo de [instalação do CLI do Azure](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) e faça logon em sua conta do Azure com o comando `az-login`.
+1. Abra uma concha de comando e complete os passos restantes nesta secção numa única sessão. Se ainda não tiver o Azure CLI instalado e configurado, complete os passos no artigo de [instalação Do CLI Azure](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) e faça login na sua conta Azure com o `az-login` comando.
 
-2. Conclua as etapas em uma das seções a seguir, com base em seus requisitos:
+2. Complete os passos numa das seguintes secções, com base nos seus requisitos:
 
-    **Adicionar um endereço IP privado**
+    **Adicione um endereço IP privado**
     
-    Para adicionar um endereço IP privado a uma NIC, você deve criar uma configuração de IP usando o comando a seguir. O endereço IP estático deve ser um endereço não usado para a sub-rede.
+    Para adicionar um endereço IP privado a um NIC, deve criar uma configuração IP utilizando o comando que se segue. O endereço IP estático deve ser um endereço não utilizado para a sub-rede.
 
-    ```bash
+    ```azurecli
     az network nic ip-config create \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
@@ -184,19 +184,19 @@ Você pode adicionar endereços IP públicos e privados adicionais a uma interfa
     --name IPConfig-4
     ```
     
-    Crie quantas configurações forem necessárias, usando nomes de configuração exclusivos e endereços IP privados (para configurações com endereços IP estáticos).
+    Crie as configurações necessárias, utilizando nomes de configuração únicos e endereços IP privados (para configurações com endereços IP estáticos).
 
-    **Adicionar um endereço IP público**
+    **Adicione um endereço IP público**
     
-    Um endereço IP público é adicionado associando-o a uma nova configuração de IP ou a uma configuração de IP existente. Conclua as etapas em uma das seções a seguir, conforme necessário.
+    Um endereço IP público é adicionado associando-o a uma nova configuração IP ou a uma configuração IP existente. Complete os passos numa das secções que se seguem, conforme necessário.
 
-    Os endereços IP públicos têm uma taxa nominal. Para saber mais sobre preços de endereço IP, leia a página de [preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Azure limites](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) (Limites do artigo).
+    Os endereços IP públicos têm uma taxa nominal. Para saber mais sobre os preços do endereço IP, leia a página de preços do [endereço IP.](https://azure.microsoft.com/pricing/details/ip-addresses) Existe um limite para o número de endereços IP públicos que podem ser usados numa subscrição. Para saber mais sobre os limites, leia o artigo [Azure limites](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) (Limites do artigo).
 
-    - **Associar o recurso a uma nova configuração de IP**
+    - **Associar o recurso a uma nova configuração IP**
     
-        Sempre que você adicionar um endereço IP público em uma nova configuração de IP, também deverá adicionar um endereço IP privado, pois todas as configurações de IP devem ter um endereço IP privado. Você pode adicionar um recurso de endereço IP público existente ou criar um novo. Para criar um novo, insira o seguinte comando:
+        Sempre que adicionar um endereço IP público numa nova configuração IP, também deve adicionar um endereço IP privado, porque todas as configurações IP devem ter um endereço IP privado. Pode adicionar um recurso de endereço IP público existente ou criar um novo. Para criar um novo, insira o seguinte comando:
     
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group myResourceGroup \
         --location westcentralus \
@@ -204,9 +204,9 @@ Você pode adicionar endereços IP públicos e privados adicionais a uma interfa
         --dns-name mypublicdns3
         ```
 
-        Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, digite o seguinte comando:
+        Para criar uma nova configuração IP com um endereço IP privado estático e o recurso de endereço IP público associado do *myPublicIP3,* insira o seguinte comando:
 
-        ```bash
+        ```azurecli
         az network nic ip-config create \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -215,16 +215,16 @@ Você pode adicionar endereços IP públicos e privados adicionais a uma interfa
         --public-ip-address myPublicIP3
         ```
 
-    - **Associar o recurso a uma configuração de IP existente** Um recurso de endereço IP público só pode ser associado a uma configuração de IP que ainda não tenha um associado. Você pode determinar se uma configuração de IP tem um endereço IP público associado digitando o seguinte comando:
+    - **Associar o recurso a uma configuração IP existente** Um recurso de endereço IP público só pode ser associado a uma configuração IP que ainda não tem uma associada. Pode determinar se uma configuração IP tem um endereço IP público associado, introduzindo o seguinte comando:
 
-        ```bash
+        ```azurecli
         az network nic ip-config list \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
         --query "[?provisioningState=='Succeeded'].{ Name: name, PublicIpAddressId: publicIpAddress.id }" --output table
         ```
 
-        Saída retornada:
+        Saída devolvida:
     
             Name        PublicIpAddressId
             
@@ -232,9 +232,9 @@ Você pode adicionar endereços IP públicos e privados adicionais a uma interfa
             IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
             IPConfig-3
 
-        Como a coluna **PublicIpAddressId** para *ipconfig-3* está em branco na saída, nenhum recurso de endereço IP público está associado a ele no momento. Você pode adicionar um recurso de endereço IP público existente ao IpConfig-3 ou inserir o seguinte comando para criar um:
+        Uma vez que a coluna **PublicIpAddressId** para *IpConfig-3* está em branco na saída, nenhum recurso de endereço IP público está atualmente associado ao mesmo. Pode adicionar um recurso de endereço IP público existente ao IpConfig-3, ou introduzir o seguinte comando para criar um:
 
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group  myResourceGroup
         --location westcentralus \
@@ -243,9 +243,9 @@ Você pode adicionar endereços IP públicos e privados adicionais a uma interfa
         --allocation-method Static
         ```
     
-        Digite o seguinte comando para associar o recurso de endereço IP público à configuração de IP existente chamada *ipconfig-3*:
+        Introduza o seguinte comando para associar o recurso de endereço IP público à configuração IP existente chamada *IPConfig-3*:
     
-        ```bash
+        ```azurecli
         az network nic ip-config update \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -253,16 +253,16 @@ Você pode adicionar endereços IP públicos e privados adicionais a uma interfa
         --public-ip myPublicIP3
         ```
 
-3. Exiba os endereços IP privados e as IDs de recurso de endereço IP público atribuídos à NIC digitando o seguinte comando:
+3. Consulte os endereços IP privados e os ids de endereço IP públicos atribuídos ao NIC, inserindo o seguinte comando:
 
-    ```bash
+    ```azurecli
     az network nic ip-config list \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
     --query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
     ```
 
-    Saída retornada: <br>
+    Saída devolvida: <br>
     
         Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
         
@@ -271,6 +271,6 @@ Você pode adicionar endereços IP públicos e privados adicionais a uma interfa
         IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
     
 
-4. Adicione os endereços IP privados que você adicionou à NIC ao sistema operacional da VM seguindo as instruções na seção [adicionar endereços IP a um sistema operacional de VM](#os-config) deste artigo. Não adicione os endereços IP públicos ao sistema operacional.
+4. Adicione os endereços IP privados adicionados ao NIC ao sistema operativo VM seguindo as instruções nos [endereços IP adicionais a uma](#os-config) secção do sistema operativo VM deste artigo. Não adicione os endereços IP públicos ao sistema operativo.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

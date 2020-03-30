@@ -1,20 +1,20 @@
 ---
 author: brjohnstmsft
-ms.service: search
+ms.service: cognitive-search
 ms.topic: include
 ms.date: 06/13/2018
 ms.author: brjohnst
-ms.openlocfilehash: b4d0bc73e652a1cd6ef59589318b92f63727c7f5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 998d0f1a84dc9cb2a07fb55286c1089787a263e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079642"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80272626"
 ---
-| Tipo de dados | Funcionalidades permitidas em expressões lambda com `any` | Funcionalidades permitidas em expressões lambda com `all` |
+| Tipo de dados | Características permitidas em expressões lambda com`any` | Características permitidas em expressões lambda com`all` |
 |---|---|---|
-| `Collection(Edm.ComplexType)` | Tudo, exceto `search.ismatch` e `search.ismatchscoring` | Mesmo |
-| `Collection(Edm.String)` | Comparações com `eq` ou `search.in` <br/><br/> Combinando as subexpressões com `or` | Comparações com `ne` ou `not search.in()` <br/><br/> Combinando as subexpressões com `and` |
-| `Collection(Edm.Boolean)` | Comparações com `eq` ou `ne` | Mesmo |
-| `Collection(Edm.GeographyPoint)` | Usando `geo.distance` com `lt` ou `le` <br/><br/> `geo.intersects` <br/><br/> Combinando as subexpressões com `or` | Usando `geo.distance` com `gt` ou `ge` <br/><br/> `not geo.intersects(...)` <br/><br/> Combinando as subexpressões com `and` |
-| `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)`, `Collection(Edm.Int64)` | Comparações usando `eq`, `ne`, `lt`, `gt`, `le`, ou `ge` <br/><br/> A combinação de comparações com outras as subexpressões usando `or` <br/><br/> A combinação de comparações, exceto `ne` com outras as subexpressões usando `and` <br/><br/> Expressões através de combinações de `and` e `or` no [Disjunctive Normal formulário (DNF)](https://en.wikipedia.org/wiki/Disjunctive_normal_form) | Comparações usando `eq`, `ne`, `lt`, `gt`, `le`, ou `ge` <br/><br/> A combinação de comparações com outras as subexpressões usando `and` <br/><br/> A combinação de comparações, exceto `eq` com outras as subexpressões usando `or` <br/><br/> Expressões através de combinações de `and` e `or` no [Conjunctive Normal formulário (CNF)](https://en.wikipedia.org/wiki/Conjunctive_normal_form) |
+| `Collection(Edm.ComplexType)` | Tudo `search.ismatch` menos e`search.ismatchscoring` | Mesma |
+| `Collection(Edm.String)` | Comparações `eq` com ou`search.in` <br/><br/> Combinando subexpressões com`or` | Comparações `ne` com ou`not search.in()` <br/><br/> Combinando subexpressões com`and` |
+| `Collection(Edm.Boolean)` | Comparações `eq` com ou`ne` | Mesma |
+| `Collection(Edm.GeographyPoint)` | `geo.distance` Utilização `lt` com ou`le` <br/><br/> `geo.intersects` <br/><br/> Combinando subexpressões com`or` | `geo.distance` Utilização `gt` com ou`ge` <br/><br/> `not geo.intersects(...)` <br/><br/> Combinando subexpressões com`and` |
+| `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)`, `Collection(Edm.Int64)` | Comparações `eq` `ne`usando, `gt` `le`, `lt`, , ou`ge` <br/><br/> Combinando comparações com outras subexpressões usando`or` <br/><br/> Combinando comparações exceto `ne` outras subexpressões usando`and` <br/><br/> Expressões utilizando combinações de `and` e `or` em forma normal [disjuntiva (DNF)](https://en.wikipedia.org/wiki/Disjunctive_normal_form) | Comparações `eq` `ne`usando, `gt` `le`, `lt`, , ou`ge` <br/><br/> Combinando comparações com outras subexpressões usando`and` <br/><br/> Combinando comparações exceto `eq` outras subexpressões usando`or` <br/><br/> Expressões utilizando combinações de `and` e `or` em forma normal [conjuntiva (CNF)](https://en.wikipedia.org/wiki/Conjunctive_normal_form) |

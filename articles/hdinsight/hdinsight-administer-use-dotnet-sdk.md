@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 432b8855ffb9542a1e052c8c97b52bcddeb5c824
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 36a77d49b507d3d0158d1b4b492d0141350de50f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79272711"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240644"
 ---
-# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o .NET SDK
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerir clusters do Apache Hadoop no HDInsight com o SDK .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
@@ -25,7 +25,7 @@ Aprenda a gerir os clusters HDInsight usando [HDInsight.NET SDK](https://docs.mi
 
 Antes de começar este artigo, tem de ter o seguinte:
 
-* **Uma subscrição do Azure**. Veja [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Uma subscrição Azure.** Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="connect-to-azure-hdinsight"></a>Ligue-se ao Azure HDInsight
 
@@ -175,7 +175,7 @@ O impacto de alterar o número de nós de dados para cada tipo de cluster suport
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia da tempestade:
     
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
@@ -264,16 +264,16 @@ Consulte [O Apache Oozie com Hadoop para definir e executar um fluxo de trabalho
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Enviar dados para armazenamento de Blob Azure
 
-Consulte [os dados de upload para HDInsight][hdinsight-upload-data].
+Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data].
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
 
 * [HDInsight .NET SDK documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure](hdinsight-administer-use-portal-linux.md)
 * [Administrar o HDInsight utilizando uma interface de linha de comando][hdinsight-admin-cli]
-* [Criar clusters HDInsight][hdinsight-provision]
-* [Enviar dados para HDInsight][hdinsight-upload-data]
-* [Começar com Azure HDInsight][hdinsight-get-started]
+* [Criar clusters do HDInsight][hdinsight-provision]
+* [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data]
+* [Get started with Azure HDInsight (Introdução ao Azure HDInsight)][hdinsight-get-started]
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

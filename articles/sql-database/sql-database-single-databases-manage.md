@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 02c4d7ba545282e3654f3889dd8000af33c728c7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268551"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Crie e gerencie servidores de base de dados SQL e bases de dados únicas na Base de Dados Azure SQL
@@ -80,7 +80,7 @@ Para criar e gerir servidores de base de dados Azure SQL, bases de dados individ
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Obtém regras de firewall para um servidor|
 |[Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule)|Modifica uma regra de firewall num servidor|
 |[Remover-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Elimina uma regra de firewall de um servidor.|
-| New-AzSqlServerVirtualNetworkRule | Cria uma regra de [*rede virtual,* ](sql-database-vnet-service-endpoint-rule-overview.md)baseada numa subnet que é um ponto final de serviço de Rede Virtual. |
+| New-AzSqlServerVirtualNetworkRule | Cria uma regra de [*rede virtual,*](sql-database-vnet-service-endpoint-rule-overview.md)baseada numa subnet que é um ponto final de serviço de Rede Virtual. |
 
 ## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>Azure CLI: Gerir servidores de base de dados SQL e bases de dados únicas
 
@@ -123,7 +123,7 @@ Para criar e gerir o servidor, bases de dados e firewalls Azure SQL com Transact
 
 | Comando | Descrição |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Cria uma nova base de dados única. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
+|[CRIAR BASE DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Cria uma nova base de dados única. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [ALTER DATABASE (Base de Dados Azure SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica uma base de dados Azure SQL. |
 |[BASE DE DADOS DROP (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
 |[sys.database_service_objetives (Base de Dados Azure SQL)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve a edição (nível de serviço), o objetivo de serviço (nível de preços) e o nome da piscina elástica, se houver, para uma base de dados Azure SQL ou um Armazém de Dados Azure SQL. Se iniciar sessão na base de dados principal de um servidor de base de dados Azure SQL, devolve informações em todas as bases de dados. Para o Azure SQL Data Warehouse, deve estar ligado à base de dados principal.|

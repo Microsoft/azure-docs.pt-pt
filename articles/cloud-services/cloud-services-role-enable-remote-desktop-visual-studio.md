@@ -1,6 +1,6 @@
 ---
-title: Usando o Visual Studio, habilitar Área de Trabalho Remota para uma função (serviços de nuvem do Azure)
-description: Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota
+title: Utilizando o Estúdio Visual, ative o Ambiente de Trabalho Remoto para uma Função (Serviços Azure Cloud)
+description: Como configurar a sua aplicação de serviço em nuvem Azure para permitir ligações remotas de ambiente de trabalho
 services: cloud-services
 author: ghogen
 manager: jillfra
@@ -12,92 +12,92 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 96f71306c060a6a533a3ab1c0c54b49d74e5cd82
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298400"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294393"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Habilitar Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o Visual Studio
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Ativar a ligação remota para desktop para uma função nos serviços azure cloud usando o estúdio visual
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Portal Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-Área de Trabalho Remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar uma conexão Área de Trabalho Remota para solucionar e diagnosticar problemas com seu aplicativo enquanto ele está em execução.
+O Remote Desktop permite-lhe aceder ao ambiente de trabalho de uma função em funcionamento no Azure. Pode utilizar uma ligação Remote Desktop para resolver problemas e diagnosticar problemas com a sua aplicação enquanto esta estiver em execução.
 
-O assistente de publicação que o Visual Studio fornece para serviços de nuvem inclui uma opção para habilitar Área de Trabalho Remota durante o processo de publicação, usando as credenciais fornecidas por você. O uso dessa opção é adequado ao usar o Visual Studio 2017 versão 15,4 e anterior.
+O assistente de publicação que o Visual Studio fornece para serviços na nuvem inclui uma opção para ativar o Remote Desktop durante o processo de publicação, utilizando credenciais que fornece. A utilização desta opção é adequada quando se utiliza o Visual Studio 2017 versão 15.4 e anterior.
 
-Com o Visual Studio 2017 versão 15,5 e posterior, no entanto, é recomendável evitar a habilitação de Área de Trabalho Remota por meio do assistente de publicação, a menos que você esteja trabalhando apenas como um único desenvolvedor. Para qualquer situação na qual o projeto possa ser aberto por outros desenvolvedores, você habilita Área de Trabalho Remota por meio do portal do Azure, por meio do PowerShell ou de um pipeline de lançamento em um fluxo de trabalho de implantação contínua. Essa recomendação ocorre devido a uma alteração no modo como o Visual Studio se comunica com Área de Trabalho Remota na VM do serviço de nuvem, como é explicado neste artigo.
+Com o Visual Studio 2017 versão 15.5 e mais tarde, no entanto, recomenda-se que evite ativar o Remote Desktop através do assistente de publicação, a menos que esteja a trabalhar apenas como um único desenvolvedor. Para qualquer situação em que o projeto possa ser aberto por outros desenvolvedores, você em vez disso permite o Remote Desktop através do portal Azure, através da PowerShell, ou de um pipeline de lançamento num fluxo de trabalho de implantação contínua. Esta recomendação deve-se a uma mudança na forma como o Visual Studio comunica com o Remote Desktop no serviço de nuvem VM, como é explicado neste artigo.
 
-## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Configurar Área de Trabalho Remota por meio do Visual Studio 2017 versão 15,4 e anterior
+## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Configure Remote Desktop através do Visual Studio 2017 versão 15.4 e anterior
 
-Ao usar o Visual Studio 2017 versão 15,4 e anterior, você pode usar a opção **habilitar área de trabalho remota para todas as funções** no assistente de publicação. Você ainda pode usar o assistente com o Visual Studio 2017 versão 15,5 e posterior, mas não use a opção Área de Trabalho Remota.
+Ao utilizar o Visual Studio 2017 versão 15.4 e mais cedo, pode utilizar o **Enable Remote Desktop para todas as funções** no assistente de publicação. Ainda pode utilizar o assistente com a versão 15.5 do Visual Studio 2017 e posteriormente, mas não utilize a opção Remote Desktop.
 
-1. No Visual Studio, inicie o assistente de publicação clicando com o botão direito do mouse em seu projeto de serviço de nuvem no Gerenciador de Soluções e escolhendo **publicar**.
+1. No Estúdio Visual, inicie o assistente de publicação clicando no seu projeto de serviço na nuvem no Solution Explorer e escolhendo **publicar**.
 
-2. Entre em sua assinatura do Azure, se necessário, e selecione **Avançar**.
+2. Assine a subscrição do Azure se necessário e selecione **Next**.
 
-3. Na página **configurações** , selecione **habilitar área de trabalho remota para todas as funções**e, em seguida, selecione o link **configurações...** para abrir a caixa de diálogo **configuração de área de trabalho remota** .
+3. Na página **Definições,** selecione Ativar o **Ambiente de Trabalho Remoto para todas as funções**e, em seguida, selecione o link **Definições...** para abrir a caixa de diálogo de **configuração de ambiente** de trabalho remoto.
 
-4. Na parte inferior da caixa de diálogo, selecione **mais opções**. Esse comando exibe uma lista suspensa na qual você cria ou escolhe um certificado para que você possa criptografar informações de credenciais ao se conectar por meio da área de trabalho remota.
+4. Na parte inferior da caixa de diálogo, selecione **Mais Opções**. Este comando apresenta uma lista de drop-down na qual cria ou escolhe um certificado para que possa encriptar informações de credenciais ao ligar-se através de um ambiente de trabalho remoto.
 
    > [!Note]
-   > Os certificados necessários para uma conexão de área de trabalho remota são diferentes dos certificados que você usa para outras operações do Azure. O certificado de acesso remoto deve ter uma chave privada.
+   > Os certificados de que necessita para uma ligação remota de ambiente de trabalho são diferentes dos certificados que utiliza para outras operações do Azure. O certificado de acesso remoto deve ter uma chave privada.
 
-5. Selecione um certificado na lista ou escolha **&lt;Create... &gt;** . Se estiver criando um novo certificado, forneça um nome amigável para o novo certificado quando solicitado e selecione **OK**. O novo certificado é exibido na caixa de listagem suspensa.
+5. Selecione um certificado da lista ou escolha ** &lt;Criar... &gt;**. Se criar um novo certificado, forneça um nome amigável para o novo certificado quando solicitado e selecione **OK**. O novo certificado aparece na caixa de listas.
 
-6. Forneça um nome de usuário e uma senha. Você não pode usar uma conta existente. Não use "administrador" como o nome de usuário para a nova conta.
+6. Forneça um nome de utilizador e uma senha. Não pode usar uma conta existente. Não utilize "Administrador" como nome de utilizador para a nova conta.
 
-7. Escolha uma data na qual a conta irá expirar e, após a qual Área de Trabalho Remota conexões serão bloqueadas.
+7. Escolha uma data em que a conta expirará e após a qual as ligações remote Desktop serão bloqueadas.
 
-8. Depois de fornecer todas as informações necessárias, selecione **OK**. O Visual Studio adiciona as configurações de Área de Trabalho Remota aos arquivos `.cscfg` e `.csdef` do seu projeto, incluindo a senha que é criptografada usando o certificado escolhido.
+8. Depois de fornecer todas as informações necessárias, selecione **OK**. O Visual Studio adiciona as definições `.cscfg` `.csdef` do Ambiente de Trabalho Remoto aos ficheiros e ficheiros do seu projeto, incluindo a palavra-passe encriptada utilizando o certificado escolhido.
 
-9. Conclua as etapas restantes usando o botão **Avançar** e, em seguida, selecione **publicar** quando estiver pronto para publicar seu serviço de nuvem. Se você não estiver pronto para publicar, selecione **Cancelar** e responda **Sim** quando for solicitado a salvar as alterações. Você pode publicar seu serviço de nuvem mais tarde com essas configurações.
+9. Complete quaisquer passos restantes utilizando o botão **Seguinte** e, em seguida, selecione **Publicar** quando estiver pronto para publicar o seu serviço na nuvem. Se não estiver pronto para publicar, selecione **Cancelar** e responder **Sim** quando solicitado para guardar alterações. Pode publicar o seu serviço de cloud mais tarde com estas definições.
 
-## <a name="configure-remote-desktop-when-using-visual-studio-2017-version-155-and-later"></a>Configurar Área de Trabalho Remota ao usar o Visual Studio 2017 versão 15,5 e posterior
+## <a name="configure-remote-desktop-when-using-visual-studio-2017-version-155-and-later"></a>Configure Desktop Remoto ao utilizar visual studio 2017 versão 15.5 e mais tarde
 
-Com o Visual Studio 2017 versão 15,5 e posterior, você ainda pode usar o assistente de publicação com um projeto de serviço de nuvem. Você também pode usar a opção **habilitar área de trabalho remota para todas as funções** se estiver trabalhando apenas como um único desenvolvedor.
+Com o Visual Studio 2017 versão 15.5 e mais tarde, ainda pode utilizar o assistente de publicação com um projeto de serviço na nuvem. Também pode utilizar o **Enable Remote Desktop para todas as funções** se estiver a trabalhar apenas como um único desenvolvedor.
 
-Se você estiver trabalhando como parte de uma equipe, deverá habilitar a área de trabalho remota no serviço de nuvem do Azure usando o [portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md) ou o [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
+Se estiver a trabalhar como parte de uma equipa, deve, em vez disso, ativar o ambiente de trabalho remoto no serviço de nuvem Azure utilizando o [portal Azure](cloud-services-role-enable-remote-desktop-new-portal.md) ou o [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
 
-Essa recomendação ocorre devido a uma alteração no modo como o Visual Studio 2017 versão 15,5 e posterior se comunica com a VM do serviço de nuvem. Ao habilitar Área de Trabalho Remota por meio do assistente de publicação, as versões anteriores do Visual Studio se comunicam com a VM por meio do que chamamos de "plug-in RDP". O Visual Studio 2017 versão 15,5 e posterior se comunica usando a "extensão RDP", que é mais segura e mais flexível. Essa alteração também se alinha com o fato de que os métodos portal do Azure e PowerShell para habilitar Área de Trabalho Remota também usam a extensão RDP.
+Esta recomendação deve-se a uma mudança na forma como o Visual Studio 2017 versão 15.5 e posteriormente comunica com o serviço de nuvem VM. Ao ativar o Remote Desktop através do assistente de publicação, as versões anteriores do Estúdio Visual comunicam com o VM através do chamado "plugin RDP". Visual Studio 2017 versão 15.5 e posteriormente comunica em vez usando a "extensão RDP" que é mais segura e flexível. Esta alteração também está alinhada com o facto de o portal Azure e os métodos PowerShell permitirem que o Ambiente de Trabalho Remoto também utilize a extensão RDP.
 
-Quando o Visual Studio se comunica com a extensão RDP, ele transmite uma senha de texto sem formatação por SSL. No entanto, os arquivos de configuração do projeto armazenam apenas uma senha criptografada, que pode ser descriptografada em texto sem formatação somente com o certificado local que foi originalmente usado para criptografá-lo.
+Quando o Visual Studio comunica com a extensão RDP, transmite uma senha de texto simples sobre tLS. No entanto, os ficheiros de configuração do projeto armazenam apenas uma senha encriptada, que só pode ser desencriptada em texto simples com o certificado local que foi originalmente utilizado para a encriptar.
 
-Se você implantar o projeto de serviço de nuvem do mesmo computador de desenvolvimento a cada vez, esse certificado local estará disponível. Nesse caso, você ainda pode usar a opção **habilitar área de trabalho remota para todas as funções** no assistente de publicação.
+Se implementar o projeto de serviço na nuvem a partir do mesmo computador de desenvolvimento de cada vez, então esse certificado local está disponível. Neste caso, ainda pode utilizar o **Enable Remote Desktop para todas as funções** no assistente de publicação.
 
-No entanto, se você ou outros desenvolvedores desejarem implantar o projeto de serviço de nuvem de diferentes computadores, esses outros computadores não terão o certificado necessário para descriptografar a senha. Como resultado, você verá a seguinte mensagem de erro:
+Se você ou outros desenvolvedores quiserem implementar o projeto de serviço na nuvem a partir de diferentes computadores, no entanto, esses outros computadores não terão o certificado necessário para desencriptar a palavra-passe. Como resultado, vê a seguinte mensagem de erro:
 
 ```output
 Applying remote desktop protocol (RDP) extension.
 Certificate with thumbprint [thumbprint] doesn't exist.
 ```
 
-Você pode alterar a senha toda vez que implantar o serviço de nuvem, mas essa ação torna-se inconveniente para todos que precisam usar Área de Trabalho Remota.
+Pode alterar a palavra-passe sempre que implementar o serviço de cloud, mas essa ação torna-se inconveniente para todos os que precisam de utilizar o Remote Desktop.
 
-Se você estiver compartilhando o projeto com uma equipe, é melhor desmarcar a opção no assistente de publicação e, em vez disso, habilitar Área de Trabalho Remota diretamente por meio do [portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md) ou usando o [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
+Se estiver a partilhar o projeto com uma equipa, então, o melhor é limpar a opção no assistente de publicação e, em vez disso, ativar o Remote Desktop diretamente através do [portal Azure](cloud-services-role-enable-remote-desktop-new-portal.md) ou utilizando o [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
 
-### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Implantando de um servidor de compilação com o Visual Studio 2017 versão 15,5 e posterior
+### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Implantação a partir de um servidor de construção com visual studio 2017 versão 15.5 e mais tarde
 
-Você pode implantar um projeto de serviço de nuvem de um servidor de compilação (por exemplo, com Azure DevOps Services) no qual o Visual Studio 2017 versão 15,5 ou posterior está instalado no agente de compilação. Com esse arranjo, a implantação ocorre no mesmo computador em que o certificado de criptografia está disponível.
+Pode implementar um projeto de serviço na nuvem a partir de um servidor de construção (por exemplo, com os Serviços Azure DevOps) no qual a versão 15.5 do Visual Studio 2017 está instalada no agente de construção. Com este arranjo, a implementação acontece a partir do mesmo computador no qual o certificado de encriptação está disponível.
 
-Para usar a extensão RDP do Azure DevOps Services, inclua os seguintes detalhes em seu pipeline de compilação:
+Para utilizar a extensão RDP dos Serviços Azure DevOps, inclua os seguintes detalhes no seu pipeline de construção:
 
-1. Inclua `/p:ForceRDPExtensionOverPlugin=true` em seus argumentos do MSBuild para garantir que a implantação funcione com a extensão RDP em vez do plug-in RDP. Por exemplo:
+1. Inclua `/p:ForceRDPExtensionOverPlugin=true` nos seus argumentos MSBuild para garantir que a implementação funciona com a extensão RDP em vez do plugin RDP. Por exemplo:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
         /p:SkipInvalidConfigurations=true /p:ForceRDPExtensionOverPlugin=true
     ```
 
-1. Após as etapas de compilação, adicione a etapa de **implantação do serviço de nuvem do Azure** e defina suas propriedades.
+1. Depois dos seus passos de construção, adicione o passo de implantação do **serviço azure cloud** e defina as suas propriedades.
 
-1. Após a etapa de implantação, adicione uma etapa **do Azure PowerShell** , defina sua propriedade **nome de exibição** como "implantação do Azure: habilitar extensão RDP" (ou outro nome adequado) e selecione sua assinatura do Azure apropriada.
+1. Após o passo de implantação, adicione um passo **Azure Powershell,** coloque a sua propriedade **de nome display** em "Azure Deployment: Enable RDP Extension" (ou outro nome adequado), e selecione a sua subscrição Azure apropriada.
 
-1. Defina o **tipo de script** como "embutido" e cole o código abaixo no campo **script embutido** . (Você também pode criar um arquivo `.ps1` em seu projeto com esse script, definir o **tipo de script** como "caminho do arquivo de script" e definir o caminho do **script** para apontar para o arquivo.)
+1. Delineie **o script para** "Inline" e colá o código abaixo no campo Script **Inline.** (Também pode criar `.ps1` um ficheiro no seu projeto com este script, definir **o Script Type** para "Script File Path", e definir o Script **Path** para apontar para o ficheiro.)
 
     ```ps
     Param(
@@ -136,15 +136,15 @@ Para usar a extensão RDP do Azure DevOps Services, inclua os seguintes detalhes
     Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry -Verbose
     ```
 
-## <a name="connect-to-an-azure-role-by-using-remote-desktop"></a>Conectar-se a uma função do Azure usando Área de Trabalho Remota
+## <a name="connect-to-an-azure-role-by-using-remote-desktop"></a>Ligue-se a uma função Azure utilizando o Ambiente de Trabalho Remoto
 
-Depois de publicar seu serviço de nuvem no Azure e habilitar o Área de Trabalho Remota, você pode usar o Visual Studio Gerenciador de Servidores para fazer logon na VM do serviço de nuvem:
+Depois de publicar o seu serviço de cloud no Azure e ter ativado o Remote Desktop, pode utilizar o Visual Studio Server Explorer para iniciar sessão no serviço de nuvem VM:
 
-1. No Gerenciador de Servidores, expanda o nó **Azure** e, em seguida, expanda o nó para um serviço de nuvem e uma de suas funções para exibir uma lista de instâncias.
+1. No Server Explorer, expanda o nó **Azure** e, em seguida, expanda o nó para um serviço na nuvem e uma das suas funções para apresentar uma lista de instâncias.
 
-2. Clique com o botão direito do mouse em um nó de instância e selecione **conectar usando área de trabalho remota**.
+2. Clique num nó de instância e selecione **Ligar Utilizando o ambiente de trabalho remoto**.
 
-3. Insira o nome de usuário e a senha que você criou anteriormente. Agora você está conectado à sessão remota.
+3. Introduza o nome de utilizador e a palavra-passe que criou anteriormente. Está agora ligado à sua sessão remota.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

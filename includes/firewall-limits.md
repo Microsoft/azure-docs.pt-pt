@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 92c2e79910e40721a0ef62d44825bd1f3e19fc79
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 0df38533afe97f010d1050c3ee2a4a69a54d4cc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548229"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334580"
 ---
-| Recurso | Limite predefinido |
+| Recurso | Limite |
 | --- | --- |
-| Taxa de transferência de dados |30 Gbps<sup>1</sup> |
-|Regras|10.000. Todos os tipos de regra combinados.|
-|Máximo de regras DNAT|299|
-|Tamanho mínimo de AzureFirewallSubnet |/26|
-|Intervalo de portas em regras de aplicativos e de rede|0-64000. O trabalho está em andamento para relaxar essa limitação.|
-|Endereços IP públicos|100 máximo (atualmente, as portas SNAT são adicionadas somente aos cinco primeiros endereços IP públicos).|
-|Tabela de rota|Por padrão, AzureFirewallSubnet tem uma rota 0.0.0.0/0 com o valor NextHopType definido como **Internet**.<br><br>O Firewall do Azure deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprende uma rota padrão para sua rede local via BGP, você deve substituí-lo por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet. Por padrão, o Firewall do Azure não dá suporte a túnel forçado para uma rede local.<br><br>No entanto, se sua configuração exigir túnel forçado para uma rede local, a Microsoft dará suporte a isso caso a caso. Contate o suporte para que possamos examinar seu caso. Se aceito, permitiremos sua assinatura e garantiremos que a conectividade de Internet do firewall necessária seja mantida.|
+| Débito de dados |30 Gbps<sup>1</sup> |
+|Regras|10,000. Todos os tipos de regras combinados.|
+|Regras máximas de ADN|299|
+|Tamanho mínimo da AzureFirewallSubnet |/26|
+|Gama portuária nas regras de rede e aplicação|0-64,000. Estão em curso trabalhos para relaxar esta limitação.|
+|Endereços IP públicos|100 máximo (atualmente, as portas SNAT são adicionadas apenas para os primeiros cinco endereços IP públicos.)|
+|Tabela de rota|Por padrão, o AzureFirewallSubnet tem uma rota de 0.0.0.0/0 com o valor NextHopType definido para a **Internet**.<br><br>O Azure Firewall deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprender uma rota padrão para a sua rede no local via BGP, deve sobrepor-se a isso com um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta da Internet. Por padrão, o Azure Firewall não suporta túneis forçados para uma rede no local.<br><br>No entanto, se a sua configuração necessitar de túneis forçados para uma rede no local, a Microsoft irá apoiá-la caso a caso. Contacte o Suporte para que possamos rever o seu caso. Se for aceite, permitiremos a sua subscrição e garantiremos a manutenção da conectividade de Firewall Internet necessária.|
 
-<sup>1</sup> Se você precisar aumentar esses limites, entre em contato com o suporte do Azure.
+<sup>1</sup> Se precisar de aumentar estes limites, contacte o Suporte Azure.

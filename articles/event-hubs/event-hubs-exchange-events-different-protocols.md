@@ -1,9 +1,9 @@
 ---
-title: Hubs de eventos do Azure – trocar eventos usando protocolos diferentes
-description: Este artigo mostra como os consumidores e produtores que usam protocolos diferentes (AMQP, Apache Kafka e HTTPS) podem trocar eventos ao usar os hubs de eventos do Azure.
+title: Azure Event Hubs - Eventos de intercâmbio usando diferentes protocolos
+description: Este artigo mostra como os consumidores e produtores que utilizam diferentes protocolos (AMQP, Apache Kafka e HTTPS) podem trocar eventos ao utilizar em Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
-author: basilhariri
+author: femila
 manager: ''
 ms.service: event-hubs
 ms.devlang: na
@@ -12,33 +12,33 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2019
-ms.author: bahariri
-ms.openlocfilehash: aecde0c36fc48f75e5174ca3e1ab9e2b3476d08a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: femila
+ms.openlocfilehash: 368cc568c40e878338e6b45205e74cba1d0b6378
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437190"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372205"
 ---
-# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Trocar eventos entre consumidores e produtores que usam protocolos diferentes: AMQP, Kafka e HTTPS
-Os hubs de eventos do Azure dão suporte a três protocolos para consumidores e produtores: AMQP, Kafka e HTTPS. Cada um desses protocolos tem sua própria maneira de representar uma mensagem, portanto, naturalmente, a seguinte pergunta ocorre: se um aplicativo envia eventos para um hub de eventos com um protocolo e os consome com um protocolo diferente, o que faz as várias partes e valores do o evento parece quando chega ao consumidor? Este artigo aborda as práticas recomendadas para o produtor e o consumidor para garantir que os valores dentro de um evento sejam interpretados corretamente pelo aplicativo de consumo.
+# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Troca de eventos entre consumidores e produtores que utilizam diferentes protocolos: AMQP, Kafka e HTTPS
+O Azure Event Hubs apoia três protocolos para consumidores e produtores: AMQP, Kafka e HTTPS. Cada um destes protocolos tem a sua própria forma de representar uma mensagem, por isso, naturalmente, surge a seguinte questão: se uma aplicação envia eventos para um Hub de Eventos com um protocolo e os consome com um protocolo diferente, o que fazem as várias partes e valores do evento parece quando chegam ao consumidor? Este artigo discute as melhores práticas tanto para o produtor como para o consumidor, a fim de garantir que os valores dentro de um evento sejam corretamente interpretados pela aplicação consumista.
 
-O Conselho neste artigo aborda especificamente esses clientes, com as versões listadas usadas no desenvolvimento dos trechos de código:
+Os conselhos deste artigo abrangem especificamente estes clientes, com as versões listadas utilizadas no desenvolvimento dos códigos:
 
-* Cliente Java Kafka (versão 1.1.1 de https://www.mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
-* Microsoft Azure cliente dos hubs de eventos para Java (versão 1.1.0 da https://github.com/Azure/azure-event-hubs-java)
-* Microsoft Azure o cliente dos hubs de eventos para .NET (versão 2.1.0 do https://github.com/Azure/azure-event-hubs-dotnet)
-* Barramento de Serviço do Microsoft Azure (versão 5.0.0 do https://www.nuget.org/packages/WindowsAzure.ServiceBus)
-* HTTPS (dá suporte apenas a produtores)
+* Cliente Kafka Java (versão 1.1.1 dehttps://www.mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
+* Microsoft Azure Event Hubs Cliente para Java (versão 1.1.0https://github.com/Azure/azure-event-hubs-java)
+* Microsoft Azure Event Hubs Client para .NET (versão 2.1.0 dehttps://github.com/Azure/azure-event-hubs-dotnet)
+* Microsoft Azure Service Bus (versão 5.0.0https://www.nuget.org/packages/WindowsAzure.ServiceBus)
+* HTTPS (apoia apenas os produtores)
 
-Outros clientes do AMQP podem se comportar de forma ligeiramente diferente. O AMQP tem um sistema de tipos bem definido, mas as especificidades de serialização de tipos específicos de idiomas de e para esse sistema de tipos dependem do cliente, assim como o cliente fornece acesso às partes de uma mensagem AMQP.
+Outros clientes da AMQP podem comportar-se de forma ligeiramente diferente. A AMQP tem um sistema de tipo bem definido, mas as especificidades de serializar tipos específicos de linguagem de e para esse sistema de tipo dependem do cliente, assim como a forma como o cliente fornece acesso às partes de uma mensagem AMQP.
 
-## <a name="event-body"></a>Corpo do evento
-Todos os clientes do Microsoft AMQP representam o corpo do evento como um recipiente não interpretado de bytes. Um aplicativo de produção passa uma sequência de bytes para o cliente e um aplicativo de consumo recebe essa mesma sequência do cliente. A interpretação da sequência de bytes ocorre dentro do código do aplicativo.
+## <a name="event-body"></a>Corpo de Evento
+Todos os clientes da Microsoft AMQP representam o corpo do evento como um saco não interpretado de bytes. Uma aplicação produtora passa uma sequência de bytes ao cliente, e uma aplicação consumista recebe essa mesma sequência do cliente. A interpretação da sequência byte ocorre dentro do código de aplicação.
 
-Ao enviar um evento via HTTPS, o corpo do evento é o conteúdo postado, que também é tratado como bytes não interpretados. É fácil alcançar o mesmo estado em um produtor ou consumidor de Kafka usando o ByteArraySerializer e ByteArrayDeserializer fornecidos, conforme mostrado no código a seguir:
+Ao enviar um evento via HTTPS, o organismo do evento é o conteúdo POSTed, que também é tratado como bytes não interpretados. É fácil obter o mesmo estado num produtor ou consumidor de Kafka utilizando o ByteArraySerializer e byteArrayDeserializer fornecidos, como mostrado no seguinte código:
 
-### <a name="kafka-byte-producer"></a>Kafka byte[] producer
+### <a name="kafka-byte-producer"></a>Kafka byte[] produtor
 
 ```java
 final Properties properties = new Properties();
@@ -52,7 +52,7 @@ ProducerRecord<Long, byte[]> pr =
     new ProducerRecord<Long, byte[]>(myTopic, myPartitionId, myTimeStamp, eventBody);
 ```
 
-### <a name="kafka-byte-consumer"></a>Consumidor do Kafka byte []
+### <a name="kafka-byte-consumer"></a>Kafka byte[] consumidor
 ```java
 final Properties properties = new Properties();
 // add other properties
@@ -64,11 +64,11 @@ ConsumerRecord<Long, byte[]> cr = /* receive event */
 // cr.value() is a byte[] with values { 0x01, 0x02, 0x03, 0x04 }
 ```
 
-Esse código cria um pipeline de byte transparente entre as duas metades do aplicativo e permite que o desenvolvedor do aplicativo Serialize e Desserialize manualmente de qualquer forma desejada, incluindo tomar decisões de desserialização em tempo de execução, por exemplo, com base no tipo ou informações do remetente em propriedades definidas pelo usuário no evento.
+Este código cria um pipeline de byte transparente entre as duas metades da aplicação e permite ao desenvolvedor de aplicações serializar e desserializar manualmente de qualquer forma desejada, incluindo tomar decisões de desserialização no prazo de funcionamento, por exemplo com base no tipo ou informações de remetente em propriedades definidas pelo utilizador no evento.
 
-Os aplicativos que têm um tipo de corpo de evento único fixo podem ser capazes de usar outros serializadores Kafka e desserializadores para converter dados de forma transparente. Por exemplo, considere um aplicativo, que usa JSON. A construção e a interpretação da cadeia de caracteres JSON acontecem no nível do aplicativo. No nível dos hubs de eventos, o corpo do evento é sempre uma cadeia de caracteres, uma sequência de bytes que representa caracteres na codificação UTF-8. Nesse caso, o produtor ou o consumidor do Kafka pode aproveitar o StringSerializer ou o StringDeserializer fornecido, conforme mostrado no código a seguir:
+Aplicações que tenham um único tipo de corpo de evento fixo podem ser capazes de usar outros serializadores kafka, e desserializers para converter dados transparentemente. Por exemplo, considere uma aplicação, que utiliza a JSON. A construção e interpretação da cadeia JSON acontece ao nível da aplicação. Ao nível dos Centros de Eventos, o corpo do evento é sempre uma sequência de bytes que representam personagens na codificação UTF-8. Neste caso, o produtor ou consumidor kafka pode tirar partido do StringSerializer ou StringDeserializer fornecidos, como mostrado no seguinte código:
 
-### <a name="kafka-utf-8-string-producer"></a>Produtor de cadeia de caracteres UTF-8 Kafka
+### <a name="kafka-utf-8-string-producer"></a>Kafka UTF-8 produtor de cordas
 ```java
 final Properties properties = new Properties();
 // add other properties
@@ -81,7 +81,7 @@ ProducerRecord<Long, String> pr =
     new ProducerRecord<Long, String>(myTopic, myPartitionId, myTimeStamp, exampleJson);
 ```
 
-### <a name="kafka-utf-8-string-consumer"></a>Consumidor de cadeia de caracteres UTF-8 Kafka
+### <a name="kafka-utf-8-string-consumer"></a>Kafka UTF-8 consumidor de cordas
 ```java
 final Properties properties = new Properties();
 // add other properties
@@ -93,27 +93,27 @@ ConsumerRecord<Long, Bytes> cr = /* receive event */
 final String receivedJson = cr.value();
 ```
 
-Para o lado do AMQP, o Java e o .NET fornecem maneiras internas de converter cadeias de caracteres para e de sequências de bytes UTF-8. Os clientes do Microsoft AMQP representam eventos como uma classe denominada EventData. Os exemplos a seguir mostram como serializar uma cadeia de caracteres UTF-8 em um corpo de evento EventData em um produtor de AMQP e como desserializar um corpo de evento EventData em uma cadeia de caracteres UTF-8 em um consumidor AMQP.
+Para o lado AMQP, tanto java como .NET fornecem formas incorporadas de converter cordas de e para sequências de byteUTF-8. Os clientes da Microsoft AMQP representam eventos como uma classe chamada EventData. Os exemplos seguintes mostram como serializar uma cadeia UTF-8 num organismo de eventos EventData num produtor amqp, e como desserializar um corpo de eventos eventData numa cadeia UTF-8 num consumidor AMQP.
 
-### <a name="java-amqp-utf-8-string-producer"></a>Produtor de cadeia de caracteres UTF-8 Java AMQP
+### <a name="java-amqp-utf-8-string-producer"></a>Java AMQP UTF-8 produtor de cordas
 ```java
 final String exampleJson = "{\"name\":\"John\", \"number\":9001}";
 final EventData ed = EventData.create(exampleJson.getBytes(StandardCharsets.UTF_8));
 ```
 
-### <a name="java-amqp-utf-8-string-consumer"></a>Consumidor de cadeia de caracteres UTF-8 Java AMQP
+### <a name="java-amqp-utf-8-string-consumer"></a>Java AMQP UTF-8 consumidor de cordas
 ```java
 EventData ed = /* receive event */
 String receivedJson = new String(ed.getBytes(), StandardCharsets.UTF_8);
 ```
 
-### <a name="c-net-utf-8-string-producer"></a>C#Produtor de cadeia de caracteres UTF-8 .NET
+### <a name="c-net-utf-8-string-producer"></a>C# .NET UTF-8 produtor de cordas
 ```csharp
 string exampleJson = "{\"name\":\"John\", \"number\":9001}";
 EventData working = new EventData(Encoding.UTF8.GetBytes(exampleJson));
 ```
 
-### <a name="c-net-utf-8-string-consumer"></a>C#Consumidor de cadeia de caracteres .NET UTF-8
+### <a name="c-net-utf-8-string-consumer"></a>C# .NET UTF-8 consumidor de cordas
 ```csharp
 EventData ed = /* receive event */
 
@@ -124,21 +124,21 @@ byte[] bodyBytes = ed.Body.Array;  // Microsoft Azure Event Hubs Client for .NET
 string receivedJson = Encoding.UTF8.GetString(bodyBytes);
 ```
 
-Como o Kafka é de código-fonte aberto, o desenvolvedor do aplicativo pode inspecionar a implementação de qualquer serializador ou desserializador e implementar o código, que produz ou consome uma sequência compatível de bytes no lado do AMQP.
+Como kafka é de código aberto, o desenvolvedor de aplicações pode inspecionar a implementação de qualquer serializador ou desserializer e implementar código, que produz ou consome uma sequência compatível de bytes no lado amqp.
 
-## <a name="event-user-properties"></a>Propriedades do usuário de evento
+## <a name="event-user-properties"></a>Propriedades do utilizador do evento
 
-As propriedades definidas pelo usuário podem ser definidas e recuperadas de ambos os clientes AMQP (nos clientes do Microsoft AMQP, eles são chamados de propriedades) e Kafka (onde são chamados de cabeçalhos). Remetentes HTTPS podem definir propriedades de usuário em um evento fornecendo-os como cabeçalhos HTTP na operação POST. No entanto, Kafka trata os corpos de eventos e os valores de cabeçalho de evento como sequências de bytes. Enquanto em clientes AMQP, os valores de propriedade têm tipos, que são comunicados codificando os valores de propriedade de acordo com o sistema de tipo AMQP.
+As propriedades de conjunto de utilizadores podem ser definidas e recuperadas tanto dos clientes AMQP (nos clientes DA Microsoft AMQP são chamadas de propriedades) e kafka (onde são chamados cabeçalhos). Os remetentes HTTPS podem definir as propriedades dos utilizadores num evento, fornecendo-as como cabeçalhos HTTP na operação POST. No entanto, Kafka trata os corpos do evento e os valores do cabeçalho do evento como sequências byte. Enquanto nos clientes AMQP, os valores patrimoniais têm tipos, que são comunicados codificando os valores de propriedade de acordo com o sistema do tipo AMQP.
 
-HTTPS é um caso especial. No ponto de envio, todos os valores de propriedade são texto UTF-8. O serviço de hubs de eventos faz uma quantidade limitada de interpretação para converter os valores de propriedade apropriados em inteiros de AMQP de 32 bits e de 64 bits com sinal, números de ponto flutuante de 64 bits e boolianos. Qualquer valor de propriedade, que não caiba em um desses tipos, é tratado como uma cadeia de caracteres.
+HTTPS é um caso especial. No ponto de envio, todos os valores de propriedade são texto UTF-8. O serviço Event Hubs faz uma quantidade limitada de interpretação para converter valores de propriedade apropriados para inteiros assinados de 32 bits e 64 bits codificados por AMQP, números de pontos flutuantes de 64 bits e booleans. Qualquer valor de propriedade, que não se encaixa num desses tipos é tratado como uma corda.
 
-Misturar essas abordagens à digitação de propriedade significa que um consumidor Kafka vê a sequência de bytes codificada AMQP bruta, incluindo as informações de tipo AMQP. Enquanto um consumidor AMQP vê a sequência de bytes não tipada enviada pelo produtor do Kafka, que o aplicativo deve interpretar.
+Misturar estas abordagens à dactilografia de propriedade significa que um consumidor de Kafka vê a sequência de byte codificada por AMQP, incluindo a informação do tipo AMQP. Considerando que um consumidor da AMQP vê a sequência de byte não digitada enviada pelo produtor de Kafka, que o pedido deve interpretar.
 
-Para consumidores Kafka que recebem Propriedades de produtores AMQP ou HTTPS, use a classe AmqpDeserializer, que é modelada após os outros desserializadores no ecossistema Kafka. Ele interpreta as informações de tipo nas sequências de bytes codificados em AMQP para desserializar os bytes de dados em um tipo Java.
+Para os consumidores de Kafka que recebem propriedades de produtores AMQP ou HTTPS, utilize a classe AmqpDeserializer, que é modelada após os outros desserializers no ecossistema de Kafka. Interpreta a informação do tipo nas sequências de byte codificadas por AMQP para desserializar os bytes de dados num tipo Java.
 
-Como prática recomendada, recomendamos que você inclua uma propriedade em mensagens enviadas por meio de AMQP ou HTTPS. O consumidor Kafka pode usá-lo para determinar se os valores de cabeçalho precisam de desserialização de AMQP. O valor da propriedade não é importante. Ele só precisa de um nome conhecido que o consumidor Kafka possa encontrar na lista de cabeçalhos e ajustar seu comportamento de acordo.
+Como uma boa prática, recomendamos que inclua uma propriedade em mensagens enviadas via AMQP ou HTTPS. O consumidor de Kafka pode usá-lo para determinar se os valores do cabeçalho precisam de desserialização amqp. O valor do imóvel não é importante. Só precisa de um nome bem conhecido que o consumidor de Kafka possa encontrar na lista de cabeçalhos e ajustar o seu comportamento em conformidade.
 
-### <a name="amqp-to-kafka-part-1-create-and-send-an-event-in-c-net-with-properties"></a>AMQP Kafka parte 1: criar e enviar um evento no C# (.net) com propriedades
+### <a name="amqp-to-kafka-part-1-create-and-send-an-event-in-c-net-with-properties"></a>AMQP para kafka parte 1: criar e enviar um evento em C# (.NET) com propriedades
 ```csharp
 // Create an event with properties "MyStringProperty" and "MyIntegerProperty"
 EventData working = new EventData(Encoding.UTF8.GetBytes("an event body"));
@@ -149,7 +149,7 @@ working.Properties.Add("MyIntegerProperty", 1234);
 working.Properties.Add("AMQPheaders", 0);
 ```
 
-### <a name="amqp-to-kafka-part-2-use-amqpdeserializer-to-deserialize-those-properties-in-a-kafka-consumer"></a>AMQP Kafka parte 2: usar AmqpDeserializer para desserializar essas propriedades em um consumidor de Kafka
+### <a name="amqp-to-kafka-part-2-use-amqpdeserializer-to-deserialize-those-properties-in-a-kafka-consumer"></a>AMQP para kafka parte 2: use AmqpDeserializer para desserializar essas propriedades num consumidor de Kafka
 ```java
 final AmqpDeserializer amqpDeser = new AmqpDeserializer();
 
@@ -179,9 +179,9 @@ if (headerNamedAMQPheaders != null) {
 }
 ```
 
-Se o aplicativo souber o tipo esperado para uma propriedade, haverá métodos de desserialização que não exigem uma conversão posteriormente, mas eles lançarão um erro se a propriedade não for do tipo esperado.
+Se a aplicação conhece o tipo esperado para um imóvel, existem métodos de desserialização que não requerem um elenco posteriormente, mas atiram um erro se a propriedade não for do tipo esperado.
 
-### <a name="amqp-to-kafka-part-3-a-different-way-of-using-amqpdeserializer-in-a-kafka-consumer"></a>AMQP Kafka parte 3: uma maneira diferente de usar o AmqpDeserializer em um consumidor de Kafka
+### <a name="amqp-to-kafka-part-3-a-different-way-of-using-amqpdeserializer-in-a-kafka-consumer"></a>AMQP para Kafka parte 3: uma forma diferente de usar AmqpDeserializer num consumidor de Kafka
 ```java
 // BEST PRACTICE: detect whether AMQP deserialization is needed
 if (headerNamedAMQPheaders != null) {
@@ -208,11 +208,11 @@ if (headerNamedAMQPheaders != null) {
 }
 ```
 
-A outra direção é mais envolvida, porque os cabeçalhos definidos por um produtor de Kafka são sempre vistos por um consumidor AMQP como bytes brutos (tipo org. Apache. QPID. Proton. AMQP. Binary para o Microsoft Azure cliente dos hubs de eventos para Java ou `System.Byte[]` para clientes .NET AMQP da Microsoft). O caminho mais fácil é usar um dos serializadores fornecidos pelo Kafka para gerar os bytes para os valores de cabeçalho no lado do produtor do Kafka e, em seguida, escrever um código de desserialização compatível no lado do consumidor AMQP.
+Ir na outra direção é mais envolvido, porque os cabeçalhos definidos por um produtor de Kafka são sempre vistos por um consumidor de AMQP como bytes crus (tipo org.apache.qpid.proton.amqp.Binary para o Microsoft Azure Event Hubs Client for Java, ou `System.Byte[]` para os clientes .NET AMQP da Microsoft). O caminho mais fácil é usar um dos serializadores fornecidos por Kafka para gerar os bytes para os valores do cabeçalho do lado do produtor kafka, e, em seguida, escrever um código de desserialização compatível no lado do consumidor AMQP.
 
-Assim como com AMQP-to-Kafka, a melhor prática que recomendamos é incluir uma propriedade em mensagens enviadas por meio de Kafka. O consumidor AMQP pode usar a propriedade para determinar se os valores de cabeçalho precisam de desserialização. O valor da propriedade não é importante. Ele só precisa de um nome conhecido que o consumidor AMQP possa encontrar na lista de cabeçalhos e ajustar seu comportamento de acordo. Se o produtor do Kafka não puder ser alterado, também é possível que o aplicativo de consumo Verifique se o valor da propriedade é de um tipo binário ou de byte e tente desserialização com base no tipo.
+Tal como acontece com a AMQP-to-Kafka, a melhor prática que recomendamos é incluir uma propriedade em mensagens enviadas via Kafka. O consumidor AMQP pode usar a propriedade para determinar se os valores do cabeçalho precisam de ser desserializados. O valor do imóvel não é importante. Só precisa de um nome bem conhecido que o consumidor da AMQP possa encontrar na lista de cabeçalhos e ajustar o seu comportamento em conformidade. Se o produtor de Kafka não puder ser alterado, também é possível que a aplicação consumista verifique se o valor da propriedade é de um tipo binário ou byte e tentar desserialização com base no tipo.
 
-### <a name="kafka-to-amqp-part-1-create-and-send-an-event-from-kafka-with-properties"></a>Kafka AMQP parte 1: criar e enviar um evento de Kafka com propriedades
+### <a name="kafka-to-amqp-part-1-create-and-send-an-event-from-kafka-with-properties"></a>Kafka para a amqp parte 1: criar e enviar um evento de Kafka com propriedades
 ```java
 final String topicName = /* topic name */
 final ProducerRecord<Long, String> pr = new ProducerRecord<Long, String>(topicName, /* other arguments */);
@@ -241,7 +241,7 @@ h.add("MyStringProperty", stringSer.serialize(topicName, "hello world"));
 h.add("RawHeaders", intSer.serialize(0));
 ```
 
-### <a name="kafka-to-amqp-part-2-manually-deserialize-those-properties-in-c-net"></a>Kafka AMQP parte 2: desserializar manualmente essas propriedades no C# (.net)
+### <a name="kafka-to-amqp-part-2-manually-deserialize-those-properties-in-c-net"></a>Kafka para amqp parte 2: desserializar manualmente essas propriedades em C# (.NET)
 ```csharp
 EventData ed = /* receive event */
 
@@ -291,7 +291,7 @@ string myStringProperty = Encoding.UTF8.GetString(rawbytes);
 }
 ```
 
-### <a name="kafka-to-amqp-part-3-manually-deserialize-those-properties-in-java"></a>Kafka AMQP parte 3: desserializar manualmente essas propriedades em Java
+### <a name="kafka-to-amqp-part-3-manually-deserialize-those-properties-in-java"></a>Kafka para amqp parte 3: desserializar manualmente essas propriedades em Java
 ```java
 final EventData ed = /* receive event */
 
@@ -339,10 +339,10 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, aprendeu a transmitir para os Hubs de Eventos ativados para Kafka, sem alterar os clientes de protocolo nem executar os seus próprios clusters. Para saber mais sobre hubs de eventos e hubs de eventos para Kafka, consulte os seguintes artigos:  
+Neste artigo, aprendeu a transmitir para O Hubs de Eventos sem alterar os seus clientes protocolares ou executar os seus próprios clusters. Para saber mais sobre Centros de Eventos e Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 * [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Saiba mais sobre Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Explore mais exemplos sobre os Hubs de Eventos do GitHub do Kafka](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos do Kafka local para os hubs de eventos do Kafka habilitados na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Saiba como transmitir em hubs de eventos habilitados para Kafka usando [aplicativos Kafka nativos](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md)ou [fluxos de Akka](event-hubs-kafka-akka-streams-tutorial.md)
+* Use [mirrormaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos de Kafka nas instalações para Event Hubs na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Saiba como transmitir para Centros de Eventos usando [aplicações nativas](event-hubs-quickstart-kafka-enabled-event-hubs.md)de Kafka, [Apache Flink](event-hubs-kafka-flink-tutorial.md)ou [Streams Akka](event-hubs-kafka-akka-streams-tutorial.md)

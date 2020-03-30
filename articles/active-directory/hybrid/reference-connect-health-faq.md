@@ -16,14 +16,14 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e6c490ee9d8b6f7f07f52e70ceb8c7c49d699b6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897018"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331079"
 ---
-# <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas mais frequentes do Azure AD Connect Health
+# <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health frequentemente fez perguntas
 Este artigo inclui respostas a perguntas frequentes (PERGUNTAS) sobre o Azure Ative Directory (Azure AD) Connect Health. Estas PERGUNTAS gerais cobrem questões sobre como usar o serviço, que inclui o modelo de faturação, capacidades, limitações e suporte.
 
 ## <a name="general-questions"></a>Perguntas gerais
@@ -37,9 +37,9 @@ A tabela seguinte lista as funções e as versões suportadas do sistema operati
 
 |Função| Sistema operativo / Versão|
 |--|--|
-|Serviços da Federação de Diretório Ativo (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Serviços de Federação do Active Directory (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 |Azure AD Connect | Versão 1.0.9125 ou superior|
-|Serviços de Domínio de Diretório Ativo (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Serviços de Domínio do Active Directory (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 
 Note que as funcionalidades fornecidas pelo serviço podem diferir com base na função e no sistema operativo. Por outras palavras, todas as funcionalidades podem não estar disponíveis para todas as versões do sistema operativo. Consulte as descrições da funcionalidade para obter mais detalhes.
 
@@ -107,7 +107,7 @@ Leia mais sobre [a configuração http proxy para agentes](how-to-connect-health
 
 Se precisar de configurar um proxy durante o registo do agente, poderá ter de modificar previamente as definições do Proxy do Internet Explorer.
 
-1. Open Internet Explorer > **Configurações** > **Opções** de Internet > **Ligações** > **Definições LAN**.
+1. Open Internet Explorer > **Configurações** > **De Internet** > **Ligações** > **LAN Definições**.
 2. Selecione **Utilize um Servidor proxy para o seu LAN**.
 3. Selecione **Advanced** se tiver portas de procuração diferentes para HTTP e HTTPS/Secure.
 
@@ -134,7 +134,7 @@ Neste caso, elimine manualmente a entrada que pertence ao servidor mais antigo. 
 O agente de saúde pode não se registar devido às seguintes razões possíveis:
 
 * O agente não pode comunicar com os pontos finais necessários porque uma firewall está bloqueando o tráfego. Isto é particularmente comum em servidores proxy de aplicação web. Certifique-se de que permitiu a comunicação de saída aos pontos finais e portas necessários. Consulte a [secção de requisitos](how-to-connect-health-agent-install.md#requirements) para mais detalhes.
-* A comunicação de saída é submetida a uma inspeção SSL pela camada de rede. Isto faz com que o certificado que o agente utiliza seja substituído pelo servidor/entidade de inspeção, e as etapas para completar o registo do agente falham.
+* A comunicação de saída é submetida a uma inspeção tls pela camada de rede. Isto faz com que o certificado que o agente utiliza seja substituído pelo servidor/entidade de inspeção, e as etapas para completar o registo do agente falham.
 * O utilizador não tem acesso para efetuar o registo do agente. Os administradores globais têm acesso por defeito. Pode utilizar o Controlo de [Acesso Baseado em Funções](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) para delegar o acesso a outros utilizadores.
 
 **P: Estou a ser alertado que "os dados do Serviço de Saúde não estão atualizados." Como posso resolver o problema?**
@@ -198,11 +198,11 @@ Utilize powerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> para garantir qu
 A certificação do agente será renovada automaticamente **6 meses** antes da data de validade. Se não for renovado, certifique-se de que a ligação de rede do agente está estável. Reiniciar os serviços do agente ou atualizar para a versão mais recente também pode resolver o problema.
 
 
-## <a name="related-links"></a>Hiperligações relacionadas
+## <a name="related-links"></a>Ligações relacionadas
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
+* [Instalação do Agente de Saúde Azure AD Connect](how-to-connect-health-agent-install.md)
 * [Operações do Azure AD Connect Health](how-to-connect-health-operations.md)
-* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
-* [Utilizar o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
-* [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
-* [Histórico de versões do Azure AD Connect Health](reference-connect-health-version-history.md)
+* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
+* [Utilização da Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
+* [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
+* [Histórico das versões do Azure AD Connect Health](reference-connect-health-version-history.md)

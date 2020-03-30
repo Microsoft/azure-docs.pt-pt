@@ -1,19 +1,19 @@
 ---
 title: Adicione uma camada de azulejos aos mapas Android / Microsoft Azure Maps
 description: Neste artigo, você vai aprender a render uma camada de azulejos num mapa usando o Microsoft Azure Maps Android SDK.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8e1a77ae83783b2841a2600654a9775e9ceb6ada
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209941"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335570"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicione uma camada de azulejos a um mapa usando o Azure Maps Android SDK
 
@@ -23,19 +23,19 @@ Uma camada de azulejos carrega em azulejos de um servidor. Estas imagens podem s
 
 * X, Y, Zoom notação - Com base no nível de zoom, x é a coluna e y é a posição da linha do azulejo na grelha de azulejos.
 * Notação quadkey - Combinação x, y, zoom informação em um único valor de corda que é um identificador único para um azulejo.
-* Caixa de delimitação - As coordenadas de caixa de delimitação podem ser utilizadas para especificar uma imagem no formato `{west},{south},{east},{north}` que é comumente utilizada pelos Serviços de [Mapeamento Web (WMS)](https://www.opengeospatial.org/standards/wms).
+* Caixa de delimitação - As coordenadas de caixa `{west},{south},{east},{north}` de delimitação podem ser utilizadas para especificar uma imagem no formato que é comumente utilizado pelos Serviços de [Mapeamento Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > A TileLayer é uma ótima maneira de visualizar grandes conjuntos de dados no mapa. Não só uma camada de azulejo pode ser gerada a partir de uma imagem, como os dados vetoriais também podem ser renderizados como uma camada de azulejos também. Ao tornar os dados vetoriais como uma camada de azulejos, o controlo do mapa só precisa de carregar os azulejos que podem ser muito menores no tamanho do ficheiro do que os dados vetoriais que representam. Esta técnica é usada por muitos que precisam de renderizar milhões de linhas de dados no mapa.
 
 O URL de azulejos passado para uma camada de azulejos deve ser um URL http/https para um recurso TileJSON ou um modelo de URL de azulejos que utilize os seguintes parâmetros: 
 
-* `{x}` - Posição X do azulejo. Também precisa de `{y}` e `{z}`.
-* `{y}` - Posição Y do azulejo. Também precisa de `{x}` e `{z}`.
-* `{z}` - Nível de zoom do azulejo. Também precisa de `{x}` e `{y}`.
-* `{quadkey}` - Identificador quadkey de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
-* `{bbox-epsg-3857}` - Uma cadeia de caixa de limitador com o formato `{west},{south},{east},{north}` no Sistema de Referência Espacial EPSG 3857.
-* `{subdomain}` - Um espaço reservado para os valores do subdomínio, se o valor do subdomínio for especificado.
+* `{x}`- Posição X do azulejo. Também `{y}` precisa `{z}`e.
+* `{y}`- Posição Y do azulejo. Também `{x}` precisa `{z}`e.
+* `{z}`- Nível de zoom do azulejo. Também `{x}` precisa `{y}`e.
+* `{quadkey}`- Identificador quadkey de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
+* `{bbox-epsg-3857}`- Uma cadeia de caixa `{west},{south},{east},{north}` de delimitação com o formato no Sistema de Referência Espacial EPSG 3857.
+* `{subdomain}`- Espaço reservado para os valores do subdomínio, se for especificado o valor do subdomínio.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -71,7 +71,7 @@ Pode adicionar uma camada de azulejo ao mapa seguindo os passos abaixo.
     </FrameLayout>
     ```
 
-2. Copie o seguinte código abaixo no método **onCreate()** da sua classe `MainActivity.java`.
+2. Copie o seguinte código abaixo no método **onCreate()** da sua `MainActivity.java` classe.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ Pode adicionar uma camada de azulejo ao mapa seguindo os passos abaixo.
     });
     ```
     
-    O código acima obtém primeiro uma instância de controlo de mapas Do Mapa Azure Maps utilizando o método de chamada **onReady().** Em seguida, cria um objeto `TileLayer` e passa um URL de **azulejos de xiz** formatado na opção `tileUrl`. A opacidade da camada está definida para `0.8` e uma vez que os azulejos do serviço de azulejos que estão a ser utilizados são de 256 pixels, esta informação é transmitida para a opção `tileSize`. A camada de azulejos é então passada para o gestor de camadas de mapas.
+    O código acima obtém primeiro uma instância de controlo de mapas Do Mapa Azure Maps utilizando o método de chamada **onReady().** Em seguida, `TileLayer` cria um objeto e passa um URL `tileUrl` de **azulejos de xiz** formatado para a opção. A opacidade da camada `0.8` está definida e uma vez que os azulejos do serviço de `tileSize` azulejos que estão a ser utilizados são de 256 pixels, esta informação é transmitida para a opção. A camada de azulejos é então passada para o gestor de camadas de mapas.
 
-    Depois de adicionar o código acima, o seu `MainActivity.java` deve parecer o abaixo:
+    Depois de adicionar o código `MainActivity.java` acima, o seu deve parecer o abaixo:
     
     ```Java
     package com.example.myapplication;
@@ -172,7 +172,7 @@ Se executar a sua aplicação agora, deve ver uma linha no mapa como visto abaix
 
 <center>
 
-![linha de mapas Android](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![Linha de mapa android](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
 
 ## <a name="next-steps"></a>Passos seguintes
 

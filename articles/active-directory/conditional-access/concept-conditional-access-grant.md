@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0716c2d4475bb538c06b9a591521fbdcfc0c80e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263442"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331845"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Subvenção
 
@@ -24,7 +24,7 @@ No âmbito de uma política de Acesso Condicional, um administrador pode utiliza
 
 ![Política de Acesso Condicional com controlo de subvenções que requer a autenticação de vários fatores](./media/concept-conditional-access-grant/conditional-access-grant.png)
 
-## <a name="block-access"></a>Acesso ao bloco
+## <a name="block-access"></a>Bloquear acesso
 
 O Bloco tem em conta quaisquer atribuições e impede o acesso com base na configuração da política de Acesso Condicional.
 
@@ -38,7 +38,7 @@ Os administradores podem optar por impor um ou mais controlos ao conceder acesso
 - [Exigir que o dispositivo seja marcado como conforme (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Requerer dispositivo híbrido Azure AD](../devices/concept-azure-ad-join-hybrid.md)
 - [Exigir aplicação de cliente aprovada](app-based-conditional-access.md)
-- [Exigir política de proteção de aplicativos](app-protection-based-conditional-access.md)
+- [Pedir uma política de proteção de aplicações](app-protection-based-conditional-access.md)
 
 Quando os administradores optarem por combinar estas opções, podem escolher os seguintes métodos:
 
@@ -63,9 +63,11 @@ Os dispositivos devem ser registados em Azure AD antes de poderem ser marcados c
 
 As organizações podem optar por utilizar a identidade do dispositivo como parte da sua política de Acesso Condicional. As organizações podem exigir que os dispositivos sejam híbridos Azure AD unidos usando esta caixa de verificação. Para obter mais informações sobre identidades do dispositivo, consulte o artigo O que é uma identidade de [dispositivo?](../devices/overview.md)
 
-### <a name="require-approved-client-app"></a>Requer aplicação aprovada do cliente
+### <a name="require-approved-client-app"></a>Exigir aplicação de cliente aprovada
 
 As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas seja feita a partir de uma aplicação de cliente aprovada. Estas aplicações de clientes aprovadas suportam políticas de proteção de [aplicações Intune](/intune/app-protection-policy) independentes de qualquer solução de gestão de dispositivos móveis (MDM).
+
+Para alavancar este controlo de subvenções, o Acesso Condicional exige que o dispositivo seja registado no Diretório Ativo do Azure, que requer a utilização de uma aplicação de corretor. A aplicação de mediador pode ser o Microsoft Authenticator para iOS ou o Portal da Empresa da Microsoft para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tenta autenticar, o utilizador é redirecionado para a loja de aplicações para instalar a aplicação de corretagem.
 
 Esta definição aplica-se às seguintes aplicações iOS e Android:
 
@@ -76,20 +78,21 @@ Esta definição aplica-se às seguintes aplicações iOS e Android:
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
-- Navegador Gerido Intune microsoft
+- Browser Gerido do Microsoft Intune
 - Faturação da Microsoft
 - Microsoft Kaizala
-- Microsoft Launcher
+- Lançador microsoft
 - Microsoft Office
+- Microsoft Office Hub
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
-- Microsoft Planner
+- Planejador da Microsoft
 - Microsoft PowerApps
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
-- Microsoft Skype para negócios
+- Microsoft Skype para Empresas
 - Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Teams
@@ -97,12 +100,14 @@ Esta definição aplica-se às seguintes aplicações iOS e Android:
 - Microsoft Visio
 - Microsoft Word
 - Microsoft Yammer
+- Placa branca da Microsoft
 
 **Observações**
 
 - As aplicações de clientes aprovadas suportam a funcionalidade de gestão de aplicações móveis Intune.
 - O requisito da **aplicação de cliente aprovado Requer:**
    - Apenas suporta o iOS e Android para o estado da plataforma do dispositivo.
+   - É necessária uma aplicação de corretor para registar o dispositivo. No iOS, a aplicação de corretor é o Microsoft Authenticator e no Android, é a aplicação Intune Company Portal.
 - O Acesso Condicional não pode considerar o Microsoft Edge no modo InPrivate uma aplicação de cliente aprovada.
 
 Consulte o artigo, [Como: Exigir aplicações de clientes aprovadas para acesso](app-based-conditional-access.md) a aplicações na nuvem com Acesso Condicional para exemplos de configuração.
@@ -111,18 +116,21 @@ Consulte o artigo, [Como: Exigir aplicações de clientes aprovadas para acesso]
 
 Na sua política de Acesso Condicional, pode exigir que esteja presente uma política de proteção de [aplicações Intune](/intune/app-protection-policy) na aplicação do cliente antes de o acesso estar disponível para as aplicações na nuvem selecionadas. 
 
+Para alavancar este controlo de subvenções, o Acesso Condicional exige que o dispositivo seja registado no Diretório Ativo do Azure, que requer a utilização de uma aplicação de corretor. A aplicação de mediador pode ser o Microsoft Authenticator para iOS ou o Portal da Empresa da Microsoft para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tenta autenticar, o utilizador é redirecionado para a loja de aplicações para instalar a aplicação de corretagem.
+
 Esta definição aplica-se às seguintes aplicações de clientes:
 
 - Microsoft Cortana
 - Microsoft OneDrive
 - Microsoft Outlook
-- Microsoft Planner
+- Planejador da Microsoft
 
 **Observações**
 
 - Aplicativos para política de proteção de aplicações suportam a funcionalidade de gestão de aplicações móveis Intune com proteção de políticas.
 - Os requisitos da política de **proteção de aplicações Exigem:**
     - Apenas suporta o iOS e Android para o estado da plataforma do dispositivo.
+    - É necessária uma aplicação de corretor para registar o dispositivo. No iOS, a aplicação de corretor é o Microsoft Authenticator e no Android, é a aplicação Intune Company Portal.
 
 Consulte o artigo, Como: Exigir a política de [proteção de aplicações e uma aplicação de cliente aprovada para acesso](app-protection-based-conditional-access.md) a aplicações na nuvem com Acesso Condicional para exemplos de configuração.
 
@@ -136,4 +144,4 @@ Se a sua organização tiver criado termos de utilização, opções adicionais 
 
 - [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-- [Modo apenas de relatório](concept-conditional-access-report-only.md)
+- [Modo só de relatório](concept-conditional-access-report-only.md)

@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 14ad6dbf139b34f501e0b0ea8c16d8570b2ace5b
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 5c37dbdc34138faab8adae6ad18252c18a75cad4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212575"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80337080"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 
@@ -45,13 +45,16 @@ A tabela seguinte fornece uma visão geral de como mudar de cada tipo de replica
 
 <sup>1</sup> Incorra numa carga única de saída.
 
+> [!CAUTION]
+> Se realizou uma falha de [conta](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance) para a sua conta (RA-)GRS ou (RA-)GZRS, está configurada para ser localmente redundante na nova região primária. A migração ao vivo para ZRS ou GZRS para tais contas LRS não é suportada. Terá de realizar a [migração manual.](https://docs.microsoft.com/azure/storage/common/redundancy-migration#perform-a-manual-migration-to-zrs)
+
 ## <a name="change-the-replication-setting"></a>Alterar a definição de replicação
 
 Pode utilizar o portal Azure, PowerShell ou Azure CLI para alterar a definição de replicação para uma conta de armazenamento, desde que não esteja a alterar a forma como os dados são replicados na região primária. Se está a migrar do LRS na região primária para o ZRS na região primária ou vice-versa, então deve realizar uma [migração manual](#perform-a-manual-migration-to-zrs) ou uma [migração viva.](#request-a-live-migration-to-zrs)
 
 Alterar a forma como a sua conta de armazenamento é replicada não resulta em tempo de paragem para as suas aplicações.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portal"></a>[Portal](#tab/portal)
 
 Para alterar a opção de despedimento para a sua conta de armazenamento no portal Azure, siga estes passos:
 
@@ -61,9 +64,9 @@ Para alterar a opção de despedimento para a sua conta de armazenamento no port
 
 ![Screenshot mostrando como mudar opção de replicação no portal](media/redundancy-migration/change-replication-option.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para alterar a opção de redundância para a sua conta de armazenamento com a PowerShell, ligue para o comando [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) e especifique o parâmetro `-SkuName`:
+Para alterar a opção de redundância para a sua conta de armazenamento `-SkuName` com a PowerShell, ligue para o comando [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) e especifique o parâmetro:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -71,9 +74,9 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -SkuName <sku>
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Para alterar a opção de despedimento para a sua conta de armazenamento com o Azure CLI, ligue para o comando de atualização da conta de [armazenamento az](/cli/azure/storage/account#az-storage-account-update) e especifique o parâmetro `--sku`:
+Para alterar a opção de despedimento para a sua conta de armazenamento com `--sku` o Azure CLI, ligue para o comando de atualização da conta de armazenamento [az](/cli/azure/storage/account#az-storage-account-update) e especifique o parâmetro:
 
 ```azurecli-interactive
 az storage account update \
@@ -118,14 +121,14 @@ Pode solicitar migração ao vivo através do [portal de suporte azure.](https:/
 
 1. Selecione **novo pedido de suporte**
 2. Complete o **Básico** com base nas informações da sua conta. Na secção **Serviço,** selecione **Gestão** de Conta de Armazenamento e o recurso que pretende converter para ZRS.
-3. Selecione **Seguinte**.
+3. Selecione **Next**.
 4. Especificar os seguintes valores na secção **Problema:**
     - **Gravidade**: Deixe o valor padrão como está.
     - **Tipo de problema:** Selecione **migração de dados**.
     - **Categoria**: **Selecione Migrar para ZRS**.
     - **Denominação**: Digite um título descritivo, por exemplo, migração da **conta ZRS**.
-    - **Detalhes**: Digite detalhes adicionais na caixa **de Detalhes,** por exemplo, gostaria de migrar para ZRS de [LRS, GRS] na região \_\_.
-5. Selecione **Seguinte**.
+    - **Detalhes**: Digite detalhes adicionais na caixa **de Detalhes,** por exemplo, gostaria de migrar para \_ \_ ZRS de [LRS, GRS] na região.
+5. Selecione **Next**.
 6. Verifique se as informações de contacto estão corretas na lâmina de informação do **contacto.**
 7. Selecione **Criar**.
 
@@ -147,19 +150,19 @@ Uma pessoa de apoio entrará em contacto consigo e fornecerá toda a assistênci
 
 ZRS Classic replica sincronicamente dados em centros de dados dentro de uma a duas regiões. Os dados replicados podem não estar disponíveis a menos que a Microsoft inicie a falha no secundário. Uma conta ZRS Classic não pode ser convertida de ou de LRS, GRS ou RA-GRS. As contas ZRS Classic também não suportam métricas ou registos.
 
-ZRS Classic está disponível apenas para **blocos** em contas de armazenamento V1 (GPv1) de uso geral. Para obter mais informações sobre as contas de armazenamento, veja [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
+ZRS Classic está disponível apenas para **blocos** em contas de armazenamento V1 (GPv1) de uso geral. Para obter mais informações sobre contas de armazenamento, consulte a visão geral da conta de [armazenamento do Azure.](storage-account-overview.md)
 
 Para migrar manualmente os dados da conta ZRS de ou para uma conta LRS, GRS, RA-GRS ou ZRS Classic, utilize uma das seguintes ferramentas: AzCopy, Azure Storage Explorer, PowerShell ou Azure CLI. Também pode construir a sua própria solução de migração com uma das bibliotecas de clientes do Azure Storage.
 
 Também pode atualizar a sua conta de armazenamento ZRS Classic para ZRS utilizando o portal Azure, PowerShell ou Azure CLI em regiões onde o ZRS está disponível.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portal"></a>[Portal](#tab/portal)
 
 Para atualizar para ZRS no portal Azure, navegue para as definições de **Configuração** da conta e escolha **upgrade:**
 
 ![Upgrade ZRS Classic para ZRS no Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Para atualizar para ZRS utilizando powerShell, ligue para o seguinte comando:
 
@@ -167,7 +170,7 @@ Para atualizar para ZRS utilizando powerShell, ligue para o seguinte comando:
 Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Para atualizar para ZRS utilizando o Azure CLI, ligue para o seguinte comando:
 
@@ -188,7 +191,7 @@ Se migrar a sua conta de armazenamento de GRS para LRS, não há custoadicional,
 > [!IMPORTANT]
 > Se migrar a sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta é faturada como RA-GRS por mais 30 dias além da data em que foi convertida.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Redundância de armazenamento azure](storage-redundancy.md)
 - [Verifique a propriedade Do Último Tempo sincronizado para obter uma conta de armazenamento](last-sync-time-get.md)

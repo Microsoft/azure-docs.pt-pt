@@ -3,13 +3,13 @@ title: Limitações para piscinas de nó do Windows Server no Serviço Azure Kub
 description: Conheça as limitações conhecidas quando executa piscinas de nós do Windows Server e cargas de trabalho de aplicação no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 12/18/2019
+ms.openlocfilehash: f4e9f63d0da1797b92c123034e6775f5b07bd4b3
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298177"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366404"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para piscinas de nó do Windows Server e cargas de trabalho de aplicação no Serviço Azure Kubernetes (AKS)
 
@@ -53,7 +53,7 @@ Os clusters AKS com piscinas de nó Windows devem utilizar o modelo de rede Azur
 
 ## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso mudar o máximo. De pods por nó?
 
-Atualmente é um requisito a ser definido para um máximo de 30 cápsulas para garantir a fiabilidade dos seus clusters.
+Sim. Para as implicações e opções disponíveis, consulte [o número máximo de cápsulas.][maximum-number-of-pods]
 
 ## <a name="how-do-patch-my-windows-nodes"></a>Como remendar os meus nós do Windows?
 
@@ -121,3 +121,4 @@ Para começar com os recipientes do Windows Server no AKS, [crie uma piscina de 
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [preview-support]: support-policies.md#preview-features-or-feature-flags
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
+[maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node

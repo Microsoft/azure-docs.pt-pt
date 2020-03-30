@@ -14,10 +14,10 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269084"
 ---
 # <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Erros de ligação transitórios de resolução de problemas à Base de Dados SQL
@@ -57,8 +57,8 @@ Os programas de clientes que ocasionalmente encontram um erro transitório são 
 ### <a name="principles-for-retry"></a>Princípios para a retentativa
 
 - Se o erro for transitório, tente novamente a abertura de uma ligação.
-- Não tente diretamente uma declaração de `SELECT` SQL que falhou com um erro transitório. Em vez disso, estabeleça uma nova ligação e, em seguida, tente novamente o `SELECT`.
-- Quando uma declaração de `UPDATE` SQL falhar com um erro transitório, estabeleça uma nova ligação antes de voltar a tentar a Atualização. A lógica de retry deve garantir que toda a transação de base de dados terminada ou que toda a transação seja reposta.
+- Não tente diretamente uma declaração `SELECT` SQL que falhou com um erro transitório. Em vez disso, estabeleça uma nova `SELECT`ligação e, em seguida, tente novamente o .
+- Quando uma declaração `UPDATE` SQL falhar com um erro transitório, estabeleça uma nova ligação antes de voltar a tentar a Atualização. A lógica de retry deve garantir que toda a transação de base de dados terminada ou que toda a transação seja reposta.
 
 ### <a name="other-considerations-for-retry"></a>Outras considerações para a retentativa
 
@@ -133,9 +133,9 @@ Se o seu programa de cliente se ligar à Base de Dados SQL utilizando o Sistema 
 
 Quando construir a cadeia de [ligação](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o seu objeto **SqlConnection,** coordene os valores entre os seguintes parâmetros:
 
-- **ConecttryCount**:&nbsp;&nbsp;Padrão é 1. O alcance é de 0 a 255.
-- **ConnectRetryInterval:** &nbsp;&nbsp;Predefinição é de 10 segundos. O alcance é de 1 a 60.
-- **Tempo de ligação**:&nbsp;&nbsp;Predefinido é de 15 segundos. O intervalo é de 0 a 2147483647.
+- **ConecttryCount**:&nbsp;&nbsp;Predefinição é 1. O alcance é de 0 a 255.
+- **ConnectRetryInterval**&nbsp;&nbsp;: Predefinição é de 10 segundos. O alcance é de 1 a 60.
+- **Tempo de ligação**:&nbsp;&nbsp;Predefinição é de 15 segundos. O intervalo é de 0 a 2147483647.
 
 Especificamente, os seus valores escolhidos devem tornar a seguinte igualdade verdadeira: Tempo de ligação = ConetritryCount * ConnectionRetryInterval
 
@@ -187,8 +187,8 @@ Normalmente, você precisa garantir que apenas a porta 1433 está aberta para co
 
 Por exemplo, quando o seu programa de cliente está hospedado num computador Windows, pode utilizar o Windows Firewall no anfitrião para abrir a porta 1433.
 
-1. Painel de Controlo Aberto.
-2. Selecione **todos os itens do Painel** de Controlo > firewall do **Windows** > **definições avançadas** > regras de **saída** > **ações** > **nova regra**.
+1. Abra o Painel de Controlo.
+2. Selecione todos os itens do Painel de Controlo**Windows Firewall** > **Definições** >  **avançadas** > Regras de**saída** > **Ações** > Nova**Regra**.
 
 Se o seu programa de cliente estiver hospedado numa máquina virtual Azure (VM), leia Portas para além de [1433 para ADO.NET base de dados 4.5 e SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
@@ -226,7 +226,7 @@ Se o seu programa não conseguir ligar-se à Base de Dados SQL, uma opção de d
 Em qualquer computador Windows, pode experimentar estes utilitários:
 
 - SQL Server Management Studio (ssms.exe), que se conecta utilizando ADO.NET
-- `sqlcmd.exe`, que se conecta através da utilização [da ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
+- `sqlcmd.exe`, que se conecta utilizando a [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 Depois de o seu programa estar ligado, teste se funciona uma consulta sQL SELECT curta.
 
@@ -239,7 +239,7 @@ Se suspeitar que as tentativas de ligação falham devido a problemas de porta, 
 Em Linux, os seguintes utilitários podem ser úteis:
 
 - `netstat -nap`
-- `nmap -sS -O 127.0.0.1`: Altere o valor do exemplo para ser o seu endereço IP.
+- `nmap -sS -O 127.0.0.1`: Alterar o valor do exemplo para ser o seu endereço IP.
 
 No Windows, o utilitário [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Aqui está um exemplo de execução que questionou a situação da porta num servidor de base de dados SQL e que foi executado num computador portátil:
 
@@ -374,7 +374,7 @@ Para mais informações, consulte [5 - Tão fácil como cair de um registo: Util
 
 ### <a name="entlib60-istransient-method-source-code"></a>Código fonte do método EntLib60 IsTransient
 
-Em seguida, a partir da classe **SqlDatabaseTransientErrorDetectionStrategy,** é o C# código fonte para o método **IsTransient.** O código fonte esclarece quais os erros considerados transitórios e dignos de repetição, a partir de abril de 2013.
+Em seguida, da classe **SqlDatabaseTransientErrorDetectionStrategy,** encontra-se o código fonte C# para o método **IsTransient.** O código fonte esclarece quais os erros considerados transitórios e dignos de repetição, a partir de abril de 2013.
 
 ```csharp
 public bool IsTransient(Exception ex)

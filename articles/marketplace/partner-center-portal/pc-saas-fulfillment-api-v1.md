@@ -1,20 +1,19 @@
 ---
-title: SaaS Realização APIs v1  Mercado Azure
+title: SaaS Realização APIs v1 [ Mercado Azure
 description: Explica como criar e gerir uma oferta SaaS no Mercado Azure utilizando as APIs v1 de Realização associadas.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/23/2019
-ms.author: evansma
+ms.author: dsindona
 ROBOTS: NOINDEX
-ms.openlocfilehash: f56e9b4f6c3db6fb47452c7478f5a27445955e87
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3ec8373288a2ea5809ee5d349c52c57051586035
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715383"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288347"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS Fulfillment APIs versão 1 (depreciada)
 
@@ -26,9 +25,9 @@ Este artigo explica como criar uma oferta SaaS com APIs. As APIs, compostas por 
 São fornecidas as seguintes APIs para ajudá-lo a integrar o seu serviço SaaS com o Azure:
 
 -   Resolver
--   Inscreva-se
+-   Subscrever
 -   Converter
--   Cancelar a subscrição
+-   Anular a subscrição
 
 
 ## <a name="api-methods-and-endpoints"></a>Métodos e pontos finais da API
@@ -38,9 +37,9 @@ As seguintes secções descrevem os métodos e pontos finais da API disponíveis
 
 ### <a name="marketplace-api-endpoint-and-api-version"></a>Versão final do Marketplace API e DaPI
 
-O ponto final da API azure marketplace é `https://marketplaceapi.microsoft.com`.
+O ponto final da API `https://marketplaceapi.microsoft.com`azure marketplace é .
 
-A versão Atual da API é `api-version=2017-04-15`.
+A versão Atual `api-version=2017-04-15`da API é .
 
 
 ### <a name="resolve-subscription"></a>Resolver a subscrição
@@ -57,18 +56,18 @@ Quando um utilizador é redirecionado para o website de um ISV, o URL contém um
 
 |  **Nome do parâmetro** |     **Descrição**                                      |
 |  ------------------ |     ---------------------------------------------------- |
-|  api-version        |  A versão da operação a ser usada para esta solicitação.   |
+|  api-version        |  A versão da operação a utilizar para este pedido.   |
 |  |  |
 
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este campo correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+| x-ms-correlação | Não           | Um valor de cadeia único para a operação no cliente. Este campo correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | Tipo de conteúdo       | Sim          | `application/json`                                        |
-| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                    |
+| autorização      | Sim          | O símbolo do portador da web JSON (JWT).                    |
 | x-ms-marketplace-token| Sim| O parâmetro de consulta simbólica no URL quando o utilizador é redirecionado para o website do SaaS ISV a partir do Azure. **Nota:** Este token só é válido por 1 hora. Além disso, o URL descodifica o valor simbólico do navegador antes de o utilizar.|
 |  |  |  |
   
@@ -86,10 +85,10 @@ Quando um utilizador é redirecionado para o website de um ISV, o URL contém um
 
 | **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                       |
 |--------------------|---------------|---------------------------------------|
-| ID                 | String        | Identificação da assinatura SaaS.          |
-| subscriptionName| String| Nome da subscrição SaaS definida pelo utilizador em Azure enquanto subscreve o serviço SaaS.|
-| OfferId            | String        | Ofereça ID que o utilizador subscreveu. |
-| planId             | String        | Plano ID que o utilizador subscreveu.  |
+| ID                 | Cadeia        | Identificação da assinatura SaaS.          |
+| subscriptionName| Cadeia| Nome da subscrição SaaS definida pelo utilizador em Azure enquanto subscreve o serviço SaaS.|
+| Offerid            | Cadeia        | Ofereça ID que o utilizador subscreveu. |
+| planId             | Cadeia        | Plano ID que o utilizador subscreveu.  |
 |  |  |  |
 
 
@@ -110,36 +109,36 @@ Quando um utilizador é redirecionado para o website de um ISV, o URL contém um
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
-| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este valor é o ID de correlação do servidor.                   |
+| x-ms-correlação | Sim          | Id de correlação se passado pelo cliente, caso contrário este valor é o ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Esta identificação é usada para qualquer reconciliação. |
 | Retry-After        | Não           | Este valor é definido apenas para uma resposta 429.                                                                   |
 |  |  |  |
 
 
-### <a name="subscribe"></a>Inscreva-se
+### <a name="subscribe"></a>Subscrever
 
 O ponto final de subscrição permite que os utilizadores iniciem uma subscrição de um serviço SaaS para um determinado plano e permitam faturação no sistema de comércio.
 
-**PUT**
+**COLOQUE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriçãoId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriçãoId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Id exclusivo da subscrição SaaS que é obtido após a resolução do token via Resolve API.                              |
-| api-version         | A versão da operação a ser usada para esta solicitação. |
+| api-version         | A versão da operação a utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 |  **Chave do cabeçalho**        | **Necessário** |  **Descrição**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
 | x-ms-requestid         |   Não         | Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| x-ms-correlationid     |   Não         | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-correlação     |   Não         | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | Se-Match/If-None-Match |   Não         |   Valor eTag validator forte.                                                          |
-| Tipo de conteúdo           |   Sim        |    `application/json`                                                                   |
-|  authorization         |   Sim        |    O símbolo do portador da web JSON (JWT).                                               |
-| x-ms-marketplace-session-mode| Não | Sinalizar para permitir o modo de funcionamento a seco ao subscrever uma oferta SaaS. Se definido, a subscrição não será cobrada. Isto é útil para cenários de teste ISV. Por favor, coloque-o em **'dryrun'**|
+| tipo de conteúdo           |   Sim        |    `application/json`                                                                   |
+|  autorização         |   Sim        |    O símbolo do portador da web JSON (JWT).                                               |
+| x-ms-marketplace-modo sessão| Não | Sinalizar para permitir o modo de funcionamento a seco ao subscrever uma oferta SaaS. Se definido, a subscrição não será cobrada. Isto é útil para cenários de teste ISV. Por favor, coloque-o em **'dryrun'**|
 |  |  |  |
 
 *Corpo*
@@ -175,7 +174,7 @@ Para uma resposta de 202, acompanhe o estado da operação de pedido no cabeçal
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
-| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este valor é o ID de correlação do servidor.                   |
+| x-ms-correlação | Sim          | Id de correlação se passado pelo cliente, caso contrário este valor é o ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Este valor é usado para quaisquer reconciliações. |
 | Retry-After        | Sim          | Intervalo com o qual o cliente pode verificar o estado.                                                       |
 | Localização da Operação | Sim          | Ligue-se a um recurso para obter o estado de operação.                                                        |
@@ -187,23 +186,23 @@ O ponto final de alteração permite ao utilizador converter o seu plano atualme
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriçãoId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriçãoId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | ID da assinatura SaaS.                              |
-| api-version         | A versão da operação a ser usada para esta solicitação. |
+| api-version         | A versão da operação a utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**          | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid          | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-| x-ms-correlationid      | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-correlação      | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | Se-Match /If-None-Match | Não           | Valor eTag validator forte.                              |
-| Tipo de conteúdo            | Sim          | `application/json`                                        |
-| authorization           | Sim          | O símbolo do portador da web JSON (JWT).                    |
+| tipo de conteúdo            | Sim          | `application/json`                                        |
+| autorização           | Sim          | O símbolo do portador da web JSON (JWT).                    |
 |  |  |  |
 
 *Corpo*
@@ -237,7 +236,7 @@ O ponto final de alteração permite ao utilizador converter o seu plano atualme
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
-| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este valor é o ID de correlação do servidor.                   |
+| x-ms-correlação | Sim          | Id de correlação se passado pelo cliente, caso contrário este valor é o ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Este valor é usado para quaisquer reconciliações. |
 | Retry-After        | Sim          | Intervalo com o qual o cliente pode verificar o estado.                                                       |
 | Localização da Operação | Sim          | Ligue-se a um recurso para obter o estado de operação.                                                        |
@@ -249,23 +248,23 @@ A ação Delete no ponto final de subscrição permite que um utilizador elimine
 
 *Pedido*
 
-**DELETE**
+**ELIMINAR**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriçãoId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriçãoId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | ID da assinatura SaaS.                              |
-| api-version         | A versão da operação a ser usada para esta solicitação. |
+| api-version         | A versão da operação a utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
-| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                    |
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
+| x-ms-correlação | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se isto não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| autorização      | Sim          | O símbolo do portador da web JSON (JWT).                    |
 |  |  |  |
 
 *Códigos de Resposta*
@@ -277,7 +276,7 @@ A ação Delete no ponto final de subscrição permite que um utilizador elimine
 | 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                   |
 | 404                  | `NotFound`           | Subscrição não encontrada com o ID dado                                  |
 | 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, por favor, tente mais tarde.                  |
-| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo. Tente novamente mais tarde.                          |
+| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo. Por favor, tente mais tarde.                          |
 |  |  |  |
 
 Para uma resposta de 202, acompanhe o estado da operação de pedido no cabeçalho 'Operação-localização'. A autenticação é a mesma que outras APIs do Marketplace.
@@ -287,35 +286,35 @@ Para uma resposta de 202, acompanhe o estado da operação de pedido no cabeçal
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
-| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
+| x-ms-correlação | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação. |
 | Retry-After        | Sim          | Intervalo com o qual o cliente pode verificar o estado.                                                       |
 | Localização da Operação | Sim          | Ligue-se a um recurso para obter o estado de operação.                                                        |
 |   |  |  |
 
-### <a name="get-operation-status"></a>Obter estado da operação
+### <a name="get-operation-status"></a>Obter Estado da Operação
 
 Este ponto final permite ao utilizador rastrear o estado de uma operação de asincronização desencadeada (Plano subscrever/cancelar/alterar).
 
 *Pedido*
 
-**GET**
+**Obter**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/ *{operationId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | operationId         | Identificação única para a operação desencadeada.                |
-| api-version         | A versão da operação a ser usada para esta solicitação. |
+| api-version         | A versão da operação a utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                    |
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
+| x-ms-correlação | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+| autorização      | Sim          | O símbolo do portador da web JSON (JWT).                    |
 |  |  |  | 
 
 *Corpo de Resposta*
@@ -332,11 +331,11 @@ Este ponto final permite ao utilizador rastrear o estado de uma operação de as
 
 | **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| ID                 | String        | Identificação da operação.                                                                      |
-| status             | Enum          | Estado de funcionamento, um dos seguintes: `In Progress`, `Succeeded`ou `Failed`.          |
-| resourceLocation   | String        | Ligação à subscrição que foi criada ou modificada. Isto ajuda o cliente a obter uma operação estatal atualizada. Este valor não está definido para `Unsubscribe` operações. |
-| criação            | DateTime      | Tempo de criação de operação na UTC.                                                           |
-| lastModified       | DateTime      | Última atualização da operação na UTC.                                                      |
+| ID                 | Cadeia        | Identificação da operação.                                                                      |
+| status             | Enum          | Estado de funcionamento, `In Progress`um `Succeeded`dos `Failed`seguintes: , ou .          |
+| resourceLocation   | Cadeia        | Ligação à subscrição que foi criada ou modificada. Isto ajuda o cliente a obter uma operação estatal atualizada. Este valor não `Unsubscribe` está definido para operações. |
+| criado            | DateTime      | Tempo de criação de operação na UTC.                                                           |
+| últimaModificada       | DateTime      | Última atualização da operação na UTC.                                                      |
 |  |  |  |
 
 *Códigos de Resposta*
@@ -356,7 +355,7 @@ Este ponto final permite ao utilizador rastrear o estado de uma operação de as
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
-| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
+| x-ms-correlação | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação. |
 | Retry-After        | Sim          | Intervalo com o qual o cliente pode verificar o estado.                                                       |
 |  |  |  |
@@ -367,23 +366,23 @@ A ação Get no ponto final de subscrição permite que um utilizador recupere u
 
 *Pedido*
 
-**GET**
+**Obter**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriçãoId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriçãoId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | ID da assinatura SaaS.                              |
-| api-version         | A versão da operação a ser usada para esta solicitação. |
+| api-version         | A versão da operação a utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
-| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                                                                    |
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
+| x-ms-correlação | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| autorização      | Sim          | O símbolo do portador da web JSON (JWT).                                                                    |
 |  |  |  |
 
 *Corpo de Resposta*
@@ -402,13 +401,13 @@ A ação Get no ponto final de subscrição permite que um utilizador recupere u
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | String        | ID do recurso de subscrição SaaS em Azure.    |
-| offerId                | String        | Ofereça ID que o utilizador subscreveu.         |
-| planId                 | String        | Plano ID que o utilizador subscreveu.          |
-| saasSubscriptionName   | String        | Nome da assinatura SaaS.                |
-| saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: O utilizador cria o recurso mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: O utilizador não está inscrito.   <br/> - `Suspended`: O utilizador suspendeu a subscrição.   <br/> - `Deactivated`: A subscrição do Azure está suspensa.  |
-| criação                | DateTime      | Valor de carimbo de tempo de criação de assinatura seleções na UTC. |
-| lastModified           | DateTime      | Valor de carimbo de tempo modificado por subscrição na UTC. |
+| ID                     | Cadeia        | ID do recurso de subscrição SaaS em Azure.    |
+| offerId                | Cadeia        | Ofereça ID que o utilizador subscreveu.         |
+| planId                 | Cadeia        | Plano ID que o utilizador subscreveu.          |
+| nome saasSubscription   | Cadeia        | Nome da assinatura SaaS.                |
+| SaasEstatuto de Subscrição | Enum          | Estado de operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: O utilizador cria o recurso mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: O utilizador não tem subscrição.   <br/> - `Suspended`: O utilizador suspendeu a subscrição.   <br/> - `Deactivated`: A subscrição do Azure está suspensa.  |
+| criado                | DateTime      | Valor de carimbo de tempo de criação de assinatura seleções na UTC. |
+| últimaModificada           | DateTime      | Valor de carimbo de tempo modificado por subscrição na UTC. |
 |  |  |  |
 
 *Códigos de Resposta*
@@ -428,7 +427,7 @@ A ação Get no ponto final de subscrição permite que um utilizador recupere u
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
-| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
+| x-ms-correlação | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação. |
 | Retry-After        | Não           | Intervalo com o qual o cliente pode verificar o estado.                                                       |
 | eTag               | Sim          | Ligue-se a um recurso para obter o estado de operação.                                                        |
@@ -440,22 +439,22 @@ A ação Get no ponto final de subscrições permite que um utilizador recupere 
 
 *Pedido*
 
-**GET**
+**Obter**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| api-version         | A versão da operação a ser usada para esta solicitação. |
+| api-version         | A versão da operação a utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.             |
-| x-ms-correlationid | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| authorization      | Sim          | O símbolo do portador da web JSON (JWT).                    |
+| x-ms-requestid     | Não           | Um valor de cadeia único para acompanhar o pedido do cliente. Recomende um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.             |
+| x-ms-correlação | Não           | Um valor de cadeia único para a operação no cliente. Este valor é para correlacionar todos os eventos da operação do cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| autorização      | Sim          | O símbolo do portador da web JSON (JWT).                    |
 |  |  |  |
 
 *Corpo de Resposta*
@@ -474,13 +473,13 @@ A ação Get no ponto final de subscrições permite que um utilizador recupere 
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | String        | ID do recurso de subscrição SaaS em Azure    |
-| offerId                | String        | DI oferta que o utilizador subscreveu         |
-| planId                 | String        | Id do plano que o utilizador subscreveu          |
-| saasSubscriptionName   | String        | Nome da subscrição SaaS                |
-| saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: O utilizador cria o recurso mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: O utilizador não está inscrito.   <br/> - `Suspended`: O utilizador suspendeu a subscrição.   <br/> - `Deactivated`: A subscrição do Azure está suspensa.  |
-| criação                | DateTime      | Valor de carimbo de tempo de criação de assinatura seleções na UTC |
-| lastModified           | DateTime      | Valor de carimbo de tempo modificado por subscrição na UTC |
+| ID                     | Cadeia        | ID do recurso de subscrição SaaS em Azure    |
+| offerId                | Cadeia        | DI oferta que o utilizador subscreveu         |
+| planId                 | Cadeia        | Id do plano que o utilizador subscreveu          |
+| nome saasSubscription   | Cadeia        | Nome da subscrição SaaS                |
+| SaasEstatuto de Subscrição | Enum          | Estado de operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: O utilizador cria o recurso mas não é ativado pelo ISV.   <br/> - `Unsubscribed`: O utilizador não tem subscrição.   <br/> - `Suspended`: O utilizador suspendeu a subscrição.   <br/> - `Deactivated`: A subscrição do Azure está suspensa.  |
+| criado                | DateTime      | Valor de carimbo de tempo de criação de assinatura seleções na UTC |
+| últimaModificada           | DateTime      | Valor de carimbo de tempo modificado por subscrição na UTC |
 |  |  |  |
 
 *Códigos de Resposta*
@@ -492,7 +491,7 @@ A ação Get no ponto final de subscrições permite que um utilizador recupere 
 | 403                  | `Forbidden`          | O chamador não está autorizado a realizar esta operação.                      |
 | 404                  | `NotFound`           | Subscrição não encontrada com o ID dado                                     |
 | 429                  | `RequestThrottleId`  | O serviço está ocupado a processar pedidos, por favor, tente mais tarde.                     |
-| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo. Tente novamente mais tarde.                             |
+| 503                  | `ServiceUnavailable` | O serviço está temporariamente em baixo. Por favor, tente mais tarde.                             |
 |  |  |  |
 
 *Cabeçalhos de Resposta*
@@ -500,7 +499,7 @@ A ação Get no ponto final de subscrições permite que um utilizador recupere 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | Pedido de identificação recebido do cliente.                                                                   |
-| x-ms-correlationid | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
+| x-ms-correlação | Sim          | Id de correlação se passado pelo cliente, caso contrário este é o ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação. |
 | Retry-After        | Não           | Intervalo com o qual o cliente pode verificar o estado.                                                       |
 |  |  |  |
@@ -524,17 +523,17 @@ Um webhook SaaS é usado para notificar alterações proactivamente ao serviço 
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID  | String       | Identificação única para a operação desencadeada.                |
-| atividadeId   | String        | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação.               |
-| subscriptionId                     | String        | ID do recurso de subscrição SaaS em Azure.    |
-| offerId                | String        | Ofereça ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".        |
-| publisherId                | String        | Identificação da editora da oferta SaaS         |
-| planId                 | String        | Plano ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".          |
-| ação                 | String        | A ação que está a desencadear esta notificação. Possíveis valores - Ativar, Eliminar, Suspender, Restabelecer, Atualizar          |
-| timeStamp                 | String        | Valor de carimbo na UTC quando esta notificação foi desencadeada.          |
+| ID  | Cadeia       | Identificação única para a operação desencadeada.                |
+| atividadeId   | Cadeia        | Um valor de cadeia único para acompanhar o pedido do serviço. Isto é usado para qualquer reconciliação.               |
+| subscriptionId                     | Cadeia        | ID do recurso de subscrição SaaS em Azure.    |
+| offerId                | Cadeia        | Ofereça ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".        |
+| editorId                | Cadeia        | Identificação da editora da oferta SaaS         |
+| planId                 | Cadeia        | Plano ID que o utilizador subscreveu. Fornecido apenas com a ação "Atualizar".          |
+| action                 | Cadeia        | A ação que está a desencadear esta notificação. Possíveis valores - Ativar, Eliminar, Suspender, Restabelecer, Atualizar          |
+| tempoStamp                 | Cadeia        | Valor de carimbo na UTC quando esta notificação foi desencadeada.          |
 |  |  |  |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os desenvolvedores também podem recuperar e manipular programáticamente cargas de trabalho, ofertas e perfis de editor usando o Portal de [Parceiros cloud REST APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

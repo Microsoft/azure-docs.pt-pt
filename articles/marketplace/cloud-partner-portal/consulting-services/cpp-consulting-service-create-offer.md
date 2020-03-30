@@ -1,39 +1,38 @@
 ---
-title: Criar uma oferta de consultoria | Azure Marketplace
-description: Crie uma oferta de serviço de consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner para o Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
+title: Criar uma oferta de consultoria [ Mercado Azure
+description: Crie uma oferta de serviço de consultoria Azure ou Dynamics 365 no Portal do Parceiro cloud para o Mercado Azure.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 0cea0810300db1448540f58aa25b5f3197080d0e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c2700339a7ac8342da0250227cff898c20e60118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818144"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278557"
 ---
 # <a name="create-a-consulting-offer"></a>Criar uma oferta de consultoria
 
 Este artigo descreve como criar e publicar uma oferta de serviço de consultoria.
 
-## <a name="define-your-offer"></a>Definir sua oferta
+## <a name="define-your-offer"></a>Defina a sua oferta
 
-Defina sua oferta de serviço de consultoria empacotada. Concentre-se no escopo fixo, duração fixa, preço fixo estimado (ou gratuito) e principalmente ofertas orientadas a pré-vendas para um único cliente. Selecione compromissos de pacote repetíveis que são populares e eficientes na condução de novos negócios para você.
+Defina a sua oferta de serviço de consultoria embalada. Concentre-se no âmbito fixo, duração fixa, preço fixo estimado (ou gratuito) e principalmente ofertas pré-vendas orientadas para um único cliente. Selecione compromissos embalados repetíveis que sejam populares e eficazes na condução de novos negócios para si.
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
-Para criar uma nova oferta, siga estas etapas.
-1. No menu principal do Portal do Cloud Partner, selecione **nova oferta**.
-1. No menu **nova oferta** , selecione **serviço de consultoria**.
+Para criar uma nova oferta, siga estes passos.
+1. No menu principal do Portal do Parceiro cloud, selecione **Nova oferta.**
+1. No menu **New offer,** selecione **serviço de Consultoria.**
 
     ![Criar uma nova oferta de serviço de consultoria](media/cppselectnewconsultingoffer.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A **nova** página de oferta para o tipo de oferta de serviço de consultoria fornece um conjunto de guias e campos de formulário que você usa para criar uma nova oferta. Os artigos a seguir explicam como usar a guia para definir as configurações da oferta e os detalhes da vitrine para sua nova oferta:
+A página **New Offer** para o tipo de oferta de serviço de consultoria fornece um conjunto de separadores e campos de formulário que você usa para criar uma nova oferta. Os seguintes artigos explicam como usar o separador para definir as definições de oferta e detalhes da montra para a sua nova oferta:
 
--   [Definir configurações da oferta](./cpp-consulting-service-define-offer-settings.md)
--   [Insira os detalhes da vitrine e se deseja publicar no Azure Marketplace ou no AppSource](./cpp-consulting-service-storefront-details.md)
+-   [Definir as definições de oferta](./cpp-consulting-service-define-offer-settings.md)
+-   [Introduza detalhes da montra e se deve publicar no Azure Marketplace ou no AppSource](./cpp-consulting-service-storefront-details.md)

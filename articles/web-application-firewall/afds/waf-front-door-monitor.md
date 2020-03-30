@@ -7,22 +7,22 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: 3446df6effd85a07beb463c1caa40c5826a9e019
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 4488fadf5db3b32049b5dce4bbee1fa76c320e96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934702"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284148"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitorização e exploração madeireira de firewall de aplicação web Azure 
 
 A monitorização e exploração madeireira azure Web Application Firewall (WAF) são fornecidas através da exploração madeireira e integração com registos do Monitor Azure e do Monitor Azure.
 
-## <a name="azure-monitor"></a>Monitor do Azure
+## <a name="azure-monitor"></a>Azure Monitor
 
 WaF com log FrontDoor está integrado com [o Monitor Azure](../../azure-monitor/overview.md). O Monitor Azure permite-lhe rastrear informações de diagnóstico, incluindo alertas waf e registos. Pode configurar a monitorização waf dentro do recurso Porta Frontal no portal sob o separador **Diagnóstico ou** através do serviço Azure Monitor diretamente.
 
-Do portal Azure, vá para o tipo de recurso da Porta Da Frente. A partir do **separador De Monitorização**/**Métricas** à esquerda, pode adicionar **webApplicationFirewallRequestCount** para rastrear o número de pedidos que correspondem às regras waf. Filtros personalizados podem ser criados com base em tipos de ação e nomes de regras.
+Do portal Azure, vá para o tipo de recurso da Porta Da Frente. A partir do separador**Métricas** de **Monitorização**/à esquerda, pode adicionar **webApplicationFirewallRequestCount** para rastrear o número de pedidos que correspondem às regras waf. Filtros personalizados podem ser criados com base em tipos de ação e nomes de regras.
 
 ![WAFMetrics](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
 
@@ -39,7 +39,7 @@ A seguinte consulta de exemplo obtém registos waf em pedidos bloqueados:
 ``` WAFlogQuery
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
-| where action_s == "Block"
+| where action_name_s == "Block"
 
 ```
 

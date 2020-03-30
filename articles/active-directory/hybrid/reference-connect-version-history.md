@@ -12,14 +12,14 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75fdc59b9110c3bfc29fe52be917a7d6e6636b8a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: afb295ca561bfa69805362182dc60ce908e1f206
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253588"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331146"
 ---
-# <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versão versão versão versão versão
+# <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
 
 
@@ -50,7 +50,7 @@ Nem todos os lançamentos do Azure AD Connect serão disponibilizados para atual
 >Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
 
 ## <a name="14380"></a>1.4.38.0
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 12/9/2019: Lançamento para download. Não disponível através de auto-upgrade.
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 - Atualizámos o Password Hash Sync para os Serviços de Domínio AD Azure para prestar contas adequadamente ao estofamento em hashes Kerberos.  Isto proporcionará uma melhoria de desempenho durante a sincronização de palavras-passe de AAD para Serviços de Domínio AD Azure.
@@ -64,7 +64,7 @@ Nem todos os lançamentos do Azure AD Connect serão disponibilizados para atual
 - Foi feita uma correção para permitir o DSSO simultaneamente em toda a floresta através da interface de utilizador AADConnect
 
 ## <a name="14320"></a>1.4.32.0
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 11/08/2019: Lançado para download. Não disponível através de auto-upgrade.
 
 >[!IMPORTANT]
@@ -76,7 +76,7 @@ Note que esta alteração de regra pode causar a eliminação de dispositivos ob
 
 ## <a name="14250"></a>1.4.25.0
 
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 28/09/2019: Lançado para atualização automática para selecionar inquilinos. Não disponível para download.
 
 Esta versão corrige um bug onde alguns servidores que foram automaticamente atualizados de uma versão anterior para 1.4.18.0 e experimentaram problemas com redefinição de palavra-passe self-service (SSPR) e Password Writeback.
@@ -96,7 +96,7 @@ Corrigimos um bug na utilidade de compressão de erros de sincronização que n�
 >Com esta versão do Azure AD Connect, alguns clientes podem ver alguns ou todos os seus dispositivos Windows desaparecerem do Azure AD. Isto não é motivo de preocupação, uma vez que estas identidades do dispositivo não são utilizadas pela Azure AD durante a autorização de acesso condicional. Para mais informações consulte [Understanding Azure AD Connect 1.4.xx.x desaparecimento](reference-connect-device-disappearance.md) do dispositivo
 
 
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 25/09/2019: Lançado apenas para atualização automática.
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
@@ -107,16 +107,16 @@ Corrigimos um bug na utilidade de compressão de erros de sincronização que n�
 - Ao adicionar/editar uma regra de sincronização, se houver atributos usados na regra que esteja no esquema do conector mas não adicionado ao conector, os atributos são automaticamente adicionados ao conector. O mesmo acontece com o tipo de objeto que a regra afeta. Se algo for adicionado ao conector, o conector será marcado para a importação total no próximo ciclo de sincronização.
 - A utilização de um administrador da Enterprise ou do Domínio, uma vez que a conta de conector já não é suportada em novas Implementações de Ligação AAD. As atuais implementações do AAD Connect utilizando um administrador da Enterprise ou do Domínio, uma vez que a conta de conector não será afetada por esta versão.
 - No Gestor de Sincronização é executado um sincronização completo na criação de regras/editar/eliminação. Aparecerá um popup em qualquer alteração de regra que notifique o utilizador se a importação completa ou a sincronização completa for em funcionamento.
-- Passos de mitigação adicionados para erros de senha para página 'conectores > propriedades > conectividade'
+- Dados de mitigação adicionados para erros de senha a "conectores > propriedades > conectividade"
 - Adicione um aviso de depreciação para o gestor de serviço sincronizado na página de propriedades do conector. Este aviso avisa o utilizador de que as alterações devem ser efetuadas através do assistente AADC.
 - Adicione um novo erro para problemas com a política de senha de um utilizador.
 - Evite a configuração errada da filtragem do grupo por filtros de domínio e U. A filtragem em grupo mostrará um erro quando o domínio/OU do grupo introduzido já estiver filtrado e impedir o utilizador de avançar até que o problema seja resolvido.
 - Os utilizadores já não podem criar um conector para Serviços de Domínio de Diretório Ativo ou Diretório Ativo Windows Azure no UI do Gestor de Serviços de Sincronização.
 - Acessibilidade fixa dos controlos de UI personalizados no Gestor de Serviços de Sincronização.
-- Habilitado seis tarefas de gestão da federação para todos os métodos de inscrição no Azure AD Connect.  (Anteriormente, apenas a tarefa "Update AD FS SSL" estava disponível para todos os sign-ins.)
+- Habilitado seis tarefas de gestão da federação para todos os métodos de inscrição no Azure AD Connect.  (Anteriormente, apenas a tarefa "Update AD FS TLS/SSL" estava disponível para todos os sign-ins.)
 - Acrescentou um aviso ao alterar o método de entrada da federação para PHS ou PTA de que todos os domínios e utilizadores da AD Azure serão convertidos para autenticação gerida.
 - Os certificados de assinatura de token removidos da tarefa "Reset Azure AD e AD FS trust" e adicionaram uma sub-tarefa separada para atualizar estes certificados.
-- Acrescentou uma nova tarefa de gestão da federação chamada "Gerir certificados" que tem sub-tarefas para atualizar os certificados de assinatura SSL ou token para a exploração aD FS.
+- Acrescentou uma nova tarefa de gestão da federação chamada "Gerir certificados" que tem sub-tarefas para atualizar os certificados de tLS ou de assinatura de token para a exploração aD FS.
 - Adicionou uma nova sub-tarefa de gestão da federação chamada "Especificar servidor primário" que permite aos administradores especificar um novo servidor primário para a fazenda AD FS.
 - Adicionou uma nova tarefa de gestão da federação chamada "Gerir servidores" que tem sub-tarefas para implementar um servidor AD FS, implementar um servidor proxy de aplicação web e especificar o servidor primário.
 - Acrescentou uma nova tarefa de gestão da federação chamada "Ver configuração da federação" que apresenta as atuais definições de AD FS.  (Devido a esta adição, as definições de AD FS foram removidas da página "Reveja a sua solução".)
@@ -139,13 +139,13 @@ Corrigimos um bug na utilidade de compressão de erros de sincronização que n�
 >[!IMPORTANT]
 >Existe um problema conhecido com a atualização do Azure AD Connect de uma versão anterior para 1.3.21.0 onde o portal O365 não reflete a versão atualizada, apesar de o Azure AD Connect ter atualizado com sucesso.
 >
-> Para resolver isto, é necessário importar o módulo **AdSync** e, em seguida, executar o`Set-ADSyncDirSyncConfiguration` cmdlet powershell no servidor Azure AD Connect.  Pode utilizar os seguintes passos:
+> Para resolver isto, é necessário importar o módulo`Set-ADSyncDirSyncConfiguration` **AdSync** e, em seguida, executar o cmdlet powershell no servidor Azure AD Connect.  Pode utilizar os seguintes passos:
 >
 >1. Open Powershell em modo administator
 >2. Execute `Import-Module "ADSync"`
 >3. Execute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
  
-### <a name="release-status"></a>Estado de libertação 
+### <a name="release-status"></a>Estado de lançamento 
 
 05/14/2019: Lançado para download
 
@@ -155,7 +155,7 @@ Corrigimos um bug na utilidade de compressão de erros de sincronização que n�
 
 ## <a name="13200"></a>1.3.20.0 
 
-### <a name="release-status"></a>Estado de libertação 
+### <a name="release-status"></a>Estado de lançamento 
 
 04/24/2019: Lançado para download
 
@@ -202,7 +202,7 @@ Corrigimos um bug na utilidade de compressão de erros de sincronização que n�
 
 ## <a name="12700"></a>1.2.70.0
 
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 
 12/18/2018: Lançado para download
 
@@ -213,7 +213,7 @@ Esta construção atualiza os conectores não standard (por exemplo, Conector Ge
 
 ## <a name="12690"></a>1.2.69.0
 
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 12/11/2018: Lançado para download
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
@@ -225,7 +225,7 @@ Se alguma construção que contenha a funcionalidade de Opções de Dispositivos
 
 ## <a name="12680"></a>1.2.68.0
 
-### <a name="release-status"></a>Estado de libertação 
+### <a name="release-status"></a>Estado de lançamento 
 
 11/30/2018: Lançado para download
 
@@ -237,7 +237,7 @@ Esta construção de hotfix corrige um conflito onde pode ocorrer um erro de aut
 
 ## <a name="12670"></a>1.2.67.0
 
-### <a name="release-status"></a>Estado de libertação 
+### <a name="release-status"></a>Estado de lançamento 
 
 11/19/2018: Lançado para download
 
@@ -247,7 +247,7 @@ Esta construção de hotfix corrige uma regressão na construção anterior onde
 
 ## <a name="12650"></a>1.2.65.0 
 
-### <a name="release-status"></a>Estado de libertação 
+### <a name="release-status"></a>Estado de lançamento 
 
 10/25/2018: lançado para download
 
@@ -287,7 +287,7 @@ A atualização de ligação Azure AD falha se o SQL Always On Availability esti
 
 ## <a name="118800"></a>1.1.880.0
 
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 
 8/21/2018: Lançado para download e atualização automática. 
 
@@ -326,7 +326,7 @@ A atualização de ligação Azure AD falha se o SQL Always On Availability esti
 
 ## <a name="118190"></a>1.1.819.0
 
-### <a name="release-status"></a>Estado de libertação
+### <a name="release-status"></a>Estado de lançamento
 
 5/14/2018: Lançado para upgrade e download automático.
 
@@ -420,9 +420,9 @@ Estado: Lançado para selecionar clientes
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Problemas corrigidos
-* Corrigi a janela de tempo em tarefas em segundo plano para a página de filtragem de partições quando mudar para a página seguinte.
+* Fixe a janela de tempo nas tarefas de fundo para a página de filtragem da partilha ao mudar para a página seguinte.
 
-* Foi corrigido um erro que provocou a violação de acesso durante a ação personalizada ConfigDB.
+* Corrigiu um bug que causou violação de Acesso durante a ação personalizada da ConfigDB.
 
 * Fixou um bug para recuperar do tempo de ligação SQL.
 
@@ -442,7 +442,7 @@ Estado: Lançado para selecionar clientes
 * telemetria de aplicações - a administração pode mudar esta classe de dados ligado/desligado à vontade
 
 * Dados da Azure AD Health - administração deve visitar o portal de saúde para controlar as suas definições de saúde.
-   Assim que a política do serviço tiver sido alterada, os agentes serão ler e impor-lo.
+   Uma vez alterada a política de serviços, os agentes lê-la-ão e aplicarão-na.
 
 * Ações adicionadas de configuração de redevolução de dispositivos e uma barra de progresso para a inicialização da página
 
@@ -461,13 +461,13 @@ As alterações cuidarão do seguinte:
 
 * Adicionei uma nova utilidade para resolver problemas de sincronização para um objeto específico. Está disponível sob a opção 'Troubleshoot Object Synchronization' de Azure AD Connect Wizard Troubleshoot Tarefa adicional. Atualmente, os serviços de utilidade verificam o seguinte:
 
-  * Erro de correspondência de UserPrincipalName entre a conta de utilizador no inquilino do Azure AD e o objeto de utilizador sincronizado.
-  * Se o objeto é filtrado em sincronização devido a filtragem de domínio
-  * Se o objeto é filtrado em sincronização devido a unidade organizacional (UO), filtragem
+  * Desajuste do UserPrincipalName entre o objeto de utilizador sincronizado e a conta de utilizador no Azure AD Tenant.
+  * Se o objeto for filtrado da sincronização devido à filtragem do domínio
+  * Se o objeto for filtrado da sincronização devido à filtragem da unidade organizacional (OU)
 
 * Adicionei um novo utilitário para sincronizar o hash de senha atual armazenado no Diretório Ativo no local para uma conta de utilizador específica.
 
-O utilitário não requer uma alteração de palavra-passe. Está disponível na opção 'Troubleshoot Password Hash Synchronization' do Azure AD Connect Wizard Troubleshoot Tarefa Adicional.
+O utilitário não requer uma alteração de senha. Está disponível na opção 'Troubleshoot Password Hash Synchronization' do Azure AD Connect Wizard Troubleshoot Tarefa Adicional.
 
 
 
@@ -489,24 +489,24 @@ Foi adicionada uma melhoria à versão 1.1.654.0 (e depois) do Azure AD Connect 
 >[!NOTE]
 >Esta versão apenas remove a vulnerabilidade para novas instalações do Azure AD Connect onde a conta de serviço é criada pelo processo de instalação. Para instalações existentes, ou nos casos em que você próprio fornece a conta, deve garantir que esta vulnerabilidade não existe.
 
-#### <a name="lock"></a>Bloquear o acesso à conta AD DS
+#### <a name="lock-down-access-to-the-ad-ds-account"></a><a name="lock"></a>Bloquear o acesso à conta AD DS
 Bloqueie o acesso à conta AD DS implementando as seguintes alterações de permissão no ad- no local:  
 
 *   Desativar a herança no objeto especificado
 *   Remova todos os ACEs no objeto específico, exceto ACEs específicos de SELF. Queremos manter intactas as permissões por defeito no que diz respeito a SELF.
 *   Atribuir estas permissões específicas:
 
-Tipo     | Nome                          | Access               | Aplica-se A
+Tipo     | Nome                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
-Permitir    | Administradores empresariais             | Controlo Total         | Este objeto  |
-Permitir    | Administradores de Domínio                 | Controlo Total         | Este objeto  |
+Permitir    | Administradores da Empresa             | Controlo Total         | Este objeto  |
+Permitir    | Administradores do Domínio                 | Controlo Total         | Este objeto  |
 Permitir    | Administradores                | Controlo Total         | Este objeto  |
 Permitir    | Controladores de domínio empresarial | Conteúdos da lista        | Este objeto  |
-Permitir    | Controladores de domínio empresarial | Ler Todas as propriedades  | Este objeto  |
+Permitir    | Controladores de domínio empresarial | Ler todas as propriedades  | Este objeto  |
 Permitir    | Controladores de domínio empresarial | Ler Permissões     | Este objeto  |
 Permitir    | Utilizadores Autenticados           | Conteúdos da lista        | Este objeto  |
-Permitir    | Utilizadores Autenticados           | Ler Todas as propriedades  | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Ler todas as propriedades  | Este objeto  |
 Permitir    | Utilizadores Autenticados           | Ler Permissões     | Este objeto  |
 
 Para apertar as definições da conta AD DS pode executar [este script PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script PowerShell atribuirá as permissões acima mencionadas na conta AD DS.
@@ -548,7 +548,7 @@ Estado: 27 de outubro de 2017
 >Esta construção não está disponível para os clientes através da funcionalidade azure AD Connect Auto Upgrade.
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
-#### <a name="fixed-issue"></a>Questão fixa
+#### <a name="fixed-issue"></a>Problema  corrigido
 * Corrigiu um problema de compatibilidade entre o Azure AD Connect e o Agente de Saúde Azure AD Connect (para sincronização). Este problema afeta os clientes que estão a realizar o upgrade do Azure AD Connect no local para a versão 1.1.647.0, mas atualmente tem a versão 3.0.127.0 do Health Agent. Após a atualização, o Agente de Saúde já não pode enviar dados de saúde sobre o Serviço de Sincronização de Ligação Azure AD para o Serviço de Saúde Azure AD. Com esta correção, a versão 3.0.129.0 do Health Agent é instalada durante a atualização do Azure AD Connect no local. A versão 3.0.129.0 do Health Agent não tem problemas de compatibilidade com a versão 1.1.649.0 do Azure AD Connect.
 
 
@@ -609,7 +609,7 @@ Estado: 19 de outubro de 2017
 * Anteriormente, se tentou ativar a sincronização de Hash Password, o Azure AD Connect não verifica se a conta de Conector AD exigiu permissões para sincronizar hashes de senha a partir de AD no local. Agora, o assistente Azure AD Connect verificará e avisa-o se a conta AD Connector não tiver permissões suficientes.
 
 ### <a name="ad-fs-management"></a>Gestão ad FS
-#### <a name="fixed-issue"></a>Questão fixa
+#### <a name="fixed-issue"></a>Problema  corrigido
 * Corrigiu um problema relacionado com a utilização de [ms-DS-Consistência como](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) recurso Source Anchor. Este problema afeta os clientes que configuraram a *Federação com AD FS* como o método de inscrição do utilizador. Quando executa a tarefa de âncora de *origem configurada* no assistente, o Azure AD Connect muda para utilizar *ms-DS-ConsistênciaComo atributo de origem para imutávelId. Como parte desta alteração, o Azure AD Connect tenta atualizar as regras de reclamação para ImutableId em AD FS. No entanto, este passo falhou porque o Azure AD Connect não tinha as credenciais de administrador necessárias para configurar a AD FS. Com esta correção, o Azure AD Connect pede-lhe agora que introduza as credenciais de administrador para AD FS quando executar a tarefa de Configurar Source *Anchor.*
 
 
@@ -669,7 +669,7 @@ Estado: 23 de julho de 2017
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
-#### <a name="fixed-issue"></a>Questão fixa
+#### <a name="fixed-issue"></a>Problema  corrigido
 
 * Corrigiu um problema que fez com que a regra de sincronização fora da caixa "out to AD - User ImutableId" fosse removida:
 
@@ -702,14 +702,14 @@ Estado: 23 de julho de 2017
   * Ativou a funcionalidade de reutilização do utilizador.
   
   >[!NOTE]
-  >A expansão do âmbito da funcionalidade de atualização automática afeta os clientes com a azure AD Connect construir 1.1.105.0 e depois. Se não quiser que o seu servidor Azure AD Connect seja automaticamente atualizado, tem de executar o seguinte cmdlet no seu servidor Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para mais informações sobre a ativação/desativação da atualização automática, consulte o artigo [Azure AD Connect: Upgrade automático](how-to-connect-install-automatic-upgrade.md).
+  >A expansão do âmbito da funcionalidade de atualização automática afeta os clientes com a azure AD Connect construir 1.1.105.0 e depois. Se não quiser que o seu servidor Azure AD Connect seja automaticamente atualizado, tem de executar `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`o seguinte cmdlet no seu servidor Azure AD Connect: . Para mais informações sobre a ativação/desativação da atualização automática, consulte o artigo [Azure AD Connect: Upgrade automático](how-to-connect-install-automatic-upgrade.md).
 
 ## <a name="115580"></a>1.1.558.0
 Estado: Não será libertado. As alterações nesta construção estão incluídas na versão 1.1.561.0.
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
-#### <a name="fixed-issue"></a>Questão fixa
+#### <a name="fixed-issue"></a>Problema  corrigido
 
 * Corrigiu um problema que fez com que a regra de sincronização fora da caixa "out to AD - User ImmutableId" fosse removida quando a configuração de filtragem baseada em OU for atualizada. Esta regra de sincronização é necessária para o [ms-DS-Consistência-Guia como recurso De âncora de origem](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 
@@ -730,7 +730,7 @@ Estado: Não será libertado. As alterações nesta construção estão incluíd
   * Ativou a funcionalidade de reutilização do utilizador.
   
   >[!NOTE]
-  >A expansão do âmbito da funcionalidade de atualização automática afeta os clientes com a azure AD Connect construir 1.1.105.0 e depois. Se não quiser que o seu servidor Azure AD Connect seja automaticamente atualizado, tem de executar o seguinte cmdlet no seu servidor Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para mais informações sobre a ativação/desativação da atualização automática, consulte o artigo [Azure AD Connect: Upgrade automático](how-to-connect-install-automatic-upgrade.md).
+  >A expansão do âmbito da funcionalidade de atualização automática afeta os clientes com a azure AD Connect construir 1.1.105.0 e depois. Se não quiser que o seu servidor Azure AD Connect seja automaticamente atualizado, tem de executar `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`o seguinte cmdlet no seu servidor Azure AD Connect: . Para mais informações sobre a ativação/desativação da atualização automática, consulte o artigo [Azure AD Connect: Upgrade automático](how-to-connect-install-automatic-upgrade.md).
 
 ## <a name="115570"></a>1.1.557.0
 Estado: julho 2017
@@ -740,7 +740,7 @@ Estado: julho 2017
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
-#### <a name="fixed-issue"></a>Questão fixa
+#### <a name="fixed-issue"></a>Problema  corrigido
 * Corrigiu um problema com o cmdlet Initialize-ADSyncDomainJoinedComputerSync que fez com que o domínio verificado configurado no objeto de ponto de ligação de serviço existente fosse alterado mesmo que ainda seja um domínio válido. Este problema ocorre quando o seu inquilino Azure AD tem mais do que um domínio verificado que pode ser usado para configurar o ponto de ligação de serviço.
 
 #### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
@@ -833,12 +833,12 @@ CBool(
 
     ||||
     | --- | --- | --- |
-    |CertSubject|CertIssuer|CertKeyAlgorithm|
+    |CertSubject|CertIssuer|Algoritmo CertKey|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
     |CertSubjectNameOid|CertIssuerDN|IsCert|
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
-    |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
+    |CertSerialNumber|CertNotAntes|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecione|
     |CertKeyAlgorithmParams|CertHashString|Onde|
     |||Com|
@@ -847,17 +847,17 @@ CBool(
 
   * Foram adicionados seguintes atributos ao esquema MV:
     * Grupo: Nome de conta
-    * Group: domainNetBios
-    * Group: domainFQDN
+    * Grupo: domínioNetBios
+    * Grupo: domínioFQDN
     * Pessoa: nome distinto
 
   * Foram adicionados seguintes atributos ao esquema do Conector Azure AD:
-    * Group: OnPremisesSamAccountName
-    * Group: NetBiosName
-    * Group: DnsDomainName
+    * Grupo: OnPremisesSamAccountName
+    * Grupo: NetBiosName
+    * Grupo: DnsDomainName
     * Utilizador: OnPremisesDistinguishedName
 
-* O script ADSyncDomainJoinedComputerSync cmdlet tem agora um novo parâmetro opcional chamado AzureEnvironment. O parâmetro é utilizado para especificar em que região está hospedado o correspondente inquilino do Diretório Ativo Azure. Valores válidos incluem:
+* O script ADSyncDomainJoinedComputerSync cmdlet tem agora um novo parâmetro opcional chamado AzureEnvironment. O parâmetro é utilizado para especificar em que região está hospedado o correspondente inquilino do Diretório Ativo Azure. Os valores válidos incluem:
   * AzureCloud (padrão)
   * AzureChinaCloud
   * AzureGermanyCloud
@@ -895,7 +895,7 @@ Sincronização do Azure AD Connect
 * Corrigiu um problema que faz com que oCorra a Atualização Automática no servidor Azure AD Connect, mesmo que o cliente tenha desativado a funcionalidade utilizando o cmdlet Set-ADSyncAutoUpgrade. Com esta correção, o processo de Atualização Automática no servidor ainda verifica a atualização periodicamente, mas o instalador descarregado honra a configuração de Upgrade Automático.
 * Durante a atualização no local do DirSync, o Azure AD Connect cria uma conta de serviço Azure AD a ser utilizada pelo conector Azure AD para sincronização com a AD Azure. Após a criação da conta, o Azure AD Connect autentica com a Azure AD utilizando a conta. Por vezes, a autenticação falha devido a problemas transitórios, o que por sua vez faz com que a atualização do DirSync no local falhe com o erro *"Ocorreu um erro executando a tarefa de Configuração AAD Sync: AADSTS50034: Para assinar nesta aplicação, a conta deve ser adicionada ao diretório xxx.onmicrosoft.com."* Para melhorar a resiliência da atualização do DirSync, o Azure AD Connect volta agora a tentar novamente o passo de autenticação.
 * Houve um problema com a construção 443 que faz com que a atualização do DirSync no local tenha sucesso, mas os perfis de execução necessários para a sincronização do diretório não são criados. A lógica de cura está incluída nesta construção do Azure AD Connect. Quando o cliente atualiza para esta construção, o Azure AD Connect deteta perfis de execução em falta e cria-os.
-* Corrigiu um problema que faz com que o processo de sincronização da palavra-passe não comece com o Id 6900 do Evento e error *"Um item com a mesma chave já foi adicionado"* . Este problema ocorre se atualizar a configuração de filtragem de OU para incluir a divisão de configuração ad. Para corrigir este problema, o processo de sincronização da palavra-passe sincroniza agora as alterações de palavra-passe apartir apenas das divisórias de domínio AD. Divisórias não-domínio tais como divisórias de configuração são ignoradas.
+* Corrigiu um problema que faz com que o processo de sincronização da palavra-passe não comece com o Id 6900 do Evento e error *"Um item com a mesma chave já foi adicionado"*. Este problema ocorre se atualizar a configuração de filtragem de OU para incluir a divisão de configuração ad. Para corrigir este problema, o processo de sincronização da palavra-passe sincroniza agora as alterações de palavra-passe apartir apenas das divisórias de domínio AD. Divisórias não-domínio tais como divisórias de configuração são ignoradas.
 * Durante a instalação do Expresso, o Azure AD Connect cria uma conta AD DS no local a ser utilizada pelo conector AD para comunicar com a AD no local. Anteriormente, a conta é criada com o PASSWD_NOTREQD bandeira definida no atributo de controlo de conta e uma palavra-passe aleatória é definida na conta. Agora, o Azure AD Connect remove explicitamente a bandeira PASSWD_NOTREQD depois de a palavra-passe ser definida na conta.
 * Corrigiu um problema que faz com que a atualização do DirSync falhe com o erro *"ocorreu um impasse no servidor sql que tenta adquirir um bloqueio de aplicação"* quando o atributo do mailNickname é encontrado no esquema AD no local, mas não está limitado à classe de objetos ad user.
 * Corrigiu um problema que faz com que a funcionalidade de reutilização do Dispositivo seja automaticamente desativada quando um administrador está a atualizar a configuração de sincronização do Azure AD Connect utilizando o assistente Azure AD Connect. Este problema é causado pelo assistente que executa uma verificação pré-necessária para a configuração de repreensão do Dispositivo existente no AD no local e a verificação falha. A correção é saltar a verificação se a recompra do Dispositivo já está ativada anteriormente.
@@ -1013,7 +1013,7 @@ Sincronização do Azure AD Connect
 * A pasta de destino para armazenar registos de instalação e configuração Azure AD Connect foi transferida de %localappdata%\AADConnect para %programdata%\AADConnect para melhorar a acessibilidade aos ficheiros de registo.
 
 Gestão aD FS
-* Suporte adicional para a atualização do Certificado SSL da AD FS Farm.
+* Suporte adicional para a atualização do Certificado AD FS Farm TLS/SSL.
 * Suporte adicional para a gestão da AD FS 2016.
 * Pode agora especificar o gMSA existente (Conta de Serviço Gerida pelo Grupo) durante a instalação AD FS.
 * Agora pode configurar SHA-256 como algoritmo de hash de assinatura para a Confiança do Partido Azure AD.
@@ -1035,7 +1035,7 @@ Lançado: dezembro de 2016
 ## <a name="113710"></a>1.1.371.0
 Lançado: dezembro de 2016
 
-**Edição conhecida:**
+**Known issue:**
 
 * A regra de reivindicação emitida para a AD FS está em falta nesta construção. A regra de reclamação emitida é necessária se estiver a federar vários domínios com o Azure Ative Directory (Azure AD). Se estiver a utilizar o Azure AD Connect para gerir a sua implementação aD FS no local, a atualização para esta construção remove a regra de reclamação emitida existente da sua configuração AD FS. Pode contornar o problema adicionando a regra de reclamação emitida após a instalação/atualização. Para mais detalhes sobre a adição da regra de reclamação emitida, consulte este artigo sobre suporte de [domínio múltiplo para federação com AD Azure](how-to-connect-install-multiple-domains.md).
 
@@ -1064,7 +1064,7 @@ Lançado: dezembro de 2016
 ## <a name="113430"></a>1.1.343.0
 Lançado: novembro de 2016
 
-**Edição conhecida:**
+**Known issue:**
 
 * A regra de reivindicação emitida para a AD FS está em falta nesta construção. A regra de reclamação emitida é necessária se estiver a federar vários domínios com a AD Azure. Se estiver a utilizar o Azure AD Connect para gerir a sua implementação aD FS no local, a atualização para esta construção remove a regra de reclamação emitida existente da sua configuração AD FS. Pode contornar o problema adicionando a regra de reclamação emitida após a instalação/atualização. Para mais detalhes sobre a adição da regra de reclamação emitida, consulte este artigo sobre suporte de [domínio múltiplo para federação com AD Azure](how-to-connect-install-multiple-domains.md).
 
@@ -1085,7 +1085,7 @@ Lançado: agosto de 2016
 **Questões fixas:**
 
 * As alterações ao intervalo de sincronização só se realizam depois de concluído o próximo ciclo de sincronização.
-* O assistente Azure AD Connect não aceita uma conta Azure AD cujo nome de utilizador começa com um sublinhado (\_).
+* O assistente Azure AD Connect não aceita uma conta Azure\_AD cujo nome de utilizador começa com um sublinhado ( ).
 * O assistente Azure AD Connect não autentica a conta Azure AD se a palavra-passe da conta contiver demasiados caracteres especiais. Mensagem de erro "Incapaz de validar credenciais. Ocorreu um erro inesperado." é devolvido.
 * Desinstalar o servidor de encenação desativa a sincronização de passwords no inquilino da AD Azure e faz com que a sincronização da palavra-passe falhe com o servidor ativo.
 * A sincronização da palavra-passe falha em casos incomuns quando não há hash de senha armazenada no utilizador.
@@ -1150,7 +1150,7 @@ Lançado: fevereiro de 2016
 
 * A atualização de lançamentos anteriores não funciona se a instalação não estiver na pasta 'Ficheiros' de Programa predefinido.
 * Se instalar e limpar Iniciar o processo de **sincronização** no final do assistente de instalação, executar o assistente de instalação uma segunda vez não ativará o programador.
-* O programador não funciona como esperado em servidores onde o formato data/hora us-en não é usado. Também bloqueará `Get-ADSyncScheduler` para devolver os tempos corretos.
+* O programador não funciona como esperado em servidores onde o formato data/hora us-en não é usado. Também bloqueará `Get-ADSyncScheduler` a devolução dos tempos corretos.
 * Se instalou um lançamento anterior do Azure AD Connect com AD FS como opção de entrada e atualização, não poderá voltar a executar o assistente de instalação.
 
 ## <a name="111050"></a>1.1.105.0
@@ -1160,8 +1160,8 @@ Lançado: fevereiro de 2016
 
 * [Funcionalidade de atualização automática](how-to-connect-install-automatic-upgrade.md) para clientes de definições express.
 * Suporte para a administração global utilizando a Autenticação de Multi-Factors Azure e a Gestão de Identidade Privilegiada no assistente de instalação.
-  * Tem de permitir que o seu representante também permita que o tráfego https://secure.aadcdn.microsoftonline-p.com se utilizar a Autenticação Multi-Factor.
-  * Tem de adicionar https://secure.aadcdn.microsoftonline-p.com à lista de sites fidedignos para a autenticação multi-factor para funcionar corretamente.
+  * Tem de permitir que o seu https://secure.aadcdn.microsoftonline-p.com representante também permita que o tráfego se utilizar a Autenticação Multi-Factor.
+  * Tem de https://secure.aadcdn.microsoftonline-p.com adicionar à sua lista de sites fidedignos para a autenticação multi-factor para funcionar corretamente.
 * Deixe alterar o método de entrada do utilizador após a instalação inicial.
 * Deixe [a filtragem de Domínio e U](how-to-connect-install-custom.md#domain-and-ou-filtering) no assistente de instalação. Isto também permite a ligação a florestas onde nem todos os domínios estão disponíveis.
 * [O programador](how-to-connect-sync-feature-scheduler.md) está integrado no motor de sincronização.
@@ -1266,8 +1266,8 @@ Mudou de nome de Azure AD Sync para Azure AD Connect.
 **Novas funcionalidades de pré-visualização:**
 
 * [Redação do utilizador](how-to-connect-preview.md#user-writeback)
-* [Redação em grupo](how-to-connect-preview.md#group-writeback)
-* [Reescrita do dispositivo](how-to-connect-device-writeback.md)
+* [Repetição de escrita do grupo](how-to-connect-preview.md#group-writeback)
+* [Repetição de escrita do dispositivo](how-to-connect-device-writeback.md)
 * [Extensões de diretórios](how-to-connect-preview.md)
 
 ## <a name="104940501"></a>1.0.494.0501

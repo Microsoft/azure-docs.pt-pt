@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 44d5edd7b5808b6c212a832dd95de7a9cb4b7c08
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/25/2020
+ms.openlocfilehash: 713a9762206b5083268fd48136cd8077c296c690
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79282838"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289299"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Segurança e privacidade de dados na Pesquisa Cognitiva Azure
 
@@ -30,7 +30,7 @@ A Azure Cognitive Search é certificada para os seguintes padrões, conforme [an
 + [Lei de Portabilidade e Responsabilização dos Seguros de Saúde (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
 + [GxP (21 CFR Parte 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
-+ [PCI DSS Nível 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
++ [PCI DSS de Nível 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
 + [DLM não classificado da Austrália IRAP](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 A conformidade das normas aplica-se às funcionalidades geralmente disponíveis. As funcionalidades de pré-visualização são certificadas quando transitam para a disponibilidade geral, e não devem ser utilizadas em soluções com requisitos rigorosos de normas. A certificação de conformidade está documentada na [visão geral da conformidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e do Trust [Center.](https://www.microsoft.com/en-us/trustcenter) 
@@ -41,9 +41,9 @@ A encriptação estende-se por todo o pipeline de indexação: desde ligações,
 
 | Camada de segurança | Descrição |
 |----------------|-------------|
-| Encriptação em trânsito <br>(HTTPS/SSL/TLS) | A Pesquisa Cognitiva Azure ouve na porta HTTPS 443. Do outro lado da plataforma, as ligações aos serviços do Azure são encriptadas. <br/><br/>Todas as interações de pesquisa cognitiva Azure de cliente-a-serviço são capazes de SSL/TLS 1.2.  Certifique-se de que utiliza TLSv1.2 para ligações SSL ao seu serviço.|
+| Encriptação de dados em circulação <br>(HTTPS/SSL/TLS) | A Pesquisa Cognitiva Azure ouve na porta HTTPS 443. Do outro lado da plataforma, as ligações aos serviços do Azure são encriptadas. <br/><br/>Todas as interações de pesquisa cognitiva Azure de cliente-a-serviço são capazes de SSL/TLS 1.2.  Certifique-se de que utiliza TLSv1.2 para ligações SSL ao seu serviço.|
 | Encriptação inativa <br>Chaves geridas pela Microsoft | A encriptação é totalmente internalizada no processo de indexação, sem impacto mensurável na indexação do tempo-a-conclusão ou no tamanho do índice. Ocorre automaticamente em todas as indexações, incluindo em atualizações incrementais para um índice que não está totalmente encriptado (criado antes de janeiro de 2018).<br><br>Internamente, a encriptação baseia-se na encriptação do Serviço de [Armazenamento Azure,](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)utilizando [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits.<br><br> A encriptação é interna da Pesquisa Cognitiva Azure, com certificados e chaves de encriptação geridas internamente pela Microsoft, e aplicadas universalmente. Não é possível ligar ou desligar a encriptação, gerir ou substituir as suas próprias chaves, nem visualizar as definições de encriptação no portal ou programaticamente.<br><br>A encriptação em repouso foi anunciada em 24 de janeiro de 2018 e aplica-se a todos os níveis de serviço, incluindo o nível livre, em todas as regiões. Para uma encriptação completa, os índices criados antes dessa data devem ser retirados e reconstruídos para que a encriptação ocorra. Caso contrário, apenas novos dados adicionados após 24 de janeiro são encriptados.|
-| Encriptação inativa <br>Chaves geridas pelo cliente | A encriptação com chaves geridas pelo cliente está agora geralmente disponível para serviços de pesquisa criados em ou depois de janeiro de 2019. Não é suportado em serviços Gratuitos (partilhados).<br><br>Os índices de pesquisa cognitiva azure e os mapas de sinónimo podem agora ser encriptados em repouso com chaves geridas pelo cliente no Cofre chave Azure. Para saber mais, consulte [Gerir chaves de encriptação em Pesquisa Cognitiva Azure](search-security-manage-encryption-keys.md).<br><br>Esta funcionalidade não está a substituir a encriptação predefinida em repouso, mas sim aplicada além dela.<br><br>Ativar esta funcionalidade aumentará o tamanho do índice e degradará o desempenho da consulta. Com base em observações até à data, pode esperar ver um aumento de 30%-60% em tempos de consulta, embora o desempenho real varie dependendo da definição de índice e dos tipos de consultas. Devido a este impacto de desempenho, recomendamos que apenas ative esta funcionalidade em índices que realmente o exijam.
+| Encriptação inativa <br>Chaves geridas pelo cliente | A encriptação com chaves geridas pelo cliente está agora geralmente disponível para serviços de pesquisa criados em ou depois de janeiro de 2019. Não é suportado em serviços Gratuitos (partilhados).<br><br>Os índices de pesquisa cognitiva azure e os mapas de sinónimo podem agora ser encriptados em repouso com as chaves geridas pelo cliente no Cofre chave Azure. Para saber mais, consulte [Gerir chaves de encriptação em Pesquisa Cognitiva Azure](search-security-manage-encryption-keys.md).<br><br>Esta funcionalidade não está a substituir a encriptação predefinida em repouso, mas sim aplicada além dela.<br><br>Ativar esta funcionalidade aumentará o tamanho do índice e degradará o desempenho da consulta. Com base em observações até à data, pode esperar ver um aumento de 30%-60% em tempos de consulta, embora o desempenho real varie dependendo da definição de índice e dos tipos de consultas. Devido a este impacto de desempenho, recomendamos que apenas ative esta funcionalidade em índices que realmente o exijam.
 
 ## <a name="azure-wide-user-access-controls"></a>Controlos de acesso ao utilizador em toda a Azur
 
@@ -52,13 +52,15 @@ Vários mecanismos de segurança estão disponíveis em todo o Azure, e assim au
 + [Fechaduras ao nível de subscrição ou de recursos para evitar a supressão](../azure-resource-manager/management/lock-resources.md)
 + [Controlo de Acesso baseado em funções (RBAC) para controlar o acesso à informação e operações administrativas](../role-based-access-control/overview.md)
 
-Todos os serviços Azure suportam controlos de acesso baseados em funções (RBAC) para estabelecer níveis de acesso consistentemente em todos os serviços. Por exemplo, a visualização de dados sensíveis, como a chave de administração, é restrita às funções de Proprietário e Contribuinte, enquanto o estado de serviço de visualização está disponível para os membros de qualquer função. O RBAC fornece funções de Proprietário, Colaborador e Leitor. Por predefinição, todos os administradores de serviços são membros da função Proprietário.
+Todos os serviços Azure suportam controlos de acesso baseados em funções (RBAC) para estabelecer níveis de acesso consistentemente em todos os serviços. Por exemplo, a visualização de dados sensíveis, como a chave de administração, é restrita às funções de Proprietário e Contribuinte. No entanto, o estado do serviço de visualização está disponível para os membros de qualquer função. O RBAC fornece funções de Proprietário, Colaborador e Leitor. Por predefinição, todos os administradores de serviços são membros da função Proprietário.
 
 <a name="service-access-and-authentication"></a>
 
-## <a name="service-access-and-authentication"></a>Acesso ao serviço e autenticação
+## <a name="endpoint-access"></a>Acesso endpoint
 
-Enquanto a Azure Cognitive Search herda as salvaguardas de segurança da plataforma Azure, também fornece a sua própria autenticação baseada em chaves. Uma chave api é uma cadeia composta por números e letras gerados aleatoriamente. O tipo de chave (administrador ou consulta) determina o nível de acesso. A apresentação de uma chave válida é considerada prova de que o pedido provém de uma entidade de confiança. 
+### <a name="public-access"></a>Acesso público
+
+A Azure Cognitive Search herda as salvaguardas de segurança da plataforma Azure e fornece a sua própria autenticação baseada em chaves. Uma chave api é uma cadeia composta por números e letras gerados aleatoriamente. O tipo de chave (administrador ou consulta) determina o nível de acesso. A apresentação de uma chave válida é considerada prova de que o pedido provém de uma entidade de confiança. 
 
 Existem dois níveis de acesso ao seu serviço de pesquisa, ativados por dois tipos de teclas:
 
@@ -71,6 +73,16 @@ Existem dois níveis de acesso ao seu serviço de pesquisa, ativados por dois ti
 
 A autenticação é exigida em cada pedido, sempre que cada pedido seja composto por uma chave obrigatória, uma operação e um objeto. Quando acorrentados em conjunto, os dois níveis de permissão (completos ou apenas de leitura) mais o contexto (por exemplo, uma operação de consulta num índice) são suficientes para proporcionar segurança de todo o espectro nas operações de serviço. Para obter mais informações sobre as teclas, consulte [Criar e gerir as teclas api.](search-security-api-keys.md)
 
+### <a name="restricted-access"></a>Acesso restrito
+
+Quando tiver um serviço público e pretender restringir a utilização do serviço, pode utilizar a regra de restrição IP na versão Management REST API: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2020-03-13/createorupdate-service#iprule-). O IpRule permite-lhe restringir o acesso ao seu serviço identificando endereços IP, individualmente ou de uma gama, que pretende conceder acesso ao seu serviço de pesquisa. 
+
+### <a name="private-access"></a>Acesso privado
+
+[Os pontos finais privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) para a Pesquisa Cognitiva Azure permitem a um cliente numa rede virtual aceder de forma segura a dados num índice de pesquisa sobre um [Link Privado](https://docs.microsoft.com/azure/private-link/private-link-overview). O ponto final privado utiliza um endereço IP do espaço de endereço de rede virtual para o seu serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e um link privado na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública.
+
+A [Rede Virtual Azure (VNet)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite uma comunicação segura entre os recursos, com a sua rede no local, bem como a Internet. 
+
 ## <a name="index-access"></a>Acesso ao índice
 
 Na Pesquisa Cognitiva Azure, um índice individual não é um objeto securável. Em vez disso, o acesso a um índice é determinado na camada de serviço (ler ou escrever acesso), juntamente com o contexto de uma operação.
@@ -81,11 +93,13 @@ O acesso do administrador e do programador aos índices é indiferenciado: ambos
 
 Para soluções multi-atentivas que requerem limites de segurança ao nível do índice, essas soluções normalmente incluem um nível médio, que os clientes usam para lidar com o isolamento do índice. Para obter mais informações sobre o caso de utilização multiarrendatária, consulte [os padrões de design para aplicações SaaS multiarrendatárias e pesquisa cognitiva azure](search-modeling-multitenant-saas-applications.md).
 
-## <a name="admin-access"></a>Acesso à administração
+## <a name="authentication"></a>Autenticação
+
+### <a name="admin-access"></a>Acesso à administração
 
 [O acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determina se tem acesso a controlos sobre o serviço e o seu conteúdo. Se for proprietário ou colaborador num serviço de Pesquisa Cognitiva Azure, pode utilizar o portal ou o módulo PowerShell **Az.Search** para criar, atualizar ou eliminar objetos no serviço. Também pode utilizar a API de [Gestão de Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-## <a name="user-access"></a>Acesso do utilizador
+### <a name="user-access"></a>Acesso do utilizador
 
 Por predefinição, o acesso do utilizador a um índice é determinado pela chave de acesso no pedido de consulta. A maioria dos desenvolvedores cria e atribui [*chaves de consulta*](search-security-api-keys.md) para pedidos de pesquisa do lado do cliente. Uma consulta chave grants lê acesso a todos os conteúdos dentro do índice.
 
@@ -103,9 +117,9 @@ A tabela seguinte resume as operações permitidas na Pesquisa Cognitiva de Azur
 | Operação | Permissões |
 |-----------|-------------------------|
 | Criar um serviço | Titular de subscrição Azure|
-| Escala ré seleção de um serviço | Chave de administrador, Proprietário RBAC ou Colaborador no recurso  |
-| Apagar um serviço | Chave de administrador, Proprietário RBAC ou Colaborador no recurso |
-| Criar, modificar, eliminar objetos no serviço: <br>Índices e componentes (incluindo definições de analisadores, perfis de pontuação, opções CORS), indexadores, fontes de dados, sinónimos, sugestionantes. | Chave de administrador, Proprietário RBAC ou Colaborador no recurso  |
+| Escala ré seleção de um serviço | Chave de administrador, Proprietário RBAC ou Contribuinte no recurso  |
+| Apagar um serviço | Chave de administrador, Proprietário RBAC ou Contribuinte no recurso |
+| Criar, modificar, eliminar objetos no serviço: <br>Índices e componentes (incluindo definições de analisadores, perfis de pontuação, opções CORS), indexadores, fontes de dados, sinónimos, sugestionantes. | Chave de administrador, Proprietário RBAC ou Contribuinte no recurso  |
 | Consulta de um índice | Chave de administrador ou consulta (RBAC não aplicável) |
 | Informações do sistema de consulta, tais como estatísticas de devolução, contagens e listas de objetos. | Chave de administrador, RBAC sobre o recurso (Proprietário, Colaborador, Leitor) |
 | Gerir as chaves de administração | Chave de administrador, Proprietário RBAC ou Colaborador no recurso. |

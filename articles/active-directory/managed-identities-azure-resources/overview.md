@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/26/2019
+ms.date: 03/25/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47bd3b5da79bdb9c7dca75d521aa39d3652ab1ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79240143"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282125"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Quais são as identidades geridas para os recursos do Azure?
 
@@ -75,7 +75,7 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
 
 4. Quando a VM tiver uma identidade, utilize as informações do principal de serviço para lhe conceder acesso aos recursos do Azure. Para chamar o Azure Resource Manager, utilize o controlo de acesso baseado em funções (RBAC) no Azure AD para atribuir a função adequada ao principal de serviço da VM. Para chamar o Key Vault, conceda ao seu código acesso ao segredo ou à chave específica no Key Vault.
 
-5. O seu código que está em funcionamento no VM pode solicitar um sinal do ponto final do serviço de metadados de instância seletiva, acessível apenas a partir do VM: `http://169.254.169.254/metadata/identity/oauth2/token`
+5. O seu código que está em execução no VM pode solicitar um sinal do ponto final do serviço de metadados de instância seletiva, acessível apenas a partir do VM:`http://169.254.169.254/metadata/identity/oauth2/token`
     - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Para autenticar no Azure Resource Manager, utilize `resource=https://management.azure.com/`.
     - O parâmetro de versão da API especifica a versão do IMDS; utilize api-version=2018-02-01 ou superior.
 
@@ -96,7 +96,7 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
    > [!Note]
    > Também pode concluir este passo antes do passo 3.
 
-5. O seu código que está em execução no VM pode solicitar um sinal do ponto final do Serviço de Metadados de Instância seletiva, acessível apenas a partir do VM: `http://169.254.169.254/metadata/identity/oauth2/token`
+5. O seu código que está em execução no VM pode solicitar um sinal do ponto final do Serviço de Metadados de Instância seletiva, acessível apenas a partir do VM:`http://169.254.169.254/metadata/identity/oauth2/token`
     - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Para autenticar no Azure Resource Manager, utilize `resource=https://management.azure.com/`.
     - O parâmetro de ID de cliente especifica a identidade para a qual o token é pedido. Este valor é necessário para eliminar ambiguidades se uma única VM tiver mais de uma identidade atribuída pelo utilizador.
     - O parâmetro da versão da API especifica a versão do Azure Instance Metadata Service. Utilize `api-version=2018-02-01` ou superior.
@@ -122,7 +122,7 @@ Saiba como utilizar uma identidade gerida com uma VM do Windows:
 
 Saiba como utilizar uma identidade gerida com uma VM do Linux:
 
-* [Registo de contentores de acesso Azure](../../container-registry/container-registry-authentication-managed-identity.md)
+* [Aceder ao Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md)
 * [Aceder ao Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
 * [Aceder ao Azure Resource Manager](tutorial-linux-vm-access-arm.md)
 * [Aceder ao Armazenamento do Azure com uma chave de acesso](tutorial-linux-vm-access-storage.md)
@@ -131,19 +131,19 @@ Saiba como utilizar uma identidade gerida com uma VM do Linux:
 
 Saiba como utilizar uma identidade gerida com outros serviços do Azure:
 
-* [App Service do Azure](/azure/app-service/overview-managed-identity)
-* [Gestão de API do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Serviço de Aplicações do Azure](/azure/app-service/overview-managed-identity)
+* [API Management do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
-* [Tarefas de Registo de Contentores Azure](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
-* [Azure Event Hubs](../../event-hubs/authenticate-managed-identity.md)
+* [Tarefas do Azure Container Registry](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
+* [Hubs de Eventos do Azure](../../event-hubs/authenticate-managed-identity.md)
 * [Funções do Azure](/azure/app-service/overview-managed-identity)
-* [Serviço Kubernetes do Azure](/azure/aks/use-managed-identity)
+* [Serviço Azure Kubernetes](/azure/aks/use-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
+* [Fábrica de Dados Azure](../../data-factory/data-factory-service-identity.md)
 
 
-## Que serviços do Azure suportam a funcionalidade?<a name="which-azure-services-support-managed-identity"></a>
+## <a name="what-azure-services-support-the-feature"></a>Que serviços do Azure suportam a funcionalidade?<a name="which-azure-services-support-managed-identity"></a>
 
 As identidades geridas para recurso do Azure podem ser utilizadas para autenticação em serviços que suportem a autenticação do Azure AD. Para obter uma lista dos serviços do Azure que suportam a funcionalidade de identidades geridas para recursos do Azure, veja [Serviços que suportam as identidades geridas para recursos do Azure](services-support-msi.md).
 

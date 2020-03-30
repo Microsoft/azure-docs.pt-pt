@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, chapéu vermelho, cli
-ms.openlocfilehash: 23d7c950396c36925ce50d746195916292d360ad
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 423f09c135da51b8401c1933a4a271d0becd2c8f
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79201047"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349440"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Criar, aceder e gerir um Cluster OpenShift 4.3 do Chapéu Vermelho Azure
 
@@ -32,16 +32,16 @@ Você precisará do seguinte para criar um cluster Azure Red Hat OpenShift 4.3:
 
 - Uma rede virtual contendo duas subredes vazias, cada uma sem grupo de segurança de rede anexado.  O seu aglomerado será implantado nestas subredes.
 
-- Uma aplicação aAD de cluster (ID do cliente e secreto) e diretor de serviço, ou permissões AAD suficientes para `az aro create` criar uma aplicação e diretor de serviço AAD para si automaticamente.
+- Uma aplicação aAD de cluster (ID do cliente e secreto) `az aro create` e diretor de serviço, ou permissões AAD suficientes para criar uma aplicação e diretor de serviço AAD para si automaticamente.
 
-- O diretor de serviço rp e o diretor de serviço de cluster devem ter cada um a função de Contribuinte na rede virtual cluster.  Se tiver a função de "Administrador de Acesso ao Utilizador" na rede virtual, `az aro create` irá configurar automaticamente as atribuições de funções para si.
+- O diretor de serviço rp e o diretor de serviço de cluster devem ter cada um a função de Contribuinte na rede virtual cluster.  Se tiver a função de "Administrador de `az aro create` Acesso ao Utilizador" na rede virtual, irá configurar automaticamente as atribuições de funções para si.
 
 ### <a name="install-the-az-aro-extension"></a>Instale a extensão 'az aro'
-A extensão `az aro` permite criar, aceder e eliminar os clusters OpenShift do Chapéu Vermelho Azure diretamente da linha de comando utilizando o Azure CLI.
+A `az aro` extensão permite-lhe criar, aceder e eliminar os clusters OpenShift do Chapéu Vermelho Azure diretamente da linha de comando utilizando o Azure CLI.
 
 > [!Note] 
-> A extensão `az aro` está atualmente em pré-visualização. Pode ser alterado ou removido numa futura versão.
-> Para optar pela pré-visualização de extensão `az aro`, é necessário registar o fornecedor de recursos `Microsoft.RedHatOpenShift`.
+> A `az aro` extensão está atualmente em pré-visualização. Pode ser alterado ou removido numa futura versão.
+> Para optar pela `az aro` pré-visualização da `Microsoft.RedHatOpenShift` extensão, é necessário registar o fornecedor de recursos.
 > 
 >    ```console
 >    az provider register -n Microsoft.RedHatOpenShift --wait
@@ -53,7 +53,7 @@ A extensão `az aro` permite criar, aceder e eliminar os clusters OpenShift do C
    az login
    ```
 
-2. Executar o seguinte comando para instalar a extensão `az aro`:
+2. Executar o seguinte comando `az aro` para instalar a extensão:
 
    ```console
    az extension add -n aro --index https://az.aroapp.io/preview
@@ -79,7 +79,15 @@ Siga estes passos para criar uma rede virtual contendo duas subredes vazias.
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
+   PULL_SECRET="<optional-pull-secret>"
    ```
+   >[!NOTE]
+   > O segredo de pull opcional permite ao seu cluster aceder aos registos de contentores do Red Hat juntamente com conteúdo adicional.
+   >
+   > Aceda ao seu segredo https://cloud.redhat.com/openshift/install/azure/installer-provisioned de puxar navegando e clicando em *Copy Pull Secret*.
+   >
+   > Terá de fazer login na sua conta Red Hat ou criar uma nova conta Red Hat com o seu email comercial e aceitar os termos e condições.
+ 
 
 2. Crie um grupo de recursos para o seu cluster.
 
@@ -132,7 +140,8 @@ az aro create \
   -n "$CLUSTER" \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
-  --worker-subnet "$CLUSTER-worker"
+  --worker-subnet "$CLUSTER-worker" \
+  --pull-secret "$PULL_SECRET"
 ```
 
 >[!NOTE]
@@ -140,13 +149,13 @@ az aro create \
 
 ## <a name="access-the-cluster-console"></a>Aceda à consola de cluster
 
-Pode encontrar o URL da consola de cluster (do formulário `https://console-openshift-console.apps.<random>.<location>.aroapp.io/`) sob o recurso de cluster OpenShift 4.3 do Chapéu Vermelho Azure. Executar o seguinte comando para visualizar o recurso:
+Pode encontrar o URL da consola `https://console-openshift-console.apps.<random>.<location>.aroapp.io/`de cluster (do formulário) sob o recurso de cluster Azure Red Hat OpenShift 4.3. Executar o seguinte comando para visualizar o recurso:
 
 ```console
 az aro list -o table
 ```
 
-Pode iniciar sessão no cluster utilizando o utilizador `kubeadmin`.  Executar o seguinte comando para encontrar a palavra-passe para o utilizador `kubeadmin`:
+Pode iniciar sessão no `kubeadmin` cluster utilizando o utilizador.  Executar o seguinte comando para `kubeadmin` encontrar a palavra-passe para o utilizador:
 
 ```dotnetcli
 az aro list-credentials -g "$RESOURCEGROUP" -n "$CLUSTER"

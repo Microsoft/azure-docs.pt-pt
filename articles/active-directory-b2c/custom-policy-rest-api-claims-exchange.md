@@ -7,96 +7,87 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 351b41f45fb84384ec0193f8e3130347d0b19401
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6316165ba08d055be1186995e2fe2ad5a0079fb7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189094"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330727"
 ---
-# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Adicionar REST API reclama trocas de pedidos a políticas personalizadas no Diretório Ativo Azure B2C
+# <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Walkthrough: Adicionar REST API reclama trocas a políticas personalizadas no Diretório Ativo Azure B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Pode adicionar interação com uma API RESTful às suas [políticas personalizadas](custom-policy-overview.md) no Azure Ative Directory B2C (Azure AD B2C). Este artigo mostra-lhe como criar uma viagem de utilizador Azure AD AD B2C que interage com serviços RESTful.
+O Azure Ative Directory B2C (Azure AD B2C) permite aos desenvolvedores de identidade integrar uma interação com uma API RESTful numa viagem de utilizador. No final desta passagem, poderá criar uma viagem de utilizador Azure AD AD B2C que interage com [serviços RESTful.](custom-policy-rest-api-intro.md)
 
-A interação inclui uma troca de reclamações de informações entre as alegações da API REST e o Azure AD B2C. As trocas de sinistros têm as seguintes características:
+Neste cenário, enriquecemos os dados simbólicos do utilizador integrando-nos com um fluxo de trabalho de linha empresarial empresarial. Durante o início de inscrição ou inscrição com conta local ou federada, o Azure AD B2C invoca uma API REST para obter os dados de perfil alargados do utilizador a partir de uma fonte de dados remota. Nesta amostra, o Azure AD B2C envia o identificador único do utilizador, o objectid. A API REST devolve então o saldo da conta do utilizador (um número aleatório). Utilize esta amostra como ponto de partida para integrar com o seu próprio sistema de CRM, base de dados de marketing ou qualquer fluxo de trabalho de linha de negócio.
 
-- Pode ser projetado como um passo de orquestração.
-- Pode desencadear uma ação externa. Por exemplo, pode registar um evento numa base de dados externa.
-- Pode ser usado para obter um valor e depois armazená-lo na base de dados do utilizador.
-- Pode mudar o fluxo de execução.
-
-O cenário que está representado neste artigo inclui as seguintes ações:
-
-1. Procure o utilizador num sistema externo.
-2. Pegue a cidade onde o utilizador está registado.
-3. Devolver o atributo ao pedido como reclamação.
+Também pode projetar a interação como um perfil técnico de validação. Isto é adequado quando a API REST irá validar dados no ecrã e devolver reclamações. Para mais informações, consulte Walkthrough: Integrar as trocas de reclamações da [Rest API na sua viagem de utilizador Azure AD B2C para validar a entrada](custom-policy-rest-api-claims-validation.md)do utilizador .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md)
-- Um ponto final da API REST para interagir. Este artigo usa uma função Azure simples como exemplo. Para criar a função Azure, consulte [Criar a sua primeira função no portal Azure](../azure-functions/functions-create-first-azure-function.md).
+- Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md) Você deve ter uma política personalizada de trabalho para se inscrever e iniciar sessão com contas locais.
+- Saiba como integrar as bolsas de [reclamações da API rest na sua política personalizada Azure AD B2C](custom-policy-rest-api-intro.md).
 
-## <a name="prepare-the-api"></a>Preparar a API
+## <a name="prepare-a-rest-api-endpoint"></a>Prepare um ponto final da API REST
 
-Nesta secção, prepara-se a função Azure para receber um valor para `email`, e depois devolve o valor para `city` que pode ser usado pelo Azure AD B2C como reivindicação.
+Para esta passagem, deve ter uma API REST que valida se o objectId Azure AD B2C de um utilizador está registado no seu sistema de back-end. Se registado, a API REST devolve o saldo da conta do utilizador. Caso contrário, a API REST regista a nova conta no `50.00`diretório e devolve o saldo inicial.
 
-Altere o ficheiro run.csx para a função Azure que criou para utilizar o seguinte código:
+O seguinte código JSON ilustra os dados que o Azure AD B2C enviará para o seu ponto final REST API. 
 
-```csharp
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
-
-public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+```json
 {
-  log.LogInformation("C# HTTP trigger function processed a request.");
-  string email = req.Query["email"];
-  string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-  dynamic data = JsonConvert.DeserializeObject(requestBody);
-  email = email ?? data?.email;
-
-  return email != null
-    ? (ActionResult)new OkObjectResult(
-      new ResponseContent
-      {
-        version = "1.0.0",
-        status = (int) HttpStatusCode.OK,
-        city = "Redmond"
-      })
-      : new BadRequestObjectResult("Please pass an email on the query string or in the request body");
-}
-
-public class ResponseContent
-{
-    public string version { get; set; }
-    public int status { get; set; }
-    public string city {get; set; }
+    "objectId": "User objectId",
+    "language": "Current UI language"
 }
 ```
 
-## <a name="configure-the-claims-exchange"></a>Configure a troca de sinistros
+Uma vez que a sua API REST valida os dados, deve devolver um HTTP 200 (Ok), com os seguintes dados da JSON:
 
-Um perfil técnico fornece a configuração para a troca de reclamações.
+```json
+{
+    "balance": "760.50"
+}
+```
 
-Abra o ficheiro *TrustFrameworkExtensions.xml* e adicione o seguinte elemento **ClaimsProvider** XML dentro do elemento **ClaimsProviders.**
+A configuração do ponto final da API REST está fora do âmbito deste artigo. Criámos uma amostra de [Funções Azure.](https://docs.microsoft.com/azure/azure-functions/functions-reference) Pode aceder ao código de função Completo do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
-```XML
+## <a name="define-claims"></a>Definir reclamações
+
+Uma reclamação fornece armazenamento temporário de dados durante uma execução política Azure AD B2C. Pode declarar reclamações dentro da secção [de sinistros.](claimsschema.md) 
+
+1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Procure o elemento [BuildingBlocks.](buildingblocks.md) Se o elemento não existir, adicione-o.
+1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
+1. Adicione as seguintes reclamações ao elemento **ClaimsSchema.**  
+
+```xml
+<ClaimType Id="balance">
+  <DisplayName>Your Balance</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="userLanguage">
+  <DisplayName>User UI language (used by REST API to return localized error messages)</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+```
+
+## <a name="configure-the-restful-api-technical-profile"></a>Configure o perfil técnico restful DaPI 
+
+Um [perfil técnico restful](restful-technical-profile.md) fornece suporte para interfaceção com o seu próprio serviço RESTful. O Azure AD B2C envia dados para `InputClaims` o serviço RESTful `OutputClaims` numa recolha e recebe dados numa recolha. Encontre o elemento **Reclamações Fornecedores** no seu <em>**`TrustFrameworkExtensions.xml`**</em> ficheiro e adicione um novo fornecedor de sinistros da seguinte forma:
+
+```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="AzureFunctions-WebHook">
-      <DisplayName>Azure Function Web Hook</DisplayName>
+    <TechnicalProfile Id="REST-GetProfile">
+      <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
-        <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
         <Item Key="AuthenticationType">None</Item>
@@ -104,10 +95,13 @@ Abra o ficheiro *TrustFrameworkExtensions.xml* e adicione o seguinte elemento **
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
+        <!-- Claims sent to your REST API -->
+        <InputClaim ClaimTypeReferenceId="objectId" />
+        <InputClaim ClaimTypeReferenceId="userLanguage" PartnerClaimType="lang" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
       </InputClaims>
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
+        <!-- Claims parsed from your REST API -->
+        <OutputClaim ClaimTypeReferenceId="balance" />
       </OutputClaims>
       <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
@@ -115,153 +109,114 @@ Abra o ficheiro *TrustFrameworkExtensions.xml* e adicione o seguinte elemento **
 </ClaimsProvider>
 ```
 
-O elemento **InputClaims** define as reclamações que são enviadas para o serviço REST. Neste exemplo, o valor da reclamação `givenName` é enviado para o serviço REST à medida que a reclamação `email`. O elemento **OutputClaims** define as reclamações que são esperadas do serviço REST.
+Neste exemplo, `userLanguage` o serviço REST será `lang` enviado para o serviço REST como dentro da carga útil JSON. O valor `userLanguage` da reclamação contém o ID atual do idioma do utilizador. Para mais informações, consulte a [reclamação](claim-resolver-overview.md).
 
-Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificar alterações que deve fazer quando se muda para um ambiente de produção. Para aprender a proteger as suas APIs RESTful para produção, consulte [APIs RESTful Seguros com APIs](secure-rest-api-dotnet-basic-auth.md) resstful básicos e [SECURE RESTful com auth](secure-rest-api-dotnet-certificate-auth.md)certificado .
-
-## <a name="add-the-claim-definition"></a>Adicione a definição de reclamação
-
-Adicione uma definição para `city` dentro do elemento **BuildingBlocks.** Pode encontrar este elemento no início do ficheiro TrustFrameworkExtensions.xml.
-
-```XML
-<BuildingBlocks>
-  <ClaimsSchema>
-    <ClaimType Id="city">
-      <DisplayName>City</DisplayName>
-      <DataType>string</DataType>
-      <UserHelpText>Your city</UserHelpText>
-      <UserInputType>TextBox</UserInputType>
-    </ClaimType>
-  </ClaimsSchema>
-</BuildingBlocks>
-```
+Os comentários `AuthenticationType` acima `AllowInsecureAuthInProduction` e especificar alterações que deve fazer quando se muda para um ambiente de produção. Para aprender a proteger as suas APIs RESTful para produção, consulte [Secure RESTful API](secure-rest-api.md).
 
 ## <a name="add-an-orchestration-step"></a>Adicione um passo de orquestração
 
-Há muitos casos de uso em que a chamada REST API pode ser usada como um passo de orquestração. Como passo de orquestração, pode ser usado como uma atualização para um sistema externo depois de um utilizador ter concluído com sucesso uma tarefa como registo pela primeira vez, ou como uma atualização de perfil para manter a informação sincronizada. Neste caso, é usado para aumentar a informação fornecida à aplicação após a edição do perfil.
+[As viagens de utilizador](userjourneys.md) especificam caminhos explícitos através dos quais uma política permite que uma aplicação de parte dependente obtenha as reclamações desejadas para um utilizador. Uma viagem de utilizador é representada como uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. Pode adicionar ou subtrair passos de orquestração. Neste caso, irá adicionar um novo passo de orquestração que é usado para aumentar as informações fornecidas à aplicação após o início do utilizador ou o início através da chamada REST API.
 
-Adicione um passo para a viagem de utilizador de edição de perfil. Depois de o utilizador ser autenticado (passos de orquestração 1-4 no XML seguinte), e o utilizador forneceu as informações atualizadas do perfil (passo 5). Copie o código XML da viagem do utilizador do ficheiro *TrustFrameworkBase.xml* para o ficheiro *TrustFrameworkExtensions.xml* dentro do elemento **UserJourneys.** Em seguida, faça a modificação como passo 6.
+1. Abra o ficheiro base da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Procure o `<UserJourneys>` elemento. Copie todo o elemento e, em seguida, elimine-o.
+1. Abra o ficheiro de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Colhe `<UserJourneys>` o ficheiro de extensões no `<ClaimsProviders>` ficheiro de extensões, após o fecho do elemento.
+1. Localize `<UserJourney Id="SignUpOrSignIn">`o passo de orquestração seguinte antes do último.
 
-```XML
-<OrchestrationStep Order="6" Type="ClaimsExchange">
-  <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
-  </ClaimsExchanges>
-</OrchestrationStep>
+    ```XML
+    <OrchestrationStep Order="7" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    ```
+
+1. Refactor o último passo de `Order` `8`orquestração mudando o para . Os seus dois últimos passos de orquestração devem parecer os seguintes:
+
+    ```XML
+    <OrchestrationStep Order="7" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+
+    <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+    ```
+
+1. Repita os dois últimos passos para as viagens de utilizador **Do ProfileEdit** e **PasswordReset.**
+
+
+## <a name="include-a-claim-in-the-token"></a>Incluir uma reclamação no símbolo 
+
+Para devolver `balance` a reclamação à aplicação da parte <em> `SocialAndLocalAccounts/` </em> que depende, adicione uma reclamação de saída ao ficheiro. A adição de uma reclamação de saída emitirá a reclamação no token após uma viagem bem sucedida do utilizador, e será enviada para a aplicação. Modifique o elemento de perfil técnico `balance` dentro da secção do partido de fiação para adicionar como uma reivindicação de saída.
+ 
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <OutputClaim ClaimTypeReferenceId="balance" DefaultValue="" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
 ```
 
-O XML final para a viagem do utilizador deve parecer este exemplo:
+Repita este passo para as viagens de **utilizador ProfileEdit.xml**e **PasswordReset.xml.**
 
-```XML
-<UserJourney Id="ProfileEdit">
-  <OrchestrationSteps>
-    <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
-      <ClaimsProviderSelections>
-        <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
-        <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
-      </ClaimsProviderSelections>
-    </OrchestrationStep>
-    <OrchestrationStep Order="2" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
-        <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="3" Type="ClaimsExchange">
-      <Preconditions>
-        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-          <Value>authenticationSource</Value>
-          <Value>localAccountAuthentication</Value>
-          <Action>SkipThisOrchestrationStep</Action>
-        </Precondition>
-      </Preconditions>
-      <ClaimsExchanges>
-        <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="4" Type="ClaimsExchange">
-      <Preconditions>
-        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-          <Value>authenticationSource</Value>
-          <Value>socialIdpAuthentication</Value>
-          <Action>SkipThisOrchestrationStep</Action>
-        </Precondition>
-      </Preconditions>
-      <ClaimsExchanges>
-        <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="5" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <!-- Add a step 6 to the user journey before the JWT token is created-->
-    <OrchestrationStep Order="6" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-  </OrchestrationSteps>
-  <ClientDefinition ReferenceId="DefaultWeb" />
-</UserJourney>
-```
+Guarde os ficheiros que alterou: *TrustFrameworkBase.xml*e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml,* *ProfileEdit.xml*e *PasswordReset.xml*. 
 
-## <a name="add-the-claim"></a>Adicione a reclamação
+## <a name="test-the-custom-policy"></a>Testar a política personalizada
 
-Editar o ficheiro *ProfileEdit.xml* e adicionar `<OutputClaim ClaimTypeReferenceId="city" />` ao elemento **OutputClaims.**
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
+1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
+1. Selecione Quadro de **Experiência de Identidade**.
+1. Selecione **'Upload Custom Policy**', ' e, em seguida, faça upload dos ficheiros de política que alterou: *TrustFrameworkBase.xml*, e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. 
+1. Selecione a política de inscrição ou de inscrição que fez o upload e clique no botão **Executar agora.**
+1. Deverá poder inscrever-se através de um endereço de e-mail ou de uma conta no Facebook.
+1. O símbolo enviado de volta `balance` para o seu pedido inclui a reclamação.
 
-Depois de adicionar a nova reclamação, o perfil técnico parece este exemplo:
-
-```XML
-<TechnicalProfile Id="PolicyProfile">
-  <DisplayName>PolicyProfile</DisplayName>
-  <Protocol Name="OpenIdConnect" />
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
-    <OutputClaim ClaimTypeReferenceId="city" />
-  </OutputClaims>
-  <SubjectNamingInfo ClaimType="sub" />
-</TechnicalProfile>
-```
-
-## <a name="upload-your-changes-and-test"></a>Faça upload das suas alterações e teste
-
-1. (Opcional:) Guarde a versão existente (transferindo) os ficheiros antes de proceder.
-2. Faça upload das *Extensões TrustFramework.xml* e *ProfileEdit.xml* e selecione para substituir o ficheiro existente.
-3. Selecione **B2C_1A_ProfileEdit**.
-4. Para selecionar a **aplicação** na página geral da política personalizada, selecione a aplicação web chamada *webapp1* que registou anteriormente. Certifique-se de que o **URL de resposta** é `https://jwt.ms`.
-4. Selecione **Executar agora**. Inscreva-se com as credenciais da sua conta e clique em **Continuar**.
-
-Se tudo estiver corretamente configurado, o símbolo inclui a nova reclamação `city`, com o valor `Redmond`.
-
-```JSON
+```json
 {
-  "exp": 1493053292,
-  "nbf": 1493049692,
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+}.{
+  "exp": 1584961516,
+  "nbf": 1584957916,
   "ver": "1.0",
   "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
-  "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
-  "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
-  "acr": "b2c_1a_profileedit",
+  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
-  "iat": 1493049692,
-  "auth_time": 1493049692,
-  "city": "Redmond"
+  "iat": 1584957916,
+  "auth_time": 1584957916,
+  "name": "Emily Smith",
+  "email": "emily@outlook.com",
+  "given_name": "Emily",
+  "family_name": "Smith",
+  "balance": "202.75"
+  ...
 }
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Também pode projetar a interação como um perfil de validação. Para mais informações, consulte Walkthrough: Integrar as trocas de reclamações da [Rest API na sua viagem de utilizador Azure AD B2C como validação na entrada](custom-policy-rest-api-claims-validation.md)do utilizador .
 
-[Modificar a edição de perfil para recolher informações adicionais dos seus utilizadores](custom-policy-custom-attributes.md)
+## <a name="next-steps"></a>Passos seguintes
 
-[Referência: Perfil técnico RESTful](restful-technical-profile.md)
+Para aprender a proteger as suas APIs, consulte os seguintes artigos:
 
-Para aprender como proteger as suas APIs, consulte os seguintes artigos:
-
-* [Proteja a sua API RESTful com autenticação básica (nome de utilizador e senha)](secure-rest-api-dotnet-basic-auth.md)
-* [Proteja a sua API RESTful com certificados de cliente](secure-rest-api-dotnet-certificate-auth.md)
+- [Walkthrough: Integrar rest API reclama trocas na sua jornada de utilizador Azure AD B2C como passo de orquestração](custom-policy-rest-api-claims-exchange.md)
+- [Proteja a sua API RESTful](secure-rest-api.md)
+- [Referência: Perfil técnico RESTful](restful-technical-profile.md)

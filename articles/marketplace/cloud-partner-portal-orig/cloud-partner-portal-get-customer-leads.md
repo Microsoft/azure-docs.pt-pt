@@ -1,119 +1,118 @@
 ---
-title: Configurar leads do cliente | Azure Marketplace
-description: Configure clientes potenciais no Portal do Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Configure os leads do cliente [ Mercado Azure
+description: Configure os leads do cliente no Portal do Parceiro cloud.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 312e172321c25248f1b0801bdbccf71762319989
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 56012fb2a907a6db6f87554660ee36b99a3dcbf9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818817"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280325"
 ---
 <a name="get-customer-leads"></a>Obter oportunidades potenciais
 ==================
 
-Este artigo explica como criar clientes potenciais do cliente usando o Portal do Cloud Partner. Você pode conectar esses clientes potenciais ao seu sistema CRM e integrá-los ao pipeline de vendas.
+Este artigo explica como criar pistas de cliente usando o Portal do Parceiro cloud. Pode ligar estas pistas ao seu sistema CRM e integrá-las no seu pipeline de vendas.
 
-## <a name="leads"></a>Orienta
+## <a name="leads"></a>Clientes potenciais
 
-Os leads são clientes interessados em ou que estão implantando seus produtos do [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou do [AppSource](https://appsource.microsoft.com).
+Os leads são clientes interessados, ou estão a implementar os seus produtos a partir do [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou do [AppSource](https://appsource.microsoft.com).
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
-1.  O cliente usa um "Test Drive" de sua oferta. As unidades de teste são uma oportunidade acelerada para você compartilhar seus negócios instantaneamente com clientes potenciais sem nenhuma violação de entrada. Todas as unidades de teste geram um lead para um cliente que está interessado em experimentar seu produto para saber mais. Saiba mais sobre as unidades de teste no [test drive do Azure Marketplace](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
+1.  O cliente recebe um "Test Drive" da sua oferta. Test Drives são uma oportunidade acelerada para você partilhar o seu negócio instantaneamente com potenciais clientes sem quaisquer barreiras à entrada. Todas as Test Drives geram uma pista para um cliente que está interessado em experimentar o seu produto para saber mais. Saiba mais sobre test drives no [Azure Marketplace Test Drive](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
-    ![Exemplos de test drive do Marketplace](./media/cloud-partner-portal-get-customer-leads/test-drive-offer.png)
+    ![Exemplos de test drive do mercado](./media/cloud-partner-portal-get-customer-leads/test-drive-offer.png)
  
 
 <!-- -->
 
-1. O cliente consenti-se em compartilhar suas informações depois de selecionar "obter agora". Esse Lead é um representante de **interesse inicial** , onde compartilhamos informações sobre clientes que expressou interesse em obter seu produto. O cliente potencial é a parte superior do funil de aquisição.
+1. O cliente consente em partilhar as suas informações depois de selecionar "Get it now". Este chumbo é um chumbo **de interesse inicial,** onde partilhamos informações sobre o cliente que manifestou interesse em obter o seu produto. A liderança é o topo do funil de aquisição.
 
-   ![Opção obter agora](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![Obtenha agora opção](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-1. O cliente seleciona "comprar" no [portal do Azure](https://portal.azure.com/) para obter seu produto. Esse Lead é um Lead **ativo** , no qual compartilhamos informações sobre um cliente que começou a implantar seu produto.
+1. O cliente seleciona "Comprar" no [Portal Azure](https://portal.azure.com/) para obter o seu produto. Este chumbo é um chumbo **ativo,** onde partilhamos informações sobre um cliente que começou a implementar o seu produto.
 
    ![Opção de compra](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource
 
-1.  O cliente fez um "Test Drive" para sua oferta. As unidades de teste são uma oportunidade acelerada para você compartilhar seus negócios instantaneamente com clientes potenciais sem nenhuma violação de entrada. Todas as unidades de teste gerarão um cliente potencial de um usuário que está interessado em experimentar seu produto para saber mais. Saiba mais sobre test drives no [AppSource Test Drive](https://appsource.microsoft.com/blogs/want-to-try-an-app-take-a-test-drive).
+1.  O cliente levou um "Test Drive" para a sua oferta. Test Drives são uma oportunidade acelerada para você partilhar o seu negócio instantaneamente com potenciais clientes sem quaisquer barreiras à entrada. Todas as Test Drives gerarão uma vantagem de um cliente que está interessado em experimentar o seu produto para saber mais. Saiba mais sobre test drives no [AppSource Test Drive](https://appsource.microsoft.com/blogs/want-to-try-an-app-take-a-test-drive).
 
-    ![Exemplo de Test Drive](./media/cloud-partner-portal-get-customer-leads/test-drive-offer-2.png)
+    ![Exemplo de test drive](./media/cloud-partner-portal-get-customer-leads/test-drive-offer-2.png)
 
-2.  O cliente consenti-se em compartilhar suas informações depois de selecionar "obter agora". Esse cliente potencial é um representante de **interesse inicial** , onde compartilhamos informações sobre clientes que expressam interesse em obter seu produto. O cliente potencial é a parte superior do funil de aquisição.
+2.  O cliente consente em partilhar as suas informações depois de selecionar "Get it now". Este chumbo é um chumbo **de interesse inicial,** onde partilhamos informações sobre o cliente que expressa interesse em obter o seu produto. A liderança é o topo do funil de aquisição.
 
-      ![Opção obter agora](./media/cloud-partner-portal-get-customer-leads/get-it-now-button-2.png)
+      ![Obtenha agora opção](./media/cloud-partner-portal-get-customer-leads/get-it-now-button-2.png)
 
 
-3.  O cliente seleciona "entre em contato comigo" em sua oferta. Esse cliente potencial é um Lead **ativo** , no qual compartilhamos informações sobre um cliente que pede que seja seguido sobre seu produto.
+3.  O cliente seleciona "Contacte-me" na sua oferta. Este chumbo é um chumbo **ativo,** onde partilhamos informações sobre um cliente que pede para ser acompanhado sobre o seu produto.
 
-    ![Opção entre em contato comigo](./media/cloud-partner-portal-get-customer-leads/contact-me-image.png)
+    ![Contacte-me a opção](./media/cloud-partner-portal-get-customer-leads/contact-me-image.png)
 
-<a name="lead-data"></a>Dados de Lead
+<a name="lead-data"></a>Dados de Chumbo
 ---------
 
-Cada cliente potencial que você recebe durante o processo de aquisição do cliente tem dados em campos específicos. Como você obterá clientes potenciais de várias etapas, a melhor maneira de lidar com os Leads é eliminar a duplicação e personalizar os acompanhamentos. Dessa forma, cada cliente está recebendo uma mensagem apropriada e você está criando uma relação exclusiva.
+Cada chumbo que recebe durante o processo de aquisição do cliente tem dados em áreas específicas. Como você vai obter pistas de vários passos, a melhor maneira de lidar com as pistas é desduplicar e personalizar os seguimentos. Desta forma, cada cliente recebe uma mensagem apropriada, e está a criar uma relação única.
 
-### <a name="lead-source"></a>Origem do cliente potencial
+### <a name="lead-source"></a>Fonte de chumbo
 
-O formato de uma fonte de Lead é a-de **ação** de **origem** |  a **oferta**
+O formato para uma fonte de chumbo é **Source**-**Action** |  **Offer**
 
-**Sources**: "AzureMarketplace", "AzurePortal", "testdrive" e "APPSOURCE (SPZA)"
+**Fontes**: "AzureMarketplace", "AzurePortal", "TestDrive" e "AppSource (SPZA)"
 
-**Ações**:
-- "INS"--instalação. Esta ação está no Azure Marketplace ou AppSource quando um cliente compra seu produto.
-- "PLT" – significa avaliação de LED de parceiro. Essa ação está em AppSource quando um cliente usa a opção entre em contato comigo.
-- "DNC"--não contate. Essa ação está em AppSource quando um parceiro que foi listado na página do aplicativo é solicitado a ser contatado. Estamos compartilhando a cabeça de que esse cliente estava em lista cruzada em seu aplicativo, mas eles não precisam ser contatados.
-- "Criar"--esta ação está somente dentro do portal do Azure e é gerada quando um cliente compra sua oferta para sua conta.
-- "StartTestDrive"--essa ação destina-se apenas a unidades de teste e é gerada quando um cliente inicia sua test drive.
+**Ações:**
+- "INS" - Instalação. Esta ação é no Azure Marketplace ou AppSource quando um cliente compra o seu produto.
+- "PLT" - Significa julgamento liderado por parceiro. Esta ação está no AppSource quando um cliente utiliza a opção Contacte-me.
+- "DNC" - Não contacte. Esta ação está no AppSource quando um Parceiro que foi riscado listado na sua página de aplicações é solicitado para ser contactado. Estamos a partilhar o aviso de que este cliente foi riscado na sua aplicação, mas não precisam de ser contactados.
+- "Criar" -- Esta ação está apenas dentro do Portal Azure e é gerada quando um cliente compra a sua oferta para a sua conta.
+- "StartTestDrive" -- Esta ação é apenas para Test Drives, e é gerada quando um cliente inicia o seu test drive.
 
 **Ofertas**
 
-Os exemplos a seguir mostram identificadores exclusivos que são atribuídos a um Publicador e uma oferta específica: Checkpoint. Check-Point-R77-10SG-byol, BitNami. openedxcypress e docusign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a.
+Os seguintes exemplos mostram identificadores únicos que são atribuídos a uma editora e uma oferta específica: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress e docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
 
 
-### <a name="customer-info"></a>Informações do cliente
+### <a name="customer-info"></a>Informação do Cliente
 
-Os campos no exemplo a seguir mostram as informações do cliente contidas em um cliente potencial.
-- Nome: João
-- Sobrenome: Smith
-- Email: jsmith\@microsoft.com
+Os campos no exemplo seguinte mostram a informação do cliente que está contida num chumbo.
+- Primeiro nome: João
+- Apelido: Smith
+- E-mail:\@jsmith microsoft.com
 - Telefone: 1234567890
 - País: EUA
 - Empresa: Microsoft
-- Título: CTO
+- Denominação: CTO
 
 >[!Note]
->Nem todos os dados no exemplo anterior estão sempre disponíveis para cada cliente potencial.
+>Nem todos os dados do exemplo anterior estão sempre disponíveis para cada chumbo.
 
-Estamos trabalhando ativamente para aprimorar os leads, portanto, se houver um campo de dados que você não vê aqui, mas gostaria de ter, [envie-nos seus comentários](mailto:AzureMarketOnboard@microsoft.com).
+Estamos a trabalhar ativamente na melhoria dos leads, por isso, se houver um campo de dados que não vê aqui, mas que gostaria de ter, por favor [envie-nos o seu feedback.](mailto:AzureMarketOnboard@microsoft.com)
 
-<a name="how-to-connect-your-crm-system-with-the-cloud-partner-portal"></a>Como conectar seu sistema CRM ao Portal do Cloud Partner
+<a name="how-to-connect-your-crm-system-with-the-cloud-partner-portal"></a>Como ligar o seu sistema CRM ao Portal do Parceiro cloud
 ------------------------------------------------------------
 
-Para começar a obter clientes potenciais, criamos nosso conector de gerenciamento de Lead na Portal do Cloud Partner para que você possa facilmente conectar suas informações de CRM, e vamos fazer a conexão para você. Agora você pode aproveitar facilmente os leads gerados pelo Marketplace sem um esforço de engenharia significativo para se integrar a um sistema externo.
+Para começar a obter pistas, construímos o nosso conector de Gestão de Chumbo no Portal do Parceiro cloud para que possa ligar facilmente as suas informações de CRM, e faremos a ligação para si. Agora pode facilmente alavancar os leads gerados pelo mercado sem um esforço significativo de engenharia para se integrar com um sistema externo.
 
-![Conector de gerenciamento de Lead](./media/cloud-partner-portal-get-customer-leads/lead-management-connector.png)
+![Conector de gestão de chumbo](./media/cloud-partner-portal-get-customer-leads/lead-management-connector.png)
 
-Podemos gravar clientes potenciais em uma variedade de sistemas de CRM ou diretamente em uma tabela de armazenamento do Azure, na qual você pode gerenciar os leads, mas você gostaria de fazer isso. Cada um dos links a seguir fornece instruções para se conectar a possíveis destinos de cliente potencial:
+Podemos escrever pistas em uma variedade de sistemas CRM ou diretamente para uma Tabela de Armazenamento Azure onde você pode gerir as pistas como você quiser. Cada um dos seguintes links fornece instruções para a ligação a possíveis destinos de chumbo:
 
--   [Dynamics CRM Online](./cloud-partner-portal-lead-management-instructions-dynamics.md) para obter instruções sobre como configurar o Dynamics CRM Online para obter clientes potenciais.
--   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md) para obter as instruções para configurar a configuração de Lead do marketo para obter clientes potenciais.
--    [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md) para obter instruções para configurar sua instância do Salesforce para obter clientes potenciais.
--    [Tabela do Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md) para obter as instruções para configurar sua conta de armazenamento do Azure para obter clientes potenciais em uma tabela do Azure.
--   [Ponto de extremidade https](./cloud-partner-portal-lead-management-instructions-https.md) para obter as instruções para configurar seu ponto de extremidade HTTPS para obter clientes potenciais.
+-   [Dynamics CRM Online](./cloud-partner-portal-lead-management-instructions-dynamics.md) para obter as instruções sobre como configurar o Dynamics CRM Online para obter leads.
+-   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md) para obter as instruções para a configuração do Marketo Lead Configuration para obter pistas.
+-    [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md) para obter instruções para configurar a sua instância Salesforce para obter pistas.
+-    [Mesa Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md) para obter as instruções para configurar a sua conta de armazenamento Azure para obter chumbos numa mesa Azure.
+-   [Https Endpoint](./cloud-partner-portal-lead-management-instructions-https.md) para obter as instruções para configurar o seu Ponto Final Https para obter leads.
 
-Depois de configurar o destino do cliente potencial e publicar sua oferta, validaremos a conexão e enviaremos um líder de teste. Ao exibir a oferta antes de entrar no ar, você também pode testar sua conexão de cliente potencial tentando adquirir a oferta por conta própria no ambiente de visualização. É importante certificar-se de que as configurações de Lead permaneçam atualizadas para que você não perca nenhum cliente potencial, portanto, atualize essas conexões sempre que algo tiver mudado no final.
+Depois de configurar o seu destino principal e publicar a sua oferta, validamos a ligação e enviaremos-lhe um teste de chumbo. Ao ver a oferta antes de ir ao vivo, também pode testar a sua ligação de chumbo tentando adquirir a oferta no ambiente de pré-visualização. É importante certificar-se de que as definições de chumbo permanecem atualizadas para que não perca nenhuma pista, por isso certifique-se de atualizar estas ligações sempre que algo tenha mudado na sua extremidade.
 
 <a name="what-next"></a>O que vem a seguir?
 ----------
 
-Quando a configuração técnica estiver em vigor, você deverá incorporar esses leads em suas vendas atuais & estratégia de marketing e processos operacionais. Estamos muito interessados em entender melhor seu processo de vendas geral e deseja trabalhar junto com você para fornecer leads de alta qualidade e dados suficientes para que você tenha êxito. Agradecemos seus comentários sobre como é possível otimizar e aprimorar os leads que enviamos a você com dados adicionais para ajudar a tornar esses clientes bem-sucedidos. Informe-nos se você estiver interessado em [fornecer comentários](mailto:AzureMarketOnboard@microsoft.com) e sugestões para permitir que sua equipe de vendas seja mais bem-sucedida com leads do Marketplace.
+Uma vez que a configuração técnica esteja em vigor, deve incorporar estes leads nas suas vendas atuais & estratégia de marketing e processos operacionais. Estamos muito interessados em compreender melhor o seu processo de vendas global e queremos trabalhar em estreita colaboração consigo no fornecimento de leads de alta qualidade e dados suficientes para o tornar bem-sucedido. Congratulamo-nos com o seu feedback sobre como podemos otimizar e melhorar as pistas que lhe enviamos com dados adicionais para ajudar a tornar estes clientes bem sucedidos. Por favor, avise-nos se está interessado em [fornecer feedback](mailto:AzureMarketOnboard@microsoft.com) e sugestões para permitir que a sua equipa de vendas tenha mais sucesso com o Marketplace Leads.

@@ -1,19 +1,18 @@
 ---
 title: Atribuição de parceiro sacial do parceiro Azure e do cliente Mercado Azure
 description: Visão geral de como acompanhar o uso do cliente para soluções Azure Marketplace
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 9/23/2019
-ms.author: pabutler
-ms.openlocfilehash: c745a37805862b77e7893788d9d089c8447ae465
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.author: dsindona
+ms.openlocfilehash: 348633ffc91bc25a226b05743a18d2c87533a01d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302870"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280648"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição da utilização do cliente de parceiro do Azure
 
@@ -233,7 +232,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Relatório
 
-Pode encontrar o relatório para atribuição de uso do cliente no painel de instrumentos Partner Center Analyze. [(https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure). ](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure) Para ver o relatório, tem de usar as credenciais do Centro parceiro para iniciar sessão. Se encontrar algum problema com relatório ou iniciar sessão, crie um pedido de apoio seguindo a instrução na secção de suporte Get.
+Pode encontrar o relatório para atribuição de uso do cliente no painel de instrumentos Partner Center Analyze. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver o relatório, tem de usar as credenciais do Centro parceiro para iniciar sessão. Se encontrar algum problema com relatório ou iniciar sessão, crie um pedido de apoio seguindo a instrução na secção de suporte Get.
 
 Escolha o modelo rastreado na lista de dropdown do Partner Association Type para ver o relatório.
 
@@ -241,21 +240,21 @@ Escolha o modelo rastreado na lista de dropdown do Partner Association Type para
 
 ## <a name="notify-your-customers"></a>Notifique os seus clientes
 
-Os parceiros devem informar os seus clientes sobre as implementações que utilizam a atribuição do uso do cliente. A Microsoft informa o uso do Azure que está associado a estas implementações ao parceiro. Os seguintes exemplos incluem conteúdo que pode utilizar para notificar os seus clientes sobre estas implementações. Nos exemplos, substitua \<PARTNER> com o nome da sua empresa. Os parceiros devem certificar-se de que a notificação está alinhada com as suas políticas de privacidade e recolha de dados, incluindo opções para os clientes serem excluídos do rastreio.
+Os parceiros devem informar os seus clientes sobre as implementações que utilizam a atribuição do uso do cliente. A Microsoft informa o uso do Azure que está associado a estas implementações ao parceiro. Os seguintes exemplos incluem conteúdo que pode utilizar para notificar os seus clientes sobre estas implementações. Nos exemplos, \<substitua o PARTNER> pelo nome da sua empresa. Os parceiros devem certificar-se de que a notificação está alinhada com as suas políticas de privacidade e recolha de dados, incluindo opções para os clientes serem excluídos do rastreio.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificação para implementações de modelos de gestor de recursos
 
-Ao implementar este modelo, a Microsoft é capaz de identificar a instalação de \<PARTNER> software com os recursos Azure que são implementados. A Microsoft é capaz de correlacionar os recursos Do Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e para operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
+Ao implementar este modelo, a Microsoft é \<capaz de identificar a instalação do software PARTNER> com os recursos Azure que são implementados. A Microsoft é capaz de correlacionar os recursos Do Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e para operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de https://www.microsoft.com/trustcenterprivacidade da Microsoft, que podem ser encontradas em .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notificação para implementações De SDK ou API
 
-Quando implementa \<software PARTNER> a Microsoft é capaz de identificar a instalação de \<PARTNER> software com os recursos Azure que são implementados. A Microsoft é capaz de correlacionar os recursos Do Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e para operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
+Quando implementa \<o partner> software, a \<Microsoft é capaz de identificar a instalação de software PARTNER> com os recursos Azure que são implementados. A Microsoft é capaz de correlacionar os recursos Do Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e para operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de https://www.microsoft.com/trustcenterprivacidade da Microsoft, que podem ser encontradas em .
 
 ## <a name="get-support"></a>Obter suporte
 
 Existem dois canais de apoio dependendo das questões que está a enfrentar.
 
-Se encontrar algum problema no Partner Center, como ver o relatório de atribuição de uso do cliente ou iniciar sessão, crie um pedido de apoio com a equipa de suporte do Partner Center aqui: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+Se encontrar algum problema no Partner Center, como ver o relatório de atribuição de uso do cliente ou iniciar sessão, crie um pedido de apoio com a equipa de suporte do Partner Center aqui:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
@@ -289,7 +288,7 @@ Também pode receber orientação técnica de um Consultor Técnico do Microsoft
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Como apresentar um pedido de consulta técnica
 
-1. Visite [https://aka.ms/TechnicalJourney. ](https://aka.ms/TechnicalJourney)
+1. Visite [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
 1. Selecione infraestrutura e gestão cloud, e uma nova página será aberta para você ver a viagem técnica.
 1. Em Serviços de Implantação, clique no botão enviar um pedido
 1. Inscreva-se na utilização da sua Conta MSA (conta MPN) ou da sua AAD (conta Partner Dashboard); com base nas suas credenciais de inscrição, será aberto um formulário de pedido online:
@@ -298,7 +297,7 @@ Também pode receber orientação técnica de um Consultor Técnico do Microsoft
     * Introduza um título e a descrição do problema (forneça o máximo de detalhes possível).
 1. Clique em Submeter
 
-Ver instruções passo a passo com imagens em [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
+Ver instruções passo a passo com [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions)imagens em .
 
 ### <a name="whats-next"></a>Passos seguintes
 
@@ -332,7 +331,7 @@ O formulário GUID Generator da Azure Storage é garantido para gerar um GUID do
 
 **Posso usar um VHD personalizado e privado para uma oferta de modelo de solução no Mercado Azure?**
 
-Não, não pode. A imagem da máquina virtual deve vir do Mercado Azure, ver: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
+Não, não pode. A imagem virtual da máquina deve vir [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines)do Mercado Azure, ver: .
 
 Você pode criar uma oferta VM no mercado usando o seu VHD personalizado e marcá-lo como Privado para que ninguém possa vê-lo. Em seguida, refira-se a este VM no seu modelo de solução.
 

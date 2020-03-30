@@ -16,12 +16,12 @@ ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 611937a709152823ddc1b88b1a0befe4161217cd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253640"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331099"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Necessários para a Identidade Híbrida
 O seguinte documento é uma referência técnica sobre as portas e protocolos necessários para a implementação de uma solução de identidade híbrida. Utilize a seguinte ilustração e consulte a tabela correspondente.
@@ -34,11 +34,11 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | Protocolo | Portas | Descrição |
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |Procurações de DNS na floresta de destino. |
-| Rio Kerberos |88 (TCP/UDP) |A autenticação kerberos para a floresta ad. |
+| Kerberos |88 (TCP/UDP) |A autenticação kerberos para a floresta ad. |
 | MS-RPC |135 (TCP) |Utilizado durante a configuração inicial do assistente Azure AD Connect quando se liga à floresta AD, e também durante a sincronização da palavra-passe. |
-| LDAP |389 (TCP/UDP) |Utilizado para a importação de dados a partir de AD. Os dados são encriptados com O Sign & Seal da Kerberos. |
+| LDAP |389 (TCP/UDP) |Utilizado para a importação de dados a partir de AD. Os dados são encriptados com o Sign o & Seal da Kerberos. |
 | SMB | 445 (TCP) |Usado por Seamless SSO para criar uma conta de computador na floresta aD. |
-| LDAP/SSL |636 (TCP/UDP) |Utilizado para a importação de dados a partir de AD. A transferência de dados é assinada e encriptada. Só é utilizado se estiver a utilizar o SSL. |
+| LDAP/SSL |636 (TCP/UDP) |Utilizado para a importação de dados a partir de AD. A transferência de dados é assinada e encriptada. Só utilizado se estiver a utilizar TLS. |
 | RPC |49152- 65535 (Porto RPC aleatório)(TCP) |Utilizado durante a configuração inicial do Azure AD Connect quando se liga às florestas ad, e durante a sincronização da palavra-passe. Ver [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017)e [KB224196](https://support.microsoft.com/kb/224196) para obter mais informações. |
 |WinRM  | 5985 (TCP) |Só utilizado se estiver a instalar AD FS com gMSA por Azure AD Connect Wizard|
 |Serviços Web AD DS | 9389 (TCP) |Só utilizado se estiver a instalar AD FS com gMSA por Azure AD Connect Wizard |
@@ -48,7 +48,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 
 | Protocolo | Portas | Descrição |
 | --- | --- | --- |
-| HTTP |80 (TCP) |Usado para descarregar CRLs (Listas de Revogação de Certificados) para verificar certificados SSL. |
+| HTTP |80 (TCP) |Utilizado para descarregar CRLs (Listas de Revogação de Certificados) para verificar os certificados TLS/SSL. |
 | HTTPS |443 (TCP) |Usado para sincronizar com Azure D.D. |
 
 Para obter uma lista de URLs e endereços IP, você precisa abrir na sua firewall, consulte os [intervalos de endereços do Office 365 urLs e IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) e [a conectividade Troubleshooting Azure AD Connect](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard).
@@ -58,7 +58,7 @@ Esta tabela descreve as portas e protocolos necessários para a comunicação en
 
 | Protocolo | Portas | Descrição |
 | --- | --- | --- |
-| HTTP |80 (TCP) |Usado para descarregar CRLs (Listas de Revogação de Certificados) para verificar certificados SSL. |
+| HTTP |80 (TCP) |Utilizado para descarregar CRLs (Listas de Revogação de Certificados) para verificar os certificados TLS/SSL. |
 | HTTPS |443 (TCP) |Usado para sincronizar com Azure D.D. |
 | WinRM |5985 |Ouvinte WinRM |
 
@@ -77,7 +77,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | HTTPS |443 (TCP) |Utilizado para autenticação do dispositivo. |
 | TCP |49443 (TCP) |Usado para autenticação de certificado. |
 
-## <a name="table-6a--6b---pass-through-authentication-with-single-sign-on-sso-and-password-hash-sync-with-single-sign-on-sso"></a>Tabela 6a e 6b - Autenticação pass-through com placa única (SSO) e Password Hash Sync com Sinal Único Ligado (SSO)
+## <a name="table-6a--6b---pass-through-authentication-with-single-sign-on-sso-and-password-hash-sync-with-single-sign-on-sso"></a>Tabela 6a & 6b - Autenticação pass-through com placa única (SSO) e Password Hash Sync com Único Sinal Ligado (SSO)
 As tabelas que se seguem descrevem as portas e protocolos que são necessários para a comunicação entre o Azure AD Connect e o Azure AD.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabela 6a - Autenticação pass-through com SSO
@@ -96,7 +96,7 @@ Além disso, o Azure AD Connect precisa de ser capaz de fazer ligações IP dire
 
 Além disso, o Azure AD Connect precisa de ser capaz de fazer ligações IP diretas às gamas IP do centro de [dados Azure](https://www.microsoft.com/download/details.aspx?id=41653). Mais uma vez, isto só é necessário para o processo de registo SSO.
 
-## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabela 7a e 7b - Agente de saúde Azure AD Connect Health para (AD FS/Sync) e Azure AD
+## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Quadro 7a & 7b - Agente de saúde Azure AD Connect health para (AD FS/Sync) e Azure AD
 As tabelas seguintes descrevem os pontos finais, portas e protocolos que são necessários para a comunicação entre os agentes da Azure AD Connect Health e a Azure AD
 
 ### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Quadro 7a - Portos e Protocolos para o Agente de Saúde Azure AD Connect (AD FS/Sync) e Azure AD

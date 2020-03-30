@@ -1,18 +1,18 @@
 ---
-title: Escala e hospedagem de funções azure
+title: Dimensionamento e alojamento de Funções do Azure
 description: Saiba como escolher entre o plano de consumo de funções Azure e o plano Premium.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276611"
 ---
-# <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem de funções azure
+# <a name="azure-functions-scale-and-hosting"></a>Dimensionamento e alojamento de Funções do Azure
 
 Quando cria uma aplicação de função no Azure, tem de escolher um plano de hospedagem para a sua aplicação. Existem três planos de hospedagem disponíveis para funções Azure: [plano de consumo,](#consumption-plan) [plano Premium](#premium-plan)e plano [dedicado (App Service).](#app-service-plan)
 
@@ -32,21 +32,21 @@ O plano de Serviço de Aplicações permite-lhe tirar partido de infraestruturas
 
 O suporte de recurso insere-se nas duas categorias seguintes:
 
-* _Geralmente disponível (GA)_ : totalmente apoiado e aprovado para utilização da produção.
+* _Geralmente disponível (GA)_: totalmente apoiado e aprovado para utilização da produção.
 * _Pré-visualização_: ainda não totalmente suportado ou aprovado para utilização da produção.
 
 A tabela seguinte indica o nível atual de suporte para os três planos de hospedagem, quando está em execução no Windows ou linux:
 
 | | Plano de consumo | Plano Premium | Plano dedicado |
 |-|:----------------:|:------------:|:----------------:|
-| Portal do | GA | GA | GA |
+| Windows | GA | GA | GA |
 | Linux | GA | GA | GA |
 
 ## <a name="consumption-plan"></a>Plano de consumo
 
-Quando se está a usar o plano de consumo, os casos do hospedeiro das Funções Azure são dinamicamente adicionados e removidos com base no número de eventos que chegam. Este plano sem servidor escorre automaticamente e é cobrado pelos recursos da computação apenas quando as suas funções estão em execução. Num plano de consumo, uma execução de função passa após um período de tempo configurável.
+Quando se está a usar o plano de consumo, os casos do hospedeiro das Funções Azure são dinamicamente adicionados e removidos com base no número de eventos que chegam. Este plano sem servidor dimensiona automaticamente, sendo-lhe cobrados os recursos de computação apenas quando as suas funções estão em execução. Num plano de consumo, a execução de uma função excede o tempo limite após um período de tempo configurável.
 
-A faturação baseia-se no número de execuções, tempo de execução e memória usadas. A faturação é agregada em todas as funções dentro de uma aplicação de função. Para mais informações, consulte a página de preços das [Funções Azure](https://azure.microsoft.com/pricing/details/functions/).
+A faturação baseia-se no número de execuções, no tempo de execução e na memória utilizada. A faturação é agregada entre todas as funções, dentro de uma aplicação de funções. Para mais informações, consulte a página de preços das [Funções Azure](https://azure.microsoft.com/pricing/details/functions/).
 
 O plano de Consumo é o plano de hospedagem padrão e oferece os seguintes benefícios:
 
@@ -57,7 +57,7 @@ As aplicações de função na mesma região podem ser atribuídas ao mesmo plan
 
 Para saber mais sobre como estimar os custos ao executar um plano de consumo, consulte [os custos do plano de consumo de compreensão.](functions-consumption-costs.md)
 
-## <a name="premium-plan"></a>Plano premium
+## <a name="premium-plan"></a><a name="premium-plan"></a>Plano Premium
 
 Quando se está a usar o plano Premium, as instâncias do anfitrião das Funções Azure são adicionadas e removidas com base no número de eventos que chegam, tal como o plano de consumo.  O plano Premium suporta as seguintes funcionalidades:
 
@@ -82,7 +82,7 @@ Considere o plano Azure Functions Premium nas seguintes situações:
 
 Ao executar funções JavaScript num plano Premium, deve escolher uma instância que tenha menos vCPUs. Para mais informações, consulte os [planos Premium de base única .](functions-reference-node.md#considerations-for-javascript-functions)  
 
-## <a name="app-service-plan"></a>Plano dedicado (Serviço de Aplicações)
+## <a name="dedicated-app-service-plan"></a><a name="app-service-plan"></a>Plano dedicado (Serviço de Aplicações)
 
 As suas aplicações de funções também podem ser executadas nos mesmos VMs dedicados que outras aplicações do App Service (Basic, Standard, Premium e SKUs isolados).
 
@@ -98,14 +98,14 @@ Com um plano de Serviço de Aplicações, pode escalar manualmente adicionando m
 Ao executar funções JavaScript num plano de Serviço de Aplicações, deve escolher um plano que tenha menos vCPUs. Para mais informações, consulte [Escolha planos de serviço de aplicações de base única](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-### <a name="always-on"></a>Sempre ligado
+### <a name="always-on"></a><a name="always-on"></a>Sempre ligado
 
 Se executar um plano de Serviço de Aplicações, deve ativar o **Always na** definição de modo a que a sua aplicação de funções funcione corretamente. Num plano de Serviço de Aplicações, o tempo de funcionamento das funções fica inativo após alguns minutos de inatividade, pelo que apenas os gatilhos HTTP irão "acordar" as suas funções. Sempre ligado está disponível apenas num plano de Serviço de Aplicações. Num plano de consumo, a plataforma ativa automaticamente as aplicações de função.
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 
-Mesmo com o Always On ativado, o prazo de execução para funções individuais é controlado pela configuração `functionTimeout` no ficheiro do projeto [host.json.](functions-host-json.md#functiontimeout)
+Mesmo com o Always On ativado, o tempo de `functionTimeout` execução para funções individuais é controlado pela definição no ficheiro do projeto [host.json.](functions-host-json.md#functiontimeout)
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinar o plano de hospedagem de uma aplicação existente
 
@@ -120,7 +120,7 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-Quando a saída deste comando for `dynamic`, a sua aplicação de funções está no plano de consumo. Quando a saída deste comando for `ElasticPremium`, a sua aplicação de funções está no plano Premium. Todos os outros valores indicam diferentes níveis de um plano de Serviço de Aplicações.
+Quando a saída deste `dynamic`comando for, a sua aplicação de funções está no plano de consumo. Quando a saída deste `ElasticPremium`comando for, a sua aplicação de funções está no plano Premium. Todos os outros valores indicam diferentes níveis de um plano de Serviço de Aplicações.
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
@@ -168,7 +168,7 @@ Para obter informações adicionais sobre escala em Python e Node.js, consulte o
 
 A faturação dos diferentes planos é descrita em detalhe na página de preços das [Funções Azure](https://azure.microsoft.com/pricing/details/functions/). O uso é agregado ao nível da aplicação de função e conta apenas o tempo em que o código de função é executado. Seguem-se unidades de faturação:
 
-* **Consumo de recursos em gigabytes-segundos (GB-s)** . Computada como uma combinação do tamanho da memória e tempo de execução para todas as funções dentro de uma aplicação de função. 
+* **Consumo de recursos em gigabytes-segundos (GB-s)**. Computada como uma combinação do tamanho da memória e tempo de execução para todas as funções dentro de uma aplicação de função. 
 * **Execuções.** Contada cada vez que uma função é executada em resposta a um gatilho de evento.
 
 Consultas úteis e informações sobre como entender a sua conta de consumo podem ser encontradas [no FAQ de faturação](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).

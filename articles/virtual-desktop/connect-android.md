@@ -5,15 +5,15 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99d52077d84ab8a9495f92d9c75fb742ff988ba8
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d2990c82efbcdac7d453f920301787b8c83db1e9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128271"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295365"
 ---
 # <a name="connect-with-the-android-client"></a>Ligar ao cliente Android
 
@@ -26,7 +26,7 @@ Pode aceder aos recursos do Windows Virtual Desktop a partir do seu dispositivo 
 
 ## <a name="install-the-android-client"></a>Instale o cliente Android
 
-Para começar, [faça o download](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android) e instale o cliente no seu dispositivo Android.
+Para começar, [faça o download](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) e instale o cliente no seu dispositivo Android.
 
 ## <a name="subscribe-to-a-feed"></a>Subscreva um feed
 
@@ -34,9 +34,9 @@ Subscreva o feed fornecido pelo seu administrador para obter a lista de recursos
 
 Para subscrever um feed:
 
-1. No Centro de Ligação, toque **+** , e, em seguida, toque no **Feed de Recursos Remotos**.
+1. No Centro de **+** Ligação, toque , toque em Alimentação de **Recursos Remotos**.
 2. Introduza o URL de alimentação no campo **URL** feed. O URL de alimentação pode ser um URL ou um endereço de e-mail.
-   - Se utilizar um URL, use o que o seu administrador lhe deu, normalmente <https://rdweb.wvd.microsoft.com>.
+   - Se utilizar um URL, use o que o <https://rdweb.wvd.microsoft.com>seu administrador lhe deu, normalmente .
    - Para utilizar o seu email, insira o seu endereço de e-mail. O cliente procurará um URL associado ao seu endereço de e-mail se o seu administrador configurar o servidor dessa forma.
 3. Toque **EM NEXT**.
 4. Forneça as suas credenciais quando solicitado.

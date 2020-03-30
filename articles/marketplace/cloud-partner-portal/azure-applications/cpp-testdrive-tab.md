@@ -1,75 +1,74 @@
 ---
-title: Aplicativo Azure oferta test drive | Azure Marketplace
-description: Como configurar test drive para a oferta de Aplicativo Azure no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Azure Application oferece test drive [ unidade de teste ] Mercado Azure
+description: Como configurar o test drive para a oferta da Aplicação Azure no Mercado Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 3855c600fe35c37ac15783995551a769e00532be
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2f35dd69c1f29350049ed8f62dd9cbb0e60a7718
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826125"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289010"
 ---
-# <a name="azure-applications-test-drive-tab"></a>Guia unidade de teste dos aplicativos do Azure
+# <a name="azure-applications-test-drive-tab"></a>Separador de test drive de aplicações Azure
 
-Use a guia Test Drive para fornecer uma experiência de avaliação para seus clientes.
+Utilize o separador Test Drive para proporcionar uma experiência experimental para os seus clientes.
 
-## <a name="test-drive-benefits"></a>Benefícios do Test Drive
+## <a name="test-drive-benefits"></a>Benefícios de Test Drive
 
-A criação de uma experiência de avaliação para seus clientes é uma prática recomendada para garantir que eles possam comprar com confiança. Das opções de avaliação disponíveis, o Test Drive é o mais eficiente na geração de leads de alta qualidade e uma maior conversão desses leads.
+Criar uma experiência experimental para os seus clientes é uma boa prática para garantir que eles podem comprar com confiança. Das opções de teste disponíveis, o Test Drive é o mais eficaz na geração de leads de alta qualidade e no aumento da conversão desses leads.
 
-Ele fornece aos clientes uma avaliação prática e Autoguiada dos principais recursos e benefícios do seu produto, demonstrados em um cenário de implementação do mundo real.
+Proporciona aos clientes um teste prático e auto-guiado das principais funcionalidades e benefícios do seu produto, demonstradonum cenário de implementação no mundo real.
 
 ## <a name="how-a-test-drive-works"></a>Como funciona um test drive
 
-Um cliente potencial pesquisa e descobre seu aplicativo no Marketplace. O cliente entra e concorda com os termos de uso. Neste ponto, o cliente recebe seu ambiente pré-configurado para tentar um número fixo de horas, enquanto você recebe um Lead altamente qualificado para acompanhar. Para obter mais informações, consulte [o que é Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+Um potencial cliente procura e descobre a sua aplicação no Mercado. O cliente entra e concorda com os termos de utilização. Neste ponto, o cliente recebe o seu ambiente pré-configurado para tentar um número fixo de horas, enquanto recebe uma pista altamente qualificada para acompanhar. Para mais informações, consulte [o que é test drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-## <a name="setting-up-a-test-drive"></a>Configurando um test drive
+## <a name="setting-up-a-test-drive"></a>Configuração de um test drive
 
-Use as etapas a seguir para habilitar e configurar um test drive.
+Utilize os seguintes passos para ativar e configurar um test drive.
 
-### <a name="to-enable-a-test-drive"></a>Para habilitar uma test drive:
+### <a name="to-enable-a-test-drive"></a>Para ativar uma unidade de teste:
 
-1. Em **nova oferta**, selecione a guia **Test Drive** .
-2. Em **testar unidade**, selecione **Sim** para **habilitar um test drive**.
+1. Em **New Offer,** selecione o separador **Test Drive.**
+2. Em **test drive,** selecione **Sim** para **ativar um test drive**.
 
-   ![Habilitar um test drive](./media/managed-app-enable-testdrive.png)
+   ![Ativar um test drive](./media/managed-app-enable-testdrive.png)
 
-### <a name="to-configure-a-test-drive"></a>Para configurar um test drive:
+### <a name="to-configure-a-test-drive"></a>Para configurar uma unidade de teste:
 
-Depois de habilitar uma test drive, você preencherá os seguintes formulários para configurar o test drive:
+Depois de ativar um test drive, preencherá os seguintes formulários para configurar o test drive:
   
  - Detalhes
- - Configuração técnica
- - Detalhes da assinatura de implantação do Test Drive
+ - Configuração Técnica
+ - Detalhes da subscrição de implementação de unidade de teste
 
-A próxima captura de tela mostra todos os formulários do Test Drive. Um asterisco (*) acrescentado ao nome do campo indica que ele é necessário. 
+A próxima captura do ecrã mostra todos os formulários test drive. Um asterisco (*) anexado ao nome de campo indica que é necessário. 
 
-![Configurar um test drive](./media/managed-app-configure-testdrive.png)
+![Configure um test drive](./media/managed-app-configure-testdrive.png)
 
-A tabela a seguir descreve os campos necessários para configurar o test drive para o aplicativo gerenciado.  Os campos anexados a um asterisco são obrigatórios.
+A tabela seguinte descreve os campos necessários para configurar o test drive para a sua aplicação gerida.  Os campos anexados com um asterisco são necessários.
 
 |      Campo         |  Descrição      |
 |  ---------------   |  ---------------  |
-| **Descrição\***  |  Descreva o que pode ser feito em seu Test Drive. Você pode usar marcas HTML básicas para formatar essa descrição. Por exemplo, &lt;p&gt;, &lt;em&gt;, &lt;UL&gt;, &lt;li&gt;, &lt;ol&gt;e cabeçalhos.                |
-| **\* manual do usuário**  |  Carregue um manual do usuário que seus clientes possam usar para percorrer a experiência do Test Drive. Este documento deve ser um arquivo. pdf.    |
-| **Vídeo de demonstração do Test Drive** |  Uma explicação de vídeo opcional em seu Test Drive. Um cliente pode assistir a este vídeo antes que eles tenham um test drive. Forneça uma URL para o vídeo no YouTube ou no Vimeo. Se você selecionar **+ Adicionar vídeo**, será solicitado que você forneça as seguintes informações:<ul><li>Nome</li><li>do IdP</li><li>Miniatura (no formato PNG, 533 x 324 pixels)</li></ul>  |
-| **Instâncias\***      | Configure quantas instâncias você deseja, em quais regiões e a rapidez com que seus clientes podem obter o Test Drive. Para obter mais informações, consulte [como publicar um test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
-| **Duração da unidade de teste (horas)\*** | Insira um número inteiro para o número de horas. O intervalo permitido é de 1 a 999. |
-| **Testar o modelo ARM\***     | Carregue um arquivo compactado (. zip) que tenha seus modelos de Azure Resource Manager para seu aplicativo. Para obter mais informações, consulte [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive). |
-| **Informações de acesso\***          | Forneça informações de acesso após o cliente obter o Test Drive. Por exemplo, uma URL para acessar o test drive e assinar informações. . Você pode usar marcas HTML básicas para formatar essa descrição. Por exemplo, &lt;p&gt;, &lt;em&gt;, &lt;UL&gt;, &lt;li&gt;, &lt;ol&gt;e cabeçalhos. |
-| **ID da assinatura do Azure\***       | Isso concede acesso aos serviços do Azure e ao portal do Azure. A assinatura é onde o uso de recursos é relatado e os serviços são cobrados. Se você ainda não tiver uma assinatura separada do Azure para apenas unidades de teste, crie uma assinatura.  |
-| **ID de locatário do Azure AD\***          | Forneça um locatário existente no Azure Active Directory ou crie um locatário para este test drive.  |
-| **ID de Aplicativo Azure AD\***             | Crie e registre um novo aplicativo. A Microsoft usa esse aplicativo para executar operações em sua instância de unidade de teste.  |
-| **Chave de Aplicativo Azure AD\***            | Crie uma chave de autenticação para o aplicativo e cole-a nesse campo.   |
+| **Descrição\***  |  Descreva o que pode ser feito no seu Test Drive. Pode utilizar tags HTML básicas para formatar esta descrição. Por &lt;exemplo,&gt; &lt;p&gt; &lt;,&gt; &lt;em&gt; &lt;,&gt;ul, li, ol , e headings.                |
+| **Manual do utilizador\***  |  Faça upload de um manual de utilizador que os seus clientes podem usar para passar pela experiência Test Drive. Este documento deve ser um ficheiro .pdf.    |
+| **Vídeo de demonstração de test drive** |  Um vídeo opcional do seu Test Drive. Um cliente pode ver este vídeo antes de fazer um test drive. Forneça um URL para o vídeo no YouTube ou Vimeo. Se selecionar **+ Adicionar Vídeo,** será solicitado a fornecer as seguintes informações:<ul><li>Nome</li><li>do IdP</li><li>Miniatura (em formato PNG, 533 x 324 pixels)</li></ul>  |
+| **de Instâncias\***      | Configure quantas instâncias deseja, em que região e a rapidez com que os seus clientes podem obter o Test Drive. Para mais informações, consulte [Como publicar um Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
+| **Duração do test drive (horas)\*** | Insira uma inteiro pelo número de horas. O intervalo permitido é de 1 a 999. |
+| **Modelo de braço de acionamento de teste\***     | Faça upload de um ficheiro comprimido (.zip) que tem os seus Modelos de Gestor de Recursos Azure para a sua aplicação. Para mais informações, consulte [o Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive). |
+| **Informação de acesso\***          | Forneça informações de acesso após o seu cliente obter o Test Drive. Por exemplo, um URL para aceder ao test drive e assinar informações. . Pode utilizar tags HTML básicas para formatar esta descrição. Por &lt;exemplo,&gt; &lt;p&gt; &lt;,&gt; &lt;em&gt; &lt;,&gt;ul, li, ol , e headings. |
+| **ID de Subscrição do Azure\***       | Isto dá acesso aos serviços Azure e ao portal Azure. A subscrição é onde o uso de recursos é reportado, e os serviços são cobrados. Se ainda não tiver uma subscrição Azure separada apenas para Test Drives, crie uma subscrição.  |
+| **Id de inquilino azure AD\***          | Forneça um Inquilino existente no Diretório Ativo Azure ou crie um inquilino para este test drive.  |
+| **Azure AD App Id\***             | Criar e registar uma nova aplicação. A Microsoft utiliza esta aplicação para realizar operações na sua instância Test Drive.  |
+| **Chave da aplicação Azure AD\***            | Crie uma chave de autenticação para a app e cola-a neste campo.   |
 |  |  |
 
-Depois de fornecer todas as informações necessárias, selecione **salvar** para concluir a configuração do Test Drive.
+Depois de fornecer todas as informações necessárias, selecione **Save** para terminar a configuração do test drive.
 
 
 ## <a name="next-steps"></a>Passos seguintes

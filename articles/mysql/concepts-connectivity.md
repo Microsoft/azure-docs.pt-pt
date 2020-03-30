@@ -1,77 +1,77 @@
 ---
-title: Erros de conectividade transitórios-banco de dados do Azure para MySQL
-description: Saiba como lidar com erros de conectividade transitórios e conecte-se com eficiência ao banco de dados do Azure para MySQL.
-keywords: conexão do MySQL, Cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão, conectar com eficiência
+title: Erros de conectividade transitórios - Base de Dados Azure para MySQL
+description: Aprenda a lidar com erros de conectividade transitórios e ligue-se eficientemente à Base de Dados Azure para o MySQL.
+keywords: conexão mysql,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação,ligar eficientemente
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: d91048c52794869b5db1467a3456ca58e703d1ad
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 3/18/2020
+ms.openlocfilehash: 79c5c7e485cc9cb03757b8a981cef92d79b81c3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719930"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537181"
 ---
-# <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Manipular erros transitórios e conectar-se com eficiência ao banco de dados do Azure para MySQL
+# <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Manuseie erros transitórios e ligue-se eficientemente à Base de Dados Azure para mySQL
 
-Este artigo descreve como lidar com erros transitórios e conectar-se com eficiência ao banco de dados do Azure para MySQL.
+Este artigo descreve como lidar com erros transitórios e ligar eficientemente à Base de Dados Azure para o MySQL.
 
 ## <a name="transient-errors"></a>Erros transitórios
 
-Um erro transitório, também conhecido como uma falha transitória, é um erro que será resolvido por si só. Geralmente, esses erros são manifestados como uma conexão com o servidor de banco de dados que está sendo Descartado. Também não é possível abrir novas conexões com um servidor. Erros transitórios podem ocorrer por exemplo, quando ocorre falha de hardware ou de rede. Outro motivo pode ser uma nova versão de um serviço PaaS que está sendo distribuído. A maioria desses eventos é automaticamente mitigada pelo sistema em menos de 60 segundos. Uma prática recomendada para projetar e desenvolver aplicativos na nuvem é esperar erros transitórios. Suponha que eles possam ocorrer em qualquer componente a qualquer momento e que haja a lógica apropriada em vigor para lidar com essas situações.
+Um erro transitório, também conhecido como uma falha transitória, é um erro que se resolverá sozinho. Normalmente, estes erros manifestam-se como uma ligação ao servidor de base de dados que está a ser eliminado. Também não podem ser abertas novas ligações a um servidor. Erros transitórios podem ocorrer, por exemplo, quando o hardware ou falha de rede acontece. Outra razão poderia ser uma nova versão de um serviço PaaS que está a ser lançado. A maioria destes eventos são automaticamente atenuados pelo sistema em menos de 60 segundos. Uma boa prática para conceber e desenvolver aplicações na nuvem é esperar erros transitórios. Assuma que podem acontecer em qualquer componente a qualquer momento e ter a lógica adequada para lidar com estas situações.
 
-## <a name="handling-transient-errors"></a>Manipulando erros transitórios
+## <a name="handling-transient-errors"></a>Manuseamento de erros transitórios
 
-Os erros transitórios devem ser tratados usando a lógica de repetição. Situações que devem ser consideradas:
+Os erros transitórios devem ser tratados utilizando a lógica de retry. Situações que devem ser consideradas:
 
-* Ocorrerá um erro quando você tentar abrir uma conexão
-* Uma conexão ociosa é descartada no lado do servidor. Quando você tenta emitir um comando, ele não pode ser executado
-* Uma conexão ativa que atualmente está executando um comando é descartada.
+* Um erro ocorre quando se tenta abrir uma ligação
+* Uma ligação inativa é deixada no lado do servidor. Quando se tenta emitir um comando, não pode ser executado.
+* Uma ligação ativa que está atualmente a executar um comando é abandonada.
 
-O primeiro e o segundo caso são bastante diretos para manipular. Tente abrir a conexão novamente. Quando tiver sucesso, o erro transitório foi mitigado pelo sistema. Você pode usar o banco de dados do Azure para MySQL novamente. Recomendamos que haja esperas antes de tentar novamente a conexão. Fazer logoff se as tentativas iniciais falharem. Dessa forma, o sistema pode usar todos os recursos disponíveis para superar a situação de erro. Um bom padrão a ser seguido é:
+O primeiro e o segundo caso são bastante diretos para lidar. Tente abrir a ligação de novo. Quando se consegue, o erro transitório foi atenuado pelo sistema. Pode utilizar novamente a sua Base de Dados Azure para o MySQL. Recomendamos que tenha esperas antes de voltar a experimentar a ligação. Afaste-se se as tentativas iniciais falharem. Desta forma, o sistema pode utilizar todos os recursos disponíveis para ultrapassar a situação de erro. Um bom padrão a seguir é:
 
 * Aguarde 5 segundos antes da primeira tentativa.
-* Para cada repetição seguinte, aumente a espera exponencialmente, até 60 segundos.
-* Defina um número máximo de repetições no ponto em que seu aplicativo considera que a operação falhou.
+* Para cada tentativa seguinte, o aumento exponencial da espera, até 60 segundos.
+* Detete um número máximo de repetições no momento em que a sua aplicação considera que a operação falhou.
 
-Quando uma conexão com uma transação ativa falha, é mais difícil lidar com a recuperação corretamente. Há dois casos: se a transação era somente leitura por natureza, é seguro reabrir a conexão e tentar novamente a transação. Se, no entanto, a transação também estiver gravando no banco de dados, você deverá determinar se a transação foi revertida ou se foi bem-sucedida antes de o erro transitório acontecer. Nesse caso, você pode simplesmente não ter recebido a confirmação de confirmação do servidor de banco de dados.
+Quando uma ligação com uma transação ativa falha, é mais difícil lidar corretamente com a recuperação. Há dois casos: Se a transação foi lida apenas na natureza, é seguro reabrir a ligação e voltar a tentar a transação. Se, no entanto, a transação também estava escrita na base de dados, deve determinar se a transação foi revertida ou se foi bem sucedida antes do erro transitório. Nesse caso, pode não ter recebido o reconhecimento do servidor de base de dados.
 
-Uma maneira de fazer isso é gerar uma ID exclusiva no cliente que é usada para todas as tentativas. Você passa essa ID exclusiva como parte da transação para o servidor e a armazena em uma coluna com uma restrição UNIQUE. Dessa forma, você pode repetir a transação com segurança. Ele será bem sucedido se a transação anterior tiver sido revertida e a ID exclusiva gerada pelo cliente ainda não existir no sistema. Ele falhará indicando uma violação de chave duplicada se a ID exclusiva tiver sido armazenada anteriormente porque a transação anterior foi concluída com êxito.
+Uma maneira de fazer isto, é gerar uma identificação única no cliente que é usado para todas as tentativas. Passa este ID único como parte da transação para o servidor e armazena-o numa coluna com um constrangimento único. Desta forma, pode voltar a tentar a transação com segurança. Será bem sucedido se a transação anterior for revertida e o ID único gerado pelo cliente ainda não existir no sistema. Falhará indicando uma violação da chave duplicada se o ID único foi previamente armazenado porque a transação anterior foi concluída com sucesso.
 
-Quando seu programa se comunicar com o banco de dados do Azure para MySQL por meio de middleware de terceiros, pergunte ao fornecedor se o middleware contém lógica de repetição para erros transitórios.
+Quando o seu programa comunicar com a Base de Dados Azure para mySQL através de middleware de terceiros, pergunte ao fornecedor se o middleware contém lógica de retry para erros transitórios.
 
-Certifique-se de testar a lógica de repetição. Por exemplo, tente executar seu código ao escalar ou reduzir verticalmente os recursos de computação do banco de dados do Azure para o servidor MySQL. Seu aplicativo deve lidar com o breve tempo de inatividade encontrado durante essa operação sem problemas.
+Certifique-se de testar a lógica de novo. Por exemplo, tente executar o seu código enquanto escala para cima ou para baixo os recursos computacionais da sua Base de Dados Azure para o servidor MySQL. A sua aplicação deve tratar do breve tempo de paragem que se encontra durante esta operação sem qualquer problema.
 
-## <a name="connect-efficiently-to-azure-database-for-mysql"></a>Conectar-se com eficiência ao banco de dados do Azure para MySQL
+## <a name="connect-efficiently-to-azure-database-for-mysql"></a>Ligue-se eficientemente à Base de Dados Azure para o MySQL
 
-As conexões de banco de dados são um recurso limitado, portanto, fazer uso efetivo do pool de conexões para acessar o banco de dados do Azure para MySQL otimiza o desempenho. A seção abaixo explica como usar o pool de conexões ou conexões persistentes para acessar com mais eficiência o banco de dados do Azure para MySQL.
+As ligações de base de dados são um recurso limitado, pelo que fazer uso eficaz do pool de ligação para aceder à Base de Dados Azure para mySQL otimiza o desempenho. A secção abaixo explica como utilizar o agrupamento de ligações ou ligações persistentes para aceder mais eficazmente à Base de Dados Azure para o MySQL.
 
-## <a name="access-databases-by-using-connection-pooling-recommended"></a>Acessar bancos de dados usando o pool de conexões (recomendado)
+## <a name="access-databases-by-using-connection-pooling-recommended"></a>Aceder às bases de dados utilizando o pooling de ligação (recomendado)
 
-O gerenciamento de conexões de banco de dados pode ter um impacto significativo no desempenho do aplicativo como um todo. Para otimizar o desempenho do seu aplicativo, o objetivo deve ser reduzir o número de vezes que as conexões são estabelecidas e o tempo para estabelecer conexões em caminhos de código-chave. É altamente recomendável usar o pool de conexões de banco de dados ou conexões persistentes para se conectar ao banco de dados do Azure para MySQL. O pool de conexões de banco de dados lida com a criação, o gerenciamento e a alocação de conexões de banco de dados. Quando um programa solicita uma conexão de banco de dados, ele prioriza a alocação de conexões de banco de dados ociosas existentes, em vez da criação de uma nova conexão. Depois que o programa terminar de usar a conexão de banco de dados, a conexão será recuperada na preparação para uso posterior, em vez de simplesmente ser fechada.
+Gerir as ligações de base de dados pode ter um impacto significativo no desempenho da aplicação como um todo. Para otimizar o desempenho da sua aplicação, o objetivo deve ser reduzir o número de vezes estabelecidas as ligações e tempo para estabelecer ligações em caminhos-chave de código. Recomendamos vivamente a utilização de ligações de ligação à base de dados ou ligações persistentes para ligar à Base de Dados Azure para o MySQL. O agrupamento de ligação à base de dados trata da criação, gestão e atribuição de ligações à base de dados. Quando um programa solicita uma ligação à base de dados, prioriza a atribuição de ligações de bases de dados ociosas existentes, em vez da criação de uma nova ligação. Depois de o programa ter terminado a utilização da ligação à base de dados, a ligação é recuperada em preparação para uma utilização posterior, em vez de simplesmente ser encerrada.
 
 Para uma melhor ilustração, este artigo fornece [um pedaço de código de amostra](./sample-scripts-java-connection-pooling.md) que usa java como exemplo. Para mais informações, consulte [o Apache Common DBCP.](https://commons.apache.org/proper/commons-dbcp/)
 
 > [!NOTE]
-> O servidor configura um mecanismo de tempo limite para fechar uma conexão que esteve em estado ocioso por algum tempo para liberar recursos. Certifique-se de configurar o sistema de verificação para garantir a eficácia de conexões persistentes quando você as estiver usando. Para mais informações, consulte os sistemas de [verificação Configure do lado do cliente para garantir a eficácia das ligações persistentes](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).
+> O servidor configura um mecanismo de timeout para fechar uma ligação que está em estado de ocioso há algum tempo para libertar recursos. Certifique-se de que configura o sistema de verificação para garantir a eficácia das ligações persistentes quando as utilizar. Para mais informações, consulte os sistemas de [verificação Configure do lado do cliente para garantir a eficácia das ligações persistentes](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).
 
-## <a name="access-databases-by-using-persistent-connections-recommended"></a>Acessar bancos de dados usando conexões persistentes (recomendado)
+## <a name="access-databases-by-using-persistent-connections-recommended"></a>Bases de dados de acesso utilizando ligações persistentes (recomendadas)
 
-O conceito de conexões persistentes é semelhante ao do pool de conexões. A substituição de conexões curtas com conexões persistentes exige apenas pequenas alterações no código, mas tem um grande efeito em termos de melhorar o desempenho em muitos cenários de aplicativos típicos.
+O conceito de conexões persistentes é semelhante ao do agrupamento de ligação. A substituição de ligações curtas por ligações persistentes requer apenas pequenas alterações ao código, mas tem um grande efeito em termos de melhoria do desempenho em muitos cenários típicos de aplicação.
 
-## <a name="access-databases-by-using-wait-and-retry-mechanism-with-short-connections"></a>Acessar bancos de dados usando o mecanismo de espera e de repetição com conexões curtas
+## <a name="access-databases-by-using-wait-and-retry-mechanism-with-short-connections"></a>Aceder às bases de dados utilizando mecanismo de espera e de retry com ligações curtas
 
-Se você tiver limitações de recursos, é altamente recomendável que você use o pool de banco de dados ou conexões persistentes para acessar bancos de dados. Se seu aplicativo usar conexões curtas e experimentar falhas de conexão ao abordar o limite superior no número de conexões simultâneas, você poderá tentar o mecanismo de espera e de repetição. Você pode definir um tempo de espera apropriado, com um tempo de espera mais curto após a primeira tentativa. Depois disso, você pode tentar aguardar eventos várias vezes.
+Se tiver limitações de recursos, recomendamos vivamente que utilize bases de dados ou ligações persistentes para aceder a bases de dados. Se a sua aplicação utilizar ligações curtas e experimentar falhas de ligação quando se aproximar do limite superior do número de ligações simultâneas, pode tentar esperar e retentar o mecanismo. Pode definir um tempo de espera adequado, com um tempo de espera mais curto após a primeira tentativa. Depois disso, pode tentar esperar por eventos várias vezes.
 
-## <a name="configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections"></a>Configurar mecanismos de verificação em clientes para confirmar a eficácia de conexões persistentes
+## <a name="configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections"></a>Configure mecanismos de verificação nos clientes para confirmar a eficácia das ligações persistentes
 
-O servidor configura um mecanismo de tempo limite para fechar uma conexão que está em um estado ocioso por algum tempo para liberar recursos. Quando o cliente acessa o banco de dados novamente, é equivalente a criar uma nova solicitação de conexão entre o cliente e o servidor. Para garantir a eficácia das conexões durante o processo de usá-las, configure um mecanismo de verificação no cliente. Conforme mostrado no exemplo a seguir, você pode usar o pool de conexões do Tomcat JDBC para configurar esse mecanismo de verificação.
+O servidor configura um mecanismo de tempo para fechar uma ligação que está em estado de ocioso há algum tempo para libertar recursos. Quando o cliente volta a aceder à base de dados, é equivalente a criar um novo pedido de ligação entre o cliente e o servidor. Para garantir a eficácia das ligações durante o processo de utilização das mesmas, configure um mecanismo de verificação no cliente. Como mostra o seguinte exemplo, pode utilizar a ligação Tomcat JDBC para configurar este mecanismo de verificação.
 
-Ao definir o parâmetro TestOnBorrow, quando há uma nova solicitação, o pool de conexões verifica automaticamente a eficácia de todas as conexões ociosas disponíveis. Se essa conexão for eficaz, o pool de conexão retornado de outra forma retornará a conexão. O pool de conexões cria uma nova conexão efetiva e a retorna. Esse processo garante que o banco de dados seja acessado com eficiência. 
+Ao definir o parâmetro TestOnBorrow, quando há um novo pedido, o conjunto de ligação verifica automaticamente a eficácia de quaisquer ligações ociosas disponíveis. Se tal ligação for eficaz, a sua piscina de ligação devolvida diretamente retira a ligação. A piscina de ligação cria então uma nova ligação eficaz e devolve-a. Este processo garante que a base de dados seja acedida de forma eficiente. 
 
-Para obter informações sobre as definições específicas, consulte o documento oficial de introdução do [pool de ligação JDBC](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). Você precisa definir principalmente os três parâmetros a seguir: TestOnBorrow (definido como true), ValidationQuery (definido como SELECT 1) e ValidationQueryTimeout (definido como 1). O código de exemplo específico é mostrado abaixo:
+Para obter informações sobre as definições específicas, consulte o documento oficial de introdução do [pool de ligação JDBC](https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Common_Attributes). É necessário definir principalmente os seguintes três parâmetros: TestOnBorrow (definido para verdade), ValidaçãoQuery (definido para SELECT 1) e ValidaçãoQuetempo de Tempo (definido para 1). O código de amostra específico é mostrado abaixo:
 
 ```java
 public class SimpleTestOnBorrowExample {
@@ -110,6 +110,6 @@ public class SimpleTestOnBorrowExample {
   }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolver problemas de ligação à Base de Dados do Azure para MySQL](howto-troubleshoot-common-connection-issues.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 64b90afd598b96604fc9c3ddc4bc10586e714363
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 9c4e6124acdbb35233f8e829f43d2665fd4a5176
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279107"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284811"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Visão geral da rescisão do SSL e fim do SSL com Gateway de Aplicação
 
@@ -22,7 +22,7 @@ Secure Sockets Layer (SSL) é a tecnologia de segurança padrão para estabelece
 
 O Gateway de Aplicação suporta a terminação de SSL no gateway, após a qual o tráfego flui normalmente desencriptado para os servidores de back-end. Existem várias vantagens em fazer a rescisão ssl no gateway da aplicação:
 
-- **Melhor desempenho** – O maior sucesso de desempenho ao fazer a desencriptação ssl é o aperto de mão inicial. Para melhorar o desempenho, o servidor que faz os iDs de sessão ssl de desencriptação caches SSL e gere os bilhetes de sessão TLS. Se isso for feito no gateway da aplicação, todos os pedidos do mesmo cliente podem utilizar os valores em cache. Se for feito nos servidores de backend, então cada vez que os pedidos do cliente vão para um servidor diferente o cliente tem que se reautenticar. A utilização de bilhetes TLS pode ajudar a mitigar este problema, mas não são suportados por todos os clientes e podem ser difíceis de configurar e gerir.
+- **Melhor desempenho** – O maior sucesso de desempenho ao fazer a desencriptação ssl é o aperto de mão inicial. Para melhorar o desempenho, o servidor que faz os iDs de sessão ssl de desencriptação caches SSL e gere os bilhetes de sessão TLS. Se isso for feito no gateway da aplicação, todos os pedidos do mesmo cliente podem utilizar os valores em cache. Se for feito nos servidores de backend, então cada vez que os pedidos do cliente vão para um servidor diferente o cliente deve reautenticar. A utilização de bilhetes TLS pode ajudar a mitigar este problema, mas não são suportados por todos os clientes e podem ser difíceis de configurar e gerir.
 - **Melhor utilização dos servidores de backend** – O processamento de SSL/TLS é muito intensivo em CPU e está a tornar-se mais intensivo à medida que os tamanhos das teclas aumentam. Remover este trabalho dos servidores de backend permite-lhes concentrar-se no que são mais eficientes, fornecendo conteúdo.
 - **Encaminhamento inteligente** – Ao desencriptar o tráfego, o portal da aplicação tem acesso aos conteúdos de pedido, tais como cabeçalhos, URI, e assim por diante, e pode usar esses dados para encaminhar pedidos.
 - **Gestão de certificados** – Os certificados só precisam de ser adquiridos e instalados no gateway da aplicação e nem todos os servidores de backend. Isto poupa tempo e dinheiro.
@@ -36,14 +36,14 @@ Para configurar a rescisão do SSL, é necessário adicionar ao ouvinte um certi
 Para que a ligação SSL funcione, é necessário garantir que o certificado SSL satisfaz as seguintes condições:
 
 - Que a data e a hora em vigor estão dentro da gama de data "Válido de" e "Válido para" no certificado.
-- O “Nome Comum” (NC) do certificado corresponde ao cabeçalho do anfitrião no pedido. Por exemplo, se o cliente estiver a realizar um pedido para `https://www.contoso.com/`, o NC deverá ser `www.contoso.com`.
+- O “Nome Comum” (NC) do certificado corresponde ao cabeçalho do anfitrião no pedido. Por exemplo, se o cliente estiver a realizar um pedido para `https://www.contoso.com/`, o NC tem de ser `www.contoso.com`.
 
 ### <a name="certificates-supported-for-ssl-termination"></a>Certificados suportados para a rescisão do SSL
 
 O gateway de aplicação suporta os seguintes tipos de certificados:
 
 - Certificado CA (Autoridade de Certificados): Um certificado CA é um certificado digital emitido por uma autoridade de certificados (CA)
-- Certificado EV (Validação Alargada): Um certificado EV é uma diretriz padrão do certificado da indústria. Isto tornará o bar de localização do navegador verde e publicará o nome da empresa também.
+- Certificado EV (Validação Alargada): Um certificado EV é um certificado que está em conformidade com as diretrizes de certificados padrão da indústria. Isto tornará o bar de localização do navegador verde e publicará o nome da empresa também.
 - Certificado Wildcard: Este certificado suporta qualquer número de subdomínios baseados em *.site.com, onde o seu subdomínio substituiria o *. No entanto, não suporta site.com, pelo que, caso os utilizadores acedam ao seu website sem digitar o "www", o certificado wildcard não cobre isso.
 - Certificados auto-assinados: Os navegadores de clientes não confiam nestes certificados e vão avisar o utilizador de que o certificado do serviço virtual não faz parte de uma cadeia fiduciário. Os certificados auto-assinados são bons para testes ou ambientes onde os administradores controlam os clientes e podem contornar com segurança os alertas de segurança do navegador. As cargas de trabalho de produção nunca devem utilizar certificados auto-assinados.
 
@@ -95,7 +95,7 @@ Os Certificados de Autenticação foram depreciados e substituídos por Certific
    
 > [!NOTE] 
 >
-> Para que um certificado SSL seja confiável, esse certificado do servidor backend deve ter sido emitido por um CA que está incluído na loja fidedigna do Gateway de Aplicação.Se o certificado não foi emitido por um CA fidedigno, o Gateway de Aplicação verificará então para ver se o certificado da AC emissora foi emitido por um CA de confiança, e assim por diante até que seja encontrado um CA de confiança (altura em que será estabelecida uma ligação segura e fidedigna) ou se não pode ser encontrada nenhuma AC fidedigna (altura em que o Gateway de aplicação marcará o backend insalubre). Portanto, recomenda-se que o certificado de servidor de backend contenha tanto a raiz como os CaA intercalares.
+> Para que um certificado SSL seja confiável, esse certificado do servidor backend deve ter sido emitido por um CA que está incluído na loja fidedigna do Gateway de Aplicação.Se o certificado não foi emitido por um CA fidedigno, o Gateway de Aplicação verificará então para ver se o certificado da AC emissora foi emitido por um CA de confiança, e assim por diante até que seja encontrado um CA de confiança (altura em que será estabelecida uma ligação segura e fidedigna) ou se não pode ser encontrada nenhuma AC fidedigna (altura em que o Gateway de aplicação marcará o backend insalubre). Portanto, recomenda-se que o certificado de servidor de backend contenha tanto os CAs radiculares como os caqueis intermédios.
 
 - Se o certificado for auto-assinado ou assinado por intermediários desconhecidos, então para permitir o fim do SSL em v2 SKU deve ser definido um certificado raiz fidedigno. O Gateway de aplicação só comunicará com backends cujo certificado de raiz do Certificado de Servidor corresponde a uma das listas de certificados de raiz fidedignos na definição de http de backend associada à piscina.
 

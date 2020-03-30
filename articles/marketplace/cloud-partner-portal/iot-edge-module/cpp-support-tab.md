@@ -1,45 +1,44 @@
 ---
-title: Suporte para um módulo Azure IoT Edge | Azure Marketplace
+title: Suporte para um módulo Azure IoT Edge [ Mercado Azure
 description: Opções de suporte para um módulo IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: fe8ff895990471107cfaa229f7b4ced28b477afa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 439de17ef9eb9c0c2c264884652236d47600b8ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813531"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286511"
 ---
-# <a name="iot-edge-module-support-tab"></a>Guia de suporte do módulo IoT Edge
+# <a name="iot-edge-module-support-tab"></a>Separador de suporte para módulo IoT Edge
 
-Use a guia **suporte** da nova página de **oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de suporte: **contato de engenharia**, **suporte ao cliente**e **URLs de suporte**. Um asterisco (*) acrescentado ao nome do campo indica que ele é necessário.
+Utilize o separador **suporte** da página **New Offer** para fornecer recursos técnicos e de suporte ao utilizador para a sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de Suporte: **Contacto de Engenharia,** **Apoio ao Cliente**e **Urls**de Apoio . Um asterisco (*) anexado ao nome de campo indica que é necessário.
 
-![Guia suporte no formulário nova oferta para módulos IoT Edge](./media/iot-edge-module-support-tab.png)
+![Separador de suporte no formulário New Offer para módulos IoT Edge](./media/iot-edge-module-support-tab.png)
 
 ## <a name="support-form-fields"></a>Campos de formulário de suporte
 
-A tabela a seguir descreve os campos de formulário e a entrada necessária para cada campo. Os campos obrigatórios são indicted por um asterisco (*).
+A tabela seguinte descreve os campos de formulário e a entrada necessária para cada campo. Os campos necessários são indiciados por um asterisco (*).
 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
-| ***Contato de engenharia***  |  *Serve como um contato técnico entre a Microsoft e sua organização* | 
-| **Nome\***                  | Nome da pessoa ou grupo que serve como suporte técnico/de engenharia     |
-| **\* de email**                 | Endereço de email deste contato técnico                                      |
+| ***Contacto de Engenharia***  |  *Serve como um contacto técnico entre a Microsoft e a sua organização* | 
+| **Nome\***                  | Nome da pessoa ou grupo que serve de suporte técnico/engenharia     |
+| **E-mail\***                 | Endereço de e-mail deste contacto técnico                                      |
 | **Telefone\***                 | Número de telefone para suporte técnico                                           |
-| ***Suporte ao cliente***  | *Recebe tíquetes de suporte abertos por clientes no Azure* |
-| **Nome\***                  | Nome da pessoa ou grupo que serve como atendimento ao cliente                  |
-| **\* de email**                 | Endereço de email do suporte ao cliente                                            |
-| **Telefone\***                 | Número de telefone do atendimento ao cliente                                            |
-| ***URLs de suporte***  | *Sites de suporte que a Microsoft usará quando os clientes abrirem tíquetes de suporte* |
-| **Azure público**          | URL para o site de suporte público da Internet                                         |
-| **Nuvem do Azure governamental**| URL para site de suporte de nuvem do governo                                        |
+| ***Apoio ao Cliente***  | *Recebe bilhetes de apoio abertos pelos clientes no Azure* |
+| **Nome\***                  | Nome da pessoa ou grupo que serve de apoio ao cliente                  |
+| **E-mail\***                 | Endereço de e-mail do apoio ao cliente                                            |
+| **Telefone\***                 | Número de telefone para apoio ao cliente                                            |
+| ***Urls de suporte***  | *Sites de suporte que a Microsoft utilizará quando os seus clientes abrirem bilhetes de apoio* |
+| **Azure Público**          | URL para site público de suporte à internet                                         |
+| **Nuvem do Governo de Azure**| URL para site de apoio à nuvem do governo                                        |
 |   |   |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de concluir o fornecimento de informações de suporte, você estará pronto para [publicar sua oferta](./cpp-publish-offer.md).
+Depois de terminar de fornecer informações de suporte, está pronto para publicar a [sua oferta.](./cpp-publish-offer.md)

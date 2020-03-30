@@ -1,42 +1,41 @@
 ---
-title: Serviços para o mercado – promova seus negócios com a Microsoft | Azure
-description: Serviços de lançamento no mercado-os Publicadores podem aprender a promover seus negócios com a Microsoft nesta seção.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Go-To-Market Services - Promova o seu negócio com a Microsoft Azure
+description: Go-To-Market Services - As editoras podem aprender a promover o seu negócio com a Microsoft nesta secção.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2019
-ms.author: ellacroi
-ms.openlocfilehash: d1ac8963e673044e1d3ca3a0163df065097e12be
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8e5165d000ee98212b3fd76091ffbd030b6b787f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825954"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281549"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Fazer crescer o seu negócio com a Microsoft
 
-Os parceiros do Marketplace precisam fazer parte do Microsoft Partner Network (MPN). Como um membro do MPN, você pode acessar benefícios adicionais voltados para os negócios. Visite [Partner.Microsoft.com](https://partner.microsoft.com) para ver como você pode usar a rede para acessar o:
+Os parceiros de marketplace são obrigados a fazer parte da Microsoft Partner Network (MPN). Como membro da MPN, pode aceder a benefícios adicionais focados no negócio. Visite [partner.microsoft.com](https://partner.microsoft.com) para ver como pode usar a rede para aceder:
 
-* Novas oportunidades de negócios.
-* Conectando-se com equipes ou parceiros.
-* Soluções e treinamento para ajudar a aumentar seu qualificable.
+* Novas oportunidades de negócio.
+* Ligação com equipas ou parceiros.
+* Soluções e treino para ajudar a aumentar a sua habilidade.
 
 ## <a name="benefits-and-resources"></a>Benefícios e recursos
 
-Para promover sua oferta ou aplicativo e acessar mais benefícios e recursos, use a tabela a seguir:
+Para promover a sua oferta ou app, e para aceder a mais benefícios e recursos, use a seguinte tabela:
 
 | Vantagens | Recursos |
 |:--- |:--- |
-| Use seus principais benefícios | Como parte do Microsoft Partner Network, você recebe um conjunto de principais benefícios que podem ajudar a economizar tempo e dinheiro. Os benefícios podem ajudá-lo <ul> <li> Fortaleça seus recursos, </li> <li> atenda melhor aos clientes e </li> <li> Crie conexões para alcançar seu potencial de negócios completo. </li> </ul> Para obter mais informações sobre os principais benefícios, visite [os principais benefícios e requisitos](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
-| Ganhe sua competência de plataforma de nuvem | Ganhar uma competência ajuda você a <ul> <li> Diferencie-se entre outros parceiros da Microsoft. </li> <li> Demonstre a experiência técnica e o sucesso do cliente no mercado. </li> </ul> A competência é um pré-requisito para muitos programas-chave de parceiro, como a venda. Consulte [competência da plataforma de nuvem](https://partner.microsoft.com/reach-customers/selling-with-microsoft) para obter mais informações. |
-| Tornar-se pronto para a venda de IP | Você pode estar qualificado para o programa pronto para venda de IP.  Este programa permite que você: <ul> <li> Colabore diretamente com os vendedores da Microsoft e outros parceiros em oportunidades de clientes de destino e planejamento de conta. </li> <li> Tornando sua solução visível para os vendedores da Microsoft no catálogo de soluções do vendedor. </li> <li> Os vendedores da Microsoft são recompensados por colaborar e ganhar com você. </li> </ul> Veja [o programa pronto para venda e promova sua empresa](https://partner.microsoft.com/reach-customers/selling-with-microsoft) para obter mais informações, incluindo requisitos de qualificação. |
+| Use os seus Benefícios Nucleares | Como parte da Microsoft Partner Network, recebe um conjunto de benefícios fundamentais que podem ajudar a poupar tempo e dinheiro. Os benefícios podem ajudá-lo <ul> <li> fortalecer as suas capacidades, </li> <li> melhor servir os clientes, e </li> <li> construir ligações para atingir todo o seu potencial de negócio. </li> </ul> Para obter mais informações sobre os benefícios fundamentais, visite [benefícios e requisitos fundamentais.](https://partner.microsoft.com/membership/core-benefits#tab-content-1) |
+| Ganhe a sua Competência na Plataforma Cloud | Ganhar uma competência ajuda-o a <ul> <li> Diferencia-te entre outros parceiros da Microsoft. </li> <li> Demonstrar experiência técnica e sucesso do cliente no mercado. </li> </ul> A competência é um pré-requisito para muitos programas de parceiros chave, como co-sell. Consulte a competência da [Cloud Platform](https://partner.microsoft.com/reach-customers/selling-with-microsoft) para obter mais informações. |
+| Torne-se co-venda IP pronto | Pode ser elegível para o programa IP Co-Sell Ready.  Este programa permite-lhe: <ul> <li> Colabore diretamente com os vendedores da Microsoft e outros parceiros sobre as oportunidades de clientes-alvo e o planeamento de contas. </li> <li> Tornar a sua solução visível para os vendedores da Microsoft no catálogo de soluções de vendedor. </li> <li> Os vendedores da Microsoft são recompensados por colaborarem e ganharem consigo. </li> </ul> Consulte [o programa Co-Sell Ready e promova o seu negócio](https://partner.microsoft.com/reach-customers/selling-with-microsoft) para obter mais informações, incluindo requisitos de elegibilidade. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os serviços GTM do Marketplace, acesse [serviços de entrada no mercado](https://partner.microsoft.com/reach-customers/gtm).
+Para saber mais sobre os serviços GTM do marketplace, vá a [serviços go-to-market.](https://partner.microsoft.com/reach-customers/gtm)
 
-Faça logon no [portal do Cloud Partner](https://cloudpartner.azure.com) para criar e configurar sua oferta.
+Inicie sessão no Portal do [Parceiro cloud](https://cloudpartner.azure.com) para criar e configurar a sua oferta.
 
 ---

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 58e7eea487c5d00a33338a592dd064072bef3c64
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78926698"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348878"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server
 
@@ -27,15 +27,15 @@ ms.locfileid: "78926698"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533,]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[SAP 1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -120,7 +120,7 @@ Você pode usar um dos modelos de arranque rápido no GitHub para implementar to
    4. Nome de utilizador e senha de administrador  
       É criado um novo utilizador que pode ser utilizado para iniciar sessão na máquina.
    5. Id da sub-rede  
-      Se pretender implantar o VM numa VNet existente onde tem uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente parece /subscrições/ **&lt;id de subscrição&gt;** /recursosGroups/&lt;nome de grupo de recursos **&gt;** /fornecedores/Microsoft.Network/virtualNetworks/&lt;nome de rede **virtual&gt;** /subnets/&lt;nome **da sub-rede&gt;**
+      Se pretender implantar o VM numa VNet existente onde tem uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente parece /subscrições/**&lt;ID&gt;de subscrição**/recursosGroups/**&lt;nome&gt;** de grupo de recursos /fornecedores/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt; **
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar o Linux manualmente através do portal Azure
 
@@ -143,35 +143,33 @@ Primeiro é necessário criar as máquinas virtuais para este cluster NFS. Depoi
             1. Abra o equilibrador de carga, selecione pool IP frontend e clique em Adicionar
             1. Introduza o nome do novo pool IP frontend (por exemplo **nw1-frontend)**
             1. Definir a Atribuição à Estática e introduzir o endereço IP (por exemplo **10.0.0.4**)
-            1. Clique em OK
+            1. Clique OK
          1. Endereço IP 10.0.0.5 para NW2
             * Repita os passos acima para NW2
       1. Crie as piscinas de backend
-         1. Ligado às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte do cluster NFS para NW1
+         1. Ligado às interfaces de rede primáriade todas as máquinas virtuais que devem fazer parte do cluster NFS
             1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
-            1. Introduza o nome da nova piscina de backend (por exemplo **nw1-backend)**
+            1. Introduza o nome da nova piscina de backend (por **exemplo, nw-backend)**
             1. Selecione Rede Virtual
             1. Clique em Adicionar uma máquina virtual
             1. Selecione as máquinas virtuais do cluster NFS e os seus endereços IP.
             1. Clique em Adicionar.
-         1. Ligado às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte do cluster NFS para NW2
-            * Repita os passos acima para criar uma piscina de backend para NW2
       1. Criar as sondas de saúde
          1. Porto 61000 para NW1
             1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
             1. Introduza o nome da nova sonda de saúde (por **exemplo, nw1-hp)**
             1. Selecione TCP como protocolo, porta 610**00,** mantenha intervalo 5 e limiar insalubre 2
-            1. Clique em OK
+            1. Clique OK
          1. Porto 61001 para NW2
             * Repita os passos acima para criar uma sonda de saúde para a NW2
       1. Regras de equilíbrio de carga
          1. Abra o equilibrador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
          1. Introduza o nome da nova regra do equilibrador de carga (por **exemplo, nw1-lb)**
-         1. Selecione o endereço IP frontend, a piscina de backend e a sonda de saúde que criou anteriormente (por **exemplo, nw1-frontend**. **nw1-backend** e **nw1-hp**)
+         1. Selecione o endereço IP frontend, a piscina de backend e a sonda de saúde que criou anteriormente (por **exemplo, nw1-frontend**. **nw-backend** e **nw1-hp**)
          1. Selecione **Portas HA**.
          1. Aumente o tempo inativo para 30 minutos
          1. **Certifique-se de ativar o IP flutuante**
-         1. Clique em OK
+         1. Clique OK
          * Repita os passos acima para criar a regra de equilíbrio de carga para A NW2
    1. Em alternativa, se o seu cenário necessitar de um equilíbrio básico de carga, siga estas instruções:
       1. Crie os endereços IP frontend
@@ -179,25 +177,23 @@ Primeiro é necessário criar as máquinas virtuais para este cluster NFS. Depoi
             1. Abra o equilibrador de carga, selecione pool IP frontend e clique em Adicionar
             1. Introduza o nome do novo pool IP frontend (por exemplo **nw1-frontend)**
             1. Definir a Atribuição à Estática e introduzir o endereço IP (por exemplo **10.0.0.4**)
-            1. Clique em OK
+            1. Clique OK
          1. Endereço IP 10.0.0.5 para NW2
             * Repita os passos acima para NW2
       1. Crie as piscinas de backend
-         1. Ligado às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte do cluster NFS para NW1
+         1. Ligado às interfaces de rede primáriade todas as máquinas virtuais que devem fazer parte do cluster NFS
             1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
-            1. Introduza o nome da nova piscina de backend (por exemplo **nw1-backend)**
+            1. Introduza o nome da nova piscina de backend (por **exemplo, nw-backend)**
             1. Clique em Adicionar uma máquina virtual
             1. Selecione o Conjunto de Disponibilidade que criou anteriormente
             1. Selecione as máquinas virtuais do cluster NFS
-            1. Clique em OK
-         1. Ligado às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte do cluster NFS para NW2
-            * Repita os passos acima para criar uma piscina de backend para NW2
+            1. Clique OK
       1. Criar as sondas de saúde
          1. Porto 61000 para NW1
             1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
             1. Introduza o nome da nova sonda de saúde (por **exemplo, nw1-hp)**
             1. Selecione TCP como protocolo, porta 610**00,** mantenha intervalo 5 e limiar insalubre 2
-            1. Clique em OK
+            1. Clique OK
          1. Porto 61001 para NW2
             * Repita os passos acima para criar uma sonda de saúde para a NW2
       1. Regras de equilíbrio de carga
@@ -208,7 +204,7 @@ Primeiro é necessário criar as máquinas virtuais para este cluster NFS. Depoi
             1. Manter o protocolo **TCP,** entrar na porta **2049**
             1. Aumente o tempo inativo para 30 minutos
             1. **Certifique-se de ativar o IP flutuante**
-            1. Clique em OK
+            1. Clique OK
          1. UDP 2049 para NW1
             * Repita os passos acima para o porto 2049 e UDP para NW1
          1. TCP de 2049 para NW2
@@ -232,13 +228,13 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 1. **[A]** Configuração resolução de nome de anfitrião
 
-   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
+   Pode utilizar um servidor DNS ou modificar os /etc/anfitriões em todos os nós. Este exemplo mostra como usar o ficheiro /etc/anfitriões.
    Substitua o endereço IP e o nome de anfitrião nos seguintes comandos
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
    
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente
+   Insira as seguintes linhas para /etc/anfitriões. Altere o endereço IP e o nome de anfitrião para combinar com o seu ambiente
    
    <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
@@ -468,9 +464,9 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
    Quando se usa o drbd para sincronizar dados de um hospedeiro para outro, pode ocorrer um chamado cérebro dividido. Um cérebro dividido é um cenário onde ambos os nós de cluster promoveram o dispositivo drbd para ser o principal e dessincronizado. Pode ser uma situação rara, mas ainda queres lidar com um cérebro dividido o mais rápido possível. Por isso, é importante ser notificado quando um cérebro dividido aconteceu.
 
-   Leia [a documentação oficial](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) sobre como configurar uma notificação cerebral dividida.
+   Leia [a documentação oficial](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) sobre como configurar uma notificação cerebral dividida.
 
-   Também é possível recuperar automaticamente de um cenário cerebral dividido. Para mais informações, leia as políticas automáticas de [recuperação cerebral divididas](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
+   Também é possível recuperar automaticamente de um cenário cerebral dividido. Para mais informações, leia as políticas automáticas de [recuperação cerebral divididas](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
    
 ### <a name="configure-cluster-framework"></a>Configurar quadro de cluster
 
@@ -574,6 +570,8 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo crm configure colocation col-<b>NW2</b>_nfs_on_drbd inf: \
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
+
+   A `crossmnt` opção `exportfs` nos recursos de cluster está presente na nossa documentação para retrocompatibilidade com versões SLES mais antigas.  
 
 1. **[1]** Desativar o modo de manutenção
    

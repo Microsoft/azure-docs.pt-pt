@@ -1,36 +1,35 @@
 ---
-title: Criar ou modificar uma oferta | Azure Marketplace
+title: Criar ou modificar uma oferta [ Mercado Azure
 description: API para criar uma oferta nova ou atualizada e existente.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bfb9cfbe2c63caafef8487015f42a05b98afa29c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 681e71fae161100c8804f95980b9e9567dcf1863
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819722"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288619"
 ---
 <a name="create-or-modify-an-offer"></a>Criar ou modificar uma oferta
 =========================
 
-Essa chamada atualiza uma oferta específica dentro do namespace do Publicador ou cria uma nova oferta.
+Esta chamada atualiza uma oferta específica dentro do espaço de nome da editora ou cria uma nova oferta.
 
   `PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31`
 
 
-<a name="uri-parameters"></a>Parâmetros de URI
+<a name="uri-parameters"></a>Parâmetros URI
 --------------
 
 |  **Nome**         |  **Descrição**                      |  **Tipo de dados**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificador de editor, por exemplo `contoso` |   String |
-| OfferId           |  Identificador da oferta                     |   String        |
-| versão da API       |  Versão mais recente da API            |   Date           |
+| editorId       |  Identificador de editor, por exemplo`contoso` |   Cadeia |
+| offerId           |  Identificador de oferta                     |   Cadeia        |
+| api-version       |  Versão mais recente da API            |   Date           |
 |  |  |  |
 
 <a name="header"></a>Cabeçalho
@@ -38,15 +37,15 @@ Essa chamada atualiza uma oferta específica dentro do namespace do Publicador o
 
 |  **Nome**        |  **Valor**               |
 |  ---------       |  ----------              | 
-| Tipo de conteúdo     | `application/json`       |
+| Content-Type     | `application/json`       |
 | Autorização    | `Bearer YOUR_TOKEN`      |
 |  |  |
 
 
-<a name="body-example"></a>Exemplo de corpo
+<a name="body-example"></a>Exemplo do corpo
 ------------
 
-O exemplo a seguir cria uma oferta com OfferId de `contosovirtualmachine`.
+O exemplo seguinte cria uma `contosovirtualmachine`oferta com offerID de .
 
 ### <a name="request"></a>Pedir
 
@@ -240,23 +239,23 @@ O exemplo a seguir cria uma oferta com OfferId de `contosovirtualmachine`.
 ```
 
 > [!NOTE]
-> Para modificar essa oferta, adicione um cabeçalho **If-Match** definido como * à solicitação acima. Use o mesmo corpo de solicitação acima, mas modifique os valores conforme desejado. 
+> Para modificar esta oferta, adicione um cabeçalho **If-Match** definido para * ao pedido acima. Use o mesmo órgão de pedido que acima, mas modifique os valores conforme desejado. 
 
 
-### <a name="response-status-codes"></a>Códigos de status de resposta
+### <a name="response-status-codes"></a>Códigos de estado de resposta
 
-| **Auto-completar**  |  **Descrição**                                                                            |
+| **Código**  |  **Descrição**                                                                            |
 | --------  |  ---------------                                                                            |
-|  200      | `OK`. A solicitação foi processada com êxito e a oferta foi modificada com êxito.           |
-|  201      | `Created`. A solicitação foi processada com êxito e a oferta foi criada com êxito.   |
-|  400      | `Bad/Malformed request`. O corpo da resposta de erro pode fornecer mais informações.            |
-|  403      | `Forbidden`. O cliente não tem acesso ao namespace solicitado.                     |
+|  200      | `OK`. O pedido foi processado com sucesso e a oferta foi modificada com sucesso.           |
+|  201      | `Created`. O pedido foi processado com sucesso e a oferta foi criada com sucesso.   |
+|  400      | `Bad/Malformed request`. O corpo de resposta a erros pode fornecer mais informações.            |
+|  403      | `Forbidden`. O cliente não tem acesso ao espaço de nome solicitado.                     |
 |  404      | `Not found`. A entidade referida pelo cliente não existe.                           |
-|  412      | O servidor não atende a uma das pré-condições que o solicitante especificou na solicitação. O cliente deve verificar a ETAG enviada com a solicitação. |
+|  412      | O servidor não satisfaz uma das condições prévias que o solicitor especificado no pedido. O cliente deve verificar o ETAG enviado com o pedido. |
 |  |  |
 
 
-<a name="uploading-artifacts"></a>Carregando artefatos
+<a name="uploading-artifacts"></a>Carregar artefactos
 -------------------
 
-Os artefatos, como imagens e logotipos, devem ser compartilhados carregando-os para um local acessível na Web e, em seguida, incluindo cada um como URI na solicitação PUT, como no exemplo acima. O sistema detectará que esses arquivos não estão presentes no armazenamento do Azure Marketplace e baixará esses arquivos no armazenamento.  Como resultado, você verá que futuras solicitações GET retornarão uma URL de serviço do Azure Marketplace para esses arquivos.
+Os artefactos, como imagens e logótipos, devem ser partilhados enviando-os para um local acessível na web, incluindo cada um como URI no pedido PUT, como no exemplo acima. O sistema irá detetar que estes ficheiros não estão presentes no armazenamento do mercado Azure e transferir estes ficheiros para armazenamento.  Como resultado, você vai descobrir que futuros pedidos GET devolverão um URL de serviço de mercado Azure para estes ficheiros.

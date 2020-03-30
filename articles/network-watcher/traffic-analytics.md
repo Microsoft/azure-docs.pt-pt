@@ -1,5 +1,5 @@
 ---
-title: Análise de tráfego azure  Microsoft Docs
+title: Análise de tráfego azure [ Microsoft Docs
 description: Saiba como analisar os registos de fluxo do grupo de segurança da rede Azure com análise de tráfego.
 services: network-watcher
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 47d9508c891d2b4fe74b42114783b02c58e8c91f
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 83164a615cacc067e5f1ea6a1dd6ce0f0fd9d540
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620013"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298854"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -43,8 +43,8 @@ As redes virtuais Azure têm registos de fluxo NSG, que lhe fornecem informaçõ
 
 ## <a name="key-components"></a>Componentes principais
 
-- Grupo de segurança de **rede (NSG)** : Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede a recursos ligados a uma Rede Virtual Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou a interfaces de rede individuais (NIC) ligadas a VMs (Resource Manager). Para mais informações, consulte a visão geral do grupo de [segurança da rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- Registos de fluxo do grupo de segurança da **rede (NSG)** : Permita-lhe visualizar informações sobre o tráfego IP de entrada e fuga através de um grupo de segurança de rede. Os registos de fluxo NSG são escritos em formato JSON e mostram fluxos de saída e de entrada por regra, o NIC o fluxo aplica-se a informações de cinco tuple sobre o fluxo (endereço IP de origem/destino, porta de origem/destino e protocolo), e se o tráfego foi permitido ou negado. Para obter mais informações sobre os registos de fluxo da NSG, consulte os registos de [fluxo nsg](network-watcher-nsg-flow-logging-overview.md).
+- Grupo de segurança de **rede (NSG)**: Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede a recursos ligados a uma Rede Virtual Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou a interfaces de rede individuais (NIC) ligadas a VMs (Resource Manager). Para mais informações, consulte a visão geral do grupo de [segurança da rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Registos de fluxo do grupo de segurança da **rede (NSG)**: Permita-lhe visualizar informações sobre o tráfego IP de entrada e fuga através de um grupo de segurança de rede. Os registos de fluxo NSG são escritos em formato JSON e mostram fluxos de saída e de entrada por regra, o NIC o fluxo aplica-se a informações de cinco tuple sobre o fluxo (endereço IP de origem/destino, porta de origem/destino e protocolo), e se o tráfego foi permitido ou negado. Para obter mais informações sobre os registos de fluxo da NSG, consulte os registos de [fluxo nsg](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: Um serviço Azure que recolhe dados de monitorização e armazena os dados num repositório central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos através da API Azure. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. Aplicações de monitorização, tais como o monitor de desempenho da rede e a análise de tráfego são construídas usando os registos do Monitor Azure como base. Para mais informações, consulte os [registos do Monitor Azure](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Log Analytics workspace**: Uma instância de registos do Monitor Azure, onde os dados relativos a uma conta Azure são armazenados. Para mais informações sobre os espaços de trabalho do Log Analytics, consulte Criar um espaço de [trabalho de Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: Um serviço regional que lhe permite monitorizar e diagnosticar condições ao nível do cenário da rede em Azure. Pode ligar e desligar os registos de fluxo nsg com o Observador da Rede. Para mais informações, consulte [O Observador da Rede.](network-watcher-monitoring-overview.md)
@@ -69,7 +69,7 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
 * E.U.A. Oeste
 * E.U.A.Oeste 2
 * França Central
-* Europa Ocidental
+* Europa ocidental
 * Europa do Norte
 * Sul do Brasil
 * Oeste do Reino Unido
@@ -100,7 +100,7 @@ O espaço de trabalho log Analytics deve existir nas seguintes regiões:
 * E.U.A.Oeste 2
 * E.U.A. Central
 * França Central
-* Europa Ocidental
+* Europa ocidental
 * Europa do Norte
 * Sul do Brasil
 * Oeste do Reino Unido
@@ -126,7 +126,7 @@ A sua conta deve ser membro de uma das seguintes [funções azure incorporadas:]
 |Resource Manager   | Proprietário                  |
 |                   | Contribuinte            |
 |                   | Leitor                 |
-|                   | Colaborador de Rede    |
+|                   | Contribuidor de Rede    |
 
 Se a sua conta não for atribuída a uma das funções incorporadas, deve ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) que seja atribuída às seguintes ações, ao nível da subscrição:
 
@@ -134,12 +134,13 @@ Se a sua conta não for atribuída a uma das funções incorporadas, deve ser at
 - "Microsoft.Network/connections/read"
 - "Microsoft.Network/loadBalancers/read"
 - "Microsoft.Network/localNetworkGateways/read"
-- "Microsoft.Network/networkInterfaces/read"
+- "Microsoft.NetworkInterfaces/read"
 - "Microsoft.Network/networkSecurityGroups/read"
-- "Microsoft.Network/publicIPAddresses/read"
+- "Microsoft.Network/publicIPAddresss/read"
 - "Microsoft.Network/routeTables/read"
 - "Microsoft.Network/virtualNetworkGateways/read"
 - "Microsoft.Network/virtualNetworks/read"
+- "Microsoft.Network/expressRouteCircuits/read"
 
 Para obter informações sobre como verificar as permissões de acesso do utilizador, consulte [o Traffic analytics FAQ](traffic-analytics-faq.md).
 
@@ -167,7 +168,7 @@ Registe o fornecedor Azure Insights, caso ainda não esteja registado para a sua
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-Se ainda não tem uma conta de Armazenamento Azure para armazenar registos de fluxo snSG, tem de criar uma conta de armazenamento. Pode criar uma conta de armazenamento com o comando que se segue. Antes de executar o comando, substitua `<replace-with-your-unique-storage-account-name>` por um nome único em todos os locais do Azure, entre 3-24 caracteres de comprimento, usando apenas números e letras minúsculas. Também pode alterar o nome do grupo de recursos, se necessário.
+Se ainda não tem uma conta de Armazenamento Azure para armazenar registos de fluxo snSG, tem de criar uma conta de armazenamento. Pode criar uma conta de armazenamento com o comando que se segue. Antes de executar `<replace-with-your-unique-storage-account-name>` o comando, substitua-o por um nome único em todas as localizações do Azure, entre 3-24 caracteres de comprimento, utilizando apenas números e letras minúsculas. Também pode alterar o nome do grupo de recursos, se necessário.
 
 ```azurepowershell-interactive
 New-AzStorageAccount `
@@ -197,7 +198,7 @@ Selecione as seguintes opções, como mostrado na imagem:
 
 Repita os passos anteriores para quaisquer outros NSGs para os quais deseje ativar a análise do tráfego. Os dados dos registos de fluxo são enviados para o espaço de trabalho, por isso certifique-se de que as leis e regulamentos locais do seu país permitem o armazenamento de dados na região onde existe o espaço de trabalho. Se tiver definido diferentes intervalos de processamento para diferentes NSGs, os dados serão recolhidos em intervalos diferentes. Por exemplo: Pode optar por ativar o intervalo de processamento de 10 minutos para VNETs críticos e 1 hora para VNETs não críticos.
 
-Também pode configurar análises de tráfego utilizando o [cmdlet Set-AzNetworkWatcherConfigFlowPowerShell](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) powerShell no Azure PowerShell. Execute `Get-Module -ListAvailable Az` para encontrar a sua versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps).
+Também pode configurar análises de tráfego utilizando o [cmdlet Set-AzNetworkWatcherConfigFlowPowerShell](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) powerShell no Azure PowerShell. Corra `Get-Module -ListAvailable Az` para encontrar a sua versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps).
 
 ## <a name="view-traffic-analytics"></a>Ver análise de tráfego
 
@@ -333,7 +334,7 @@ Algumas das ideias que pode querer obter depois do Traffic Analytics estiver tot
 
 **Procurar**
 
-Distribuição de tráfego por Gateway & Load Balancer, topologia, fontes de tráfego de topo, redes de topo fraudulentas conversando com o gateway & Load Balancer de aplicação e protocolos de aplicação de topo. 
+A distribuição de tráfego por aplicação gateway & Load Balancer, topologia, principais fontes de tráfego, redes de topo fraudulentas conversando com o gateway de aplicação & Load Balancer, e protocolos de aplicação de conversões de topo. 
     
  - Saber qual a subnet a conversinar com que gateway de aplicação ou Balancer de Carga. Se observar conversas inesperadas, pode corrigir a sua configuração.
  - Se as redes fraudulentas estiverem a conversar com um gateway de aplicação ou um Balancer de Carga, é possível corrigi-lo configurando regras de NSG para bloquear as redes fraudulentas. 

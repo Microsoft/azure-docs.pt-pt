@@ -1,55 +1,54 @@
 ---
-title: Implantar uma VM do Azure de um VHD de usuário | Azure Marketplace
-description: Explica como implantar uma imagem de VHD de usuário para criar uma instância de VM do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Implementar um VM Azure a partir de um VHD utilizador / Mercado Azure
+description: Explica como implementar uma imagem VHD do utilizador para criar uma instância De VM Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 8421e9b7b7e2b7d13054e977da83be044b4e6af7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 957bc187b0123338947f62333c913cf82a6c66a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816632"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277961"
 ---
-# <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implantar uma VM do Azure de um VHD de usuário
+# <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implementar um VM Azure a partir de um VHD de utilizador
 
-Este artigo explica como implantar uma imagem de VHD generalizada para criar um novo recurso de VM do Azure, usando o modelo de Azure Resource Manager fornecido e Azure PowerShell script.
+Este artigo explica como implementar uma imagem VHD generalizada para criar um novo recurso Azure VM, utilizando o modelo de Gestor de Recursos Azure fornecido e script Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="vhd-deployment-template"></a>Modelo de implantação VHD
+## <a name="vhd-deployment-template"></a>Modelo de implementação VHD
 
-Copie o modelo de Azure Resource Manager para [implantação de VHD](cpp-deploy-json-template.md) em um arquivo local chamado `VHDtoImage.json`.  Edite esse arquivo para fornecer valores para os parâmetros a seguir. 
+Copie o modelo do Gestor de Recursos Azure `VHDtoImage.json`para a implantação de [VHD](cpp-deploy-json-template.md) para um ficheiro local chamado .  Editar este ficheiro para fornecer valores para os seguintes parâmetros. 
 
-|  **Meter**             |   **Descrição**                                                              |
+|  **Parâmetro**             |   **Descrição**                                                              |
 |  -------------             |   ---------------                                                              |
-| ResourceGroupName          | Nome do grupo de recursos do Azure existente.  Normalmente, use o mesmo RG associado ao seu cofre de chaves  |
-| TemplateFile               | Nome de caminho completo para o arquivo `VHDtoImage.json`                                    |
+| ResourceGroupName          | Nome de grupo de recursos Azure existente.  Normalmente use o mesmo RG associado ao seu cofre chave  |
+| ModeloFile               | Nome completo do caminho para o ficheiro`VHDtoImage.json`                                    |
 | userStorageAccountName     | Nome da conta de armazenamento                                                    |
-| sNameForPublicIP           | Nome DNS para o IP público. Deve estar em minúsculas                                  |
-| subscriptionId             | Identificador de assinatura do Azure                                                  |
-| Localização                   | Localização geográfica padrão do Azure do grupo de recursos                       |
+| sNameForPublicIP           | Nome dNS para o IP público. Deve ser minúscula                                  |
+| subscriptionId             | Identificador de assinatura Azure                                                  |
+| Localização                   | Localização geográfica Standard Azure do grupo de recursos                       |
 | vmName                     | Nome da máquina virtual                                                    |
-| vaultName                  | Nome do cofre de chaves                                                          |
-| vaultResourceGroup         | Grupo de recursos do cofre de chaves
-| certificateUrl             | URL do certificado, incluindo a versão armazenada no cofre de chaves, por exemplo: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| nome do cofre                  | Nome do cofre da chave                                                          |
+| vaultResourceGroup         | Grupo de recursos do cofre chave
+| certificadoUrl             | Url do certificado, incluindo versão armazenada no cofre chave, por exemplo:`https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | URL do disco rígido virtual                                                   |
-| vmSize                     | Tamanho da instância de máquina virtual                                           |
-| publicIPAddressName        | Nome do endereço IP público                                                  |
+| vmSize                     | Tamanho da instância da máquina virtual                                           |
+| nome de endereço ipaddress público        | Nome do endereço IP público                                                  |
 | virtualNetworkName         | Nome da rede virtual                                                    |
-| nicName                    | Nome da placa de interface de rede para a rede virtual                     |
-| adminUserName              | Nome de usuário da conta de administrador                                          |
-| adminPassword              | Senha do administrador                                                          |
+| nicName                    | Nome do cartão de interface de rede para a rede virtual                     |
+| adminUserName              | Nome de utilizador da conta de administrador                                          |
+| adminPassword              | Senha de administrador                                                          |
 |  |  |
 
 
-## <a name="powershell-script"></a>Script do PowerShell
+## <a name="powershell-script"></a>Script Powershell
 
-Copie e edite o script a seguir para fornecer valores para as variáveis `$storageaccount` e `$vhdUrl`.  Execute-o para criar um recurso de VM do Azure de seu VHD generalizado existente.
+Copiar e editar o seguinte script `$storageaccount` `$vhdUrl` para fornecer valores para as e variáveis.  Execute-o para criar um recurso Azure VM a partir do vHD generalizado existente.
 
 ```powershell
 # storage account of existing generalized VHD 
@@ -67,4 +66,4 @@ New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgNa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois que a VM for implantada, você estará pronto para [certificar sua imagem de VM](./cpp-certify-vm.md).
+Depois de implantado o VM, está pronto para certificar a [sua imagem VM](./cpp-certify-vm.md).

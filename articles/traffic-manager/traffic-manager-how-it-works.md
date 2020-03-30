@@ -1,5 +1,5 @@
 ---
-title: Como funciona o Gestor de Tráfego azure  Microsoft Docs
+title: Como funciona o Gestor de Tráfego azure [ Microsoft Docs
 description: Este artigo irá ajudá-lo a entender como o Traffic Manager encaminha o tráfego para o alto desempenho e disponibilidade das suas aplicações web
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
-ms.openlocfilehash: 709e89b94ba10db954aa5cf3f70aeffb0d239edb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938626"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294858"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gestor de Tráfego
 
@@ -28,13 +28,13 @@ O Gestor de Tráfego oferece dois benefícios fundamentais:
 - Distribuição do tráfego de acordo com um dos vários [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md)
 - [Monitorização contínua da saúde do ponto final](traffic-manager-monitoring.md) e falha automática quando os pontos finais falham
 
-Quando um cliente tenta ligar-se a um serviço, deve primeiro resolver o nome DNS do serviço a um endereço IP. Em seguida, o cliente liga-se a esse endereço IP para aceder ao serviço.
+Quando um cliente tenta estabelecer ligação a um serviço, primeiro tem de resolver o nome DNS do serviço para um endereço IP. Em seguida, o cliente estabelece ligação a esse endereço IP para aceder ao serviço.
 
 **O ponto mais importante a entender é que o Gestor de Tráfego trabalha ao nível do DNS.**  O Traffic Manager utiliza o DNS para direcionar os clientes para pontos finais de serviço específicos com base nas regras do método de encaminhamento de tráfego. Os clientes **ligam-se diretamente**ao ponto final selecionado . O Gestor de Tráfego não é um representante ou um portal. O Gestor de Tráfego não vê o trânsito a passar entre o cliente e o serviço.
 
 ## <a name="traffic-manager-example"></a>Exemplo de Gestor de Tráfego
 
-A Contoso Corp desenvolveu um novo portal de parceiros. O URL deste portal é https://partners.contoso.com/login.aspx. A aplicação está alojada em três regiões de Azure. Para melhorar a disponibilidade e maximizar o desempenho global, eles usam o Traffic Manager para distribuir o tráfego de clientes para o ponto final mais próximo disponível.
+A Contoso Corp desenvolveu um novo portal de parceiros. O URL para `https://partners.contoso.com/login.aspx`este portal é . A aplicação está alojada em três regiões de Azure. Para melhorar a disponibilidade e maximizar o desempenho global, eles usam o Traffic Manager para distribuir o tráfego de clientes para o ponto final mais próximo disponível.
 
 Para alcançar esta configuração, completam os seguintes passos:
 
@@ -49,7 +49,7 @@ Para alcançar esta configuração, completam os seguintes passos:
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Como os clientes se conectam usando o Gestor de Tráfego
 
-Continuando a partir do exemplo anterior, quando um cliente solicita a página https://partners.contoso.com/login.aspx, o cliente executa os seguintes passos para resolver o nome DNS e estabelecer uma ligação:
+Continuando a partir do exemplo anterior, `https://partners.contoso.com/login.aspx`quando um cliente solicita a página, o cliente executa os seguintes passos para resolver o nome DNS e estabelecer uma ligação:
 
 ![Estabelecimento de ligação utilizando gestor de tráfego][2]
 
@@ -69,7 +69,7 @@ Continuando a partir do exemplo anterior, quando um cliente solicita a página h
 
 O serviço DNS recursivo caches as respostas DNS que recebe. O resolver DNS no dispositivo cliente também caches o resultado. O caching permite que as consultas subsequentes do DNS sejam respondidas mais rapidamente usando dados da cache em vez de consultar outros servidores de nome. A duração da cache é determinada pela propriedade "time-to-live" (TTL) de cada registo dNS. Valores mais curtos resultam em expiração de cache mais rápida e, portanto, mais viagens de ida e volta para os servidores de nome do Gestor de Tráfego. Valores mais longos significam que pode demorar mais tempo a direcionar o tráfego para longe de um ponto final falhado. O Gestor de Tráfego permite-lhe configurar o TTL utilizado nas respostas DNS do Gestor de Tráfego para ser tão baixo como 0 segundos e até 2.147.483,647 segundos (o intervalo máximo em conformidade com o [RFC-1035),](https://www.ietf.org/rfc/rfc1035.txt)permitindo-lhe escolher o valor que melhor equilibra as necessidades da sua aplicação.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQs
 
 * [Que endereço IP usa o Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
 
@@ -95,9 +95,9 @@ O serviço DNS recursivo caches as respostas DNS que recebe. O resolver DNS no d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [monitoramento de ponto de extremidade](traffic-manager-monitoring.md)do Traffic Manager e o failover automático.
+Saiba mais sobre [a monitorização do ponto final](traffic-manager-monitoring.md)do Gestor de Tráfego e a falha automática .
 
-Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)do Traffic Manager.
+Saiba mais sobre os métodos de [encaminhamento de tráfego](traffic-manager-routing-methods.md)do Gestor de Tráfego.
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png

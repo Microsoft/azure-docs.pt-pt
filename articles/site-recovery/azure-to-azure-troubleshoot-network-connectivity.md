@@ -1,118 +1,118 @@
 ---
-title: Solucionar problemas de conectividade do Azure para a recuperação de desastre do Azure com o Azure Site Recovery
-description: Solucionar problemas de conectividade na recuperação de desastre de VM do Azure
+title: Conectividade de suposição de problemas para recuperação de desastres de Azure para Azure com recuperação do site Azure
+description: Problemas de conectividade na recuperação de desastres da VM Azure
 author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 08/05/2019
-ms.openlocfilehash: d55f06669a538c2f26f3a1d2da0d96a73529f76e
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: b082e1aca094dcb335a7268e4c116376d756fd3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941475"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292016"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
+# <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Problemas de resolução de problemas de conectividade da rede VM Azure-to-Azure
 
-Este artigo descreve os problemas comuns relacionados à conectividade de rede quando você replica e recupera máquinas virtuais do Azure de uma região para outra região. Para obter mais informações sobre os requisitos de rede, consulte os [requisitos de conectividade para replicar VMs do Azure](azure-to-azure-about-networking.md).
+Este artigo descreve as questões comuns relacionadas com a conectividade da rede quando se replica e recupera as máquinas virtuais Azure de uma região para outra. Para obter mais informações sobre os requisitos de networking, consulte os requisitos de [conectividade para replicar VMs Azure](azure-to-azure-about-networking.md).
 
-Para replicação do Site Recovery para o trabalho, a conectividade de saída para URLs ou IP específicos a intervalos é necessária da VM. Se a VM estiver protegido por uma firewall ou utiliza regras de grupo (NSG) de segurança de rede para controlar a conectividade de saída, poderá deparar-se com um desses problemas.
+Para que a replicação da recuperação do site funcione, a conectividade de saída a URLs específicos ou intervalos IP é necessária a partir do VM. Se o seu VM estiver por detrás de uma firewall ou utilizar regras do grupo de segurança de rede (NSG) para controlar a conectividade de saída, poderá enfrentar um destes problemas.
 
 **URL** | **Detalhes**  
 --- | ---
-*.blob.core.windows.net | Necessário para que os dados possam ser gravados na conta de armazenamento de cache na região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá permitir-listar as URLs de conta de armazenamento específicas (por exemplo, cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *. blob.core.windows.net
-login.microsoftonline.com | Necessário para autorização e autenticação para as URLs do serviço de Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | Necessário para que a comunicação do serviço de Site Recovery possa ocorrer na VM. Você pode usar o ' Site Recovery IP ' correspondente se o proxy de firewall oferecer suporte a IPs.
-*.servicebus.windows.net | Necessário para que os dados de monitoramento e de diagnóstico de Site Recovery possam ser gravados da VM. Você pode usar o ' Site Recovery Monitoring IP ' correspondente se o proxy de firewall oferecer suporte a IPs.
+*.blob.core.windows.net | Necessários para que os dados possam ser escritos na conta de armazenamento de cache na região fonte a partir do VM. Se você sabe todas as contas de armazenamento de cache para os seus VMs, você pode permitir listar a conta de armazenamento específica URLs (por exemplo, cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *.blob.core.windows.net
+login.microsoftonline.com | Necessário para autorização e autenticação para os URLs do serviço de Recuperação do Local.
+*.hypervrecoverymanager.windowsazure.com | Necessária para que a comunicação do serviço de recuperação do site possa ocorrer a partir do VM. Pode utilizar o 'IP de recuperação do site' correspondente se o seu proxy de firewall suportar IPs.
+*.servicebus.windows.net | Necessário para que os dados de monitorização e diagnóstico de recuperação do site possam ser escritos a partir do VM. Pode utilizar o "IP de Monitorização de Recuperação do Site" correspondente se o seu proxy de firewall suportar IPs.
 
-## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividade de saída para intervalos de IP ou URLs do Site Recovery (código de erro 151037 ou 151072)
+## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividade de saída para URLs de Recuperação do Site ou intervalos IP (código de erro 151037 ou 151072)
 
-## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: falha ao registrar a máquina virtual do Azure com o Site Recovery (151195) </br>
-- **Causa possível** </br>
-  - A conexão não pode ser estabelecida com Site Recovery pontos de extremidade devido à falha na resolução do DNS.
+## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a><a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Edição 1: Falha no registo da máquina virtual Azure com recuperação do site (151195) </br>
+- **Possível causa** </br>
+  - A ligação não pode ser estabelecida aos pontos finais de recuperação do local devido a falha na resolução do DNS.
   - Esta situação é observada com maior frequência durante reaplicação da proteção, quando é efetuada a ativação pós-falha da máquina virtual, mas o servidor DNS não está acessível a partir da região de RD.
 
 - **Resolução**
-   - Se você estiver usando o DNS personalizado, verifique se o servidor DNS está acessível na região de recuperação de desastre. Para verificar se tem um DNS personalizado, vá para a VM > rede de recuperação após desastre > servidores DNS. Tente aceder ao servidor DNS a partir da máquina virtual. Se não estiver acessível, torne-o acessível ao fazer o failover do servidor DNS ou criar a linha de site entre a rede de DR e o DNS.
+   - Se estiver a utilizar DNS personalizados, certifique-se de que o servidor DNS está acessível a partir da região de Recuperação de Desastres. Para verificar se tem um DNS personalizado vá à rede VM> De recuperação de desastres> servidores DNS. Tente aceder ao servidor DNS a partir da máquina virtual. Se não estiver acessível, torná-lo acessível falhando no servidor DNS ou criando a linha de site entre a rede DR e dNS.
 
-    ![Erro de com](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+    ![erro com](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
 
 
-## <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: Configuração do Site Recovery falhou (151196)
+## <a name="issue-2-site-recovery-configuration-failed-151196"></a>Edição 2: A configuração de recuperação do site falhou (151196)
 
 > [!NOTE]
-> Se as máquinas virtuais estiverem atrás do Load balancer interno **padrão** , ele não teria acesso aos IPS do O365 (ou seja, login.microsoftonline.com) por padrão. Altere-o para o tipo **básico** de balanceador de carga interno ou crie acesso de saída conforme mencionado no [artigo](https://aka.ms/lboutboundrulescli).
+> Se as máquinas virtuais estiverem por trás do equilíbrio interno de carga **Standard,** não teria acesso a IPs O365 (isto é, login.microsoftonline.com) por padrão. Ou o altere para o tipo **básico** de equilíbrio interno de carga ou crie acesso de saída, conforme mencionado no [artigo](https://aka.ms/lboutboundrulescli).
 
-- **Causa possível** </br>
-  - Não é possível estabelecer a ligação para a autenticação do Office 365 e os pontos finais de IPv4 de identidade.
+- **Possível causa** </br>
+  - A ligação não pode ser estabelecida aos pontos finais de autenticação e identidade ip4 do Office 365.
 
 - **Resolução**
-  - O Azure Site Recovery necessário acesso aos intervalos de IPs do Office 365 para a autenticação.
-    Se estiver a utilizar o proxy de firewall/regras de grupo (NSG) de segurança de rede do Azure para controlar a conectividade de rede de saída na VM, certifique-se de que permite a comunicação com IPranges do Office 365. Criar Azure Active Directory uma regra de NSG baseada na [marca de serviço (AD do Azure)](../virtual-network/security-overview.md#service-tags) para permitir acesso a todos os endereços IP correspondentes ao Azure AD
-      - Se novos endereços forem adicionados ao Azure AD no futuro, você precisará criar novas regras de NSG.
+  - A Recuperação do Site Azure exigiu o acesso às gamas de IPs do Office 365 para autenticação.
+    Se estiver a utilizar regras/proxy do grupo de segurança azure Network (NSG) para controlar a conectividade da rede de saída no VM, certifique-se de que permite a comunicação a O365 IPranges. Criar uma regra NSG baseada em placa de [serviço Azure Ative Directory (Azure AD)](../virtual-network/security-overview.md#service-tags) para permitir o acesso a todos os endereços IP correspondentes ao Azure AD
+      - Se no futuro forem adicionados novos endereços à Azure AD, terá de criar novas regras de NSG.
 
-### <a name="example-nsg-configuration"></a>Exemplo de configuração de NSG
+### <a name="example-nsg-configuration"></a>Exemplo de configuração NSG
 
-Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
+Este exemplo mostra como configurar as regras de NSG para que um VM se reproduza.
 
-- Se você estiver usando regras de NSG para controlar a conectividade de saída, use regras de "permitir HTTPS de saída" para a porta: 443 para todos os intervalos de endereços IP necessários.
-- O exemplo supõe que o local de origem da VM é "leste dos EUA" e o local de destino é "EUA Central".
+- Se estiver a utilizar regras de NSG para controlar a conectividade de saída, utilize as regras "Permitir https outbound" para a porta:443 para todas as gamas de endereços IP necessários.
+- O exemplo pressupõe que a localização da fonte vm é "East US" e a localização alvo é "Central US".
 
-### <a name="nsg-rules---east-us"></a>Regras de NSG – leste dos EUA
+### <a name="nsg-rules---east-us"></a>Regras da NSG - Leste dos EUA
 
-1. Crie uma regra de segurança HTTPS (443) de saída para "Storage. Eastus" no NSG, conforme mostrado na captura de tela abaixo.
+1. Crie uma regra de segurança HTTPS (443) de saída para "Storage.EastUS" no NSG, como mostra a imagem abaixo.
 
-      ![marca de armazenamento](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![etiqueta de armazenamento](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Crie uma regra de segurança HTTPS (443) de saída para "AzureActiveDirectory" no NSG, conforme mostrado na captura de tela abaixo.
+2. Crie uma regra de segurança HTTPS (443) de saída para "AzureActiveDirectory" no NSG, como mostra a imagem abaixo.
 
-      ![AAD – marca](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Crie regras de saída HTTPS (443) para os IPs de Site Recovery que correspondem ao local de destino:
+3. Criar regras HTTPS de saída (443) para os IPs de Recuperação do Site que correspondam à localização-alvo:
 
-   **Localização** | **Endereço IP Site Recovery** |  **Endereço IP de monitoramento de Site Recovery**
+   **Localização** | **Endereço IP de recuperação do site** |  **Endereço IP de monitorização da recuperação do site**
     --- | --- | ---
    E.U.A. Central | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>Regras de NSG-EUA Central
+### <a name="nsg-rules---central-us"></a>Regras do NSG - Centro dos EUA
 
-Essas regras são necessárias para que a replicação possa ser habilitada da região de destino para a região de origem após o failover:
+Estas regras são necessárias para que a replicação possa ser ativada da região-alvo para a região-alvo após o fracasso:
 
-1. Crie uma regra de segurança HTTPS (443) de saída para "Storage. Centralus" no NSG.
+1. Crie uma regra de segurança HTTPS (443) de saída para "Storage.CentralUS" no NSG.
 
 2. Crie uma regra de segurança HTTPS (443) de saída para "AzureActiveDirectory" no NSG.
 
-3. Crie regras de saída HTTPS (443) para os IPs de Site Recovery que correspondem ao local de origem:
+3. Criar regras HTTPS de saída (443) para os IPs de Recuperação do Site que correspondam à localização de origem:
 
-   **Localização** | **Endereço IP Site Recovery** |  **Endereço IP de monitoramento de Site Recovery**
+   **Localização** | **Endereço IP de recuperação do site** |  **Endereço IP de monitorização da recuperação do site**
     --- | --- | ---
    E.U.A. Central | 13.82.88.226 | 104.45.147.24
-## <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: Configuração do Site Recovery falhou (151197)
-- **Causa possível** </br>
-  - Não é possível estabelecer ligação a pontos finais de serviço do Azure Site Recovery.
+## <a name="issue-3-site-recovery-configuration-failed-151197"></a>Edição 3: A configuração de recuperação do site falhou (151197)
+- **Possível causa** </br>
+  - A ligação não pode ser estabelecida aos pontos finais do serviço de recuperação do local do Azure.
 
 - **Resolução**
-  - Acesso necessário do Azure Site Recovery aos [intervalos de IP do Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges), dependendo da região. Garanta que os intervalos de IP necessários estão acessíveis a partir da máquina virtual.
+  - Acesso necessário do Azure Site Recovery aos [intervalos de IP do Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-using-service-tags), dependendo da região. Garanta que os intervalos de IP necessários estão acessíveis a partir da máquina virtual.
 
 
-## <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: falha na replicação do A2A quando o tráfego de rede passa pelo servidor proxy local (151072)
-- **Causa possível** </br>
-  - As configurações de proxy personalizadas são inválidas e Azure Site Recovery agente do serviço de mobilidade não detectou automaticamente as configurações de proxy do IE
+## <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Edição 4: A replicação A2A falhou quando o tráfego de rede passa pelo servidor proxy no local (151072)
+- **Possível causa** </br>
+  - As configurações de procuração personalizadas são inválidas, e o agente do Serviço de Mobilidade de Recuperação do Site Azure não detetou automaticamente as definições de procuração do IE
 
 
 - **Resolução**
-  1. Agente do serviço de mobilidade Deteta as definições de proxy do IE no Windows e /etc/environment no Linux.
-  2. Se preferir definir proxy somente para Azure Site Recovery serviço de mobilidade, você poderá fornecer os detalhes do proxy em ProxyInfo. conf localizado em:</br>
-     - ``/usr/local/InMage/config/`` no ***Linux***
-     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
+  1. O agente do Serviço de Mobilidade deteta as definições de procuração a partir de IE no Windows e /etc/ambiente no Linux.
+  2. Se preferir definir procuração apenas para o Serviço de Mobilidade de Recuperação do Site Azure, pode fornecer os detalhes proxy info.conf localizados em:</br>
+     - ``/usr/local/InMage/config/``em ***Linux***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config``no ***Windows***
   3. O ProxyInfo.conf deve ter as definições de proxy no seguinte formato INI.</br>
-                *[proxy]*</br>
-                *Endereço =http://1.2.3.4*</br>
-                *Porta = 567*</br>
-  4. Azure Site Recovery agente do serviço de mobilidade dá suporte apenas a ***proxies não autenticados***.
+                *[procuração]*</br>
+                *Endereço=http://1.2.3.4*</br>
+                *Porto=567*</br>
+  4. O agente do Serviço de Mobilidade de Recuperação do Sítio Azure suporta apenas ***proxies não autenticados.***
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
-Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
+Para permitir [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou as [gamas IP necessárias,](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)siga os passos no documento de [orientação](site-recovery-azure-to-azure-networking-guidance.md)de rede .
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,68 +1,68 @@
 ---
-title: Automatize o ciclo de vida de seus aplicativos com Visual Studio App Center e serviços do Azure
-description: Saiba mais sobre os serviços como App Center que ajudam a configurar a compilação e a integração contínuas para seus aplicativos móveis.
-author: elamalani
+title: Automatizar o ciclo de vida das suas apps com o Visual Studio App Center e os serviços Azure
+description: Conheça os serviços como o App Center que ajudam a configurar a construção e integração contínuas para as suas aplicações móveis.
+author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 9b0a9e10a88836ce83e636db20180c3692ab4429
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 0560f47b832ec2965d9b567e1aeff78baa9c247c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453196"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240930"
 ---
-# <a name="automate-the-lifecycle-of-your-apps-with-continuous-build-and-integration"></a>Automatize o ciclo de vida de seus aplicativos com compilação e integração contínuas
+# <a name="automate-the-lifecycle-of-your-apps-with-continuous-build-and-integration"></a>Automatizar o ciclo de vida das suas apps com construção e integração contínuas
 
-Como desenvolvedores, você escreve o código e o verifica no repositório de código, mas as confirmações verificadas no repositório talvez nem sempre sejam consistentes. Quando vários desenvolvedores trabalham no mesmo projeto, os problemas podem surgir com a integração. As equipes podem se deparar com situações em que as coisas não funcionam, os bugs se acumulam e o desenvolvimento do projeto é atrasado. Os desenvolvedores precisam esperar até que todo o código de software seja criado e testado para verificar se há erros, o que torna o processo lento e menos iterativo. 
+Como desenvolvedores, escreve código e verifica-o no repositório de códigos, mas os compromissos verificados no repo podem nem sempre ser consistentes. Quando vários desenvolvedores trabalham no mesmo projeto, as questões podem surgir com a integração. As equipas podem encontrar situações em que as coisas não funcionam, os insetos acumulam-se e o desenvolvimento do projeto atrasa-se. Os desenvolvedores têm de esperar até que todo o código de software seja construído e testado para verificar se há erros, o que torna o processo lento e menos iterativo. 
 
-Com a compilação e a integração contínuas, os desenvolvedores podem simplificar compilações e testar seu código, confirmando suas alterações no repositório de código-fonte e colocando testes e verificações no ambiente de compilação. Dessa forma, eles estão sempre executando testes em seu código. Todas as alterações feitas no código-fonte são criadas continuamente sempre que houver uma confirmação feita no repositório. Com cada check-in, o servidor de CI (integração contínua) valida e executa qualquer teste criado pelo desenvolvedor. Se os testes não passarem, o código será devolvido para outras alterações. Dessa forma, os desenvolvedores não rompem as compilações criadas. Eles também não precisam executar todos os testes localmente em seus computadores, o que aumenta a produtividade do desenvolvedor. 
+Com a construção e integração contínuas, os desenvolvedores podem simplificar as construções e testar o seu código, comprometendo as suas alterações ao repositório de código fonte e colocando testes e verificações no ambiente de construção. Desta forma, estão sempre a fazer testes contra o código. Todas as alterações feitas ao código fonte são construídas continuamente sempre que há um compromisso feito para o repositório. A cada check-in, o servidor de integração contínua (CI) valida e executa qualquer teste que o desenvolvedor criou. Se os testes não passarem, o código é enviado para novas alterações. Desta forma, os desenvolvedores não quebram as construções que são criadas. Também não têm de fazer todos os testes localmente nos seus computadores, o que aumenta a produtividade dos desenvolvedores. 
 
 ## <a name="key-benefits"></a>Principais vantagens
-- Automatize suas compilações, testes e implantações para pipelines.
-- Detecte bugs e corrija problemas antes de garantir taxas de liberação mais rápidas.
-- Confirme o código com mais frequência e crie aplicativos rapidamente.
-- Obtenha flexibilidade para alterar o código rapidamente sem problemas.
-- Tenha um tempo de colocação no mercado mais rápido para que apenas um bom código de qualidade faça todo o caminho.
-- Faça pequenas alterações de código com mais eficiência porque pequenas partes de código são integradas ao mesmo tempo.
-- Aumente a transparência e a responsabilidade da equipe para que você obtenha comentários contínuos de seus clientes e da sua equipe.
+- Automatizar as suas construções, testes e implantações para oleodutos.
+- Detete bugs e corrija problemas mais cedo para garantir taxas de libertação mais rápidas.
+- Comprometa código com mais frequência e construa aplicações rapidamente.
+- Obtenha flexibilidade para mudar de código rapidamente sem qualquer problema.
+- Ganhe tempo-a-mercado mais rápido para que apenas um código de boa qualidade o faça até ao fim.
+- Faça pequenas alterações de código de forma mais eficiente porque pequenos pedaços de código são integrados ao mesmo tempo.
+- Aumente a transparência e a prestação de contas da equipa para que obtenha feedback contínuo dos seus clientes e da sua equipa.
 
-Use os seguintes serviços para habilitar um pipeline de integração contínua em seus aplicativos móveis.
+Utilize os seguintes serviços para permitir um pipeline de integração contínua nas suas aplicações móveis.
 
 ## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center Build](/appcenter/build/) ajuda você a criar aplicativos nativos e entre plataformas em que sua equipe está trabalhando usando uma infraestrutura de nuvem segura. Você pode conectar facilmente seu repositório no Visual Studio App Center e começar a criar seu aplicativo na nuvem em cada confirmação. Você não precisa se preocupar com a configuração de servidores de compilação localmente, configurações complicadas e código que se baseia na máquina de um colega de colaborador, mas não em seu.
+[O App Center Build](/appcenter/build/) ajuda-o a construir aplicações nativas e transplataformas em que a sua equipa está a trabalhar utilizando uma infraestrutura de nuvem segura. Pode ligar facilmente o seu repo no Visual Studio App Center e começar a construir a sua aplicação na nuvem em cada compromisso. Não tem que se preocupar em configurar servidores de construção localmente, configurações complicadas e código que se baseia na máquina de um colega de trabalho, mas não na sua.
 
-Com o poder adicional dos serviços de Visual Studio App Center, você pode automatizar ainda mais seu fluxo de trabalho. Você pode liberar automaticamente compilações para testadores e lojas de aplicativos públicos com App Center distribuir. Você também pode executar testes de interface do usuário automatizados em milhares de configurações reais de dispositivo e de so na nuvem com App Center teste.
-
-**Principais funcionalidades**
-- Configure a integração contínua em minutos e crie aplicativos com mais frequência e rapidez.
-- Integre-se ao GitHub, BitBucket, Azure DevOps e GitLab.
-- Crie compilações rápidas e seguras em máquinas gerenciadas e hospedadas na nuvem.
-- Habilite suas compilações para iniciar o teste e verifique se o aplicativo é compilado em dispositivos Android e iOS reais.
-- Obter suporte nativo e entre plataformas para iOS, Android, macOS, Windows, Xamarin e reagir nativos.
-- Personalize suas compilações adicionando scripts pós-clonar, pré-compilação e pós-compilação.
-
-**Referências**
-- [Inscreva-se com Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-- [Introdução à compilação de App Center](/appcenter/build/)
-
-## <a name="azure-pipelines"></a>Azure Pipelines
- [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/), um serviço no Azure DevOps, é um serviço de CD (integração contínua e entrega contínua) completo que funciona com seu provedor de git preferido. Ele pode implantar na maioria dos principais serviços de nuvem, o que inclui o Azure. Você pode começar com seu código no GitHub, no GitHub Enterprise Server, no GitLab, no bitbucket Cloud ou no Azure Repos. Em seguida, você pode automatizar a compilação, o teste e a implantação do seu código para Microsoft Azure, Google Cloud Platform ou Amazon Web Services (AWS).
+Com o poder adicional dos serviços do Visual Studio App Center, pode automatizar ainda mais o seu fluxo de trabalho. Pode lançar automaticamente construções para testadores e lojas de aplicações públicas com O App Center Distribute. Também pode executar testes automatizados de UI em milhares de configurações de dispositivos reais e SNa na nuvem com App Center Test.
 
 **Principais funcionalidades**
-- **Experiência simplificada baseada em tarefas para configurar um servidor de CI:** Configure um servidor de CI para aplicativos móveis nativos (Android, iOS e Windows) e entre plataformas (Xamarin, Cordova e reaja nativo), além de tecnologias de servidor baseadas em Microsoft e não Microsoft (Node. js, Java).
-- **Qualquer linguagem, plataforma e nuvem:** Crie, teste e implante os aplicativos node. js, Python, Java, PHP, Ruby, go, CC++/ C#,, Android e Ios. Execute em paralelo em Linux, macOS e Windows. Implante em provedores de nuvem como Azure, AWS e Google Cloud Platform. Distribua aplicativos móveis por meio de canais beta e lojas de aplicativos.
-- **Suporte a contêiner nativo:** Crie novos contêineres com facilidade e envie-os por push para qualquer registro. Implante contêineres em hosts independentes ou kubernetes.
-- **Fluxos de trabalho avançados:** Crie facilmente cadeias de Build e compilações em fases. Obtenha suporte para YAML, integração de testes, liberar Gates, relatórios e muito mais.
-- **Extensível:** Use uma variedade de tarefas de compilação, teste e implantação criadas pela Comunidade, que inclui centenas de extensões de margem de atraso para SonarCloud. Você pode até mesmo implantar de outros sistemas de CI, como Jenkins. Os ganchos da Web e as APIs REST podem ajudá-lo a integrar o.
-- **Compilações gratuitas hospedadas na nuvem:** Essas compilações estão disponíveis para repositórios públicos e privados.
-- **Suporte para implantação em outros fornecedores de nuvem:** Os fornecedores incluem AWS e Google Cloud Platform.
+- Crie uma integração contínua em minutos e construa aplicações com mais frequência e mais rápido.
+- Integre com gitHub, BitBucket, Azure DevOps e GitLab.
+- Crie construções rápidas e seguras em máquinas geridas e hospedadas em nuvem.
+- Ative as suas construções para lançar o teste e verifique se a aplicação se constrói em dispositivos iOS e Android no mundo real.
+- Ganhe suporte nativo e cross-platform para iOS, Android, macOS, Windows, Xamarin e React Native.
+- Personalize as suas construções adicionando scripts pós-clone, pré-construção e pós-construção.
 
 **Referências**
-- [Introdução ao guia de Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
+- [Inscreva-se no Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
+- [Começar com app center build](/appcenter/build/)
+
+## <a name="azure-pipelines"></a>Pipelines do Azure
+ [A Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/), um serviço em Azure DevOps, é um serviço de integração contínua e entrega contínua (CD) que trabalha com o seu fornecedor Git preferido. Pode implantar-se na maioria dos principais serviços de nuvem, que inclui o Azure. Pode começar com o seu código no GitHub, GitHub Enterprise Server, GitLab, Bitbucket Cloud ou Azure Repos. Em seguida, pode automatizar a construção, teste e implementação do seu código para Microsoft Azure, Google Cloud Platform ou Amazon Web Services (AWS).
+
+**Principais funcionalidades**
+- **Experiência simplificada baseada em tarefas para a criação de um servidor CI:** Criar um servidor CI para aplicações móveis nativas (Android, iOS e Windows) e cross-platform (Xamarin, Cordova e React Native), além das tecnologias de servidores baseadas na Microsoft e não-Microsoft (Node.js, Java).
+- **Qualquer idioma, plataforma e nuvem:** Construir, testar e implementar aplicações Node.js, Python, Java, PHP, Ruby, Go, C/C++, C#, Android e iOS. Corra em paralelo em Linux, macOS e Windows. Implemente para fornecedores de nuvem como Azure, AWS e Google Cloud Platform. Distribua aplicações móveis através de canais beta e lojas de aplicações.
+- **Suporte de contentores nativos:** Crie novos recipientes com facilidade e empurre-os para qualquer registo. Desloque os recipientes para anfitriões independentes ou Kubernetes.
+- **Fluxos de trabalho avançados:** Criar facilmente cadeias de construção e construções multifases. Obtenha suporte para YAML, integração de testes, portas de lançamento, reportagens e muito mais.
+- **Extensível:** Utilize uma gama de tarefas de construção, teste e implementação construídas pela comunidade, que inclui centenas de extensões de Slack a SonarCloud. Podeaté implantar-se noutros sistemas de CI, como o Jenkins. Os ganchos web e ASAP REST podem ajudá-lo a integrar.
+- **Construções gratuitas hospedadas em nuvem:** Estas construções estão disponíveis para repositórios públicos e privados.
+- **Suporte para implantação a outros fornecedores** de nuvem: Os fornecedores incluem AWS e Google Cloud Platform.
+
+**Referências**
+- [Começar com o guia azure pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops)
 - [Introdução ao Azure DevOps](https://app.vsaex.visualstudio.com/signup/) 
-- [Inícios rápidos](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)
+- [Arranques rápidos](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)
 
-Para ajudá-lo a escolher o serviço certo para as compilações de seu aplicativo, consulte o artigo que compara [app Center Build vs. Azure pipelines](/appcenter/build/choose-between-services).
+Para ajudá-lo a escolher o serviço certo para as construções da sua aplicação, consulte o artigo que compara o [App Center Build vs. Azure Pipelines](/appcenter/build/choose-between-services).

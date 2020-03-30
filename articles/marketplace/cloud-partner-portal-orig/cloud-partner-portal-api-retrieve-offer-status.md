@@ -1,35 +1,34 @@
 ---
-title: Recuperar status da oferta | Azure Marketplace
-description: A API recupera o status atual da oferta.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Recuperar estado de oferta [ Recuperar estatuto de oferta ] Mercado Azure
+description: A API recupera o estado atual da oferta.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819670"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280512"
 ---
 <a name="retrieve-offer-status"></a>Obter estado da oferta 
 =====================
 
-Recupera o status atual da oferta.
+Recupera o estado atual da oferta.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parâmetros de URI
+<a name="uri-parameters"></a>Parâmetros URI
 --------------
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador de editor, por exemplo `Contoso`  |     String     |
-|  OfferId        | GUID que identifica exclusivamente a oferta      |     String     |
-|  versão da API    | Versão mais recente da API                        |     Date       |
+|  editorId    | Identificador de editor, por exemplo`Contoso`  |     Cadeia     |
+|  offerId        | GUID que identifica exclusivamente a oferta      |     Cadeia     |
+|  api-version    | Versão mais recente da API                        |     Date       |
 |  |  |
 
 
@@ -38,12 +37,12 @@ Recupera o status atual da oferta.
 
 |  Nome           |  Valor               |
 |  -------------  | -------------------  |
-|  Tipo de conteúdo   |  `application/json`  |
+|  Content-Type   |  `application/json`  |
 |  Autorização  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
-<a name="body-example"></a>Exemplo de corpo
+<a name="body-example"></a>Exemplo do corpo
 ------------
 
 ### <a name="response"></a>Resposta
@@ -121,60 +120,60 @@ Recupera o status atual da oferta.
 ```
 
 
-### <a name="response-body-properties"></a>Propriedades do corpo da resposta
+### <a name="response-body-properties"></a>Propriedades do corpo de resposta
 
 |  **Nome**             |    **Descrição**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  status               | O status da oferta. Para obter a lista de valores possíveis, consulte o [status da oferta](#offer-status) abaixo. |
-|  mensagens             | Matriz de mensagens associadas à oferta                                                    |
-|  passos                | Matriz das etapas pelas quais a oferta passa durante uma publicação de oferta                      |
-|  estimatedTimeFrame   | Estimativa do tempo que levaria para concluir esta etapa, em formato amigável                       |
-|  ID                   | Identificador da etapa                                                                         |
-|  etapaname             | Nome da etapa                                                                               |
-|  descrição          | Descrição da etapa                                                                        |
-|  status               | Status da etapa. Para obter a lista de valores possíveis, consulte o [status da etapa](#step-status) abaixo.    |
-|  mensagens             | Matriz de mensagens relacionadas à etapa                                                          |
-|  processPercentage    | Porcentagem de conclusão da etapa                                                              |
-|  previewLinks         | *Não implementado atualmente*                                                                    |
-|  liveLinks            | *Não implementado atualmente*                                                                    |
-|  notificationEmails   | Lista separada por vírgulas de endereços de email a serem notificados do progresso da operação        |
+|  status               | O estado da oferta. Para a lista de valores possíveis, consulte o [estado da Oferta](#offer-status) abaixo. |
+|  mensagens             | Conjunto de mensagens associadas à oferta                                                    |
+|  passos                | Conjunto dos passos que a oferta passa durante uma publicação de oferta                      |
+|  calculou timeframe   | Estimativa do tempo que levaria para completar este passo, em formato amigável                       |
+|  ID                   | Identificador do degrau                                                                         |
+|  nome do passo             | Nome do passo                                                                               |
+|  descrição          | Descrição do passo                                                                        |
+|  status               | Estado do passo. Para a lista de valores possíveis, consulte o [estado do Step](#step-status) abaixo.    |
+|  mensagens             | Conjunto de mensagens relacionadas com o passo                                                          |
+|  processoPercentage    | Conclusão percentual do passo                                                              |
+|  pré-visualizaçãoLinks         | *Não atualmente implementado*                                                                    |
+|  liveLinks            | *Não atualmente implementado*                                                                    |
+|  notificaçõesEmails   | Lista separada da Comma de endereços de e-mail a ser notificado do progresso da operação        |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Códigos de status de resposta
+### <a name="response-status-codes"></a>Códigos de estado de resposta
 
-| **Auto-completar** |   **Descrição**                                                                                 |
+| **Código** |   **Descrição**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
-|  200     |  `OK`-a solicitação foi processada com êxito e o status atual da oferta foi retornado. |
-|  400     | `Bad/Malformed request`-o corpo da resposta de erro pode conter mais informações.                 |
-|  404     | `Not found`-a entidade especificada não existe.                                                |
+|  200     |  `OK`- O pedido foi processado com êxito e o estado atual da oferta foi devolvido. |
+|  400     | `Bad/Malformed request`- O corpo de resposta a erros pode conter mais informações.                 |
+|  404     | `Not found`- A entidade especificada não existe.                                                |
 |  |  |
 
 
-### <a name="offer-status"></a>Status da oferta
+### <a name="offer-status"></a>Estado da oferta
 
 |  **Nome**                    |    **Descrição**                                       |
 |  --------------------------  |  ------------------------------------------------------  |
-|  NeverPublished              | A oferta nunca foi publicada.                          |
-|  NotStarted                  | A oferta é nova e não iniciada.                            |
-|  WaitingForPublisherReview   | A oferta está aguardando a aprovação do Publicador.                 |
-|  A executar                     | O envio da oferta está sendo processado.                     |
-|  Bem-sucedido                   | O envio da oferta concluiu o processamento.               |
-|  Cancelado                    | O envio da oferta foi cancelado.                           |
-|  Com Falhas                      | Falha no envio da oferta.                                 |
+|  Nunca Publicado              | A oferta nunca foi publicada.                          |
+|  Não Iniciado                  | A oferta é nova e não começou.                            |
+|  WaitingForPublisherReview   | A oferta está à espera da aprovação do editor.                 |
+|  A executar                     | A submissão da oferta está a ser processada.                     |
+|  Bem-sucedido                   | A submissão da oferta concluiu o processamento.               |
+|  Cancelado                    | A submissão da oferta foi cancelada.                           |
+|  Falhou                      | A submissão da oferta falhou.                                 |
 |  |  |
 
 
-### <a name="step-status"></a>Status da etapa
+### <a name="step-status"></a>Estado do Passo
 
 |  **Nome**                    |    **Descrição**                           |
 |  -------------------------   |  ------------------------------------------  |
-|  NotStarted                  | A etapa não foi iniciada.                        |
-|  InProgress                  | A etapa está em execução.                             |
-|  WaitingForPublisherReview   | A etapa está aguardando a aprovação do Publicador.      |
-|  WaitingForApproval          | A etapa está aguardando a aprovação do processo.        |
-|  Obstruído                     | A etapa está bloqueada.                             |
-|  Recusa                    | A etapa foi rejeitada.                            |
-|  Concluir                    | Etapa concluída.                            |
-|  Cancelado                    | A etapa foi cancelada.                           |
+|  Não Iniciado                  | O passo ainda não começou.                        |
+|  Inprogress                  | O passo está a correr.                             |
+|  WaitingForPublisherReview   | O Step está à espera da aprovação da editora.      |
+|  Esperando Aprovação          | O passo está à espera da aprovação do processo.        |
+|  Bloqueado                     | O passo está bloqueado.                             |
+|  Rejected                    | O passo é rejeitado.                            |
+|  Concluída                    | O passo está completo.                            |
+|  Cancelado                    | O passo foi cancelado.                           |
 |  |  |

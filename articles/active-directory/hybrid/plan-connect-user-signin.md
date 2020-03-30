@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbcc05093d801261493745c61dc5f68878d338b0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253744"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331273"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de utilizador azure AD Connect
 O Azure Ative Directory (Azure AD) Connect permite que os seus utilizadores acedam tanto aos recursos em nuvem como no local, utilizando as mesmas palavras-passe. Este artigo descreve conceitos-chave para cada modelo de identidade para ajudá-lo a escolher a identidade que pretende usar para iniciar sessão no Azure AD.
@@ -31,7 +31,7 @@ Se já está familiarizado com o modelo de identidade Azure AD e quer saber mais
 * [Sincronização](#password-hash-synchronization) de hash password com [insígnia single seamless (SSO)](how-to-connect-sso.md)
 * [Autenticação pass-through](how-to-connect-pta.md) com [insígnia single sign-on (SSO)](how-to-connect-sso.md)
 * [SSO Federado (com Serviços da Federação de Diretório Ativo (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
-* [Federação com PingFederate](#federation-with-pingfederate)
+* [Federação com o PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
 > É importante lembrar que ao configurar a federação para a AD Azure, estabelece a confiança entre o seu inquilino Azure AD e os seus domínios federados. Com esta confiança, os utilizadores de domínio federado terão acesso aos recursos da nuvem Azure AD dentro do inquilino.  
@@ -85,7 +85,7 @@ Se estás a implantar uma nova quinta, precisas de:
 
 * Um servidor R2 Do Windows Server 2012 para o servidor da federação.
 * Um servidor R2 do Windows Server 2012 para o Proxy da Aplicação Web.
-* Um ficheiro .pfx com um certificado SSL para o seu nome de serviço da federação pretendido. Por exemplo: fs.contoso.com.
+* Um ficheiro .pfx com um certificado TLS/SSL para o seu nome de serviço da federação pretendido. Por exemplo: fs.contoso.com.
 
 Se estiver a implantar uma nova quinta ou a utilizar uma quinta existente, precisa de:
 
@@ -112,7 +112,7 @@ Para mais informações, consulte a lista de compatibilidade de terceiros da [AD
 ### <a name="understanding-user-principal-name"></a>Compreender o nome principal do utilizador
 No Diretório Ativo, o sufixo principal do utilizador padrão (UPN) é o nome DNS do domínio onde a conta de utilizador foi criada. Na maioria dos casos, este é o nome de domínio que está registado como o domínio da empresa na Internet. No entanto, pode adicionar mais sufixos UPN utilizando domínios e trusts de Diretório Ativo.
 
-A UPN do utilizador tem o formato username@domain. Por exemplo, para um domínio de Diretório Ativo chamado "contoso.com", um utilizador chamado John pode ter a UPN "john@contoso.com". A UPN do utilizador baseia-se no RFC 822. Embora a UPN e o e-mail partilhem o mesmo formato, o valor da UPN para um utilizador pode ou não ser o mesmo que o endereço de e-mail do utilizador.
+A UPN do utilizador username@domaintem o formato . Por exemplo, para um domínio de Diretório Ativo chamado "contoso.com",john@contoso.comum utilizador chamado John pode ter a UPN ". A UPN do utilizador baseia-se no RFC 822. Embora a UPN e o e-mail partilhem o mesmo formato, o valor da UPN para um utilizador pode ou não ser o mesmo que o endereço de e-mail do utilizador.
 
 ### <a name="user-principal-name-in-azure-ad"></a>Nome principal do utilizador em Azure AD
 O assistente Azure AD Connect utiliza o atributo do nome principal do utilizador ou permite especificar o atributo (numa instalação personalizada) a ser utilizado a partir do local como o nome principal do utilizador em Azure AD. Este é o valor que é usado para iniciar sessão na Azure AD. Se o valor do atributo do userPrincipalName não corresponder a um domínio verificado em Azure AD, então o Azure AD substitui-o por um valor padrão .onmicrosoft.com.
@@ -144,22 +144,22 @@ O utilizador atributoPrincipalNome é o atributo que os utilizadores usam quando
 Recomendamos vivamente que mantenha o utilizador de atributo predefinidoPrincipalName. Se este atributo é intransponível e não pode ser verificado, então é possível selecionar outro atributo (e-mail, por exemplo) como o atributo que detém o ID de entrada. Isto é conhecido como a identidade alternativa. O valor do atributo de id alternativo deve seguir a norma RFC 822. Pode utilizar um ID alternativo com a palavra-passe SSO e a federação SSO como solução de entrada.
 
 > [!NOTE]
-> Usar um ID alternativo não é compatível com todas as cargas de trabalho do Office 365. Para mais informações, consulte [Configurar o ID de login alternativo](https://technet.microsoft.com/library/dn659436.aspx).
+> Usar um ID alternativo não é compatível com todas as cargas de trabalho do Office 365. Para obter mais informações, consulte o artigo [Configurar um ID de Início de Sessão Alternativo](https://technet.microsoft.com/library/dn659436.aspx).
 >
 >
 
 #### <a name="different-custom-domain-states-and-their-effect-on-the-azure-sign-in-experience"></a>Diferentes estados de domínio personalizado e o seu efeito na experiência de entrada em Azure
 É muito importante entender a relação entre os estados de domínio personalizados no seu diretório Azure AD e os sufixos UPN que são definidos no local. Vamos passar pelas diferentes experiências de entrada possíveis do Azure quando estivera a configurar a sincronização utilizando o Azure AD Connect.
 
-Para as seguintes informações, vamos supor que estamos preocupados com o sufixo da UPN contoso.com, que é usado no diretório no local como parte da UPN -- por exemplo, user@contoso.com.
+Para as seguintes informações, vamos supor que estamos preocupados com o sufixo upn contoso.com, que é usado user@contoso.comno diretório no local como parte da UPN -- por exemplo .
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Definições expressas/Sincronização de hash de palavra-passe
 
 | Estado | Efeito na experiência de entrada do utilizador Azure |
 |:---:|:--- |
-| Não adicionado |Neste caso, nenhum domínio personalizado para contoso.com foi adicionado no diretório Azure AD. Os utilizadores que tenham UPN no local com o sufixo @contoso.com não poderão usar as suas upns no local para iniciar o contrato com o Azure. Em vez disso, terão de usar uma nova UPN que lhes é fornecida pela Azure AD adicionando o sufixo para o diretório ad. Por exemplo, se estiver a sincronizar os utilizadores com o diretório da AD Azure azurecontoso.onmicrosoft.com, então o utilizador no local user@contoso.com receberá uma UPN de user@azurecontoso.onmicrosoft.com. |
+| Não adicionado |Neste caso, nenhum domínio personalizado para contoso.com foi adicionado no diretório Azure AD. Os utilizadores que tenham UPN no local @contoso.com com o sufixo não poderão usar as suas UPN no local para iniciar o contrato com o Azure. Em vez disso, terão de usar uma nova UPN que lhes é fornecida pela Azure AD adicionando o sufixo para o diretório ad. Por exemplo, se estiver a sincronizar os utilizadores com o diretório DaD user@contoso.com Azure azurecontoso.onmicrosoft.com, user@azurecontoso.onmicrosoft.comentão o utilizador no local receberá uma UPN de . |
 | Não verificado |Neste caso, temos um domínio personalizado contoso.com que é adicionado no diretório Azure AD. No entanto, ainda não foi verificado. Se avançar com utilizadores sincronizados sem verificar o domínio, os utilizadores serão atribuídos a uma nova UPN pela Azure AD, tal como no cenário "Não adicionado". |
-| Verificado |Neste caso, temos um domínio personalizado contoso.com que já foi adicionado e verificado em Azure AD para o sufixo UPN. Os utilizadores poderão utilizar o seu nome principal de utilizador no local, por exemplo user@contoso.com, para iniciar sessão no Azure depois de sincronizados com a Azure AD. |
+| Verificado |Neste caso, temos um domínio personalizado contoso.com que já foi adicionado e verificado em Azure AD para o sufixo UPN. Os utilizadores poderão utilizar o seu nome principal de user@contoso.comutilizador no local, por exemplo, para iniciar sessão no Azure depois de sincronizados com a AD Azure. |
 
 ###### <a name="ad-fs-federation"></a>Federação AD FS
 Não é possível criar uma federação com o domínio padrão .onmicrosoft.com em Azure AD ou um domínio personalizado não verificado em Azure AD. Quando estiver a executar o assistente Azure AD Connect, se selecionar um domínio não verificado para criar uma federação com, então o Azure AD Connect solicita-lhe os registos necessários para serem criados onde o seu DNS está hospedado para o domínio. Para mais informações, [consulte Verifique o domínio Azure AD selecionado para a federação](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation).
@@ -168,11 +168,11 @@ Se selecionou a Federação de Opções de Utilizador **com AD FS,** então deve
 
 | Estado | Efeito na experiência de entrada do utilizador Azure |
 |:---:|:--- |
-| Não adicionado |Neste caso, o Azure AD Connect não encontrou um domínio personalizado correspondente para o sufixo UPN contoso.com no diretório Azure AD. Você precisa adicionar um domínio personalizado contoso.com se precisar que os utilizadores se inscrevam usando AD FS com as suas UPN no local (como user@contoso.com). |
+| Não adicionado |Neste caso, o Azure AD Connect não encontrou um domínio personalizado correspondente para o sufixo UPN contoso.com no diretório Azure AD. Você precisa adicionar um domínio personalizado contoso.com se precisar que os utilizadores se inscrevam usando user@contoso.comAD FS com as suas UPN no local (como). |
 | Não verificado |Neste caso, o Azure AD Connect solicita-lhe detalhes adequados sobre como pode verificar o seu domínio numa fase posterior. |
 | Verificado |Neste caso, pode avançar com a configuração sem qualquer outra ação. |
 
-## <a name="changing-the-user-sign-in-method"></a>Alterar o método de inscrição do utilizador
+## <a name="changing-the-user-sign-in-method"></a>Alterar o método de início de sessão do utilizador
 Pode alterar o método de entrada do utilizador da federação, sincronização de hash de palavra-passe ou autenticação pass-through utilizando as tarefas que estão disponíveis no Azure AD Connect após a configuração inicial do Azure AD Connect com o assistente. Execute novamente o assistente Azure AD Connect e verá uma lista de tarefas que poderá executar. Selecione Alterar o **sessão do utilizador** na lista de tarefas.
 
 ![Alterar o sessão de inscrição do utilizador](./media/plan-connect-user-signin/changeusersignin.png)
