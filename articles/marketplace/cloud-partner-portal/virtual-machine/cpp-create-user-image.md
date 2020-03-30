@@ -1,43 +1,42 @@
 ---
-title: Criar uma imagem de VM de usuário para o Azure Marketplace
-description: Lista as etapas e referências necessárias para criar uma imagem de VM de usuário.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Criar uma imagem VM do utilizador para o Mercado Azure
+description: Lista os passos e referências necessários para criar uma imagem VM do utilizador.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: e63f09dc538c5e66b244826cf3b5f92ac388b6a9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 49db8c6717cd26886c3b49f8c99fdd2b08e8713d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818704"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278012"
 ---
 # <a name="create-a-user-vm-image"></a>Criar uma imagem de VM do utilizador
 
-Este artigo explica as duas etapas gerais necessárias para criar uma imagem não gerenciada de um VHD generalizado.  As referências são fornecidas para orientá-lo durante cada etapa: capturar a imagem e generalizar a imagem.
+Este artigo explica os dois passos gerais necessários para criar uma imagem não gerida a partir de um VHD generalizado.  São fornecidas referências para guiá-lo através de cada passo: capturar a imagem e generalizar a imagem.
 
 
-## <a name="capture-the-vm-image"></a>Capturar a imagem da VM
+## <a name="capture-the-vm-image"></a>Capture a imagem VM
 
-Use as instruções no seguinte artigo sobre como capturar a VM que corresponde à sua abordagem de acesso:
+Utilize as instruções no seguinte artigo sobre a captura do VM que corresponde à sua abordagem de acesso:
 
--  PowerShell: [como criar uma imagem de VM não gerenciada de uma VM do Azure](../../../virtual-machines/windows/capture-image-resource.md)
--  CLI do Azure: [como criar uma imagem de uma máquina virtual ou VHD](../../../virtual-machines/linux/capture-image.md)
--  API: [máquinas virtuais – captura](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
+-  PowerShell: [Como criar uma imagem VM não gerida a partir de um VM Azure](../../../virtual-machines/windows/capture-image-resource.md)
+-  Azure CLI: [Como criar uma imagem de uma máquina virtual ou VHD](../../../virtual-machines/linux/capture-image.md)
+-  API: [Máquinas Virtuais - Captura](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
 
 
-## <a name="generalize-the-vm-image"></a>Generalizar a imagem da VM
+## <a name="generalize-the-vm-image"></a>Generalize a imagem VM
 
-Como você gerou a imagem de usuário de um VHD anteriormente generalizado, ele também deve ser generalizado.  Novamente, selecione o seguinte artigo que corresponde ao seu mecanismo de acesso.  (Talvez você já tenha generalizado seu disco quando o capturou.)
+Como gerou a imagem do utilizador a partir de um VHD previamente generalizado, também deve ser generalizado.  Mais uma vez, selecione o seguinte artigo que corresponda ao seu mecanismo de acesso.  (Pode já ter generalizado o seu disco quando o capturou.)
 
--  PowerShell: [generalizar a VM](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  CLI do Azure: [etapa 2: criar imagem de VM](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [máquinas virtuais-generalizar](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
+-  PowerShell: [Generalize o VM](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
+-  Azure CLI: [Passo 2: Criar imagem VM](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
+-  API: [Máquinas Virtuais - Generalizar](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, você [criará um certificado](cpp-create-key-vault-cert.md) e o armazenará em um novo Azure Key Vault.  Esse certificado é necessário para estabelecer uma conexão segura do WinRM com a VM.
+Em seguida, [você vai criar um certificado](cpp-create-key-vault-cert.md) e armazená-lo em um novo Cofre chave Azure.  Este certificado é necessário para estabelecer uma ligação WinRM segura ao VM.

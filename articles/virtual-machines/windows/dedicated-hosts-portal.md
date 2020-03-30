@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: b6f5e155b76535c4d9e0080983d5f54cec3adb01
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 3d014014b540e5ea5959483427dec4b239ceaf7b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086937"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476795"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implementar VMs para anfitriões dedicados usando o portal
 
@@ -31,13 +31,13 @@ Este artigo guia-o através de como criar um [anfitrião dedicado](dedicated-hos
 1. Em **Conta de administrador**, forneça um nome de utilizador, como *utilizadordoazure*, e uma palavra-passe. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 1. De acordo com as regras da **porta de entrada,** escolha **permitir portas selecionadas** e, em seguida, selecionar **RDP (3389)** a partir da queda.
 1. No topo da página, selecione o separador **Avançado** e na secção **Anfitrião,** selecione *myHostGroup* para **host group** e *myHost* for the **Host**. 
-    ![Selecione grupo anfitrião e acolhe](./media/dedicated-hosts-portal/advanced.png)
+    ![Selecione grupo anfitrião e anfitrião](./media/dedicated-hosts-portal/advanced.png)
 1. Mantenha as restantes predefinições e, em seguida, selecione o botão **Rever + criar** na parte inferior da página.
 1. Quando vir a mensagem que a validação passou, selecione **Criar**.
 
 ## <a name="add-an-existing-vm"></a>Adicione um VM existente 
 
-Você pode adicionar um VM de saída a um anfitrião dedicado, mas o VM deve primeiro ser Stop\Deallocated. Antes de mover um VM para um anfitrião dedicado, certifique-se de que a configuração VM é suportada:
+Você pode adicionar um VM existente a um anfitrião dedicado, mas o VM deve primeiro ser Stop\Deallocated. Antes de mover um VM para um anfitrião dedicado, certifique-se de que a configuração VM é suportada:
 
 - O tamanho VM deve ser do mesmo tamanho que o hospedeiro dedicado. Por exemplo, se o seu anfitrião dedicado for DSv3, então o tamanho VM pode ser Standard_D4s_v3, mas não poderia ser um Standard_A4_v2. 
 - O VM precisa de ser localizado na mesma região que o anfitrião dedicado.

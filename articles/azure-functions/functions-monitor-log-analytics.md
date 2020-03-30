@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: cshoe
 ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77649879"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorização de funções azure com registos de monitores Azure
@@ -38,7 +38,7 @@ Na página de **definições** de Diagnóstico, escolha **Enviar para Registar A
 Para gerar registos personalizados, pode utilizar a declaração de registo específica dependendo da sua língua, aqui estão os snippets de código de amostra:
 
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 log.LogInformation("My app logs here.");
@@ -62,7 +62,7 @@ context.log('My app logs here.');
 Write-Host "My app logs here."
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 ```python
 logging.info('My app logs here.')

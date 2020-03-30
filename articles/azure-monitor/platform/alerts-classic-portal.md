@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.openlocfilehash: b770b9bd34c8267889db536ec81332de32cb8776
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668320"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas métricos clássicos usando o Monitor Azure
@@ -20,7 +20,7 @@ Os alertas métricos clássicos no Monitor Azure fornecem uma forma de ser notif
 
 1. No [portal,](https://portal.azure.com/)localize o recurso que pretende monitorizar e, em seguida, selecione-o.
 
-2. Na secção **MONITOR,** selecione **Alertas (Clássico)** . O texto e o ícone podem variar ligeiramente para diferentes recursos. Se não encontrar **alertas (clássicos)** aqui, poderá encontrá-lo em **Alertas** ou Regras de **Alerta**.
+2. Na secção **MONITOR,** selecione **Alertas (Clássico)**. O texto e o ícone podem variar ligeiramente para diferentes recursos. Se não encontrar **alertas (clássicos)** aqui, poderá encontrá-lo em **Alertas** ou Regras de **Alerta**.
 
     ![Monitorização](media/alerts-classic-portal/AlertRulesButton.png)
 
@@ -34,7 +34,7 @@ Os alertas métricos clássicos no Monitor Azure fornecem uma forma de ser notif
 
 6. Selecione os proprietários de **e-mail...** se quiser que administradores e coadministradores recebam notificações de e-mail quando o alerta disparar.
 
-7. Se pretender enviar notificações para endereços de e-mail adicionais quando o alerta disparar, adicione-os no campo **de e-mail do Administrador Adicional.** Separe vários e-mails com pontos evívias, no seguinte formato: *e-mail\@contoso.com;email2\@contoso.com*
+7. Se pretender enviar notificações para endereços de e-mail adicionais quando o alerta disparar, adicione-os no campo **de e-mail do Administrador Adicional.** Separe vários e-mails com pontos evívias, no seguinte formato: *email\@contoso.com;email2\@contoso.com*
 
 8. Coloque um URI válido no campo **Webhook** se quiser que seja chamado quando o alerta disparar.
 

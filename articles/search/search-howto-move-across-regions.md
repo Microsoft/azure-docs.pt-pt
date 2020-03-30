@@ -8,32 +8,32 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/06/2020
-ms.openlocfilehash: c31a81d2836e9f8c00dec3c0c2eb3a43800a5322
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.date: 03/24/2020
+ms.openlocfilehash: 00f16d11f7a9cd276772eda5e91d6e117ada8c9f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136266"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246308"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mova o seu serviço de Pesquisa Cognitiva Azure para outra região de Azure
 
-Ocasionalmente, os clientes perguntam sobre a mudança de um serviço de pesquisa existente para outra região. Atualmente, não existem mecanismos incorporados ou ferramentas para ajudá-lo com essa tarefa. Continua a ser um processo manual, delineado abaixo neste artigo.
+Ocasionalmente, os clientes perguntam sobre a mudança de um serviço de pesquisa para outra região. Atualmente, não existe nenhum mecanismo incorporado ou ferramenta para ajudar nessa tarefa, mas este artigo pode ajudá-lo a entender os passos manuais para alcançar o mesmo resultado.
 
 > [!NOTE]
 > No portal Azure, todos os serviços têm um comando **de modelo de exportação.** No caso da Pesquisa Cognitiva Azure, este comando produz uma definição básica de um serviço (nome, localização, nível, réplica e contagem de partição), mas não reconhece o conteúdo do seu serviço, nem transporta chaves, funções ou registos. Embora o comando exista, não recomendamos usá-lo para mover um serviço de pesquisa.
 
-## <a name="steps-for-moving-a-service"></a>Passos para mover um serviço
+## <a name="guidance-for-moving-a-service"></a>Orientação para mover um serviço
 
-Se precisar de mover um serviço de pesquisa para diferentes regiões, a sua abordagem deve ser semelhante aos passos abaixo:
+1. Identifique dependências e serviços relacionados para entender o impacto total da deslocalização de um serviço, caso precise mover-se mais do que apenas a Pesquisa Cognitiva Azure.
 
-1. Identifique serviços relacionados para compreender o impacto total da deslocalização de um serviço. Pode estar a utilizar o Azure Storage para a exploração madeireira, loja de conhecimento ou como fonte de dados externa. Podes estar a usar os Serviços Cognitivos para enriquecimento de IA. O acesso a serviços noutras regiões é comum, mas vem com taxas adicionais de largura de banda. Os Serviços Cognitivos e a Pesquisa Cognitiva Azure são obrigados a estar na mesma região se estiver a usar o enriquecimento de IA.
+   O Armazenamento Azure é usado para a exploração madeireira, criando uma loja de conhecimento, e é uma fonte de dados externa sumidamente utilizada para enriquecimento e indexação de IA. Os Serviços Cognitivos são uma dependência do enriquecimento de IA. Tanto os Serviços Cognitivos como o seu serviço de pesquisa são obrigados a estar na mesma região se estiver a usar o enriquecimento de IA.
 
-1. Inventário do serviço existente para obter uma lista completa de objetos no serviço. Se habilitasse a exploração madeireira, criasse e archiveasse quaisquer relatórios que precisasse para um registo histórico.
+1. Crie um inventário de todos os objetos no serviço para que saiba o que mover: índices, mapas de sinónimo, indexadores, fontes de dados, skillsets. Se habilitasse a exploração madeireira, criasse e archiveasse quaisquer relatórios que precisasse para um registo histórico.
 
-1. Consulte os preços e disponibilidade na nova região para garantir a disponibilidade de Pesquisa Cognitiva Azure mais quaisquer serviços relacionados que possa querer criar na mesma região. Verifique se há paridade de recursos. Algumas funcionalidades de pré-visualização têm disponibilidade restrita.
+1. Consulte os preços e disponibilidade na nova região para garantir a disponibilidade de Pesquisa Cognitiva Azure mais quaisquer serviços relacionados na nova região. A maioria das funcionalidades estão disponíveis em todas as regiões, mas algumas funcionalidades de pré-visualização têm disponibilidade restrita.
 
-1. Crie um serviço na nova região e republique a partir do código fonte quaisquer índices existentes, indexantes, fontes de dados, skillsets, lojas de conhecimento e mapas de sinónimo. Os nomes de serviço devem ser únicos para que não possa reutilizar o nome existente.
+1. Crie um serviço na nova região e republique a partir do código fonte quaisquer índices existentes, mapas de sinónimo, indexadores, fontes de dados e skillsets. Lembre-se que os nomes de serviço devem ser únicos para que não possa reutilizar o nome existente. Verifique cada skillset para ver se as ligações aos Serviços Cognitivos ainda são válidas em termos do requisito da mesma região. Além disso, se forem criadas lojas de conhecimento, verifique as cordas de ligação para o Armazenamento Azure se estiver a utilizar um serviço diferente.
 
 1. Recarregar índices e lojas de conhecimento, se aplicável. Ou usará o código de aplicação para empurrar os dados da JSON para um índice, ou reexecutar os indexadores para obter documentos de fontes externas. 
 
@@ -45,7 +45,10 @@ Se precisar de mover um serviço de pesquisa para diferentes regiões, a sua abo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-+ [Escolha um nível](search-sku-tier.md)
+Os seguintes links podem ajudá-lo a localizar mais informações ao completar os passos acima descritos.
+
++ [Preços e regiões de pesquisa cognitiva azure](https://azure.microsoft.com/pricing/details/search/)
++ [Escolha um escalão](search-sku-tier.md)
 + [Criar um serviço de pesquisa](search-create-service-portal.md)
 + [Carregar documentos de pesquisa](search-what-is-data-import.md)
 + [Ativar registo](search-monitor-logs.md)

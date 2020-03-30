@@ -4,10 +4,10 @@ description: Obtenha notificações personalizadas sobre eventos de saúde de se
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77654108"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envie alertas de saúde de serviço Azure com serviceNow usando webhooks
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como integrar alertas de saúde de serviço Azure com o S
  
     ![O botão "New Scripted REST API" no ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
 
-1.  Adicione um **Nome** à sua API REST e coloque o **ID DaPi** para `azureservicehealth`.
+1.  Adicione um **Nome** à sua API REST `azureservicehealth`e coloque o ID **DaPi** para .
 
 1.  Selecione **Submeter**.
 
@@ -36,15 +36,15 @@ Este artigo mostra-lhe como integrar alertas de saúde de serviço Azure com o S
 
     ![O "Separador de Recursos" no ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 
-1.  **Nomeie** o seu novo recurso `event` e altere o **método HTTP** para `POST`.
+1.  **Nomeie** `event` o seu novo `POST`recurso e altere o método **HTTP** para .
 
 1.  Na secção **Script,** adicione o seguinte código JavaScript:
 
     >[!NOTE]
-    >É necessário atualizar o valor `<secret>`,`<group>`e `<email>` no script abaixo.
-    >* `<secret>` deve ser uma corda aleatória, como um GUID
-    >* `<group>` deve ser o grupo ServiceNow que pretende atribuir o incidente a
-    >* `<email>` deve ser a pessoa específica a quem pretende atribuir o incidente (opcional)
+    >Precisa atualizar o `<secret>``<group>`, `<email>` e o valor no script abaixo.
+    >* `<secret>`deve ser uma corda aleatória, como um GUID
+    >* `<group>`deve ser o grupo ServiceNow que pretende atribuir o incidente a
+    >* `<email>`deve ser a pessoa específica a quem pretende atribuir o incidente (opcional)
     >
 
     ```javascript
@@ -131,7 +131,7 @@ Este artigo mostra-lhe como integrar alertas de saúde de serviço Azure com o S
     })(request, response);
     ```
 
-1.  No separador de segurança, **desmarcar requer autenticação** e selecione **Enviar**. O `<secret>` que definiu protege esta API.
+1.  No separador de segurança, **desmarcar requer autenticação** e selecione **Enviar**. O `<secret>` conjunto protege esta API.
 
     ![A caixa de verificação "Requer Autenticação" no ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 
@@ -187,7 +187,7 @@ Este artigo mostra-lhe como integrar alertas de saúde de serviço Azure com o S
 
     BODY        <service health payload>
     ```
-1. Deve receber uma resposta `200 OK` com a mensagem "Incidente criado".
+1. Deve receber `200 OK` uma resposta com a mensagem "Incidente criado".
 
 1. Vá ao [ServiceNow](https://www.servicenow.com/) para confirmar que a sua integração foi criada com sucesso.
 

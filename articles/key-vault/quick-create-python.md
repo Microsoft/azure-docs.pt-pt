@@ -7,18 +7,18 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 72100381faa7306db43ac4b7155b2db4b58a891b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 77cafc18528826ed90145e307f419c360b6a5e4b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197679"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79457207"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Python
 
 Começa com a biblioteca de clientes azure Key Vault para python. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
-O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Utilize a biblioteca de clientes Key Vault para Python para:
+O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Utilize a biblioteca de clientes Key Vault para Python para:
 
 - Aumentar a segurança e o controlo sobre chaves e senhas.
 - Crie e importe chaves de encriptação em minutos.
@@ -26,7 +26,7 @@ O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os s
 - Simplificar e automatizar tarefas para certificados TLS/SSL.
 - Utilize HSMs validados de nível 2 fips 140-2.
 
-[Documentação de referência da API](/python/api/overview/azure/key-vault?view=azure-python) | Pacote de | de [código de origem da Biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) [(Índice de Pacote Python)](https://pypi.org/project/azure-keyvault/)
+[Documentação de](/python/api/overview/azure/key-vault?view=azure-python) | referência API Pacote de[código fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [(Índice de Pacote Python)](https://pypi.org/project/azure-keyvault/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ pip install azure.identity
 Este quickstart usa um cofre chave Azure pré-criado. Pode criar um cofre chave seguindo os passos no [quickstart Azure CLI,](quick-create-cli.md) [Azure PowerShell quickstart](quick-create-powershell.md)ou [portal Azure quickstart](quick-create-portal.md). Em alternativa, pode executar os comandos Azure CLI abaixo.
 
 > [!Important]
-> Cada cofre deve ter um nome único. Substitua <your-unique-keyvault-name> com o nome do seu cofre chave nos seguintes exemplos.
+> Cada cofre deve ter um nome único. Substitua <seu> de nome único com o seu cofre único com o nome do seu cofre-chave nos seguintes exemplos.
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
@@ -85,7 +85,6 @@ Esta operação devolverá uma série de pares chave/valor.
   "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
   "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
   "galleryEndpointUrl": "https://gallery.azure.com/",
   "managementEndpointUrl": "https://management.core.windows.net/"
@@ -104,9 +103,9 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Definir variáveis ambientais
 
-O método DefaultAzureCredential na nossa aplicação baseia-se em três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. Detete estas variáveis para os valores do clienteId, clientSecret e tenantId que observou no passo [principal do serviço Create](#create-a-service-principal) usando o formato `export VARNAME=VALUE`. (Este método apenas define as variáveis para a sua concha atual e os processos criados a partir da concha; para adicionar permanentemente estas variáveis ao seu ambiente, editar o seu ficheiro `/etc/environment `.) 
+O método DefaultAzureCredential na nossa aplicação baseia-se em três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. Detete estas variáveis para os valores clienteId, clientSecret e tenantId `export VARNAME=VALUE` que observou no passo principal do serviço [Create](#create-a-service-principal) usando o formato. (Este método apenas define as variáveis para a sua concha atual e os processos criados `/etc/environment ` a partir da concha; para adicionar permanentemente estas variáveis ao seu ambiente, editar o seu ficheiro.) 
 
-Você também terá que guardar o seu nome de cofre chave como uma variável ambiental chamada `KEY_VAULT_NAME`.
+Você também precisa guardar o seu nome chave `KEY_VAULT_NAME`do cofre como uma variável ambiental chamada .
 
 ```console
 export AZURE_CLIENT_ID=<your-clientID>
@@ -122,7 +121,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 A biblioteca de clientes Azure Key Vault para python permite-lhe gerir chaves e bens relacionados, tais como certificados e segredos. As amostras de código abaixo mostrar-lhe-ão como criar um cliente, definir um segredo, recuperar um segredo e apagar um segredo.
 
-Toda a aplicação de consola está disponível em https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+Toda a aplicação https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-appde consola está disponível em .
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -168,7 +167,7 @@ Agora pode recuperar o valor previamente definido com o [cliente. Método GetSec
 retrieved_secret = client.get_secret(secretName)
  ```
 
-O teu segredo está agora guardado como `retrieved_secret.value`.
+O teu segredo `retrieved_secret.value`está agora guardado como.
 
 ### <a name="delete-a-secret"></a>Eliminar um segredo
 

@@ -13,13 +13,13 @@ ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
 ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79370241"
 ---
-# <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Quickstart: Criar uma instância de modo híbrido com o portal Azure & Azure Database Migration Service
+# <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Quickstart: Criar uma instância de modo híbrido com o portal Azure & Serviço de Migração da Base de Dados Azure
 
 O modo híbrido azure Database Migration Service gere as migrações de bases de dados utilizando um trabalhador migratório que está hospedado no local juntamente com uma instância do Serviço de Migração de Bases de Dados Azure que funciona na nuvem. O modo híbrido é especialmente útil para cenários em que há falta de conectividade site-a-local entre a rede no local e o Azure ou se há uma largura de banda de conectividade de site-para-local limitada.
 
@@ -39,7 +39,7 @@ Neste Quickstart, utiliza-se o portal Azure para criar uma instância do Serviç
 > [!IMPORTANT]
 > O instalador híbrido azure Database Migration Service requer .NET 4.7.2 ou mais tarde. Para encontrar as versões mais recentes de .NET, consulte a página ['Download .NET Framework'.](https://dotnet.microsoft.com/download/dotnet-framework)
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -71,7 +71,7 @@ Registe o fornecedor de recursos Microsoft.DataMigration antes de criar a sua pr
     - Selecione a sua **Subscrição** do Azure, na qual pretende criar a instância.
     - Selecione um **Grupo de Recursos** existente ou crie um novo.
     - Escolha a **Localização** que esteja mais próxima do seu servidor de origem ou de destino.
-    - Para **o modo de serviço,** selecione Hybrid **(Pré-visualização)** .
+    - Para **o modo de serviço,** selecione Hybrid **(Pré-visualização)**.
 
          ![Criar serviço de migração - básicos](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
@@ -139,7 +139,7 @@ Você precisa criar um ID de registo azure App que o trabalhador híbrido no loc
 
     ![Certificado híbrido do Serviço de Migração da Base de Dados Azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
 
-6. No portal Azure, navegue para o ID da App, em **'Gerir',** selecione **Certificados e segredos,** e depois selecione **o certificado de upload** para selecionar o certificado público que gerou.
+6. No portal Azure, navegue para o ID da App, em **'Gerir',** selecione **Certificados de & segredos,** e, em seguida, selecione **o certificado de upload** para selecionar o certificado público que gerou.
 
     ![Carregamento de certificado de certificado híbrido do Serviço de Migração azure](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
 
@@ -153,7 +153,7 @@ Você precisa criar um ID de registo azure App que o trabalhador híbrido no loc
     > Ao executar o comando de instalação, também pode utilizar os seguintes parâmetros:
     >
     > - **-TelemettryOptOut** - Impede o trabalhador de enviar telemetria, mas continua a registar-se localmente minimamente.  O instalador ainda envia telemetria.
-    > - **-p {InstalaçãoLocalização}** . Permite alterar a trajetória de instalação, que por defeito é "C:\Program Files\DatabaseMigrationServiceHybrid".
+    > - **-p {InstalaçãoLocalização}**. Permite alterar a trajetória de instalação, que por defeito é "C:\Program Files\DatabaseMigrationServiceHybrid".
 
 8. Se o instalador funcionar sem erros, o serviço mostrará um estado online no Serviço de Migração de Bases de Dados Azure e está pronto para migrar as suas bases de dados.
 
@@ -191,5 +191,5 @@ Preencha os parâmetros no topo do script e, em seguida, execute o script a part
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Migrar o SQL Server para uma Base de Dados Azure SQL gerido por
-> ](tutorial-sql-server-managed-instance-online.md) migrar [o Servidor SQL para uma única base de dados ou base de dados pooled em Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)
+> [Migrar o SQL Server para uma Base de Dados Azure SQL gerido por exemplo online](tutorial-sql-server-managed-instance-online.md)
+> [Migrate SQL Server para uma única base de dados ou base de dados pooled em Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)

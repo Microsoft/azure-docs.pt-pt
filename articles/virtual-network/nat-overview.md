@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: d8ecabab596612b443f1eb0a50fd550fdc474c43
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 4b34d4208d8686cdac3f8164d2cf7efb2d881346
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370819"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79409903"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é a Rede Virtual NAT?
 
@@ -60,9 +60,9 @@ Ao contrário do SNAT de saída do equilibrista de carga, o NAT não tem restri�
 
 O NAT é compatível com os seguintes recursos SKU padrão:
 
-- [Balanceador de carga](../load-balancer/load-balancer-overview.md)
+- [Equilibrador de carga](../load-balancer/load-balancer-overview.md)
 - [Endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Prefixo ip público](../virtual-network/public-ip-address-prefix.md)
+- [Prefixo de IP público](../virtual-network/public-ip-address-prefix.md)
 
 Quando utilizados juntamente com o NAT, estes recursos fornecem conectividade à Internet de entrada para a sua sub-rede. O NAT fornece toda a conectividade de saída da Internet a partir da sua subnet.s.
 
@@ -88,9 +88,9 @@ O lado privado do NAT envia pacotes de Reset TCP para tentativas de comunicaçã
 
 O lado público do NAT não gera pacotes de Reset TCP ou qualquer outro tráfego.  Apenas o tráfego produzido pela rede virtual do cliente é emitido.
 
-## <a name="configurable-idle-timeout"></a>Tempo limite de inatividade configurável
+## <a name="configurable-tcp-idle-timeout"></a>Tempo limite de inativa configurável do TCP
 
-É utilizado um tempo de inatividade de 4 minutos e pode ser aumentado até 120 minutos. Qualquer atividade num fluxo também pode repor o temporizador inativo, incluindo a manutenção de TCP.
+É utilizado um tempo de inatividade padrão do TCP de 4 minutos e pode ser aumentado até 120 minutos. Qualquer atividade num fluxo também pode repor o temporizador inativo, incluindo a manutenção de TCP.
 
 ## <a name="regional-or-zone-isolation-with-availability-zones"></a>Isolamento regional ou zona com zonas de disponibilidade
 

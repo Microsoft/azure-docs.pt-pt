@@ -4,10 +4,10 @@ description: Telemetria direta para diferentes recursos para o desenvolvimento, 
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671465"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separando a telemetria do desenvolvimento, teste e produção
@@ -28,13 +28,13 @@ Normalmente opta por utilizar recursos separados ou um único recurso partilhado
 * A B teste - Utilize um único recurso. Crie um TelemettryInitializer para adicionar uma propriedade à telemetria que identifica as variantes.
 
 
-## <a name="dynamic-ikey"></a>Chave de instrumentação dinâmica
+## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Chave de instrumentação dinâmica
 
 Para facilitar a alteração da tecla à medida que o código se move entre as fases de produção, detetete-o em código em vez de no ficheiro de configuração.
 
 Desloque a chave num método de inicialização, como global.aspx.cs num serviço ASP.NET:
 
-*C#*
+*C #*
 
     protected void Application_Start()
     {
@@ -99,7 +99,7 @@ Existem vários métodos diferentes para definir a propriedade versão de aplica
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
 * Envolva essa linha num inicializador de [telemetria](../../azure-monitor/app/api-custom-events-metrics.md#defaults) para garantir que todas as instâncias do TelemettryClient sejam definidas de forma consistente.
-* [ASP.NET] Desloque a versão em `BuildInfo.config`. O módulo web irá captar a versão do nó BuildLabel. Inclua este ficheiro no seu projeto e lembre-se de definir a propriedade Copy Always no Solution Explorer.
+* [ASP.NET] Desloque `BuildInfo.config`a versão em . O módulo web irá captar a versão do nó BuildLabel. Inclua este ficheiro no seu projeto e lembre-se de definir a propriedade Copy Always no Solution Explorer.
 
     ```XML
 
@@ -114,7 +114,7 @@ Existem vários métodos diferentes para definir a propriedade versão de aplica
     </DeploymentEvent>
 
     ```
-* [ASP.NET] Gere buildInfo.config automaticamente na MSBuild. Para isso, adicione algumas linhas ao seu ficheiro `.csproj`:
+* [ASP.NET] Gere buildInfo.config automaticamente na MSBuild. Para isso, adicione algumas `.csproj` linhas ao seu ficheiro:
 
     ```XML
 
@@ -127,10 +127,10 @@ Existem vários métodos diferentes para definir a propriedade versão de aplica
 
     A etiqueta de construção contém um espaço reservado (AutoGen_...) quando se constrói com o Visual Studio. Mas quando construído com MSBuild, é povoado com o número de versão correta.
 
-    Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
+    Para permitir que o MSBuild gere `1.0.*` números de versão, defina a versão como em AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Versão e controlo de versão
-Para controlar a versão da aplicação, certifique-se de que `buildinfo.config` é gerado pelo processo do Microsoft Build Engine. No seu ficheiro `.csproj`, adicione:  
+Para controlar a versão da aplicação, certifique-se de que `buildinfo.config` é gerado pelo processo do Microsoft Build Engine. No `.csproj` seu ficheiro, adicione:  
 
 ```XML
 
@@ -143,7 +143,7 @@ Quando possui informações de compilação, o módulo Web do Application Insigh
 
 No entanto, note que o número da versão build é gerado apenas pelo Microsoft Build Engine, e não pela construção do desenvolvedor a partir do Visual Studio.
 
-### <a name="release-annotations"></a>Notas da versão
+### <a name="release-annotations"></a>Anotações da versão
 Se utilizar o Azure DevOps, pode obter um marcador de [anotação](../../azure-monitor/app/annotations.md) adicionado às suas tabelas sempre que lançar uma nova versão. A imagem seguinte mostra como este marcador é apresentado.
 
 ![Captura de ecrã de um exemplo de anotação de versão num gráfico](media/separate-resources/release-annotation.png)

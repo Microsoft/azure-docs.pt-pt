@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 06/19/2019
 tags: connectors
 ms.openlocfilehash: 6bfd626c1ce69029ee720d24b0b143e7b4c3dd56
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650952"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Ligue-se a um servidor IBM MQ a partir de Aplicações Lógicas Azure

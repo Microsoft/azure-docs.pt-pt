@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671924"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependência: Modelo de dados de Insights de Aplicação
@@ -37,9 +37,9 @@ Local alvo de uma chamada de dependência. Exemplos são o nome do servidor, end
 
 ## <a name="duration"></a>Duração
 
-Duração do pedido em formato: `DD.HH:MM:SS.MMMMMM`. Deve ser menos de `1000` dias.
+Duração do `DD.HH:MM:SS.MMMMMM`pedido em formato: . Deve ser `1000` menos de dias.
 
-## <a name="result-code"></a>Código de resultados
+## <a name="result-code"></a>Código do resultado
 
 Código de resultadode uma chamada de dependência. Exemplos são código de erro SQL e código de estado HTTP.
 

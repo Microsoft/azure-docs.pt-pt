@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: ce67b5e254a62def5f8b024e960cea7f8780e8b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77605486"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Quickstart: Criar e fornecer um dispositivo TPM simulado utilizando o dispositivo Java SDK para o Serviço de Provisionamento de Dispositivos Hub Azure IoT
@@ -28,8 +28,8 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
 - Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md).
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - [Kit](https://aka.ms/azure-jdks)de Desenvolvimento Java SE 8 .
-- [Maven](https://maven.apache.org/install.html).
-- [Git](https://git-scm.com/download/).
+- [Maven.](https://maven.apache.org/install.html)
+- [Git.](https://git-scm.com/download/)
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -68,11 +68,11 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
     cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
-1. Inscreva-se no portal Azure, selecione o botão **Todos os recursos** no menu à esquerda e abra o serviço de fornecimento de dispositivos. Anote o _Âmbito do ID_ e o _Ponto Final Global do Serviço de Aprovisionamento_.
+1. Inscreva-se no portal Azure, selecione o botão **Todos os recursos** no menu à esquerda e abra o serviço de fornecimento de dispositivos. Note o seu _id scope_ e _provisioning service Global Endpoint_.
 
     ![Informação do Serviço Aprovisionamento de Dispositivos](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. Edite `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` para incluir o _Âmbito do ID_ e o _Ponto Final Global do Serviço de Aprovisionamento_, conforme indicado anteriormente.  
+1. Edite `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` para incluir o seu _id scope_ e _provisioning service Global Endpoint_ como notado anteriormente.  
 
     ```java
     private static final String idScope = "[Your ID scope here]";
@@ -81,7 +81,7 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
     ```
     Guarde o ficheiro.
 
-1. Utilize os seguintes comandos para construir o projeto, navegar para a pasta-alvo e executar o ficheiro .jar criado. Substitua o espaço reservado `version` pela sua versão de Java.
+1. Utilize os seguintes comandos para construir o projeto, navegar para a pasta-alvo e executar o ficheiro .jar criado. Substitua `version` o espaço reservado pela sua versão de Java.
 
     ```cmd/sh
     mvn clean install
@@ -131,7 +131,7 @@ Este artigo demonstra inscrições individuais.
 
     ![O dispositivo é registado no hub IoT](./media/java-quick-create-simulated-device/hubregistration.png) 
 
-    Se tiver alterado o *estado inicial do dispositivo duplo* face ao valor predefinido na entrada de inscrição do seu dispositivo, este pode extrair o estado pretendido do dispositivo duplo a partir do hub e agir em conformidade. Para obter mais informações, veja [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Compreender e utilizar dispositivos duplos no Hub IoT).
+    Se tiver alterado o *estado inicial do dispositivo duplo* face ao valor predefinido na entrada de inscrição do seu dispositivo, este pode extrair o estado pretendido do dispositivo duplo a partir do hub e agir em conformidade. Para mais informações, consulte [Compreender e utilizar gémeos dispositivos no IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -140,7 +140,7 @@ Se pretende continuar a trabalhar e a explorar a amostra do cliente do dispositi
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
 1. Feche a janela do simulador TPM no seu computador.
-1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de fornecimento de dispositivos. Abra a lâmina **'Gerir as Matrículas'** para o seu serviço e, em seguida, selecione o separador Individual **Registration.** 
+1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de fornecimento de dispositivos. Abra a lâmina **'Gerir as Matrículas'** para o seu serviço e, *REGISTRATION ID* em seguida, selecione o separador Individual **Delete** **Registration.** 
 1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra a lâmina dos **dispositivos IoT** para o seu hub, selecione a caixa de verificação ao lado do *DISPOSITIVO ID* do dispositivo que registou neste arranque rápido e, em seguida, pressione o botão **Apagar** na parte superior do painel.
 
 ## <a name="next-steps"></a>Passos seguintes

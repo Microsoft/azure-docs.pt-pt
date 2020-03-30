@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: ae776fc3fb1f9eb4b7fa9747f2769dcccb25e042
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 55acea360de11c5fcc699d65daf92cf24dfd691d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136351"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475481"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteja o backend da SPA com o OAuth 2.0, o Diretório Ativo Azure B2C e a Azure API Management
 
@@ -68,7 +68,7 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
    * [Opcional] O portal de desenvolvimento da API Management (a menos que esteja a gerir a Azure API Management no nível de consumo, mais sobre este cenário mais tarde).
 1. Definir WebApp / Web API para todas as 3 aplicações e definir 'Permitir fluxo implícito' para sim apenas para o Cliente Frontend.
 1. Agora detete o App ID URI, escolha algo único e relevante para o serviço que está sendo criado.
-1. Utilize os espaços reservados para os urls de resposta por enquanto, como https://localhost, atualizaremos esses urls mais tarde.
+1. Utilize os espaços reservados para os https://localhosturls de resposta por enquanto, como, iremos atualizar esses urls mais tarde.
 1. Clique em 'Criar', e depois repita os passos 2-5 para cada uma das três aplicações acima, registando o AppID URI, nome e ID de aplicação para posterior utilização para as três aplicações.
 1. Abra a Aplicação do Portal de Desenvolvimento de Gestão da API a partir da lista de aplicações e selecione o separador *Keys* (em geral) e, em seguida, clique em 'Gerar Chave' para gerar uma chave auth
 1. Ao clicar em guardar, grave a chave em algum lugar seguro para posterior utilização - note que este lugar é a única hipótese que você terá de visualizar e copiar esta chave.
@@ -148,12 +148,12 @@ Abra a lâmina Azure AD B2C no portal e faça os seguintes passos.
 5. Volte para o separador HttpTrigger1, clique em 'Obter URL', e depois copie o URL que aparece.
 
    > [!NOTE]
-   > As encadernações que acabou de criar basta dizer às Funções para responder em pedidos anónimos http GET para o URL que acabou de copiar. (https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey) Agora temos um API https sem servidor escalável, que é capaz de devolver uma carga útil muito simples.
+   > As encadernações que acabou de criar basta dizer às Funções para responder em pedidos anónimos http GET para o URL que acabou de copiar. (https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey) Agora temos uma API https sem servidor escalável, que é capaz de devolver uma carga útil muito simples.
    > Agora pode testar chamar este API de um navegador web usando o URL acima, também pode despir a porção ?code=secret do URL e provar que as Funções Azure devolverão um erro de 401.
 
 ## <a name="configure-and-secure-the-function-api"></a>Configure e fixe a função API
 1. Duas áreas extra na aplicação de funções precisam de ser configuradas (Restrições Auth e Rede).
-1. Em primeiro lugar, vamos configurar a Autenticação /Autorização, por isso clique no nome da aplicação de funções (ao lado do ícone de funções &lt;Z&gt;) para mostrar a página de visão geral.
+1. Em primeiro lugar, vamos configurar a Autenticação /Autorização, por isso clique &lt;&gt; no nome da aplicação de funções (ao lado do ícone de funções Z) para mostrar a página de visão geral.
 1. Em seguida, selecione o separador 'Funcionalidades da Plataforma' e selecione 'Autenticação / Autorização'.
 1. Ligue a função de autenticação do serviço de aplicações.
 1. Em 'Fornecedores de Autenticação' escolha 'Azure Ative Directory', e escolha 'Advanced' do interruptor Modo de Gestão.
@@ -257,12 +257,12 @@ Você precisará adicionar blocos de endereços formatados CIDR ao painel de res
 1. Abra a lâmina Azure AD B2C e navegue para o registo de candidatura saem do Portal do Desenvolvimento
 1. Delineie a entrada 'Answer URL' na que observou quando configurar o redirect_uri da concessão de código auth na API Management anteriormente.
 
-   Agora que a autorização de utilizador OAuth 2.0 está ativada no `Echo API`, a Consola de Desenvolvimento obtém um sinal de acesso para o utilizador, antes de ligar para a API.
+   Agora que a autorização de utilizador OAuth `Echo API`2.0 está ativada na consola de desenvolvimento, a Consola de Desenvolvimento obtém um sinal de acesso para o utilizador, antes de ligar para a API.
 
-1. Navegue em qualquer operação sob o `Echo API` no portal do desenvolvedor e selecione **Experimente-a** para o levar à Consola de Desenvolvimento.
+1. Navegue em qualquer `Echo API` operação sob o portal de desenvolvimento e selecione **Experimente-a** para o levar à Consola de Desenvolvimento.
 1. Note um novo item na secção **de Autorização,** correspondente ao servidor de autorização que acabou de adicionar.
 1. Selecione código de **autorização** da lista de autorização e é solicitado que inscreva-se no inquilino da AD Azure. Se já assinou a conta, pode não ser solicitado.
-1. Após o sucesso da entrada, um cabeçalho `Authorization: Bearer` é adicionado ao pedido, com um sinal de acesso do Azure AD B2C codificado na Base64. 
+1. Após o sucesso da `Authorization: Bearer` entrada, um cabeçalho é adicionado ao pedido, com um sinal de acesso do Azure AD B2C codificado na Base64. 
 1. Selecione **Enviar** e pode ligar para a API com sucesso.
 
    > [!NOTE]
@@ -457,12 +457,9 @@ Você precisará adicionar blocos de endereços formatados CIDR ao painel de res
 ## <a name="and-were-done"></a>E estamos a fazer
 Os passos acima podem ser adaptados e editados para permitir muitas utilizações diferentes do Azure AD B2C com a API Management.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 * Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre a Gestão da API.
 * Para outras formas de garantir o seu serviço de back-end, consulte a [autenticação do Certificado Mútuo](api-management-howto-mutual-certificates.md).
-* Considere usar a API do Gráfico Azure AD para atribuir reclamações personalizadas e usar uma política de Gestão API para validar que estão presentes no símbolo.
-
 * Criar uma instância de [serviço de Gestão API.](get-started-create-service-instance.md)
-
 * [Gerencie a sua primeira API.](import-and-publish.md)

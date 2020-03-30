@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: cc2cde7932f783f63ee2783f0589ce4f88f248a2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658107"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recursos do livro
@@ -27,12 +27,12 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _Adicionar Parâmetro._
 4. Na nova vidraça de parâmetroque aparece:
-    1. Nome do parâmetro: `Applications`
-    2. Tipo de parâmetro: `Resource picker`
-    3. Obrigatório: `checked`
-    4. Permitir várias seleções: `checked`
-5. Obtenha dados de: `Workbook Resources`
-6. Incluir apenas tipos de recursos: `Application Insights`
+    1. Nome do parâmetro:`Applications`
+    2. Tipo de parâmetro:`Resource picker`
+    3. Necessário:`checked`
+    4. Permitir várias seleções:`checked`
+5. Obtenha dados de:`Workbook Resources`
+6. Incluir apenas tipos de recursos:`Application Insights`
 7. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
 ![Imagem mostrando a criação de um parâmetro de recursos usando recursos do livro](./media/workbooks-resources/resource-create.png)
@@ -42,13 +42,13 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _Adicionar Parâmetro._
 4. Na nova vidraça de parâmetroque aparece:
-    1. Nome do parâmetro: `Applications`
-    2. Tipo de parâmetro: `Resource picker`
-    3. Obrigatório: `checked`
-    4. Permitir várias seleções: `checked`
-5. Obtenha dados de: `Query`
-    1. Tipo de consulta: `Azure Resource Graph`
-    2. Assinaturas: `Use default subscriptions`
+    1. Nome do parâmetro:`Applications`
+    2. Tipo de parâmetro:`Resource picker`
+    3. Necessário:`checked`
+    4. Permitir várias seleções:`checked`
+5. Obtenha dados de:`Query`
+    1. Tipo de consulta:`Azure Resource Graph`
+    2. Assinaturas:`Use default subscriptions`
     3. No controlo de consulta, adicione este corte
     ```kusto
     where type == 'microsoft.insights/components'
@@ -68,11 +68,11 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _Adicionar Parâmetro._
 4. Na nova vidraça de parâmetroque aparece:
-    1. Nome do parâmetro: `Applications`
-    2. Tipo de parâmetro: `Resource picker`
-    3. Obrigatório: `checked`
-    4. Permitir várias seleções: `checked`
-5. Obtenha dados de: `JSON`
+    1. Nome do parâmetro:`Applications`
+    2. Tipo de parâmetro:`Resource picker`
+    3. Necessário:`checked`
+    4. Permitir várias seleções:`checked`
+5. Obtenha dados de:`JSON`
     1. No controlo de conteúdos, adicione este snippet json
     ```json
     [
@@ -81,7 +81,7 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
     ]
     ```
     2. Acerte no botão de _atualização_ azul.
-6. Definir opcionalmente o `Include only resource types` para insights de _aplicação_
+6. Opcionalmente definir `Include only resource types` o insights de _aplicação_
 7. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
 ## <a name="referencing-a-resource-parameter"></a>Referenciando um parâmetro de recursos
@@ -102,9 +102,9 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
 ## <a name="resource-parameter-options"></a>Opções de parâmetros de recursos
 | Parâmetro | Explicação | Exemplo |
 | ------------- |:-------------|:-------------|
-| `{Applications}` | O ID de recurso selecionado | _/subscrições/<sub-id>/resourceGroups/<resource-group>/providers/<resource-type>/acmeauthentication_ |
+| `{Applications}` | O ID de recurso selecionado | _/subscrições/<sub-id>/recursosGroups/<grupo de recursos>/fornecedores/<tipo de recursos>/acmeauthenticação_ |
 | `{Applications:label}` | O rótulo do recurso selecionado | `acmefrontend` |
-| `{Applications:value}` | O valor do recurso selecionado | _'/subscrições/<sub-id>/resourceGroups/<resource-group>/providers/<resource-type>/acmeauthentication'_ |
+| `{Applications:value}` | O valor do recurso selecionado | _«/subscrições/<>/recursos sub-id>/recursosGroups/<grupo de recursos>/fornecedores/<tipo de recursos>/acmeauthenticação»._ |
 | `{Applications:name}` | O nome do recurso selecionado | `acmefrontend` |
 | `{Applications:resourceGroup}` | O grupo de recursos do recurso selecionado | `acmegroup` |
 | `{Applications:resourceType}` | O tipo de recurso selecionado | _microsoft.insights/componentes_ |

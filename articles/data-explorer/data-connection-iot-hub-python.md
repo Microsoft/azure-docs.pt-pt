@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.openlocfilehash: 76c8ca24882f465bf2a973dc59736745178fc61f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669527"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Criar uma ligação de dados IoT Hub para o Azure Data Explorer utilizando python (pré-visualização)
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-iot-hub.md)
-> * [C#](data-connection-iot-hub-csharp.md)
-> * [python](data-connection-iot-hub-python.md)
-> * [Modelo do Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
+> * [C #](data-connection-iot-hub-csharp.md)
+> * [Pitão](data-connection-iot-hub-python.md)
+> * [Modelo Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
 Neste artigo, cria uma ligação de dados IoT Hub para o Azure Data Explorer utilizando python. O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão, ou carregamento de dados, a partir de Hubs de Eventos, Hubs IoT e bolhas escritas para recipientes blob.
 
@@ -102,6 +102,6 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | iot_hub_resource_id | *ID de recursos* | A identificação de recursos do seu hub IoT que detém os dados para ingestão.|
 | shared_access_policy_name | *iothubforread* | O nome da política de acesso partilhado que define as permissões para dispositivos e serviços para ligar ao IoT Hub. |
 | consumer_group | *$Default* | O grupo de consumidores do seu centro de eventos.|
-| localização | *Centro dos EUA* | A localização do recurso de ligação de dados.|
+| localização | *E.U.A. Central* | A localização do recurso de ligação de dados.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

@@ -4,12 +4,12 @@ description: Aprenda a usar o Azure CLI para criar um cluster Azure Kubernetes S
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 2b726dff1e2c23b94118a11fb6b6ccf1f9622d4d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 31e8b5aceb356ca1415419650a9df3070462bde0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79266302"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475532"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Crie e configure um cluster Azure Kubernetes Services (AKS) para utilizar nós virtuais usando o Azure CLI
 
@@ -29,7 +29,7 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 
 O fornecedor *Microsoft.ContainerInstance* deve reportar como *Registado*, como mostra a seguinte saída exemplo:
 
-```
+```output
 Namespace                    RegistrationState
 ---------------------------  -------------------
 Microsoft.ContainerInstance  Registered
@@ -72,9 +72,9 @@ A funcionalidade Nós virtuais está fortemente dependente do conjunto de funcio
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
 
-Para abrir a Cloud Shell, selecione **Experimente** a partir do canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir a Cloud Shell, selecione **Experimente** a partir do canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/bash](https://shell.azure.com/bash)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-Se preferir instalar e utilizar o CLI localmente, este artigo requer a versão Azure CLI 2.0.49 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se preferir instalar e utilizar o CLI localmente, este artigo requer a versão Azure CLI 2.0.49 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -119,7 +119,7 @@ az ad sp create-for-rbac --skip-assignment
 
 O resultado é semelhante ao seguinte exemplo:
 
-```
+```output
 {
   "appId": "bef76eb3-d743-4a97-9534-03e9388811fc",
   "displayName": "azure-cli-2018-11-21-18-42-00",
@@ -155,7 +155,7 @@ Implanta um cluster AKS na subnet AKS criada num passo anterior. Obtenha a ident
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Use as [aks az criar][az-aks-create] comando para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Substitua `<subnetId>` com o ID obtido no passo anterior e, em seguida, `<appId>` e `<password>` com o 
+Utilize o comando [az aks create][az-aks-create] para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Substituir `<subnetId>` pelo ID obtido no passo anterior, e depois `<appId>` e `<password>` com o 
 
 ```azurecli-interactive
 az aks create \
@@ -187,7 +187,7 @@ az aks enable-addons \
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Para configurar `kubectl` para se ligar ao seu cluster Kubernetes, use o comando [az aks get-credentials.][az-aks-get-credentials] Este passo transfere credenciais e configura a CLI do Kubernetes para as utilizar.
+Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][az-aks-get-credentials]. Este passo transfere credenciais e configura a CLI do Kubernetes para as utilizar.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -201,9 +201,7 @@ kubectl get nodes
 
 A saída de exemplo seguinte mostra o nó VM único criado e, em seguida, o nó virtual para Linux, *virtual-node-aci-linux:*
 
-```
-$ kubectl get nodes
-
+```output
 NAME                          STATUS    ROLES     AGE       VERSION
 virtual-node-aci-linux        Ready     agent     28m       v1.11.2
 aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
@@ -211,7 +209,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Implementar uma aplicação de amostra
 
-Crie um ficheiro chamado `virtual-node.yaml` e copie no seguinte YAML. Para agendar o recipiente no nó, é definido um [nodeSelector][node-selector] e [toleração.][toleration]
+Crie um `virtual-node.yaml` ficheiro nomeado e copie no seguinte YAML. Para agendar o recipiente no nó, é definido um [nodeSelector][node-selector] e [toleração.][toleration]
 
 ```yaml
 apiVersion: apps/v1
@@ -250,11 +248,13 @@ Executar a aplicação com o [kubectl aplicar][kubectl-apply] comando.
 kubectl apply -f virtual-node.yaml
 ```
 
-Use o [kubectl obter comando de cápsulas][kubectl-get] com o argumento `-o wide` para obter uma lista de cápsulas e o nó programado. Note que a cápsula `aci-helloworld` foi programada no nó `virtual-node-aci-linux`.
+Use o [kubectl obter comando de cápsulas][kubectl-get] com o `-o wide` argumento de obter uma lista de cápsulas e o nó programado. Reparem `aci-helloworld` que a cápsula foi `virtual-node-aci-linux` programada no nó.
 
+```console
+kubectl get pods -o wide
 ```
-$ kubectl get pods -o wide
 
+```output
 NAME                            READY     STATUS    RESTARTS   AGE       IP           NODE
 aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
 ```
@@ -262,7 +262,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 A cápsula é atribuída a um endereço IP interno da subnet de rede virtual Azure delegada para utilização com nódosos virtuais.
 
 > [!NOTE]
-> Se utilizar imagens armazenadas no Registo de Contentores Azure, [configure e utilize um segredo kubernetes][acr-aks-secrets]. Uma limitação atual dos nódosos virtuais é que não pode utilizar a autenticação principal integrada do serviço Azure AD. Se não utilizar um segredo, as cápsulas programadas em nós virtuais não começam e reportam o erro `HTTP response status code 400 error code "InaccessibleImage"`.
+> Se utilizar imagens armazenadas no Registo de Contentores Azure, [configure e utilize um segredo kubernetes][acr-aks-secrets]. Uma limitação atual dos nódosos virtuais é que não pode utilizar a autenticação principal integrada do serviço Azure AD. Se não utilizar um segredo, as cápsulas programadas em nós virtuais `HTTP response status code 400 error code "InaccessibleImage"`não começam e reportam o erro .
 
 ## <a name="test-the-virtual-node-pod"></a>Teste a vagem de nó virtual
 
@@ -272,13 +272,13 @@ Para testar a cápsula que corre no nó virtual, navegue para a aplicação de d
 kubectl run --generator=run-pod/v1 -it --rm testvk --image=debian
 ```
 
-Instale `curl` na cápsula utilizando `apt-get`:
+Instale `curl` na `apt-get`cápsula utilizando:
 
 ```console
 apt-get update && apt-get install -y curl
 ```
 
-Aceda agora ao endereço da sua cápsula utilizando `curl`, como *http://10.241.0.4* . Forneça o seu próprio endereço IP interno mostrado no comando `kubectl get pods` anterior:
+Aceda agora ao endereço `curl`da *http://10.241.0.4*sua cápsula utilizando , como . Forneça o seu próprio endereço IP `kubectl get pods` interno mostrado no comando anterior:
 
 ```console
 curl -L http://10.241.0.4
@@ -286,9 +286,7 @@ curl -L http://10.241.0.4
 
 A aplicação de demonstração é apresentada, como mostra a seguinte saída de exemplo condensado:
 
-```
-$ curl -L 10.241.0.4
-
+```output
 <html>
 <head>
   <title>Welcome to Azure Container Instances!</title>
@@ -296,15 +294,17 @@ $ curl -L 10.241.0.4
 [...]
 ```
 
-Feche a sessão terminal na sua cápsula de teste com `exit`. Quando a sua sessão terminar, a cápsula é a eliminada.
+Feche a sessão terminal `exit`na sua cápsula de teste com . Quando a sua sessão terminar, a cápsula é a eliminada.
 
 ## <a name="remove-virtual-nodes"></a>Remover os nódosos virtuais
 
 Se já não pretender utilizar nós virtuais, pode desativá-los utilizando o comando [az aks de desativação.][az aks disable-addons] 
 
+Se necessário, [https://shell.azure.com](https://shell.azure.com) vá abrir a Azure Cloud Shell no seu navegador.
+
 Primeiro, apague a cápsula Helloworld que corre no nó virtual:
 
-```azurecli-interactive
+```console
 kubectl delete -f virtual-node.yaml
 ```
 
@@ -336,7 +336,7 @@ az network profile delete --id $NETWORK_PROFILE_ID -y
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, uma cápsula foi programada no nó virtual e atribuiu um endereço IP privado e interno. Em vez disso, poderia criar uma implantação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para mais informações, consulte Criar um controlador básico de [ingresso no AKS][aks-basic-ingress].
 

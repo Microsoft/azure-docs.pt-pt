@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77608717"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -19,7 +19,7 @@ Antes de escrever o código de gestão da CDN, deve fazer alguma preparação pa
 * Aplicar permissões ao grupo de recursos para que apenas utilizadores autorizados do seu inquilino Azure AD possam interagir com o perfil de CDN
 
 ### <a name="creating-the-resource-group"></a>Criar o grupo de recursos
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inscreva-se no [Portal Azure.](https://portal.azure.com)
 2. Clique em **Criar um recurso**.
 3. Procure o **grupo Derecursos** e no painel do grupo Recursos, clique em **Criar**.
 

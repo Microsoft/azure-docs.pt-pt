@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: d26fd2fec5f9d5ab8e9d82ff2c6bd83b11c72e99
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651275"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou eliminar a política de ponto final de serviço utilizando o portal Azure
@@ -31,7 +31,7 @@ As políticas de ponto final do serviço permitem filtrar o tráfego de rede vir
 > * Criar uma rede virtual com uma subnet
 > * Associar uma política de ponto final de serviço a uma subnet
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
@@ -39,7 +39,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-service-endpoint-policy"></a>Criar uma política de ponto final de serviço
 
-1. Selecione **+ Criar um recurso** no canto superior esquerdo do Portal do Azure.
+1. Selecione **+ Criar um recurso**, no canto superior esquerdo do Portal do Azure.
 2. No painel de pesquisa, digite "política de ponto final de serviço" e selecione **a política de ponto final do serviço** e, em seguida, selecione **Criar**.
 
 ![Criar política de ponto final de serviço](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.png)
@@ -48,7 +48,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
    - Subscrição : Selecione a sua subscrição para a política
    - Grupo de recursos : **Selecione Criar novo** e insira o *myResourceGroup*
-   - Name           : myEndpointPolicy
+   - Nome : myEndpointPolicy
    - Localização : Centro dos EUA
  
    ![Criar fundamentos básicos de política de ponto final de serviço](./media/virtual-network-service-endpoint-policies-portal/create-sep-basics.png)

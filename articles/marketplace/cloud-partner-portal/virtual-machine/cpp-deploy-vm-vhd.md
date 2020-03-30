@@ -1,87 +1,86 @@
 ---
-title: Implantar uma VM de seus VHDs para o Azure Marketplace
-description: Explica como registrar uma VM por meio de um VHD implantado pelo Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
+title: Implemente um VM dos seus VHDs para o Mercado Azure
+description: Explica como registar um VM de um VHD implantado em Azure.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: evansma
-ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 5263d24c411ef8de4187c2fd750013374d779f04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813404"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277944"
 ---
-# <a name="deploy-a-vm-from-your-vhds"></a>Implantar uma VM de seus VHDs
+# <a name="deploy-a-vm-from-your-vhds"></a>Implante um VM dos seus VHDs
 
-Esta seção explica como implantar uma VM (máquina virtual) por meio de um VHD (disco rígido virtual) implantado pelo Azure.  Ele lista as ferramentas necessárias e como usá-las para criar uma imagem de VM de usuário e, em seguida, implantá-la no Azure usando scripts do PowerShell.
+Esta secção explica como implantar uma máquina virtual (VM) a partir de um disco rígido virtual implantado em Azure (VHD).  Ele lista as ferramentas necessárias e como usá-las para criar uma imagem VM do utilizador e, em seguida, implantá-la para Azure usando scripts PowerShell.
 
-Depois de ter carregado seus VHDs (discos rígidos virtuais) — o VHD do sistema operacional generalizado e zero ou mais VHDs de disco de dados — para sua conta de armazenamento do Azure, você pode registrá-los como uma imagem de VM do usuário. Em seguida, você pode testar essa imagem. Como o VHD do sistema operacional é generalizado, não é possível implantar diretamente a VM fornecendo a URL do VHD.
+Depois de ter carregado os seus discos rígidos virtuais (VHDs)— o vHD do sistema operativo generalizado e os VHDs de disco de dados zero ou mais - para a sua conta de armazenamento Azure, pode registá-los como uma imagem VM do utilizador. Então podes testar essa imagem. Uma vez que o vHD do seu sistema operativo é generalizado, não é possível implementar diretamente o VM fornecendo o URL VHD.
 
-Para saber mais sobre imagens de VM, Confira as postagens de blog a seguir:
+Para saber mais sobre as imagens vm, consulte as seguintes publicações de blog:
 
-- [Imagem da VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [Instruções "como" do PowerShell de imagem de VM](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [Imagem VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisite-install-the-necessary-tools"></a>Pré-requisito: instalar as ferramentas necessárias
 
-Se você ainda não tiver feito isso, instale Azure PowerShell e o CLI do Azure, usando as seguintes instruções:
+Se ainda não o fez, instale o Azure PowerShell e o Azure CLI, utilizando as seguintes instruções:
 
-- [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
-- [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Instalar a PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## <a name="deployment-steps"></a>Passos da implementação
 
-Você usará as seguintes etapas para criar e implantar uma imagem de VM do usuário:
+Utilizará os seguintes passos para criar e implementar uma imagem VM do utilizador:
 
-1. Crie a imagem de VM do usuário, que envolve a captura e a generalização da imagem. 
-2. Crie certificados e armazene-os em um novo Azure Key Vault. Um certificado é necessário para estabelecer uma conexão segura do WinRM com a VM.  Um modelo de Azure Resource Manager e um script de Azure PowerShell são fornecidos. 
-3. Implante a VM de uma imagem de VM de usuário, usando o modelo e o script fornecidos.
+1. Crie a imagem VM do utilizador, o que implica capturar e generalizar a imagem. 
+2. Crie certificados e guarde-os num novo Cofre de Chaves Azure. É necessário um certificado para estabelecer uma ligação WinRM segura ao VM.  Um modelo de Gestor de Recursos Azure e um script Azure PowerShell são fornecidos. 
+3. Implemente o VM a partir de uma imagem VM do utilizador, utilizando o modelo e script fornecidos.
 
-Depois que a VM for implantada, você estará pronto para [certificar sua imagem de VM](./cpp-certify-vm.md).
+Depois de implantado o VM, está pronto para certificar a [sua imagem VM](./cpp-certify-vm.md).
 
-1. Clique em **novo** e procure **implantação de modelo**e, em seguida, selecione **criar seu próprio modelo no editor**.  <br/>
-   ![compilar o modelo de implantação VHD no portal do Azure](./media/publishvm_021.png)
+1. Clique em **Novo** e procure a **Implementação do Modelo**e, em seguida, selecione Construir o seu próprio modelo em **Editor**.  <br/>
+   ![Construir modelo de implementação VHD no portal Azure](./media/publishvm_021.png)
 
-1. Copie e cole esse [modelo JSON](./cpp-deploy-json-template.md) no editor e clique em **salvar**. <br/>
-   ![salvar o modelo de implantação VHD no portal do Azure](./media/publishvm_022.png)
+1. Copie e cole este [modelo JSON](./cpp-deploy-json-template.md) no editor e clique em **Guardar**. <br/>
+   ![Salvar o modelo de implementação vHD no portal Azure](./media/publishvm_022.png)
 
-1. Forneça os valores de parâmetro para as páginas de propriedades de **implantação personalizadas** exibidas.
+1. Forneça os valores do parâmetro para as páginas de propriedade de **implementação personalizada** saem.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Meter**              |   **Descrição**                                                            |
+   |  **Parâmetro**              |   **Descrição**                                                            |
    |  -------------              |   ---------------                                                            |
-   | Nome da conta de armazenamento do usuário   | Nome da conta de armazenamento em que o VHD generalizado está localizado                    |
-   | Nome do contêiner de armazenamento do usuário | Nome do contêiner em que o VHD generalizado está localizado                          |
-   | Nome DNS para IP público      | Nome DNS do IP público. O nome DNS é da VM, você irá defini-lo no portal do Azure, depois que a oferta for implantada.  |
-   | Nome de usuário do administrador             | Nome de usuário da conta de administrador para Nova VM                                  |
-   | Senha do administrador              | Senha da conta de administrador para Nova VM                                  |
-   | Tipo de SO                     | Sistema operacional da VM: `Windows` \| `Linux`                                    |
-   | ID da subscrição             | Identificador da assinatura selecionada                                      |
+   | Nome da conta de armazenamento do utilizador   | Nome da conta de armazenamento onde está localizado o VHD generalizado                    |
+   | Nome do recipiente de armazenamento do utilizador | Nome do contentor onde se encontra o VHD generalizado                          |
+   | Nome DNS para IP Público      | Nome público do DNS IP. O Nome DNS é do VM, irá defini-lo no Portal Azure, uma vez que a oferta é implementada.  |
+   | Nome do utilizador do administrador             | Nome de utilizador da conta de administrador para novo VM                                  |
+   | Palavra-passe de Administrador              | Senha da conta de administrador para novo VM                                  |
+   | Tipo de SO                     | Sistema operativo VM: `Windows` \|`Linux`                                    |
+   | ID da subscrição             | Identificador da subscrição selecionada                                      |
    | Localização                    | Localização geográfica da implantação                                        |
-   | Tamanho da VM                     | [Tamanho da VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por exemplo `Standard_A2` |
+   | Tamanho da VM                     | [Tamanho VM Azure,](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)por exemplo`Standard_A2` |
    | Nome do endereço IP público      | Nome do seu endereço IP público                                               |
-   | Nome da VM                     | Nome da nova VM                                                           |
-   | Nome da rede virtual        | Nome da rede virtual usada pela VM                                   |
-   | Nome da NIC                    | Nome da placa de interface de rede que executa a rede virtual               |
-   | URL DO VHD                     | URL do VHD do disco do so completo                                                     |
+   | Nome da VM                     | Nome do novo VM                                                           |
+   | Nome da rede virtual        | Nome da rede virtual utilizada pelo VM                                   |
+   | Nome NIC                    | Nome do cartão de interface de rede que executa a rede virtual               |
+   | VHD URL                     | URL VHD do disco completo                                                     |
    |  |  |
             
-1. Depois de fornecer esses valores, clique em **comprar**. 
+1. Depois de fornecer estes valores, clique em **Comprar**. 
 
-O Azure iniciará a implantação: ele cria uma nova VM com o VHD não gerenciado especificado, no caminho da conta de armazenamento especificado.  Você pode acompanhar o progresso na portal do Azure clicando em **máquinas virtuais** no lado esquerdo do Portal.  Quando a VM tiver sido criada, o status será alterado de `Starting` para `Running`. 
+O Azure começará a ser implantado: cria um novo VM com o VHD não gerido especificado, no caminho especificado da conta de armazenamento.  Pode acompanhar o progresso no portal Azure clicando em **Máquinas Virtuais** no lado esquerdo do portal.  Quando o VM for criado, o `Starting` `Running`estado mudará de . 
 
 
-### <a name="deploy-a-vm-from-powershell"></a>Implantar uma VM do PowerShell
+### <a name="deploy-a-vm-from-powershell"></a>Implementar um VM da PowerShell
 
-Para implantar uma VM grande a partir da imagem de VM generalizada recém-criada, use os cmdlets a seguir.
+Para implantar um VM grande a partir da imagem VM generalizada acabade ser criada, utilize os seguintes cmdlets.
 
 ``` powershell
     $img = Get-AzureVMImage -ImageName "myVMImage"
@@ -94,5 +93,5 @@ Para implantar uma VM grande a partir da imagem de VM generalizada recém-criada
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, você [criará uma imagem de VM do usuário](cpp-create-user-image.md) para sua solução.
+Em seguida, irá [criar uma imagem VM do utilizador](cpp-create-user-image.md) para a sua solução.
 

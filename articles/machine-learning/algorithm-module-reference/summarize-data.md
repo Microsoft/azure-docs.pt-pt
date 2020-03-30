@@ -1,7 +1,7 @@
 ---
 title: Resumir Dados
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo resumir dados em Azure Machine Learning para gerar um relatório de estatísticas descritivas básico para as colunas em um conjunto de dados.
+description: Aprenda a utilizar o módulo De dados de resumo em Aprendizagem automática Azure para gerar um relatório básico de estatísticas descritivas para as colunas num conjunto de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,67 +9,67 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
-ms.openlocfilehash: be6fd633f026c98e8f75467dc8661e695e121721
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841272"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477447"
 ---
 # <a name="summarize-data"></a>Resumir Dados
 
-Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo de designer de Machine Learning Azure (pré-visualização).
 
-Use o módulo resumir dados para criar um conjunto de medidas estatísticas padrão que descrevem cada coluna na tabela de entrada.
+Utilize o módulo Resumo dados para criar um conjunto de medidas estatísticas padrão que descrevem cada coluna na tabela de entrada.
 
-As estatísticas de resumo são úteis quando você deseja entender as características do conjunto de todos. Por exemplo, talvez você precise saber:
+As estatísticas sumárias são úteis quando se pretende compreender as características do conjunto completo de dados. Por exemplo, talvez precise de saber:
 
-- Quantos valores ausentes existem em cada coluna?
-- Quantos valores exclusivos existem em uma coluna de recurso?
-- Qual é a média e o desvio padrão de cada coluna?
+- Quantos valores faltam em cada coluna?
+- Quantos valores únicos existem numa coluna de recurso?
+- Qual é a média e o desvio padrão para cada coluna?
 
-O módulo calcula as pontuações importantes para cada coluna e retorna uma linha de estatísticas de resumo para cada variável (coluna de dados) fornecida como entrada.
+O módulo calcula as pontuações importantes para cada coluna e devolve uma linha de estatísticas sumárias para cada variável (coluna de dados) fornecida como entrada.
 
 ## <a name="how-to-configure-summarize-data"></a>Como configurar dados de resumo  
 
-1. Adicione o módulo **resumir dados** ao seu pipeline. Você pode encontrar esse módulo na categoria **funções estatísticas** no designer.
+1. Adicione o módulo **Dados Resumo** ao seu pipeline. Pode encontrar este módulo na categoria **Funções Estatísticas** no designer.
 
-1. Conecte o conjunto de um para o qual você deseja gerar um relatório.
+1. Ligue o conjunto de dados para o qual pretende gerar um relatório.
 
-    Se você quiser relatar apenas algumas colunas, use o módulo [selecionar colunas no conjunto de DataSet](select-columns-in-dataset.md) para projetar um subconjunto de colunas com o qual trabalhar.
+    Se pretender reportar apenas algumas colunas, utilize as [Colunas Select no](select-columns-in-dataset.md) módulo Dataset para projetar um subconjunto de colunas para trabalhar.
 
-1. Nenhum parâmetro adicional é necessário. Por padrão, o módulo analisa todas as colunas fornecidas como entrada e, dependendo do tipo de valores nas colunas, gera um conjunto de estatísticas relevante, conforme descrito na seção [resultados](#results) .
+1. Não são necessários parâmetros adicionais. Por padrão, o módulo analisa todas as colunas fornecidas como entrada, e dependendo do tipo de valores nas colunas, produz um conjunto de estatísticas relevante, conforme descrito na secção [Resultados.](#results)
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
 ## <a name="results"></a>Resultados
 
-O relatório do módulo pode incluir as estatísticas a seguir. 
+O relatório do módulo pode incluir as seguintes estatísticas. 
 
-|nome da coluna|Descrição|
+|Nome da coluna|Descrição|
 |------|------|  
 |**Funcionalidade**|Nome da coluna|
-|**Contar**|Contagem de todas as linhas|
-|**Contagem de valor exclusivo**|Número de valores exclusivos na coluna|
-|**Contagem de valor ausente**|Número de valores exclusivos na coluna|
+|**Contagem**|Conde de todas as linhas|
+|**Contagem de valor único**|Número de valores únicos na coluna|
+|**Contagem de valor em falta**|Número de valores únicos na coluna|
 |**Min**|Valor mais baixo na coluna|  
-|**Maximizar**|Valor mais alto na coluna|
-|**Significa**|Média de todos os valores de coluna|
-|**Desvio médio**|Desvio médio de valores de coluna|
-|**Primeiro quartil**|Valor no primeiro quartil|
-|**Cuja**|Valor da coluna mediana|
-|**terceiro quartil**|Valor no terceiro quartil|
+|**Máximo**|Valor mais elevado na coluna|
+|**Média**|Média de todos os valores da coluna|
+|**Desvio médio**|Desvio médio dos valores da coluna|
+|**1º Quartil**|Valor no primeiro quartil|
+|**Mediano**|Valor mediano da coluna|
+|**3º Quartil**|Valor no terceiro quartil|
 |**Modo**|Modo de valores de coluna|
-|**Intervalo**|Inteiro que representa o número de valores entre os valores máximo e mínimo|
-|**Variação de amostra**|Variação para a coluna; consulte a observação|
-|**Desvio padrão de exemplo**|Desvio padrão para a coluna; consulte a observação|
-|**Distorção de exemplo**|Distorção para a coluna; consulte a observação|
-|**Curtose de amostra**|Curtose da coluna; consulte a observação|
-|**P 0,5**|Percentil de 0,5%|
+|**Alcance**|Inteiro representando o número de valores entre os valores máximo e mínimo|
+|**Variação da amostra**|Variação para coluna; ver Nota|
+|**Desvio padrão da amostra**|Desvio padrão para coluna; ver Nota|
+|**Skewness da amostra**|Skewness para coluna; ver Nota|
+|**Amostra kurtose**|Kurtose para coluna; ver Nota|
+|**P0.5**|Percentil de 0,5%|
 |**P1**|1% percentil|
 |**P5**|Percentil de 5%|
 |**P95**|95% percentil|
-|**P 99,5**|99,5% percentil |
+|**P99.5**|99,5% percentil |
 
 ## <a name="technical-notes"></a>Notas técnicas
 
@@ -87,4 +87,4 @@ O relatório do módulo pode incluir as estatísticas a seguir.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.  
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning.  

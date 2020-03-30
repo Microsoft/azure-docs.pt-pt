@@ -7,18 +7,18 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 2091916b0ec2eab68904a485d93f5d2353261f68
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: bda51b71ff1e6c89414bd1540bb38dcfea1d4a3c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197747"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79457224"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Node.js (v4)
 
 Começa com a biblioteca de clientes azure Key Vault para o Node.js. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
-O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Utilize a biblioteca de clientes Key Vault para:
+O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Utilize a biblioteca de clientes Key Vault para:
 
 - Aumentar a segurança e o controlo sobre chaves e senhas.
 - Crie e importe chaves de encriptação em minutos.
@@ -26,7 +26,7 @@ O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os s
 - Simplificar e automatizar tarefas para certificados TLS/SSL.
 - Utilize HSMs validados de nível 2 fips 140-2.
 
-[Documentação de referência da API](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [Código fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) da Biblioteca | [Pacote (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[Documentação de](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | referência API[Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Pacote (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ npm install @azure/identity
 Este quickstart usa um cofre chave Azure pré-criado. Pode criar um cofre chave seguindo os passos no [quickstart Azure CLI,](quick-create-cli.md) [Azure PowerShell quickstart](quick-create-powershell.md)ou [portal Azure quickstart](quick-create-portal.md). Em alternativa, pode simplesmente executar os comandos Azure CLI abaixo.
 
 > [!Important]
-> Cada cofre deve ter um nome único. Substitua <your-unique-keyvault-name> com o nome do seu cofre chave nos seguintes exemplos.
+> Cada cofre deve ter um nome único. Substitua <seu> de nome único com o seu cofre único com o nome do seu cofre-chave nos seguintes exemplos.
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
@@ -85,7 +85,6 @@ Esta operação devolverá uma série de pares chave/valor.
   "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
   "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
   "galleryEndpointUrl": "https://gallery.azure.com/",
   "managementEndpointUrl": "https://management.core.windows.net/"
@@ -104,9 +103,9 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Definir variáveis ambientais
 
-O método DefaultAzureCredential na nossa aplicação baseia-se em três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. Detete estas variáveis para os valores do clienteId, clientSecret e tenantId que observou no passo [principal do serviço Create](#create-a-service-principal) usando o formato `export VARNAME=VALUE`. (Isto apenas define as variáveis para a sua concha atual e os processos criados a partir da concha; adicionar permanentemente estas variáveis ao seu ambiente, editar o seu ficheiro `/etc/environment `.) 
+O método DefaultAzureCredential na nossa aplicação baseia-se em três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. Detete estas variáveis para os valores clienteId, clientSecret e tenantId `export VARNAME=VALUE` que observou no passo principal do serviço [Create](#create-a-service-principal) usando o formato. (Isto apenas define as variáveis para a sua concha atual e os processos criados `/etc/environment ` a partir da concha; para adicionar permanentemente estas variáveis ao seu ambiente, editar o seu ficheiro.) 
 
-Você também terá que guardar o seu nome de cofre chave como uma variável ambiental chamada `KEY_VAULT_NAME`.
+Você também precisa guardar o seu nome chave `KEY_VAULT_NAME`do cofre como uma variável ambiental chamada .
 
 ```console
 export AZURE_CLIENT_ID=<your-clientID>
@@ -122,7 +121,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 A biblioteca de clientes Azure Key Vault para Node.js permite-lhe gerir chaves e bens relacionados, tais como certificados e segredos. As amostras de código abaixo mostrar-lhe-ão como criar um cliente, definir um segredo, recuperar um segredo e apagar um segredo.
 
-Toda a aplicação de consola está disponível em https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+Toda a aplicação https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-appde consola está disponível em .
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -139,7 +138,7 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 Autenticar o seu cofre chave e criar um cliente chave vault depende das variáveis ambientais das [variáveis ambientais definidas](#set-environmental-variables) acima, e do [construtor SecretClient.](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#secretclient-string--tokencredential--pipelineoptions-) 
 
-O nome do seu cofre chave é expandido para o cofre de chaves URI, no formato `https://<your-key-vault-name>.vault.azure.net`. 
+O nome do seu cofre chave é expandido para `https://<your-key-vault-name>.vault.azure.net`o cofre de chaves URI, no formato . 
 
 ```javascript
 const keyVaultName = process.env["KEY_VAULT_NAME"];
@@ -171,7 +170,7 @@ Agora pode recuperar o valor previamente definido com o [método cliente.getSecr
 const retrievedSecret = await client.getSecret(secretName);
  ```
 
-O teu segredo está agora guardado como `retrievedSecret.value`.
+O teu segredo `retrievedSecret.value`está agora guardado como.
 
 ### <a name="delete-a-secret"></a>Eliminar um segredo
 

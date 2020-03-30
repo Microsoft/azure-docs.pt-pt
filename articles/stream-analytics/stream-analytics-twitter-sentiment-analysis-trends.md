@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 7023651b09abc8c3124c7bf71608018d5cb72e25
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 4b265bb574895e4728ad93ee25c9dad0da226ea4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162017"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240292"
 ---
-# <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento no Twitter em tempo real no Azure Stream Analytics
+# <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Azure Stream Analytics
 
 Este artigo ensina-o a construir uma solução de análise de sentimentos nas redes sociais, trazendo eventos do Twitter em tempo real para o Azure Event Hubs. Escreve uma consulta do Azure Stream Analytics para analisar os dados e armazenar os resultados para posterior utilização ou criar um dashboard [Power BI](https://powerbi.com/) para fornecer informações em tempo real.
 
@@ -33,13 +33,13 @@ Para identificar tópicos de tendência em tempo real no Twitter, a empresa prec
 
 Neste guia, você usa uma aplicação de cliente que se conecta ao Twitter e procura tweets que têm certas hashtags (que você pode definir). Para executar a aplicação e analisar os tweets usando o Azure Streaming Analytics, deve ter o seguinte:
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
+* Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
 
 * Uma conta [no Twitter.](https://twitter.com)
 
 * A aplicação TwitterClientCore, que lê o feed do Twitter. Para obter esta aplicação, baixe [o TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
 
-* Instale o [CLI .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+* Instale a versão [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x) 2.1.0.
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>Criar um centro de eventos para streaming de entrada
 
@@ -56,7 +56,7 @@ Nesta secção, você cria um espaço de nome de evento e adiciona um hub de eve
  
 4. Quando o espaço de nome tiver terminado de ser implantado, navegue para o seu grupo de recursos e encontre o espaço de nome do centro de eventos na sua lista de recursos Azure. 
 
-5. A partir do novo espaço de nome, selecione **+&nbsp;Event Hub**. 
+5. A partir do novo ** + &nbsp;** espaço de nome, selecione Event Hub . 
 
 6. Nomeie o novo centro de *eventos socialtwitter-eh*. Pode utilizar um nome diferente. Se o fizeres, tome nota disso, porque precisas do nome mais tarde. Não precisa definir outras opções para o centro do evento.
  
@@ -89,16 +89,10 @@ Antes de um processo poder enviar dados para um centro de eventos, o centro de e
    Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=;EntityPath=socialtwitter-eh
    ```
 
-   Note que a cadeia de ligação contém múltiplos pares de valor-chave, separados com pontos evíbis: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`e `EntityPath`.  
+   Note que a cadeia de ligação contém múltiplos pares `Endpoint`de `SharedAccessKeyName` `SharedAccessKey`valor-chave, separados com pontos evíbis: , , e `EntityPath`.  
 
    > [!NOTE]
    > Para segurança, partes da corda de ligação no exemplo foram removidas.
-
-8.  No editor de texto, retire o par `EntityPath` da corda de ligação (não se esqueça de remover o ponto e vírgula que o precede). Quando terminar, a corda de ligação é assim:
-   
-   ```
-   Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
-   ```
 
 ## <a name="configure-and-start-the-twitter-client-application"></a>Configure e inicie a aplicação do cliente do Twitter
 
@@ -110,7 +104,7 @@ Se ainda não tem uma aplicação no Twitter que pode utilizar para este guia de
 > [!NOTE]
 > O processo exato no Twitter para criar uma aplicação e obter as chaves, segredos e fichas pode mudar. Se estas instruções não corresponderem ao que vê no site do Twitter, consulte a documentação do desenvolvedor do Twitter.
 
-1. A partir de um navegador web, vá ao [Twitter Para Desenvolvedores](https://developer.twitter.com/en/apps), e selecione **Criar uma aplicação**. Pode ver uma mensagem a dizer que precisa de se candidatar a uma conta de desenvolvedordo no Twitter. Sinta-se à vontade para o fazer e, depois de aprovado o seu pedido, deverá consultar um e-mail de confirmação. Pode levar vários dias para ser aprovado para uma conta de desenvolvedor.
+1. A partir de um navegador web, vá ao [Twitter Para Desenvolvedores,](https://developer.twitter.com/en/apps)crie uma conta de desenvolvedore e selecione **Criar uma aplicação**. Pode ver uma mensagem a dizer que precisa de se candidatar a uma conta de desenvolvedordo no Twitter. Sinta-se à vontade para o fazer e, depois de aprovado o seu pedido, deverá consultar um e-mail de confirmação. Pode levar vários dias para ser aprovado para uma conta de desenvolvedor.
 
    ![Detalhes da aplicação do Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Detalhes da aplicação do Twitter")
 
@@ -133,16 +127,16 @@ Antes da aplicação ser executado, requer certas informações suas, como as ch
 
 1. Certifique-se de que descarregou a aplicação [TwitterClientCore,](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore) tal como listado nos pré-requisitos.
 
-2. Utilize um editor de texto para abrir o ficheiro *App.config.* Faça as seguintes alterações ao elemento `<appSettings>`:
+2. Utilize um editor de texto para abrir o ficheiro *App.config.* Faça as seguintes `<appSettings>` alterações no elemento:
 
-   * Desloque `oauth_consumer_key` para a Chave de Consumo do Twitter (tecla API). 
-   * Coloque `oauth_consumer_secret` para o Twitter Consumer Secret (chave secreta da API).
-   * Coloque `oauth_token` para o twitter Access token.
-   * Preste `oauth_token_secret` ao segredo do Twitter Access.
-   * Coloque `EventHubNameConnectionString` na corda de ligação. Certifique-se de que utiliza a corda de ligação a que removeu o par de `EntityPath` de valor-chave.
-   * Detete `EventHubName` ao nome do hub do evento (que é o valor do caminho da entidade).
+   * Definido `oauth_consumer_key` na Chave do Consumidor do Twitter (tecla API). 
+   * Definido `oauth_consumer_secret` para o Twitter Consumer Secret (chave secreta DaPI).
+   * Pronto `oauth_token` para o twitter Access token.
+   * Definido `oauth_token_secret` para o twitter Access token secret.
+   * Coloque `EventHubNameConnectionString` na corda de ligação.
+   * Definir `EventHubName` para o nome do centro do evento (que é o valor do caminho da entidade).
 
-3. Abra a linha de comando e navegue para o diretório onde está a sua aplicação TwitterClientCore. Use o comando `dotnet build` para construir o projeto. Em seguida, utilize o comando `dotnet run` para executar a aplicação. A aplicação envia Tweets para o seu Centro de Eventos.
+3. Abra a linha de comando e navegue para o diretório onde está a sua aplicação TwitterClientCore. Use o `dotnet build` comando para construir o projeto. Em seguida, `dotnet run` use o comando para executar a aplicação. A aplicação envia Tweets para o seu Centro de Eventos.
 
 ## <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
@@ -150,7 +144,7 @@ Agora que os eventos de tweet estão a ser transmitidos em tempo real a partir d
 
 1. No portal Azure, navegue para o seu grupo de recursos e selecione **+ Adicionar**. Em seguida, procure o **trabalho do Stream Analytics** e selecione **Criar**.
 
-2. Nomeie o trabalho `socialtwitter-sa-job` e especifique uma subscrição, grupo de recursos e localização.
+2. Nomeie `socialtwitter-sa-job` o trabalho e especifique uma subscrição, grupo de recursos e localização.
 
     É uma boa ideia colocar o trabalho e o centro de eventos na mesma região para melhor desempenho e para que não pague para transferir dados entre regiões.
 
@@ -160,7 +154,7 @@ Agora que os eventos de tweet estão a ser transmitidos em tempo real a partir d
 
 1. No seu trabalho de Stream Analytics, selecione **Inputs** do menu esquerdo sob **Topologia de Trabalho**.
 
-2. Selecione **+&nbsp;Adicione** a entrada de fluxo > Centro de **Eventos**. Preencha o novo formulário de **entrada** com as seguintes informações:
+2. ** + &nbsp;Selecione Adicionar centro de****eventos**de entrada > de fluxo . Preencha o novo formulário de **entrada** com as seguintes informações:
 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
@@ -211,12 +205,12 @@ Neste guia de como guiar, você escreve os eventos de tweet agregados da consult
 
 1. Na secção **De Trabalho Topologia** no menu de navegação à esquerda, selecione **Saídas**. 
 
-2. Na página **Outputs,** clique em **+&nbsp;Adicionar** e armazenamento **blob/Data Lake Storage Gen2:**
+2. Na página **Outputs,** clique em ** + &nbsp;Adicionar** e **Blob armazenamento/Data Lake Storage Gen2:**
 
-   * **Pseudónimo de saída**: Utilize o nome `TwitterStream-Output`. 
+   * **Pseudónimo de saída**: `TwitterStream-Output`Utilize o nome . 
    * **Opções de importação**: **Selecione o armazenamento a partir das suas subscrições**.
    * **Conta de armazenamento.** Selecione a sua conta de armazenamento.
-   * **Recipiente**. Selecione **Criar novo** e insira `socialtwitter`.
+   * **Recipiente**. Selecione Criar `socialtwitter` **novo** e entrar.
    
 4. Selecione **Guardar**.   
 

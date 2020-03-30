@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
 ms.openlocfilehash: 5e5034e99d37d3681192c2ad066f28acd1c4aeeb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672536"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Envie dados da extensão de diagnóstico do Windows Azure aos Hubs de Eventos Azure
@@ -32,16 +32,16 @@ Os dados recolhidos do sistema operativo convidado que podem ser enviados para o
 
 
 ## <a name="configuration-schema"></a>Esquema de configuração
-Consulte instalar e configurar a extensão de diagnóstico do [Windows Azure (WAD)](diagnostics-extension-windows-install.md) para diferentes opções para permitir e configurar a extensão de diagnóstico e configuração de diagnóstico sinuoso para uma referência do esquema de configuração. [](diagnostics-extension-schema-windows.md) O resto deste artigo descreverá como usar esta configuração para enviar dados para um centro de eventos. 
+Consulte instalar e configurar a extensão de diagnóstico do [Windows Azure (WAD)](diagnostics-extension-windows-install.md) para diferentes opções para permitir e configurar a extensão de diagnóstico e configuração de diagnóstico sinuoso para uma referência do esquema de configuração. [Azure Diagnostics configuration schema](diagnostics-extension-schema-windows.md) O resto deste artigo descreverá como usar esta configuração para enviar dados para um centro de eventos. 
 
 A Azure Diagnostics envia sempre registos e métricas para uma conta de Armazenamento Azure. Pode configurar um ou mais *afundados* de dados que enviam dados para locais adicionais. Cada pia é definida no [elemento SinksConfig](diagnostics-extension-schema-windows.md#sinksconfig-element) da configuração pública com informações sensíveis na configuração privada. Esta configuração para centros de eventos utiliza os valores na tabela seguinte.
 
 | Propriedade | Descrição |
 |:---|:---|
 | Nome | Nome descritivo para a pia. Utilizado na configuração para especificar quais as fontes de dados a enviar para o lavatório. |
-| Url  | Url do centro de eventos em forma \<espaço de nome de eventos-hubs\>.servicebus.windows.net/\<\>de nome de eventos.          |
+| Url  | Url do centro de \<eventos no espaço\>de\<nome de eventos-hubs .servicebus.windows.net/ nome do evento-hub\>.          |
 | Nome de acesso partilhado | Nome de uma política de acesso partilhado para o centro de eventos que tem pelo menos **enviar** autoridade. |
-| Chave de Acesso Partilhado     | Chave primária ou secundária da política de acesso partilhado para o centro do evento. |
+| SharedAccessKey     | Chave primária ou secundária da política de acesso partilhado para o centro do evento. |
 
 Exemplo de configurações públicas e privadas são mostradas abaixo. Esta é uma configuração mínima com um único contador de desempenho e registo de eventos para ilustrar como configurar e usar o sumidouro de dados do centro de eventos. Consulte o esquema de [configuração do Azure Diagnostics](diagnostics-extension-schema-windows.md) para um exemplo mais complexo.
 
@@ -176,7 +176,7 @@ Pode utilizar uma variedade de métodos para validar que os dados estão a ser e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição geral dos Hubs de Eventos](../../event-hubs/event-hubs-about.md)
+* [Descrição geral dos Event Hubs](../../event-hubs/event-hubs-about.md)
 * [Criar um hub de eventos](../../event-hubs/event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](../../event-hubs/event-hubs-faq.md)
 

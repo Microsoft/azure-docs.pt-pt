@@ -3,14 +3,14 @@ title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas a algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 1531308a8d0bd5a09952d8ad8ccd03c92f2f99eb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c4bb4328af5df7f729967c7b249847b2ab098770
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252951"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497761"
 ---
-# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço Azure Kubernetes (AKS)
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
 Este artigo aborda questões frequentes sobre o Serviço Azure Kubernetes (AKS).
 
@@ -115,16 +115,16 @@ Num acordo de nível de serviço (SLA), o prestador aceita reembolsar o cliente 
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>Por que não posso definir maxPods abaixo dos 30?
 
-No AKS, pode definir o valor `maxPods` quando criar o cluster utilizando os modelos Azure CLI e Azure Resource Manager. No entanto, tanto a Kubenet como a Azure CNI requerem um *valor mínimo* (validado no momento da criação):
+No AKS, pode `maxPods` definir o valor quando criar o cluster utilizando os modelos Azure CLI e Azure Resource Manager. No entanto, tanto a Kubenet como a Azure CNI requerem um *valor mínimo* (validado no momento da criação):
 
 | Redes | Mínimo | Máximo |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Rio Kubenet | 30 | 110 |
 
-Como o AKS é um serviço gerido, implementamos e gerimos add-ons e cápsulas como parte do cluster. No passado, os utilizadores poderiam definir um valor `maxPods` inferior ao valor que as cápsulas geridas necessárias para executar (por exemplo, 30). O AKS calcula agora o número mínimo de cápsulas utilizando esta fórmula: (maxPods ou (maxPods * vm_count)) > cápsulas de adição geridas no mínimo.
+Como o AKS é um serviço gerido, implementamos e gerimos add-ons e cápsulas como parte do cluster. No passado, os utilizadores `maxPods` poderiam definir um valor inferior ao valor que as cápsulas geridas necessárias para executar (por exemplo, 30). O AKS calcula agora o número mínimo de cápsulas utilizando esta fórmula: (maxPods ou (maxPods * vm_count)) > cápsulas de adição geridas no mínimo.
 
-Os utilizadores não podem anular a validação mínima `maxPods`.
+Os utilizadores não podem `maxPods` anular a validação mínima.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Posso aplicar descontos de reserva Azure aos meus nós de agente AKS?
 
@@ -132,7 +132,7 @@ Os nós de agente AKS são faturados como máquinas virtuais Standard Azure, por
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Posso mover/migrar o meu aglomerado entre inquilinos do Azure?
 
-O comando `az aks update-credentials` pode ser usado para mover um aglomerado AKS entre inquilinos azure. Siga as instruções em [Escolha atualizar ou criar um diretor](https://docs.microsoft.com/azure/aks/update-credentials) de serviço e, em seguida, [atualize o cluster aks com novas credenciais](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+O `az aks update-credentials` comando pode ser usado para mover um aglomerado AKS entre inquilinos azure. Siga as instruções em [Escolha atualizar ou criar um diretor](https://docs.microsoft.com/azure/aks/update-credentials) de serviço e, em seguida, [atualize o cluster aks com novas credenciais](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Posso mover/migrar o meu cluster entre assinaturas?
 
@@ -154,7 +154,7 @@ Pode, mas a AKS não recomenda isto. As atualizações devem ser realizadas idea
 
 Não, por favor, elimine/remova quaisquer nós em estado falhado ou removido do cluster antes da atualização.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Corri um aglomerado apagar, mas ver o erro `[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Corri um aglomerado apagar, mas ver o erro`[Errno 11001] getaddrinfo failed` 
 
 Mais comummente, isto é causado por utilizadores que têm um ou mais Grupos de Segurança de Rede (NSGs) ainda em uso e associados ao cluster.  Por favor, remova-os e tente apagar novamente.
 
@@ -168,7 +168,7 @@ Por favor, confirme que o seu diretor de serviço não expirou.  Consulte: [Dire
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Posso usar a escala virtual de apis para escalar manualmente?
 
-Não, as operações de escala utilizando as APIs de escala de máquina virtual não são suportadas. Utilize as APIs AKS (`az aks scale`).
+Não, as operações de escala utilizando as APIs de escala de máquina virtual não são suportadas. Utilize as APIs`az aks scale`AKS ().
 
 ## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>Posso usar conjuntos de escala de máquinas virtuais para escalar manualmente até 0 nós?
 

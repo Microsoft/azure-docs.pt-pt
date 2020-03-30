@@ -1,5 +1,5 @@
 ---
-title: Backup automatizado v2 para SQL Server 2016/2017 VMs Azure  Backup Automático v2 para SQL Server 2016/2017 VMs ' Microsoft Docs
+title: Backup automatizado v2 para SQL Server 2016/2017 VMs Azure [ Backup Automático v2 para SQL Server 2016/2017 VMs ' Microsoft Docs
 description: Explica a funcionalidade de backup automatizada para VMs SQL Server 2016/2017 em execução em Azure. Este artigo é específico para VMs usando o Gestor de Recursos.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 458012982531e228f7c4968f29e79e8b2e29aa48
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651441"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup automático v2 para máquinas virtuais Azure (Gestor de Recursos)
@@ -63,9 +63,9 @@ A tabela seguinte descreve as opções que podem ser configuradas para Backup Au
 
 | Definição | Gama (Padrão) | Descrição |
 | --- | --- | --- |
-| **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Permite ou desativa backup automatizado para um Azure VM executando O Programador, Standard ou Enterprise do Azure VM. |
+| **Backup automatizado** | Ativar/Desativar (Desativado) | Permite ou desativa backup automatizado para um Azure VM executando O Programador, Standard ou Enterprise do Azure VM. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter reforços. |
-| **Storage Account** | Conta de armazenamento do Azure | Uma conta de armazenamento Azure para armazenar ficheiros de backup automatizados no armazenamento de blob. Um recipiente é criado neste local para armazenar todos os ficheiros de reserva. A convenção de nomeação de ficheiros de reserva inclui a data, hora e base de dados GUID. |
+| **Conta de Armazenamento** | Conta de armazenamento do Azure | Uma conta de armazenamento Azure para armazenar ficheiros de backup automatizados no armazenamento de blob. Um recipiente é criado neste local para armazenar todos os ficheiros de reserva. A convenção de nomeação de ficheiros de reserva inclui a data, hora e base de dados GUID. |
 | **Encriptação** |Ativar/Desativar (Desativado) | Permite ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada. Usa o mesmo recipiente automático de **reserva** com a mesma convenção de nomeação. Se a palavra-passe mudar, um novo certificado é gerado com essa palavra-passe, mas o certificado antigo permanece para restaurar cópias de segurança prévias. |
 | **Palavra-passe** |Texto de palavra-passe | Uma senha para chaves de encriptação. Esta palavra-passe só é necessária se a encriptação estiver ativada. Para restaurar uma cópia de segurança encriptada, deve ter a palavra-passe correta e o certificado relacionado que foi utilizado no momento em que a cópia de segurança foi tomada. |
 
@@ -163,7 +163,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se a extensão do Agente IaaS do Servidor SQL estiver instalada, deverá vê-la listada como "SqlIaASAgent" ou "SQLIaaSExtension". O Estado de **provisionamento** para a extensão também deve mostrar "Sucesso". 
 
-Se não estiver instalado ou não for aprovisionado, pode instalá-lo com o seguinte comando. Além do nome vm e do grupo de recursos, deve também especificar a região ( **$region**) em que o seu VM está localizado.
+Se não estiver instalado ou não for aprovisionado, pode instalá-lo com o seguinte comando. Além do nome vm e do grupo de recursos, deve também especificar a região (**$region**) em que o seu VM está localizado.
 
 ```powershell
 $region = "EASTUS2"
@@ -172,7 +172,7 @@ Set-AzVMSqlServerExtension -VMName $vmname `
     -Version "2.0" -Location $region 
 ```
 
-### <a id="verifysettings"></a>Verifique as definições atuais
+### <a name="verify-current-settings"></a><a id="verifysettings"></a>Verifique as definições atuais
 Se ativou a cópia de segurança automática durante o fornecimento, pode utilizar o PowerShell para verificar a sua configuração atual. Executar o comando **De extensão Get-AzVMSqlServer** e examinar a propriedade **AutoBackupSettings:**
 
 ```powershell

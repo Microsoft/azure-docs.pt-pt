@@ -8,10 +8,10 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 1f3f70c30ab397bd549a2f3305a738274ee4f64f
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371176"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(DEPRECIADO) Monitorize um cluster de serviço de contentores Azure com DataDog
@@ -21,17 +21,17 @@ ms.locfileid: "79371176"
 ## <a name="prerequisites"></a>Pré-requisitos
 Este walkthrough pressupõe que [criou um cluster Kubernetes usando](container-service-kubernetes-walkthrough.md)o Serviço de Contentores Azure .
 
-Também assume que tem as ferramentas `az` Azure cli e `kubectl` instaladas.
+Também assume que tem `az` o Azure `kubectl` cli e ferramentas instaladas.
 
-Pode testar se tiver a ferramenta `az` instalada executando:
+Pode testar se tiver `az` a ferramenta instalada executando:
 
 ```azurecli
 az --version
 ```
 
-Se não tiver a ferramenta `az` instalada, existem instruções [aqui.](https://github.com/azure/azure-cli#installation)
+Se não tiver a `az` ferramenta instalada, existem instruções [aqui.](https://github.com/azure/azure-cli#installation)
 
-Pode testar se tiver a ferramenta `kubectl` instalada executando:
+Pode testar se tiver `kubectl` a ferramenta instalada executando:
 
 ```console
 kubectl version

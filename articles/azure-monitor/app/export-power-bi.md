@@ -1,13 +1,13 @@
 ---
-title: Exportação para Power BI a partir de Insights de Aplicação Azure  Microsoft Docs
+title: Exportação para Power BI a partir de Insights de Aplicação Azure [ Microsoft Docs
 description: Consultas de análise podem ser exibidas no Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664002"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed Power BI a partir de Insights de Aplicação
@@ -15,12 +15,12 @@ ms.locfileid: "77664002"
 
 Existem três métodos de exportação de dados de insights de aplicação para o Power BI:
 
-* [**Consultas de Análise de Exportação.** ](#export-analytics-queries) Este é o método preferido. Escreva qualquer consulta que quiser e exporte-a para o Power BI. Pode colocar esta consulta num painel de instrumentos, juntamente com quaisquer outros dados.
-* [**Exportação contínua e Azure Stream Analytics.** ](../../azure-monitor/app/export-stream-analytics.md) Este método é útil se quiser armazenar os seus dados por longos períodos de tempo. Se não tiver um requisito alargado de retenção de dados, utilize o método de consulta de análise de exportação. A exportação contínua e o Stream Analytics envolvem mais trabalho para configurar e sobrecargas adicionais de armazenamento.
+* [**Consultas de Análise de Exportação.**](#export-analytics-queries) Este é o método preferido. Escreva qualquer consulta que quiser e exporte-a para o Power BI. Pode colocar esta consulta num painel de instrumentos, juntamente com quaisquer outros dados.
+* [**Exportação contínua e Azure Stream Analytics.**](../../azure-monitor/app/export-stream-analytics.md) Este método é útil se quiser armazenar os seus dados por longos períodos de tempo. Se não tiver um requisito alargado de retenção de dados, utilize o método de consulta de análise de exportação. A exportação contínua e o Stream Analytics envolvem mais trabalho para configurar e sobrecargas adicionais de armazenamento.
 * **Adaptador POWER BI**. O conjunto de gráficos está predefinido, mas pode adicionar as suas próprias consultas a partir de quaisquer outras fontes.
 
 > [!NOTE]
-> O adaptador Power BI está agora **depreciado.** Os gráficos predefinidos para esta solução são povoados por consultas estáticas não editáveis. Não tem a capacidade de editar estas consultas e, dependendo de determinadas propriedades dos seus dados, é possível que a ligação ao Power BI seja bem sucedida, mas nenhum dado é povoado. Isto deve-se a critérios de exclusão que são definidos dentro da consulta codificada. Embora esta solução ainda possa funcionar para alguns clientes, devido à falta de flexibilidade do adaptador a solução recomendada é utilizar a funcionalidade de consulta de [**exportação Analytics.** ](#export-analytics-queries)
+> O adaptador Power BI está agora **depreciado.** Os gráficos predefinidos para esta solução são povoados por consultas estáticas não editáveis. Não tem a capacidade de editar estas consultas e, dependendo de determinadas propriedades dos seus dados, é possível que a ligação ao Power BI seja bem sucedida, mas nenhum dado é povoado. Isto deve-se a critérios de exclusão que são definidos dentro da consulta codificada. Embora esta solução ainda possa funcionar para alguns clientes, devido à falta de flexibilidade do adaptador a solução recomendada é utilizar a funcionalidade de consulta de [**exportação Analytics.**](#export-analytics-queries)
 
 ## <a name="export-analytics-queries"></a>Consultas de Análise de Exportação
 Esta rota permite-lhe escrever qualquer consulta de Analytics que você goste, ou exportar de Funis de Utilização, e depois exportá-lo para um dashboard Power BI. (Pode adicionar ao painel de instrumentos criado pelo adaptador.)
@@ -33,10 +33,10 @@ Instale o Ambiente de [Trabalho power BI](https://powerbi.microsoft.com/en-us/de
 ### <a name="export-an-analytics-query"></a>Exportar uma consulta de Analytics
 1. [Abra o Analytics e escreva a sua consulta.](../../azure-monitor/log-query/get-started-portal.md)
 2. Teste e refine a consulta até ficar satisfeito com os resultados. Certifique-se de que a consulta corre corretamente no Analytics antes de exportá-la.
-3. No menu **Export,** escolha **Power BI (M)** . Guarde o ficheiro de texto.
+3. No menu **Export,** escolha **Power BI (M)**. Guarde o ficheiro de texto.
    
     ![Screenshot de Analytics, com menu exportado em destaque](./media/export-power-bi/analytics-export-power-bi.png)
-4. No Power BI Desktop, selecione **Obter Dados** > Consulta **em branco**. Em seguida, no editor de consulta, em **View,** **selecione Advanced Editor**.
+4. No Power BI Desktop, selecione Obter**Consulta em branco**de **dados** > . Em seguida, no editor de consulta, em **View,** **selecione Advanced Editor**.
 
     Colar o guião de Língua M exportado para o Editor Avançado.
 
@@ -61,7 +61,7 @@ Instale o Ambiente de [Trabalho power BI](https://powerbi.microsoft.com/en-us/de
 
    ![Screenshot do botão Power BI](./media/export-power-bi/button.png)
 
-3. No Power BI Desktop, selecione **Obter Dados** > Consulta **em branco**. Em seguida, no editor de consulta, em **View,** **selecione Advanced Editor**.
+3. No Power BI Desktop, selecione Obter**Consulta em branco**de **dados** > . Em seguida, no editor de consulta, em **View,** **selecione Advanced Editor**.
 
    ![Screenshot do Power BI Desktop, com botão De Consulta Em Branco em destaque](./media/export-power-bi/blankquery.png)
 
@@ -118,8 +118,8 @@ Dependendo da quantidade de dados enviados pela sua aplicação, é melhor utili
 Este método cria um painel completo de telemetria para si. O conjunto de dados inicial está predefinido, mas pode adicionar-lhe mais dados.
 
 ### <a name="get-the-adapter"></a>Pegue o adaptador
-1. Inscreva-se no [Power BI](https://app.powerbi.com/).
-2. Open **Get Data** ![Screenshot do Ícone GetData em canto inferior esquerdo](./media/export-power-bi/001.png), **Serviços**.
+1. Inicie sessão no [Power BI](https://app.powerbi.com/).
+2. Abra **obter screenshot** ![de dados do](./media/export-power-bi/001.png)ícone GetData no canto inferior esquerdo, **Serviços**.
 
     ![Screenshots de Get from Application Insights fonte de dados](./media/export-power-bi/002.png)
 

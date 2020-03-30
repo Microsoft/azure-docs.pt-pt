@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 4dff2321414721dbd415b468e59aea0ab4b3acee
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79375125"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Negar acesso à rede pública na Base de Dados Azure para o servidor Single PostgreSQL utilizando o portal Azure
@@ -19,7 +19,7 @@ Este artigo descreve como pode configurar uma Base de Dados Azure para o servido
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de procedimentos, terá de:
+Para completar este guia de como orientar, precisa de:
 
 * Uma [base de dados Azure para o servidor single PostgreSQL](quickstart-create-PostgreSQL Single server-server-database-using-azure-portal.md)
 

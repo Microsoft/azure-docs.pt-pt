@@ -1,19 +1,19 @@
 ---
-title: Utilize a injeção de dependência em funções .NET Azure
+title: Utilizar a injeção de dependências nas Funções do Azure do .NET
 description: Saiba como usar a injeção de dependência para registar e utilizar serviços em funções .NET
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: df2acedd7f472b96d55d9ecc294d47e7173c5f90
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: f8f1eb353087c5121eaafb4c8789e7a2f7638b99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78329021"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475126"
 ---
-# <a name="use-dependency-injection-in-net-azure-functions"></a>Utilize a injeção de dependência em funções .NET Azure
+# <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
 A Azure Functions suporta o padrão de design de software de injeção de dependência (DI), que é uma técnica para alcançar a [Inversão de Controlo (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) entre as classes e as suas dependências.
 
@@ -31,9 +31,9 @@ Antes de poder utilizar a injeção de dependência, tem de instalar os seguinte
 
 ## <a name="register-services"></a>Serviços de registo
 
-Para registar serviços, crie um método para configurar e adicionar componentes a uma instância `IFunctionsHostBuilder`.  O hospedeiro funções Azure cria uma instância de `IFunctionsHostBuilder` e passa-a diretamente para o seu método.
+Para registar serviços, crie um método para `IFunctionsHostBuilder` configurar e adicionar componentes a uma instância.  O hospedeiro funções Azure `IFunctionsHostBuilder` cria uma instância e passa-a diretamente para o seu método.
 
-Para registar o método, adicione o atributo de montagem `FunctionsStartup` que especifica o nome tipo utilizado durante o arranque.
+Para registar o método, adicione o atributo de `FunctionsStartup` montagem que especifica o nome tipo utilizado durante o arranque.
 
 ```csharp
 using System;
@@ -66,15 +66,15 @@ namespace MyNamespace
 
 Uma série de etapas de registo são executadas antes e depois do tempo de execução processa a classe de startups. Por isso, tenha em mente os seguintes itens:
 
-- *A classe de startups destina-se apenas à configuração e inscrição.* Evite utilizar serviços registados no arranque durante o processo de arranque. Por exemplo, não tente registar uma mensagem num madeireiro que está a ser registado durante o arranque. Este ponto do processo de registo é muito cedo para que os seus serviços estejam disponíveis para uso. Após a execução do método `Configure`, o tempo de funcionamento das Funções continua a registar dependências adicionais, o que pode afetar o funcionamento dos seus serviços.
+- *A classe de startups destina-se apenas à configuração e inscrição.* Evite utilizar serviços registados no arranque durante o processo de arranque. Por exemplo, não tente registar uma mensagem num madeireiro que está a ser registado durante o arranque. Este ponto do processo de registo é muito cedo para que os seus serviços estejam disponíveis para uso. Após `Configure` a execução do método, o tempo de funcionamento das Funções continua a registar dependências adicionais, o que pode afetar o funcionamento dos seus serviços.
 
-- O recipiente de *injeção de dependência contém apenas tipos explicitamente registados*. Os únicos serviços disponíveis como tipos injetáveis são os que são configurados no método `Configure`. Como resultado, tipos específicos de funções como `BindingContext` e `ExecutionContext` não estão disponíveis durante a configuração ou como tipos injetáveis.
+- O recipiente de *injeção de dependência contém apenas tipos explicitamente registados*. Os únicos serviços disponíveis como tipos injetáveis `Configure` são os que são configurados no método. Como resultado, tipos específicos `BindingContext` de `ExecutionContext` funções como e não estão disponíveis durante a configuração ou como tipos injetáveis.
 
 ## <a name="use-injected-dependencies"></a>Use dependências injetadas
 
 A injeção de construtor é usada para disponibilizar as suas dependências numa função. A utilização da injeção de construtor requer que não utilize classes estáticas.
 
-A amostra que se segue demonstra como as dependências `IMyService` e `HttpClient` são injetadas numa função desencadeada pelo HTTP. Este exemplo utiliza o pacote [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessário para registar um `HttpClient` no arranque.
+A amostra seguinte demonstra `IMyService` `HttpClient` como as dependências e dependências são injetadas numa função desencadeada pelo HTTP. Este exemplo utiliza o pacote [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) necessário para registar um `HttpClient` no arranque.
 
 ```csharp
 using System;
@@ -85,6 +85,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
 
 namespace MyNamespace
 {
@@ -93,10 +94,10 @@ namespace MyNamespace
         private readonly IMyService _service;
         private readonly HttpClient _client;
 
-        public HttpTrigger(IMyService service, IHttpClientFactory httpClientFactory)
+        public HttpTrigger(IMyService service, HttpClient httpClient)
         {
             _service = service;
-            _client = httpClientFactory.CreateClient();
+            _client = httpClient;
         }
 
         [FunctionName("GetPosts")]
@@ -120,21 +121,21 @@ As aplicações Azure Functions fornecem as mesmas vidas de serviço que [ASP.NE
 
 - **Transitória**: Os serviços transitórios são criados a cada pedido do serviço.
 - **Âmbito:** A vida útil do serviço com âmbito de aplicação corresponde a uma vida útil de execução de função. Os serviços de âmbito são criados uma vez por execução. Posteriormente, os pedidos para esse serviço durante a execução reutilizam a instância de serviço existente.
-- **Singleton**: O serviço singleton corresponde à vida útil do hospedeiro e é reutilizado através de execuções de funções nesse caso. Os serviços de vida singleton são recomendados para ligações e clientes, por exemplo `SqlConnection` ou `HttpClient` casos.
+- **Singleton**: O serviço singleton corresponde à vida útil do hospedeiro e é reutilizado através de execuções de funções nesse caso. Os serviços de vida singleton são recomendados para ligações e clientes, por exemplo `SqlConnection` ou `HttpClient` por exemplo.
 
 Ver ou descarregar uma [amostra de diferentes vidas de serviço](https://aka.ms/functions/di-sample) no GitHub.
 
 ## <a name="logging-services"></a>Serviços de exploração madeireira
 
-Se precisar do seu próprio fornecedor de registo, registe um tipo personalizado como `ILoggerProvider` instância. Os Insights de Aplicação são adicionados automaticamente pelas Funções Azure.
+Se precisar do seu próprio fornecedor de `ILoggerProvider` registo, registe um tipo personalizado como instância. Os Insights de Aplicação são adicionados automaticamente pelas Funções Azure.
 
 > [!WARNING]
-> - Não adicione `AddApplicationInsightsTelemetry()` à recolha de serviços, uma vez que regista serviços que entram em conflito com os serviços prestados pelo ambiente.
-> - Não registe o seu próprio `TelemetryConfiguration` ou `TelemetryClient` se estiver a utilizar a funcionalidade Inejáding Application Insights. Se precisar configurar o seu próprio `TelemetryClient` instância, crie um através do `TelemetryConfiguration` injetado, como mostrado nas [Funções Monitor Azure](./functions-monitoring.md#version-2x-and-later-2).
+> - Não adicione `AddApplicationInsightsTelemetry()` à recolha de serviços uma vez que regista serviços que entram em conflito com os serviços prestados pelo ambiente.
+> - Não registe `TelemetryConfiguration` o `TelemetryClient` seu próprio registo ou se estiver a utilizar a funcionalidade Inejádininsights de Aplicação. Se precisar configurar a `TelemetryClient` sua própria instância, `TelemetryConfiguration` crie uma através da injetada como mostrado nas [Funções Monitor Azure](./functions-monitoring.md#version-2x-and-later-2).
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
 
-O hospedeiro injetará serviços `ILogger<T>` e `ILoggerFactory` em construtores.  No entanto, por defeito, estes novos filtros de registo serão filtrados dos registos de função.  Terá de modificar o ficheiro `host.json` para optar por filtros e categorias adicionais.  A amostra seguinte demonstra a adição de um `ILogger<HttpTrigger>` com registos que serão expostos pelo hospedeiro.
+O hospedeiro `ILogger<T>` injetará e `ILoggerFactory` serviços em construtores.  No entanto, por defeito, estes novos filtros de registo serão filtrados dos registos de função.  Terá de modificar `host.json` o ficheiro para optar por filtros e categorias adicionais.  A amostra seguinte demonstra `ILogger<HttpTrigger>` a adição de um com registos que serão expostos pelo hospedeiro.
 
 ```csharp
 namespace MyNamespace
@@ -159,7 +160,7 @@ namespace MyNamespace
 }
 ```
 
-E um ficheiro `host.json` que adiciona o filtro de registo.
+E `host.json` um ficheiro que adiciona o filtro de registo.
 
 ```json
 {
@@ -195,9 +196,9 @@ Os serviços de sobreposição prestados pelo anfitrião não são atualmente su
 
 ## <a name="working-with-options-and-settings"></a>Trabalhar com opções e configurações
 
-Os valores definidos nas [definições](./functions-how-to-use-azure-function-app-settings.md#settings) de apps estão disponíveis numa `IConfiguration` caso, o que lhe permite ler os valores de definições de aplicações na classe de startups.
+Os valores definidos nas `IConfiguration` definições da [aplicação](./functions-how-to-use-azure-function-app-settings.md#settings) estão disponíveis num caso, o que lhe permite ler os valores de definições de aplicações na classe de startups.
 
-Pode extrair valores do `IConfiguration` instância para um tipo personalizado. Copiar os valores de definições da aplicação para um tipo personalizado facilita o teste dos seus serviços tornando estes valores injetáveis. As definições lidas na configuração devem ser simples pares de chaves/valor.
+Pode extrair valores `IConfiguration` da instância para um tipo personalizado. Copiar os valores de definições da aplicação para um tipo personalizado facilita o teste dos seus serviços tornando estes valores injetáveis. As definições lidas na configuração devem ser simples pares de chaves/valor.
 
 Considere a seguinte classe que inclui uma propriedade chamada consistente com uma definição de app:
 
@@ -208,7 +209,7 @@ public class MyOptions
 }
 ```
 
-E um ficheiro `local.settings.json` que pode estruturar a definição personalizada da seguinte forma:
+E `local.settings.json` um ficheiro que pode estruturar a definição personalizada da seguinte forma:
 ```json
 {
   "IsEncrypted": false,
@@ -218,7 +219,7 @@ E um ficheiro `local.settings.json` que pode estruturar a definição personaliz
 }
 ```
 
-A partir do método `Startup.Configure`, pode extrair valores da `IConfiguration` instância para o seu tipo personalizado utilizando o seguinte código:
+A partir `Startup.Configure` do interior do método, pode extrair valores da instância para o `IConfiguration` seu tipo personalizado utilizando o seguinte código:
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
@@ -228,9 +229,9 @@ builder.Services.AddOptions<MyOptions>()
                                            });
 ```
 
-Chamar `Bind` valores de cópias que têm nomes de propriedade correspondentes da configuração para a instância personalizada. A instância de opções está agora disponível no recipiente IoC para injetar numa função.
+Chamar `Bind` cópias valores que têm nomes de propriedade correspondentes da configuração para a instância personalizada. A instância de opções está agora disponível no recipiente IoC para injetar numa função.
 
-O objeto de opções é injetado na função como um exemplo da interface genérica `IOptions`. Utilize a propriedade `Value` para aceder aos valores encontrados na sua configuração.
+O objeto de opções é injetado `IOptions` na função como um exemplo da interface genérica. Utilize `Value` a propriedade para aceder aos valores encontrados na sua configuração.
 
 ```csharp
 using System;

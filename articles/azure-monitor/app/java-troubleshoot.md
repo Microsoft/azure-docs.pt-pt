@@ -4,29 +4,29 @@ description: Guia de resolução de problemas - monitorização de aplicações 
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 04e98938bc5dd17816ae873f122073212275a414
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657185"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
-Questões ou problemas com insights de [aplicação azure em Java?][java] Aqui estão algumas dicas.
+Questões ou problemas com insights de [aplicação azure em Java?][java] Abaixo temos algumas dicas.
 
 ## <a name="build-errors"></a>Construir erros
 **No Eclipse ou intellij Idea, ao adicionar o SDK de Insights de Aplicação via Maven ou Gradle, recebo erros de validação de construção ou verificação.**
 
-* Se o elemento `<version>` dependência estiver a utilizar um padrão com caracteres wildcard (por exemplo (Maven) `<version>[2.0,)</version>` ou (Gradle) `version:'2.0.+'`), tente especificar uma versão específica como `2.0.1`. Consulte as notas de [lançamento](https://github.com/Microsoft/ApplicationInsights-Java/releases) para a versão mais recente.
+* Se o `<version>` elemento de dependência estiver a utilizar um padrão com `<version>[2.0,)</version>` caracteres wildcard (por exemplo (Maven) ou (Gradle), `version:'2.0.+'`tente especificar uma versão específica como `2.0.1`. Consulte as notas de [lançamento](https://github.com/Microsoft/ApplicationInsights-Java/releases) para a versão mais recente.
 
 ## <a name="no-data"></a>Sem dados
 **Adicionei application Insights com sucesso e geri a minha aplicação, mas nunca vi dados no portal.**
 
 * Espere um minuto e clique em Refresh. Os gráficos refrescam-se periodicamente, mas também pode refrescar-se manualmente. O intervalo de atualização depende da faixa hordo.
 * Verifique se tem uma chave de instrumentação definida no ficheiro ApplicationInsights.xml (na pasta de recursos do seu projeto) ou configurada como variável Ambiente.
-* Verifique se não há `<DisableTelemetry>true</DisableTelemetry>` nó no ficheiro xml.
+* Verifique se não `<DisableTelemetry>true</DisableTelemetry>` há nó no ficheiro xml.
 * Na sua firewall, poderá ter de abrir as portas TCP 80 e 443 para tráfego de saída para dc.services.visualstudio.com. Consulte a [lista completa de exceções à firewall](../../azure-monitor/app/ip-addresses.md)
 * Na placa inicial do Microsoft Azure, veja o mapa do estado do serviço. Se houver algumas indicações de alerta, aguarde até que voltem ao OK e, em seguida, feche e reabra a sua lâmina de aplicação Application Insights.
-* [Ligue o registo](#debug-data-from-the-sdk) adicionando um elemento `<SDKLogger />` sob o nó raiz no ficheiro ApplicationInsights.xml (na pasta de recursos do seu projeto) e verifique se há entradas pré-faciais com IA: INFO/WARN/ERROR para quaisquer registos suspeitos. 
+* [Ligue o registo](#debug-data-from-the-sdk) `<SDKLogger />` adicionando um elemento sob o nó raiz no ficheiro ApplicationInsights.xml (na pasta de recursos do seu projeto) e verifique se há entradas pré-faciais com IA: INFO/WARN/ERROR para quaisquer registos suspeitos. 
 * Certifique-se de que o ficheiro ApplicationInsights.xml correto foi carregado com sucesso pelo Java SDK, analisando as mensagens de saída da consola para uma declaração de "Configuração foi encontrada com sucesso".
 * Se o ficheiro config não for encontrado, verifique as mensagens de saída para ver onde o ficheiro config está a ser procurado e certifique-se de que o ApplicationInsights.xml está localizado num desses locais de pesquisa. Como regra geral, pode colocar o ficheiro config perto dos SDK JARs de Aplicação Insights. Por exemplo: em Tomcat, isto significaria a pasta WEB-INF/classes. Durante o desenvolvimento pode colocar ApplicationInsights.xml na pasta de recursos do seu projeto web.
 * Por favor, consulte também a página de problemas do [GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) para problemas conhecidos com o SDK.
@@ -93,7 +93,7 @@ Utilizando o método XML, tem de reiniciar a aplicação quando alterar o valor.
 
 **Como posso descobrir o que o SDK está a fazer?**
 
-Para obter mais informações sobre o que está a acontecer na API, adicione `<SDKLogger/>` sob o nó raiz do ficheiro de configuração ApplicationInsights.xml.
+Para obter mais informações sobre o que `<SDKLogger/>` está a acontecer na API, adicione sob o nó raiz do ficheiro de configuração ApplicationInsights.xml.
 
 ### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
 
@@ -109,7 +109,7 @@ Também pode instruir o madeireiro a saída para um ficheiro:
 
 ### <a name="spring-boot-starter"></a>Arranque de bota de primavera
 
-Para ativar o login SDK com apps de arranque de mola utilizando o Arranque de Arranque de Arranque de Mola Insights da Aplicação Insights, adicione o seguinte ao ficheiro `application.properties`:
+Para ativar o login SDK com apps de arranque de `application.properties` mola utilizando o Arranque de Arranque de Arranque de Mola Insights da Aplicação Insights, adicione o seguinte ao ficheiro:
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -173,10 +173,10 @@ Na sua firewall, poderá ter de abrir as portas TCP 80 e 443 para tráfego de sa
 Ver [Retenção de Dados e privacidade.][data]
 
 ## <a name="debug-logging"></a>Depuração de madeira
-Os Insights de Aplicação usam `org.apache.http`. Isto é realojado dentro de frascos centrais de Application Insights sob o espaço de nome `com.microsoft.applicationinsights.core.dependencies.http`. Isto permite que os Insights de Aplicação lidem com cenários onde diferentes versões do mesmo `org.apache.http` existem numa base de código.
+Aplicação `org.apache.http`Insights utiliza . Isto é recolocado dentro de frascos `com.microsoft.applicationinsights.core.dependencies.http`centrais de Application Insights sob o espaço de nome . Isto permite que os Insights de Aplicação lidem com cenários onde existem diferentes versões do mesmo `org.apache.http` numa base de código.
 
 >[!NOTE]
->Se ativar o registo de registo de nível DEBUG para todos os espaços de nome na aplicação, será homenageado por todos os módulos de execução, incluindo `org.apache.http` renomeado como `com.microsoft.applicationinsights.core.dependencies.http`. Aplicação Insights não será capaz de aplicar filtragem para estas chamadas porque a chamada de log está sendo feita pela biblioteca Apache. O nível de depuração de madeira produz uma quantidade considerável de dados de registo e não é recomendado para casos de produção ao vivo.
+>Se ativar o registo de nivelamento de DEBUG para todos os `org.apache.http` espaços de `com.microsoft.applicationinsights.core.dependencies.http`nome na aplicação, será homenageado por todos os módulos de execução, incluindo renomeadocomo . Aplicação Insights não será capaz de aplicar filtragem para estas chamadas porque a chamada de log está sendo feita pela biblioteca Apache. O nível de depuração de madeira produz uma quantidade considerável de dados de registo e não é recomendado para casos de produção ao vivo.
 
 
 ## <a name="next-steps"></a>Passos seguintes

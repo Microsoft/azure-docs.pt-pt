@@ -1,48 +1,48 @@
 ---
-title: Erros de conectividade transitórios-banco de dados do Azure para MariaDB
-description: Saiba como lidar com erros de conectividade transitórios para o banco de dados do Azure para MariaDB.
-keywords: conexão do MySQL, Cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
+title: Erros transitórios de conectividade - Base de Dados Azure para MariaDB
+description: Aprenda a lidar com erros de conectividade transitórios para a Base de Dados Azure para O MariaDB.
+keywords: conexão mysql,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: f061f9cc6d3f03acf01995e2632b229aaea5ab8f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 26a6ac4412f1dff450cc087382dc9b0fce443f0b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772867"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532200"
 ---
-# <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Tratamento de erros de conectividade transitórios para o banco de dados do Azure para MariaDB
+# <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Tratamento de erros transitórios de conectividade para a Base de Dados Azure para MariaDB
 
-Este artigo descreve como lidar com erros transitórios se conectando ao banco de dados do Azure para MariaDB.
+Este artigo descreve como lidar com erros transitórios que ligam a Base de Dados Azure para O MariaDB.
 
 ## <a name="transient-errors"></a>Erros transitórios
 
-Um erro transitório, também conhecido como uma falha transitória, é um erro que será resolvido por si só. Geralmente, esses erros são manifestados como uma conexão com o servidor de banco de dados que está sendo Descartado. Também não é possível abrir novas conexões com um servidor. Erros transitórios podem ocorrer por exemplo, quando ocorre falha de hardware ou de rede. Outro motivo pode ser uma nova versão de um serviço PaaS que está sendo distribuído. A maioria desses eventos é automaticamente mitigada pelo sistema em menos de 60 segundos. Uma prática recomendada para projetar e desenvolver aplicativos na nuvem é esperar erros transitórios. Suponha que eles possam ocorrer em qualquer componente a qualquer momento e que haja a lógica apropriada em vigor para lidar com essas situações.
+Um erro transitório, também conhecido como uma falha transitória, é um erro que se resolverá sozinho. Normalmente, estes erros manifestam-se como uma ligação ao servidor de base de dados que está a ser eliminado. Também não podem ser abertas novas ligações a um servidor. Erros transitórios podem ocorrer, por exemplo, quando o hardware ou falha de rede acontece. Outra razão poderia ser uma nova versão de um serviço PaaS que está a ser lançado. A maioria destes eventos são automaticamente atenuados pelo sistema em menos de 60 segundos. Uma boa prática para conceber e desenvolver aplicações na nuvem é esperar erros transitórios. Assuma que podem acontecer em qualquer componente a qualquer momento e ter a lógica adequada para lidar com estas situações.
 
-## <a name="handling-transient-errors"></a>Manipulando erros transitórios
+## <a name="handling-transient-errors"></a>Manuseamento de erros transitórios
 
-Os erros transitórios devem ser tratados usando a lógica de repetição. Situações que devem ser consideradas:
+Os erros transitórios devem ser tratados utilizando a lógica de retry. Situações que devem ser consideradas:
 
-* Ocorrerá um erro quando você tentar abrir uma conexão
-* Uma conexão ociosa é descartada no lado do servidor. Quando você tenta emitir um comando, ele não pode ser executado
-* Uma conexão ativa que atualmente está executando um comando é descartada.
+* Um erro ocorre quando se tenta abrir uma ligação
+* Uma ligação inativa é deixada no lado do servidor. Quando se tenta emitir um comando, não pode ser executado.
+* Uma ligação ativa que está atualmente a executar um comando é abandonada.
 
-O primeiro e o segundo caso são bastante diretos para manipular. Tente abrir a conexão novamente. Quando tiver sucesso, o erro transitório foi mitigado pelo sistema. Você pode usar o banco de dados do Azure para MariaDB novamente. Recomendamos que haja esperas antes de tentar novamente a conexão. Fazer logoff se as tentativas iniciais falharem. Dessa forma, o sistema pode usar todos os recursos disponíveis para superar a situação de erro. Um bom padrão a ser seguido é:
+O primeiro e o segundo caso são bastante diretos para lidar. Tente abrir a ligação de novo. Quando se consegue, o erro transitório foi atenuado pelo sistema. Pode voltar a utilizar a sua Base de Dados Azure para o MariaDB. Recomendamos que tenha esperas antes de voltar a experimentar a ligação. Afaste-se se as tentativas iniciais falharem. Desta forma, o sistema pode utilizar todos os recursos disponíveis para ultrapassar a situação de erro. Um bom padrão a seguir é:
 
 * Aguarde 5 segundos antes da primeira tentativa.
-* Para cada repetição seguinte, aumente a espera exponencialmente, até 60 segundos.
-* Defina um número máximo de repetições no ponto em que seu aplicativo considera que a operação falhou.
+* Para cada tentativa seguinte, o aumento exponencial da espera, até 60 segundos.
+* Detete um número máximo de repetições no momento em que a sua aplicação considera que a operação falhou.
 
-Quando uma conexão com uma transação ativa falha, é mais difícil lidar com a recuperação corretamente. Há dois casos: se a transação era somente leitura por natureza, é seguro reabrir a conexão e tentar novamente a transação. Se, no entanto, se a transação também estiver gravando no banco de dados, você deverá determinar se a transação foi revertida ou se foi bem-sucedida antes que ocorreu o erro transitório. Nesse caso, você pode simplesmente não ter recebido a confirmação de confirmação do servidor de banco de dados.
+Quando uma ligação com uma transação ativa falha, é mais difícil lidar corretamente com a recuperação. Há dois casos: Se a transação foi lida apenas na natureza, é seguro reabrir a ligação e voltar a tentar a transação. Se, no entanto, se a transação também estava escrita na base de dados, deve determinar se a transação foi reposta ou se foi bem sucedida antes do erro transitório. Nesse caso, pode não ter recebido o reconhecimento do servidor de base de dados.
 
-Uma maneira de fazer isso é gerar uma ID exclusiva no cliente que é usada para todas as tentativas. Você passa essa ID exclusiva como parte da transação para o servidor e a armazena em uma coluna com uma restrição UNIQUE. Dessa forma, você pode repetir a transação com segurança. Ele será bem sucedido se a transação anterior tiver sido revertida e a ID exclusiva gerada pelo cliente ainda não existir no sistema. Ele falhará indicando uma violação de chave duplicada se a ID exclusiva tiver sido armazenada anteriormente porque a transação anterior foi concluída com êxito.
+Uma maneira de fazer isto, é gerar uma identificação única no cliente que é usado para todas as tentativas. Passa este ID único como parte da transação para o servidor e armazena-o numa coluna com um constrangimento único. Desta forma, pode voltar a tentar a transação com segurança. Será bem sucedido se a transação anterior foi revertida e o cliente gerou identificação única ainda não existe no sistema. Falhará indicando uma violação da chave duplicada se o ID único foi previamente armazenado porque a transação anterior foi concluída com sucesso.
 
-Quando seu programa se comunicar com o banco de dados do Azure para MariaDB por meio de middleware de terceiros, pergunte ao fornecedor se o middleware contém lógica de repetição para erros transitórios.
+Quando o seu programa comunica com a Base de Dados Azure para MariaDB através de middleware de terceiros, pergunte ao fornecedor se o middleware contém lógica de retry para erros transitórios.
 
-Certifique-se de testar a lógica de repetição. Por exemplo, tente executar seu código ao escalar ou reduzir verticalmente os recursos de computação do banco de dados do Azure para o servidor MariaDB. Seu aplicativo deve lidar com o breve tempo de inatividade encontrado durante essa operação sem problemas.
+Certifique-se de testar a lógica de novo. Por exemplo, tente executar o seu código enquanto escala para cima ou para baixo os recursos computacionais do seu servidor Azure. A sua aplicação deve tratar do breve tempo de paragem que se encontra durante esta operação sem qualquer problema.
 
 ## <a name="next-steps"></a>Passos seguintes
 

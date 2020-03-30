@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 15fcf765be0a754575713eebcdaa7d68e1c299b9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595353"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Aceda ao painel web da Kubernetes no Serviço Azure Kubernetes (AKS)
@@ -19,7 +19,7 @@ Para obter mais informações sobre o dashboard Kubernetes, consulte [kubernetes
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Os passos detalhados neste documento assumem que criou um cluster AKS e estabeleceu uma ligação `kubectl` com o cluster. Se precisar de criar um cluster AKS, consulte o arranque rápido da [AKS.][aks-quickstart]
+Os passos detalhados neste documento assumem que criou `kubectl` um cluster AKS e estabeleceu uma ligação com o cluster. Se precisar de criar um cluster AKS, consulte o arranque rápido da [AKS.][aks-quickstart]
 
 Precisa também da versão 2.0.46 ou posterior da CLI do Azure instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
@@ -31,7 +31,7 @@ Para iniciar o dashboard Kubernetes, use o comando de [navegação az aks.][az-a
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Este comando cria um proxy entre o seu sistema de desenvolvimento e a API Kubernetes, e abre um navegador web para o dashboard Kubernetes. Se um navegador web não se abrir ao painel de instrumentos kubernetes, copie e cole o endereço URL anotado no Azure CLI, normalmente `http://127.0.0.1:8001`.
+Este comando cria um proxy entre o seu sistema de desenvolvimento e a API Kubernetes, e abre um navegador web para o dashboard Kubernetes. Se um navegador web não se abrir ao painel de instrumentos kubernetes, copie e `http://127.0.0.1:8001`cole o endereço URL anotado no Azure CLI, tipicamente .
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -116,7 +116,7 @@ Para editar uma implantação:
 
 1. Selecione **Implementações** no menu esquerdo e, em seguida, escolha a sua implantação *nginx.*
 1. **Selecione Editar** na barra de navegação superior direita.
-1. Localize o valor `spec.replica`, em torno da linha 20. Para aumentar o número de réplicas para a aplicação, altere este valor de *1* para *3*.
+1. Localize `spec.replica` o valor, em torno da linha 20. Para aumentar o número de réplicas para a aplicação, altere este valor de *1* para *3*.
 1. Selecione **Atualizar** quando estiver pronto.
 
 ![Editar a implementação para atualizar o número de réplicas](./media/kubernetes-dashboard/edit-deployment.png)

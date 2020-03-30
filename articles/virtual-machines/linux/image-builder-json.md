@@ -3,17 +3,17 @@ title: Criar um modelo de construtor de imagem Azure (pré-visualização)
 description: Aprenda a criar um modelo para usar com o Azure Image Builder.
 author: danis
 ms.author: danis
-ms.date: 01/23/2020
+ms.date: 03/24/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: 870c8856cdc22b0586199051575de02312420990
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: e1f1bc09406c34836c13deb805fa399ab4751d41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267264"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246794"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Crie um modelo de construtor de imagem Azure 
 
@@ -36,9 +36,14 @@ Este é o formato de modelo básico:
         "buildTimeoutInMinutes": <minutes>, 
         "vmProfile": 
             {
-            "vmSize": "<vmSize>"
+            "vmSize": "<vmSize>",
+            "osDiskSizeGB": <sizeInGB>,
+            "vnetConfig": {
+                "name": "<vnetName>",
+                "subnetName": "<subnetName>",
+                "resourceGroupName": "<vnetRgName>"
             },
-        "build": {}, 
+        "source": {}, 
         "customize": {}, 
         "distribute": {} 
       } 
@@ -49,7 +54,7 @@ Este é o formato de modelo básico:
 
 ## <a name="type-and-api-version"></a>Tipo e versão API
 
-O `type` é do tipo de recurso, que deve ser `"Microsoft.VirtualMachineImages/imageTemplates"`. O `apiVersion` mudará ao longo do tempo à medida que a API muda, mas deve ser `"2019-05-01-preview"` para pré-visualização.
+O `type` é do tipo de `"Microsoft.VirtualMachineImages/imageTemplates"`recurso, que deve ser . O `apiVersion` irá mudar ao longo do tempo `"2019-05-01-preview"` à medida que a API muda, mas deve ser para pré-visualização.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -65,6 +70,8 @@ A localização é a região onde será criada a imagem personalizada. Para a pr
 - E.U.A. Centro-Oeste
 - E.U.A. Oeste
 - E.U.A.Oeste 2
+- Europa do Norte
+- Europa ocidental
 
 
 ```json
@@ -81,7 +88,7 @@ Por padrão, o Image Builder utilizará um VM de construção "Standard_D1_v2", 
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-Por padrão, o Image Builder não alterará o tamanho da imagem, utilizará o tamanho a partir da imagem de origem. Pode ajustar o tamanho do Disco OS (Win e Linux), nota, não ser muito pequeno do que o espaço mínimo necessário para o SISTEMA. Isto é opcional, e um valor de 0 significa deixar o mesmo tamanho que a imagem de origem. Isto é opcional.
+Por padrão, o Image Builder não alterará o tamanho da imagem, utilizará o tamanho a partir da imagem de origem. Pode aumentar o tamanho do Disco OS (Win e Linux), este é opcional, e um valor de 0 meios deixar o mesmo tamanho que a imagem de origem. 
 
 ```json
  {
@@ -89,6 +96,16 @@ Por padrão, o Image Builder não alterará o tamanho da imagem, utilizará o ta
  },
 ```
 
+## <a name="vnetconfig"></a>vnetConfig
+Se não especificar quaisquer propriedades VNET, então o Image Builder criará o seu próprio VNET, PUBLIC IP e NSG. O IP Público é utilizado para que o serviço comunique com a build VM, no entanto, se não quiser um IP público ou quiser que o Image Builder tenha acesso aos seus recursos VNET existentes, tais como servidores de configuração (DSC, Chef, Marioneta, Ansible), partilhas de ficheiros etc. , então pode especificar um VNET. Para mais informações, reveja a documentação em [rede,](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder)isto é opcional.
+
+```json
+    "vnetConfig": {
+        "name": "<vnetName>",
+        "subnetName": "<subnetName>",
+        "resourceGroupName": "<vnetRgName>"
+    }
+```
 ## <a name="tags"></a>Etiquetas
 
 Estes são os pares chave/valor que pode especificar para a imagem que é gerada.
@@ -127,36 +144,18 @@ Para obter mais informações sobre a implementação desta funcionalidade, cons
 
 ## <a name="properties-source"></a>Propriedades: fonte
 
-A secção `source` contém informações sobre a imagem de origem que serão utilizadas pelo Image Builder.
+A `source` secção contém informações sobre a imagem de origem que serão utilizadas pelo Image Builder.
 
 A API requer um 'SourceType' que define a fonte para a construção da imagem, atualmente existem três tipos:
-- ISO - use isto quando a fonte for uma ISO RHEL.
 - PlatformImage - indicou que a imagem de origem é uma imagem do Marketplace.
 - ManagedImage - use isto quando começar de uma imagem gerida regularmente.
 - SharedImageVersion - isto é usado quando se está a usar uma versão de imagem numa Galeria de Imagem Partilhada como fonte.
 
 ### <a name="iso-source"></a>Fonte ISO
+Estamos a depreciar esta funcionalidade do construtor de imagens, uma vez que existem agora [imagens RHEL Bring Your Own Subscription,](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos)por favor reveja as cronologias abaixo:
+    * 31 de março de 2020 - Os modelos de imagem com fontes ISO RHEL serão agora mais aceites pelo fornecedor de recursos.
+    * 30 de abril de 2020- Os modelos de imagem que contenham fontes iso rhel não serão mais processados.
 
-O Azure Image Builder apenas suporta a utilização de ISOs de DVD Biny Linux 7.x Binary Da Empresa de Chapéu Saque, para pré-visualização. O Image Builder suporta:
-- RHEL 7.3 
-- RHEL 7.4 
-- RHEL 7.5 
- 
-```json
-"source": {
-       "type": "ISO",
-       "sourceURI": "<sourceURI from the download center>",
-       "sha256Checksum": "<checksum associated with ISO>"
-}
-```
-
-Para obter os valores `sourceURI` e `sha256Checksum`, vá ao `https://access.redhat.com/downloads` e depois selecione o produto **Red Hat Enterprise Linux**, e uma versão suportada. 
-
-Na lista de **Instaladores e Imagens para O Servidor Linux da Empresa de Chapéu Vermelho,** você precisa copiar o link para Red Hat Enterprise Linux 7.x Binary DVD, e o checksum.
-
-> [!NOTE]
-> Os tokens de acesso dos links são atualizados em intervalos frequentes, por isso cada vez que quiser submeter um modelo, deve verificar se o endereço de ligação RH mudou.
- 
 ### <a name="platformimage-source"></a>Fonte de PlatformImage 
 O Azure Image Builder suporta o Windows Server e o cliente, e as imagens do Linux Azure Marketplace, consulte [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) a lista completa. 
 
@@ -166,7 +165,7 @@ O Azure Image Builder suporta o Windows Server e o cliente, e as imagens do Linu
                 "publisher": "Canonical",
                 "offer": "UbuntuServer",
                 "sku": "18.04-LTS",
-                "version": "18.04.201903060"
+                "version": "latest"
         },
 ```
 
@@ -177,8 +176,7 @@ As propriedades aqui são as mesmas que são usadas para criar VM's, usando AZ C
 az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
 ```
 
-> [!NOTE]
-> A versão não pode ser 'mais recente', tem de usar o comando acima para obter um número de versão. 
+Pode utilizar 'mais recente' na versão, a versão é avaliada quando a construção da imagem ocorre, não quando o modelo é submetido. Se utilizar esta funcionalidade com o destino da Galeria de Imagem Partilhada, pode evitar reenviar o modelo e reexecutar a construção da imagem em intervalos, para que as suas imagens sejam recriadas a partir das imagens mais recentes.
 
 ### <a name="managedimage-source"></a>Fonte de Imagem Gerida
 
@@ -191,7 +189,7 @@ Define a imagem de origem como uma imagem gerida existente de um VHD ou VM gener
         }
 ```
 
-O `imageId` deve ser o ResourceId da imagem gerida. Use `az image list` para listar imagens disponíveis.
+Deve `imageId` ser o ResourceId da imagem gerida. Utilize `az image list` para listar imagens disponíveis.
 
 
 ### <a name="sharedimageversion-source"></a>Fonte de Versão Partilhada ImageVersion
@@ -204,7 +202,7 @@ Define a imagem de origem de uma versão de imagem existente numa Galeria de Ima
    } 
 ```
 
-O `imageVersionId` deve ser o ResourceId da versão de imagem. Utilize a [lista de versão de imagem az sig](/cli/azure/sig/image-version#az-sig-image-version-list) para listar versões de imagem.
+Deve `imageVersionId` ser o ResourceId da versão de imagem. Utilize a [lista de versão de imagem az sig](/cli/azure/sig/image-version#az-sig-image-version-list) para listar versões de imagem.
 
 ## <a name="properties-buildtimeoutinminutes"></a>Propriedades: buildTimeoutInMinutes
 
@@ -215,7 +213,7 @@ Por padrão, o Construtor de Imagem funcionará durante 240 minutos. Depois diss
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-Se não especificar um valor buildTimeoutInMinutes, ou defini-lo para 0, utilizará o valor predefinido. Pode aumentar ou diminuir o valor, até ao máximo de 960mins (16horas). Para windows, não recomendamos que este ajuste abaixo dos 60 minutos. Se descobrir que está a atingir o intervalo, reveja os [registos,](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)para ver se o passo de personalização está à espera de algo como a entrada do utilizador. 
+Se não especificar um valor buildTimeoutInMinutes, ou defini-lo para 0, este utilizará o valor predefinido. Pode aumentar ou diminuir o valor, até ao máximo de 960mins (16horas). Para windows, não recomendamos que este ajuste abaixo dos 60 minutos. Se descobrir que está a atingir o intervalo, reveja os [registos,](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)para ver se o passo de personalização está à espera de algo como a entrada do utilizador. 
 
 Se você descobrir que precisa de mais tempo para as personalizações para completar, coloque isto no que você acha que precisa, com um pouco de sobrecarga. Mas não o coloque muito alto porque pode ter de esperar que fique fora de tempo antes de ver um erro. 
 
@@ -224,8 +222,8 @@ Se você descobrir que precisa de mais tempo para as personalizações para comp
 
 O Image Builder suporta vários 'personalizadores'. Os personalizadores são funções que são usadas para personalizar a sua imagem, como executar scripts ou reiniciar servidores. 
 
-Ao utilizar `customize`: 
-- Pode utilizar vários personalizadores, mas devem ter uma `name`única.
+Ao `customize`utilizar: 
+- Pode utilizar vários personalizadores, mas `name`devem ter um exclusivo.
 - Os personalizadores executam na ordem especificada no modelo.
 - Se um personalizador falhar, todo o componente de personalização falhará e reportará um erro.
 - É fortemente aconselhável testar o script cuidadosamente antes de usá-lo num modelo. Depurar o guião por si só será mais fácil.
@@ -286,7 +284,7 @@ Personalize propriedades:
 - **scriptUri** - URI para a localização do ficheiro 
 - **inline** - matriz de comandos de concha, separados por vírgulas.
 - **sha256Checksum** - Valor da verificação sha256 do ficheiro, gera-se isto localmente, e então o Image Builder verificará e validará.
-    * Para gerar o sha256Checksum, utilizando um terminal em mac/linux executado: `sha256sum <fileName>`
+    * Para gerar o sha256Checksum, utilizando um terminal em mac/linux executado:`sha256sum <fileName>`
 
 
 Para que os comandos sejam executados com privilégios de super utilizador, devem ser pré-fixados com `sudo`.
@@ -316,7 +314,7 @@ Personalize propriedades:
 - **Tipo**: WindowsRestart
 - **reiniciar Comando** - Comando para executar o reinício (opcional). A predefinição é `'shutdown /r /f /t 0 /c \"packer restart\"'`.
 - **reiniciarCheckCommand** – Comando para verificar se o reinício foi bem sucedido (opcional). 
-- **reiniciar Timeout** - Tempo de reinício especificado como uma cadeia de magnitude e unidade. Por exemplo, `5m` (5 minutos) ou `2h` (2 horas). O padrão é: '5m'
+- **reiniciar Timeout** - Tempo de reinício especificado como uma cadeia de magnitude e unidade. Por exemplo, `5m` (5 `2h` minutos) ou (2 horas). O padrão é: '5m'
 
 ### <a name="linux-restart"></a>Reinício do Linux  
 No entanto, não existe um personalizador Linux Restart, se estiver a instalar controladores ou componentes que exijam um reinício, pode instalá-los e invocar um reinício utilizando o personalizadora Shell, existindo um intervalo de 20min SSH para o VM de construção.
@@ -337,7 +335,7 @@ O personalizador suporta a execução de scripts PowerShell e comando inline, os
              "type": "PowerShell", 
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
-             "valid_exit_codes": "<exit code>",
+             "validExitCodes": "<exit code>",
              "runElevated": "<true or false>" 
          } 
     ], 
@@ -350,7 +348,7 @@ Personalize propriedades:
 - **tipo** – PowerShell.
 - **scriptUri** - URI para a localização do ficheiro de script PowerShell. 
 - **linha** de linha – Comandos inline a executar, separados por vírgulas.
-- **valid_exit_codes** – Códigos opcionais e válidos que podem ser devolvidos do comando script/inline, isto evitará a falha reportada do comando script/inline.
+- **validOsCódigosExit** – Códigos opcionais e válidos que podem ser devolvidos a partir do comando script/inline, isto evitará a falha reportada do comando script/inline.
 - **runElevated** – Opcional, booleano, suporte para executar comandos e scripts com permissões elevadas.
 - **sha256Checksum** - Valor da verificação sha256 do ficheiro, gera-se isto localmente, e então o Image Builder verificará e validará.
     * Para gerar o sha256Checksum, usando uma PowerShell no Windows [Get-Hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
@@ -387,9 +385,33 @@ Isto é suportado por diretórios windows e caminhos linux, mas existem algumas 
 Se houver um erro ao tentar descarregar o ficheiro, ou colocá-lo num diretório especificado, o passo personalizado falhará, e isso estará no registo de personalização.log.
 
 > [!NOTE]
-> O personalizador de ficheiros só é adequado para pequenos downloads de ficheiros, < 20MB. Para downloads de ficheiros maiores, utilize um script ou um comando inline, o código de utilização para descarregar ficheiros, tais como, Linux `wget` ou `curl`, Windows, `Invoke-WebRequest`.
+> O personalizador de ficheiros só é adequado para pequenos downloads de ficheiros, < de 20MB. Para downloads de ficheiros maiores, utilize um script ou um comando `wget` `curl`inline, `Invoke-WebRequest`o código de utilização para descarregar ficheiros, tais como, Linux ou Windows, .
 
 Os ficheiros do personalizador de ficheiros podem ser descarregados a partir do Armazenamento Azure utilizando [mSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+
+### <a name="windows-update-customizer"></a>Personalizador de atualização do Windows
+Este personalizador é construído sobre a [comunidade Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) para Packer, que é um projeto de código aberto mantido pela comunidade Packer. A Microsoft testa e valida o provisionador com o serviço Image Builder, e irá apoiar a investigação de problemas com ele, e trabalhará para resolver problemas, no entanto o projeto open source não é oficialmente suportado pela Microsoft. Para obter documentação detalhada e ajudar com o Windows Update Provisioner, consulte o repositório do projeto.
+ 
+     "customize": [
+            {
+                "type": "WindowsUpdate",
+                "searchCriteria": "IsInstalled=0",
+                "filters": [
+                    "exclude:$_.Title -like '*Preview*'",
+                    "include:$true"
+                            ],
+                "updateLimit": 20
+            }
+               ], 
+Suporte para os SISTEMAS: Windows
+
+Personalize propriedades:
+- **tipo** – WindowsUpdate.
+- **pesquisaCritérios** - Opcional, define que tipo de atualizações são instaladas (Recomendado, Importante etc.), BrowseOnly=0 e IsInstalled=0 (Recomendado) é o padrão.
+- **filtros** – Opcional, permite especificar um filtro para incluir ou excluir atualizações.
+- **actualizaçãoLimite** – Opcional, define quantas atualizações podem ser instaladas, padrão 1000.
+ 
+ 
 
 ### <a name="generalize"></a>Generalizar 
 Por padrão, o Azure Image Builder também executará o código de 'desprovisionamento' no final de cada fase de personalização de imagem, para 'generalizar' a imagem. Generalizar é um processo em que a imagem é configurada para que possa ser reutilizada para criar vários VMs. Para VMs Windows, o Azure Image Builder utiliza sysprep. Para linux, o Azure Image Builder executa 'waagent -deprovisionamento'. 
@@ -435,7 +457,7 @@ O Azure Image Builder suporta três alvos de distribuição:
 
 Pode distribuir uma imagem para ambos os tipos de alvo na mesma configuração, por favor, consulte [exemplos](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Como pode ter mais do que um alvo para distribuir, o Image Builder mantém um estado para cada alvo de distribuição que pode ser acedido consultando o `runOutputName`.  O `runOutputName` é um objeto que pode consultar a distribuição de posts para obter informações sobre essa distribuição. Por exemplo, pode consultar a localização do VHD, ou regiões para as quais a versão de imagem foi replicada, ou a versão SIG Image criada. Esta é uma propriedade de todos os alvos de distribuição. O `runOutputName` deve ser único em cada alvo de distribuição. Aqui está um exemplo, isto é consultar uma distribuição da Galeria de Imagem Partilhada:
+Como pode ter mais do que um alvo para distribuir, o Image Builder mantém um `runOutputName`estado para cada alvo de distribuição que pode ser acedido consultando o .  O `runOutputName` é um objeto que pode consultar a distribuição de posts para obter informações sobre essa distribuição. Por exemplo, pode consultar a localização do VHD, ou regiões para as quais a versão de imagem foi replicada, ou a versão SIG Image criada. Esta é uma propriedade de todos os alvos de distribuição. O `runOutputName` deve ser único em cada alvo de distribuição. Aqui está um exemplo, isto é consultar uma distribuição da Galeria de Imagem Partilhada:
 
 ```bash
 subscriptionID=<subcriptionID>
@@ -488,7 +510,7 @@ A saída de imagem será um recurso de imagem gerido.
  
 Distribuir propriedades:
 - **tipo** – managedImage 
-- **imageId** – Dispositivo ID da imagem de destino, formato esperado: /subscrições/ subscrição\<Id>/recursosGroups/\<destinoResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
+- **imageId** – Id de recurso da imagem de\<destino, formato esperado: /subscrições/ subscriçãoId\<>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/ imageName>
 - **localização** - localização da imagem gerida.  
 - **runOutputName** – nome único para identificar a distribuição.  
 - **artefactoSTags** - Utilizador opcional especificado etiquetas de par de valor chave.
@@ -498,7 +520,7 @@ Distribuir propriedades:
 > O grupo de recursos de destino deve existir.
 > Se quiser que a imagem seja distribuída para outra região, aumentará o tempo de implantação. 
 
-### <a name="distribute-sharedimage"></a>Distribute: sharedImage 
+### <a name="distribute-sharedimage"></a>Distribuir: sharedImage 
 A Azure Shared Image Gallery é um novo serviço de Gestão de Imagem que permite gerir a replicação da região de imagem, versonizar e partilhar imagens personalizadas. O Azure Image Builder suporta a distribuição com este serviço, para que possa distribuir imagens para regiões apoiadas por Galerias de Imagem Partilhada. 
  
 Uma Galeria de Imagem Partilhada é composta por: 
@@ -528,7 +550,7 @@ Antes de poder distribuir para a Galeria de Imagem, tem de criar uma galeria e u
 Distribua propriedades para galerias de imagem partilhada:
 
 - **tipo** - sharedImage  
-- **galleryImageId** – ID da galeria de imagens partilhadas. O formato é: /subscrições/\<subscriçãoId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
+- **galleryImageId** – ID da galeria de imagens partilhadas. O formato é:\</subscrições/ subscriçõesId\<>/resourceGroups/ resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
 - **runOutputName** – nome único para identificar a distribuição.  
 - **artefactoSTags** - Utilizador opcional especificado etiquetas de par de valor chave.
 - **replicaçõesRegiões** - Conjunto de regiões para replicação. Uma das regiões deve ser a região onde a Galeria está implantada.
@@ -558,7 +580,7 @@ Distribuir parâmetros VHD:
 - **runOutputName** – nome único para identificar a distribuição.  
 - **tags** - Etiquetas de pares de valor chave especificadas pelo utilizador opcional.
  
-O Azure Image Builder não permite que o utilizador especifique a localização da conta de armazenamento, mas pode consultar o estado da `runOutputs` para obter a localização.  
+O Azure Image Builder não permite que o utilizador especifique a `runOutputs` localização da conta de armazenamento, mas pode consultar o estado do local.  
 
 ```azurecli-interactive
 az resource show \

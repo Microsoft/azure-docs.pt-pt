@@ -1,5 +1,5 @@
 ---
-title: Criação de gráficos e diagramas a partir de consultas de registo do Monitor Azure  Microsoft Docs
+title: Criação de gráficos e diagramas a partir de consultas de registo do Monitor Azure [ Microsoft Docs
 description: Descreve várias visualizações no Monitor Azure para exibir os seus dados de registo de diferentes formas.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670326"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criação de gráficos e diagramas de consultas de registo do Monitor Azure
@@ -37,7 +37,7 @@ Por predefinição, os resultados exibem-se como uma tabela:
 
 Para obter uma melhor vista, selecione **Gráfico**, e escolha a opção **Pie** para visualizar os resultados:
 
-![Gráfico de torta](media/charts/charts-and-diagrams-pie.png)
+![Gráfico circular](media/charts/charts-and-diagrams-pie.png)
 
 
 ## <a name="timecharts"></a>Tabelas temporais
@@ -69,7 +69,7 @@ Perf
 ![Linha de referência](media/charts/charts-and-diagrams-multiSeriesThreshold.png)
 
 ## <a name="multiple-dimensions"></a>Múltiplas dimensões
-Expressões múltiplas na cláusula `by` de `summarize` criar várias linhas nos resultados, uma para cada combinação de valores.
+Múltiplas expressões `by` na `summarize` cláusula de criar várias linhas nos resultados, uma para cada combinação de valores.
 
 ```Kusto
 SecurityEvent
@@ -77,7 +77,7 @@ SecurityEvent
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)
 ```
 
-Quando vê os resultados como um gráfico, utiliza a primeira coluna a partir da cláusula `by`. O exemplo seguinte mostra um gráfico de coluna empilhado utilizando o _EventID._ As dimensões devem ser de `string` tipo, por isso, neste exemplo, o _EventID_ está a ser lançado para a cadeia. 
+Quando vê os resultados como um gráfico, `by` utiliza a primeira coluna a partir da cláusula. O exemplo seguinte mostra um gráfico de coluna empilhado utilizando o _EventID._ As dimensões `string` devem ser de tipo, por isso, neste exemplo, o _EventID_ está a ser lançado para a corda. 
 
 ![Gráfico de bar EventID](media/charts/charts-and-diagrams-multiDimension1.png)
 
@@ -88,10 +88,10 @@ Pode alternar entre seleção do dropdown com o nome da coluna.
 ## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para utilizar a linguagem de [consulta Kusto](/azure/kusto/query/) com dados de registo do Monitor Azure:
 
-- [Operações de cordas](string-operations.md)
+- [Operações de cadeia](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
-- [JSON e estruturas de dados](json-data-structures.md)
+- [Estruturas de dados e JSON](json-data-structures.md)
 - [Escrita de consulta avançada](advanced-query-writing.md)
-- [Junta-se](joins.md)
+- [Associações](joins.md)

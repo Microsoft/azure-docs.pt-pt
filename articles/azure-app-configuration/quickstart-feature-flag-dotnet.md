@@ -1,5 +1,5 @@
 ---
-title: Quickstart para adicionar bandeiras de recurso às aplicações .NET Framework  Microsoft Docs  Docs Microsoft Docs
+title: Quickstart para adicionar bandeiras de recurso às aplicações .NET Framework [ Microsoft Docs [ Docs] Microsoft Docs
 description: Um arranque rápido para adicionar bandeiras de recurso a aplicações .NET Framework e geri-las na Configuração de Aplicações Azure
 services: azure-app-configuration
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
 ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77619330"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação .NET Framework
@@ -30,25 +30,25 @@ As bibliotecas .NET Feature Management alargam o quadro com um suporte abrangent
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-- [Estúdio Visual 2019](https://visualstudio.microsoft.com/vs)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.Quadro líquido 4.8](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicações
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione Gestor de **Funcionalidades** >  **+Adicione** para adicionar uma bandeira de recurso chamada `Beta`.
+6. Selecione > Gestor de **Funcionalidades** `Beta`**+Adicione** para adicionar uma bandeira de recurso chamada .
 
     > [!div class="mx-imgBorder"]
-    > ![ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
+    > ![Ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
 
-    Deixe `label` indefinida por enquanto.
+    Deixe `label` indefinido por enquanto.
 
 ## <a name="create-a-net-console-app"></a>Criar uma aplicação de consola .NET
 
 1. Inicie o Estúdio Visual e selecione **File** > **New** > **Project**.
 
-1. Em **Criar um novo projeto,** filtre no tipo de projeto da **Consola** e clique na App **consola (.NET Framework)** . Clique em **Seguinte**.
+1. Em **Criar um novo projeto,** filtre no tipo de projeto da **Consola** e clique na App **consola (.NET Framework)**. Clique em **Seguinte**.
 
 1. Em **Configure o seu novo projeto,** insira um nome de projeto. **No quadro**, selecione **.NET Quadro 4.8** ou superior. Clique em **Criar**.
 
@@ -71,7 +71,7 @@ As bibliotecas .NET Feature Management alargam o quadro com um suporte abrangent
     using Microsoft.FeatureManagement;
     ```
 
-1. Atualize o método `Main` para se ligar à Configuração da Aplicação, especificando a opção `UseFeatureFlags` para que as bandeiras sejam recuperadas. Em seguida, mostrar uma mensagem se a bandeira de características `Beta` estiver ativada.
+1. Atualize `Main` o método para se ligar `UseFeatureFlags` à Configuração da Aplicação, especificando a opção para que as bandeiras sejam recuperadas. Em seguida, mostre uma mensagem se a bandeira de `Beta` características estiver ativada.
 
     ```csharp
         public static async Task Main(string[] args)

@@ -1,7 +1,7 @@
 ---
-title: 'Seleção de recursos baseada em filtro: referência de módulo'
+title: 'Seleção de funcionalidades baseada no filtro: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo seleção de recursos baseada em filtro no Azure Machine Learning para identificar os recursos em um conjunto de informações com o maior poder de previsão.
+description: Aprenda a utilizar o módulo de seleção de funcionalidades baseado em filtros no Azure Machine Learning para identificar as funcionalidades num conjunto de dados com a maior potência preditiva.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,131 +9,131 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548480"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477600"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de funcionalidades baseadas em filtro
 
-Este artigo descreve como usar o módulo seleção de recursos baseada em filtro no designer de Azure Machine Learning (versão prévia). Este módulo ajuda a identificar as colunas em seu conjunto de dados de entrada que têm a maior capacidade de previsão. 
+Este artigo descreve como utilizar o módulo de seleção de funcionalidades baseado no filtro no designer de machine learning Azure (pré-visualização). Este módulo ajuda-o a identificar as colunas no seu conjunto de dados de entrada que têm a maior potência preditiva. 
 
-Em geral, a *seleção de recursos* refere-se ao processo de aplicação de testes estatísticos a entradas, dado uma saída especificada. O objetivo é determinar quais colunas são mais previsíveis na saída. O módulo seleção de recursos baseada em filtro fornece vários algoritmos de seleção de recursos para escolher. O módulo inclui métodos de correlação, como os valores de correlação Pearson e qui-quadrado. 
+Em geral, a *seleção* de recursos refere-se ao processo de aplicação de testes estatísticos a inputs, dada uma saída especificada. O objetivo é determinar quais as colunas mais preditivas da saída. O módulo de seleção de funcionalidades baseado no filtro fornece vários algoritmos de seleção de funcionalidades para escolher. O módulo inclui métodos de correlação como a correlação pearson e os valores cin-quadrados. 
 
-Ao usar o módulo seleção de recursos baseada em filtro, você fornece um conjunto de um DataSet e identifica a coluna que contém o rótulo ou a variável dependente. Em seguida, especifique um único método a ser usado para medir a importância do recurso.
+Quando utilizar o módulo de seleção de funcionalidades baseado no filtro, fornece um conjunto de dados e identifica a coluna que contém o rótulo ou a variável dependente. Em seguida, especifique um único método para utilizar na medição da importância da característica.
 
-O módulo gera um conjunto de resultados que contém as melhores colunas de recursos, conforme classificado por energia preditiva. Ele também gera os nomes dos recursos e suas pontuações da métrica selecionada.  
+O módulo produz um conjunto de dados que contém as melhores colunas de funcionalidades, classificadas por potência preditiva. Também produz os nomes das funcionalidades e as suas pontuações a partir da métrica selecionada.  
 
-## <a name="what-filter-based-feature-selection-is"></a>Qual seleção de recursos baseada em filtro é  
+## <a name="what-filter-based-feature-selection-is"></a>Qual é a seleção de funcionalidades baseada em filtros  
 
-Esse módulo para seleção de recursos é chamado de "baseado em filtro" porque você usa a métrica selecionada para localizar atributos irrelevantes. Em seguida, você filtra colunas redundantes do seu modelo. Você escolhe uma medida estatística única que atenda aos seus dados e o módulo calcula uma pontuação para cada coluna de recurso. As colunas são retornadas classificadas por suas pontuações de recursos. 
+Este módulo para seleção de funcionalidades chama-se "baseado em filtros" porque utiliza a métrica selecionada para encontrar atributos irrelevantes. Em seguida, filtra-se colunas redundantes do seu modelo. Você escolhe uma única medida estatística que se adequa aos seus dados, e o módulo calcula uma pontuação para cada coluna de funcionalidades. As colunas são devolvidas classificadas pelas suas pontuações de recurso. 
 
-Ao escolher os recursos certos, é possível melhorar a precisão e a eficiência da classificação. 
+Ao escolher as funcionalidades certas, pode potencialmente melhorar a precisão e eficiência da classificação. 
 
-Normalmente, você usa apenas as colunas com as melhores pontuações para criar seu modelo de previsão. Colunas com pontuações de seleção de recursos insatisfatórios podem ser deixadas no conjunto de e ignoradas quando você cria um modelo.  
+Normalmente, usa apenas as colunas com as melhores pontuações para construir o seu modelo preditivo. Colunas com pontuações de seleção de funcionalidades fracas podem ser deixadas no conjunto de dados e ignoradas quando se constrói um modelo.  
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>Como escolher uma métrica de seleção de recursos
 
-O módulo seleção de recursos baseada em filtro fornece uma variedade de métricas para avaliar o valor das informações em cada coluna. Esta seção fornece uma descrição geral de cada métrica e como ela é aplicada. Você pode encontrar requisitos adicionais para usar cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
+O módulo de seleção de funcionalidades baseado no filtro fornece uma variedade de métricas para avaliar o valor da informação em cada coluna. Esta secção fornece uma descrição geral de cada métrica, e como é aplicada. Pode encontrar requisitos adicionais para a utilização de cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
 
--   **Correlação de Pearson**  
+-   **Correlação pearson**  
 
-    A estatística de correlação de Pearson ou o coeficiente de correlação de Pearson também é conhecido em modelos estatísticos como o valor de `r`. Para quaisquer duas variáveis, ele retorna um valor que indica a força da correlação.
+    A estatística da correlação de Pearson, ou o coeficiente de `r` correlação de Pearson, também é conhecida nos modelos estatísticos como o valor. Para qualquer duas variáveis, devolve um valor que indica a força da correlação.
 
-    O coeficiente de correlação de Pearson é calculado por meio da covariância de duas variáveis e da divisão pelo produto de seus desvios padrão. As alterações de escala nas duas variáveis não afetam o coeficiente.  
+    O coeficiente de correlação de Pearson é calculado tomando a covariance de duas variáveis e dividindo-se pelo produto dos seus desvios padrão. As mudanças de escala nas duas variáveis não afetam o coeficiente.  
 
--   **Qui-quadrado**  
+-   **Chi ao quadrado**  
 
-    O teste qui-quadrado de duas vias é um método estatístico que mede como os valores de fechamento esperados são para resultados reais. O método supõe que as variáveis sejam aleatórias e desenhadas a partir de um exemplo adequado de variáveis independentes. A estatística qui-quadrada resultante indica a distância em que os resultados são do resultado esperado (aleatório).  
+    O teste de duas vias é um método estatístico que mede a proximidade dos valores esperados aos resultados reais. O método pressupõe que as variáveis são aleatórias e retiradas de uma amostra adequada de variáveis independentes. A estatística em linha de chi-quadrado resultante indica até que ponto os resultados estão do resultado esperado (aleatório).  
 
 
 > [!TIP]
-> Se você precisar de uma opção diferente para o método de seleção de recurso personalizado, use o módulo [Executar script R](execute-r-script.md) . 
+> Se precisar de uma opção diferente para o método de seleção de funcionalidades personalizadas, utilize o módulo [Execute R Script.](execute-r-script.md) 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar a seleção de recursos com base em filtro
+## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar a seleção de funcionalidades baseada no filtro
 
-Você escolhe uma métrica estatística padrão. O módulo computa a correlação entre um par de colunas: a coluna de rótulo e uma coluna de recurso.
+Escolhe-se uma métrica estatística padrão. O módulo calcula a correlação entre um par de colunas: a coluna de etiquetas e uma coluna de características.
 
-1.  Adicione o módulo seleção de recursos baseada em filtro ao seu pipeline. Você pode encontrá-lo na categoria **seleção de recursos** no designer.
+1.  Adicione o módulo de seleção de funcionalidades baseado no filtro ao seu pipeline. Pode encontrá-lo na categoria **De Seleção** de Recursos no designer.
 
-2. Conecte um conjunto de dados de entrada que contenha pelo menos duas colunas que são recursos potenciais.  
+2. Ligue um conjunto de dados de entrada que contenha pelo menos duas colunas que são potenciais características.  
 
-    Para garantir que uma coluna seja analisada e uma pontuação de recurso seja gerada, use o módulo [Editar metadados](edit-metadata.md) para definir o atributo **isfeature** . 
+    Para garantir que uma coluna é analisada e gera uma pontuação de funcionalidade, utilize o módulo [Dedados editar](edit-metadata.md) para definir o atributo **IsFeature.** 
 
     > [!IMPORTANT]
-    > Verifique se as colunas que você está fornecendo como entrada são recursos potenciais. Por exemplo, uma coluna que contém um único valor não tem nenhum valor de informação.
+    > Certifique-se de que as colunas que está a fornecer como entrada são potenciais características. Por exemplo, uma coluna que contém um único valor não tem valor de informação.
     >
-    > Se você souber que algumas colunas tornaram recursos inválidos, você poderá removê-las da seleção de coluna. Você também pode usar o módulo [Editar metadados](edit-metadata.md) para sinalizá-los como **categóricos**. 
-3.  Para o **método de Pontuação de recurso**, escolha um dos métodos estatísticos estabelecidos a seguir para usar no cálculo de pontuações.  
+    > Se souber que algumas colunas fariam más características, pode removê-las da seleção da coluna. Também pode utilizar o módulo [de Metadados editar](edit-metadata.md) para os sinalizar como **Categóricos.** 
+3.  Para o método de **pontuação feature,** escolha um dos seguintes métodos estatísticos estabelecidos para utilizar no cálculo das pontuações.  
 
     | Método              | Requisitos                             |
     | ------------------- | ---------------------------------------- |
-    | Correlação de Pearson | O rótulo pode ser texto ou numérico. Os recursos devem ser numéricos. |
-    Qui-quadrado| Os rótulos e os recursos podem ser texto ou numéricos. Use esse método para calcular a importância do recurso para duas colunas categóricas.|
+    | Correlação pearson | A etiqueta pode ser texto ou numérico. As características devem ser numéricas. |
+    Chi ao quadrado| Etiquetas e características podem ser texto ou numérico. Utilize este método para a computação característica de importância para duas colunas categóricas.|
 
     > [!TIP]
-    > Se você alterar a métrica selecionada, todas as outras seleções serão redefinidas. Então, certifique-se de definir essa opção primeiro.
-4.  Selecione a opção **operar apenas em colunas de recurso** para gerar uma pontuação somente para colunas que foram previamente marcadas como recursos. 
+    > Se alterar a métrica selecionada, todas as outras seleções serão redefinidas. Por isso, certifique-se de definir esta opção primeiro.
+4.  Selecione o **opção de operar nas colunas de características apenas** para gerar uma pontuação apenas para colunas que foram previamente marcadas como funcionalidades. 
 
-    Se você desmarcar essa opção, o módulo criará uma pontuação para qualquer coluna que atenda aos critérios, até o número de colunas especificado no **número de recursos desejados**.  
+    Se limpar esta opção, o módulo criará uma pontuação para qualquer coluna que, de outro modo, satisfaça os critérios, até ao número de colunas especificadas no **Número de Características desejadas**.  
 
-5.  Para **coluna de destino**, selecione **Iniciar seletor de coluna** para escolher a coluna de rótulo por nome ou por seu índice. (Os índices são baseados em um.)  
-    Uma coluna de rótulo é necessária para todos os métodos que envolvem correlação estatística. O módulo retornará um erro de tempo de design se você não escolher nenhuma coluna de rótulo ou várias colunas de rótulo. 
+5.  Para **a coluna Target,** selecione seletor de **colunas de lançamento** para escolher a coluna de etiquetas, quer pelo nome quer pelo seu índice. (Os índices são de base única.)  
+    É necessária uma coluna de etiquetas para todos os métodos que envolvam correlação estatística. O módulo devolve um erro de tempo de conceção se não escolher nenhuma coluna de etiqueta ou colunas de etiquetamúltiplas. 
 
-6.  Para o **número de recursos desejados**, insira o número de colunas de recursos que você deseja retornar como resultado:  
+6.  Para **o número de funcionalidades desejadas,** introduza o número de colunas de funcionalidades que pretende devolver como resultado:  
 
-    - O número mínimo de recursos que você pode especificar é um, mas recomendamos que você aumente esse valor.  
+    - O número mínimo de funcionalidades que pode especificar é um, mas recomendamos que aumente este valor.  
 
-    - Se o número especificado de recursos desejados for maior que o número de colunas no conjunto de linhas, todos os recursos serão retornados. Até mesmo recursos com zero pontuações são retornados.  
+    - Se o número especificado de características desejadas for maior do que o número de colunas no conjunto de dados, então todas as funcionalidades são devolvidas. Até as características com zero pontuações são devolvidas.  
 
-    - Se você especificar menos colunas de resultado do que as colunas de recurso, os recursos serão classificados por Pontuação decrescente. Somente os recursos principais são retornados. 
+    - Se especificar menos colunas de resultados do que as colunas de características, as características são classificadas por pontuação descendente. Apenas as principais características são devolvidas. 
 
-7.  Execute o pipeline ou selecione o módulo seleção de recursos com base em filtro e selecione **executar selecionado**.
+7.  Envie o pipeline ou selecione o módulo de seleção de funcionalidades baseado no filtro e, em seguida, selecione **Executar selecionado**.
 
 
 ## <a name="results"></a>Resultados
 
-Após a conclusão do processamento:
+Após o processamento estar concluído:
 
-+ Para ver uma lista completa das colunas de recursos analisadas e suas pontuações, clique com o botão direito do mouse no módulo e selecione **Visualizar**.  
++ Para ver uma lista completa das colunas de funcionalidades analisadas e das suas pontuações, clique no módulo e **selecione Visualize**.  
 
-+ Para exibir o conjunto de módulos com base em seus critérios de seleção de recursos, clique com o botão direito do mouse no módulo e selecione **Visualizar**. 
++ Para visualizar o conjunto de dados com base nos critérios de seleção das suas funcionalidades, clique no módulo e **selecione Visualize**. 
 
-Se o conjunto de um contiver menos colunas do que o esperado, verifique as configurações do módulo. Verifique também os tipos de dados das colunas fornecidas como entrada. Por exemplo, se você definir o **número de recursos desejados** como 1, o conjunto de resultados de saída conterá apenas duas colunas: a coluna de rótulo e a coluna de recurso com mais alta classificação.
+Se o conjunto de dados contiver menos colunas do que o esperado, verifique as definições do módulo. Verifique também os tipos de dados das colunas fornecidas como entrada. Por exemplo, se definir **o número de funcionalidades desejadas** para 1, o conjunto de dados de saída contém apenas duas colunas: a coluna de etiquetas e a coluna de características mais bem classificada.
 
 
 ##  <a name="technical-notes"></a>Notas técnicas  
 
-### <a name="implementation-details"></a>Detalhes de implementação
+### <a name="implementation-details"></a>Detalhes da implementação
 
-Se você usar a correlação de Pearson em um recurso numérico e um rótulo categórico, a Pontuação do recurso será calculada da seguinte maneira:  
+Se utilizar a correlação pearson numa característica numérica e numa etiqueta categórica, a pontuação da funcionalidade é calculada da seguinte forma:  
 
 1.  Para cada nível na coluna categórica, calcule a média condicional da coluna numérica.  
 
-2.  Correlacione a coluna de média condicional com a coluna numérica.  
+2.  Correlacionar a coluna de meios condicionais com a coluna numérica.  
 
 ### <a name="requirements"></a>Requisitos  
 
--   Uma pontuação de seleção de recursos não pode ser gerada para nenhuma coluna designada como um **rótulo** ou coluna de **Pontuação** .  
+-   Uma pontuação de seleção de recursos não pode ser gerada para qualquer coluna que seja designada como uma coluna **de Etiqueta** ou **Pontuação.**  
 
--   Se você tentar usar um método de pontuação com uma coluna de um tipo de dados ao qual o método não dá suporte, o módulo gerará um erro. Ou, uma pontuação zero será atribuída à coluna.  
+-   Se tentar utilizar um método de pontuação com uma coluna de um tipo de dados que o método não suporta, o módulo irá levantar um erro. Ou, uma pontuação zero será atribuída à coluna.  
 
--   Se uma coluna contiver valores lógicos (true/false), eles serão processados como `True = 1` e `False = 0`.  
+-   Se uma coluna contiver valores lógicos (verdadeiros/falsos), são processados como `True = 1` e `False = 0`.  
 
--   Uma coluna não poderá ser um recurso se tiver sido designada como um **rótulo** ou uma **Pontuação**.  
+-   Uma coluna não pode ser uma característica se tiver sido designada como **Etiqueta** ou **Pontuação**.  
 
-### <a name="how-missing-values-are-handled"></a>Como os valores ausentes são tratados  
+### <a name="how-missing-values-are-handled"></a>Como os valores em falta são tratados  
 
--   Você não pode especificar como uma coluna de destino (rótulo) qualquer coluna que tenha todos os valores ausentes.  
+-   Não é possível especificar como coluna de alvo (etiqueta) qualquer coluna que tenha todos os valores em falta.  
 
--   Se uma coluna contiver valores ausentes, o módulo os ignorará quando estiver computando a pontuação da coluna.  
+-   Se uma coluna contiver valores em falta, o módulo ignora-os quando está a calcular a pontuação para a coluna.  
 
--   Se uma coluna designada como uma coluna de recurso tiver todos os valores ausentes, o módulo atribuirá uma pontuação zero.   
+-   Se uma coluna designada como coluna de características tiver todos os valores em falta, o módulo atribui uma pontuação zero.   
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
 

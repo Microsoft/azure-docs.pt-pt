@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8d65217a109a851275d3ba9205024f32bd182d4f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3bd166572cea23fbb710cd053c28f51e76ba534a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187321"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476676"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerir contas de utilizadores do Azure AD B2C com o Microsoft Graph
 
@@ -46,7 +46,7 @@ As seguintes operações de gestão de utilizadores estão disponíveis na [Micr
 
 ### <a name="display-name-property"></a>Propriedade de nome de exibição
 
-O `displayName` é o nome a apresentar na gestão de utilizadores do portal Azure para o utilizador, e no acesso ao Azure AD B2C devolve à aplicação. Esta propriedade é necessária.
+É `displayName` o nome a apresentar na gestão de utilizadores do portal Azure para o utilizador, e no acesso ao Azure AD B2C devolve à aplicação. Esta propriedade é necessária.
 
 ### <a name="identities-property"></a>Propriedade de identidades
 
@@ -57,19 +57,41 @@ Uma conta de cliente, que pode ser um consumidor, parceiro ou cidadão, pode ser
 
 Um utilizador com uma conta de cliente pode iniciar sessão com múltiplas identidades. Por exemplo, nome de utilizador, e-mail, identificação do funcionário, identificação do governo, entre outros. Uma única conta pode ter múltiplas identidades, tanto locais como sociais, com a mesma senha.
 
-Na API do Microsoft Graph, as identidades locais e federadas são armazenadas no utilizador `identities` atributo, que é de tipo [objetoIdentidade][graph-objectIdentity]. A recolha `identities` representa um conjunto de identidades usadas para iniciar sessão numa conta de utilizador. Esta recolha permite ao utilizador iniciar sessão na conta de utilizador com qualquer uma das suas identidades associadas.
+Na API do Microsoft Graph, as identidades locais `identities` e federadas são armazenadas no atributo do utilizador, que é de tipo [objetoIdentidade][graph-objectIdentity]. A `identities` coleção representa um conjunto de identidades usadas para iniciar sessão numa conta de utilizador. Esta recolha permite ao utilizador iniciar sessão na conta de utilizador com qualquer uma das suas identidades associadas.
 
 | Propriedade   | Tipo |Descrição|
 |:---------------|:--------|:----------|
-|signInType|string| Especifica os tipos de sessão de sessão do utilizador no seu diretório. Para conta local: `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName`, ou qualquer outro tipo que queira. A conta social deve ser fixada para `federated`.|
-|emitente|string|Especifica o emitente da identidade. Para contas locais (onde o **signInType** não é `federated`), esta propriedade é o nome de domínio padrão do inquilino B2C local, por exemplo `contoso.onmicrosoft.com`. Para a identidade social (onde o **signInType** é `federated`), o valor é o nome do emitente, por exemplo `facebook.com`|
-|emitenteAssignedId|string|Especifica o identificador único atribuído ao utilizador pelo emitente. A combinação de **emitente** e **emitente AssignedId** deve ser única dentro do seu inquilino. Para a conta local, quando o **signInType** está definido para `emailAddress` ou `userName`, representa o nome de início de sessão para o utilizador.<br>Quando **o signInType** está definido para: <ul><li>`emailAddress` (ou começa com `emailAddress` como `emailAddress1`) **emitentes AsassignedId** deve ser um endereço de e-mail válido</li><li>`userName` (ou qualquer outro valor), o **emitente AssignedId** deve ser uma parte local válida [de um endereço de e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **emitenteAssignedId** representa o identificador único da conta federada</li></ul>|
+|signInType|string| Especifica os tipos de sessão de sessão do utilizador no seu diretório. Para a `emailAddress`conta `emailAddress1` `emailAddress2`local: , , `emailAddress3`, ou `userName`qualquer outro tipo que você goste. A conta social `federated`deve ser definida para .|
+|issuer|string|Especifica o emitente da identidade. Para contas locais (onde o **signInType** não `federated`é), esta propriedade é `contoso.onmicrosoft.com`o nome de domínio padrão do inquilino B2C local, por exemplo. Para a identidade social (onde é `federated`o **signInType)** o valor é o nome do emitente, por exemplo`facebook.com`|
+|emitenteAssignedId|string|Especifica o identificador único atribuído ao utilizador pelo emitente. A combinação de **emitente** e **emitente AssignedId** deve ser única dentro do seu inquilino. Para a conta local, quando `emailAddress` o `userName` **signInType** está definido para ou , representa o nome de início de sessão para o utilizador.<br>Quando **o signInType** está definido para: <ul><li>`emailAddress`(ou começa `emailAddress` `emailAddress1`com como) **emitenteAssignedId** deve ser um endereço de e-mail válido</li><li>`userName`(ou qualquer outro valor), o **emitenteAssignedId** deve ser uma parte local válida [de um endereço de e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **emitenteAssignedId** representa o identificador único da conta federada</li></ul>|
+
+A seguinte propriedade **identidades,** com uma identidade de conta local com nome de inscrição, um endereço de e-mail como sign-in, e com uma identidade social. 
+
+ ```JSON
+ "identities": [
+     {
+       "signInType": "userName",
+       "issuer": "contoso.onmicrosoft.com",
+       "issuerAssignedId": "johnsmith"
+     },
+     {
+       "signInType": "emailAddress",
+       "issuer": "contoso.onmicrosoft.com",
+       "issuerAssignedId": "jsmith@yahoo.com"
+     },
+     {
+       "signInType": "federated",
+       "issuer": "facebook.com",
+       "issuerAssignedId": "5eecb0cd"
+     }
+   ]
+ ```
 
 Para identidades federadas, dependendo do fornecedor de identidade, o **emitenteAssignedId** é um valor único para um determinado utilizador por aplicação ou conta de desenvolvimento. Configure a política Azure AD B2C com o mesmo ID de aplicação que foi previamente atribuído pelo prestador social ou outra aplicação dentro da mesma conta de desenvolvimento.
 
 ### <a name="password-profile-property"></a>Propriedade de perfil de palavra-passe
 
-Para uma identidade local, a propriedade **passwordProfile** é necessária e contém a palavra-passe do utilizador. A propriedade `forceChangePasswordNextSignIn` deve ser definida para `false`.
+Para uma identidade local, a propriedade **passwordProfile** é necessária e contém a palavra-passe do utilizador. A `forceChangePasswordNextSignIn` propriedade deve `false`ser definida para .
 
 Para uma identidade (social) federada, a propriedade **passwordProfile** não é necessária.
 
@@ -84,7 +106,7 @@ Para uma identidade (social) federada, a propriedade **passwordProfile** não é
 
 A política de senhas Azure AD B2C (para contas locais) baseia-se na política de força de [senha forte](../active-directory/authentication/concept-sspr-policy.md) do Azure Ative Directory. As políticas de inscrição ou inscrição ou reset de palavra-passe do Azure AD B2C requerem esta forte força de senha e não expiram palavras-passe.
 
-Nos cenários de migração dos utilizadores, se as contas que pretende migrar tiverem uma força de senha mais fraca do que a [forte força](../active-directory/authentication/concept-sspr-policy.md) de senha imposta pelo Azure AD B2C, pode desativar o forte requisito de senha. Para alterar a política de senha padrão, desloque a propriedade `passwordPolicies` para `DisableStrongPassword`. Por exemplo, pode modificar o pedido de criação do utilizador da seguinte forma:
+Nos cenários de migração dos utilizadores, se as contas que pretende migrar tiverem uma força de senha mais fraca do que a [forte força](../active-directory/authentication/concept-sspr-policy.md) de senha imposta pelo Azure AD B2C, pode desativar o forte requisito de senha. Para alterar a política de `passwordPolicies` senha `DisableStrongPassword`padrão, desloque a propriedade para . Por exemplo, pode modificar o pedido de criação do utilizador da seguinte forma:
 
 ```JSON
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
@@ -94,7 +116,7 @@ Nos cenários de migração dos utilizadores, se as contas que pretende migrar t
 
 Cada aplicação voltada para o cliente tem requisitos únicos para que a informação seja recolhida. O seu inquilino Azure AD B2C vem com um conjunto incorporado de informação armazenada em propriedades, tais como Nome Dado, Sobrenome, Cidade e Código Postal. Com o Azure AD B2C, pode alargar o conjunto de imóveis armazenados em cada conta de cliente. Para obter mais informações sobre a definição de atributos personalizados, consulte [atributos personalizados (fluxos](user-flow-custom-attributes.md) de utilizador) e [atributos personalizados (políticas personalizadas)](custom-policy-custom-attributes.md).
 
-O Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do gráfico são nomeados utilizando a convenção `extension_ApplicationObjectID_attributename`. Por exemplo:
+O Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na `extension_ApplicationObjectID_attributename`API do gráfico são nomeados utilizando a convenção . Por exemplo:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -113,17 +135,17 @@ Depois de obter a amostra de código, configure-a para o seu ambiente e, em segu
 
 1. Abra o projeto em [Visual Studio](https://visualstudio.microsoft.com) ou Visual [Studio Code](https://code.visualstudio.com).
 1. Abra `src/appsettings.json`.
-1. Na secção `appSettings`, substitua `your-b2c-tenant` pelo nome do seu inquilino, e `Application (client) ID` e `Client secret` os valores para o seu registo de candidatura de gestão (consulte o Registo uma secção de candidatura de [gestão](#register-a-management-application) deste artigo).
-1. Abra uma janela de consola dentro do seu clone local do repo, mude para o diretório `src` e, em seguida, construa o projeto:
+1. Na `appSettings` secção, `your-b2c-tenant` substitua-se pelo nome `Application (client) ID` `Client secret` do seu inquilino, e pelos valores para o seu registo de candidatura de gestão (consulte o Registo de uma secção de candidatura de [gestão](#register-a-management-application) deste artigo).
+1. Abra uma janela de consola dentro do seu clone local do repo, mude para o `src` diretório e, em seguida, construa o projeto:
     ```console
     cd src
     dotnet build
     ```
-1. Executar a aplicação com o comando `dotnet`:
+1. Executar o pedido `dotnet` com o comando:
 
-```console
-dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
-```
+    ```console
+    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    ```
 
 A aplicação apresenta uma lista de comandos que pode executar. Por exemplo, obtenha todos os utilizadores, obtenha um único utilizador, apague um utilizador, atualize a palavra-passe de um utilizador e importe a granel.
 
@@ -133,7 +155,7 @@ O código da amostra utiliza o [Microsoft Graph SDK,](https://docs.microsoft.com
 
 Qualquer pedido à API do Microsoft Graph requer um sinal de acesso para autenticação. A solução utiliza o pacote [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet que fornece um invólucro baseado em cenários de autenticação da Microsoft Authentication Library (MSAL) para utilização com o Microsoft Graph SDK.
 
-O método `RunAsync` no ficheiro _Program.cs:_
+O `RunAsync` método no ficheiro _Program.cs:_
 
 1. Lê as definições de aplicação a partir do ficheiro _appsettings.json_
 1. Inicializa o fornecedor de auth utilizando credenciais de [clientes OAuth 2.0 fluxo](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) de concessão de subvenção. Com as credenciais de cliente a conceder fluxo, a aplicação é capaz de obter um sinal de acesso para ligar para a Microsoft Graph API.
@@ -180,7 +202,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Faça chamadas API utilizando os SDKs](https://docs.microsoft.com/graph/sdks/create-requests) do Microsoft Graph incluem informações sobre como ler e escrever informações do Microsoft Graph, usar `$select` para controlar as propriedades devolvidas, fornecer parâmetros de consulta personalizados e usar os parâmetros de consulta `$filter` e `$orderBy`.
+[Faça chamadas API utilizando os SDKs](https://docs.microsoft.com/graph/sdks/create-requests) do Microsoft Graph incluem informações sobre como ler e escrever informações a partir do Microsoft Graph, usar `$select` para controlar as propriedades devolvidas, fornecer parâmetros de consulta personalizados e usar os `$filter` parâmetros de consulta e `$orderBy` consulta.
 
 ## <a name="next-steps"></a>Passos seguintes
 

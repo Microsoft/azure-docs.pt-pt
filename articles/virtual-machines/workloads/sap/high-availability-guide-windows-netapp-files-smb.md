@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
 ms.openlocfilehash: b41db629c5308348f632b3dc51c75822ba361c60
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77591358"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no Windows com Ficheiros Azure NetApp (SMB) para aplicações SAP
@@ -80,7 +80,7 @@ Leia primeiro as seguintes Notas e papéis SAP:
 * [Arquitetura e cenários de alta disponibilidade das Máquinas Virtuais Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
 * [Adicione a porta da sonda na configuração do cluster ASCS](sap-high-availability-installation-wsfc-file-share.md)
 * [Instalação de uma instância (A)SCS num cluster de failover](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Criar um volume SMB para Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
+* [Criar um volume SMB para o Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
 * [Aplicações NetApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure]
 
 ## <a name="overview"></a>Descrição geral
@@ -147,7 +147,7 @@ Precisa do seguinte software da SAP:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no primeiro nó de cluster ASCS/SCS
 
-1. Instale uma instância SAP ASCS/SCS no nó do primeiro cluster. Inicie a ferramenta de instalação SAP SWPM e, em seguida, navegue para: **Produto** > **DBMS** > Instalação > Application Server ABAP (ou Java) > Sistema de Alta Disponibilidade > ASCS/SCS instância > Primeiro nó de cluster.  
+1. Instale uma instância SAP ASCS/SCS no nó do primeiro cluster. Inicie a ferramenta de instalação SAP SWPM e, em seguida, navegue para: **Produto** > **DBMS** > Instalação > Servidor de Aplicações ABAP (ou Java) > Sistema de Alta Disponibilidade > instância ASCS/SCS > Primeiro nó de cluster.  
 
 2. Selecione Cluster de Partilha de **Ficheiros** como a configuração de partilha de cluster em SWPM.  
 3. Quando solicitado na etapa **SAP System Cluster Parameters**, insira o nome de anfitrião para a partilha de Ficheiros SMB do Azure NetApp que já criou como **Nome de Anfitrião de Partilha**de Ficheiros .  Neste exemplo, o nome de anfitrião da partilha SMB é **anfsmb-9562**. 
@@ -156,13 +156,13 @@ Precisa do seguinte software da SAP:
 > Se o verificador pré-requisito Os resultados em SWPM mostrarem a condição de funcionalidade de disponibilidade contínua não cumprida, pode ser abordado seguindo as instruções na mensagem de [erro retardada quando tentar aceder a uma pasta partilhada que já não existe no Windows](https://support.microsoft.com/help/2820470/delayed-error-message-when-you-try-to-access-a-shared-folder-that-no-l).  
 
 > [!TIP]
-> Se o verificador pré-requisito Resultados em SWPM mostrar a condição de Swap Size não cumprida, pode ajustar o tamanho SWAP navegando para My Computer>System Properties>Performance Settings> Advanced> Virtual memory> Change.  
+> Se o verificador pré-requisito Resultados em SWPM mostrar a condição de tamanho de swap não cumprida, pode ajustar o tamanho SWAP navegando para as propriedades do meu sistema de>>Definições de desempenho> memória avançada> virtual> Alterar.  
 
-4. Configure um recurso de cluster SAP, a porta de sonda `SAP-SID-IP`, utilizando o PowerShell. Execute esta configuração num dos nós de cluster SAP ASCS/SCS, conforme descrito na porta de [sonda Configure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761).
+4. Configure um recurso de `SAP-SID-IP` cluster SAP, a porta da sonda, utilizando o PowerShell. Execute esta configuração num dos nós de cluster SAP ASCS/SCS, conforme descrito na porta de [sonda Configure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk#10822f4f-32e7-4871-b63a-9b86c76ce761).
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no segundo nó de cluster ASCS/SCS
 
-1. Instale uma instância SAP ASCS/SCS no segundo nó de cluster. Inicie a ferramenta de instalação SAP SWPM e, em seguida, navegue para **produto** > **DBMS** > Instalação > Application Server ABAP (ou Java) > Sistema de Alta Disponibilidade > ASCS/SCS instância > Nó de cluster adicional.  
+1. Instale uma instância SAP ASCS/SCS no segundo nó de cluster. Inicie a ferramenta de instalação SAP SWPM e navegue para o **Produto** > **DBMS** > Instalação > Servidor de Aplicações ABAP (ou Java) > Sistema de Alta Disponibilidade > instância ASCS/SCS > nó adicional do cluster.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instale uma instância DBMS e servidores de aplicações SAP
 
@@ -177,9 +177,9 @@ Complete a instalação SAP, instalando:
 ### <a name="fail-over-from-cluster-node-a-to-cluster-node-b-and-back"></a>Falhar do nó de cluster A ao nó de cluster B e de volta
 Neste cenário de teste, vamos referir-nos ao nó de cluster sapascs1 como nó A, e ao nó de aglomerado sapascs2 como nó B.
 
-1. Verifique se os recursos do cluster estão a funcionar no nó A. ![Figura 1: O Windows Server falha os recursos de cluster que funciona no nó A antes do teste de falha](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
+1. Verifique se os recursos do cluster ![estão a funcionar no nó A. Figura 1: Os recursos de cluster do Windows Server falham em funcionamento no nó A antes do teste de failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
 
-2. Reinicie o nó de cluster A. Os recursos do cluster SAP passarão para o nó de cluster B. ![Figura 2: Os recursos de cluster do Windows Server falham a execução no nó B após o teste de falha](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
+2. Reinicie o nó de cluster A. Os recursos do cluster SAP passarão ![para o nó de cluster B. Figura 2: Os recursos de cluster do Windows Server falham a execução no nó B após o teste de failover](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
 
 
 ## <a name="lock-entry-test"></a>Teste de entrada de bloqueio

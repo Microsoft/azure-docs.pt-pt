@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 18c53a53a57b3ddca1168fc1075ae09bcd86f000
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 3/18/2020
+ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462501"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79533237"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados na Base de Dados Azure para mySQL
 
@@ -33,10 +33,10 @@ A base de dados do [*sistema Mysql*](https://dev.mysql.com/doc/refman/5.7/en/sys
 ### <a name="requirements"></a>Requisitos
 - A versão master server deve ser pelo menos a versão MySQL 5.6. 
 - As versões master e réplica do servidor devem ser as mesmas. Por exemplo, ambos devem ser a versão MySQL 5.6 ou ambos devem ser a versão MySQL 5.7.
-- Cada tabela tem de ter uma chave primária.
+- Cada mesa deve ter uma chave primária.
 - O servidor principal deve utilizar o motor MySQL InnoDB.
 - O utilizador deve ter permissões para configurar o registo binário e criar novos utilizadores no servidor principal.
-- Se o servidor principal tiver ativado o SSL, certifique-se de que o certificado SSL CA fornecido para o domínio foi incluído no procedimento armazenado `mysql.az_replication_change_master`. Consulte os [seguintes exemplos](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) e o parâmetro `master_ssl_ca`.
+- Se o servidor principal tiver ativado o SSL, certifique-se de que `mysql.az_replication_change_master` o certificado SSL CA fornecido para o domínio foi incluído no procedimento armazenado. Consulte os [seguintes exemplos](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) e o `master_ssl_ca` parâmetro.
 - Confirme se o endereço IP do servidor mestre foi adicionado às regras de firewall do servidor de réplica da Base de Dados do Azure para MySQL. Atualize as regras de firewall com o [portal do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) ou a [CLI do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
 - Verifique se o computador que aloja o servidor mestre permite tráfego de entrada e de saída na porta 3306.
 - Certifique-se de que o servidor principal tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN).

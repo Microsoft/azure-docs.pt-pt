@@ -1,31 +1,31 @@
 ---
-title: Como compartilhar Azure Dev Spaces
+title: Como partilhar espaços Azure Dev
 services: azure-dev-spaces
 ms.date: 05/11/2018
 ms.topic: conceptual
-description: Saiba como usar Azure Dev Spaces para compartilhar um espaço de desenvolvimento no serviço kubernetes do Azure com outras pessoas em sua equipe
-keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: 5e3a18ea205eda5617eab094046ec6536e82d113
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+description: Saiba como usar os Espaços Azure Dev para partilhar um espaço dev no Serviço Azure Kubernetes com outros da sua equipa
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
+ms.openlocfilehash: 0fcb8be5107c7769af7e51dece9f190c8e7e22df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438438"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474412"
 ---
 # <a name="share-azure-dev-spaces"></a>Partilhar os Espaços de Programador do Azure
 
-Com Azure Dev Spaces, você pode compartilhar seu espaço de desenvolvimento com outras pessoas em sua equipe. Cada desenvolvedor pode trabalhar em seu próprio espaço sem medo de quebrar outras pessoas. Além disso, trabalhar juntos em um espaço pode permitir que você teste o código de ponta a ponta sem precisar criar simulações ou simular dependências. Consulte o guia de [desenvolvimento de equipe saiba](../team-development-nodejs.md) mais para obter mais informações.
+Com a Azure Dev Spaces, pode partilhar o seu espaço de dev com outros da sua equipa. Cada desenvolvedor pode trabalhar no seu próprio espaço sem medo de quebrar os outros. Além disso, trabalhar em conjunto num só espaço pode permitir-lhe testar o código de ponta a ponta sem ter de criar simulações ou simular dependências. Consulte o guia [de desenvolvimento](../team-development-nodejs.md) da equipa para mais informações.
 
-## <a name="set-up-a-dev-space-for-multiple-developers"></a>Configurar um espaço de desenvolvimento para vários desenvolvedores
+## <a name="set-up-a-dev-space-for-multiple-developers"></a>Criar um espaço de dev para vários desenvolvedores
 
-1. Crie um espaço de desenvolvimento no Azure. Escolha [.NET Core e vs Code](../get-started-netcore.md), [.NET Core e Visual Studio](../get-started-netcore-visualstudio.md), ou [node. js e vs Code](../get-started-nodejs.md). Você precisará ter acesso de proprietário ou colaborador à assinatura do Azure selecionada.
-1. Configure o **grupo de recursos** do espaço de desenvolvimento do Azure para [conceder acesso de colaborador](/azure/active-directory/role-based-access-control-configure) para cada membro da equipe. Você pode verificar o grupo de recursos de um espaço de desenvolvimento executando este comando: `azds list-up`
-1. Peça aos membros da equipe para **selecionar o espaço de desenvolvimento a** fim de desenvolvê-lo.
-   * **Linha de comando ou vs Code**: para ver os Azure dev Spaces existentes aos quais você tem acesso: `azds space list`. Para selecionar um espaço de desenvolvimento: `azds space select`.
-   * **IDE do Visual Studio**: Abra um projeto no Visual Studio, selecione **Azure dev Spaces** na lista suspensa configurações de inicialização. Na caixa de diálogo que é aberta, selecione um cluster existente.
+1. Crie um Espaço Dev em Azure. Escolha [.NET Core e VS Code](../get-started-netcore.md), [.NET Core and Visual Studio,](../get-started-netcore-visualstudio.md)ou [Node.js e VS Code](../get-started-nodejs.md). Terá de ter acesso ao Proprietário ou Colaborador à subscrição azure selecionada.
+1. Certifique-se de que cada membro da equipa tem [as permissões adequadas para aceder ao controlador Azure Dev Spaces](../troubleshooting.md#incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis). Por exemplo, pode configurar o grupo de **recursos** do Azure Dev Space para conceder acesso ao [Colaborador](/azure/active-directory/role-based-access-control-configure) para cada membro da equipa. Você pode verificar o grupo de recursos de um espaço de v executando este comando:`azds show-context`
+1. Peça aos membros da equipa que **selecionem o espaço de dev** para se desenvolverem nele.
+   * **Linha de comando ou Código VS**: Para ver os `azds space list`espaços Azure Dev existentes tem acesso a: . Para selecionar um espaço `azds space select`de v: .
+   * **Visual Studio IDE**: Abra um projeto no Estúdio Visual, selecione **Azure Dev Spaces** a partir das definições de lançamento drop-down. No diálogo que se abre, selecione um cluster existente.
 
-     ![Menu suspenso configurações de inicialização do Visual Studio](../media/get-started-netcore-visualstudio/LaunchSettings.png)
+     ![Definições de lançamento do Estúdio Visual drop-down](../media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [saiba mais sobre o desenvolvimento em equipe](../team-development-nodejs.md) para obter mais informações.
+Consulte [o desenvolvimento](../team-development-nodejs.md) da equipa para obter mais informações.

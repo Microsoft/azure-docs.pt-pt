@@ -1,5 +1,5 @@
 ---
-title: IIS regista no Monitor Azure  Monitor De Acesso) Microsoft Docs
+title: IIS regista no Monitor Azure [ Monitor De Acesso) Microsoft Docs
 description: O Internet Information Services (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo Monitor Azure.  Este artigo descreve como configurar a recolha de registos IIS e detalhes dos registos que criam no Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670581"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Recolher registos IIS no Monitor Azure
@@ -38,12 +38,12 @@ Os registos de registo iIS têm um tipo de **W3CIISLog** e têm as propriedades 
 | Computador |Nome do computador de que o evento foi recolhido. |
 | cIP |Endereço IP do cliente. |
 | csMétodo |Método do pedido, como GET ou POST. |
-| csReferer |Site que o utilizador seguiu um link de para o site atual. |
+| csReferenciador |Site que o utilizador seguiu um link de para o site atual. |
 | csUserAgent |Tipo de navegador do cliente. |
 | csUserName |Nome do utilizador autenticado que acedeu ao servidor. Os utilizadores anónimos são indicados por um hífen. |
 | csUriStem |Alvo do pedido, como uma página web. |
 | csUriQuery |Pergunta, se houver, que o cliente estava a tentar atuar. |
-| ManagementGroupName |Nome do grupo de gestão dos agentes do Gestor de Operações.  Para outros agentes, trata-se de\> de identificação do espaço de trabalho AOI-\< |
+| ManagementGroupName |Nome do grupo de gestão dos agentes do Gestor de Operações.  Para outros agentes, este\<é O II- espaço de trabalho\> |
 | RemoteIPCountry |País/região do endereço IP do cliente. |
 | RemoteIPLatitude |Latitude do endereço IP do cliente. |
 | RemoteIPLongitude |Longitude do endereço IP do cliente. |
@@ -64,9 +64,9 @@ A tabela seguinte fornece diferentes exemplos de consultas de registo que recupe
 |:--- |:--- |
 | W3CIISLog |Todos os registos de registos do IIS. |
 | W3CIISLog &#124; onde scStatus==500 |Todos os registos de registo sinuoso iIS com um estado de devolução de 500. |
-| Resumo do W3CIISLog() &#124; por cIP |Contagem das entradas de log IIS pelo endereço IP do cliente. |
-| W3CIISLog &#124; onde csHost="www\.&#124; contoso.com" resumo() por csUriStem |Contagem das entradas de log IIS por URL para o anfitrião www\.contoso.com. |
-| W3CIISLog &#124; resumir soma (csBytes) &#124; por Computador tomar 500000 |Bytes totais recebidos por cada computador IIS. |
+| W3CIISLog &#124; resumir contagem() por cIP |Contagem das entradas de log IIS pelo endereço IP do cliente. |
+| W3CIISLog &#124; onde csHost="www\.contoso.com" &#124; resumir a contagem() por csUriStem |Contagem das entradas de log IIS\.por URL para o anfitrião www contoso.com. |
+| W3CIISLog &#124; resumir sumo (csBytes) por computador &#124; tomar 500000 |Bytes totais recebidos por cada computador IIS. |
 
 ## <a name="next-steps"></a>Passos seguintes
 * Configure o Monitor Azure para recolher [outras fontes de dados](agent-data-sources.md) para análise.

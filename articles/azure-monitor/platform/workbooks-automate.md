@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658409"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gerir programáticamente livros
@@ -29,7 +29,7 @@ O livro será criado no sub/grupo de recursos desejado e com o conteúdo especif
 ## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Modelo de Gestor de Recursos Azure para implementação de livros de trabalho
 1. Abra um livro que pretende implementar programáticamente.
 2. Mude o livro para o modo de edição clicando no item da barra de ferramentas _Editar._
-3. Abra o _Editor Avançado_ utilizando o botão _</>_ na barra de ferramentas.
+3. Abra o _Editor_ _</>_ Avançado utilizando o botão na barra de ferramentas.
 4. No editor, altere o modelo de _modelo_ para o _modelo de gestor_de recursos .
 5. O modelo de Gestor de Recursos para criar aparece no editor. Copie o conteúdo e use-o como está ou misture-o com um modelo maior que também implementa o recurso-alvo.
 
@@ -102,7 +102,7 @@ Este modelo mostra como implementar um livro simples que exibe um 'Hello World!'
 | Parâmetro | Explicação |
 | :------------- |:-------------|
 | `workbookDisplayName` | O nome amigável para o livro que é usado na Galeria ou Lista Guardada. Precisa ser único no âmbito do grupo de recursos e fonte |
-| `workbookType` | A galeria onde o livro será mostrado. Os valores suportados incluem livro, `tsg`, Monitor Azure, etc. |
+| `workbookType` | A galeria onde o livro será mostrado. Os valores suportados `tsg`incluem livro, Monitor Azure, etc. |
 | `workbookSourceId` | A identificação da instância de recursos a que o livro será associado. O novo livro aparecerá relacionado com esta instância de recursos - por exemplo, na tabela de conteúdos do recurso ao abrigo do Livro de _Trabalho._ Se quiser que o seu livro apareça na galeria do livro no Azure Monitor, utilize a cadeia _Azure Monitor_ em vez de um ID de recursos. |
 | `workbookId` | O guia único para este caso do livro. Utilize _[newGuid)]_ para criar automaticamente um novo guia. |
 | `kind` | Usado para especificar se o livro criado é partilhado ou privado. Use o valor _partilhado_ para livros partilhados e _utilizador_ para privados. |
@@ -119,7 +119,7 @@ Os tipos de livro especificam em que tipo de galeria de livro a nova instância 
 | `usage` | A _galeria Mais_ sob _Utilização_ em Insights de Aplicação |
 
 ### <a name="limitations"></a>Limitações
-Por uma razão técnica, este mecanismo não pode ser utilizado para criar casos de livro na galeria de Livros de _Insights_ de Aplicação. Estamos a trabalhar para resolver esta limitação. Entretanto, recomendamos que utilize a galeria Guia de Resolução de Problemas (livroType: `tsg`) para implementar livros de trabalho relacionados com a Aplicação Insights.
+Por uma razão técnica, este mecanismo não pode ser utilizado para criar casos de livro na galeria de Livros de _Insights_ de Aplicação. Estamos a trabalhar para resolver esta limitação. Entretanto, recomendamos que utilize a galeria Guia de `tsg`Resolução de Problemas (livroType: ) para implementar livros de trabalho relacionados com a Aplicação Insights.
 
 ## <a name="next-steps"></a>Passos seguintes
 

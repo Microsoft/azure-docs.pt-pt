@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: e684aee1469f855ec651567b805262c71aaf32e5
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 2605489f73063cb16a588d4714955704482327ab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594928"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473647"
 ---
 # <a name="using-openfaas-on-aks"></a>Utilização de OpenFaaS no AKS
 
@@ -28,9 +28,11 @@ Para completar os passos dentro deste artigo, precisa dos seguintes.
 
 ## <a name="add-the-openfaas-helm-chart-repo"></a>Adicione o repo de gráfico de leme OpenFaaS
 
+Vá [https://shell.azure.com](https://shell.azure.com) abrir a Azure Cloud Shell no seu navegador.
+
 A OpenFaaS mantém as suas próprias tabelas de leme para manter-se atualizada com todas as mudanças mais recentes.
 
-```azurecli-interactive
+```console
 helm repo add openfaas https://openfaas.github.io/faas-netes/
 helm repo update
 ```
@@ -41,13 +43,13 @@ Como uma boa prática, as funções OpenFaaS e OpenFaaS devem ser armazenadas no
 
 Criar um espaço de nome para o sistema OpenFaaS e funções:
 
-```azurecli-interactive
+```console
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
 Gere uma palavra-passe para o Portal UI OpenFaaS e a API REST:
 
-```azurecli-interactive
+```console
 # generate a random password
 PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1)
 
@@ -56,13 +58,13 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-Pode obter o valor do segredo com `echo $PASSWORD`.
+Pode obter o valor do `echo $PASSWORD`segredo com.
 
 A palavra-passe que criamos aqui será usada pelo gráfico de leme para permitir a autenticação básica no OpenFaaS Gateway, que é exposto à Internet através de um LoadBalancer em nuvem.
 
 Um gráfico helm para OpenFaaS está incluído no repositório clonado. Use este gráfico para implantar openFaaS no seu cluster AKS.
 
-```azurecli-interactive
+```console
 helm upgrade openfaas --install openfaas/openfaas \
     --namespace openfaas  \
     --set basic_auth=true \
@@ -72,7 +74,7 @@ helm upgrade openfaas --install openfaas/openfaas \
 
 Saída:
 
-```
+```output
 NAME:   openfaas
 LAST DEPLOYED: Wed Feb 28 08:26:11 2018
 NAMESPACE: openfaas
@@ -100,13 +102,13 @@ kubectl get service -l component=gateway --namespace openfaas
 
 A saída.
 
-```console
+```output
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
 gateway            ClusterIP      10.0.156.194   <none>         8080/TCP         7m
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-Para testar o sistema OpenFaaS, navegue para o endereço IP externo na porta 8080, `http://52.186.64.52:8080` neste exemplo. Será solicitado a fazer login. Para obter a sua senha, insira `echo $PASSWORD`.
+Para testar o sistema OpenFaaS, navegue para o endereço `http://52.186.64.52:8080` IP externo na porta 8080, neste exemplo. Será solicitado a fazer login. Para obter a `echo $PASSWORD`sua senha, insira .
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -116,11 +118,11 @@ Por fim, instale o OPENFaaS CLI. Este exemplo usado brew, consulte a [documenta�
 brew install faas-cli
 ```
 
-Coloque `$OPENFAAS_URL` para o IP público acima encontrado.
+Definido `$OPENFAAS_URL` para o IP público encontrado acima.
 
 Inicie sessão com o Azure CLI:
 
-```azurecli-interactive
+```console
 export OPENFAAS_URL=http://52.186.64.52:8080
 echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
@@ -135,13 +137,13 @@ Clique em **Implementar Nova Função** e procure **Figlet**. Selecione a funç�
 
 Use caracóis para invocar a função. Substitua o endereço IP no seguinte exemplo pelo do seu gateway OpenFaas.
 
-```azurecli-interactive
+```console
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 ```
 
 Saída:
 
-```console
+```output
  _   _      _ _            _
 | | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
@@ -160,7 +162,7 @@ Primeiro, crie um novo grupo de recursos para o Cosmos DB.
 az group create --name serverless-backing --location eastus
 ```
 
-Implementar uma instância cosmosDB de tipo `MongoDB`. A instância precisa de um nome único, atualizar `openfaas-cosmos` a algo único para o seu ambiente.
+Implementar uma instância cosmosDB do tipo. `MongoDB` A instância precisa de `openfaas-cosmos` um nome único, atualizar para algo único para o seu ambiente.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
@@ -168,7 +170,7 @@ az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --
 
 Pegue a cadeia de ligação à base de dados Cosmos e guarde-a numa variável.
 
-Atualize o valor do argumento `--resource-group` para o nome do seu grupo de recursos, e o `--name` argumento para o nome do seu Cosmos DB.
+Atualize o `--resource-group` valor do argumento para o nome `--name` do seu grupo de recursos, e o argumento do seu Cosmos DB.
 
 ```azurecli-interactive
 COSMOS=$(az cosmosdb list-connection-strings \
@@ -178,7 +180,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
   --output tsv)
 ```
 
-Agora povoa o Cosmos DB com dados de teste. Crie um ficheiro chamado `plans.json` e copie no seguinte json.
+Agora povoa o Cosmos DB com dados de teste. Crie um `plans.json` ficheiro nomeado e copie no seguinte json.
 
 ```json
 {
@@ -196,32 +198,32 @@ Utilize a ferramenta *mongoimport* para carregar a instância CosmosDB com dados
 
 Se necessário, instale as ferramentas MongoDB. O exemplo seguinte instala estas ferramentas utilizando cerveja, consulte a [documentação do MongoDB][install-mongo] para outras opções.
 
-```azurecli-interactive
+```console
 brew install mongodb
 ```
 
 Carregue os dados na base de dados.
 
-```azurecli-interactive
+```console
 mongoimport --uri=$COSMOS -c plans < plans.json
 ```
 
 Saída:
 
-```console
+```output
 2018-02-19T14:42:14.313+0000    connected to: localhost
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
 
-Executar o seguinte comando para criar a função. Atualize o valor do argumento `-g` com o seu endereço de gateway OpenFaaS.
+Executar o seguinte comando para criar a função. Atualize o `-g` valor do argumento com o seu endereço de gateway OpenFaaS.
 
-```azurecli-interctive
+```console
 faas-cli deploy -g http://52.186.64.52:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV=$COSMOS
 ```
 
 Uma vez implantado, deverá ver o seu recém-criado ponto final OpenFaaS para a função.
 
-```console
+```output
 Deployed. 202 Accepted.
 URL: http://52.186.64.52:8080/function/cosmos-query
 ```

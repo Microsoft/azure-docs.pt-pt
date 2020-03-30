@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655822"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envie métricas de OS do Hóspede para a base de dados de métricas do Monitor Azure para uma máquina virtual do Windows (clássica)
@@ -39,12 +39,12 @@ O processo que está delineado neste artigo funciona apenas em máquinas virtuai
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Crie uma conta clássica de máquina virtual e armazenamento
 
 1. Crie um VM clássico utilizando o portal Azure.
-   ![criar](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png) VM clássico
+   ![Criar VM clássico](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
 
 1. Quando estiver a criar este VM, escolha a opção de criar uma nova conta de armazenamento clássica. Usamos esta conta de armazenamento em etapas posteriores.
 
 1. No portal Azure, vá ao recurso das contas de **armazenamento.** Selecione **Keys**e tome nota do nome da conta de armazenamento e da chave da conta de armazenamento. Precisa desta informação em passos posteriores.
-   ![Chaves de acesso de armazenamento](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
+   ![Chaves de acesso ao armazenamento](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
@@ -59,7 +59,7 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" para o recurso
 
 ## <a name="author-diagnostics-extension-configuration"></a>Configuração de extensão de diagnóstico de autor
 
-1. Prepare o ficheiro de configuração de extensão de Diagnóstico. Este ficheiro dita quais os registos e contadores de desempenho que a extensão de Diagnóstico deve recolher para o seu VM clássico. Segue-se um exemplo:
+1. Prepare o ficheiro de configuração de extensão de Diagnóstico. Este ficheiro dita quais os registos e contadores de desempenho que a extensão de Diagnóstico deve recolher para o seu VM clássico. Segue um exemplo:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -199,7 +199,7 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" para o recurso
 1. No menu de lançamento dos espaços de nome, **selecione azure.vm.windows.guest**.
 
 1. No menu de entrega de métricas, selecione **Memory\Committed Bytes in Use**.
-   ![enredo métricas](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
+   ![Métricas do enredo](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes

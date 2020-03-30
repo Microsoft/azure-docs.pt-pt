@@ -9,10 +9,10 @@ ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 17cd57fbcf9b1c14fb275a070bdefdd1282c4d6e
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370530"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Crie e gerencie um instantâneo blob em .NET
@@ -23,7 +23,7 @@ Um instantâneo é uma versão só de leitura de uma bolha que é tirada em um m
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
-Uma imagem de uma bolha é idêntica à sua bolha base, exceto que o blob URI tem um valor **DateTime** anexado ao blob URI para indicar o tempo em que o instantâneo foi tirado. Por exemplo, se uma página blob URI for `http://storagesample.core.blob.windows.net/mydrives/myvhd`, o uri instantâneo é semelhante ao `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
+Uma imagem de uma bolha é idêntica à sua bolha base, exceto que o blob URI tem um valor **DateTime** anexado ao blob URI para indicar o tempo em que o instantâneo foi tirado. Por exemplo, se uma página `http://storagesample.core.blob.windows.net/mydrives/myvhd`blob URI é `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`, o uri snapshot é semelhante a .
 
 > [!NOTE]
 > Todos os instantâneos partilham o URI da bolha base. A única distinção entre a bolha base e o instantâneo é o valor de **DataTime** anexado.
@@ -90,7 +90,7 @@ Para eliminar as imagens blob, utilize um dos seguintes métodos de eliminação
 - [Eliminarifexista](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [Eliminar IfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
-O exemplo de código que se segue mostra como eliminar uma bolha e as suas imagens em .NET, onde `blockBlob` é um objeto do tipo [CloudBlockBlob:][dotnet_CloudBlockBlob]
+O exemplo de código que se segue mostra como eliminar `blockBlob` uma bolha e as suas imagens em .NET, onde se encontra um objeto do tipo [CloudBlockBlob:][dotnet_CloudBlockBlob]
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);

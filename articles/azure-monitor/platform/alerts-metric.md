@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
 ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79369391"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas métricos usando o Monitor Azure
+# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas com o Azure Monitor
 
 Os alertas métricos no Monitor Azure fornecem uma forma de ser notificado quando uma das suas métricas ultrapassa um limiar. Os alertas de métricas funcionam numa variedade de métricas de plataforma multidimensionais, métricas personalizadas e métricas padrão e personalizadas do Application Insights. Neste artigo, descreveremos como criar, visualizar e gerir regras de alerta métrica através do portal Azure e do Azure CLI. Também pode criar regras de alerta métricautilizando modelos do Gestor de Recursos Azure, que são descritos [num artigo separado](alerts-metric-create-templates.md).
 
 Pode saber mais sobre como os alertas métricos funcionam a partir de [alertas métricos.](alerts-metric-overview.md)
 
-## <a name="create-with-azure-portal"></a>Criar com portal Azure
+## <a name="create-with-azure-portal"></a>Criar com o portal do Azure
 
 O seguinte procedimento descreve como criar uma regra de alerta métrico no portal Azure:
 
@@ -43,7 +43,7 @@ O seguinte procedimento descreve como criar uma regra de alerta métrico no port
 8. Se a métrica tiver dimensões, verá uma tabela de dimensões apresentada. Selecione um ou mais valores por dimensão.
     - Os valores de dimensão apresentados baseiam-se em dados métricos dos últimos três dias.
     - Se o valor de dimensão que procura não for apresentado, clique em "+" para adicionar um valor personalizado.
-    - Também pode **selecionar \*** para qualquer uma das dimensões. **Selecione \*** escalará dinamicamente a seleção para todos os valores atuais e futuros para uma dimensão.
+    - Também pode ** \* Selecionar** para qualquer uma das dimensões. **Selecione \* ** irá dimensionar dinamicamente a seleção para todos os valores atuais e futuros para uma dimensão.
 
     A regra de alerta métrico avaliará a condição para todas as combinações de valores selecionados. Saiba mais sobre como funciona o alerta sobre as [métricas multidimensionais.](alerts-metric-overview.md)
 

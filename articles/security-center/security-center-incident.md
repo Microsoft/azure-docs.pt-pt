@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 1a6dbaeac5355d50edb93a7f215d7f8e88231e98
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 98fc339e473ffb2bf54e7119634e93046cca1ef3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615977"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415670"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerir incidentes de segurança no Centro de Segurança Azure
 
@@ -23,7 +23,7 @@ Este tópico explica sobre incidentes no Centro de Segurança e como remediar os
 
 ## <a name="what-is-a-security-incident"></a>O que é um incidente de segurança?
 
-No Centro de Segurança, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com padrões de [cadeia de ataque](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/). Incidentes aparecem na lista de Alertas de [Segurança.](security-center-managing-and-responding-alerts.md) Clique num incidente para ver os alertas relacionados, o que lhe permite obter mais informações sobre cada ocorrência.
+No Centro de Segurança, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com padrões de [cadeia de ataque](alerts-reference.md#intentions). Incidentes aparecem na lista de Alertas de [Segurança.](security-center-managing-and-responding-alerts.md) Clique num incidente para ver os alertas relacionados, o que lhe permite obter mais informações sobre cada ocorrência.
 
 ## <a name="managing-security-incidents"></a>Gerir incidentes de segurança
 
@@ -44,28 +44,10 @@ No Centro de Segurança, um incidente de segurança é uma agregação de todos 
 
 1. Siga os passos de reparação dados para cada alerta.
 
-Para mais informações sobre alertas, [Gestão e resposta a alertas](security-center-managing-and-responding-alerts.md)de segurança .
-
-Os seguintes tópicos guiam-no através dos diferentes alertas, de acordo com os tipos de recursos:
-
-* [Alertas para máquinas IaaS Windows](threat-protection.md#windows-machines)
-* [Alertas para máquinas IaaS Linux](threat-protection.md#linux-machines)
-* [Alertas para o Serviço de Aplicações Azure](threat-protection.md#app-services)
-* [Alertas para contentores Azure](threat-protection.md#azure-containers)
-* [Alertas para Base de Dados SQL e Armazém de Dados SQL](threat-protection.md#data-sql)
-* [Alertas para armazenamento azure](threat-protection.md#azure-storage)
-* [Alertas para Cosmos DB](threat-protection.md#cosmos-db)
-
-Os seguintes tópicos explicam como o Security Center utiliza a diferente telemetria que recolhe da integração com a infraestrutura Azure, de forma a aplicar camadas de proteção adicionais para os recursos implantados no Azure:
-
-* [Alertas para camada de gestão Azure (Gestor de Recursos Azure) (Pré-visualização)](threat-protection.md#management-layer)
-* [Alertas para cofre de chaves Azure (Pré-visualização)](threat-protection.md#azure-keyvault)
-* [Alertas para camada de rede Azure](threat-protection.md#network-layer)
-* [Alertas de outros serviços](threat-protection.md#alerts-other)
 
 ## <a name="see-also"></a>Consulte também
-Neste documento, aprendeu a utilizar a capacidade de incidentes de segurança no Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
+Neste documento, aprendeu a utilizar a capacidade de incidentes de segurança no Centro de Segurança. Para obter informações relacionadas, consulte o seguinte:
 
-* [Alertas de segurança no Centro de Segurança Azure.](security-center-alerts-overview.md)
+* [Proteção contra ameaças no Centro de Segurança Azure](threat-protection.md)
+* [Alertas de segurança no Centro de Segurança do Azure](security-center-alerts-overview.md)
 * [Gerir alertas de segurança](security-center-managing-and-responding-alerts.md)
-* [Guia de Operações e Planeamento do Centro de Segurança do Azure](security-center-planning-and-operations-guide.md)

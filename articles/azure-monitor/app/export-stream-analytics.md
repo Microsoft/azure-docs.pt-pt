@@ -1,13 +1,13 @@
 ---
-title: Exportação utilizando Stream Analytics da Azure Application Insights  Microsoft Docs
+title: Exportação utilizando Stream Analytics da Azure Application Insights [ Microsoft Docs
 description: O Stream Analytics pode transformar, filtrar e encaminhar continuamente os dados que exporta a partir de Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664019"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utilizar o Stream Analytics para processar dados exportados a partir de Insights de Aplicação
@@ -58,7 +58,7 @@ A exportação contínua produz sempre dados para uma conta de Armazenamento Azu
 1. Deixe acumular alguns dados. Senta-te e deixa que as pessoas usem a tua candidatura por uns tempos. A telemetria chegará e verá gráficos estatísticos em [exploradores métricos](../../azure-monitor/app/metrics-explorer.md) e eventos individuais em [pesquisa de diagnóstico.](../../azure-monitor/app/diagnostic-search.md) 
    
     E também, os dados serão exportados para o seu armazenamento. 
-2. Inspecione os dados exportados. No Estúdio Visual, escolha **View / Cloud Explorer,** e abra O Azure/Armazenamento. (Se não tiver esta opção de menu, precisa de instalar o Azure SDK: Abra o diálogo do Novo Projeto e abra visual C# / nuvem / obtenha o Microsoft Azure SDK para .NET.)
+2. Inspecione os dados exportados. No Estúdio Visual, escolha **View / Cloud Explorer,** e abra O Azure/Armazenamento. (Se não tiver esta opção de menu, precisa de instalar o Azure SDK: Abra o diálogo do Novo Projeto e abra o Visual C# / Cloud / Obtenha o Microsoft Azure SDK para .NET.)
    
     ![](./media/export-stream-analytics/04-data.png)
    
@@ -97,17 +97,17 @@ O Padrão de Prefixo path especifica onde o Stream Analytics encontra os ficheir
 
 Neste exemplo:
 
-* `webapplication27` é o nome do recurso Application **Insights, todos os casos inferiores.**
-* `1234...` é a chave de instrumentação do recurso Application Insights, **omitindo traços.** 
-* `PageViews` é o tipo de dados que pretende analisar. Os tipos disponíveis dependem do filtro definido na Exportação Contínua. Examinar os dados exportados para ver os outros tipos disponíveis e ver o modelo de dados de [exportação.](export-data-model.md)
-* `/{date}/{time}` é um padrão escrito literalmente.
+* `webapplication27`é o nome do recurso Application **Insights, todos os casos inferiores.**
+* `1234...`é a chave de instrumentação do recurso Application Insights, **omitindo traços.** 
+* `PageViews`é o tipo de dados que pretende analisar. Os tipos disponíveis dependem do filtro definido na Exportação Contínua. Examinar os dados exportados para ver os outros tipos disponíveis e ver o modelo de dados de [exportação.](export-data-model.md)
+* `/{date}/{time}`é um padrão escrito literalmente.
 
 > [!NOTE]
 > Inspecione o armazenamento para se certificar de que acerta o caminho.
 > 
 
 ## <a name="add-new-output"></a>Adicionar nova saída
-Agora selecione o seu trabalho > **saídas** > **Adicionar**.
+Agora selecione o seu trabalho > **Outputs** > **Adicionar**.
 
 ![](./media/export-stream-analytics/SA006.png)
 

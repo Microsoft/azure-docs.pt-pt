@@ -1,5 +1,5 @@
 ---
-title: Recolher registos personalizados no Monitor Azure  Monitor' Microsoft Docs
+title: Recolher registos personalizados no Monitor Azure [ Monitor' Microsoft Docs
 description: O Azure Monitor pode recolher eventos a partir de ficheiros de texto em computadores Windows e Linux.  Este artigo descreve como definir um novo registo personalizado e detalhes dos registos que criam no Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
 ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670598"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Monitor Azure
+# <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor
 
 A fonte de dados custom Logs no Monitor Azure permite-lhe recolher eventos a partir de ficheiros de texto em computadores Windows e Linux. Muitas aplicações registam informações para ficheiros de texto em vez de serviços de registo padrão, como registo de eventos do Windows ou Syslog. Uma vez recolhidos, pode analisar os dados em campos individuais nas suas consultas ou extrair os dados durante a recolha para campos individuais.
 
@@ -50,8 +50,8 @@ Utilize o seguinte procedimento para definir um ficheiro de registo personalizad
 O Assistente de Registo Personalizado funciona no portal Azure e permite-lhe definir um novo log personalizado para recolher.
 
 1. No portal Azure, selecione espaços de **trabalho Log Analytics** > o seu espaço de trabalho > **Definições Avançadas**.
-2. Clique em **registos personalizados** **de dados** > .
-3. Por predefinição, todas as alterações de configuração são automaticamente enviados por push para todos os agentes. Para os agentes Linux, um ficheiro de configuração é enviado para o coletor de dados Fluentd.
+2. Clique em**registos personalizados**de **dados** > .
+3. Por predefinição, todas as alterações de configuração são automaticamente empurradas para todos os agentes. Para os agentes Linux, um ficheiro de configuração é enviado para o coletor de dados Fluentd.
 4. Clique em **Adicionar+** para abrir o Assistente de Registo Personalizado.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Passo 2. Carregar e analisar um registo de amostra
@@ -70,7 +70,7 @@ Se for utilizado um delimitador de marca temporal, a propriedade TimeGenerated d
 ### <a name="step-3-add-log-collection-paths"></a>Passo 3. Adicione caminhos de recolha de registos
 Deve definir um ou mais caminhos no agente onde pode localizar o registo personalizado.  Pode fornecer um caminho e nome específicos para o ficheiro de registo, ou pode especificar um caminho com um wildcard para o nome. Isto suporta aplicações que criam um novo ficheiro todos os dias ou quando um ficheiro atinge um determinado tamanho. Também pode fornecer vários caminhos para um único ficheiro de registo.
 
-Por exemplo, uma aplicação pode criar um ficheiro de registo todos os dias com a data incluída no nome como em log20100316.txt. Um padrão para tal registo pode ser *o log\*.txt* que se aplicaria a qualquer ficheiro de registo na sequência do esquema de nomeação da aplicação.
+Por exemplo, uma aplicação pode criar um ficheiro de registo todos os dias com a data incluída no nome como em log20100316.txt. Um padrão para tal registo pode ser *log\*.txt* que se aplicaria a qualquer ficheiro de registo na sequência do esquema de nomeação do pedido.
 
 A tabela que se segue fornece exemplos de padrões válidos para especificar diferentes ficheiros de registo.
 
@@ -82,13 +82,13 @@ A tabela que se segue fornece exemplos de padrões válidos para especificar dif
 | Todos os ficheiros em */var/log/audit* com um nome começando com registo e uma extensão .txt no agente Linux |/var/log/audit/log\*.txt |
 
 1. Selecione Windows ou Linux para especificar qual o formato de caminho que está a adicionar.
-2. Digite o caminho e clique no botão **+.**
+2. Digite o caminho **+** e clique no botão.
 3. Repita o processo para quaisquer caminhos adicionais.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4. Forneça um nome e descrição para o registo
 O nome que especifica será utilizado para o tipo de registo descrito acima.  Terminará sempre com _CL para distingui-lo como um registo personalizado.
 
-1. Digite um nome para o registo.  O sufixo **cl\_** é fornecido automaticamente.
+1. Digite um nome para o registo.  O sufixo ** \_CL** é fornecido automaticamente.
 2. Adicione uma **descrição**opcional.
 3. Clique em **Seguir** para guardar a definição de registo personalizada.
 
@@ -122,7 +122,7 @@ Os registos de registo personalizados têm um tipo com o nome de registo que for
 | TimeGenerated |Data e hora em que o disco foi recolhido pelo Monitor Azure.  Se o registo utilizar um delimitador baseado no tempo, então este é o tempo recolhido a partir da entrada. |
 | SourceSystem |Tipo de agente de que o registo foi recolhido. <br> OpsManager – Agente Windows, quer diretamente ligue ou Gestor de Operações do Centro de Sistema <br> Linux - Todos os agentes linux |
 | RawData |Texto completo da entrada recolhida. Provavelmente, irá querer [analisar estes dados em propriedades individuais.](../log-query/parse-text.md) |
-| ManagementGroupName |Nome do grupo de gestão para agentes de gestão de operações do Centro de Sistema.  Para outros agentes, trata-se de\> de identificação do espaço de trabalho AOI-\< |
+| ManagementGroupName |Nome do grupo de gestão para agentes de gestão de operações do Centro de Sistema.  Para outros agentes, este\<é O II- espaço de trabalho\> |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Experimente a amostra de adicionar um registo personalizado

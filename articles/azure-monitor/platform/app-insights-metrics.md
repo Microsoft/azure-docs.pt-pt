@@ -8,10 +8,10 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664920"
 ---
 # <a name="application-insights-log-based-metrics"></a>Aplicações Insights métricas baseadas em log
@@ -29,13 +29,13 @@ Este artigo enumera métricas com agregações e dimensões suportadas. Os detal
 
 Quando traça a mesma métrica no explorador de [métricas](metrics-getting-started.md), não existem incumprimentos - a consulta é ajustada dinamicamente com base nas definições do seu gráfico:
 
-- A **gama** de tempo selecionada é traduzida para um adicional onde o *timestamp...* cláusula para apenas escolher os eventos a partir do intervalo de tempo selecionado. Por exemplo, um gráfico que mostra os dados das últimas 24 horas, a consulta inclui / onde o *timestamp > ago(24 h)* .
+- A **gama** de tempo selecionada é traduzida para um adicional onde o *timestamp...* cláusula para apenas escolher os eventos a partir do intervalo de tempo selecionado. Por exemplo, um gráfico que mostra os dados das últimas 24 horas, a consulta inclui *onde o carimbo temporal >(24 h)*.
 
 - A **granularidade do tempo** selecionada é colocada na *sinuosidade final... por cláusula bin (timestamp, [time grain]).*
 
 - Quaisquer dimensões de **filtro** selecionadas são traduzidas para um adicional *onde* as cláusulas.
 
-- A dimensão do **gráfico Split** selecionada é traduzida para uma propriedade extra resumo. Por exemplo, se dividir o seu gráfico por *localização*, e traçar usando uma granularidade de 5 minutos, a cláusula de *resumo* é resumida...  *por caixote do lixo (carimbo de tempo, 5 m), localização*.
+- A dimensão do **gráfico Split** selecionada é traduzida para uma propriedade extra resumo. Por exemplo, se dividir o seu gráfico por *localização*, e traçar usando uma granularidade de 5 minutos, a cláusula de *resumo* é resumida... * por caixote do lixo (carimbo de tempo, 5 m), localização*.
 
 > [!NOTE]
 > Se você é novo na linguagem de consulta Kusto, você começa por copiar e colar declarações de Kusto no painel de consulta log Analytics sem fazer quaisquer modificações. Clique em **Correr** para ver gráfico básico. À medida que começa a entender a sintaxe da linguagem de consulta, pode começar a fazer pequenas modificações e ver o impacto da sua mudança. Explorar os seus próprios dados é uma ótima maneira de começar a perceber toda a potência do [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) e do [Monitor Azure.](../../azure-monitor/overview.md)
@@ -98,7 +98,7 @@ As métricas do navegador são recolhidas pelo Formulário de Aplicação JavaSc
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhum|
+|Milissegundos|Média, Min, Max|Nenhuma|
 
 ```Kusto
 browserTimings
@@ -114,7 +114,7 @@ browserTimings
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhum|
+|Milissegundos|Média, Min, Max|Nenhuma|
 
 ```Kusto
 browserTimings
@@ -130,7 +130,7 @@ browserTimings
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhum|
+|Milissegundos|Média, Min, Max|Nenhuma|
 
 ```Kusto
 browserTimings
@@ -146,7 +146,7 @@ browserTimings
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhum|
+|Milissegundos|Média, Min, Max|Nenhuma|
 
 ```Kusto
 browserTimings
@@ -162,7 +162,7 @@ browserTimings
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhum|
+|Milissegundos|Média, Min, Max|Nenhuma|
 
 ```Kusto
 browserTimings
@@ -180,11 +180,11 @@ As métricas em **Falhas** mostram problemas com pedidos de processamento, chama
 
 ### <a name="browser-exceptions-exceptionsbrowser"></a>Exceções ao navegador (exceções/navegador)
 
-Esta métrica reflete o número de exceções lançadas do seu código de aplicação em execução no navegador. Apenas as exceções que são rastreadas com uma chamada a```trackException()``` Insights API estão incluídas na métrica.
+Esta métrica reflete o número de exceções lançadas do seu código de aplicação em execução no navegador. Apenas as exceções que ```trackException()``` são rastreadas com uma chamada de API de Insights de Aplicação estão incluídas na métrica.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nenhum|Versão baseada em log usa agregação **de soma**|
+|Contagem|Contagem|Nenhuma|Versão baseada em log usa agregação **de soma**|
 
 ```Kusto
 exceptions
@@ -199,7 +199,7 @@ O número de chamadas de dependência falhadas.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nenhum|Versão baseada em log usa agregação **de soma**|
+|Contagem|Contagem|Nenhuma|Versão baseada em log usa agregação **de soma**|
 
 ```Kusto
 dependencies

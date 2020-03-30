@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662506"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitor Surface Hubs com Monitor Azure para acompanhar a sua saúde
@@ -40,7 +40,7 @@ Você precisará do ID do espaço de trabalho e da chave do espaço de trabalho 
 Intune é um produto da Microsoft que permite gerir centralmente as definições de configuração do espaço de trabalho Log Analytics que são aplicadas a um ou mais dos seus dispositivos. Siga estes passos para configurar os seus dispositivos através do Intune:
 
 1. Inscreva-se no Intune.
-2. Navegar para **Definições** > **Fontes Conectadas**.
+2. Navegar para **Configurações** > **Fontes Conectadas**.
 3. Crie ou edite uma política baseada no modelo Surface Hub.
 4. Navegue na secção Azure Operational Insights da política e adicione a id do espaço de *trabalho* de Log Analytics e *a chave workspace* à política.
 5. Guarde a política.
@@ -60,7 +60,7 @@ Se não utilizar o Intune para gerir o seu ambiente, pode inscrever os dispositi
 3. Clique **neste dispositivo**e na monitorização sob **monitorização,** clique em **Configurar definições de análise**de registo .
 4. Selecione Ativar a **monitorização**.
 5. No diálogo de definições de Log Analytics, escreva o ID do **espaço de trabalho** de Log Analytics e escreva a Chave **workspace**.  
-   ![definições](./media/surface-hubs/settings.png)
+   ![Configurações](./media/surface-hubs/settings.png)
 6. Clique **em OK** para completar a configuração.
 
 Uma confirmação aparece a dizer-lhe se a configuração foi ou não aplicada com sucesso ao dispositivo. Se fosse, aparece uma mensagem a indicar que o agente ligou-se com sucesso ao Monitor Azure. Em seguida, o dispositivo começa a enviar dados para o Monitor Azure onde pode ver e agir sobre ele.

@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668150"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas métricos com limiares dinâmicos no Monitor Azure
@@ -18,7 +18,7 @@ Alerta métrico com limiardinâmico a deteção alavanca a aprendizagem avançad
 
 Uma vez criada uma regra de alerta, só disparará quando a métrica monitorizada não se comportar como esperado, com base nos seus limiares personalizados.
 
-Adoraríamos ouvir o seu feedback, mantê-lo vindo em <azurealertsfeedback@microsoft.com>.
+Adoraríamos ouvir o seu feedback, <azurealertsfeedback@microsoft.com>mantê-lo a chegar.
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Por que e quando é recomendado o tipo de condição dinâmica?
 

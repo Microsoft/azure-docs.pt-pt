@@ -1,114 +1,114 @@
 ---
-title: Configurar o ambiente de desenvolvimento do Azure Red Hat OpenShift
-description: Aqui estão os pré-requisitos para trabalhar com Microsoft Azure Red Hat OpenShift.
-keywords: configuração da instalação do Red Hat openshift
+title: Instale o seu ambiente de desenvolvimento OpenShift do seu chapéu vermelho azul
+description: Aqui estão os pré-requisitos para trabalhar com o Microsoft Azure Red Hat OpenShift.
+keywords: conjunto de turno de chapéu vermelho configuração
 author: jimzim
 ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 559c932c4826e82f36c09b85ee8da4186d90d34d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: e7396ce9fbed46688d59b582f246e5454d063fb3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276078"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477039"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurar o seu ambiente de desenvolvimento do Azure Red Hat OpenShift
 
-Para compilar e executar Microsoft Azure aplicativos Red Hat OpenShift, você precisará:
+Para construir e executar aplicações Abertas do Chapéu Vermelho microsoft Azure, terá de:
 
-* Instale a versão 2.0.65 (ou superior) do CLI do Azure (ou use o Azure Cloud Shell).
-* Registre-se para o recurso `AROGA` e provedores de recursos associados.
-* Crie um locatário do Azure Active Directory (AD do Azure).
-* Crie um objeto de aplicativo do Azure AD.
-* Crie um usuário do Azure AD.
+* Instale a versão 2.0.65 (ou superior) do Azure CLI (ou utilize a Casca de Nuvem Azure).
+* Registe-se na `AROGA` funcionalidade e nos fornecedores de recursos associados.
+* Crie um inquilino azure Ative Directory (Azure AD).
+* Crie um objeto de aplicação Azure AD.
+* Crie um utilizador de Anúncios Azure.
 
-As instruções a seguir mostrarão todos esses pré-requisitos.
+As seguintes instruções irão acompanhá-lo através de todos estes pré-requisitos.
 
 ## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
-O Azure Red Hat OpenShift requer a versão 2.0.65 ou superior do CLI do Azure. Se você já tiver instalado o CLI do Azure, poderá verificar qual versão você tem executando:
+O Azure Red Hat OpenShift requer a versão 2.0.65 ou superior ao Azure CLI. Se já instalou o Azure CLI, pode verificar qual a versão que tem executando:
 
-```bash
+```azurecli
 az --version
 ```
 
-A primeira linha de saída terá a versão da CLI, por exemplo `azure-cli (2.0.65)`.
+A primeira linha de saída terá a `azure-cli (2.0.65)`versão CLI, por exemplo.
 
-Aqui estão as instruções para [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se você precisar de uma nova instalação ou uma atualização.
+Aqui estão as instruções para [a instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se necessitar de uma nova instalação ou de uma atualização.
 
-Como alternativa, você pode usar o [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ao usar o Azure Cloud Shell, certifique-se de selecionar o ambiente **bash** se você planeja acompanhar o tutorial [criar e gerenciar uma série de tutoriais de cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+Alternadamente, pode utilizar a [Casca de Nuvem Azure.](https://docs.microsoft.com/azure/cloud-shell/overview) Ao utilizar a Concha azure Cloud, certifique-se de selecionar o ambiente **Bash** se planeia seguir juntamente com a Create e gerir uma série tutorial de cluster OpenShift do [Chapéu Vermelho Azure.](tutorial-create-cluster.md)
 
-## <a name="register-providers-and-features"></a>Registrar provedores e recursos
+## <a name="register-providers-and-features"></a>Registar fornecedores e funcionalidades
 
-O recurso `Microsoft.ContainerService AROGA`, `Microsoft.Solutions`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.KeyVault` e `Microsoft.Network` provedores devem ser registrados em sua assinatura manualmente antes de implantar seu primeiro cluster do Azure Red Hat OpenShift.
+A `Microsoft.ContainerService AROGA` `Microsoft.Solutions`funcionalidade, `Microsoft.Compute` `Microsoft.Storage`e `Microsoft.KeyVault` `Microsoft.Network` os fornecedores devem estar registados manualmente na sua subscrição antes de implantar o seu primeiro cluster OpenShift do Chapéu Vermelho Azure.
 
-Para registrar esses provedores e recursos manualmente, use as seguintes instruções de um shell bash se você instalou a CLI ou da sessão Azure Cloud Shell (bash) em seu portal do Azure:
+Para registar estes fornecedores e funcionalidades manualmente, utilize as seguintes instruções de uma concha Bash se tiver instalado o CLI, ou a partir da sessão Azure Cloud Shell (Bash) no seu portal Azure:
 
-1. Se você tiver várias assinaturas do Azure, especifique a ID de assinatura relevante:
+1. Se tiver várias subscrições do Azure, especifique o ID de subscrição relevante:
 
-    ```bash
+    ```azurecli
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. Registre o recurso Microsoft. ContainerService AROGA:
+1. Registe a funcionalidade Microsoft.ContainerService AROGA:
 
-    ```bash
+    ```azurecli
     az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
-1. Registre o provedor Microsoft. Storage:
+1. Registe o fornecedor microsoft.Storage:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Storage --wait
     ```
     
-1. Registre o provedor Microsoft. Compute:
+1. Registe o fornecedor Microsoft.Compute:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Compute --wait
     ```
 
-1. Registre o provedor Microsoft. Solutions:
+1. Registe o fornecedor Microsoft.Solutions:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Solutions --wait
     ```
 
-1. Registre o provedor Microsoft. Network:
+1. Registe o fornecedor Microsoft.Network:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Network --wait
     ```
 
-1. Registre o provedor Microsoft. keyvault:
+1. Registe o fornecedor Microsoft.KeyVault:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.KeyVault --wait
     ```
 
-1. Atualize o registro do provedor de recursos Microsoft. ContainerService:
+1. Atualizar o registo do fornecedor de recursos Microsoft.ContainerService:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.ContainerService --wait
     ```
 
-## <a name="create-an-azure-active-directory-azure-ad-tenant"></a>Criar um locatário do Azure Active Directory (Azure AD)
+## <a name="create-an-azure-active-directory-azure-ad-tenant"></a>Criar um inquilino azure Ative Directory (Azure AD)
 
-O serviço do Azure Red Hat OpenShift requer um locatário associado do Azure Active Directory (Azure AD) que representa sua organização e sua relação com a Microsoft. Seu locatário do Azure AD permite que você registre, crie e gerencie aplicativos, bem como use outros serviços do Azure.
+O serviço Azure Red Hat OpenShift requer um inquilino associado do Azure Ative Directory (Azure AD) que represente a sua organização e a sua relação com a Microsoft. O seu inquilino Azure AD permite-lhe registar, construir e gerir aplicações, bem como utilizar outros serviços Azure.
 
-Se você não tiver um Azure AD para usar como o locatário para seu cluster do Azure Red Hat OpenShift ou se desejar criar um locatário para teste, siga as instruções em [criar um locatário do Azure ad para o cluster do Azure Red Hat OpenShift](howto-create-tenant.md) antes de continuar com este guia.
+Se não tiver um Anúncio Azure para usar como inquilino do seu cluster Azure Red Hat OpenShift, ou se pretender criar um inquilino para testes, siga as instruções em [Create a Azure AD tenant para o seu cluster Azure Red Hat OpenShift](howto-create-tenant.md) antes de continuar com este guia.
 
-## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Criar um usuário do Azure AD, um grupo de segurança e um objeto de aplicativo
+## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Criar um utilizador, grupo de segurança e objeto de aplicação Azure AD
 
-O Azure Red Hat OpenShift requer permissões para executar tarefas no cluster, como configurar o armazenamento. Essas permissões são representadas por meio de uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). Você também desejará criar um novo usuário Active Directory para testar aplicativos em execução no cluster do Azure Red Hat OpenShift.
+O Azure Red Hat OpenShift requer permissões para executar tarefas no seu cluster, como configurar o armazenamento. Estas permissões são representadas através de um diretor de [serviço.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) Também vai querer criar um novo utilizador ative diretório para testar aplicações em execução no seu cluster OpenShift do Chapéu Vermelho Azure.
 
-Siga as instruções em [criar um objeto de aplicativo do Azure AD e um usuário](howto-aad-app-configuration.md) para criar uma entidade de serviço, gerar um segredo do cliente e uma URL de retorno de chamada de autenticação para seu aplicativo e criar um novo grupo de segurança do Azure AD e usuário para acessar o cluster.
+Siga as instruções em [Create a Azure AD object and user](howto-aad-app-configuration.md) to create a service principal, generate a client secret and authentication callback URL for your app, and create a new Azure AD security group and user to access the cluster.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora você está pronto para usar o Azure Red Hat OpenShift!
+Está pronto para usar o Azure Red Hat OpenShift!
 
 Experimente o tutorial:
 > [!div class="nextstepaction"]

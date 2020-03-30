@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
 ms.openlocfilehash: 572262cbece26171f9a67bf073906fa2dfd4d8e1
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79371074"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Quickstart: Consulta Apache HBase em Azure HDInsight com HBase Shell
 
 Neste arranque rápido, aprende-se a usar a Apache HBase Shell para criar uma tabela HBase, inserir dados e, em seguida, consultar a tabela.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,31 +40,31 @@ Em HBase (uma implementação do [Cloud BigTable),](https://cloud.google.com/big
 
 Pode utilizar o SSH para se ligar aos clusters HBase e, em seguida, utilizar a Apache HBase Shell para criar tabelas HBase, inserir dados e consultar dados.
 
-1. Utilize `ssh` comando para se ligar ao seu cluster HBase. Edite o comando abaixo substituindo `CLUSTERNAME` com o nome do seu cluster e, em seguida, introduza o comando:
+1. Utilize `ssh` o comando para se ligar ao seu cluster HBase. Edite o comando `CLUSTERNAME` abaixo substituindo pelo nome do seu cluster e, em seguida, introduza o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Utilize `hbase shell` comando para iniciar a concha interativa HBase. Introduza o seguinte comando na sua ligação SSH:
+2. Utilize `hbase shell` o comando para iniciar a concha interativa HBase. Introduza o seguinte comando na sua ligação SSH:
 
     ```bash
     hbase shell
     ```
 
-3. Use `create` comando para criar uma tabela HBase com famílias de duas colunas. Introduza o seguinte comando:
+3. Use `create` o comando para criar uma tabela HBase com famílias de duas colunas. Introduza o seguinte comando:
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. Utilize `list` comando para listar todas as tabelas em HBase. Introduza o seguinte comando:
+4. Utilize `list` o comando para listar todas as tabelas em HBase. Introduza o seguinte comando:
 
     ```hbase
     list
     ```
 
-5. Utilize `put` comando para inserir valores numa coluna especificada numa determinada linha numa determinada tabela. Introduza o seguinte comando:
+5. Utilize `put` o comando para inserir valores numa coluna especificada numa linha especificada numa determinada tabela. Introduza o seguinte comando:
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -73,45 +73,45 @@ Pode utilizar o SSH para se ligar aos clusters HBase e, em seguida, utilizar a A
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-6. Utilize `scan` comando para digitalizar e devolver os dados da tabela `Contacts`. Introduza o seguinte comando:
+6. Utilize `scan` o comando para `Contacts` digitalizar e devolver os dados da tabela. Introduza o seguinte comando:
 
     ```hbase
     scan 'Contacts'
     ```
 
-7. Use `get` comando para recolher o conteúdo de uma linha. Introduza o seguinte comando:
+7. Use `get` o comando para recolher o conteúdo de uma linha. Introduza o seguinte comando:
 
     ```hbase
     get 'Contacts', '1000'
     ```
 
-    Vê-se resultados semelhantes como usar o comando `scan` porque só há uma linha.
+    Vê-se resultados `scan` semelhantes como usar o comando porque só há uma linha.
 
-8. Utilize `delete` comando para eliminar um valor celular numa tabela. Introduza o seguinte comando:
+8. Utilize `delete` o comando para eliminar um valor celular numa tabela. Introduza o seguinte comando:
 
     ```hbase
     delete 'Contacts', '1000', 'Office:Address'
     ```
 
-9. Utilize `disable` comando para desativar a mesa. Introduza o seguinte comando:
+9. Use `disable` o comando para desativar a mesa. Introduza o seguinte comando:
 
     ```hbase
     disable 'Contacts'
     ```
 
-10. Use `drop` comando para largar uma mesa da Base H. Introduza o seguinte comando:
+10. Use `drop` o comando para largar uma mesa da Base H. Introduza o seguinte comando:
 
     ```hbase
     drop 'Contacts'
     ```
 
-11. Utilize `exit` comando para parar a concha interativa HBase. Introduza o seguinte comando:
+11. Utilize `exit` o comando para parar a concha interativa HBase. Introduza o seguinte comando:
 
     ```hbase
     exit
     ```
 
-Para obter mais informações sobre o esquema de tabela HBase, consulte [Introdução ao Design De Schema Apache HBase](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Para mais comandos HBase, consulte o guia de [referência Apache HBase](https://hbase.apache.org/book.html#quickstart).
+Para obter mais informações sobre o esquema de tabela HBase, consulte [Introdução ao Design De Schema Apache HBase](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Para obter mais comandos HBase, consulte o artigo [Guia de referência Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -124,4 +124,4 @@ Para eliminar um cluster, consulte [Eliminar um cluster HDInsight utilizando o s
 Neste arranque rápido, aprendeu a usar a Apache HBase Shell para criar uma tabela HBase, inserir dados e, em seguida, consultar a tabela. Para saber mais sobre os dados armazenados na HBase, o próximo artigo irá mostrar-lhe como executar consultas com a Apache Spark.
 
 > [!div class="nextstepaction"]
-> [Use Apache Spark para ler e escrever dados Apache HBase](../hdinsight-using-spark-query-hbase.md)
+> [Utilizar o Apache Spark para ler e escrever dados do Apache HBase](../hdinsight-using-spark-query-hbase.md)

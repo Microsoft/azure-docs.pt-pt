@@ -1,6 +1,6 @@
 ---
 title: Configuração do Pacemaker na SLES em Azure Microsoft Docs
-description: Como configurar Pacemaker no SUSE Linux Enterprise Server no Azure
+description: Configuração do Pacemaker no SUSE Linux Enterprise Server em Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -12,16 +12,16 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/17/2020
 ms.author: radeltch
-ms.openlocfilehash: fb73bf6af46ce8303e1be80d1bfc7303f95cda06
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 9d3d0ddbd1282827f17cd82228fcf0f3fba3a60f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927331"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471987"
 ---
-# <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Como configurar Pacemaker no SUSE Linux Enterprise Server no Azure
+# <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server em Azure
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
@@ -32,27 +32,27 @@ ms.locfileid: "78927331"
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-Existem duas opções para configurar um cluster de Pacemaker no Azure. Pode utilizar um agente de delimitação por barreiras, que trata da reinicialização de um nó com falha através das APIs do Azure ou pode utilizar um dispositivo SBD.
+Existem duas opções para criar um cluster Pacemaker em Azure. Pode utilizar um agente de esgrima, que trata de reiniciar um nó falhado através das APIs Azure ou pode utilizar um dispositivo SBD.
 
-O dispositivo SBD requer pelo menos uma máquina virtual adicional que age como um servidor de destino iSCSI e fornece um dispositivo SBD. Estes servidores de destino iSCSI no entanto podem ser partilhado com outros clusters Pacemaker. A vantagem de utilizar um dispositivo SBD é uma falha mais rápida no tempo e, se estiver a utilizar dispositivos SBD no local, não requer alterações na forma como opera o cluster do pacemaker. Pode utilizar até três SBD dispositivos para um cluster de Pacemaker para permitir que um dispositivo SBD fique indisponível, por exemplo durante a aplicação de patches de SO de servidor de destino iSCSI. Se pretender utilizar mais do que um dispositivo SBD por Pacemaker, certifique-se implementar vários servidores de destino iSCSI e ligar um SBD de cada servidor de destino iSCSI. Recomendamos que utilize um dispositivo SBD ou três. Pacemaker não será capaz de fence automaticamente um nó de cluster, se configurar apenas dois dispositivos SBD e um deles não está disponível. Se quiser ser capaz de cerca de quando um servidor de destino iSCSI está inativa, terá de utilizar três dispositivos SBD e, portanto, servidores de destino iSCSI três.
+O dispositivo SBD requer pelo menos uma máquina virtual adicional que funciona como um servidor-alvo iSCSI e fornece um dispositivo SBD. Estes servidores-alvo iSCSI podem, no entanto, ser partilhados com outros clusters Pacemaker. A vantagem de utilizar um dispositivo SBD é uma falha mais rápida no tempo e, se estiver a utilizar dispositivos SBD no local, não requer alterações na forma como opera o cluster do pacemaker. Pode utilizar até três dispositivos SBD para um cluster Pacemaker para permitir que um dispositivo SBD fique indisponível, por exemplo durante a correção de OS do servidor-alvo iSCSI. Se pretender utilizar mais do que um dispositivo SBD por Pacemaker, certifique-se de implementar vários servidores-alvo iSCSI e ligar um SBD a cada servidor-alvo iSCSI. Recomendamos a utilização de um dispositivo SBD ou três. O Pacemaker não poderá vedar automaticamente um nó de cluster se configurar apenas dois dispositivos SBD e um deles não estiver disponível. Se pretender ser capaz de vedar quando um servidor de alvo iSCSI estiver avariado, tem de utilizar três dispositivos SBD e, portanto, três servidores-alvo iSCSI.
 
-Se não quiser investir numa máquina virtual adicional, também pode utilizar o agente Da Cerca Azure. A desvantagem é que uma ativação pós-falha pode demorar entre 10 a 15 minutos, se falha de parar um recurso ou os nós do cluster não é possível comunicar que uns aos outros mais.
+Se não quiser investir numa máquina virtual adicional, também pode utilizar o agente Da Cerca Azure. A desvantagem é que uma falha pode demorar entre 10 a 15 minutos se uma paragem de recursos falhar ou os nós do cluster não puderem mais comunicar entre si.
 
-![Pacemaker no Descrição geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+![Pacemaker na visão geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Ao planear e implantar nódosos linux pacemakers e dispositivos SBD, é essencial para a fiabilidade global da configuração completa do cluster que o encaminhamento entre os VMs envolvidos e os VM(s) que hospedam os dispositivos SBD(s) não está a passar por outros dispositivos como os [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, problemas e eventos de manutenção com a NVA podem ter um impacto negativo sobre a estabilidade e a confiabilidade da configuração do cluster geral. Para evitar tais obstáculos, não defina as regras de encaminhamento de NVAs ou regras de [encaminhamento definidas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) pelo utilizador que encaminham o tráfego entre nós agrupados e dispositivos SBD através de NVAs e dispositivos semelhantes ao planear e implementar os nódos agrupados linux Pacemaker e dispositivos SBD. 
+> Ao planear e implantar nódosos linux pacemakers e dispositivos SBD, é essencial para a fiabilidade global da configuração completa do cluster que o encaminhamento entre os VMs envolvidos e os VM(s) que hospedam os dispositivos SBD(s) não está a passar por outros dispositivos como os [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, problemas e eventos de manutenção com a NVA podem ter um impacto negativo na estabilidade e fiabilidade da configuração geral do cluster. Para evitar tais obstáculos, não defina as regras de encaminhamento de NVAs ou regras de [encaminhamento definidas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) pelo utilizador que encaminham o tráfego entre nós agrupados e dispositivos SBD através de NVAs e dispositivos semelhantes ao planear e implementar os nódos agrupados linux Pacemaker e dispositivos SBD. 
 >
 
-## <a name="sbd-fencing"></a>A delimitação por barreiras SBD
+## <a name="sbd-fencing"></a>Esgrima SBD
 
-Se pretender utilizar um dispositivo SBD para delimitação por barreiras, siga estes passos.
+Siga estes passos se quiser utilizar um dispositivo SBD para esgrima.
 
-### <a name="set-up-iscsi-target-servers"></a>Configurar servidores de destino iSCSI
+### <a name="set-up-iscsi-target-servers"></a>Configurar servidores-alvo iSCSI
 
-Tem primeiro de criar máquinas virtuais de destino de iSCSI. servidores de destino iSCSI podem ser compartilhados com vários clusters Pacemaker.
+Primeiro é necessário criar as máquinas virtuais-alvo iSCSI. Os servidores-alvo iSCSI podem ser partilhados com vários clusters Pacemaker.
 
-1. Implementar o novo SP1 de 12 do SLES ou máquinas de virtuais superior e ligar aos mesmos através de ssh. As máquinas não precisam de ser grandes. Um tamanho de máquina virtual como Standard_E2s_v3 ou Standard_D2s_v3 é suficiente. Certifique-se utilizar o armazenamento Premium o disco do SO.
+1. Implemente novas SLES 12 SP1 ou máquinas virtuais superiores e ligue-as através do SSH. As máquinas não precisam de ser grandes. Um tamanho de máquina virtual como Standard_E2s_v3 ou Standard_D2s_v3 é suficiente. Certifique-se de utilizar o armazenamento Premium do disco OS.
 
 Executar os seguintes comandos em todas as **máquinas virtuais de alvo iSCSI**.
 
@@ -66,27 +66,27 @@ Executar os seguintes comandos em todas as **máquinas virtuais de alvo iSCSI**.
 
 1. Remover pacotes
 
-   Para evitar um problema conhecido com targetcli e SLES 12 SP3, desinstale os seguintes pacotes. Pode ignorar erros sobre os pacotes que não podem ser encontradas
+   Para evitar um problema conhecido com targetcli e SLES 12 SP3, desinstale os seguintes pacotes. Pode ignorar erros sobre pacotes que não podem ser encontrados
 
    <pre><code>sudo zypper remove lio-utils python-rtslib python-configshell targetcli
    </code></pre>
 
-1. Instalar pacotes de destino iSCSI
+1. Instalar pacotes-alvo iSCSI
 
    <pre><code>sudo zypper install targetcli-fb dbus-1-python
    </code></pre>
 
-1. Ativar o serviço de destino iSCSI
+1. Ativar o serviço-alvo iSCSI
 
    <pre><code>sudo systemctl enable targetcli
    sudo systemctl start targetcli
    </code></pre>
 
-### <a name="create-iscsi-device-on-iscsi-target-server"></a>Criar dispositivo do iSCSI no servidor de destino iSCSI
+### <a name="create-iscsi-device-on-iscsi-target-server"></a>Criar dispositivo iSCSI no servidor-alvo iSCSI
 
-Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI** para criar os discos iSCSI para os clusters utilizados pelos seus sistemas SAP. No exemplo a seguir, são criados dispositivos SBD para múltiplos clusters. Ele mostra como usaria um servidor de destino iSCSI para múltiplos clusters. Os dispositivos SBD são colocados no disco do SO. Certifique-se de que tem espaço suficiente.
+Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI** para criar os discos iSCSI para os clusters utilizados pelos seus sistemas SAP. No exemplo seguinte, são criados dispositivos SBD para vários clusters. Mostra como usaria um servidor de alvo iSCSI para vários clusters. Os dispositivos SBD são colocados no disco OS. Certifique-se de ter espaço suficiente.
 
-**`nfs`** é utilizado para identificar o cluster NFS, **ascsnw1** é usado para identificar o cluster ASCS de **NW1**, **dbnw1** é usado para identificar o cluster de base de dados de **NW1**, **nfs-0** e **nFS-1** são os nomes de anfitrião dos nós de cluster NFS, **nw1-xscs-0** e **nw1-xscs-1** são os nomes de anfitrião dos nós de cluster **NW1** ASCS, e **nw1-db-0** e **nw1-db-1** são os nomes de anfitriãos dos nós de cluster de base de dados. Substituí-los com os nomes de anfitrião dos nós do cluster e o SID do seu sistema SAP.
+**`nfs`** é utilizado para identificar o cluster NFS, **ascsnw1** é usado para identificar o cluster ASCS de **NW1**, **dbnw1** é usado para identificar o cluster de base de dados de **NW1**, **nfs-0** e **nFs-1** são os nomes de anfitrião dos nós de cluster NFS, **nw1-xscs-0** e **nw1-xscs-1** são os nomes de anfitrião dos nós de cluster **NW1** ASCS, e **nw1-db-0** e **nw1-db-1** são os nomes de anfitriãos dos nós de cluster de base de dados. Substitua-os pelos nomes de anfitrião dos seus nós de cluster e o SID do seu sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -116,7 +116,7 @@ sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/acls/ crea
 sudo targetcli saveconfig
 </code></pre>
 
-Pode verificar se tudo o que foi configurado corretamente com
+Você pode verificar se tudo foi configurado corretamente com
 
 <pre><code>sudo targetcli ls
 
@@ -176,13 +176,13 @@ o- / ...........................................................................
 
 ### <a name="set-up-sbd-device"></a>Configurar o dispositivo SBD
 
-Ligar ao dispositivo iSCSI que foi criado no último passo do cluster.
-Execute os seguintes comandos em nós do novo cluster que pretende criar.
+Ligue-se ao dispositivo iSCSI que foi criado no último passo do cluster.
+Execute os seguintes comandos nos nós do novo cluster que pretende criar.
 Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicável ao nó 2.
 
 1. **[A]** Ligar aos dispositivos iSCSI
 
-   Em primeiro lugar, ative os serviços SBD e iSCSI.
+   Em primeiro lugar, ativar os serviços iSCSI e SBD.
 
    <pre><code>sudo systemctl enable iscsid
    sudo systemctl enable iscsi
@@ -194,7 +194,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Altere o conteúdo do ficheiro de acordo com as ACLs que utilizou quando criou o dispositivo de iSCSI no servidor de destino iSCSI, por exemplo, para o servidor NFS.
+   Altere o conteúdo do ficheiro para combinar com os ACLs utilizados ao criar o dispositivo iSCSI no servidor-alvo iSCSI, por exemplo, para o servidor NFS.
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-0.local:nfs-0</b>
    </code></pre>
@@ -204,20 +204,20 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Alterar o conteúdo do ficheiro de acordo com as ACLs que utilizou quando criou o dispositivo de iSCSI no servidor de destino iSCSI
+   Altere o conteúdo do ficheiro para combinar com os ACLs utilizados ao criar o dispositivo iSCSI no servidor-alvo iSCSI
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-1.local:nfs-1</b>
    </code></pre>
 
 1. **[A]** Reiniciar o serviço iSCSI
 
-   Agora, reinicie o serviço iSCSI para aplicar a alteração
+   Agora reinicie o serviço iSCSI para aplicar a alteração
 
    <pre><code>sudo systemctl restart iscsid
    sudo systemctl restart iscsi
    </code></pre>
 
-   Ligue os dispositivos de iSCSI. No exemplo abaixo, 10.0.0.17 é o endereço IP do servidor de destino iSCSI e 3260 é a porta predefinida. <b>iqn.2006-04.nfs.local:nfs</b> é um dos nomes-alvo que está listado quando executa o primeiro comando abaixo (iscsiadm -m descoberta).
+   Ligue os dispositivos iSCSI. No exemplo abaixo, 10.0.0.17 é o endereço IP do servidor-alvo iSCSI e 3260 é a porta predefinida. <b>iqn.2006-04.nfs.local:nfs</b> é um dos nomes-alvo que está listado quando executa o primeiro comando abaixo (iscsiadm -m descoberta).
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.17:3260</b>
@@ -234,7 +234,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
-   Certifique-se de que os dispositivos de iSCSI estão disponíveis e tome nota do nome de dispositivo (no exemplo seguinte/desenvolvimento/sde)
+   Certifique-se de que os dispositivos iSCSI estão disponíveis e anote o nome do dispositivo (no exemplo a seguir /dev/sde)
 
    <pre><code>lsscsi
    
@@ -247,7 +247,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    # <b>[8:0:0:0]    disk    LIO-ORG  sbdnfs           4.0   /dev/sdf</b>
    </code></pre>
 
-   Agora, obter os IDs dos dispositivos iSCSI.
+   Agora, recupere as identificações dos dispositivos iSCSI.
 
    <pre><code>ls -l /dev/disk/by-id/scsi-* | grep <b>sdd</b>
    
@@ -268,7 +268,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    # lrwxrwxrwx 1 root root  9 Aug  9 13:32 /dev/disk/by-id/scsi-SLIO-ORG_sbdnfs_f88f30e7-c968-4678-bc87-fe7bfcbdb625 -> ../../sdf
    </code></pre>
 
-   O comando lista as três identificações de dispositivo para cada dispositivo SBD. Recomendamos que está a utilizar o ID que começa com scsi-3, no exemplo acima isso
+   A lista de comandos de três identificações de dispositivos para cada dispositivo SBD. Recomendamos a utilização do ID que começa com o scsi-3, no exemplo acima deste é
 
    * **/dev/disco/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03**
    * **/dev/disco/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
@@ -276,7 +276,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 1. **[1]** Criar o dispositivo SBD
 
-   Utilize o ID de dispositivo dos dispositivos iSCSI para criar os novos dispositivos SBD no primeiro nó de cluster.
+   Utilize o ID do dispositivo iSCSI para criar os novos dispositivos SBD no primeiro nó de cluster.
 
    <pre><code>sudo sbd -d <b>/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03</b> -1 60 -4 120 create
 
@@ -287,12 +287,12 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 1. **[A]** Adaptar o config SBD
 
-   Abra o ficheiro de configuração SBD
+   Abra o ficheiro de config SBD
 
    <pre><code>sudo vi /etc/sysconfig/sbd
    </code></pre>
 
-   Alterar a propriedade do dispositivo SBD, permitir a integração de pacemaker e alterar o modo de início de SBD.
+   Altere a propriedade do dispositivo SBD, ative a integração do pacemaker e altere o modo de início do SBD.
 
    <pre><code>[...]
    <b>SBD_DEVICE="/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf"</b>
@@ -301,15 +301,14 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    [...]
    <b>SBD_STARTMODE="always"</b>
    [...]
-   <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Criar o ficheiro de configuração `softdog`
+   Criar `softdog` o ficheiro de configuração
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
 
-   Agora, carregar o módulo
+   Agora carregue o módulo
 
    <pre><code>sudo modprobe -v softdog
    </code></pre>
@@ -340,7 +339,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 1. **[A]** Configurar o sistema operativo
 
-   Em alguns casos, o Pacemaker cria muitos processos e, deste modo, esgotar o número permitido de processos. Nesse caso, um heartbeat entre os nós de cluster poderá falhar e levar a ativação pós-falha dos seus recursos. Recomendamos que aumente os processos de permitido máximos definindo o parâmetro seguinte.
+   Em alguns casos, o Pacemaker cria muitos processos e, assim, esgota o número permitido de processos. Neste caso, um batimento cardíaco entre os nós do cluster pode falhar e levar à falha dos seus recursos. Recomendamos o aumento dos processos máximos permitidos, definindo o seguinte parâmetro.
 
    <pre><code># Edit the configuration file
    sudo vi /etc/systemd/system.conf
@@ -356,7 +355,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    sudo systemctl --no-pager show | grep DefaultTasksMax
    </code></pre>
 
-   Reduza o tamanho da cache modificado. Para mais informações, consulte [o desempenho de Baixa escrita nos servidores SLES 11/12 com RAM grande](https://www.suse.com/support/kb/doc/?id=7010287).
+   Reduza o tamanho da cache suja. Para mais informações, consulte [o desempenho de Baixa escrita nos servidores SLES 11/12 com RAM grande](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>sudo vi /etc/sysctl.conf
 
@@ -440,13 +439,13 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
 
 1. **[A]** Configuração resolução de nome de anfitrião
 
-   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. A vantagem de utilizar /etc/hosts é que o seu cluster se torna independente de DNS, que também poderia ser um ponto único de falhas.
+   Pode utilizar um servidor DNS ou modificar os /etc/anfitriões em todos os nós. Este exemplo mostra como usar o ficheiro /etc/anfitriões.
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. O benefício de usar /etc/anfitriões é que o seu cluster se torna independente do DNS, que pode ser um único ponto de falhas também.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente   
+   Insira as seguintes linhas para /etc/anfitriões. Altere o endereço IP e o nome de anfitrião para combinar com o seu ambiente   
 
    <pre><code># IP address of the first cluster node
    <b>10.0.0.6 prod-cl1-0</b>
@@ -487,7 +486,7 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Adicione o seguinte conteúdo de negrito para o ficheiro se os valores não forem existe ou diferente. Certifique-se alterar o token para 30000 para permitir que a memória preservação da manutenção. Para mais informações, consulte [este artigo para Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance].
+   Adicione o seguinte conteúdo arrojado ao ficheiro se os valores não estiverem lá ou diferentes. Certifique-se de que muda o token para 30000 para permitir a manutenção da conservação da Memória. Para mais informações, consulte [este artigo para Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance].
 
    <pre><code>[...]
      <b>token:          30000
@@ -521,33 +520,33 @@ Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, *
    }
    </code></pre>
 
-   Em seguida, reinicie o serviço de corosync
+   Em seguida, reiniciar o serviço de corosync
 
    <pre><code>sudo service corosync restart
    </code></pre>
 
-## <a name="create-azure-fence-agent-stonith-device"></a>Criar agente de cerca de Azure STONITH dispositivos
+## <a name="create-azure-fence-agent-stonith-device"></a>Crie o dispositivo STONITH agente da Cerca Azure
 
-O dispositivo STONITH utiliza um Principal de serviço para autorizar com o Microsoft Azure. Siga estes passos para criar um Principal de serviço.
+O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Microsoft Azure. Siga estes passos para criar um Diretor de Serviço.
 
 1. Ir para <https://portal.azure.com>
-1. Abra o painel Azure Active Directory  
-   Vá para propriedades e anote o ID de diretório. Esta é a identificação do **inquilino.**
-1. Clique em registos de aplicações
+1. Abra a lâmina do Diretório Ativo Azure  
+   Vá à Properties e escreva a identificação do Diretório. Esta é a identificação do **inquilino.**
+1. Clique nas inscrições da App
 1. Clique em Novo Registo
 1. Insira um Nome, selecione "Contas apenas neste diretório de organização" 
-2. Selecione Tipo de Aplicação Tipo "Web", introduza um URL de entrada (por exemplo, http:\//localhost) e clique em Adicionar  
-   O URL de início de sessão não é utilizado e pode ser qualquer URL válido
+2. Selecione Tipo de Aplicação Tipo "Web",\/introduza um URL de inscrição (por exemplo http: /localhost) e clique em Adicionar  
+   O URL de inscrição não é usado e pode ser qualquer URL válido
 1. Selecione Certificados e Segredos e, em seguida, clique em novo segredo de cliente
 1. Introduza uma descrição para uma nova tecla, selecione "Nunca expira" e clique em Adicionar
-1. Anote o valor. É usado como **palavra-passe** para o Diretor de Serviço
-1. Selecione visão geral. Anote o ID da aplicação. É utilizado como nome de utilizador (ID de**login** nos passos abaixo) do Diretor de Assistência
+1. Escreva o Valor. É usado como **palavra-passe** para o Diretor de Serviço
+1. Selecione Descrição geral. Escreva o ID da inscrição. É utilizado como nome de utilizador (ID de**login** nos passos abaixo) do Diretor de Assistência
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Criar um papel personalizado para o agente da cerca
 
-O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure por defeito. Tem de conceder as permissões do Principal de serviço para iniciar e parar (desaloque) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo usando [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) ou [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
+O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure por defeito. É necessário dar ao Diretor de Serviço permissões para iniciar e parar (desalocar) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo usando [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) ou [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
 
-Utilize o seguinte conteúdo para o ficheiro de entrada. Precisa adaptar o conteúdo para as suas subscrições, substitua c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os Ids da sua subscrição. Se tiver apenas uma subscrição, remova a segunda entrada assignablescopes.
+Utilize o seguinte conteúdo para o ficheiro de entrada. É necessário adaptar o conteúdo às suas subscrições, ou seja, substituir c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os Ids da sua subscrição. Se tiver apenas uma subscrição, remova a segunda entrada em Assalgências.
 
 ```json
 {
@@ -572,15 +571,15 @@ Utilize o seguinte conteúdo para o ficheiro de entrada. Precisa adaptar o conte
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Atribuir o papel personalizado ao Diretor de Serviço
 
-Atribua a função personalizada "Linux cerca agente de função" que foi criado no último capítulo para o Principal de serviço. Não use mais o papel de Proprietário!
+Atribuir o papel personalizado "Função de Agente de Cerca de Linux" que foi criado no último capítulo ao Diretor de Serviço. Não use mais o papel de Proprietário!
 
-1. Vai para [https://portal.azure.com](https://portal.azure.com)
-1. Abra o painel de todos os recursos
+1. Ir para[https://portal.azure.com](https://portal.azure.com)
+1. Abra a lâmina de todos os recursos
 1. Selecione a máquina virtual do primeiro nó de cluster
-1. Clique em controle de acesso (IAM)
-1. Clique em Adicionar atribuição de função
-1. Selecione a função de "Função de agente de cerca de Linux"
-1. Introduza o nome da aplicação que criou acima
+1. Clique no controlo de acesso (IAM)
+1. Clique em Adicionar atribuição de funções
+1. Selecione o papel "Função do Agente da Cerca de Linux"
+1. Insira o nome da aplicação que criou acima
 1. Clicar em Guardar
 
 Repita os passos acima para o segundo nó de cluster.
@@ -597,7 +596,7 @@ sudo crm configure property stonith-timeout=900
 sudo crm configure property stonith-enabled=true
 </code></pre>
 
-## <a name="default-pacemaker-configuration-for-sbd"></a>Configuração para SBD Pacemaker
+## <a name="default-pacemaker-configuration-for-sbd"></a>Configuração padrão do Pacemaker para SBD
 
 1. **[1]** Ativar a utilização de um dispositivo STONITH e definir o atraso da vedação
 

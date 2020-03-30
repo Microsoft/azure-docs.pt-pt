@@ -1,5 +1,5 @@
 ---
-title: Quickstart para configuração de aplicações Azure com funções Azure  Microsoft Docs
+title: Quickstart para configuração de aplicações Azure com funções Azure [ Microsoft Docs
 description: Um arranque rápido para usar a configuração da aplicação Azure com funções Azure.
 services: azure-app-configuration
 author: lisaguthrie
@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 71a330523f1d3393a365fec29fb66f5c9773b6cc
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 2f6efdad7ab0685e58d2edd73bc36b758e8dbae2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207069"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245502"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação de funções Azure com configuração de aplicações azure
 
@@ -28,7 +28,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione O Explorador de **Configuração** >  **+ Criar** para adicionar os seguintes pares de valor-chave:
+6. Selecione **Select Configuration Explorer** > **+ Criar** > o**valor-chave** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
@@ -36,13 +36,15 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
     Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto.
 
+7. Selecione **Aplicar**.
+
 ## <a name="create-a-functions-app"></a>Criar uma aplicação Funções
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
 
-1. Clique no seu projeto e selecione **Gerir pacotes NuGet**. No separador **Browse,** procure e adicione o pacote NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` ao seu projeto. Se não conseguir encontrá-la, selecione a caixa de verificação **de pré-lançamento Incluir.**
+1. Clique no seu projeto e selecione **Gerir pacotes NuGet**. No separador **Browse,** procure `Microsoft.Extensions.Configuration.AzureAppConfiguration` e adicione o pacote NuGet ao seu projeto. Se não conseguir encontrá-la, selecione a caixa de verificação **de pré-lançamento Incluir.**
 
 2. Abra *Function1.cs*e adicione os espaços de nome da configuração .NET Core e do fornecedor de configuração de configuração de aplicações.
 
@@ -51,7 +53,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-3. Adicione uma propriedade `static` chamada `Configuration` para criar uma instância singleton de `IConfiguration`. Em seguida, adicione um `static` construtor para ligar à Configuração da Aplicação, chamando `AddAzureAppConfiguration()`. Isto carregará a configuração uma vez no arranque da aplicação. A mesma configuração será usada para todas as chamadas funções posteriormente.
+3. Adicione `static` uma `Configuration` propriedade nomeada para `IConfiguration`criar uma instância singleton de . Em seguida, adicione um `static` construtor para `AddAzureAppConfiguration()`ligar à Configuração da Aplicação, ligando . Isto carregará a configuração uma vez no arranque da aplicação. A mesma configuração será usada para todas as chamadas funções posteriormente.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -64,7 +66,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
     }
     ```
 
-4. Atualize o método `Run` para ler valores a partir da configuração.
+4. Atualize `Run` o método para ler valores a partir da configuração.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -85,7 +87,7 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
 1. Detete uma variável ambiental chamada **ConnectionString**e detetete-a na chave de acesso à sua loja de configuração de aplicações. Se utilizar o pedido de comando do Windows, execute o seguinte comando e reinicie a solicitação de comando para permitir que a alteração faça efeito:
 
-    ```CLI
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 

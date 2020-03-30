@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.openlocfilehash: 363feda1409d2bb54e60d1b2168cba38f2a8a41c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77621859"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?
@@ -25,7 +25,7 @@ Um fornecedor de dados pode manter-se no controlo da forma como os seus dados s�
 
 A Azure Data Share ajuda a melhorar as informações, facilitando a combinação de dados de terceiros para enriquecer cenários de análise e IA. Utilize facilmente o poder das ferramentas de análise Azure para preparar, processar e analisar dados partilhados usando o Azure Data Share. 
 
-Tanto o fornecedor de dados como o consumidor de dados devem ter uma subscrição Azure para partilhar e receber dados. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
+Tanto o fornecedor de dados como o consumidor de dados devem ter uma subscrição Azure para partilhar e receber dados. Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/)
 
 ## <a name="scenarios-for-azure-data-share"></a>Cenários para a partilha de dados do Azure
 

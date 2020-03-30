@@ -1,55 +1,55 @@
 ---
-title: Servidores-Banco de dados do Azure para MariaDB
-description: Este tópico fornece considerações e diretrizes para trabalhar com o banco de dados do Azure para servidores MariaDB.
+title: Servidores - Base de Dados Azure para MariaDB
+description: Este tópico fornece considerações e orientações para trabalhar com a Base de Dados Azure para servidores MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 048d9f3089a433dbf8c2647ed86ddab69c78ebaa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 444d7f1574cf1517b01250bcb9d810731030182d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772049"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527797"
 ---
-# <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceitos de servidor no banco de dados do Azure para MariaDB
-Este artigo fornece considerações e diretrizes para trabalhar com o banco de dados do Azure para servidores MariaDB.
+# <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceitos de servidor em Base de Dados Azure para MariaDB
+Este artigo fornece considerações e orientações para trabalhar com a Base de Dados Azure para servidores MariaDB.
 
-## <a name="what-is-an-azure-database-for-mariadb-server"></a>O que é um banco de dados do Azure para o servidor MariaDB?
+## <a name="what-is-an-azure-database-for-mariadb-server"></a>O que é uma Base de Dados Azure para servidor MariaDB?
 
-Um banco de dados do Azure para MariaDB Server é um ponto administrativo central para vários bancos de dados. É a mesma construção de servidor MariaDB com a qual você pode estar familiarizado no mundo local. Especificamente, o banco de dados do Azure para o serviço MariaDB é gerenciado, fornece garantias de desempenho e expõe o acesso e os recursos no nível do servidor.
+Uma Base de Dados Azure para servidor MariaDB é um ponto administrativo central para várias bases de dados. É a mesma construção de servidor MariaDB que você pode estar familiarizado no mundo das instalações. Especificamente, a Base de Dados Azure para o serviço MariaDB é gerida, fornece garantias de desempenho e expõe acesso e funcionalidades ao nível do servidor.
 
-Um banco de dados do Azure para o servidor MariaDB:
+Uma Base de Dados Azure para servidor MariaDB:
 
-- É criado em uma assinatura do Azure.
-- É o recurso pai para bancos de dados.
-- Fornece um namespace para bancos de dados.
-- É um contêiner com semântica de tempo de vida forte – exclui um servidor e exclui os bancos de dados independentes.
-- Posiciona recursos em uma região.
-- Fornece um ponto de extremidade de conexão para acesso de servidor e banco de dados.
-- Fornece o escopo para políticas de gerenciamento que se aplicam a seus bancos de dados: logon, firewall, usuários, funções, configurações, etc.
-- Está disponível na versão 10,2 do mecanismo do MariaDB. Para obter mais informações, consulte [banco de dados do Azure com suporte para versões do banco de dados MariaDB](./concepts-supported-versions.md).
+- É criado dentro de uma subscrição Azure.
+- É o recurso dos pais para bases de dados.
+- Fornece um espaço de nome para bases de dados.
+- É um recipiente com semântica de vida forte - elimine um servidor e apague as bases de dados contidas.
+- Cooloderecursos numa região.
+- Fornece um ponto final de ligação para o acesso ao servidor e à base de dados.
+- Fornece a possibilidade de políticas de gestão aplicáveis às suas bases de dados: login, firewall, utilizadores, funções, configurações, etc.
+- Está disponível na versão 10.2 do motor MariaDB. Para mais informações, consulte a [Base de Dados Azure Suportada para versões](./concepts-supported-versions.md)de base de dados MariaDB .
 
-Dentro de um Azure Database for MariaDB Server, pode criar uma ou múltiplas bases de dados. Você pode optar por criar um único banco de dados por servidor para usar todos os recursos ou para criar vários deles para compartilhar os recursos. O preço é estruturado por servidor, com base na configuração do tipo de preço, vCores e armazenamento (GB). Para obter mais informações, consulte [tipos de preço](./concepts-pricing-tiers.md).
+Dentro de um Azure Database for MariaDB Server, pode criar uma ou múltiplas bases de dados. Pode optar por criar uma única base de dados por servidor para utilizar todos os recursos ou criar várias bases de dados para partilhar os recursos. O preço é estruturado por servidor, com base na configuração do nível de preços, vCores e armazenamento (GB). Para mais informações, consulte [os níveis de preços](./concepts-pricing-tiers.md).
 
-## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>Como fazer proteger um banco de dados do Azure para o MariaDB Server?
+## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>Como posso garantir uma Base de Dados Azure para o servidor MariaDB?
 
-Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados.
+Os seguintes elementos ajudam a garantir um acesso seguro à sua base de dados.
 
 |||
 | :--| :--|
-| **Autenticação e autorização** | O banco de dados do Azure para MariaDB Server dá suporte à autenticação do MySQL nativo. Você pode se conectar e autenticar em um servidor com o logon de administrador do servidor. |
-| **Protocolo** | O serviço oferece suporte a um protocolo baseado em mensagem usado pelo MySQL. |
-| **TCP/IP** | O protocolo tem suporte em TCP/IP e em soquetes de domínio do UNIX. |
-| **Firewall** | Para ajudar a proteger seus dados, uma regra de Firewall impede todo acesso ao seu servidor de banco de dado, até que você especifique quais computadores têm permissão. Consulte [banco de dados do Azure para regras de firewall do servidor MariaDB](./concepts-firewall-rules.md). |
-| **SSL** | O serviço dá suporte à imposição de conexões SSL entre seus aplicativos e seu servidor de banco de dados. Consulte [configurar conectividade SSL em seu aplicativo para se conectar com segurança ao banco de dados do Azure para MariaDB](./howto-configure-ssl.md). |
+| **Autenticação e autorização** | A Base de Dados Azure para servidor MariaDB suporta a autenticação mySQL nativa. Pode ligar e autenticar a um servidor com o login de administração do servidor. |
+| **Protocolo** | O serviço suporta um protocolo baseado em mensagens usado pela MySQL. |
+| **TCP/IP** | O protocolo é suportado sobre TCP/IP e sobre tomadas de domínio Unix. |
+| **Firewall** | Para ajudar a proteger os seus dados, uma regra de firewall impede todo o acesso ao seu servidor de base de dados, até especificar quais os computadores que têm permissão. Consulte a [Base de Dados Azure para obter regras](./concepts-firewall-rules.md)de firewall do Servidor MariaDB . |
+| **SSL** | O serviço suporta a aplicação de ligações SSL entre as suas aplicações e o seu servidor de base de dados. Consulte a [conectividade Configure SSL na sua aplicação para ligar de forma segura à Base de Dados Azure para MariaDB](./howto-configure-ssl.md). |
 
-## <a name="how-do-i-manage-a-server"></a>Como fazer gerenciar um servidor?
-Você pode gerenciar o banco de dados do Azure para servidores MariaDB usando o portal do Azure ou o CLI do Azure.
+## <a name="how-do-i-manage-a-server"></a>Como posso gerir um servidor?
+Pode gerir a Base de Dados Azure para servidores MariaDB utilizando o portal Azure ou o Azure CLI.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Para obter uma visão geral do serviço, consulte [visão geral do banco de dados do Azure para MariaDB](./overview.md)
-- Para obter informações sobre cotas e limitações de recursos específicas com base em sua **camada de serviço**, consulte [camadas de serviço](./concepts-pricing-tiers.md)
+- Para uma visão geral do serviço, consulte a Base de [Dados Azure para a visão geral](./overview.md) do MariaDB
+- Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis](./concepts-pricing-tiers.md) de serviço
 
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

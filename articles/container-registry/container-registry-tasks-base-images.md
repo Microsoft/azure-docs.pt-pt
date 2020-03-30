@@ -4,10 +4,10 @@ description: Saiba mais sobre as imagens base para imagens de contentores de apl
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617934"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Sobre atualizações de imagem base para Tarefas ACR
@@ -16,7 +16,7 @@ Este artigo fornece informações de fundo sobre atualizações à imagem base d
 
 ## <a name="what-are-base-images"></a>O que são imagens base?
 
-Os ficheiros de dockerque definem a maioria das imagens de contentores especificam uma imagem dos pais a partir da qual a imagem é baseada, muitas vezes referida como a sua *imagem base*. As imagens base normalmente contêm o sistema operativo, por exemplo [Alpine Linux][base-alpine] ou [Windows Nano Server,][base-windows]no qual o resto das camadas do recipiente são aplicadas. Podem também incluir quadros de aplicação como [o Node.js][base-node] ou [o .NET Core][base-dotnet]. Estas imagens base são, em si, tipicamente baseadas em imagens públicas a montante. Várias das suas imagens de aplicação podem partilhar uma imagem de base comum.
+Os ficheiros de dockerque definem a maioria das imagens de contentores especificam uma imagem dos pais a partir da qual a imagem é baseada, muitas vezes referida como a sua *imagem base*. As imagens de base, normalmente, contêm o sistema operativo, por exemplo [Alpine Linux][base-alpine] ou [Windows Nano Server][base-windows], no qual são aplicadas as restantes camadas do contentor. As imagens de base também podem incluir estruturas de aplicações, tais como [Node.js][base-node] ou [.NET Core][base-dotnet]. Estas imagens base são, em si, tipicamente baseadas em imagens públicas a montante. Várias das suas imagens de aplicação podem partilhar uma imagem de base comum.
 
 Frequentemente, uma imagem de base é atualizada pelo responsável pela manutenção da imagem para incluir as novas funcionalidades ou os melhoramentos no SO ou na estrutura. Os patches de segurança são outra causa comum para a atualização da imagem de base. Quando estas atualizações a montante ocorrerem, também deve atualizar as imagens base para incluir a correção crítica. Cada imagem de aplicação deve então ser reconstruída para incluir estas correções a montante agora incluídas na sua imagem base.
 
@@ -37,13 +37,13 @@ Para a imagem construída a partir de um Dockerfile, uma tarefa ACR deteta depen
 * Um repo público em Docker Hub 
 * Um repo público no Registo de Contentores da Microsoft
 
-Se a imagem base especificada na declaração de `FROM` residir num desses locais, a tarefa ACR adiciona um gancho para garantir que a imagem é reconstruída sempre que a sua base é atualizada.
+Se a imagem base `FROM` especificada na declaração residir num desses locais, a tarefa ACR adiciona um gancho para garantir que a imagem é reconstruída sempre que a sua base é atualizada.
 
 ## <a name="additional-considerations"></a>Considerações adicionais
 
 * **Imagens base para imagens** de aplicação - Atualmente, uma tarefa ACR apenas rastreia as atualizações de imagem base para imagens de aplicação (tempo de*execução).* Não rastreia atualizações de imagem base para imagens intermédias (tempo de*construção)* utilizadas em Ficheiros Dockerfiles em vários estágios.  
 
-* **Ativada por padrão** - Quando cria uma tarefa ACR com a [tarefa az acr criar][az-acr-task-create] comando, por padrão a tarefa é *ativada* para o gatilho através de uma atualização de imagem base. Ou seja, a propriedade `base-image-trigger-enabled` está definida para True. Se quiser desativar este comportamento numa tarefa, atualize a propriedade para False. Por exemplo, executar o seguinte comando de [atualização de tarefas az acr:][az-acr-task-update]
+* **Ativada por padrão** - Quando cria uma tarefa ACR com a [tarefa az acr criar][az-acr-task-create] comando, por padrão a tarefa é *ativada* para o gatilho através de uma atualização de imagem base. Ou seja, `base-image-trigger-enabled` a propriedade está definida para True. Se quiser desativar este comportamento numa tarefa, atualize a propriedade para False. Por exemplo, executar o seguinte comando de [atualização de tarefas az acr:][az-acr-task-update]
 
   ```azurecli
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False

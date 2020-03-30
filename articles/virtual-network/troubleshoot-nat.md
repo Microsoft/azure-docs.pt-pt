@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 43e6853fd5e7583883f79e70c8dbcd558f137834
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 4a273801290a0a5833ebd83983a8b6b0ad856b45
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79202166"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79408489"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Conectividade na rede virtual Desfilmo Azure NaT
 
@@ -53,14 +53,23 @@ Frequentemente, a causa principal da exaustão do SNAT é um anti-padrão para a
 
 Aproveite sempre que possível a reutilização da ligação e o agrupamento de ligação.  Estes padrões evitarão problemas de exaustão de recursos e resultarão em comportamentos previsíveis. Os primitivos para estes padrões podem ser encontrados em muitas bibliotecas e quadros de desenvolvimento.
 
-_**Solução:**_ Utilize padrões apropriados
+_**Solução:**_ Utilize padrões e boas práticas apropriados
+
+- Os pedidos atómicos (um pedido por ligação) são uma má escolha de design. Esta escala de limites anti-padrão, reduz o desempenho e diminui a fiabilidade. Em vez disso, reutilizar as ligações HTTP/S para reduzir o número de ligações e portas SNAT associadas. A escala de aplicação aumentará e o desempenho melhorará devido à redução dos apertos de mão, despesas gerais e de operação criptográfica ao utilizar TLS.
+- O DNS pode introduzir muitos fluxos individuais em volume quando o cliente não está a cortar o resultado dos resolvers dNS. Use o cache.
+- Os fluxos uDP (por exemplo, as despesas com DNS) atribuem portas SNAT durante o tempo de paragem. Quanto mais tempo o tempo de paragem, maior a pressão sobre as portas SNAT. Utilize um tempo de paragem curto (por exemplo, 4 minutos).
+- Utilize piscinas de ligação para moldar o volume de ligação.
+- Nunca abandone silenciosamente um fluxo de TCP e confie em temporizadores de TCP para limpar o fluxo. Isto deixará o Estado alocado em sistemas intermédios e pontos finais, e tornará as portas indisponíveis para outras ligações. Isto pode desencadear falhas na aplicação e exaustão de SNAT. 
+- Os valores do temporizador próximo da TCP não devem ser alterados sem um conhecimento especializado do impacto. Enquanto o TCP irá recuperar, o desempenho da sua aplicação pode ser impactado negativamente quando os pontos finais de uma ligação têm expectativas desajustadas. O desejo de mudar os temporizadores é geralmente um sinal de um problema de design subjacente. Rever seguindo recomendações.
+
+Muitas vezes, a exaustão do SNAT também pode ser amplificada com outros anti-padrões na aplicação subjacente. Reveja estes padrões e boas práticas adicionais para melhorar a escala e a fiabilidade do seu serviço.
 
 - Considere padrões de [sondagens assíncronos](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) para operações de longa duração para libertar recursos de ligação para outras operações.
-- Os fluxos de longa duração (por exemplo, ligações TCP reutilizadas) devem utilizar vidas de manutenção de TCP ou manutenção da camada de aplicação para evitar o tempo de saída dos sistemas intermédios.
+- Os fluxos de longa duração (por exemplo, ligações TCP reutilizadas) devem utilizar vidas de manutenção de TCP ou manutenção da camada de aplicação para evitar o tempo de saída dos sistemas intermédios. Aumentar o tempo inativo é um último recurso e pode não resolver a causa principal. Um período de tempo prolongado pode causar falhas de taxas baixas quando o tempo expira e introduzir atrasos e falhas desnecessárias.
 - Os padrões de [repetição graciosos](https://docs.microsoft.com/azure/architecture/patterns/retry) devem ser utilizados para evitar repetições/explosões agressivas durante a falha transitória ou recuperação de falhas.
 Criar uma nova ligação TCP para cada operação HTTP (também conhecida como "conexões atómicas") é um anti-padrão.  As ligações atómicas impedirão que a sua aplicação escalda bem e desperdice recursos.  Conduza sempre várias operações para a mesma ligação.  A sua aplicação beneficiará na velocidade de transação e nos custos de recursos.  Quando a sua aplicação utiliza encriptação da camada de transporte (por exemplo TLS), há um custo significativo associado ao processamento de novas ligações.  Reveja os padrões de [design de nuvem azure](https://docs.microsoft.com/azure/architecture/patterns/) para padrões adicionais de boas práticas.
 
-#### <a name="possible-mitigations"></a>Possíveis atenuações
+#### <a name="additional-possible-mitigations"></a>Atenuações possíveis adicionais
 
 _**Solução:**_ Conectividade de saída de escala da seguinte forma:
 
@@ -117,7 +126,7 @@ _**Solução:**_
 
 Não recomendamos reduzir artificialmente o tempo de ligação do TCP ou afinar o parâmetro RTO.
 
-#### <a name="public-internet-transit"></a>trânsito público da Internet
+#### <a name="public-internet-transit"></a>Trânsito público da Internet
 
 As probabilidades de falhas transitórias aumentam com um caminho mais longo para o destino e sistemas mais intermédios. Espera-se que falhas transitórias possam aumentar de frequência sobre [a infraestrutura azure.](#azure-infrastructure) 
 
@@ -166,7 +175,7 @@ Pode indicar interesse em capacidades adicionais através da [Rede Virtual NAT U
 ## <a name="next-steps"></a>Passos seguintes
 
 * Conheça a [Rede Virtual NAT](nat-overview.md)
-* Saiba mais sobre o [recurso de gateway NAT](nat-gateway-resource.md)
+* Aprenda ab Fry fora [do recurso de gateway NAT](nat-gateway-resource.md)
 * Conheça [métricas e alertas para os recursos](nat-metrics.md)de gateway NAT .
 * [Diga-nos o que construir a seguir para a Rede Virtual NAT no UserVoice](https://aka.ms/natuservoice).
 

@@ -1,96 +1,96 @@
 ---
-title: Conexão de VM do Azure SQL para indexação de pesquisa
+title: Conexão VM Azure SQL para indexação de pesquisa
 titleSuffix: Azure Cognitive Search
-description: Habilite conexões criptografadas e configure o firewall para permitir conexões a SQL Server em uma VM (máquina virtual) do Azure de um indexador no Pesquisa Cognitiva do Azure.
+description: Ative ligações encriptadas e configure a firewall para permitir ligações ao SQL Server numa máquina virtual Azure (VM) a partir de um indexante em Pesquisa Cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7933e2608ae0b59a6dce89169f4bb1faba0aa25e
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 1ab2b7860e8a75da5f8acef2fc4fa54d4b73a30d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934136"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80256968"
 ---
-# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador Pesquisa Cognitiva do Azure para SQL Server em uma VM do Azure
+# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configure uma ligação de um indexador de pesquisa cognitiva Azure ao Servidor SQL num VM Azure
 
-Conforme observado na [conexão do banco de dados SQL do Azure ao azure pesquisa cognitiva usando indexadores, a](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)criação de indexadores em relação a **SQL Server em VMs do azure** (ou **SQL Azure VMs** para curto) é suportada pelo Azure pesquisa cognitiva, mas há alguns pré-requisitos relacionados à segurança que devem ser considerados primeiro. 
+Como notado na [Connecting Azure SQL Database to Azure Cognitive Search utilizando indexers,](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)a criação de indexantes contra o **SQL Server em VMs Azure** (ou **SQL Azure VMs** para abreviar) é suportado pela Azure Cognitive Search, mas existem alguns pré-requisitos relacionados com a segurança para cuidar primeiro. 
 
-As conexões do Pesquisa Cognitiva do Azure para SQL Server em uma VM são uma conexão de Internet pública. Todas as medidas de segurança que normalmente você seguiria para essas conexões também se aplicam aqui:
+As ligações da Pesquisa Cognitiva Azure ao Servidor SQL num VM são uma ligação à internet pública. Todas as medidas de segurança que normalmente seguiria para estas ligações também se aplicam aqui:
 
-+ Obtenha um certificado de um [provedor de autoridade de certificação](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para o nome de domínio totalmente qualificado da instância de SQL Server na VM do Azure.
-+ Instale o certificado na VM e, em seguida, habilite e configure as conexões criptografadas na VM usando as instruções neste artigo.
++ Obtenha um certificado de um fornecedor de Autoridade de [Certificados](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para o nome de domínio totalmente qualificado da instância SQL Server no VM Azure.
++ Instale o certificado no VM e, em seguida, ative e configure ligações encriptadas no VM utilizando as instruções deste artigo.
 
-## <a name="enable-encrypted-connections"></a>Habilitar conexões criptografadas
-O Pesquisa Cognitiva do Azure requer um canal criptografado para todas as solicitações do indexador em uma conexão de Internet pública. Esta seção lista as etapas para fazer esse trabalho.
+## <a name="enable-encrypted-connections"></a>Ativar ligações encriptadas
+A Pesquisa Cognitiva Azure requer um canal encriptado para todos os pedidos indexantes através de uma ligação à internet pública. Esta secção enumera os passos para que isto funcione.
 
-1. Verifique as propriedades do certificado para verificar se o nome da entidade é o FQDN (nome de domínio totalmente qualificado) da VM do Azure. Você pode usar uma ferramenta como CertUtils ou o snap-in de certificados para exibir as propriedades. Você pode obter o FQDN da seção conceitos básicos da folha de serviço da VM, no campo **rótulo de endereço IP público/nome DNS** , na [portal do Azure](https://portal.azure.com/).
+1. Verifique se as propriedades do certificado para verificar se o nome do assunto é o nome de domínio totalmente qualificado (FQDN) do VM Azure. Pode utilizar uma ferramenta como a CertUtils ou os Certificados para visualizar as propriedades. Pode obter o FQDN na secção Essencial da lâmina de serviço VM, no campo de etiquetas de **endereço IP/DNS público,** no [portal Azure](https://portal.azure.com/).
    
-   * Para VMs criadas usando o modelo do **Resource Manager** mais recente, o FQDN é formatado como `<your-VM-name>.<region>.cloudapp.azure.com`
-   * Para VMs mais antigas criadas como uma VM **clássica** , o FQDN é formatado como `<your-cloud-service-name.cloudapp.net>`.
+   * Para VMs criados usando o modelo mais recente de Gestor de **Recursos,** o FQDN é formatado como`<your-VM-name>.<region>.cloudapp.azure.com`
+   * Para VMs mais antigos criados como um VM `<your-cloud-service-name.cloudapp.net>` **clássico,** o FQDN é formatado como .
 
-2. Configure SQL Server para usar o certificado usando o editor do registro (regedit). 
+2. Configure o Servidor SQL para utilizar o certificado utilizando o Editor de Registo (regedit). 
    
-    Embora SQL Server Configuration Manager geralmente seja usado para essa tarefa, você não pode usá-la para esse cenário. Ele não encontrará o certificado importado porque o FQDN da VM no Azure não corresponde ao FQDN conforme determinado pela VM (ele identifica o domínio como o computador local ou o domínio de rede ao qual ele está associado). Quando os nomes não corresponderem, use regedit para especificar o certificado.
+    Embora o SQL Server Configuration Manager seja frequentemente utilizado para esta tarefa, não pode usá-lo para este cenário. Não encontrará o certificado importado porque o FQDN do VM em Azure não corresponde ao FQDN determinado pelo VM (identifica o domínio como computador local ou o domínio de rede ao qual está ligado). Quando os nomes não coincidirem, utilize o regedita para especificar o certificado.
    
-   * No regedit, navegue até esta chave do registro: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`.
+   * No regedite, navegue para `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`esta chave de registo: .
      
-     A `[MSSQL13.MSSQLSERVER]` parte varia de acordo com a versão e o nome da instância. 
-   * Defina o valor da chave de **certificado** para a **impressão digital** do certificado SSL que você importou para a VM.
+     A `[MSSQL13.MSSQLSERVER]` peça varia em função da versão e do nome da instância. 
+   * Detete o valor da chave **certificado** para a **impressão digital** do certificado TLS/SSL que importou para o VM.
      
-     Há várias maneiras de obter a impressão digital, algumas melhores do que outras. Se você copiá-lo do snap-in de **certificados** no MMC, você provavelmente obterá um caractere de entrelinha invisível, [conforme descrito neste artigo de suporte](https://support.microsoft.com/kb/2023869/), que resulta em um erro quando você tenta uma conexão. Existem várias soluções alternativas para corrigir esse problema. O mais fácil é fazer o Backspace e, em seguida, digitar novamente o primeiro caractere da impressão digital para remover o caractere à esquerda no campo valor da chave no regedit. Como alternativa, você pode usar uma ferramenta diferente para copiar a impressão digital.
+     Há várias maneiras de obter a impressão digital, algumas melhores que outras. Se o copiar **espetado** nos Certificados no MMC, provavelmente irá captar um personagem principal [invisível, tal como descrito neste artigo](https://support.microsoft.com/kb/2023869/)de suporte, o que resulta num erro quando se tenta uma ligação. Existem várias sobras para corrigir este problema. O mais fácil é recolocar o backspace e, em seguida, reescrever o primeiro personagem da impressão digital para remover o personagem principal no campo de valor chave em regedit. Em alternativa, pode utilizar uma ferramenta diferente para copiar a impressão digital.
 
-3. Conceda permissões para a conta de serviço. 
+3. Conceda permissões à conta de serviço. 
    
-    Verifique se a conta de serviço SQL Server recebeu a permissão apropriada na chave privada do certificado SSL. Se você ignorar esta etapa, SQL Server não será iniciada. Você pode usar o snap-in de **certificados** ou **certutils** para esta tarefa.
+    Certifique-se de que a conta de serviço SQL Server recebe permissão adequada na chave privada do certificado TLS/SSL. Se ignorar este passo, o Servidor SQL não arranca. Pode utilizar os **Certificados** snap-in ou **CertUtils** para esta tarefa.
     
 4. Reinicie o serviço do SQL Server.
 
-## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurar a conectividade de SQL Server na VM
-Depois de configurar a conexão criptografada exigida pelo Azure Pesquisa Cognitiva, há etapas de configuração adicionais intrínsecas a SQL Server em VMs do Azure. Se você ainda não fez isso, a próxima etapa é concluir a configuração usando um destes artigos:
+## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configure a conectividade do Servidor SQL no VM
+Depois de configurar a ligação encriptada exigida pela Pesquisa Cognitiva Azure, existem passos de configuração adicionais intrínsecos ao Servidor SQL em VMs Azure. Se ainda não o fez, o próximo passo é terminar a configuração usando qualquer um destes artigos:
 
-* Para uma VM do **Resource Manager** , consulte [conectar-se a uma máquina virtual SQL Server no Azure usando o Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
-* Para uma VM **clássica** , consulte [conectar-se a uma máquina virtual SQL Server no Azure clássico](../virtual-machines/windows/classic/sql-connect.md).
+* Para um VM gestor de **recursos,** consulte [Connect to a SQL Server Virtual Machine on Azure utilizando o Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
+* Para um VM **clássico,** consulte [Connect to a SQL Server Virtual Machine on Azure Classic](../virtual-machines/windows/classic/sql-connect.md).
 
-Em particular, examine a seção em cada artigo para "conectando-se pela Internet".
+Em particular, reveja a secção em cada artigo para "ligar pela internet".
 
-## <a name="configure-the-network-security-group-nsg"></a>Configurar o grupo de segurança de rede (NSG)
-Não é incomum configurar o NSG e o ponto de extremidade do Azure correspondente ou a ACL (lista de controle de acesso) para tornar sua VM do Azure acessível a outras partes. É provável que você tenha feito isso antes de permitir que sua própria lógica de aplicativo se conecte à VM SQL Azure. Não é diferente para uma conexão de Pesquisa Cognitiva do Azure com sua VM SQL Azure. 
+## <a name="configure-the-network-security-group-nsg"></a>Configure o Grupo de Segurança da Rede (NSG)
+Não é incomum configurar o NSG e a correspondente Lista de Controlo de Acesso (ACL) para tornar o seu Azure VM acessível a outras partes. É provável que tenha feito isto antes para permitir que a sua própria lógica de aplicação se conectem ao seu SQL Azure VM. Não é diferente para uma ligação de pesquisa cognitiva Azure ao seu SQL Azure VM. 
 
-Os links a seguir fornecem instruções sobre a configuração do NSG para implantações de VM. Use estas instruções para obter uma ACL de um ponto de extremidade de Pesquisa Cognitiva do Azure com base em seu endereço IP.
+Os links abaixo fornecem instruções sobre a configuração NSG para implementações VM. Utilize estas instruções para ACL um ponto final de pesquisa cognitiva Azure com base no seu endereço IP.
 
 > [!NOTE]
-> Para obter informações, consulte [o que é um grupo de segurança de rede?](../virtual-network/security-overview.md)
+> Para segundo plano, veja [o que é um Grupo de Segurança da Rede?](../virtual-network/security-overview.md)
 > 
 > 
 
-* Para uma VM do **Resource Manager** , consulte [como criar NSGs para implantações do ARM](../virtual-network/tutorial-filter-network-traffic.md). 
-* Para uma VM **clássica** , consulte [como criar NSGs para implantações clássicas](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
+* Para um VM gestor de **recursos,** consulte [como criar NSGs para implementações ARM](../virtual-network/tutorial-filter-network-traffic.md). 
+* Para um VM **clássico,** veja [como criar NSGs para implementações clássicas.](../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 
-O endereçamento IP pode apresentar alguns desafios que serão facilmente solucionados se você estiver atento ao problema e possíveis soluções alternativas. As seções restantes fornecem recomendações para lidar com problemas relacionados a endereços IP na ACL.
+A abordagem ip pode colocar alguns desafios que são facilmente ultrapassados se você estiver ciente do problema e potenciais soluções. As restantes secções fornecem recomendações para tratar questões relacionadas com endereços IP na ACL.
 
-#### <a name="restrict-access-to-the-azure-cognitive-search"></a>Restringir o acesso ao Pesquisa Cognitiva do Azure
-É altamente recomendável que você restrinja o acesso ao endereço IP do serviço de pesquisa e o intervalo de endereços IP da [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` na ACL em vez de tornar suas VMs SQL Azure abertas para todas as solicitações de conexão.
+#### <a name="restrict-access-to-the-azure-cognitive-search"></a>Restringir o acesso à Pesquisa Cognitiva Azure
+Recomendamos vivamente que restrinja o acesso ao endereço IP do `AzureCognitiveSearch` seu serviço de pesquisa e à gama de endereços IP da etiqueta de [serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) no ACL em vez de tornar os seus VMs SQL Azure abertos a todos os pedidos de ligação.
 
-Você pode descobrir o endereço IP executando ping no FQDN (por exemplo, `<your-search-service-name>.search.windows.net`) de seu serviço de pesquisa.
+Pode descobrir o endereço IP através do sinal do FQDN (por exemplo, `<your-search-service-name>.search.windows.net`) do seu serviço de pesquisa.
 
-Você pode descobrir o intervalo de endereços IP de `AzureCognitiveSearch` [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) usando [arquivos JSON baixáveis](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou por meio da [API de descoberta de marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). O intervalo de endereços IP é atualizado semanalmente.
+Pode descobrir a gama de `AzureCognitiveSearch` endereços IP da etiqueta de [serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) utilizando [ficheiros JSON descarregados](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou através da [API De identificação](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)de etiquetas de serviço . A gama de endereços IP é atualizada semanalmente.
 
-#### <a name="managing-ip-address-fluctuations"></a>Gerenciando flutuações de endereço IP
-Se o serviço de pesquisa tiver apenas uma unidade de pesquisa (ou seja, uma réplica e uma partição), o endereço IP será alterado durante a reinicialização do serviço de rotina, invalidando uma ACL existente com o endereço IP do serviço de pesquisa.
+#### <a name="managing-ip-address-fluctuations"></a>Gestão das flutuações do endereço IP
+Se o seu serviço de pesquisa tiver apenas uma unidade de pesquisa (isto é, uma réplica e uma divisória), o endereço IP mudará durante o reinício do serviço de rotina, invalidando um ACL existente com o endereço IP do seu serviço de pesquisa.
 
-Uma maneira de evitar o erro de conectividade subsequente é usar mais de uma réplica e uma partição no Azure Pesquisa Cognitiva. Isso aumenta o custo, mas também resolve o problema de endereço IP. No Azure Pesquisa Cognitiva, os endereços IP não são alterados quando você tem mais de uma unidade de pesquisa.
+Uma maneira de evitar o erro de conectividade subsequente é usar mais do que uma réplica e uma partição na Pesquisa Cognitiva Azure. Ao fazê-lo aumenta o custo, mas também resolve o problema do endereço IP. Na Pesquisa Cognitiva Azure, os endereços IP não mudam quando se tem mais de uma unidade de pesquisa.
 
-Uma segunda abordagem é permitir que a conexão falhe e, em seguida, reconfigurar as ACLs no NSG. Em média, você pode esperar que os endereços IP sejam alterados em intervalos de semanas. Para clientes que controlam a indexação com pouca frequência, essa abordagem pode ser viável.
+Uma segunda abordagem é permitir que a ligação falhe e, em seguida, reconfigurar os ACLs no NSG. Em média, pode esperar que os endereços IP mudem a cada poucas semanas. Para os clientes que controlam a indexação numa base pouco frequente, esta abordagem pode ser viável.
 
-Uma terceira abordagem viável (mas não particularmente segura) é especificar o intervalo de endereços IP da região do Azure em que o serviço de pesquisa é provisionado. A lista de intervalos de IP de onde os endereços IP públicos são alocados aos recursos do Azure é publicada em [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
+Uma terceira abordagem viável (mas não particularmente segura) é especificar a gama de endereços IP da região de Azure onde o seu serviço de pesquisa é aprovisionado. A lista de intervalos ip a partir dos quais os endereços IP públicos são atribuídos aos recursos do Azure é publicada nas [gamas IP do Azure Datacenter.](https://www.microsoft.com/download/details.aspx?id=41653) 
 
-#### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Incluir os endereços IP do portal de Pesquisa Cognitiva do Azure
-Se você estiver usando o portal do Azure para criar um indexador, a lógica do portal de Pesquisa Cognitiva do Azure também precisará acessar a VM do SQL Azure durante a criação. Os endereços IP do portal de Pesquisa Cognitiva do Azure podem ser encontrados por meio do ping `stamp2.search.ext.azure.com`.
+#### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Inclua os endereços IP do portal de pesquisa cognitiva Azure
+Se estiver a usar o portal Azure para criar um indexante, a lógica do portal de pesquisa cognitiva Azure também precisa de acesso ao seu SQL Azure VM durante o tempo de criação. Os endereços IP do portal de pesquisa `stamp2.search.ext.azure.com`cognitiva Azure podem ser encontrados através de pinging .
 
 ## <a name="next-steps"></a>Passos seguintes
-Com a configuração fora do caminho, agora você pode especificar um SQL Server na VM do Azure como a fonte de dados para um indexador de Pesquisa Cognitiva do Azure. Consulte [conectando o banco de dados SQL do Azure ao azure pesquisa cognitiva usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
+Com a configuração fora do caminho, pode agora especificar um Servidor SQL no Azure VM como a fonte de dados de um indexador de pesquisa cognitiva Azure. Consulte [a Connecting Azure SQL Database à Azure Cognitive Search utilizando os indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
 

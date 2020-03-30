@@ -3,21 +3,21 @@ title: 'Tutorial: Migrar PostgreSQL para Azure DB para PostgreSQL online atravé
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line de PostgreSQL no local para Azure Database for PostgreSQL utilizando o Serviço de Migração de Bases de Dados Azure através do portal Azure.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 02/17/2020
-ms.openlocfilehash: 67eced7f647d50733dc8d273bdd9cd8a31b7b6dc
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.date: 03/25/2020
+ms.openlocfilehash: 4985c492c8ca71da87cf1a519ebc658c203d3952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255506"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246981"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar PostgreSQL para Azure DB para PostgreSQL online usando DMS através do portal Azure
 
@@ -27,14 +27,14 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > * Migrar o esquema da amostra utilizando o utilitário pg_dump.
-> * Crie uma instância do Serviço de Migração de Bases de Dados Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração no Serviço de Migração de Bases de Dados Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
 > * Executar a redução da migração.
 
 > [!NOTE]
-> A utilização do Serviço de Migração de Bases de Dados Azure para realizar uma migração online requer a criação de uma instância baseada no nível de preços Premium.
+> A utilização do Serviço de Migração de Bases de Dados Azure para realizar uma migração online requer a criação de uma instância baseada no nível de preços Premium. Encriptamos o disco para evitar o roubo de dados durante o processo de migração
 
 > [!IMPORTANT]
 > Para uma experiência de migração ideal, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Bases de Dados Azure na mesma região do Azure que a base de dados alvo. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
@@ -116,29 +116,35 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
    > As chaves estrangeiras no seu esquema farão com que a carga inicial e a sincronização contínua da migração falhem.
 
     ```
-    SELECT Queries.tablename
-           ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
-                ,concat('alter table ', Queries.tablename, ' ',
-                                                STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
-        FROM
+    SELECT Q.table_name
+        ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' DROP CONSTRAINT ', foreignkey), ','), ';') as DropQuery
+            ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ', foreignkey, ' FOREIGN KEY (', column_name, ')', ' REFERENCES ', foreign_table_schema, '.', foreign_table_name, '(', foreign_column_name, ')' ), ','), ';') as AddQuery
+    FROM
         (SELECT
+        S.table_schema,
+        S.foreignkey,
+        S.table_name,
+        STRING_AGG(DISTINCT S.column_name, ',') AS column_name,
+        S.foreign_table_schema,
+        S.foreign_table_name,
+        STRING_AGG(DISTINCT S.foreign_column_name, ',') AS foreign_column_name
+    FROM
+        (SELECT DISTINCT
         tc.table_schema,
-        tc.constraint_name as foreignkey,
-        tc.table_name as tableName,
+        tc.constraint_name AS foreignkey,
+        tc.table_name,
         kcu.column_name,
         ccu.table_schema AS foreign_table_schema,
         ccu.table_name AS foreign_table_name,
         ccu.column_name AS foreign_column_name
-    FROM
-        information_schema.table_constraints AS tc
-        JOIN information_schema.key_column_usage AS kcu
-          ON tc.constraint_name = kcu.constraint_name
-          AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu
-          ON ccu.constraint_name = tc.constraint_name
-          AND ccu.table_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY') Queries
-      GROUP BY Queries.tablename;
+        FROM information_schema.table_constraints AS tc
+        JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
+        JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name AND ccu.table_schema = tc.table_schema
+    WHERE constraint_type = 'FOREIGN KEY'
+        ) S
+        GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name
+        ) Q
+        GROUP BY Q.table_schema, Q.table_name;
     ```
 
 5. Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta.
@@ -149,8 +155,8 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
    > Os gatilhos (inserir ou atualizar) nos dados impõem a integridade dos dados no alvo antes de os dados serem replicados a partir da fonte. Como resultado, recomenda-se que desative os gatilhos em todas as tabelas **do alvo** durante a migração e, em seguida, reativar os gatilhos após a migração estar completa.
 
     ```
-    select concat ('alter table ', event_object_table, ' disable trigger ', trigger_name)
-    from information_schema.triggers;
+    SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
+    FROM information_schema.triggers
     ```
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration

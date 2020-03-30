@@ -3,16 +3,16 @@ title: Definir múltiplas instâncias de uma propriedade
 description: Utilize a operação de cópia num modelo de Gestor de Recursos Azure para iterar várias vezes ao criar uma propriedade num recurso.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: b759389cd1065c399658bd8d0c1ddd263054697c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622864"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258112"
 ---
-# <a name="property-iteration-in-azure-resource-manager-templates"></a>Iteração de propriedade em modelos de Gestor de Recursos Azure
+# <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
-Este artigo mostra-lhe como criar mais do que uma instância de uma propriedade no seu modelo de Gestor de Recursos Azure. Ao adicionar o elemento **de cópia** à secção de propriedades de um recurso no seu modelo, pode configurar dinamicamente o número de itens para uma propriedade durante a implementação. Também evita ter que repetir a sintaxe do modelo.
+Este artigo mostra-lhe como criar mais do que uma instância de uma propriedade no seu modelo Degestor de Recursos Azure (ARM). Ao adicionar o elemento **de cópia** à secção de propriedades de um recurso no seu modelo, pode configurar dinamicamente o número de itens para uma propriedade durante a implementação. Também evita ter que repetir a sintaxe do modelo.
 
 Também pode utilizar cópias com [recursos,](copy-resources.md) [variáveis](copy-variables.md)e [saídas.](copy-outputs.md)
 
@@ -34,7 +34,7 @@ Para **nome**, forneça o nome da propriedade de recursos que pretende criar. A 
 
 A propriedade **de entrada** especifica as propriedades que pretende repetir. Você cria uma variedade de elementos construídos a partir do valor na propriedade de **entrada.**
 
-O exemplo que se segue mostra como aplicar `copy` à propriedade dataDisks numa máquina virtual:
+O exemplo que se `copy` segue mostra como aplicar à propriedade dataDisks numa máquina virtual:
 
 ```json
 {
@@ -78,13 +78,13 @@ O exemplo que se segue mostra como aplicar `copy` à propriedade dataDisks numa 
 }
 ```
 
-Note que ao usar `copyIndex` dentro de uma iteração de propriedade, você deve fornecer o nome da iteração.
+Note que `copyIndex` ao usar dentro de uma iteração de propriedade, você deve fornecer o nome da iteração.
 
 > [!NOTE]
 > A iteração imobiliária também suporta um argumento compensado. A contrapartida deve ser seguida do nome da iteração, como o copyIndex('dataDisks', 1).
 >
 
-O Gestor de Recursos expande a matriz de `copy` durante a implantação. O nome da matriz torna-se o nome da propriedade. Os valores de entrada tornam-se as propriedades do objeto. O modelo implantado torna-se:
+O Gestor de `copy` Recursos expande a matriz durante a implantação. O nome da matriz torna-se o nome da propriedade. Os valores de entrada tornam-se as propriedades do objeto. O modelo implantado torna-se:
 
 ```json
 {
@@ -119,7 +119,7 @@ O elemento de cópia é uma matriz para que possa especificar mais do que uma pr
 {
   "type": "Microsoft.Network/loadBalancers",
   "apiVersion": "2017-10-01",
-  "name": "examleLB",
+  "name": "exampleLB",
   "properties": {
     "copy": [
       {
@@ -191,11 +191,11 @@ O exemplo que se segue mostra um cenário comum para a criação de mais do que 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos de Gestor de Recursos .
+* Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos ARM .
 * Para outras utilizações do elemento cópia, consulte:
-  * [Iteração de recursos nos modelos do Gestor de Recursos Azure](copy-resources.md)
-  * [Iteração variável nos modelos do Gestor de Recursos Azure](copy-variables.md)
-  * [Iteração de saída nos modelos do Gestor de Recursos Azure](copy-outputs.md)
-* Se quiser saber sobre as secções de um modelo, consulte os modelos de gestor de [recursos do Azure .](template-syntax.md)
-* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com o Modelo](deploy-powershell.md)de Gestor de Recursos Azure .
+  * [Iteração de recursos em modelos ARM](copy-resources.md)
+  * [Iteração variável em modelos ARM](copy-variables.md)
+  * [Iteração de saída em modelos ARM](copy-outputs.md)
+* Se quiser saber sobre as secções de um modelo, consulte [os modelos ARM autores](template-syntax.md).
+* Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com modelo ARM](deploy-powershell.md).
 

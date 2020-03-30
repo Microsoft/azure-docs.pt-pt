@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 1778ba543e070bbffbbc8579b280373d834492fd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920807"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477413"
 ---
 # <a name="train-svd-recommender"></a>Preparar Recomendador SVD
 
@@ -62,13 +62,13 @@ A partir desta amostra, pode ver que um único utilizador classificou vários fi
     
     Cada fator mede o quanto o utilizador está relacionado com o item. O número de fatores é também a dimensionalidade do espaço do fator latente. Com o número de utilizadores e itens a aumentar, é melhor definir um maior número de fatores. Mas se o número for muito grande, o desempenho pode cair.
     
-3.  **O número de iterações de algoritmos de recomendação** indica quantas vezes o algoritmo deve processar os dados de entrada. Quanto maior for este número, mais precisas são as previsões. No entanto, um número mais elevado significa treino mais lento. O valor padrão é 30.
+3.  **O número de iterações de algoritmos de recomendação** indica quantas vezes o algoritmo deve processar os dados de entrada. Quanto maior for este número, mais precisas são as previsões. No entanto, um número mais elevado significa treino mais lento. O valor predefinido é 30.
 
 4.  Para **a taxa de aprendizagem**, insira um número entre 0,0 e 2.0 que define o tamanho do passo para a aprendizagem.
 
     A taxa de aprendizagem determina o tamanho do passo em cada iteração. Se o tamanho do passo for demasiado grande, poderá ultrapassar a solução ideal. Se o tamanho do passo for muito pequeno, o treino demora mais tempo a encontrar a melhor solução. 
   
-5.  Executar o pipeline.  
+5.  Submeta o oleoduto.  
 
 
 ## <a name="next-steps"></a>Passos seguintes

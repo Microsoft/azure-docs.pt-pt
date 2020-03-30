@@ -7,23 +7,23 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371924"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerir link privado para base de dados Azure para MySQL usando o Portal
 
 Um Private Endpoint é o bloco de construção fundamental para ligação privada em Azure. Permite que os recursos azure, como as Máquinas Virtuais (VMs), comuniquem privadamente com recursos de ligação privada. Neste artigo, você aprenderá a usar o portal Azure para criar um VM em uma Rede Virtual Azure e uma Base de Dados Azure para servidor MySQL com um ponto final privado Azure.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
 > Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para mySQL suporta níveis de preços otimizados para fins gerais e memória.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Criar um VM Azure
 
@@ -32,7 +32,7 @@ Nesta secção, irá criar uma rede virtual e a subnet para acolher o VM que é 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta secção, irá criar uma Rede Virtual e a subnet para acolher o VM que é utilizado para aceder ao seu recurso Private Link.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > rede de **rede** > **rede virtual**.
+1. No lado superior esquerdo do ecrã, selecione **Criar uma** > **rede virtual**de**rede** > de recursos .
 2. Na **Create rede virtual,** introduza ou selecione esta informação:
 
     | Definição | Valor |
@@ -49,7 +49,7 @@ Nesta secção, irá criar uma Rede Virtual e a subnet para acolher o VM que é 
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Compute** > **Máquina Virtual**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Compute** > **Virtual Machine**.
 
 2. Em **Criar uma máquina virtual - Básicos,** insira ou selecione esta informação:
 
@@ -67,11 +67,11 @@ Nesta secção, irá criar uma Rede Virtual e a subnet para acolher o VM que é 
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmar palavra-passe | Reintroduza a senha. |
+    | Confirmar Palavra-passe | Reintroduza a senha. |
     | **REGRAS PORTUÁRIAS DE ENTRADA** |  |
     | Portos de entrada pública | Deixe o padrão **Nenhum**. |
     | **POUPE DINHEIRO** |  |
-    | Já tem licença do Windows? | Deixe o padrão **Nº**. |
+    | Já tem uma licença do Windows? | Deixe o padrão **Nº**. |
     |||
 
 1. Selecione **Seguinte: Discos**.
@@ -84,7 +84,7 @@ Nesta secção, irá criar uma Rede Virtual e a subnet para acolher o VM que é 
     | ------- | ----- |
     | Rede virtual | Deixe o **MyVirtualNetwork**predefinido .  |
     | Espaço de endereços | Deixe o padrão **10.1.0.0/24**.|
-    | Subrede | Deixe a mySubnet por defeito **(10.1.0.0/24)** .|
+    | Subrede | Deixe a mySubnet por defeito **(10.1.0.0/24)**.|
     | IP público | Deixe o **myVm-ip padrão (novo)** |
     | Portos de entrada pública | **Selecione Permitir portas selecionadas**. |
     | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
@@ -99,7 +99,7 @@ Nesta secção, irá criar uma Rede Virtual e a subnet para acolher o VM que é 
 
 Nesta secção, irá criar uma Base de Dados Azure para o servidor MySQL em Azure. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > Bases de **dados** > Base de **Dados Azure para mySQL**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** > base de dados de**dados** > de recursos**Azure para MySQL**.
 
 1. Na Base de **Dados Azure para MySQL** fornecer estas informações:
 
@@ -126,7 +126,7 @@ Nesta secção, irá criar uma Base de Dados Azure para o servidor MySQL em Azur
 
 Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final privado. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Networking** > **Private Link**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um link** > **privado**de**rede** > de recursos .
 
 2. No **Private Link Center - Visão geral,** sobre a opção de construir uma **ligação privada a um serviço,** selecione **Iniciar**.
 
@@ -139,7 +139,7 @@ Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final priv
     | **Detalhes do projeto** | |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
-    | **Detalhes da instância** |  |
+    | **Detalhes de instância** |  |
     | Nome | Insira *o meu PrivateEndpoint*. Se este nome for tomado, crie um nome único. |
     |Região|Selecione **Europa Ocidental**.|
     |||
@@ -194,7 +194,7 @@ Depois de criar o **myVm,** ligue-o a partir da internet da seguinte forma:
     1. Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
 
         > [!NOTE]
-        > Poderá ter de selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
+        > Pode ser necessário selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 
@@ -206,7 +206,7 @@ Depois de criar o **myVm,** ligue-o a partir da internet da seguinte forma:
 
 1. No Ambiente de Trabalho Remoto do *myVM,* abra a PowerShell.
 
-2. Insira `nslookup  myServer.privatelink.mysql.database.azure.com`. 
+2. Introduza. `nslookup  myServer.privatelink.mysql.database.azure.com` 
 
     Receberá uma mensagem semelhante a esta:
     ```azurepowershell
@@ -225,12 +225,12 @@ Depois de criar o **myVm,** ligue-o a partir da internet da seguinte forma:
     | ------- | ----- |
     | Tipo de servidor| Selecione **MySQL**.|
     | Nome do servidor| Selecione *myServer.privatelink.mysql.database.azure.com* |
-    | Nome de utilizador | Introduza o nome de utilizador como username@servername que é fornecido durante a criação do servidor MySQL. |
+    | Nome de utilizador | Introduza o username@servername nome de utilizador como o que é fornecido durante a criação do servidor MySQL. |
     |Palavra-passe |Introduza uma palavra-passe fornecida durante a criação do servidor MySQL. |
     |SSL|Selecione **Necessário**.|
     ||
 
-5. Selecione Connect.
+5. Selecione Ligar.
 
 6. Consulte as bases de dados do menu esquerdo.
 
@@ -241,7 +241,7 @@ Depois de criar o **myVm,** ligue-o a partir da internet da seguinte forma:
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar usando o ponto final privado, o servidor MySQL e o VM, elimine o grupo de recursos e todos os recursos que contém:
 
-1. Introduza o *meu do Grupo de Recursos* na caixa de **pesquisa** no topo do portal e selecione o meu do Grupo *de Recursos* a partir dos resultados da pesquisa.
+1. Introduza o *myResourceGroup* na caixa **de pesquisa** na parte superior do portal e selecione *myResourceGroup* a partir dos resultados da pesquisa.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza o myResourceGroup para **ESCREVER O NOME DE GRUPO DE RECURSOS** e selecione **Eliminar**.
 

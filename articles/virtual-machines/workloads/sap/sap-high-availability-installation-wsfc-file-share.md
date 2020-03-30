@@ -1,5 +1,5 @@
 ---
-title: Instalação de alta disponibilidade do SAP NetWeaver num cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS no Azure  Microsoft Docs
+title: Instalação de alta disponibilidade do SAP NetWeaver num cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS no Azure [ Microsoft Docs
 description: Instalação de alta disponibilidade do SAP NetWeaver num cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617335"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instale a alta disponibilidade do SAP NetWeaver num cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS no Azure
@@ -231,13 +231,13 @@ Não existem considerações especiais quando vários serviços DBMS interagem c
 
 Criar a seguinte partilha de volume e ficheiro no cluster SOFS:
 
-* Arquivo GlobalHOST SAP `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` estrutura sobre volume partilhado de cluster SOFS (CSV)
+* Estrutura de ficheiros `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST sobre volume partilhado de cluster SOFS (CSV)
 
 * Partilha de ficheiros SAPMNT
 
 * Detete a segurança na partilha e pasta de ficheiros SAPMNT com controlo total para:
-    * O grupo de utilizadores \<DOMAIN>\SAP_\<SID>_GlobalAdmin
-    * O nó de cluster SAP ASCS/SCS objetos de computador \<DOMAIN>\ClusterNode1$ e \<DOMAIN>\ClusterNode2$
+    * O \<domain>\SAP_\<SID>_GlobalAdmin grupo de utilizadores
+    * O nó de cluster SAP ASCS/SCS objetos \<de \<computador DOMAIN>\ClusterNode1$ e DOMAIN>\ClusterNode2$
 
 Para criar um volume CSV com resiliência do espelho, execute o seguinte cmdlet PowerShell num dos nós de cluster SOFS:
 
@@ -299,7 +299,7 @@ Crie um nome de rede de cluster SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.6.7]
 
 Instale uma instância SAP ASCS/SCS no nó do primeiro cluster. Para instalar a instância, na ferramenta de instalação SAP SWPM, vá a:
 
-**\<Product>**  >  **\<DBMS>**  > **Instalação** > **Application Server ABAP** (ou **Java**) > Sistema de **Alta Disponibilidade** > **instância ASCS/SCS** > **Primeiro nó**de cluster .
+**\<Produto>**  >  ** \<DBMS>**  > Servidor de **Aplicação** > de**Instalação ABAP** (ou **Java)**> **sistema** > de alta disponibilidade**ASCS/SCS exemplo** > **Primeiro nó**de cluster .
 
 ### <a name="add-a-probe-port"></a>Adicione uma porta de sonda
 
@@ -309,21 +309,21 @@ Configure um recurso de cluster SAP, a porta de sonda SAP-SID-IP, utilizando o P
 
 Instale uma instância SAP ASCS/SCS no segundo nó de cluster. Para instalar a instância, na ferramenta de instalação SAP SWPM, vá a:
 
-**\<Product>**  >  **\<DBMS>**  > **Instalação** > **Application Server ABAP** (ou **Java**) > Sistema de **Alta Disponibilidade** > **instância ASCS/SCS** > nó adicional **do cluster**.
+**\<Produto>**  >  ** \<DBMS>**  > Servidor de Aplicação de **Instalação** > **ABAP** (ou **Java)**> **sistema** > de alta disponibilidade**ASCS/SCS instância** > adicional de**cluster**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Atualizar o perfil de instância SAP ASCS/SCS
 
-Atualização dos parâmetros no perfil de instância SAP ASCS/SCS \<SID>_ASCS/SCS\<Nr>_ \<Host>.
+Atualizar os parâmetros no perfil \<de instância SAP ASCS/SCS SID>_ASCS/SCS\<Nr>_ \<host>.
 
 
 | Nome do parâmetro | Valor do parâmetro |
 | --- | --- |
 | gw/netstat_once | **0** |
-| enque/encni/set_so_keepalive  | **verdade** |
-| service/ha_check_node | **1** |
+| enque/ncni/set_so_keepalive  | **verdade** |
+| serviço/ha_check_node | **1** |
 
-Reiniciar a instância SAP ASCS/SCS. Defina `KeepAlive` parâmetros em ambos os nós de cluster SAP ASCS/SCS sigam as instruções para definir as entradas de [registo nos nós do cluster da instância SAP ASCS/SCS][high-availability-guide]. 
+Reiniciar a instância SAP ASCS/SCS. Defina parâmetros em ambos os nós de cluster SAP ASCS/SCS sigam as instruções para definir as entradas de [registo nos nós do cluster da instância SAP ASCS/SCS][high-availability-guide]. `KeepAlive` 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instale uma instância DBMS e servidores de aplicações SAP
 

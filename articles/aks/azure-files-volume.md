@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: 084ab5cd6736c9148bcab1faf048d3d9081855d4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77596407"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Criar e utilizar manualmente um volume com a participação de Ficheiros Azure no Serviço Azure Kubernetes (AKS)
@@ -21,7 +21,7 @@ Para obter mais informações sobre os volumes kubernetes, consulte as opções 
 
 Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 
@@ -60,7 +60,7 @@ Tome nota do nome da conta de armazenamento e da chave mostrada no final da saí
 
 Kubernetes precisa de credenciais para aceder à parte de ficheiro criada no passo anterior. Estas credenciais são armazenadas num [segredo kubernetes,][kubernetes-secret]que é referenciado quando se cria uma cápsula Kubernetes.
 
-Use o comando `kubectl create secret` para criar o segredo. O exemplo seguinte cria um nome compartilhado chamado *azure-secret* e povoa o nome de *conta de armazenamento azul* e o key de contabilidade *azurestorage* do passo anterior. Para utilizar uma conta de armazenamento Azure existente, forneça o nome da conta e a chave.
+Use `kubectl create secret` o comando para criar o segredo. O exemplo seguinte cria um nome compartilhado chamado *azure-secret* e povoa o nome de *conta de armazenamento azul* e o key de contabilidade *azurestorage* do passo anterior. Para utilizar uma conta de armazenamento Azure existente, forneça o nome da conta e a chave.
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
@@ -68,7 +68,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Monte a parte do ficheiro como um volume
 
-Para montar os Ficheiros Azure, configure o volume na especificação do recipiente. Crie um novo ficheiro chamado `azure-files-pod.yaml` com o seguinte conteúdo. Se alterar o nome da partilha de Ficheiros ou nome secreto, atualize o *nome de partilha* e o nome *secreto*. Se desejar, atualize o `mountPath`, que é o caminho onde a partilha de Ficheiros é montada na cápsula. Para os recipientes do Windows Server (atualmente em pré-visualização no AKS), especifique um *mountPath* utilizando a convenção de caminhos windows, como *'D:'* .
+Para montar os Ficheiros Azure, configure o volume na especificação `azure-files-pod.yaml` do recipiente. Se alterar o nome da partilha de Ficheiros ou nome secreto, atualize o *nome de partilha* e o nome *secreto*. Se desejar, atualize o `mountPath`, que é o caminho onde a partilha de Ficheiros é montada na cápsula. Para os recipientes do Windows Server (atualmente em pré-visualização no AKS), especifique um *mountPath* utilizando a convenção de caminhos windows, como *'D:'*.
 
 ```yaml
 apiVersion: v1
@@ -97,7 +97,7 @@ spec:
       readOnly: false
 ```
 
-Utilize o comando `kubectl` para criar a cápsula.
+Use `kubectl` o comando para criar a cápsula.
 
 ```console
 kubectl apply -f azure-files-pod.yaml
@@ -202,7 +202,7 @@ spec:
       storage: 5Gi
 ```
 
-Utilize os comandos `kubectl` para criar o *Volume Persistente* e *persistenteVolumeClaim*.
+Utilize `kubectl` os comandos para criar o *Volume Persistente* e *persistenteVolumeClaim*.
 
 ```console
 kubectl apply -f azurefile-mount-options-pv.yaml

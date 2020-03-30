@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 42f25c1b66261ac644f015290bed2c7473acbdaa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a02c099871ce9748f4c5f604900a7c4d57bb96b6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79280355"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473528"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrições de acesso ao serviço de aplicações Azure #
 
@@ -30,7 +30,7 @@ A capacidade de restringir o acesso à sua aplicação web a partir de uma Rede 
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Adicionar e editar regras de restrição de acesso no portal ##
 
-Para adicionar uma regra de restrição de acesso à sua aplicação, use o menu para abrir **restrições** de **acesso** à Rede>e clique em Restrições de **Acesso Configuradas**
+Para adicionar uma regra de restrição de acesso à sua aplicação, use o menu para abrir**restrições** de acesso à **rede**>e clique em Restrições de **Acesso Configuradas**
 
 ![Opções de rede de serviço sinuoso do serviço de aplicações](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -42,7 +42,7 @@ A lista mostrará todas as restrições atuais que estão na sua aplicação. Se
 
 ## <a name="adding-ip-address-rules"></a>Adicionar regras de endereço IP
 
-Pode clicar em **[+] Adicionar** para adicionar uma nova regra de restrição de acesso. Uma vez adicionado uma regra, ela vai tornar-se eficaz imediatamente. As regras são aplicadas por ordem prioritária, a partir do número mais baixo e a subir. Há uma negação implícita de tudo o que está em vigor quando se adiciona uma única regra.
+Pode clicar em **[+] Adicionar regra** para adicionar uma nova regra de restrição de acesso. Uma vez adicionado uma regra, ela vai tornar-se eficaz imediatamente. As regras são aplicadas por ordem prioritária, a partir do número mais baixo e a subir. Há uma negação implícita de tudo o que está em vigor quando se adiciona uma única regra.
 
 Ao criar uma regra, deve selecionar permitir/negar e também o tipo de regra. Também é obrigado a fornecer o valor prioritário e aquilo a que está a restringir o acesso.  Pode, opcionalmente, adicionar um nome e descrição opcionalmente à regra.  
 
@@ -70,13 +70,13 @@ Ao editar uma regra, não pode alterar o tipo entre uma regra de endereço IP e 
 
 ![editar uma regra de restrição de acesso](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Para eliminar uma regra, clique no **...** na sua regra e, em seguida, clique em **remover**.
+Para eliminar uma regra, clique no **...** na sua regra e, em seguida, clique em **Remover**.
 
 ![eliminar a regra de restrição de acesso](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
 ## <a name="blocking-a-single-ip-address"></a>Bloquear um único endereço IP ##
 
-Ao adicionar a sua primeira regra de restrição IP, o serviço adicionará uma regra de **negação** explícita com uma prioridade de 2147483647. Na prática, a **negação** explícita de que todas as regras serão executadas na última regra e bloqueará o acesso a qualquer endereço IP que não seja explicitamente permitido usando uma regra de **permitir.**
+Ao adicionar a sua primeira regra de restrição IP, o serviço adicionará uma regra **de Negação** explícita com uma prioridade de 2147483647. Na prática, a regra **explícita de Negação** será executada na última regra e bloqueará o acesso a qualquer endereço IP que não seja explicitamente permitido usando uma regra de **permitir.**
 
 Para o cenário em que os utilizadores pretendam bloquear explicitamente um único endereço IP ou bloco de endereçoIP, mas permitir o acesso de tudo o resto, é necessário adicionar uma regra de **permitir todas** explícitas.
 
@@ -107,7 +107,7 @@ Os valores também podem ser definidos manualmente com uma operação [Azure RES
 
 A localização desta informação no Gestor de Recursos é:
 
-management.azure.com/subscriptions/ ID /recursosDedados/grupos de**recursos/fornecedores/Microsoft.Web/sites/** **web app name**/config/web?api-version=2018-02-01
+management.azure.com/subscriptions/ ID /recursosDedados/grupos de**recursos/fornecedores/Microsoft.Web/sites/****web app name**/config/web?api-version=2018-02-01**subscription ID**
 
 A sintaxe jSON para o exemplo anterior é:
 ```json
@@ -127,7 +127,7 @@ A sintaxe jSON para o exemplo anterior é:
 
 ## <a name="azure-function-app-access-restrictions"></a>Restrições de acesso à aplicação de função Azure
 
-As restrições de acesso estão disponíveis para ambas as Aplicações de Função com a mesma funcionalidade que os planos do App Service. Permitir restrições de acesso irá desativar o editor de código do portal para quaisquer IPs não autorizados.
+As restrições de acesso também estão disponíveis para Apps de Função com a mesma funcionalidade que os planos do App Service. Permitir restrições de acesso irá desativar o editor de código do portal para quaisquer IPs não autorizados.
 
 ## <a name="next-steps"></a>Passos seguintes
 [Restrições de acesso a aplicações de função Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)

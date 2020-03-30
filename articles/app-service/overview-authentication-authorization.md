@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: efef578f5c62bef4ae33b98b568fd6d5c1389c4a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 825d113bbe081ba6fb85da19ff6449824db92d10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715121"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475396"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações Azure
+# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
 > [!NOTE]
-> Neste momento, o AAD V2 (incluindo o MSAL) não é suportado para serviços de aplicações azure e funções azure. Verifique novamente se há atualizações.
+> Neste momento, o AAD V2 (incluindo o MSAL) não é suportado para serviços de aplicações azure e funções azure. Por favor, verifique se há novidades.
 >
 
 O Azure App Service fornece suporte de autenticação e autorização incorporado, para que possa inscrever os utilizadores e aceder aos dados escrevendo o mínimo ou nenhum código na sua aplicação web, a API RESTful e a traseira móvel, bem como as [Funções Azure.](../azure-functions/functions-overview.md) Este artigo descreve como o Serviço de Aplicações ajuda a simplificar a autenticação e a autorização para a sua aplicação.
@@ -46,20 +46,20 @@ Este módulo lida com várias coisas para a sua aplicação:
 
 O módulo funciona separadamente do seu código de aplicação e é configurado utilizando as definições da aplicação. Não são necessários SDKs, línguas específicas ou alterações ao código de aplicação. 
 
-### <a name="user-claims"></a>Afirmações de utilizador
+### <a name="user-claims"></a>Reclamações dos utilizadores
 
-Para todos os quadros linguísticos, o Serviço de Aplicações disponibiliza as reclamações do utilizador ao seu código injetando-as nos cabeçalhos de pedido. Para ASP.NET 4.6 aplicações, o Serviço de Aplicações povoa [o ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as alegações do utilizador autenticado, para que possa seguir o padrão de código .NET padrão, incluindo o `[Authorize]` atributo. Da mesma forma, para aplicações PHP, o App Service povoa a variável `_SERVER['REMOTE_USER']`. Para aplicações Java, as reclamações são [acessíveis a partir do servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
+Para todos os quadros linguísticos, o Serviço de Aplicações disponibiliza as reclamações do utilizador ao seu código injetando-as nos cabeçalhos de pedido. Para ASP.NET 4.6 aplicações, o Serviço de Aplicações povoa [o ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as alegações do `[Authorize]` utilizador autenticado, para que possa seguir o padrão de código .NET padrão, incluindo o atributo. Da mesma forma, para aplicações PHP, o App Service povoa a `_SERVER['REMOTE_USER']` variável. Para aplicações Java, as reclamações são [acessíveis a partir do servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
-Para [funções Azure,](../azure-functions/functions-overview.md)`ClaimsPrincipal.Current` não está hidratado para o código .NET, mas ainda pode encontrar as reclamações do utilizador nos cabeçalhos de pedido.
+Para [funções Azure,](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` não é hidratado para o código .NET, mas ainda pode encontrar as reclamações do utilizador nos cabeçalhos de pedido.
 
 Para mais informações, consulte [as reclamações dos utilizadores](app-service-authentication-how-to.md#access-user-claims)do Access.
 
-### <a name="token-store"></a>Loja token
+### <a name="token-store"></a>Arquivo de tokens
 
 O App Service fornece uma loja de token incorporada, que é um repositório de fichas que estão associadas aos utilizadores das suas aplicações web, APIs ou aplicações móveis nativas. Quando ativa a autenticação com qualquer fornecedor, esta loja token está imediatamente disponível para a sua aplicação. Se o seu código de aplicação necessitar de aceder a dados destes fornecedores em nome do utilizador, tais como: 
 
 - post para a linha temporal do Facebook do utilizador autenticado
-- ler os dados corporativos do utilizador a partir do Azure Ative Directory Graph API ou mesmo do Microsoft Graph
+- ler os dados corporativos do utilizador usando a API do Microsoft Graph
 
 Normalmente, tem de escrever código para recolher, armazenar e refrescar estes tokens na sua aplicação. Com a loja de [fichas, basta recuperar os tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) quando precisar e dizer ao Serviço de [Aplicações para os refrescar](app-service-authentication-how-to.md#refresh-identity-provider-tokens) quando ficarem inválidos. 
 
@@ -69,7 +69,7 @@ Se não precisar de trabalhar com fichas na sua aplicação, pode desativar a lo
 
 ### <a name="logging-and-tracing"></a>Exploração madeireira e rastreio
 
-Se [ativar](troubleshoot-diagnostic-logs.md)o registo de pedidos, verá a autenticação e a autorização rastreia-os diretamente nos seus ficheiros de registo. Se vir um erro de autenticação que não esperava, pode convenientemente encontrar todos os detalhes olhando para os registos de aplicação existentes. Se ativar o rastreio de [pedidos falhados,](troubleshoot-diagnostic-logs.md)pode ver exatamente qual o papel que o módulo de autenticação e autorização pode ter desempenhado num pedido falhado. Nos registos de rastreio, procure referências a um módulo chamado `EasyAuthModule_32/64`. 
+Se [ativar](troubleshoot-diagnostic-logs.md)o registo de pedidos, verá a autenticação e a autorização rastreia-os diretamente nos seus ficheiros de registo. Se vir um erro de autenticação que não esperava, pode convenientemente encontrar todos os detalhes olhando para os registos de aplicação existentes. Se ativar o rastreio de [pedidos falhados,](troubleshoot-diagnostic-logs.md)pode ver exatamente qual o papel que o módulo de autenticação e autorização pode ter desempenhado num pedido falhado. Nos registos de rastreio, procure referências `EasyAuthModule_32/64`a um módulo chamado . 
 
 ## <a name="identity-providers"></a>Fornecedores de identidade
 
@@ -85,7 +85,7 @@ O Serviço de Aplicações utiliza [identidade federada](https://en.wikipedia.or
 
 Quando permite a autenticação e autorização com um destes fornecedores, o seu ponto final de sessão está disponível para autenticação do utilizador e para validação de fichas de autenticação do fornecedor. Pode fornecer aos seus utilizadores qualquer número destas opções de sessão com facilidade. Também pode integrar outro fornecedor de identidade ou [a sua própria solução de identidade personalizada.][custom-auth]
 
-## <a name="authentication-flow"></a>fluxo de autenticação
+## <a name="authentication-flow"></a>Fluxo de autenticação
 
 O fluxo de autenticação é o mesmo para todos os fornecedores, mas difere consoante pretenda iniciar sessão com o SDK do fornecedor:
 
@@ -100,12 +100,12 @@ A tabela abaixo mostra os passos do fluxo de autenticação.
 
 | Passo | Sem provedor SDK | Com o provedor SDK |
 | - | - | - |
-| 1. Iniciar sessão no utilizador | Redireciona o cliente para `/.auth/login/<provider>`. | O código do cliente assina o utilizador diretamente com o SDK do fornecedor e recebe um símbolo de autenticação. Para obter informações, consulte a documentação do fornecedor. |
-| 2. Pós-autenticação | O fornecedor redireciona o cliente para `/.auth/login/<provider>/callback`. | Os [posts de](app-service-authentication-how-to.md#validate-tokens-from-providers) código do cliente são fichas do fornecedor para `/.auth/login/<provider>` para validação. |
+| 1. Iniciar sessão no utilizador | Redireciona `/.auth/login/<provider>`o cliente para . | O código do cliente assina o utilizador diretamente com o SDK do fornecedor e recebe um símbolo de autenticação. Para obter informações, consulte a documentação do fornecedor. |
+| 2. Pós-autenticação | O fornecedor redireciona o cliente para `/.auth/login/<provider>/callback`. | Os [posts de](app-service-authentication-how-to.md#validate-tokens-from-providers) código `/.auth/login/<provider>` do cliente são token do fornecedor para a validação. |
 | 3. Estabelecer sessão autenticada | O Serviço de Aplicações adiciona cookie autenticado à resposta. | O Serviço de Aplicações devolve o seu próprio símbolo de autenticação ao código do cliente. |
-| 4. Servir conteúdo autenticado | O cliente inclui cookie de autenticação em pedidos subsequentes (tratado automaticamente pelo navegador). | O código do cliente apresenta token de autenticação em cabeçalho `X-ZUMO-AUTH` (manuseado automaticamente por SDKs clientes de Aplicações Móveis). |
+| 4. Servir conteúdo autenticado | O cliente inclui cookie de autenticação em pedidos subsequentes (tratado automaticamente pelo navegador). | O código do cliente `X-ZUMO-AUTH` apresenta token de autenticação no cabeçalho (tratado automaticamente por SDKs clientes de Aplicações Móveis). |
 
-Para os navegadores de clientes, o Serviço de Aplicações pode automaticamente direcionar todos os utilizadores não autenticados para `/.auth/login/<provider>`. Também pode apresentar aos utilizadores uma ou mais `/.auth/login/<provider>` links para iniciar sessão na sua aplicação utilizando o seu fornecedor de eleição.
+Para os navegadores de clientes, o Serviço de `/.auth/login/<provider>`Aplicações pode direcionar automaticamente todos os utilizadores não autenticados para . Também pode apresentar aos utilizadores `/.auth/login/<provider>` uma ou mais links para iniciar sessão na sua aplicação utilizando o seu fornecedor de eleição.
 
 <a name="authorization"></a>
 
@@ -125,7 +125,7 @@ Esta opção proporciona mais flexibilidade no tratamento de pedidos anónimos. 
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir apenas pedidos autenticados
 
-A opção é **iniciar sessão com \<fornecedor>** . O Serviço de Aplicações redireciona todos os pedidos anónimos para `/.auth/login/<provider>` para o fornecedor que escolher. Se o pedido anónimo vier de uma aplicação móvel nativa, a resposta devolvida é uma `HTTP 401 Unauthorized`.
+A opção é **iniciar sessão com \<o fornecedor>**. O Serviço de Aplicações redireciona todos os pedidos anónimos para `/.auth/login/<provider>` o fornecedor que escolher. Se o pedido anónimo vier de uma aplicação `HTTP 401 Unauthorized`móvel nativa, a resposta devolvida é uma .
 
 Com esta opção, não precisa de escrever qualquer código de autenticação na sua aplicação. A autorização mais fina, como a autorização específica para o papel, pode ser tratada inspecionando as reclamações do utilizador (ver [Access user claims](app-service-authentication-how-to.md#access-user-claims)).
 

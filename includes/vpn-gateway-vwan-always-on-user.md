@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7d2248360e499aab79459d0be549da3d8baa79ab
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371005"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500193"
 ---
-## <a name="configure-a-user-tunnel"></a>Configure um túnel de utilizador
-
 1. Instale certificados de cliente no cliente do Windows 10, como mostra este artigo de [cliente VPN ponto-a-site.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) O certificado deve estar na loja de utilizadores em vigor.
 
 1. Configure o cliente Always On VPN através do PowerShell, Dogestor de Configuração ou Intune seguindo as instruções no [cliente Configure Windows 10 Sempre nas ligações VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
@@ -121,7 +119,7 @@ Depois de configurar o portal de rede virtual e instalar o certificado de client
     <RegisterDNS>true</RegisterDNS>
     </VPNProfile>
    ```
-1. Executar powerShell como administrador.
+1. Execute o PowerShell como um administrador.
 
 1. No PowerShell, altere para a pasta onde se encontram *usercert.ps1* e *VPNProfile.xml* e execute o seguinte comando:
 
@@ -129,7 +127,7 @@ Depois de configurar o portal de rede virtual e instalar o certificado de client
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
+   ![Teste de MáquinaCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
 1. Em **definições VPN,** procure a entrada **userTest** e, em seguida, selecione **Connect**.
 
 1. Se a ligação for bem sucedida, configura com sucesso um túnel de utilizador Always On.

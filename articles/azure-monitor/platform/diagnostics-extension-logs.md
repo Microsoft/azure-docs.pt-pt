@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672400"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Recolher dados da extensão de diagnóstico do Azure aos Registos do Monitor do Azure
@@ -22,15 +22,15 @@ A extensão de diagnóstico do Azure é um [agente no Azure Monitor](agents-over
 ## <a name="supported-data-types"></a>Tipos de dados suportados
 A extensão de diagnóstico azure armazena dados numa conta de Armazenamento Azure. Para que o Azure Monitor Logs recolha estes dados, devem estar nos seguintes locais:
 
-| Tipo de Registo | Tipo de Recurso | Localização |
+| Tipo de log | Tipo de Recurso | Localização |
 | --- | --- | --- |
-| Registos do IIS |Virtual Machines <br> Funções da Web <br> Funções de trabalho |WAD-iis-logfiles (armazenamento de BLOBs) |
-| Syslog |Virtual Machines |LinuxsyslogVer2v0 (armazenamento de tabelas) |
-| Eventos operacionais do Service Fabric |Nós do Service Fabric |WADServiceFabricSystemEventTable |
-| Eventos de Reliable Actor do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableActorEventTable |
-| Eventos de Reliable Services do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableServiceEventTable |
-| Registos de Eventos do Windows |Nós do Service Fabric <br> Virtual Machines <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (armazenamento de tabelas) |
-| Registos ETW do Windows |Nós do Service Fabric <br> Virtual Machines <br> Funções da Web <br> Funções de trabalho |WADETWEventTable (armazenamento de tabelas) |
+| Registos do IIS |Máquinas Virtuais <br> Papéis web <br> Funções dos trabalhadores |ficheiros de logfiles wad-iis (Depósito blob) |
+| Syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Mesa) |
+| Eventos Operacionais de Tecido de Serviço |Nódosos de tecido de serviço |WADServiceFabricSystemEventTable |
+| Eventos fiáveis de ator de tecido de serviço |Nódosos de tecido de serviço |WADServiceFabricReliableActorEventTable |
+| Eventos de serviço fiáveis de serviço |Nódosos de tecido de serviço |WADServiceFabricReliableServiceEventTable |
+| Registos do Evento Windows |Nódosos de tecido de serviço <br> Máquinas Virtuais <br> Papéis web <br> Funções dos trabalhadores |WADWindowsEventLogsTable (Armazenamento de Mesa) |
+| Registos Windows ETW |Nódosos de tecido de serviço <br> Máquinas Virtuais <br> Papéis web <br> Funções dos trabalhadores |WADETWEventtable (Armazenamento de Mesa) |
 
 ## <a name="data-types-not-supported"></a>Tipos de dados não suportados
 
@@ -54,7 +54,7 @@ Utilize o seguinte procedimento para permitir a recolha de dados de extensão de
 6. Clique **em OK** para salvar a configuração.
 7. Repita para tipos de dados adicionais.
 
-Em aproximadamente 30 minutos, é possível ver dados da conta de armazenamento no espaço de trabalho log Analytics. Verá apenas dados que são escritos para o armazenamento depois da configuração é aplicada. O espaço de trabalho não lê os dados pré-existentes da conta de armazenamento.
+Em aproximadamente 30 minutos, é possível ver dados da conta de armazenamento no espaço de trabalho log Analytics. Só verá dados que sejam escritos para armazenamento após a aplicação da configuração. O espaço de trabalho não lê os dados pré-existentes da conta de armazenamento.
 
 > [!NOTE]
 > O portal não valida que a fonte existe na conta de armazenamento ou se estão a ser escritos novos dados.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
 ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598294"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Operações de estrangulamento no ônibus de serviço azure
@@ -104,7 +104,7 @@ Uma vez que o espaço de nome Saque Premium de serviço já tem recursos dedicad
 
 A escala para cima/para baixo pode ser alcançada através da criação de livros de [execução](../automation/automation-create-alert-triggered-runbook.md) que podem ser desencadeados por alterações nas métricas acima.
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 
 ### <a name="how-does-throttling-affect-my-application"></a>Como é que o estrangulamento afeta a minha aplicação?
 
@@ -126,7 +126,7 @@ No entanto, quando um pedido é estrangulado, o serviço insinua que não pode a
 
 Para mais informações e exemplos de utilização de mensagens Service Bus, consulte os seguintes tópicos avançados:
 
-* [Descrição geral das mensagens do Service Bus](service-bus-messaging-overview.md)
-* [Quickstart: Enviar e receber mensagens utilizando o portal Azure e .NET](service-bus-quickstart-portal.md)
-* [Tutorial: Atualizar o inventário utilizando o portal Azure e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Descrição geral de mensagens do Service Bus](service-bus-messaging-overview.md)
+* [Início Rápido: Enviar e receber mensagens com o portal do Azure e o .NET](service-bus-quickstart-portal.md)
+* [Tutorial: atualizar inventário utilizando o portal do Azure e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-portal.md)
 

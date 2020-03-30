@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 7787a765bf48adc15f4675c6c03ff3d04fa388c6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: cd9b5f8f182c4deab746d2c41e516a6ac23fb7aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918500"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477736"
 ---
 # <a name="add-rows-module"></a>Adicionar módulo Rows
 
@@ -36,7 +36,7 @@ Para concatenar linhas de dois conjuntos de dados, as linhas devem ter exatament
 
 2. Ligue os conjuntos de dados às duas portas de entrada. O conjunto de dados que pretende anexar deve ser ligado à segunda porta (direita). 
   
-3.  Executar o pipeline. O número de linhas no conjunto de dados de saída deve igualar a soma das linhas de ambos os conjuntos de dados de entrada.
+3.  Submeta o oleoduto. O número de linhas no conjunto de dados de saída deve igualar a soma das linhas de ambos os conjuntos de dados de entrada.
 
     Se adicionar o mesmo conjunto de dados a ambas as inputs do módulo **Add Rows,** o conjunto de dados é duplicado. 
 

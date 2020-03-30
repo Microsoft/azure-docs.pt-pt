@@ -1,5 +1,5 @@
 ---
-title: Escreva código para acompanhar pedidos com Insights de Aplicação Azure  Microsoft Docs
+title: Escreva código para acompanhar pedidos com Insights de Aplicação Azure [ Microsoft Docs
 description: Escreva código para rastrear pedidos com Insights de Aplicação para que possa obter perfis para os seus pedidos.
 ms.topic: conceptual
 author: cweining
@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671601"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Escreva código para acompanhar pedidos com Insights de Aplicação
@@ -31,7 +31,7 @@ Para rastrear manualmente os pedidos, faça o seguinte:
         ```
       Para obter mais informações sobre esta configuração global da chave de instrumentação, consulte [use Service Fabric com Insights de Aplicação](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  1. Para qualquer peça de código que pretenda instrumentar, adicione um `StartOperation<RequestTelemetry>` **utilizando** uma declaração à sua volta, como mostra o seguinte exemplo:
+  1. Para qualquer peça de código que pretenda instrumentar, adicione uma `StartOperation<RequestTelemetry>` declaração de **utilização** à sua volta, como mostra o seguinte exemplo:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -45,7 +45,7 @@ Para rastrear manualmente os pedidos, faça o seguinte:
         }
         ```
 
-        Chamar `StartOperation<RequestTelemetry>` dentro de outra `StartOperation<RequestTelemetry>` não é suportado. Em vez disso, pode suster `StartOperation<DependencyTelemetry>` no âmbito aninhado. Por exemplo:  
+        Ligar `StartOperation<RequestTelemetry>` para `StartOperation<RequestTelemetry>` outro âmbito não é suportado. Em vez `StartOperation<DependencyTelemetry>` disso, podes usar no âmbito aninhado. Por exemplo:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

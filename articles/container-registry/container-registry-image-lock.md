@@ -4,20 +4,20 @@ description: Detete os atributos para uma imagem de recipiente ou repositório p
 ms.topic: article
 ms.date: 09/30/2019
 ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659701"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloqueie uma imagem de contentor num registo de contentores Azure
 
 Num registo de contentores Azure, pode bloquear uma versão de imagem ou um repositório para que não possa ser eliminado ou atualizado. Para bloquear uma imagem ou um repositório, atualize os seus atributos utilizando a atualização de [repositório az acr acr acr acr][az-acr-repository-update]. 
 
-Este artigo requer que execute o Azure CLI em Azure Cloud Shell ou localmente (versão 2.0.55 ou posteriormente recomendado). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
+Este artigo requer que execute o Azure CLI em Azure Cloud Shell ou localmente (versão 2.0.55 ou posteriormente recomendado). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
 
 > [!IMPORTANT]
-> Este artigo não se aplica ao bloqueio de um registo inteiro, por exemplo, utilizando **Definições > Fechaduras** no portal Azure, ou comandos `az lock` no Azure CLI. Bloquear um recurso de registo não o impede de criar, atualizar ou eliminar dados em repositórios. O bloqueio de um registo só afeta operações de gestão, tais como a adição ou a desminagem de replicações ou a abater o próprio registo. Mais informações sobre [os recursos lock para evitar alterações inesperadas](../azure-resource-manager/management/lock-resources.md).
+> Este artigo não se aplica ao bloqueio de um registo inteiro, por exemplo, `az lock` utilizando **Definições > Fechaduras** no portal Azure, ou comandos no CLI Azure. Bloquear um recurso de registo não o impede de criar, atualizar ou eliminar dados em repositórios. O bloqueio de um registo só afeta operações de gestão, tais como a adição ou a desminagem de replicações ou a abater o próprio registo. Mais informações sobre [os recursos lock para evitar alterações inesperadas](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="scenarios"></a>Cenários
 
@@ -69,7 +69,7 @@ az acr repository update \
 
 ### <a name="lock-an-image-by-manifest-digest"></a>Bloqueie uma imagem por manifesta digestão
 
-Para bloquear uma imagem *myrepo/myimage* identificada pela manifest digest (hash SHA-256, representada como `sha256:...`), executar o seguinte comando. (Para encontrar a digestão manifesto associada a uma ou mais etiquetas de imagem, execute o comando de manifestos de [show-manifestos acr acr.)][az-acr-repository-show-manifests]
+Para bloquear uma imagem *myrepo/myimage* identificada pela manifest digest (sha-256 hash, representada como `sha256:...`), executar o seguinte comando. (Para encontrar a digestão manifesto associada a uma ou mais etiquetas de imagem, execute o comando de manifestos de [show-manifestos acr acr.)][az-acr-repository-show-manifests]
 
 ```azurecli
 az acr repository update \

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367521"
 ---
 # <a name="enter-data-manually-module"></a>Introduza manualmente o módulo de dados
@@ -57,7 +57,7 @@ Este módulo pode ser útil em cenários como:
   
    - **ARFF**: Colar num ficheiro de formato ARFF existente. Se estiver a digitar os valores diretamente, certifique-se de adicionar o cabeçalho opcional e os campos de atributos necessários no início dos dados. 
 
-     Por exemplo, as seguintes linhas de cabeçalho e atributopodem ser adicionadas a uma lista simples. A direção da coluna seria `SampleText`. Note que o tipo String não é suportado.
+     Por exemplo, as seguintes linhas de cabeçalho e atributopodem ser adicionadas a uma lista simples. O título da `SampleText`coluna seria. Note que o tipo String não é suportado.
     
      ```text
      % Title: SampleText.ARFF  

@@ -1,5 +1,5 @@
 ---
-title: Registos no Monitor Azure  Monitor De acesso) Microsoft Docs
+title: Registos no Monitor Azure [ Monitor De acesso) Microsoft Docs
 description: Descreve os registos no Monitor Azure que são utilizados para uma análise avançada dos dados de monitorização.
 documentationcenter: ''
 author: bwren
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 06b35fdcd9da333c3c9d94d41c84a2f25ede59ad
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: dd499a82ba1011d96772d6722e25a434d43a6bf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248908"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480203"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 
@@ -31,9 +31,9 @@ Os registos no Monitor Azure são especialmente úteis para realizar análises c
 
 Os registos no Monitor Azure contêm diferentes tipos de dados organizados em registos com diferentes conjuntos de propriedades para cada tipo. Os registos podem conter valores numéricos como as Métricas do Monitor de Azure, mas normalmente contêm dados de texto com descrições detalhadas. Diferem ainda dos dados métricos, na medida em que variam na sua estrutura e muitas vezes não são recolhidos a intervalos regulares. A telemetria, como eventos e vestígios, são armazenados registos do Monitor Azure, para além dos dados de desempenho, para que todos possam ser combinados para análise.
 
-Um tipo comum de entrada de log é um evento, que é recolhido esporadicamente. Os eventos são criados por uma aplicação ou serviço e normalmente incluem informações suficientes para fornecer o contexto completo por si só. Por exemplo, um evento pode indicar que um recurso em particular foi criado ou modificado, um novo anfitrião iniciado em resposta ao aumento de tráfego, ou foi detetado um erro num aplicativo.
+Um tipo comum de entrada de log é um evento, que é recolhido esporadicamente. Os eventos são criados por uma aplicação ou serviço e normalmente incluem informações suficientes para fornecer o contexto completo por si só. Por exemplo, um evento pode indicar que um determinado recurso foi criado ou modificado, um novo hospedeiro começou em resposta ao aumento do tráfego, ou foi detetado um erro numa aplicação.
 
- Como o formato dos dados pode variar, os aplicativos podem criar registos personalizados usando a estrutura que eles precisam. Os dados métricos podem até ser armazenados em Registos para os combinar com outros dados de monitorização para a tendência e outras análises de dados.
+ Como o formato dos dados pode variar, as aplicações podem criar registos personalizados utilizando a estrutura de que necessitam. Os dados métricos podem até ser armazenados em Registos para os combinar com outros dados de monitorização para a tendência e outras análises de dados.
 
 
 ## <a name="what-can-you-do-with-azure-monitor-logs"></a>O que pode fazer com os Registos do Monitor Azure?
@@ -84,12 +84,12 @@ O Azure Monitor pode recolher dados de registo de uma variedade de fontes dentro
 
 | Dados | Descrição |
 |:---|:---|
-| Diagnóstico de recursos | Configure as definições de diagnóstico para escrever para dados de diagnóstico, incluindo métricas para um espaço de trabalho de Log Analytics. Consulte os registos de [recursos do Stream Azure para registar o Analytics](resource-logs-collect-storage.md). |
+| Diagnóstico de recursos | Configure as definições de diagnóstico para escrever para dados de diagnóstico, incluindo métricas para um espaço de trabalho de Log Analytics. Consulte os registos de [recursos do Stream Azure para registar o Analytics](resource-logs-collect-workspace.md). |
 | Soluções de monitorização | As soluções de monitorização escrevem dados que recolhem para o seu espaço de trabalho log Analytics. Consulte detalhes da recolha de dados para soluções de [gestão em Azure](../insights/solutions-inventory.md) para obter uma lista de soluções. Consulte [as soluções de monitorização no Monitor Azure](../insights/solutions.md) para obter mais informações sobre a instalação e utilização de soluções. |
 | Métricas | Envie métricas de plataforma para os recursos do Azure Monitor para um espaço de trabalho de Log Analytics para reter dados de registo por períodos mais longos e realizar análises complexas com outros tipos de dados usando a [linguagem de consulta Kusto](/azure/kusto/query/). Consulte os registos de [recursos do Stream Azure para registar o Analytics](resource-logs-collect-storage.md). |
 | Armazenamento de tabelas do Azure | Recolha dados do armazenamento do Azure onde alguns recursos do Azure escrevem dados de monitorização. Consulte o armazenamento de [blob Azure para armazenamento de mesa IIS e Azure para eventos com Log Analytics](diagnostics-extension-logs.md). |
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>Máquinas Virtuais
 
 | Dados | Descrição |
 |:---|:---|
@@ -114,7 +114,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de fontes dentro
 | Azure Monitor para contentores | Dados de inventário e desempenho recolhidos pelo [Azure Monitor para contentores.](../insights/container-insights-overview.md) Consulte [os detalhes da recolha de dados do Recipiente](../insights/container-insights-log-search.md#container-records) para obter uma lista das tabelas. |
 | Azure Monitor para VMs | Dados de mapa e desempenho recolhidos pelo [Azure Monitor para VMs](../insights/vminsights-overview.md). Consulte [como consultar os registos do Monitor Azure para obter informações](../insights/vminsights-log-search.md) sobre a consulta destes dados. |
 
-### <a name="custom"></a>Personalizar 
+### <a name="custom"></a>Personalizado 
 
 | Dados | Descrição |
 |:---|:---|
@@ -129,7 +129,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de fontes dentro
 | Azure Sentinel | [O Azure Sentinel](/azure/sentinel/) armazena dados de fontes de dados num espaço de trabalho do Log Analytics. Ver [Ligar fontes](/azure/sentinel/connect-data-sources)de dados .  |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a plataforma de [dados Azure Monitor.](data-platform.md)
 - Conheça [as métricas no Monitor Azure.](data-platform-metrics.md)

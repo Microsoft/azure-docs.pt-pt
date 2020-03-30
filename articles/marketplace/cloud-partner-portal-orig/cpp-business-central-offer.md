@@ -1,24 +1,23 @@
 ---
-title: Oferta do Dynamics 365 Business central para o Azure Marketplace
-description: Preteridos e vinculados aos artigos correspondentes do PC; was "explica como criar uma oferta do Dynamics 365 Business central no Portal do Cloud Partner".
-services: Dynamics 365 Business Central, AppSource Marketplace,
-author: ChJenk
+title: Oferta Dinâmica 365 Business Central para o Mercado Azure
+description: Depreciados e ligados aos respetivos artigos para PC; foi "Explica como criar uma oferta Dinâmica 365 Business Central no Cloud Partner Portal."
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: pabutler
-ms.openlocfilehash: 772f96f4e8d5c3c87c2e62cd01500075a5327210
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d791a2e3d9e393c876c1f519dc9cd700428e9810
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819546"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276143"
 ---
-# <a name="dynamics-365-business-central-offer"></a>Oferta do Dynamics 365 Business central
+# <a name="dynamics-365-business-central-offer"></a>Oferta do Dynamics 365 Business Central
 
-O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento das ofertas do Dynamics 365 Business central. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar uma nova oferta do Dynamics 365 Business central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer).
+O [Portal de Parceiros cloud](https://cloudpartner.azure.com/) já não suporta a criação e gestão das ofertas da Dynamics 365 Business Central. Em vez disso, esta funcionalidade foi transferida para o portal Microsoft [Partner Center](https://partner.microsoft.com/). Para mais informações, consulte [Criar uma nova oferta Da Dynamics 365 Business Central.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Antes de criar uma nova oferta do Dynamics 365 Business central, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar uma nova oferta do Dynamics 365 Business central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) para criar sua oferta.
+Antes de criar uma nova oferta Dynamics 365 Business Central, deve ler [Criar uma conta Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o dashboard do Mercado [Comercial](https://partner.microsoft.com/dashboard/directory) com a página **'Visão Geral'** selecionada. Siga as instruções em [Create uma nova oferta Da Dynamics 365 Business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) para criar a sua oferta.

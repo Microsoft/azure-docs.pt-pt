@@ -1,16 +1,16 @@
 ---
-title: Deteção Inteligente em Insights de Aplicação Azure  Microsoft Docs
+title: Deteção Inteligente em Insights de Aplicação Azure [ Microsoft Docs
 description: Application Insights realiza análises profundas automáticas da sua telemetria de aplicações e alerta-o para potenciais problemas.
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671805"
 ---
-# <a name="smart-detection-in-application-insights"></a>Deteção Inteligente em Insights de Aplicação
+# <a name="smart-detection-in-application-insights"></a>Deteção Inteligente no Application Insights
  A Deteção Inteligente avisa-o automaticamente de potenciais problemas de desempenho e anomalias de falha na sua aplicação web. Realiza uma análise proativa da telemetria que a sua aplicação envia para [Application Insights](../../azure-monitor/app/app-insights-overview.md). Se houver um aumento repentino das taxas de falha, ou padrões anormais no desempenho do cliente ou do servidor, recebe um alerta. Esta funcionalidade não necessita de configuração. Funciona se a sua aplicação enviar telemetria suficiente.
 
 Pode aceder às deteções emitidas pela Smart Detection tanto a partir dos e-mails que recebe, como da lâmina de deteção inteligente.
@@ -18,7 +18,7 @@ Pode aceder às deteções emitidas pela Smart Detection tanto a partir dos e-ma
 ## <a name="review-your-smart-detections"></a>Reveja as suas Deteções Inteligentes
 Pode descobrir deteções de duas formas:
 
-* **Recebe um e-mail** da Application Insights. Aqui está um exemplo típico:
+* **Recebe um e-mail** da Application Insights. Veja a seguir um exemplo típico:
   
     ![Alerta de e-mail](./media/proactive-diagnostics/03.png)
   
@@ -60,5 +60,5 @@ Estas ferramentas de diagnóstico ajudam-no a inspecionar a telemetria da sua ap
 A Deteção Inteligente é completamente automática. Mas talvez queira criar mais alguns alertas?
 
 * [Alertas métricos configurados manualmente](../../azure-monitor/app/alerts.md)
-* [Disponibilidade de testes web](../../azure-monitor/app/monitor-web-app-availability.md) 
+* [Testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) 
 

@@ -1,6 +1,6 @@
 ---
 title: Visão geral da unidade das âncoras espaciais azure
-description: Saiba como as Âncoras Espaciais Azure podem ser usadas dentro das Apps de Unidade.
+description: Saiba como as Âncoras Espaciais Azure podem ser usadas dentro das Apps de Unidade. Reveja os quickstarts para A Unidade para HoloLens, Unidade para Android e Unidade para iOS.
 author: rgarcia
 ms.author: rgarcia
 manager: vriveras
@@ -8,12 +8,12 @@ services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: eea2d57c708bd3563625d6f9da19ac043b604888
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: df28fc6b5e3a1ddd9813919c8afbf21f65d731b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246263"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471091"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Edifício em Unidade com Âncoras Espaciais Azure
 

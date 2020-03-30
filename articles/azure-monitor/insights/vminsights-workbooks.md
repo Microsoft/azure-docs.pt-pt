@@ -1,19 +1,19 @@
 ---
-title: Criar relatórios interativos Azure Monitor para VMs com livros de trabalho Microsoft Docs
+title: Criar relatórios interativos do Azure Monitor para VMs com livros
 description: Simplificar relatórios complexos com livros parametrizados pré-definidos e personalizados para O Monitor Azure para VMs.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: 7ec24f1eca0b2cf1d5ea2c171573f7c5e47319af
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670683"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480458"
 ---
-# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos Do Monitor Azure para VMs com livros
+# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos do Azure Monitor para VMs com livros
 
 Os livros de trabalho combinam texto, consultas de [registo,](../log-query/query-language.md)métricas e parâmetros em relatórios interativos ricos. Os livros de recção são editáveis por quaisquer outros membros da equipa que tenham acesso aos mesmos recursos Do Azure.
 
@@ -24,7 +24,7 @@ Os livros são úteis para cenários como:
 * Partilhar os resultados de uma experiência de redimensionamento do seu VM com outros membros da sua equipa. Você pode explicar os objetivos para a experiência com texto, em seguida, mostrar cada métrica de uso e consultas de análise usadas para avaliar a experiência, juntamente com chamadas claras para se cada métrica estava acima ou abaixo do alvo.
 * Reportar o impacto de uma interrupção no uso do seu VM, combinando dados, explicação de texto e uma discussão sobre os próximos passos para evitar interrupções no futuro.
 
-O Azure Monitor para VMs inclui vários livros para começar, e a tabela que se segue resume-os.
+A tabela que se segue resume os livros que o Azure Monitor para VMs inclui para começar.
 
 | Livro | Descrição | Âmbito |
 |----------|-------------|-------|
@@ -40,35 +40,31 @@ O Azure Monitor para VMs inclui vários livros para começar, e a tabela que se 
 | Desempenho | Fornece uma versão personalizável da nossa visão de Desempenho que aproveita todos os contadores de desempenho do Log Analytics que você ativou. | VM única | 
 | Ligações | As ligações proporcionam uma visão aprofundada das ligações de entrada e saída do seu VM. | VM única |
  
-## <a name="starting-with-a-template-or-saved-workbook"></a>Começando com um modelo ou livro guardado
+## <a name="creating-a-new-workbook"></a>Criação de um novo livro
 
 Um livro é composto por secções compostas por gráficos, tabelas, texto e controlos de entrada independentes. Para entender melhor os livros, vamos começar por abrir um modelo e caminhar através da criação de um livro personalizado. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Selecione **Máquinas Virtuais**.
 
 3. Na lista, selecione uma VM.
 
-4. Na página VM, na secção **monitora,** selecione **Insights (pré-visualização)** .
+4. Na página VM, na secção **monitora,** selecione **Insights**.
 
-5. Na página de insights vM, selecione o separador **Performance** ou **Maps** e, em seguida, selecione **Ver Livros** de Trabalho a partir do link na página. 
-
-    ![Screenshot da navegação para livros de trabalho](media/vminsights-workbooks/workbook-option-01.png)
-
-6. A partir da lista de lançamentos, selecione **Ir à Galeria** a partir do fundo da lista.
+5. Na página de insights vM, selecione o separador **Performance** ou **Maps** e, em seguida, selecione **Ver Livros** de Trabalho a partir do link na página. A partir da lista de lançamentos, selecione **Ir à Galeria**.
 
     ![Screenshot da lista de drop-down do livro](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    Lança a galeria do livro com uma série de livros pré-construídos para ajudá-lo a começar.
+    Isto lança a galeria do livro com uma série de livros pré-construídos para ajudá-lo a começar.
 
-7. Começaremos com o **Modelo Padrão,** que está localizado sob a rubrica **Arranque Rápido**.
+7. Crie um novo livro selecionando **New**.
 
     ![Screenshot da galeria do livro](media/vminsights-workbooks/workbook-gallery-01.png)
 
-## <a name="editing-workbook-sections"></a>Edição de secções de livro
+## <a name="editing-workbook-sections"></a>Editar secções do livro
 
-Os livros têm dois modos: **modo de edição**, e **modo de leitura**. Quando o livro de trabalho do modelo padrão é lançado pela primeira vez, abre no modo de **edição**. Mostra todo o conteúdo do livro, incluindo quaisquer passos e parâmetros que estejam escondidos de outra forma. **O modo de leitura** apresenta uma visão simplificada do estilo do relatório. O modo de leitura permite-lhe abstrair a complexidade que entrou na criação de um relatório, ao mesmo tempo que ainda tem a mecânica subjacente a poucos cliques de distância quando necessário para modificação.
+Os livros têm dois modos: **modo de edição**, e **modo de leitura**. Quando um novo livro é lançado, abre em modo de **edição**. Mostra todo o conteúdo do livro, incluindo quaisquer passos e parâmetros que estejam escondidos de outra forma. **O modo de leitura** apresenta uma visão simplificada do estilo do relatório. O modo de leitura permite-lhe abstrair a complexidade que entrou na criação de um relatório, ao mesmo tempo que ainda tem a mecânica subjacente a poucos cliques de distância quando necessário para modificação.
 
 ![Monitor Azure para vms Comandos de edição de livros de trabalho](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
@@ -80,7 +76,7 @@ Os livros têm dois modos: **modo de edição**, e **modo de leitura**. Quando o
 
 4. Para remover uma secção permanentemente, clique no ícone **Remover.**
 
-## <a name="adding-text-and-markdown-sections"></a>Adicionar secções de texto e markdown
+## <a name="adding-text-and-markdown-sections"></a>Adicionar secções de texto e Markdown
 
 Adicionar títulos, explicações e comentários aos seus livros ajuda a transformar um conjunto de tabelas e gráficos numa narrativa. As secções de texto nos livros de livros suportam a [sintaxe de Markdown](https://daringfireball.net/projects/markdown/) para formatação de texto, como títulos, ousados, itálicos e listas com balas.
 
@@ -104,7 +100,7 @@ Para incluir dados de outros espaços de trabalho do Log Analytics ou de uma apl
 
 ### <a name="advanced-analytic-query-settings"></a>Definições avançadas de consulta analítica
 
-Cada secção tem as suas próprias definições avançadas, que são acessíveis através das definições ![comandos de edição da secção de livros de trabalho](media/vminsights-workbooks/006-settings.png) ícone localizado à direita do botão **de parâmetros Add.**
+Cada secção tem as suas próprias definições avançadas, que são acessíveis através das definições ![Listas de trabalho, ícone de controlos](media/vminsights-workbooks/006-settings.png) de edição localizado à direita do botão Adicionar **parâmetros.**
 
 ![Monitor Azure para vms Comandos de edição de livros de trabalho](media/vminsights-workbooks/007-settings-expanded.png)
 
@@ -147,11 +143,11 @@ Aqui está um exemplo de dados de máquinas virtuais sendo puxados para um livro
 
 ![Monitor Azure para vms Comandos de edição de livros de trabalho](media/vminsights-workbooks/010-metrics-grid.png)
 
-## <a name="adding-parameter-sections"></a>Adicionando secções de parâmetros
+## <a name="adding-parameter-sections"></a>Adicionar secções de parâmetros
 
 Os parâmetros do livro permitem alterar valores no livro sem ter de editar manualmente as secções de consulta ou texto. Isto elimina a exigência de necessidade de compreender a linguagem de consulta de análise subjacente e expande consideravelmente o público potencial de relatórios baseados em livros.
 
-Os valores dos parâmetros são substituídos em secções de consulta, texto ou outros parâmetros colocando o nome do parâmetro em aparelhos, como ``{parameterName}``. Os nomes dos parâmetros limitam-se a regras semelhantes às dos identificadores JavaScript, caracteres alfabéticos ou sublinhados, seguidos por caracteres alfanuméricos ou sublinhados. Por exemplo, a **A1** é permitida, mas **1a** não é permitida.
+Os valores dos parâmetros são substituídos em secções de consulta, texto ou outros ``{parameterName}``parâmetros colocando o nome do parâmetro em aparelhos, como . Os nomes dos parâmetros limitam-se a regras semelhantes às dos identificadores JavaScript, caracteres alfabéticos ou sublinhados, seguidos por caracteres alfanuméricos ou sublinhados. Por exemplo, a **A1** é permitida, mas **1a** não é permitida.
 
 Os parâmetros são lineares, partindo do topo de um livro e fluindo para passos posteriores.  Os parâmetros declarados posteriormente num livro podem sobrepor-se a parâmetros que foram declarados anteriormente. Isto também permite parâmetros que usam consultas para aceder aos valores a partir de parâmetros definidos anteriormente. Dentro do próprio passo de um parâmetro, os parâmetros também são lineares, da esquerda para a direita, onde os parâmetros à direita podem depender de um parâmetro declarado anteriormente nesse mesmo passo.
  
@@ -159,14 +155,14 @@ Existem quatro tipos diferentes de parâmetros, que são atualmente suportados:
 
 |                  |      |
 | ---------------- |:-----|
-| **Text** (Texto)    | Permite ao utilizador editar uma caixa de texto, e pode facultar opcionalmente uma consulta para preencher o valor predefinido. |
-| **Desça** | Permite ao utilizador escolher entre um conjunto de valores. |
+| **Texto**    | Permite ao utilizador editar uma caixa de texto, e pode facultar opcionalmente uma consulta para preencher o valor predefinido. |
+| **Pendente** | Permite ao utilizador escolher entre um conjunto de valores. |
 | **Picker de intervalo de tempo**| Permite ao utilizador escolher entre um conjunto predefinido de valores de intervalo de tempo, ou escolher a partir de um intervalo de tempo personalizado.|
 | **Picker de recursos** | Permite ao utilizador escolher entre os recursos selecionados para o livro.|
 
 ### <a name="using-a-text-parameter"></a>Usando um parâmetro de texto
 
-O valor que um utilizador pode escrever na caixa de texto é substituído diretamente na consulta, sem escapar ou citar. Se o valor que precisa é de uma corda, a consulta deve ter citações em torno do parâmetro (como **'{parâmetro}'** ).
+O valor que um utilizador pode escrever na caixa de texto é substituído diretamente na consulta, sem escapar ou citar. Se o valor que precisa é de uma corda, a consulta deve ter citações em torno do parâmetro (como **'{parâmetro}'**).
 
 O parâmetro de texto permite que o valor numa caixa de texto seja utilizado em qualquer lugar. Pode ser um nome de mesa, nome de coluna, nome de função, operador, etc.  O tipo de parâmetro de texto tem uma definição **Obter valor padrão a partir de consulta de análise**, que permite ao autor do livro usar uma consulta para preencher o valor padrão para essa caixa de texto.
 
@@ -226,7 +222,7 @@ O tipo de parâmetro de recolha de recursos dá-lhe a capacidade de examinar o s
 
 ![Abandono de espaços de trabalho](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
 
-## <a name="saving-and-sharing-workbooks-with-your-team"></a>Economia e partilha de livros com a sua equipa
+## <a name="saving-and-sharing-workbooks-with-your-team"></a>Guardar e partilhar livros com a equipa
 
 Os livros de trabalho são guardados dentro de um Espaço de Trabalho de Log Analytics ou de um recurso virtual de máquina, dependendo da forma como acede à galeria de livros de livros. O livro pode ser guardado na secção **My Reports** que é privada para si ou na secção **Relatórios Partilhados** que é acessível a todos os que tenham acesso ao recurso. Para ver todos os livros de reposição do recurso, clique no botão **Open** na barra de ação.
 

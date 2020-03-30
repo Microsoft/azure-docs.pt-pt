@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/02/2020
 ms.openlocfilehash: d9b64785dbd82842479eb3f313b8394f9f25b40b
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370003"
 ---
-# <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizar os dados da Hive Apache com o Microsoft Power BI utilizando o ODBC no Azure HDInsight
+# <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizar o dados do Apache Hive com o Microsoft Power BI através do ODBC no Azure HDInsight
 
 Saiba como ligar o Microsoft Power BI Desktop ao Azure HDInsight usando o ODBC e visualizar os dados da Apache Hive.
 
 > [!IMPORTANT]
 > Pode aproveitar o controlador Hive ODBC para importar através do conector genérico oDBC no Power BI Desktop. No entanto, não é recomendado para cargas de trabalho bi dada a natureza não interativa do motor de consulta da Colmeia. [O conector de consulta interativa HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) e o [conector HDInsight Spark](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) são melhores escolhas para o seu desempenho.
 
-Neste artigo, você carrega os dados de uma tabela `hivesampletable` Hive para Power BI. A tabela Hive contém alguns dados de utilização do telemóvel. Em seguida, planeia os dados de uso num mapa mundial:
+Neste artigo, você carrega os `hivesampletable` dados de uma tabela da Colmeia para Power BI. A tabela Hive contém alguns dados de utilização do telemóvel. Em seguida, planeia os dados de uso num mapa mundial:
 
 ![HDInsight Power BI o relatório do mapa](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
@@ -44,9 +44,9 @@ Consulte [criar a fonte de dados da Hive ODBC](apache-hadoop-connect-excel-hive-
 
 A mesa **colmeia da colmeia vem** com todos os clusters HDInsight.
 
-1. Iniciar o ambiente de trabalho power BI.
+1. Inicie o Power BI Desktop.
 
-1. Do menu superior, navegue até **ao Home** > **Obter dados** > **Mais...** .
+1. Do menu superior, navegue até **Home** > **Get Data** > **More...**.
 
     ![HDInsight Excel Power BI dados abertos](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
@@ -56,7 +56,7 @@ A mesa **colmeia da colmeia vem** com todos os clusters HDInsight.
 
 1. Para a primeira utilização, abrir-se-á um diálogo do **condutor DaDBC.** Selecione **Padrão ou Custom** a partir do menu esquerdo. Em seguida, selecione **Ligar** para abrir o **Navigator**.
 
-1. A partir do diálogo **Navigator,** expanda **o ODBC > HIVE > predefinido,** selecione **hivesampletable,** e, em seguida, selecione **Load**.
+1. A partir do diálogo **Navigator,** expanda **o ODBC > HIVE > padrão**, selecione a **colmeia,** e, em seguida, selecione **Load**.
 
 ## <a name="visualize-data"></a>Visualizar os dados
 

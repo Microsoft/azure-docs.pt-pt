@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: f1aa605b3e6f32b260ea4a9eee9c056277fcd12d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367079"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Erro ao Processar em Runbooks Gráficos da Automatização do Azure
@@ -20,7 +20,7 @@ Muitas vezes, se houver um erro não terminante que ocorra com uma atividade de 
 
 O seu livro de execução gráfico deve incluir código de manipulação de erros para lidar com problemas de execução. Para validar a saída de uma atividade ou lidar com um erro, pode utilizar uma atividade de código PowerShell, definir lógica condicional na ligação de saída da atividade ou aplicar outro método.
 
-Os livros gráficos Azure Automation foram melhorados com a capacidade de incluir o manuseamento de erros. Agora, pode converter exceções em erros de não terminação e criar ligações de erros entre atividades. O processo melhorado permite que o seu livro de execução apanhe erros e gere condições realizadas ou inesperadas. 
+Os runbooks gráficos da Automatização do Azure foram melhorados com a capacidade de incluir o processamento de erros. Agora, pode converter exceções em erros de não terminação e criar ligações de erros entre atividades. O processo melhorado permite que o seu livro de execução apanhe erros e gere condições realizadas ou inesperadas. 
 
 >[!NOTE]
 >Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
@@ -48,7 +48,7 @@ A prática recomendada é criar um livro de execução dedicado ao manuseamento 
 1. Envia uma notificação sobre este problema.
 2. Inicia outro livro de execução que provise automaticamente um novo VM.
 
-Uma solução é ter uma ligação de erro no livro de execução que aponta para uma atividade que lida com o passo um. Por exemplo, o livro de execução pode ligar o `Write-Warning` cmdlet a uma atividade para o segundo passo, como o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0)
+Uma solução é ter uma ligação de erro no livro de execução que aponta para uma atividade que lida com o passo um. Por exemplo, o livro `Write-Warning` de execução pode ligar o cmdlet a uma atividade para o segundo passo, como o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0)
 
 Você também pode generalizar este comportamento para uso em muitos livros de execução colocando estas duas atividades em um livro de execução de manipulação de erros separado. Antes de o seu livro original chamar este livro de execução de manipulação de erros, pode construir uma mensagem personalizada a partir dos seus dados e, em seguida, passá-la como parâmetro para o livro de execução de manipulação de erros.
 
@@ -60,9 +60,9 @@ Depois de ativar a definição de configuração, o seu livro de execução crie
 
 No exemplo seguinte, um livro de execução recupera uma variável que contém o nome do computador de um VM. Em seguida, tenta iniciar o VM com a próxima atividade.<br><br> ![Exemplo de manipulação de erros de executo de automatização](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-A atividade `Get-AutomationVariable` e o cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) estão configurados para converter exceções a erros. Se houver problemas em obter a variável ou iniciar o VM, o código gera erros.<br><br> ![Definição de atividade de manipulação de erros do livro de automação](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
+A `Get-AutomationVariable` atividade e o cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) estão configurados para converter exceções a erros. Se houver problemas em obter a variável ou iniciar o VM, o código gera erros.<br><br> ![Definições](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)de atividade de manipulação de erros do livro de automatização.
 
-As ligações de erro fluem destas atividades para uma única atividade de código `error management`. Esta atividade é configurada com uma simples expressão PowerShell que usa a palavra-chave `throw` para parar de processar, juntamente com `$Error.Exception.Message` para obter a mensagem que descreve a exceção atual.<br><br> ![Automatização de código de manuseamento de erros de livro de executantes](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+As ligações de erro `error management` fluem destas atividades para uma única atividade de código. Esta atividade é configurada com uma simples `throw` expressão PowerShell que `$Error.Exception.Message` usa a palavra-chave para parar o processamento, juntamente com obter a mensagem que descreve a exceção atual.<br><br> ![Exemplo de código de manipulação de erros de executo de automatização](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

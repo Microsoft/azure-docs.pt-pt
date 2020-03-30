@@ -6,10 +6,10 @@ ms.custom: fasttrack-edit
 ms.topic: article
 ms.date: 06/24/2019
 ms.openlocfilehash: 5693d9e90de9ba68e7b76e0f2bd5b75141dbda71
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77596815"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como criar um cluster AKS e distribuir os componentes do 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão Azure CLI 2.0.76 ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Precisa da versão Azure CLI 2.0.76 ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ## <a name="limitations-and-region-availability"></a>Limitações e disponibilidade da região
 
@@ -36,7 +36,7 @@ Os clusters AKS podem atualmente ser criados utilizando zonas de disponibilidade
 * Europa do Norte
 * Ásia Sudeste
 * Sul do Reino Unido
-* Europa Ocidental
+* Europa ocidental
 * E.U.A.Oeste 2
 
 As seguintes limitações aplicam-se quando se cria um cluster AKS utilizando zonas de disponibilidade:
@@ -62,7 +62,7 @@ As zonas de disponibilidade são uma oferta de alta disponibilidade que protege 
 
 Para mais informações, consulte [As zonas de disponibilidade em Azure?][az-overview]
 
-Os aglomerados AKS que são implantados usando zonas de disponibilidade podem distribuir nós em várias zonas dentro de uma única região. Por exemplo, um cluster na região de  *leste dos EUA 2* pode criar nós nas três zonas de disponibilidade no Leste dos EUA *2*. Esta distribuição de recursos de cluster AKS melhora a disponibilidade de cluster, uma vez que são resistentes ao fracasso de uma zona específica.
+Os aglomerados AKS que são implantados usando zonas de disponibilidade podem distribuir nós em várias zonas dentro de uma única região. Por exemplo, um cluster na região *leste dos EUA 2* pode criar nós nas três zonas de disponibilidade no *Leste dos EUA 2*. Esta distribuição de recursos de cluster AKS melhora a disponibilidade de cluster, uma vez que são resistentes ao fracasso de uma zona específica.
 
 ![Distribuição do nó AKS em zonas de disponibilidade](media/availability-zones/aks-availability-zones.png)
 
@@ -70,7 +70,7 @@ Numa paragem de zona, os nós podem ser reequilibrados manualmente ou utilizando
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Criar um cluster AKS em todas as zonas de disponibilidade
 
-Quando se cria um cluster utilizando as [aks az criar][az-aks-create] comando, o parâmetro `--zones` define em que zonas os nós dos agentes são implantados. Os componentes do plano de controlo AKS para o seu cluster também estão espalhados por zonas na configuração mais elevada disponível quando define o parâmetro `--zones` no tempo de criação do cluster.
+Quando se cria um cluster utilizando as [aks az criar][az-aks-create] comando, o `--zones` parâmetro define em que zonas os nós dos agentes são implantados. Os componentes do plano de controlo AKS para o seu cluster também `--zones` estão espalhados por zonas na configuração mais elevada disponível quando definir o parâmetro no tempo de criação do cluster.
 
 Se não definir nenhuma zona para o pool de agente padrão quando criar um cluster AKS, os componentes do plano de controlo AKS para o seu cluster não usarão zonas de disponibilidade. Você pode adicionar piscinas de nó adicionais usando o [az aks nodepool adicionar][az-aks-nodepool-add] comando e especificar `--zones` para esses novos nós, no entanto os componentes do plano de controlo permanecem sem a consciência da zona de disponibilidade. Não se pode mudar a consciência da zona para uma piscina de nó ou os componentes do plano de controlo AKS uma vez que estão implantados.
 
@@ -120,11 +120,11 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 À medida que adiciona nós adicionais a um conjunto de agentes, a plataforma Azure distribui automaticamente os VMs subjacentes através das zonas de disponibilidade especificadas.
 
-Note que nas versões kubernetes mais recentes (1.17.0 e mais tarde), a AKS está a usar a nova etiqueta `topology.kubernetes.io/zone` para além da `failure-domain.beta.kubernetes.io/zone`depreciada .
+Note que nas versões kubernetes mais recentes (1.17.0 e `topology.kubernetes.io/zone` mais tarde), a AKS está a usar a etiqueta mais recente para além das depreciadas `failure-domain.beta.kubernetes.io/zone`.
 
 ## <a name="verify-pod-distribution-across-zones"></a>Verificar a distribuição de casulos em todas as zonas
 
-Tal como documentado em [Etiquetas, Anotações e Manchas Bem Conhecidas,][kubectl-well_known_labels]a Kubernetes utiliza a etiqueta `failure-domain.beta.kubernetes.io/zone` para distribuir automaticamente cápsulas num controlador ou serviço de replicação nas diferentes zonas disponíveis. Para testar isto, pode aumentar o seu cluster de 3 a 5 nós, para verificar a propagação correta da cápsula:
+Tal como documentado em [Etiquetas, Anotações e Manchas Bem Conhecidas,][kubectl-well_known_labels]a Kubernetes utiliza a `failure-domain.beta.kubernetes.io/zone` etiqueta para distribuir automaticamente cápsulas num controlador ou serviço de replicação nas diferentes zonas disponíveis. Para testar isto, pode aumentar o seu cluster de 3 a 5 nós, para verificar a propagação correta da cápsula:
 
 ```azurecli-interactive
 az aks scale \
@@ -133,7 +133,7 @@ az aks scale \
     --node-count 5
 ```
 
-Quando a operação de escala estiver concluída após alguns minutos, o comando `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` deve dar uma saída semelhante a esta amostra:
+Quando a operação de escala estiver concluída `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` após alguns minutos, o comando deve dar uma saída semelhante a esta amostra:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -154,7 +154,7 @@ Como podem ver, agora temos dois nós adicionais nas zonas 1 e 2. Pode implement
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-Se verificar se os nós de onde as suas cápsulas estão a funcionar, verá que as cápsulas estão a funcionar nas cápsulas correspondentes a três zonas de disponibilidade diferentes. Por exemplo, com o comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` obteria uma saída semelhante a esta:
+Se verificar se os nós de onde as suas cápsulas estão a funcionar, verá que as cápsulas estão a funcionar nas cápsulas correspondentes a três zonas de disponibilidade diferentes. Por exemplo, `kubectl describe pod | grep -e "^Name:" -e "^Node:"` com o comando, obteria uma saída semelhante a esta:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
@@ -165,7 +165,7 @@ Name:         nginx-6db489d4b7-xz6wj
 Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 ```
 
-Como pode ver na saída anterior, a primeira cápsula está a funcionar no nó 0, que está localizado na zona de disponibilidade `eastus2-1`. A segunda cápsula está a funcionar no nó 2, que corresponde a `eastus2-3`, e a terceira no nó 4, em `eastus2-2`. Sem qualquer configuração adicional, a Kubernetes está a espalhar corretamente as cápsulas pelas três zonas de disponibilidade.
+Como pode ver na saída anterior, a primeira cápsula está a funcionar no `eastus2-1`nó 0, que está localizado na zona de disponibilidade . A segunda cápsula está a funcionar no `eastus2-3`nó 2, que corresponde a `eastus2-2`, e a terceira no nó 4, em . Sem qualquer configuração adicional, a Kubernetes está a espalhar corretamente as cápsulas pelas três zonas de disponibilidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 

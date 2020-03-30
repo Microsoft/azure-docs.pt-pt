@@ -1,5 +1,5 @@
 ---
-title: Microsoft plataforma de identidade Java web app quickstart  Azure
+title: Microsoft plataforma de identidade Java web app quickstart [ Azure
 description: Saiba como implementar o Microsoft Sign-In numa Aplicação Web java usando o OpenID Connect
 services: active-directory
 author: sangonzal
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 3bfcc1ef8c58f71811af604fbc07736a13102e83
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c2f3272beb463a16f9488139b6c3a45febae6493
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249089"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79529639"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Quickstart: Adicione o sessão com a Microsoft a uma aplicação web java
 
@@ -46,19 +46,19 @@ Para executar esta amostra, você precisará:
 >
 > Para registar a sua aplicação e adicionar manualmente as informações de registo da aplicação à sua solução, siga estes passos:
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 >
 > 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](/azure/active-directory/develop/)
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
->    - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `java-webapp`.
+>    - Na secção **Nome,** introduza um nome de aplicação significativo que `java-webapp`será apresentado aos utilizadores da aplicação, por exemplo.
 >    - Deixe **redirecionar uri** em branco por enquanto e selecione **Register**.
 > 1. Na página **'Visão Geral',** consulte os valores de ID do **Pedido (cliente)** e do **Diretório (inquilino)** da aplicação. Copie estes valores para mais tarde.
 > 1. Selecione a **Autenticação** no menu e, em seguida, adicione as seguintes informações:
 >    - Em **Redirecionamento de URIs,** adicione `https://localhost:8080/msal4jsample/secure/aad` e `https://localhost:8080/msal4jsample/graph/me`.
 >    - Selecione **Guardar**.
-> 1. Selecione os **Certificados e segredos** do menu e na secção de segredos do **Cliente,** clique em **Novo segredo do cliente:**
+> 1. Selecione os **Certificados & segredos** do menu e na secção de segredos do **Cliente,** clique em **Novo segredo do cliente:**
 >
 >    - Digite uma descrição da chave (por exemplo, segredo de aplicação).
 >    - Selecione uma duração chave **Em 1 ano**.
@@ -70,7 +70,7 @@ Para executar esta amostra, você precisará:
 >
 > Para a amostra de código para este início rápido funcionar, é necessário:
 >
-> 1. Adicione URLs de resposta como `https://localhost:8080/msal4jsample/secure/aad` e `https://localhost:8080/msal4jsample/graph/me`.
+> 1. Adicione URLs `https://localhost:8080/msal4jsample/secure/aad` de `https://localhost:8080/msal4jsample/graph/me`resposta como e .
 > 1. Criar um Segredo de Cliente.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas mudanças para mim]()
@@ -99,11 +99,11 @@ Para executar esta amostra, você precisará:
 >   Coloque o ficheiro da loja de chaves gerado na pasta "recursos".
    
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Descarregue a amostra de código]()
+> [Descarregue a amostra de código](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-code-sample"></a>Passo 3: Configurar a amostra de código
-> 1. Extrai o ficheiro zip para uma pasta local.
+> 1. Extraia o ficheiro zip para uma pasta local.
 > 1. Se utilizar um ambiente de desenvolvimento integrado, abra a amostra no seu IDE favorito (opcional).
 > 1. Abra o ficheiro application.properties, que pode ser encontrado em sRC/main/resources/folder e substituir o valor dos campos *aad.clientId,* *aad.authority* e *aad.secretKey* com os respetivos valores de Id de **Aplicação,** **Id do Inquilino** e Segredo de **Cliente** como os seguintes:
 >
@@ -118,8 +118,8 @@ Para executar esta amostra, você precisará:
 > Em que:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
-> - `Enter_the_Client_Secret_Here` - é o Segredo do **Cliente** que criou em **Certificados e Segredos** para a aplicação que registou.
-> - `Enter_the_Tenant_Info_Here` - é o valor de id do **Diretório (inquilino)** do pedido que registou.
+> - `Enter_the_Client_Secret_Here`- é o Segredo do **Cliente** que criou em **Certificados & Segredos** para a aplicação que registou.
+> - `Enter_the_Tenant_Info_Here`- o valor de id do **Diretório (inquilino)** do pedido que registou.
 > 1. Para utilizar https com o local anfitrião, preencha as propriedades do servidor.ssl.key. Para gerar um certificado auto-assinado, utilize o utilitário keytool (incluído no JRE).
 >
 >  ```
@@ -145,11 +145,11 @@ Executa-o diretamente a partir do iDE utilizando o servidor de boot de mola inco
 
 ##### <a name="running-from-ide"></a>Correndo do IDE
 
-Se estiver a executar a aplicação web a partir de um IDE, clique em executar e navegue para a página inicial do projeto. Para esta amostra, o URL da página inicial padrão é https://localhost:8080.
+Se estiver a executar a aplicação web a partir de um IDE, clique em executar e navegue para a página inicial do projeto. Para esta amostra, o URL https://localhost:8080da página inicial padrão é .
 
 1. Na primeira página, selecione o botão **Login** para redirecionar para o Diretório Ativo Do Azure e instituem o utilizador para as suas credenciais.
 
-1. Após a autenticação do utilizador, são redirecionados para *https://localhost:8080/msal4jsample/secure/aad* . Eles estão agora inscritos, e a página mostrará informações sobre a conta assinada. A amostra UI tem os seguintes botões:
+1. Após a autenticação do utilizador, são *https://localhost:8080/msal4jsample/secure/aad*redirecionados para . Eles estão agora inscritos, e a página mostrará informações sobre a conta assinada. A amostra UI tem os seguintes botões:
     - *Sign out*: Assina o utilizador atual para fora da aplicação e redireciona-os para a página inicial.
     - *Mostrar informações do utilizador*: Adquire um símbolo para o Microsoft Graph e liga para o Microsoft Graph com um pedido que contém o símbolo, que devolve informações básicas sobre o utilizador inscrito.
 

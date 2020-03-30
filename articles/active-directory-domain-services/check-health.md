@@ -1,5 +1,5 @@
 ---
-title: Verifique a saúde dos Serviços de Domínio de Diretório Ativo azure  Microsoft Docs
+title: Verifique a saúde dos Serviços de Domínio de Diretório Ativo azure [ Microsoft Docs
 description: Saiba como verificar a saúde de um Azure Ative Directory Domain Services (Azure AD DS) gerido domínio e compreenda as mensagens de estado usando o portal Azure.
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
 ms.openlocfilehash: fa1cba2d791cd40a46f8ad182c123a726143faec
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614254"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verifique a saúde de um domínio gerido pelo Azure Ative Directory Domain Services
@@ -43,7 +43,7 @@ O estado no canto superior direito indica a saúde geral do domínio gerido pela
 | A executar | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | O domínio gerido pelo Azure AD DS está a funcionar corretamente e não tem quaisquer alertas críticos ou de alerta. O domínio pode ter alertas informais. |
 | Precisa de atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Não existem alertas críticos sobre o domínio gerido pelo Azure AD DS, mas existem um ou mais alertas de alerta que devem ser abordados. |
 | Precisa de atenção (crítica) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Existem um ou mais alertas críticos sobre o domínio gerido pela AD DS azure que deve ser abordado. Pode também ter alertas de aviso e/ou informação. |
-| Implementação | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | O domínio Azure AD DS está a ser implantado. |
+| Implantação | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | O domínio Azure AD DS está a ser implantado. |
 
 ## <a name="understand-monitors-and-alerts"></a>Compreender monitores e alertas
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.openlocfilehash: 929ab4109eb8d0e90b6c561a2135c0b7dd4205bb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672264"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar extensão de diagnóstico do Windows Azure (WAD)
@@ -35,7 +35,7 @@ Pode instalar e configurar a extensão de diagnóstico numa máquina virtual ind
 
 Pode modificar a configuração predefinida uma vez ativada a extensão de diagnóstico. A tabela seguinte descreve as opções que pode modificar nos diferentes separadores. Algumas opções têm um comando **Personalizado** que lhe permite especificar configuração mais detalhada; consulte o esquema de extensão de diagnóstico do Windows para obter detalhes sobre [diferentes](diagnostics-extension-schema-windows.md) definições.
 
-| Guia | Descrição |
+| Tecla de Tabulação | Descrição |
 |:---|:---|
 | Descrição geral | Apresenta a configuração atual com ligações aos outros separadores. |
 | Contadores de desempenho | Selecione os contadores de desempenho para recolher e a taxa de amostra para cada um.  |
@@ -51,7 +51,7 @@ Pode modificar a configuração predefinida uma vez ativada a extensão de diagn
 ## <a name="resource-manager-template"></a>Modelo do Resource Manager
 Consulte a [monitorização e diagnóstico de utilização com um Modelo de VM windows e gestor de recursos Azure](../../virtual-machines/extensions/diagnostics-template.md) na implementação da extensão de diagnóstico com modelos do Gestor de Recursos Azure. 
 
-## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
+## <a name="azure-cli-deployment"></a>Implantação Azure CLI
 O Azure CLI pode ser utilizado para implantar a extensão De diagnóstico azure a uma máquina virtual existente utilizando [extensão az vm definida](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) como no exemplo seguinte. 
 
 ```azurecli

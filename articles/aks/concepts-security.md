@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.openlocfilehash: 7238e6cd7ab3625e2953a4408c82802d43372256
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595948"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Serviço Azure Kubernetes (AKS)
@@ -20,7 +20,7 @@ Este artigo introduz os conceitos fundamentais que asseguram as suas aplicaçõe
 - [Segurança dos componentes principais](#master-security)
 - [Segurança do nó](#node-security)
 - [Upgrades de cluster](#cluster-upgrades)
-- [Segurança da rede](#network-security)
+- [Segurança de rede](#network-security)
 - [Segredos de Kubernetes](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Segurança principal
@@ -62,7 +62,7 @@ Para mais informações, consulte [Atualizar um cluster AKS][aks-upgrade-cluster
 
 Para conectividade e segurança com redes no local, pode implantar o seu cluster AKS em subredes de rede virtual Azure existentes. Estas redes virtuais podem ter uma ligação Azure Site-to-Site VPN ou Express Route de volta à sua rede no local. Os controladores de ingressos Kubernetes podem ser definidos com endereços IP privados internos, pelo que os serviços só são acessíveis através desta ligação interna à rede.
 
-### <a name="azure-network-security-groups"></a>Grupos de segurança da rede Azure
+### <a name="azure-network-security-groups"></a>Grupos de segurança de rede do Azure
 
 Para filtrar o fluxo de tráfego em redes virtuais, o Azure utiliza regras do grupo de segurança da rede. Estas regras definem as gamas IP de origem e destino, portos e protocolos que são permitidos ou negados ao acesso aos recursos. São criadas regras predefinidas para permitir o tráfego de TLS para o servidor Kubernetes API. À medida que cria serviços com equilibradores de carga, mapeamentos portuários ou rotas de ingresso, o AKS modifica automaticamente o grupo de segurança da rede para que o tráfego flua adequadamente.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66e94393bef942d7bfad41a7dccc8b651696d4af
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 8a3c71534febc3cdb6429d3092225ebc73f6cbe7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484524"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481488"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir dispositivos geridos para acesso a aplicações na nuvem com acesso condicional
 
@@ -30,6 +30,7 @@ Requerendo dispositivos geridos para acesso a aplicações na nuvem liga o **Ace
 
 - **[Acesso Condicional no Diretório Ativo Azure](../active-directory-conditional-access-azure-portal.md)** - Este artigo fornece-lhe uma visão geral conceptual do Acesso Condicional e da terminologia relacionada.
 - **[Introdução à gestão de dispositivos no Diretório Ativo do Azure](../devices/overview.md)** - Este artigo dá-lhe uma visão geral das várias opções que tem para obter dispositivos sob controlo organizacional. 
+- Para suporte chrome na **Atualização de Criadores do Windows 10 (versão 1703)** ou posterior, instale a extensão das [Contas Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Esta extensão é necessária quando uma política de acesso condicional requer detalhes específicos do dispositivo.
 
 >[!NOTE] 
 > Recomendamos a utilização da política de Acesso Condicional baseada em dispositivos Azure AD para obter a melhor aplicação após a autenticação inicial do dispositivo. Isto inclui sessões de fecho se o dispositivo cair fora de conformidade e fluxo de código do dispositivo.
@@ -99,6 +100,6 @@ Para um dispositivo que está marcado como conforme, pode presumir que:
 
 No Windows 7, iOS, Android, macOS e alguns navegadores web de terceiros A AD AD identifica o dispositivo utilizando um certificado de cliente que é aprovisionado quando o dispositivo está registado na Azure AD. Quando um utilizador entra pela primeira vez através do navegador, o utilizador é solicitado a selecionar o certificado. O utilizador final deve selecionar este certificado antes de poder continuar a utilizar o navegador.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Antes de configurar uma política de acesso condicional baseada em dispositivos no seu ambiente, deve analisar as [melhores práticas de acesso condicional no Diretório Ativo Azure](best-practices.md).

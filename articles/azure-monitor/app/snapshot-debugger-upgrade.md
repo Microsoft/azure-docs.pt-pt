@@ -7,10 +7,10 @@ ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6991db6055ca8556adff67f194bac0f4aa04cb06
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671397"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Upgrade do Debugger Snapshot
@@ -63,4 +63,4 @@ O site foi agora atualizado e está pronto a ser utilizado.
 
 ## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>Upgrade Snapshot Debugger usando SDK/Nuget
 
-Se a aplicação estiver a utilizar uma versão do `Microsoft.ApplicationInsights.SnapshotCollector` versão 1.3.1, terá de ser atualizada para uma [versão mais recente](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) para continuar a funcionar.
+Se a aplicação estiver `Microsoft.ApplicationInsights.SnapshotCollector` a utilizar uma versão abaixo da versão 1.3.1, terá de ser atualizada para uma [versão mais recente](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) para continuar a funcionar.
