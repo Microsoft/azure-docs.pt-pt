@@ -6,17 +6,17 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
-ms.openlocfilehash: b42acdf64612da6837bc67752f7a22169ddef7e2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c29790035ec4e971957784e826a1e8bd8e0c9329
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673330"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79500496"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Quais as novidades na documentação do Monitor Azure?
 Este artigo fornece listas de artigos do Monitor Do Azure que são novos ou foram significativamente atualizados. Será atualizado na primeira semana de cada mês para incluir atualizações de artigos do mês anterior.
 
-## <a name="march-2020"></a>março de 2020
+## <a name="february-2020"></a>Fevereiro de 2020
 
 ### <a name="agents"></a>Agentes
 Múltiplas atualizações como parte da reescrita do conteúdo da extensão de diagnósticos.
@@ -27,7 +27,7 @@ Múltiplas atualizações como parte da reescrita do conteúdo da extensão de d
 - [Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)](platform/diagnostics-extension-windows-install.md) - Novo artigo. 
 - Esquema de [extensão de diagnóstico do Windows](platform/diagnostics-extension-schema-windows.md) - Reorganizado.
 - [Envie dados da extensão de diagnóstico do Windows Azure para o Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) - Completamente reescrito e atualizado.
-- Armazenar e ver dados de [diagnóstico no Armazenamento Azure](platform/diagnostics-extension-to-storage.md) - Completamente reescritoe e atualizado.
+- Armazenar e ver dados de [diagnóstico no Armazenamento Azure](/azure/cloud-services/diagnostics-extension-to-storage) - Completamente reescritoe e atualizado.
 - [Extensão](../virtual-machines/extensions/oms-windows.md) de máquina virtual Log Analytics para Windows - Melhor clarifica a relação com o agente Log Analytics.
 - [Extensão de máquina virtual Azure Monitor para Linux](../virtual-machines/extensions/oms-linux.md) - Melhor esclarece a relação com o agente Log Analytics.
 
@@ -143,7 +143,7 @@ Vários novos artigos para ver designer para guia de conversão de livros de tra
 - [Entenda como os alertas métricos funcionam no Monitor Azure.](platform/alerts-metric-overview.md) - Adicionou tipos de recursos suportados para monitorização em escala.
 
 ### <a name="application-insights"></a>Application Insights
-- [Application Insights for Worker Service apps (aplicações não HTTP)](app/worker-service.md) - Nível de registo padrão adicionado ao C# código. Versão atualizada de referência do pacote.
+- [Application Insights for Worker Service apps (apps não HTTP)](app/worker-service.md) - Adicionou o nível de registo padrão ao código C# . Versão atualizada de referência do pacote.
 - [ApplicationInsights.config reference - Azure](app/configuration-with-applicationinsights-config.md) - Código de amostra atualizado.
 - [Automatizar insights de aplicação Azure com powerShell](app/powershell.md) - Modelo de atualização para gestor de recursos.
 - [Pacotes NuGet](app/nuget.md) de Insights de Aplicação Do Monitor Azure - Versões de pacoteatualizadas.

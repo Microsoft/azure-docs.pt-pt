@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
 ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249987"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Crie e gerencie uma máquina virtual windows que tenha vários NICs
@@ -81,7 +81,7 @@ Normalmente também cria um grupo de segurança de [rede](../../virtual-network/
 ### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 Agora comece a construir a sua configuração VM. Cada tamanho VM tem um limite para o número total de NICs que pode adicionar a um VM. Para mais informações, consulte os [tamanhos do Windows VM](sizes.md).
 
-1. Detete as suas credenciais VM para a variável `$cred` da seguinte forma:
+1. Delineie as `$cred` suas credenciais VM para a variável da seguinte forma:
 
     ```powershell
     $cred = Get-Credential
@@ -158,7 +158,7 @@ Para adicionar um NIC virtual a um VM existente, você desaloca o VM, adicione o
     ```
 
     ### <a name="primary-virtual-nics"></a>NICs virtuais primários
-    Um dos NICs de um VM multi-NIC precisa ser primário. Se um dos NICs virtuais existentes no VM já estiver definido como primário, pode saltar este passo. O exemplo que se segue pressupõe que dois NICs virtuais estão agora presentes num VM e deseja adicionar o primeiro NIC (`[0]`) como o principal:
+    Um dos NICs de um VM multi-NIC precisa ser primário. Se um dos NICs virtuais existentes no VM já estiver definido como primário, pode saltar este passo. O exemplo que se segue pressupõe que dois NICs virtuais estão`[0]`agora presentes num VM e deseja adicionar o primeiro NIC ( ) como o principal:
         
     ```powershell
     # List existing NICs on the VM and find which one is primary
@@ -204,7 +204,7 @@ Para remover um NIC virtual de um VM existente, você desaloca o VM, remova o NI
     $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. Retire o NIC com [remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) e, em seguida, atualize o VM com [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). O exemplo seguinte remove *o myNic3* como obtido por `$nicId` na etapa anterior:
+4. Retire o NIC com [remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) e, em seguida, atualize o VM com [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). O exemplo seguinte remove *o myNic3* obtido na `$nicId` etapa anterior:
 
     ```powershell
     Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
@@ -229,7 +229,7 @@ Os modelos do Gestor de Recursos Azure fornecem uma forma de criar múltiplas in
 
 Para mais informações, consulte a [criação de múltiplos casos utilizando *cópia*](../../resource-group-create-multiple.md). 
 
-Também pode usar `copyIndex()` para anexar um número a um nome de recurso. Pode então criar *o myNic1,* *MyNic2* e assim por diante. O seguinte código mostra um exemplo de adesão ao valor do índice:
+Também pode `copyIndex()` usar para anexar um número a um nome de recurso. Pode então criar *o myNic1,* *MyNic2* e assim por diante. O seguinte código mostra um exemplo de adesão ao valor do índice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -243,7 +243,7 @@ Adicione rotas para NICs secundários ao Sistema operativo, completando as etapa
 
 O Azure atribui uma porta de entrada predefinida à primeira interface de rede (primária) ligada à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. As interfaces de rede secundária podem, no entanto, comunicar com recursos fora da sua subnet, embora os passos para permitir a comunicação sejam diferentes para diferentes sistemas operativos.
 
-1. A partir de um pedido de comando windows, executar o comando `route print`, que retorna a saída semelhante à seguinte saída para uma máquina virtual com duas interfaces de rede anexadas:
+1. A partir de um `route print` pedido de comando windows, executar o comando, que retorna a saída semelhante à seguinte saída para uma máquina virtual com duas interfaces de rede anexadas:
 
     ```
     ===========================================================================
@@ -255,7 +255,7 @@ O Azure atribui uma porta de entrada predefinida à primeira interface de rede (
  
     Neste exemplo, o Adaptador de **Rede Hiper-V da Microsoft #4** (interface 7) é a interface de rede secundária que não tem um gateway predefinido atribuído a ele.
 
-2. A partir de um pedido de comando, execute o comando `ipconfig` para ver qual o endereço IP atribuído à interface de rede secundária. Neste exemplo, 192.168.2.4 é atribuído à interface 7. Não é devolvido nenhum endereço de gateway predefinido para a interface de rede secundária.
+2. A partir de um `ipconfig` pedido de comando, execute o comando para ver qual o endereço IP atribuído à interface de rede secundária. Neste exemplo, 192.168.2.4 é atribuído à interface 7. Não é devolvido nenhum endereço de gateway predefinido para a interface de rede secundária.
 
 3. Para encaminhar todo o tráfego destinado a endereços fora da sub-rede da interface de rede secundária até à porta de entrada da sub-rede, executar o seguinte comando:
 
@@ -281,7 +281,7 @@ O Azure atribui uma porta de entrada predefinida à primeira interface de rede (
       netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
       ```
   
-5. Para confirmar que a rota adicional está na tabela de rotas, introduza o comando `route print`, que devolve a saída semelhante ao seguinte texto:
+5. Para confirmar que a rota adicional está `route print` na tabela de rotas, insira o comando, que devolve a saída semelhante ao seguinte texto:
 
     ```
     ===========================================================================

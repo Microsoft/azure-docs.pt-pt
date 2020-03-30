@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 070e2108afb22539501c0e1808593c95a26b4576
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d0b7288d5232e296a36708a08ea2ad9f8df5ee1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531061"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -23,6 +23,7 @@ Pode configurar todas as funcionalidades abordadas neste artigo através de mode
 
 ## <a name="accelerated-networking"></a>Redes Aceleradas
 As Redes Aceleradas do Azure melhoram o desempenho da rede ao permitirem a virtualização de E/S de raiz única (SR-IOV) para uma máquina virtual. Para saber mais sobre a utilização das Redes aceleradas, consulte Redes aceleradas para máquinas virtuais [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Para utilizar as redes aceleradas com conjuntos de dimensionamento, defina enableAcceleratedNetworking como **Verdadeiro** nas definições networkInterfaceConfigurations do seu conjunto. Por exemplo:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -42,7 +43,8 @@ As Redes Aceleradas do Azure melhoram o desempenho da rede ao permitirem a virtu
 
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Criar um conjunto de dimensionamento que faça referência a um balanceador de carga do Azure existente
 Quando um conjunto de dimensionamento é criado no portal do Azure, é criado um novo balanceador de carga para a maioria das opções de configuração. Se criar um conjunto de dimensionamento que tenha de referenciar um balanceador de carta existente, poderá utilizar a CLI para o fazer. O script de exemplo seguinte cria um balanceador de carta e, depois, um conjunto de dimensionamento, que o referencia:
-```bash
+
+```azurecli
 az network lb create \
     -g lbtest \
     -n mylb \
@@ -64,11 +66,13 @@ az vmss create \
     --lb mylb \
     --backend-pool-name mybackendpool
 ```
+
 >[!NOTE]
 > Após a criação do conjunto de calcário, a porta de backend não pode ser modificada para uma regra de equilíbrio de carga utilizada por uma sonda de saúde do equilibrador de carga. Para alterar a porta, pode remover a sonda de saúde atualizando o conjunto de escala de máquina virtual Azure, atualizar a porta e, em seguida, configurar novamente a sonda de saúde. 
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencie um Gateway de Aplicação
 Para criar um conjunto de dimensionamento que utiliza um gateway de aplicação, referencie o conjunto de endereços de back-end do gateway de aplicação na secção ipConfigurations do seu conjunto de dimensionamento como nesta configuração de modelo ARM:
+
 ```json
 "ipConfigurations": [{
   "name": "{config-name}",
@@ -91,10 +95,13 @@ Por predefinição, os conjuntos de dimensionamento assumem as definições de D
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Criar um conjunto de dimensionamento com servidores DNS configuráveis
 Para criar um conjunto de dimensionamento com uma configuração DNS personalizada através da CLI do Azure, adicione o argumento **--dns-servers** ao comando **vmss create**, seguido pelos endereços IP dos servidores separados por espaços. Por exemplo:
+
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
+
 Para configurar servidores DNS personalizados num modelo do Azure, adicione uma propriedade dnsSettings à secção networkInterfaceConfigurations do conjunto de dimensionamento. Por exemplo:
+
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -104,7 +111,7 @@ Para configurar servidores DNS personalizados num modelo do Azure, adicione uma 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Criar um conjunto de dimensionamento com nomes de domínio de máquinas virtuais configuráveis
 Para criar um conjunto de dimensionamento com um nome DNS personalizado para as máquinas virtuais através da CLI, adicione o argumento **--vm-domain-name** ao comando **virtual machine scale set create**, seguido por uma cadeia de carateres que representa o nome de domínio.
 
-Para definir o nome de domínio num modelo do Azure, adicione uma propriedade **dnsSettings** à secção **networkInterfaceConfigurations** do conjunto de dimensionamento. Por exemplo:
+Para definir o nome de domínio num modelo Azure, adicione uma propriedade **dnsSettings** à secção de configurações de configurações de rede de conjunto de **escalaInterfaceS.** Por exemplo:
 
 ```json
 "networkProfile": {
@@ -136,8 +143,9 @@ Para definir o nome de domínio num modelo do Azure, adicione uma propriedade **
 }
 ```
 
-O resultado para um nome dns de máquina virtual individual teria o formato seguinte: 
-```
+O resultado para um nome dns de máquina virtual individual teria o formato seguinte:
+
+```output
 <vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
@@ -149,7 +157,7 @@ No entanto, alguns cenários requerem que as máquinas virtuais do conjunto de d
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Criar um conjunto de dimensionamento com IP público por máquina virtual
 Para criar um conjunto de dimensionamento que atribui um endereço IP público a cada máquina virtual através da CLI, adicione o parâmetro **--public-ip-per-vm** ao comando **vmss create**. 
 
-Para criar um conjunto de dimensionamento com um modelo do Azure, confirme que a versão da API do recurso Microsoft.Compute/virtualMachineScaleSets é, no mínimo, a **2017-03-30** e adicione a propriedade JSON **publicIpAddressConfiguration** à secção ipConfigurations do conjunto. Por exemplo:
+Para criar um conjunto de escala utilizando um modelo Azure, certifique-se de que a versão API do recurso Microsoft.Compute/virtualMachineScaleSets é pelo menos **2017-03-30**, e adicione uma propriedade jSON de **configuração ipson publicamente** na secção de configurações ipConfiguras definidas em escala. Por exemplo:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -159,17 +167,20 @@ Para criar um conjunto de dimensionamento com um modelo do Azure, confirme que a
     }
 }
 ```
+
 Modelo do exemplo: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consultar os endereços IP públicos das máquinas virtuais num conjunto de dimensionamento
 Para listar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de dimensionamento através da CLI, utilize o comando **az vmss list-instance-public-ips**.
 
 Para listar a escala, detete endereços IP públicos utilizando o PowerShell, utilize o comando _Get-AzPublicIpAddress._ Por exemplo:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 Também pode consultar os endereços IP públicos ao referenciar diretamente o ID de recurso da configuração desses endereços. Por exemplo:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -195,6 +206,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 Exemplo de saída do [Azure Resource Explorer](https://resources.azure.com) e a API REST do Azure:
+
 ```json
 {
   "value": [
@@ -318,7 +330,8 @@ Podem ser aplicados Grupos de Segurança de Rede diretamente a um conjunto de di
 
 Os Grupos de Segurança de Aplicação podem ser diretamente especificados para um conjunto de dimensionamento. Para tal, adicione uma referência à secção de configuração do IP da interface de rede das propriedades da máquina virtual do conjunto de dimensionamento.
 
-Por exemplo: 
+Por exemplo:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -362,7 +375,7 @@ Por exemplo:
 
 Para verificar se o seu Grupo de Segurança de Rede está associado ao seu conjunto de dimensionamento, utilize o comando `az vmss show`. O exemplo abaixo utiliza `--query` para filtrar os resultados e mostrar apenas a secção relevante da saída.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \
@@ -378,7 +391,7 @@ az vmss show \
 
 Para verificar se o seu Grupo de Segurança da Aplicação está associado ao seu conjunto de dimensionamento, utilize o comando `az vmss show`. O exemplo abaixo utiliza `--query` para filtrar os resultados e mostrar apenas a secção relevante da saída.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \
@@ -396,5 +409,5 @@ az vmss show \
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre redes virtuais do Azure, veja [Descrição geral das redes virtuais do Azure](../virtual-network/virtual-networks-overview.md).

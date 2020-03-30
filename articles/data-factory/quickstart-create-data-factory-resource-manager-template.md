@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240745"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo do Azure Resource Manager
@@ -396,7 +396,7 @@ O acionador implementado está no estado parado. Uma das formas de iniciar o gat
     ```
     
     Repare que o estado do runtime do acionador é **Parado**.
-5. **Inicie o acionador**. O acionador executa o pipeline definido no modelo à hora certa. Ou seja, se tiver executado o comando às 14:25, o acionador executa o pipeline pela primeira vez às 15:00. Em seguida, executa o gasoduto de hora a hora até ao tempo final especificado para o gatilho.
+5. **Ligue o gatilho.** O acionador executa o pipeline definido no modelo à hora certa. Ou seja, se tiver executado o comando às 14:25, o acionador executa o pipeline pela primeira vez às 15:00. Em seguida, executa o gasoduto de hora a hora até ao tempo final especificado para o gatilho.
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -432,9 +432,9 @@ O acionador implementado está no estado parado. Uma das formas de iniciar o gat
 
 2. Na página **Fábricas de Dados**, clique na fábrica de dados que criou. Se for necessário, filtre a lista com o nome da fábrica de dados.
 
-3. Na página da fábrica de Dados, clique em azulejo **author & Monitor.**
+3. Na página da fábrica de Dados, clique em **Suporte autor & Monitor.**
 
-4. Na página **Let's start,** selecione o **separador Monitor**.  ![Monitor de gasoduto seleções](media/doc-common-process/get-started-page-monitor-button.png)
+4. Na página **Let's start,** selecione o **separador Monitor**.  ![Executar o gasoduto de monitorização](media/doc-common-process/get-started-page-monitor-button.png)
 
     > [!IMPORTANT]
     > Só vai ver as execuções do pipeline à hora certa (por exemplo, 4:00, 5:00, 6:00, etc.). Clique em **Atualizar**, na barra de ferramentas, para atualizar a lista quando a for atingida a hora seguinte.
@@ -456,11 +456,11 @@ O acionador implementado está no estado parado. Uma das formas de iniciar o gat
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
-## <a name="data-factory-entities-in-the-template"></a> Definições de JSON para as entidades
+## <a name="json-definitions-for-entities"></a><a name="data-factory-entities-in-the-template"></a> Definições de JSON para as entidades
 
 As seguintes entidades do Data Factory são definidas no modelo JSON:
 
-- [Serviço ligado do Armazenamento do Azure](#azure-storage-linked-service)
+- [Serviço ligado do Storage do Azure](#azure-storage-linked-service)
 - [Conjunto de dados de entrada binária](#binary-input-dataset)
 - [Conjunto de dados de saída binária](#binary-output-dataset)
 - [Pipeline de dados com uma atividade de cópia](#data-pipeline)
@@ -636,7 +636,7 @@ Define um pipeline que copia dados de um conjunto de dados binário para outro c
 
 #### <a name="trigger"></a>Acionador
 
-Defina um acionador que executa o pipeline uma vez por hora. O acionador implementado está no estado parado. Inicie o gatilho utilizando o **cmdlet Start-AzDataFactoryV2Trigger.** Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).
+Defina um acionador que executa o pipeline uma vez por hora. O acionador implementado está no estado parado. Inicie o gatilho utilizando o **cmdlet Start-AzDataFactoryV2Trigger.** Para mais informações sobre os gatilhos, consulte a [execução do Pipeline e desencadeia](concepts-pipeline-execution-triggers.md#triggers) o artigo.
 
 ```json
 {  

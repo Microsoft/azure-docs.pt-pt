@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: de90c81f56b6017b2d53ecbfb2c400a4c9f05d81
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262285"
 ---
 # <a name="supported-account-types"></a>Tipos de conta suportados
@@ -40,7 +40,7 @@ Na Cloud pública do Microsoft Azure, a maioria dos tipos de aplicações podem 
   - Com o seu trabalho ou escola ou conta pessoal da Microsoft.
   - Com apenas uma conta pessoal da Microsoft.
     > [!NOTE]
-    > Atualmente, a plataforma de identidade da Microsoft suporta contas pessoais da Microsoft apenas através do registo de uma aplicação para **contas pessoais**de trabalho ou escola ou Microsoft , e depois restringe o registo no código da aplicação, especificando uma autoridade da AD Azure, ao construir a aplicação, como `https://login.microsoftonline.com/consumers`.
+    > Atualmente, a plataforma de identidade da Microsoft suporta contas pessoais da Microsoft apenas através do registo de uma aplicação para **contas pessoais**de trabalho ou escola ou `https://login.microsoftonline.com/consumers`Microsoft , e depois restringe o registo no código da aplicação, especificando uma autoridade da AD Azure, ao construir a aplicação, como .
 
 - Se estiver a escrever um negócio para a aplicação de consumidores, também pode inscrever utilizadores com as suas identidades sociais, utilizando o Azure AD B2C.
 

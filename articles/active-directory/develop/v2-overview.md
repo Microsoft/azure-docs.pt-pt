@@ -17,10 +17,10 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: f6953fb5d016c802db260c55bc4970c3f029ab1a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240829"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Visão geral da plataforma de identidade da Microsoft (v2.0)
@@ -48,10 +48,10 @@ Veja um vídeo da [plataforma de identidade da Microsoft](identity-videos.md) pa
 
 Escolha um [cenário](authentication-flows-app-scenarios.md) que se aplique a si: cada caminho de cenário tem um início rápido e uma página de visão geral para fazê-lo funcionar em minutos:
 
-- [Construa uma aplicação de uma página única](scenario-spa-overview.md)
-- [Construa uma aplicação web que assina nos utilizadores](scenario-web-app-sign-user-overview.md)
-- [Construa uma aplicação web que chama APIs web](scenario-web-app-call-api-overview.md)
-- [Construir uma API web protegida](scenario-protected-web-api-overview.md)
+- [Criar uma aplicação de página única](scenario-spa-overview.md)
+- [Criar uma aplicação Web que inicia a sessão dos utilizadores](scenario-web-app-sign-user-overview.md)
+- [Criar uma aplicação Web que chama APIs Web](scenario-web-app-call-api-overview.md)
+- [Criar uma API Web protegida](scenario-protected-web-api-overview.md)
 - [Construa uma API web que chama APIs web](scenario-web-api-call-api-overview.md)
 - [Construa uma aplicação para desktop](scenario-desktop-overview.md)
 - [Construa uma app daemon](scenario-daemon-overview.md)
@@ -59,14 +59,14 @@ Escolha um [cenário](authentication-flows-app-scenarios.md) que se aplique a si
 
 O gráfico seguinte descreve cenários comuns de aplicações de autenticação – use-a como referência ao integrar a plataforma de identidade da Microsoft com a sua aplicação.
 
-[cenários de aplicação ![na plataforma de identidade da Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
+[![Cenários de aplicação na plataforma de identidade da Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Se quiser saber mais sobre conceitos de autenticação core, recomendamos que comece com estes tópicos:
 
 - [Fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)
-- [Noções básicas de autenticação](authentication-scenarios.md)
+- [Noções básicas sobre autenticação](authentication-scenarios.md)
 - [Diretores de aplicação e serviço](app-objects-and-service-principals.md)
 - [Público](v2-supported-account-types.md)
 - [Permissões e consentimento](v2-permissions-and-consent.md)

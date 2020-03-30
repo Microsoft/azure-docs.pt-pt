@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258320"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida do ator, recolha automática de lixo e eliminação manual
@@ -20,14 +20,14 @@ Quando um ator é ativado, ocorre o seguinte:
 
 * Quando uma chamada chega para um ator e uma já não está ativa, é criado um novo ator.
 * O estado do ator está carregado se mantiver o estado.
-* Chama-seC#o método `OnActivateAsync` ( ou `onActivateAsync` (Java) (que pode ser ultrapassado na implementação do ator).
+* O `OnActivateAsync` método (C#) ou `onActivateAsync` (Java) (que pode ser ultrapassado na implementação do ator) é chamado.
 * O ator é agora considerado ativo.
 
 ## <a name="actor-deactivation"></a>Desativação do ator
 Quando um ator é desativado, ocorre o seguinte:
 
 * Quando um ator não é usado durante algum tempo, é removido da mesa Ative Actors.
-* Chama-seC#o método `OnDeactivateAsync` ( ou `onDeactivateAsync` (Java) (que pode ser ultrapassado na implementação do ator). Isto limpa todos os tempos para o ator. Operações de ator como mudanças de estado não devem ser chamadas a partir deste método.
+* O `OnDeactivateAsync` método (C#) ou `onDeactivateAsync` (Java) (que pode ser ultrapassado na implementação do ator) é chamado. Isto limpa todos os tempos para o ator. Operações de ator como mudanças de estado não devem ser chamadas a partir deste método.
 
 > [!TIP]
 > O tempo de execução dos Atores de Tecido emite alguns [eventos relacionados com a ativação e desativação](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters)do ator. São úteis em diagnósticos e monitorização de desempenho.
@@ -40,7 +40,7 @@ Quando um ator é desativado, as referências ao objeto do ator são libertadas 
 O que conta como "ser usado" com o propósito de desativação e recolha de lixo?
 
 * Recebendo uma chamada
-* `IRemindable.ReceiveReminderAsync` método invocado (aplicável apenas se o ator utilizar lembretes)
+* `IRemindable.ReceiveReminderAsync`método invocado (aplicável apenas se o ator usar lembretes)
 
 > [!NOTE]
 > se o ator usa temporizadores e o seu temporizador é invocado, **não** conta como "ser usado".
@@ -52,7 +52,7 @@ Antes de entrarmos nos detalhes da desativação, é importante definir os segui
 * *Intervalo de digitalização.* Este é o intervalo em que os Atores analisam a sua tabela Ative Actors para atores que podem ser desativados e lixo recolhido. O valor padrão para isto é de 1 minuto.
 * *Tempo limite.* Este é o tempo que um ator precisa para permanecer não utilizado (inativo) antes de poder ser desativado e recolher lixo. O valor padrão para isto é de 60 minutos.
 
-Normalmente, não é necessário alterar estes incumprimentos. No entanto, se necessário, estes intervalos podem ser alterados através de `ActorServiceSettings` ao registar o seu [Serviço de Ator:](service-fabric-reliable-actors-platform.md)
+Normalmente, não é necessário alterar estes incumprimentos. No entanto, se necessário, estes `ActorServiceSettings` intervalos podem ser alterados ao registar o seu Serviço de [Ator:](service-fabric-reliable-actors-platform.md)
 
 ```csharp
 public class Program
@@ -85,9 +85,9 @@ public class Program
     }
 }
 ```
-Para cada ator ativo, o tempo de execução do ator acompanha o tempo que tem estado inativo (isto é, não utilizado). O ator verifica cada um dos atores todos os `ScanIntervalInSeconds` para ver se pode ser lixo recolhido e marca-o se está inativo há `IdleTimeoutInSeconds`.
+Para cada ator ativo, o tempo de execução do ator acompanha o tempo que tem estado inativo (isto é, não utilizado). O ator verifica cada um `ScanIntervalInSeconds` dos atores para ver se pode ser lixo recolhido `IdleTimeoutInSeconds`e marca-o se tem estado inativo para .
 
-Sempre que um ator é usado, o seu tempo de inatividade é reposto para 0. Depois disso, o ator só pode ser recolhido lixo se voltar a ficar inativo para `IdleTimeoutInSeconds`. Recorde-se que um ator é considerado como tendo sido usado se um método de interface de ator ou um callback de lembrete de ator for executado. Um ator **não** é considerado como tendo sido usado se o seu temporizador é executado.
+Sempre que um ator é usado, o seu tempo de inatividade é reposto para 0. Depois disso, o ator só pode ser recolhido `IdleTimeoutInSeconds`lixo se voltar a ficar inativo para . Recorde-se que um ator é considerado como tendo sido usado se um método de interface de ator ou um callback de lembrete de ator for executado. Um ator **não** é considerado como tendo sido usado se o seu temporizador é executado.
 
 O diagrama seguinte mostra o ciclo de vida de um único ator para ilustrar estes conceitos.
 
@@ -107,13 +107,13 @@ Um ator nunca será recolhido enquanto executa um dos seus métodos, não import
 ## <a name="manually-deleting-actors-and-their-state"></a>Apagar manualmente os atores e o seu estado
 A recolha de lixo de atores desativados só limpa o objeto do ator, mas não remove dados que são armazenados no State Manager de um ator. Quando um ator é reativado, os seus dados são novamente disponibilizados através do State Manager. Nos casos em que os atores armazenam dados em State Manager e são desativados mas nunca reativados, pode ser necessário limpar os seus dados.  Por exemplo, como eliminar os atores, ler [eliminar atores e o seu estado.](service-fabric-reliable-actors-delete-actors.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Tempors de ator e lembretes](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
 * [Reentração do ator](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnóstico de ator e monitorização de desempenho](service-fabric-reliable-actors-diagnostics.md)
 * [Documentação de referência do ator API](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C#Código da amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C# Código da amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código da amostra de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

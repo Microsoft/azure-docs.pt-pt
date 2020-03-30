@@ -11,13 +11,13 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261141"
 ---
-# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorize um tempo de integração na Azure Data Factory  
+# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory  
 O tempo de execução da **integração** é a infraestrutura computacional utilizada pela Azure Data Factory para fornecer várias capacidades de integração de dados em diferentes ambientes de rede. Existem três tipos de tempos de integração oferecidos pela Data Factory:
 
 - Runtime de integração do Azure
@@ -55,7 +55,7 @@ O quadro seguinte fornece possíveis estatutos de um tempo de execução de inte
 | Estado | Comentários/Cenários | 
 | ------ | ------------------ |
 | Online | O tempo de execução da integração Azure está online e pronto para ser usado. | 
-| Banda | O tempo de funcionamento da integração Azure está offline devido a um erro interno. |
+| Offline | O tempo de funcionamento da integração Azure está offline devido a um erro interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime de integração autoalojado
 Esta secção fornece descrições para propriedades devolvidas pelo Get-AzDataFactoryV2IntegrationTimetime cmdlet. 
@@ -86,7 +86,7 @@ O valor padrão do limite de empregos simultâneos é definido com base no taman
 
 Aumenta-se o número de nós. Quando se aumenta o número de nós, o limite de postos de trabalho simultâneos é a soma dos valores-limite de emprego simultâneos de todos os nós disponíveis.  Por exemplo, se um nó lhe permite executar um máximo de doze empregos simultâneos, então adicionar mais três nós semelhantes permite-lhe executar um máximo de 48 empregos simultâneos (isto é, 4 x 12). Recomendamos que aumente o limite de empregos simultâneos apenas quando vê o baixo uso de recursos com os valores predefinidos em cada nó.
 
-Pode anular o valor de predefinição calculado no portal Azure. Selecione Author > Connections > Integration Runtimes > Edit > Nodes > Modificar o valor de trabalho simultâneo por nó. Também pode utilizar o comando powerShell [update-Azdatafactoryv2integrationtimenode.](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples)
+Pode anular o valor de predefinição calculado no portal Azure. Selecione Author > Connections > Integration Runtimes > Editar > Nóesos > Modificar o valor de trabalho simultâneo por nó. Também pode utilizar o comando powerShell [update-Azdatafactoryv2integrationtimenode.](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples)
   
 ### <a name="status-per-node"></a>Estado (por nó)
 O quadro seguinte fornece possíveis estatutos de um nó de tempo de integração auto-hospedado:
@@ -94,10 +94,10 @@ O quadro seguinte fornece possíveis estatutos de um nó de tempo de integraçã
 | Estado | Descrição |
 | ------ | ------------------ | 
 | Online | O nó está ligado ao serviço data Factory. |
-| Banda | O nó está offline. |
-| Atualizar | O nó está a ser atualizado automaticamente. |
+| Offline | O nó está offline. |
+| Upgrade | O nó está a ser atualizado automaticamente. |
 | Limitado | Devido a um problema de conectividade. Pode ser devido a http porta 8050, problema de conectividade de ônibus de serviço, ou um problema de sincronização credencial. |
-| Inativo | O nó está numa configuração diferente da configuração de outros nódosos maioritários. |
+| Inativa | O nó está numa configuração diferente da configuração de outros nódosos maioritários. |
 
 Um nó pode estar inativo quando não consegue ligar-se a outros nódosos.
 
@@ -108,7 +108,7 @@ A tabela que se segue fornece possíveis estatutos de um tempo de execução de 
 | ------ | ----------- | 
 | Necessidade de Inscrição | Nenhum nó está registado neste tempo de integração auto-hospedado ainda. |
 | Online | Todos os nós estão online. |
-| Banda | Nenhum nó está online. |
+| Offline | Nenhum nó está online. |
 | Limitado | Nem todos os nós neste tempo de integração auto-hospedado estão num estado saudável. Este estado é um aviso de que alguns nós podem estar em baixo. Este estatuto pode dever-se a uma questão de sincronização credencial no nó de expedidor/trabalhador. |
 
 Utilize o **Cmdlet Get-AzDataFactoryV2IntegrationTimeTimeMetric** cmdlet para obter a carga útil JSON contendo as propriedades de tempo de execução de integração auto-hospedada detalhada, e os seus valores instantâneos durante o tempo de execução do cmdlet.
@@ -158,20 +158,20 @@ O tempo de funcionação de integração Azure-SSIS é um conjunto totalmente ge
 
 | Propriedade/Estatuto | Descrição |
 | --------------- | ----------- |
-| CreateTime | O tempo utc quando o seu tempo de execução de integração Azure-SSIS foi criado. |
+| Tempo de Criação | O tempo utc quando o seu tempo de execução de integração Azure-SSIS foi criado. |
 | Nós | Os nós atribuídos/disponíveis do seu tempo de execução de integração Azure-SSIS com estatutos específicos do nó (arranque/disponível/reciclagem/indisponíveis) e erros atores. |
 | Outros Erros | Os erros não específicos de ação no seu tempo de execução de integração Azure-SSIS. |
 | Última Operação | O resultado da última operação de arranque/paragem no seu tempo de funcionamento de integração Azure-SSIS com erros atores se falhar. |
 | Estado | O estado global (inicial/arranque/arranque/paragem/paragem) do seu tempo de execução de integração Azure-SSIS. |
 | Localização | A localização do seu tempo de execução de integração Azure-SSIS. |
-| NodeSize | O tamanho de cada nó do seu tempo de execução de integração Azure-SSIS. |
+| Tamanho do nó | O tamanho de cada nó do seu tempo de execução de integração Azure-SSIS. |
 | NodeCount | O número de nós no seu tempo de execução de integração Azure-SSIS. |
 | MaxParallelExecutionsPerNode | O número de execuções paralelas por nó no seu tempo de execução de integração Azure-SSIS. |
-| CatalogServerEndpoint | O ponto final do seu servidor de base de dados Azure SQL/Instância Gerida existente para hospedar o SSISDB. |
-| CatalogAdminUserName | O nome de utilizador administrativo do seu atual servidor de base de dados Azure SQL/Instância Gerida. O serviço Data Factory utiliza estas informações para preparar e gerir o SSISDB em seu nome. |
+| Ponto final do CatalogServer | O ponto final do seu servidor de base de dados Azure SQL/Instância Gerida existente para hospedar o SSISDB. |
+| Nome de utilizador de catálogoAdminUser | O nome de utilizador administrativo do seu atual servidor de base de dados Azure SQL/Instância Gerida. O serviço Data Factory utiliza estas informações para preparar e gerir o SSISDB em seu nome. |
 | CatalogAdminPassword | A senha de administração do seu atual servidor de base de dados Azure SQL/Instância Gerida. |
 | CatálogoPricingTier | O nível de preços do SSISDB hospedado pelo seu servidor de base de dados Azure SQL existente.  Não aplicável à Base de Dados Azure SQL Managed Instance hospedando SSISDB. |
-| VNetId | O ID de recursos de rede virtual para o seu tempo de execução de integração Azure-SSIS para aderir. |
+| Vnetid | O ID de recursos de rede virtual para o seu tempo de execução de integração Azure-SSIS para aderir. |
 | Subrede | O nome da sub-rede para o seu tempo de execução de integração Azure-SSIS para aderir. |
 | ID | O id de recurso do seu tempo de execução de integração Azure-SSIS. |
 | Tipo | O tipo (Gerido/Auto-Hospedado) do seu tempo de execução de integração Azure-SSIS. |
@@ -194,7 +194,7 @@ O tempo de funcionação de integração Azure-SSIS é um conjunto totalmente ge
 
 | Estatuto geral | Descrição | 
 | -------------- | ----------- | 
-| Inicial | Os nós do seu tempo de execução de integração Azure-SSIS não foram atribuídos/preparados. | 
+| Initial (Inicial) | Os nós do seu tempo de execução de integração Azure-SSIS não foram atribuídos/preparados. | 
 | A iniciar | Os nós do seu tempo de execução de integração Azure-SSIS estão a ser atribuídos/preparados e a faturação já começou. |
 | Iniciado | Os nós do seu tempo de execução de integração Azure-SSIS foram atribuídos/preparados e estão prontos para que implemente/execute pacotes SSIS. |
 | A parar  | Os nódosos do seu tempo de execução de integração Azure-SSIS estão a ser lançados. |

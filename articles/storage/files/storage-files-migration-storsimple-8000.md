@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d937852ace8d9bf39495f1fdd92e6edfc4452a0a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 7e5f70d0323aa5c502491ab99db303fde31ade83
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943595"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528630"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migração para O Ficheiro Sincronizado Azure
 
@@ -23,7 +23,7 @@ A série StorSimple 8000 chegará ao fim [da vida](https://support.microsoft.com
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
-> A Microsoft está empenhada em ajudar os clientes na sua migração. Envie um e-mail AzureFilesMigration@microsoft .com para um plano de migração personalizado, bem como assistência durante a migração.
+> A Microsoft está empenhada em ajudar os clientes na sua migração. Envie AzureFilesMigration@microsoft um e-mail .com para um plano de migração personalizado, bem como assistência durante a migração.
 
 O Azure File Sync é um serviço na nuvem da Microsoft, baseado em dois componentes principais:
 
@@ -35,7 +35,7 @@ Este artigo centra-se nos passos da migração. Se antes de migrar, gostaria de 
 * [Sincronização de ficheiros Azure - visão geral](https://aka.ms/AFS "Descrição geral")
 * [Sincronização de Ficheiros Azure - guia de implementação](storage-sync-files-deployment-guide.md)
 
-## <a name="migration-goals"></a>Objetivos da migração
+## <a name="migration-goals"></a>Objetivos de migração
 
 O objetivo é garantir a integridade dos dados de produção, bem como garantir a disponibilidade. Este último requer manter o tempo de paragem ao mínimo, de modo a que possa encaixar ou apenas exceder ligeiramente as janelas de manutenção regulares.
 
@@ -137,19 +137,25 @@ As especificações que decidir sobre a necessidade de abranger cada ação/cami
 O tamanho global dos dados é menos de um estrangulamento - é o número de itens a que é necessário para adaptar as especificações da máquina.
 
 * [Saiba como dimensionar um Servidor do Windows com base no número de itens (ficheiros e pastas) que precisa de sincronizar.](storage-sync-files-planning.md#recommended-system-resources)
+
+    **Por favor, note:** O artigo anteriormente ligado apresenta uma tabela com uma gama para memória do servidor (RAM). Oriente para o grande número para o VM Azure. Pode orientar-se para o número menor para a sua máquina no local.
+
 * [Saiba como implementar um VM Windows Sever.](../../virtual-machines/windows/quick-create-portal.md)
 
 > [!IMPORTANT]
 > Certifique-se de que o VM está implantado na mesma região de Azure que o aparelho virtual StorSimple 8020. Se como parte desta migração, também precisa de alterar a região dos seus dados em nuvem da região onde está armazenada hoje, pode fazê-lo mais tarde, quando fornecer ações de ficheiros Azure.
 
-### <a name="expose-the-storsimple-8020-volumes-to-the-vm"></a>Expor os volumes StorSimple 8020 ao VM
+> [!IMPORTANT]
+> Para otimizar o desempenho, implemente um **disco OS muito rápido** para o seu VM em nuvem. Irá armazenar a base de dados de sincronização no disco OS para todos os seus volumes de dados. Além disso, certifique-se de que cria um **grande disco de Os**. Dependendo do número de itens (ficheiros e pastas) nos seus volumes StorSimple, o disco OS pode necessitar de **várias centenas** de GiB de espaço para acomodar a base de dados de sincronização.
+
+### <a name="expose-the-storsimple-8020-volumes-to-the-azure-vm"></a>Expor os volumes StorSimple 8020 ao Azure VM
 
 Nesta fase, está a ligar um ou vários volumes StorSimple do aparelho virtual 8020 sobre o iSCSI ao VM do Servidor do Windows que forprovisionou.
 
 > [!IMPORTANT]
 > Para os seguintes artigos, complete apenas o **IP privado Get para o aparelho em nuvem** e ligue-se sobre as secções **iSCSI** e volte a este artigo.
 
-1. [Obtenha IP privado para o aparelho de nuvem](../../storsimple/storsimple-8000-cloud-appliance-u2.md#get-private-ip-for-the-cloud-appliance)
+1. [Obter o IP privado da aplicação da cloud](../../storsimple/storsimple-8000-cloud-appliance-u2.md#get-private-ip-for-the-cloud-appliance)
 2. [Ligar-se ao iSCSI](../../storsimple/storsimple-8000-deployment-walkthrough-u2.md#step-7-mount-initialize-and-format-a-volume)
 
 ### <a name="phase-2-summary"></a>Resumo da fase 2
@@ -244,9 +250,9 @@ Durante este processo de migração, você vai montar vários clones de volume p
 > Para que isto funcione, deve ser definida uma chave de registo no servidor antes de configurar o Azure File Sync.
 
 1. Crie um novo diretório sobre o acionamento do sistema do VM. As informações do Azure File Sync terão de ser percequidas lá em vez de nos clones de volume montados. Por exemplo: `"C:\syncmetadata"`
-2. Abra regedite e localize a seguinte colmeia de registo: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
+2. Abra o regedite e localize a seguinte colmeia de registo:`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Criar uma nova chave de cadeia de tipo, nomeada: ***MetadataRootPath***
-4. Desloque o caminho completo para o diretório que criou no volume do sistema, por exemplo: `C:\syncmetadata"`
+4. Desloque o caminho completo para o diretório que criou no volume do sistema, por exemplo:`C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Configure Sincronização de Ficheiros Azure no Azure VM
 
@@ -339,7 +345,7 @@ Podemos levar a cache do Windows Server até ao estado do aparelho e garantir qu
 Comando RoboCopy:
 
 ```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Antecedentes:
@@ -366,6 +372,14 @@ Antecedentes:
    :::column-end:::
    :::column span="1":::
       Saídas para a janela da consola. Utilizado em conjunto com a saída para um ficheiro de registo.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Executa o RoboCopy no mesmo modo que uma aplicação de reserva usaria. Permite ao RoboCopy mover ficheiros que o utilizador atual não tem permissões.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -434,7 +448,7 @@ Uma vez satisfeito e observado a sua implantação aFS por pelo menos alguns dia
 
 A sua migração está completa.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça mais o Azure File Sync. Especialmente com a flexibilidade das políticas de tiering em nuvem.
 

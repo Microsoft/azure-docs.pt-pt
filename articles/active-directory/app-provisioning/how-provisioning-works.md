@@ -1,5 +1,5 @@
 ---
-title: Entenda como funciona o fornecimento de Anúncios Azure  Microsoft Docs
+title: Entenda como funciona o fornecimento de Anúncios Azure [ Microsoft Docs
 description: Entenda como funciona o fornecimento de anúncios Azure
 services: active-directory
 documentationcenter: ''
@@ -15,28 +15,28 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 892cdeea20780c90ce325e8be9b7b91fee0d9fad
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 555fb39836054be05102f4c28167d72016805639
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264053"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481505"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
 O fornecimento automático refere-se à criação de identidades e funções de utilizador nas aplicações na nuvem a que os utilizadores precisam de ter acesso. Além de criar identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou funções. Antes de iniciar uma implementação, pode rever este artigo para saber como funciona a provisão da Azure AD e obter recomendações de configuração. 
 
-O Serviço de Provisionamento de **AD Azure** fornece aos utilizadores aplicações SaaS e outros sistemas através da ligação a um Sistema de Gestão de Identidade de Domínio Transversal (SCIM) 2.0 ponto final de gestão de utilizadores Fornecido pelo fornecedor de aplicações. Este ponto final do SCIM permite que o Azure AD crie, atualize e remova os utilizadores programáticamente. Para aplicações selecionadas, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados com a identidade, tais como grupos e funções. O canal utilizado para o fornecimento entre a AD Azure e a aplicação é encriptado utilizando encriptação HTTPS SSL.
+O Serviço de Provisionamento de **AD Azure** fornece aos utilizadores aplicações SaaS e outros sistemas através da ligação a um Sistema de Gestão de Identidade de Domínio Transversal (SCIM) 2.0 ponto final de gestão de utilizadores Fornecido pelo fornecedor de aplicações. Este ponto final do SCIM permite que o Azure AD crie, atualize e remova os utilizadores programáticamente. Para aplicações selecionadas, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados com a identidade, tais como grupos e funções. O canal utilizado para o fornecimento entre a AD Azure e a aplicação é encriptado utilizando encriptação HTTPS TLS.
 
 
-![Serviço de Provisionamento AD Azure](./media/how-provisioning-works/provisioning0.PNG)
-Figura 1: O Serviço de *Provisionamento de AD Azure*
+![Azure AD Provisioning Service](./media/how-provisioning-works/provisioning0.PNG)
+Figure*1: The Azure AD Provisioning Service*
 
-![fluxo de trabalho de fornecimento de utilizadores de saída](./media/how-provisioning-works/provisioning1.PNG)
-*Figura 2: fluxo de trabalho de fornecimento de utilizadores "outbound" de Azure AD para aplicações populares do SaaS*
+![Fluxo de trabalho](./media/how-provisioning-works/provisioning1.PNG)
+de fornecimento de utilizadores de saída Figura*2: fluxo de trabalho de fornecimento de utilizadores "outbound" de Azure AD para aplicações populares do SaaS*
 
-![fluxo de trabalho de fornecimento de utilizadores de entrada](./media/how-provisioning-works/provisioning2.PNG)
-Figura 3: Fluxo de trabalho de fornecimento de *utilizadores "Inbound" de aplicações populares de Gestão de Capitais Humanos (HCM) para O Diretório Ativo azure e Diretório Ativo do Servidor Windows*
+![Fluxo de trabalho](./media/how-provisioning-works/provisioning2.PNG)
+de fornecimento de utilizadores de entrada Figura 3: Fluxo de trabalho de fornecimento de utilizadores *"Inbound" de aplicações populares de Gestão de Capital Humano (HCM) para O Diretório Ativo azure e Diretório Ativo do Servidor Windows*
 
 ## <a name="provisioning-using-scim-20"></a>Provisionamento utilizando o SCIM 2.0
 
@@ -60,7 +60,7 @@ Ao configurar o fornecimento, é importante rever e configurar os mapeamentos e 
 
 Pode personalizar os mapeamentos de atributos padrão de acordo com as suas necessidades de negócio. Assim, pode alterar ou eliminar os mapeamentos de atributos existentes, ou criar novos mapeamentos de atributos. Para mais detalhes, consulte personalizar [o fornecimento de atributos para aplicações SaaS](../manage-apps/customize-application-attributes.md).
 
-Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para estes mapeamentos, deve escrever uma expressão semelhante a um guião que lhe permita transformar os dados dos seus utilizadores em formatos mais aceitáveis para a aplicação SaaS. Para mais detalhes, consulte [expressões de escrita para mapeamento de atributos](functions-for-customizing-application-data.md).
+Ao configurar o fornecimento a uma aplicação SaaS, um dos tipos de mapeamento de atributos que pode especificar é um mapeamento de expressão. Para estes mapeamentos, deve escrever uma expressão semelhante a um guião que lhe permita transformar os dados dos seus utilizadores em formatos mais aceitáveis para a aplicação SaaS. Para mais detalhes, consulte [expressões de escrita para mapeamento de atributos](functions-for-customizing-application-data.md).
 
 ## <a name="scoping"></a>Scoping 
 ### <a name="assignment-based-scoping"></a>Scoping baseado em atribuição
@@ -87,7 +87,7 @@ Pode utilizar filtros de deteção para definir regras baseadas em atributos que
 
 É possível utilizar o serviço de fornecimento de utilizadores Da Azure AD para fornecer utilizadores B2B (ou convidado) em aplicações Azure AD para SaaS. No entanto, para que os utilizadores b2B inscrevam-se na aplicação SaaS utilizando o Azure AD, a aplicação SaaS deve ter a sua capacidade de inscrição única baseada no SAML configurada de forma específica. Para obter mais informações sobre como configurar as aplicações SaaS para suportar os sign-ins dos utilizadores B2B, consulte [as aplicações Configure SaaS para colaboração B2B](../b2b/configure-saas-apps.md).
 
-Note que o nome principal do utilizador para um utilizador convidado é frequentemente armazenado como "alias#EXT#@domain.com". quando o nome principal do utilizador é incluído nos mapeamentos do seu atributo como um atributo de origem, o #EXT# é retirado do nome principal do utilizador. Se necessitar que o #EXT# esteja presente, substitua o userPrincipalName por originalUserPrincipalName como atributo de origem. 
+Note que o nome principal do utilizador para um utilizador convidado@domain.comé frequentemente armazenado como "alias#EXT# ". quando o nome principal do utilizador é incluído nos mapeamentos do seu atributo como um atributo de origem, o #EXT# é retirado do nome principal do utilizador. Se necessitar que o #EXT# esteja presente, substitua o userPrincipalName por originalUserPrincipalName como atributo de origem. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de provisionamento: Inicial e incremental
 
@@ -192,9 +192,9 @@ Se vir um atributo IsSoftDeleted nos seus mapeamentos de atributos, é utilizado
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Planeie uma implementação automática de fornecimento de utilizadores](../app-provisioning/plan-auto-user-provisioning.md)
+[Planear uma implementação de aprovisionamento automático de utilizadores](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Configurar o provisionamento para uma aplicação de galeria](../manage-apps/configure-automatic-user-provisioning-portal.md)
+[Configurar o aprovisionamento para uma aplicação da galeria](../manage-apps/configure-automatic-user-provisioning-portal.md)
 
 [Construa um ponto final sCIM e configure o fornecimento ao criar a sua própria app](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 

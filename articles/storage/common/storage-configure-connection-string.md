@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268356"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar Cadeias de Ligação do Storage do Azure
@@ -51,7 +51,7 @@ Para obter mais informações sobre o emulador de armazenamento, consulte [Utili
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configure uma cadeia de ligação para uma conta de armazenamento Azure
 
-Para criar uma cadeia de ligação para a sua conta de armazenamento Azure, utilize o seguinte formato. Indique se pretende ligar-se à conta de armazenamento através de HTTPS (recomendado) ou HTTP, substitua `myAccountName` com o nome da sua conta de armazenamento e substitua `myAccountKey` com a chave de acesso à conta:
+Para criar uma cadeia de ligação para a sua conta de armazenamento Azure, utilize o seguinte formato. Indique se pretende ligar-se à conta de armazenamento através `myAccountName` de HTTPS (recomendado) ou `myAccountKey` HTTP, substitua-o pelo nome da sua conta de armazenamento e substitua-o pela chave de acesso à conta:
 
 `DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey`
 
@@ -62,7 +62,7 @@ Por exemplo, a sua cadeia de ligação pode parecer semelhante a:
 Embora o Armazenamento Azure suporte tanto http como HTTPS numa cadeia de ligação, *HTTPS é altamente recomendado*.
 
 > [!TIP]
-> Pode encontrar as cordas de ligação da sua conta de armazenamento no [portal Azure.](https://portal.azure.com) Navegue para **DEFINIÇÕES** > **Aceder às teclas** na lâmina do menu da sua conta de armazenamento para ver cordas de ligação tanto para as teclas de acesso primária seleção como secundária.
+> Pode encontrar as cordas de ligação da sua conta de armazenamento no [portal Azure.](https://portal.azure.com) Navegue para **DEFINIÇÕES** > **As teclas** de acesso na lâmina do menu da sua conta de armazenamento para ver cordas de ligação tanto para as teclas de acesso primária seleção como secundária.
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>Criar uma cadeia de ligação usando uma assinatura de acesso partilhado
@@ -113,12 +113,12 @@ Os valores de ponto final numa cadeia de ligação são usados para construir os
 Se mapeou um ponto final de armazenamento para um domínio personalizado e omitir esse ponto final a partir de uma cadeia de ligação, então não poderá utilizar essa cadeia de ligação para aceder a dados nesse serviço a partir do seu código.
 
 > [!IMPORTANT]
-> Os valores finais do serviço nas cordas de ligação devem ser URIs bem formados, incluindo `https://` (recomendado) ou `http://`. Uma vez que o Armazenamento Azure ainda não suporta HTTPS para domínios personalizados, *deve* especificar `http://` para qualquer ponto final URI que aponte para um domínio personalizado.
+> Os valores finais do serviço nas cordas de `https://` ligação devem `http://`ser URIs bem formados, incluindo (recomendado) ou . Uma vez que o Armazenamento Azure ainda *must* não `http://` suporta HTTPS para domínios personalizados, deve especificar para qualquer ponto final URI que aponte para um domínio personalizado.
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Criar uma cadeia de ligação com um sufixo de ponto final
 
-Para criar uma cadeia de ligação para um serviço de armazenamento em regiões ou instâncias com diferentes sufixos de ponto final, como para azure China 21Vianet ou Azure Government, utilize o seguinte formato de cadeia de ligação. Indique se pretende ligar-se à conta de armazenamento através de HTTPS (recomendado) ou HTTP, substitua `myAccountName` pelo nome da sua conta de armazenamento, substitua `myAccountKey` com a chave de acesso à conta e substitua `mySuffix` pelo sufixo URI:
+Para criar uma cadeia de ligação para um serviço de armazenamento em regiões ou instâncias com diferentes sufixos de ponto final, como para azure China 21Vianet ou Azure Government, utilize o seguinte formato de cadeia de ligação. Indique se pretende ligar-se à conta de armazenamento através `myAccountName` de HTTPS (recomendado) ou `myAccountKey` HTTP, substituir pelo `mySuffix` nome da sua conta de armazenamento, substituir pela chave de acesso à sua conta e substituir pelo sufixo URI:
 
 ```
 DefaultEndpointsProtocol=[http|https];

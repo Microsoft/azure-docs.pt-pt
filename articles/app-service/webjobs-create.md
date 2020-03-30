@@ -9,10 +9,10 @@ ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279146"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas de fundo com WebJobs no Serviço de Aplicações Azure
@@ -42,9 +42,9 @@ A tabela seguinte descreve as diferenças entre WebJobs *contínuos* e *desencad
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
-## <a name="acceptablefiles"></a>Tipos de ficheiros suportados para scripts ou programas
+## <a name="supported-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>Tipos de ficheiros suportados para scripts ou programas
 
-Os seguintes tipos de ficheiros são suportados:
+São suportados os seguintes tipos de ficheiro:
 
 * .cmd, .bat, .exe (usando Windows cmd)
 * .ps1 (usando powerShell)
@@ -54,7 +54,7 @@ Os seguintes tipos de ficheiros são suportados:
 * .js (usando node.js)
 * .jar (usando Java)
 
-## <a name="CreateContinuous"></a>Criar um WebJob contínuo
+## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a>Criar um WebJob contínuo
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -80,7 +80,7 @@ when making changes in one don't forget the other two.
    | **Nome** | myContinuousWebJob | Um nome único dentro de uma aplicação de Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais que não "-" e "_". |
    | **Upload de ficheiros** | ConsoleApp.zip | Um ficheiro *.zip* que contenha o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiros executáveis ou scripts suportados estão listados na secção de tipos de [ficheiros suportados.](#acceptablefiles) |
    | **Tipo** | Contínuo | Os [tipos WebJob](#webjob-types) são descritos anteriormente neste artigo. |
-   | **Dimensionar** | Várias instâncias | Disponível apenas para WebJobs Contínuos. Determina se o programa ou script funciona em todas as instâncias ou apenas uma instância. A opção de correr em várias instâncias não se aplica aos níveis de preços Gratuitos ou [Partilhados](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
+   | **Escala** | Várias instâncias | Disponível apenas para WebJobs Contínuos. Determina se o programa ou script funciona em todas as instâncias ou apenas uma instância. A opção de correr em várias instâncias não se aplica aos níveis de preços Gratuitos ou [Partilhados](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Clique em **OK**.
 
@@ -92,7 +92,7 @@ when making changes in one don't forget the other two.
 
     ![Pare um WebJob contínuo](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a>Criar um WebJob desencadeado manualmente
+## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a>Criar um WebJob desencadeado manualmente
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -130,7 +130,7 @@ when making changes in one don't forget the other two.
    
     ![Executar WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a>Criar um WebJob agendado
+## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a>Criar um WebJob agendado
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -167,7 +167,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>Expressões NCRONTAB
 
-Pode introduzir uma [expressão NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) no portal ou incluir um ficheiro `settings.job` na raiz do seu ficheiro WebJob *.zip,* como no seguinte exemplo:
+Pode introduzir uma [expressão NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) no `settings.job` portal ou incluir um ficheiro na raiz do seu ficheiro WebJob *.zip,* como no seguinte exemplo:
 
 ```json
 {
@@ -179,7 +179,7 @@ Para saber mais, consulte [Agendar um WebJob desencadeado](webjobs-dotnet-deploy
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="ViewJobHistory"></a>Ver o histórico do trabalho
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Ver o histórico do trabalho
 
 1. Selecione o WebJob para o qual pretende ver o histórico e, em seguida, selecione o botão **Logs.**
    
@@ -201,6 +201,6 @@ Para saber mais, consulte [Agendar um WebJob desencadeado](webjobs-dotnet-deploy
    
     ![Lista de WebJobs no dashboard de história](./media/web-sites-create-web-jobs/webjobslist.png)
    
-## <a name="NextSteps"></a> Passos seguintes
+## <a name="next-steps"></a><a name="NextSteps"></a>Próximos passos
 
 O Azure WebJobs SDK pode ser usado com WebJobs para simplificar muitas tarefas de programação. Para mais informações, consulte [O Que é o WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

@@ -15,10 +15,10 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.openlocfilehash: 8e428732fb49d27e3991071b87abee53b6e375b2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262961"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Utilizar o Azure PowerShell para criar um diretor de serviço com um certificado
@@ -46,7 +46,7 @@ A forma mais fácil de verificar se a sua conta tem permissões adequadas é uti
 ## <a name="assign-the-application-to-a-role"></a>Atribuir a candidatura a um papel
 Para aceder aos recursos na sua subscrição, deve atribuir a aplicação a uma função. Decida qual o papel que oferece as permissões certas para a aplicação. Para conhecer as funções disponíveis, consulte [RBAC: Built in Roles](/azure/role-based-access-control/built-in-roles).
 
-Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis inferiores de âmbito. Por exemplo, adicionar uma aplicação ao papel *do Leitor* para um grupo de recursos significa que pode ler o grupo de recursos e quaisquer recursos que contenha. Para permitir que a aplicação execute ações como reiniciar, iniciar e parar instâncias, selecione a função *Contributiva.*
+Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis mais baixos de âmbito. Por exemplo, adicionar uma aplicação ao papel *do Leitor* para um grupo de recursos significa que pode ler o grupo de recursos e quaisquer recursos que contenha. Para permitir que a aplicação execute ações como reiniciar, iniciar e parar instâncias, selecione a função *Contributiva.*
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Criar um principal de serviço com um certificado autoassinado
 

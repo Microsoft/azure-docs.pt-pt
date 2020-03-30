@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257267"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gerir vCenter Server VMware vCenter
@@ -29,7 +29,7 @@ Quando configura a recuperação de desastres para VMware VMs no local, a Recupe
 1. Abra a ferramenta do servidor de configuração _(cspsconfigtool.exe_) utilizando o atalho do Ambiente de Trabalho.
 1. No separador **'Gerir conta',** clique em **Adicionar Conta**.
 
-   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+   ![conta add](./media/vmware-azure-manage-vcenter/addaccount.png)
 
 1. Forneça os detalhes da conta e clique em **OK** para adicioná-lo. A conta deve ter os privilégios resumidos na tabela de permissões da conta.
 
@@ -42,13 +42,13 @@ Quando configura a recuperação de desastres para VMware VMs no local, a Recupe
 |--- | --- | --- | ---|
 |**Descoberta/migração VM (sem recuo)** | Pelo menos uma conta de utilizador só para leitura. | Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribuir a função **De acesso com** o **Propagate a objetos infantis,** aos objetos infantis (hospedeiros vSphere, lojas de dados, máquinas virtuais e redes).|
 |**Replicação/failover** | Pelo menos uma conta de utilizador só para leitura. | Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribuir a função **De acesso ao** Propagate aos objetos **infantis** (vSphere acolhe, lojas de dados, máquinas virtuais e redes).<br/><br/> Útil para fins migratórios, mas não replicação completa, failover, failback.|
-|**Replicação/failover/failback** | Sugerimos que crie uma função (AzureSiteRecoveryRole) com as permissões necessárias e, em seguida, atribuir a função a um utilizador ou grupo VMware. | Objeto do Data Center –> Propagação para objeto infantil, role=AzureSiteRecoveryRoleRole<br/><br/> Arquivo de Dados -> Alocar espaço, navegar no arquivo de dados, operações de ficheiro de baixo nível, remover ficheiros, atualizar ficheiros de máquinas virtuais<br/><br/> Rede -> Atribuição de rede<br/><br/> Recursos -> Atribuir VM a agrupamento de recursos, migrar VMs desligadas, migrar VMs ligadas<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder a perguntas, ligação de dispositivos, configurar suportes de dados em CD, configurar suportes de dados em disquete, desligar, ligar, instalação de ferramentas de VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registar, anular o registo<br/><br/> Máquina virtual -> Aprovisionamento -> Permitir transferência de máquinas virtuais, permitir carregamento de ficheiros de máquinas virtuais<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribuir a função **De acesso com** o **Propagate a objetos infantis,** aos objetos infantis (hospedeiros vSphere, lojas de dados, máquinas virtuais e redes).|
+|**Replicação/failover/failback** | Sugerimos que crie uma função (AzureSiteRecoveryRole) com as permissões necessárias e, em seguida, atribuir a função a um utilizador ou grupo VMware. | Objeto do Data Center – > Propagate para o Objeto Infantil, role=AzureSiteRecoveryRole<br/><br/> Arquivo de Dados -> Alocar espaço, navegar no arquivo de dados, operações de ficheiro de baixo nível, remover ficheiros, atualizar ficheiros de máquinas virtuais<br/><br/> Rede -> Atribuição de rede<br/><br/> Recursos -> Atribuir VM a agrupamento de recursos, migrar VMs desligadas, migrar VMs ligadas<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder a perguntas, ligação de dispositivos, configurar suportes de dados em CD, configurar suportes de dados em disquete, desligar, ligar, instalação de ferramentas de VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registar, anular o registo<br/><br/> Máquina virtual -> Aprovisionamento -> Permitir transferência de máquinas virtuais, permitir carregamento de ficheiros de máquinas virtuais<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribuir a função **De acesso com** o **Propagate a objetos infantis,** aos objetos infantis (hospedeiros vSphere, lojas de dados, máquinas virtuais e redes).|
 
 ## <a name="add-vmware-server-to-the-vault"></a>Adicione o servidor VMware ao cofre
 
 Ao configurar a recuperação de desastres para VMware VMs no local, adicione o anfitrião vCenter Server/vSphere no qual está a descobrir VMs para o cofre de Recuperação do Site, da seguinte forma:
 
-1. No cofre > Infraestrutura de **Recuperação** do Site > **Severs de Configuração,** abra o servidor de configuração.
+1. No cofre >**Configuração**de Configuração de **Infraestruturade** > Recuperação do Local, abra o servidor de configuração.
 1. Na página **Detalhes,** clique em **vCenter**.
 1. Em **Adicionar vCenter,** especifique um nome amigável para o anfitrião vSphere ou servidor vCenter.
 1. Especifique o endereço IP ou fQDN do servidor.
@@ -63,19 +63,19 @@ Se necessário, pode modificar as credenciais utilizadas para se ligar ao anfitr
 1. Abra a ferramenta do servidor de configuração _(cspsconfigtool.exe_) utilizando o atalho do Ambiente de Trabalho.
 1. Clique em **Adicionar Conta** no separador **'Gerir conta'.**
 
-   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+   ![conta add](./media/vmware-azure-manage-vcenter/addaccount.png)
 
 1. Forneça os novos detalhes da conta e clique em **OK**. A conta precisa das permissões listadas na tabela de [permissões](#account-permissions) da conta.
-1. No cofre > Infraestrutura de **Recuperação** do Local > **Severs de Configuração,** abra o servidor de configuração.
+1. No cofre >**Configuração**de Configuração de **Infraestruturade** > Recuperação do Local, abra o servidor de configuração.
 1. Em **Detalhes,** clique em **Refresh Server**.
 1. Depois de terminar o trabalho do Refresh Server, selecione o vCenter Server.
 1. Em **Resumo,** selecione a conta recém-adicionada na **conta de anfitrião vCenter/vSphere**, e clique em **Guardar**.
 
-   ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
+   ![modificar conta](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## <a name="delete-a-vcenter-server"></a>Eliminar um servidor vCenter
 
-1. No cofre > Infraestrutura de **Recuperação** do Local > **Severs de Configuração,** abra o servidor de configuração.
+1. No cofre >**Configuração**de Configuração de **Infraestruturade** > Recuperação do Local, abra o servidor de configuração.
 1. Na página **Detalhes,** selecione o servidor vCenter.
 1. Clique no botão **Eliminar.**
 
@@ -85,7 +85,7 @@ Se necessário, pode modificar as credenciais utilizadas para se ligar ao anfitr
 
 Pode modificar o endereço IP do servidor vCenter ou as portas utilizadas para a comunicação entre o servidor e a Recuperação do Site. Por padrão, a Recuperação do Site acede à informação do anfitrião vCenter Server/vSphere através da porta 443.
 
-1. No cofre > **Infraestrutura** de recuperação do site > Servidores de **Configuração,** clique no servidor de configurações ao qual o servidor vCenter é adicionado.
+1. No cofre > Servidores de > **Configuração**de **Infraestruturade Recuperação**do Site, clique no servidor de configurações ao qual o servidor vCenter é adicionado.
 1. Nos **servidores vCenter,** clique no vCenter Server que pretende modificar.
 1. Em **resumo,** atualize o endereço IP e a porta e guarde as alterações.
 
@@ -97,7 +97,7 @@ Pode modificar o endereço IP do servidor vCenter ou as portas utilizadas para a
 
 Se pretender migrar todos os VMs para utilizar um novo Servidor vCenter, basta atualizar o endereço IP atribuído ao servidor vCenter. Não adicione outra conta VMware, uma vez que isso pode levar a entradas duplicadas. Atualize o endereço da seguinte forma:
 
-1. No cofre > **Infraestrutura** de recuperação do site > Servidores de **Configuração,** clique no servidor de configurações ao qual o servidor vCenter é adicionado.
+1. No cofre > Servidores de > **Configuração**de **Infraestruturade Recuperação**do Site, clique no servidor de configurações ao qual o servidor vCenter é adicionado.
 1. Na secção de **servidores vCenter,** clique no VCenter Server de onde pretende migrar.
 1. Em **Resumo**, atualize o endereço IP para o do novo servidor vCenter e guarde as alterações.
 1. Assim que o endereço IP é atualizado, a Recuperação do Site começa a receber informações de descoberta vM do novo servidor vCenter. Isto não afeta as atividades de replicação em curso.

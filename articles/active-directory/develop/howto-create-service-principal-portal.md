@@ -1,7 +1,7 @@
 ---
-title: Criar uma app e diretor de serviço azure AD no portal
+title: Criar uma app Azure AD & principal de serviço no portal
 titleSuffix: Microsoft identity platform
-description: Crie uma nova app e serviço de diretório Ativo Azure para gerir o acesso a recursos com controlo de acesso baseado em papéis no Azure Resource Manager.
+description: Crie uma nova app Azure Ative Directory & principal de serviço para gerir o acesso a recursos com controlo de acesso baseado em papéis no Azure Resource Manager.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264118"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação e diretor de serviço seletiva azure que possa aceder a recursos
@@ -44,7 +44,7 @@ Criou a sua aplicação e diretor de serviço azure AD.
 
 Para aceder aos recursos na sua subscrição, deve atribuir uma função à aplicação. Decida qual o papel que oferece as permissões certas para a aplicação. Para conhecer as funções disponíveis, consulte [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
 
-Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis inferiores de âmbito. Por exemplo, adicionar uma aplicação ao papel do Leitor para um grupo de recursos significa que pode ler o grupo de recursos e quaisquer recursos que contenha.
+Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis mais baixos de âmbito. Por exemplo, adicionar uma aplicação ao papel do Leitor para um grupo de recursos significa que pode ler o grupo de recursos e quaisquer recursos que contenha.
 
 1. No portal Azure, selecione o nível de âmbito a que pretende atribuir a aplicação. Por exemplo, atribuir uma função no âmbito de subscrição, pesquisar e selecionar **Subscrições,** ou selecionar **Subscrições** na página **Inicial.**
 
@@ -56,8 +56,8 @@ Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. 
 
    Se não vir a subscrição que procura, selecione filtro de **subscrições globais.** Certifique-se de que a subscrição que deseja está selecionada para o portal.
 
-1. Selecione **Controlo de acesso (IAM)** .
-1. **Selecione Adicionar a atribuição de funções**.
+1. Selecione **o controlo de acesso (IAM)**.
+1. Selecione **Adicionar atribuição de função**.
 1. Selecione a função que pretende atribuir à aplicação. Por exemplo, para permitir que a aplicação execute ações como **reiniciar,** **iniciar** e **parar** instâncias, selecione a função **Contributiva.**  Leia mais sobre as [funções disponíveis](../../role-based-access-control/built-in-roles.md) Por defeito, as aplicações Azure AD não são apresentadas nas opções disponíveis. Para encontrar a sua aplicação, procure o nome e selecione-o.
 
    ![Selecione a função a atribuir à aplicação](./media/howto-create-service-principal-portal/select-role.png)
@@ -98,14 +98,14 @@ Exporte este certificado para um ficheiro utilizando o snap-in do Certificado de
    Aparece a ferramenta 'Gestor de Certificados' para o utilizador atual.
 
 1. Para visualizar os seus certificados, em **Certificados - Utilizador Atual** no painel esquerdo, expanda o diretório **Pessoal.**
-1. Clique à direita no cert que criou, selecione **Todas as tarefas->Exportação**.
+1. Clique à direita no certificado que criou, selecione **Todas as tarefas->Exportação**.
 1. Siga o assistente de exportação de certificados.  Exportar a chave privada, especificar uma palavra-passe para o ficheiro cert e exportar para um ficheiro.
 
 Para fazer o upload do certificado:
 
 1. Selecione **Azure Active Directory**.
 1. A partir de registos de **aplicações** em Azure AD, selecione a sua aplicação.
-1. Selecione **Certificados e segredos.**
+1. Selecione **Certificados & segredos**.
 1. Selecione **o certificado de upload** e selecione o certificado (um certificado existente ou o certificado auto-assinado que exportou).
 
     ![Selecione o certificado de upload e selecione o que pretende adicionar](./media/howto-create-service-principal-portal/upload-cert.png)
@@ -118,8 +118,8 @@ Depois de registar o certificado com a sua aplicação no portal de registo de c
 
 Se optar por não utilizar um certificado, pode criar um novo segredo de aplicação.
 
-1. Selecione **Certificados e segredos.**
-1. Selecione **segredos de Cliente -> Novo segredo do cliente**.
+1. Selecione **Certificados & segredos**.
+1. Selecione **segredos de cliente - > Novo segredo do cliente.**
 1. Forneça uma descrição do segredo, e uma duração. Quando terminar, selecione **Adicionar**.
 
    Depois de salvar o segredo do cliente, o valor do segredo do cliente é mostrado. Copie este valor porque não conseguirá recuperar a chave mais tarde. Fornecerá o valor-chave com o ID da aplicação para iniciar sessão como aplicação. Armazene o valor da chave num local onde a aplicação o possa obter.
@@ -132,7 +132,7 @@ Tenha em mente que poderá ser necessário configurar permissões de adição no
 1. No [portal Azure,](https://portal.azure.com)navegue até ao seu cofre chave e selecione políticas de **acesso.**  
 1. Selecione **Adicionar a política de acesso**e, em seguida, selecione as permissões de chave, segredo e certificado que pretende conceder ao seu pedido.  Selecione o diretor de serviço que criou anteriormente.
 1. Selecione **Adicionar** para adicionar a política de acesso **e,** em seguida, Guardar para comprometer as suas alterações.
-    ![Adicionar](./media/howto-create-service-principal-portal/add-access-policy.png) de política de acesso
+    ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
@@ -152,7 +152,7 @@ Se a definição de registos da aplicação estiver definida para **Não,** apen
 
 ### <a name="check-azure-subscription-permissions"></a>Verifique as permissões de subscrição do Azure
 
-Na subscrição do Azure, a sua conta deve ter acesso `Microsoft.Authorization/*/Write` para atribuir uma função a uma aplicação AD. Esta ação é concedida através das funções [Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou [Administrador de Acesso dos Utilizadores](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se a sua conta for atribuída a função **de Contribuinte,** não tem permissão adequada. Receberá um erro ao tentar atribuir uma função ao diretor de serviço.
+Na subscrição do Azure, `Microsoft.Authorization/*/Write` a sua conta deve ter acesso a atribuir uma função a uma aplicação AD. Esta ação é concedida através das funções [Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou [Administrador de Acesso dos Utilizadores](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se a sua conta for atribuída a função **de Contribuinte,** não tem permissão adequada. Receberá um erro ao tentar atribuir uma função ao diretor de serviço.
 
 Para verificar as suas permissões de subscrição:
 

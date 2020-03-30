@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: c6e15c9a99a78f0f3637f718b35462fe49fd5ee6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277248"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Ligação de saída de armazenamento Azure Blob para funções Azure
@@ -20,9 +20,9 @@ Para obter informações sobre os detalhes da configuração e configuração, c
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-O exemplo seguinte é uma [ C# função](functions-dotnet-class-library.md) que usa um gatilho de bolha e duas ligações de saída. A função é desencadeada pela criação de uma bolha de imagem no recipiente *de imagens de amostra.* Cria cópias de tamanho pequeno e médio da bolha de imagem.
+O exemplo seguinte é uma [função C#](functions-dotnet-class-library.md) que usa um gatilho de bolha e duas ligações de bolha de saída. A função é desencadeada pela criação de uma bolha de imagem no recipiente *de imagens de amostra.* Cria cópias de tamanho pequeno e médio da bolha de imagem.
 
 ```csharp
 using System.Collections.Generic;
@@ -73,13 +73,13 @@ public class ResizeImages
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
-O exemplo seguinte mostra as ligações de entrada e saída blob num ficheiro *fun.json* e [ C# código script (.csx)](functions-reference-csharp.md) que utiliza as encadernações. A função faz uma cópia de uma bolha de texto. A função é desencadeada por uma mensagem de fila que contém o nome da bolha para copiar. A nova bolha *chama-se {originalblobname}-Copy*.
+O exemplo seguinte mostra as ligações de entrada e saída blob num ficheiro *function.json* e no código [de script C# (.csx)](functions-reference-csharp.md) que utiliza as encadernações. A função faz uma cópia de uma bolha de texto. A função é desencadeada por uma mensagem de fila que contém o nome da bolha para copiar. A nova bolha *chama-se {originalblobname}-Copy*.
 
-No ficheiro *função.json,* a propriedade `queueTrigger` metadados é usada para especificar o nome blob nas propriedades `path`:
+No ficheiro *função.json,* a `queueTrigger` propriedade de metadados é `path` utilizada para especificar o nome blob nas propriedades:
 
 ```json
 {
@@ -112,7 +112,7 @@ No ficheiro *função.json,* a propriedade `queueTrigger` metadados é usada par
 
 A secção de [configuração](#configuration) explica estas propriedades.
 
-Aqui está o código de script do c#:
+Aqui está o código de script C#:
 
 ```cs
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
@@ -128,7 +128,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 O exemplo seguinte mostra as ligações de entrada e saída blob num ficheiro *function.json* e [código JavaScript](functions-reference-node.md) que utiliza as encadernações. A função faz uma cópia de uma bolha. A função é desencadeada por uma mensagem de fila que contém o nome da bolha para copiar. A nova bolha *chama-se {originalblobname}-Copy*.
 
-No ficheiro *função.json,* a propriedade `queueTrigger` metadados é usada para especificar o nome blob nas propriedades `path`:
+No ficheiro *função.json,* a `queueTrigger` propriedade de metadados é `path` utilizada para especificar o nome blob nas propriedades:
 
 ```json
 {
@@ -161,7 +161,7 @@ No ficheiro *função.json,* a propriedade `queueTrigger` metadados é usada par
 
 A secção de [configuração](#configuration) explica estas propriedades.
 
-Eis o código JavaScript:
+Aqui está o código JavaScript:
 
 ```javascript
 module.exports = function(context) {
@@ -171,13 +171,13 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 <!--Same example for input and output. -->
 
 O exemplo seguinte mostra as ligações de entrada e saída blob num ficheiro *function.json* e [código Python](functions-reference-python.md) que utiliza as encadernações. A função faz uma cópia de uma bolha. A função é desencadeada por uma mensagem de fila que contém o nome da bolha para copiar. A nova bolha *chama-se {originalblobname}-Copy*.
 
-No ficheiro *função.json,* a propriedade `queueTrigger` metadados é usada para especificar o nome blob nas propriedades `path`:
+No ficheiro *função.json,* a `queueTrigger` propriedade de metadados é `path` utilizada para especificar o nome blob nas propriedades:
 
 ```json
 {
@@ -226,14 +226,14 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
 
 # <a name="java"></a>[Java](#tab/java)
 
-Esta secção contém os exemplos seguintes:
+Esta secção contém os seguintes exemplos:
 
 * [Gatilho HTTP, utilizando OutputBinding](#http-trigger-using-outputbinding-java)
 * [Gatilho de fila, utilizando o valor de retorno da função](#queue-trigger-using-function-return-value-java)
 
 #### <a name="http-trigger-using-outputbinding-java"></a>Gatilho HTTP, utilizando OutputBinding (Java)
 
- O exemplo seguinte mostra uma função Java que utiliza a anotação `HttpTrigger` para receber um parâmetro contendo o nome de um ficheiro num recipiente de armazenamento de bolhas. A anotação `BlobInput` lê então o ficheiro e passa o seu conteúdo para a função como `byte[]`. A anotação `BlobOutput` liga-se a `OutputBinding outputItem`, que é então utilizada pela função de escrever o conteúdo da bolha de entrada no recipiente de armazenamento configurado.
+ O exemplo seguinte mostra uma `HttpTrigger` função Java que utiliza a anotação para receber um parâmetro contendo o nome de um ficheiro num recipiente de armazenamento de bolhas. A `BlobInput` anotação lê então o ficheiro e `byte[]`passa o seu conteúdo para a função como . A `BlobOutput` anotação liga-se a `OutputBinding outputItem`, que é então utilizada pela função de escrever o conteúdo da bolha de entrada no recipiente de armazenamento configurado.
 
 ```java
   @FunctionName("copyBlobHttp")
@@ -265,7 +265,7 @@ Esta secção contém os exemplos seguintes:
 
 #### <a name="queue-trigger-using-function-return-value-java"></a>Gatilho de fila, utilizando o valor de retorno da função (Java)
 
- O exemplo seguinte mostra uma função Java que utiliza a anotação `QueueTrigger` para receber uma mensagem contendo o nome de um ficheiro num recipiente de armazenamento de bolhas. A anotação `BlobInput` lê então o ficheiro e passa o seu conteúdo para a função como `byte[]`. A anotação `BlobOutput` liga-se ao valor de devolução da função, que é então utilizado pelo tempo de funcionamento para escrever o conteúdo da bolha de entrada no recipiente de armazenamento configurado.
+ O exemplo seguinte mostra uma `QueueTrigger` função Java que utiliza a anotação para receber uma mensagem contendo o nome de um ficheiro num recipiente de armazenamento blob. A `BlobInput` anotação lê então o ficheiro e `byte[]`passa o seu conteúdo para a função como . A `BlobOutput` anotação liga-se ao valor de devolução da função, que é então utilizado pelo tempo de funcionamento para escrever o conteúdo da bolha de entrada no recipiente de armazenamento configurado.
 
 ```java
   @FunctionName("copyBlobQueueTrigger")
@@ -289,17 +289,17 @@ Esta secção contém os exemplos seguintes:
   }
 ```
 
- Na biblioteca de tempo de funcionamento das [funções java,](/java/api/overview/azure/functions/runtime)utilize a anotação `@BlobOutput` em parâmetros de função cujo valor seria escrito a um objeto no armazenamento de bolhas.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo java nativo ou um POJO.
+ Na biblioteca de tempo de funcionamento das [funções java,](/java/api/overview/azure/functions/runtime)utilize a `@BlobOutput` anotação em parâmetros de função cujo valor seria escrito a um objeto no armazenamento de bolhas.  O tipo de `OutputBinding<T>`parâmetro deve ser, onde T é qualquer tipo java nativo ou um POJO.
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-Nas [ C# bibliotecas de classes,](functions-dotnet-class-library.md)utilize o [BlobAttribute.](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)
+Nas [bibliotecas da classe C#,](functions-dotnet-class-library.md)use o [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
-O construtor do atributo segue o caminho para a bolha e um parâmetro `FileAccess` indicando ler ou escrever, como se pode ver no seguinte exemplo:
+O construtor do atributo segue o caminho para `FileAccess` a bolha e um parâmetro que indica ler ou escrever, como se pode ver no seguinte exemplo:
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -311,7 +311,7 @@ public static void Run(
 }
 ```
 
-Pode definir a propriedade `Connection` para especificar a conta de armazenamento a utilizar, como mostra o seguinte exemplo:
+Pode definir `Connection` a propriedade para especificar a conta de armazenamento a utilizar, como mostra o seguinte exemplo:
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -323,75 +323,75 @@ public static void Run(
 }
 ```
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Os atributos C# não são suportados pelo Script.
+Os atributos não são suportados por C# Script.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-O atributo `@BlobOutput` dá-lhe acesso à bolha que desencadeou a função. Se utilizar um matriz de byte com o atributo, coloque `dataType` para `binary`. Consulte o exemplo de [saída](#example) para mais detalhes.
+O `@BlobOutput` atributo dá-lhe acesso à bolha que desencadeou a função. Se utilizar um matriz de byte `dataType` `binary`com o atributo, definido para . Consulte o exemplo de [saída](#example) para mais detalhes.
 
 ---
 
 Para um exemplo completo, consulte o [exemplo da saída](#example).
 
-Pode utilizar o atributo `StorageAccount` para especificar a conta de armazenamento na classe, método ou nível de parâmetro. Para mais informações, consulte [Trigger - atributos](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
+Pode utilizar `StorageAccount` o atributo para especificar a conta de armazenamento na classe, método ou nível de parâmetro. Para mais informações, consulte [Trigger - atributos](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no atributo `Blob`.
+A tabela a seguir explica as propriedades de configuração de ligação que definiu no ficheiro *função.json* e no `Blob` atributo.
 
-|propriedade de Function | Propriedade de atributo |Descrição|
+|propriedade fun.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido para `blob`. |
-|**direção** | n/d | Deve ser definido para `out` para uma ligação de saída. As exceções são observadas na secção [de utilização.](#usage) |
-|**nome** | n/d | O nome da variável que representa a bolha no código de função.  Definir para `$return` para referenciar o valor de devolução da função.|
+|**tipo** | n/d | Tem de `blob`ser definido para. |
+|**direção** | n/d | Deve ser `out` definido para uma ligação de saída. As exceções são observadas na secção [de utilização.](#usage) |
+|**nome** | n/d | O nome da variável que representa a bolha no código de função.  `$return` Decidiu para referenciar o valor de devolução da função.|
 |**caminho** |**BlobPath** | O caminho para o recipiente de bolhas. |
-|**conexão** |**Conexão**| O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução das Funções procura uma definição de aplicação que se chama "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada `AzureWebJobsStorage`.<br><br>A cadeia de ligação deve ser para uma conta de armazenamento geral, não para uma [conta de armazenamento apenas para bolhas.](../storage/common/storage-account-overview.md#types-of-storage-accounts)|
+|**conexão** |**Conexão**| O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se `connection` definir para "MyStorage", o tempo de execução das Funções procura uma definição de aplicação que se chama "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza `AzureWebJobsStorage`a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada .<br><br>A cadeia de ligação deve ser para uma conta de armazenamento geral, não para uma [conta de armazenamento apenas para bolhas.](../storage/common/storage-account-overview.md#types-of-storage-accounts)|
 |n/d | **Acesso** | Indica se vai ler ou escrever. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Utilização
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
+# <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-No JavaScript, aceda aos dados blob utilizando `context.bindings.<name from function.json>`.
+No JavaScript, aceda aos `context.bindings.<name from function.json>`dados blob utilizando .
 
-# <a name="python"></a>[python](#tab/python)
+# <a name="python"></a>[Pitão](#tab/python)
 
 Pode declarar os parâmetros de função como os seguintes tipos para escrever para o armazenamento de bolhas:
 
-* Cordas como `func.Out(str)`
-* Riachos como `func.Out(func.InputStream)`
+* Cordas como`func.Out(str)`
+* Riachos como`func.Out(func.InputStream)`
 
 Consulte o exemplo de [saída](#example) para mais detalhes.
 
 # <a name="java"></a>[Java](#tab/java)
 
-O atributo `@BlobOutput` dá-lhe acesso à bolha que desencadeou a função. Se utilizar um matriz de byte com o atributo, coloque `dataType` para `binary`. Consulte o exemplo de [saída](#example) para mais detalhes.
+O `@BlobOutput` atributo dá-lhe acesso à bolha que desencadeou a função. Se utilizar um matriz de byte `dataType` `binary`com o atributo, definido para . Consulte o exemplo de [saída](#example) para mais detalhes.
 
 ---
 
-## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
+## <a name="exceptions-and-return-codes"></a>Exceções e códigos de devolução
 
-| Vínculo |  Referência |
+| Enlace |  Referência |
 |---|---|
 | Blobs | [Códigos de erro blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Blob, Mesa, Fila |  [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

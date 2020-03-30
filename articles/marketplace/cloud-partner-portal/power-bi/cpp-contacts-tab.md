@@ -1,43 +1,42 @@
 ---
-title: Informações de contatos para uma oferta de aplicativo Power BI | Azure Marketplace
-description: Configure os campos de contatos para uma oferta de aplicativo Power BI para o Microsoft AppSource Marketplace.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+title: Contacta informações para uma oferta da Power BI App Mercado Azure
+description: Configure os campos de contactos para uma oferta de Aplicação Power BI para o Microsoft AppSource Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: ec1ed23b253f705e1830c1c014492fe52b2133f0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 79cdd12359a0d781b51db2632bc9d534e0d88c6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826526"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285236"
 ---
-# <a name="power-bi-app-contacts-tab"></a>Guia de contatos do aplicativo Power BI
+# <a name="power-bi-app-contacts-tab"></a>Separador de contactos de aplicativos POWER BI
 
-Use a guia **contatos** da nova página de **oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta. Ele é dividido em duas seções: **engenharia** e **suporte ao cliente**.
+Utilize o separador **Contactos** da página **New Offer** para fornecer recursos técnicos e de suporte ao utilizador para a sua oferta. Divide-se em duas secções: **Engenharia** e **Apoio ao Cliente.**
 
 ![Separador Contactos](media/contacts-tab.png)
 
 
-## <a name="contacts-fields"></a>Campos de contatos 
+## <a name="contacts-fields"></a>Campos de contactos 
 
-A tabela a seguir descreve a finalidade de cada campo.  Os campos obrigatórios são indicted por um asterisco (*). 
+A tabela seguinte descreve o propósito de cada campo.  Os campos necessários são indiciados por um asterisco (*). 
 
 |   Campo               |   Descrição                                                            |
 |-----------------------|--------------------------------------------------------------------------|
-| *Contato de engenharia* | Serve como um contato técnico entre o AppSource e a sua organização.    |
+| *Contacto de Engenharia* | Serve como um contacto técnico entre o AppSource e a sua organização.    |
 | **Nome\***              | O nome da pessoa ou grupo que serve como suporte técnico ou de engenharia. |
-| **\* de email**             | O endereço de email deste contato técnico.                                  |
+| **E-mail\***             | O endereço de e-mail deste contacto técnico.                                  |
 | **Telefone\***             | O número de telefone do suporte técnico.                                       |
-| *Contato de suporte*     | Recebe tíquetes de suporte abertos por clientes no AppSource.            |
-| **Nome\***              | O nome da pessoa ou grupo que serve como atendimento ao cliente.              |
-| **\* de email**             | O endereço de email do suporte ao cliente.                                        |
+| *Contato de suporte*     | Recebe bilhetes de apoio abertos pelos clientes dentro do AppSource.            |
+| **Nome\***              | O nome da pessoa ou grupo que serve de apoio ao cliente.              |
+| **E-mail\***             | O endereço de e-mail do apoio ao cliente.                                        |
 |   |   |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de concluir sua oferta de aplicativo Power BI, confirme que você criou todos os [ativos técnicos](./cpp-create-technical-assets.md) associados para a oferta.
+Depois de ter concluído a sua oferta de Power BI App, confirme que criou todos os [ativos técnicos](./cpp-create-technical-assets.md) associados para a oferta.

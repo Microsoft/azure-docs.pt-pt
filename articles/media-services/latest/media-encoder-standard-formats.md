@@ -15,10 +15,10 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251365"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Formatos e codecs Standard Encoder
@@ -27,16 +27,16 @@ Este artigo contém uma lista dos formatos de ficheiros de importação e export
 
 ## <a name="input-containerfile-formats"></a>Formatos de recipiente de entrada/ficheiro
 
-| Formatos de ficheiros (extensões de ficheiros) | Suportado |
+| Formatos de ficheiro (extensões de ficheiro) | Suportado |
 | --- | --- |
-| FLV (com códices H.264 e AAC) (.flv) |Sim |
+| FLV (com codecs H.264 e AAC) (.flv) |Sim |
 | MXF    (.mxf) |Sim |
-| GXF (.gxf) |Sim |
+| GXF    (.gxf) |Sim |
 | MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sim |
-| Windows Media Video (WMV)/ASF (.wmv, .asf) |Sim |
-| AVI (Não comprimido 8bit/10bit) (.avi) |Sim |
+| Vídeo de Suporte de Dados do Windows (WMV)/ASF (.wmv, .asf) |Sim |
+| AVI (Descomprimido 8 bits/10 bits) (.avi) |Sim |
 | MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Sim |
-| [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sim |
+| [Gravação de Vídeo Digital da Microsoft(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sim |
 | Matroska/WebM (.mkv) |Sim |
 | WAVE/WAV (.wav) |Sim |
 | QuickTime (.mov) |Sim |
@@ -49,43 +49,43 @@ O Encoder Standard suporta o transporte dos seguintes formatos áudio em recipie
 
 ou
 
-* Ficheiros MXF, GXF e QuickTime onde o áudio é transportado como faixas pcm separadas, mas o mapeamento do canal (para estéreo ou 5.1) pode ser deduzido dos metadados do ficheiro
+* ficheiros do MXF, do GXF e do QuickTime onde o áudio é executado como faixas PCM em separado, mas o mapeamento do canal (para estéreo ou 5.1) pode ser reduzido a partir dos metadados de ficheiro
 
 ## <a name="input-video-codecs"></a>Input video codecs
 | Input video codecs | Suportado |
 | --- | --- |
-| AVC 8-bit/10-bit, até 4:2:2, incluindo AVCIntra |8 bit4:2:0 e 4:2:2 |
-| DNxHD ávido (em MXF) |Sim |
-| DVCPro/DVCProHD (em MXF) |Sim |
+| AVC 8-bits/10-bits, até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
+| Avid DNxHD (no MXF) |Sim |
+| DVCPro/DVCProHD (no MXF) |Sim |
 | Vídeo digital (DV) (em ficheiros AVI) |Sim |
 | JPEG 2000 |Sim |
-| MPEG-2 (até 422 Perfil e Alto Nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Até 422 Perfil |
+| MPEG-2 (até Perfil 422 e Alto Nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Até Perfil 422 |
 | MPEG-1 |Sim |
 | VC-1/WMV9 |Sim |
 | Canopus HQ/HQX |Não |
 | MPEG-4 Parte 2 |Sim |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sim |
-| YUV420 descomprimido, ou mezanino |Sim |
+| YUV420 descomprimido ou mezanino |Sim |
 | Apple ProRes 422 |Sim |
 | Apple ProRes 422 LT |Sim |
 | Apple ProRes 422 HQ |Sim |
-| Procuração Apple ProRes |Sim |
+| Apple ProRes Proxy |Sim |
 | Apple ProRes 4444 |Sim |
 | Apple ProRes 4444 XQ |Sim |
 | HEVC/H.265| Perfil principal|
 
 ## <a name="input-audio-codecs"></a>Codificadores de áudio de entrada
-| Codificadores de áudio de entrada | Suportado |
+| Codecs de Entrada de Áudio | Suportado |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
-| Camada MPEG 2 |Sim |
-| MP3 (Camada áudio MPEG-1 3) |Sim |
-| Windows Media Audio |Sim |
+| MPEG Camada 2 |Sim |
+| MP3 (MPEG-1 Camada de Áudio 3) |Sim |
+| Áudio de Suporte de Dados do Windows |Sim |
 | WAV/PCM |Sim |
-| </a> [flac](https://en.wikipedia.org/wiki/FLAC) |Sim |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
-| [</a> Vorbis](https://en.wikipedia.org/wiki/Vorbis) |Sim |
-| Rama (adaptativo multi-taxa) |Sim |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
+| AMR (taxa multi adaptável) |Sim |
 | AES (SMPTE 331M e 302M, AES3-2003) |Não |
 | Dolby® E |Não |
 | Dolby® Digital (AC3) |Não |

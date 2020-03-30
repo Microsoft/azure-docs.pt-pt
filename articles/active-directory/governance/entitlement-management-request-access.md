@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b1ccde2f1f92237978ab4e68acaa26393bbb9d8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261752"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitar acesso a um pacote de acesso na gestão de direitos da AD Azure
@@ -35,7 +35,7 @@ O primeiro passo é iniciar sessão no portal My Access onde pode solicitar aces
 
 **Papel pré-requisito:** Requestor
 
-1. Procure um e-mail ou uma mensagem do projeto ou gestor de negócios com quem está a trabalhar. O e-mail deve incluir um link para o pacote de acesso a que terá acesso. O link começa com `myaccess`, inclui uma dica de diretório, e termina com um id de pacote de acesso.  (Para o Governo dos EUA, o domínio pode ser `https://myaccess.microsoft.us` em vez disso.)
+1. Procure um e-mail ou uma mensagem do projeto ou gestor de negócios com quem está a trabalhar. O e-mail deve incluir um link para o pacote de acesso a que terá acesso. O link `myaccess`começa com, inclui uma dica de diretório, e termina com um id de pacote de acesso.  (Para o Governo dos `https://myaccess.microsoft.us` EUA, o domínio pode ser.)
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

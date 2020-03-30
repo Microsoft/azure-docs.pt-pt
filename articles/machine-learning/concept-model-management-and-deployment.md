@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 02/21/2020
+ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6671b9c83ab71b4a92fe36d647e5a4e4d781154e
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 40e335ee0377c560b15a588269cbdb39cdebca82
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096180"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477362"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão de modelos, implantação e monitorização com Aprendizagem automática Azure
 
@@ -28,7 +28,7 @@ As Operações de Aprendizagem Automática (MLOps) baseiam-se em princípios e [
 
 * Experimentação e desenvolvimento mais rápidos de modelos
 * Implantação mais rápida de modelos em produção
-* Garantia de qualidade
+* Controlo de qualidade
 
 O Azure Machine Learning fornece as seguintes capacidades de MLOps:
 
@@ -71,6 +71,11 @@ Os modelos registados são identificados por nome e versão. Sempre que registar
 Não é possível eliminar um modelo registado que esteja a ser utilizado numa implementação ativa.
 Para mais informações, consulte a secção do modelo de registo dos [modelos Deploy](how-to-deploy-and-where.md#registermodel).
 
+### <a name="profile-models"></a>Modelos de perfil
+
+O Azure Machine Learning pode ajudá-lo a compreender os requisitos de CPU e memória do serviço que será criado quando implementar o seu modelo. O perfil testa o serviço que executa o seu modelo e devolve informações como o uso do CPU, o uso da memória e a latência de resposta. Também fornece uma CPU e uma recomendação de memória com base no uso do recurso.
+Para mais informações, consulte a secção de perfis dos [modelos Deploy](how-to-deploy-and-where.md#profilemodel).
+
 ### <a name="package-and-debug-models"></a>Modelos de pacote e depuração
 
 Antes de implantar um modelo em produção, é embalado numa imagem do Docker. Na maioria dos casos, a criação de imagem ocorre automaticamente em segundo plano durante a implantação. Pode especificar manualmente a imagem.
@@ -92,7 +97,7 @@ Os modelos de aprendizagem automática treinados são implantados como serviços
 Ao utilizar um modelo como serviço web ou dispositivo IoT Edge, fornece os seguintes itens:
 
 * Os modelos que são utilizados para obter dados submetidos ao serviço/dispositivo.
-* Um guião de entrada. Este script aceita pedidos, utiliza o(s) modelo(s) para marcar os dados e devolver uma resposta.
+* Um script de entrada. Este script aceita pedidos, utiliza o(s) modelo(s) para marcar os dados e devolver uma resposta.
 * Um ambiente azure machine learning que descreve as dependências pip e Conda exigidas pelo modelo(s) e script de entrada.
 * Quaisquer ativos adicionais, tais como texto, dados, etc. que sejam exigidos pelo modelo ou pelo script de entrada.
 
@@ -142,7 +147,7 @@ O Azure ML dá-lhe a capacidade de rastrear o rasto de auditoria de ponta a pont
 O Azure ML publica eventos-chave para a Azure EventGrid, que pode ser usada para notificar e automatizar eventos no ciclo de vida ml. Para mais informações, por favor leia as informações sobre [este documento.](how-to-use-event-grid.md)
 
 
-## <a name="monitor-for-operational--ml-issues"></a>Monitor para questões operacionais e ml
+## <a name="monitor-for-operational--ml-issues"></a>Monitor para questões de & operacional ml
 
 A monitorização permite-lhe compreender quais os dados que estão a ser enviados para o seu modelo e as previsões que devolve.
 
@@ -172,7 +177,11 @@ A [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?
 * Permite a seleção do espaço de trabalho ao definir uma ligação de serviço.
 * Permite que os gasodutos de libertação sejam acionados por modelos treinados criados num gasoduto de treino.
 
-Para obter mais informações sobre a utilização de Pipelines Azure com Aprendizagem automática Azure, consulte a [integração contínua e implementação de modelos ML com artigo da Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) e o repositório [De Aprendizagem automática Azure.](https://aka.ms/mlops)
+Para obter mais informações sobre a utilização de Pipelines Azure com Aprendizagem automática Azure, consulte as seguintes ligações:
+
+* [Integração contínua e implantação de modelos ML com Pipelines Azure](/azure/devops/pipelines/targets/azure-machine-learning) 
+* [Repositório de MlOps de Aprendizagem automática Azure.](https://aka.ms/mlops)
+* [Cesitório de Aprendizagem automática Azure MLOpsPython.](https://github.com/Microsoft/MLOpspython)
 
 Também pode utilizar a Azure Data Factory para criar um pipeline de ingestão de dados que prepare dados para uso com formação. Para mais informações, consulte o pipeline de [ingestão](how-to-cicd-data-ingestion.md)de dados .
 
@@ -180,7 +189,7 @@ Também pode utilizar a Azure Data Factory para criar um pipeline de ingestão d
 
 Saiba mais lendo e explorando os seguintes recursos:
 
-+ [Como e onde implementar modelos](how-to-deploy-and-where.md) com Azure Machine Learning
++ [Como & onde implementar modelos](how-to-deploy-and-where.md) com Azure Machine Learning
 
 + [Tutorial: Implemente um modelo de classificação de imagem em ACI](tutorial-deploy-models-with-aml.md).
 
@@ -192,4 +201,4 @@ Saiba mais lendo e explorando os seguintes recursos:
 
 + [Aprendizagem automática à escala](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
-+ [Arquiteturas de referência azure AI e melhores práticas rep](https://github.com/microsoft/AI)
++ [Arquiteturas de referência azure AI & representante das boas práticas](https://github.com/microsoft/AI)

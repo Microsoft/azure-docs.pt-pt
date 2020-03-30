@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254758"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar e cabo o seu dispositivo StorSimple 8600
@@ -27,7 +27,7 @@ Os seguintes passos fornecem instruções claras e detalhadas sobre como desemba
 ### <a name="prepare-to-unpack-your-device"></a>Prepare-se para desembalar o seu dispositivo
 Antes de desempacotar o seu dispositivo, reveja as seguintes informações.
 
-ícone de aviso ![](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
+![Aviso](./media/storsimple-safety/IC740879.png)![Ícone ícone](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **AVISO!**
 
 1. Certifique-se de que tem duas pessoas disponíveis para gerir o peso do dispositivo se estiver a manuseá-lo manualmente. Um recinto totalmente configurado pode pesar até 32 kg .).
 2. Coloque a caixa numa superfície plana e uniforme.
@@ -85,7 +85,7 @@ Os compartimentos devem ser instalados num cesto padrão de 19 polegadas que ten
 2. Verifique se o site onde pretende instalar tem uma potência CA padrão de uma fonte independente ou uma Unidade de Distribuição de Energia (PDU) com uma fonte de alimentação ininterrupta (UPS).
 3. Certifique-se de que uma ranhura 4U (2 X 2U) está disponível na prateleira na qual pretende montar os recintos.
 
-ícone de aviso ![](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
+![Aviso](./media/storsimple-safety/IC740879.png)![Ícone ícone](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) de peso pesado **AVISO!**
 
  Certifique-se de que tem duas pessoas disponíveis para gerir o peso se estiver a manusear a configuração manual do dispositivo. Um recinto totalmente configurado pode pesar até 32 kg .).
 
@@ -161,7 +161,7 @@ Depois de terminar de montar o recinto EBOD, terá de montar o recinto primário
 
 O próximo passo é ligar o seu dispositivo para acesso à energia, rede e em série.
 
-## <a name="cable-your-storsimple-8600-device"></a>Cabo o seu dispositivo StorSimple 8600
+## <a name="cable-your-storsimple-8600-device"></a>Cable your StorSimple 8600 device (Ligar os cabos do dispositivo StorSimple 8600)
 Os seguintes procedimentos explicam como cabo o seu dispositivo StorSimple 8600 para ligações de alimentação, rede e série.
 
 ### <a name="prerequisites"></a>Pré-requisitos

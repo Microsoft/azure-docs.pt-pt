@@ -8,10 +8,10 @@ ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275051"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Ver e recuperar eventos de log da Atividade Azure
@@ -29,7 +29,7 @@ Pode filtrar eventos de Registo de Atividadepelos seguintes campos:
 * **Categoria**: A categoria do evento descrita nas [categorias do Registo de Atividades](activity-log-view.md#categories-in-the-activity-log).
 * **Subscrição**: Um ou mais nomes de subscrição Azure.
 * **Grupo de recursos**: Um ou mais grupos de recursos dentro das subscrições selecionadas.
-* **Recurso (nome)** : - O nome de um recurso específico.
+* **Recurso (nome)**: - O nome de um recurso específico.
 * **Tipo**de recurso : O tipo de recurso, por exemplo _Microsoft.Compute/virtualmachines_.
 * **Nome** da operação - O nome de uma operação do Gestor de Recursos Azure, por exemplo _Microsoft.SQL/servers/Write_.
 * **Gravidade**: O nível de gravidade do evento. Os valores disponíveis são _Informativos,_ _Aviso,_ _Erro,_ _Crítico._
@@ -71,7 +71,7 @@ Para saber mais sobre a história da Mudança, consulte [obter alterações de r
 Utilize o cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) para recuperar o Registo de Atividade da PowerShell. Seguem-se alguns exemplos comuns.
 
 > [!NOTE]
-> `Get-AzLog` só dá 15 dias de história. Use o parâmetro **-MaxEvents** para consultar os últimos eventos N para além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize o REST API ou SDK. Se não incluir o **StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir o **EndTime,** então o valor predefinido é o tempo atual. Todos os tempos estão na UTC.
+> `Get-AzLog`apenas fornece 15 dias de história. Use o parâmetro **-MaxEvents** para consultar os últimos eventos N para além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize o REST API ou SDK. Se não incluir o **StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir o **EndTime,** então o valor predefinido é o tempo atual. Todos os tempos estão na UTC.
 
 
 Obtenha entradas de log criadas após uma hora específica de data:
@@ -179,22 +179,22 @@ Tem de criar uma definição de diagnóstico para enviar o registo de Atividade 
 ### <a name="install-the-solution"></a>Instalar a solução
 Utilize o procedimento em [Instalar uma solução de monitorização](../insights/solutions.md#install-a-monitoring-solution) para instalar a solução **Activity Log Analytics.** Não é necessária uma configuração adicional.
 
-### <a name="use-the-solution"></a>Utilizar a solução
+### <a name="use-the-solution"></a>Use a solução
 Clique em **Registos** no topo da página **De registo** de atividade para abrir a solução de monitorização do Registo [de Atividades Analytics](activity-log-collect.md) para a subscrição. Ou aceda a todas as soluções de monitorização no menu monitor de **subscrição** no portal Azure. Selecione **Mais** na secção **Insights** para abrir a página **'Overview'** com os azulejos da solução. O azulejo **Azure Activity Logs** apresenta uma contagem do número de registos **azureActivity** no seu espaço de trabalho.
 
-![Mosaico de registos de atividades do Azure](media/collect-activity-logs/azure-activity-logs-tile.png)
+![Azulejos de logs de atividade azure](media/collect-activity-logs/azure-activity-logs-tile.png)
 
 
 Clique no azulejo **Azure Activity Logs** para abrir a vista Registos de Atividade sintetizações **do Azure.** A vista inclui as peças de visualização na tabela a seguir. Cada peça lista até 10 itens que correspondam aos critérios dessas peças para o intervalo de tempo especificado. Pode executar uma consulta de registo que devolve todos os registos correspondentes clicando **Ver tudo** na parte inferior da peça.
 
-![Dashboard de registos de atividades do Azure](media/collect-activity-logs/activity-log-dash.png)
+![Painel de logs de atividade azure](media/collect-activity-logs/activity-log-dash.png)
 
 | Parte de visualização | Descrição |
 | --- | --- |
-| Entradas de registo de atividades do Azure | Mostra um gráfico de barras do top Azure Activity Log registo total total para o intervalo de data que selecionou e mostra uma lista dos 10 melhores participantes da atividade. Clique na tabela de barras para fazer uma pesquisa de registo para `AzureActivity`. Clique num item de chamada para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse item. |
-| Registos de atividades por Estado | Mostra um gráfico de donut para o estado de Registo de Atividade seletiva do Azure para a gama de datas selecionada e uma lista dos dez melhores registos de estado. Clique na tabela para fazer uma consulta de registo para `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Clique num item de estado para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse registo de estado. |
-| Registos de atividades por recurso | Mostra o número total de recursos com Registos de Atividade e lista os dez melhores recursos com contagens recorde para cada recurso. Clique na área total para fazer uma pesquisa de registo para `AzureActivity | summarize AggregatedValue = count() by Resource`, que mostra todos os recursos Do Azure disponíveis para a solução. Clique num recurso para executar uma consulta de registo devolvendo todos os registos de atividade para esse recurso. |
-| Registos de atividade pelo fornecedor de recursos | Mostra o número total de fornecedores de recursos que produzem Registos de Atividade e lista o top 10. Clique na área total para fazer uma consulta de registo para `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, que mostra todos os fornecedores de recursos Azure. Clique num fornecedor de recursos para executar uma consulta de registo devolvendo todos os registos de atividade para o fornecedor. |
+| Entradas de registo de atividade sinuosa do Azure | Mostra um gráfico de barras do top Azure Activity Log registo total total para o intervalo de data que selecionou e mostra uma lista dos 10 melhores participantes da atividade. Clique na tabela de barras `AzureActivity`para fazer uma pesquisa de registo. Clique num item de chamada para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse item. |
+| Registos de Atividade por Estado | Mostra um gráfico de donut para o estado de Registo de Atividade seletiva do Azure para a gama de datas selecionada e uma lista dos dez melhores registos de estado. Clique na tabela para fazer `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`uma consulta de registo para . Clique num item de estado para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse registo de estado. |
+| Registos de Atividade por Recurso | Mostra o número total de recursos com Registos de Atividade e lista os dez melhores recursos com contagens recorde para cada recurso. Clique na área total para `AzureActivity | summarize AggregatedValue = count() by Resource`fazer uma pesquisa de registo, que mostra todos os recursos Do Azure disponíveis para a solução. Clique num recurso para executar uma consulta de registo devolvendo todos os registos de atividade para esse recurso. |
+| Registos de Atividades por Fornecedor de Recursos | Mostra o número total de fornecedores de recursos que produzem Registos de Atividade e lista o top 10. Clique na área total para fazer `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`uma consulta de log para , que mostra todos os fornecedores de recursos Azure. Clique num fornecedor de recursos para executar uma consulta de registo devolvendo todos os registos de atividade para o fornecedor. |
 
 
 

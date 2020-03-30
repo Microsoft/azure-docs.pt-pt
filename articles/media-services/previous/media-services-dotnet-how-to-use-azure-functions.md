@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251170"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver funções azure com serviços de mídia
@@ -61,14 +61,14 @@ A função, definida neste artigo, assume que tem as seguintes variáveis ambien
 Uma vez implementada a sua aplicação de funções, pode encontrá-la entre as Funções Do Azure **dos Serviços de Aplicação.**
 
 1. Selecione a sua aplicação de funções e clique em **New Function**.
-2. Escolha **C#** o cenário de idioma e processamento de **dados.**
+2. Escolha o cenário de linguagem **C#** e processamento de **dados.**
 3. Escolha o modelo **BlobTrigger.** Esta função é ativada sempre que uma bolha é colocada no recipiente de **entrada.** O nome de **entrada** é especificado no **Caminho,** no passo seguinte.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Uma vez selecionado o **BlobTrigger,** aparecem mais alguns controlos na página.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Clique em **Criar**. 
 
@@ -76,7 +76,7 @@ Uma vez implementada a sua aplicação de funções, pode encontrá-la entre as 
 
 A sua função Azure está associada a ficheiros de código e outros ficheiros descritos nesta secção. Quando utilizar o portal Azure para criar uma função, **função.json** e **run.csx** são criados para si. Precisa adicionar ou carregar um ficheiro **project.json.** O resto desta secção dá uma breve explicação de cada ficheiro e mostra as suas definições.
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![ficheiros](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
@@ -102,7 +102,7 @@ Substitua o conteúdo do ficheiro função.json existente pelo seguinte código:
 }
 ```
 
-### <a name="projectjson"></a>project.json
+### <a name="projectjson"></a>projeto.json
 
 O ficheiro project.json contém dependências. Aqui está um exemplo de ficheiro **project.json** que inclui os pacotes necessários .NET Azure Media Services da Nuget. Note que os números da versão mudam com as últimas atualizações para os pacotes, pelo que deverá confirmar as versões mais recentes. 
 
@@ -126,7 +126,7 @@ Adicione a seguinte definição ao project.json.
     
 ### <a name="runcsx"></a>run.csx
 
-Este é C# o código para a sua função.  A função definida abaixo monitoriza um recipiente de conta de armazenamento denominado **entrada** (isto é o que foi especificado no caminho) para novos ficheiros MP4. Uma vez que um ficheiro é lançado no recipiente de armazenamento, o gatilho de bolha executa a função.
+Este é o código C# para a sua função.  A função definida abaixo monitoriza um recipiente de conta de armazenamento denominado **entrada** (isto é o que foi especificado no caminho) para novos ficheiros MP4. Uma vez que um ficheiro é lançado no recipiente de armazenamento, o gatilho de bolha executa a função.
     
 O exemplo definido nesta secção demonstra 
 

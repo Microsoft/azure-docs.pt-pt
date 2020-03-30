@@ -4,12 +4,12 @@ description: Saiba como atualizar ou redefinir as credenciais do diretor de serv
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 5dab9a778653d2ec6e32ddb3833ddcf6a95cae13
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: b7d652be3733cb130a3973909de59489047efe0a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096099"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475549"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
 
@@ -19,7 +19,7 @@ Também pode ter integrado o seu cluster AKS com o [Azure Ative Directory,][aad-
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Atualize ou crie um novo Diretor de Serviço para o seu cluster AKS
 
@@ -68,7 +68,7 @@ O resultado será semelhante ao seguinte exemplo. Tome nota do seu `appId` e `pa
 
 Agora defina variáveis para o id principal de serviço e segredo do cliente usando a saída do seu próprio comando [az ad sp create-for-rbac,][az-ad-sp-create] como mostra o seguinte exemplo. O *SP_ID* é o seu *appId*, e o *SP_SECRET* é a sua *palavra-passe:*
 
-```azurecli-interactive
+```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```

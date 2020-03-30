@@ -1,58 +1,57 @@
 ---
-title: Contas corporativas corporativas e Partner Center
-description: Como verificar se sua empresa tem uma conta corporativa configurada com a Microsoft, criar uma nova conta corporativa ou configurar várias contas corporativas para usar com o Partner Center.
-author: ChJenk
-manager: evansma
+title: Contas de trabalho da empresa e Centro de Parceiros
+description: Como verificar se a sua empresa tem uma conta de trabalho criada com a Microsoft, criar uma nova conta de trabalho ou criar várias contas de trabalho para usar com o Partner Center.
+author: dsindona
 ms.author: parthp
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 4783d3ac8ef78929621179d87f9c8948f6dd079c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c4e7427d87c5f88d8c686b867ef88ceb05f28286
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812004"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281430"
 ---
-# <a name="company-work-accounts-and-partner-center"></a>Contas corporativas corporativas e Partner Center
+# <a name="company-work-accounts-and-partner-center"></a>Contas de trabalho da empresa e Centro de Parceiros
 
-O Partner Center usa contas corporativas corporativas, também conhecidas como locatários de Azure Active Directory (AD), para gerenciar o acesso à conta para vários usuários, permissões de controle, grupos de hosts e aplicativos e manter dados de perfil. Vinculando o domínio de conta de email de trabalho da sua empresa à sua conta do Partner Center, os funcionários de sua empresa podem entrar no Partner Center para gerenciar ofertas do Marketplace usando seus próprios nomes de domínio e senhas de conta corporativa.
+O Partner Center utiliza contas de trabalho da empresa, também conhecidas como inquilinos do Azure Ative Directory (AD), para gerir o acesso à conta para vários utilizadores, permissões de controlo, grupos de anfitriões e aplicações e manter dados de perfil. Ao ligar o domínio da conta de e-mail de trabalho da sua empresa à sua conta Partner Center, os colaboradores da sua empresa podem inscrever-se no Partner Center para gerir as ofertas de marketplace utilizando os nomes de utilizador e senhas da sua própria conta de trabalho.
 
-## <a name="check-whether-your-company-already-has-a-work-account"></a>Verifique se sua empresa já tem uma conta corporativa
+## <a name="check-whether-your-company-already-has-a-work-account"></a>Verifique se a sua empresa já tem uma conta de trabalho
 
-Se sua empresa assinou um serviço de nuvem da Microsoft, como Azure, Microsoft Intune ou Office 365, você já tem um domínio de conta de email de trabalho (também conhecido como um locatário de Azure Active Directory) que pode ser usado com o Partner Center.
+Se a sua empresa subscreveu um serviço de cloud da Microsoft, como o Azure, o Microsoft Intune ou o Office 365, então já tem um domínio de conta de e-mail de trabalho (também referido como um inquilino do Azure Ative Directory) que pode ser usado com partner Center.
 
-Siga estas etapas para verificar:
-1. Entre no portal de administração do Azure em https://portal.azure.com.
-2. Selecione **Azure Active Directory** no menu de navegação à esquerda e, em seguida, selecione **nomes de domínio personalizados**.
-3. Se você já tiver uma conta corporativa, seu nome de domínio será listado.
+Siga estes passos para verificar:
+1. Inscreva-se no portal de https://portal.azure.comadministração Azure em .
+2. Selecione **O Diretório Ativo Azure** a partir do menu de navegação à esquerda e, em seguida, selecione nomes de **domínio personalizados**.
+3. Se já tiver uma conta de trabalho, o seu nome de domínio será listado.
 
-Se sua empresa ainda não tiver uma conta corporativa, ela será criada para você durante o processo de registro do Partner Center.
+Se a sua empresa ainda não tiver uma conta de trabalho, será criada uma para si durante o processo de inscrição do Partner Center.
 
-## <a name="set-up-multiple-work-accounts"></a>Configurar várias contas corporativas
+## <a name="set-up-multiple-work-accounts"></a>Configurar várias contas de trabalho
 
-Antes de decidir usar uma conta de trabalho existente, considere quantos usuários na conta corporativa precisarão acessar o Partner Center. Se você tiver usuários na conta corporativa que não precisarão acessar o Partner Center, convém considerar a criação de várias contas corporativas para que somente os usuários que precisarem acessar o Partner Center sejam representados em uma conta específica.
+Antes de decidir utilizar uma conta de trabalho existente, considere quantos utilizadores na conta de trabalho terão de aceder ao Partner Center. Se tiver utilizadores na conta de trabalho que não precisarão de aceder ao Partner Center, poderá considerar a criação de várias contas de trabalho, de modo que apenas os utilizadores que precisarão de aceder ao Partner Center estão representados numa determinada conta.
 
 ## <a name="create-a-new-work-account"></a>Criar uma nova conta de trabalho
 
-Para criar uma nova conta de trabalho para sua empresa, siga as etapas abaixo. Talvez seja necessário solicitar assistência de quem tem permissões administrativas na conta de Microsoft Azure da sua empresa.
+Para criar uma nova conta de trabalho para a sua empresa, siga os passos abaixo. Poderá necessitar de solicitar assistência a quem tiver permissões administrativas na conta microsoft Azure da sua empresa.
 
-1. Inicie sessão no [Portal do Microsoft Azure](https://portal.azure.com).
-2. No menu de navegação à esquerda, selecione o **Azure Active Directory** -> **usuários**.
-3. Selecione **novo usuário** e crie uma nova conta de trabalho do Azure inserindo um nome e endereço de email. Verifique se a **função de diretório** está definida como **usuário** e marque a caixa de seleção **Mostrar senha** na parte inferior para exibir e anotar a senha gerada automaticamente.
-4. Selecione **criar** para salvar o novo usuário.
+1. Inscreva-se no [portal Microsoft Azure](https://portal.azure.com).
+2. A partir do menu de navegação à esquerda, selecione os -> **Utilizadores**de **Diretório Ativo Azure**.
+3. Selecione **Novo utilizador** e crie uma nova conta de trabalho Azure inserindo um nome e endereço de e-mail. Certifique-se de que a **função De Diretório** está definida para **o Utilizador** e selecione a caixa de verificação **de palavra-passe de série** na parte inferior para visualizar e tome nota da palavra-passe autogerada.
+4. Selecione **Criar** para salvar o novo utilizador.
 
-O endereço de email para a conta de usuário deve ser um nome de domínio verificado em seu diretório. Você pode listar todos os domínios verificados em seu diretório selecionando **Azure Active Directory** -> **nomes de domínio personalizados** no menu de navegação esquerdo.
+O endereço de e-mail da conta de utilizador deve ser um nome de domínio verificado no seu diretório. Pode listar todos os domínios verificados no seu diretório selecionando nomes de -> **domínio personalizados** de **Diretório Ativo Azure**no menu de navegação à esquerda.
 
-Para saber mais sobre como adicionar domínios personalizados no Azure Active Directory, consulte [Adicionar ou associar um domínio no Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+Para saber mais sobre a adição de domínios personalizados no Diretório Ativo Azure, consulte [Adicionar ou associar um domínio em Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
 
-## <a name="troubleshoot-work-email-sign-in"></a>Solucionar problemas de entrada de email de trabalho
+## <a name="troubleshoot-work-email-sign-in"></a>Sessão de email de trabalho de resolução de problemas
 
-Se você estiver tendo problemas para entrar em sua conta corporativa (também conhecida como seu locatário do Azure AD), encontre o cenário no diagrama abaixo que melhor corresponda à sua situação e siga as etapas recomendadas.
+Se está com dificuldades em iniciar sessão na sua conta de trabalho (também conhecida como seu inquilino DaD Azure), encontre o cenário no diagrama abaixo que melhor corresponda à sua situação e siga os passos recomendados.
 
-![Diagrama para solução de problemas de entrada de conta corporativa](./media/onboarding-aad-flow.png)
+![Diagrama para resolução de problemas de conta de trabalho](./media/onboarding-aad-flow.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Gerenciar sua conta do Marketplace comercial no Partner Center](./manage-account.md) 
+- [Gerencie a sua conta de Mercado Comercial no Partner Center](./manage-account.md) 

@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266315"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte-se ao seu dispositivo de trabalho na rede da sua organização
@@ -61,7 +61,7 @@ Pode certificar-se de que está acompanhado olhando para as suas definições.
 
     ![Contas no ecrã Definições](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **Access work or school**, and certifique-se de ver texto que diga algo como, Ligado a\< ***your_organization>* Azure AD**.
+2. Selecione **Access work ou school**, e certifique-se de ver texto que diga algo como, Ligado a ** * \<your_organization>* AD Azure**.
 
     ![Acesso ao trabalho ou tela escolar com conta de contoso conectado](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -79,13 +79,13 @@ Se já tem o seu dispositivo há algum tempo e já foi configurado, pode seguir 
 
     ![Configurar um ecrã de conta de trabalho ou escolar](./media/user-help-join-device-on-network/join-device-setup-join-aad.png)
 
-4. No **Let's get you signed in** screen, type your email address (por exemplo, alain@contoso.com), e depois selecione **Next**.
+4. No **Let's get you signed in** screen, type alain@contoso.comyour email address (por exemplo, ) e, em seguida, selecione **Next**.
 
     ![Vamos assinar no ecrã.](./media/user-help-join-device-on-network/join-device-setup-get-signed-in.png)
 
 5. No ecrã de **palavra-passe Introduza,** escreva a sua palavra-passe e, em seguida, selecione **Iniciar sessão**.
 
-    ![Insira a palavra-passe](./media/user-help-join-device-on-network/join-device-setup-password.png)
+    ![Introduzir palavra-passe](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
 6. No seu dispositivo móvel, aprove o seu dispositivo para que possa aceder à sua conta. 
 
@@ -106,7 +106,7 @@ Pode certificar-se de que está acompanhado olhando para as suas definições.
 
     ![Contas no ecrã Definições](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **Access work or school**, and certifique-se de ver texto que diga algo como, Ligado a\< ***your_organization>* Azure AD**.
+2. Selecione **Access work ou school**, e certifique-se de ver texto que diga algo como, Ligado a ** * \<your_organization>* AD Azure**.
 
     ![Acesso ao trabalho ou tela escolar com conta de contoso conectado](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

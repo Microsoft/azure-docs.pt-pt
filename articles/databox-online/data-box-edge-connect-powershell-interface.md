@@ -1,5 +1,5 @@
 ---
-title: Conecte-se e gere o dispositivo Microsoft Azure Data Box Edge através da interface Windows PowerShell  Microsoft Docs
+title: Conecte-se e gere o dispositivo Microsoft Azure Data Box Edge através da interface Windows PowerShell [ Microsoft Docs
 description: Descreve como se conectar e, em seguida, gerir o Data Box Edge através da interface Windows PowerShell.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: f49396331a31f7ca9eaf453dc8bf6880da2e0da8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265483"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gerencie um dispositivo Azure Data Box Edge via Windows PowerShell
@@ -46,7 +46,7 @@ Este artigo inclui os seguintes procedimentos:
 Também pode carregar certificados IoT Edge para permitir uma ligação segura entre o seu dispositivo IoT Edge e os dispositivos a jusante que possam ligar-se ao mesmo. Existem três certificados IoT Edge (formato *.pem)* que precisa de instalar:
 
 - Certificado de CA raiz ou o proprietário CA
-- Certificado de acesso condicional de dispositivo
+- Certificado CA do dispositivo
 - Certificado de chave do dispositivo
 
 O exemplo que se segue mostra a utilização deste cmdlet para instalar certificados IoT Edge:
@@ -62,7 +62,7 @@ Para obter mais informações sobre certificados, vá aos [certificados Azure Io
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
-## <a name="reset-your-device"></a>Redefinir o seu dispositivo
+## <a name="reset-your-device"></a>Repor o dispositivo
 
 [!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 
@@ -71,7 +71,7 @@ Para obter mais informações sobre certificados, vá aos [certificados Azure Io
 Se a função computacional estiver configurada no seu dispositivo, também pode obter os registos de cálculo através da interface PowerShell.
 
 1. [Ligue-se à interface PowerShell](#connect-to-the-powershell-interface).
-2. Utilize o `Get-AzureDataBoxEdgeComputeRoleLogs` para obter os registos de cálculo para o seu dispositivo.
+2. Utilize `Get-AzureDataBoxEdgeComputeRoleLogs` os registos de cálculo para obter os registos de cálculo para o seu dispositivo.
 
     O exemplo que se segue mostra a utilização deste cmdlet:
 

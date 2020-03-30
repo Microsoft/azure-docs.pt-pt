@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f3e5a7b90892f0ed0243d448ea1ac63fb56f277f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c02ac9392d6f3f95deef38ff86250e96dfb76d96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78188839"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476693"
 ---
 # <a name="date-claims-transformations"></a>Data reclama transformações
 
@@ -23,23 +23,23 @@ ms.locfileid: "78188839"
 
 Este artigo fornece exemplos para a utilização da data de transformações do Quadro de Experiência de Identidade no Azure Ative Directory B2C (Azure AD B2C). Para mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
-## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
+## <a name="assertdatetimeisgreaterthan"></a>AssertdateTimeisgreaterThan
 
 Verifica se uma data e a reclamação de hora (tipo de dados de cordas) são posteriores a uma segunda data e pedido de hora (tipo de dados de cadeia), e lança uma exceção.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | O tipo de primeira reclamação, que deve ser mais tarde do que a segunda alegação. |
-| inputClaim | direitoOperand | string | O segundo tipo de reclamação, que deve ser mais cedo do que a primeira alegação. |
-| EntradaParametro | AssertIfEqualTo | boolean | Especifica se esta afirmação deve passar se o operand esquerdo é igual ao operand direito. |
-| EntradaParametro | AssertIfRightOperandIsNotPresent | boolean | Especifica se esta afirmação deve passar se o operand certo está em falta. |
+| Pedido de crédito | leftOperand | string | O tipo de primeira reclamação, que deve ser mais tarde do que a segunda alegação. |
+| Pedido de crédito | direitoOperand | string | O segundo tipo de reclamação, que deve ser mais cedo do que a primeira alegação. |
+| EntradaParametro | AssertifEqualto | boolean | Especifica se esta afirmação deve passar se o operand esquerdo é igual ao operand direito. |
+| EntradaParametro | AssertifRightOperandIsNotPresent | boolean | Especifica se esta afirmação deve passar se o operand certo está em falta. |
 | EntradaParametro | TreatAsEqualIfWithinMillseconds | int | Especifica o número de milissegundos para permitir que entre os dois dias de data considere os tempos iguais (por exemplo, para contabilizar o desvio do relógio). |
 
-A transformação de **afirmações AssertDateTimeIsGreaterThan** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md). Os metadados de perfil técnico **DateTimeGreaterThan** autoafirmados controlam a mensagem de erro que o perfil técnico apresenta ao utilizador.
+A transformação de **afirmações AssertDateTimeIsGreaterThan** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md). Os metadados de perfil técnico **DateTimeGreaterThan** autoafirmados controlam a mensagem de erro que o perfil técnico apresenta ao utilizador. As mensagens de erro podem ser [localizadas.](localization-string-ids.md#claims-transformations-error-messages)
 
 ![AssertstringClaimsAreIgual execução](./media/date-transformations/assert-execution.png)
 
-O exemplo que se segue compara a reivindicação `currentDateTime` com a reivindicação `approvedDateTime`. Um erro é lançado se `currentDateTime` for mais tarde do que `approvedDateTime`. A transformação trata os valores como iguais se estiverem dentro de 5 minutos (30000 milissegundos) de diferença.
+O exemplo seguinte `currentDateTime` compara `approvedDateTime` a reclamação com a alegação. Um erro é `currentDateTime` lançado se `approvedDateTime`for mais tarde que . A transformação trata os valores como iguais se estiverem dentro de 5 minutos (30000 milissegundos) de diferença.
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -55,7 +55,7 @@ O exemplo que se segue compara a reivindicação `currentDateTime` com a reivind
 </ClaimsTransformation>
 ```
 
-O perfil técnico de validação `login-NonInteractive` chama a transformação de reivindicações `AssertApprovedDateTimeLaterThanCurrentDateTime`.
+O `login-NonInteractive` perfil técnico `AssertApprovedDateTimeLaterThanCurrentDateTime` de validação chama a transformação de sinistros.
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -81,20 +81,20 @@ O perfil técnico autoafirmado chama o perfil técnico **login-nonInteractive** 
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-    - **esquerdaOperand**: 2018-10-01T15:00:00.00000000Z
-    - **rightOperand**: 2018-10-01T14:00:00.00000000Z
+    - **esquerdaOperand**: 2020-03-01T15:00:00.00000000Z
+    - **rightOperand**: 2020-03-01T14:00:00.00000000Z
 - Resultado: Erro lançado
 
-## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
+## <a name="convertdatetodatetimeclaim"></a>Convertendo DatatoDateClaim
 
 Converte um Tipo de Reclamação de **Data** para um Tipo de Reclamação **datetime.** A transformação de sinistros converte o formato de tempo e adiciona às 12:00:00 da manhã.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | date | O ClaimType a converter. |
-| OutputClaim | outputClaim | DateTime | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
+| Pedido de crédito | inputClaim | date | O ClaimType a converter. |
+| Pedido de saída | saídaReclamada | dataTempo | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
 
-O exemplo seguinte demonstra a conversão da `dateOfBirth` de reclamação (tipo de dados de data) para outra `dateOfBirthWithTime` de reclamação (tipo de dados dataTime).
+O exemplo seguinte demonstra a `dateOfBirth` conversão da reclamação (tipo de data) para outra reclamação `dateOfBirthWithTime` (dataDataData data tipo de dados).
 
 ```XML
   <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
@@ -110,20 +110,20 @@ O exemplo seguinte demonstra a conversão da `dateOfBirth` de reclamação (tipo
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-    - **inputClaim**: 2019-06-01
+    - **inputClaim**: 2020-15-03
 - Alegações de saída:
-    - **saídasReclamação:** 1559347200 (1 de junho de 2019 12:00:00 AM)
+    - **saídaSReclamação:** 2020-15-03T00:00:00.00000000Z
 
 ## <a name="convertdatetimetodateclaim"></a>ConvertedateTimetoDateClaim
 
 Converte um Tipo de Reclamação **datetime** para um Tipo de Reclamação de **Data.** A transformação de sinistros remove o formato de tempo da data.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | DateTime | O ClaimType a converter. |
-| OutputClaim | outputClaim | date | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
+| Pedido de crédito | inputClaim | dataTempo | O ClaimType a converter. |
+| Pedido de saída | saídaReclamada | date | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
 
-O exemplo seguinte demonstra a conversão da `systemDateTime` de reclamação (dataDataData DataData data) para outra reclamação `systemDate` (tipo de data).
+O exemplo seguinte demonstra a `systemDateTime` conversão da reclamação (dataDataData DataData data type) para outra reclamação `systemDate` (tipo de data).
 
 ```XML
 <ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
@@ -139,17 +139,17 @@ O exemplo seguinte demonstra a conversão da `systemDateTime` de reclamação (d
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-  - **inputSClaim**: 1559347200 (1 de junho de 2019 12:00:00 AM)
+  - **inputSClaim**: 2020-15-03T11:34:22.00000000Z
 - Alegações de saída:
-  - **saídaSReclamação**: 2019-06-01
+  - **saídaSReclamação:** 2020-15-03
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
 Obtenha a data e hora utc atuais e adicione o valor a um ClaimType.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | currentDateTime | DateTime | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
+| Pedido de saída | actualDateTime | dataTempo | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
 
 ```XML
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
@@ -162,19 +162,19 @@ Obtenha a data e hora utc atuais e adicione o valor a um ClaimType.
 ### <a name="example"></a>Exemplo
 
 * Alegações de saída:
-    * **actualDataTime**: 1534418820 (16 de agosto de 2018 11:27:00 AM)
+    * **actualDataTime**: 2020-15-03T11:40:35.00000000Z
 
-## <a name="datetimecomparison"></a>DateTimeComparison
+## <a name="datetimecomparison"></a>DataTimeCompare
 
-Determine se uma data Time é mais tarde, mais cedo ou igual a outra. O resultado é uma nova booleanclaimType booleancom um valor de `true` ou `false`.
+Determine se uma data Time é mais tarde, mais cedo ou igual a outra. O resultado é uma nova booleanClaimType `true` booleancom um valor de ou `false`.
 
-| Item | TransformationClaimType | Tipo de Dados | Notas |
+| Item | Tipo de reclamação de transformação | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | firstDateTime | DateTime | O primeiro encontroTime para comparar se é mais cedo ou mais tarde do que o segundo encontroTime. O valor nulo abre uma exceção. |
-| inputClaim | secondDateTime | DateTime | O segundo encontroTime para comparar se é mais cedo ou mais tarde do que o primeiro encontroTime. O valor nulo é tratado como a data actualTime. |
+| Pedido de crédito | primeiroDataTime | dataTempo | O primeiro encontroTime para comparar se é mais cedo ou mais tarde do que o segundo encontroTime. O valor nulo abre uma exceção. |
+| Pedido de crédito | segundaData | dataTempo | O segundo encontroTime para comparar se é mais cedo ou mais tarde do que o primeiro encontroTime. O valor nulo é tratado como a data actualTime. |
 | EntradaParametro | operador | string | Um dos seguintes valores: o mesmo, mais tarde ou mais cedo que. |
-| EntradaParametro | timeSpanInSeconds | int | Adicione o tempo na primeira data. |
-| OutputClaim | Resultado | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
+| EntradaParametro | timespaninSeconds | int | Adicione o tempo na primeira data. |
+| Pedido de saída | result | boolean | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado. |
 
 Utilize esta transformação de sinistros para determinar se dois Tipos de Reclamação são iguais, posteriormente ou mais cedo do que os outros. Por exemplo, pode armazenar a última vez que um utilizador aceitou os seus termos de serviços (TOS). Após 3 meses, pode pedir ao utilizador para voltar a aceder ao TOS.
 Para executar a transformação da reclamação, primeiro precisa de obter a data atualTime e também a última vez que o utilizador aceita o TOS.
@@ -198,8 +198,8 @@ Para executar a transformação da reclamação, primeiro precisa de obter a dat
 ### <a name="example"></a>Exemplo
 
 - Créditos de entrada:
-    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    - **segundaDataTempo**: 2018-04-01T00:00:00.100000Z
+    - **firstDateTime**: 2020-01-01T00:00:00.100000Z
+    - **segundaDataTempo**: 2020-04-01T00:00:00.100000Z
 - Parâmetros de entrada:
     - **operador**: mais tarde do que
     - **tempoSpanInSeconds**: 7776000 (90 dias)

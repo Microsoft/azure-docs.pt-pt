@@ -4,10 +4,10 @@ description: Monitorizar as funções Web e de trabalho eficazmente com o Applic
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276195"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Informações de aplicação para serviços de nuvem Azure
@@ -70,7 +70,7 @@ Para enviar a telemetria para os recursos apropriados, pode configurar o SDK de 
 
 Se decidiu criar um recurso separado para cada função, e talvez um conjunto separado para cada configuração de construção, é mais fácil criá-los todos no portal Application Insights. Se criar muito recursos, pode [automatizar o processo.](../../azure-monitor/app/powershell.md)
 
-1. No [portal Azure,][portal]selecione **New** > **Developer Services** > **Application Insights**.  
+1. No [portal Azure,][portal]selecione **Novos** > **Insights de Aplicação**de**Serviços** > de Desenvolvimento .  
 
     ![Painel de Insights de Aplicação](./media/cloudservices/01-new.png)
 
@@ -82,7 +82,7 @@ Cada recurso é identificado por uma chave de instrumentação. Poderá necessit
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurar os Diagnósticos do Azure para cada função
 Defina esta opção para monitorizar a sua aplicação com o Application Insights. Para funções web, esta opção fornece monitorização de desempenho, alertas, diagnósticos e análise de utilização. Para outras funções, pode pesquisar e monitorizar diagnósticos azure tais como reiniciar, contadores de desempenho e chamadas para System.Diagnostics.Trace. 
 
-1. No Visual Studio Solution Explorer, sob **\<YourCloudService>**  > **Roles,** abra as propriedades de cada função.
+1. No Visual Studio Solution Explorer, sob  >  ** \<o YourCloudService>** **Roles,** abra as propriedades de cada função.
 
 1. Na Configuração, selecione os dados de diagnóstico enviar para a caixa de verificação de Insights de **Aplicação** e, em seguida, selecione o recurso 'Insights de **aplicação'** que criou anteriormente.
 
@@ -90,16 +90,16 @@ Se tiver optado por utilizar um recurso do Application Insights separado para ca
 
 ![Configure insights de aplicação](./media/cloudservices/configure-azure-diagnostics.png)
 
-Isto tem o efeito de inserir as teclas de instrumentação De Insights de Aplicação nos ficheiros *denominados ServiceConfiguration.\*.cscfg*. Aqui está o [código da amostra.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)
+Isto tem o efeito de inserir as teclas de instrumentação De Insights de Aplicação nos ficheiros *denominados ServiceConfiguration.\* cscfg*. Aqui está o [código da amostra.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)
 
 Se quiser variar o nível de informação de diagnóstico que é enviado para A Aplicação Insights, pode [fazê-lo editando diretamente os ficheiros *.cscfg* ](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
-## <a name="sdk"></a>Instalar o SDK em cada projeto
+## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>Instalar o SDK em cada projeto
 Com esta opção, você pode adicionar telemetria de negócios personalizado a qualquer papel. A opção fornece uma análise mais aprofundada de como a sua aplicação é usada e executa.
 
 No Visual Studio, configure o SDK do Application Insights para cada projeto de aplicação na cloud.
 
-1. Para configurar **as funções web,** clique no direito do projeto e, em seguida, selecione **Configure Application Insights** ou Add **> Application Insights telemetria**.
+1. Para configurar **as funções web,** clique no direito do projeto e, em seguida, selecione **Configure Application Insights** ou Adicione > **Telemetria de Insights**de Aplicação .
 
 1. Para configurar **as funções dos trabalhadores:** 
 
@@ -132,7 +132,7 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
 
 Este passo só é necessário se quiser capturar consultas SQL completas em .NET Framework. 
 
-1. No ficheiro `\*.csdef` Adicionar [tarefa de arranque](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) para cada função semelhante a 
+1. Em `\*.csdef` ficheiro Adicione [a tarefa de arranque](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) para cada função semelhante a 
 
     ```xml
     <Startup>
@@ -147,7 +147,7 @@ Este passo só é necessário se quiser capturar consultas SQL completas em .NET
     </Startup>
     ```
     
-2. Descarregue [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent.ps1,](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)coloque-os na pasta `AppInsightsAgent` em cada projeto de função. Certifique-se de copiá-los para o diretório de saída através de propriedades de ficheiros do Estúdio Visual ou construir scripts.
+2. Descarregue [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent.ps1,](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)coloque-os na `AppInsightsAgent` pasta em cada projeto de função. Certifique-se de copiá-los para o diretório de saída através de propriedades de ficheiros do Estúdio Visual ou construir scripts.
 
 3. Em todas as funções dos trabalhadores, adicione variáveis ambientais: 
 
@@ -220,7 +220,7 @@ Para funções de trabalhador, pode rastrear exceções de duas formas:
 ## <a name="performance-counters"></a>Contadores de desempenho
 São recolhidos por predefinição os contadores seguintes:
 
-* \Processo(?? APP_WIN32_PROC??) Tempo de processador\%
+* \Processo(?? APP_WIN32_PROC??) \% Tempo do processador
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes

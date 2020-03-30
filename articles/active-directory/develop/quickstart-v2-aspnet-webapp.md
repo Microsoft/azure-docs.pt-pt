@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: eae26df61af203f9c3d09606ef96b5506f2e8701
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 505c5f0786367feefa8ed11d4fbdd7d0ca85b8ef
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249127"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79529735"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
 Neste arranque rápido, você usa uma amostra de código para aprender como uma ASP.NET aplicação web para assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD).  (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
@@ -38,13 +38,13 @@ Neste arranque rápido, você usa uma amostra de código para aprender como uma 
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 > 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
->      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `ASPNET-Quickstart`.
->      - Adicione `http://localhost:44368/` no **Redirect URI,** e clique **em Registar**.
+>      - Na secção **Nome,** introduza um nome de aplicação significativo que `ASPNET-Quickstart`será apresentado aos utilizadores da aplicação, por exemplo.
+>      - Adicione `http://localhost:44368/` o **Redirecionamento URI,** clique em **Registar**.
 >      - A partir do painel de navegação esquerdo sob a secção Gerir, **selecione Autenticação**
 >          - Sob a subsecção **Implicit Grant,** selecione **fichas de identificação**.
 >          - E, em seguida, selecione **Guardar**.
@@ -66,7 +66,7 @@ Neste arranque rápido, você usa uma amostra de código para aprender como uma 
 > [!div renderon="portal"]
 > Executar o projeto usando o Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Descarregue a amostra de código]()
+> [Descarregue a amostra de código](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para ser executada
@@ -77,8 +77,8 @@ Neste arranque rápido, você usa uma amostra de código para aprender como uma 
 
 1. Extraia o ficheiro zip para uma pasta local próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Abra a solução no Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Dependendo da versão do Visual Studio, poderá ter de clicar no projeto `AppModelv2-WebApp-OpenIDConnect-DotNet` e **restaurar os pacotes NuGet**
-1. Abra a Consola gestora de pacotes (Ver -> Outros Windows &> Package Manager Console) e executar `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
+1. Dependendo da versão do Visual Studio, poderá ter `AppModelv2-WebApp-OpenIDConnect-DotNet` de clicar no projeto e **restaurar os pacotes NuGet**
+1. Abra a consola do gestor de pacotes (ver -> Outras consolas de gestor de pacotes de > Windows) e executar`Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 
 > [!div renderon="docs"]
 > 5. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
@@ -94,8 +94,8 @@ Neste arranque rápido, você usa uma amostra de código para aprender como uma 
 >   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
 >
 > > [!TIP]
-> > - Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)* , e os *Tipos de conta suportados*, vá para a página **Descrição geral**
-> > - Certifique-se de que o valor para `redirectUri` na **Web.config** corresponde ao **Redirect URI** definido para o Registo de Aplicações em AD Azure (se não, navegue para o menu de **Autenticação** para o Registo de Aplicações e atualize o **REDIRECT URI** para combinar)
+> > - Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)*, e os *Tipos de conta suportados*, vá para a página **Descrição geral**
+> > - Certifique-se `redirectUri` de que o valor para o **Web.config** corresponde ao **Redirect URI** definido para o Registo de Aplicações em AD Azure (se não, navegue para o menu de **autenticação** para o Registo de Aplicações e atualize o **REDIRECT URI** para combinar)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -170,7 +170,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Definir `ValidateIssuer = false` é uma simplificação para este arranque rápido. Em aplicações reais é necessário validar o emitente.
+> A `ValidateIssuer = false` definição é uma simplificação para este arranque rápido. Em aplicações reais é necessário validar o emitente.
 > Veja as amostras para entender como fazê-lo.
 
 ### <a name="initiate-an-authentication-challenge"></a>Iniciar um desafio de autenticação

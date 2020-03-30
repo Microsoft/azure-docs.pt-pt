@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262857"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Início de sessão único com MSAL.js
@@ -28,9 +28,9 @@ A Azure AD fornece capacidades SSO às aplicações, definindo um cookie de sess
 
 ## <a name="sso-between-browser-tabs"></a>SSO entre separadores de navegador
 
-Quando a sua aplicação está aberta em vários separadores e assina pela primeira vez no utilizador num separador, o utilizador também é inscrito nos outros separadores sem ser solicitado. MSAL.js caches o token ID para o utilizador no navegador `localStorage` e irá assinar o utilizador na aplicação nos outros separadores abertos.
+Quando a sua aplicação está aberta em vários separadores e assina pela primeira vez no utilizador num separador, o utilizador também é inscrito nos outros separadores sem ser solicitado. MSAL.js caches o token ID para `localStorage` o utilizador no navegador e irá assinar o utilizador na aplicação nos outros separadores abertos.
 
-Por predefinição, a MSAL.js utiliza `sessionStorage` que não permite que a sessão seja partilhada entre separadores. Para obter SSO entre separadores, certifique-se de definir o `cacheLocation` em MSAL.js para `localStorage` como mostrado abaixo.
+Por predefinição, a MSAL.js utiliza `sessionStorage` o que não permite que a sessão seja partilhada entre separadores. Para obter SSO entre separadores, `cacheLocation` certifique-se de definir `localStorage` o em MSAL.js como mostrado abaixo.
 
 ```javascript
 const config = {
@@ -65,7 +65,7 @@ Em certos casos, a aplicação tem acesso ao contexto de autenticação do utili
 
 **Utilização do ID da sessão (SID)**
 
-O ID da sessão é uma [reivindicação opcional](active-directory-optional-claims.md) que pode ser configurada nas fichas de identificação. Esta alegação permite que a aplicação identifique a sessão de AD Azure do utilizador independentemente do nome de conta ou nome de utilizador do utilizador. Pode passar o SID nos parâmetros de pedido para a chamada `acquireTokenSilent`. Isto permitirá que a Azure AD ignore a seleção da conta. Sid está ligado ao cookie da sessão e não vai cruzar os contextos do navegador.
+O ID da sessão é uma [reivindicação opcional](active-directory-optional-claims.md) que pode ser configurada nas fichas de identificação. Esta alegação permite que a aplicação identifique a sessão de AD Azure do utilizador independentemente do nome de conta ou nome de utilizador do utilizador. Pode passar o SID nos parâmetros `acquireTokenSilent` de pedido para a chamada. Isto permitirá que a Azure AD ignore a seleção da conta. Sid está ligado ao cookie da sessão e não vai cruzar os contextos do navegador.
 
 ```javascript
 var request = {
@@ -82,12 +82,12 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 ```
 
 > [!Note]
-> Sid só pode ser usado com pedidos de autenticação silenciosa feitos por `acquireTokenSilent` chamada em MSAL.js.
+> Sid só pode ser usado com pedidos `acquireTokenSilent` de autenticação silenciosa efeccionados por chamada em MSAL.js.
 Pode encontrar aqui os passos para configurar reclamações opcionais no seu [manifesto](active-directory-optional-claims.md)de candidatura .
 
 **Usando a dica de login**
 
-Se não tiver a reclamação sid configurada ou precisar de contornar o pedido de seleção de conta em chamadas de autenticação interativa, pode fazê-lo fornecendo uma `login_hint` nos parâmetros de pedido e opcionalmente uma `domain_hint` como `extraQueryParameters` nos métodos interativos MSAL.js (`loginPopup`, `loginRedirect`, `acquireTokenPopup` e `acquireTokenRedirect`). Por exemplo:
+Se não tiver a reclamação sid configurada ou precisar de contornar o pedido de seleção `login_hint` de conta em chamadas `domain_hint` de `extraQueryParameters` autenticação interativa, pode fazê-lo fornecendo um nos parâmetros de pedido e opcionalmente a como nos`loginPopup`métodos interativos MSAL.js ( , `loginRedirect` `acquireTokenPopup` e `acquireTokenRedirect`). Por exemplo:
 
 ```javascript
 var request = {
@@ -101,9 +101,9 @@ userAgentApplication.loginRedirect(request);
 
 Pode obter os valores para login_hint e domain_hint lendo as reclamações devolvidas no token de ID para o utilizador.
 
-* **loginHint** deve ser definido para a `preferred_username` reclamação no token ID.
+* **loginHint** deve ser `preferred_username` definido para a reclamação no símbolo de identificação.
 
-* **domain_hint** só é necessário passar quando utilizar a /autoridade comum. A dica de domínio é determinada pelo ID do inquilino(tid).  Se a alegação `tid` no token de identificação for `9188040d-6c67-4c5b-b112-36a304b66dad` são os consumidores. Caso contrário, são organizações.
+* **domain_hint** só é necessário passar quando utilizar a /autoridade comum. A dica de domínio é determinada pelo ID do inquilino(tid).  Se `tid` a reclamação no `9188040d-6c67-4c5b-b112-36a304b66dad` token de identificação for em consumidores. Caso contrário, são organizações.
 
 Leia [aqui](v2-oauth2-implicit-grant-flow.md) mais informações sobre os valores para indicação de login e sugestão de domínio.
 
@@ -120,7 +120,7 @@ Um exemplo disso é: Um utilizador é assinado numa aplicação web-mãe que aco
 
 A experiência SSO neste cenário pode ser alcançada da seguinte forma:
 
-Passe a `sid` se disponível (ou `login_hint` e opcionalmente `domain_hint`) como parâmetros de pedido para o MSAL.js `acquireTokenSilent` chamada da seguinte forma:
+Passe `sid` o if `login_hint` available (ou e opcionalmente) `domain_hint`como parâmetros `acquireTokenSilent` de pedido para a chamada MSAL.js da seguinte forma:
 
 ```javascript
 var request = {
@@ -141,7 +141,7 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 
 MSAL.js traz paridade de recursos com ADAL.js para cenários de autenticação Azure AD. Para facilitar a migração de ADAL.js para MSAL.js e evitar que os seus utilizadores voltem a inscrever-se, a biblioteca lê o símbolo de identificação que representa a sessão do utilizador em cache ADAL.js e assina perfeitamente no utilizador em MSAL.js.  
 
-Para aproveitar o comportamento de inscrição única (SSO) ao atualizar a partir de ADAL.js, terá de garantir que as bibliotecas estão a usar `localStorage` para fichas de cache. Deteto a `cacheLocation` para `localStorage` tanto na configuração MSAL.js como na configuração ADAL.js na inicialização da seguinte forma:
+Para aproveitar o comportamento de inscrição única (SSO) ao atualizar a partir de ADAL.js, terá de garantir que as bibliotecas estão a usar `localStorage` para fichas de cache. Detete o `cacheLocation` para `localStorage` tanto na configuração MSAL.js como na configuração ADAL.js na inicialização da seguinte forma:
 
 
 ```javascript

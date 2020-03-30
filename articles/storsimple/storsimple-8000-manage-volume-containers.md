@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
 ms.openlocfilehash: cbdad3c68848ce552811ee658bb29df74a6fad19
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267680"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Utilize o serviço StorSimple Device Manager para gerir recipientes de volume StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Use the StorSimple Device Manager service to manage StorSimple volume containers (Utilizar o serviço Gestor de Dispositivos do StorSimple para gerir contentores de volumes do StorSimple)
 
 ## <a name="overview"></a>Descrição geral
 Este tutorial explica como usar o serviço StorSimple Device Manager para criar e gerir recipientes de volume StorSimple.

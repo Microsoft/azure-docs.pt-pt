@@ -8,17 +8,22 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: bb78536326885e043279de1ff77e6e8efcd95193
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 2f10c7378ae7681b14df6e96b6a6f1adac832d1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037142"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80287820"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Ligue-se em privado a uma Aplicação Web utilizando o Ponto Final Privado do Azure (Pré-visualização)
 
 Azure Private Endpoint é o bloco de construção fundamental para a Private Link em Azure. Permite-lhe ligar-se em privado à sua Web App.
-Neste Quickstart, você vai aprender como implementar uma Web App com Private Endpoint e conectar-se a esta Web App a partir de uma Máquina Virtual.
+Neste Quickstart, você aprenderá a implementar uma Web App com Private Endpoint e conectar-se a esta Web App a partir de uma Máquina Virtual.
+
+Para mais informações, consulte [A utilização de pontos finais privados para a Web App Azure][privatenedpointwebapp].
+
+> [!Note]
+>A pré-visualização está disponível nas regiões dos EUA Orientais e OESTE 2 para todas as Aplicações Web PremiumV2 Windows e Linux. 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -26,25 +31,28 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="virtual-network-and-virtual-machine"></a>Rede virtual e Máquina Virtual
 
-Nesta secção, irá criar uma rede virtual e a subnet para acolher o VM que é utilizado para aceder à sua Web App através do Private Endpoint.
+Nesta secção, irá criar a rede virtual e a subnet para acolher o VM que é usado para aceder à sua Web App através do Private Endpoint.
 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 
 Nesta secção, criará uma rede virtual e uma sub-rede.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > **rede** > **rede virtual** ou procurar a rede **Virtual** na caixa de pesquisa.
+1. No lado superior esquerdo do ecrã, selecione **Criar uma** > **rede virtual** de**rede** > de recursos ou procurar a **rede Virtual** na caixa de pesquisa.
 
 1. Na **Create rede virtual,** introduza ou selecione estas informações no separador Basics:
 
- ![Criar rede virtual][1]
+   > [!div class="mx-imgBorder"]
+   > ![Criar rede virtual][1]
 
-1. Clique em **"Seguinte: Endereços IP >"** e introduza ou selecione estas informações:
+1. Clique em **"Next: IP Addresss >"** e introduza ou selecione estas informações:
 
-![Configure endereços IP][2]
+   > [!div class="mx-imgBorder"]
+   >![Configure endereços IP][2]
 
 1. Na secção de sub-rede, clique em **"+ Adicionar Subnet"** e introduza as seguintes informações e clique em **"Adicionar"**
 
-![Adicionar Subnet][3]
+   > [!div class="mx-imgBorder"]
+   >![Adicionar Subnet][3]
 
 1. Clique em **"Rever + criar"**
 
@@ -52,19 +60,21 @@ Nesta secção, criará uma rede virtual e uma sub-rede.
 
 ### <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Compute** > **máquina virtual**
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** > máquina**Compute** > **Virtual** de recurso
 
 1. Em Criar uma máquina virtual - Básicos, insira ou selecione esta informação:
 
-![Máquina Virtual básica ][4]
+   > [!div class="mx-imgBorder"]
+   >![Máquina Virtual básica][4]
 
 1. Selecione **"Next: Disks"**
 
-Mantenha as definições predefinidas.
+   Mantenha as definições predefinidas.
 
 1. Selecione **"Seguinte: Networking",** selecione esta informação:
 
-![Redes ][5]
+   > [!div class="mx-imgBorder"]
+   >![Rede][5]
 
 1. Clique em **"Rever + Criar"**
 
@@ -75,15 +85,16 @@ Mantenha as definições predefinidas.
 Nesta secção, irá criar uma Web App privada utilizando um Ponto Final Privado para a si.
 
 > [!Note]
->A funcionalidade Private Endpoint só está disponível para Premium V2 e Isolado com ASE SKU externo
+>A funcionalidade Private Endpoint só está disponível para o Premium V2 SKU.
 
 ### <a name="web-app"></a>Aplicação Web
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso** > **Web** > **Web App**
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** > **Aplicação** **Web** > de recursos
 
 1. In Create Web App - Basics, insira ou selecione estas informações:
 
-![Web App básico ][6]
+   > [!div class="mx-imgBorder"]
+   >![Web App básico][6]
 
 1. Selecione **"Rever + criar"**
 
@@ -91,41 +102,47 @@ Nesta secção, irá criar uma Web App privada utilizando um Ponto Final Privado
 
 ### <a name="create-the-private-endpoint"></a>Criar o ponto final privado
 
-1. Nas propriedades da Web App, selecione **Definições** > **Networking** e clique em **"Configure as ligações de ponto final privado"**
+1. Nas propriedades da Web App, selecione **Definições** > **de Rede** e clique em **"Configure as ligações de ponto final privado"**
 
-![Rede web web][7]
+   > [!div class="mx-imgBorder"]
+   >![Rede web web][7]
 
 1. No assistente, clique em **"+ adicionar"**
 
-![Ponto final privado da aplicação web][8]
+   > [!div class="mx-imgBorder"]
+   >![Ponto final privado da aplicação web][8]
 
-1. Preencha as informações de subscrição, Vnet e Subnet e clique em **"OK"**
+1. Preencha as informações de subscrição, VNet e Subnet e clique em **"OK"**
 
-![Rede de aplicações web][9]
+   > [!div class="mx-imgBorder"]
+   >![Rede de aplicações web][9]
 
 1. Rever a criação do ponto final privado
 
-![Review][10]
-![visão final do ponto final privado][11]
+   > [!div class="mx-imgBorder"]
+   >![Rever][10]
+   >![a visão final do ponto final privado][11]
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
 1. Na barra de pesquisa do portal, entre no **myVm**
-1. Selecione o **botão Ligar**. Depois de selecionar o botão Ligar, ligar à máquina virtual abre- se
+1. Selecione o **botão Ligar**. Depois de selecionar o botão Ligar, ligar **RDP** à máquina virtual abre- se
 
-![Botão RDP][12]
+   > [!div class="mx-imgBorder"]
+   >![Botão RDP][12]
 
 1. O Azure cria um ficheiro Remote Desktop Protocol (.rdp) e transfere-o para o seu computador depois de clicar no **ficheiro RDP de download**
 
-![Baixar ficheiro RDP][13]
+   > [!div class="mx-imgBorder"]
+   >![Baixar ficheiro RDP][13]
 
 1. Abra o ficheiro download.rdp.
 
-- Se solicitado, selecione Connect.
+- Se lhe for pedido, selecione Ligar.
 - Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
 
 > [!Note]
-> Poderá ter de selecionar Mais escolhas > Utilize uma conta diferente, para especificar as credenciais que inseriu quando criou o VM.
+> Poderá ter de selecionar Mais opções > Utilize uma conta diferente, para especificar as credenciais que inseriu quando criou o VM.
 
 - Selecione OK.
 
@@ -139,38 +156,45 @@ Nesta secção, irá ligar-se em privado à Web App utilizando o Ponto Final Pri
 
 1. Obtenha o IP privado do seu Ponto Final Privado, no tipo de barra de pesquisa **Private Link,** e selecione Private Link
 
-![Ligação Privada][14]
+   > [!div class="mx-imgBorder"]
+   >![Ligação Privada][14]
 
 1. No Private Link Center, selecione **Private Endpoints** para listar todos os seus pontos finais privados
 
-![Centro de Ligação Privada][15]
+   > [!div class="mx-imgBorder"]
+   >![Centro de Ligação Privada][15]
 
 1. Selecione o link Private Endpoint para a sua Web App e a sua subnet
 
-![Propriedades de ponto final privado][16]
+   > [!div class="mx-imgBorder"]
+   >![Propriedades de ponto final privado][16]
 
 1. Copie o IP Privado do seu Ponto Final Privado e o FQDN da sua Web App, no nosso caso webappdemope.azurewebsites.net 10.10.2.4
 
-1. No myVM, verifique se a Web App não está acessível através do IP público. Abra um navegador e copie o nome da Web App, deve ter uma página de erro proibida 403
+1. No myVM, verifique se a Web App não está acessível através do IP público. Abra um navegador e reexa o nome da Web App, você deve ter uma página de erro proibida 403
 
-![Proibido][17]
+   > [!div class="mx-imgBorder"]
+   >![Proibido][17]
 
-> [!Note]
+> [!Important]
 > Como esta funcionalidade está em pré-visualização, é necessário gerir manualmente a entrada de DNS.
 
 1. Crie a entrada do anfitrião, abra o explorador de ficheiros e localize o ficheiro dos anfitriões
 
-![Arquivo de anfitriões][18]
+   > [!div class="mx-imgBorder"]
+   >![Arquivo de anfitriões][18]
 
 1. Adicione uma entrada com o endereço IP privado e o nome público da sua Web App editando o ficheiro dos anfitriões com bloco de notas
 
-![Hospedar conteúdo][19]
+   > [!div class="mx-imgBorder"]
+   >![Hospedar conteúdo][19]
 
 1. Guarde o ficheiro
 
 1. Abra um navegador e escreva o url da sua aplicação web
 
-![Web site com PE][20]
+   > [!div class="mx-imgBorder"]
+   >![Web site com PE][20]
 
 1. Você está a aceder à sua Web App através do Private Endpoint
 
@@ -179,7 +203,7 @@ Nesta secção, irá ligar-se em privado à Web App utilizando o Ponto Final Pri
 Quando terminar usando o Private Endpoint, Web App e o VM, elimine o grupo de recursos e todos os recursos que contém:
 
 1. Introduza o pronto-rg na caixa de pesquisa na parte superior do portal e selecione ready-rg a partir dos resultados da pesquisa.
-1. Selecione Eliminar o grupo de recursos.
+1. Selecione Eliminar grupo de recursos.
 1. Introduza o pronto-rg para ESCREVER O NOME DE GRUPO DE RECURSOS e selecione Eliminar.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -209,4 +233,5 @@ Neste Quickstart, criou um VM numa rede virtual, numa Web App e num Private Endp
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
 
 <!--Links-->
+[privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
 [privateendpoint]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview

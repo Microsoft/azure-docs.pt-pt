@@ -1,19 +1,19 @@
 ---
-title: Tipos de recursos suportados através da Saúde dos Recursos Azure  Microsoft Docs
+title: Tipos de recursos suportados através da Saúde dos Recursos Azure [ Microsoft Docs
 description: Tipos de recursos suportados através da saúde dos recursos azure
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 3ba7b308c0c7671df8a652194830cb910cb89acc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258307"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de saúde na saúde dos recursos do Azure
 Abaixo está uma lista completa de todos os controlos executados através da saúde dos recursos por tipos de recursos.
 
-## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servidores
 |Cheques Executados|
 |---|
 |<ul><li>O servidor está a funcionar?</li><li>O servidor está sem memória?</li><li>O servidor está a ligar?</li><li>O servidor está a recuperar?</li></ul>|
@@ -33,7 +33,7 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |---|
 |<ul><li>Todos os nós cache estão a funcionar?</li><li>O Cache pode ser alcançado a partir do centro de dados?</li><li>O Cache atingiu o número máximo de ligações?</li><li> A cache esgotou a sua memória disponível? </li><li>O Cache está a passar por um elevado número de falhas de página?</li><li>O Cache está sob carga pesada?</li></ul>|
 
-## <a name="microsoftcdnprofile"></a>Microsoft.CDN/profile
+## <a name="microsoftcdnprofile"></a>Microsoft.CDN/perfil
 |Cheques Executados|
 |---|
 |<ul> <li>O portal suplementar é acessível para operações de configuração de CDN?</li><li>Existem problemas de entrega em curso com os pontos finais da CDN?</li><li>Os utilizadores podem alterar a configuração dos seus recursos CDN?</li><li>As alterações de configuração estão a propagar-se ao ritmo esperado?</li><li>Os utilizadores podem gerir a configuração CDN utilizando o portal Azure, PowerShell ou a API?</li> </ul>|
@@ -53,18 +53,18 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |---|
 |<ul><li>O servidor está a alojar esta máquina virtual a funcionar?</li><li>O arranque do osso hospedeiro já está concluído?</li><li>O contentor virtual está aprovisionado e alimentado?</li><li>Existe conectividade de rede entre o hospedeiro e a conta de armazenamento?</li><li>O arranque do soo convidado já terminou?</li><li>Há manutenção planeada em curso?</li><li>O hardware do hospedeiro está degradado e previsto que falhe em breve?</li></ul>|
 
-## <a name="microsoftdatafactoryfactories"></a>microsoft.datafactory/fábricas
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/fábricas
 |Cheques Executados|
 |---|
 |<ul><li>Houve falhas na execução do gasoduto?</li><li>O cluster que acolhe a Fábrica de Dados é saudável?</li></ul>|
 
-## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/contas
 |Cheques Executados|
 |---|
 |<ul><li>Os utilizadores já tiveram problemas em submeter ou listar os seus trabalhos de Data Lake Analytics?</li><li>Os trabalhos da Data Lake Analytics não conseguem ser concluídos devido a erros do sistema?</li></ul>|
 
 
-## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
+## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/contas
 |Cheques Executados|
 |---|
 |<ul><li>Os utilizadores já tiveram problemas em enviar dados para data lake store?</li><li>Os utilizadores já tiveram problemas em descarregar dados da Data Lake Store?</li></ul>|
@@ -79,17 +79,17 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |---|
 |<ul><li>A conta Data Share está a funcionar?</li><li>O cluster que acolhe a Partilha de Dados está disponível?</li></ul>|
 
-## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servidores
 |Cheques Executados|
 |---|
 |<ul><li>O servidor não está disponível devido à manutenção?</li><li>O servidor não está disponível devido à reconfiguração?</li></ul>|
 
-## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servidores
 |Cheques Executados|
 |---|
 |<ul><li>O servidor não está disponível devido à manutenção?</li><li>O servidor não está disponível devido à reconfiguração?</li></ul>|
 
-## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servidores
 |Cheques Executados|
 |---|
 |<ul><li>O servidor não está disponível devido à manutenção?</li><li>O servidor não está disponível devido à reconfiguração?</li></ul>|
@@ -104,7 +104,7 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |---|
 |<ul><li>Houve algum pedido de base de dados ou recolha não servido devido a uma indisponibilidade de serviço Azure Cosmos DB?</li><li>Houve algum pedido de documento não servido devido a uma indisponibilidade de serviço Azure Cosmos DB?</li></ul>|
 
-## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/espaços de nome
 |Cheques Executados|
 |---|
 |<ul><li>O espaço de nome do Event Hubs está a experimentar erros gerados pelo utilizador?</li><li>O espaço de nome saque do Event Hubs está atualmente a ser atualizado?</li></ul>|
@@ -114,7 +114,7 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |---|
 |<ul><li>Os serviços centrais estão disponíveis no cluster HDInsight?</li><li>O cluster HDInsight pode aceder à chave para encriptação BYOK em repouso?</li></ul>|
 
-## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/cofres
 |Cheques Executados|
 |---|
 |<ul><li>Os pedidos para o cofre chave falham devido a problemas na plataforma Azure KeyVault?</li><li>Os pedidos para o cofre chave estão a ser estrangulados devido a muitos pedidos feitos pelo cliente?</li></ul>|
@@ -159,12 +159,12 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |---|
 |<ul><li>O gateway VPN é acessível a partir da internet?</li><li>O VPN Gateway está em modo de espera?</li><li>O serviço VPN está a funcionar na porta de entrada?</li></ul>|
 
-## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
+## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/espaço de nome
 |Cheques Executados|
 |---|
 |<ul><li>Podem ser realizadas operações de tempo de execução como registo, instalação ou envio no espaço de nome?</li></ul>|
 
-## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/espaços de trabalho
 |Cheques Executados|
 |---|
 |<ul><li>Há atrasos de indexação para o espaço de trabalho?</li></ul>|
@@ -184,7 +184,7 @@ Abaixo está uma lista completa de todos os controlos executados através da sa�
 |---|
 |<ul><li>As operações de diagnóstico podem ser realizadas no cluster?</li></ul>|
 
-## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/espaços de nome
 |Cheques Executados|
 |---|
 |<ul><li>Os clientes que experimentam erros gerados pelo utilizador service bus?</li><li>Os utilizadores estão a sofrer um aumento de erros transitórios devido a uma atualização do espaço de nome do Service Bus?</li></ul>|

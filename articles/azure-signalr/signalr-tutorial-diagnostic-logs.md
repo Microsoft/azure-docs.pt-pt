@@ -1,97 +1,97 @@
 ---
-title: Logs de diagnóstico do serviço de Signaler do Azure
-description: Saiba como configurar os logs de diagnóstico do serviço de Signaler do Azure e como utilizá-lo para autoatendimento.
-author: wanl
+title: Registos de diagnóstico para serviço de sinalização Azure
+description: Aprenda a configurar registos de diagnóstico para o Serviço De Sinalização Azure e como utilizá-lo para auto-resolução de problemas.
+author: wanlwanl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 33d9a338e12fa4b3d2449f0c5b0576895364c3cf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72f57ba4bbbbde07f6d26edc88c158f301ebe2f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750258"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536739"
 ---
-# <a name="diagnostic-logs-for-azure-signalr-service"></a>Logs de diagnóstico do serviço de Signaler do Azure
+# <a name="diagnostic-logs-for-azure-signalr-service"></a>Registos de diagnóstico para serviço de sinalização Azure
 
-Este tutorial aborda o que são os logs de diagnóstico do serviço de Signaler do Azure e como configurar logs de diagnóstico e como solucionar problemas com os logs de diagnóstico.
+Este tutorial cobre o que são registos de diagnóstico para o Serviço de Sinalização Azure e como configurar registos de diagnóstico e como resolver problemas com registos de diagnóstico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para habilitar os logs de diagnóstico, você precisará de algum lugar para armazenar os dados de log. Este tutorial usa o armazenamento do Azure e o Log Analytics.
+Para ativar os registos de diagnóstico, necessitará de um lugar para armazenar os seus dados de registo. Este tutorial utiliza o Azure Storage e o Log Analytics.
 
-* [Armazenamento do Azure](../azure-monitor/platform/resource-logs-collect-storage.md) – mantém os logs de diagnóstico para auditoria de política, análise estática ou backup.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) -uma ferramenta de análise e pesquisa de logs flexível que permite a análise de logs brutos gerados por um recurso do Azure.
+* [Armazenamento azure](../azure-monitor/platform/resource-logs-collect-storage.md) - Retém registos de diagnóstico para auditoria de políticas, análise estática ou backup.
+* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) - Uma ferramenta flexível de pesquisa de registos e análise que permite a análise de troncos brutos gerados por um recurso Azure.
 
-## <a name="set-up-diagnostic-logs-for-an-azure-signalr-service"></a>Configurar os logs de diagnóstico para um serviço de Signaler do Azure
+## <a name="set-up-diagnostic-logs-for-an-azure-signalr-service"></a>Configurar registos de diagnóstico para um serviço de sinalização Azure
 
-Você pode exibir os logs de diagnóstico do serviço de Signaler do Azure. Esses logs fornecem uma visão mais rica da conectividade com a instância do serviço do Azure Signalr. Os logs de diagnóstico fornecem informações detalhadas de cada conexão. Por exemplo, informações básicas (ID de usuário, ID de conexão e tipo de transporte e assim por diante) e informações de evento (evento conectar, desconectar e anular e assim por diante) da conexão. Os logs de diagnóstico podem ser usados para identificação do problema, rastreamento de conexão e análise.
+Pode ver registos de diagnóstico para o Serviço De Sinalização Azure. Estes registos proporcionam uma visão mais rica da conectividade com a sua instância de Serviço De Sinalização Azure. Os registos de diagnóstico fornecem informações detalhadas de todas as ligações. Por exemplo, informações básicas (ID do utilizador, id de ligação e tipo de transporte e assim por diante) e informações do evento (conectar, desligar e abortar evento e assim por diante) da ligação. Os registos de diagnóstico podem ser utilizados para identificação de problemas, rastreio de ligação e análise.
 
 ### <a name="enable-diagnostic-logs"></a>Ativar registos de diagnóstico
 
-Os registos de diagnóstico estão desativados por predefinição. Para ativar os registos de diagnóstico, siga estes passos:
+Os registos de diagnóstico são desativados por defeito. Para ativar os registos de diagnóstico, siga estes passos:
 
-1.  No [portal do Azure](https://portal.azure.com), em **monitoramento**, clique em **configurações de diagnóstico**.
+1. No [portal Azure,](https://portal.azure.com)sob **monitorização,** clique em **definições de diagnóstico.**
 
-    ![Navegação do painel para configurações de diagnóstico](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
+    ![Pane navegação para configurações de diagnóstico](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
 
-1.  Em seguida, clique em **Adicionar configuração de diagnóstico**.
+1. Em seguida, clique em **Adicionar definição de diagnóstico**.
 
-    ![Adicionar logs de diagnóstico](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
+    ![Adicione registos de diagnóstico](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
 
-1.  Defina o destino de arquivo desejado. No momento, há suporte **para arquivar em uma conta de armazenamento** e **Enviar para log Analytics**.
+1. Detete o alvo de arquivo que quiser. Atualmente, apoiamos o **Archive numa conta** de armazenamento e **enviamos para Log Analytics.**
 
-1. Selecione os logs que você deseja arquivar.
+1. Selecione os registos que pretende arquivar.
 
-    ![Painel de configurações de diagnóstico](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
+    ![Painel de definições de diagnóstico](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
 
 
-1.  Guarde as novas definições de diagnóstico.
+1. Guarde as novas definições de diagnóstico.
 
-Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, registos de constar no destino arquivamento configurado, o **registos de diagnóstico** painel.
+As novas definições têm efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo de arquivo configurado, no painel de registos de **diagnóstico.**
 
-Para obter mais informações sobre como configurar diagnósticos, consulte a [descrição geral dos registos de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para obter mais informações sobre a configuração dos diagnósticos, consulte a [visão geral dos registos de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ### <a name="diagnostic-logs-categories"></a>Categorias de registos de diagnóstico
 
-O serviço de sinalizador do Azure captura logs de diagnóstico em uma categoria:
+O Serviço De Sinalização Azure captura registos de diagnóstico numa categoria:
 
-* **Todos os logs**: rastreie as conexões que se conectam ao serviço de Signaler do Azure. Os logs fornecem informações sobre a conexão/desconexão, a autenticação e a limitação. Para obter mais informações, consulte a secção seguinte.
+* **Todos os Registos**: Rastreie as ligações que ligam ao Serviço De Sinalização Azure. Os registos fornecem informações sobre a ligação/desconexão, autenticação e estrangulamento. Para mais informações, consulte a secção seguinte.
 
 ### <a name="archive-to-a-storage-account"></a>Arquivar numa conta de armazenamento
 
-Os logs são armazenados na conta de armazenamento configurada no painel **logs de diagnóstico** . Um contêiner chamado `insights-logs-alllogs` é criado automaticamente para armazenar os logs de diagnóstico. Dentro do contêiner, os logs são armazenados no arquivo `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. Basicamente, o caminho é combinado por `resource ID` e `Date Time`. Os arquivos de log são divididos por `hour`. Portanto, os minutos sempre serão `m=00`.
+Os registos são armazenados na conta de armazenamento que configura do painel de registos de **diagnóstico.** Um recipiente `insights-logs-alllogs` nomeado é criado automaticamente para armazenar registos de diagnóstico. No interior do recipiente, os registos são armazenados no ficheiro `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. Basicamente, o caminho `resource ID` `Date Time`é combinado por e . Os ficheiros de `hour`registo são divididos por . Portanto, os minutos `m=00`sempre são.
 
-Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cadeia de caracteres que utilizam o formato descrito nas seções a seguir.
+Todos os registos são armazenados no formato JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que utilizam o formato descrito nas seguintes secções.
 
-As cadeias de caracteres JSON do log de arquivo incluem os elementos listados nas tabelas a seguir:
+As cordas JSON de registo de arquivo incluem elementos listados nas seguintes tabelas:
 
-**Ao**
+**Formato**
 
 Nome | Descrição
 ------- | -------
 hora | Hora do evento de log
-level | Nível de evento de log
-resourceId | ID de recurso do serviço de Signaler do Azure
-localização | Local do serviço de Signaler do Azure
-categoria | Categoria do evento de log
-operationName | Nome da operação do evento
-callerIpAddress | Endereço IP do servidor/cliente
-propriedades | Propriedades detalhadas relacionadas a esse evento de log. Para obter mais detalhes, consulte a tabela Propriedades abaixo
+nível | Nível de evento de log
+resourceId | Id de recurso do seu serviço De Sinalização Azure
+localização | Localização do seu Serviço De Sinalização Azure
+categoria | Categoria do evento de registo
+operationName | Nome de operação do evento
+callerIpAddress | Endereço IP do seu servidor/cliente
+propriedades | Propriedades detalhadas relacionadas com este evento de log. Para mais detalhes, consulte a tabela de propriedades abaixo
 
-**Tabela de propriedades**
+**Tabela de Propriedades**
 
 Nome | Descrição
 ------- | -------
-tipo | Tipo do evento de log. Atualmente, fornecemos informações sobre a conectividade com o serviço de Signaler do Azure. Somente `ConnectivityLogs` tipo está disponível
-coleção | Coleção do evento de log. Os valores permitidos são: `Connection`, `Authorization` e `Throttling`
-connectionId | Identidade da conexão
-transportType | Tipo de transporte da conexão. Os valores permitidos são: `Websockets` \| `ServerSentEvents` \| `LongPolling`
-connectionType | Tipo da conexão. Os valores permitidos são: `Server` \| `Client`. `Server`: conexão do lado do servidor; `Client`: conexão do lado do cliente
-userId | Identidade do usuário
+tipo | Tipo de evento de registo. Atualmente, fornecemos informações sobre conectividade com o Serviço De Sinalização Azure. Só `ConnectivityLogs` o tipo está disponível
+coleção | Coleção do evento de log. Os valores `Connection` `Authorization` permitidos são: , e`Throttling`
+conexãoId | Identidade da ligação
+transporteTipo | Tipo de transporte da ligação. Os valores `Websockets` \| `ServerSentEvents` \| permitidos são:`LongPolling`
+conexãoTipo | Tipo de ligação. Os valores `Server` \| `Client`permitidos são: . `Server`: ligação do lado do servidor; `Client`: ligação do lado do cliente
+userId | Identidade do utilizador
 message | Mensagem detalhada do evento de log
 
-O código a seguir é um exemplo de um cadeia de caracteres do JSON de Arquivar registo:
+O seguinte código é um exemplo de uma cadeia JSON de registo de arquivo:
 
 ```json
 {
@@ -114,85 +114,86 @@ O código a seguir é um exemplo de um cadeia de caracteres do JSON de Arquivar 
 }
 ```
 
-### <a name="archive-logs-schema-for-log-analytics"></a>Esquema de logs de arquivo para Log Analytics
+### <a name="archive-logs-schema-for-log-analytics"></a>Arquivar logs schema para Log Analytics
 
-Para exibir os logs de diagnóstico, siga estas etapas:
+Para ver os registos de diagnóstico, siga estes passos:
 
-1. Clique em `Logs` no Log Analytics de destino.
+1. Clique `Logs` no seu alvo Log Analytics.
 
-    ![Log Analytics item de menu](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
+    ![Item do menu Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Insira `SignalRServiceDiagnosticLogs` e selecione intervalo de tempo para consultar os logs de diagnóstico. Para consulta avançada, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/get-started-portal.md)
+2. Introduza e selecione `SignalRServiceDiagnosticLogs` intervalo de tempo para consultar registos de diagnóstico. Para consultas avançadas, consulte [Iniciar com Log Analytics no Monitor Azure](../azure-monitor/log-query/get-started-portal.md)
 
-    ![Log de consulta no Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
+    ![Consulta log in Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
-As colunas de log de arquivo incluem os elementos listados na tabela a seguir:
+As colunas de registo de arquivo incluem elementos listados na tabela seguinte:
 
 Nome | Descrição
 ------- | ------- 
 TimeGenerated | Hora do evento de log
-Coleção | Coleção do evento de log. Os valores permitidos são: `Connection`, `Authorization` e `Throttling`
-OperationName | Nome da operação do evento
-Localização | Local do serviço de Signaler do Azure
+Coleção | Coleção do evento de log. Os valores `Connection` `Authorization` permitidos são: , e`Throttling`
+OperationName | Nome de operação do evento
+Localização | Localização do seu Serviço De Sinalização Azure
 Nível | Nível de evento de log
-CallerIpAddress | Endereço IP do servidor/cliente
+CallerIpAddress | Endereço IP do seu servidor/cliente
 Mensagem | Mensagem detalhada do evento de log
-UserId | Identidade do usuário
-ConnectionId | Identidade da conexão
-ConnectionType | Tipo da conexão. Os valores permitidos são: `Server` \| `Client`. `Server`: conexão do lado do servidor; `Client`: conexão do lado do cliente
-TransportType | Tipo de transporte da conexão. Os valores permitidos são: `Websockets` \| `ServerSentEvents` \| `LongPolling`
+IDUtilizador | Identidade do utilizador
+Ligação | Identidade da ligação
+Tipo de Ligação | Tipo de ligação. Os valores `Server` \| `Client`permitidos são: . `Server`: ligação do lado do servidor; `Client`: ligação do lado do cliente
+Tipo de transporte | Tipo de transporte da ligação. Os valores `Websockets` \| `ServerSentEvents` \| permitidos são:`LongPolling`
 
-### <a name="troubleshooting-with-diagnostic-logs"></a>Solução de problemas com logs de diagnóstico
+### <a name="troubleshooting-with-diagnostic-logs"></a>Resolução de problemas com registos de diagnóstico
 
-Para solucionar problemas do serviço de Signaler do Azure, você pode habilitar os logs do lado do servidor/cliente para capturar falhas. No momento, o serviço de Signalr do Azure expõe logs de diagnóstico, você também pode habilitar logs para o lado do serviço.
+Para resolver problemas para o Serviço De Sinalização Azure, pode ativar registos laterais do servidor/cliente para capturar falhas. Atualmente, o Serviço De Sinalização Azure expõe registos de diagnóstico, podendo também ativar registos para o lado do serviço.
 
-Ao encontrar uma situação de aumento ou queda inesperado de conexão, você pode aproveitar os logs de diagnóstico para solucionar problemas.
+Ao encontrar uma ligação inesperada de crescimento ou queda de situação, pode aproveitar os registos de diagnóstico para resolver problemas.
 
-Os problemas típicos geralmente são as alterações de quantidade inesperada das conexões, as conexões atingem os limites de conexão e a falha de autorização. Consulte as próximas seções sobre como solucionar problemas.
+As questões típicas são muitas vezes sobre as alterações inesperadas da quantidade de ligações, as ligações atingem limites de ligação e falha de autorização. Veja as próximas secções sobre como resolver problemas.
 
-#### <a name="unexpected-connection-number-changes"></a>Alterações de número de conexão inesperado
+#### <a name="unexpected-connection-number-changes"></a>Alterações inesperadas do número de ligação
 
-##### <a name="unexpected-connection-dropping"></a>Descarte de conexão inesperada
+##### <a name="unexpected-connection-dropping"></a>Queda inesperada da ligação
 
-Se você encontrar conexões inesperadas, habilite primeiro os logs nos lados serviço, servidor e cliente.
+Se encontrar ligações inesperadas, primeiro ative os registos nos lados do serviço, do servidor e do cliente.
 
-Se uma conexão for desconectada, os logs de diagnóstico gravarão esse evento de desconexão, você verá `ConnectionAborted` ou `ConnectionEnded` em `operationName`.
+Se uma ligação se desligar, os registos de diagnóstico `ConnectionAborted` `ConnectionEnded` gravarão este evento de desconexão, verá ou entrará `operationName`.
 
-A diferença entre `ConnectionAborted` e `ConnectionEnded` é que `ConnectionEnded` é uma desconexão esperada que é disparada pelo cliente ou pelo lado do servidor. Embora o `ConnectionAborted` seja geralmente um evento de descarte de conexão inesperado e o motivo da anulação será fornecido em `message`.
+A diferença `ConnectionAborted` `ConnectionEnded` entre `ConnectionEnded` e é que é uma desconexão esperada que é desencadeada pelo lado do cliente ou do servidor. Embora `ConnectionAborted` seja geralmente um evento inesperado de queda `message`de ligação, e a razão de abortar será fornecida em .
 
-Os motivos de anulação são listados na tabela a seguir:
+As razões de aborto estão listadas na seguinte tabela:
 
 Razão | Descrição
 ------- | ------- 
-A contagem de conexões atinge o limite | A contagem de conexões atinge o limite do seu tipo de preço atual. Considerar a escala vertical da unidade de serviço
-O servidor de aplicativos fechou a conexão | O servidor de aplicativos dispara o abortion. Ele pode ser considerado como um abortion esperado
-Tempo limite de ping de conexão | Geralmente, isso é causado por um problema de rede. Considere verificar a disponibilidade do servidor de aplicativos da Internet
-Recarregamento de serviço, reconectar | O serviço de Signaler do Azure está recarregando. O Signaler do Azure dá suporte à reconexão automática, você pode aguardar até que seja reconectado ou Reconecte-se manualmente ao serviço de Signaler do Azure
-Erro transitório do servidor interno | O erro transitório ocorre no serviço de Signaler do Azure, deve ser recuperado automaticamente
-Conexão do servidor interrompida | A conexão do servidor cai com erro desconhecido, considere a autosolução de problemas com o log do lado do serviço/servidor/cliente primeiro. Tente excluir problemas básicos (por exemplo, problema de rede, problema do lado do servidor de aplicativo e assim por diante). Se o problema não for resolvido, entre em contato conosco para obter mais ajuda. Para obter mais informações, consulte [a seção obter ajuda](#get-help) . 
+Contagem de ligação atinge limite | A contagem de ligação atinge o limite do seu nível de preço atual. Considere a unidade de serviço de escala
+Servidor de aplicações fechou a ligação | O servidor de aplicações despoleta o aborto. Pode ser considerado como um aborto esperado
+Intervalo de ping de ligação | Normalmente é causado por problemas de rede. Considere verificar a disponibilidade do seu servidor de aplicações a partir da internet
+Recarregamento de serviço, religação | O Serviço de Sinalização Azure está a recarregar. O Azure SignalR suporta a religação automática, pode esperar até voltar a ligar ou voltar a ligar manualmente ao Serviço de Sinalização Azure
+Erro transitório do servidor interno | Erro transitório ocorre no Serviço De Sinalização Azure, deve ser recuperado automaticamente
+Ligação do servidor caiu | A ligação do servidor cai com erro desconhecido, considere a auto-resolução de problemas com o registo lateral do serviço/servidor/cliente primeiro. Tente excluir questões básicas (por exemplo, problema de rede, problema lateral do servidor de aplicações e assim por diante). Se o problema não for resolvido, contacte-nos para mais ajuda. Para mais informações, consulte a secção [de ajuda.](#get-help) 
 
-##### <a name="unexpected-connection-growing"></a>Aumento de conexão inesperado
+##### <a name="unexpected-connection-growing"></a>Crescimento inesperado da ligação
 
-Para solucionar problemas de aumento de conexão inesperada, a primeira coisa que você precisa fazer é filtrar as conexões adicionais. Você pode adicionar uma ID de usuário de teste exclusiva à sua conexão de cliente de teste. Em seguida, verifique-o com os logs de diagnóstico. se você vir mais de uma conexão de cliente com a mesma ID de usuário de teste ou IP, é provável que o lado do cliente crie e estabeleça mais conexões do que a expectativa. Verifique o lado do cliente.
+Para resolver problemas sobre o crescimento inesperado da ligação, a primeira coisa que precisa de fazer é filtrar as ligações extra. Pode adicionar identificação única do utilizador de teste à sua ligação ao cliente de teste. Em seguida, verifique-o com registos de diagnóstico, se você vê mais de um cliente conexões têm o mesmo ID ou IP do utilizador de teste, então é provável que o lado do cliente crie e estabeleça mais ligações do que o esperado. Verifique o lado do seu cliente.
 
 #### <a name="authorization-failure"></a>Falha na autorização
 
-Se você receber a 401 não autorizado retornada para solicitações de cliente, verifique os logs de diagnóstico. Se você encontrar `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`, significa que todos os públicos em seu token de acesso são inválidos. Tente usar os públicos válidos sugeridos no log.
+Se receber 401 não autorizados devolvidos para pedidos de clientes, verifique os seus registos de diagnóstico. Se encontrar, `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`significa que todos os espectadores no seu sinal de acesso são inválidos. Tente utilizar o público válido sugerido no registo.
 
 
 #### <a name="throttling"></a>Limitação
 
-Se você achar que não é possível estabelecer conexões de cliente do Signalr para o serviço de Signaler do Azure, verifique os logs de diagnóstico. Se você encontrar `Connection count reaches limit` no log de diagnóstico, você estabelecerá conexões demais com o serviço Signalr, que alcançará o limite de contagem de conexões. Considere a possibilidade de escalar verticalmente o serviço Signalr. Se você encontrar `Message count reaches limit` no log de diagnóstico, isso significa que você usará a camada gratuita e usará a cota de mensagens. Se você quiser enviar mais mensagens, considere alterar o serviço de sinalização para a camada Standard para enviar mensagens adicionais. Para obter mais informações, consulte [preços do serviço de signaler do Azure](https://azure.microsoft.com/pricing/details/signalr-service/).
+Se verificar que não pode estabelecer ligações ao cliente SignalR ao Serviço De Sinalização Azure, verifique os seus registos de diagnóstico. Se encontrar `Connection count reaches limit` no registo de diagnóstico, estabelece demasiadas ligações ao SignalR Service, que atingem o limite de contagem de ligação. Considere escalonar o seu Serviço de Sinalização. Se encontrar `Message count reaches limit` no registo de diagnóstico, significa que utiliza o nível livre e utiliza a quota de mensagens. Se quiser enviar mais mensagens, considere mudar o seu Serviço SignalR para um nível padrão para enviar mensagens adicionais. Para mais informações, consulte [o Preço do Serviço De Sinalização Azure](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### <a name="get-help"></a>Obter ajuda
 
-É recomendável que você por conta própria primeiro. A maioria dos problemas são causados por problemas de rede ou servidor de aplicativos. Siga o [Guia de solução de problemas com o log de diagnóstico](#troubleshooting-with-diagnostic-logs) e o guia de solução de [problemas básicos](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) para encontrar a causa raiz.
-Se o problema ainda não puder ser resolvido, considere abrir um problema no GitHub ou criar um tíquete no portal do Azure.
-Lhe
-1. Intervalo de tempo de cerca de 30 minutos quando o problema ocorre
-2. ID do recurso do serviço de Signaler do Azure
-3. Detalhes do problema, o mais específico possível: por exemplo, o AppServer não envia mensagens, quedas de conexão de cliente e assim por diante
-4. Logs coletados do lado do servidor/cliente e outros materiais que podem ser úteis
-5. Adicional Código de reprodução
+Recomendamos que se desloque os problemas sozinho primeiro. A maioria dos problemas são causados por problemas de servidor de aplicações ou de rede. Siga o guia de resolução de [problemas com registo de diagnóstico](#troubleshooting-with-diagnostic-logs) e guia básico de tiro de [problemas](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) para encontrar a causa principal.
+Se o problema ainda não puder ser resolvido, considere abrir um problema no GitHub ou criar bilhete no Portal Azure.
+Fornecer:
+1. Intervalo de tempo cerca de 30 minutos quando o problema ocorre
+2. ID de recurso do Serviço De Sinalização Azure
+3. Emitem detalhes, o mais específicopossível: Por exemplo, o servidor de aplicações não envia mensagens, quedas de ligação ao cliente e assim por diante
+4. Registos recolhidos do lado do servidor/cliente, e outros materiais que possam ser úteis
+5. [Opcional] Código repro
 
-> Observação: se você abrir o problema no GitHub, mantenha suas informações confidenciais (por exemplo, ID de recurso, logs de servidor/cliente) privadas, somente enviar para membros no Microsoft Organization de forma privada.  
+> [!NOTE]
+> Se abrir um problema no GitHub, mantenha as suas informações sensíveis (por exemplo, ID de recursos, registos de servidor/cliente) privadas, apenas envie para membros da organização da Microsoft em privado.

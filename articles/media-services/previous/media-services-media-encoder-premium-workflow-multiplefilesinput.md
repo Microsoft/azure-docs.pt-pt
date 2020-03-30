@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251001"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilização de vários ficheiros de entrada e propriedades componentes com Premium Encoder
@@ -47,7 +47,7 @@ A cadeia de configuração para definir na tarefa de codificação utiliza um do
 </transcodeRequest>
 ```
 
-Segue-se C# o código que lê a configuração XML a partir de um ficheiro, atualizá-lo com o nome de ficheiro de vídeo certo e passa-o para a tarefa num trabalho:
+Segue-se o código C# que lê a configuração XML a partir de um ficheiro, atualizá-lo com o nome de ficheiro de vídeo certo e passa-o para a tarefa num trabalho:
 
 ```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
@@ -97,7 +97,7 @@ Exemplo:
 ```
 
 ### <a name="property-with-an-xml-value"></a>Imóvel com valor XML
-Para definir uma propriedade que espera um valor XML, encapsular usando `<![CDATA[ and ]]>`.
+Para definir uma propriedade que espera um valor XML, encapsular utilizando `<![CDATA[ and ]]>`.
 
 Exemplo:
 
@@ -131,7 +131,7 @@ Exemplo:
 ```
 
 > [!NOTE]
-> Certifique-se de que não volta a carruagem logo após `<![CDATA[`.
+> Certifique-se de que não `<![CDATA[`volta a colocar uma carruagem logo a seguir .
 
 ### <a name="propertypath-value"></a>propriedadeValorcaminho
 Nos exemplos anteriores, o propertyPath foi "/Media File Input/filename" ou "/inactiveTimeout" ou "clipListXml".

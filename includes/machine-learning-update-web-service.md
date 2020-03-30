@@ -2,25 +2,25 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 01/10/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 469d87a828df19ca30260cada9dcea43859be9e0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d36bf2db05113656a77e76ff900d95910f313c73
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901577"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477260"
 ---
-Para atualizar um serviço Web, use o método `update`. Você pode atualizar o serviço Web para usar um novo modelo, um novo script de entrada ou novas dependências que podem ser especificadas em uma configuração de inferência. Para obter mais informações, consulte a documentação do [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
+Para atualizar um serviço `update` web, utilize o método. Pode atualizar o serviço web para utilizar um novo modelo, um novo script de entrada ou novas dependências que podem ser especificadas numa configuração de inferência. Para mais informações, consulte a documentação para [Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 
 > [!IMPORTANT]
-> Ao criar uma nova versão de um modelo, você deve atualizar manualmente cada serviço que deseja usá-lo.
+> Quando cria uma nova versão de um modelo, tem de atualizar manualmente cada serviço que pretende utilizar.
 >
-> Você não pode usar o SDK para atualizar um serviço Web publicado no designer de Azure Machine Learning.
+> Não é possível utilizar o SDK para atualizar um serviço web publicado pelo designer de Machine Learning Azure.
 
-**Usando o SDK**
+**Utilizar o SDK**
 
-O código a seguir mostra como usar o SDK para atualizar o modelo, o ambiente e o script de entrada para um serviço Web:
+O seguinte código mostra como usar o SDK para atualizar o modelo, ambiente e script de entrada para um serviço web:
 
 ```python
 from azureml.core import Environment
@@ -51,9 +51,9 @@ print(service.state)
 print(service.get_logs())
 ```
 
-**Usando a CLI**
+**Usando o CLI**
 
-Você também pode atualizar um serviço Web usando a CLI do ML. O exemplo a seguir demonstra como registrar um novo modelo e, em seguida, atualizar um serviço Web para usar o novo modelo:
+Também pode atualizar um serviço web utilizando o ML CLI. O exemplo que se segue demonstra registar um novo modelo e, em seguida, atualizar um serviço web para utilizar o novo modelo:
 
 ```azurecli
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --output-metadata-file modelinfo.json
@@ -61,8 +61,8 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 ```
 
 > [!TIP]
-> Neste exemplo, um documento JSON é usado para passar as informações do modelo do comando de registro para o comando Update.
+> Neste exemplo, um documento JSON é usado para passar a informação do modelo do comando de registo para o comando de atualização.
 >
-> Para atualizar o serviço para usar um novo script ou ambiente de entrada, crie um [arquivo de configuração de inferência](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) e especifique-o com o parâmetro `ic`.
+> Para atualizar o serviço para utilizar um novo script ou ambiente de entrada, crie um ficheiro de configuração de [inferência](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) e especifique-o com o `ic` parâmetro.
 
-Para obter mais informações, consulte a documentação de [atualização do serviço AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) .
+Para mais informações, consulte a documentação da atualização do [serviço az ml.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update)

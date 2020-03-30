@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: fc059eca3a01b5c6cde642af5ceb6a3822672def
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165543"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477668"
 ---
 # <a name="convert-to-indicator-values"></a>Converter em Valores Indicadores
-Este artigo descreve um módulo do designer de Azure Machine Learning.
+Este artigo descreve um módulo de designer de Machine Learning Azure.
 
 Utilize o módulo **Converter para Valores Indicadores** no designer de Machine Learning Azure para converter colunas que contenham valores categóricos numa série de colunas indicadoras binárias.  
 
@@ -39,7 +39,7 @@ Este módulo também produz uma definição da transformação usada para conver
     > [!TIP]
     >  Se escolher a opção de sobrepor, a coluna de origem não é realmente eliminada ou modificada. Em vez disso, as novas colunas são geradas e apresentadas no conjunto de dados de saída, e a coluna de origem permanece disponível no espaço de trabalho. Se precisar de ver os dados originais, pode utilizar o módulo [Adicionar Colunas](add-columns.md) a qualquer momento para voltar a adicionar a coluna de origem.
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
 ## <a name="results"></a>Resultados
 
@@ -49,7 +49,7 @@ Suponha que tenha uma coluna com pontuações que indique se um servidor tem uma
 | --------- | ------------- |
 | 10301     | Baixa           |
 | 10302     | Médio        |
-| 10303     | High          |
+| 10303     | Alta          |
 
 Quando aplica **Converter a Valores Indicadores,** o designer converte uma única coluna de etiquetas em múltiplas colunas contendo valores booleanos:  
 
@@ -63,13 +63,13 @@ Quando aplica **Converter a Valores Indicadores,** o designer converte uma únic
 
 -   Na coluna **de pontuação de Falha** que descreve o risco, existem apenas três valores possíveis (Alto, Médio e Baixo) e nenhum valore em falta. Então, exatamente três novas colunas são criadas.  
 
--   As novas colunas indicadoras são nomeadas com base nas rubricas e valores da coluna de origem, utilizando este padrão: *\<coluna de origem>- \<valor de dados>* .  
+-   As novas colunas indicadoras são nomeadas com base nas rubricas e valores da coluna de origem, utilizando este padrão: * \<coluna de origem \<>- valor de dados>*.  
 
 -   Deve haver um 1 em exatamente uma coluna indicadora, e 0 em todas as outras colunas indicadoras, uma vez que cada servidor pode ter apenas uma classificação de risco.  
 
 Agora pode utilizar as três colunas indicadoras como características num modelo de aprendizagem automática.
 
-O módulo retorna duas saídas:
+O módulo devolve duas saídas:
 
 - **Conjunto de dados de resultados**: Um conjunto de dados com colunas de valores indicadores convertidos. As colunas não selecionadas para limpeza também são "passadas".
 - **Transformação de valores indicadores**: Uma transformação de dados utilizada para converter em valores indicadores, que pode ser guardada no seu espaço de trabalho e aplicada a novos dados posteriormente.
@@ -80,15 +80,15 @@ Se precisar de repetir frequentemente as operações de valores indicadores, pod
 
 1. Adicione o módulo [de Transformação aplicar](apply-transformation.md) ao seu pipeline.
 
-1. Adicione o DataSet que você deseja limpar e conecte o conjunto de dados à porta de entrada à direita.
+1. Adicione o conjunto de dados que pretende limpar e ligue o conjunto de dados à porta de entrada da direita.
 
-1. Expanda o grupo **de Transformação** de Dados no painel esquerdo do designer. Localize a transformação salva e arraste-a para o pipeline.
+1. Expanda o grupo **de Transformação** de Dados no painel esquerdo do designer. Localize a transformação guardada e arraste-a para o oleoduto.
 
 1. Ligue a transformação guardada à entrada esquerda da Transformação de [Aplicação](apply-transformation.md).
 
    Quando aplica uma transformação guardada, não é possível selecionar quais colunas para transformar. Isto porque a transformação foi definida e aplica-se automaticamente aos tipos de dados especificados na operação original.
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
  
 ## <a name="technical-notes"></a>Notas técnicas  
 
@@ -98,17 +98,17 @@ Esta secção contém detalhes de implementação, dicas e respostas a perguntas
 
 -   Apenas colunas marcadas como categóricas podem ser convertidas em colunas indicadoras. Se vir o seguinte erro, é provável que uma das colunas selecionadas não seja categórica:  
 
-     Erro 0056: Coluna com nome \<nome de coluna> não está numa categoria permitida.  
+     Erro 0056: Coluna \<com nome de coluna de nome> não está numa categoria permitida.  
 
      Por predefinição, a maioria das colunas de cordas são manuseadas como funcionalidades de cordas, por isso deve marcá-las explicitamente como categóricas usando [metadados de edição](edit-metadata.md).  
 
 -   Não há limite para o número de colunas que pode converter em colunas indicadoras. No entanto, como cada coluna de valores pode produzir várias colunas indicadoras, pode querer converter e rever apenas algumas colunas de cada vez.  
 
--   Se a coluna contiver valores em falta, é criada uma coluna indicadora separada para a categoria em falta, com este nome: *\<coluna de origem>- Desaparecido*  
+-   Se a coluna contiver valores em falta, é criada uma coluna indicadora separada para a categoria em falta, com este nome: * \<coluna de origem>- Desaparecido*  
 
 -   Se a coluna que converte em valores indicadoros contiver números, devem ser marcadas como categóricas como qualquer outra coluna de características. Depois de o ter feito, os números são tratados como valores discretos. Por exemplo, se tiver uma coluna numérica com valores MPG que variam entre os 25 e os 30, será criada uma nova coluna indicadora para cada valor discreto:  
 
-    | Tornar       | Autoestrada mpg -25 | Autoestrada mpg -26 | Autoestrada mpg -27 | Autoestrada mpg -28 | Autoestrada mpg -29 | Autoestrada mpg -30 |
+    | Fabrico       | Autoestrada mpg -25 | Autoestrada mpg -26 | Autoestrada mpg -27 | Autoestrada mpg -28 | Autoestrada mpg -29 | Autoestrada mpg -30 |
     | ---------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
     | Carros Contoso | 0               | 0               | 0               | 0               | 0               | 1               |
 

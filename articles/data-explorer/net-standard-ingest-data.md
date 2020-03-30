@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 9b6eda60f0b0cb1b697560cccc2cffe719d58536
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251781"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Dados de ingestão utilizando o Azure Data Explorer .NET Standard SDK (Pré-visualização)
@@ -46,7 +46,7 @@ Por exemplo, se o seu domínio for *contoso.com*, o URL é: [https://login.windo
 
 Neste caso, o ID de inquilino é `6babcaad-604b-40ac-a9d7-9fd97c0b779f`.
 
-Este exemplo utiliza um utilizador AAD e uma senha para autenticação para aceder ao cluster. Também pode utilizar o certificado de aplicação AAD e a chave de aplicação AAD. Detete os seus valores para `tenantId`, `user`e `password` antes de executar este código.
+Este exemplo utiliza um utilizador AAD e uma senha para autenticação para aceder ao cluster. Também pode utilizar o certificado de aplicação AAD e a chave de aplicação AAD. Detete os `tenantId` `user`seus `password` valores para, e antes de executar este código.
 
 ```csharp
 var tenantId = "<TenantId>";
@@ -81,7 +81,7 @@ var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/Storm
 ```
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Criar uma tabela no cluster de teste
-Crie uma tabela com o nome `StormEvents` que corresponda ao esquema dos dados no ficheiro `StormEvents.csv`.
+Crie uma `StormEvents` tabela com o nome que `StormEvents.csv` corresponda ao esquema dos dados no ficheiro.
 
 ```csharp
 var table = "StormEvents";
@@ -209,7 +209,7 @@ using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoCon
 
 ## <a name="run-troubleshooting-queries"></a>Executar consultas de resolução de problemas
 
-Inicie sessão no [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e ligue ao cluster. Execute o seguinte comando na base de dados para ver se ocorreram quaisquer falhas de ingestão nas últimas quatro horas. Substitua o nome da base de dados antes de executar.
+Inscreva-se [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e ligue-se ao seu cluster. Execute o seguinte comando na base de dados para ver se ocorreram quaisquer falhas de ingestão nas últimas quatro horas. Substitua o nome da base de dados antes de executar.
 
 ```Kusto
 .show ingestion failures
