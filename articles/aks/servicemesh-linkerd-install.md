@@ -7,22 +7,22 @@ ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593743"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalar linkerd no Serviço Azure Kubernetes (AKS)
 
 [Linkerd][linkerd-github] é um projeto de incubação de malha de serviço de código aberto e [CNCF.][linkerd-cncf] Linkerd é uma malha de serviço ultraleve que fornece funcionalidades que incluem gestão de tráfego, identidade de serviço e segurança, fiabilidade e observabilidade. Para mais informações sobre linkerd, consulte a documentação oficial da [Linkerd FAQ][linkerd-faq] e [linkerd Architecture.][linkerd-architecture]
 
-Este artigo mostra-lhe como instalar o Linkerd. O linkerd `linkerd` binário de cliente está instalado na sua máquina cliente e os componentes Linkerd são instalados num cluster Kubernetes no AKS.
+Este artigo mostra-lhe como instalar o Linkerd. O binário `linkerd` do cliente Linkerd está instalado na sua máquina cliente e os componentes Linkerd são instalados num cluster Kubernetes no AKS.
 
 > [!NOTE]
-> Estas instruções referem a versão Linkerd `stable-2.6.0`.
+> Estas instruções referem `stable-2.6.0`a versão Linkerd .
 >
-> O Linkerd `stable-2.6.x` pode ser executado contra versões Kubernetes `1.13+`. Pode encontrar versões linkerd adicionais estáveis e de borda no [GitHub - Linkerd Releases][linkerd-github-releases].
+> O Linkerd `stable-2.6.x` pode ser executado contra `1.13+`versões Kubernetes . Pode encontrar versões linkerd adicionais estáveis e de borda no [GitHub - Linkerd Releases][linkerd-github-releases].
 
 Neste artigo, vai aprender a:
 
@@ -35,7 +35,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com RBAC habilitado) e estabeleceu uma ligação `kubectl` com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido do [AKS.][aks-quickstart]
+Os passos detalhados neste artigo assumem que criou um `1.13` cluster AKS (Kubernetes ou `kubectl` acima, com RBAC habilitado) e estabeleceu uma ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido do [AKS.][aks-quickstart]
 
 Todas as cápsulas Linkerd devem ser programadas para serem executadas em nós Linux - esta configuração é o padrão no método de instalação descrito abaixo e não requer configuração adicional.
 
@@ -117,19 +117,19 @@ linkerd-version
 Status check results are √
 ```
 
-Agora é hora de instalar os componentes Linkerd. Utilize os binários `linkerd` e `kubectl` para instalar os componentes Linkerd no seu cluster AKS. Será criado automaticamente um espaço de `linkerd` e os componentes serão instalados neste espaço de nome.
+Agora é hora de instalar os componentes Linkerd. Utilize `linkerd` os `kubectl` e binários para instalar os componentes Linkerd no seu cluster AKS. Será `linkerd` criado automaticamente um espaço de nome e os componentes serão instalados neste espaço de nome.
 
 ```console
 linkerd install | kubectl apply -f -
 ```
 
-Linkerd implementa uma série de objetos. Verá a lista da saída do seu comando `linkerd install` acima. A implantação dos componentes Linkerd deve demorar cerca de 1 minuto a ser concluída, dependendo do ambiente do cluster.
+Linkerd implementa uma série de objetos. Verá a lista da saída do `linkerd install` seu comando acima. A implantação dos componentes Linkerd deve demorar cerca de 1 minuto a ser concluída, dependendo do ambiente do cluster.
 
 Neste momento, implantaste o Linkerd para o teu cluster AKS. Para garantir que temos uma implementação bem sucedida do Linkerd, vamos passar para a secção seguinte para [Validar a instalação Linkerd](#validate-the-linkerd-installation).
 
 ## <a name="validate-the-linkerd-installation"></a>Validar a instalação Linkerd
 
-Confirme que os recursos foram criados com sucesso. Utilize o [kubectl get svc][kubectl-get] e [kubectl obtenha][kubectl-get] comandos de casulos para consultar o espaço de nome `linkerd`, onde os componentes Linkerd foram instalados pelo comando `linkerd install`:
+Confirme que os recursos foram criados com sucesso. Utilize o [kubectl get svc][kubectl-get] e [kubectl][kubectl-get] obtenha `linkerd` comandos de casulo para consultar o `linkerd install` espaço de nome, onde os componentes Linkerd foram instalados pelo comando:
 
 ```console
 kubectl get svc --namespace linkerd --output wide
@@ -163,7 +163,7 @@ linkerd-tap-5cd9fc566-ct988               2/2     Running   0          64s   10.
 linkerd-web-774c79b6d5-dhhwf              2/2     Running   0          65s   10.240.0.70   aks-linux-16165125-vmss000002   <none>           <none>
 ```
 
-A Linkerd fornece um comando através do `linkerd` binário do cliente para validar que o plano de controlo Linkerd foi instalado e configurado com sucesso.
+A Linkerd fornece um `linkerd` comando através do binário do cliente para validar que o plano de controlo Linkerd foi instalado e configurado com sucesso.
 
 ```console
 linkerd check
@@ -226,7 +226,7 @@ Status check results are √
 
 ## <a name="access-the-dashboard"></a>Aceda ao painel de instrumentos
 
-Linkerd vem com um dashboard que fornece informações sobre a malha de serviço e cargas de trabalho. Para aceder ao painel de instrumentos, utilize o comando `linkerd dashboard`. Este comando aproveita a [porta kubectl][kubectl-port-forward] para criar uma ligação segura entre a sua máquina cliente e as cápsulas relevantes no seu cluster AKS. Em seguida, abrirá automaticamente o dashboard no seu navegador predefinido.
+Linkerd vem com um dashboard que fornece informações sobre a malha de serviço e cargas de trabalho. Para aceder ao painel `linkerd dashboard` de instrumentos, utilize o comando. Este comando aproveita a [porta kubectl][kubectl-port-forward] para criar uma ligação segura entre a sua máquina cliente e as cápsulas relevantes no seu cluster AKS. Em seguida, abrirá automaticamente o dashboard no seu navegador predefinido.
 
 ```console
 linkerd dashboard

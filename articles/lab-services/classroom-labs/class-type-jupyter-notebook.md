@@ -1,5 +1,5 @@
 ---
-title: Criar um laboratório para ensinar ciência de dados com Cadernos Python e Jupyter  Microsoft Docs
+title: Criar um laboratório para ensinar ciência de dados com Cadernos Python e Jupyter [ Microsoft Docs
 description: Aprenda a criar um laboratório para ensinar ciência de dados usando cadernos Python e Jupyter.
 services: lab-services
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
 ms.openlocfilehash: dfb133f9aa3dd9b76f8b4ea4c6188cfaf9a67b75
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444116"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Criar um laboratório para ensinar ciência de dados com cadernos Python e Jupyter
@@ -26,7 +26,7 @@ Este artigo descreve como configurar uma máquina de modelos em Serviços de Lab
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
 
-Para montar este laboratório, precisa de uma subscrição azure e uma conta de laboratório para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Assim que conseguir uma subscrição do Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure. Para obter mais informações sobre a criação de uma nova conta de laboratório, consulte [o tutorial para configurar uma conta](tutorial-setup-lab-account.md)de laboratório.  Também pode usar uma conta de laboratório existente.
+Para montar este laboratório, precisa de uma subscrição azure e uma conta de laboratório para começar. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Assim que conseguir uma subscrição do Azure, pode criar uma nova conta de laboratório nos Serviços de Laboratório Azure. Para obter mais informações sobre a criação de uma nova conta de laboratório, consulte [o tutorial para configurar uma conta](tutorial-setup-lab-account.md)de laboratório.  Também pode usar uma conta de laboratório existente.
 
 ### <a name="lab-account-settings"></a>Definições de conta de laboratório
 
@@ -60,7 +60,7 @@ Vamos cobrir uma possível estimativa de custos para esta classe.  Usaremos uma 
 
 Aqui está um exemplo de uma possível estimativa de custos para esta classe:
 
-25 estudantes \* (20 horas programadas + 10 horas de quota) \* 139 unidades de laboratório \* 0,01 USD por hora = 1042,5 USD
+25 \* alunos (20 horas programadas \* + 10 \* horas de quota) 139 unidades de laboratório 0,01 USD por hora = 1042,5 USD
 
 Mais detalhes sobre os preços, consulte o [Preço dos Serviços do Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)
 

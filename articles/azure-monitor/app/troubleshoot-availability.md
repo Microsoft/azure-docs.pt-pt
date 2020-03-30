@@ -7,10 +7,10 @@ ms.author: lagayhar
 ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: f135aa6c0a4a55f8a42fd858572cc811e25b27c5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671108"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
@@ -48,7 +48,7 @@ Este artigo irá ajudá-lo a resolver problemas comuns que podem ocorrer ao util
 
 ## <a name="common-troubleshooting-questions"></a>Questões comuns de resolução de problemas
 
-### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>O site parece estar bem, mas vejo falhas nos testes? Porque é que a Application Insights está a alertar-me?
+### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>O site está okay mas vejo as falhas de teste? Porque é que a Application Insights está a alertar-me?
 
    * O seu teste tem **pedidos dependentes da Parse** ativados? Isto resulta numa verificação rigorosa de recursos como scripts, imagens, etc. Este tipo de falhas pode não ser percetível num navegador. Verifique todas as imagens, scripts, folhas de estilo e outros ficheiros carregados pela página. Se algum deles falhar, o teste é reportado como falhado, mesmo que a página principal de HTML carregue sem problemas. Para dessensibilizar o teste para tais falhas de recursos, basta desmarque os Pedidos Dependentes de Parse da configuração do teste.
 
@@ -68,7 +68,7 @@ Verifique a configuração de alertas clássicos para confirmar que o seu e-mail
 
 Verifique para garantir que a aplicação que recebe a notificação do webhook está disponível e processa com sucesso os pedidos do webhook. Veja [isto](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) para mais informações.
 
-### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Falha intermitente de teste com um erro de violação de protocolo?
+### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Falha de teste intermitente com um erro de violação do protocolo?
 
 O erro ("violação do protocolo.. CR tem de ser seguido por LF") indica um problema com o servidor (ou dependências). Isto acontece quando há cabeçalhos mal formados estão definidos na resposta. Pode ser causado por balanceadores de carga ou CDNs. Especificamente, alguns cabeçalhos podem não estar a usar o CRLF para indicar o fim da linha, o que viola a especificação HTTP e, portanto, falha a validação ao nível .NET WebRequest. Inspecione a resposta aos cabeçalhos, o que pode estar a violar.
 

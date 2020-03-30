@@ -8,17 +8,17 @@ services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
 ms.openlocfilehash: b034159c3d12927f6425b3dc3c5b5609af9b0b76
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77649369"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configure uma regra de limite de taxa de firewall de aplicação web usando O PowerShell Azure
 A regra limite de limite de tarifa Azure Web Application Firewall (WAF) para a Porta Frontal Azure controla o número de pedidos permitidos aos clientes durante um minuto de duração.
 Este artigo mostra como configurar uma regra limite de taxa WAF que controla o número de pedidos permitidos dos clientes para uma aplicação web que contém */promo* no URL usando O Azure PowerShell.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar a configurar uma política de limite de taxas, crie o seu ambiente PowerShell e crie um perfil front door.
@@ -71,7 +71,7 @@ Detete um limite de tarifa usando [New-AzFrontDoorWafCustomRuleObject](/powershe
 
 ## <a name="configure-a-security-policy"></a>Configurar uma política de segurança
 
-Encontre o nome do grupo de recursos que contém o perfil porta da frente usando `Get-AzureRmResourceGroup`. Em seguida, configure uma política de segurança com uma regra de limite de tarifa personalizada usando [new-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil porta da frente.
+Encontre o nome do grupo de recursos `Get-AzureRmResourceGroup`que contém o perfil porta da frente utilizando . Em seguida, configure uma política de segurança com uma regra de limite de tarifa personalizada usando [new-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil porta da frente.
 
 O exemplo abaixo utiliza o nome do Grupo de Recursos *myResourceGroupFD1* com o pressuposto de que criou o perfil porta da frente usando instruções fornecidas no [Quickstart: Create a Front Door.](../../frontdoor/quickstart-create-front-door.md)
 

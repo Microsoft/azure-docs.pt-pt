@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: aabc95fcb8d3b32b89bb83f4f6892c3d40b03417
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588200"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Ligue fortinet a Azure Sentinel
@@ -50,7 +50,7 @@ Configure a Fortinet para retransmitir mensagens Syslog em formato CEF para o se
    > [!NOTE] 
    > Para mais informações, vá à biblioteca de [documentos Fortinet.](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary) Selecione a sua versão e utilize o **Manual** e referência de **mensagens**de registo .
 
-1. Para utilizar o esquema relevante no Azure Monitor Log Analytics para os eventos Fortinet, procure `CommonSecurityLog`.
+1. Para utilizar o esquema relevante no Azure Monitor Log Analytics para `CommonSecurityLog`os eventos Fortinet, procure .
 
 1. Continuar a [PASSO 3: Validar a conectividade.](connect-cef-verify.md)
 

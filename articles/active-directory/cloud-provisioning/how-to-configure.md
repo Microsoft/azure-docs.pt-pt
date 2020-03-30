@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c086227d23901cb7904d8cc0a768e9f4b5ad43db
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77620976"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Criar uma nova configuração para o fornecimento baseado em nuvem azure AD Connect
@@ -27,7 +27,7 @@ Para configurar o fornecimento, siga estes passos.
 
 1.  No portal do Azure, selecione **Azure Active Directory**.
 1.  Selecione **Azure AD Connect**.
-1.  Selecione **Gerir o fornecimento (Pré-visualização)** .
+1.  Selecione **Gerir o fornecimento (Pré-visualização)**.
 
     ![Gerir o provisionamento (Pré-visualização)](media/how-to-configure/manage1.png)
 
@@ -43,7 +43,7 @@ Pode examinar o agente para sincronizar utilizadores e grupos específicos utili
 
 1.  No portal do Azure, selecione **Azure Active Directory**.
 1.  Selecione **Azure AD Connect**.
-1.  Selecione **Gerir o fornecimento (Pré-visualização)** .
+1.  Selecione **Gerir o fornecimento (Pré-visualização)**.
 1.  Em **Configuração,** selecione a sua configuração.
 
     ![Secção de configuração](media/how-to-configure/scope1.png)
@@ -66,7 +66,7 @@ Pode examinar o agente para sincronizar utilizadores e grupos específicos utili
 Se não quiser esperar pela próxima execução programada, inicie o fornecimento executado utilizando o botão de **fornecimento Restart.** 
 1.  No portal do Azure, selecione **Azure Active Directory**.
 1.  Selecione **Azure AD Connect**.
-1.  Selecione **Gerir o fornecimento (Pré-visualização)** .
+1.  Selecione **Gerir o fornecimento (Pré-visualização)**.
 1.  Em **Configuração,** selecione a sua configuração.
 
     ![Seleção de configuração para reiniciar o fornecimento](media/how-to-configure/scope1.png)
@@ -78,14 +78,14 @@ Para eliminar uma configuração, siga estes passos.
 
 1.  No portal do Azure, selecione **Azure Active Directory**.
 1.  Selecione **Azure AD Connect**.
-1.  Selecione **Gerir o fornecimento (Pré-visualização)** .
+1.  Selecione **Gerir o fornecimento (Pré-visualização)**.
 1.  Em **Configuração,** selecione a sua configuração.
 
     ![Seleção de configuração para remover a configuração](media/how-to-configure/scope1.png)
 
 1.  Na parte superior do ecrã de configuração, selecione **Delete**.
 
-    ![Botão de eliminar](media/how-to-configure/remove1.png)
+    ![Eliminar botão](media/how-to-configure/remove1.png)
 
 >[!IMPORTANT]
 >Não há confirmação antes de apagar uma configuração. Certifique-se de que esta é a ação que pretende tomar antes de selecionar **Delete**.
@@ -93,5 +93,5 @@ Para eliminar uma configuração, siga estes passos.
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- [O que é o provisionamento?](what-is-provisioning.md)
-- [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)
+- [O que é o aprovisionamento?](what-is-provisioning.md)
+- [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

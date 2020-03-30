@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: d3d58765aafcaa15491a30ecc8d3e7da6a78662d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 8d7d0baacd5f702e8f435ab440eaf0338a60f4cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79366943"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500768"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir a execução de automação azure como contas
 
@@ -25,21 +25,21 @@ O diretor de serviço de uma Conta Não tem permissões para ler Azure AD por pa
 
 A Azure Automation utiliza dois tipos de Run As contas:
 
-* Azure Run Como conta
+* Conta Run As do Azure
 * Corrida Clássica azure Como conta
 
 >[!NOTE]
 >As subscrições do Azure Cloud Solution Provider (CSP) suportam apenas o modelo Do Gestor de Recursos Azure. Os serviços de Gestor de Recursos Não-Azure não estão disponíveis no programa. Quando está a utilizar uma subscrição de CSP, a conta Azure Classic Run Como conta não é criada, mas a conta Azure Run As é criada. Para saber mais sobre subscrições de CSP, consulte [os serviços disponíveis nas subscrições do CSP.](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services)
 
-### <a name="run-as-account"></a>Executar Como conta
+### <a name="run-as-account"></a>Conta Run As
 
 O Run As conta gere os recursos do modelo de [implementação do Gestor](../azure-resource-manager/management/deployment-models.md) de Recursos. Faz as seguintes tarefas.
 
 * Cria uma aplicação do Azure AD com um certificado autoassinado, cria uma conta de principal de serviço para a aplicação no Azure AD e atribui a função Contribuidor à conta na sua subscrição atual. Pode alterar a definição de certificado para Proprietário ou qualquer outra função. Para obter mais informações, veja [Controlo de acesso baseado em funções na Automatização do Azure](automation-role-based-access-control.md).
   
-* Cria um ativo de certificado de Automação chamado `AzureRunAsCertificate` na conta de Automação especificada. O ativo do certificado detém a chave privada do certificado que a aplicação Azure AD utiliza.
+* Cria um ativo `AzureRunAsCertificate` de certificado de automação nomeado na conta de Automação especificada. O ativo do certificado detém a chave privada do certificado que a aplicação Azure AD utiliza.
   
-* Cria um ativo de ligação automation chamado `AzureRunAsConnection` na conta de Automação especificada. O ativo de ligação detém o ID da aplicação, id do inquilino, ID de subscrição e impressão digital do certificado.
+* Cria um ativo `AzureRunAsConnection` de ligação automation nomeado na conta de Automação especificada. O ativo de ligação detém o ID da aplicação, id do inquilino, ID de subscrição e impressão digital do certificado.
 
 ### <a name="azure-classic-run-as-account"></a>Conta Run As Clássica do Azure
 
@@ -49,11 +49,11 @@ A conta Azure Classic Run As conta executa as seguintes tarefas.
 
   * Cria um certificado de gestão na subscrição.
 
-  * Cria um ativo de certificado de Automação chamado `AzureClassicRunAsCertificate` na conta de Automação especificada. O recurso do certificado contém a chave privada do certificado que o certificado de gestão utiliza.
+  * Cria um ativo `AzureClassicRunAsCertificate` de certificado de automação nomeado na conta de Automação especificada. O recurso do certificado contém a chave privada do certificado que o certificado de gestão utiliza.
 
-  * Cria um ativo de ligação automation chamado `AzureClassicRunAsConnection` na conta de Automação especificada. O ativo de ligação detém o nome de subscrição, id de subscrição e nome do ativo do certificado.
+  * Cria um ativo `AzureClassicRunAsConnection` de ligação automation nomeado na conta de Automação especificada. O ativo de ligação detém o nome de subscrição, id de subscrição e nome do ativo do certificado.
 
-## <a name="permissions"></a>Executar Como permissões de conta
+## <a name="run-as-account-permissions"></a><a name="permissions"></a>Executar Como permissões de conta
 
 Esta secção define permissões tanto para o Run Regular Como contas como para o Classic Run As contas.
 
@@ -63,18 +63,18 @@ Para criar ou atualizar uma conta Run As, você deve ter privilégios e permiss�
 
 |Tarefa|Cmdlet  |Permissões Mínimas  |Onde você definir as permissões|
 |---|---------|---------|---|
-|Criar aplicação ad azure|[Nova AzADApplication](/https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication?view=azps-3.5.0)     | Papel de desenvolvedor de aplicações<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Registos home > Azure AD > App |
-|Adicione uma credencial à aplicação.|[Novo AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential?view=azps-3.5.0)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Registos home > Azure AD > App|
-|Criar e obter um diretor de serviço azure AD|[Novo AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-3.5.0)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal?view=azps-3.5.0)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Registos home > Azure AD > App|
-|Atribuir ou obter o papel RBAC para o principal especificado|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment?view=azps-3.5.0)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment?view=azps-3.5.0)      | Administrador ou Proprietário de Acesso ao Utilizador, ou tem as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Subscrição](../role-based-access-control/role-assignments-portal.md)</br>Home > Subscrições > \<nome de subscrição\> - Controlo de Acesso (IAM)|
+|Criar aplicação ad azure|[Nova AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication?view=azps-3.5.0)     | Papel de desenvolvedor de aplicações<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Registos de aplicações da > Azure AD > |
+|Adicione uma credencial à aplicação.|[Novo AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential?view=azps-3.5.0)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Registos de aplicações da > Azure AD >|
+|Criar e obter um diretor de serviço azure AD|[Novo AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-3.5.0)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal?view=azps-3.5.0)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Registos de aplicações da > Azure AD >|
+|Atribuir ou obter o papel RBAC para o principal especificado|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment?view=azps-3.5.0)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment?view=azps-3.5.0)      | Administrador ou Proprietário de Acesso ao Utilizador, ou tem as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Assinatura](../role-based-access-control/role-assignments-portal.md)</br>Assinaturas de \<>\> > nome de subscrição - Controlo de Acesso (IAM)|
 |Criar ou remover um certificado de Automação|[Novo Certificado de Automação](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.5.0)</br>[Remover-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationcertificate?view=azps-3.5.0)     | Contribuinte no grupo de recursos         |Grupo de recursos de conta de automação|
 |Criar ou remover uma ligação automação|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.5.0)</br>[Remover-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationconnection?view=azps-3.5.0)|Contribuinte no grupo de recursos |Grupo de recursos de conta de automação|
 
 <sup>1</sup> Os utilizadores não administradores do seu inquilino Azure AD podem [registar aplicações aD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se os Utilizadores do inquilino da AD Azure **puderem registar** a opção de aplicações na página de definições do Utilizador está definida para **Sim**. Se a definição de registo da aplicação for **Não,** o utilizador que executa esta ação deve ser definido nesta tabela.
 
-Se não for membro da instância de Diretório Ativo da subscrição antes de ser adicionado ao papel de Administrador Global da subscrição, é adicionado como convidado. Nesta situação, recebe um aviso de `You do not have permissions to create…` na página da Conta Add Automation. 
+Se não for membro da instância de Diretório Ativo da subscrição antes de ser adicionado ao papel de Administrador Global da subscrição, é adicionado como convidado. Nesta situação, recebe `You do not have permissions to create…` um aviso na página da Conta Add Automation. 
 
-Se for membro da instância de Diretório Ativo da subscrição quando a função de Administrador Global é atribuída, também pode receber um aviso de `You do not have permissions to create…` na página da Conta de Automação Add. Neste caso, pode solicitar a remoção da instância de Diretório Ativo da subscrição e, em seguida, solicitar a sua readição, para que se torne um utilizador completo no Diretório Ativo.
+Se for membro da instância de Diretório Ativo da subscrição quando a função `You do not have permissions to create…` de Administrador Global é atribuída, também pode receber um aviso na página da Conta de Automação Add. Neste caso, pode solicitar a remoção da instância de Diretório Ativo da subscrição e, em seguida, solicitar a sua readição, para que se torne um utilizador completo no Diretório Ativo.
 
 Para verificar se a situação que produz a mensagem de erro foi corrigida:
 
@@ -83,7 +83,7 @@ Para verificar se a situação que produz a mensagem de erro foi corrigida:
 3. Escolha o seu nome e, em seguida, selecione **Perfil**. 
 4. Certifique-se de que o valor do **atributo** do tipo Utilizador no perfil do utilizador não está definido para **o Hóspede**.
 
-### <a name="permissions-classic"></a>Permissões para configurar Classic Run Como contas
+### <a name="permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Permissões para configurar Classic Run Como contas
 
 Para configurar ou renovar o Classic Run As contas, deve ter o papel de Coadministrador ao nível da subscrição. Para saber mais sobre permissões clássicas de subscrição, consulte [os administradores de subscrição clássicos do Azure.](../role-based-access-control/classic-administrators.md#add-a-co-administrator)
 
@@ -105,15 +105,15 @@ A lista seguinte fornece os requisitos para criar uma conta Run As no PowerShell
 
 * Windows 10 ou Windows Server 2016 com módulos Azure Resource Manager 3.4.1 e posteriormente. O script PowerShell não suporta versões anteriores do Windows.
 * Azure PowerShell 1.0 e posterior. Para obter mais informações sobre a versão do PowerShell 1.0, veja [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Como instalar e configurar o Azure PowerShell).
-* Uma conta de Automação, que é referenciada como o valor para os parâmetros `AutomationAccountName` e `ApplicationDisplayName`.
+* Uma conta de Automação, que é `AutomationAccountName` `ApplicationDisplayName` referenciada como o valor para os e parâmetros.
 * Permissões equivalentes às listadas nas [permissões necessárias para configurar executar como contas](#permissions).
 
-Para obter os valores para `SubscriptionId`, `ResourceGroupName`, e , que são necessários parâmetros para o script PowerShell, complete os próximos passos.
+Para obter os `SubscriptionId` `ResourceGroupName`valores para , e , que são necessários parâmetros para o script PowerShell, complete os próximos passos.
 
 1. No portal Azure, selecione **Contas de Automação.**
 1. Na página Contas de Automação, selecione a sua conta De automação.
 1. Na secção de definições da conta, selecione **Propriedades**.
-1. Note os valores para **NOME,** **ID DE SUBSCRIÇÃO**e **GRUPO DE RECURSOS** na página Propriedades. Estes valores correspondem aos valores dos parâmetros `AutomationAccountName`, `SubscriptionId`e `ResourceGroupName` do guião PowerShell, respectivamente.
+1. Note os valores para **NOME,** **ID DE SUBSCRIÇÃO**e **GRUPO DE RECURSOS** na página Propriedades. Estes valores correspondem `AutomationAccountName`aos `SubscriptionId`valores dos parâmetros do script , e `ResourceGroupName` do PowerShell, respectivamente.
 
    ![Página de propriedades de conta de automação](media/manage-runas-account/automation-account-properties.png)
 
@@ -310,7 +310,7 @@ Guarde o script no seu computador utilizando o nome de ficheiro **New-RunAsAccou
 ```
 
 >[!NOTE]
->`Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos do [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou pode [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Pode precisar de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
+>`Add-AzAccount`e `Add-AzureRMAccount` são pseudónimos de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou pode [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Pode precisar de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
 ### <a name="execute-the-powershell-script"></a>Execute o script PowerShell
 
@@ -321,19 +321,19 @@ Guarde o script no seu computador utilizando o nome de ficheiro **New-RunAsAccou
 
 Depois do guião ser executado, és solicitado a autenticar com o Azure. Inscreva-se numa conta que seja membro do papel de administradores de subscrição e coadministrador da subscrição.
 
-#### <a name="create-a-run-as-account-by-using-a-self-signed-certificate"></a>Criar uma conta Run As usando um certificado auto-assinado
+#### <a name="create-a-run-as-account-by-using-a-self-signed-certificate"></a>Utilizar um certificado autoassinado para criar uma conta Run As
 
 ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
 ```
 
-#### <a name="create-a-run-as-account-and-a-classic-run-as-account-by-using-a-self-signed-certificate"></a>Crie uma conta Run As e uma conta Classic Run As usando um certificado auto-assinado
+#### <a name="create-a-run-as-account-and-a-classic-run-as-account-by-using-a-self-signed-certificate"></a>Utilizar um certificado autoassinado para criar uma conta Run As e uma conta Run As Clássica
 
 ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
 ```
 
-#### <a name="create-a-run-as-account-and-a-classic-run-as-account-by-using-an-enterprise-certificate"></a>Crie uma conta Run As e uma conta Classic Run As usando um certificado de empresa
+#### <a name="create-a-run-as-account-and-a-classic-run-as-account-by-using-an-enterprise-certificate"></a>Utilizar um certificado empresarial para criar uma conta Run As e uma conta Run As Clássica
 
 ```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
@@ -347,7 +347,7 @@ Se criou uma conta Classic Run As com um certificado público da empresa (fichei
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment
 ```
 
-Se criou uma conta Classic Run As com um certificado público auto-assinado (ficheiro **.cer),** o script cria e guarda-o para a pasta de ficheiros temporários no seu computador. Pode ser encontrado no perfil do utilizador `%USERPROFILE%\AppData\Local\Temp`, que usou para executar a sessão PowerShell.
+Se criou uma conta Classic Run As com um certificado público auto-assinado (ficheiro **.cer),** o script cria e guarda-o para a pasta de ficheiros temporários no seu computador. Pode ser encontrado no `%USERPROFILE%\AppData\Local\Temp`perfil do utilizador , que utilizou para executar a sessão PowerShell.
 
 ## <a name="deleting-a-run-as-or-classic-run-as-account"></a>Apagar uma corrida como ou clássica corrida como conta
 
@@ -357,7 +357,7 @@ Esta secção descreve como eliminar uma conta Run As ou Classic Run As. Quando 
 
 2. No painel esquerdo, selecione **Executar Como Contas** na secção de definições da conta.
 
-3. Na página 'Executar Como Contas', selecione a conta 'Executar Como' ou a Corrida Clássica Como conta que pretende eliminar. 
+3. Nas propriedades Contas Run As, selecione a conta Run As ou a conta Run As Clássica que quer eliminar. 
 
 4. No painel 'Propriedades' para a conta selecionada, clique em **Apagar**.
 
@@ -365,11 +365,11 @@ Esta secção descreve como eliminar uma conta Run As ou Classic Run As. Quando 
 
 5. Enquanto a conta estiver a ser eliminada, pode acompanhar o progresso em **Notificações** a partir do menu.
 
-6. Depois de a conta ter sido eliminada, pode recriá-la na página de propriedades Run As Accounts, selecionando a opção de criação **Azure Run As Account**.
+6. Assim que a conta tiver sido eliminada, pode voltar a criá-la na página de propriedades Contas Run As, ao selecionar a opção de criação **Conta Run As do Azure**.
 
    ![Recriar a conta Run As de Automatização](media/manage-runas-account/automation-account-create-runas.png)
 
-## <a name="cert-renewal"></a>Renovação de um certificado auto-assinado
+## <a name="renewing-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovação de um certificado auto-assinado
 
 O certificado auto-assinado que criou para a conta Run As expira um ano a partir da data de criação. Em algum momento antes da sua conta Run As expirar, você deve renovar o certificado. Pode renová-lo a qualquer momento antes que expire. 
 
@@ -397,7 +397,7 @@ Utilize os seguintes passos para renovar o certificado auto-assinado.
 
 1. Enquanto o certificado estiver a ser renovado, pode acompanhar o progresso em **Notificações** a partir do menu.
 
-## <a name="auto-cert-renewal"></a>Criação de renovação automática de certificados com um livro de execução de automação
+## <a name="setting-up-automatic-certificate-renewal-with-an-automation-runbook"></a><a name="auto-cert-renewal"></a>Criação de renovação automática de certificados com um livro de execução de automação
 
 Para renovar os certificados automaticamente, pode utilizar um livro de execução de automação. Este script no [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) permite esta funcionalidade na sua conta Automation.
 
@@ -432,14 +432,14 @@ Utilize os seguintes passos para testar imediatamente o processo de renovação.
 5. Após o teste, edite o livro de execução e remova o personagem de comentário que adicionou no passo 1.
 6. Publique o livro de corridas.
 
-## <a name="limiting-run-as-account-permissions"></a>Limitação do execução Como permissões de conta
+## <a name="limiting-run-as-account-permissions"></a><a name="limiting-run-as-account-permissions"></a>Limitação do execução Como permissões de conta
 
 Para controlar a segmentação da Automação contra recursos no Azure, pode executar o script [Update-AutomationRunAsAccountRoleAssignments.ps1.](https://aka.ms/AA5hug8) Este script altera o seu executar existente Como principal de serviço de conta para criar e usar uma definição de função personalizada. O papel tem permissões para todos os recursos, exceto [o Cofre Chave.](https://docs.microsoft.com/azure/key-vault/)
 
 >[!IMPORTANT]
 >Depois de executar o script **Update-AutomationRunAsAccountRoleAssignments.ps1,** os livros de execução que acedem ao Cofre chave através da utilização do Run Como as contas já não funcionam. Antes de executar o script, você deve rever os livros de execução na sua conta para chamadas para Azure Key Vault. Para permitir o acesso ao Key Vault dos livros de execução da Automação Azure, deve [adicionar o Run As conta às permissões do Key Vault](#add-permissions-to-key-vault).
 
-Se precisar de restringir, ainda mais o que o diretor de serviço Run As pode fazer, pode adicionar outros tipos de recursos ao elemento `NotActions` da definição de função personalizada. O exemplo seguinte restringe o acesso à `Microsoft.Compute/*`. Se adicionar este tipo de recursos a `NotActions` para a definição de função, a função não será capaz de aceder a qualquer recurso Compute. Para saber mais sobre definições de papéis, consulte Compreender as definições de [papéis para os recursos do Azure.](../role-based-access-control/role-definitions.md)
+Se precisar de restringir, ainda mais o que o diretor de serviço `NotActions` Run As pode fazer, pode adicionar outros tipos de recursos ao elemento da definição de função personalizada. O exemplo seguinte restringe `Microsoft.Compute/*`o acesso a . Se adicionar este tipo `NotActions` de recurso para a definição de função, a função não será capaz de aceder a qualquer recurso Compute. Para saber mais sobre definições de papéis, consulte Compreender as definições de [papéis para os recursos do Azure.](../role-based-access-control/role-definitions.md)
 
 ```powershell
 $roleDefinition = Get-AzRoleDefinition -Name 'Automation RunAs Contributor'
@@ -475,7 +475,7 @@ Alguns itens de configuração necessários para uma execução Como ou corrida 
 * Executar Como conta removida da função contributiva
 * Principal de serviço ou aplicação no Azure AD
 
-Para tais casos de configuração errada, a conta Automation deteta as alterações e apresenta um estado de `Incomplete` no painel de propriedades Run As Contas para a conta.
+Para tais casos de configuração errada, a conta Automation `Incomplete` deteta as alterações e apresenta um estado no painel de propriedades Run As Contas para a conta.
 
 ![Estado de configuração Não concluída da conta Run As](media/manage-runas-account/automation-account-runas-incomplete-config.png)
 

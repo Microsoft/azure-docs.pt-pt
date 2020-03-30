@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368014"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Criar e gerir link privado para base de dados Azure para MySQL usando cli
@@ -24,9 +24,9 @@ Um Private Endpoint é o bloco de construção fundamental para ligação privad
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se decidir instalar e utilizar o Azure CLI localmente, este quickstart requer que utilize a versão 2.0.28 do Azure CLI ou posterior. Para encontrar a sua versão instalada, execute `az --version`. Consulte [o Azure CLI](/cli/azure/install-azure-cli) para instalar ou atualizar informações.
+Se decidir instalar e utilizar o Azure CLI localmente, este quickstart requer que utilize a versão 2.0.28 do Azure CLI ou posterior. Para encontrar a sua `az --version`versão instalada, corra. Consulte [o Azure CLI](/cli/azure/install-azure-cli) para instalar ou atualizar informações.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Antes de poder criar qualquer recurso, tem de criar um grupo de recursos para acolher a Rede Virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *myResourceGroup* na localização *da Europa Ocidental:*
 
@@ -78,7 +78,7 @@ az mysql server create \
 --sku-name GP_Gen5_2
 ```
 
-Note que o ID do Servidor MySQL é semelhante ao ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` Utilizará o ID do Servidor MySQL no próximo passo. 
+Note que o ID do Servidor ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` MySQL é semelhante ao de Utilizar o ID do Servidor MySQL no próximo passo. 
 
 ## <a name="create-the-private-endpoint"></a>Criar o Ponto Final Privado 
 Crie um ponto final privado para o servidor MySQL na sua Rede Virtual: 
@@ -137,7 +137,7 @@ Ligue-se ao *myVm* VM da internet da seguinte forma:
     1. Introduza o nome de utilizador e a palavra-passe especificado ao criar o VM.
 
         > [!NOTE]
-        > Poderá ter de selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
+        > Pode ser necessário selecionar **Mais escolhas** > **Utilize uma conta diferente,** para especificar as credenciais que inseriu quando criou o VM.
 
 1. Selecione **OK**.
 
@@ -169,11 +169,11 @@ Ligue-se ao *myVm* VM da internet da seguinte forma:
     | ------- | ----- |
     | Nome da Ligação| Selecione o nome de ligação à sua escolha.|
     | Nome de anfitrião | Selecione *mydemoserver.privatelink.mysql.database.azure.com* |
-    | Nome de utilizador | Introduza o nome de utilizador como *username@servername* que é fornecido durante a criação do servidor MySQL. |
+    | Nome de utilizador | Introduza o *username@servername* nome de utilizador como o que é fornecido durante a criação do servidor MySQL. |
     | Palavra-passe | Introduza uma palavra-passe fornecida durante a criação do servidor MySQL. |
     ||
 
-5. Selecione Connect.
+5. Selecione Ligar.
 
 6. Consulte as bases de dados do menu esquerdo.
 

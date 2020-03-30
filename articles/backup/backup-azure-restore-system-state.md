@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77602463"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para o Servidor windows
@@ -21,7 +21,7 @@ Este artigo explica como restaurar as cópias de segurança do Windows Server Sy
 
 2. Aplique os ficheiros do System State restaurados num Servidor Windows.
 
-## <a name="recover-system-state-files-to-the-same-server"></a>Recuperar ficheiros do Estado do Sistema para o mesmo servidor
+## <a name="recover-system-state-files-to-the-same-server"></a>Recover System State files to the same server (Recuperar ficheiros de Estado do Sistema para o mesmo servidor)
 
 Os seguintes passos explicam como reverter a configuração do Windows Server para um estado anterior. Relançar a configuração do servidor de volta para um estado conhecido e estável, pode ser extremamente valioso. Os seguintes passos restauram o Estado do Sistema do servidor a partir de um cofre dos Serviços de Recuperação.
 
@@ -107,11 +107,11 @@ A terminologia utilizada nestes passos inclui:
 
     ![clique no botão Recuperar para confirmar o processo de recuperação](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
-12. Copie o diretório *Do WindowsImageBackup* para um volume não crítico do servidor (por exemplo, D:\). Normalmente, o volume do Windows OS é o volume crítico.
+12. Copie o diretório *Do WindowsImageBackup* para um volume não\)crítico do servidor (por exemplo, D: . Normalmente, o volume do Windows OS é o volume crítico.
 
 13. Para completar o processo de recuperação, utilize a seguinte secção para [aplicar os ficheiros do System State restaurados num Servidor windows](#apply-restored-system-state-on-a-windows-server).
 
-## <a name="apply-restored-system-state-on-a-windows-server"></a>Aplicar o Estado do Sistema restaurado num Servidor Windows
+## <a name="apply-restored-system-state-on-a-windows-server"></a>Apply restored System State on a Windows Server (Aplicar o Estado do Sistema restaurado num servidor do Windows Server)
 
 Depois de ter recuperado o System State como ficheiros utilizando o Agente de Serviços de Recuperação do Azure, utilize o utilitário de backup do Windows Server para aplicar o Estado do Sistema recuperado ao Windows Server. O utilitário de backup do Servidor Windows já está disponível no servidor. Os seguintes passos explicam como aplicar o Estado de Sistema recuperado.
 

@@ -8,10 +8,10 @@ ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: 72341b6da0068ba4b7e3f53b08e6015cafb70f09
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658919"
 ---
 # <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Stream Azure logs plataforma para Azure Event Hubs
@@ -56,7 +56,7 @@ As definições de diagnóstico recolherão registos de recursos para os recurso
 ## <a name="consuming-log-data-from-event-hubs"></a>Consumir dados de registo dos centros de eventos
 Os registos da plataforma dos centros de eventos são consumidos em formato JSON com os elementos na tabela seguinte.
 
-| Nome do elemento | Descrição |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | registos |Uma série de todos os eventos de registo nesta carga. |
 | hora |Hora em que ocorreu o evento. |

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: d402d4c1ee77d0f97d2a5c3bdf43d0cc62aac096
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560478"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualizar dados do Azure Data Explorer usando uma consulta SQL no Power BI
@@ -50,7 +50,7 @@ Você normalmente usa a linguagem de consulta nativa com O Explorador de Dados A
 
     **Definição** | **Valor** | **Descrição do campo**
     |---|---|---|
-    | Servidor | *help.kusto.windows.net* | O URL para o cluster de ajuda (sem *https://* ). Para outros clusters, o URL está na forma *\<ClusterName\>.\<Region\>.kusto.windows.net*. |
+    | Server | *help.kusto.windows.net* | O URL para o cluster de ajuda (sem *https://*). Para outros clusters, o URL está na forma * \<ClusterName\>.\< \>Região .kusto.windows.net*. |
     | Base de Dados | *Amostras* | A base de dados de amostras que está alojada no cluster a que está a ligar. |
     | Modo de conectividade de dados | *Importar* | Determina se o Power BI importa os dados ou se liga diretamente à fonte de dados. Pode utilizar qualquer uma das opções com este conector. |
     | Tempo de tempo de comando | Deixar em branco | Quanto tempo dura a consulta antes de lançar um erro de tempo. |

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor HTTP Data Collector API  Microsoft Docs
+title: Azure Monitor HTTP Data Collector API [ Microsoft Docs
 description: Pode utilizar a API do Colecionador de Dados Do Monitor Azure Para adicionar dados POST JSON a um espaço de trabalho de Log Analytics de qualquer cliente que possa ligar para a API REST. Este artigo descreve como usar a API, e tem exemplos de como publicar dados utilizando diferentes linguagens de programação.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,14 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
 ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77666757"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envie dados de registo para o Monitor Azure com a Http Data Collector API (pré-visualização pública)
-Este artigo mostra-lhe como utilizar a API http Data Collector para enviar dados de registo para o Monitor Azure de um cliente rest API.  Descreve como formatar os dados recolhidos pelo seu script ou aplicação, incluí-lo num pedido, e ter esse pedido autorizado pelo Monitor Azure.  Exemplos são fornecidos para C#PowerShell, e Python.
+Este artigo mostra-lhe como utilizar a API http Data Collector para enviar dados de registo para o Monitor Azure de um cliente rest API.  Descreve como formatar os dados recolhidos pelo seu script ou aplicação, incluí-lo num pedido, e ter esse pedido autorizado pelo Monitor Azure.  Exemplos são fornecidos para PowerShell, C#, e Python.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -38,22 +38,22 @@ Para utilizar a API http Data Collector, cria um pedido post que inclui os dados
 | Atributo | Propriedade |
 |:--- |:--- |
 | Método |POST |
-| URI |https://\<\>clienteid .ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
-| Tipo de conteúdo |application/json |
+| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| Tipo do conteúdo |application/json |
 
 ### <a name="request-uri-parameters"></a>Solicitar parâmetros URI
 | Parâmetro | Descrição |
 |:--- |:--- |
-| customerID |O identificador único para o espaço de trabalho log Analytics. |
+| CustomerID |O identificador único para o espaço de trabalho log Analytics. |
 | Recurso |O nome do recurso API: /api/logs. |
-| Versão API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
+| Versão da API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 | Cabeçalho | Descrição |
 |:--- |:--- |
 | Autorização |A assinatura da autorização. Mais tarde no artigo, pode ler sobre como criar um cabeçalho HMAC-SHA256. |
 | Tipo de log |Especifique o tipo de registo dos dados que estão a ser submetidos. Só pode conter letras, números e sublinhado (_), e não pode exceder 100 caracteres. |
-| x-ms-date |A data em que o pedido foi processado, em formato RFC 1123. |
+| x-ms-data |A data em que o pedido foi processado, em formato RFC 1123. |
 | x-ms-AzureResourceId | Identificação de recursos do recurso Azure os dados devem ser associados. Isto povoa a [propriedade _ResourceId](log-standard-properties.md#_resourceid) e permite que os dados sejam incluídos em consultas de contexto [de recursos.](design-logs-deployment.md#access-mode) Se este campo não for especificado, os dados não serão incluídos em consultas de contexto de recursos. |
 | campo gerado pelo tempo | O nome de um campo nos dados que contém o carimbo temporal do item de dados. Se especificar um campo, o seu conteúdo é utilizado para o **TimeGenerated**. Se este campo não for especificado, o padrão para **TimeGenerated** é o momento em que a mensagem é ingerida. O conteúdo do campo de mensagens deve seguir o formato ISO 8601 YYYY-MM-DDThh:mm:ssZ. |
 
@@ -134,10 +134,10 @@ Para identificar o tipo de dados de uma propriedade, o Azure Monitor adiciona um
 
 | Tipo de dados de propriedade | Sufixo |
 |:--- |:--- |
-| String |_s |
+| Cadeia |_s |
 | Booleano |_b |
-| Valor de duplo |_d |
-| Data/hora |_t |
+| Double |_d |
+| Date/time |_t |
 | GUID (armazenado como uma corda) |_g |
 
 O tipo de dados que o Azure Monitor utiliza para cada imóvel depende se o tipo de registo para o novo registo já existe.
@@ -164,7 +164,7 @@ Se, em seguida, submeteu a seguinte entrada, antes de o tipo de gravação ser c
 ## <a name="reserved-properties"></a>Propriedades reservadas
 As seguintes propriedades são reservadas e não devem ser utilizadas num tipo de registo personalizado. Receberá um erro se a sua carga útil incluir algum destes nomes de propriedade.
 
-- tenant
+- inquilino
 
 ## <a name="data-limits"></a>Limites de dados
 Existem alguns constrangimentos em torno dos dados publicados na API de recolha de dados do Monitor Do T.A.
@@ -183,20 +183,20 @@ Esta tabela lista o conjunto completo de códigos de estado que o serviço pode 
 | Código | Estado | Código de erro | Descrição |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |O pedido foi aceite com sucesso. |
-| 400 |Pedido incorreto |Cliente Inativo |O espaço de trabalho foi fechado. |
-| 400 |Pedido incorreto |InvalidApiVersion |A versão API que especificou não foi reconhecida pelo serviço. |
-| 400 |Pedido incorreto |InválidoCustomerId |O ID do espaço de trabalho especificado é inválido. |
-| 400 |Pedido incorreto |InvalidDataFormat |JSON inválida foi submetida. O corpo de resposta pode conter mais informações sobre como resolver o erro. |
-| 400 |Pedido incorreto |InvalidLogType |O tipo de registo especificado continha caracteres especiais ou numéricos. |
-| 400 |Pedido incorreto |MissingApiVersion |A versão API não foi especificada. |
-| 400 |Pedido incorreto |MissingContentType |O tipo de conteúdo não foi especificado. |
-| 400 |Pedido incorreto |MissingLogType |O tipo de registo de valor exigido não foi especificado. |
-| 400 |Pedido incorreto |UnsupportedContentType |O tipo de conteúdo não foi definido para **aplicação/json**. |
+| 400 |Mau pedido |Cliente Inativo |O espaço de trabalho foi fechado. |
+| 400 |Mau pedido |InvalidApiVersion |A versão API que especificou não foi reconhecida pelo serviço. |
+| 400 |Mau pedido |InválidoCustomerId |O ID do espaço de trabalho especificado é inválido. |
+| 400 |Mau pedido |InvalidDataFormat |JSON inválida foi submetida. O corpo de resposta pode conter mais informações sobre como resolver o erro. |
+| 400 |Mau pedido |LogType inválido |O tipo de registo especificado continha caracteres especiais ou numéricos. |
+| 400 |Mau pedido |FaltaapiVersion |A versão API não foi especificada. |
+| 400 |Mau pedido |Conteúdo em falta |O tipo de conteúdo não foi especificado. |
+| 400 |Mau pedido |Tipo de LogType desaparecido |O tipo de registo de valor exigido não foi especificado. |
+| 400 |Mau pedido |Conteúdo não suportadoType |O tipo de conteúdo não foi definido para **aplicação/json**. |
 | 403 |Proibido |Autorização Inválida |O serviço não conseguiu autenticar o pedido. Verifique se o ID do espaço de trabalho e a chave de ligação são válidos. |
-| 404 |Não foi encontrado | | Ou o URL fornecido está incorreto, ou o pedido é demasiado grande. |
-| 429 |Demasiados Pedidos | | O serviço está a registar um elevado volume de dados da sua conta. Por favor, tente o pedido mais tarde. |
+| 404 |Não encontrado | | Ou o URL fornecido está incorreto, ou o pedido é demasiado grande. |
+| 429 |Muitos pedidos | | O serviço está a registar um elevado volume de dados da sua conta. Por favor, tente o pedido mais tarde. |
 | 500 |Erro interno do servidor |Erro não especificado |O serviço encontrou um erro interno. Por favor, tente novamente o pedido. |
-| 503 |Serviço Indisponível |ServiceUnavailable |O serviço atualmente não está disponível para receber pedidos. Por favor, tente o seu pedido. |
+| 503 |Serviço Indisponível |ServiçoIndisponível |O serviço atualmente não está disponível para receber pedidos. Por favor, tente o seu pedido. |
 
 ## <a name="query-data"></a>Consultar dados
 Para consultar os dados apresentados pela API do Coletor de Dados do Monitor Azure HTTP, procure registos com **Tipo** que seja igual ao valor **do LogType** que especificou, anexado com **_CL**. Por exemplo, se usasse **o MyCustomLog,** devolveria todos os registos com `MyCustomLog_CL`.
@@ -471,7 +471,7 @@ Embora a API de Recolha de Dados cubra a maioria das suas necessidades de recolh
 |---|---|---|
 | [Eventos personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão baseada em SDK nativo em Insights de Aplicação | Os Insights de Aplicação, normalmente instrumentados através de um SDK dentro da sua aplicação, oferecem a capacidade de enviar dados personalizados através de Eventos Personalizados. | <ul><li> Dados gerados dentro da sua aplicação, mas não captados pela SDK através de um dos tipos de dados predefinidos (pedidos, dependências, exceções, e assim por diante).</li><li> Dados que são mais frequentemente correlacionados com outros dados de aplicação em Insights de Aplicação </li></ul> |
 | API de colecionador de dados em registos de monitores azure | A API do Coletor de Dados em Registos de Monitores Azure é uma forma completamente aberta de ingerir dados. Qualquer dado formatado num objeto JSON pode ser enviado para cá. Uma vez enviado, será processado e disponível em Registos para ser correlacionado com outros dados em Registos ou contra outros dados do Application Insights. <br/><br/> É bastante fácil fazer o upload dos dados como ficheiros para uma bolha De Blob Azure, de onde estes ficheiros serão processados e enviados para o Log Analytics. Por favor, consulte [este](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artigo para uma amostra de implementação de tal oleoduto. | <ul><li> Dados que não são necessariamente gerados dentro de uma aplicação instrumentada no âmbito do Application Insights.</li><li> Exemplos incluem tabelas de verificação e factos, dados de referência, estatísticas pré-agregadas, e assim por diante. </li><li> Destinado a dados que serão cruzados com outros dados do Monitor do Azure (Insights de aplicação, outros tipos de dados de registos, Centro de Segurança, Monitor Azure para Contentores/VMs, e assim por diante). </li></ul> |
-| [Explorador de dados azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | O Azure Data Explorer (ADX) é a plataforma de dados que alimenta os Registos de Análise de Aplicações Insights Analytics e Azure Monitor. Agora Geralmente Disponível ("GA"), utilizando a plataforma de dados na sua forma bruta, proporciona-lhe total flexibilidade (mas exigindo a sobrecarga de gestão) sobre o cluster (RBAC, taxa de retenção, esquema, e assim por diante). O ADX fornece muitas opções de [ingestão,](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [ficheiros CSV, TSV e JSON.](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) | <ul><li> Dados que não serão correlacionados com quaisquer outros dados no âmbito de Insights ou Registos de Aplicações. </li><li> Dados que requerem capacidades avançadas de ingestão ou processamento que não estão disponíveis hoje em Registos do Monitor Do Azure. </li></ul> |
+| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | O Azure Data Explorer (ADX) é a plataforma de dados que alimenta os Registos de Análise de Aplicações Insights Analytics e Azure Monitor. Agora Geralmente Disponível ("GA"), utilizando a plataforma de dados na sua forma bruta, proporciona-lhe total flexibilidade (mas exigindo a sobrecarga de gestão) sobre o cluster (RBAC, taxa de retenção, esquema, e assim por diante). O ADX fornece muitas opções de [ingestão,](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [ficheiros CSV, TSV e JSON.](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) | <ul><li> Dados que não serão correlacionados com quaisquer outros dados no âmbito de Insights ou Registos de Aplicações. </li><li> Dados que requerem capacidades avançadas de ingestão ou processamento que não estão disponíveis hoje em Registos do Monitor Do Azure. </li></ul> |
 
 
 ## <a name="next-steps"></a>Passos seguintes

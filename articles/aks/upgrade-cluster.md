@@ -1,17 +1,17 @@
 ---
-title: Atualizar um cluster azure Kubernetes Service (AKS)
+title: Atualizar um cluster do Azure Kubernetes Service (AKS)
 description: Saiba como atualizar um cluster do Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77621984"
 ---
-# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster azure Kubernetes Service (AKS)
+# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
 
 Como parte do ciclo de vida de um cluster AKS, muitas vezes precisa de fazer upgrade para a versão mais recente da Kubernetes. É importante que aplique os mais recentes lançamentos de segurança da Kubernetes ou atualize para obter as funcionalidades mais recentes. Este artigo mostra-lhe como atualizar os componentes principais ou um único conjunto de nós padrão num cluster AKS.
 
@@ -19,7 +19,7 @@ Para os clusters AKS que utilizam várias piscinas de nós ou nós do Windows Se
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer que esteja a executar a versão Azure CLI 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Este artigo requer que esteja a executar a versão Azure CLI 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 > [!WARNING]
 > Uma atualização do cluster AKS dispara um cordão e um dreno dos seus nós. Se tiver uma quota de cálculo baixa disponível, a atualização pode falhar. Veja [o aumento das quotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para mais informações.
@@ -34,9 +34,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Ao atualizar um cluster AKS, as versões menores da Kubernetes não podem ser ignoradas. Por exemplo, são permitidas atualizações entre *1.12.x* -> *1,13.x* ou *1,13.x* -> *1,14.x,* no entanto *1.12.x* -> *1,14.x* não é.
+> Ao atualizar um cluster AKS, as versões menores da Kubernetes não podem ser ignoradas. Por exemplo, são permitidas atualizações entre *1.12.x* -> *1.13.x* ou *1.13.x* -> *1.14.x,* no entanto *1.12.x* -> *1.14.x* não é.
 >
-> Para atualizar, a partir de *1.12.x* -> *1.14.x*, primeira atualização de *1.12.x* -> *1,13.x*, em seguida, atualize de *1.13.x* -> *1,14.x*.
+> Para atualizar, a partir de *1.12.x* -> *1.14.x*, primeira atualização de *1.12.x* -> *1.13.x,* em seguida, atualize a partir de *1.13.x* -> *1.14.x*.
 
 A saída de exemplo seguinte mostra que o cluster pode ser atualizado para as versões *1.13.9* e *1.13.10:*
 

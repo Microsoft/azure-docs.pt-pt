@@ -1,5 +1,5 @@
 ---
-title: Otimize o seu ambiente SQL Server com o Monitor Azure  Microsoft Docs
+title: Otimize o seu ambiente SQL Server com o Monitor Azure [ Microsoft Docs
 description: Com o Monitor Azure, pode utilizar a solução SQL Health Check para avaliar o risco e a saúde dos seus ambientes num intervalo regular.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
 ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662489"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize o seu ambiente SQL com a solução SQL Server Health Check no Monitor Azure
@@ -52,7 +52,7 @@ O agente no seu Servidor SQL que reporta a um grupo de gestão do Gestor de Oper
 
 Se o Servidor SQL for monitorizado pelo Gestor de Operações, é necessário configurar um Gestor de Operações Executar Como conta. Consulte as contas de [execução do Gestor de Operações para](#operations-manager-run-as-accounts-for-log-analytics) o Monitor Azure abaixo para obter mais informações.
 
-## <a name="sql-health-check-data-collection-details"></a>SQL Health Check detalhes de recolha de dados
+## <a name="sql-health-check-data-collection-details"></a>Detalhes da recolha de dados da Verificação de Estado de Funcionamento do SQL
 O SQL Health Check recolhe dados das seguintes fontes utilizando o agente que ativou:
 
 * Windows Management Instrumentation (WMI)
@@ -62,12 +62,12 @@ O SQL Health Check recolhe dados das seguintes fontes utilizando o agente que at
 
 Os dados são recolhidos no Servidor SQL e encaminhados para log Analytics de sete em sete dias.
 
-## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Gestor de Operações contas de log analytics
+## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Contas Run As do Operations Manager para o Log Analytics
 O Log Analytics utiliza o agente e grupo de gestão do Gestor de Operações para recolher e enviar dados para o serviço Log Analytics. O Log Analytics baseia-se em pacotes de gestão para cargas de trabalho para fornecer serviços de valor acrescentado. Cada carga de trabalho requer privilégios específicos de carga de trabalho para executar pacotes de gestão num contexto de segurança diferente, como uma conta de utilizador de domínio. Você precisa fornecer informações credenciais configurando um Gestor de Operações Executar Como conta.
 
 Utilize as seguintes informações para definir o Executar do Gestor de Operações Como conta para o SQL Health Check.
 
-### <a name="set-the-run-as-account-for-sql-health-check"></a>Definir a corrida Como conta para sql health check
+### <a name="set-the-run-as-account-for-sql-health-check"></a>Definir a conta Run As para a Verificação de Estado de Funcionamento do SQL
  Se já estiver a utilizar o pacote de gestão do SQL Server, deve utilizar esse Executar Como configuração.
 
 #### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>Para configurar a execução SQL Como conta na consola Operações
@@ -78,7 +78,7 @@ Utilize as seguintes informações para definir o Executar do Gestor de Operaç�
 
 1. No Gestor de Operações, abra a consola de Operações e, em seguida, clique em **Administração**.
 2. Sob **execução Como configuração,** clique em **Perfis**e abra **a avaliação sql como perfil**.
-3. Na página **'Executar como Contas',** clique em **Adicionar**.
+3. Na página **Contas Run As**, clique em **Adicionar**.
 4. Selecione um Windows Run Como conta que contenha as credenciais necessárias para o Servidor SQL, ou clique em **New** para criar um.
 
    > [!NOTE]
@@ -119,10 +119,10 @@ Abra uma janela PowerShell e execute o seguinte script depois de atualizá-lo co
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```
 
-## <a name="understanding-how-recommendations-are-prioritized"></a>Compreender como as recomendações são prioritárias
+## <a name="understanding-how-recommendations-are-prioritized"></a>Compreender como é definida a prioridade das recomendações
 Todas as recomendações feitas recebem um valor de ponderação que identifica a importância relativa da recomendação. Apenas são apresentadas as dez recomendações mais importantes.
 
-### <a name="how-weights-are-calculated"></a>Como os pesos são calculados
+### <a name="how-weights-are-calculated"></a>Método de cálculo das ponderações
 As ponderações são valores agregados com base em três factores-chave:
 
 * A *probabilidade de* um problema identificado causar problemas. Uma maior probabilidade equivale a uma pontuação global maior para a recomendação.
@@ -131,7 +131,7 @@ As ponderações são valores agregados com base em três factores-chave:
 
 A ponderação para cada recomendação é expressa em percentagem da pontuação total disponível para cada área de foco. Por exemplo, se uma recomendação na área de foco de Segurança e Conformidade tiver uma pontuação de 5%, implementando essa recomendação aumentará a sua pontuação global de Segurança e Conformidade em 5%.
 
-### <a name="focus-areas"></a>Áreas de foco
+### <a name="focus-areas"></a>Áreas em foco
 **Segurança e Conformidade** - Esta área de foco apresenta recomendações para potenciais ameaças e violações de segurança, políticas corporativas e requisitos técnicos, legais e regulamentares de conformidade.
 
 **Disponibilidade e Continuidade de Negócios** - Esta área de foco mostra recomendações para disponibilidade de serviço, resiliência da sua infraestrutura e proteção empresarial.
@@ -144,18 +144,18 @@ A ponderação para cada recomendação é expressa em percentagem da pontuaçã
 
 **Gestão de Alterações e Configurações** - Esta área de foco apresenta recomendações para ajudar a proteger as operações do dia-a-dia, garantir que as alterações não afetam negativamente a sua infraestrutura, estabelecer procedimentos de controlo de alterações e rastrear e auditar configurações do sistema.
 
-### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Deve tentar pontuar 100% em todas as áreas de foco?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Deve visar uma pontuação de 100% em cada uma das áreas em foco?
 Não necessariamente. As recomendações baseiam-se nos conhecimentos e experiências adquiridas pelos engenheiros da Microsoft em milhares de visitas de clientes. No entanto, nenhuma infraestrutura de servidores é a mesma, e recomendações específicas podem ser mais ou menos relevantes para si. Por exemplo, algumas recomendações de segurança podem ser menos relevantes se as suas máquinas virtuais não estiverem expostas à Internet. Algumas recomendações de disponibilidade podem ser menos relevantes para serviços que fornecem recolha e reporte de dados ad hoc de baixa prioridade. As questões que são importantes para um negócio maduro podem ser menos importantes para uma start-up. Você pode querer identificar quais as áreas de foco são as suas prioridades e, em seguida, olhar para como as suas pontuações mudam ao longo do tempo.
 
 Todas as recomendações incluem orientações sobre o porquê de ser importante. Deve utilizar esta orientação para avaliar se a implementação da recomendação é adequada para si, dada a natureza dos seus serviços de TI e as necessidades empresariais da sua organização.
 
-## <a name="use-health-check-focus-area-recommendations"></a>Use recomendações de área de foco de verificação de saúde
+## <a name="use-health-check-focus-area-recommendations"></a>Utilizar as recomendações das áreas em foco da verificação de estado de funcionamento
 Antes de poder utilizar uma solução de avaliação no Monitor Azure, tem de ter a solução instalada.  Depois de instalado, pode ver o resumo das recomendações utilizando o azulejo SQL Health Check na página **de visão geral** do Monitor Azure no portal Azure.
 
 Consulte as avaliações de conformidade resumidas para a sua infraestrutura e, em seguida, faça recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Ver recomendações para uma área de foco e tomar medidas corretivas
-1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Monitorizar**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Monitorizar**.
 3. Na secção **Insights** do menu, selecione **Mais**.  
 4. Na página **'Overview',** clique no azulejo **SQL Health Check.**
@@ -194,7 +194,7 @@ Se tiver recomendações que deseja ignorar, pode criar um ficheiro de texto que
     ```
 3. Se decidir mais tarde que pretende ver recomendações ignoradas, remova quaisquer ficheiros IgnoreRecommendations.txt ou pode remover recomendações das mesmas.
 
-## <a name="sql-health-check-solution-faq"></a>SQL Health Check solução FAQ
+## <a name="sql-health-check-solution-faq"></a>FAQ sobre a solução Verificação de Estado de Funcionamento do SQL
 
 *Que controlos são realizados pela solução de Avaliação SQL?*
 
@@ -205,7 +205,7 @@ SQLAssessmentRecommendation
 | distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
 | sort by FocusArea,ActionArea, Recommendation
 ```
-Os resultados podem ser exportados para o Excel para examinar detalhadamente.
+Os resultados podem então ser exportados para o Excel para posterior revisão.
 
 
 *Com que frequência funciona um exame de saúde?*

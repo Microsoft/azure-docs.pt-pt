@@ -4,10 +4,10 @@ description: Aprenda a configurar um servidor Jenkins para executar trabalhos a 
 ms.topic: article
 ms.date: 08/31/2018
 ms.openlocfilehash: 8bb84895fb581053248fbad326ea7b2c8d1873a2
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617973"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Use as instâncias de contentores Azure como um agente de construção Jenkins
@@ -25,7 +25,7 @@ Para obter mais informações sobre as instâncias de contentores do Azure, cons
    - **Nome**: Introduza um nome para a implantação de Jenkins.
    - **Nome do utilizador**: Introduza um nome para o utilizador administrativo da máquina virtual Jenkins.
    - Tipo de **autenticação**: Recomendamos uma chave pública SSH para autenticação. Se selecionar esta opção, colhe numa chave pública SSH para ser utilizada para iniciar sessão na máquina virtual Jenkins.
-   - **Subscrição**: selecione uma subscrição do Azure.
+   - **Subscrição**: Selecione uma subscrição Azure.
    - **Grupo de recursos**: crie um grupo de recursos ou selecione um grupo existente.
    - **Localização**: Selecione uma localização para o servidor Jenkins.
 
@@ -61,7 +61,7 @@ Para obter mais informações sobre as instâncias de contentores do Azure, cons
 
    ![Jenkins instruções de login com corda SSH](./media/container-instances-jenkins/jenkins-portal-04.png)
 
-3. Abra uma sessão terminal no seu sistema de desenvolvimento e cola na corda SSH a partir do último passo. Atualizar `username` ao nome de utilizador que especificou quando implementou o servidor Jenkins.
+3. Abra uma sessão terminal no seu sistema de desenvolvimento e cola na corda SSH a partir do último passo. Atualize `username` o nome de utilizador que especificou quando implementou o servidor Jenkins.
 
 4. Depois de a sessão estar ligada, execute o seguinte comando para recuperar a senha inicial de administração:
 
@@ -69,7 +69,7 @@ Para obter mais informações sobre as instâncias de contentores do Azure, cons
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Deixe a sessão sh e o túnel em funcionamento, e vá para `http://localhost:8080` num navegador. Passe a palavra-passe inicial na caixa e, em seguida, selecione **Continuar**.
+5. Deixe a sessão sHH e `http://localhost:8080` o túnel em funcionamento, e vá para um navegador. Passe a palavra-passe inicial na caixa e, em seguida, selecione **Continuar**.
 
    ![Ecrã "Desbloquear Jenkins" com a caixa para a senha do administrador](./media/container-instances-jenkins/jenkins-portal-05.png)
 

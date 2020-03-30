@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8cd951f0b4d2f4887630e29cbd3b0ae429b9f6f7
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77367871"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas de inscrição numa aplicação não-galeria configurada para inscrição única federada
@@ -32,7 +32,7 @@ Para resolver os problemas de inscrição abaixo, recomendamos que siga esta sug
 
 ## <a name="application-not-found-in-directory"></a>Candidatura não encontrada no diretório
 
-*Erro AADSTS70001: A aplicação com o identificador `https://contoso.com` não foi encontrada no diretório*.
+*Erro AADSTS70001: A `https://contoso.com` aplicação com identificador não foi encontrada no diretório*.
 
 **Possível causa**
 
@@ -40,7 +40,7 @@ O atributo emitente envia da aplicação para AD Azure no pedido SAML não corre
 
 **Resolução**
 
-Certifique-se de que o atributo `Issuer` no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
+Certifique-se `Issuer` de que o atributo no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
 
 1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador.**
 
@@ -62,7 +62,7 @@ Certifique-se de que o atributo `Issuer` no pedido SAML corresponde ao valor ide
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para a aplicação. 
 
-*Erro AADSTS50011: O endereço de resposta `https://contoso.com` não corresponde aos endereços de resposta configurados para a aplicação* 
+*Erro AADSTS50011: O `https://contoso.com` endereço de resposta não corresponde aos endereços de resposta configurados para a aplicação* 
 
 **Possível causa** 
 
@@ -70,7 +70,7 @@ O valor AssertionConsumerServiceURL no pedido SAML não corresponde ao valor ou 
 
 **Resolução** 
 
-Certifique-se de que o atributo `Issuer` no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
+Certifique-se `Issuer` de que o atributo no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos.
  
 1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador.** 
 
@@ -88,13 +88,13 @@ Certifique-se de que o atributo `Issuer` no pedido SAML corresponde ao valor ide
 
 7. Uma vez que a aplicação seja carregada, clique no único sinal de **inscrição** do menu de navegação à esquerda da aplicação.
 
-8. Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Verifique ou atualize o valor na caixa de texto URL resposta para corresponder ao valor `AssertionConsumerServiceURL` no pedido SAML.    
+8. Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Verifique ou atualize o valor na caixa `AssertionConsumerServiceURL` de texto URL resposta para corresponder ao valor no pedido SAML.    
     
 Depois de ter atualizado o valor URL de resposta em AD Azure, e corresponder ao valor enviado pela aplicação no pedido SAML, deverá poder iniciar sessão no pedido.
 
 ## <a name="user-not-assigned-a-role"></a>Utilizador não atribuiu uma função
 
-*Erro AADSTS50105: O `brian\@contoso.com` assinado não é atribuído a uma função para a aplicação*
+*Erro AADSTS50105: O `brian\@contoso.com` utilizador assinado não é atribuído a uma função para a aplicação*
 
 **Possível causa**
 
@@ -116,7 +116,7 @@ Para atribuir um ou mais utilizadores a uma aplicação diretamente, siga os pas
 
    * Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações.**
 
-6. Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
+6. Selecione a aplicação que pretende atribuir a um utilizador da lista.
 
 7. Assim que a aplicação for carregada, clique em **Utilizadores e Grupos** a partir do menu de navegação à esquerda da aplicação.
 
@@ -136,7 +136,7 @@ Para atribuir um ou mais utilizadores a uma aplicação diretamente, siga os pas
 
 15. Clique no botão **Atribuir** para atribuir a aplicação aos utilizadores selecionados.
 
-Após um curto período de tempo, os utilizadores que selecionou ser capaz de iniciar esses aplicativos usando os métodos descritos na secção de descrição de solução.
+Após um curto período de tempo, os utilizadores selecionados podem lançar estas aplicações utilizando os métodos descritos na secção de descrição da solução.
 
 ## <a name="not-a-valid-saml-request"></a>Não é um pedido SAML válido
 
@@ -168,11 +168,11 @@ O fornecedor de aplicações deve validar que suporta a implementação do Azure
 
 **Possível causa**
 
-O atributo `Issuer` enviado da aplicação à Azure AD no pedido SAML não corresponde ao valor identificador configurado para a aplicação em Azure AD.
+O `Issuer` atributo enviado a partir da aplicação à AD Azure no pedido SAML não corresponde ao valor identificador configurado para a aplicação em Azure AD.
 
 **Resolução**
 
-Certifique-se de que o atributo `Issuer` no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos:
+Certifique-se `Issuer` de que o atributo no pedido SAML corresponde ao valor identificador configurado em Azure AD. Se utilizar a experiência de [teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a extensão do navegador Seguro das Minhas Aplicações, não precisa de seguir manualmente estes passos:
 
 1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador**.
 
@@ -242,7 +242,7 @@ O pedido precisa de enviar o pedido SAML codificado para o cabeçalho de localiz
 
 **Possível causa**
 
-Durante o início de um único signo, se o pedido de inscrição não contiver um URL de resposta explícito (URL de Serviço ao Consumidor de Afirmação) então o Azure AD selecionará qualquer um dos URLs de confiança configurado para essa aplicação. Mesmo que a aplicação tenha um URL de resposta explícito configurado, o utilizador pode ser redirecionado https://127.0.0.1:444. 
+Durante o início de um único signo, se o pedido de inscrição não contiver um URL de resposta explícito (URL de Serviço ao Consumidor de Afirmação) então o Azure AD selecionará qualquer um dos URLs de confiança configurado para essa aplicação. Mesmo que a aplicação tenha um URL de resposta explícito https://127.0.0.1:444configurado, o utilizador pode ser redirecionado . 
 
 Quando a aplicação foi adicionada como uma aplicação sem galeria, o Azure Active Directory criou este URL de resposta como um valor predefinido. Este comportamento foi alterado e o Azure Active Directory já não o adiciona por predefinição. 
 
@@ -264,7 +264,7 @@ Elimine os URLs de resposta não utilizados configurados para a aplicação.
 
 6.  Selecione a aplicação que pretende configurar para um único início de sessão.
 
-7.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. No **URL de resposta (URL do Serviço ao Consumidor de Afirmação)** , elimine URLs de Resposta não utilizados ou predefinidos criados pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. No **URL de resposta (URL do Serviço ao Consumidor de Afirmação)**, elimine URLs de Resposta não utilizados ou predefinidos criados pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

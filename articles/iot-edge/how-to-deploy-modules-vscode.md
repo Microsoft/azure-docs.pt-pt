@@ -10,32 +10,32 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e1b2e2a80670cf0409f8f8477563b9a209cc8706
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77209210"
 ---
-# <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implementar módulos do Azure IoT Edge do Visual Studio Code
+# <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implementar módulos Azure IoT Edge do Visual Studio Code
 
-Depois de criar do IoT Edge módulos com a sua lógica de negócios, pretende implementá-las para os seus dispositivos para operar na periferia. Se tiver vários módulos que funcionam em conjunto para coletar e processar dados, pode implementá-las ao mesmo tempo e declarar as regras de encaminhamento que ligam-os.
+Assim que criar módulos IoT Edge com a sua lógica de negócio, pretende implantá-los nos seus dispositivos para operar na borda. Se tiver vários módulos que trabalham em conjunto para recolher e processar dados, pode implantá-los todos de uma vez e declarar as regras de encaminhamento que os ligam.
 
-Este artigo mostra como criar um manifesto de implantação de JSON, em seguida, utilizar esse ficheiro para emitir a implementação para um dispositivo IoT Edge. Para obter informações sobre a criação de uma implementação que visa vários dispositivos com base nas suas tags partilhadas, consulte os [módulos Deploy IoT Edge em escala utilizando](how-to-deploy-monitor-vscode.md)o Código do Estúdio Visual .
+Este artigo mostra como criar um manifesto de implantação JSON, em seguida, use esse ficheiro para empurrar a implementação para um dispositivo IoT Edge. Para obter informações sobre a criação de uma implementação que visa vários dispositivos com base nas suas tags partilhadas, consulte os [módulos Deploy IoT Edge em escala utilizando](how-to-deploy-monitor-vscode.md)o Código do Estúdio Visual .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) na sua assinatura Azure.
 * Um [dispositivo IoT Edge](how-to-register-device.md#register-with-visual-studio-code) com o tempo de execução do IoT Edge instalado.
-* [Visual Studio Code](https://code.visualstudio.com/).
+* [Código de estúdio visual.](https://code.visualstudio.com/)
 * [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Código de Estúdio Visual.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais os módulos para implementar, como os dados fluem entre os módulos e propriedades pretendidas do duplos de módulo. Para obter mais informações sobre como os manifestos de implantação funcionam e como criá-los, consulte [Entenda como os módulos IoT Edge podem ser usados, configurados e reutilizados](module-composition.md).
+Um manifesto de implantação é um documento JSON que descreve quais os módulos a implantar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. Para obter mais informações sobre como os manifestos de implantação funcionam e como criá-los, consulte [Entenda como os módulos IoT Edge podem ser usados, configurados e reutilizados](module-composition.md).
 
-Para implementar módulos com o Visual Studio Code, guarde o manifesto de implantação localmente como um. Ficheiro JSON. Irá utilizar o caminho do ficheiro na próxima seção ao executar o comando para aplicar a configuração para o seu dispositivo.
+Para implementar módulos utilizando o Código do Estúdio Visual, guarde o manifesto de implantação localmente como a . Ficheiro JSON. Utilizará o caminho do ficheiro na secção seguinte quando executar o comando para aplicar a configuração no seu dispositivo.
 
-Aqui está um manifesto de implantação básico com um módulo como exemplo:
+Aqui está um manifesto básico de implantação com um módulo como exemplo:
 
    ```json
    {
@@ -101,9 +101,9 @@ Aqui está um manifesto de implantação básico com um módulo como exemplo:
    }
    ```
 
-## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o seu hub IoT
+## <a name="sign-in-to-access-your-iot-hub"></a>Inscreva-se para aceder ao seu hub IoT
 
-Pode utilizar as extensões de IoT do Azure para Visual Studio Code para realizar operações com o seu hub IoT. Para essas operações trabalhar, terá de iniciar sessão na sua conta do Azure e selecione o hub de IoT que está a trabalhar.
+Pode utilizar as extensões Azure IoT para O Código do Estúdio Visual para realizar operações com o seu hub IoT. Para que estas operações funcionem, tem de iniciar sessão na sua conta Azure e selecionar o hub IoT em que está a trabalhar.
 
 1. No Visual Studio Code, abra a vista **Explorer.**
 
@@ -111,19 +111,19 @@ Pode utilizar as extensões de IoT do Azure para Visual Studio Code para realiza
 
    ![Expandir a secção Hub Azure IoT](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. Clique no **...** no cabeçalho da secção **Azure IoT Hub.** Se não vir o botão de reticências, Paire o rato sobre o cabeçalho.
+1. Clique no **...** no cabeçalho da secção **Azure IoT Hub.** Se não vires a elipse, paira sobre o cabeceamento.
 
 1. Escolha **Selecione Selecione IoT Hub**.
 
-1. Se não tiver sessão iniciada sua conta do Azure, siga as instruções para fazer isso.
+1. Se não estiver inscrito na sua conta Azure, siga as instruções para o fazer.
 
 1. Selecione a sua subscrição do Azure.
 
-1. Selecione o seu hub IoT.
+1. Selecione o seu hub ioT.
 
 ## <a name="deploy-to-your-device"></a>Implementar no seu novo dispositivo
 
-Implementar módulos no seu dispositivo ao aplicar o manifesto de implantação que configurou com as informações de módulo.
+Implementa módulos no seu dispositivo aplicando o manifesto de implementação que configuracom a informação do módulo.
 
 1. Na vista do explorador do Código do Estúdio Visual, expanda a secção **Azure IoT Hub** e, em seguida, expanda o nó de **Dispositivos.**
 
@@ -136,17 +136,17 @@ Implementar módulos no seu dispositivo ao aplicar o manifesto de implantação 
 
 1. Navegue para o ficheiro JSON manifesto de implementação que pretende utilizar e clique em **Select Edge Deployment Manifest**.
 
-   ![Selecione o manifesto de implantação do Edge](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
+   ![Selecione manifesto de implantação de bordas](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
 
-Os resultados da implementação são impressos no resultado do VS Code. Implementações bem-sucedidas são aplicadas em poucos minutos, se o dispositivo de destino está em execução e ligadas à internet.
+Os resultados da sua implementação estão impressos na saída do Código VS. As implementações bem sucedidas são aplicadas dentro de alguns minutos se o dispositivo alvo estiver em execução e ligado à internet.
 
-## <a name="view-modules-on-your-device"></a>Módulos de ver no seu dispositivo
+## <a name="view-modules-on-your-device"></a>Ver módulos no seu dispositivo
 
-Depois de ter implantado módulos no seu dispositivo, pode vê-los todos na secção **Hub Azure IoT.** Selecione a seta junto ao seu dispositivo IoT Edge para expandi-la. São apresentados todos os módulos em execução.
+Depois de ter implantado módulos no seu dispositivo, pode vê-los todos na secção **Hub Azure IoT.** Selecione a seta ao lado do seu dispositivo IoT Edge para expandi-la. Todos os módulos em execução atualmente são apresentados.
 
 Se recentemente implementou novos módulos para um dispositivo, paire sobre o cabeçalho da secção **dispositivos Hub Azure IoT** e selecione o ícone de atualização para atualizar a vista.
 
-Faça duplo clique o nome de um módulo para ver e editar o módulo duplo.
+Clique no nome de um módulo para visualizar e editar o módulo twin.
 
 ## <a name="next-steps"></a>Passos seguintes
 

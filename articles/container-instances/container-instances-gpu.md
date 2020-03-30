@@ -4,10 +4,10 @@ description: Aprenda a implementar instâncias de contentores Azure para executa
 ms.topic: article
 ms.date: 02/19/2020
 ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77525293"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentores que utilizam recursos GPU
@@ -17,7 +17,7 @@ Para executar certas cargas de trabalho intensivas em cálculos em Instâncias d
 Este artigo mostra como adicionar recursos GPU quando implanta um grupo de contentores utilizando um [modelo de ficheiro YAML](container-instances-multi-container-yaml.md) ou [Desprovido](container-instances-multi-container-group.md)de recursos . Também pode especificar os recursos da GPU quando implementa uma instância de contentores utilizando o portal Azure.
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se atualmente em pré-visualização, e [aplicam-se algumas limitações.](#preview-limitations) As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esta funcionalidade encontra-se atualmente em pré-visualização, e [aplicam-se algumas limitações.](#preview-limitations) As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
@@ -53,7 +53,7 @@ Para utilizar as GPUs numa instância de contentores, especifique um *recurso gp
 
 Ao utilizar os recursos da GPU, detete toda a CPU e dos recursos de memória adequados à carga de trabalho, até aos valores máximos apresentados na tabela anterior. Estes valores são atualmente maiores do que o CPU e os recursos de memória disponíveis em grupos de contentores sem recursos de GPU.  
 
-### <a name="things-to-know"></a>Coisas a saber
+### <a name="things-to-know"></a>Aspetos importantes
 
 * Tempo de **implantação** - Criação de um grupo de contentores contendo recursos GPU demora até **8-10 minutos**. Isto deve-se ao tempo adicional para fornecer e configurar um GPU VM em Azure. 
 
@@ -91,7 +91,7 @@ properties:
   restartPolicy: OnFailure
 ```
 
-Desloque o grupo de contentores com o [recipiente az criar][az-container-create] comando, especificando o nome de ficheiro YAML para o parâmetro `--file`. Você precisa fornecer o nome de um grupo de recursos e uma localização para o grupo de contentores, como *eastus* que suporta recursos de GPU.  
+Desloque o grupo de contentores com o [recipiente az criar][az-container-create] comando, especificando o nome de ficheiro YAML para o `--file` parâmetro. Você precisa fornecer o nome de um grupo de recursos e uma localização para o grupo de contentores, como *eastus* que suporta recursos de GPU.  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
@@ -116,7 +116,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Exemplo de modelo de gestor de recursos
 
-Outra forma de implantar um grupo de contentores com recursos GPU é usando um modelo de Gestor de [Recursos](container-instances-multi-container-group.md). Comece por criar um ficheiro chamado `gpudeploy.json`, em seguida, copie o seguinte JSON nele. Este exemplo implementa uma instância de contentores com uma GPU V100 que executa um trabalho de formação [TensorFlow](https://www.tensorflow.org/) contra o conjunto de dados MNIST. Os pedidos de recursos são suficientes para executar a carga de trabalho.
+Outra forma de implantar um grupo de contentores com recursos GPU é usando um modelo de Gestor de [Recursos](container-instances-multi-container-group.md). Comece por criar `gpudeploy.json`um ficheiro chamado e, em seguida, copie o seguinte JSON nele. Este exemplo implementa uma instância de contentores com uma GPU V100 que executa um trabalho de formação [TensorFlow](https://www.tensorflow.org/) contra o conjunto de dados MNIST. Os pedidos de recursos são suficientes para executar a carga de trabalho.
 
 ```JSON
 {

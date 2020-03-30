@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: e0114c37b2204a7ad1d7b0cf9c7f336dcd85883a
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110500"
 ---
 # <a name="get-started-with-device-twins-java"></a>Começar com gémeos dispositivo (Java)
@@ -46,7 +46,7 @@ Neste tutorial, crias duas aplicações de consola Java:
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 [!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
 
@@ -78,7 +78,7 @@ Nesta secção, cria-se uma aplicação Java que adiciona metadados de localiza�
     ```
 
     > [!NOTE]
-    > Pode consultar a versão mais recente do **iot-service-client** usando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **iot-service-client** utilizando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Adicione o nó de **construção** seguinte após o nó de **dependências.** Esta configuração instrui Maven a usar Java 1.8 para construir a aplicação.
 
@@ -98,7 +98,7 @@ Nesta secção, cria-se uma aplicação Java que adiciona metadados de localiza�
     </build>
     ```
 
-6. Guarde e feche o ficheiro **pom.xml.**
+6. Guarde e feche o ficheiro **pom.xml**.
 
 7. Utilizando um editor de texto, abra o **add-tags-consulta\src\main\java\com\mycompany\app\app\app.java** file.
 
@@ -113,7 +113,7 @@ Nesta secção, cria-se uma aplicação Java que adiciona metadados de localiza�
     import java.util.Set;
     ```
 
-9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{youriothubconnectionstring}` com a cadeia de ligação do hub IoT que copiou na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string).
+9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua-a `{youriothubconnectionstring}` com a cadeia de ligação do hub IoT que copiou na cadeia de ligação do [hub IoT](#get-the-iot-hub-connection-string).
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -123,7 +123,7 @@ Nesta secção, cria-se uma aplicação Java que adiciona metadados de localiza�
     public static final String plant = "Redmond43";
     ```
 
-10. Atualize a assinatura do método **principal** para incluir a seguinte cláusula `throws`:
+10. Atualize a assinatura **do** `throws` método principal para incluir a seguinte cláusula:
 
     ```java
     public static void main( String[] args ) throws IOException
@@ -137,7 +137,7 @@ Nesta secção, cria-se uma aplicação Java que adiciona metadados de localiza�
     DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
     ```
 
-12. Adicione o seguinte bloco `try/catch` ao método **principal:**
+12. Adicione o `try/catch` seguinte bloco ao método **principal:**
 
     ```java
     try {
@@ -149,7 +149,7 @@ Nesta secção, cria-se uma aplicação Java que adiciona metadados de localiza�
     }
     ```
 
-13. Para atualizar a **região** e as etiquetas gémeas do dispositivo **no** seu dispositivo twin, adicione o seguinte código no bloco `try`:
+13. Para atualizar a **região** e as etiquetas gémeas do `try` dispositivo **de instalação** no seu dispositivo twin, adicione o seguinte código no bloco:
 
     ```java
     // Get the device twin from IoT Hub
@@ -178,7 +178,7 @@ Nesta secção, cria-se uma aplicação Java que adiciona metadados de localiza�
     System.out.println(device);
     ```
 
-14. Para consultar os gémeos do dispositivo no hub IoT, adicione o seguinte código ao bloco `try` após o código que adicionou no passo anterior. O código faz duas perguntas. Cada consulta devolve um máximo de 100 dispositivos.
+14. Para consultar os gémeos do dispositivo no hub IoT, adicione o seguinte código ao `try` bloco após o código que adicionou no passo anterior. O código faz duas perguntas. Cada consulta devolve um máximo de 100 dispositivos.
 
     ```java
     // Query the device twins in IoT Hub
@@ -238,7 +238,7 @@ Nesta secção, cria-se uma aplicação de consola Java que define um valor de p
     ```
 
     > [!NOTE]
-    > Pode verificar a versão mais recente do **iot-device-client** usando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **iot-device-client** utilizando a [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Adicione a seguinte dependência ao nó de **dependências.** Esta dependência configura um NOP para a fachada de exploração de apache [SLF4J,](https://www.slf4j.org/) que é usada pelo cliente do dispositivo SDK para implementar a exploração madeireira. Esta configuração é opcional, mas, se a omitir, poderá ver um aviso na consola quando executar a aplicação. Para obter mais informações sobre o login no cliente do dispositivo SDK, consulte [o Registo de Registos](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) nas *Amostras para o dispositivo Azure IoT SDK para java* readme file.
 
@@ -268,7 +268,7 @@ Nesta secção, cria-se uma aplicação de consola Java que define um valor de p
     </build>
     ```
 
-6. Guarde e feche o ficheiro **pom.xml.**
+6. Guarde e feche o ficheiro **pom.xml**.
 
 7. Utilizando um editor de texto, abra o **dispositivo simulado\src\main\java\com\mycompany\app\app\app\java** file.
 
@@ -283,7 +283,7 @@ Nesta secção, cria-se uma aplicação de consola Java que define um valor de p
     import java.util.Scanner;
     ```
 
-9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua `{yourdeviceconnectionstring}` com a cadeia de ligação do dispositivo que copiou no [Registo um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).
+9. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua-a `{yourdeviceconnectionstring}` com a cadeia de ligação do dispositivo que copiou no [Registo um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";

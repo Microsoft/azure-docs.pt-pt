@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 24f83e4f6285d045e67bdaef431ebcff2345ef84
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663901"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envie métricas de SO para a loja métrica Do Monitor Azure utilizando um modelo de Gestor de Recursos Azure para um conjunto de escala de máquina virtual windows
@@ -54,7 +54,7 @@ Abra o ficheiro **azuredeploy.parâmetros.json:**
 - Introduza valores para **administradorUsername** e **administradorPassword** para o conjunto de escala de máquina virtual. Estes parâmetros são utilizados para o acesso remoto aos VMs no conjunto de escala. Para evitar que o seu VM seja sequestrado, **não** utilize os deste modelo. Os bots digitalizam a internet para ver nomes de utilizadores e senhas em repositórios públicos do GitHub. É provável que estejam a testar VMs com estes incumprimentos. 
 
 
-###  <a name="modify-azuredeployjson"></a>Modify azuredeploy.json
+###  <a name="modify-azuredeployjson"></a>Modificar azuredeploy.json
 Abra o ficheiro **azuredeploy.json.** 
 
 Adicione uma variável para manter a informação da conta de armazenamento no modelo de Gestor de Recursos. Quaisquer registos ou contadores de desempenho especificados no ficheiro de diagnóstico config são escritos tanto para a loja métrica Do Monitor Azure como para a conta de armazenamento que especifica aqui: 
@@ -237,9 +237,9 @@ Guarde e feche os dois ficheiros.
 
 Para implementar o modelo de Gestor de Recursos, utilize o Azure PowerShell:  
 
-1. Lançar PowerShell. 
-1. Inscreva-se no Azure usando `Login-AzAccount`.
-1. Obtenha a sua lista de subscrições utilizando `Get-AzSubscription`.
+1. Inicie o PowerShell. 
+1. Inscreva-se no `Login-AzAccount`Azure usando .
+1. Obtenha a sua lista `Get-AzSubscription`de subscrições utilizando .
 1. Detete a subscrição que irá criar, ou atualize a máquina virtual: 
 
    ```powershell

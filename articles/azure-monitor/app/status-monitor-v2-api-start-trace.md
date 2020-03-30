@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: b9680101f1a22dd6d9c1617c8afc13a10ad1c594
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671227"
 ---
 # <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>Agente de Insights de Aplicação API: Start-ApplicationInsightsMonitoringTrace
@@ -22,7 +22,7 @@ Recolhe [eventos ETW](https://docs.microsoft.com/windows/desktop/etw/event-traci
 
 Os eventos recolhidos serão impressos na consola em tempo real e guardados para um ficheiro ETL. O ficheiro ETL de saída pode ser aberto pela [PerfView](https://github.com/microsoft/perfview) para posterior investigação.
 
-Este cmdlet funcionará até atingir a duração do tempo limite (predefinido 5 minutos) ou for interrompido manualmente (`Ctrl + C`).
+Este cmdlet funcionará até atingir a duração do tempo limite (predefinido 5 minutos) ou parar manualmente ().`Ctrl + C`
 
 > [!IMPORTANT] 
 > Este cmdlet requer uma sessão PowerShell com permissões de Administrador.
@@ -36,17 +36,17 @@ Normalmente pedimos que recolha eventos para investigar por que a sua aplicaçã
 O tempo de execução da ligação sem código emitirá eventos ETW quando o IIS começar e quando a sua aplicação começar.
 
 Para recolher estes eventos:
-1. Numa consola cmd com privilégios de administração, execute `iisreset /stop` Desligue o IIS e todas as aplicações web.
+1. Numa consola cmd com privilégios `iisreset /stop` de administração, execute Para desligar o IIS e todas as aplicações web.
 2. Execute este cmdlet
-3. Numa consola cmd com privilégios de administração, execute `iisreset /start` Iniciar o IIS.
+3. Numa consola cmd com privilégios `iisreset /start` de administração, execute Para iniciar o IIS.
 4. Tente navegar na sua aplicação.
-5. Depois de a sua aplicação terminar de carregar, pode detê-la manualmente (`Ctrl + C`) ou esperar pelo intervalo.
+5. Depois de a sua aplicação terminar de`Ctrl + C`carregar, pode detê-la manualmente ou esperar pelo intervalo.
 
 ### <a name="what-events-to-collect"></a>Que eventos recolher
 
 Tem três opções na recolha de eventos:
-1. Utilize o comutador `-CollectSdkEvents` para recolher eventos emitidos pelo SDK de Insights de Aplicação.
-2. Utilize o interruptor `-CollectRedfieldEvents` para recolher os eventos emitidos pelo Status Monitor e pelo Tempo de Execução de Redfield. Estes registos são úteis no diagnóstico do IIS e no arranque da aplicação.
+1. Utilize o `-CollectSdkEvents` interruptor para recolher eventos emitidos pelo SDK de Insights de Aplicação.
+2. Utilize o `-CollectRedfieldEvents` interruptor para recolher os eventos emitidos pelo Status Monitor e pelo Tempo de Execução de Redfield. Estes registos são úteis no diagnóstico do IIS e no arranque da aplicação.
 3. Utilize ambos os interruptores para recolher ambos os tipos de eventos.
 4. Por predefinição, se não for especificado qualquer interruptor, ambos os tipos de eventos serão recolhidos.
 
@@ -108,7 +108,7 @@ Timeout Reached. Stopping...
 
 Resolução adicional de problemas:
 
-- Reveja passos adicionais de resolução de problemas aqui: https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
+- Reveja passos adicionais de resolução de problemas aqui:https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
 - Reveja a [Referência Da API](status-monitor-v2-overview.md#powershell-api-reference) para saber sobre os parâmetros que pode ter perdido.
 - Se precisar de ajuda adicional, pode contactar-nos no [GitHub.](https://github.com/Microsoft/ApplicationInsights-Home/issues)
 

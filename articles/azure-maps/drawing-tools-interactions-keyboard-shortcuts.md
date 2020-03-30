@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198297"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipos de interação e atalhos de teclado no módulo de ferramentas de desenho
@@ -21,44 +21,44 @@ Este artigo descreve todas as diferentes formas de desenhar e editar formas usan
 
 O gestor de desenho suporta três formas diferentes de interagir com o mapa, para desenhar formas.
 
-* `click` - As coordenadas são adicionadas quando o rato ou o toque são clicados.
-* `freehand ` - As coordenadas são adicionadas quando o rato ou o toque são arrastados no mapa.
-* `hybrid` - As coordenadas são adicionadas quando o rato ou o toque são clicados ou arrastados.
+* `click`- As coordenadas são adicionadas quando o rato ou o toque são clicados.
+* `freehand `- São adicionadas coordenadas quando o rato ou o toque são arrastados no mapa.
+* `hybrid`- As coordenadas são adicionadas quando o rato ou o toque são clicados ou arrastados.
 
 ## <a name="how-to-draw-shapes"></a>Como desenhar formas
 
- Antes de qualquer forma poder ser desenhada, defina a opção `drawingMode` do gestor de desenho para uma definição de desenho suportada. Esta definição pode ser programada ou invocada premindo um dos botões de desenho na barra de ferramentas. O modo de desenho mantém-se ativado, mesmo depois de uma forma ter sido desenhada, facilitando a elaboração de formas adicionais do mesmo tipo. Programáticamente, coloque o modo de desenho num estado ocioso. Ou, mude para um estado ocioso clicando no botão de modos de desenho atual na barra de ferramentas.
+ Antes de qualquer forma poder `drawingMode` ser desenhada, defina a opção do gestor de desenho para uma definição de desenho suportada. Esta definição pode ser programada ou invocada premindo um dos botões de desenho na barra de ferramentas. O modo de desenho mantém-se ativado, mesmo depois de uma forma ter sido desenhada, facilitando a elaboração de formas adicionais do mesmo tipo. Programáticamente, coloque o modo de desenho num estado ocioso. Ou, mude para um estado ocioso clicando no botão de modos de desenho atual na barra de ferramentas.
 
 As secções seguintes delineiam todas as diferentes formas que as formas podem ser desenhadas no mapa.
 
 ### <a name="how-to-draw-a-point"></a>Como desenhar um ponto
 
-Quando o gestor de desenho está em modo de desenho `draw-point`, as seguintes ações podem ser feitas para desenhar pontos no mapa. Estes métodos funcionam com todos os modos de interação.
+Quando o gestor `draw-point` de desenho está em modo de desenho, as seguintes ações podem ser feitas para desenhar pontos no mapa. Estes métodos funcionam com todos os modos de interação.
 
 **Começar a desenhar**
  - Clique no botão do rato esquerdo ou toque no mapa para adicionar um ponto ao mapa. 
- - Se o rato estiver sobre o mapa, prima a tecla `F` e um ponto será adicionado na coordenada do ponteiro do rato. Este método proporciona uma maior precisão para adicionar um ponto ao mapa. Haverá menos movimento no rato devido ao movimento de pressão do botão do rato esquerdo.
- - Continue a clicar, tocar ou premir `F` para adicionar mais pontos ao mapa.
+ - Se o rato estiver sobre `F` o mapa, prima a tecla e um ponto será adicionado na coordenada do ponteiro do rato. Este método proporciona uma maior precisão para adicionar um ponto ao mapa. Haverá menos movimento no rato devido ao movimento de pressão do botão do rato esquerdo.
+ - Continue a clicar, tocar `F` ou premir para adicionar mais pontos ao mapa.
  
 **Terminar o desenho**
  - Clique em qualquer botão na barra de ferramentas de desenho. 
  - Definir programáticamente o modo de desenho. 
- - Pressione a chave `C`.
+ - Pressione `C` a chave.
 
 **Cancelar o desenho**
- - Pressione a chave `Escape`.
+ - Pressione `Escape` a chave.
 
 ### <a name="how-to-draw-a-line"></a>Como desenhar uma linha
 
-Quando o gestor de desenho está em modo `draw-line`, as seguintes ações podem ser feitas para desenhar pontos no mapa, dependendo do modo de interação.
+Quando o gestor `draw-line` de desenho está em modo, as seguintes ações podem ser feitas para desenhar pontos no mapa, dependendo do modo de interação.
 
 **Começar a desenhar**
  - Clique no modo
    * Clique no botão do rato esquerdo ou toque no mapa para adicionar cada ponto de linha no mapa. Uma coordenada é adicionada à linha para cada clique ou toque. 
-   * Se o rato estiver sobre o mapa, prima a tecla `F` e um ponto será adicionado na coordenada do ponteiro do rato. Este método proporciona uma maior precisão para adicionar um ponto ao mapa. Haverá menos movimento no rato devido ao movimento de pressão do botão do rato esquerdo.
+   * Se o rato estiver sobre `F` o mapa, prima a tecla e um ponto será adicionado na coordenada do ponteiro do rato. Este método proporciona uma maior precisão para adicionar um ponto ao mapa. Haverá menos movimento no rato devido ao movimento de pressão do botão do rato esquerdo.
    * Continue a clicar até que todos os pontos desejados tenham sido adicionados à linha.
  - Modo freehand
-   * Pressione para baixo o botão do rato esquerdo, ou retoque no mapa e arraste o rato, ou ponto de contacto ao redor. As coordenadas são adicionadas à linha à medida que o rato ou o ponto de contacto se movem em torno do mapa. Assim que o rato ou evento de retoque for desencadeado, o desenho é concluído. A frequência a que são adicionadas coordenadas é definida pelos gestores de desenho `freehandInterval` opção.
+   * Pressione para baixo o botão do rato esquerdo, ou retoque no mapa e arraste o rato, ou ponto de contacto ao redor. As coordenadas são adicionadas à linha à medida que o rato ou o ponto de contacto se movem em torno do mapa. Assim que o rato ou evento de retoque for desencadeado, o desenho é concluído. A frequência a que são adicionadas coordenadas `freehandInterval` é definida pela opção de gestores de desenho.
  - Modo híbrido
    * Alterne entre os métodos de clique e de mão livre, conforme desejado, enquanto desenha uma única linha. Por exemplo, clique em alguns pontos, em seguida, segure e arraste o rato para adicionar um monte de pontos, em seguida, clique em mais alguns. 
 
@@ -69,22 +69,22 @@ Quando o gestor de desenho está em modo `draw-line`, as seguintes ações podem
    * Definir programáticamente o modo de desenho. 
  - Modo freehand
    * Desbloqueie o botão do rato ou o ponto de contacto.
- - Pressione a chave `C`.
+ - Pressione `C` a chave.
 
 **Cancelar o desenho**
- - Pressione a chave `Escape`.
+ - Pressione `Escape` a chave.
 
 ### <a name="how-to-draw-a-polygon"></a>Como desenhar um polígono
 
-Quando o gestor de desenho está em modo `draw-polygon`, as seguintes ações podem ser feitas para desenhar pontos no mapa, dependendo do modo de interação.
+Quando o gestor `draw-polygon` de desenho está em modo, as seguintes ações podem ser feitas para desenhar pontos no mapa, dependendo do modo de interação.
 
 **Começar a desenhar**
  - Clique no modo
    * Clique no botão do rato esquerdo ou toque no mapa para adicionar cada ponto de um polígono no mapa. Uma coordenada é adicionada ao polígono para cada clique ou toque. 
-   * Se o rato estiver sobre o mapa, prima a tecla `F` e um ponto será adicionado na coordenada do ponteiro do rato. Este método proporciona uma maior precisão para adicionar um ponto ao mapa. Haverá menos movimento no rato devido ao movimento de pressão do botão do rato esquerdo.
+   * Se o rato estiver sobre `F` o mapa, prima a tecla e um ponto será adicionado na coordenada do ponteiro do rato. Este método proporciona uma maior precisão para adicionar um ponto ao mapa. Haverá menos movimento no rato devido ao movimento de pressão do botão do rato esquerdo.
    * Continue a clicar até que todos os pontos desejados tenham sido adicionados ao polígono.
  - Modo freehand
-   * Pressione para baixo o botão do rato esquerdo, ou retoque no mapa e arraste o rato, ou ponto de contacto ao redor. As coordenadas são adicionadas ao polígono à medida que o rato ou o ponto de contacto se movem em torno do mapa. Assim que o rato ou evento de retoque for desencadeado, o desenho é concluído. A frequência a que são adicionadas coordenadas é definida pelos gestores de desenho `freehandInterval` opção.
+   * Pressione para baixo o botão do rato esquerdo, ou retoque no mapa e arraste o rato, ou ponto de contacto ao redor. As coordenadas são adicionadas ao polígono à medida que o rato ou o ponto de contacto se movem em torno do mapa. Assim que o rato ou evento de retoque for desencadeado, o desenho é concluído. A frequência a que são adicionadas coordenadas `freehandInterval` é definida pela opção de gestores de desenho.
  - Modo híbrido
    * Alterne entre os métodos de clique e de mão livre, conforme desejado, enquanto desenha um único polígono. Por exemplo, clique em alguns pontos, em seguida, segure e arraste o rato para adicionar um monte de pontos, em seguida, clique em mais alguns. 
 
@@ -96,14 +96,14 @@ Quando o gestor de desenho está em modo `draw-polygon`, as seguintes ações po
    * Definir programáticamente o modo de desenho. 
  - Modo freehand
    * Desbloqueie o botão do rato ou o ponto de contacto.
- - Pressione a chave `C`.
+ - Pressione `C` a chave.
 
 **Cancelar o desenho**
- - Pressione a chave `Escape`.
+ - Pressione `Escape` a chave.
 
 ### <a name="how-to-draw-a-rectangle"></a>Como desenhar um retângulo
 
-Quando o gestor de desenho está em modo `draw-rectangle`, as seguintes ações podem ser feitas para desenhar pontos no mapa, dependendo do modo de interação. A forma gerada seguirá a [especificação GeoJSON estendida para retângulos](extend-geojson.md#rectangle).
+Quando o gestor `draw-rectangle` de desenho está em modo, as seguintes ações podem ser feitas para desenhar pontos no mapa, dependendo do modo de interação. A forma gerada seguirá a [especificação GeoJSON estendida para retângulos](extend-geojson.md#rectangle).
 
 **Começar a desenhar**
  - Pressione para baixo o botão do rato esquerdo ou retoque no mapa para adicionar o primeiro canto do retângulo e arraste para criar o retângulo. 
@@ -111,14 +111,14 @@ Quando o gestor de desenho está em modo `draw-rectangle`, as seguintes ações 
 **Terminar o desenho**
  - Desbloqueie o botão do rato ou o ponto de contacto.
  - Definir programáticamente o modo de desenho. 
- - Pressione a chave `C`.
+ - Pressione `C` a chave.
 
 **Cancelar o desenho**
- - Pressione a chave `Escape`.
+ - Pressione `Escape` a chave.
 
 ### <a name="how-to-draw-a-circle"></a>Como desenhar um círculo
 
-Quando o gestor de desenho está em modo `draw-circle`, as seguintes ações podem ser feitas para desenhar pontos no mapa, dependendo do modo de interação. A forma gerada seguirá a [especificação GeoJSON estendida para círculos](extend-geojson.md#circle).
+Quando o gestor `draw-circle` de desenho está em modo, as seguintes ações podem ser feitas para desenhar pontos no mapa, dependendo do modo de interação. A forma gerada seguirá a [especificação GeoJSON estendida para círculos](extend-geojson.md#circle).
 
 **Começar a desenhar**
  - Pressione para baixo o botão do rato esquerdo ou retoque no mapa para adicionar o centro do círculo e arraste dar aos círculos um raio. 
@@ -126,10 +126,10 @@ Quando o gestor de desenho está em modo `draw-circle`, as seguintes ações pod
 **Terminar o desenho**
  - Desbloqueie o botão do rato ou o ponto de contacto.
  - Definir programáticamente o modo de desenho. 
- - Pressione a chave `C`.
+ - Pressione `C` a chave.
 
 **Cancelar o desenho**
- - Pressione a chave `Escape`.
+ - Pressione `Escape` a chave.
 
 ## <a name="keyboard-shortcuts"></a>Atalhos de teclado
 

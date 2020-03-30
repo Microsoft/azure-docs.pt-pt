@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 903daf450800a7f060899d736c2b31920c1b51f6
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562450"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-tableau"></a>Visualizar dados do Azure Data Explorer em Tableau
@@ -34,7 +34,7 @@ Precisa do seguinte para completar este artigo:
 
 Assim que terminar de configurar a ODBC, pode trazer dados da amostra para o Tableau.
 
-1. No Tableau Desktop, no menu esquerdo, selecione **Outras Bases de Dados (ODBC)** .
+1. No Tableau Desktop, no menu esquerdo, selecione **Outras Bases de Dados (ODBC)**.
 
     ![Entrar em contacto com o ODBC](media/tableau/connect-odbc.png)
 

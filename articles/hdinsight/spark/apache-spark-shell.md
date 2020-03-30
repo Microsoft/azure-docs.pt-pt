@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162808"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Executar Faísca Apache da Faísca
@@ -59,7 +59,7 @@ Um [Apache Spark](https://spark.apache.org/) Shell interativo fornece um ambient
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. Consultar um ficheiro CSV. Note que a língua abaixo funciona para `spark-shell` e `pyspark`.
+1. Consultar um ficheiro CSV. Note que a `spark-shell` língua `pyspark`abaixo funciona para e .
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
@@ -87,7 +87,7 @@ Um [Apache Spark](https://spark.apache.org/) Shell interativo fornece um ambient
     data.select("BuildingID", "Country").show(10)
     ```
 
-1. Sair
+1. Exit
 
     ```spark-shell
     :q
@@ -101,17 +101,17 @@ Um [Apache Spark](https://spark.apache.org/) Shell interativo fornece um ambient
 
 Por predefinição, quando executa a Spark Shell, as instâncias de SparkSession e SparkContext são automaticamente instantâneas para si.
 
-Para aceder à instância SparkSession, insira `spark`. Para aceder à instância SparkContext, introduza `sc`.
+Para aceder à instância `spark`SparkSession, introduza . Para aceder à instância `sc`SparkContext, introduza .
 
 ## <a name="important-shell-parameters"></a>Parâmetros importantes da concha
 
-O comando Spark Shell (`spark-shell`ou `pyspark`) suporta muitos parâmetros da linha de comando. Para ver uma lista completa de parâmetros, inicie a Membrana de Faísca com o interruptor `--help`. Alguns destes parâmetros só podem aplicar-se a `spark-submit`, que a Spark Shell envolve.
+O comando Spark`spark-shell`Shell `pyspark`(ou) suporta muitos parâmetros de linha de comando. Para ver uma lista completa de parâmetros, `--help`inicie a Membrana de Faísca com o interruptor . Alguns destes parâmetros `spark-submit`só podem aplicar-se aos quais a Spark Shell envolve.
 
-| mudar | descrição | Exemplo |
+| trocar | descrição | exemplo |
 | --- | --- | --- |
-| --mestre MASTER_URL | Especifica o URL principal. No HDInsight, este valor é sempre `yarn`. | `--master yarn`|
-| --jars JAR_LIST | Lista separada da vírvia de frascos locais para incluir no condutor e executor de classes. No HDInsight, esta lista é composta por caminhos para o sistema de ficheiros predefinido no Armazenamento de Azure ou armazenamento de data lake. | `--jars /path/to/examples.jar` |
-| -pacotes MAVEN_COORDS | Lista separada da vírcula de coordenadas maven de frascos para incluir no condutor e executor classpaths. Procura o repo maven local, depois maven central, em seguida, quaisquer repositórios remotos adicionais especificados com `--repositories`. O formato para as coordenadas é *o grupoId*:*artifactId*:*versão*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| --mestre MASTER_URL | Especifica o URL principal. No HDInsight, este `yarn`valor é sempre . | `--master yarn`|
+| -jarros JAR_LIST | Lista separada da vírvia de frascos locais para incluir no condutor e executor de classes. No HDInsight, esta lista é composta por caminhos para o sistema de ficheiros predefinido no Armazenamento de Azure ou armazenamento de data lake. | `--jars /path/to/examples.jar` |
+| -pacotes MAVEN_COORDS | Lista separada da vírcula de coordenadas maven de frascos para incluir no condutor e executor classpaths. Procura o repo maven local, depois maven central, em seguida, `--repositories`quaisquer repositórios remotos adicionais especificados com . O formato para as coordenadas é *o grupoId*:*artifactId*:*versão*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | Apenas para Python, uma lista separada da vírvia de .zip, .egg ou .py files para colocar no PYTHONPATH. | `--pyfiles "samples.py"` |
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,15 +1,15 @@
 ---
 title: Configurar a recuperação de desastres da SAP NetWeaver com a recuperação do site azure
-description: Saiba como configurar a recuperação de desastres para SAP NetWeaver com Azure Site Recovery.
+description: Saiba como configurar a recuperação de desastres para o SAP NetWeaver com a Recuperação do Site Azure.
 author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190784"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastres para uma implementação de aplicações SAP NetWeaver de vários níveis
@@ -72,7 +72,7 @@ O componente Web Dispatcher funciona como um equilibrante de carga para o tráfe
 A transação SMLG gere grupos de login para servidores de aplicações ABAP. Utiliza a função de equilíbrio de carga dentro do servidor de mensagens dos Serviços Centrais para distribuir carga de trabalho entre os conjuntos de servidores de aplicações SAP para tráfego SAPGUIs e RFC. Pode replicar esta gestão utilizando a Recuperação do Site.
 
 #### <a name="vms-running-sap-central-services-clusters"></a>VMs executando clusters de Serviços Centrais SAP
-Esta arquitetura de referência é executada Central de serviços em VMs na camada de aplicativos. A Central Services é um potencial ponto único de falha quando num único VM. A implantação típica e a elevada disponibilidade não são requisitos.
+Esta arquitetura de referência gere os Serviços Centrais em VMs no nível de aplicação. A Central Services é um potencial ponto único de falha quando num único VM. A implantação típica e a elevada disponibilidade não são requisitos.
 
 Para implementar uma solução de alta disponibilidade, pode utilizar um cluster de disco partilhado ou um cluster de partilha de ficheiros. Para configurar VMs para um cluster de disco partilhado, utilize o Cluster failover do Servidor do Windows. Recomendamos que use a testemunha como testemunha de quórum.
 
@@ -107,7 +107,7 @@ Segue-se a recomendação para a recuperação de desastres de cada nível utili
 **Piscina de servidor de aplicação SAP** |  Replicar usando a recuperação do site 
 **Cluster sap serviços centrais** |  Replicar usando a recuperação do site 
 **Máquinas virtuais de diretório ativo** |  Utilizar replicação de diretório ativo 
-**Servidores de base de dados SQL** |  Use o servidor SQL sempre na replicação
+**Servidores da Base de Dados SQL** |  Use o servidor SQL sempre na replicação
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 
@@ -119,7 +119,7 @@ Para começar a replicar todas as máquinas virtuais da aplicação SAP para o c
 
 ## <a name="networking-configuration"></a>Configuração de rede
 
-Se utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual tome. Para definir o endereço IP, vá às **definições de Compute e Rede** > **cartão de interface da rede**.
+Se utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual tome. Para definir o endereço IP, vá ao**cartão**de interface de rede **Compute e Network** > .
 
 ![Screenshot que mostra como definir um endereço IP privado no painel de cartão de interface da Rede de Recuperação do Site](./media/site-recovery-sap/sap-static-ip.png)
 
@@ -138,7 +138,7 @@ Para que as suas aplicações funcionem corretamente, poderá ser necessário ef
 
 Pode implantar os scripts de Recuperação do Site mais utilizados na sua conta De automação Azure selecionando **o Deploy para o Azure**. Quando utilizar qualquer guião publicado, siga a orientação no script.
 
-[![Implementar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Desdobre para Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Adicione um script de pré-ação ao Grupo 1 para falhar sobre o grupo de disponibilidade do Servidor SQL. Utilize o script ASR-SQL-FailoverAG publicado nos scripts da amostra. Siga a orientação no script e faça as alterações necessárias no script adequadamente.
 1. Adicione um script pós-acção para fixar um equilibrador de carga nas máquinas virtuais falhadas do nível Web (Grupo 1). Utilize o script ASR-AddSingleLoadBalancer publicado nos scripts da amostra. Siga a orientação no script e faça as alterações necessárias no script conforme necessário.

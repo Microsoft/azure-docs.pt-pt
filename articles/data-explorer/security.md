@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: 786950011f10e25d6bcb72061212c1878e79d45a
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77373363"
 ---
 # <a name="secure-azure-data-explorer-clusters-in-azure"></a>Clusters Secure Azure Data Explorer em Azure
@@ -34,7 +34,7 @@ O Azure Ative Directory (Azure AD) geriu identidades para recursos Azure que res
 
 Por padrão, os dados são encriptados com chaves geridas pela Microsoft. Para um controlo adicional sobre as chaves de encriptação, pode fornecer chaves geridas pelo cliente para usar para encriptação de dados. Pode gerir a encriptação dos seus dados ao nível de armazenamento com as suas próprias chaves. Uma chave gerida pelo cliente é usada para proteger e controlar o acesso à chave de encriptação de raiz, que é usada para encriptar e desencriptar todos os dados. As chaves geridas pelo cliente oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
 
-Utilize o Cofre de Chaves Azure para armazenar as chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar um Cofre de Chave Azure para gerar chaves. O cluster Azure Data Explorer e o Azure Key Vault devem estar na mesma região, mas podem estar em diferentes subscrições. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](/azure/key-vault/key-vault-overview) Para obter uma explicação detalhada sobre as chaves geridas pelo cliente, consulte [as chaves geridas pelo Cliente com](/azure/storage/common/storage-service-encryption)o Cofre de Chaves Azure . Configure as chaves geridas pelo cliente no [C#](/azure/data-explorer/customer-managed-keys-csharp) seu cluster Azure Data Explorer utilizando ou o modelo do Gestor de [Recursos Azure](/azure/data-explorer/customer-managed-keys-resource-manager)
+Utilize o Cofre de Chaves Azure para armazenar as chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar um Cofre de Chave Azure para gerar chaves. O cluster Azure Data Explorer e o Azure Key Vault devem estar na mesma região, mas podem estar em diferentes subscrições. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre de Chaves Azure?](/azure/key-vault/key-vault-overview) Para obter uma explicação detalhada sobre as chaves geridas pelo cliente, consulte [as chaves geridas pelo Cliente com](/azure/storage/common/storage-service-encryption)o Cofre de Chaves Azure . Configure as chaves geridas pelo cliente no seu cluster Azure Data Explorer utilizando [C#](/azure/data-explorer/customer-managed-keys-csharp) ou o modelo de Gestor de [Recursos Azure](/azure/data-explorer/customer-managed-keys-resource-manager)
 
 > [!Note]
 > As chaves geridas pelo cliente baseiam-se em identidades geridas para os recursos Azure, uma característica do Azure Ative Directory (Azure AD). Para configurar as chaves geridas pelo cliente no portal Azure, é necessário configurar uma identidade gerida pelo **SystemAs para** o seu cluster, conforme detalhado em [identidades geridas pela Configuração para o seu cluster Azure Data Explorer](/azure/data-explorer/managed-identities).
@@ -63,5 +63,5 @@ Utilizando [o controlo de acesso baseado em funções (RBAC),](/azure/role-based
 * [Proteja o seu cluster no Azure Data Explorer - Portal,](manage-cluster-security.md) permitindo a encriptação em repouso.
 * [Configure identidades geridas para o seu cluster Azure Data Explorer](managed-identities.md)
 * [Configure as chaves geridas pelo cliente utilizando o modelo do Gestor de Recursos Azure](customer-managed-keys-resource-manager.md)
-* [Configure as chaves geridas pelo cliente usandoC#](customer-managed-keys-csharp.md)
+* [Configure as chaves geridas pelo cliente utilizando C #](customer-managed-keys-csharp.md)
 

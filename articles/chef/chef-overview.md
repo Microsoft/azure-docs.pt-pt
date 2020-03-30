@@ -5,10 +5,10 @@ keywords: azure, chef, devops, máquinas virtuais, visão geral, automatização
 ms.date: 02/22/2020
 ms.topic: article
 ms.openlocfilehash: c22faa69bf8f42111d328a9c156dc1a2432731b2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586347"
 ---
 # <a name="using-chef-with-azure"></a>Usando chef com Azure
@@ -29,7 +29,7 @@ Use chef workstation diretamente em Azure Cloud Shell! Gere todas as suas utilid
 * [estilo cookstyle](https://docs.chef.io/cookstyle.html)
 * [chef-run](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
-Combine os nossos utilitários de comando com as outras ferramentas disponíveis na Cloud Shell, como `git`, `az-cli`e `terraform`, e escreva a sua infraestrutura e automatização de conformidade a partir do navegador.
+Combine os nossos utilitários de comando com `git`as `az-cli`outras ferramentas disponíveis na Cloud Shell, tais como , e `terraform`escreva a sua infraestrutura e automatização de conformidade a partir do navegador.
 
 ## <a name="automate-infrastructure-apps-and-compliance-with-one-platform"></a>Automate infraestrutura, apps e conformidade com uma plataforma
 As empresas exigem velocidade, velocidade e segurança para competir no mercado digital. Juntos Chef e Microsoft ajudam indivíduos, equipas e empresas a realizar todas estas coisas. Com uma plataforma, o Chef Automate, agora pode automatizar e entregar continuamente a sua infraestrutura, aplicações e conformidade em toda a sua propriedade da Microsoft.

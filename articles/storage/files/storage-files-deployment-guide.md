@@ -1,5 +1,5 @@
 ---
-title: Como implementar ficheiros Azure  Microsoft Docs
+title: Como implementar ficheiros Azure [ Microsoft Docs
 description: Aprenda a implementar Ficheiros Azure do início ao fim.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598787"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure
@@ -33,7 +33,7 @@ O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organ
 
 O Azure File Sync pode ser utilizado para migrar dados para uma partilha de ficheiros Azure, mesmo que o mecanismo de sincronização não seja desejado para uso a longo prazo. Mais informações sobre como utilizar o Azure File Sync para transferir dados para a partilha de ficheiros Azure podem ser encontradas no Planeamento de uma implementação de Sincronização de [Ficheiros Azure](storage-sync-files-planning.md) e como implementar o [Sync de Ficheiros Azure](storage-sync-files-deployment-guide.md).
 
-### <a name="azure-importexport"></a>Importação/Exportação de Azure
+### <a name="azure-importexport"></a>Importar/Exportar do Microsoft Azure
 O serviço de importação/exportação Azure permite-lhe transferir de forma segura grandes quantidades de dados para uma partilha de ficheiros Azure, enviando discos rígidos para um datacenter Azure. Consulte [o serviço de importação/exportação do Microsoft Azure para transferir dados para](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) o armazenamento do Azure para uma visão geral mais detalhada do serviço.
 
 > [!Note]  
@@ -65,7 +65,7 @@ Os seguintes passos importarão dados de um local no local para a sua parte de f
 
     Podem ser especificadas várias ações com uma Conta de Armazenamento. Consulte [Preparar o ficheiro CSV do conjunto de dados](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
 
-5. Crie o ficheiro CSV do conjunto de acionamento. O ficheiro CSV do driveset lista os discos disponíveis para o agente de exportação no local. Por exemplo, as seguintes listas de ficheiros CSV de driveset `X:`, `Y:`, e `Z:` unidades a utilizar no local de exportação:
+5. Crie o ficheiro CSV do conjunto de acionamento. O ficheiro CSV do driveset lista os discos disponíveis para o agente de exportação no local. Por exemplo, as seguintes listas `X:` `Y:`de `Z:` ficheiros CSV de driveset, e unidades a utilizar no local de exportação:
 
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -87,7 +87,7 @@ Os seguintes passos importarão dados de um local no local para a sua parte de f
 
 7. [Criar um trabalho de importação.](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job)
     
-### <a name="robocopy"></a>Robocopia
+### <a name="robocopy"></a>Robocopy
 A Robocopy é uma ferramenta de cópia bem conhecida que envia com Windows e Windows Server. A robocópia pode ser usada para transferir dados para Ficheiros Azure, montando a parte do ficheiro localmente e, em seguida, usando a localização montada como destino no comando Robocopy. Usar robocópia é muito simples:
 
 1. [Monte a sua parte de ficheiro Azure.](storage-how-to-use-files-windows.md) Para um desempenho ótimo, recomendamos a montagem da partilha de ficheiros Azure localmente no servidor que contém os dados. Em alguns casos, como quando o servidor de ficheiros que serve os dados é um dispositivo NAS, isso pode não ser possível. Nesse caso, é perfeitamente aceitável montar a parte do ficheiro Azure num PC. Neste exemplo, `net use` é utilizado na linha de comando para montar a partilha de ficheiros:
@@ -96,7 +96,7 @@ A Robocopy é uma ferramenta de cópia bem conhecida que envia com Windows e Win
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
     ```
 
-2. Utilize `robocopy` na linha de comando para mover dados para a parte de ficheiro sinuosa:
+2. Utilize `robocopy` na linha de comando para mover dados para a partilha de ficheiros Azure:
 
     ```
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
@@ -108,7 +108,7 @@ A Robocopy é uma ferramenta de cópia bem conhecida que envia com Windows e Win
 O AzCopy é um utilitário de linha de comando projetado para copiar dados de e para o Azure Files, bem como armazenamento Azure Blob, utilizando comandos simples com um desempenho ideal. Usar o AzCopy é fácil:
 
 1. Descarregue a [versão mais recente do AzCopy no Windows](https://aka.ms/downloadazcopy) ou [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
-2. Utilize `azcopy` na linha de comando para mover dados para a parte do ficheiro Azure. A sintaxe no Windows é a seguinte: 
+2. Utilize `azcopy` na linha de comando para mover dados para a partilha de ficheiros Azure. A sintaxe no Windows é a seguinte: 
 
     ```
     azcopy /Source:<path-to-local-share> /Dest:https://<storage-account>.file.core.windows.net/<file-share>/ /DestKey:<storage-account-key> /S
@@ -137,7 +137,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ```
 
 ### <a name="linux"></a>Linux
-Um simples guião de bash combinado com SSH pode produzir o mesmo resultado no exemplo seguinte. A variável `$computer` é igualmente deixada para ser povoada pelo utilizador:
+Um simples guião de bash combinado com SSH pode produzir o mesmo resultado no exemplo seguinte. A `$computer` variável é igualmente deixada para ser povoada pelo utilizador:
 
 ```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
@@ -149,5 +149,5 @@ done
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Plano para uma implementação de Sincronização de Ficheiros Azure](storage-sync-files-planning.md)
-- [Troubleshoot Azure Files no Windows](storage-troubleshoot-windows-file-connection-problems.md)
-- [Troubleshoot Azure Files no Linux](storage-troubleshoot-linux-file-connection-problems.md)
+- [Resolução de problemas dos Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
+- [Resolução de problemas dos Ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

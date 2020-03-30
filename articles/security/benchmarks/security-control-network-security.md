@@ -9,10 +9,10 @@ ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 7916bbb28602d64e0916fce7badf16a65c242227
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77251877"
 ---
 # <a name="security-control-network-security"></a>Controlo de Segurança: Segurança da Rede
@@ -81,7 +81,7 @@ https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-a
 
 Ative a proteção Padrão DDoS nas suas Redes Virtuais Azure para se proteger contra ataques DDoS. Utilize o Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP maliciosos conhecidos.
 
-Implemente o Azure Firewall em cada uma das fronteiras da rede da organização com a Threat Intelligence habilitada e configurada para &quot;Alert e negar&quot; para tráfego de rede malicioso.
+Implemente o Azure Firewall em cada um dos limites de &quot;rede da&quot; organização com a Threat Intelligence habilitada e configurada para alertar e negar o tráfego de rede malicioso.
 
 Utilize o Azure Security Center Just In Time Network acesso para configurar NSGs para limitar a exposição de pontos finais a endereços IP aprovados por um período limitado.
 
@@ -129,11 +129,11 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 |--|--|--|
 | 1.6 | 12.6, 12.7 | Cliente |
 
-Implemente o Azure Firewall em cada uma das fronteiras da rede da organização com a Threat Intelligence habilitada e configurada para &quot;Alert e negar&quot; para tráfego de rede malicioso.
+Implemente o Azure Firewall em cada um dos limites de &quot;rede da&quot; organização com a Threat Intelligence habilitada e configurada para alertar e negar o tráfego de rede malicioso.
 
-Como implementar o Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
+Como implantar o Firewall Azure:https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-Como configurar alertas com firewall Azure: https://docs.microsoft.com/azure/firewall/threat-intel
+Como configurar alertas com firewall Azure:https://docs.microsoft.com/azure/firewall/threat-intel
 
 ## <a name="17-manage-traffic-to-web-applications"></a>1.7: Gerir o tráfego para aplicações web
 
@@ -195,7 +195,7 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 |--|--|--|
 | 1.1 | 11.2 | Cliente |
 
-Utilize etiquetas para NSGs e outros recursos relacionados com a segurança da rede e fluxo de tráfego. Para regras nsg individuais, utilize o campo &quot;Descrição&quot; para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
+Utilize etiquetas para NSGs e outros recursos relacionados com a segurança da rede e fluxo de tráfego. Para regras nsg individuais, utilize o &quot;campo Descrição&quot; para especificar a necessidade e/ou duração do negócio (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
 
 Como criar e utilizar Tags:
 

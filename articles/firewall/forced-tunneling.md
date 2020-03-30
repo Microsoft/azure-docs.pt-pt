@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: victorh
 ms.openlocfilehash: e51f6de370a5340082f64a0ca15c61583f75962b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77597286"
 ---
 # <a name="azure-firewall-forced-tunneling-preview"></a>Azure Firewall obrigou a túnel (pré-visualização)
@@ -21,7 +21,7 @@ Pode configurar o Azure Firewall para encaminhar todo o tráfego ligado à Inter
 > [!IMPORTANT]
 > O túnel forçado da Azure Firewall está atualmente em pré-visualização pública.
 >
-> Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 Por defeito, o túnel forçado não é permitido no Azure Firewall para garantir que todas as suas dependências azure de saída sejam satisfeitas. As configurações da Rota Definida do Utilizador (UDR) no *AzureFirewallSubnet* que têm uma rota padrão que não vai diretamente para a Internet são desativadas.
 

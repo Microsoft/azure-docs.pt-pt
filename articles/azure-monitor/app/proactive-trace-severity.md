@@ -4,15 +4,15 @@ description: Monitorize os rastreios de aplicação com Insights de aplicação 
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: 30bdd30ac9c49bb79a3c48bae8149ec761756dd4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671686"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradação na relação de gravidade dos vestígios (pré-visualização)
 
-Os vestígios são amplamente utilizados em aplicações, pois ajudam a contar a história do que acontece nos bastidores. Quando as coisas correm mal, os vestígios proporcionam uma visibilidade crucial na sequência de eventos que conduzem ao estado indesejado. Embora os vestígios sejam geralmente desestruturados, há uma coisa que pode ser aprendida concretamente com eles – o seu nível de gravidade. No estado estável de uma aplicação, esperamos que a relação entre os traços "bons" *(Info* e *Verbose)* e os traços "maus" *(Aviso,* *Erro*e *Crítico*) se mantenha estável. O pressuposto é que os vestígios "maus" podem ocorrer regularmente, em certa medida, devido a qualquer número de razões (questões transitórias da rede, por exemplo). Mas quando um problema real começa a crescer, geralmente manifesta-se como um aumento na proporção relativa de traços "maus" vs traços "bons". Insights de aplicação Deteção inteligente analisa automaticamente os vestígios registados pela sua aplicação, e pode avisá-lo sobre padrões incomuns na gravidade da sua telemetria de vestígios.
+Os vestígios são amplamente utilizados em aplicações, pois ajudam a contar a história do que acontece nos bastidores. Quando as coisas correm mal, os vestígios proporcionam uma visibilidade crucial na sequência de eventos que conduzem ao estado indesejado. Embora os vestígios sejam geralmente desestruturados, há uma coisa que pode ser aprendida concretamente com eles – o seu nível de gravidade. No estado estável de uma aplicação, esperamos que a relação entre os traços "bons"*(Info* e *Verbose)* e os traços "maus"*(Aviso,* *Erro*e *Crítico*) se mantenha estável. O pressuposto é que os vestígios "maus" podem ocorrer regularmente, em certa medida, devido a qualquer número de razões (questões transitórias da rede, por exemplo). Mas quando um problema real começa a crescer, geralmente manifesta-se como um aumento na proporção relativa de traços "maus" vs traços "bons". Insights de aplicação Deteção inteligente analisa automaticamente os vestígios registados pela sua aplicação, e pode avisá-lo sobre padrões incomuns na gravidade da sua telemetria de vestígios.
 
 Esta funcionalidade não requer configuração especial, para além de configurar o registo de rastreios para a sua aplicação (veja como configurar um ouvinte de registo de rastreio para [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) ou [Java).](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs) Está ativo quando a sua aplicação gera telemetria de exceção suficiente.
 

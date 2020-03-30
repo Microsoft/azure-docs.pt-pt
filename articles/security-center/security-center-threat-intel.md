@@ -1,5 +1,5 @@
 ---
-title: Mapa de alerta de inteligência e segurança de ameaças - Centro de Segurança Azure
+title: Mapa de alerta de segurança & inteligência de ameaça - Centro de Segurança Azure
 description: Aprenda a usar o mapa de alerta de segurança e a capacidade de inteligência de ameaça no Centro de Segurança Azure para identificar potenciais ameaças nos seus VMs e computadores.
 services: security-center
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: 39835d9d73adcbe474d3b70dfced313e18d1a3b3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603433"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Informações sobre ameaças e mapa de alertas de segurança
@@ -53,14 +53,14 @@ Para visualizar as ameaças atuais no seu ambiente, abra o mapa de alertas de Se
 O mapa de alertas de segurança baseia-se em alertas. Estes alertas baseiam-se em atividades para as quais a comunicação de rede foi associada a um endereço IP que foi resolvido com sucesso, se o endereço IP é ou não um endereço IP de risco conhecido (por exemplo, um criptomineiro conhecido) ou um endereço IP que não é reconhecido anteriormente como arriscado. O mapa fornece alertas em todas as subscrições que selecionou anteriormente em Azure. 
 
 Os alertas no mapa são apresentados de acordo com a localização geográfica de onde são detetados como originários, e são codificados por gravidade. 
-    ](./media/security-center-threat-intel/security-center-alert-map.png) de informações sobre informações sobre ameaças de ameaças de ![
+    ![Dados de informações sobre ameaças](./media/security-center-threat-intel/security-center-alert-map.png)
 
 
 
 ## <a name="see-also"></a>Consulte também
 Neste artigo, aprendeu a utilizar as informações sobre ameaças no Centro de Segurança para ajudar a identificar atividade suspeita. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
-* [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
+* [Gerir e responder a alertas](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)de segurança no Centro de Segurança Azure. Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
+* [Monitorização da saúde de segurança no Centro de Segurança Azure.](security-center-monitoring.md) Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
 * [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
 * [Guia de resolução de problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança.

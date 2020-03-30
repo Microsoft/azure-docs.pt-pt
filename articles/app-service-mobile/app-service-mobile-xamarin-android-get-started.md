@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: b42205436c88f9075423bfcaf9e5a9fd931ee4f4
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461373"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Criar uma Aplicação Xamarin.Android
@@ -44,11 +44,11 @@ Acabou de aprovisionar um back-end da Aplicação Móvel do Azure que pode ser u
 ## <a name="run-the-xamarinandroid-app"></a>Executar a aplicação Xamarin.Android
 1. Abra o projeto Xamarin.Android.
 
-2. Vá ao [portal Azure](https://portal.azure.com/) e navegue para a aplicação móvel que criou. Na `Overview` lâmina, procure o URL que é o ponto final público da sua aplicação móvel. Exemplo - o nome de site do meu nome de aplicação "test123" será https://test123.azurewebsites.net.
+2. Vá ao [portal Azure](https://portal.azure.com/) e navegue para a aplicação móvel que criou. Na `Overview` lâmina, procure o URL que é o ponto final público da sua aplicação móvel. Exemplo - o nome de site para o meu https://test123.azurewebsites.netnome de aplicação "test123" será .
 
-3. Abra o ficheiro `ToDoActivity.cs` nesta pasta - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. O nome da candidatura é `ZUMOAPPNAME`.
+3. Abra o `ToDoActivity.cs` ficheiro nesta pasta - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. O nome `ZUMOAPPNAME`da aplicação é .
 
-4. Na aula de `ToDoActivity`, substitua `ZUMOAPPURL` variável por ponto final público acima.
+4. Na `ToDoActivity` aula, `ZUMOAPPURL` substitua a variável por ponto final público acima.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 
@@ -58,11 +58,11 @@ Acabou de aprovisionar um back-end da Aplicação Móvel do Azure que pode ser u
     
 5. Pressione a tecla F5 para implementar e executar a aplicação.
 
-6. Na aplicação, digite um texto significativo, tal como *Concluir o tutorial*, e clique no botão **Adicionar**.
+6. Na aplicação, digite texto significativo, como *completar o tutorial* e, em seguida, clique no botão **Adicionar.**
 
     ![][10]
 
-    Os dados do pedido são inseridos na tabela Item da Lista de Tarefas. Os itens armazenados na tabela são devolvidos pelo back-end da aplicação móvel e os dados são apresentados na lista.
+    Os dados do pedido são inseridos na tabela TodoItem. Os itens armazenados na tabela são devolvidos pelo back-end da aplicação móvel e os dados são apresentados na lista.
 
    > [!NOTE]
    > Pode rever o código que acede ao seu back-end da aplicação móvel para consultar e inserir dados (presente no ficheiro ToDoActivity.cs c#).

@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 32d4313b345964a2db13d68e83f81756a4acf0d9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458941"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Adicione autenticação à sua aplicação Windows
@@ -21,10 +21,10 @@ Este tópico mostra como adicionar autenticação baseada na nuvem à sua aplica
 
 Este tutorial baseia-se no arranque rápido das Aplicações Móveis. Primeiro tem de completar o tutorial Iniciar com [Aplicações Móveis.](app-service-mobile-windows-store-dotnet-get-started.md)
 
-## <a name="register"></a>Registe a sua aplicação para autenticação e configure o Serviço de Aplicações
+## <a name="register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registe a sua aplicação para autenticação e configure o Serviço de Aplicações
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
 
 A autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isto permite que o sistema de autenticação redirecione para a sua aplicação uma vez concluído o processo de autenticação. Neste tutorial, usamos o _nome_ de aplicativo do esquema URL em toda a parte. No entanto, pode utilizar qualquer esquema de URL que escolha. Deve ser exclusivo da sua aplicação móvel. Para ativar a reorientação do lado do servidor:
 
@@ -36,14 +36,14 @@ A autenticação segura requer que defina um novo esquema de URL para a sua apli
 
 4. Clique em **Guardar**.
 
-## <a name="permissions"></a>Restringir permissões a utilizadores autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a utilizadores autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Agora, pode verificar se o acesso anónimo ao seu backend foi desativado. Com o projeto de aplicação UWP definido como o projeto de arranque, implemente e execute a app; verificar se uma exceção não tratada com um código de estado de 401 (Não autorizado) é levantada após o início da aplicação. Isto acontece porque a aplicação tenta aceder ao seu Código de Aplicações Móveis como um utilizador não autenticado, mas a tabela *TodoItem* agora requer autenticação.
 
 Em seguida, irá atualizar a aplicação para autenticar os utilizadores antes de solicitar recursos do seu Serviço de Aplicações.
 
-## <a name="add-authentication"></a>Adicionar autenticação à app
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Adicionar autenticação à app
 1. No ficheiro do projeto da aplicação UWP MainPage.xaml.cs e adicione o seguinte código:
    
         // Define a member variable for storing the signed-in user. 
@@ -137,7 +137,7 @@ Em seguida, irá atualizar a aplicação para autenticar os utilizadores antes d
 6. Abra o pacote.appxmanifest, navegue para **Declarações,** na lista de desaposição de **Declarações Disponíveis,** selecione **Protocolo** e clique em **Adicionar** botão. Agora configure as **propriedades** da declaração do **Protocolo.** No **nome Display,** adicione o nome que pretende exibir aos utilizadores da sua aplicação. Em **Nome,** adicione o seu {url_scheme_of_your_app}.
 7. Prima a tecla F5 para executar a aplicação, clique no botão **'Sinal'** e assine na aplicação com o seu fornecedor de identidade escolhido. Depois de o seu sessão ter sucesso, a aplicação corre sem erros e é capaz de consultar o seu backend e fazer atualizações para os dados.
 
-## <a name="tokens"></a>Guarde o símbolo de autenticação no cliente
+## <a name="store-the-authentication-token-on-the-client"></a><a name="tokens"></a>Guarde o símbolo de autenticação no cliente
 O exemplo anterior mostrou um login padrão, que requer que o cliente contacte o fornecedor de identidade e o Serviço de Aplicações sempre que a app começa. Não só este método é ineficiente, como pode encontrar problemas relacionados com o uso caso muitos clientes tentem iniciar a sua aplicação ao mesmo tempo. Uma melhor abordagem é cache o token de autorização devolvido pelo seu Serviço de Aplicações e tentar usá-lo primeiro antes de usar um sign-in baseado no fornecedor.
 
 > [!NOTE]

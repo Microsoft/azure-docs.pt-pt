@@ -4,10 +4,10 @@ description: FAQ em Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663862"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como... no Application Insights?
@@ -75,7 +75,7 @@ Alguns pontos a considerar:
 
 * Múltiplas funções numa aplicação: Utilize um único recurso de Insights de Aplicação e filtre em [cloud_Rolename](../../azure-monitor/app/app-map.md).
 * Separar as versões de desenvolvimento, teste e lançamento: Utilize diferentes recursos de Insights de Aplicação. Pegue as chaves de instrumentação da web.config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
-* Reportando versões de construção: Adicione uma propriedade usando um inicializador de telemetria. [Saiba mais](../../azure-monitor/app/separate-resources.md)
+* Reportando versões de construção: Adicione uma propriedade usando um inicializador de telemetria. [Mais informações](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitor de backend servidores e aplicativos de ambiente de trabalho
 [Utilize o módulo SDK do Servidor do Windows](../../azure-monitor/app/windows-desktop.md).
@@ -96,7 +96,7 @@ Ou
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrar utilizadores anónimos ou autenticados
 Se os seus utilizadores iniciarem o seu insto, pode definir o [ID autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)do utilizador . (Não acontece automaticamente.)
 
-Então, pode:
+Em seguida, pode:
 
 * Pesquisar iDs de utilizador específicos
 
@@ -120,7 +120,7 @@ Se quiser uma lista de utilizadores com dados como as páginas que analisam ou c
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Reduzir o tráfego da minha app para Apps Insights
 * Em [ApplicationInsights.config,](../../azure-monitor/app/configuration-with-applicationinsights-config.md)desative quaisquer módulos de que não necessite, tal como o contador de desempenho.
 * Utilizar [amostragem e filtragem](../../azure-monitor/app/api-filtering-sampling.md) no SDK.
-* Nas suas páginas web, limite o número de chamadas do Ajax reportadas para cada visualização de página. No corte do guião após `instrumentationKey:...`, insira: `,maxAjaxCallsPerView:3` (ou um número adequado).
+* Nas suas páginas web, limite o número de chamadas do Ajax reportadas para cada visualização de página. No corte do script `instrumentationKey:...` depois, `,maxAjaxCallsPerView:3` insira: (ou um número adequado).
 * Se estiver a utilizar o [TrackMetric,](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)calcule o agregado de lotes de valores métricos antes de enviar o resultado. Há uma sobrecarga de TrackMetric() que fornece para isso.
 
 Saiba mais sobre [preços e quotas.](../../azure-monitor/app/pricing.md)
@@ -137,10 +137,10 @@ Para **parar e iniciar dinamicamente** a recolha e transmissão de telemetria a 
 ```
 
 ### <a name="other-applications"></a>Outras aplicações
-Não é aconselhável utilizar `TelemetryConfiguration.Active` singleton nas aplicações de consola ou ASP.NET Core.
-se criou `TelemetryConfiguration` instância - `DisableTelemetry` para `true`.
+Não é aconselhável `TelemetryConfiguration.Active` utilizar singleton na consola ou ASP.NET aplicações Core.
+se criou `TelemetryConfiguration` o exemplo `DisableTelemetry` `true`- definido para .
 
-Para ASP.NET aplicações Core pode aceder `TelemetryConfiguration` exemplo utilizando ASP.NET injeção de [dependência do Núcleo](/aspnet/core/fundamentals/dependency-injection/). Por favor, encontre mais detalhes no Artigo de [Aplicações Do ASP.NET Core.](../../azure-monitor/app/asp-net-core.md)
+Para ASP.NET aplicações Core `TelemetryConfiguration` pode aceder à instância utilizando ASP.NET injeção de [dependência do Núcleo](/aspnet/core/fundamentals/dependency-injection/). Por favor, encontre mais detalhes no Artigo de [Aplicações Do ASP.NET Core.](../../azure-monitor/app/asp-net-core.md)
 
 ## <a name="disable-selected-standard-collectors"></a>Desativar os colecionadores padrão selecionados
 Pode desativar os colecionadores padrão (por exemplo, contadores de desempenho, pedidos HTTP ou dependências)
@@ -156,7 +156,7 @@ Entre as métricas que pode mostrar no explorador de métricas estão um conjunt
 ### <a name="if-you-see-no-performance-counter-data"></a>Se não vir nenhum contador de dados de desempenho
 * **Servidor IIS** na sua própria máquina ou num VM. [Instalar monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Web site azure** - ainda não apoiamos contadores de desempenho. Existem várias métricas que pode obter como uma parte padrão do painel de controlo do site Azure.
-* **Servidor Unix** - [Instalar recolhido](../../azure-monitor/app/java-collectd.md)
+* **Instalação** - de servidor Unix[colecionada](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Para exibir mais contadores de desempenho
 * Em primeiro lugar, [adicione um novo gráfico](../../azure-monitor/app/metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.

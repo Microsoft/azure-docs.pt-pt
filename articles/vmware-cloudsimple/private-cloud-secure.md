@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4541874a9e8fc4111e5c65d02f07535c4d14f9f1
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77565983"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Como garantir o seu ambiente de Nuvem Privada
@@ -33,11 +33,11 @@ Para obter mais informações sobre o RBAC, consulte [o que é o controlo de ace
 
 ## <a name="rbac-for-private-cloud-vcenter"></a>RBAC para private Cloud vCenter
 
-Um utilizador padrão `CloudOwner@cloudsimple.local` é criado no domínio vCenter SSO quando uma Nuvem Privada é criada.  O utilizador do CloudOwner tem privilégios para gerir o vCenter. Fontes de identidade adicionais são adicionadas ao vCenter SSO para dar acesso a diferentes utilizadores.  As funções e grupos pré-definidos são configurados no vCenter que pode ser usado para adicionar utilizadores adicionais.
+Um utilizador `CloudOwner@cloudsimple.local` predefinido é criado no domínio VCenter SSO quando uma Nuvem Privada é criada.  O utilizador do CloudOwner tem privilégios para gerir o vCenter. Fontes de identidade adicionais são adicionadas ao vCenter SSO para dar acesso a diferentes utilizadores.  As funções e grupos pré-definidos são configurados no vCenter que pode ser usado para adicionar utilizadores adicionais.
 
 ### <a name="add-new-users-to-vcenter"></a>Adicione novos utilizadores ao vCenter
 
-1. [Aumente os privilégios](escalate-private-cloud-privileges.md) para **cloudOwner\@cloudsimple.utilizador local** na Nuvem Privada.
+1. [Aumente os privilégios](escalate-private-cloud-privileges.md) para **\@CloudOwner cloudsimple.utilizador local** na Nuvem Privada.
 2. Assine o vCenter usando **cloudOwner\@cloudsimple.local**
 3. Adicione utilizadores de [sinal único vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
 4. Adicione os utilizadores a [grupos de inscrição individuais vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
@@ -51,7 +51,7 @@ Pode adicionar fornecedores de identidade adicionais para o domínio VCenter SSO
 * [Use o Diretório Ativo como fornecedor de identidade](set-vcenter-identity.md) no private Cloud vCenter.
 * [Use a AD Azure como fornecedor de identidade](azure-ad.md) no private Cloud vCenter
 
-1. [Aumente os privilégios](escalate-private-cloud-privileges.md) para **cloudOwner\@cloudsimple.utilizador local** na Nuvem Privada.
+1. [Aumente os privilégios](escalate-private-cloud-privileges.md) para **\@CloudOwner cloudsimple.utilizador local** na Nuvem Privada.
 2. Assine o vCenter usando **cloudOwner\@cloudsimple.local**
 3. Adicione os utilizadores do fornecedor de identidade a [grupos de inscrição individuais vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
@@ -63,9 +63,9 @@ A segurança da rede private Cloud é controlada garantindo o acesso à rede e c
 
 O vCenter de Cloud Privado e o acesso aos recursos é sobre uma ligação de rede segura:
 
-* **[Ligação ExpressRoute](on-premises-connection.md)** . A ExpressRoute proporciona uma ligação segura, de alta largura de banda e de baixa latência do seu ambiente no local.  A utilização da ligação permite que os seus serviços, redes e utilizadores no local acedam ao seu vCenter Private Cloud.
-* **[Gateway VPN site-to-site](vpn-gateway.md)** . O VPN do site-to-site dá acesso aos seus recursos da Cloud Privada a partir do local através de um túnel seguro.  Especifica quais as redes no local que podem enviar e receber tráfego de rede para a sua Cloud Privada.
-* **[Gateway VPN ponto-a-local](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)** . Utilize a ligação VPN ponto-a-local para um acesso remoto rápido ao seu vCenter de Nuvem Privada.
+* **[Ligação ExpressRoute](on-premises-connection.md)**. A ExpressRoute proporciona uma ligação segura, de alta largura de banda e de baixa latência do seu ambiente no local.  A utilização da ligação permite que os seus serviços, redes e utilizadores no local acedam ao seu vCenter Private Cloud.
+* **[Gateway VPN site-to-site](vpn-gateway.md)**. O VPN do site-to-site dá acesso aos seus recursos da Cloud Privada a partir do local através de um túnel seguro.  Especifica quais as redes no local que podem enviar e receber tráfego de rede para a sua Cloud Privada.
+* **[Gateway VPN ponto-a-local](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)**. Utilize a ligação VPN ponto-a-local para um acesso remoto rápido ao seu vCenter de Nuvem Privada.
 
 ### <a name="control-network-traffic-in-private-cloud"></a>Controle o tráfego da rede em Private Cloud
 

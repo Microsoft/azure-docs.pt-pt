@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do Syslog ao Azure Sentinel  Microsoft Docs
+title: Ligue os dados do Syslog ao Azure Sentinel [ Microsoft Docs
 description: Saiba como ligar dados do Syslog ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 73fd55fc24fd94dc88bba2f591c32480f77c7d5d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588081"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Ligue a sua solução externa usando o Syslog
@@ -30,7 +30,7 @@ Pode ligar qualquer aparelho no local que suporte o Syslog ao Azure Sentinel. Is
 
 ## <a name="how-it-works"></a>Como funciona
 
-Syslog é um protocolo de registo de eventos que é comum para Linux. Aplicativos enviará as mensagens que podem ser armazenadas no computador local ou entregues a um recoletor de Syslog. Quando o agente Log Analytics para o Linux é instalado, ele confunde o daemon syslog local para encaminhar mensagens para o agente. O agente envia então a mensagem para o Monitor Azure onde é criado um registo correspondente.
+Syslog é um protocolo de registo de eventos que é comum ao Linux. As aplicações enviarão mensagens que podem ser armazenadas na máquina local ou entregues a um colecionador syslog. Quando o agente Log Analytics para o Linux é instalado, ele confunde o daemon syslog local para encaminhar mensagens para o agente. O agente envia então a mensagem para o Monitor Azure onde é criado um registo correspondente.
 
 Para mais informações, consulte [fontes de dados syslog no Monitor Azure](../azure-monitor/platform/data-sources-syslog.md).
 
@@ -38,7 +38,7 @@ Para mais informações, consulte [fontes de dados syslog no Monitor Azure](../a
 > - O agente pode recolher registos de várias fontes, mas deve ser instalado em máquina de procuração dedicada.
 > - Se pretender suportar conectores tanto para CEF como para Syslog no mesmo VM, execute os seguintes passos para evitar duplicar dados:
 >    1. Siga as instruções para [ligar o seu CEF](connect-common-event-format.md).
->    2. Para ligar os dados do Syslog, aceda às **definições** de Definições > **Workspace** > **Configurações avançadas** > **Data** > **Syslog** e definir as Instalações e as suas prioridades para que não sejam as mesmas instalações e propriedades que utilizou na sua configuração CEF. <br></br>Se selecionar **Aplicar abaixo da configuração nas minhas máquinas,** aplica estes conjuntos a todos os VMs ligados a este espaço de trabalho.
+>    2. Para ligar os dados do Syslog, aceda às **definições** > **Workspace settings** > do Workspace**Configurações** > Avançadas De**Dados** > **Syslog** e detetete as Instalações e as suas prioridades para que não sejam as mesmas instalações e propriedades que utilizou na configuração do CEF. <br></br>Se selecionar **Aplicar abaixo da configuração nas minhas máquinas,** aplica estes conjuntos a todos os VMs ligados a este espaço de trabalho.
 
 
 ## <a name="connect-your-syslog-appliance"></a>Ligue o seu aparelho Syslog
@@ -59,7 +59,7 @@ Para mais informações, consulte [fontes de dados syslog no Monitor Azure](../a
 
 5. Na lâmina de **definições Avançada,** selecione **Data** > **Syslog**. Em seguida, adicione as instalações para o conector recolher.
     
-    Adicione as instalações que o seu aparelho syslog inclui nos seus cabeçalhos de tronco. Pode ver esta configuração no seu aparelho Syslog no **Syslog-d** na pasta `/etc/rsyslog.d/security-config-omsagent.conf` e no **r-Syslog** a partir de `/etc/syslog-ng/security-config-omsagent.conf`.
+    Adicione as instalações que o seu aparelho syslog inclui nos seus cabeçalhos de tronco. Pode ver esta configuração no seu aparelho Syslog no `/etc/rsyslog.d/security-config-omsagent.conf` **Syslog-d** na pasta `/etc/syslog-ng/security-config-omsagent.conf`e no **r-Syslog** a partir de .
     
     Se pretender utilizar a deteção anómala de login SSH com os dados que recolhe, adicione **auth** e **authpriv**. Consulte a [secção seguinte](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) para obter mais detalhes.
 
@@ -78,7 +78,7 @@ Para mais informações, consulte [fontes de dados syslog no Monitor Azure](../a
 > [!IMPORTANT]
 > A deteção de login SSH anómala está atualmente em pré-visualização pública.
 > Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 O Azure Sentinel pode aplicar machine learning (ML) aos dados de syslog para identificar a atividade anómala de login Secure Shell (SSH). Os cenários incluem:
 
@@ -90,7 +90,7 @@ Esta deteção requer uma configuração específica do conector de dados Syslog
 1. Para o passo 5 do procedimento anterior, **certifique-se** de que tanto auth como **a uthpriv** são selecionadas como instalações para monitorizar. Mantenha as definições predefinidas para as opções de gravidade, de modo a que todas sejam selecionadas. Por exemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![instalações necessárias para](./media/connect-syslog/facilities-ssh-detection.png) de deteção anómala de login SSH
+    > ![Instalações necessárias para deteção anómala de login SSH](./media/connect-syslog/facilities-ssh-detection.png)
 
 2. Dê tempo suficiente para recolher informações sobre syslog. Em seguida, navegue para **Azure Sentinel - Logs,** e copie e cole a seguinte consulta:
     
@@ -100,7 +100,7 @@ Esta deteção requer uma configuração específica do conector de dados Syslog
     
     Se a contagem resultante for nula, confirme a configuração do conector e que os computadores monitorizados tenham uma atividade de login bem sucedida durante o período de tempo especificado para a sua consulta.
     
-    Se a contagem resultante for superior a zero, os seus dados de sislog são adequados para a deteção anómala de login SSH. Ativa esta deteção a partir de **modelos** de regra de >  **de análise** >  **(Pré-visualização) Deteção anómala de Login SSH**.
+    Se a contagem resultante for superior a zero, os seus dados de sislog são adequados para a deteção anómala de login SSH. Ativa esta deteção a partir de**modelos** > de regra **de análise** >  **(Pré-visualização) Deteção anómala de Login SSH**.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar os aparelhos Syslog no local ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:

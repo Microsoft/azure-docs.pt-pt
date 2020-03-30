@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670292"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever consultas avançadas no Monitor Azure
@@ -21,7 +21,7 @@ ms.locfileid: "77670292"
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 ## <a name="reusing-code-with-let"></a>Reutilizar código com let
-Utilize `let` para atribuir resultados a uma variável, e consulte-o mais tarde na consulta:
+Utilize `let` para atribuir resultados a uma variável e consulte-o mais tarde na consulta:
 
 ```Kusto
 // get all events that have level 2 (indicates warning level)
@@ -54,7 +54,7 @@ union FreeDiskSpace, FreeMemory
 Isto facilita a mudança do início do tempo final da próxima vez que fizer a consulta.
 
 ### <a name="local-functions-and-parameters"></a>Funções e parâmetros locais
-Utilize declarações `let` para criar funções que possam ser usadas na mesma consulta. Por exemplo, defina uma função que tome um campo de data (no formato UTC) e converta-a num formato americano padrão. 
+Utilize `let` declarações para criar funções que podem ser usadas na mesma consulta. Por exemplo, defina uma função que tome um campo de data (no formato UTC) e converta-a num formato americano padrão. 
 
 ```Kusto
 let utc_to_us_date_format = (t:datetime)
@@ -69,7 +69,7 @@ Event
 ```
 
 ## <a name="print"></a>Imprimir
-`print` devolverá uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isto é frequentemente usado em casos em que você precisa de um cálculo simples. Por exemplo, para encontrar o tempo atual em PST e adicionar uma coluna com EST:
+`print`devolverá uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isto é frequentemente usado em casos em que você precisa de um cálculo simples. Por exemplo, para encontrar o tempo atual em PST e adicionar uma coluna com EST:
 
 ```Kusto
 print nowPst = now()-8h
@@ -77,7 +77,7 @@ print nowPst = now()-8h
 ```
 
 ## <a name="datatable"></a>Datatable
-`datatable` permite definir um conjunto de dados. Fornece um esquema e um conjunto de valores e, em seguida, tubo a mesa em qualquer outro elemento de consulta. Por exemplo, criar uma tabela de utilização de RAM e calcular o seu valor médio por hora:
+`datatable`permite definir um conjunto de dados. Fornece um esquema e um conjunto de valores e, em seguida, tubo a mesa em qualquer outro elemento de consulta. Por exemplo, criar uma tabela de utilização de RAM e calcular o seu valor médio por hora:
 
 ```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
@@ -94,7 +94,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 | summarize avg(usage_percent) by bin(TimeGenerated, 1h)
 ```
 
-As construções datatable também são muito úteis na criação de uma mesa de lookup. Por exemplo, mapear dados de tabelas, tais como IDs de eventos da tabela _SecurityEvent,_ para tipos de eventos listados em outros lugares, criar uma tabela de lookup com os tipos de eventos usando `datatable` e juntar esta datatable com dados _SecurityEvent:_
+As construções datatable também são muito úteis na criação de uma mesa de lookup. Por exemplo, mapear dados de tabelas, tais como IDs de eventos da tabela _SecurityEvent,_ para tipos de eventos listados em outros lugares, criar uma tabela de lookup com os tipos de eventos que usam `datatable` e juntar esta datatable com dados do _SecurityEvent:_
 
 ```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
@@ -125,10 +125,10 @@ SecurityEvent
 ## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para utilizar a linguagem de [consulta Kusto](/azure/kusto/query/) com dados de registo do Monitor Azure:
 
-- [Operações de cordas](string-operations.md)
+- [Operações de cadeia](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
-- [JSON e estruturas de dados](json-data-structures.md)
-- [Junta-se](joins.md)
+- [Estruturas de dados e JSON](json-data-structures.md)
+- [Associações](joins.md)
 - [Gráficos](charts.md)

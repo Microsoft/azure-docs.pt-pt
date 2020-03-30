@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
 ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77431490"
 ---
 # <a name="protect-your-network-resources"></a>Proteja os recursos da sua rede
@@ -40,7 +40,7 @@ A página **Networking** fornece uma visão geral das secções em que pode merg
 - Recomendações de segurança em rede.
 - Lâmina de **rede** legacy (a lâmina de rede anterior) 
  
-[painel de networking ![](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
+[![Painel de networking](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
 
 ## <a name="network-map"></a>Mapa da rede
 O mapa de rede interativo fornece uma visão gráfica com sobreposições de segurança que lhe dão recomendações e insights para endurecer os recursos da sua rede. Utilizando o mapa, pode ver a topologia da rede das suas cargas de trabalho Azure, as ligações entre as suas máquinas virtuais e subredes, e a capacidade de aprofundar do mapa em recursos específicos e as recomendações para esses recursos.
@@ -59,7 +59,7 @@ A visão padrão do mapa de topologia mostra:
 - Recursos virados para a Internet
 - O mapa está otimizado para as subscrições selecionadas no Azure. Se modificar a sua seleção, o mapa é recalculado e reotimizado com base nas suas novas definições.  
 
-[mapa de topologia de rede ![](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
+[![Mapa de topologia de networking](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
 ## <a name="understanding-the-network-map"></a>Compreender o mapa da Rede
 
@@ -111,16 +111,16 @@ Para perfurar um recurso:
 
 **Estes dados baseiam-se na análise dos Grupos de Segurança da Rede, bem como em algoritmos avançados de aprendizagem automática que analisam várias regras para compreender os seus crossovers e interações.** 
 
-[mapa de tráfego em rede ![](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+[![Mapa de tráfego em rede](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
-## Rede legacy<a name ="legacy-networking"></a>
+## <a name="legacy-networking"></a>Rede legacy<a name ="legacy-networking"></a>
 
 Se não tiver o nível Padrão do Centro de Segurança, esta secção explica como visualizar recomendações gratuitas de Networking.
 
 Para aceder a esta informação, na lâmina de networking, clique em **Ver o legado em rede**. 
 
-[![Legacy Networking](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
+[![Rede Legacy](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
 
 ### <a name="internet-facing-endpoints-section"></a>Secção pontos finais com acesso à Internet
 Na secção **de pontos finais virados para** a Internet, pode ver as máquinas virtuais que estão atualmente configuradas com um ponto final virado para a Internet e o seu estado.
@@ -138,7 +138,7 @@ O terceiro nível apresenta máquinas virtuais, que são semelhantes às descrit
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
+Para saber mais sobre recomendações aplicáveis a outros tipos de recursos Azure, consulte o seguinte:
 
 * [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
 * [Proteger o seu serviço Azure SQL no Azure Security Center](security-center-sql-service-recommendations.md)

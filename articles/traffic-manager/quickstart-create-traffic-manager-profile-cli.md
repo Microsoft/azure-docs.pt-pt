@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: rohink
-ms.openlocfilehash: 36ad1c47e115f06aea2017a049cefe36304504bf
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e19850243498fc24c9a726f4603590df15f3a046
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934824"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79531520"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Quickstart: Criar um perfil de Gestor de Tráfego para uma aplicação web altamente disponível usando o Azure CLI
 
@@ -29,12 +29,12 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurecli-interactive
 
@@ -48,7 +48,7 @@ O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na loc
 
 Criar um perfil de Gestor de Tráfego utilizando o perfil de [gestor de tráfego da rede Az](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) que direciona o tráfego do utilizador com base na prioridade do ponto final.
 
-No exemplo seguinte, substitua **<profile_name>** com um nome de perfil exclusivo do Traffic Manager.
+No exemplo seguinte, substitua **<profile_name>** por um nome único de perfil do Traffic Manager.
 
 ```azurecli-interactive
 
@@ -64,14 +64,14 @@ az network traffic-manager profile create \
 
 ```
 
-## <a name="create-web-apps"></a>Criar aplicativos Web
+## <a name="create-web-apps"></a>Criar aplicativos web
 
 Para este arranque rápido, você precisará de dois casos de uma aplicação web implantada em duas regiões azure diferentes *(Leste dos EUA* e *Europa Ocidental).* Cada um servirá como pontos finais primários e falhados para o Gestor de Tráfego.
 
 ### <a name="create-web-app-service-plans"></a>Criar planos de serviço de aplicações web
 Crie planos de serviço de aplicações web utilizando [o plano de appservice az criar](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) para as duas instâncias da aplicação web que irá implementar em duas regiões azure diferentes.
 
-No exemplo seguinte, **substitua <appspname_eastus>** e **<appspname_westeurope>** por um nome único do Plano de Serviço de Aplicações
+No exemplo seguinte, substitua **<appspname_eastus>** e<appspname_westeurope **>** por um nome único do plano de serviço de aplicações
 
 ```azurecli-interactive
 
@@ -88,10 +88,11 @@ az appservice plan create \
     --sku S1
 
 ```
+
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Criar uma aplicação web no plano de serviço de aplicações
 Crie dois casos que a aplicação web usando [a az webapp criar](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) nos planos do App Service nas regiões *leste dos EUA* e West *Europe* Azure.
 
-No exemplo seguinte, substitua **<app1name_eastus>** e **<app2name_westeurope>** por um nome de aplicação único, e substitua **<appspname_eastus>** e **<appspname_westeurope>** com o nome usado para criar os planos do App Service na secção anterior.
+No exemplo seguinte, substitua **<app1name_eastus>** e<app2name_westeurope **>** por um nome único de aplicação e substitua<**appspname_eastus>** e<**appspname_westeurope>** pelo nome utilizado para criar os planos do Serviço de Aplicações na secção anterior.
 
 ```azurecli-interactive
 
@@ -111,11 +112,11 @@ az webapp create \
 Adicione as duas Aplicações Web como pontos finais do Gestor de Tráfego utilizando o [ponto final do gestor de tráfego da rede Az criar](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) para o perfil do Gestor de Tráfego da seguinte forma:
 
 - Determine o id da Web App e adicione a Aplicação Web localizada na região *de East US* Azure como o principal ponto final para direcionar todo o tráfego do utilizador. 
-- Determine o id da Web App e adicione a Web App localizada na região *west europe* azure como o ponto final falhado. 
+- Determine o id da Web App e adicione a Aplicação Web localizada na região *west europe* azure como o ponto final falhado. 
 
 Quando o ponto final principal não está disponível, o tráfego automaticamente se encaminha para o ponto final de falha.
 
-No exemplo seguinte, substitua **<app1name_eastus>** e **<app2name_westeurope>** com os Nomes de Aplicações criados para cada região na secção anterior, substitua **<appspname_eastus>** e **<appspname_westeurope>** com o nome usado para criar os planos do App Service na secção anterior, e substituir **<profile_name>** com o nome de perfil usado na secção anterior. 
+No exemplo seguinte, substitua **<app1name_eastus>** e<app2name_westeurope **>** pelos Nomes das Aplicações criados para cada região na secção anterior, substitua<**appspname_eastus>** e<appspname_westeurope **>** pelo nome utilizado para criar os planos do Serviço de Aplicações na secção anterior e substituir<**profile_name>** pelo nome de perfil utilizado na secção anterior. 
 
 **Ponto final dos EUA Oriental**
 
@@ -127,6 +128,7 @@ az webapp show \
     --query id
 
 ```
+
 Tome nota do id apresentado na saída e use no seguinte comando para adicionar o ponto final:
 
 ```azurecli-interactive
@@ -151,6 +153,7 @@ az webapp show \
     --query id
 
 ```
+
 Tome nota do id apresentado na saída e use no seguinte comando para adicionar o ponto final:
 
 ```azurecli-interactive
@@ -170,7 +173,7 @@ az network traffic-manager endpoint create \
 
 Nesta secção, você verificará o nome de domínio do seu perfil de Gestor de Tráfego. Também configurará o ponto final principal para não estar disponível. Finalmente, pode ver que a aplicação da web ainda está disponível. É porque o Gestor de Tráfego envia o tráfego para o ponto final do fracasso.
 
-No exemplo seguinte, substitua **<app1name_eastus>** e **<app2name_westeurope>** com os Nomes de Aplicações criados para cada região na secção anterior, substitua **<appspname_eastus>** e **<appspname_westeurope>** com o nome usado para criar os planos do App Service na secção anterior, e substituir **<profile_name>** com o nome de perfil usado na secção anterior.
+No exemplo seguinte, substitua **<app1name_eastus>** e<app2name_westeurope **>** pelos Nomes das Aplicações criados para cada região na secção anterior, substitua<**appspname_eastus>** e<appspname_westeurope **>** pelo nome utilizado para criar os planos do Serviço de Aplicações na secção anterior e substituir<**profile_name>** pelo nome de perfil utilizado na secção anterior.
 
 ### <a name="determine-the-dns-name"></a>Determinar o nome DNS
 
@@ -185,10 +188,10 @@ az network traffic-manager profile show \
 
 ```
 
-Copie o valor **relativodnsnome.** O nome DNS do seu perfil de Traffic Manager é *http://<* relativednsname *>.trafficmanager.net*. 
+Copie o valor **relativodnsnome.** O nome DNS do seu perfil do Traffic Manager é *http://<* nome de *>.trafficmanager.net*. 
 
 ### <a name="view-traffic-manager-in-action"></a>Ver o Gestor de Tráfego em ação
-1. Num navegador web, introduza o nome DNS do seu perfil de Traffic Manager *(http://<* relativednsname *>.trafficmanager.net*) para ver o website predefinido da sua Web App.
+1. Num navegador web, introduza o nome DNS do seu perfil de Traffic Manager *(http://<* nome de *>.trafficmanager.net*) para visualizar o website predefinido da sua Web App.
 
     > [!NOTE]
     > Neste cenário de arranque rápido, todos os pedidos de rota para o ponto final primário. Está definido para a **Prioridade 1**.
@@ -205,14 +208,14 @@ Copie o valor **relativodnsnome.** O nome DNS do seu perfil de Traffic Manager �
     
    ```
 
-3. Copie o nome DNS do seu perfil de Traffic Manager *(http://<* relativednsname *>.trafficmanager.net*) para ver o website numa nova sessão de navegador web.
+3. Copie o nome DNS do seu perfil de Traffic Manager *(http://<* nome de *>.trafficmanager.net*) para ver o website numa nova sessão de navegador web.
 4. Verifique se a aplicação da web ainda está disponível.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar, elimine os grupos de recursos, aplicações web e todos os recursos relacionados usando a eliminação do [grupo Az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
-```azurepowershell-interactive
+```azurecli-interactive
 
 az group delete \
     --resource-group myResourceGroup

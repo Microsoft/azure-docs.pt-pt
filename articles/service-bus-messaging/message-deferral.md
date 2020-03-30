@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77538401"
 ---
 # <a name="message-deferral"></a>Diferimento de mensagens
@@ -36,7 +36,7 @@ O API é [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brok
 
 As mensagens diferidas permanecem na fila principal juntamente com todas as outras mensagens ativas (ao contrário das mensagens de letra morta que vivem numa subfila), mas já não podem ser recebidas utilizando as funções regulares de Receção/Receção. As mensagens diferidas podem ser descobertas através da [navegação por mensagem](message-browsing.md) se uma aplicação perder o rasto das mesmas.
 
-Para recuperar uma mensagem diferida, o seu proprietário é responsável por lembrar o [Número de Sequências](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) à medida que a adia. Qualquer recetor que conheça o número de sequência de uma mensagem diferida pode mais tarde receber a mensagem explicitamente com `Receive(sequenceNumber)`.
+Para recuperar uma mensagem diferida, o seu proprietário é responsável por lembrar o [Número de Sequências](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) à medida que a adia. Qualquer recetor que conheça o número de sequência de uma `Receive(sequenceNumber)`mensagem diferida pode mais tarde receber a mensagem explicitamente com .
 
 Se uma mensagem não puder ser processada porque um recurso específico para manusear essa mensagem está temporariamente indisponível, mas o processamento de mensagens não deve ser sumariamente suspenso, uma forma de colocar essa mensagem de lado por alguns minutos é lembrar o Número de **Sequências** numa [mensagem programada](message-sequencing.md) a ser publicada em poucos minutos, e recuperar a mensagem adiada quando a mensagem programada chegar. Se um manipulador de mensagens depender de uma base de dados para todas as operações e essa base de dados estiver temporariamente indisponível, não deve utilizar o adiamento, mas sim suspender a receção de mensagens até que a base de dados esteja novamente disponível.
 
@@ -46,5 +46,5 @@ Se uma mensagem não puder ser processada porque um recurso específico para man
 Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Começar com as filas de ônibus de serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como utilizar os tópicos e as subscrições do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

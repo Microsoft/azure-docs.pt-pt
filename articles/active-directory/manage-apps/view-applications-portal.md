@@ -1,6 +1,6 @@
 ---
-title: Início rápido-exibir aplicativos de locatário usando o Azure Active Directory
-description: Neste guia de início rápido, use o portal do Azure para exibir os aplicativos em seu locatário do Azure Active Directory (AD do Azure).
+title: Quickstart - Ver aplicações de inquilinos usando o Diretório Ativo Azure
+description: Neste Quickstart, utilize o portal Azure para visualizar as aplicações no seu inquilino azure Ative Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,13 +17,13 @@ ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d40e968bb7079d50e3fa18889ae996c9b59c90f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74421811"
 ---
-# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>Início rápido: exibir seus aplicativos de locatário Azure Active Directory
+# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>Quickstart: Veja as suas aplicações de inquilinos do Azure Ative Directory
 
 Este início rápido utiliza o portal do Azure para ver as aplicações no seu inquilino do Azure Active Directory (Azure AD).
 
@@ -39,16 +39,16 @@ As aplicações do inquilino do Azure AD são visíveis na secção **Aplicaçõ
 
 Para localizar as aplicações do inquilino:
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
-1. No painel de **Azure Active Directory** , selecione **aplicativos empresariais**.
-1. No menu suspenso **tipo de aplicativo** , selecione **todos os aplicativos**e escolha **aplicar**. É apresentada uma amostra aleatória das aplicações do seu inquilino.
-1. Para exibir mais aplicativos, selecione **carregar mais** na parte inferior da lista. Dependendo do número de aplicações no inquilino, poderá ser mais fácil [procurar uma aplicação específica](#search-for-a-tenant-application) em vez de percorrer a lista.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, selecione **Azure Ative Directory**.
+1. No painel **azure Ative Directory,** selecione **aplicações Enterprise**.
+1. A partir do menu de entrega do **Tipo de Aplicação,** selecione **Todas as Aplicações,** e escolha **Aplicar**. É apresentada uma amostra aleatória das aplicações do seu inquilino.
+1. Para ver mais aplicações, selecione **Carregar mais** na parte inferior da lista. Dependendo do número de aplicações no inquilino, poderá ser mais fácil [procurar uma aplicação específica](#search-for-a-tenant-application) em vez de percorrer a lista.
 
 ## <a name="select-viewing-options"></a>Selecionar as opções de visualização
 
-Selecione opções de acordo com o que você está procurando.
+Selecione opções de acordo com o que procura.
 
-1. Você pode exibir os aplicativos por **tipo de aplicativo**, **status do aplicativo**e **visibilidade do aplicativo**.
+1. Pode visualizar as aplicações por Tipo de **Aplicação,** Estatuto de **Aplicação**e visibilidade da **aplicação.**
 1. Em **Tipo de Aplicação**, escolha uma das seguintes opções:
 
     - **Aplicações Empresariais** mostra aplicações não Microsoft.
@@ -56,27 +56,27 @@ Selecione opções de acordo com o que você está procurando.
     - **Todas as Aplicações** mostra aplicações não Microsoft e Microsoft.
 
 1. Em **Estado da Aplicação**, escolha **Qualquer**, **Desativada** ou **Ativada**. A opção **Qualquer** inclui aplicações desativadas e ativadas.
-1. Em **Visibilidade da Aplicação**, escolha **Qualquer** ou **Oculta**. A opção **Hidden** mostra os aplicativos que estão no locatário, mas não são visíveis para os usuários.
-1. Depois de escolher as opções desejadas, selecione **aplicar**.
+1. Em **Visibilidade da Aplicação**, escolha **Qualquer** ou **Oculta**. A opção **Oculta** mostra aplicações que estão no inquilino, mas não são visíveis para os utilizadores.
+1. Depois de escolher as opções que deseja, selecione **Aplicar**.
 
 ## <a name="search-for-a-tenant-application"></a>Procurar uma aplicação do inquilino
 
-Para procurar um aplicativo específico:
+Para procurar uma determinada aplicação:
 
-1. No menu **tipo de aplicativo** , selecione **todos os aplicativos**e escolha **aplicar**.
-1. Introduza o nome da aplicação que quer encontrar. Se o aplicativo tiver sido adicionado ao seu locatário do Azure AD, ele aparecerá nos resultados da pesquisa. Este exemplo mostra que o GitHub não foi adicionado aos aplicativos de locatário.
+1. No menu **Tipo de Aplicação,** selecione **Todas as aplicações,** e escolha **Aplicar**.
+1. Introduza o nome da aplicação que quer encontrar. Se a aplicação tiver sido adicionada ao seu inquilino DaD Azure, aparece nos resultados da pesquisa. Este exemplo mostra que o GitHub não foi adicionado às aplicações de inquilinos.
 
-    ![O exemplo mostra que um aplicativo não foi adicionado ao locatário](media/view-applications-portal/search-for-tenant-application.png)
+    ![Exemplo mostra que uma aplicação não foi adicionada ao inquilino](media/view-applications-portal/search-for-tenant-application.png)
 
 1. Experimente introduzir as primeiras letras do nome de uma aplicação. Este exemplo mostra todas as aplicações que começam com **Sales**.
 
-    ![Exemplo mostra todos os aplicativos que começam com vendas](media/view-applications-portal/search-by-prefix.png)
+    ![Exemplo mostra todas as aplicações que começam com vendas](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você aprendeu a exibir os aplicativos em seu locatário do Azure AD. Você aprendeu a filtrar a lista de aplicativos por tipo de aplicativo, status e visibilidade. Também aprendeu a procurar aplicações específicas.
+Neste arranque rápido, aprendeu a ver as aplicações no seu inquilino Azure AD. Aprendeu a filtrar a lista de aplicações por tipo de aplicação, estado e visibilidade. Também aprendeu a procurar aplicações específicas.
 
-Agora que você encontrou o aplicativo que estava procurando, pode continuar a [adicionar mais aplicativos ao seu locatário](add-application-portal.md). Ou, você pode selecionar o aplicativo para exibir ou editar propriedades e opções de configuração. Por exemplo, pode configurar o início de sessão único.
+Agora que encontrou a candidatura que procurava, pode continuar a [adicionar mais candidaturas ao seu inquilino.](add-application-portal.md) Ou, pode selecionar a aplicação para visualizar ou editar propriedades e opções de configuração. Por exemplo, pode configurar o início de sessão único.
 
 > [!div class="nextstepaction"]
-> [Configure single sign-on](configure-single-sign-on-non-gallery-applications.md) (Configurar o início de sessão único)
+> [Configurar o início de sessão único](configure-single-sign-on-non-gallery-applications.md)

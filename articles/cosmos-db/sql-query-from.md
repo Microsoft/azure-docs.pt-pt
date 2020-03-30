@@ -7,23 +7,23 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587690"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Da cláusula em Azure Cosmos DB
 
-A cláusula FROM (`FROM <from_specification>`) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta como `SELECT * FROM Families` enumera todo o recipiente `Families`. Também pode utilizar o identificador especial ROOT para o recipiente em vez de utilizar o nome do recipiente.
+A cláusula`FROM <from_specification>`FROM ( ) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta `SELECT * FROM Families` como enumera sobre `Families` todo o recipiente. Também pode utilizar o identificador especial ROOT para o recipiente em vez de utilizar o nome do recipiente.
 
 A cláusula FROM aplica as seguintes regras por consulta:
 
-* O recipiente pode ser pseudónimo, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` é o pseudónimo para `Families`. As é uma palavra-chave opcional para [alias](sql-query-aliasing.md) o identificador.  
+* O recipiente pode ser pseudónimo, `SELECT f.id FROM Families AS f` como `SELECT f.id FROM Families f`ou simplesmente . Aqui `f` está o `Families`pseudónimo para. As é uma palavra-chave opcional para [alias](sql-query-aliasing.md) o identificador.  
 
-* Uma vez pseudónimo, o nome original não pode ser ligado. Por exemplo, `SELECT Families.id FROM Families f` é sintáticamente inválida porque o identificador `Families` foi pseudónimo e não pode mais ser resolvido.  
+* Uma vez pseudónimo, o nome original não pode ser ligado. Por exemplo, `SELECT Families.id FROM Families f` é sintáticamente inválido `Families` porque o identificador foi pseudónimo e não pode mais ser resolvido.  
 
-* Todas as propriedades referenciadas devem ser totalmente qualificadas, para evitar quaisquer encadernações ambíguas na ausência de estrita adesão ao esquema. Por exemplo, `SELECT id FROM Families f` é sintáticamente inválida porque a propriedade `id` não está vinculada.
+* Todas as propriedades referenciadas devem ser totalmente qualificadas, para evitar quaisquer encadernações ambíguas na ausência de estrita adesão ao esquema. Por exemplo, `SELECT id FROM Families f` é sintáticamente inválido porque a propriedade `id` não está ligada.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -49,59 +49,59 @@ FROM <from_specification>
   
 - `<from_source>`  
   
-  Especifica uma origem de dados, com ou sem um alias. Se o pseudónimo não for especificado, será inferido do `<container_expression>` utilizando as seguintes regras:  
+  Especifica uma fonte de dados, com ou sem pseudónimo. Se o pseudónimo não for especificado, será `<container_expression>` inferido da utilização das seguintes regras:  
   
-  -  Se a expressão for um container_name, container_name será utilizado como um alias.  
+  -  Se a expressão for uma container_name, então container_name serão usadas como pseudónimo.  
   
-  -  Se a expressão for `<container_expression>`, então property_name, então property_name será usada como pseudónimo. Se a expressão for um container_name, container_name será utilizado como um alias.  
+  -  Se a `<container_expression>`expressão for , então property_name, então property_name será usada como pseudónimo. Se a expressão for uma container_name, então container_name serão usadas como pseudónimo.  
   
-- AS `input_alias`  
+- COMO`input_alias`  
   
-  Especifica que o `input_alias` é um conjunto de valores devolvidos pela expressão do recipiente subjacente.  
+  Especifica que `input_alias` se trata de um conjunto de valores devolvidos pela expressão do recipiente subjacente.  
  
-- `input_alias` IN  
+- `input_alias`EM  
   
-  Especifica que o `input_alias` deve representar o conjunto de valores obtidos por iteração sobre todos os elementos matrizes de cada matriz devolvidos pela expressão do recipiente subjacente. Qualquer valor devolvido pela expressão subjacente do contentor que não seja uma matriz é ignorada.  
+  Especifica que `input_alias` o conjunto de valores obtidos por iteração sobre todos os elementos matrizes de cada matriz devolvidopela expressão do recipiente subjacente. Qualquer valor devolvido pela expressão subjacente do recipiente que não seja uma matriz é ignorado.  
   
 - `<container_expression>`  
   
-  Especifica a expressão de contentor a ser usada para recuperar os documentos.  
+  Especifica a expressão do recipiente a utilizar para recuperar os documentos.  
   
 - `ROOT`  
   
-  Especifica que esse documento deve ser obtido da predefinição, o contentor atualmente ligada.  
+  Especifica que o documento deve ser recuperado do recipiente por defeito, atualmente ligado.  
   
 - `container_name`  
   
-  Especifica que esse documento deve ser obtido a partir do contentor fornecido. O nome do contentor tem de corresponder ao nome do contentor ligadas atualmente ao.  
+  Especifica que o documento deve ser recuperado do recipiente fornecido. O nome do recipiente deve coincidir com o nome do recipiente atualmente ligado.  
   
 - `input_alias`  
   
-  Especifica que esse documento deve ser obtido a partir de outra origem definida pelo alias fornecido.  
+  Especifica que o documento deve ser recuperado da outra fonte definida pelo pseudónimo fornecido.  
   
 - `<container_expression> '.' property_name`  
   
-  Especifica que o documento deve ser recuperado acedendo à propriedade `property_name`.  
+  Especifica que o documento deve ser `property_name` recuperado acedendo à propriedade.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Especifica que o documento deve ser recuperado acedendo à propriedade `property_name` ou elemento de matriz array_index para todos os documentos recuperados pela expressão especificada do recipiente.  
+  Especifica que o documento deve ser `property_name` recuperado acedendo à propriedade ou array_index elemento matriz para todos os documentos recuperados pela expressão especificada do recipiente.  
   
 ## <a name="remarks"></a>Observações
   
-Todos os pseudónimos fornecidos ou inferidos na `<from_source>(`) devem ser únicos. O property_name de `<container_expression>.`sintaxe é o mesmo que `<container_expression>' ['"property_name"']'`. No entanto, a sintaxe esse último pode ser utilizada se um nome de propriedade contém um caráter não identificador.  
+Todos os pseudónimos fornecidos ou `<from_source>(`inferidos no s) devem ser únicos. A property_name `<container_expression>.`sintaxe `<container_expression>' ['"property_name"']'`é a mesma que. No entanto, esta última sintaxe pode ser utilizada se um nome de propriedade contiver um carácter não identificador.  
   
-### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>manipulação em falta as propriedades, em falta elementos de matriz e os valores não definidos
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Manuseamento de propriedades em falta, elementos de matriz em falta e valores indefinidos
   
-Se uma expressão de contentor acessa as propriedades ou elementos de matriz e que valor não existir, esse valor será ignorado e não processado ainda mais.  
+Se uma expressão de contentor aceder a propriedades ou elementos de matriz e esse valor não existir, esse valor será ignorado e não será processado mais.  
   
-### <a name="container-expression-context-scoping"></a>O controlo de âmbito do contentor expressão contexto  
+### <a name="container-expression-context-scoping"></a>Deteção de contexto de expressão de recipiente  
   
-Uma expressão de contentor pode ser no âmbito do contentor ou no âmbito do documento:  
+Uma expressão de contentor pode ser de contentorou ou com um documento:  
   
--   Uma expressão é de alcance de contentores, se a fonte subjacente da expressão do recipiente for RAIZ ou `container_name`. Tal uma expressão representa um conjunto de documentos obtidas diretamente a partir do contentor e não é dependente do processamento de outras expressões de contentor.  
+-   Uma expressão é de alcance de contentores, se a `container_name`fonte subjacente da expressão do recipiente for RAIZ ou . Tal expressão representa um conjunto de documentos recuperados diretamente do contentor, e não depende do processamento de outras expressões de contentores.  
   
--   Uma expressão é com um documento, se a fonte subjacente da expressão do recipiente for `input_alias` introduzida anteriormente na consulta. Tal uma expressão representa um conjunto de documentos obtido ao avaliar a expressão de contentor no âmbito de cada documento que pertencem ao conjunto associado ao contentor de um alias.  O conjunto resultante será uma União dos conjuntos de obteve ao avaliar a expressão de contentor para cada um dos documentos no conjunto de subjacente. 
+-   Uma expressão é com um documento, se a `input_alias` fonte subjacente da expressão do recipiente for introduzida mais cedo na consulta. Tal expressão representa um conjunto de documentos obtidos através da avaliação da expressão do contentor no âmbito de cada documento pertencente ao conjunto associado ao recipiente aliado.  O conjunto resultante será uma união de conjuntos obtidos avaliando a expressão do contentor para cada um dos documentos no conjunto subjacente. 
 
 ## <a name="examples"></a>Exemplos
 
@@ -147,7 +147,7 @@ Os resultados são:
     ]
 ```
 
-A consulta anterior usou uma matriz como fonte, mas também pode usar um objeto como fonte. A consulta considera qualquer valor JSON válido e definido na fonte de inclusão no resultado. O exemplo que se segue excluiria `Families` que não têm um valor `address.state`.
+A consulta anterior usou uma matriz como fonte, mas também pode usar um objeto como fonte. A consulta considera qualquer valor JSON válido e definido na fonte de inclusão no resultado. O exemplo que `Families` se segue excluiria que não têm valor. `address.state`
 
 ```sql
     SELECT *
@@ -165,6 +165,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução](sql-query-getting-started.md)
+- [Começar](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
 - [ONDE a cláusula](sql-query-where.md)

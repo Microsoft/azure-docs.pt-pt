@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Storage serviços com Monitor Azure para Armazenamento (pré-visualização) Microsoft Docs
+title: Monitor Azure Storage serviços com Monitor Azure para Armazenamento (pré-visualização)] Microsoft Docs
 description: Este artigo descreve a funcionalidade Azure Monitor for Storage que fornece aos administradores de armazenamento uma compreensão rápida dos problemas de desempenho e utilização com as suas contas de Armazenamento Azure.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
 ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662524"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorização do seu serviço de armazenamento com o Monitor Azure para armazenamento (pré-visualização)
@@ -46,9 +46,9 @@ Do Azure Monitor, pode visualizar detalhes de transações, latências e capacid
 
 Para ver a utilização e disponibilidade das suas contas de armazenamento em todas as suas subscrições, execute os seguintes passos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. Selecione **Monitor** a partir do painel da mão esquerda no portal Azure, e sob a secção **Insights,** selecione Contas de **Armazenamento (pré-visualização)** .
+2. Selecione **Monitor** a partir do painel da mão esquerda no portal Azure, e sob a secção **Insights,** selecione Contas de **Armazenamento (pré-visualização)**.
 
     ![Vista de contas de armazenamento múltiplas](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -110,7 +110,7 @@ Selecionar qualquer um dos botões para **falhas,** **desempenho,** **disponibil
 
 ## <a name="detailed-storage-workbooks"></a>Livros de armazenamento detalhados
 
-Quer tenha selecionado um valor nas colunas Disponibilidade , **Latência E2E,** **Latência**do Servidor, e tipo de erro de **transação/Erros** do livro de trabalho da **conta** de armazenamento múltiplo, ou selecionando qualquer um dos botões para **falhas,** **desempenho,** **disponibilidade**e **capacidade** do livro de visão **geral** a partir de uma conta de armazenamento específica, cada um entrega um conjunto de informações interativas relacionadas com armazenamento adaptadas a essa categoria.  
+Quer tenha selecionado um valor nas colunas Disponibilidade , **Latência E2E,** **Latência**do Servidor, e tipo de erro de **transação/Erros** do livro de trabalho da **conta** de armazenamento múltiplo, ou selecionando qualquer um dos botões para **falhas,** **desempenho,** **disponibilidade**e **capacidade** do livro de visão **geral** a partir de uma conta de armazenamento específica, cada um entrega um conjunto de informações interativas relacionadas com armazenamento adaptadas a essa categoria. **Availability**  
 
 * **A disponibilidade** abre o livro **de disponibilidade.** Mostra o estado de saúde atual do serviço de armazenamento Azure, uma tabela que mostra o estado de saúde disponível de cada objeto categorizado pelo serviço de dados definido na conta de armazenamento com uma linha de tendência que representa a faixa de tempo selecionada, e um gráfico de tendência de disponibilidade para cada serviço de dados na conta.  
 
@@ -174,7 +174,7 @@ No nosso exemplo, estamos a trabalhar com o livro de trabalho de capacidade de c
 * Remover uma métrica
 * Alterar a renderização de cor
 
-Pode efetuar as mesmas alterações contra qualquer uma das falhas pré-construídas, **Desempenho,** **Disponibilidade**e Livros **de Capacidade.**
+Pode efetuar as mesmas alterações contra qualquer uma das falhas pré-construídas, **Desempenho,** **Disponibilidade**e Livros **de Capacidade.** **Failures**
 
 1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento (pré-visualização)** do painel da esquerda.
 
@@ -190,7 +190,7 @@ Pode efetuar as mesmas alterações contra qualquer uma das falhas pré-constru�
 
     ![Editar definições de colunas](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. No painel de definições da **coluna Editar,** selecione sob a secção **Colunas** **microsoft.storage/storageaccounts-Capacity-UsedAbilityy Timeline$  Conta utilizada capacidade Timeline$** , e sob a lista drop-down **Column renderizador** selecione **Hidden**.
+5. No painel de definições da **coluna Editar,** selecione sob a secção **Colunas** **microsoft.storage/storageaccounts-Capacity-UsedAbilityy Timeline$[ [ Conta utilizada capacidade Timeline$**, e sob a lista drop-down **Column renderizador** selecione **Hidden**.
 
 6. Selecione **Guardar e perto** de comprometer a sua mudança.
 
@@ -198,7 +198,7 @@ Agora vamos mudar o tema da cor para as métricas de capacidade no relatório pa
 
 1. Selecione **Definições de coluna** na grelha de métricas.
 
-2. No painel de definições da **coluna Editar,** selecione sob a secção **Colunas** **microsoft.storage/storageaccounts-Capacity-Capacity$microsoft.storage/storageaccounts/blobservices-Capacity-Capacity$microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$microsoft.storage/storageaccounts/queueservices** Sob a lista de "paleta de **cores"** de down-down, selecione **Verde**.
+2. No painel de definições da **coluna Editar,** selecione sob a secção **Colunas** **microsoft.storage/storageaccounts-Capacity-Capacity$[microsoft.storage/storageaccounts/blobservices-Capacity-Capacity$[microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$[microsoft.storage/storageaccounts/queueservices** Sob a lista de "paleta de **cores"** de down-down, selecione **Verde**.
 
 3. Selecione **Guardar e perto** de comprometer a sua mudança.
 
@@ -218,7 +218,7 @@ Neste exemplo, estamos a trabalhar com o livro de trabalho da capacidade da cont
 
     ![Editar Disponibilidade por definições de grelha de nome API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Selecione **as definições da Coluna** e, em seguida, no painel de definições da coluna **Editar,** sob a secção **Colunas** selecione **Disponibilidade (%) (Limiares + Formato)** .
+5. Selecione **as definições da Coluna** e, em seguida, no painel de definições da coluna **Editar,** sob a secção **Colunas** selecione **Disponibilidade (%) (Limiares + Formato)**.
 
 6. Mude o valor para o estado de saúde **crítico** de **90** para **85** e, em seguida, clique em **Guardar e Fechar**.
 
@@ -254,7 +254,7 @@ O número de contas de armazenamento selecionadas tem um limite de 200, independ
 
 O portal mostrará dados apenas para subscrições selecionadas no lançamento do portal. Para alterar o que as subscrições são selecionadas, vá para a direita superior e clique no caderno com um ícone de filtro. Isto mostrará o separador de assinaturas Diretório + +.
 
-![Assinatura de Diretório +](./media/storage-insights-overview/fqa3.png)
+![Diretório + subscrição](./media/storage-insights-overview/fqa3.png)
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Como alterar a coloração e o limiar de disponibilidade?
 
@@ -311,8 +311,8 @@ O título do livro ou passo do livro que está preso a um painel de instrumentos
 
 Para alterar o nome de um passo no livro guardado, selecione editar sob o degrau e, em seguida, selecione a engrenagem na parte inferior das definições.
 
-![Selecione editar na parte inferior de um passo de livro para abrir as definições](./media/storage-insights-overview/fqa-edit.png)
-![Nas definições, selecione a engrenagem na parte inferior, para poder alterar o nome do passo](./media/storage-insights-overview/fqa-change-name.png)
+![Selecione editar na parte inferior de um](./media/storage-insights-overview/fqa-edit.png)
+![passo de livro para abrir as definições Em definições, selecione a engrenagem na parte inferior, para poder alterar o nome do passo](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

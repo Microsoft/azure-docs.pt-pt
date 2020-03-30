@@ -1,6 +1,6 @@
 ---
 title: Deteção de anomalias no Azure Stream Analytics
-description: Este artigo descreve como utilizar o Azure Stream Analytics e o Azure Machine Learning em conjunto, para detetar anomalias.
+description: Este artigo descreve como usar azure Stream Analytics e Azure Machine Learning juntos para detetar anomalias.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77525537"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias no Azure Stream Analytics
@@ -117,7 +117,7 @@ O desempenho destes modelos depende do tamanho da história, duração da janela
 * **Tamanho da história** - Estes modelos executam linearmente com **o tamanho da história.** Quanto mais tempo o tamanho da história, mais tempo os modelos demoram a marcar um novo evento. Isto porque os modelos comparam o novo evento com cada um dos eventos anteriores no amortecedor de história.
 * **Duração** da janela - A **duração** da janela deve refletir o tempo que demora a receber tantos eventos conforme especificado pelo tamanho da história. Sem tantos eventos na janela, o Azure Stream Analytics imputaria valores em falta. Assim, o consumo de CPU é uma função do tamanho da história.
 * Carga de **eventos** - Quanto maior for a carga do **evento,** mais trabalho é realizado pelos modelos, o que impacta o consumo de CPU. O trabalho pode ser dimensionado tornando-o embaraçosamente paralelo, assumindo que faz sentido que a lógica empresarial use mais divisórias de entrada.
-* A divisão do **nível de função** - Divisão do nível de **função** é feita utilizando ```PARTITION BY``` dentro da chamada da função de deteção de anomalias. Este tipo de partição adiciona uma sobrecarga, uma vez que o Estado precisa de ser mantido para vários modelos ao mesmo tempo. A divisão do nível de função é usada em cenários como a divisão do nível do dispositivo.
+* **Divisória** - do nível de função A divisão do**nível** de divisão é feita utilizando ```PARTITION BY``` dentro da chamada da função de deteção de anomalias. Este tipo de partição adiciona uma sobrecarga, uma vez que o Estado precisa de ser mantido para vários modelos ao mesmo tempo. A divisão do nível de função é usada em cenários como a divisão do nível do dispositivo.
 
 ### <a name="relationship"></a>Relação
 O tamanho da história, a duração da janela e a carga total do evento estão relacionados da seguinte forma:
@@ -131,20 +131,20 @@ O quadro seguinte inclui as observações de um único nó (6 SU) para o caso n�
 
 | Tamanho da história (eventos) | Duração da janela (Ms) | Total de eventos de entrada por seg |
 | --------------------- | -------------------- | -------------------------- |
-| 60 | 55 | 2,200 |
+| 60 | 55 | 2.200 |
 | 600 | 728 | 1,650 |
-| 6,000 | 10,910 | 1,100 |
+| 6000 | 10,910 | 1100 |
 
 O quadro seguinte inclui as observações de um único nó (6 SU) para o caso dividido:
 
 | Tamanho da história (eventos) | Duração da janela (Ms) | Total de eventos de entrada por seg | Contagem de dispositivos |
 | --------------------- | -------------------- | -------------------------- | ------------ |
-| 60 | 1,091 | 1,100 | 10 |
-| 600 | 10,910 | 1,100 | 10 |
-| 6,000 | 218,182 | <550 | 10 |
+| 60 | 1,091 | 1100 | 10 |
+| 600 | 10,910 | 1100 | 10 |
+| 6000 | 218,182 | <550 | 10 |
 | 60 | 21,819 | 550 | 100 |
 | 600 | 218,182 | 550 | 100 |
-| 6,000 | 2,181,819 | <550 | 100 |
+| 6000 | 2,181,819 | <550 | 100 |
 
 O código de amostra para executar as configurações não divisórias acima está localizado no [repo streaming à escala](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) de amostras azure. O código cria um trabalho de análise de fluxo sem divisão de nível de função, que usa o Event Hub como entrada e saída. A carga de entrada é gerada através de clientes de teste. Cada evento de entrada é um documento json de 1KB. Os eventos simulam um dispositivo IoT que envia dados JSON (para dispositivos até 1K). O tamanho da história, a duração da janela e a carga total do evento são variados em mais de 2 divisórias de entrada.
 

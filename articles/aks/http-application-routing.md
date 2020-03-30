@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
 ms.openlocfilehash: 5794e46f10abec1ceef4c79a881f7f353e729634
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595693"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
@@ -31,16 +31,16 @@ O addon implementa dois componentes: um [controlador Kubernetes Ingress][ingress
 
 ## <a name="deploy-http-routing-cli"></a>Implementar encaminhamento HTTP: CLI
 
-O complemento de encaminhamento de aplicações HTTP pode ser ativado com o AZURE CLI ao implantar um cluster AKS. Para tal, use as [aks az criar][az-aks-create] comando com o argumento `--enable-addons`.
+O complemento de encaminhamento de aplicações HTTP pode ser ativado com o AZURE CLI ao implantar um cluster AKS. Para tal, use as [aks az][az-aks-create] `--enable-addons` criar comando com o argumento.
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
 > [!TIP]
-> Se quiser ativar múltiplos addons, forneça-os como uma lista separada da vírvia. Por exemplo, para permitir o encaminhamento e monitorização da aplicação HTTP, utilize o formato `--enable-addons http_application_routing,monitoring`.
+> Se quiser ativar múltiplos addons, forneça-os como uma lista separada da vírvia. Por exemplo, para permitir o encaminhamento e `--enable-addons http_application_routing,monitoring`monitorização da aplicação HTTP, utilize o formato .
 
-Também pode ativar o encaminhamento http num cluster AKS existente utilizando o comando [az aks enable-addons.][az-aks-enable-addons] Para permitir o encaminhamento http num cluster existente, adicione o parâmetro `--addons` e especifique *http_application_routing* conforme mostrado no seguinte exemplo:
+Também pode ativar o encaminhamento http num cluster AKS existente utilizando o comando [az aks enable-addons.][az-aks-enable-addons] Para permitir o encaminhamento http num `--addons` cluster existente, adicione o parâmetro e especifique *http_application_routing* conforme mostrado no seguinte exemplo:
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
@@ -76,7 +76,7 @@ annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Crie um ficheiro chamado **samples-http-application-routing.yaml** e copie no seguinte YAML. Na linha 43, atualize `<CLUSTER_SPECIFIC_DNS_ZONE>` com o nome da zona DNS recolhido na fase anterior deste artigo.
+Crie um ficheiro chamado **samples-http-application-routing.yaml** e copie no seguinte YAML. Na linha 43, atualize `<CLUSTER_SPECIFIC_DNS_ZONE>` com o nome de zona DNS recolhido na fase anterior deste artigo.
 
 
 ```yaml
@@ -204,7 +204,7 @@ Para eliminar recursos, utilize o [comando de eliminação kubectl.][kubectl-del
 kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
 ```
 
-Repita o passo `kubectl delete` anterior para todos os recursos de *encaminhamento de aplicações addon-http-application* que permaneceram no seu cluster.
+Repita o `kubectl delete` passo anterior para todos os recursos de *encaminhamento de aplicações addon-http-aplicação* que permaneceram no seu cluster.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
@@ -221,7 +221,7 @@ Estes registos também podem ser vistos no recurso da zona DNS no portal Azure.
 
 ![Obtenha os registos do DNS](media/http-routing/clippy.png)
 
-Utilize o comando de [registos kubectl][kubectl-logs] para visualizar os registos de aplicação do controlador Nginx Ingress. Os registos devem confirmar a `CREATE` de um recurso Ingress e a recarga do controlador. Toda a atividade http está registada.
+Utilize o comando de [registos kubectl][kubectl-logs] para visualizar os registos de aplicação do controlador Nginx Ingress. Os registos devem `CREATE` confirmar o de um recurso Ingress e a recarga do controlador. Toda a atividade http está registada.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system

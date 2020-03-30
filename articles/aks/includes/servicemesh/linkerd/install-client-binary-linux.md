@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 7a22256c88f9cee3ce62c68a2de4a5974d76f026
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593740"
 ---
 ## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Descarregue e instale o linkerd linkerd client binary
 
-Numa concha baseada em golpes no Linux ou [no Subsistema Windows para linux,][install-wsl]utilize `curl` para descarregar o lançamento do Linkerd da seguinte forma:
+Numa concha baseada em golpes no Linux ou `curl` [no Subsistema Windows para linux,][install-wsl]utilize para descarregar o lançamento do Linkerd da seguinte forma:
 
 ```bash
 # Specify the Linkerd version that will be leveraged throughout these instructions
@@ -21,14 +21,14 @@ LINKERD_VERSION=stable-2.6.0
 curl -sLO "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-linux"
 ```
 
-O binário `linkerd` cliente funciona na sua máquina cliente e permite-lhe interagir com a malha de serviço Linkerd. Utilize os seguintes comandos para instalar o Linkerd `linkerd` binário do cliente numa concha baseada em golpes no Linux ou [no Subsistema Windows para Linux][install-wsl]. Estes comandos copiam o `linkerd` binário do cliente para a localização padrão do programa de utilizador na sua `PATH`.
+O `linkerd` binário do cliente funciona na sua máquina cliente e permite-lhe interagir com a malha de serviço Linkerd. Utilize os seguintes comandos para `linkerd` instalar o binário do cliente Linkerd numa concha baseada em golpes no Linux ou [no Subsistema Windows para Linux][install-wsl]. Estes comandos `linkerd` copiam o binário do cliente `PATH`para a localização padrão do programa de utilizador na sua .
 
 ```bash
 sudo cp ./linkerd2-cli-$LINKERD_VERSION-linux /usr/local/bin/linkerd
 sudo chmod +x /usr/local/bin/linkerd
 ```
 
-Se quiser a conclusão da linha de comando para o linkerd `linkerd` binário de cliente, então configura-o da seguinte forma:
+Se quiser a conclusão da linha de `linkerd` comando para o binário do cliente Linkerd, então instale-a da seguinte forma:
 
 ```bash
 # Generate the bash completion file and source it in your current shell

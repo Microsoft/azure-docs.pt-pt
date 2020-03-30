@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 9acf92649d5b44e277d3ae3d277c9b1112fdcdd0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 163dc0d6ecd4f91273a82b04ce186f7a8df868af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "78273880"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79465061"
 ---
 # <a name="nd-series"></a>Série ND
 
@@ -38,7 +38,9 @@ Atualizações de preservação da memória: não suportadas
 
 1 GPU = um cartão P40.
 
-*RDMA capaz [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+*Com capacidade RDMA
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 

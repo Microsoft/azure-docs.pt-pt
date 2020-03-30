@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: bbc77340375b22f137045d68b7449dd1e8adc4b7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588387"
 ---
 # <a name="connect-citrix-analytics-security"></a>Ligar a Citrix Analytics (Segurança) 
@@ -36,7 +36,7 @@ A integração da Citrix Analytics (Security) com o Azure Sentinel ajuda-o a exp
 
 ## <a name="connect-azure-sentinel-to-citrix-analytics-security"></a>Ligue o Azure Sentinel à Citrix Analytics (Segurança)
 
-1. No portal Azure, navegue até aos **conectores** De dados ** > Azure Sentinel** e, em seguida, selecione o conector **Citrix Analytics (Security).**
+1. No portal Azure, navegue para os**conectores** De Dados **Azure Sentinel** > e, em seguida, selecione o conector **Citrix Analytics (Security).**
 
 2. Selecione página do **conector Aberto**.
 

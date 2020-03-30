@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77566153"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Crie máquinas virtuais VMware na sua Nuvem Privada
@@ -21,7 +21,7 @@ Para criar máquinas virtuais na sua Nuvem Privada, comece por aceder ao portal 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 ## <a name="access-the-cloudsimple-portal"></a>Aceder ao portal da CloudSimple
 
@@ -58,37 +58,37 @@ Para aceder ao vCenter, comece pelo portal CloudSimple. Na página Inicial, em *
 1. No vCenter, clique no ícone **Anfitriões e Clusters.**
 
 2. Clique na carga de **trabalho** do clique à direita e selecione **Nova Máquina Virtual**.
-    ![novo](media/vcvm01.png) VM
+    ![Novo VM](media/vcvm01.png)
 
 3. Selecione **Criar uma nova máquina virtual** e clique em **Next**.
-    ![novo](media/vcvm02.png) VM
+    ![Novo VM](media/vcvm02.png)
 
 4. Nomeie a máquina, selecione a localização **do VM de carga de trabalho** e clique em **Next**.
-    ![novo](media/vcvm03.png) VM
+    ![Novo VM](media/vcvm03.png)
 
 5. Selecione o recurso computacional **workload** e clique **em Seguinte**.
-    ![novo](media/vcvm04.png) VM
+    ![Novo VM](media/vcvm04.png)
 
 6. Selecione **vsanDatastore** e clique **em Seguinte**.
-    ![novo](media/vcvm05.png) VM
+    ![Novo VM](media/vcvm05.png)
 
 7. Mantenha a seleção de compatibilidade ESXi 6.5 padrão e clique **em Seguinte**.
-    ![novo](media/vcvm06.png) VM
+    ![Novo VM](media/vcvm06.png)
 
 8. Selecione o oss o de hóspedes do ISO para o VM que está a criar e clique **em Next**.
-    ![novo](media/vcvm07.png) VM
+    ![Novo VM](media/vcvm07.png)
 
 9. Selecione o disco rígido e as opções de rede. Para uma nova unidade de CD/DVD, selecione **ficheiro ISO**da Datastore .  Se pretender permitir o tráfego do endereço IP público para este VM, selecione a rede como **vm-1**.
-    ![novo](media/vcvm08.png) VM
+    ![Novo VM](media/vcvm08.png)
 
 10. Abre-se uma janela de seleção. Selecione o ficheiro que já fez o upload para a pasta ISOs e Templates e clique em **OK**.
-    ![novo](media/vcvm10.png) VM
+    ![Novo VM](media/vcvm10.png)
 
 11. Reveja as definições e clique **em OK** para criar o VM.
-    ![novo](media/vcvm11.png) VM
+    ![Novo VM](media/vcvm11.png)
 
 O VM é agora adicionado aos recursos computacionais da Carga de Trabalho e está pronto para ser utilizado. 
-![novo](media/vcvm12.png) VM
+![Novo VM](media/vcvm12.png)
 
 A configuração básica está agora completa. Pode começar a usar a sua Nuvem Privada semelhante à forma como utilizaria a sua infraestrutura VM no local.
 
@@ -96,7 +96,7 @@ As seguintes secções contêm informações opcionais sobre a configuração de
 
 ## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Adicionar Utilizadores e fontes de identidade ao vCenter (Opcional)
 
-O CloudSimple atribui uma conta de utilizador vCenter predefinida com nome de utilizador `cloudowner@cloudsimple.local`. Não é necessária nenhuma configuração adicional da conta para que possa começar.  A CloudSimple atribui normalmente aos administradores os privilégios de que necessitam para realizar operações normais.  Instale o seu diretório ativo no local ou azure ad como [uma fonte de identidade adicional](set-vcenter-identity.md) na sua Nuvem Privada.
+O CloudSimple atribui uma conta de `cloudowner@cloudsimple.local`utilizador vCenter predefinida com nome de utilizador . Não é necessária nenhuma configuração adicional da conta para que possa começar.  A CloudSimple atribui normalmente aos administradores os privilégios de que necessitam para realizar operações normais.  Instale o seu diretório ativo no local ou azure ad como [uma fonte de identidade adicional](set-vcenter-identity.md) na sua Nuvem Privada.
 
 ## <a name="create-a-dns-and-dhcp-server-optional"></a>Criar um servidor DNS e DHCP (Opcional)
 
@@ -132,7 +132,7 @@ As páginas da Rede no portal CloudSimple permitem especificar a configuração 
 
 ### <a name="allocate-public-ips"></a>Atribuição de IPs públicos
 
-1. Navegue para **Network > Public IP** no portal CloudSimple.
+1. Navegue para **Rede > IP Público** no portal CloudSimple.
 2. Clique em **Alocar IP Público**.
 3. Insira um nome para identificar a entrada do endereço IP.
 4. Mantenha a localização padrão.
@@ -143,7 +143,7 @@ As páginas da Rede no portal CloudSimple permitem especificar a configuração 
 
     ![IP público](media/quick-create-pc-public-ip.png)
 
-Inicia-se a tarefa de atribuição do endereço IP público. Pode verificar o estado da tarefa na página **Atividade > Tarefas.** Quando a atribuição estiver concluída, a nova entrada é mostrada na página de IPs públicos.
+Inicia-se a tarefa de atribuição do endereço IP público. Pode verificar o estado da tarefa na página **Tarefas > Atividade.** Quando a atribuição estiver concluída, a nova entrada é mostrada na página de IPs públicos.
 
 O VM a que este endereço IP deve ser mapeado tem de ser configurado com o endereço local acima especificado. O procedimento para configurar um endereço IP é específico do sistema operativo VM. Consulte a documentação do seu sistema operativo VM para o procedimento correto.
 
@@ -225,6 +225,6 @@ Para instalar uma solução, deve solicitar privilégios adicionais por um perí
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Consumir VMware VMs em Azure](quickstart-create-vmware-virtual-machine.md)
+* [Consumir VMs de VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * [Ligue-se à rede no local utilizando o Azure ExpressRoute](on-premises-connection.md)
 * [Configurar gateways VPN na rede CloudSimple](vpn-gateway.md)

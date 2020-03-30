@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623336"
 ---
-# <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Aposentar os níveis de desempenho S1, S2 e S3
+# <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retiring the S1, S2, and S3 performance levels (Os níveis de desempenho S1, S2 e S3 vão ser preteridos)
 
 > [!IMPORTANT] 
 > Os níveis de desempenho S1, S2 e S3 discutidos neste artigo estão a ser retirados e já não estão disponíveis para novas contas Do MBS.
 >
 
-Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3, e discute como as coleções que usam estes níveis de desempenho podem ser migradas para coleções únicas divididas. Depois de ler este artigo, será capaz de responder às seguintes perguntas:
+Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3, e discute como as coleções que usam estes níveis de desempenho podem ser migradas para coleções únicas divididas. Depois de ler este artigo, poderá responder às seguintes perguntas:
 
 - [Porque é que os níveis de desempenho do S1, S2 e S3 estão a ser retirados?](#why-retired)
 - [Como é que coleções de partição única e coleções divididas se comparam aos níveis de desempenho S1, S2, S3?](#compare)
@@ -45,7 +45,7 @@ A tabela seguinte compara as opções de entrada e armazenamento disponíveis em
 
 |   |Coleção dividida|Coleção única de partição|S1|S2|S3|
 |---|---|---|---|---|---|
-|O máximo de entrada|Ilimitado|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
+|Débito máximo|Ilimitado|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Rendimento mínimo|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Armazenamento máximo|Ilimitado|20 GB|20 GB|20 GB|20 GB|
 |Preço (mensal)|Entrada: $6 / 100 RU/s<br><br>Armazenamento: $0.25/GB|Entrada: $6 / 100 RU/s<br><br>Armazenamento: $0.25/GB|$25 USD|$50 USD|$100 USD|

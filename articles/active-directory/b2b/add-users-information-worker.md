@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abb5c6939d8c88db35a776aa8f2c075a4bdcc609
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77565422"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como os utilizadores da sua organização podem convidar utilizadores convidados para uma app
@@ -34,12 +34,12 @@ Depois de um utilizador convidado ter sido adicionado ao diretório em Azure AD,
 
 Depois de configurar uma aplicação para self-service, os proprietários de aplicações podem usar o seu próprio Painel de Acesso para convidar um utilizador convidado para a app que queiram partilhar. O utilizador convidado não precisa necessariamente de ser adicionado ao Azure AD com antecedência. 
 
-1. Abra o painel de acesso indo para `https://myapps.microsoft.com`.
-2. Aponte para a aplicação, selecione as elipses ( **...** ) e, em seguida, selecione **'Gerir a aplicação**.
+1. Abra o painel de `https://myapps.microsoft.com`acesso indo para .
+2. Aponte para a aplicação, selecione as elipses (**...**) e, em seguida, selecione **'Gerir a aplicação**.
  
    ![Screenshot mostrando o submenu da aplicação Manage para a app Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
-3. No topo da lista de utilizadores, selecione **+** .
+3. No topo da lista de **+** utilizadores, selecione .
    
    ![Screenshot mostrando o símbolo plus para adicionar membros à app](media/add-users-iw/access-panel-manage-app-add-user.png)
    
@@ -53,7 +53,7 @@ Depois de configurar uma aplicação para self-service, os proprietários de apl
 Depois de configurar uma aplicação para self-service, os proprietários de aplicações podem convidar os utilizadores convidados para os grupos que gerem que têm acesso às aplicações que pretendem partilhar. Os utilizadores convidados já não têm de existir no diretório. O proprietário da aplicação segue estas medidas para convidar um utilizador convidado para o grupo para que possa aceder à aplicação.
 
 1. Certifique-se de que é proprietário do grupo de self-service que tem acesso à app que pretende partilhar.
-2. Abra o painel de acesso indo para `https://myapps.microsoft.com`.
+2. Abra o painel de `https://myapps.microsoft.com`acesso indo para .
 3. Selecione a aplicação **Grupos.**
    
    ![Screenshot mostrando a app Grupos no Painel de Acesso](media/add-users-iw/access-panel-groups.png)
@@ -62,7 +62,7 @@ Depois de configurar uma aplicação para self-service, os proprietários de apl
    
    ![Screenshot mostrando onde selecionar um grupo sob os grupos que possuo](media/add-users-iw/access-panel-groups-i-own.png)
    
-5. No topo da lista de membros do grupo, selecione **+** .
+5. No topo da lista de **+** membros do grupo, selecione .
    
    ![Screenshot mostrando o símbolo plus para adicionar membros ao grupo](media/add-users-iw/access-panel-groups-add-member.png)
    
@@ -94,16 +94,16 @@ A gestão de aplicações self-service requer alguma configuração inicial por 
 3. Selecione **Grupos**.
 4. Selecione **Novo grupo**.
 5. Sob o **tipo de grupo,** selecione **Segurança**.
-6. Digite um **nome de grupo** e **descrição do grupo.**
+6. Introduza um **Nome do grupo** e uma **Descrição do grupo**.
 7. No **tipo de Membro,** selecione **Designado**.
 8. Selecione **Criar**e fechar a página **do Grupo.**
 9. Na página **grupo - Todos os grupos,** abra o grupo. 
-10. Under **Manage**, selecione **Owners** > **Adicionar proprietários**. Procure o utilizador que deve gerir o acesso à aplicação. Selecione o utilizador e, em seguida, clique em **Selecionar**.
+10. Em **'Gerir',** selecione **Proprietários** > **Adicionar proprietários**. Procure o utilizador que deve gerir o acesso à aplicação. Selecione o utilizador e, em seguida, clique em **Selecionar**.
 
 ### <a name="configure-the-app-for-self-service-and-assign-the-group-to-the-app"></a>Configure a aplicação para self-service e atribua o grupo à app
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador da AD Azure ou Administrador Global.
 2. No painel de navegação, selecione **Azure Ative Directory**.
-3. Em **'Gerir',** selecione **aplicações da Enterprise** > todas as **aplicações.**
+3. Em **'Gerir**' selecione **aplicações** > Enterprise**Todas as aplicações**.
 4. Na lista de candidaturas, encontre e abra a app.
 5. Em **'Gerir',** selecione **um único sinal e**configure a aplicação para um único início de sessão. (Para mais detalhes, consulte [como gerir um único sign-on para aplicações empresariais](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).)
 6. Under **Manage**, selecione **Self-service**e instale acesso a aplicações self-service. (Para mais detalhes, consulte [como utilizar o acesso à aplicação self-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
@@ -111,7 +111,7 @@ A gestão de aplicações self-service requer alguma configuração inicial por 
     > [!NOTE]
     > Para a definição **Para que grupo os utilizadores designados devem ser adicionados?**
 7. Em **Manage**, selecione **Utilizadores e grupos,** e verifique se o grupo de self-service que criou aparece na lista.
-8. Para adicionar a aplicação ao Painel de Acesso do proprietário do grupo, selecione **Adicionar utilizadores** > utilizadores **e grupos**. Procure o proprietário do grupo e selecione o utilizador, clique em **Selecionar**e, em seguida, clique em **Atribuir** para adicionar o utilizador à aplicação.
+8. Para adicionar a aplicação ao Painel de Acesso do proprietário do grupo, selecione **Adicionar** > **utilizadores e grupos**. Procure o proprietário do grupo e selecione o utilizador, clique em **Selecionar**e, em seguida, clique em **Atribuir** para adicionar o utilizador à aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

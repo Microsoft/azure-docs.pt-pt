@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371772"
 ---
 Devem ser cumpridos os seguintes requisitos para estabelecer com êxito um túnel do dispositivo:
@@ -130,7 +130,7 @@ Depois de configurar o portal de rede virtual e de ter instalado o certificado d
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+   ![Teste de MáquinaCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
 1. Executar **rasphone**.
 
    ![rasphone](./media/vpn-gateway-vwan-always-on-device/rasphone.png)

@@ -1,30 +1,30 @@
 ---
-title: Módulo Ansible e matriz de versão para o Azure | Microsoft Docs
-description: Módulo Ansible e matriz de versão para o Azure
-keywords: Ansible, funções, matriz, versão, Azure, DevOps
+title: Módulo ansível e matriz de versão para o Azure Microsoft Docs
+description: Módulo ansível e matriz de versão para Azure
+keywords: ansível, papéis, matriz, versão, azul, devops
 ms.topic: reference
 ms.date: 10/14/2019
 ms.openlocfilehash: 54e27c7570ba1cdbce7355740181d68a2f3efbac
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74155981"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Módulo Ansible e matriz de versão
 
-O Ansible inclui um conjunto de módulos para uso no provisionamento e configuração de recursos do Azure. Esses recursos incluem máquinas virtuais, conjuntos de dimensionamento, serviços de rede e serviços de contêiner. Este artigo lista os vários módulos do Ansible para o Azure e as versões do Ansible em que eles são fornecidos.
+O Ansible inclui um conjunto de módulos para utilização na prestação e configuração de recursos Azure. Estes recursos incluem máquinas virtuais, conjuntos de escala, serviços de networking e serviços de contentores. Este artigo lista os vários módulos Ansible para as versões Azure e Ansible em que enviam.
 
-## <a name="ansible-modules-for-azure"></a>Módulos Ansible para o Azure
+## <a name="ansible-modules-for-azure"></a>Módulos ansíveis para Azure
 
-Os módulos a seguir podem ser executados diretamente em hosts remotos ou por meio de guias estratégicos.  
+Os seguintes módulos podem ser executados diretamente em anfitriões remotos ou através de playbooks.  
 
-Esses módulos estão disponíveis na versão oficial do Ansible e nas seguintes funções do guia estratégico da Microsoft.
+Estes módulos estão disponíveis a partir do lançamento oficial da Ansible e das seguintes funções de playbook da Microsoft.
 
 > [!NOTE]
-> Do Ansible 2,9 em diante, renomeamos todos os módulos * _facts para * _info para aderir à Convenção de nomenclatura do Ansible. Os módulos antigos e renomeados são vinculados de modo que, além de ver um aviso de reprovação, todos os módulos funcionam como antes.
+> A partir de Ansible 2.9 em diante, rebatizamos todos os módulos de _facts para *_info aderir à convenção de nomeação Ansible. Os módulos antigos e renomeados estão ligados, por isso, para além de verem um aviso de depreciação, todos os módulos funcionam como antes.
 
-| Módulo Ansible para o Azure                   |  Ansible 2,4 |  Ansible 2,5 |  Ansible 2,6 | Ansible 2,7 | Ansible 2,8 | Ansible 2,9 | Função Ansible | 
+| Módulo Ansível para Azure                   |  Ansível 2.4 |  Ansível 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansível 2.8 | Ansível 2.9 | Papel Ansível | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------|--------------|  
 | **Computação**                    |           |                          |                          |                            |           |           |           |
 | azure_rm_availabilityset                   | Sim          | Sim                         | Sim          | Sim          | Sim          | Sim          | Sim          |
@@ -119,7 +119,7 @@ Esses módulos estão disponíveis na versão oficial do Ansible e nas seguintes
 | azure_rm_containerregistryreplication_info  | -            | -                           | -            | -            | -          | -          | Sim          |
 | azure_rm_containerregistrywebhook           | -            | -                           | -            | -            | -          | -          | Sim          |
 | azure_rm_containerregistrywebhook_info      | -            | -                           | -            | -            | -          | -          | Sim          |
-| **Bases de dados**                    |           |                          |                          |                             |           |           |          |
+| **Bases de Dados**                    |           |                          |                          |                             |           |           |          |
 | azure_rm_cosmosdbaccount                    | -            | -                           | -            | -            | Sim          | Sim          | Sim          |
 | azure_rm_cosmosdbaccount_info              | -            | -                           | -            | -            | Sim          | Sim          | Sim          |
 | azure_rm_mariadbconfiguration               | -            | -                           | -            | -            | Sim          | Sim          | Sim          |
@@ -160,7 +160,7 @@ Esses módulos estão disponíveis na versão oficial do Ansible e nas seguintes
 | **Análise**                    |           |                          |                          |                             |           |           |          |
 | azure_rm_hdinsightcluster                   | -            | -                           | -            | -            | Sim          | Sim          | Sim          |
 | azure_rm_hdinsightcluster_info              | -            | -                           | -            | -            | -            | Sim          | Sim          |
-| **Integrar**                    |           |                          |                          |                             |           |           |          |
+| **Integração**                    |           |                          |                          |                             |           |           |          |
 | azure_rm_servicebus                         | -            | -                           | -            | -            | Sim          | Sim          | Sim          |
 | azure_rm_servicebus_info                   | -            | -                           | -            | -            | Sim          | Sim          | Sim          |
 | azure_rm_servicebusqueue                    | -            | -                           | -            | -            | Sim          | Sim          | Sim          |
@@ -202,7 +202,7 @@ Esses módulos estão disponíveis na versão oficial do Ansible e nas seguintes
 | azure_rm_loganalyticsworkspace              | -            | -                           | -            | -            | Sim          | Sim          | Sim          |
 | azure_rm_loganalyticsworkspace_info        | -            | -                           | -            | -            | Sim          | Sim          | Sim          |
 | azure_rm_monitorlogprofile                  | -            | -                           | -            | -            | -            | Sim          | Sim          |
-| **Gerenciamento e governança**     |              |                           |            |            |            |            |              |
+| **Gestão e Governação**     |              |                           |            |            |            |            |              |
 | azure_rm_automationaccount        | -            | -                         | -          | -          | -          | Sim        | Sim          |
 | azure_rm_automationaccount_info   | -            | -                         | -          | -          | -          | Sim        | Sim          |
 | azure_rm_lock                     | -            | -                         | -          | -          | -          | Sim        | Sim          |
@@ -215,12 +215,12 @@ Esses módulos estão disponíveis na versão oficial do Ansible e nas seguintes
 | azure_rm_iothub_info              | -            | -                         | -          | -          | -          | Sim        | Sim          |
 | azure_rm_iothubconsumergroup      | -            | -                         | -          | -          | -          | Sim        | Sim          |
 
-## <a name="introduction-to-playbook-role-for-azure"></a>Introdução à função de guia estratégico do Azure
+## <a name="introduction-to-playbook-role-for-azure"></a>Introdução ao papel de playbook para Azure
 
-A [azure_preview_module função de guia estratégico](https://galaxy.ansible.com/Azure/azure_preview_modules/) inclui todos os módulos mais recentes do Azure. As atualizações e correções de bugs são realizadas de maneira mais oportuna do que a versão oficial do Ansible. Se você usar o Ansible para fins de provisionamento de recursos do Azure, você será incentivado a instalar a `azure_preview_module` função de guia estratégico.
+O [papel de azure_preview_module playbook](https://galaxy.ansible.com/Azure/azure_preview_modules/) inclui todos os mais recentes módulos Azure. As atualizações e as correções de erros são feitas de forma mais oportuna do que a versão oficial do Ansible. Se utilizar o Ansible para efeitos de fornecimento de recursos Azure, é encorajado a instalar o `azure_preview_module` papel de playbook.
 
-A `azure_preview_module` função de guia estratégico é lançada a cada três semanas.
+O `azure_preview_module` papel de livro é lançado a cada três semanas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre as funções de guia estratégico, consulte [criando guias estratégicos reutilizáveis](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+Para obter mais informações sobre papéis de playbook, consulte [Criar playbooks reutilizáveis](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670309"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações em consultas de registo do Monitor Azure
@@ -20,7 +20,7 @@ ms.locfileid: "77670309"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve funções de agregação em consultas de registo do Monitor Azure que oferecem formas úteis de analisar os seus dados. Todas estas funções funcionam com o operador `summarize` que produz uma tabela com resultados agregados da tabela de entrada.
+Este artigo descreve funções de agregação em consultas de registo do Monitor Azure que oferecem formas úteis de analisar os seus dados. Todas estas funções `summarize` funcionam com o operador que produz uma tabela com resultados agregados da tabela de entrada.
 
 ## <a name="counts"></a>Contagens
 
@@ -55,7 +55,7 @@ A saída deste exemplo mostra a linha de tendência da contagem de registos perf
 
 
 ### <a name="dcount-dcountif"></a>contagem, dcountif
-Use `dcount` e `dcountif` para contar valores distintos numa coluna específica. A seguinte consulta avalia quantos computadores distintos enviaram batimentos cardíacos na última hora:
+Utilizar `dcount` `dcountif` e contar valores distintos numa coluna específica. A seguinte consulta avalia quantos computadores distintos enviaram batimentos cardíacos na última hora:
 
 ```Kusto
 Heartbeat 
@@ -63,7 +63,7 @@ Heartbeat
 | summarize dcount(Computer)
 ```
 
-Para contar apenas os computadores Linux que enviaram batimentos cardíacos, use `dcountif`:
+Para contar apenas os computadores Linux que enviaram batimentos cardíacos, use: `dcountif`
 
 ```Kusto
 Heartbeat 
@@ -72,7 +72,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Avaliação de subgrupos
-Para efetuar uma contagem ou outras agregações em subgrupos nos seus dados, utilize a palavra-chave `by`. Por exemplo, para contar o número de computadores Linux distintos que enviaram batimentos cardíacos em cada país/região:
+Para efetuar uma contagem ou outras agregações `by` em subgrupos nos seus dados, utilize a palavra-chave. Por exemplo, para contar o número de computadores Linux distintos que enviaram batimentos cardíacos em cada país/região:
 
 ```Kusto
 Heartbeat 
@@ -89,7 +89,7 @@ Heartbeat
 |Países Baixos      | 2                   |
 
 
-Para analisar subgrupos ainda mais pequenos dos seus dados, adicione nomes de colunas adicionais à secção `by`. Por exemplo, é melhor contar os computadores distintos de cada país/região por OSType:
+Para analisar subgrupos ainda mais pequenos dos seus `by` dados, adicione nomes de colunas adicionais à secção. Por exemplo, é melhor contar os computadores distintos de cada país/região por OSType:
 
 ```Kusto
 Heartbeat 
@@ -98,10 +98,10 @@ Heartbeat
 ```
 
 ## <a name="percentiles-and-variance"></a>Percentiles e Variação
-Ao avaliar valores numéricos, uma prática comum é média-los usando `summarize avg(expression)`. As médias são afetadas por valores extremos que caracterizam apenas alguns casos. Para resolver este problema, pode utilizar funções menos sensíveis, como `median` ou `variance`.
+Ao avaliar valores numéricos, uma prática `summarize avg(expression)`comum é média-los usando . As médias são afetadas por valores extremos que caracterizam apenas alguns casos. Para resolver este problema, pode utilizar funções menos sensíveis, tais como `median` ou `variance`.
 
 ### <a name="percentile"></a>Percentil
-Para encontrar o valor mediano, utilize a função `percentile` com um valor para especificar o percentil:
+Para encontrar o valor `percentile` mediano, utilize a função com um valor para especificar o percentil:
 
 ```Kusto
 Perf
@@ -121,7 +121,7 @@ Perf
 
 Isto pode mostrar que alguns CPUs de computador têm valores medianos semelhantes, mas enquanto alguns são constantes em torno da mediana, outros computadores reportaram valores de CPU muito mais baixos e mais altos, o que significa que experimentaram picos.
 
-### <a name="variance"></a>Variância
+### <a name="variance"></a>Desvio
 Para avaliar diretamente a variação de um valor, utilize os métodos de desvio e variação padrão:
 
 ```Kusto
@@ -142,10 +142,10 @@ Perf
 
 Consulte outras lições para utilizar a linguagem de [consulta Kusto](/azure/kusto/query/) com dados de registo do Monitor Azure:
 
-- [Operações de cordas](string-operations.md)
+- [Operações de cadeia](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Agregações avançadas](advanced-aggregations.md)
-- [JSON e estruturas de dados](json-data-structures.md)
+- [Estruturas de dados e JSON](json-data-structures.md)
 - [Escrita de consulta avançada](advanced-query-writing.md)
-- [Junta-se](joins.md)
+- [Associações](joins.md)
 - [Gráficos](charts.md)

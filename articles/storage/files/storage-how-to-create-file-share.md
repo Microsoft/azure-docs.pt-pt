@@ -9,10 +9,10 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ed6abbac7c5953eaec4fa4584248d0d98b49ba63
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77596926"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
@@ -36,7 +36,7 @@ Para obter mais informações sobre estas três opções, consulte Planeamento p
 - Se pretende utilizar o Azure PowerShell, [instale a versão mais recente.](https://docs.microsoft.com/powershell/azure/install-az-ps)
 - Se pretender utilizar o Azure CLI, [instale a versão mais recente.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 As ações de ficheiros Azure são implantadas em contas de armazenamento, que são *objetos*de alto nível que representam um conjunto partilhado de armazenamento. Este conjunto de armazenamento pode ser usado para implementar várias partilhas de ficheiros. 
 
 O Azure suporta vários tipos de contas de armazenamento para diferentes cenários de armazenamento que os clientes podem ter, mas existem dois tipos principais de contas de armazenamento para ficheiros Azure. Que tipo de conta de armazenamento precisa criar depende se pretende criar uma partilha de ficheiros padrão ou uma partilha de ficheiro premium: 
@@ -51,7 +51,7 @@ Para criar uma conta de armazenamento através do portal Azure, selecione **+ Cr
 ![Uma imagem da conta de armazenamento rapidamente criar opção em um navegador](media/storage-how-to-create-file-share/create-storage-account-0.png)
 
 #### <a name="the-basics-section"></a>A secção Básica
-A primeira secção a concluir para criar uma conta de armazenamento está rotulada de **Básicos**. Isto contém todos os campos necessários para criar uma conta de armazenamento. Para criar uma conta de armazenamento GPv2, certifique-se de que o botão de rádio **Performance** está definido para *Standard* e a lista de drop-down **tipo Conta** é selecionada para *StorageV2 (finalidade geral v2)* .
+A primeira secção a concluir para criar uma conta de armazenamento está rotulada de **Básicos**. Isto contém todos os campos necessários para criar uma conta de armazenamento. Para criar uma conta de armazenamento GPv2, certifique-se de que o botão de rádio **Performance** está definido para *Standard* e a lista de drop-down **tipo Conta** é selecionada para *StorageV2 (finalidade geral v2)*.
 
 ![Uma imagem do botão de rádio Performance com standard selecionado e tipo de conta com StorageV2 selecionado](media/storage-how-to-create-file-share/create-storage-account-1.png)
 
@@ -87,7 +87,7 @@ As etiquetas são pares de nome/valor que lhe permitem categorizar recursos e vi
 O passo final para criar a conta de armazenamento é selecionar o botão **Criar** no separador **Rever + criar.** Este botão não estará disponível se todos os campos necessários para uma conta de armazenamento não estiverem preenchidos.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Para criar uma conta de armazenamento utilizando o PowerShell, usaremos o `New-AzStorageAccount` cmdlet. Este cmdlet tem muitas opções; apenas são mostradas as opções necessárias. Para saber mais sobre opções avançadas, consulte a [documentação`New-AzStorageAccount` cmdlet.](/powershell/module/az.storage/new-azstorageaccount)
+Para criar uma conta de armazenamento utilizando `New-AzStorageAccount` o PowerShell, usaremos o cmdlet. Este cmdlet tem muitas opções; apenas são mostradas as opções necessárias. Para saber mais sobre opções avançadas, consulte a [ `New-AzStorageAccount` documentação do cmdlet.](/powershell/module/az.storage/new-azstorageaccount)
 
 Para simplificar a criação da conta de armazenamento e posterior partilha de ficheiros, armazenaremos vários parâmetros em variáveis. Pode substituir o conteúdo variável por quaisquer valores que deseje, no entanto note que o nome da conta de armazenamento deve ser globalmente único.
 
@@ -97,7 +97,7 @@ $storageAccountName = "mystorageacct$(Get-Random)"
 $region = "westus2"
 ```
 
-Para criar uma conta de armazenamento capaz de armazenar ações padrão de ficheiros Azure, usaremos o seguinte comando. O parâmetro `-SkuName` diz respeito ao tipo de despedimento desejado; se desejar uma conta de armazenamento georedundant ou geo-zona redundante, também deve remover o parâmetro `-EnableLargeFileShare`.
+Para criar uma conta de armazenamento capaz de armazenar ações padrão de ficheiros Azure, usaremos o seguinte comando. O `-SkuName` parâmetro diz respeito ao tipo de despedimento desejado; se desejar uma conta de armazenamento georedundant ou geo-zona `-EnableLargeFileShare` redundante, também deve remover o parâmetro.
 
 ```azurepowershell-interactive
 $storAcct = New-AzStorageAccount `
@@ -109,7 +109,7 @@ $storAcct = New-AzStorageAccount `
     -EnableLargeFileShare
 ```
 
-Para criar uma conta de armazenamento capaz de armazenar ações de ficheiros Premium Azure, usaremos o seguinte comando. Note-se que o parâmetro `-SkuName` mudou para incluir tanto `Premium` como o nível de despedimento desejado de redundante localmente (`LRS`). O parâmetro `-Kind` é `FileStorage` em vez de `StorageV2` porque as ações de ficheiropremium devem ser criadas numa conta de armazenamento de FileStorage em vez de uma conta de armazenamento GPv2.
+Para criar uma conta de armazenamento capaz de armazenar ações de ficheiros Premium Azure, usaremos o seguinte comando. Note que `-SkuName` o parâmetro mudou `Premium` para incluir ambos e o`LRS`nível de despedimento desejado localmente redundante ( ). O `-Kind` parâmetro `FileStorage` é `StorageV2` em vez de porque as ações de ficheiro premium devem ser criadas numa conta de armazenamento fileStorage em vez de uma conta de armazenamento GPv2.
 
 ```azurepowershell-interactive
 $storAcct = New-AzStorageAccount `
@@ -120,8 +120,8 @@ $storAcct = New-AzStorageAccount `
     -Kind FileStorage 
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-Para criar uma conta de armazenamento utilizando o Azure CLI, usaremos a conta de armazenamento az criar comando. Este comando tem muitas opções; apenas são mostradas as opções necessárias. Para saber mais sobre as opções avançadas, consulte a [documentação de comando`az storage account create`.](/cli/azure/storage/account)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+Para criar uma conta de armazenamento utilizando o Azure CLI, usaremos a conta de armazenamento az criar comando. Este comando tem muitas opções; apenas são mostradas as opções necessárias. Para saber mais sobre as opções avançadas, consulte a [ `az storage account create` documentação](/cli/azure/storage/account)do comando.
 
 Para simplificar a criação da conta de armazenamento e posterior partilha de ficheiros, armazenaremos vários parâmetros em variáveis. Pode substituir o conteúdo variável por quaisquer valores que deseje, no entanto note que o nome da conta de armazenamento deve ser globalmente único.
 
@@ -131,7 +131,7 @@ storageAccountName="mystorageacct$RANDOM"
 region="westus2"
 ```
 
-Para criar uma conta de armazenamento capaz de armazenar ações padrão de ficheiros Azure, usaremos o seguinte comando. O parâmetro `--sku` diz respeito ao tipo de despedimento desejado; se desejar uma conta de armazenamento georedundant ou geo-zona redundante, também deve remover o parâmetro `--enable-large-file-share`.
+Para criar uma conta de armazenamento capaz de armazenar ações padrão de ficheiros Azure, usaremos o seguinte comando. O `--sku` parâmetro diz respeito ao tipo de despedimento desejado; se desejar uma conta de armazenamento georedundant ou geo-zona `--enable-large-file-share` redundante, também deve remover o parâmetro.
 
 ```azurecli-interactive
 az storage account create \
@@ -143,7 +143,7 @@ az storage account create \
     --output none
 ```
 
-Para criar uma conta de armazenamento capaz de armazenar ações de ficheiros Premium Azure, usaremos o seguinte comando. Note-se que o parâmetro `--sku` mudou para incluir tanto `Premium` como o nível de despedimento desejado de redundante localmente (`LRS`). O parâmetro `--kind` é `FileStorage` em vez de `StorageV2` porque as ações de ficheiropremium devem ser criadas numa conta de armazenamento de FileStorage em vez de uma conta de armazenamento GPv2.
+Para criar uma conta de armazenamento capaz de armazenar ações de ficheiros Premium Azure, usaremos o seguinte comando. Note que `--sku` o parâmetro mudou `Premium` para incluir ambos e o`LRS`nível de despedimento desejado localmente redundante ( ). O `--kind` parâmetro `FileStorage` é `StorageV2` em vez de porque as ações de ficheiro premium devem ser criadas numa conta de armazenamento fileStorage em vez de uma conta de armazenamento GPv2.
 
 ```azurecli-interactive
 az storage account create \
@@ -175,13 +175,13 @@ A nova lâmina de partilha de ficheiros deve aparecer no ecrã. Complete os camp
 - **Nome**: o nome da parte do ficheiro a criar.
 - **Quota**: A quota da parte de ficheiro para as ações de ficheiros-tipo; a dimensão prevista da parte do ficheiro para ações de ficheiros premium.
 
-Selecione **Criar** para terminar criando a nova parte. Note que se a sua conta de armazenamento estiver numa rede virtual, não será capaz de criar com sucesso uma partilha de ficheiros Azure, a menos que o seu cliente também esteja na rede virtual. Também pode contornar esta limitação pontual utilizando o `New-AzRmStorageShare` Azure PowerShell.
+Selecione **Criar** para terminar criando a nova parte. Note que se a sua conta de armazenamento estiver numa rede virtual, não será capaz de criar com sucesso uma partilha de ficheiros Azure, a menos que o seu cliente também esteja na rede virtual. Também pode contornar esta limitação pontual utilizando o cmdlet Azure PowerShell. `New-AzRmStorageShare`
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Pode criar a partilha de ficheiros Azure com o [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. Os seguintes comandos PowerShell assumem que definiu as variáveis `$resourceGroupName` e `$storageAccountName` como definido acima na criação de uma conta de armazenamento com a secção Azure PowerShell. 
+Pode criar a partilha de [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) ficheiros Azure com o cmdlet. Os seguintes comandos PowerShell assumem `$resourceGroupName` `$storageAccountName` que definiu as variáveis e, tal como definido acima na criação de uma conta de armazenamento com a secção Azure PowerShell. 
 
 > [!Important]  
-> No caso de ações de ficheiropremium, o parâmetro `-QuotaGiB` refere-se à dimensão prevista da parte do ficheiro. O tamanho previsto da parte do ficheiro é o valor que você será cobrado, independentemente da utilização. As ações de ficheiros padrão são faturadas com base no uso e não no tamanho provisionado.
+> Para ações de `-QuotaGiB` ficheiropremium, o parâmetro refere-se à dimensão prevista da parte do ficheiro. O tamanho previsto da parte do ficheiro é o valor que você será cobrado, independentemente da utilização. As ações de ficheiros padrão são faturadas com base no uso e não no tamanho provisionado.
 
 ```azurepowershell-interactive
 $shareName = "myshare"
@@ -196,8 +196,8 @@ New-AzRmStorageShare `
 > [!Note]  
 > O nome da partilha de ficheiros tem de ser todo em minúsculas. Para obter detalhes completos sobre a nomeação de partilhas e ficheiros de ficheiros, consulte [nomear e referenciar ações, diretórios, ficheiros e metadados.](https://msdn.microsoft.com/library/azure/dn167011.aspx)
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-Antes de podermos criar uma partilha de ficheiros Azure com o Azure CLI, tem de obter uma chave de conta de armazenamento para autorizar a operação de criação de partilha de ficheiros. Isto pode ser feito com o comando [`az storage account keys list`:](/cli/azure/storage/account/keys)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+Antes de podermos criar uma partilha de ficheiros Azure com o Azure CLI, tem de obter uma chave de conta de armazenamento para autorizar a operação de criação de partilha de ficheiros. Isto pode ser [`az storage account keys list`](/cli/azure/storage/account/keys) feito com o comando:
 
 ```azurecli-interactive
 storageAccountKey=$(az storage account keys list \
@@ -206,10 +206,10 @@ storageAccountKey=$(az storage account keys list \
     --query "[0].value" | tr -d '"')
 ```
 
-Assim que tiver a chave da conta de armazenamento, pode criar a partilha de ficheiros Azure com o comando [`az storage share create`.](/cli/azure/storage/share) 
+Assim que tiver a chave da conta de armazenamento, [`az storage share create`](/cli/azure/storage/share) pode criar a partilha de ficheiros Azure com o comando. 
 
 > [!Important]  
-> No caso de ações de ficheiropremium, o parâmetro `--quota` refere-se à dimensão prevista da parte do ficheiro. O tamanho previsto da parte do ficheiro é o valor que você será cobrado, independentemente da utilização. As ações de ficheiros padrão são faturadas com base no uso e não no tamanho provisionado.
+> Para ações de `--quota` ficheiropremium, o parâmetro refere-se à dimensão prevista da parte do ficheiro. O tamanho previsto da parte do ficheiro é o valor que você será cobrado, independentemente da utilização. As ações de ficheiros padrão são faturadas com base no uso e não no tamanho provisionado.
 
 ```azurecli-interactive
 shareName="myshare"
@@ -222,7 +222,7 @@ az storage share create \
     --output none
 ```
 
-Este comando falhará se a conta de armazenamento estiver contida numa rede virtual e o computador de onde está a invocar este comando não faz parte da rede virtual. Pode contornar esta limitação pontual utilizando o Azure PowerShell `New-AzRmStorageShare` cmdlet, conforme descrito acima, ou executando o Azure CLI a partir de um computador que faz parte da rede virtual, incluindo através de uma ligação VPN.
+Este comando falhará se a conta de armazenamento estiver contida numa rede virtual e o computador de onde está a invocar este comando não faz parte da rede virtual. Pode contornar esta limitação pontual utilizando o cmdlet `New-AzRmStorageShare` Azure PowerShell como descrito acima, ou executando o Azure CLI a partir de um computador que faz parte da rede virtual, incluindo através de uma ligação VPN.
 
 ---
 

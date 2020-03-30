@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 74e5a427d62d5249ffe6b0426b62a3577e43462f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444488"
 ---
 # <a name="ip-groups-preview-in-azure-firewall"></a>Grupos IP (pré-visualização) em Firewall Azure
@@ -54,7 +54,7 @@ Pode ver todos os endereços IP do Grupo IP e as regras ou recursos que lhe est�
 
 1. Para visualizar ou editar os endereços IP, selecione **endereços IP** em **Definições** no painel esquerdo.
 2. Para adicionar um endereço IP único ou múltiplo, **selecione Adicionar Endereços IP**. Isto abre a página **Drag ou Browse** para um upload, ou pode introduzir o endereço manualmente.
-3.  Selecionando as elipses **(...** ) ao direito de editar ou excluir endereços IP. Para editar ou eliminar vários endereços IP, selecione as caixas e selecione **Editar** ou **Excluir** na parte superior.
+3.  Selecionando as elipses **(...**) ao direito de editar ou excluir endereços IP. Para editar ou eliminar vários endereços IP, selecione as caixas e selecione **Editar** ou **Excluir** na parte superior.
 4. Finalmente, pode exportar o ficheiro no formato de ficheiro CSV.
 
 > [!NOTE]
@@ -84,7 +84,7 @@ Os grupos IP estão atualmente disponíveis nas seguintes regiões:
 - E.U.A. Centro-Sul
 - Canadá Central
 - Europa do Norte
-- Europa Ocidental
+- Europa ocidental
 - França Central
 - Sul do Reino Unido
 - Leste da Austrália

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 7d94e53abbe8f4d2953729aa2363c3906ce94f74
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670224"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Utilização de funções em consultas de registo do Monitor Azure
@@ -24,7 +24,7 @@ Crie uma função com log analytics no portal Azure clicando em **Guardar** e, e
 | Definição | Descrição |
 |:---|:---|
 | Nome           | Mostrar o nome da consulta no explorador de **consulta**. |
-| Salvar como        | Função |
+| Guardar como        | Função |
 | Pseudónimos de Função | Nome curto para utilizar a função em outras consultas. Pode não conter espaços e deve ser único. |
 | Categoria       | Uma categoria para organizar consultas e funções guardadas no **explorador de Consulta.** |
 
@@ -56,10 +56,10 @@ security_updates_last_day | where Title contains "SQL"
 ## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para escrever consultas de registo do Monitor Azure:
 
-- [Operações de cordas](string-operations.md)
+- [Operações de cadeia](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
-- [JSON e estruturas de dados](json-data-structures.md)
-- [Junta-se](joins.md)
+- [Estruturas de dados e JSON](json-data-structures.md)
+- [Associações](joins.md)
 - [Gráficos](charts.md)

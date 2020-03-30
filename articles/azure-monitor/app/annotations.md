@@ -4,10 +4,10 @@ description: Adicione marcadores de implantação ou construção aos seus gráf
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.openlocfilehash: e0e2a106b276110e13b3c68889e4d1d349ba73a4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77666518"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos métricos em Insights de Aplicação
@@ -67,7 +67,7 @@ Crie uma chave API separada para cada um dos seus modelos de lançamento de Pipe
    
 1. Na janela do modelo de lançamento, no separador **Variáveis,** selecione **Adicionar** para criar uma definição variável para a nova tecla API.
 
-1. Em **nome**, insira `ApiKey`, e em **valor**, cola a chave API que copiou do separador **API Access.**
+1. Em **Nome,** `ApiKey`introduza , e em **valor**, cola a chave API que copiou do separador **API Access.**
    
    ![No separador DevOps Azure, selecione Adicionar, nomear a variável ApiKey e colar a chave API em Valor.](./media/annotations/7-paste-api-key.png)
    
@@ -87,7 +87,7 @@ Pode utilizar o script [CreateReleaseAnnotation](https://github.com/Microsoft/Ap
    
 1. Utilize os passos no procedimento anterior para obter o id de Insights de Aplicação e crie uma chave API a partir do separador **De Acesso API** Insights da aplicação.
    
-1. Ligue para o script PowerShell com o seguinte código, substituindo os espaços reservados com suportes de ângulo com os seus valores. Os `-releaseProperties` são opcionais. 
+1. Ligue para o script PowerShell com o seguinte código, substituindo os espaços reservados com suportes de ângulo com os seus valores. São `-releaseProperties` opcionais. 
    
    ```powershell
    
@@ -105,4 +105,4 @@ Pode modificar o script, por exemplo, para criar anotações para o passado.
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar itens de trabalho](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automação com PowerShell](../../azure-monitor/app/powershell.md)
+* [Automatização com o PowerShell](../../azure-monitor/app/powershell.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/13/2020
 ms.openlocfilehash: 104975e6424ed96d43434a588997957033c31d93
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560359"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o Azure PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "77560359"
 
 A Azure PowerShell pode ser usada para controlar e automatizar a implementação e gestão das suas cargas de trabalho no Azure. Neste artigo, aprende-se a gerir os clusters [Apache Hadoop](https://hadoop.apache.org/) no Azure HDInsight utilizando o módulo Azure PowerShell Az. Para a lista dos cmdlets HDInsight PowerShell, consulte a [referência Az.HDInsight](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -142,13 +142,13 @@ Consulte [O Apache Oozie com Apache Hadoop para definir e executar um fluxo de t
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Enviar dados para armazenamento de Blob Azure
 
-Consulte [os dados de upload para HDInsight](hdinsight-upload-data.md).
+Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)](hdinsight-upload-data.md).
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Veja também
 
 * [Cmdlets Az.HDInsight](https://docs.microsoft.com/powershell/module/az.hdinsight/?view=azps-3.1.0#hdinsight)
 * [Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure](hdinsight-administer-use-portal-linux.md)
 * [Administrar o HDInsight utilizando uma interface de linha de comando](hdinsight-administer-use-command-line.md)
-* [Criar clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+* [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Submeta os empregos apache Hadoop programáticamente](hadoop/submit-apache-hadoop-jobs-programmatically.md)
-* [Começar com Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Get started with Azure HDInsight (Introdução ao Azure HDInsight)](hadoop/apache-hadoop-linux-tutorial-get-started.md)

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 86e869bc08552ea11728c508486a4784eccf4042
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462373"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recolher e analisar dados de registo para pesquisa cognitiva azure
@@ -59,10 +59,10 @@ As definições de diagnóstico especificam como os eventos e métricas registad
 
 Para o Log Analytics, serão vários minutos antes de os dados estarem disponíveis, após o que poderá executar consultas kusto para devolver dados. Para mais informações, consulte os pedidos de [consulta do Monitor](search-monitor-logs.md).
 
-Para o armazenamento blob, demora uma hora até que os recipientes apareçam no armazenamento blob. Há um blob, por hora, por contentor. Os recipientes só são criados quando existe uma atividade para registar ou medir. Quando os dados são copiados para uma conta de armazenamento, os dados são formatados como JSON e colocados em dois recipientes:
+Para o armazenamento blob, demora uma hora até que os recipientes apareçam no armazenamento blob. Há uma bolha, por hora, por recipiente. Os recipientes só são criados quando existe uma atividade para registar ou medir. Quando os dados são copiados para uma conta de armazenamento, os dados são formatados como JSON e colocados em dois recipientes:
 
-+ insights-logs-operationlogs: para os registos de tráfego de pesquisa
-+ as métricas-insights-pt1m: para métricas
++ insights-logs-operationlogs: para registos de tráfego de pesquisa
++ insights-metrics-pt1m: para métricas
 
 ## <a name="query-log-information"></a>Informação de registo de consulta
 
@@ -91,7 +91,7 @@ Nos registos de diagnóstico, duas tabelas contêm registos e métricas para a P
 
    ![Mesa AzureDiagnostics](./media/search-monitor-usage/azurediagnostics-table.png "Mesa AzureDiagnostics")
 
-## <a name="log-schema"></a>Esquema de registo
+## <a name="log-schema"></a>Esquema de log
 
 As estruturas de dados que contêm dados de registo de pesquisa cognitiva Azure estão em conformidade com o esquema abaixo. 
 
@@ -101,15 +101,15 @@ A tabela seguinte é uma lista parcial de campos comuns à exploração madeirei
 
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| tempoGerado |datetime |"2018-12-07T00:00:43.6872559Z" |TimeStamp da operação |
-| resourceId |string |"/ SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>PADRÃO/RESOURCEGROUPS/FORNECEDORES /<br/> MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |O ResourceId |
-| operationName |string |"Query.Search" |O nome da operação |
-| operationVersion |string |"2019-05-06" |A api-version utilizada |
+| tempoGerado |datetime |"2018-12-07T00:00:43.6872559Z" |Carimbo de tempo da operação |
+| resourceId |string |"/SUBSCRIÇÕES/11111111-1111-1111-1111-1111111111/<br/>GRUPOS DE RECURSOS/DEFAULT/FORNECEDORES/<br/> A MICROSOFT. PESQUISA/SERVIÇOS DE PESQUISA/SERVIÇO DE PESQUISA" |O seu ResourceId |
+| operationName |string |"Consulta.Pesquisa" |O nome da operação |
+| operationVersion |string |"2019-05-06" |A versão api utilizada |
 | categoria |string |"OperationLogs" |constante |
-| resultType |string |"Êxito" |Valores possíveis: êxito ou falha |
-| resultSignature |int |200 |Código de resultado HTTP |
-| durationMS |int |50 |Duração da operação em milissegundos |
-| propriedades |objeto |consulte a tabela seguinte |Objeto que contém dados específicos da operação |
+| resultType |string |"Sucesso" |Valores possíveis: Sucesso ou Falha |
+| resultSignature |int |200 |Código de resultados http |
+| duraçãoMS |int |50 |Duração da operação em milissegundos |
+| propriedades |objeto |ver a tabela seguinte |Objeto que contenha dados específicos da operação |
 
 ### <a name="properties-schema"></a>Esquema de propriedades
 
@@ -117,30 +117,30 @@ As propriedades abaixo são específicas da Pesquisa Cognitiva Azure.
 
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| Description_s |string |"Obter /indexes('content')/docs" |Ponto final da operação |
+| Description_s |string |"GET/indexes('content')/docs" |O ponto final da operação |
 | Documents_d |int |42 |Número de documentos processados |
 | IndexName_s |string |"Índice de teste" |Nome do índice associado à operação |
 | Query_s |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Os parâmetros de consulta |
 
 ## <a name="metrics-schema"></a>Esquema de métricas
 
-As métricas são capturadas para pedidos de consulta e medida em intervalos de um minuto. Cada medição expõe valores mínimos, máximo e médios por minuto. Para mais informações, consulte os pedidos de [consulta do Monitor](search-monitor-queries.md).
+As métricas são capturadas para pedidos de consulta e medida em intervalos de um minuto. Cada métrica expõe valores mínimos, máximos e médios por minuto. Para mais informações, consulte os pedidos de [consulta do Monitor](search-monitor-queries.md).
 
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| resourceId |string |"/ SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>PADRÃO/RESOURCEGROUPS/FORNECEDORES /<br/>MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |o seu ID de recurso |
-| metricName |string |"Latência" |o nome da métrica |
-| hora |datetime |"2018-12-07T00:00:43.6872559Z" |timestamp da operação |
+| resourceId |string |"/SUBSCRIÇÕES/11111111-1111-1111-1111-1111111111/<br/>GRUPOS DE RECURSOS/DEFAULT/FORNECEDORES/<br/>A MICROSOFT. PESQUISA/SERVIÇOS DE PESQUISA/SERVIÇO DE PESQUISA" |o seu ID de recurso |
+| nome métrico |string |"Latência" |o nome da métrica |
+| hora |datetime |"2018-12-07T00:00:43.6872559Z" |o carimbo temporal da operação |
 | média |int |64 |O valor médio das amostras cruas no intervalo de tempo métrico, unidades em segundos ou percentuais, dependendo da métrica. |
 | mínimo |int |37 |O valor mínimo das amostras cruas no intervalo de tempo métrico, unidades em segundos. |
 | máximo |int |78 |O valor máximo das amostras cruas no intervalo de tempo métrico, unidades em segundos.  |
 | total |int |258 |O valor total das amostras cruas no intervalo de tempo métrico, unidades em segundos.  |
 | count |int |4 |O número de métricas emitidas de um nó para o tronco dentro do intervalo de um minuto.  |
-| intervalo de agregação |string |"PT1M" |O grão de tempo da métrica na ISO 8601. |
+| grão de tempo |string |"PT1M" |O grão de tempo da métrica na ISO 8601. |
 
 É comum que as consultas executem em milissegundos, por isso só as consultas que medem como segundos aparecerão em métricas como qPS.
 
-Para as consultas de **pesquisa por segunda** métrica, o mínimo é o valor mais baixo para consultas de pesquisa por segundo que foi registado durante esse minuto. O mesmo se aplica ao valor máximo. Média, é a agregação em minuto completo. Por exemplo, dentro de um minuto, poderá ter um padrão como este: um segundo de carga alta que é o máximo para SearchQueriesPerSecond, seguido de 58 segundos de carga média, e finalmente um segundo com apenas uma consulta, que é o mínimo.
+Para as consultas de **pesquisa por segunda** métrica, o mínimo é o valor mais baixo para consultas de pesquisa por segundo que foi registado durante esse minuto. O mesmo se aplica ao valor máximo. Média, é o agregado durante todo o minuto. Por exemplo, dentro de um minuto, poderá ter um padrão como este: um segundo de carga alta que é o máximo para SearchQueriesPerSecond, seguido de 58 segundos de carga média, e finalmente um segundo com apenas uma consulta, que é o mínimo.
 
 Para consultas de **pesquisa aceleradas Percentagem**, mínimo, máximo, média e total, todas têm o mesmo valor: a percentagem de consultas de pesquisa que foram estranguladas, do número total de consultas de pesquisa durante um minuto.
 

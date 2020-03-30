@@ -4,10 +4,10 @@ description: Neste artigo, conheça os detalhes do modelo de dados Do Log Analyt
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: d14634c5e317682462e77e0549f064c75059f15c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586381"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics modelo de dados para dados de backup do Azure
@@ -33,11 +33,11 @@ Esta tabela fornece detalhes sobre campos relacionados com alerta.
 | AlertUniqueId_s |Texto |Identificador único do alerta gerado |
 | AlertType_s |Texto |Tipo de alerta, por exemplo, Backup |
 | AlertStatus_s |Texto |Estado do alerta, por exemplo, Ativo |
-| AlertOccurrenceDateTime_s |Data/hora |Data e hora em que o alerta foi criado |
+| AlertOccurrenceDateTime_s |Date/Time |Data e hora em que o alerta foi criado |
 | AlertSeverity_s |Texto |Gravidade do alerta, por exemplo, Crítico |
-|AlertTimeToResolveInMinutes_s    | Number        |Tempo necessário para resolver um alerta. Em branco para alertas ativos.         |
+|AlertTimeToResolveInMinutes_s    | Número        |Tempo necessário para resolver um alerta. Em branco para alertas ativos.         |
 |AlertConsolidationStatus_s   |Texto         |Identifique se o alerta é um alerta consolidado ou não         |
-|CountOfAlertsConsolidated_s     |Number         |Número de alertas consolidados se se trata de um alerta consolidado          |
+|CountOfAlertsConsolidated_s     |Número         |Número de alertas consolidados se se trata de um alerta consolidado          |
 |AlertRaisedOn_s     |Texto         |Tipo de entidade em que o alerta é levantado         |
 |AlertCode_s     |Texto         |Código para identificar exclusivamente um tipo de alerta         |
 |RecommendedAction_s   |Texto         |Ação recomendada para resolver o alerta         |
@@ -152,11 +152,11 @@ Esta tabela fornece detalhes sobre campos relacionados com o trabalho.
 | JobOperation_s |Texto |Operação para a qual o trabalho é executado, por exemplo, Backup, Restaurar, Configurar Backup |
 | JobStatus_s |Texto |Estado do trabalho acabado, por exemplo, Concluído, Falhado |
 | JobFailureCode_s |Texto |Cadeia de código de falha por causa da falha de emprego aconteceu |
-| JobStartDateTime_s |Data/hora |Data e hora quando o trabalho começou a funcionar |
+| JobStartDateTime_s |Date/Time |Data e hora quando o trabalho começou a funcionar |
 | BackupStorageDestination_s |Texto |Destino de armazenamento de backup, por exemplo, Cloud, Disk  |
 | AdHocOrScheduledJob_s |Texto | Campo para especificar se o trabalho é Ad Hoc ou Agendado |
-| JobDurationInSecs_s | Number |Duração total do trabalho em segundos |
-| DataTransferredInMB_s | Number |Dados transferidos em MB para este trabalho|
+| JobDurationInSecs_s | Número |Duração total do trabalho em segundos |
+| DataTransferredInMB_s | Número |Dados transferidos em MB para este trabalho|
 | JobUniqueId_g |Texto |Identificação única para identificar o trabalho |
 | RecoveryJobDestination_s |Texto | Destino de um trabalho de recuperação, onde os dados são recuperados |
 | RecoveryJobRPDateTime_s |DateTime | A data, hora em que o ponto de recuperação que está sendo recuperado foi criado |
@@ -186,28 +186,28 @@ Esta tabela fornece detalhes sobre os domínios relacionados com as políticas.
 | BackupFrequency_s |Texto ||Frequência com que as cópias de segurança são executadas, por exemplo, diariamente, semanalmente |
 | BackupTimes_s |Texto ||Data e hora quando os backups estão agendados |
 | BackupDaysOfTheWeek_s |Texto ||Dias da semana em que os backups foram agendados |
-| RetentionDuration_s |Número inteiro ||Duração da retenção para cópias de segurança configuradas |
-| DailyRetentionDuration_s |Número inteiro ||Duração total da retenção em dias para cópias de segurança configuradas |
+| RetentionDuration_s |Número Inteiro ||Duração da retenção para cópias de segurança configuradas |
+| DailyRetentionDuration_s |Número Inteiro ||Duração total da retenção em dias para cópias de segurança configuradas |
 | DailyRetentionTimes_s |Texto ||Data e hora em que a retenção diária foi configurada |
-| WeeklyRetentionDuration_s |Número decimal ||Duração total da retenção semanal em semanas para cópias de segurança configuradas |
+| WeeklyRetentionDuration_s |Número Decimal ||Duração total da retenção semanal em semanas para cópias de segurança configuradas |
 | WeeklyRetentionTimes_s |Texto ||Data e hora em que a retenção semanal é configurada |
 | WeeklyRetentionDaysOfTheWeek_s |Texto ||Dias da semana selecionados para retenção semanal |
-| MonthlyRetentionDuration_s |Número decimal ||Duração total da retenção em meses para cópias de segurança configuradas |
+| MonthlyRetentionDuration_s |Número Decimal ||Duração total da retenção em meses para cópias de segurança configuradas |
 | MonthlyRetentionTimes_s |Texto ||Data e hora em que a retenção mensal é configurada |
 | MonthlyRetentionFormat_s |Texto ||Tipo de configuração para retenção mensal, por exemplo, diariamente para dia baseado, semanalmente para a semana |
 | MonthlyRetentionDaysOfTheWeek_s |Texto ||Dias da semana selecionados para retenção mensal |
 | MonthlyRetentionWeeksOfTheMonth_s |Texto ||Semanas do mês em que a retenção mensal é configurada, por exemplo, Primeiro, Último etc. |
-| YearlyRetentionDuration_s |Número decimal ||Duração total da retenção em anos para cópias de segurança configuradas |
+| YearlyRetentionDuration_s |Número Decimal ||Duração total da retenção em anos para cópias de segurança configuradas |
 | YearlyRetentionTimes_s |Texto ||Data e hora em que a retenção anual é configurada |
 | YearlyRetentionMonthsOfTheYear_s |Texto ||Meses do ano selecionados para retenção anual |
 | YearlyRetentionFormat_s |Texto ||Tipo de configuração para retenção anual, por exemplo, diariamente para dia baseado, semanalmente para a semana | |
 | YearlyRetentionDaysOfTheMonth_s |Texto ||Datas do mês selecionadas para retenção anual |
-| SynchronisationFrequencyPerDay_s |Número inteiro |v2|Número de vezes num dia uma cópia de segurança de ficheiros é sincronizada para SC DPM e MABS |
+| SynchronisationFrequencyPerDay_s |Número Inteiro |v2|Número de vezes num dia uma cópia de segurança de ficheiros é sincronizada para SC DPM e MABS |
 | DiffBackupFormat_s |Texto |v2|Formato para backups diferenciais para SQL em backup VM Azure |
 | DiffBackupTime_s |Hora |v2|Tempo para backups diferenciais para SQL em Backup VM Azure|
-| DiffBackupRetentionDuration_s |Número decimal |v2|Duração da retenção para backups diferenciais para SQL em Backup VM Azure|
-| LogBackupFrequency_s |Número decimal |v2|Frequência para backups de registo para SQL|
-| LogBackupRetentionDuration_s |Número decimal |v2|Duração da retenção para backups de registo para SQL em Backup VM Azure|
+| DiffBackupRetentionDuration_s |Número Decimal |v2|Duração da retenção para backups diferenciais para SQL em Backup VM Azure|
+| LogBackupFrequency_s |Número Decimal |v2|Frequência para backups de registo para SQL|
+| LogBackupRetentionDuration_s |Número Decimal |v2|Duração da retenção para backups de registo para SQL em Backup VM Azure|
 | DiffBackupDaysofTheWeek_s |Texto |v2|Dias da semana para backups diferenciais para SQL em Backup VM Azure|
 | SourceSystem |Texto ||Sistema fonte dos dados atuais - Azure |
 | ResourceId |Texto ||Identificador de recursos para dados que estão a ser recolhidos. Por exemplo, ID de recurso de recurso de cofre de serviços de recuperação |
@@ -256,16 +256,16 @@ Esta tabela fornece campos básicos sobre recipientes protegidos. (Foi Protegido
 | ProtectedContainerWorkloadType_s |Texto |Tipo de recipiente protegido apoiado. Por exemplo, IaaSVMContainer |
 | ProtectedContainerLocation_s |Texto |Se o contentor protegido está localizado no local ou em Azure |
 | ProtectedContainerType_s |Texto |Se o recipiente protegido é um servidor, ou um recipiente |
-| ProtectedContainerProtectionState_s’  |Texto |Estado de proteção do contentor protegido |
+| ProtectedContainerProtectionState_s'  |Texto |Estado de proteção do contentor protegido |
 
-### <a name="storage"></a>Armazenamento
+### <a name="storage"></a>Storage
 
 Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| CloudStorageInBytes_s |Número decimal |Armazenamento de backup em nuvem usado por backups, calculado com base no valor mais recente (Este campo é apenas para v1 schema)|
-| ProtectedInstances_s |Número decimal |Número de instâncias protegidas utilizadas para calcular o armazenamento frontend na faturação, calculada com base no valor mais recente |
+| CloudStorageInBytes_s |Número Decimal |Armazenamento de backup em nuvem usado por backups, calculado com base no valor mais recente (Este campo é apenas para v1 schema)|
+| ProtectedInstances_s |Número Decimal |Número de instâncias protegidas utilizadas para calcular o armazenamento frontend na faturação, calculada com base no valor mais recente |
 | EventName_s |Texto |Este campo representa o nome deste evento, é sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto |Este campo denota versão atual do esquema, é **V2** |
 | State_s |Texto |Estado atual do objeto de armazenamento, por exemplo, Ativo, Eliminado |
@@ -286,7 +286,7 @@ Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 | StorageName_s |Texto |Nome da entidade de armazenamento, por exemplo E:\ |
 | StorageTotalSizeInGBs_s |Texto |Tamanho total do armazenamento, em GB, consumido por entidade de armazenamento|
 
-### <a name="storageassociation"></a>StorageAssociation
+### <a name="storageassociation"></a>Associação de Armazenamento
 
 Esta tabela fornece campos básicos relacionados com o armazenamento que ligam o armazenamento a outras entidades.
 
@@ -297,8 +297,8 @@ Esta tabela fornece campos básicos relacionados com o armazenamento que ligam o
 | BackupItemUniqueId_s |Texto |Id único usado para identificar o item de backup relacionado com a entidade de armazenamento |
 | BackupManagementServerUniqueId_s |Texto |ID único usado para identificar o servidor de gestão de backup relacionado com a entidade de armazenamento|
 | VaultUniqueId_s |Texto |Identificação única usada para identificar o cofre relacionado com a entidade de armazenamento|
-| StorageConsumedInMBs_s |Number|Tamanho do armazenamento consumido pelo produto de reserva correspondente no armazenamento correspondente |
-| StorageAllocatedInMBs_s |Number |Tamanho do armazenamento atribuído pelo produto de reserva correspondente no armazenamento correspondente do tipo Disk|
+| StorageConsumedInMBs_s |Número|Tamanho do armazenamento consumido pelo produto de reserva correspondente no armazenamento correspondente |
+| StorageAllocatedInMBs_s |Número |Tamanho do armazenamento atribuído pelo produto de reserva correspondente no armazenamento correspondente do tipo Disk|
 
 ### <a name="vault"></a>Cofre
 
@@ -336,7 +336,7 @@ Esta tabela fornece campos básicos sobre servidores de gestão de backup.
 |BackupManagementServerType_s     |Texto         |Tipo de Servidor de Gestão de Backup, como MABS, SC DPM|
 |BackupManagementServerUniqueId_s     |Texto         |Campo para identificar exclusivamente o Servidor de Gestão de Backup       |
 
-### <a name="preferredworkloadonvolume"></a>PreferredWorkloadOnVolume
+### <a name="preferredworkloadonvolume"></a>Volume de Carga seleção preferencial
 
 Este quadro especifica a carga de trabalho(s) a que um volume está associado.
 
@@ -345,7 +345,7 @@ Este quadro especifica a carga de trabalho(s) a que um volume está associado.
 | StorageUniqueId_s |Texto |Id único usado para identificar a entidade de armazenamento |
 | BackupItemType_s |Texto |As cargas de trabalho para as quais este volume é o armazenamento preferido|
 
-### <a name="protectedinstance"></a>ProtectedInstance
+### <a name="protectedinstance"></a>Caso protegido
 
 Esta tabela fornece campos básicos protegidos relacionados com instâncias.
 

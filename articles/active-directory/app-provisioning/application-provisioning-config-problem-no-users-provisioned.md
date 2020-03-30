@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b60261d63e1bcb75aea9d2e8a6b74902520f391
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522922"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Nenhum utilizador está a ser provisionado para uma aplicação da Galeria AD Azure
@@ -32,7 +32,7 @@ Depois de configurado o fornecimento automático para uma aplicação (incluindo
   
 Se observar que os utilizadores não estão a ser aprovisionados, consulte os registos de [provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) em Azure AD. Procure entradas de registo para um utilizador específico.
 
-Pode aceder aos registos de fornecimento no portal Azure selecionando o **Azure Ative Directory** &gt; **Enterprise Apps** &gt; **Provisioning (pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de provisionamento com base no nome do utilizador ou no identificador no sistema de origem ou no sistema de destino. Para mais detalhes, consulte [os registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Pode aceder aos registos de fornecimento no portal Azure selecionando registos de provisionamento de &gt; **aplicações** &gt; de **diretório ativo azure** **(pré-visualização)** na secção **Atividade.** Pode pesquisar os dados de provisionamento com base no nome do utilizador ou no identificador no sistema de origem ou no sistema de destino. Para mais detalhes, consulte [os registos de provisionamento (pré-visualização)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 Os registos de fornecimento registam todas as operações efetuadas pelo serviço de provisionamento, incluindo a consulta da AD Azure para utilizadores designados que estão no âmbito do provisionamento, consultando a app-alvo para a existência desses utilizadores, comparando os objetos de utilizador entre o sistema. Em seguida, adicione, atualize ou desative a conta de utilizador no sistema alvo com base na comparação.
 
@@ -43,7 +43,7 @@ Abaixo está uma lista das áreas problemáticas gerais que você pode perfurar 
 - [Os registos de provisionamento dizem que os utilizadores são ignorados e não são provisionados, mesmo que sejam atribuídos](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>O serviço de provisionamento não parece ter começado
-Se definir o Estatuto de **Provisionamento** para estar **ligado** no **Diretório Ativo Do Azure &gt; Aplicações empresariais &gt; \[nome** de aplicação\] &gt;secção de provisionamento do portal Azure. No entanto, não são apresentados outros detalhes de estado nessa página após as recargas subsequentes, é provável que o serviço esteja em execução, mas ainda não tenha concluído um ciclo inicial. Verifique os **registos de provisionamento (pré-visualização)** acima descritos para determinar que operações o serviço está a executar e se existem erros.
+Se definir o Estatuto de **Provisionamento** para estar **ligado** na secção de fornecimento de nomes ** &gt; &gt; \[\] &gt;** de aplicações de aplicações de aplicações de diretório ativo Azure do portal Azure. No entanto, não são apresentados outros detalhes de estado nessa página após as recargas subsequentes, é provável que o serviço esteja em execução, mas ainda não tenha concluído um ciclo inicial. Verifique os **registos de provisionamento (pré-visualização)** acima descritos para determinar que operações o serviço está a executar e se existem erros.
 
 >[!NOTE]
 >Um ciclo inicial pode demorar entre 20 minutos e várias horas, dependendo da dimensão do diretório Azure AD e do número de utilizadores no âmbito do provisionamento. As sincronizações subsequentes após o ciclo inicial são mais rápidas, uma vez que o serviço de fornecimento armazena marcas de água que representam o estado de ambos os sistemas após o ciclo inicial. O ciclo inicial melhora o desempenho das sincronizações subsequentes.

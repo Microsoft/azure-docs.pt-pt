@@ -4,10 +4,10 @@ description: Configure as regras para aceder a um registo de contentores Azure p
 ms.topic: article
 ms.date: 02/11/2020
 ms.openlocfilehash: 06fedea2adf5e73929f5752279f2bd7e7227e570
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77168023"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configure regras para aceder a um registo de contentores Azure atrás de uma firewall
@@ -28,8 +28,8 @@ Se o seu registo for [geo-replicado,](container-registry-geo-replication.md)um c
 
 ## <a name="allow-access-to-rest-and-storage-domain-names"></a>Permitir o acesso aos nomes de domínio REST e armazenamento
 
-* **Ponto final** REST - Permita o acesso ao nome do servidor de login de registo totalmente qualificado, como `myregistry.azurecr.io`
-* **Ponto final de armazenamento (dados)** - Permitir o acesso a todas as contas de armazenamento de blob Azure utilizando o wildcard `*.blob.core.windows.net`
+* **Ponto final REST** - Permitir o acesso ao nome do servidor de login de registo totalmente qualificado, como`myregistry.azurecr.io`
+* **Ponto final de armazenamento (dados)** - Permitir o acesso a todas as contas de armazenamento de blob Azure utilizando o wildcard`*.blob.core.windows.net`
 
 
 ## <a name="allow-access-by-ip-address-range"></a>Permitir o acesso através da gama de endereços IP

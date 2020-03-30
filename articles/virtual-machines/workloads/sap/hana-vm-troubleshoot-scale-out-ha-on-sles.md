@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617126"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifique e coloque problemas na configuração de alta disponibilidade da SAP HANA no SLES 12 SP3 
@@ -472,7 +472,7 @@ Depois de tudo estar configurado corretamente, pode executar o seguinte comando 
 systemctl status pacemaker
 </code></pre>
 
-A parte superior da saída deve parecer a seguinte amostra. É importante que o estado após o **Ative** seja mostrado como **carregado** e **ativo (em execução)** . O estado após **o Loaded** deve ser mostrado como **ativado**.
+A parte superior da saída deve parecer a seguinte amostra. É importante que o estado após o **Ative** seja mostrado como **carregado** e **ativo (em execução)**. O estado após **o Loaded** deve ser mostrado como **ativado**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -656,7 +656,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## <a name="failover-or-takeover"></a>Falha ou aquisição
 
-Como discutido em [notas importantes,](#important-notes)não deve utilizar uma paragem graciosa padrão para testar o failover do cluster ou a aquisição de SAP HANA HSR. Em vez disso, recomendamos que desencadeie um pânico de kernel, force uma migração de recursos, ou possivelmente desligue todas as redes no nível de SO de um VM. Outro método é o **crm \<nó\>** comando de espera. Consulte o [documento SUSE][sles-12-ha-paper]. 
+Como discutido em [notas importantes,](#important-notes)não deve utilizar uma paragem graciosa padrão para testar o failover do cluster ou a aquisição de SAP HANA HSR. Em vez disso, recomendamos que desencadeie um pânico de kernel, force uma migração de recursos, ou possivelmente desligue todas as redes no nível de SO de um VM. Outro método é o comando de ** \<\> nímio de nímio de crm.** Consulte o [documento SUSE][sles-12-ha-paper]. 
 
 Os seguintes três comandos de amostra podem forçar uma falha de aglomerado:
 
@@ -682,7 +682,7 @@ Também ajuda a olhar para o estado da paisagem SAP HANA vindo de um script SAP 
 
 Há algumas tentativas para evitar falhas desnecessárias. O cluster só reage se o estado mudar de **Ok**, valor de retorno **4,** a **erro,** valor de retorno **1**. Portanto, é correto se a saída do **SAPHanaSR-showAttr** mostrar um VM com o estado **offline**. Mas ainda não há atividade para mudar o primário e o secundário. Nenhuma atividade de cluster é desencadeada desde que o SAP HANA não devolva um erro.
 
-Pode monitorizar o estado de saúde da paisagem SAP HANA como utilizador **\<HANA SID\>adm,** chamando o script SAP Python da seguinte forma. Talvez tenha supor adaptar o caminho:
+Pode monitorizar o estado de saúde da paisagem SAP HANA como utilizador ** \<HANA\>SID adm,** chamando o script SAP Python da seguinte forma. Talvez tenha supor adaptar o caminho:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -945,7 +945,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Falcão
 
 A solução cluster fornece uma interface de navegador que oferece um GUI para os utilizadores que preferem menus e gráficos a ter todos os comandos no nível da concha.
-Para utilizar a interface do navegador, substitua **\<nó\>** por um nó SAP HANA real no seguinte URL. Em seguida, introduza as credenciais do cluster **(cluster**do utilizador):
+Para utilizar a interface ** \<\> ** do navegador, substitua o nó por um nó SAP HANA real no seguinte URL. Em seguida, introduza as credenciais do cluster **(cluster**do utilizador):
 
 <pre><code>
 https://&ltnode&gt:7630

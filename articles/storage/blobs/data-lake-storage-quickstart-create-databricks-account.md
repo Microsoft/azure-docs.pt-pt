@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Analise dados no Azure Data Lake Storage Gen2 utilizando tijolos de dados azure  Microsoft Docs'
+title: 'Quickstart: Analise dados no Azure Data Lake Storage Gen2 utilizando tijolos de dados azure [ Microsoft Docs'
 description: Aprenda a executar um trabalho de Spark em Azure Databricks utilizando o portal Azure e uma conta de armazenamento de Armazenamento de Lago De dados Azure Gen2.
 author: normesta
 ms.author: normesta
@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/17/2020
 ms.reviewer: jeking
 ms.openlocfilehash: 346795b79a78589d949b035a803a67a9e5a2e8e5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77470739"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Quickstart: Analisar dados com Databricks
@@ -34,23 +34,23 @@ Neste arranque rápido, executa um trabalho da Apache Spark utilizando os Azure 
 
 Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Análise** > **Azure Databricks**.
+1. No portal Azure, selecione **Criar um recurso** > **Analytics** > **Azure Databricks**.
 
     ![Tijolos de dados no portal Azure](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Tijolos de dados no portal Azure")
 
 2. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
 
-    ![Criar um espaço de trabalho Azure Databricks](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-workspace.png "Criar uma área de trabalho do Azure Databricks")
+    ![Criar uma área de trabalho do Azure Databricks](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-workspace.png "Criar uma área de trabalho do Azure Databricks")
 
     Forneça os seguintes valores:
 
     |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
-    |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
+    |**Assinatura**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **E.U.A. Oeste 2**. Pode selecionar outra região pública, se preferir.        |
-    |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Nível de Preços**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
 3. A criação da conta demora alguns minutos. Para monitorizar o estado de funcionamento, veja a barra de progresso no topo.
 
@@ -60,7 +60,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 1. No portal do Azure, aceda à área de trabalho do Databricks que criou e, em seguida, selecione **Iniciar Área de Trabalho**.
 
-2. Será redirecionado para o portal do Azure Databricks. No portal, selecione **Novo** > **Cluster**.
+2. Será redirecionado para o portal do Azure Databricks. A partir do portal, selecione **New** > **Cluster**.
 
     ![Tijolos de dados em Azure](./media/data-lake-storage-quickstart-create-databricks-account/databricks-on-azure.png "Tijolos de dados em Azure")
 
@@ -107,7 +107,7 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
-5. Neste bloco de código, substitua os `storage-account-name`, `appID`, `password`e `tenant-id` valores de espaço reservado neste bloco de código supor os valores que recolheu quando criou o diretor de serviço. Detete o valor do espaço reservado `container-name` para qualquer nome que queira dar ao recipiente.
+5. Neste bloco de código, `appID` `password`substitua `tenant-id` os `storage-account-name`valores de , , e espaço reservado neste bloco de código supor os valores que recolheu quando criou o diretor de serviço. Detete o valor do `container-name` espaço reservado para qualquer nome que queira dar ao recipiente.
 
 6. Prima as teclas **SHIFT + ENTER** para executar o código neste bloco.
 
@@ -185,7 +185,7 @@ Assim que terminar este artigo, pode terminar o agrupamento. Na área de trabalh
 
 ![Parar um cluster de Databricks](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Parar um cluster de Databricks")
 
-Se não encerrar manualmente o cluster que para automaticamente, desde que selecione o **'Terminate' após \_\_ minutos de** caixa de verificação de inatividade enquanto cria o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
+Se não encerrar manualmente o cluster que para automaticamente, desde que selecione o **Terminate após \_ \_ minutos de** caixa de verificação de inatividade enquanto cria o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

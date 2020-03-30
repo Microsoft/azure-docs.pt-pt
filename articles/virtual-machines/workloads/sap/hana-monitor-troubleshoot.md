@@ -1,5 +1,5 @@
 ---
-title: Monitorização e resolução de problemas do lado hana na SAP HANA em Azure (Grandes Instâncias)  Microsoft Docs
+title: Monitorização e resolução de problemas do lado hana na SAP HANA em Azure (Grandes Instâncias) [ Microsoft Docs
 description: Monitorização e resolução de problemas do lado hana no SAP HANA num Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617082"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorizar e resolver problemas do lado do HANA
@@ -70,10 +70,10 @@ Consulte o site [SAP HANA Troubleshooting: CPU Related Causes and Solutions](htt
 
 Um dos controlos mais importantes para o SAP HANA no Linux é certificar-se de que as Páginas Enormes Transparentes são desativadas, consulte [sap note #2131662 – Páginas Enormes Transparentes (THP) nos Servidores SAP HANA.](https://launchpad.support.sap.com/#/notes/2131662)
 
-- Pode verificar se as Páginas Enormes Transparentes estão ativadas através do seguinte comando Linux: **cat /sys/kernel/mm/transparente\_enorme página/ativado**
+- Pode verificar se as Páginas Enormes Transparentes estão ativadas através do seguinte comando Linux: **cat /sys/kernel/mm/transparente\_hugepage/enabled**
 - Se _estiver sempre_ fechado em parênteses como abaixo, significa que as Páginas Enormes Transparentes estão ativadas: [sempre] aconselham nunca; se _nunca_ for fechado em parênteses como abaixo, significa que as Páginas Enormes Transparentes são desativadas: sempre aconselhar [nunca]
 
-O seguinte comando Linux não deve devolver nada: **rpm -qa  grep ulimit.** Se parecer que _o ulimit_ está instalado, desinstale-o imediatamente.
+O seguinte comando Linux não deve devolver nada: **rpm -qa [ grep ulimit.** Se parecer que _o ulimit_ está instalado, desinstale-o imediatamente.
 
 ## <a name="memory"></a>Memória
 
@@ -93,10 +93,10 @@ Consulte o site [SAP HANA Troubleshooting: Memory Problems](https://help.sap.com
 Consulte a [Nota SAP #2081065 – Resolução de Problemas Da Rede SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e execute os passos de resolução de problemas da rede nesta Nota SAP.
 
 1. Analisando o tempo de ida e volta entre o servidor e o cliente.
-  A. Executar o script SQL [_HANA\_Network\_Clientes_](https://launchpad.support.sap.com/#/notes/1969700) _._
+  R. Executar o script SQL [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Analise a comunicação interna.
-  A. Executar script SQL [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700) _._
+  R. Executar script SQL [_HANA\_\_Network Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
 3. Executar o comando Linux **ifconfig** (a saída mostra se houver perdas de pacote).
 4. Executar o **tcpdump**de comando Linux.
@@ -105,7 +105,7 @@ Além disso, utilize a ferramenta [IPERF](https://iperf.fr/) de código aberto (
 
 Consulte o site [SAP HANA Troubleshooting: Networking Performance and Connectivity Problems](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) para obter passos detalhados de resolução de problemas.
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 Do ponto de vista do utilizador final, uma aplicação (ou o sistema como um todo) funciona lentamente, não responde, ou pode mesmo parecer parar de responder se há problemas com o desempenho de I/S. No separador **Volumes** no Estúdio SAP HANA, pode ver os volumes anexados e quais os volumes utilizados por cada serviço.
 
@@ -119,7 +119,7 @@ Consulte o site [SAP HANA Troubleshooting: I/O Relacionado causas e soluções](
 
 ## <a name="diagnostic-tools"></a>Ferramentas de Diagnóstico
 
-Execute um SAP HANA Health Check através da Configuração\_\_CONFIGURAção de HANA. Esta ferramenta devolve problemas técnicos potencialmente críticos que já deveriam ter sido levantados como alertas no Estúdio SAP HANA.
+Execute uma verificação de saúde\_\_SAP HANA através de Minichecks de Configuração HANA. Esta ferramenta devolve problemas técnicos potencialmente críticos que já deveriam ter sido levantados como alertas no Estúdio SAP HANA.
 
 Consulte a recolha de [declarações SAP Note #1969700 – SQL para SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) e descarregue o ficheiro SQL Statements.zip anexado a essa nota. Guarde este ficheiro .zip no disco rígido local.
 
@@ -143,30 +143,30 @@ Isto resulta em informações que ajudam na resolução de problemas:
 
 ![Isto resultará em informações que ajudarão na resolução de problemas](./media/troubleshooting-monitoring/image10-import-statements-d.png)
 
-Faça o mesmo para HANA\_Configuração\_Minichecks e verifique se há marcas _X_ na coluna _C_ (Crítica).
+Faça o mesmo\_para\_mini-verificações de configuração HANA e verifique se há marcas _X_ na coluna _C_ (Crítica).
 
 Saídas de amostra:
 
-**HANA\_Configuração\_MiniChecks\_Rev102.01+1** para verificações gerais SAP HANA.
+**Hana\_\_Configuração\_MiniChecks Rev102.01+1** para verificações gerais SAP HANA.
 
-![HANA\_Configuração\_MiniChecks\_Rev102.01+1 para verificações gerais SAP HANA](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
+![Hana\_\_Configuração\_MiniChecks Rev102.01+1 para verificações gerais SAP HANA](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
 
-**Hana\_Services\_Visão Geral** para uma visão geral do que os serviços SAP HANA estão atualmente a executar.
+**Visão\_geral\_dos serviços da HANA** para uma visão geral do que os serviços SAP HANA estão atualmente a funcionar.
 
-![Hana\_Services\_visão geral para uma visão geral do que os serviços SAP HANA estão atualmente a executar](./media/troubleshooting-monitoring/image12-services-overview.png)
+![Visão\_geral\_dos serviços da HANA para uma visão geral do que os serviços SAP HANA estão atualmente a funcionar](./media/troubleshooting-monitoring/image12-services-overview.png)
 
-**HANA\_Services\_Statistics** for SAP HANA service information (CPU, memory, etc.).
+**Estatísticas\_de\_serviços HANA** para informações de serviço SAP HANA (CPU, memória, etc.).
 
-![HANA\_Serviços\_Estatísticas para informações sobre serviços SAP HANA](./media/troubleshooting-monitoring/image13-services-statistics.png)
+![Estatísticas\_de\_serviços da HANA para informações sobre serviços SAP HANA](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
-**HANA\_Configuração\_Visão Geral\_Rev110+** para informações gerais sobre a instância SAP HANA.
+**Visão\_geral\_\_de configuração HANA Rev110+** para informações gerais sobre a instância SAP HANA.
 
-![HANA\_Configuração\_Visão Geral\_Rev110+ para informações gerais sobre a instância SAP HANA](./media/troubleshooting-monitoring/image14-configuration-overview.png)
+![Visão\_geral\_\_de configuração HANA Rev110+ para informações gerais sobre a instância SAP HANA](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-**HANA\_Configuração\_Parâmetros\_Rev70+** para verificar os parâmetros SAP HANA.
+**PARÂMETROS\_\_de\_configuração HANA Rev70+** para verificar os parâmetros SAP HANA.
 
-![HANA\_Parâmetros de\_de configuração\_Rev70+ para verificar os parâmetros SAP HANA](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
+![PARÂMETROS\_\_de\_configuração HANA Rev70+ para verificar parâmetros SAP HANA](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 
-**Passos seguintes?**
+**Passos seguintes**
 
 - Consulte [a elevada disponibilidade configurada no SUSE utilizando o STONITH](ha-setup-with-stonith.md).

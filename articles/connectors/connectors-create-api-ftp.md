@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: 94ca609d9dc070e6e2b4dc878ecd8dfaf9331ede
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77648177"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorizar e gerir ficheiros FTP utilizando aplicações lógicas do Azure
@@ -33,7 +33,7 @@ Pode utilizar gatilhos que obtêm respostas do seu servidor FTP e disponibilizar
 
 * Os gatilhos ftp não suportam o chunking. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 50 MB ou menores. Para obter ficheiros superiores a 50 MB, siga este padrão:
 
-  * Utilize um gatilho FTP que dedreta propriedades de ficheiros, como **quando um ficheiro é adicionado ou modificado (apenas propriedades)** .
+  * Utilize um gatilho FTP que dedreta propriedades de ficheiros, como **quando um ficheiro é adicionado ou modificado (apenas propriedades)**.
 
   * Siga o gatilho com a ação de conteúdo de ficheiro FTP **Get,** que lê o ficheiro completo e utiliza implicitamente a chunking.
 
@@ -45,8 +45,8 @@ O FTP desencadeia o trabalho através da sondagem do sistema de ficheiros FTP e 
 
 | Cliente SFTP | Ação |
 |-------------|--------|
-| Winscp | Ir a **Opções** > **Preferências** > **transferência** > **editar** > **preservar carimbo** de tempo > **Desativar** |
-| FileZilla | Vá para **transferir** > **preservar selos de tempo de ficheiros transferidos** > **Desativar** |
+| Estação Winscp | Ir para **opções** > **Preferências** > **Transferência** > Editar**Editar** > Carimbo de**Tempo** > **Desativar** |
+| FileZilla | Vá para **transferir** > **preservar selos de tempo dos ficheiros transferidos** > **Desativar** |
 |||
 
 Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo ficheiro está completo e não parcialmente escrito. Por exemplo, um ficheiro pode ter alterações em andamento quando o gatilho verificar o servidor de ficheiros. Para evitar a devolução de um ficheiro parcialmente escrito, o gatilho assinala a marca ção do ficheiro que tem alterações recentes, mas não devolve imediatamente esse ficheiro. O gatilho devolve o ficheiro apenas quando voltar a votar no servidor. Às vezes, este comportamento pode causar um atraso que é até o dobro do intervalo de votação do gatilho.
@@ -73,9 +73,9 @@ Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo fichei
 
    -ou-
 
-   Para aplicações lógicas existentes, sob o último passo onde pretende adicionar uma ação, selecione **Novo passo,** e depois selecione **Adicionar uma ação**. Na caixa de pesquisa, introduza `ftp` como filtro. Na lista **de Ações,** selecione a ação que deseja.
+   Para aplicações lógicas existentes, sob o último passo onde pretende adicionar uma ação, selecione **Novo passo,** e depois selecione **Adicionar uma ação**. Na caixa de `ftp` pesquisa, introduza como filtro. Na lista **de Ações,** selecione a ação que deseja.
 
-   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal plus **(+** ) que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o**+** sinal de mais ( ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Forneça as suas informações de ligação e selecione **Criar**.
 
@@ -105,7 +105,7 @@ Aqui está um exemplo que mostra como usar o gatilho **Quando um ficheiro é adi
 
    ![Criar ligação ao servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
 
-1. Na caixa **pasta,** selecione o ícone da pasta para que apareça uma lista. Para encontrar a pasta que pretende monitorizar para ficheiros novos ou editados, selecione a seta angular direita **(>),** navegue nessa pasta e, em seguida, selecione a pasta.
+1. Na caixa **pasta,** selecione o ícone da pasta para que apareça uma lista. Para encontrar a pasta que pretende monitorizar para ficheiros novos**>** ou editados, selecione a seta angular direita (), navegue para essa pasta e, em seguida, selecione a pasta.
 
    ![Localizar e selecionar pasta para monitorizar](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
 
@@ -125,7 +125,7 @@ A ação de **metadados** do ficheiro Get obtém as propriedades de um ficheiro 
 
 1. Sob o gatilho ou quaisquer outras ações, selecione **Novo passo**.
 
-1. Na caixa de pesquisa, introduza `ftp` como filtro. Na lista de ações, selecione esta ação: **Obtenha metadados de ficheiros**
+1. Na caixa de `ftp` pesquisa, introduza como filtro. Na lista de ações, selecione esta ação: **Obtenha metadados de ficheiros**
 
    ![Selecione a ação "Obter metadados de ficheiros"](./media/connectors-create-api-ftp/select-get-file-metadata-ftp-action.png)
 

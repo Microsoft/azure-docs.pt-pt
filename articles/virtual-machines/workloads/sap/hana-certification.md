@@ -1,5 +1,5 @@
 ---
-title: Certificação do SAP HANA no Azure (Grandes Instâncias)  Microsoft Docs
+title: Certificação do SAP HANA no Azure (Grandes Instâncias) [ Microsoft Docs
 description: Certificação do SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2a02f0e1b05b9de8105126d1c9e4e3f79057285f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617233"
 ---
 # <a name="certification"></a>Certificação
@@ -40,5 +40,5 @@ Em comparação com a execução do SAP HANA em VMs, esta solução tem um benef
 - Além das soluções aqui descritas, pode instalar outros componentes na sua subscrição Azure que se ligam ao SAP HANA no Azure (Grandes Instâncias). Exemplos são componentes que permitem a comunicação com ou diretamente para a base de dados SAP HANA, tais como servidores de salto, servidores RDP, Estúdio SAP HANA, Serviços de Dados SAP para cenários SAP BI ou soluções de monitorização de rede.
 - Tal como em Azure, a HANA Large Instance oferece suporte para uma funcionalidade de alta disponibilidade e recuperação de desastres.
 
-**Passos seguintes?**
+**Passos seguintes**
 - Consulte [as SKUs disponíveis para hli](hana-available-skus.md) 

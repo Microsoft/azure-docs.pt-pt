@@ -4,10 +4,10 @@ description: Saiba como utilizar o portal Azure para restaurar uma partilha de f
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: c22078ebd89f5f6f8299e1424d4d9e21edce8b92
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586956"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar as ações de ficheiros da Azure
@@ -36,7 +36,7 @@ Para realizar uma operação de restauro, siga estes passos.
 
     ![Tipos de gestão de backup](./media/restore-afs/backup-management.png)
 
-1. No painel de itens de **backup,** em tipo de **gestão de backup,** selecione **Armazenamento Azure (Ficheiros Azure)** . Verá uma lista de todas as ações de ficheiros e as respetivas contas de armazenamento apoiadas usando este cofre.
+1. No painel de itens de **backup,** em tipo de **gestão de backup,** selecione **Armazenamento Azure (Ficheiros Azure)**. Verá uma lista de todas as ações de ficheiros e as respetivas contas de armazenamento apoiadas usando este cofre.
 
     ![Lista de todas as ações de ficheiros](./media/restore-afs/file-shares.png)
 

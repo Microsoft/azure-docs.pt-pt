@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604953"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar múltiplos gatilhos de funções Azure para cosmos DB
@@ -38,13 +38,13 @@ O objetivo deste artigo é guiá-lo para realizar a segunda opção.
 
 ## <a name="configuring-a-shared-leases-container"></a>Configurar um recipiente de arrendamento compartilhado
 
-Para configurar o recipiente de locação partilhada, a única configuração extra que precisa de fazer C# nos seus gatilhos é adicionar o [atributo](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) `LeaseCollectionPrefix` se estiver a utilizar ou `leaseCollectionPrefix` [atributo](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) se estiver a utilizar o JavaScript. O valor do atributo deve ser um descritor lógico do que esse gatilho em particular.
+Para configurar o recipiente de locação partilhada, a única configuração extra `LeaseCollectionPrefix` que precisa de fazer nos `leaseCollectionPrefix` seus gatilhos é adicionar o [atributo](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) se estiver a utilizar C# ou [atributo](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) se estiver a utilizar o JavaScript. O valor do atributo deve ser um descritor lógico do que esse gatilho em particular.
 
-Por exemplo, se tiver três Gatilhos: um que envia e-mails, um que faz uma agregação para criar uma visão materializada, e outro que envia as alterações para outro armazenamento, para análise posterior, pode atribuir o `LeaseCollectionPrefix` de "e-mails" ao primeiro, "materializado" para o segundo, e "análise" ao terceiro.
+Por exemplo, se tiver três Gatilhos: um que envia e-mails, um que faz uma agregação para criar uma visão materializada, `LeaseCollectionPrefix` e outro que envia as alterações para outro armazenamento, para posterior análise, pode atribuir os "e-mails" ao primeiro, "materializado" para o segundo, e "analítico" para o terceiro.
 
 A parte importante é que os três Gatilhos **podem utilizar a mesma configuração do contentor** de arrendamento (conta, base de dados e nome do contentor).
 
-Uma amostra de código muito simples C#usando o atributo `LeaseCollectionPrefix`, seria assim:
+Uma amostra de código `LeaseCollectionPrefix` muito simples usando o atributo em C#, seria assim:
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -78,7 +78,7 @@ public static void MaterializedViews([CosmosDBTrigger(
 }
 ```
 
-E para o JavaScript, pode aplicar a configuração no ficheiro `function.json`, com o `leaseCollectionPrefix` atributo:
+E para o JavaScript, pode `function.json` aplicar a `leaseCollectionPrefix` configuração no ficheiro, com o atributo:
 
 ```json
 {

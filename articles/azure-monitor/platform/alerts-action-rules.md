@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 42f8d9cd30caa48376cda049f6404aa897a6866c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668473"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
@@ -35,7 +35,7 @@ As regras de ação ajudam a simplificar este processo. Ao definir ações em es
 
 ## <a name="configuring-an-action-rule"></a>Configurar uma regra de ação
 
-Pode aceder à funcionalidade selecionando as ações de **Gestão** a partir da página de aterragem de **Alertas** no Monitor Azure. Em seguida, selecione regras de **ação (pré-visualização)** . Pode aceder às regras selecionando regras de **ação (pré-visualização)** a partir do painel de instrumentos da página de aterragem para alertas.
+Pode aceder à funcionalidade selecionando as ações de **Gestão** a partir da página de aterragem de **Alertas** no Monitor Azure. Em seguida, selecione regras de **ação (pré-visualização)**. Pode aceder às regras selecionando regras de **ação (pré-visualização)** a partir do painel de instrumentos da página de aterragem para alertas.
 
 ![Regras de ação da página de aterragem do Monitor Azure](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -69,7 +69,7 @@ Os filtros disponíveis são:
 * **Id**da regra de alerta : Uma opção para filtrar regras específicas de alerta utilizando o ID do Gestor de Recursos da regra de alerta.
 * **Condição do monitor**: Um filtro para casos de alerta com **disparados** ou **resolvidos** como condição do monitor.
 * **Descrição**: Uma correspondência regex (expressão regular) que define uma correspondência de cordas com a descrição, definida como parte da regra de alerta. Por exemplo, a **descrição contém 'prod'** corresponde a todos os alertas que contenham a corda "prod" nas suas descrições.
-* **Contexto de alerta (carga útil)** : Uma correspondência regex que define uma correspondência de cordas com os campos de contexto de alerta da carga útil de um alerta. Por exemplo, o contexto de **alerta (carga útil) contém 'Computer-01'** corresponderá a todos os alertas cujas cargas contêm a corda "Computador-01".
+* **Contexto de alerta (carga útil)**: Uma correspondência regex que define uma correspondência de cordas com os campos de contexto de alerta da carga útil de um alerta. Por exemplo, o contexto de **alerta (carga útil) contém 'Computer-01'** corresponderá a todos os alertas cujas cargas contêm a corda "Computador-01".
 
 Estes filtros são aplicados em conjunto uns com os outros. Por exemplo, se definir o **tipo de Recurso = Máquinas Virtuais** e **Gravidade' = Sev0,** então filtrado para todos os alertas **Sev0** apenas nos seus VMs. 
 
@@ -82,13 +82,13 @@ Em seguida, configure a regra de ação para a supressão de alerta ou suporte d
 #### <a name="suppression"></a>Supressão
 
 Se selecionar **a supressão,** configure a duração para a supressão de ações e notificações. Selecione uma das seguintes opções:
-* **A partir de agora (Sempre)** : Suprime todas as notificações indefinidamente.
+* **A partir de agora (Sempre)**: Suprime todas as notificações indefinidamente.
 * **Numa hora programada**: Suprime as notificações num prazo limitado.
 * **Com uma recorrência**: Suprime notificações num horário diário, semanal ou mensal recorrente.
 
 ![Supressão de regras de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
-#### <a name="action-group"></a>Grupo de ação
+#### <a name="action-group"></a>Grupo de ações
 
 Se selecionar o **grupo Action** no alternância, adicione um grupo de ação existente ou crie um novo. 
 

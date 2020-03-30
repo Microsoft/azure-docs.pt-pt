@@ -1,7 +1,7 @@
 ---
-title: Corrigir um erro do hive sem memória no Azure HDInsight
-description: Corrigir um erro Hive sem memória no HDInsight. O cenário do cliente é uma consulta em muitas tabelas grandes.
-keywords: erro de memória insuficiente, OOM, configurações do hive
+title: Corrija uma Colmeia fora do erro de memória no Azure HDInsight
+description: Corrija uma Colmeia a partir de um erro de memória no HDInsight. O cenário do cliente é uma consulta em muitas mesas grandes.
+keywords: fora do erro de memória, OOM, Definições da Colmeia
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,19 +10,19 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
 ms.openlocfilehash: add55c29bb93d8dce9ad69bd9850a1db02ea5afe
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687771"
 ---
-# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrigir um erro de Apache Hive memória insuficiente no Azure HDInsight
+# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrija uma Colmeia Apache fora do erro de memória no Azure HDInsight
 
-Saiba como corrigir Apache Hive um erro de OOM (memória insuficiente) ao processar tabelas grandes definindo as configurações de memória do hive.
+Aprenda a corrigir um erro da Hive Apache a partir da memória (OOM) ao processar grandes tabelas configurando as definições de memória da Hive.
 
-## <a name="run-apache-hive-query-against-large-tables"></a>Executar Apache Hive consulta em tabelas grandes
+## <a name="run-apache-hive-query-against-large-tables"></a>Executar consulta da Colmeia Apache contra grandes mesas
 
-Um cliente executou uma consulta de Hive:
+Um cliente fez uma consulta da Hive:
 
 ```sql
 SELECT
@@ -44,16 +44,16 @@ where (T1.KEY1 = T2.KEY1….
 
 Algumas nuances desta consulta:
 
-* T1 é um alias para uma tabela grande, TABLE1, que tem muitos tipos de coluna de cadeia de caracteres.
-* Outras tabelas não são tão grandes, mas têm muitas colunas.
-* Todas as tabelas estão se unindo, em alguns casos com várias colunas na TABELA1 e em outras.
+* T1 é um pseudónimo de uma grande mesa, TABLE1, que tem muitos tipos de colunas STRING.
+* Outras mesas não são tão grandes, mas têm muitas colunas.
+* Todas as mesas estão se juntando umas às outras, em alguns casos com várias colunas em TABLE1 e outros.
 
-A consulta do hive levou 26 minutos para ser concluída em um cluster HDInsight de 24 nós a3. O cliente observou as seguintes mensagens de aviso:
+A consulta da Hive demorou 26 minutos a terminar num cluster A3 HDInsight de 24 nós. O cliente reparou nas seguintes mensagens de aviso:
 
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-Usando o mecanismo de execução de Apache Tez. A mesma consulta foi executada por 15 minutos e, em seguida, gerou o seguinte erro:
+Usando o motor de execução Apache Tez. A mesma consulta durou 15 minutos e, em seguida, atirou o seguinte erro:
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -79,15 +79,15 @@ Usando o mecanismo de execução de Apache Tez. A mesma consulta foi executada p
         at java.lang.Thread.run(Thread.java:745)
     Caused by: java.lang.OutOfMemoryError: Java heap space
 
-O erro permanece ao usar uma máquina virtual maior (por exemplo, D12).
+O erro permanece ao utilizar uma máquina virtual maior (por exemplo, D12).
 
-## <a name="debug-the-out-of-memory-error"></a>Depurar o erro de memória insuficiente
+## <a name="debug-the-out-of-memory-error"></a>Depurar o erro de memória
 
-Nossas equipes de suporte e engenharia em conjunto encontraram um dos problemas que causam o erro de memória insuficiente foi um [problema conhecido descrito no Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306):
+As nossas equipas de apoio e engenharia juntos encontraram um dos problemas que causaram o erro de memória foi uma [questão conhecida descrita no Apache JIRA:](https://issues.apache.org/jira/browse/HIVE-8306)
 
-"Quando Hive. auto. converter. Join. noconditionaltask = true, verificamos noconditionaltask. size e, se a soma dos tamanhos das tabelas na junção do mapa for menor que noconditionaltask. Size o plano geraria uma junção de mapa, o problema com isso é que o cálculo não é necessário em conta a sobrecarga introduzida por uma implementação de tabela de hash diferente como resultado se a soma dos tamanhos de entrada for menor do que o tamanho do noconditionaltask por uma pequena margem, as consultas entrarão em OOM. "
+"Quando a hive.auto.convert.converte.join.noconditionaltask = true we check noconditionaltask.size and if the sum of tables sizes in the map join is less noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation don't take em conta as despesas gerais introduzidas pela diferente implementação hashTable como resultados se a soma dos tamanhos de entrada for menor do que o tamanho da tarefa nocondicionada por uma pequena margem de consultas atingirá OOM."
 
-O **Hive. auto. converter. Join. noconditionaltask** no arquivo hive-site. xml foi definido como **true**:
+O ficheiro **hive.auto.convert.join.noconditionaltask** in the hive-site.xml file was definido para **verdadeiro:**
 
 ```xml
 <property>
@@ -101,22 +101,22 @@ O **Hive. auto. converter. Join. noconditionaltask** no arquivo hive-site. xml f
 </property>
 ```
 
-É provável que a junção de mapa tenha sido a causa do erro de memória insuficiente no espaço de heap do Java. Conforme explicado na postagem do blog [configurações de memória do Hadoop yarn no HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando o mecanismo de execução do tez é usado, o espaço de heap usado realmente pertence ao contêiner tez. Consulte a imagem a seguir descrevendo a memória do contêiner tez.
+É provável que a adesão ao mapa tenha sido a causa do Espaço Monte Java por erro de memória. Como explicado no post de blogue [Hadoop Yarn definições de memória no HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando o motor de execução Tez é usado, o espaço de pilha usado realmente pertence ao recipiente Tez. Veja a seguinte imagem descrevendo a memória do recipiente Tez.
 
-![Diagrama de memória de contêiner tez: erro de memória insuficiente do hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+![Diagrama de memória de recipiente tez: Colmeia fora do erro de memória](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-Como sugere a postagem do blog, as duas configurações de memória a seguir definem a memória do contêiner para o heap: **Hive. tez. Container. Size** e **Hive. tez. java.** . Da nossa experiência, a exceção de memória insuficiente não significa que o tamanho do contêiner é muito pequeno. Isso significa que o tamanho do heap do Java (Hive. tez. java. bardelers) é muito pequeno. Assim, sempre que você vir memória insuficiente, poderá tentar aumentar **Hive. tez. java.** Primes. Se necessário, talvez seja necessário aumentar **Hive. tez. Container. Size**. A 80 configuração **Java.** @ @ @ @ 1% do **contêiner. Size**.
+Como sugere a publicação de blogue, as duas definições de memória que se seguem definem a memória do recipiente para a pilha: **hive.tez.container.size** e **hive.tez.java.opts**. Pela nossa experiência, a exceção fora da memória não significa que o tamanho do contentor seja muito pequeno. Significa que o tamanho do monte Java (hive.tez.java.opts) é muito pequeno. Assim, sempre que você vê fora da memória, você pode tentar aumentar **hive.tez.java.opts**. Se necessário, poderá ter de aumentar a **colmeia.tez.container.size**. A definição **java.opta** deve ser de cerca de 80% do tamanho do **recipiente.tamanho.**
 
 > [!NOTE]  
-> A configuração **Hive. tez. java.** @ @ @ deve ser menor do que **Hive. tez. Container. Size**.
+> A definição **de hive.tez.java.opts** deve ser sempre menor do que **a hive.tez.container.size**.
 
-Como uma máquina D12 tem 28 GB de memória, decidimos usar um tamanho de contêiner de 10 GB (10240 MB) e atribuir 80% a Java. aceita:
+Como uma máquina D12 tem memória de 28 GB, decidimos usar um contentor tamanho de 10 GB (10240 MB) e atribuir 80% a java.opts:
 
     SET hive.tez.container.size=10240
     SET hive.tez.java.opts=-Xmx8192m
 
-Com as novas configurações, a consulta foi executada com êxito em menos de 10 minutos.
+Com as novas configurações, a consulta correu com sucesso em menos de 10 minutos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Obter um erro de OOM não significa necessariamente que o tamanho do contêiner seja muito pequeno. Em vez disso, você deve definir as configurações de memória para que o tamanho do heap seja aumentado e seja pelo menos 80% do tamanho da memória do contêiner. Para otimizar consultas de Hive, consulte [otimizar Apache Hive consultas para Apache Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Obter um erro oom não significa necessariamente que o tamanho do recipiente é muito pequeno. Em vez disso, deve configurar as definições de memória de modo a que o tamanho da pilha seja aumentado e seja pelo menos 80% do tamanho da memória do recipiente. Para otimizar consultas de Hive, consulte [Otimize Apache Hive consultas para Apache Hadoop em HDInsight](hdinsight-hadoop-optimize-hive-query.md).

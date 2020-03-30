@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: aschhab
 ms.openlocfilehash: aeb9a9730ddc61793e49c9e042906457e0068d9a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624077"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Ônibus de Serviço Azure em repouso utilizando o portal Azure
@@ -169,8 +169,8 @@ Esta secção mostra-lhe como criar um espaço de nome de ônibus de serviço Az
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<ServiceBusNamespaceName>` - Nome do seu espaço de nome do autocarro de serviço
-    > - `<Location>` - Localização do seu espaço de nome do ônibus de serviço
+    > - `<ServiceBusNamespaceName>`- Nome do seu espaço de nome do autocarro de serviço
+    > - `<Location>`- Localização do seu espaço de nome do ônibus de serviço
 
     ```json
     {
@@ -186,7 +186,7 @@ Esta secção mostra-lhe como criar um espaço de nome de ônibus de serviço Az
        }
     }
     ```
-3. Execute o seguinte comando PowerShell para implementar o modelo para criar um espaço de nome de ônibus de serviço premium. Em seguida, recupere a identificação do espaço de nome do Ônibus de serviço para usá-lo mais tarde. Substitua `{MyRG}` com o nome do grupo de recursos antes de executar o comando.  
+3. Execute o seguinte comando PowerShell para implementar o modelo para criar um espaço de nome de ônibus de serviço premium. Em seguida, recupere a identificação do espaço de nome do Ônibus de serviço para usá-lo mais tarde. Substitua-o `{MyRG}` pelo nome do grupo de recursos antes de executar o comando.  
 
     ```powershell
     $outputs = New-AzResourceGroupDeployment -Name CreateServiceBusPremiumNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateServiceBusPremiumNamespace.json -TemplateParameterFile ./CreateServiceBusPremiumNamespaceParams.json
@@ -292,10 +292,10 @@ Neste passo, irá atualizar o espaço de nome do Ônibus de serviço com informa
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<ServiceBusNamespaceName>` - Nome do seu espaço de nome do autocarro de serviço
-    > - `<Location>` - Localização do seu espaço de nome do ônibus de serviço
-    > - `<KeyVaultName>` - Nome do seu cofre chave
-    > - `<KeyName>` - Nome da chave no cofre da chave  
+    > - `<ServiceBusNamespaceName>`- Nome do seu espaço de nome do autocarro de serviço
+    > - `<Location>`- Localização do seu espaço de nome do ônibus de serviço
+    > - `<KeyVaultName>`- Nome do seu cofre chave
+    > - `<KeyName>`- Nome da chave no cofre da chave  
 
     ```json
     {
@@ -317,7 +317,7 @@ Neste passo, irá atualizar o espaço de nome do Ônibus de serviço com informa
        }
     }
     ```             
-3. Executar o seguinte comando PowerShell para implementar o modelo de Gestor de Recursos. Substitua `{MyRG}` com o nome do seu grupo de recursos antes de executar o comando. 
+3. Executar o seguinte comando PowerShell para implementar o modelo de Gestor de Recursos. Substitua-o `{MyRG}` pelo nome do seu grupo de recursos antes de executar o comando. 
 
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json

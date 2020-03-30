@@ -1,5 +1,5 @@
 ---
-title: Leia os registos de fluxo da NSG  Microsoft Docs
+title: Leia os registos de fluxo da NSG [ Microsoft Docs
 description: Este artigo mostra como analisar os registos de fluxo da NSG
 services: network-watcher
 documentationcenter: na
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
 ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77619919"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler registos do fluxo do NSG
@@ -31,7 +31,7 @@ Os registos de fluxo NSG são armazenados numa conta de armazenamento em [blocos
 
 No seguinte cenário, tem um registo de fluxo de exemplo que é armazenado numa conta de armazenamento. Aprende-se a ler seletivamente os últimos eventos nos registos de fluxo da NSG. Neste artigo utiliza-se o PowerShell, no entanto, os conceitos discutidos no artigo não se limitam à linguagem de programação, e aplicam-se a todas as línguas suportadas pelas APIs de Armazenamento Azure.
 
-## <a name="setup"></a>Configurar
+## <a name="setup"></a>Configuração
 
 Antes de começar, deve ter o Fluxo de Registo do Grupo de Segurança da Rede ativado num ou muitos Grupos de Segurança de Rede na sua conta. Para obter instruções sobre a ativação dos registos de fluxo de segurança da rede, consulte o seguinte artigo: [Introdução à exploração de fluxos de registo para grupos](network-watcher-nsg-flow-logging-overview.md)de segurança da rede .
 
@@ -96,7 +96,7 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-A variável `$blockList` devolve uma lista dos blocos na bolha. Cada bloco de bolhas contém pelo menos dois blocos.  O primeiro bloco tem um comprimento de `12` bytes, este bloco contém os suportes de abertura do tronco json. O outro bloco é o suporte de fecho e tem um comprimento de `2` bytes.  Como pode ver, o seguinte registo de exemplo tem sete entradas nele, sendo cada uma uma entrada individual. Todas as novas entradas no registo são adicionadas ao final mesmo antes do bloco final.
+A `$blockList` variável devolve uma lista dos blocos na bolha. Cada bloco de bolhas contém pelo menos dois blocos.  O primeiro bloco tem `12` um comprimento de bytes, este bloco contém os suportes de abertura do tronco json. O outro bloco é o suporte de `2` fecho e tem um comprimento de bytes.  Como pode ver, o seguinte registo de exemplo tem sete entradas nele, sendo cada uma uma entrada individual. Todas as novas entradas no registo são adicionadas ao final mesmo antes do bloco final.
 
 ```
 Name                                         Length Committed
@@ -114,7 +114,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Leia a bolha do bloco
 
-Em seguida, você precisa ler a variável `$blocklist` para recuperar os dados. Neste exemplo, iteramos através da lista de bloqueios, lemos os bytes de cada quarteirão e os históriamos numa matriz. Utilize o método [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) para recuperar os dados.
+Em seguida, você `$blocklist` precisa ler a variável para recuperar os dados. Neste exemplo, iteramos através da lista de bloqueios, lemos os bytes de cada quarteirão e os históriamos numa matriz. Utilize o método [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) para recuperar os dados.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {
@@ -158,7 +158,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Agora a matriz `$valuearray` contém o valor de cadeia de cada bloco. Para verificar a entrada, obtenha o segundo até ao último valor da matriz executando `$valuearray[$valuearray.Length-2]`. Não quer o último valor, porque é o suporte de fecho.
+Agora `$valuearray` a matriz contém o valor de cadeia de cada bloco. Para verificar a entrada, obtenha o segundo até `$valuearray[$valuearray.Length-2]`ao último valor da matriz executando . Não quer o último valor, porque é o suporte de fecho.
 
 Os resultados deste valor são apresentados no seguinte exemplo:
 

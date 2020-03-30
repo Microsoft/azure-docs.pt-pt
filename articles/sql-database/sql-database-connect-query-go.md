@@ -1,5 +1,5 @@
 ---
-title: Usar ir para consulta
+title: Use Ir para consulta
 description: Utilize o Go para criar um programa que se liga a uma Base de Dados SQL do Azure utilize declarações Transact-SQL para consultar e modificar dados.
 services: sql-database
 ms.service: sql-database
@@ -12,53 +12,53 @@ ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
 ms.openlocfilehash: 9b85b1bfb8935b5e311bb7d9503c17261a210127
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73827069"
 ---
-# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Início rápido: usar Golang para consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Quickstart: Use Golang para consultar uma base de dados Azure SQL
 
-Neste guia de início rápido, você usará a linguagem de programação [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para se conectar a um banco de dados SQL do Azure. Em seguida, você executará instruções Transact-SQL para consultar e modificar dados. O [Golang](https://golang.org/) é uma linguagem de programação de software livre que facilita a criação de softwares simples, confiáveis e eficientes.  
+Neste arranque rápido, utilizará a linguagem de programação [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para se ligar a uma base de dados Azure SQL. Em seguida, executará declarações da Transact-SQL para consultar e modificar dados. [Golang](https://golang.org/) é uma linguagem de programação de código aberto que facilita a construção de software simples, fiável e eficiente.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
-- Uma base de dados SQL do Azure. Você pode usar um desses guias de início rápido para criar e, em seguida, configurar um banco de dados no banco de dados SQL do Azure:
+- Uma base de dados SQL do Azure. Pode utilizar um destes quickstarts para criar e, em seguida, configurar uma base de dados na Base de Dados Azure SQL:
 
   || Base de dados individual | Instância gerida |
   |:--- |:--- |:---|
   | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurar | [Regra de firewall de IP de nível de servidor](sql-database-server-level-firewall-rule.md)| [Conectividade de uma VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Conectividade do local](sql-database-managed-instance-configure-p2s.md)
-  |Carregar dados|Adventure Works carregado por início rápido|[Restaurar importadores mundiais](sql-database-managed-instance-get-started-restore.md)
-  |||Restaurar ou importar o Adventure Works do arquivo [BACPAC](sql-database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  | Configurar | [Regra de firewall IP ao nível do servidor](sql-database-server-level-firewall-rule.md)| [Conectividade a partir de um VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Conectividade a partir do local](sql-database-managed-instance-configure-p2s.md)
+  |Carregar dados|Obras de Aventura carregadas por quickstart|[Restaurar importadores mundiais](sql-database-managed-instance-get-started-restore.md)
+  |||Restaurar ou importar Obras de Aventura a partir do ficheiro [BACPAC](sql-database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
-  > Os scripts neste artigo são escritos para usar o banco de dados do Adventure Works. Com uma instância gerenciada, você deve importar o banco de dados do Adventure Works para um banco de dados de instância ou modificar os scripts deste artigo para usar o banco de dados de importadores mundiais.
+  > Os scripts deste artigo são escritos para usar a base de dados Adventure Works. Com um caso gerido, deve importar a base de dados da Adventure Works numa base de dados de instâncias ou modificar os scripts deste artigo para utilizar a base de dados dos Importadores do Mundo.
 
-- Golang e software relacionado para o seu sistema operacional instalado:
+- Golang e software relacionado para o seu sistema operativo instalado:
 
-  - **MacOS**: Instale o homebrew e o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-  - **Ubuntu**: Instale o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-  - **Windows**: Instale o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
+  - **MacOS**: Instale homebrew e Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+  - **Ubuntu**: Instale Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+  - **Janelas**: Instale Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
 
-## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
+## <a name="get-sql-server-connection-information"></a>Obtenha informações de ligação ao servidor SQL
 
-Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
+Obtenha as informações de ligação que precisa para ligar à base de dados Azure SQL. Necessitará do nome do servidor ou nome do anfitrião totalmente qualificado, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
+2. Navegue para as bases de **dados SQL** ou página de **instâncias geridas pela SQL.**
 
-3. Na página **visão geral** , examine o nome do servidor totalmente qualificado ao lado de **nome do servidor** para um único banco de dados ou o nome do servidor totalmente qualificado ao lado de **host** para uma instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone de **cópia** .
+3. Na página **Overview,** reveja o nome do servidor totalmente qualificado ao lado do **nome do Servidor** para uma única base de dados ou o nome de servidor totalmente qualificado ao lado do **Anfitrião** para uma instância gerida. Para copiar o nome do servidor ou o nome do anfitrião, paire sobre ele e selecione o ícone **Copiar.**
 
-## <a name="create-golang-project-and-dependencies"></a>Criar projeto Golang e dependências
+## <a name="create-golang-project-and-dependencies"></a>Criar projeto golang e dependências
 
 1. A partir do terminal, crie uma nova pasta de projeto denominada **SqlServerSample**. 
 
@@ -66,7 +66,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
    mkdir SqlServerSample
    ```
 
-2. Navegue até **SqlServerSample** e instale o driver de SQL Server para o go.
+2. Navegue para **SqlServerSample** e instale o controlador SQL Server para Go.
 
    ```bash
    cd SqlServerSample
@@ -76,7 +76,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 ## <a name="create-sample-data"></a>Criar dados de exemplo
 
-1. Em um editor de texto, crie um arquivo chamado **CreateTestData. SQL** na pasta **SqlServerSample** . No arquivo, Cole este código T-SQL, que cria um esquema, uma tabela e insere algumas linhas.
+1. Num editor de texto, crie um ficheiro chamado **CreateTestData.sql** na pasta **SqlServerSample.** No ficheiro, cola este código T-SQL, que cria um esquema, mesa e insere algumas linhas.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -99,7 +99,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
    GO
    ```
 
-2. Use `sqlcmd` para se conectar ao banco de dados e executar o script SQL recém-criado. Substitua os valores adequados para o servidor, a base de dados, o nome de utilizador e a palavra-passe.
+2. Utilize `sqlcmd` para ligar à base de dados e executar o seu script SQL recém-criado. Substitua os valores adequados para o servidor, a base de dados, o nome de utilizador e a palavra-passe.
 
    ```bash
    sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
@@ -109,7 +109,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Crie um ficheiro denominado **sample.go** na pasta **SqlServerSample**.
 
-2. No arquivo, Cole este código. Adicione os valores para seu servidor, banco de dados, nome de usuário e senha. Este exemplo usa os [métodos de contexto](https://golang.org/pkg/context/) Golang para verificar se há uma conexão de servidor de banco de dados ativa.
+2. No ficheiro, cola este código. Adicione os valores para o seu servidor, base de dados, nome de utilizador e palavra-passe. Este exemplo utiliza os [métodos](https://golang.org/pkg/context/) de contexto Golang para garantir que existe uma ligação ativa do servidor de base de dados.
 
    ```go
    package main
@@ -305,13 +305,13 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. No prompt de comando, execute o comando a seguir.
+1. No pedido de comando, corra o seguinte comando.
 
    ```bash
    go run sample.go
    ```
 
-2. Verifique a saída.
+2. Verifique o resultado.
 
    ```text
    Connected!
@@ -328,6 +328,6 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Criar a sua primeira base de dados SQL do Azure](sql-database-design-first-database.md)
-- [Driver Golang para Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
+- [Condutor de Golang para Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Report issues or ask questions](https://github.com/denisenkom/go-mssqldb/issues) (Comunicar problemas ou fazer perguntas)
 

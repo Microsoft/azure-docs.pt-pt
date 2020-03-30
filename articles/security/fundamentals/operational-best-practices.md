@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77500295"
 ---
 # <a name="azure-operational-security-best-practices"></a>Boas práticas de Segurança Operacional Azure
@@ -53,7 +53,7 @@ Certifique-se de que a sua equipa de operações de segurança recebe notificaç
 No portal de inscrição do Azure, pode garantir que as informações de contacto da administração incluem detalhes que notificam as operações de segurança. A informação de contacto é um endereço de e-mail e número de telefone.
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organizar assinaturas do Azure em grupos de gestão
-Se a sua organização tiver muitas subscrições, poderá necessitar de uma forma de gerir de forma eficiente o acesso, as políticas e o cumprimento dessas subscrições. [Os grupos de gestão Azure](/azure/governance/management-groups/create) fornecem um nível de âmbito acima das subscrições. Organiza assinaturas em contentores chamados grupos de gestão e aplica as suas condições de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as condições aplicadas ao grupo de gestão.
+Se a sua organização tiver muitas subscrições, poderá precisar de uma forma de gerir o acesso, as políticas e a conformidade dessas subscrições. [Os grupos de gestão Azure](/azure/governance/management-groups/create) fornecem um nível de âmbito acima das subscrições. Organiza assinaturas em contentores chamados grupos de gestão e aplica as suas condições de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as condições aplicadas ao grupo de gestão.
 
 Você pode construir uma estrutura flexível de grupos de gestão e subscrições em um diretório. Cada diretório recebe um único grupo de gestão de alto nível chamado grupo de gestão de raiz. Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os grupos de gestão e subscrições associados ao mesmo. O grupo de gestão de raízes permite que políticas globais e atribuições RBAC sejam aplicadas ao nível do diretório.
 
@@ -185,7 +185,7 @@ Para os Serviços Azure Cloud, configure cada uma das suas funções para utiliz
 Para [máquinas virtuais Azure,](/azure/virtual-machines/windows/overview)certifique-se de que a sua arquitetura VM inclui mais de um VM e que cada VM está incluído num conjunto de [disponibilidade](/azure/virtual-machines/virtual-machines-windows-manage-availability). Recomendamos a utilização de conjuntos de escala de máquinas virtuais para capacidades de autoscalcificação.
 
 **Boas práticas**: Camadas de defesas de segurança numa aplicação reduz a possibilidade de um ataque bem sucedido. Implemente designs seguros para as suas aplicações utilizando as capacidades incorporadas da plataforma Azure.  
-**Detalhe**: O risco de ataque aumenta com o tamanho (área de superfície) da aplicação. Pode reduzir a área de superfície utilizando a lista de permissões para fechar o espaço de endereçoIP exposto e as portas de audição que não são necessárias nos equilibradores de carga[(Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) e [Azure Application Gateway).](/azure/application-gateway/application-gateway-create-probe-portal)
+**Detalhe**: O risco de ataque aumenta com o tamanho (área de superfície) da aplicação. Pode reduzir a área de superfície utilizando a lista branca para fechar o espaço de endereçoIP exposto e as portas de audição que não são necessárias nos equilibradores de carga[(Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) e [Azure Application Gateway).](/azure/application-gateway/application-gateway-create-probe-portal)
 
 [Os grupos de segurança da rede](../../virtual-network/security-overview.md) são outra forma de reduzir a superfície de ataque. Pode utilizar etiquetas de serviço e [grupos](../../virtual-network/security-overview.md#service-tags) de segurança de [aplicações](../../virtual-network/security-overview.md#application-security-groups) para minimizar a complexidade para criar regras de segurança e configurar a segurança da rede, como uma extensão natural da estrutura de uma aplicação.
 
@@ -201,7 +201,7 @@ O Azure tem duas ofertas de [serviços](../../virtual-network/ddos-protection-ov
 - A proteção padrão fornece capacidades avançadas de mitigação do DDoS contra ataques de rede. É automaticamente sintonizado para proteger os seus recursos específicos do Azure. A proteção é simples de permitir durante a criação de redes virtuais. Também pode ser feito após a criação e não requer alterações na aplicação ou recursos.
 
 ## <a name="enable-azure-policy"></a>Ativar a política azure
-[A Azure Policy](/azure/governance/policy/overview) é um serviço em Azure que utiliza para criar, atribuir e gerir políticas. Estas políticas aplicam regras e efeitos sobre os seus recursos, para que esses recursos se mantenham em conformidade com os seus padrões corporativos e acordos de nível de serviço. O Azure Policy atende a essa necessidade através da avaliação de seus recursos de não conformidade com as políticas atribuídas.
+[A Azure Policy](/azure/governance/policy/overview) é um serviço em Azure que utiliza para criar, atribuir e gerir políticas. Estas políticas aplicam regras e efeitos sobre os seus recursos, para que esses recursos se mantenham em conformidade com os seus padrões corporativos e acordos de nível de serviço. O Azure Policy responde a esta necessidade ao avaliar os seus recursos para detetar os que não estão em conformidade com as políticas atribuídas.
 
 Enable Azure Policy para monitorizar e aplicar a política escrita da sua organização. Isto garantirá o cumprimento dos requisitos de segurança da sua empresa ou regulamentares, gerindo centralmente as políticas de segurança em todas as suas cargas de trabalho híbridas em nuvem. Aprenda a [criar e gerir políticas para impor o cumprimento.](../../governance/policy/tutorials/create-and-manage.md) Consulte a estrutura de definição da [Política Azure](../../governance/policy/concepts/definition-structure.md) para uma visão geral dos elementos de uma política.
 
@@ -221,9 +221,9 @@ Para mais informações, consulte [Criar e gerir políticas para impor o cumprim
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitor Azure Relatórios de risco da AD
 A grande maioria das falhas de segurança ocorrem quando os atacantes têm acesso a um ambiente roubando a identidade de um utilizador. Descobrir identidades comprometidas não é tarefa fácil. O Azure AD utiliza algoritmos adaptáveis de aprendizagem automática e heurística para detetar ações suspeitas relacionadas com as suas contas de utilizador. Cada ação suspeita detetada é armazenada num registo chamado [deteção de risco.](../../active-directory/reports-monitoring/concept-risk-events.md) As deteções de risco são registadas nos relatórios de segurança da AD Azure. Para mais informações, leia sobre os [utilizadores do relatório](../../active-directory/reports-monitoring/concept-user-at-risk.md) de segurança de risco e o relatório de segurança de [insões de risco](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança azure para obter mais práticas de segurança para usar quando está a projetar, implementar e gerir as suas soluções em nuvem utilizando o Azure.
 
 Os seguintes recursos estão disponíveis para fornecer informações mais gerais sobre segurança Azure e serviços relacionados com a Microsoft:
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - para informações atualizadas sobre as últimas novidades em Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail para secure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser reportadas ou via e-mail parasecure@microsoft.com

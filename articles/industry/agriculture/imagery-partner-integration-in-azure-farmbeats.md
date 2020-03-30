@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 62e5b363f8008380a61e24c0549573a30ecaeb73
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77131860"
 ---
 # <a name="imagery-partner-integration"></a>Integração de parceiros de imagens
@@ -31,7 +31,7 @@ Os parceiros de drones precisam de permitir que os clientes liguem a sua conta d
 
 Deve utilizar as seguintes credenciais no software do parceiro de drones para ligar farmBeats:
 
-- Ponto final da API
+- Ponto final de API
 - ID do inquilino
 - ID de Cliente
 - Segredo do cliente
@@ -83,8 +83,8 @@ Aqui estão os cabeçalhos de pedido mais comuns que precisam de ser especificad
 
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
-Tipo de conteúdo  | O formato de pedido (Tipo de conteúdo: aplicação/<format>). Para FarmBeats Datahub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
-Autorização | Especifica o sinal de acesso necessário para fazer uma chamada aPi. Autorização: Bearer <Access-Token>
+Content-Type  | O formato de pedido (Tipo de conteúdo: aplicação/<format>). Para FarmBeats Datahub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
+Autorização | Especifica o sinal de acesso necessário para fazer uma chamada aPi. Autorização:> de acesso ao <do portador
 Aceitar  | O formato de resposta. Para FarmBeats Datahub APIs, o formato é JSON. Aceitar: aplicação/json
 
 
@@ -333,7 +333,7 @@ Aqui estão os valores definidos pelo sistema:
 
 Este passo é uma configuração única. O âmbito deste novo tipo de cena limita-se à subscrição em que o Azure FarmBeats está instalado.
 
-Por exemplo, para adicionar SceneSource: "SlantRange", faz um PUT no ID da API /ExtendedType com a carga de entrada "SceneSource" da chave .
+Por exemplo, para adicionar SceneSource: "SlantRange", faz um PUT no ID da API /ExtendedType com a carga de entrada "SceneSource" da chave ..
 
 ```json
 {

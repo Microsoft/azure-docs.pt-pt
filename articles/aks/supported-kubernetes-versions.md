@@ -1,5 +1,5 @@
 ---
-title: Versões Kubernetes suportadas no Serviço Azure Kubernetes
+title: Versões do Kubernetes suportadas no Azure Kubernetes Service
 description: Compreender a política de suporte da versão Kubernetes e o ciclo de vida dos clusters no Serviço Azure Kubernetes (AKS)
 services: container-service
 author: sauryadas
@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
 ms.openlocfilehash: 77d64391888957a1697a5823a1485413686682d1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593449"
 ---
-# <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões Kubernetes suportadas no Serviço Azure Kubernetes (AKS)
+# <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
 A comunidade kubernetes lança versões menores aproximadamente a cada três meses. Estes lançamentos incluem novas funcionalidades e melhorias. Os lançamentos de patch são mais frequentes (por vezes semanalmente) e destinam-se apenas a correções críticas de bugs numa versão menor. Estas versões de patch incluem correções para vulnerabilidades de segurança ou grandes bugs com impacto num grande número de clientes e produtos em produção com base em Kubernetes.
 

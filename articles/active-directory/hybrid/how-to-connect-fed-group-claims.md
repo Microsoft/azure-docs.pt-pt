@@ -1,5 +1,5 @@
 ---
-title: Configure reivindicações do grupo para candidaturas com Diretório Ativo Azure  Microsoft Docs
+title: Configure reivindicações do grupo para candidaturas com Diretório Ativo Azure [ Microsoft Docs
 description: Informações sobre como configurar pedidos de grupo para uso com AD Azure.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 78b36e1f5ababf2551bd69682807a8ed308ae24d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298450"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408407"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configure reivindicações de grupo para candidaturas com Diretório Ativo Azure (Pré-visualização Pública)
 
@@ -54,7 +54,7 @@ Os formatos suportados para reivindicações de grupo são:
 
 As aplicações podem chamar o ponto final dos grupos MS Graph para obter informações de grupo para o utilizador autenticado. Esta chamada garante que todos os grupos de que um utilizador é membro estão disponíveis mesmo quando há um grande número de grupos envolvidos.  A enumeração do grupo é então independente das limitações do tamanho do token.
 
-No entanto, se uma aplicação existente espera consumir informações de grupo através de sinistros, o Azure Ative Directory pode ser configurado com vários formatos de sinistros diferentes.  considere as seguintes opções:
+No entanto, se uma aplicação existente espera consumir informações de grupo através de sinistros, o Azure Ative Directory pode ser configurado com vários formatos de sinistros diferentes.  Considere as seguintes opções:
 
 - Ao utilizar a adesão ao grupo para efeitos de autorização de pedido, é preferível utilizar o Group ObjectID. O Group ObjectID é imutável e único no Diretório Ativo Azure e está disponível para todos os grupos.
 - Se utilizar o grupo no local sAMAccountName para autorização, utilize nomes qualificados de domínio;  há menos hipóteses de os nomes entrarem em confronto. O sAMAccountName pode ser único dentro de um domínio de Diretório Ativo, mas se mais de um domínio de Diretório Ativo for sincronizado com um inquilino do Diretório Ativo Azure, existe a possibilidade de mais de um grupo ter o mesmo nome.
@@ -74,7 +74,7 @@ Existem dois passos para configurar o Diretório Ativo do Azure para emitir nome
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Adicione alegações de grupo para aplicações SAML utilizando a configuração SSO
 
-Para configurar as Reclamações de Grupo para uma aplicação SAML de galeria ou não-galeria, abra **as Aplicações Empresariais,** clique na aplicação na lista, selecione **a configuração Single Sign On**, e, em seguida, selecione **Atributos e Reclamações**do Utilizador .
+Para configurar as Reclamações de Grupo para uma aplicação SAML de galeria ou não-galeria, abra **as Aplicações Empresariais,** clique na aplicação na lista, selecione **a configuração Single Sign On**, e, em seguida, selecione **Atributos de utilizador & Reivindicações**.
 
 Clique em **Adicionar uma reivindicação de grupo**  
 
@@ -88,7 +88,7 @@ Utilize os botões de rádio para selecionar quais os grupos que devem ser inclu
 |----------|-------------|
 | **Todos os grupos** | Emite grupos de segurança e listas de distribuição e funções.  |
 | **Grupos de segurança** | Emite grupos de segurança que o utilizador é membro dos grupos alegam |
-| **Papéis de diretório** | Se o utilizador for atribuído funções de diretório, são emitidas como uma alegação de 'wids' (os grupos alegam que não serão emitidos) |
+| **Funções de diretório** | Se o utilizador for atribuído funções de diretório, são emitidas como uma alegação de 'wids' (os grupos alegam que não serão emitidos) |
 | **Grupos atribuídos ao pedido** | Emite apenas os grupos que são explicitamente atribuídos à aplicação e o utilizador é membro da |
 
 Por exemplo, para emitir todos os Grupos de Segurança o utilizador é membro de, selecione Grupos de Segurança
@@ -107,7 +107,7 @@ Os grupos atribuídos ao pedido serão incluídos no símbolo.  Outros grupos de
 
 Para alterar os grupos atribuídos à aplicação, selecione a aplicação a partir da lista de **Aplicações empresariais** e, em seguida, clique em **Utilizadores e Grupos** a partir do menu de navegação à esquerda da aplicação.
 
-Consulte o documento [Métodos para atribuir utilizadores e grupos a uma aplicação](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups) para obter detalhes sobre a gestão da atribuição de grupos às aplicações.
+Consulte o documento [Atribuir um utilizador ou grupo a uma aplicação empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md) para obter detalhes sobre a gestão da atribuição do grupo às aplicações.
 
 ### <a name="advanced-options"></a>Opções avançadas
 
@@ -126,7 +126,7 @@ Algumas aplicações exigem que as informações sobre a adesão ao grupo apare�
 
 ### <a name="edit-the-group-claims-configuration"></a>Editar a configuração de reivindicações do grupo
 
-Uma vez adicionada a configuração de reivindicação de grupo à configuração de Atributos e Reclamações do Utilizador, a opção de adicionar uma reclamação de grupo será acinzentada.  Para alterar a configuração da reclamação do grupo clique na reclamação do grupo na lista de **reclamações adicionais.**
+Uma vez adicionada a configuração de reclamação de grupo à configuração de Atributos de Utilizador & Reivindicações, a opção de adicionar uma reclamação de grupo será acinzentada.  Para alterar a configuração da reclamação do grupo clique na reclamação do grupo na lista de **reclamações adicionais.**
 
 ![reivindica uI](media/how-to-connect-fed-group-claims/group-claims-ui-7.png)
 
@@ -134,7 +134,7 @@ Uma vez adicionada a configuração de reivindicação de grupo à configuraçã
 
 As reivindicações do grupo também podem ser configuradas na secção [de Reclamações Opcionais](../../active-directory/develop/active-directory-optional-claims.md) do Manifesto de [Aplicação](../../active-directory/develop/reference-app-manifest.md).
 
-1. No portal ->Azure Ative Diretório -> Inscrições de Aplicação->Select Application->Manifest
+1. No portal ->Diretório Ativo Azure -> Registos de aplicações->Selecione >>Manifesto
 
 2. Ativar reclamações de membros do grupo alterando o grupoMembershipClaim
 
@@ -180,8 +180,8 @@ Os valores válidos são:
    | Reclamações Opcionais Schema | Valor |
    |----------|-------------|
    | **nome:** | Devem ser "grupos" |
-   | **fonte:** | Não utilizado. Omite ou especifique nulo |
-   | **essencial:** | Não utilizado. Omite ou especifique falso |
+   | **fonte:** | Não usado. Omite ou especifique nulo |
+   | **essencial:** | Não usado. Omite ou especifique falso |
    | **propriedades adicionais:** | Lista de propriedades adicionais.  Opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
    Adicionalmente são necessários apenas um dos "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se mais do que um estiver presente, o primeiro é usado e qualquer outro ignorado.
@@ -222,6 +222,6 @@ Para emitir nomes de grupo a devolver no formato netbiosDomain\samAccountName co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Métodos para atribuir utilizadores e grupos a uma aplicação](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups)
+[Atribuir um utilizador ou grupo a uma aplicação empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
-[Configurar alegações de funções](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
+[Configurar afirmações de função](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

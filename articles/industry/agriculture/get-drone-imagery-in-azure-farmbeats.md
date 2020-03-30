@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132054"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obtenha imagens de drones de parceiros de drones
@@ -30,7 +30,7 @@ Integrar dados de imagens de drones com O Azure FarmBeats ajuda-o a obter dados 
 ## <a name="enable-drone-imagery-integration-with-farmbeats"></a>Permitir a integração de imagens de drones com farmBeats
 
 Forneça as seguintes informações ao seu fornecedor de dispositivos para permitir a integração com a FarmBeats:
- - Ponto final da API
+ - Ponto final de API
  - ID do inquilino
  - ID de Cliente
  - Segredo do cliente
@@ -38,7 +38,7 @@ Forneça as seguintes informações ao seu fornecedor de dispositivos para permi
 Siga estes passos.
 
 1. Descarregue este [script](https://aka.ms/farmbeatspartnerscript)e extrai-o para a sua unidade local. Dois ficheiros estão dentro do ficheiro postal.
-2. Inscreva-se no [portal Azure](https://portal.azure.com/) e abra a Azure Cloud Shell. Esta opção está disponível na barra de ferramentas no canto superior direito do portal.
+2. Inicie sessão no [portal do Azure](https://portal.azure.com/) e abra o Azure Cloud Shell. Esta opção está disponível na barra de ferramentas no canto superior direito do portal.
 
     ![Open Azure Cloud Shell na barra superior direita do portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 

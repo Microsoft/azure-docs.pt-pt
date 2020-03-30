@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
 ms.openlocfilehash: c2c909d8ef2be982d4dd4a70b5f35d03e8e71418
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659973"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Sem necessidade de ligação de saída
@@ -45,10 +45,10 @@ Descarregue o script de migração da [Galeria PowerShell.](https://www.powershe
 
 Existem duas opções para si, dependendo da configuração e preferências locais do ambiente PowerShell:
 
-* Se não tiver os módulos Azure Az instalados ou não se importar de desinstalar os módulos Azure Az, a melhor opção é utilizar a opção `Install-Script` para executar o script.
+* Se não tiver os módulos Azure Az instalados ou não se importar de desinstalar os módulos `Install-Script` Azure Az, a melhor opção é usar a opção de executar o script.
 * Se precisa de manter os módulos Azure Az, a sua melhor aposta é baixar o script e executá-lo diretamente.
 
-Para determinar se tem os módulos Azure Az instalados, faça `Get-InstalledModule -Name az`. Se não vir nenhum módulo Az instalado, então pode utilizar o método `Install-Script`.
+Para determinar se tem os módulos Azure `Get-InstalledModule -Name az`Az instalados, corra . Se não vir nenhum módulo Az instalado, então `Install-Script` pode utilizar o método.
 
 ### <a name="install-using-the-install-script-method"></a>Instalar utilizando o método Instalação-Script
 
@@ -97,7 +97,7 @@ Aqui estão alguns cenários de como você adiciona VMs para backend piscinas do
  
     1. **Selecione todos os recursos** no menu esquerdo e, em seguida, selecione o **recém-criado Standard Load Balancer** da lista de recursos.
    
-    1. Em **Definições**, selecione **Conjuntos de back-end**.
+    1. Em **Definições,** selecione **piscinas backend**.
    
     1. Selecione a piscina de backend que corresponde ao pool de backend do Equilíbrio de Carga Básica, selecione o seguinte valor: 
       - **Máquina Virtual**: Desça e selecione os VMs da piscina de backend correspondente do Equilíbrio de Carga Básica.
@@ -120,7 +120,7 @@ Não. O script Azure PowerShell apenas migra a configuração. A migração de t
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Tive alguns problemas com o uso deste guião. Como posso conseguir ajuda?
   
-Pode enviar um e-mail para slbupgradesupport@microsoft.com, abrir um caso de suporte com o Suporte Azure, ou fazer ambos.
+Pode enviar um slbupgradesupport@microsoft.come-mail para, abrir um caso de suporte com o Suporte Azure, ou fazer os dois.
 
 ## <a name="next-steps"></a>Passos seguintes
 

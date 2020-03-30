@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
 ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190368"
 ---
-# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteja uma API utilizando o OAuth 2.0 com o Diretório Ativo Azure e a Gestão da API
+# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protect an API by using OAuth 2.0 with Azure Active Directory and API Management (Proteger uma API com o OAuth 2.0 com o Azure Active Directory e a Gestão de API)
 
 Este guia mostra-lhe como configurar a sua instância de Gestão API Azure para proteger uma API, utilizando o protocolo OAuth 2.0 com o Azure Ative Directory (Azure AD). 
 
@@ -51,7 +51,7 @@ Para proteger uma API com AD Azure, o primeiro passo é registar uma aplicação
 
 1. Selecione **Novo registo**. 
 
-1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação: 
+1. Quando aparecer uma página de **inscrição,** insira as informações de registo da sua candidatura: 
     - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da app, como a *aplicação backend.* 
     - Na secção de tipos de **conta suportada,** selecione uma opção que se adapte ao seu cenário. 
 
@@ -63,7 +63,7 @@ Para proteger uma API com AD Azure, o primeiro passo é registar uma aplicação
 
 1. Selecione **Expor uma API** e definir o **ID DE Aplicação URI** com o valor predefinido. Grave este valor para mais tarde.
 
-1. Selecione o botão **Adicionar um botão** de âmbito para visualizar a página Adicionar uma página de **âmbito.** Em seguida, crie um novo âmbito que seja suportado pela API (por exemplo, `Files.Read`). Por fim, selecione o botão **de âmbito Adicionar** para criar o âmbito. Repita este passo para adicionar todos os âmbitos suportados pela sua API.
+1. Selecione o botão **Adicionar um botão** de âmbito para visualizar a página Adicionar uma página de **âmbito.** Em seguida, crie um novo âmbito que seja `Files.Read`suportado pela API (por exemplo, ). Por fim, selecione o botão **de âmbito Adicionar** para criar o âmbito. Repita este passo para adicionar todos os âmbitos suportados pela sua API.
 
 1. Quando os âmbitos forem criados, tome nota dos mesmos para utilização num passo posterior. 
 
@@ -75,9 +75,9 @@ Todas as aplicações de clientes que liguem para a API também têm de ser regi
 
 1. Selecione **Novo registo**.
 
-1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação: 
+1. Quando aparecer uma página de **inscrição,** insira as informações de registo da sua candidatura: 
     - Na secção **Nome,** introduza um nome de aplicação significativo que será exibido aos utilizadores da app, como a *aplicação cliente.'* 
-    - Na secção de tipos de **conta suportada,** selecione **Contas em qualquer diretório organizacional (Qualquer diretório AD Azure - Multitenant)** . 
+    - Na secção de tipos de **conta suportada,** selecione **Contas em qualquer diretório organizacional (Qualquer diretório AD Azure - Multitenant)**. 
 
 1. Na secção **Redirecionamento URI,** selecione `Web` e introduza o URL `https://contoso5.portal.azure-api.net/signin`.
 
@@ -87,7 +87,7 @@ Todas as aplicações de clientes que liguem para a API também têm de ser regi
 
 Agora, crie um segredo de cliente para que esta aplicação seja usada num passo subsequente.
 
-1. A partir da lista de páginas para a sua aplicação cliente, **selecione Certificados e segredos,** e selecione novo segredo de **cliente.**
+1. A partir da lista de páginas para a sua aplicação cliente, selecione **Certificados & segredos**, e selecione novo segredo de **cliente.**
 
 1. Em **Adicionar um segredo de cliente,** forneça uma **Descrição**. Escolha quando a chave deve expirar e selecione **Adicionar**.
 
@@ -107,7 +107,7 @@ Agora que registou duas aplicações para representar a API e a Consola de Desen
 
 1. Sob **permissões delegadas,** selecione as permissões adequadas para a sua aplicação de backend e, em seguida, **selecione Adicionar permissões**.
 
-1. Opcionalmente, na página de **permissões da API,** selecione o consentimento do **administrador grant para \<seu nome de inquilino>** para conceder o consentimento em nome de todos os utilizadores deste diretório. 
+1. Opcionalmente, na página de **permissões da API,** selecione o consentimento do **administrador grant \<para o seu nome de inquilino>** para conceder o consentimento em nome de todos os utilizadores deste diretório. 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Ativar a autorização de utilizador da OAuth 2.0 na consola de desenvolvimento
 
@@ -121,7 +121,7 @@ Neste exemplo, a Consola de Desenvolvimento é a aplicação cliente-app. Os seg
 
 1. Forneça um nome e **descrição**de **exibição.**
 
-1. Para o URL da página de **registo do Cliente,** insira um valor de espaço reservado, como `http://localhost`. O URL da página de **registo do Cliente** aponta para uma página que os utilizadores podem usar para criar e configurar as suas próprias contas para os fornecedores OAuth 2.0 que suportam esta. Neste exemplo, os utilizadores não criam e configuram as suas próprias contas, pelo que utilizam um espaço reservado.
+1. Para o URL da página de registo do `http://localhost` **Cliente,** insira um valor de espaço reservado, como . O URL da página de **registo do Cliente** aponta para uma página que os utilizadores podem usar para criar e configurar as suas próprias contas para os fornecedores OAuth 2.0 que suportam esta. Neste exemplo, os utilizadores não criam e configuram as suas próprias contas, pelo que utilizam um espaço reservado.
 
 1. Para tipos de **concessão de autorização,** selecione **código de autorização**.
 
@@ -159,7 +159,7 @@ O próximo passo é ativar a autorização de utilizador da OAuth 2.0 para a sua
 
 1. Navegue na sua instância de Gestão API e vá para **APIs**.
 
-2. Selecione a API que pretende proteger. Por exemplo, pode utilizar o `Echo API`.
+2. Selecione a API que pretende proteger. Por exemplo, pode `Echo API`utilizar o .
 
 3. Ir para **Definições**.
 
@@ -180,7 +180,7 @@ Agora que a autorização de utilizador OAuth 2.0 está ativada no seu API, a Co
 
 3. Selecione **código de autorização** da lista de autorização e é solicitado que inscreva-se no inquilino da AD Azure. Se já assinou a conta, pode não ser solicitado.
 
-4. Após o sucesso da entrada, um cabeçalho `Authorization` é adicionado ao pedido, com um sinal de acesso da Azure AD. Segue-se uma amostra de símbolo (Base64 codificada):
+4. Após o sucesso da `Authorization` entrada, um cabeçalho é adicionado ao pedido, com um sinal de acesso da Azure AD. Segue-se uma amostra de símbolo (Base64 codificada):
 
    ```
    Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCIsImtpZCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCJ9.eyJhdWQiOiIxYzg2ZWVmNC1jMjZkLTRiNGUtODEzNy0wYjBiZTEyM2NhMGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgvIiwiaWF0IjoxNTIxMTUyNjMzLCJuYmYiOjE1MjExNTI2MzMsImV4cCI6MTUyMTE1NjUzMywiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhHQUFBQUptVzkzTFd6dVArcGF4ZzJPeGE1cGp2V1NXV1ZSVnd1ZXZ5QU5yMlNkc0tkQmFWNnNjcHZsbUpmT1dDOThscUJJMDhXdlB6cDdlenpJdzJLai9MdWdXWWdydHhkM1lmaDlYSGpXeFVaWk9JPSIsImFtciI6WyJyc2EiXSwiYXBwaWQiOiJhYTY5ODM1OC0yMWEzLTRhYTQtYjI3OC1mMzI2NTMzMDUzZTkiLCJhcHBpZGFjciI6IjEiLCJlbWFpbCI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiSmlhbmciLCJnaXZlbl9uYW1lIjoiTWlhbyIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJpcGFkZHIiOiIxMzEuMTA3LjE3NC4xNDAiLCJuYW1lIjoiTWlhbyBKaWFuZyIsIm9pZCI6IjhiMTU4ZDEwLWVmZGItNDUxMS1iOTQzLTczOWZkYjMxNzAyZSIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6IkFGaWtvWFk1TEV1LTNkbk1pa3Z3MUJzQUx4SGIybV9IaVJjaHVfSEM1aGciLCJ0aWQiOiI0NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgiLCJ1bmlxdWVfbmFtZSI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsInV0aSI6ImFQaTJxOVZ6ODBXdHNsYjRBMzBCQUEiLCJ2ZXIiOiIxLjAifQ.agGfaegYRnGj6DM_-N_eYulnQdXHhrsus45QDuApirETDR2P2aMRxRioOCR2YVwn8pmpQ1LoAhddcYMWisrw_qhaQr0AYsDPWRtJ6x0hDk5teUgbix3gazb7F-TVcC1gXpc9y7j77Ujxcq9z0r5lF65Y9bpNSefn9Te6GZYG7BgKEixqC4W6LqjtcjuOuW-ouy6LSSox71Fj4Ni3zkGfxX1T_jiOvQTd6BBltSrShDm0bTMefoyX8oqfMEA2ziKjwvBFrOjO0uK4rJLgLYH4qvkR0bdF9etdstqKMo5gecarWHNzWi_tghQu9aE3Z3EZdYNI_ZGM-Bbe3pkCfvEOyA
@@ -193,9 +193,9 @@ Agora que a autorização de utilizador OAuth 2.0 está ativada no seu API, a Co
 
 Neste momento, quando um utilizador tenta fazer uma chamada a partir da Consola de Desenvolvimento, o utilizador é solicitado a iniciar sessão. A Consola de Desenvolvimento obtém um sinal de acesso em nome do utilizador, e inclui o símbolo no pedido feito à API.
 
-No entanto, e se alguém ligar para a sua API sem um símbolo ou com um token inválido? Por exemplo, tente ligar para a API sem o cabeçalho `Authorization`, a chamada ainda vai passar. A razão é que a API Management não valida o sinal de acesso neste momento. Simplesmente passa o cabeceamento `Authorization` para a API de trás para a frente.
+No entanto, e se alguém ligar para a sua API sem um símbolo ou com um token inválido? Por exemplo, tente ligar para `Authorization` a API sem o cabeceamento, a chamada ainda vai passar. A razão é que a API Management não valida o sinal de acesso neste momento. Simplesmente passa `Authorization` o cabeceamento para a API traseira.
 
-Pode utilizar a política [De Validação JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar pedidos na Gestão API, validando os tokens de acesso de cada pedido de entrada. Se um pedido não tiver um token válido, a API Management bloqueia-o. Por exemplo, adicione a seguinte política à secção política `<inbound>` do `Echo API`. Verifica a reclamação do público num sinal de acesso e devolve uma mensagem de erro se o token não for válido. Para obter informações sobre como configurar políticas, consulte [definir ou editar políticas.](set-edit-policies.md)
+Pode utilizar a política [De Validação JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar pedidos na Gestão API, validando os tokens de acesso de cada pedido de entrada. Se um pedido não tiver um token válido, a API Management bloqueia-o. Por exemplo, adicione a `<inbound>` seguinte política `Echo API`à secção política do . Verifica a reclamação do público num sinal de acesso e devolve uma mensagem de erro se o token não for válido. Para obter informações sobre como configurar políticas, consulte [definir ou editar políticas.](set-edit-policies.md)
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -208,11 +208,11 @@ Pode utilizar a política [De Validação JWT](api-management-access-restriction
 </validate-jwt>
 ```
 > [!NOTE]
-> Este URL `openid-config` corresponde ao ponto final v1. Para o ponto final v2 `openid-config`, utilize `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`.
+> Este `openid-config` URL corresponde ao ponto final v1. Para o `openid-config`ponto final `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`v2, utilize .
 
 ## <a name="build-an-application-to-call-the-api"></a>Construa uma aplicação para chamar a API
 
-Neste guia, utilizou a Consola de Desenvolvimento em Gestão API como aplicação do cliente da amostra para chamar a `Echo API` protegida pela OAuth 2.0. Para saber mais sobre como construir uma aplicação e implementar o OAuth 2.0, consulte as amostras de código do [Diretório Ativo azure.](../active-directory/develop/sample-v2-code.md)
+Neste guia, utilizou a Consola de Desenvolvimento em Gestão API como aplicação do cliente da amostra para chamar o `Echo API` protegido pela OAuth 2.0. Para saber mais sobre como construir uma aplicação e implementar o OAuth 2.0, consulte as amostras de código do [Diretório Ativo azure.](../active-directory/develop/sample-v2-code.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).

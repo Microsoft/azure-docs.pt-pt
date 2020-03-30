@@ -4,10 +4,10 @@ description: Uma introdução para apoiar as bases de dados do SQL Server utiliz
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 8cbb8c833bc2933afac300bcc848fd50861011d0
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77505929"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Back up SQL Server para Azure como uma carga de trabalho DPM
@@ -59,7 +59,7 @@ Para proteger as bases de dados do SQL Server em Azure, primeiro crie uma polít
    >
    >
 
-1. Selecione **Seguinte**. DPM mostra o espaço de armazenamento total disponível. Também mostra a potencial utilização do espaço do disco.
+1. Selecione **Next**. DPM mostra o espaço de armazenamento total disponível. Também mostra a potencial utilização do espaço do disco.
 
     ![Configurar a atribuição de disco](./media/backup-azure-backup-sql/pg-storage.png)
 
@@ -147,7 +147,7 @@ Para recuperar uma entidade protegida, como uma base de dados do SQL Server, do 
 1. Clique no nome da base de dados e selecione **Recuperar**.
 
     ![Recuperar uma base de dados do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. DPM mostra os detalhes do ponto de recuperação. Selecione **Seguinte**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do Servidor SQL**. Em seguida, selecione **Seguinte**.
+1. DPM mostra os detalhes do ponto de recuperação. Selecione **Next**. Para substituir a base de dados, selecione o tipo de recuperação **Recuperar para a instância original do Servidor SQL**. Em seguida, selecione **Seguinte**.
 
     ![Recuperar uma base de dados da sua localização original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
@@ -161,6 +161,6 @@ Para recuperar uma entidade protegida, como uma base de dados do SQL Server, do 
 
     Quando a recuperação estiver concluída, a base de dados restaurada é consistente com a aplicação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte [o Azure Backup FAQ](backup-azure-backup-faq.md).

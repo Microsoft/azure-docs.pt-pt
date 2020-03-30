@@ -8,10 +8,10 @@ ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 8905222214d58eeba24ecf50da768ffa1d65c39d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670887"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Desmarque as suas aplicações com insights de aplicação Azure no Estúdio Visual
@@ -21,7 +21,7 @@ Se criou a aplicação Web ASP.NET com o Visual Studio 2017 ou posterior, já te
 
 Para monitorizar a aplicação quando estiver a ser produzida, vê normalmente a telemetria do Application Insights no [portal do Azure](https://portal.azure.com), onde pode definir alertas e aplicar ferramentas de monitorização poderosas. Mas, para a depuração, também pode procurar e analisar a telemetria no Visual Studio. Pode utilizar o Visual Studio para analisar a telemetria tanto a partir do seu local de produção como de depuração na sua máquina de desenvolvimento. Em último caso, pode analisar as execuções das depurações, mesmo que ainda não tenha configurado o SDK para enviar telemetria para o portal do Azure. 
 
-## <a name="run"></a> Depurar o projeto
+## <a name="debug-your-project"></a><a name="run"></a> Depurar o projeto
 Execute a aplicação Web no modo de depuração local com o F5. Abra páginas diferentes para gerar alguma telemetria.
 
 No Estúdio Visual, você vê uma contagem dos eventos que foram registados pelo módulo Application Insights no seu projeto.
@@ -90,7 +90,7 @@ Também poderá ser útil se tiver alguma [telemetria personalizada](../../azure
 * *No início, configurei totalmente os Insights de Aplicação para enviar telemetria para o portal. Mas agora gostaria de ver a telemetria apenas no Estúdio Visual.*
   
   * Nas Definições da janela Pesquisa, encontrará uma opção para procurar o diagnóstico local, mesmo se a sua aplicação enviar telemetria para o portal.
-  * Para evitar que a telemetria seja enviada para o portal, comente a linha `<instrumentationkey>...` da ApplicationInsights.config. Quando estiver pronto para enviar telemetria para o portal novamente, descomente- lo.
+  * Para evitar que a telemetria seja enviada `<instrumentationkey>...` para o portal, comente a linha de ApplicationInsights.config. Quando estiver pronto para enviar telemetria para o portal novamente, descomente- lo.
 
 
 ## <a name="next-steps"></a>Passos seguintes

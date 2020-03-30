@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: fa8b2da683d68a337df38e13726f22c5af43540a
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77565932"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurar a Nuvem Privada como um alvo de recuperação de desastres com o Gestor de Recuperação do Site VMware
@@ -67,7 +67,7 @@ Para ligações à documentação e informação de compatibilidade da VMware re
 
 Para saber as versões de vCenter e PSC na sua Nuvem Privada, abra o portal CloudSimple. Vá a **Recursos,** selecione a sua Nuvem Privada e clique no separador **VSphere Management Network.**
 
-![versões vCenter & PSC em Private Cloud](media/srm-resources.png)
+![vCenter & versões PSC em Private Cloud](media/srm-resources.png)
 
 ### <a name="estimate-the-size-of-your-dr-environment"></a>Calcule o tamanho do seu ambiente DER
 
@@ -133,7 +133,7 @@ Antes de instalar vRA e SRM, deve aumentar os privilégios vCenter do utilizador
 A instalação consiste nestes passos de alto nível:
 
 1. [Escalar privilégios.](escalate-private-cloud-privileges.md)
-2. Crie um utilizador na sua Nuvem Privada para a replicação vSphere e instalação SRM. Explicado abaixo no [vCenter UI: Criar um utilizador em Private Cloud para instalação vRA & SRM](#vcenter-ui-create-a-user-in-private-cloud-for-vra-and-srm-installation).
+2. Crie um utilizador na sua Nuvem Privada para a replicação vSphere e instalação SRM. Explicado abaixo no [vCenter UI: Criar um utilizador em Private Cloud para a instalação vRA & SRM](#vcenter-ui-create-a-user-in-private-cloud-for-vra-and-srm-installation).
 3. Prepare o seu ambiente Cloud Privado para a instalação vRA.
 4. Desloque a vRA na sua Nuvem Privada utilizando o OVF no VR ISO a partir de vmware.com. Para vRA 6.5, [este blog VMware](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) tem informações relevantes.
 5. Configure as regras de firewall para vRA. Explicado abaixo no [portal CloudSimple: Configure as regras de Firewall para vRA](#cloudsimple-portal-configure-firewall-rules-for-vra).
@@ -146,7 +146,7 @@ Para instruções de instalação detalhadas para a replicação vSphere 6.5, co
 
 Inscreva-se no vCenter utilizando credenciais de utilizador do cloudowner após a escalada de privilégios do portal CloudSimple.
 
-Crie um novo utilizador, `srm-soln-admin`, no vCenter e adicione-o ao grupo de administradores no vCenter.
+Crie um `srm-soln-admin`novo utilizador, no vCenter e adicione-o ao grupo de administradores no vCenter.
 Assine o vCenter como utilizador do cloudowner e inscreva-se como utilizador *srm-soln-administrador.*
 
 #### <a name="cloudsimple-portal-configure-firewall-rules-for-vra"></a>Portal CloudSimple: Configure regras de firewall para vRA

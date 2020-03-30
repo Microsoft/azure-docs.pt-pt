@@ -1,5 +1,5 @@
 ---
-title: Trabalhe com os servidores proxy existentes no local e a AD Azure  Microsoft Docs
+title: Trabalhe com os servidores proxy existentes no local e a AD Azure [ Microsoft Docs
 description: Cobre como trabalhar com servidores proxy existentes no local.
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d7c7d9f6d59ffd57ddb14f7c060d0a3f6f2a6eb
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 5fe3a63e119fed6825982b9de13bc78cb7da5415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967743"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481403"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
 
@@ -104,7 +104,7 @@ Há quatro aspetos a ter em conta no proxy de saída:
 * Regras de saída de proxy
 * Autenticação por procuração
 * Portas proxy
-* Inspeção SSL
+* Inspeção TLS
 
 #### <a name="proxy-outbound-rules"></a>Regras de saída de proxy
 
@@ -114,9 +114,9 @@ Permitir o acesso aos seguintes URLs:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem application Proxy |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O conector utiliza estes URLs para verificar certificados |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector utiliza estes URLs durante o processo de registo. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>*.microsoftonline-p.com<br>*.msauth.net<br>*.msauthimages.net<br>*.msecnd.net<br>*.msftauth.net<br>*.msftauthimages.net<br>*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector utiliza estes URLs durante o processo de registo. |
 
-Se a sua firewall ou proxy lhe permitir configurar listas de DNS, pode permitir que as ligações \*.msappproxy.net e \*.servicebus.windows.net. Caso contrário, tem de permitir o acesso às gamas IP do [Azure DataCenter](https://www.microsoft.com/download/details.aspx?id=41653). As gamas IP são atualizadas todas as semanas.
+Se a sua firewall ou proxy lhe permitir configurar listas \*de \*DNS, pode permitir ligações a .msappproxy.net e .servicebus.windows.net. Caso contrário, tem de permitir o acesso às gamas IP do [Azure DataCenter](https://www.microsoft.com/download/details.aspx?id=41653). As gamas IP são atualizadas todas as semanas.
 
 Se não conseguir permitir a conectividade por parte da FQDN e precisar de especificar intervalos IP, utilize estas opções:
 
@@ -129,14 +129,14 @@ A autenticação por procuração não é suportada atualmente. A nossa recomend
 
 #### <a name="proxy-ports"></a>Portas proxy
 
-O conector faz ligações baseadas em SSL de saída utilizando o método CONNECT. Este método essencialmente estabelece um túnel através do proxy de saída. Configure o servidor proxy para permitir a escavação nas portas 443 e 80.
+O conector faz ligações baseadas em TLS de saída utilizando o método CONNECT. Este método essencialmente estabelece um túnel através do proxy de saída. Configure o servidor proxy para permitir a escavação nas portas 443 e 80.
 
 > [!NOTE]
 > Quando o Ônibus de serviço passa por HTTPS, utiliza a porta 443. No entanto, por padrão, o Service Bus tenta ligações TCP diretas e recua para HTTPS apenas se a conectividade direta falhar.
 
-#### <a name="ssl-inspection"></a>Inspeção SSL
+#### <a name="tls-inspection"></a>Inspeção TLS
 
-Não utilize a inspeção SSL para o tráfego do conector, pois causa problemas ao tráfego do conector. O conector utiliza um certificado para autenticar o serviço de procuração de aplicações, podendo esse certificado ser perdido durante a inspeção SSL.
+Não utilize a inspeção TLS para o tráfego do conector, pois causa problemas ao tráfego do conector. O conector utiliza um certificado para autenticar o serviço de procuração de aplicações, podendo esse certificado ser perdido durante a inspeção do TLS.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Problemas de procuração de conector de resolução de problemas e problemas de conectividade de serviço
 
@@ -177,7 +177,7 @@ Se espera que o conector efetua ligações diretas aos serviços Azure, as respo
 
 Se configurar o tráfego de conector Proxy de Aplicação para passar pelos servidores proxy, pretende procurar ligações https falhadas ao seu representante.
 
-Para filtrar a captura da rede para estas tentativas de ligação, introduza `(https.Request or https.Response) and tcp.port==8080` no filtro Message Analyzer, substituindo 8080 pela sua porta de serviço proxy. Selecione **Aplicar** para ver os resultados do filtro.
+Para filtrar a captura da rede `(https.Request or https.Response) and tcp.port==8080` para estas tentativas de ligação, introduza no filtro Message Analyzer, substituindo 8080 pela sua porta de serviço proxy. Selecione **Aplicar** para ver os resultados do filtro.
 
 O filtro anterior mostra apenas os pedidos e respostas hTTPs de/para a porta proxy. Está à procura dos pedidos connect que mostram comunicação com o servidor proxy. Após o sucesso, obtém-se uma resposta HTTP OK (200).
 

@@ -1,5 +1,5 @@
 ---
-title: Notebooks Zeppelin e Apache Spark cluster - Azure HDInsight
+title: Cadernos Zeppelin & cluster Apache Spark - Azure HDInsight
 description: Instruções passo a passo sobre como usar os cadernos Zeppelin com clusters Apache Spark no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
 ms.openlocfilehash: e313048986beca1991e38ce2e65ea12f954170d2
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598277"
 ---
-# <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Use os cadernos Apache Zeppelin com o cluster Apache Spark no Azure HDInsight
+# <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utilizar blocos de notas do Apache Zeppelin com o cluster do Apache Spark no Azure HDInsight
 
 Os clusters HDInsight Spark incluem os cadernos [Apache Zeppelin](https://zeppelin.apache.org/) que pode usar para executar trabalhos [apache Spark.](https://spark.apache.org/) Neste artigo, aprende-se a usar o caderno Zeppelin num cluster HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, veja [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* O esquema URI para o armazenamento primário dos seus clusters. Esta seria `wasb://` para o Armazenamento de Blob Azure, `abfs://` para o Azure Data Lake Storage Gen2 ou `adl://` para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Blob, o URI será `wasbs://`.  Para mais informações, consulte [Exigir transferência segura no Armazenamento Azure](../../storage/common/storage-require-secure-transfer.md) .
+* O esquema URI para o armazenamento primário dos seus clusters. Isto seria `wasb://` para o Armazenamento `abfs://` de Blob Azure, `adl://` para o Azure Data Lake Storage Gen2 ou para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Blob, o URI seria .  Para mais informações, consulte [Exigir transferência segura no Armazenamento Azure](../../storage/common/storage-require-secure-transfer.md) .
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Lance um caderno Apache Zeppelin
 
@@ -43,7 +43,7 @@ Os clusters HDInsight Spark incluem os cadernos [Apache Zeppelin](https://zeppel
 
     ![Estatuto do caderno Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Estatuto do caderno Zeppelin")
 
-4. Carregue dados de exemplo para uma tabela temporária. Quando cria um cluster Spark no HDInsight, o ficheiro de dados da amostra, `hvac.csv`, é copiado para a conta de armazenamento associada ao abrigo `\HdiSamples\SensorSampleData\hvac`.
+4. Carregue dados de exemplo para uma tabela temporária. Quando cria um cluster Spark no HDInsight, `hvac.csv`o ficheiro de dados da `\HdiSamples\SensorSampleData\hvac`amostra, é copiado para a conta de armazenamento associada em .
 
     No parágrafo vazio que é criado por defeito no novo caderno, cola o seguinte corte.
 
@@ -80,7 +80,7 @@ Os clusters HDInsight Spark incluem os cadernos [Apache Zeppelin](https://zeppel
     > [!NOTE]  
     > %spark2 intérprete não é suportado em cadernos Zeppelin em todas as versões HDInsight, e %sh intérprete não será suportado a partir de HDInsight 4.0 em diante.
 
-5. Agora pode executar declarações spark SQL na mesa `hvac`. Colhe a seguinte consulta num novo parágrafo. A consulta recupera o ID do edifício e a diferença entre o alvo e as temperaturas reais para cada edifício numa dada data. Turno de pressão **+ ENTER**.
+5. Agora pode executar declarações spark `hvac` SQL na mesa. Colhe a seguinte consulta num novo parágrafo. A consulta recupera o ID do edifício e a diferença entre o alvo e as temperaturas reais para cada edifício numa dada data. Turno de pressão **+ ENTER**.
 
     ```sql
     %sql
@@ -93,7 +93,7 @@ Os clusters HDInsight Spark incluem os cadernos [Apache Zeppelin](https://zeppel
 
     ![Executar uma declaração Spark SQL usando o notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Executar uma declaração Spark SQL usando o notebook1")
 
-7. Também pode executar declarações Spark SQL usando variáveis na consulta. O próximo corte mostra como definir uma variável, `Temp`, na consulta com os valores possíveis com que pretende consultar. Quando executa a consulta pela primeira vez, uma queda é automaticamente povoada com os valores que especificou para a variável.
+7. Também pode executar declarações Spark SQL usando variáveis na consulta. O próximo corte mostra como definir `Temp`uma variável, na consulta com os valores possíveis com que pretende consultar. Quando executa a consulta pela primeira vez, uma queda é automaticamente povoada com os valores que especificou para a variável.
 
     ```sql
     %sql  
@@ -125,7 +125,7 @@ Neste artigo, você verá como usar o pacote [spark-csv](https://search.maven.or
 
     ![Alterar as definições do intérprete1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Alterar as definições do intérprete1")
 
-3. Navegue para `livy.spark.jars.packages`chave e desemque o seu valor no formato `group:id:version`. Por isso, se quiser utilizar o pacote [spark-csv,](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) tem de definir o valor da chave para `com.databricks:spark-csv_2.10:1.4.0`.
+3. Navegue `livy.spark.jars.packages`para a tecla , `group:id:version`e desemque o seu valor no formato. Por isso, se quiser utilizar o pacote [spark-csv,](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) tem de `com.databricks:spark-csv_2.10:1.4.0`definir o valor da chave para .
 
     ![Alterar as definições do intérprete2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Alterar as definições do intérprete2")
 
@@ -139,7 +139,7 @@ Neste artigo, você verá como usar o pacote [spark-csv](https://search.maven.or
 
     ![Use pacotes externos com caderno Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Use pacotes externos com caderno Jupyter")
 
-    c. Concatenaos os três valores, separados por um cólon ( **:** ).
+    c. Concatenaos os três valores, separados por um cólon (**:**).
 
         com.databricks:spark-csv_2.10:1.4.0
 
@@ -152,18 +152,18 @@ Os cadernos Zeppelin são guardados para os cabeçados do cluster. Assim, se apa
 Isto guarda o caderno como um ficheiro JSON na sua localização de descarregamento.
 
 ## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Use Shiro para configurar acesso a intérpretes zeppelin em clusters de pacotes de segurança empresarial (ESP)
-Como referido acima, `%sh` o intérprete não é suportado a partir do HDInsight 4.0. Além disso, uma vez que `%sh` intérprete introduz potenciais problemas de segurança, tais como chaves de acesso utilizando comandos de conchas, foi removido dos clusters HDInsight 3.6 ESP também. Significa que `%sh` intérprete não está disponível ao clicar **Criar uma nova nota** ou na UI intérprete por padrão. 
+Como referido acima, `%sh` o intérprete não é suportado a partir do HDInsight 4.0. Além disso, uma vez `%sh` que o intérprete introduz potenciais problemas de segurança, tais como chaves de acesso utilizando comandos de conchas, foi removido dos clusters HDInsight 3.6 ESP também. Significa `%sh` que o intérprete não está disponível ao clicar **Criar uma nova nota** ou na UI intérprete por padrão. 
 
-Os utilizadores de domínio privilegiado podem utilizar o ficheiro `Shiro.ini` para controlar o acesso à UI intérprete. Assim, apenas estes utilizadores podem criar novos intérpretes `%sh` e definir permissões em cada novo intérprete `%sh`. Para controlar o acesso utilizando o ficheiro `shiro.ini`, utilize os seguintes passos:
+Os utilizadores de domínio `Shiro.ini` privilegiado podem utilizar o ficheiro para controlar o acesso à UI intérprete. Assim, apenas estes `%sh` utilizadores podem criar novos intérpretes e definir permissões em cada novo `%sh` intérprete. Para controlar o `shiro.ini` acesso utilizando o ficheiro, utilize os seguintes passos:
 
-1. Defina uma nova função usando um nome de grupo de domínio existente. No exemplo seguinte, `adminGroupName` é um grupo de utilizadores privilegiados em AAD. Não utilize caracteres especiais ou espaços brancos no nome de grupo. Os personagens depois de `=` dar as permissões para este papel. `*` significa que o grupo tem permissões completas.
+1. Defina uma nova função usando um nome de grupo de domínio existente. No exemplo seguinte, `adminGroupName` está um grupo de utilizadores privilegiados em AAD. Não utilize caracteres especiais ou espaços brancos no nome de grupo. Os personagens depois `=` dão as permissões para este papel. `*`significa que o grupo tem permissões completas.
 
     ```
     [roles]
     adminGroupName = *
     ```
 
-2. Adicione o novo papel para o acesso aos intérpretes zeppelin. No exemplo seguinte, todos os utilizadores em `adminGroupName` têm acesso a intérpretes Zeppelin e são capazes de criar novos intérpretes. Pode colocar múltiplos papéis entre os suportes em `roles[]`, separados por vírgulas. Depois, os utilizadores que tenham as permissões necessárias podem aceder aos intérpretes zeppelin.
+2. Adicione o novo papel para o acesso aos intérpretes zeppelin. No exemplo seguinte, todos `adminGroupName` os utilizadores em são tidos acesso a intérpretes Zeppelin e são capazes de criar novos intérpretes. Pode colocar vários papéis `roles[]`entre os suportes, separados por vírgulas. Depois, os utilizadores que tenham as permissões necessárias podem aceder aos intérpretes zeppelin.
 
     ```
     [urls]
@@ -190,9 +190,9 @@ Nesse caso, deve executar os seguintes passos antes de começar a executar traba
 
 ### <a name="validate-service"></a>Validar o serviço
 
-Para validar o serviço de Ambari, navegue para `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` onde clusterNAME é o nome do seu cluster.
+Para validar o serviço de `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` Ambari, navegue até onde o CLUSTERNAME é o nome do seu cluster.
 
-Para validar o serviço de uma linha de comando, SSH para o nó da cabeça. Mude o utilizador para zeppelin utilizando `sudo su zeppelin`de comando . Comandos de estado:
+Para validar o serviço de uma linha de comando, SSH para o nó da cabeça. Mude o utilizador `sudo su zeppelin`para zeppelin utilizando o comando . Comandos de estado:
 
 |Comando |Descrição |
 |---|---|
@@ -209,13 +209,13 @@ Para validar o serviço de uma linha de comando, SSH para o nó da cabeça. Mude
 |Intérprete de Configuração, Shiro, site.xml, log4j|/usr/hdp/current/zeppelin-server/conf ou /etc/zeppelin/conf|
 |Diretório PID|/var/run/zeppelin|
 
-### <a name="enable-debug-logging"></a>Ativar o registo de depuração
+### <a name="enable-debug-logging"></a>Ativar a exploração de depuração
 
-1. Navegue para `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` onde clusterNAME é o nome do seu cluster.
+1. Navegue `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` até onde clusterNAME é o nome do seu cluster.
 
-1. Navegue para **CONFIGS** > **propriedades avançadas de zeppelin-log4j** ** > log4j_properties_content**.
+1. Navegue para **CONFIGS** > **Propriedades avançadas de zeppelin-log4j** > **log4j_properties_content**.
 
-1. Modificar `log4j.appender.dailyfile.Threshold = INFO` para `log4j.appender.dailyfile.Threshold = DEBUG`.
+1. Modificar `log4j.appender.dailyfile.Threshold = INFO` `log4j.appender.dailyfile.Threshold = DEBUG`para .
 
 1. Adicione `log4j.logger.org.apache.zeppelin.realm=DEBUG`.
 

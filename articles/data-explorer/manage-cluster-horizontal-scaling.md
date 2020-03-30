@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: ff7420619cffc2287ab8ff6332df605d56329549
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664138"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gerir a escala horizontal do cluster (escala para fora) no Azure Data Explorer para acomodar a mudança da procura
@@ -64,7 +64,7 @@ Quando o seu cluster se aproximar de um estado de sobreutilização, estem para 
 > [!NOTE]
 > A lógica de escala não considera atualmente a métrica de utilização da ingestão. Se esta métrica for importante para a sua caixa de utilização, utilize a [escala automática personalizada](#custom-autoscale).
 
-**Escala em**
+**Reduzir horizontalmente**
 
 Quando o seu cluster se aproxima de um estado de subutilização, dimensione para custos mais baixos, mas mantenha o desempenho. Várias métricas são usadas para verificar se é seguro escalar no cluster. As seguintes regras são avaliadas de hora em hora durante 6 horas antes da escala:
 * O número de ocorrências é superior a 2 e acima do número mínimo de ocorrências definidas.
@@ -96,11 +96,11 @@ Ao utilizar a escala automática personalizada, pode escalar o seu cluster dinam
 
     **Critérios**
 
-    | Definição | Valor e descrição |
+    | Definição | Descrição e valor |
     | --- | --- |
-    | **Agregação do tempo** | Selecione um critério de agregação, como a **Média**. |
-    | **Nome métrico** | Selecione a métrica em que pretende que a operação de escala se baseie, como a **Utilização**da Cache . |
-    | **Estatística do grão do tempo** | Escolha entre **média,** **mínima,** **máxima**e **soma.** |
+    | **Agregação de tempo** | Selecione um critério de agregação, como a **Média**. |
+    | **Nome da métrica** | Selecione a métrica em que pretende que a operação de escala se baseie, como a **Utilização**da Cache . |
+    | **Estatística do intervalo de agregação** | Escolha entre **média,** **mínima,** **máxima**e **soma.** |
     | **Operador** | Escolha a opção adequada, tal como **Maior ou igual a**. |
     | **Limiar** | Escolha um valor apropriado. Por exemplo, para a utilização de cache, 80 por cento é um bom ponto de partida. |
     | **Duração (em minutos)** | Escolha uma quantidade adequada de tempo para o sistema olhar para trás ao calcular as métricas. Comece com o padrão de 10 minutos. |
@@ -108,22 +108,22 @@ Ao utilizar a escala automática personalizada, pode escalar o seu cluster dinam
 
     **Ação**
 
-    | Definição | Valor e descrição |
+    | Definição | Descrição e valor |
     | --- | --- |
     | **Operação** | Escolha a opção adequada para escalar ou escalar para fora. |
     | **Contagem de exemplos** | Escolha o número de nós ou instâncias que pretende adicionar ou remover quando uma condição métrica é satisfeita. |
-    | **Arrefecer (minutos)** | Escolha um intervalo de tempo adequado para esperar entre operações de escala. Comece com o padrão de cinco minutos. |
+    | **Repouso (minutos)** | Escolha um intervalo de tempo adequado para esperar entre operações de escala. Comece com o padrão de cinco minutos. |
     |  |  |
 
 5. Selecione **Adicionar**.
 
 6. Na secção **de limites** por exemplo à esquerda, introduza valores para cada definição.
 
-    | Definição | Valor e descrição |
+    | Definição | Descrição e valor |
     | --- | --- |
     | **Mínimo** | O número de casos que o seu cluster não escala abaixo, independentemente da utilização. |
     | **Máximo** | O número de casos que o seu cluster não escala acima, independentemente da utilização. |
-    | **Predefinição** | O número padrão de casos. Esta definição é utilizada se houver problemas de leitura das métricas de recursos. |
+    | **Padrão** | O número padrão de casos. Esta definição é utilizada se houver problemas de leitura das métricas de recursos. |
     |  |  |
 
 7. Selecione **Guardar**.

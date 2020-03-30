@@ -1,88 +1,88 @@
 ---
-title: Restaurar aplicativo do backup
-description: Saiba como restaurar seu aplicativo a partir de um backup. Determinados bancos de dados vinculados podem ser restaurados junto com o aplicativo em uma única operação.
+title: Restaurar app a partir de backup
+description: Aprenda a restaurar a sua aplicação a partir de um backup. Algumas bases de dados ligadas podem ser restauradas juntamente com a aplicação numa única operação.
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74689252"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar uma aplicação no Azure
-Este artigo mostra como restaurar um aplicativo no [serviço Azure app](../app-service/overview.md) do qual você fez backup anteriormente (consulte [fazer backup de seu aplicativo no Azure](manage-backup.md)). Você pode restaurar seu aplicativo com seus bancos de dados vinculados sob demanda para um estado anterior ou criar um novo aplicativo com base em um dos backups do seu aplicativo original. Azure App serviço dá suporte aos seguintes bancos de dados para backup e restauração:
+Este artigo mostra-lhe como restaurar uma aplicação no [Azure App Service](../app-service/overview.md) que já fez o backback (ver [Back up a sua aplicação em Azure).](manage-backup.md) Pode restaurar a sua aplicação com as suas bases de dados ligadas a pedido para um estado anterior, ou criar uma nova aplicação com base numa das cópias de segurança da sua aplicação original. O Azure App Service suporta as seguintes bases de dados para cópia de segurança e restauro:
 - [Base de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 - [Base de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
 - [Base de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql)
-- [MySQL no aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
+- [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
-A restauração de backups está disponível para aplicativos em execução na camada **Standard** e **Premium** . Para obter informações sobre como escalar verticalmente seu aplicativo, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md). A camada **Premium** permite que um número maior de backups diários seja realizado do que a camada **Standard** .
+Restaurar de backups está disponível para aplicações em execução em nível **Standard** e **Premium.** Para obter informações sobre o dimensionamento da sua aplicação, consulte [Scale up uma aplicação no Azure](manage-scale-up.md). **O** nível premium permite que um maior número de backups diários seja realizado do que o nível **Standard.**
 
 <a name="PreviousBackup"></a>
 
-## <a name="restore-an-app-from-an-existing-backup"></a>Restaurar um aplicativo de um backup existente
-1. Na página **configurações** do seu aplicativo no portal do Azure, clique em **backups** para exibir a página **backups** . Em seguida, clique em **restaurar**.
+## <a name="restore-an-app-from-an-existing-backup"></a>Restaurar uma aplicação a partir de uma cópia de segurança existente
+1. Na página **Definições** da sua aplicação no portal Azure, clique em **Backups** para exibir a página **Backups.** Em seguida, clique em **Restaurar**.
    
     ![Escolha restaurar agora][ChooseRestoreNow]
-2. Na página **restaurar** , primeiro selecione a fonte de backup.
+2. Na página **Restaurar,** primeiro selecione a fonte de reserva.
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
-    A opção **backup do aplicativo** mostra todos os backups existentes do aplicativo atual, e você pode selecioná-lo facilmente.
-    A opção de **armazenamento** permite selecionar qualquer arquivo zip de backup de qualquer conta de armazenamento do Azure existente e contêiner em sua assinatura.
-    Se você estiver tentando restaurar um backup de outro aplicativo, use a opção de **armazenamento** .
-3. Em seguida, especifique o destino para a restauração do aplicativo no **destino da restauração**.
+    A opção de backup da **App** mostra-lhe todas as cópias de segurança existentes da aplicação atual, e pode facilmente selecionar uma.
+    A opção **Armazenamento** permite selecionar qualquer ficheiro ZIP de reserva de qualquer conta e contentor de Armazenamento Azure existentes na sua subscrição.
+    Se estiver a tentar restaurar uma cópia de segurança de outra aplicação, utilize a opção **Armazenamento.**
+3. Em seguida, especifique o destino para a restauração da aplicação no **destino Restaurar**.
    
     ![](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
-   > Se você escolher **substituir**, todos os dados existentes em seu aplicativo atual serão apagados e substituídos. Antes de clicar em **OK**, verifique se é exatamente o que você deseja fazer.
+   > Se escolher **A Sobreescrita,** todos os dados existentes na sua aplicação atual são apagados e substituídos. Antes de clicar em **OK,** certifique-se de que é exatamente o que quer fazer.
    > 
    > 
    
    > [!WARNING]
-   > Se o serviço de aplicativo estiver gravando dados no banco de dado enquanto você o estiver restaurando, isso poderá resultar em sintomas como violação de chave primária e perda de dados. É recomendável parar o serviço de aplicativo primeiro antes de começar a restaurar o banco de dados.
+   > Se o Serviço de Aplicações estiver a escrever dados para a base de dados enquanto os está a restaurar, pode resultar em sintomas como violação da CHAVE PRIMÁRIA e perda de dados. Sugere-se que pare o Serviço de Aplicações primeiro antes de começar a restaurar a base de dados.
    > 
    > 
    
-    Você pode selecionar **aplicativo existente** para restaurar o backup do aplicativo para outro aplicativo no mesmo grupo de recursos. Antes de usar essa opção, você já deve ter criado outro aplicativo em seu grupo de recursos com a configuração do banco de dados de espelhamento para aquele definido no backup do aplicativo. Você também pode criar um **novo** aplicativo para restaurar seu conteúdo.
+    Pode selecionar a **App Existente** para restaurar a cópia de segurança da aplicação para outra aplicação no mesmo grupo de recursos. Antes de utilizar esta opção, já deveria ter criado outra aplicação no seu grupo de recursos com a configuração da base de dados espelhada para a definida na cópia de segurança da aplicação. Também pode Criar uma **nova** aplicação para restaurar o seu conteúdo.
 
 4. Clique em **OK**.
 
 <a name="StorageAccount"></a>
 
-## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Baixar ou excluir um backup de uma conta de armazenamento
-1. Na página de **navegação** principal do portal do Azure, selecione **contas de armazenamento**. É exibida uma lista de suas contas de armazenamento existentes.
-2. Selecione a conta de armazenamento que contém o backup que você deseja baixar ou excluir. A página da conta de armazenamento é exibida.
-3. Na página conta de armazenamento, selecione o contêiner desejado
+## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Faça o download ou apague uma cópia de segurança de uma conta de armazenamento
+1. A partir da página principal de **Navegação** do portal Azure, selecione **contas de Armazenamento.** É apresentada uma lista das suas contas de armazenamento existentes.
+2. Selecione a conta de armazenamento que contém a cópia de segurança que pretende descarregar ou eliminar. A página da conta de armazenamento é apresentada.
+3. Na página da conta de armazenamento, selecione o recipiente que deseja
    
-    ![Exibir contêineres][ViewContainers]
-4. Selecione o arquivo de backup que você deseja baixar ou excluir.
+    ![Ver recipientes][ViewContainers]
+4. Selecione ficheiro de reserva que pretende descarregar ou eliminar.
    
-    ![ViewContainers](./media/web-sites-restore/03ViewFiles.png)
-5. Clique em **baixar** ou **excluir** dependendo do que você deseja fazer.  
+    ![Recipientes de visualização](./media/web-sites-restore/03ViewFiles.png)
+5. Clique em **Baixar** ou **Apagar** dependendo do que pretende fazer.  
 
 <a name="OperationLogs"></a>
 
-## <a name="monitor-a-restore-operation"></a>Monitorar uma operação de restauração
-Para ver detalhes sobre o êxito ou a falha da operação de restauração do aplicativo, navegue até a página **log de atividades** no portal do Azure.  
+## <a name="monitor-a-restore-operation"></a>Monitorize uma operação de restauro
+Para ver detalhes sobre o sucesso ou falha da operação de restauro da aplicação, navegue para a página **de Registo de Atividades** no portal Azure.  
  
 
-Role para baixo para localizar a operação de restauração desejada e clique para selecioná-la.
+Desloque-se para baixo para encontrar a operação de restauro desejada e clique para selecioná-la.
 
-A página de detalhes exibe as informações disponíveis relacionadas à operação de restauração.
+A página de detalhes mostra as informações disponíveis relacionadas com a operação de restauro.
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
-Você pode automatizar o gerenciamento de backup com scripts, usando o [CLI do Azure](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).
+Pode automatizar a gestão de backup com scripts, utilizando o [Azure CLI](/cli/azure/install-azure-cli) ou [o Azure PowerShell](/powershell/azure/overview).
 
-Para obter exemplos, consulte:
+Para amostras, consulte:
 
 - [Exemplos da CLI do Azure](samples-cli.md)
-- [Exemplos do Azure PowerShell](samples-powershell.md)
+- [Amostras Azure PowerShell](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

@@ -9,10 +9,10 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.openlocfilehash: 73541b31125ee6e99dc2351e26f6a564a1603487
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77526030"
 ---
 # <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Quickstart: Criar uma máquina virtual de ciência de dados CentOS (Linux) em Azure
@@ -27,7 +27,7 @@ Para criar uma Máquina Virtual CentOS Data Science, deve ter uma **subscrição
 
 Aqui estão os passos para criar uma instância da Máquina Virtual CentOS Data Science:
 
-1. Aceda ao [Portal do Azure](https://portal.azure.com). Pode ser solicitado que inscreva-se na sua conta Azure se ainda não tiver assinado. 
+1. Vá ao [portal Azure.](https://portal.azure.com) Pode ser solicitado que inscreva-se na sua conta Azure se ainda não tiver assinado. 
 1. Digite "data science virtual machine" na barra de pesquisa e selecione o CentOS DSVM.
 
     ![Resultado da pesquisa centosa](./media/linux-dsvm-intro/search-centos.png)
@@ -64,17 +64,17 @@ Aqui estão os passos para criar uma instância da Máquina Virtual CentOS Data 
     
    1. Selecione **Rever + criar**.
    1. **Review+criar**
-      * Certifique-se de que todas as informações que introduziu estão corretas. 
+      * Verifique se todas as informações que inseriu estão corretas. 
       * Selecione **Criar**.
     
-    O aprovisionamento, deve demorar cerca de 5 minutos. O estado está exposto no portal Azure.
+    O fornecimento deve demorar cerca de 5 minutos. O estado está exposto no portal Azure.
 
 ## <a name="how-to-access-the-centos-data-science-virtual-machine"></a>Como aceder à Máquina Virtual de Ciência de Dados CentOS
 
 Pode aceder ao DSVM CentOS de uma de três maneiras:
 
   * SSH para sessões de terminal
-  * X2Go para sessões de gráficos
+  * X2Go para sessões gráficas
   * JupyterHub e JupyterLab para blocos de notas do Jupyter
 
 Também pode anexar uma Máquina Virtual de Ciência de Dados aos Cadernos Azure para executar cadernos Jupyter no VM e contornar as limitações do nível de serviço gratuito. Para mais informações, consulte [Gerir e configurar projetos de Cadernos Azure.](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)
@@ -84,18 +84,18 @@ Também pode anexar uma Máquina Virtual de Ciência de Dados aos Cadernos Azure
 Após a criação do VM, se foi configurado com acesso SSH, pode iniciar sessão utilizando o SSH. Utilize as credenciais de conta que criou na secção **Basics** do passo 3 para a interface da concha de texto. No Windows, pode descarregar uma ferramenta de cliente SSH como [a PuTTY](https://www.putty.org). Se preferir um ambiente de trabalho gráfico (X Window System), pode utilizar o reencaminhado X11 para o PuTTY.
 
 > [!NOTE]
-> O cliente de X2Go executada melhor do que em testes de reencaminhamento de X11. Recomendamos que utilize o cliente de X2Go para uma interface gráfica de área de trabalho.
+> O cliente X2Go teve um desempenho melhor do que o X11 reencaminhamento em testes. Recomendamos a utilização do cliente X2Go para uma interface gráfica de ambiente de trabalho.
 
 ### <a name="x2go"></a>X2Go
 
-O Linux VM já está aprovisionado com o X2Go Server e pronto para aceitar ligações ao cliente. Para ligar-se na área de trabalho de gráfico de VM do Linux, execute o seguinte procedimento no cliente:
+O Linux VM já está aprovisionado com o X2Go Server e pronto para aceitar ligações ao cliente. Para ligar ao ambiente de trabalho gráfico Linux VM, complete o seguinte procedimento no seu cliente:
 
 1. Descarregue e instale o cliente X2Go para a sua plataforma cliente a partir de [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Tome nota do endereço IP público da máquina virtual, que pode encontrar no portal Azure abrindo a máquina virtual que acabou de criar.
 
    ![Endereço IP da máquina CentOS](./media/linux-dsvm-intro/centos-ip-address.png)
 
-1. Gereo cliente X2Go. Se a janela "New Session" não aparecer automaticamente, vá à Sessão -> New Session.
+1. Gereo cliente X2Go. Se a janela "New Session" não aparecer automaticamente, vá à Sessão -> Nova Sessão.
 
 1. Na janela de configuração resultante, introduza os seguintes parâmetros de configuração:
    * **Separador de sessão**:
@@ -123,16 +123,16 @@ O CentOS DSVM gere o [JupyterHub,](https://github.com/jupyterhub/jupyterhub)um s
 
        ![Endereço IP da máquina CentOS](./media/linux-dsvm-intro/centos-ip-address.png)
 
-   1. A partir da sua máquina local, abra um navegador web e navegue para https:\//your-vm-ip:8000, substituindo "your-vm-ip" pelo endereço IP que tomou nota anteriormente.
+   1. A partir da sua máquina local, abra\/um navegador web e navegue para https: /your-vm-ip:8000, substituindo "your-vm-ip" pelo endereço IP que tomou nota anteriormente.
    1. Introduza o nome de utilizador e a palavra-passe que usou para criar o VM e faça o seu insto. 
 
       ![Insira o login de Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
    1. Navegue nos muitos cadernos de amostras disponíveis.
 
-JupyterLab, a próxima geração de blocos de notas do Jupyter e JupyterHub, também está disponível. Para aceder ao mesmo, inscreva-se no JupyterHub e, em seguida, navegue para o URL https:\//your-vm-ip:8000/user/your-username/lab, substituindo "o seu nome de utilizador" pelo nome de utilizador que escolheu ao configurar o VM.
+O JupyterLab, a próxima geração de cadernos Jupyter e JupyterHub, também está disponível. Para aceder ao mesmo, inscreva-se no JupyterHub e, em seguida, navegue para o URL https:\//your-vm-ip:8000/user/your-username/lab, substituindo "your-username" pelo nome de utilizador que escolheu ao configurar o VM.
 
-Pode definir o JupyterLab como o servidor de portátil predefinido adicionando esta linha a `/etc/jupyterhub/jupyterhub_config.py`:
+Pode definir o JupyterLab como o servidor `/etc/jupyterhub/jupyterhub_config.py`de portátil predefinido adicionando esta linha a:
 
 ```python
 c.Spawner.default_url = '/lab'
@@ -140,10 +140,10 @@ c.Spawner.default_url = '/lab'
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Eis como pode continuar a sua aprendizagem e a exploração:
+Eis como pode continuar a sua aprendizagem e exploração:
 
 * A ciência dos [dados walkthrough na Máquina Virtual](linux-dsvm-walkthrough.md) de Ciência de Dados para Linux mostra-lhe como fazer várias tarefas comuns de ciência de dados com o Linux DSVM aprovisionado aqui. 
-* Explore as várias ferramentas de ciência de dados no DSVM experimentando as ferramentas descritas neste artigo. Também pode executá`dsvm-more-info` na concha na máquina virtual para uma introdução básica e para ponteiros para mais informações sobre as ferramentas instaladas no DSVM.  
+* Explore as várias ferramentas de ciência de dados no DSVM experimentando as ferramentas descritas neste artigo. Também pode `dsvm-more-info` correr na concha na máquina virtual para uma introdução básica e para ponteiros para mais informações sobre as ferramentas instaladas no DSVM.  
 * Aprenda a construir soluções analíticas de ponta a ponta de forma sistemática utilizando o Processo de Ciência de Dados da [Equipa](https://aka.ms/tdsp).
 * Visite a [Galeria Azure AI](https://gallery.azure.ai/) para obter amostras de machine learning e análise de dados que utilizam os serviços azure AI.
 * Consulte a [documentação](./reference-centos-vm.md) de referência adequada para esta máquina virtual.

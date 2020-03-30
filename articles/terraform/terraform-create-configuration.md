@@ -4,10 +4,10 @@ description: Inicie com terraforma em Azure implantando um Azure Cosmos DB e Azu
 ms.topic: quickstart
 ms.date: 10/26/2019
 ms.openlocfilehash: 92f66fcfeac69b66eb8cdb0dc58b7a3171d45e10
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77470026"
 ---
 # <a name="quickstart-create-a-terraform-configuration-for-azure"></a>Quickstart: Criar uma configuração terraforma para o Azure
@@ -66,7 +66,7 @@ Nesta secção, cria-se a configuração para uma instância De Db Do Cosmos Azu
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 ## <a name="run-the-configuration"></a>Executar a configuração
 
@@ -78,7 +78,7 @@ Nesta secção, utiliza vários comandos Terraform para executar a configuraçã
     terraform init
     ```
 
-1. O comando do [plano terraforme](https://www.terraform.io/docs/commands/plan.html) pode ser usado para validar a sintaxe de configuração. O parâmetro `-out` direciona os resultados para um ficheiro. O ficheiro de saída pode ser usado mais tarde para aplicar a configuração. Executar o seguinte comando em Cloud Shell:
+1. O comando do [plano terraforme](https://www.terraform.io/docs/commands/plan.html) pode ser usado para validar a sintaxe de configuração. O `-out` parâmetro direciona os resultados para um ficheiro. O ficheiro de saída pode ser usado mais tarde para aplicar a configuração. Executar o seguinte comando em Cloud Shell:
 
     ```bash
     terraform plan --out plan.out
@@ -102,7 +102,7 @@ Esta secção mostra como atualizar a configuração para incluir uma instância
     code main.tf
     ```
 
-1. A configuração neste passo define duas variáveis ambientais: `COSMOS_DB_ENDPOINT` e `COSMOS_DB_MASTERKEY`. Estas variáveis detêm a localização e a chave para aceder à base de dados. Os valores destas variáveis são obtidos a partir da instância de base de dados criada na etapa anterior. Este processo é conhecido como interpolação. Para saber mais sobre a interpolação da Terraforme, consulte [interpolação Syntax](https://www.terraform.io/docs/configuration/interpolation.html). A configuração também inclui um bloco de saída, que devolve o nome de domínio totalmente qualificado (FQDN) da instância do recipiente. Copiar e colar o seguinte código no editor:
+1. A configuração neste passo define duas `COSMOS_DB_ENDPOINT` `COSMOS_DB_MASTERKEY`variáveis ambientais: e . Estas variáveis detêm a localização e a chave para aceder à base de dados. Os valores destas variáveis são obtidos a partir da instância de base de dados criada na etapa anterior. Este processo é conhecido como interpolação. Para saber mais sobre a interpolação da Terraforme, consulte [interpolação Syntax](https://www.terraform.io/docs/configuration/interpolation.html). A configuração também inclui um bloco de saída, que devolve o nome de domínio totalmente qualificado (FQDN) da instância do recipiente. Copiar e colar o seguinte código no editor:
 
     ```hcl
     resource "azurerm_container_group" "vote-aci" {
@@ -138,7 +138,7 @@ Esta secção mostra como atualizar a configuração para incluir uma instância
     }
     ```
 
-1. Guarde o ficheiro **(&lt;Ctrl>S)** e saia do editor **(&lt;Ctrl>Q).**
+1. Guarde o ficheiro**&lt;(CTRL>S)** e saia do editor (**&lt;Ctrl>Q**).
 
 1. Tal como fez na secção anterior, execute o seguinte comando para visualizar as alterações a elegiras:
 
@@ -146,7 +146,7 @@ Esta secção mostra como atualizar a configuração para incluir uma instância
     terraform plan --out plan.out
     ```
 
-1. Executar o comando `terraform apply` para aplicar a configuração.
+1. Executar `terraform apply` o comando para aplicar a configuração.
 
     ```bash
     terraform apply plan.out

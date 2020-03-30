@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 4ad5e961e390b60784355ff3bc72aca4a2f73e11
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190966"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Como indexar grandes conjuntos de dados na Pesquisa Cognitiva Azure
@@ -27,7 +27,7 @@ As seguintes secções exploram três técnicas para indexar grandes quantidades
 
 Um dos mecanismos mais simples para indexar um conjunto de dados maior é submeter vários documentos ou registos num único pedido. Desde que toda a carga útil seja inferior a 16 MB, um pedido pode lidar com até 1000 documentos numa operação de upload a granel. Estes limites aplicam-se quer esteja a utilizar a [API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) de Add Documents REST ou o [método Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) no .NET SDK. Para qualquer API, você embalaria 1000 documentos no corpo de cada pedido.
 
-A indexação do lote é implementada para pedidos individuais utilizando REST ou .NET, ou através de indexadores. Alguns indexadores operam sob limites diferentes. Especificamente, a indexação do Azure Blob define o tamanho do lote em 10 documentos em reconhecimento do tamanho médio do documento. Para os indexadores com base na API create [Indexer REST,](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)pode definir o argumento `BatchSize` para personalizar esta definição de forma a corresponder melhor às características dos seus dados. 
+A indexação do lote é implementada para pedidos individuais utilizando REST ou .NET, ou através de indexadores. Alguns indexadores operam sob limites diferentes. Especificamente, a indexação do Azure Blob define o tamanho do lote em 10 documentos em reconhecimento do tamanho médio do documento. Para os indexadores com base na [Create Indexer REST API,](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)pode definir o `BatchSize` argumento para personalizar esta definição de forma a corresponder melhor às características dos seus dados. 
 
 > [!NOTE]
 > Para manter o tamanho do documento baixo, evite adicionar dados não-consultados a um índice. As imagens e outros dados binários não são diretamente pesquisáveis e não devem ser armazenados no índice. Para integrar dados não consultados em resultados de pesquisa, deve definir um campo não pesquisável que armazene uma referência URL ao recurso.
@@ -82,7 +82,7 @@ Para os indexadores, a capacidade de processamento baseia-se vagamente num subsi
 
 1. No [portal Azure,](https://portal.azure.com)na página de **visão geral** do painel de pesquisa, verifique o **nível** de preços para confirmar que pode acomodar indexação paralela. Tanto os níveis Básico como Standard oferecem múltiplas réplicas.
 
-2. Em **Definições** > **Escala,** [aumente as réplicas](search-capacity-planning.md) para o processamento paralelo: uma réplica adicional para cada carga de trabalho do indexante. Deixe um número suficiente para o volume de consulta existente. Sacrificar as cargas de trabalho para indexação não é uma boa troca.
+2. Na**Escala de** **Definições,** >  [aumente as réplicas](search-capacity-planning.md) para o processamento paralelo: uma réplica adicional para cada carga de trabalho do indexante. Deixe um número suficiente para o volume de consulta existente. Sacrificar as cargas de trabalho para indexação não é uma boa troca.
 
 3. Distribua dados em vários recipientes a um nível que os indexadores de Pesquisa Cognitiva Azure podem alcançar. Estas podem ser várias tabelas na Base de Dados Azure SQL, vários contentores no armazenamento Azure Blob, ou várias coleções. Defina um objeto de origem de dados para cada tabela ou recipiente.
 
@@ -99,7 +99,7 @@ Na hora programada, todos os indexadores iniciam a execução, carregam dados, a
 > [!Note]
 > Ao aumentar as réplicas, considere aumentar a contagem de divisórias se o tamanho do índice for projetado para aumentar significativamente. Divisórias armazenam fatias de conteúdo indexado; quanto mais divisórias tiver, menor é a fatia que cada uma tem para armazenar.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Indexação no portal](search-import-data-portal.md)

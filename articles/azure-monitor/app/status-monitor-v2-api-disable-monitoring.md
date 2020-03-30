@@ -1,15 +1,15 @@
 ---
 title: Referência da API do Agente de Insights de Aplicação Azure
-description: Referência da API do Agente Insights de Aplicação Insights. Disable-ApplicationInsightsMonitoring. Monitorize o desempenho do site sem reimplantar o website. Trabalha com ASP.NET aplicações web hospedadas no local, em VMs ou no Azure.
+description: Referência da API do Agente Insights de Aplicação Insights. Monitorização de Insights de aplicação de si. Monitorize o desempenho do site sem reimplantar o website. Trabalha com ASP.NET aplicações web hospedadas no local, em VMs ou no Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 0678186012678a68fa80a23685f8b346c8c5b859
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671295"
 ---
 # <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>Agente de Insights de Aplicação API: Monitorização de Insights de aplicação de sanções

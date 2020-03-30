@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
 ms.openlocfilehash: 5f4d1b8ef742a8dcafa2b8e34a6209f85ae050d9
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77650658"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Criar cluster Apache Spark em Azure HDInsight usando portal Azure
@@ -30,9 +30,9 @@ Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](http
 
 ## <a name="create-an-apache-spark-cluster-in-hdinsight"></a>Criar um cluster Apache Spark no HDInsight
 
-Utiliza o portal Azure para criar um cluster HDInsight que utiliza as Bolhas de Armazenamento Azure como armazenamento de cluster. Para obter mais informações sobre como utilizar o Armazenamento do Data Lake Ger2, veja [Início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Utiliza o portal Azure para criar um cluster HDInsight que utiliza as Bolhas de Armazenamento Azure como armazenamento de cluster. Para obter mais informações sobre como utilizar o Armazenamento do Data Lake Ger2, veja [Início Rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. A partir do menu superior, selecione **+ Criar um recurso**.
 
@@ -46,7 +46,7 @@ Utiliza o portal Azure para criar um cluster HDInsight que utiliza as Bolhas de 
     |---------|---------|
     |Subscrição  | A partir da lista de lançamentos, selecione a subscrição Azure que é usada para o cluster. |
     |Grupo de recursos | A partir da lista de drop-down, selecione o seu grupo de recursos existente, ou selecione **Criar novo**.|
-    |Nome do cluster | Introduza um nome globalmente único.|
+    |Nome do cluster | Introduza um nome globalmente exclusivo.|
     |Região   | A partir da lista de abandono, selecione uma região onde o cluster é criado. |
     |Tipo de cluster| Selecione o tipo de cluster selecione para abrir uma lista. Da lista, selecione **Spark**.|
     |Versão cluster|Este campo irá povoar automaticamente com a versão predefinida uma vez selecionado o tipo de cluster.|
@@ -79,9 +79,9 @@ Se tiver um problema com a criação de clusters HDInsight, pode ser que não te
 
 O Jupyter Notebook é um ambiente de bloco de notas interativo que suporta várias linguagens de programação. O bloco de notas permite-lhe interagir com os seus dados, combinar código com texto markdown e realizar visualizações simples.
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net/jupyter`, onde `CLUSTERNAME` é o nome do seu cluster. Se lhe for pedido, introduza as credenciais de início de sessão do cluster.
+1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net/jupyter`onde `CLUSTERNAME` está o nome do seu cluster. Se lhe for pedido, introduza as credenciais de início de sessão do cluster.
 
-1. Selecione **New (Novo)**  > **PySpark** para criar um bloco de notas.
+1. Selecione **New** > **PySpark** para criar um caderno.
 
    ![Crie um Caderno Jupyter para executar consulta interativa Spark SQL](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Crie um Caderno Jupyter para executar consulta interativa Spark SQL")
 
@@ -104,7 +104,7 @@ SQL (Structured Query Language) é a linguagem mais comum e mais utilizada para 
     SHOW TABLES
     ```
 
-    Quando utiliza um Caderno Jupyter com o seu cluster HDInsight, obtém-se um pré-definido `sqlContext` que pode usar para executar consultas de Hive utilizando o Spark SQL. `%%sql` indica ao Bloco de Notas do Jupyter que utilize o `sqlContext` predefinido para executar a consulta do Hive. A consulta devolve as primeiras dez linhas de uma tabela do Hive (**hivesampletable**) que vem em todos os clusters do HDInsight por predefinição. São necessários cerca de 30 segundos para receber os resultados. O resultado tem o seguinte aspeto:
+    Quando utiliza um Caderno Jupyter com o seu cluster `sqlContext` HDInsight, obtém-se um predefinido que pode utilizar para executar consultas de Hive utilizando o Spark SQL. `%%sql` indica ao Bloco de Notas do Jupyter que utilize o `sqlContext` predefinido para executar a consulta do Hive. A consulta devolve as primeiras dez linhas de uma tabela do Hive (**hivesampletable**) que vem em todos os clusters do HDInsight por predefinição. São necessários cerca de 30 segundos para receber os resultados. O resultado tem o seguinte aspeto:
 
     ![Consulta de Hive Apache em HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Consulta de colmeia no HDInsight")
 
@@ -121,7 +121,7 @@ SQL (Structured Query Language) é a linguagem mais comum e mais utilizada para 
 
     ![Saída de consulta de colmeia no HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query-output.png "Saída de consulta de colmeia no HDInsight")
 
-1. No menu **File (Ficheiro)** do bloco de notas, selecione **Close and Halt (Fechar e Parar)** . Encerrar o bloco de notas liberta os recursos do cluster.
+1. No menu **File (Ficheiro)** do bloco de notas, selecione **Close and Halt (Fechar e Parar)**. Encerrar o bloco de notas liberta os recursos do cluster.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

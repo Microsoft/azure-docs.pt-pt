@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: c5d2ad481124f5ae048d010cdf632ee661bbd6ec
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77649112"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Problemas problemas problemas com um serviço de migração de bases de dados azure comuns e erros
@@ -48,7 +48,7 @@ Quando migra do MySQL para a Base de Dados Azure para o MySQL utilizando o Servi
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Este erro pode ocorrer quando o utilizador que está a fazer a migração está em falta na função replicação Admin e/ou privilégios de REPLICATION CLIENT, REPLICATION REPLICA, e SUPER (versões anteriores a MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Certifique-se de que os [privilégios pré-requisitos](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) para a conta de utilizador estão configurados com precisão na base de dados Azure para a instância MySQL. Por exemplo, podem ser seguidos os seguintes passos para criar um utilizador chamado "migrador" com privilégios exigidos:<br>1. CRIAR migrateuser@'% do utilizador identificado por «segredo»; <br>2. Conceder todos os privilégios sobre db_name.* a 'migrateuser'@'%' identificados por 'segredo'; repetir este passo para conceder acesso em mais bases de dados <br>3. Conceder subordinado de replicação em *.* para 'migrateuser'@'%' identificado por 'segredo';<br>4. Grant cliente de replicação em *.* para 'migrateuser'@'%' identificado por 'segredo';<br>5. Privilégios de descarga; |
+| Este erro pode ocorrer quando o utilizador que está a fazer a migração está em falta na função replicação Admin e/ou privilégios de REPLICATION CLIENT, REPLICATION REPLICA, e SUPER (versões anteriores a MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Certifique-se de que os [privilégios pré-requisitos](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) para a conta de utilizador estão configurados com precisão na base de dados Azure para a instância MySQL. Por exemplo, podem ser seguidos os seguintes passos para criar um utilizador chamado "migrador" com privilégios exigidos:<br>1. CRIAR migrateuser@'% do utilizador identificado por «segredo»; <br>2. Conceder todos os privilégios sobre db_name.* a 'migrateuser'@'%' identificados por 'segredo'; repetir este passo para conceder acesso em mais bases de dados <br>3. Conceder escravo de replicação em *.* para 'migrateuser'@'%' identificado por 'segredo';<br>4. Grant cliente de replicação em *.* para 'migrateuser'@'%' identificado por 'segredo';<br>5. Privilégios de descarga; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Erro ao tentar parar o Serviço de Migração da Base de Dados Azure
 
@@ -58,7 +58,7 @@ Recebe um erro seguinte ao parar a instância do Serviço de Migração de Bases
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Este erro mostra quando a instância de serviço que está a tentar parar inclui atividades que ainda estão em execução ou presentes em projetos de migração. <br><br><br><br><br><br> | Certifique-se de que não existem atividades em execução no caso do Serviço de Migração de Bases de Dados Azure que está a tentar parar. Também pode eliminar as atividades ou projetos antes de tentar parar o serviço. As seguintes etapas ilustram como remover projetos para limpar a instância do serviço de migração, eliminando todas as tarefas de execução:<br>1. Instalação-Módulo -Nome AzureRM.DataMigration <br>2. Conta login-AzureRm <br>3. Select-AzureRmSubscription -SubscriptionName "\<subName>" <br> 4. Remover-AzureRmDataMigrationProject -Name \<projectName> -ResourceGroupName \<rgName> -ServiceName \<serviceName> -DeleteRunningTask |
+| Este erro mostra quando a instância de serviço que está a tentar parar inclui atividades que ainda estão em execução ou presentes em projetos de migração. <br><br><br><br><br><br> | Certifique-se de que não existem atividades em execução no caso do Serviço de Migração de Bases de Dados Azure que está a tentar parar. Também pode eliminar as atividades ou projetos antes de tentar parar o serviço. As seguintes etapas ilustram como remover projetos para limpar a instância do serviço de migração, eliminando todas as tarefas de execução:<br>1. Instalação-Módulo -Nome AzureRM.DataMigration <br>2. Conta login-AzureRm <br>3. Select-AzureRmSubscription -SubscriptionName "\<subName>" <br> 4. Remover-AzureRmDataMigrationProject \<-NameName> -ResourceGroupName \<rgName \<> -ServiceNameName> -DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Erro ao tentar iniciar o Serviço de Migração da Base de Dados Azure
 
@@ -78,7 +78,7 @@ Quando realiza uma migração on-line do SQL Server para uma instância gerida p
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
-| Este erro indica que o principal de aplicação utilizado para a migração on-line do SQL Server para uma instância gerida pela Base de Dados Azure SQL não tem permissão de contribuição para a subscrição. Algumas chamadas da API com Instância Gerida exigem esta permissão na subscrição da operação de restauro. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Utilize o `Get-AzureADServicePrincipal` cmdlet PowerShell com `-ObjectId` disponíveis na mensagem de erro para listar o nome de visualização do ID da aplicação que está a ser utilizado.<br><br> Valide as permissões a esta aplicação e certifique-se de que tem o papel de [contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ao nível da subscrição. <br><br> A Equipa de Engenharia de Serviços de Migração da Base de Dados Azure está a trabalhar para restringir o acesso necessário ao papel atual de contribuição na subscrição. Se tiver um requisito de negócio que não permita o uso da função de contribuição, contacte o suporte do Azure para obter ajuda adicional. |
+| Este erro indica que o principal de aplicação utilizado para a migração on-line do SQL Server para uma instância gerida pela Base de Dados Azure SQL não tem permissão de contribuição para a subscrição. Algumas chamadas da API com Instância Gerida exigem esta permissão na subscrição da operação de restauro. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Utilize `Get-AzureADServicePrincipal` o cmdlet `-ObjectId` PowerShell com disponível na mensagem de erro para listar o nome de visualização do ID da aplicação utilizado.<br><br> Valide as permissões a esta aplicação e certifique-se de que tem o papel de [contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ao nível da subscrição. <br><br> A Equipa de Engenharia de Serviços de Migração da Base de Dados Azure está a trabalhar para restringir o acesso necessário ao papel atual de contribuição na subscrição. Se tiver um requisito de negócio que não permita o uso da função de contribuição, contacte o suporte do Azure para obter ajuda adicional. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Erro ao apagar NIC associado ao Serviço de Migração da Base de Dados Azure
 

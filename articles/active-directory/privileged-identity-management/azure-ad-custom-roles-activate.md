@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbd60d1311bd84adb303a0d329ab4e42f4d61525
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77498740"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Ativar um papel personalizado da AD Azure na Gestão de Identidade Privilegiada
@@ -44,7 +44,7 @@ Quando necessitar de ativar uma função personalizada azure AD, solicite a ativ
    ![Consulte a lista de atribuições personalizadas da Azure AD elegíveis](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
 > [!Note] 
->  Antes de atribuir um papel, deve criar/configurar um papel. Para mais informações sobre a configuração de Papéis Personalizados AAD consulte [aqui] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
+>  Antes de atribuir um papel, deve criar/configurar um papel. Para mais informações sobre a configuração de Papéis Personalizados AAD consulte [aqui] ( aqui] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
 
 1. Na página de **funções personalizadas azure AD (Preview),** encontre a atribuição de que necessita.
 1. Selecione **Ativar a sua função** para abrir a página **Ativar.**
@@ -62,7 +62,7 @@ Se a função não necessitar de aprovação, é ativada de acordo com as suas d
 
 Se a função necessitar de aprovação para ser ativada, receberá uma notificação azure informando-o de que o pedido está pendente de aprovação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir uma função personalizada azure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de funções personalizadas da AD Azure](azure-ad-custom-roles-update-remove.md)

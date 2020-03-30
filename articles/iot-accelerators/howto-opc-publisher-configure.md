@@ -1,5 +1,5 @@
 ---
-title: Configure OPC Publisher - Azure  Microsoft Docs
+title: Configure OPC Publisher - Azure [ Microsoft Docs
 description: Este artigo descreve como configurar o OPC Publisher para especificar alterações de dados do nó da OPC UA, eventos da OPC UA para publicar e também o formato de telemetria.
 author: dominicbetts
 ms.author: dobett
@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 0ebbf0d41c05f71c571d9665903ba4ba44f71bd0
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198808"
 ---
 # <a name="configure-opc-publisher"></a>Configurar o Publicador OPC
@@ -116,12 +116,12 @@ Esta secção descreve as chamadas de método que pode usar para configurar o OP
 
 ### <a name="configure-using-opc-ua-method-calls"></a>Configure usando chamadas de método oPC UA
 
-A OPC Publisher inclui um Servidor UA OPC, que pode ser acedido na porta 62222. Se o nome de **anfitrião**é editor , então o ponto final URI é: `opc.tcp://publisher:62222/UA/Publisher`.
+A OPC Publisher inclui um Servidor UA OPC, que pode ser acedido na porta 62222. Se o nome de **anfitrião**é editor `opc.tcp://publisher:62222/UA/Publisher`, então o ponto final URI é: .
 
 Este ponto final expõe os seguintes quatro métodos:
 
-- PublishNode
-- UnpublishNode
+- Nó editorial
+- Não publicar Node
 - GetPublishedNodes
 - Método HubDirect IoT
 
@@ -130,8 +130,8 @@ Este ponto final expõe os seguintes quatro métodos:
 O OPC Publisher implementa as seguintes chamadas de método sinuoso IoT Hub:
 
 - Publicar Nodes
-- UnpublishNodes
-- UnpublishAllNodes
+- Não publicarNodes
+- Não publicar AllNodes
 - GetConfiguredEndpoints
 - GetConfiguredNodesOnEndpoint
 - GetDiagnosticInfo
@@ -174,7 +174,7 @@ Se a propriedade **OpcAuthenticationMode** não estiver definida na carga útil,
 
 Quando a OPC Publisher recebe uma notificação de uma mudança de valor num nó publicado, gera uma mensagem formatada JSON que é enviada para o IoT Hub.
 
-Pode configurar o conteúdo desta mensagem formatada JSON utilizando um ficheiro de configuração. Se não for especificado nenhum ficheiro de configuração com a opção `--tc`, é utilizada uma configuração predefinida compatível com o acelerador de [solução](https://github.com/Azure/azure-iot-connected-factory)de fábrica Ligado .
+Pode configurar o conteúdo desta mensagem formatada JSON utilizando um ficheiro de configuração. Se não for especificado `--tc` nenhum ficheiro de configuração com a opção, é utilizada uma configuração predefinida compatível com o acelerador de [solução](https://github.com/Azure/azure-iot-connected-factory)de fábrica Ligado .
 
 Se a OPC Publisher estiver configurada para enviar mensagens de lote, então são enviadas como uma matriz JSON válida.
 

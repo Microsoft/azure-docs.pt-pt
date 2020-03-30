@@ -1,7 +1,7 @@
 ---
-title: Mapear entrada para campos de saída
+title: Entrada de mapa para campos de saída
 titleSuffix: Azure Cognitive Search
-description: Extrair e enriquecer campos de dados de origem e mapear para campos de saída em um índice de Pesquisa Cognitiva do Azure.
+description: Extrair e enriquecer os campos de dados de origem, e mapear para campos de saída num índice de Pesquisa Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74280974"
 ---
-# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Como mapear campos de ia-ricos para um índice pesquisável
+# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Como mapear campos enriquecidos de IA para um índice pesquisável
 
-Neste artigo, você aprenderá a mapear campos de entrada aprimorados para campos de saída em um índice pesquisável. Depois de [definir um qualificable](cognitive-search-defining-skillset.md), você deve mapear os campos de saída de qualquer habilidade que contribui diretamente com valores para um determinado campo em seu índice de pesquisa. 
+Neste artigo, aprende-se a mapear campos de entrada enriquecidos para campos de saída num índice pesquisável. Depois de [definir um skillset,](cognitive-search-defining-skillset.md)deve mapear os campos de saída de qualquer habilidade que contribua diretamente com valores para um determinado campo no seu índice de pesquisa. 
 
-Os mapeamentos de campo de saída são necessários para mover o conteúdo de documentos aprimorados para o índice.  O documento aprimorado é realmente uma árvore de informações e, embora haja suporte para tipos complexos no índice, às vezes você pode querer transformar as informações da árvore aprimorada em um tipo mais simples (por exemplo, uma matriz de cadeias de caracteres). Os mapeamentos de campo de saída permitem que você execute transformações de forma de dados por meio do nivelamento de informações.
+Os mapeamentos do campo de saída são necessários para mover conteúdo de documentos enriquecidos para o índice.  O documento enriquecido é realmente uma árvore de informação, e mesmo que exista suporte para tipos complexos no índice, por vezes pode querer transformar a informação da árvore enriquecida num tipo mais simples (por exemplo, uma variedade de cordas). Os mapeamentos de campo de saída permitem-lhe realizar transformações de forma de dados achatando informações.
 
-## <a name="use-outputfieldmappings"></a>Usar outputFieldMappings
-Para mapear campos, adicione `outputFieldMappings` à definição do indexador, conforme mostrado abaixo:
+## <a name="use-outputfieldmappings"></a>Utilizar os outputFieldMappings
+Para mapear campos, adicione `outputFieldMappings` à sua definição de indexante como mostrado abaixo:
 
 ```http
 PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -30,7 +30,7 @@ api-key: [admin key]
 Content-Type: application/json
 ```
 
-O corpo da solicitação é estruturado da seguinte maneira:
+O corpo do pedido é estruturado da seguinte forma:
 
 ```json
 {
@@ -64,21 +64,21 @@ O corpo da solicitação é estruturado da seguinte maneira:
 }
 ```
 
-Para cada mapeamento de campo de saída, defina o local dos dados na árvore de documentos enriquecedo (sourceFieldName) e o nome do campo como referenciado no índice (targetFieldName).
+Para cada mapeamento de campo de saída, detete a localização dos dados na árvore de documentoenriquecida (sourceFieldName), e o nome do campo conforme referenciado no índice (targetFieldName).
 
-## <a name="flattening-information-from-complex-types"></a>Nivelamento de informações de tipos complexos 
+## <a name="flattening-information-from-complex-types"></a>Informação de achatamento de tipos complexos 
 
-O caminho em um sourceFieldName pode representar um elemento ou vários elementos. No exemplo acima, ```/document/content/sentiment``` representa um único valor numérico, enquanto ```/document/content/organizations/*/description``` representa várias descrições da organização. 
+O caminho num FieldName de origem pode representar um elemento ou vários elementos. No exemplo acima, ```/document/content/sentiment``` representa um único valor ```/document/content/organizations/*/description``` numérico, enquanto representa várias descrições da organização. 
 
-Nos casos em que há vários elementos, eles são "achatados" em uma matriz que contém cada um dos elementos. 
+Nos casos em que existem vários elementos, são "achatados" numa matriz que contém cada um dos elementos. 
 
-Mais concretamente, para o exemplo de ```/document/content/organizations/*/description```, os dados no campo *descrições* pareceriam uma matriz simples de descrições antes de serem indexados:
+De forma mais ```/document/content/organizations/*/description``` concreta, por exemplo, os dados no campo de *descrições* pareceriam uma série plana antes de ser indexado:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 
-Esse é um princípio importante, então forneceremos outro exemplo. Imagine que você tenha uma matriz de tipos complexos como parte da árvore de enriquecimento. Digamos que haja um membro chamado customEntities que tenha uma matriz de tipos complexos, como o descrito abaixo.
+Trata-se de um princípio importante, pelo que daremos outro exemplo. Imagine que tem uma série de tipos complexos como parte da árvore de enriquecimento. Digamos que há um membro chamado CustomEntities que tem uma variedade de tipos complexos como o descrito abaixo.
 
 ```json
 "document/customEntities": 
@@ -109,9 +109,9 @@ Esse é um princípio importante, então forneceremos outro exemplo. Imagine que
 ]
 ```
 
-Vamos supor que o índice tenha um campo chamado ' doenças ' do tipo Collection (EDM. String), em que você gostaria de armazenar cada um dos nomes das entidades. 
+Vamos supor que o seu índice tem um campo chamado 'doenças' do tipo Collection (Edm.String), onde gostaria de armazenar cada um dos nomes das entidades. 
 
-Isso pode ser feito facilmente usando o símbolo "\*", da seguinte maneira:
+Isto pode ser feito facilmente usando o símbolo "\*" " como se segue:
 
 ```json
     "outputFieldMappings": [
@@ -122,13 +122,13 @@ Isso pode ser feito facilmente usando o símbolo "\*", da seguinte maneira:
     ]
 ```
 
-Essa operação simplesmente "achata" cada um dos nomes dos elementos customEntities em uma única matriz de cadeias de caracteres como esta:
+Esta operação irá simplesmente "achatar" cada um dos nomes dos elementos personalizados Entidades numa única gama de cordas como esta:
 
 ```json
   "diseases" : ["heart failure","morquio"]
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de mapear seus campos aprimorados para campos pesquisáveis, você pode definir os atributos de campo para cada um dos campos pesquisáveis [como parte da definição do índice](search-what-is-an-index.md).
+Depois de mapear os seus campos enriquecidos para campos pesquisáveis, pode definir os atributos de campo para cada um dos campos pesquisáveis [como parte da definição de índice](search-what-is-an-index.md).
 
-Para obter mais informações sobre mapeamento de campo, consulte [mapeamentos de campo no Azure pesquisa cognitiva indexadores](search-indexer-field-mappings.md).
+Para obter mais informações sobre mapeamento de campo, consulte [mapeamentos de campo em indexadores](search-indexer-field-mappings.md)de pesquisa cognitiva Azure .

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.openlocfilehash: 5ff5bdaced46a20dec3e7c5d7fb029f9428a12f2
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594775"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Boas práticas para autenticação e autorização no Serviço Azure Kubernetes (AKS)
@@ -34,7 +34,7 @@ Com clusters integrados em AD Azure em AKS, cria *Funções* ou *ClusterRoles* q
 
 1. Desenvolvedor autentica com Azure AD.
 1. O ponto final de emissão de fichas da AD Azure emite o sinal de acesso.
-1. O desenvolvedor realiza uma ação utilizando o token Azure AD, como `kubectl create pod`
+1. O desenvolvedor realiza uma ação usando o token Azure AD, tais como`kubectl create pod`
 1. A Kubernetes valida o símbolo com o Azure Ative Directory e vai buscar os membros do grupo de desenvolvedores.
 1. Aplicam-se as políticas de controlo de acesso baseadas em papéis kubernetes (RBAC) e de cluster.
 1. O pedido do desenvolvedor é bem sucedido ou não com base na validação prévia da filiação do grupo Azure AD e do Kubernetes RBAC e políticas.
@@ -79,7 +79,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Quando o *desenvolvedor1\@contoso.com* é autenticado contra o cluster AKS, eles têm permissões completas para recursos no espaço de nome de *aplicações financeiras.* Desta forma, separa-se logicamente e controla o acesso aos recursos. O Kubernetes RBAC deve ser utilizado em conjunto com a integração da AD Azure, tal como discutido na secção anterior.
+Quando o *\@desenvolvedor1 contoso.com* é autenticado contra o cluster AKS, eles têm permissões completas para recursos no espaço de nome de *app financeira.* Desta forma, separa-se logicamente e controla o acesso aos recursos. O Kubernetes RBAC deve ser utilizado em conjunto com a integração da AD Azure, tal como discutido na secção anterior.
 
 Para ver como utilizar os grupos Azure AD para controlar o acesso aos recursos da Kubernetes utilizando o RBAC, consulte o controle de acesso aos recursos de [cluster utilizando controlos de acesso baseados em papéis e identidades do Azure Ative Directory no AKS.][azure-ad-rbac]
 
@@ -119,7 +119,7 @@ Este artigo de boas práticas focou-se na autenticação e autorização para o 
 
 Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes boas práticas:
 
-* [Multi-arrendamento e isolamento de clusters][aks-best-practices-cluster-isolation]
+* [Isolamento multi-inquilinos e de clusters][aks-best-practices-cluster-isolation]
 * [Funcionalidades básicas do programador Kubernetes][aks-best-practices-scheduler]
 * [Funcionalidades avançadas do programador kubernetes][aks-best-practices-advanced-scheduler]
 

@@ -13,17 +13,17 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: f3585cfa7ea6f0d8afc61e899f9641d415a2e354
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161193"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Assinatura de capotamento de chave no Diretório Ativo do Azure
 Este artigo discute o que precisa de saber sobre as chaves públicas que são usadas no Azure Ative Directory (Azure AD) para assinar fichas de segurança. É importante notar que estas chaves rolam periodicamente e, em caso de emergência, podem ser imediatamente revestidas. Todas as aplicações que utilizem a AD Azure devem ser capazes de lidar programáticamente com o processo de capotamento da chave ou estabelecer um processo de capotamento manual periódico. Continuar a ler Para perceber como funcionam as chaves, como avaliar o impacto do capotamento na sua aplicação e como atualizar a sua aplicação ou estabelecer um processo de capotamento manual periódico para lidar com o capotamento da chave, se necessário.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Visão geral da assinatura de chaves em Azure AD
-A Azure AD utiliza criptografia de chave pública baseada nos padrões da indústria para estabelecer confiança entre si e as aplicações que a utilizam. Em termos práticos, isto funciona da seguinte forma: a Azure AD usa uma chave de assinatura que consiste num par de chaves público e privado. Quando um utilizador insere uma aplicação que utiliza a AD Azure para autenticação, a Azure AD cria um sinal de segurança que contém informações sobre o utilizador. Esta ficha é assinada pela Azure AD utilizando a sua chave privada antes de ser devolvida ao pedido. Para verificar se o símbolo é válido e originado a partir de Azure AD, a aplicação deve validar a assinatura do token utilizando a chave pública exposta pela Azure AD que está contida no documento de [descoberta openID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do inquilino ou no documento de [metadados](../azuread-dev/azure-ad-federation-metadata.md)da federação SAML/WS-Fed .
+A Azure AD utiliza criptografia de chave pública baseada nos padrões da indústria para estabelecer confiança entre si e as aplicações que a utilizam. Em termos práticos, isto funciona da seguinte forma: a Azure AD usa uma chave de assinatura que consiste num par de chaves público sacana e privado. Quando um utilizador insere uma aplicação que utiliza a AD Azure para autenticação, a Azure AD cria um sinal de segurança que contém informações sobre o utilizador. Esta ficha é assinada pela Azure AD utilizando a sua chave privada antes de ser devolvida ao pedido. Para verificar se o símbolo é válido e originado a partir de Azure AD, a aplicação deve validar a assinatura do token utilizando a chave pública exposta pela Azure AD que está contida no documento de [descoberta openID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do inquilino ou no documento de [metadados](../azuread-dev/azure-ad-federation-metadata.md)da federação SAML/WS-Fed .
 
 Para efeitos de segurança, a chave de assinatura da Azure AD rola periodicamente e, em caso de emergência, pode ser imediatamente rerolada. Qualquer aplicação que se integre com a AD Azure deve estar preparada para lidar com um evento de capotamento chave, independentemente da frequência com que possa ocorrer. Se não o fizer, e a sua aplicação tentar utilizar uma chave caducada para verificar a assinatura num símbolo, o pedido de inscrição falhará.
 
@@ -50,20 +50,20 @@ Esta orientação **não** é aplicável para:
 * As aplicações adicionadas da Galeria de Aplicações AD Azure (incluindo personalizada) têm orientações separadas no que diz respeito à assinatura de chaves. [Mais informações.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * As aplicações no local publicadas através de procuração de aplicações não têm de se preocupar com a assinatura de chaves.
 
-### <a name="nativeclient"></a>Aplicações de clientes nativos que acedem a recursos
+### <a name="native-client-applications-accessing-resources"></a><a name="nativeclient"></a>Aplicações de clientes nativos que acedem a recursos
 Aplicações que estão apenas a aceder a recursos (isto é, Microsoft Graph, KeyVault, Outlook API e outras APIs da Microsoft) geralmente apenas obtêm um token e passá-lo ao proprietário do recurso. Dado que não estão a proteger quaisquer recursos, não inspecionam o símbolo e, por conseguinte, não precisam de assegurar a sua assinatura correta.
 
 As aplicações de clientes nativos, sejam elas de desktop ou mobile, enquadram-se nesta categoria e, portanto, não são afetadas pela capotamento.
 
-### <a name="webclient"></a>Aplicações web / APIs de acesso a recursos
+### <a name="web-applications--apis-accessing-resources"></a><a name="webclient"></a>Aplicações web / APIs de acesso a recursos
 Aplicações que estão apenas a aceder a recursos (isto é, Microsoft Graph, KeyVault, Outlook API e outras APIs da Microsoft) geralmente apenas obtêm um token e passá-lo ao proprietário do recurso. Dado que não estão a proteger quaisquer recursos, não inspecionam o símbolo e, por conseguinte, não precisam de assegurar a sua assinatura correta.
 
 As aplicações web e as APIs web que estão a utilizar o fluxo apenas de aplicações (credenciais de cliente/certificado de cliente), caem nesta categoria e não são, portanto, impactadas pela capotamento.
 
-### <a name="appservices"></a>Aplicações web / APIs protegendo recursos e construídos usando serviços de aplicações Azure
+### <a name="web-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>Aplicações web / APIs protegendo recursos e construídos usando serviços de aplicações Azure
 A funcionalidade de autenticação/autorização dos Serviços de Aplicação Azure (EasyAuth) já tem a lógica necessária para lidar automaticamente com o capotamento da chave.
 
-### <a name="owin"></a>Aplicações web / APIs protegendo recursos usando .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication middleware
+### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Aplicações web / APIs protegendo recursos usando .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication middleware
 Se a sua aplicação estiver a utilizar o .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication, já tem a lógica necessária para lidar automaticamente com o rollover da chave.
 
 Pode confirmar que a sua aplicação está a utilizar qualquer uma delas, procurando qualquer um dos seguintes excertos no Startup.cs ou Startup.Auth.cs da sua aplicação.
@@ -90,7 +90,7 @@ app.UseWsFederationAuthentication(
      });
 ```
 
-### <a name="owincore"></a>Aplicações web / APIs protegendo recursos usando .NET Core OpenID Connect ou JwtBearerAuthentication middleware
+### <a name="web-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>Aplicações web / APIs protegendo recursos usando .NET Core OpenID Connect ou JwtBearerAuthentication middleware
 Se a sua aplicação estiver a utilizar o .NET Core OWIN OpenID Connect ou o JwtBearerAuthentication middleware, já tem a lógica necessária para lidar automaticamente com o rollover da chave.
 
 Pode confirmar que a sua aplicação está a utilizar qualquer uma delas, procurando qualquer um dos seguintes excertos no Startup.cs ou Startup.Auth.cs da sua aplicação.
@@ -110,7 +110,7 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="passport"></a>Aplicações web / APIs protegendo recursos usando módulo de anúncio de passaporte-azure nonó
+### <a name="web-applications--apis-protecting-resources-using-nodejs-passport-azure-ad-module"></a><a name="passport"></a>Aplicações web / APIs protegendo recursos usando módulo de anúncio de passaporte-azure nonó
 Se a sua aplicação estiver a utilizar o módulo de anúncio de passaporte Node.js, já tem a lógica necessária para lidar automaticamente com o capotamento da chave.
 
 Pode confirmar que o seu anúncio de passaporte de aplicação procurando o seguinte corte na app.js da sua aplicação
@@ -123,12 +123,12 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Aplicações web / APIs protegendo recursos e criados com Visual Studio 2015 ou posterior
+### <a name="web-applications--apis-protecting-resources-and-created-with-visual-studio-2015-or-later"></a><a name="vs2015"></a>Aplicações web / APIs protegendo recursos e criados com Visual Studio 2015 ou posterior
 Se a sua aplicação foi construída utilizando um modelo de aplicação web no Visual Studio 2015 ou mais tarde e selecionou Contas de **Trabalho ou Escola** do menu **'Change Authentication',** já tem a lógica necessária para lidar automaticamente com o capotamento da chave. Esta lógica, incorporada no middleware OWIN OpenID Connect, recupera e caches as chaves do documento de descoberta OpenID Connect e as atualiza periodicamente.
 
 Se adicionou a autenticação à sua solução manualmente, a sua aplicação pode não ter a lógica de capotamento necessária. Você mesmo terá de escrevê-lo, ou seguir os passos em [aplicações Web /APIs usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos suportados](#other).
 
-### <a name="vs2013"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2013
+### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2013
 Se a sua aplicação foi construída utilizando um modelo de aplicação web no Visual Studio 2013 e selecionou **Contas Organizacionais** do menu **'Change Authentication',** já tem a lógica necessária para lidar automaticamente com o capotamento da chave. Esta lógica armazena o identificador único da sua organização e a informação chave de assinatura em duas tabelas de bases de dados associadas ao projeto. Pode encontrar a cadeia de ligação para a base de dados no ficheiro Web.config do projeto.
 
 Se adicionou a autenticação à sua solução manualmente, a sua aplicação pode não ter a lógica de capotamento necessária. Você mesmo terá de escrevê-lo, ou seguir os passos em [aplicações Web /APIs usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos suportados.](#other). .
@@ -140,10 +140,10 @@ Os seguintes passos irão ajudá-lo a verificar se a lógica está a funcionar c
 3. Na tabela **ItsuingAuthorityKeys,** haverá pelo menos uma linha, o que corresponde ao valor de impressão digital da chave. Apague as linhas da mesa.
 4. Clique na tabela **dos Inquilinos** e, em seguida, clique em **Mostrar Dados**da Tabela .
 5. Na tabela dos **Inquilinos,** haverá pelo menos uma fila, o que corresponde a um identificador de inquilino de diretório único. Apague as linhas da mesa. Se não apagar as linhas na tabela **Tenants** e na tabela **ItsuingAuthorityKeys,** terá um erro no prazo de execução.
-6. Construa e execute a aplicação. Depois de ter iniciado sessão na sua conta, pode parar o pedido.
+6. Compile e execute a aplicação. Depois de ter iniciado sessão na sua conta, pode parar o pedido.
 7. Volte ao **Server Explorer** e veja os valores na tabela **ItsuingAuthorityKeys** e **Tenants.** Vai notar que foram automaticamente repovoados com as informações apropriadas do documento de metadados da federação.
 
-### <a name="vs2013"></a>ApIs web protegendo recursos e criado com Visual Studio 2013
+### <a name="web-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>ApIs web protegendo recursos e criado com Visual Studio 2013
 Se criou uma aplicação Web API no Visual Studio 2013 utilizando o modelo Web API e, em seguida, selecionou **Contas Organizacionais** do menu **'Change Authentication',** já tem a lógica necessária na sua aplicação.
 
 Se configurar manualmente a autenticação, siga as instruções abaixo para saber como configurar a Sua API Web para atualizar automaticamente as suas informações-chave.
@@ -238,7 +238,7 @@ namespace JWTValidation
 }
 ```
 
-### <a name="vs2012"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2012
+### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2012
 Se a sua aplicação foi construída no Visual Studio 2012, provavelmente usou a Ferramenta de Identidade e Acesso para configurar a sua aplicação. Também é provável que esteja a utilizar o Registo de Nomes do [Emitente de Validação (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável pela manutenção de informações sobre fornecedores de identidade fidedignos (Azure AD) e as chaves utilizadas para validar fichas emitidas por eles. O VINR também facilita a atualização automática das informações-chave armazenadas num ficheiro Web.config, descarregando o mais recente documento de metadados da federação associado ao seu diretório, verificando se a configuração está desatualizada com o documento mais recente, e atualizar a aplicação para utilizar a nova chave, se necessário.
 
 Se criou a sua aplicação utilizando alguma das amostras de código ou documentação de passagem fornecida pela Microsoft, a lógica de capotamento chave já está incluída no seu projeto. Você vai notar que o código abaixo já existe no seu projeto. Se a sua aplicação ainda não tiver esta lógica, siga os passos abaixo para adicioná-la e verificar se está a funcionar corretamente.
@@ -273,7 +273,7 @@ Depois de ter seguido estes passos, o Web.config da sua aplicação será atuali
 
 Siga os passos abaixo para verificar se a lógica de capotamento da chave está a funcionar.
 
-1. Depois de ter verificado que a sua aplicação está a usar o código acima, abra o ficheiro **Web.config** e navegue para o **emitente\<NameRegistry>** bloco, especificamente procurando as seguintes linhas:
+1. Depois de ter verificado que a sua aplicação está a utilizar o código acima, abra o ficheiro **Web.config** e navegue para o ** \<bloco>emitenteNameRegistry,** especificamente procurando as seguintes linhas:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -281,10 +281,10 @@ Siga os passos abaixo para verificar se a lógica de capotamento da chave está 
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. No **\<adicione impressão digital=">** definição, altere o valor da impressão digital substituindo qualquer personagem por outro. Guarde o ficheiro **Web.config.**
+2. Na ** \<impressão digital do polegar=">** definição, altere o valor da impressão digital substituindo qualquer personagem por outro. Guarde o ficheiro **Web.config**.
 3. Construa a aplicação e, em seguida, executá-la. Se conseguir completar o processo de inscrição, a sua aplicação está a atualizar com sucesso a chave, baixando as informações necessárias a partir do documento de metadados da federação do seu diretório. Se tiver problemas de sessão, certifique-se de que as alterações na sua aplicação estão corretas, lendo o [Sign-On adicionando à sua aplicação web utilizando](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) o artigo da AD Azure, ou descarregando e inspecionando a seguinte amostra de código: [Aplicação multi-inquilino cloud para diretório ativo azure](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
-### <a name="vs2010"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2008 ou 2010 e a Windows Identity Foundation (WIF) v1.0 para .NET 3.5
+### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Aplicações web que protegem recursos e criadas com o Visual Studio 2008 ou 2010 e a Windows Identity Foundation (WIF) v1.0 para .NET 3.5
 Se construiu uma aplicação no WIF v1.0, não existe um mecanismo fornecido para atualizar automaticamente a configuração da sua aplicação para utilizar uma nova chave.
 
 * *Maneira mais fácil* Utilize a ferramenta FedUtil incluída no WIF SDK, que pode recuperar o mais recente documento de metadados e atualizar a sua configuração.
@@ -298,7 +298,7 @@ Instruções para utilizar o FedUtil para atualizar a sua configuração:
 3. A partir do pedido, selecione **Update** para começar a atualizar os metadados da federação. Se tiver acesso ao ambiente do servidor onde a aplicação está hospedada, pode utilizar opcionalmente o [programador automático](https://msdn.microsoft.com/library/ee517272.aspx)de atualização de metadados da FedUtil .
 4. Clique em **Terminar** para completar o processo de atualização.
 
-### <a name="other"></a>Aplicações web / APIs protegendo recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos suportados
+### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplicações web / APIs protegendo recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos suportados
 Se estiver a utilizar alguma outra biblioteca ou implementado manualmente algum dos protocolos suportados, terá de rever a biblioteca ou a sua implementação para garantir que a chave está a ser recuperada do documento de descoberta OpenID Connect ou dos metadados da federação documento. Uma maneira de verificar isto é fazer uma pesquisa no seu código ou o código da biblioteca para quaisquer chamadas para o documento de descoberta OpenID ou o documento de metadados da federação.
 
 Se a chave estiver a ser armazenada em algum lugar ou codificada na sua aplicação, pode recuperar manualmente a chave e atualizá-la em conformidade, executando um capotamento manual de acordo com as instruções no final deste documento de orientação. **É fortemente encorajado que você melhore a sua aplicação para apoiar** o capotamento automático usando qualquer uma das abordagens delineadas neste artigo para evitar futuras perturbações e sobrecargase se a Azure AD aumentar a sua cadência de capotamento ou tiver um capotamento de emergência fora da banda.

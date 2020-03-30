@@ -8,10 +8,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: 618033e24236d26601fafaf7b0678ee83ec973e8
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650170"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualizar registos e métricas de pesquisa cognitiva azure com power bi
@@ -49,7 +49,7 @@ Você pode encontrar a app de modelo de power bi **azure pesquisa cognitiva: ana
 
     ![](media/search-monitor-logs-powerbi/connect-to-storage-account.png)
 
-1. Selecione **A Chave** como método de autenticação e forneça a sua chave de conta de armazenamento. Selecione **Private** como o nível de privacidade. Clique em Iniciar sessão e iniciar o processo de carregamento.
+1. Selecione **A Chave** como método de autenticação e forneça a sua chave de conta de armazenamento. Selecione **Private** como o nível de privacidade. Clique em Iniciar Sessão para iniciar o processo de carregamento.
 
     ![](media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png)
 
@@ -98,6 +98,6 @@ Se descobrir que não consegue ver os seus dados seguir estes passos de resoluç
 ## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre a Pesquisa Cognitiva Azure](https://docs.microsoft.com/azure/search/)
 
-[O que é Power BI?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
+[O que é o Power BI?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
 
 [Conceitos básicos para designers no serviço Power BI](https://docs.microsoft.com/power-bi/service-basic-concepts)

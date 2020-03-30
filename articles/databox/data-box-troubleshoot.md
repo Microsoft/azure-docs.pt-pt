@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 51935516e26f263e44a926bf9b7d7ec24a5eeb9e
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560070"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Problemas relacionados com a Caixa de Dados Azure e a Caixa de Dados Azure Heavy
@@ -31,7 +31,7 @@ Os erros na Caixa de Dados e caixa de dados Heavy são resumidos da seguinte for
 | Tipo de dados ou ficheiros | O formato de dados ou o tipo de ficheiro não são suportados. |Descarregue as listas de erros. <br> Para bolhas de página ou discos geridos, certifique-se de que os dados estão alinhados e copiados para as pastas pré-criadas. [Saiba mais](#data-or-file-type-errors). |
 | Erros de blob ou ficheiros não críticos  | Os nomes blob ou ficheiros não seguem as regras de nomeação do Azure ou o tipo de ficheiro não é suportado. | Estas bolhas ou ficheiros podem não ser copiados ou os nomes podem ser alterados. [Aprenda a corrigir estes erros.](#non-critical-blob-or-file-errors) |
 
-\* As primeiras quatro categorias de erros são erros críticos e devem ser corrigidas antes de poder avançar para a preparação para o navio.
+\*As primeiras quatro categorias de erros são erros críticos e devem ser corrigidas antes de poder proceder à preparação para o navio.
 
 
 ## <a name="container-or-share-name-errors"></a>Erros de nome de contentores ou partilhas
@@ -51,8 +51,8 @@ Estes são erros relacionados com o contentor e compartilham nomes.
     - Os nomes só podem ter letras, números e hífenes.
     - Os nomes não podem começar ou terminar com hífenes.
     - Os nomes não podem ter hífenes consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`, `my-really-extra-long-folder-111`
-    - Exemplos de nomes que não são válidos: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
+    - Exemplos de nomes válidos: `my-folder-1`,`my-really-extra-long-folder-111`
+    - Exemplos de nomes que `my-folder_1`não `my` `--myfolder`são `myfolder--`válidos: , ,`myfolder!`
 
     Para mais informações, consulte as convenções de nomedo Azure para [nomes](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) de contentores e [nomes de partilha](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -70,8 +70,8 @@ Estes são erros relacionados com o contentor e compartilham nomes.
     - Os nomes só podem ter letras, números e hífenes.
     - Os nomes não podem começar ou terminar com hífenes.
     - Os nomes não podem ter hífenes consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`, `my-really-extra-long-folder-111`
-    - Exemplos de nomes que não são válidos: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
+    - Exemplos de nomes válidos: `my-folder-1`,`my-really-extra-long-folder-111`
+    - Exemplos de nomes que `my-folder_1`não `my` `--myfolder`são `myfolder--`válidos: , ,`myfolder!`
 
     Para mais informações, consulte as convenções de nomedo Azure para [nomes](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) de contentores e [nomes de partilha](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -88,8 +88,8 @@ Estes são erros relacionados com o contentor e compartilham nomes.
     - Os nomes só podem ter letras, números e hífenes.
     - Os nomes não podem começar ou terminar com hífenes.
     - Os nomes não podem ter hífenes consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`, `my-really-extra-long-folder-111`
-    - Exemplos de nomes que não são válidos: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
+    - Exemplos de nomes válidos: `my-folder-1`,`my-really-extra-long-folder-111`
+    - Exemplos de nomes que `my-folder_1`não `my` `--myfolder`são `myfolder--`válidos: , ,`myfolder!`
 
     Para mais informações, consulte as convenções de nomedo Azure para [nomes](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) de contentores e [nomes de partilha](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 

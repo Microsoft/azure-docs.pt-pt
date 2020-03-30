@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/23/2019
 ms.author: memildin
 ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604669"
 ---
 # <a name="adaptive-application-controls"></a>Controlos de aplicações adaptáveis
@@ -44,7 +44,7 @@ Os controlos de aplicação adaptativo ajudam-no a definir um conjunto de aplica
 
 1. No painel esquerdo, selecione **Controlos de aplicação adaptáveis** localizados em **Defesa da cloud avançada**.
 
-    [Defesa ![](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
+    [![Defesa](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
 
 É apresentada a página **Controlos de aplicação adaptável**.
 
@@ -76,7 +76,7 @@ A secção **Grupos de VMs** contém três separadores:
 
 2. Clique num grupo para abrir a opção de regras de controlo de **aplicações Create.**
 
-   [![regras de controlo de aplicações](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
+   [![Regras de controlo de aplicações](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
 
 3. Nos **VMs Selecionados,** reveja a lista de VMs recomendados e desmarque qualquer um a que não pretenda aplicar uma política de whitelisting de aplicações. Em seguida, verá duas listas:
 
@@ -176,8 +176,8 @@ O Azure Security Center permite-lhe definir uma política de whitelisting de apl
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a utilizar o controlo adaptativo de aplicações no Azure Security Center para aplicações whitelist em execução em VMs Azure e não-Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
-* [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
-* [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de Resolução de Problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança.
-* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
+* [Gestão e resposta a alertas](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)de segurança no Centro de Segurança Azure. Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
+* [Monitorização da saúde de segurança no Centro de Segurança Azure.](security-center-monitoring.md) Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
+* [Compreender alertas de segurança no Centro de Segurança Azure.](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) Saiba mais sobre os diferentes tipos de alertas de segurança.
+* Guia de [resolução de problemas do Centro de Segurança Azure.](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide) Saiba como resolver problemas comuns no Centro de Segurança.
+* [Blog de Segurança Azure.](https://blogs.msdn.com/b/azuresecurity/) Encontre mensagens do blogue acerca da segurança e conformidade do Azure.

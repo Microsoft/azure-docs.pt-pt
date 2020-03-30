@@ -8,13 +8,13 @@ ms.date: 02/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461662"
 ---
-# <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados apoiadas nos Serviços de Análise do Azure
+# <a name="data-sources-supported-in-azure-analysis-services"></a>Data sources supported in Azure Analysis Services (Origens de dados suportadas no Azure Analysis Services)
 
 Fontes de dados e conectores mostrados em Obter Dados ou Assistente de Importação de Tabelas em Estúdio Visual com serviços de análise são mostrados tanto para serviços de análise Azure como serviços de análise de servidores SQL. No entanto, nem todas as fontes de dados e conectores apresentados são suportados nos Serviços de Análise do Azure. Os tipos de fontes de dados a que se pode ligar dependem de muitos fatores, tais como o nível de compatibilidade do modelo, conectores de dados disponíveis, tipo de autenticação e suporte de gateway de dados no local. As tabelas seguintes descrevem fontes de dados suportadas para os Serviços de Análise do Azure.
 
@@ -30,52 +30,52 @@ Fontes de dados e conectores mostrados em Obter Dados ou Assistente de Importaç
 |Azure Data Lake Store Gen1      |   Sim       |    Não      |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   Sim       |    Não      |<sup>[1,](#tab1400a)</sup> <sup> [5](#gen2)</sup>|
 |Azure HDInsight HDFS    |     Sim     |   Não       |<sup>[1](#tab1400a)</sup> |
-|Faísca Azure HDInsight     |   Sim       |   Não       |<sup>[1,](#tab1400a)</sup> <sup> [4](#databricks)</sup>|
+|Azure HDInsight Spark     |   Sim       |   Não       |<sup>[1,](#tab1400a)</sup> <sup> [4](#databricks)</sup>|
 ||||
 
-**Notas:**    
+**Notas:**   
 <a name="tab1400a">1</a> - Apenas modelos tabular 1400 e modelos superiores.  
 <a name="azprovider">2</a> - Quando especificado como fonte de dados do *fornecedor* em modelos tabular 1200 e superiores, tanto os modelos de memória como os modelos DirectQuery requerem o Microsoft OLE DB Driver para o SQL Server MSOLEDBSQL (recomendado), SQL Server Client Nativo 11.0, ou .NET Framework Data Provider para O Servidor SQL.    
 <a name="azsqlmanaged">3</a> - A Instância Gerida pela Base de Dados Azure SQL é suportada. Uma vez que a instância gerida funciona dentro do Azure VNet com um endereço IP privado, o ponto final público deve ser ativado na instância. Se não estiver ativado, é necessário um [portal de dados no local.](analysis-services-gateway.md)    
 <a name="databricks">4</a> - Os tijolos de dados azure que utilizam o conector Spark não são suportados atualmente.   
 <a name="gen2">5</a> - O conector ADLS Gen2 não é atualmente suportado, no entanto, o conector de armazenamento de Blob Azure pode ser utilizado com uma fonte de dados ADLS Gen2.   
 
-## <a name="other-data-sources"></a>Outras fontes de dados
+## <a name="other-data-sources"></a>Outras origens de dados
 
 |Origem de dados | Dentro da memória | DirectQuery |Notas   |
 |  --- | --- | --- | --- |
-|Base de Dados de Acesso     |  Sim | Não |  |
+|Base de Dados do Access     |  Sim | Não |  |
 |Active Directory     |  Sim | Não | <sup>[6](#tab1400b)</sup>  |
 |Analysis Services     |  Sim | Não |  |
 |Sistema de Plataformas Analytics     |  Sim | Não |  |
 |Arquivo CSV  |Sim | Não |  |
 |Dynamics 365     |  Sim | Não | <sup>[6](#tab1400b)</sup> |
-|Livro excel     |  Sim | Não |  |
+|Livro do Excel     |  Sim | Não |  |
 |Troca      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Pasta      |Sim | Não | <sup>[6](#tab1400b)</sup> |
 |IBM Informix  |Sim | Não |  |
 |Documento JSON      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Linhas do binário      | Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Base de Dados MySQL     | Sim | Não |  |
-|OData Feed      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Feed OData      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Consulta ODBC     | Sim | Não |  |
-|OLE DB     |   Sim | Não |  |
+|OLEDB     |   Sim | Não |  |
 |Oracle  | Sim  |Sim  | <sup>[9](#oracle)</sup> |
 |Base de Dados PostgreSQL   | Sim | Não | <sup>[6](#tab1400b)</sup> |
-|Objetos salesforce|  Sim | Não | <sup>[6](#tab1400b)</sup> |
-|Relatórios salesforce |Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Objetos do Salesforce|  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Relatórios do Salesforce |Sim | Não | <sup>[6](#tab1400b)</sup> |
 |SAP HANA     |  Sim | Não |  |
 |SAP Business Warehouse    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
-|Lista de Pontos de Partilha      |   Sim | Não | <sup>[6,](#tab1400b)</sup> <sup> [11](#filesSP)</sup> |
+|Lista do SharePoint      |   Sim | Não | <sup>[6,](#tab1400b)</sup> <sup> [11](#filesSP)</sup> |
 |SQL Server |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> | 
-|Armazém de dados do SQL Server |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
+|Armazém de dados do servidor SQL |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
 |Base de Dados Sybase     |  Sim | Não |  |
 |Teradata | Sim  | Sim  | <sup>[10](#teradata)</sup> |
 |Arquivo TXT  |Sim | Não |  |
 |Mesa XML    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 | | | |
 
-**Notas:**    
+**Notas:**   
 <a name="tab1400b">6</a> - Apenas modelos tabular 1400 e modelos superiores.  
 <a name="sqlim">7</a> - Quando especificado como fonte de dados do *fornecedor* em modelos tabular 1200 e superiores, especifique o Controlador DB microsoft OLE db para OQL Server MSOLEDBSQL (recomendado), SQL Server Client Nativo 11.0 ou .NET Framework Data Provider para O Servidor SQL.  
 <a name="instgw">8</a> - Se especificar o MSOLEDBSQL como fornecedor de dados, pode ser necessário descarregar e instalar o [Microsoft OLE DB Driver para o SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) no mesmo computador que o gateway de dados No local.  
@@ -93,11 +93,11 @@ Ao utilizar o Assistente de Importação de Tabelas no Estúdio Visual, as liga�
 
 ### <a name="specify-provider-data-sources-in-tabular-1400-and-higher-model-projects"></a>Especificar as fontes de dados do fornecedor em projetos de modelos tabular 1400 e modelos mais elevados
 
-Para ativar as fontes de dados do fornecedor, no Estúdio Visual, clique em **Tools** > **Options** > Analysis **Services Tabular** > **Data Import**, selecione Enable **source solegacy data sources**.
+Para ativar as fontes de dados do fornecedor, no Estúdio Visual, clique em **Tools** > **Options** > **Analysis Services Tabular** > **Data Import**, selecione Enable **source solegacy data sources**.
 
 ![Ativar fontes de dados antigas](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
 
-Com fontes de dados antigas ativadas, no **Tabular Model Explorer,** **fontes** de dados de clique sapadireito > **importar de origem de dados (legado)** .
+Com fontes de dados antigas ativadas, no **Tabular Model Explorer,** clique à **direita, as fontes** > de dados importam de origem de**dados (legado)**.
 
 ![Fontes de dados antigas no Tabular Model Explorer](media/analysis-services-datasource/aas-import-legacy-datasources.png)
 
@@ -125,6 +125,6 @@ Para os modelos tabular no nível de compatibilidade 1400 e superior utilizando 
 O modo de consulta direta não é suportado com credenciais OAuth.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Gateway](analysis-services-gateway.md)   
+[Gateway on-local](analysis-services-gateway.md)   
 [Gerir o seu servidor](analysis-services-manage.md)   
 

@@ -1,36 +1,36 @@
 ---
-title: Gerenciamento de conta dos tokens Blockchain do Azure
-description: Usando o gerenciamento de contas do Azure Blockchain tokens, você pode criar grupos e vincular contas do Blockchain para controlar o acesso às ações do Blockchain.
+title: Gestão de conta Azure Blockchain Tokens
+description: Utilizando a gestão de conta Azure Blockchain Tokens, pode criar grupos e ligar contas blockchain para controlar o acesso a ações blockchain.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: 9931ef59e613501ba6feaedf3ac5d4721f0df752
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74326106"
 ---
-# <a name="azure-blockchain-tokens-account-management"></a>Gerenciamento de conta dos tokens Blockchain do Azure
+# <a name="azure-blockchain-tokens-account-management"></a>Gestão de conta Azure Blockchain Tokens
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-Para uma solução blockchain, os usuários podem exigir diferentes níveis de acesso aos tokens que são criados com o serviço de tokens Blockchain do Azure. Na maioria dos cenários de blockchain, você precisa planejar e implantar diferentes contas de blockchain que existem no razão. Você também precisa gerenciar o acesso entre os participantes. Usando o gerenciamento de contas do Azure Blockchain tokens, você pode criar grupos e vincular contas do Blockchain para controlar o acesso às ações do Blockchain.
+Para uma solução blockchain, os utilizadores podem exigir diferentes níveis de acesso aos tokens que são criados com o serviço Azure Blockchain Tokens. Na maioria dos cenários blockchain, você precisa planear e implementar diferentes contas blockchain que existem no livro de contabilidade. Também precisa de gerir o acesso entre os participantes.Utilizando a gestão de conta Azure Blockchain Tokens, pode criar grupos e ligar contas blockchain para controlar o acesso a ações blockchain.
 
-## <a name="blockchain-networks"></a>Redes Blockchain
+## <a name="blockchain-networks"></a>Redes blockchain
 
-Os tokens Blockchain do Azure permitem a implantação e o gerenciamento de tokens em um conjunto de redes Blockchain. Você pode conectar uma única razão blockchain ou vários razões blockchain para o serviço.
+O Azure Blockchain Tokens permite a implementação e gestão de fichas através de um conjunto de redes blockchain. Pode ligar um único livro de livros blockchain ou vários livros blockchain ao serviço.
 
 ## <a name="accounts"></a>Contas
 
-Para redes blockchain conectadas aos tokens Blockchain do Azure, o serviço cria e gerencia os pares de chave privada-pública da conta e executa a assinatura e o envio da transação. Os tokens Blockchain do Azure também fornecem mapeamento de identidade para corresponder contas com a identidade de chave pública no razão.
+Para redes blockchain ligadas a Tokens Azure Blockchain, o serviço cria e gere os pares de chaves público-públicos e executa a assinatura e submissão de transações. Azure Blockchain Tokens também fornece mapeamento de identidade para combinar contas com a identidade chave pública no livro de contabilidade.
 
 ## <a name="groups"></a>Grupos
 
-Os grupos permitem que você gerencie um grande número de contas de blockchain em redes conectadas. Você pode acompanhar e auditar quais aplicativos e usuários no diretório têm a capacidade de usar contas por meio de APIs de tokens Blockchain do Azure. Por exemplo, você pode agrupar um conjunto de contas que representam diferentes linhas de negócios ou funções diferentes e acesso a tokens blockchain.
+Os grupos permitem-lhe gerir um grande número de contas blockchain através de redes conectadas. Pode rastrear e auditar quais as aplicações e utilizadores do diretório que têm a capacidade de utilizar contas através de APIs Tokens Azure Blockchain. Por exemplo, você poderia agrupar um conjunto de contas que representam diferentes linhas de negócio ou diferentes papéis e acesso a tokens blockchain.
 
-Você também pode associar um grupo a um usuário Azure Active Directory ou a uma entidade de serviço e essa entidade de segurança tem permissões para o grupo e suas contas associadas.  
+Também pode associar um grupo a um utilizador ou diretor de serviço do Azure Ative Diretório e este principal tem permissões ao grupo e às suas contas associadas.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os [modelos de tokens do Azure Blockchain](templates.md)disponíveis.
+Saiba mais sobre os modelos disponíveis de [Tokens Azure Blockchain.](templates.md)

@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77523769"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação após desastre
@@ -60,7 +60,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 ```
 ---
 
-Repare maquete `optional` passou para a função `AddAzureAppConfiguration`. Quando definido para `true`, este parâmetro impede que a aplicação não continue se a função não conseguir carregar os dados de configuração.
+Reparem `optional` que o `AddAzureAppConfiguration` parâmetro passou para a função. Quando definido `true`para , este parâmetro evita que a aplicação não continue se a função não conseguir carregar os dados de configuração.
 
 ## <a name="synchronization-between-configuration-stores"></a>Sincronização entre lojas de configuração
 
@@ -68,7 +68,7 @@ Repare maquete `optional` passou para a função `AddAzureAppConfiguration`. Qua
 
 A partir do portal Azure, pode empurrar uma alteração para outra loja de configuração seguindo estes passos.
 
-1. Vá ao **separador Import/Export** e selecione **Export > ** Configuração de **aplicações** > **target** > **Selecione um recurso**.
+1. Vá ao separador **Import/Export** e selecione **Export** > **App Configuration** > **Target** > **Selecione um recurso**.
 
 1. Na nova lâmina que abre, especifique a subscrição, o grupo de recursos e o nome de recursos da sua loja secundária, em seguida, selecione **Apply**.
 

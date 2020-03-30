@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: efe6cc132b062e833dc85c13cf2f6c5f6289484c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564624"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solutions-by-cloudsimple"></a>Conceitos-chave para administração de Soluções Azure VMware pela CloudSimple
@@ -48,11 +48,11 @@ Saiba mais sobre [a cloudSimple nuvem privada](cloudsimple-private-cloud.md).
 
 O serviço CloudSimple fornece uma rede por região onde o seu serviço CloudSimple está implantado. A rede é um único espaço de endereço TCP Layer 3 com encaminhamento ativado por padrão. Todas as nuvens privadas e subredes criadas nesta região comunicam entre si sem qualquer configuração adicional. Cria grupos portuários distribuídos no vCenter utilizando os VLANs. Pode utilizar as seguintes funcionalidades de rede para configurar e proteger os seus recursos de carga de trabalho na sua nuvem privada:
 
-* [VLANs e subredes](cloudsimple-vlans-subnets.md)
+* [VLANs e sub-redes](cloudsimple-vlans-subnets.md)
 * [Tabelas de firewall](cloudsimple-firewall-tables.md)
 * [Gateways VPN](cloudsimple-vpn-gateways.md)
-* [IP Público](cloudsimple-public-ip-address.md)
-* [Ligação à rede Azure](cloudsimple-azure-network-connection.md)
+* [IP público](cloudsimple-public-ip-address.md)
+* [Ligação de rede do Azure](cloudsimple-azure-network-connection.md)
 
 ## <a name="cloudsimple-virtual-machine"></a>Máquina virtual CloudSimple
 

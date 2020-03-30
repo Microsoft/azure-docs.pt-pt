@@ -8,10 +8,10 @@ ms.author: jeconnoc
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
 ms.openlocfilehash: fe66466395a100221e6a3cdebdef870bdf195afc
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623031"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Como usar identidades geridas para configuração de aplicações do Azure
@@ -83,15 +83,15 @@ Os seguintes passos irão acompanhá-lo através da criação de uma identidade 
     az appconfig create --name myTestAppConfigStore --location eastus --resource-group myResourceGroup --sku Free
     ```
 
-1. Crie uma identidade atribuída ao utilizador chamada `myUserAssignedIdentity` utilizando o CLI.
+1. Crie uma identidade atribuída `myUserAssignedIdentity` ao utilizador chamada utilização do CLI.
 
     ```azurecli-interactive
     az identity create -resource-group myResourceGroup --name myUserAssignedIdentity
     ```
 
-    Na saída deste comando, note o valor da propriedade `id`.
+    Na saída deste comando, note o `id` valor do imóvel.
 
-1. Executar o comando de atribuição de [identidade az appconfig] para atribuir a nova identidade atribuída ao utilizador a esta loja de configuração. Utilize o valor do imóvel `id` que observou no passo anterior.
+1. Executar o comando de atribuição de [identidade az appconfig] para atribuir a nova identidade atribuída ao utilizador a esta loja de configuração. Utilize o valor `id` do imóvel que observou no passo anterior.
 
     ```azurecli-interactive
     az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup --identities /subscriptions/[subscription id]/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity
@@ -106,5 +106,5 @@ Uma identidade atribuída ao sistema pode ser removida desativando a funcionalid
 > [!div class="nextstepaction"]
 > [Crie uma app ASP.NET Core com configuração de aplicações azure](quickstart-aspnet-core-app.md)
 
-[identidade az appconfig]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
+[az az atribuír identidade de az appconfig]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
 [az login]: /cli/azure/reference-index#az-login

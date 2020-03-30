@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77648517"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorizar a atividade de migração utilizando o Serviço de Migração da Base de Dados Azure
@@ -55,7 +55,7 @@ A tabela seguinte lista os campos na lâmina de nível de base de dados e descre
     </tr>
     <tr>
       <td rowspan="4" class="Status"><strong>Estado</strong></td>
-      <td>Inicialização</td>
+      <td>A inicializar</td>
       <td>O DMS está a montar o oleoduto de migração.</td>
     </tr>
     <tr>
@@ -63,7 +63,7 @@ A tabela seguinte lista os campos na lâmina de nível de base de dados e descre
       <td>O oleoduto DMS está a funcionar e a realizar migração.</td>
     </tr>
     <tr>
-      <td>Concluir</td>
+      <td>Concluída</td>
       <td>Migração concluída.</td>
     </tr>
     <tr>
@@ -71,7 +71,7 @@ A tabela seguinte lista os campos na lâmina de nível de base de dados e descre
       <td>A migração falhou. Clique em detalhes da migração para ver erros de migração.</td>
     </tr>
     <tr>
-      <td rowspan="5" class="migration-details"><strong>Detalhes da migração</strong></td>
+      <td rowspan="5" class="migration-details"><strong>Detalhes de migração</strong></td>
       <td>Início do gasoduto de migração</td>
       <td>O DMS está a montar o oleoduto de migração.</td>
     </tr>
@@ -133,7 +133,7 @@ A tabela seguinte descreve os campos mostrados no progresso da migração ao ní
 | ------------- | ------------- |
 | **Estado - Sincronização**      | A sincronização contínua está a funcionar. |
 | **Inserir**      | Número de inserções de CDC em linhas aplicadas ao alvo.      |
-| **Atualizar** | Número de atualizações do CDC em linhas aplicadas ao alvo.      |
+| **Atualização** | Número de atualizações do CDC em linhas aplicadas ao alvo.      |
 | **Eliminar**      | Número de CCD apaga em linhas aplicadas ao alvo. |
 | **Total Aplicado**      | Total de atualizações, inserções e exclusões do CDC em linhas aplicadas ao alvo. |
 | **Erros de dados** | O número de erros de dados aconteceu nesta tabela. Alguns exemplos dos erros são *511: Não pode criar uma linha de tamanho %d que seja superior ao tamanho máximo admissível da linha de %d, 8114: Erro de conversão do tipo de dados %ls para %ls.*  O cliente deve consultar a partir de dms_apply_exceptions tabela no alvo Azure para ver os detalhes do erro.    |

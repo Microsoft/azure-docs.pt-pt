@@ -1,5 +1,5 @@
 ---
-title: Inicie guia para operadores de TI Azure  Microsoft Docs
+title: Inicie guia para operadores de TI Azure [ Microsoft Docs
 description: Inicie guia para operadores de TI Azure
 author: RicksterCDN
 ms.author: rclaus
@@ -9,17 +9,17 @@ ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.openlocfilehash: 4f9da6cbfe8d1e6b92c39148b275de193730c8f1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77623569"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Inicie-se para operadores de TI Azure
 
 Este guia introduz conceitos fundamentais relacionados com a implementação e gestão de uma infraestrutura Microsoft Azure. Se você é novo na computação em nuvem, ou o próprio Azure, este guia ajuda a começar rapidamente com conceitos, implementação e detalhes de gestão. Muitas secções deste guia discutem uma operação como a implantação de uma máquina virtual e, em seguida, fornecem um link para detalhes técnicos aprofundados.
 
-## <a name="cloud-computing-overview"></a>Visão geral da computação em nuvem
+## <a name="cloud-computing-overview"></a>Descrição geral da computação na cloud
 
 A computação em nuvem fornece uma alternativa moderna ao centro de dados tradicional no local. Os vendedores públicos de nuvem fornecem e gerem todas as infraestruturas de computação e o software de gestão subjacente. Estes fornecedores fornecem uma grande variedade de serviços na nuvem. Um serviço de nuvem neste caso pode ser uma máquina virtual, um servidor web ou motor de base de dados hospedado em nuvem. Como cliente fornecedor de nuvem, você aluga estes serviços na nuvem de forma necessária. Ao fazê-lo, converte-se as despesas de capital da manutenção de hardware numa despesa operacional. Um serviço na nuvem também fornece estes benefícios:
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre as regiões disponíveis do Azure, consulte 
 ### <a name="cloud-computing-model"></a>Modelo de computação em nuvem
 
 O Azure utiliza um modelo de computação em nuvem baseado em categorias de serviço prestadas aos clientes. As três categorias de serviço incluem Infraestruturas como Serviço (IaaS), Plataforma como Serviço (PaaS) e Software como Serviço (SaaS). Os fornecedores partilham parte ou a toda a responsabilidade pelos componentes na pilha de computação em cada uma destas categorias. Vamos dar uma olhada em cada uma das categorias para computação em nuvem.
-![cloud computing stack comparando](./media/cloud-computing-comparison.png)
+![Comparação de pilha de computação em nuvem](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infraestrutura saqueada como serviço
 
@@ -122,7 +122,7 @@ Serviços de networking tanto no Azure como entre o Azure e os centros de dados 
 
 - Rede Virtual do Azure
 
-- Rota Expresso Azure
+- Azure ExpressRoute
 
 - DNS fornecidos pelo Azure
 
@@ -186,7 +186,7 @@ Antes de poder trabalhar com os serviços Azure, precisa de uma subscrição. V�
 
 **Contas gratuitas**: O link para se inscrever para uma conta gratuita está no site do [Azure](https://azure.microsoft.com/). Isto dá-lhe um crédito ao longo de 30 dias para experimentar qualquer combinação de recursos em Azure. Se exceder o seu valor de crédito, a sua conta está suspensa. No final do julgamento, os seus serviços estão desativados e deixarão de funcionar. Pode fazer upgrade para uma subscrição pay-as-you-go a qualquer momento.
 
-**Subscrições MSDN**: Se tiver uma subscrição MSDN, obtém um valor específico no crédito Azure todos os meses. Por exemplo, se tiver uma Microsoft Visual Studio Enterprise com subscrição MSDN, obtém \$150 por mês em crédito Azure.
+**Subscrições MSDN**: Se tiver uma subscrição MSDN, obtém um valor específico no crédito Azure todos os meses. Por exemplo, se tiver uma Microsoft Visual Studio Enterprise com \$subscrição MSDN, obtém 150 por mês em crédito Azure.
 
 Se exceder o valor do crédito, o seu serviço será desativado até ao início do próximo mês. Pode desligar o limite de gastos e adicionar um cartão de crédito a ser usado para os custos adicionais. Alguns destes custos são descontados para contas MSDN. Por exemplo, paga o preço linux para VMs que executam o Windows Server, e não existe nenhum custo adicional para servidores da Microsoft, como o Microsoft SQL Server. Isto torna as contas da MSDN ideais para cenários de desenvolvimento e teste.
 
@@ -336,7 +336,7 @@ A implantação de uma máquina virtual Azure utilizando o PowerShell permite um
 
 Além de implementar recursos de computação Azure individualmente, pode utilizar o módulo Azure PowerShell para implementar um modelo de Gestor de Recursos Azure. Para mais informações, consulte [A implantação de recursos com modelos de Gestor de Recursos e PowerShell Azure](../../azure-resource-manager/templates/deploy-powershell.md).
 
-#### <a name="command-line-interface-cli"></a>Interface de linha de comando (CLI)
+#### <a name="command-line-interface-cli"></a>Interface de Linha de Comandos (CLI)
 
 Tal como acontece com o módulo PowerShell, a interface da linha de comando Azure fornece automatização de implementação e pode ser utilizada nos sistemas Windows, OS X ou Linux. Quando estiver a utilizar o comando de criação rápida Azure CLI **vM,** todos os recursos de máquinas virtuais relacionadas (incluindo armazenamento e networking) e a própria máquina virtual são implantados. Para mais informações, consulte [Create a Linux VM in Azure utilizando o CLI](../../virtual-machines/linux/quick-create-cli.md).
 
@@ -370,19 +370,19 @@ Cada tipo de armazenamento tem uma caixa de uso diferente.
 
 A palavra *blob* é um acrónimo para *objeto grande binário.* As bolhas são ficheiros não estruturados como os que armazena no computador. O Blob Storage pode armazenar qualquer tipo de texto ou de dados binários, tal como um documento, um ficheiro de multimédia ou um instalador da aplicação. O Blob Storage também é referido como um armazenamento de objetos. O armazenamento azure Blob também contém discos de dados da Azure Virtual Machines.
 
-O Armazenamento Azure suporta três tipos de bolhas:
+O Armazenamento do Azure suporta três tipos de blobs:
 
-- **As bolhas** de bloco são usadas para conter ficheiros ordinários até 195 GB de tamanho (4 MB × 50.000 blocos). O principal caso de utilização para blocos blobs é o armazenamento de ficheiros que são lidos do princípio ao fim, tais como ficheiros de mídia ou ficheiros de imagem para websites. São nomeadas bolhas de bloco porque ficheiros com mais de 64 MB devem ser carregados como blocos pequenos. Estes blocos são então consolidados (ou comprometidos) na bolha final.
+- **As bolhas** de bloco são usadas para conter ficheiros ordinários até 195 GB de tamanho (4 MB × 50.000 blocos). A utilização principal para blobs de blocos é o armazenamento de ficheiros que são lidos do início ao fim, como ficheiros multimédia ou ficheiros de imagem para sites. São nomeadas bolhas de bloco porque ficheiros com mais de 64 MB devem ser carregados como blocos pequenos. Estes blocos são então consolidados (ou comprometidos) na bolha final.
 
-- **As bolhas** de página são usadas para manter ficheiros de acesso aleatório até 1 TB em tamanho. As bolhas de página são usadas principalmente como o armazenamento de apoio para os VHDs que fornecem discos duráveis para máquinas virtuais Azure, o serviço de computação IaaS em Azure. São nomeados blobs de página porque fornecem acesso aleatório de leitura/escrita a 512 páginas byte.
+- **As bolhas** de página são usadas para manter ficheiros de acesso aleatório até 1 TB em tamanho. As bolhas de página são usadas principalmente como o armazenamento de apoio para os VHDs que fornecem discos duráveis para máquinas virtuais Azure, o serviço de computação IaaS em Azure. São denominados blobs de páginas porque dão acesso aleatório de leitura/escrita a páginas de 512 bytes.
 
-- **As bolhas** de apêndice consistem em blocos como blocos de blocos, mas são otimizados para operações de apêndice. Estes são frequentemente utilizados para registar informações de uma ou mais fontes para a mesma bolha. Por exemplo, pode escrever todos os seus vestígios a fazer login na mesma bolha de apêndice para uma aplicação que está a funcionar em vários VMs. Uma única bolha de apêndice pode chegar a 195 GB.
+- **As bolhas** de apêndice consistem em blocos como blocos de blocos, mas são otimizados para operações de apêndice. Estes são frequentemente utilizados para registar informações de uma ou mais fontes para a mesma bolha. Por exemplo, pode escrever todos os seus vestígios a fazer login na mesma bolha de apêndice para uma aplicação que está a funcionar em vários VMs. Um único blob de acréscimo pode ter até 195 GB.
 
 Para mais informações, consulte [Começar com o armazenamento Azure Blob utilizando .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 #### <a name="file-storage"></a>Armazenamento de ficheiros
 
-O armazenamento de ficheiros Azure é um serviço que oferece partilhas de ficheiros na nuvem utilizando o protocolo padrão do Bloco de Mensagens do Servidor (SMB). O serviço suporta tanto smb 2.1 como SMB 3.0. Com o armazenamento do Ficheiro Azure, pode migrar aplicações que dependem de ações de ficheiros para o Azure de forma rápida e sem reescritas dispendiosas. As aplicações em execução em máquinas virtuais Azure, em serviços na nuvem ou a partir de clientes no local podem montar uma partilha de ficheiros na nuvem. Isto é semelhante ao modo como uma aplicação de ambiente de trabalho monta uma quota típica de SMB. Em seguida, quaisquer componentes da aplicação podem montar e aceder à partilha do File Storage em simultâneo.
+O armazenamento de ficheiros Azure é um serviço que oferece partilhas de ficheiros na nuvem utilizando o protocolo padrão do Bloco de Mensagens do Servidor (SMB). O serviço suporta tanto smb 2.1 como SMB 3.0. Com o armazenamento do Ficheiro Azure, pode migrar aplicações que dependem de ações de ficheiros para o Azure de forma rápida e sem reescritas dispendiosas. As aplicações em execução em máquinas virtuais Azure, em serviços na nuvem ou a partir de clientes no local podem montar uma partilha de ficheiros na nuvem. Isto é semelhante ao modo como uma aplicação de ambiente de trabalho monta uma quota típica de SMB. Em seguida, quaisquer componentes da aplicação podem montar e aceder à partilha do Armazenamento de ficheiros em simultâneo.
 
 Como uma partilha de armazenamento de ficheiros é uma partilha padrão de ficheiros SMB, as aplicações em execução no Azure podem aceder a dados na partilha através do sistema de ficheiros I/O APIs. Os desenvolvedores podem, portanto, utilizar o seu código e competências existentes para migrar as aplicações existentes. Os profissionais de TI podem usar cmdlets PowerShell para criar, montar e gerir ações de armazenamento de ficheiros como parte da administração de aplicações Azure.
 
@@ -418,7 +418,7 @@ A implementação de uma conta de armazenamento Azure utilizando o PowerShell pe
 
 Além de implementar recursos Azure individualmente, pode utilizar o módulo Azure PowerShell para implementar um modelo de Gestor de Recursos Azure. Para mais informações, consulte [A implantação de recursos com modelos de Gestor de Recursos e PowerShell Azure](../../azure-resource-manager/templates/deploy-powershell.md).
 
-#### <a name="command-line-interface-cli"></a>Interface de linha de comando (CLI)
+#### <a name="command-line-interface-cli"></a>Interface de Linha de Comandos (CLI)
 
 Tal como acontece com o módulo PowerShell, a Interface da linha de comando Azure fornece automatização de implementação e pode ser utilizada nos sistemas Windows, OS X ou Linux. Pode utilizar a conta de armazenamento Azure CLI **criar** comando para criar uma conta de armazenamento. Para mais informações, consulte [Utilizar o Azure CLI com armazenamento Azure.](../../storage/common/storage-azure-cli.md)
 
@@ -469,7 +469,7 @@ Existem várias opções para implementar uma rede virtual.
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
-- [Interface de linha de comando (CLI)](../../virtual-network/quick-create-cli.md)
+- [Interface de Linha de Comandos (CLI)](../../virtual-network/quick-create-cli.md)
 
 - Modelos de gestor de recursos azure
 
@@ -483,5 +483,5 @@ Pode ajudar a proteger redes virtuais Azure utilizando um grupo de segurança de
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar um VM Windows](../../virtual-machines/windows/quick-create-portal.md)
+- [Criar uma VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
 - [Criar uma VM de Linux](../../virtual-machines/linux/quick-create-portal.md)

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462450"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidores utilizando funções Azure Cosmos DB e Azure
@@ -147,5 +147,5 @@ Se não tem a certeza se o Flow, as Aplicações Lógicas, as Funções Azure ou
 Agora vamos ligar as funções Azure Cosmos DB e Azure de verdade: 
 
 * [Criar um gatilho de Funções Azure para cosmos DB no portal Azure](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Criar um gatilho DE funções Azure HTTP com uma ligação de entrada Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
+* [Criar um acionador HTTP das Funções do Azure com um enlace de entrada do Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
 * [Ligações e gatilhos da Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md)

@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671159"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Agente de insights de aplicação de resolução de problemas (anteriormente chamado Monitor de Estado v2)
@@ -25,7 +25,7 @@ Se encontrar um problema que não está listado aqui, pode contactar-nos no [Git
 Se algum destes DLLs estiver presente no diretório do lixo, a monitorização pode falhar:
 
 - Microsoft.ApplicationInsights.dll
-- Microsoft.AspNet.TelemetryCorrelation.dll
+- Microsoft.AspNet.TelemettryCorrelation.dll
 - System.Diagnostics.DiagnosticSource.dll
 
 Alguns destes DLLs estão incluídos nos modelos de aplicações padrão do Estúdio Visual, mesmo que a sua aplicação não os utilize.
@@ -86,16 +86,16 @@ Estamos a acompanhar este [assunto.](https://github.com/microsoft/ApplicationIns
 ### <a name="troubleshooting-powershell"></a>Resolução de problemas PowerShell
 
 #### <a name="determine-which-modules-are-available"></a>Determine quais os módulos disponíveis
-Pode utilizar o comando `Get-Module -ListAvailable` para determinar quais os módulos instalados.
+Pode utilizar `Get-Module -ListAvailable` o comando para determinar quais os módulos instalados.
 
 #### <a name="import-a-module-into-the-current-session"></a>Importar um módulo para a sessão atual
-Se um módulo não tiver sido carregado numa sessão powerShell, pode carregá-lo manualmente utilizando o comando `Import-Module <path to psd1>`.
+Se um módulo não tiver sido carregado numa sessão powerShell, `Import-Module <path to psd1>` pode carregá-lo manualmente utilizando o comando.
 
 
 ### <a name="troubleshooting-the-application-insights-agent-module"></a>Resolução de problemas do módulo de agente de insights de aplicação
 
 #### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Enumerar os comandos disponíveis no módulo agente de insights de aplicação
-Executar o comando `Get-Command -Module Az.ApplicationMonitor` para obter os comandos disponíveis:
+Executar o `Get-Command -Module Az.ApplicationMonitor` comando para obter os comandos disponíveis:
 
 ```
 CommandType     Name                                               Version    Source
@@ -111,7 +111,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Determine a versão atual do módulo de agente de insights de aplicação
-Executar o comando `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` para exibir as seguintes informações sobre o módulo:
+Executar `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` o comando para mostrar as seguintes informações sobre o módulo:
    - Versão do módulo PowerShell
    - Versão SDK insights de aplicação
    - Caminhos de arquivo do módulo PowerShell
@@ -124,30 +124,30 @@ Reveja a [referência da API](status-monitor-v2-api-get-status.md) para obter um
 Pode inspecionar os processos no computador instrumentado para determinar se todos os DLLs estão carregados.
 Se a monitorização estiver a funcionar, devem ser carregados pelo menos 12 DLLs.
 
-Utilize o comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess` para verificar os DLLs.
+Use `Get-ApplicationInsightsMonitoringStatus -InspectProcess` o comando para verificar os DLLs.
 
 Reveja a [referência da API](status-monitor-v2-api-get-status.md) para obter uma descrição detalhada de como utilizar este cmdlet.
 
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Colete registos ETW utilizando o PerfView
 
-#### <a name="setup"></a>Configurar
+#### <a name="setup"></a>Configuração
 
 1. Baixe PerfView.exe e PerfView64.exe do [GitHub](https://github.com/Microsoft/perfview/releases).
 2. Iniciar PerfView64.exe.
 3. Expandir **opções avançadas.**
 4. Limpe estas caixas de verificação:
     - **Zip**
-    - **Fusão**
+    - **Intercalar**
     - **Coleção de símbolos .NET**
-5. Detete estes **Fornecedores Adicionais**: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. Definir estes **Fornecedores Adicionais:**`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>Recolha de registos
 
-1. Numa consola de comando com privilégios Admin, execute o comando `iisreset /stop` para desligar o IIS e todas as aplicações web.
+1. Numa consola de comando com privilégios `iisreset /stop` Admin, execute o comando para desligar o IIS e todas as aplicações web.
 2. No PerfView, selecione **Start Collection**.
-3. Numa consola de comando com privilégios Admin, execute o comando `iisreset /start` para iniciar o IIS.
+3. Numa consola de comando com privilégios `iisreset /start` Admin, execute o comando para iniciar o IIS.
 4. Tente navegar na sua aplicação.
 5. Depois de a sua aplicação estar carregada, volte ao PerfView e selecione **Stop Collection**.
 

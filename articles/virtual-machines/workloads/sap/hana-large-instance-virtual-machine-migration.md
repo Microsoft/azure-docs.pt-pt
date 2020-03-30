@@ -14,10 +14,10 @@ ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fd1267711871b3e55f1a6229e46ae27b360322f6
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617046"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>SAP HANA sobre migração de grandes instâncias azure para máquinas virtuais azure
@@ -115,7 +115,7 @@ Quer o novo SAP HANA VM aterre numa nova ou existente vnet/subnet, representa um
 ### <a name="vm-sizing-recommendation"></a>Recomendação de dimensionamento VM
 Esta migração é também uma oportunidade para o tamanho certo do seu motor de computação HANA.  Pode-se usar [as vistas do sistema](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) HANA em conjunto com o HANA Studio para entender o consumo de recursos do sistema, o que permite o dimensionamento certo para impulsionar a eficiência de gastos.
 
-### <a name="storage"></a>Armazenamento 
+### <a name="storage"></a>Storage 
 O desempenho do armazenamento é um dos fatores que impacta a experiência do utilizador da aplicação SAP.  Base num dado VM SKU, existem configurações de armazenamento mínimo [publicadas SAP HANA Azure configurações](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)de armazenamento de máquinas virtuais . Recomendamos rever estas especificações mínimas e comparar com as estatísticas existentes do sistema HLI para garantir uma capacidade e desempenho adequados para o novo VM HANA.
 
 Se configurar o PPG para o novo VM HANA e as suas severs associadas, submeta um bilhete de apoio para inspecionar e garantir a co-localização do armazenamento e do VM. Uma vez que a sua solução de backup poderá ter de ser alterada, o custo de armazenamento também deve ser revisitado para evitar surpresas de gastos operacionais.
@@ -196,6 +196,6 @@ O Global Reach é utilizado para ligar o gateway ExpressRoute dos clientes ao ga
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte estes artigos:
+Veja estes artigos:
 - [Configurações e operações de infraestruturas SAP HANA no Azure.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 - [Cargas de trabalho SAP em Azure: lista de verificação de planeamento e implementação](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist).

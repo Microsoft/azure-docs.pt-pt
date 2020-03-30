@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
 ms.openlocfilehash: a59a6841a1db3cecfe52c54135b42f5b6a095ce3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77660296"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar a sua aplicação móvel com o App Center e o Application Insights
@@ -26,7 +26,7 @@ Para concluir este guia de início rápido, necessita de:
 - Uma subscrição do Azure.
 - Uma aplicação iOS, Android, Xamarin, Universal Windows ou React Native
  
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-up-with-app-center"></a>Inscreva-se no App Center
 Para começar, crie uma conta e [inscreva-se no App Center](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs).
@@ -38,9 +38,9 @@ Antes de poder utilizar o Application Insights com a sua aplicação móvel, tem
 Para incluir a aplicação, siga o início rápido do App Center para cada plataforma que aquela suporte. Crie instâncias separadas do App Center para cada plataforma:
 
 * [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
-* [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
-* [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin).
-* [Universal do Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
+* [Android.](https://docs.microsoft.com/mobile-center/sdk/getting-started/android)
+* [Xamarin.](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin)
+* [Janelas Universais](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
 * [React Native](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native).
 
 ## <a name="track-events-in-your-app"></a>Acompanhar eventos na sua aplicação
@@ -67,8 +67,8 @@ Para confirmar que os eventos personalizados estão a ser recebidos, aceda ao se
 
 Quando a aplicação estiver a enviar eventos personalizados e o App Center a recebê-los, tem de criar um recurso do Application Insights para o App Center no portal do Azure:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Criar um recurso** > **Ferramentas de programador** > **Application Insights**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Selecione **Criar um programador de recursos** > **Ferramentas** > **De aplicação Insights**.
 
     > [!NOTE]
     > Se for a primeira vez que cria um recurso de Insights de Aplicação, pode aprender mais visitando o [Create a Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
@@ -106,7 +106,7 @@ Para lhe dar mais dados quando se liga pela primeira vez, são exportadas automa
 
 O Application Insights pode consultar, segmentar, filtrar e analisar a telemetria dos eventos personalizados das suas aplicações de forma mais abrangente do que as ferramentas que o App Center oferece.
 
-1. **Consulte a telemetria dos eventos personalizados.** A partir da página de **visão geral** da aplicação Insights, escolha **Registos (Analytics)** .
+1. **Consulte a telemetria dos eventos personalizados.** A partir da página de **visão geral** da aplicação Insights, escolha **Registos (Analytics)**.
 
    O portal De Registos de Insights de Aplicação (Analytics) associado ao seu recurso Application Insights será aberto. O portal Logs (Analytics) permite consultar diretamente os seus dados através do idioma de consulta log analytics, para que possa fazer perguntas arbitrariamente complexas sobre a sua aplicação e os seus utilizadores.
    

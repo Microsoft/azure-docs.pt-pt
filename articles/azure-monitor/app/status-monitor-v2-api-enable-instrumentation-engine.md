@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671362"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>Agente de Insights de Aplicação API: Motor de instrumentação de ativação
@@ -68,7 +68,7 @@ Configuring registry for instrumentation engine...
 - [Criar dashboards](../../azure-monitor/app/overview-dashboard.md).
  
  Adicionar mais telemetria:
- - [Crie testes web](monitor-web-app-availability.md) para garantir que o seu site permaneça ao vivo.
+ - [Criar testes Web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
 - [Adicione telemetria](../../azure-monitor/app/javascript.md) de cliente web para ver exceções do código da página web e para ativar chamadas de rastreio.
 - [Adicione o SDK de Insights de Aplicação ao seu código](../../azure-monitor/app/asp-net.md) para que possa inserir chamadas de rastreio e log.
  

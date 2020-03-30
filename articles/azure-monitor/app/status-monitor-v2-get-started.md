@@ -6,21 +6,21 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 7819de1f3dfab7f934421de86c0481d2e063f7a4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671193"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Inicie-se com o Agente de Insights de Aplicação do Monitor Azure para servidores no local
 
 Este artigo contém os comandos quickstart esperados para a maioria dos ambientes.
 As instruções dependem da Galeria PowerShell para distribuir atualizações.
-Estes comandos suportam o parâmetro `-Proxy` PowerShell.
+Estes comandos suportam `-Proxy` o parâmetro PowerShell.
 
 Para obter uma explicação destes comandos, instruções de personalização e informações sobre resolução de problemas, consulte as [instruções detalhadas](status-monitor-v2-detailed-instructions.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="download-and-install-via-powershell-gallery"></a>Descarregue e instale através da Galeria PowerShell
 
@@ -78,7 +78,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  Adicionar mais telemetria:
 
-- [Crie testes web](monitor-web-app-availability.md) para garantir que o seu site permaneça ao vivo.
+- [Criar testes Web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
 - [Adicione telemetria](../../azure-monitor/app/javascript.md) de cliente web para ver exceções do código da página web e para ativar chamadas de rastreio.
 - [Adicione o SDK de Insights de Aplicação ao seu código](../../azure-monitor/app/asp-net.md) para que possa inserir chamadas de rastreio e log.
 

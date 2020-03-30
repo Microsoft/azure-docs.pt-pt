@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623353"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contentores não divididos para contentores divididos
@@ -24,7 +24,7 @@ Os recipientes não divididos são legados e deve migrar os seus recipientes nã
 
 ## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrar recipiente utilizando a chave de partição definida pelo sistema
 
-Para apoiar a migração, a Azure Cosmos DB fornece uma chave de partição definida pelo sistema chamada `/_partitionkey` em todos os recipientes que não têm uma chave de partição. Não é possível alterar a definição da chave da divisória após a migração dos contentores. Por exemplo, a definição de um recipiente migrado para um recipiente dividido será a seguinte:
+Para apoiar a migração, a Azure Cosmos `/_partitionkey` DB fornece uma chave de partição definida pelo sistema, nomeada em todos os recipientes que não têm uma chave de partição. Não é possível alterar a definição da chave da divisória após a migração dos contentores. Por exemplo, a definição de um recipiente migrado para um recipiente dividido será a seguinte:
 
 ```json
 {
@@ -38,7 +38,7 @@ Para apoiar a migração, a Azure Cosmos DB fornece uma chave de partição defi
 }
 ```
 
-Depois de o contentor ser migrado, pode criar documentos povoando a propriedade `_partitionKey` juntamente com as outras propriedades do documento. A propriedade `_partitionKey` representa a chave de partilha dos seus documentos.
+Depois de o contentor ser migrado, pode `_partitionKey` criar documentos povoando a propriedade juntamente com as outras propriedades do documento. A `_partitionKey` propriedade representa a chave de partilha dos seus documentos.
 
 A escolha da chave de partição certa é importante para utilizar a entrada provisionada da melhor forma. Para mais informações, consulte como escolher um artigo [chave de partilha.](partitioning-overview.md)
 
@@ -95,7 +95,7 @@ Para obter a amostra completa, consulte o repositório GitHub de [amostras .Net.
                       
 ## <a name="migrate-the-documents"></a>Migrar os documentos
 
-Enquanto a definição do recipiente é melhorada com uma propriedade chave de divisória, os documentos dentro do recipiente não são migrados automaticamente. O que significa que a propriedade chave de divisória do sistema `/_partitionKey` caminho não é adicionada automaticamente aos documentos existentes. É necessário reparticionar os documentos existentes lendo os documentos que foram criados sem chave de partição e reescrevê-los com `_partitionKey` propriedade nos documentos.
+Enquanto a definição do recipiente é melhorada com uma propriedade chave de divisória, os documentos dentro do recipiente não são migrados automaticamente. O que significa que `/_partitionKey` o caminho da propriedade chave de divisória do sistema não é adicionado automaticamente aos documentos existentes. É necessário reparticionar os documentos existentes lendo os documentos `_partitionKey` que foram criados sem chave de partição e reescrevê-los com propriedade nos documentos.
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>Documentos de acesso que não têm chave de partição
 
@@ -122,15 +122,15 @@ Se um recipiente migrado for consumido pela versão mais recente/V3 do SDK e com
 
 **A consulta para a contagem de itens que foram inseridos sem chave de partição utilizando V3 SDK pode envolver um maior consumo de entrada**
 
-Se consultar o V3 SDK pelos itens que são inseridos utilizando V2 SDK, ou os itens inseridos utilizando o V3 SDK com `PartitionKey.None` parâmetro, a consulta de contagem pode consumir mais RU/s se o parâmetro `PartitionKey.None` for fornecido nas FeedOptions. Recomendamos que não forneça o parâmetro `PartitionKey.None` se não forem inseridos outros itens com uma chave de partição.
+Se consultar o V3 SDK pelos itens que são inseridos utilizando V2 SDK, ou os itens inseridos utilizando `PartitionKey.None` o V3 SDK com parâmetro, `PartitionKey.None` a consulta de contagem pode consumir mais RU/s se o parâmetro for fornecido nas FeedOptions. Recomendamos que não forneça `PartitionKey.None` o parâmetro se não forem inseridos outros itens com uma chave de partição.
 
-Se os novos itens forem inseridos com valores diferentes para a chave de partição, a consulta para tais contagens de itens, passando a chave adequada em `FeedOptions` não terá quaisquer problemas. Depois de inserir novos documentos com chave de partição, se precisar de consultar apenas a contagem de documentos sem o valor-chave da partilha, essa consulta pode voltar a incorrer em RU/s mais elevados semelhantes às coleções regulares de partição.
+Se os novos itens forem inseridos com valores diferentes para a chave de `FeedOptions` partição, a consulta para tais contagens de item, passando a chave adequada, não terá quaisquer problemas. Depois de inserir novos documentos com chave de partição, se precisar de consultar apenas a contagem de documentos sem o valor-chave da partilha, essa consulta pode voltar a incorrer em RU/s mais elevados semelhantes às coleções regulares de partição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
-* [Unidades de Pedido no Azure Cosmos DB](request-units.md)
-* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
-* [Trabalhar com a conta Azure Cosmos](account-overview.md)
+* [Request Units in Azure Cosmos DB](request-units.md) (Unidades de Pedido no Azure Cosmos DB)
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
+* [Trabalhar com uma conta do Azure Cosmos](account-overview.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

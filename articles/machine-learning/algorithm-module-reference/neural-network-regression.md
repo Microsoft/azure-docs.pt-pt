@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: d1e93c18b13e7171274eda2a7e8d07eefbefb592
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3a591badab29a1669d109f01f8a93732704d2fd4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920387"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456103"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão da rede neural
 
@@ -50,7 +50,7 @@ As redes neuronais podem ser extensivamente personalizadas. Esta secção descre
     
     Esta opção é melhor se já estiver familiarizado com redes neurais. Usa a linguagem Net# para definir a arquitetura da rede.  
 
-##  <a name="bkmk_DefaultArchitecture"></a>Criar um modelo de rede neural usando a arquitetura padrão
+##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a>Criar um modelo de rede neural usando a arquitetura padrão
 
 1.  Adicione o módulo **de regressão** da Rede Neural ao seu pipeline no designer. Pode encontrar este módulo na categoria **Machine Learning**, **Initialize,** na categoria **Regression.** 
   
@@ -86,7 +86,7 @@ As redes neuronais podem ser extensivamente personalizadas. Esta secção descre
     -   Se definir **criar o modo de formação** para um parâmetro **único,** utilize o [Modelo de Comboio](./train-model.md).  
   
    
-14. Executar o pipeline.  
+14. Submeta o oleoduto.  
 
 ## <a name="results"></a>Resultados
 

@@ -8,23 +8,23 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: 359aaf7bbde5501716f3d8c4229b2b90918fd5de
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77020986"
 ---
 # <a name="architecture-of-iot-central-digital-distribution-center-application-template"></a>Arquitetura do modelo de aplicação do centro de distribuição digital IoT Central
 
 
 
-Parceiros e clientes podem usar o modelo de aplicação e seguir orientações para desenvolver soluções de centro de **distribuição digital** final.
+Parceiros e clientes podem usar o modelo de aplicação & seguindo orientações para desenvolver soluções de centro de **distribuição digital** final.
 
 > [!div class="mx-imgBorder"]
-> ![](./media/concept-ddc-architecture/digital-distribution-center-architecture.png) do centro de distribuição digital
+> ![centro de distribuição digital](./media/concept-ddc-architecture/digital-distribution-center-architecture.png)
 
-1. Conjunto de sensores IoT enviando dados de telemetria para um dispositivo de gateway
-2. Dispositivos de gateway que enviam telemetria e informações agregadas para IoT Central
+1. Conjunto de sensores IoT enviando dados de telemetria para um dispositivo gateway
+2. Dispositivos gateway que enviam telemetria e insights agregados para IoT Central
 3. Os dados são encaminhados para o serviço Azure pretendido para manipulação
 4. Serviços azure como as funções ASA ou Azure podem ser usados para reformar fluxos de dados e enviar para as contas de armazenamento desejadas 
 5. Os dados processados são armazenados em armazenamento quente para ações quase em tempo real ou armazenamento a frio para melhorias adicionais de insights que se baseiam em ANÁLISE de ML ou lote. 
@@ -40,7 +40,7 @@ As câmaras de vídeo são os principais sensores neste ecossistema de empresa s
 As "câmaras-as-sensores" e as cargas de trabalho de borda são geridas localmente pelo Azure IoT Edge e o fluxo de câmaras é processado por pipeline de análise. O pipeline de processamento de análise de vídeo no Azure IoT Edge traz muitos benefícios, incluindo a diminuição do tempo de resposta, o consumo de baixa largura de banda, o que resulta em baixa latência para o processamento rápido de dados. Apenas os metadados, insights ou ações mais essenciais são enviados para a nuvem para mais ações ou investigação. 
 
 ## <a name="device-management-with-iot-central"></a>Gestão de Dispositivos com IoT Central 
-A Azure IoT Central é uma plataforma de desenvolvimento de soluções que simplifica a conectividade, configuração e gestão do portal IoT IoT Edge e do ioT Edge. A plataforma reduz significativamente os encargos e custos da gestão, operações e desenvolvimentos relacionados com dispositivos IoT. Os clientes e parceiros podem construir um fim para acabar com as soluções empresariais para alcançar um ciclo de feedback digital nos centros de distribuição.
+A Azure IoT Central é uma plataforma de desenvolvimento de soluções que simplifica o dispositivo IoT & conectividade, configuração e gestão de gateway Azure IoT Edge. A plataforma reduz significativamente os encargos e custos da gestão, operações e desenvolvimentos relacionados com dispositivos IoT. Os clientes & parceiros podem construir um fim para acabar com as soluções empresariais para alcançar um ciclo de feedback digital nos centros de distribuição.
 
 ## <a name="business-insights-and-actions-using-data-egress"></a>Business Insights e ações usando a saída de dados 
 A plataforma Central IoT fornece opções ricas de extebilidade através da Exportação Contínua de Dados (CDE) e APIs. Os conhecimentos empresariais que se baseiam no processamento de dados de telemetria ou na telemetria bruta são normalmente exportados para uma aplicação de linha de negócio preferencial. Pode ser alcançado através de webhook, Service Bus, event hub ou armazenamento de blob para construir, treinar e implementar modelos de aprendizagem automática e enriquecer ainda mais insights.

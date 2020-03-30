@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
 ms.openlocfilehash: 8d3fc809999508bf3d49c3765c90017e89e80fa7
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624045"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection - Conceção de soluções resilientes
@@ -35,7 +35,7 @@ Além da proteção principal do DDoS na plataforma, a Norma de [Proteção DDoS
 
 As seguintes secções dão orientações prescritivas para a construção de serviços dDoS resilientes em Azure.
 
-### <a name="design-for-security"></a>Design para segurança
+### <a name="design-for-security"></a>Conceber para segurança
 
 Garantir que a segurança é uma prioridade ao longo de todo o ciclo de vida de uma aplicação, desde a conceção e implementação até à implantação e operações. As aplicações podem ter bugs que permitem que um volume relativamente baixo de pedidos utilizem uma quantidade desordenada de recursos, resultando numa interrupção de serviço. 
 
@@ -54,7 +54,7 @@ Para o [Azure App Service,](/azure/app-service/app-service-value-prop-what-is)se
 
 A ideia por trás da defesa em profundidade é gerir o risco utilizando diversas estratégias defensivas. Camadas de defesas de segurança numa aplicação reduz a hipótese de um ataque bem sucedido. Recomendamos que implemente designs seguros para as suas aplicações utilizando as capacidades incorporadas da plataforma Azure.
 
-Por exemplo, o risco de ataque aumenta com o tamanho *(área*de superfície ) da aplicação. Pode reduzir a área de superfície utilizando a lista de permissões para fechar o espaço de endereçoIP exposto e as portas de audição que não são necessárias nos equilibradores de carga[(Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) e [Azure Application Gateway).](/azure/application-gateway/application-gateway-create-probe-portal) Os grupos de segurança da [rede (NSGs)](/azure/virtual-network/security-overview) são outra forma de reduzir a superfície de ataque.
+Por exemplo, o risco de ataque aumenta com o tamanho *(área*de superfície ) da aplicação. Pode reduzir a área de superfície utilizando a lista branca para fechar o espaço de endereçoIP exposto e as portas de audição que não são necessárias nos equilibradores de carga[(Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) e [Azure Application Gateway).](/azure/application-gateway/application-gateway-create-probe-portal) Os grupos de segurança da [rede (NSGs)](/azure/virtual-network/security-overview) são outra forma de reduzir a superfície de ataque.
 Pode utilizar etiquetas de serviço e [grupos](/azure/virtual-network/security-overview#service-tags) de segurança de [aplicações](/azure/virtual-network/security-overview#application-security-groups) para minimizar a complexidade para criar regras de segurança e configurar a segurança da rede, como uma extensão natural da estrutura de uma aplicação.
 
 Deve implantar serviços Azure numa [rede virtual](/azure/virtual-network/virtual-networks-overview) sempre que possível. Esta prática permite que os recursos de serviço se comuniquem através de endereços IP privados. O tráfego de serviço saque a partir de uma rede virtual utiliza endereços IP públicos como endereços IP de origem por padrão. A utilização de [pontos finais](/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço irá mudar o tráfego de serviços para utilizar endereços privados de rede virtual como endereços IP de origem quando estão a aceder ao serviço Azure a partir de uma rede virtual.
@@ -97,7 +97,7 @@ DDoS Protection Standard expõe telemetria rica via [Monitor Azure](/azure/azure
 
 ##### <a name="ddos-mitigation-policies"></a>Políticas de mitigação do DDoS
 
-No portal Azure, selecione **Monitor** > **Métricas**. No painel **Métricas,** selecione o grupo de recursos, selecione um tipo de endereço **IP público**de recursos, e selecione o seu endereço IP público Azure. As métricas DDoS são visíveis no painel de **métricas disponíveis.**
+No portal Azure, selecione **Monitor** > **Metrics**. No painel **Métricas,** selecione o grupo de recursos, selecione um tipo de endereço **IP público**de recursos, e selecione o seu endereço IP público Azure. As métricas DDoS são visíveis no painel de **métricas disponíveis.**
 
 A DDoS Protection Standard aplica três políticas de mitigação auto-ajustadas (TCP SYN, TCP e UDP) para cada IP público do recurso protegido, na rede virtual que tem DDoS ativado. Pode visualizar os limiares de política selecionando os pacotes de **entrada métricos para desencadear a mitigação do DDoS**.
 
@@ -235,7 +235,7 @@ Nesta arquitetura, a DDoS Protection Standard está ativada na rede virtual. Tod
 
 #### <a name="paas-web-application"></a>Aplicação web PaaS
 
-Esta arquitetura de referência mostra executar uma aplicação Azure App Service numa única região. Esta arquitetura mostra um conjunto de práticas comprovadas para uma aplicação web que utiliza o Serviço de [Aplicações Azure](https://azure.microsoft.com/documentation/services/app-service/) e a Base de [Dados SQL Azure.](https://azure.microsoft.com/documentation/services/sql-database/)
+Esta arquitetura de referência mostra executar uma aplicação Azure App Service numa única região. Esta arquitetura mostra um conjunto de práticas comprovadas para uma aplicação web que utiliza o [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) e [a Azure SQL Database.](https://azure.microsoft.com/documentation/services/sql-database/)
 Está criada uma região de prontidão para cenários de falhas.
 
 ![Diagrama da arquitetura de referência para uma aplicação web PaaS](./media/ddos-best-practices/image11.png)
@@ -268,7 +268,7 @@ Para obter mais informações sobre esta arquitetura de referência, consulte o 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Responsabilidade partilhada na nuvem](shared-responsibility.md)
+* [Responsabilidade partilhada na cloud](shared-responsibility.md)
 
 * [Página de produto de proteção Azure DDoS](https://azure.microsoft.com/services/ddos-protection/)
 

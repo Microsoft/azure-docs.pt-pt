@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: corywink
 ms.openlocfilehash: b905b1e86810b25c4c94072d6cd414b993e2a883
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77426193"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Apresentação da IU do Azure IoT Central
@@ -40,13 +40,13 @@ Como _operador_, utilize a IU do Azure IoT Central para gerir a sua solução do
 A página inicial do [IoT Central](https://aka.ms/iotcentral-get-started) é o local onde pode saber mais sobre as últimas novidades e funcionalidades disponíveis no IoT Central, criar novas aplicações e ver e lançar a sua aplicação existente.
 
 > [!div class="mx-imgBorder"]
-> ![](media/overview-iot-central-tour/iot-central-homepage-pnp.png) de homepage central ioT
+> ![Página inicial do IoT Central](media/overview-iot-central-tour/iot-central-homepage-pnp.png)
 
 ### <a name="create-an-application"></a>Criar uma aplicação
 
 Na secção Build pode navegar na lista de modelos Centrais IoT relevantes para a indústria para ajudá-lo a começar rapidamente, ou começar do zero usando um modelo de aplicação Personalizado.  
 > [!div class="mx-imgBorder"]
-> ![ioT central construir página](media/overview-iot-central-tour/iot-central-build-pnp.png)
+> ![Página de construção ioT central](media/overview-iot-central-tour/iot-central-build-pnp.png)
 
 Para saber mais, consulte a [aplicação Create a Azure IoT Central.](quick-deploy-iot-central.md)
 
@@ -55,7 +55,7 @@ Para saber mais, consulte a [aplicação Create a Azure IoT Central.](quick-depl
 Pode lançar a sua aplicação IoT Central indo ao URL que você ou o seu construtor de soluções escolher durante a criação de apps. Pode também ver uma lista de todas as aplicações a que tem acesso no gestor de [aplicações IoT Central](https://aka.ms/iotcentral-apps).
 
 > [!div class="mx-imgBorder"]
-> ![gestor de aplicativos Da IoT Central](media/overview-iot-central-tour/app-manager-pnp.png)
+> ![Gestor de aplicativos IoT Central](media/overview-iot-central-tour/app-manager-pnp.png)
 
 ## <a name="navigate-your-application"></a>Navegue na sua aplicação
 
@@ -67,7 +67,7 @@ Uma vez dentro da sua aplicação IoT, use o painel esquerdo para aceder às dif
 :::row:::
   :::column span="":::
       > [!div class="mx-imgBorder"]
-      > ![](media/overview-iot-central-tour/navigationbar-pnp.png) do painel esquerdo
+      > ![painel esquerdo](media/overview-iot-central-tour/navigationbar-pnp.png)
   :::column-end:::
   :::column span="2":::
      **O painel de instrumentos** exibe o seu painel de aplicação. Como construtor de *soluções,* pode personalizar o painel global para os seus operadores. Dependendo da sua função de utilizador, os operadores também podem criar os seus próprios dashboards pessoais.
@@ -98,7 +98,7 @@ Uma vez dentro da sua aplicação IoT, use o painel esquerdo para aceder às dif
 O menu superior é apresentado em todas as páginas:
 
 > [!div class="mx-imgBorder"]
-> ![](media/overview-iot-central-tour/toolbar-pnp.png) toolbar
+> ![Barra de ferramentas](media/overview-iot-central-tour/toolbar-pnp.png)
 
 * Para procurar modelos e dispositivos do dispositivo, introduza um valor **de Pesquisa.**
 * Para alterar a linguagem ou tema da UI, escolha o ícone **Definições.** Saiba mais sobre [como gerir as suas preferências de candidatura](howto-manage-preferences.md)
@@ -111,7 +111,7 @@ Pode escolher entre um tema claro ou um tema escuro para a IU:
 > A opção de escolher entre temas claros e escuros não está disponível se o seu administrador tiver configurado um tema personalizado para a aplicação.
 
 > [!div class="mx-imgBorder"]
-> ![Escolha um tema para a](media/overview-iot-central-tour/themes-pnp.png) dos EuA
+> ![Escolher um tema para a IU](media/overview-iot-central-tour/themes-pnp.png)
 
 ### <a name="dashboard"></a>Dashboard
 > [!div class="mx-imgBorder"]
@@ -124,7 +124,7 @@ Pode escolher entre um tema claro ou um tema escuro para a IU:
 ### <a name="devices"></a>Dispositivos
 
 > [!div class="mx-imgBorder"]
-> ](media/overview-iot-central-tour/devices-pnp.png) da página de dispositivos ![
+> ![Página de dispositivos](media/overview-iot-central-tour/devices-pnp.png)
 
 A página do explorador mostra os _dispositivos_ da sua aplicação Azure IoT Central agrupados pelo modelo do _dispositivo_. 
 
@@ -133,37 +133,37 @@ A página do explorador mostra os _dispositivos_ da sua aplicação Azure IoT Ce
 
 Para saber mais, consulte o [Monitor dos seus dispositivos](./quick-monitor-devices.md) rapidamente. 
 
-### <a name="device-groups"></a>Grupos de dispositivos
+### <a name="device-groups"></a>Device groups
 
 > [!div class="mx-imgBorder"]
-> ![dispositivo seleção](media/overview-iot-central-tour/device-groups-pnp.png)
+> ![Página de grupos de dispositivos](media/overview-iot-central-tour/device-groups-pnp.png)
 
 O grupo de dispositivos é uma coleção de dispositivos relacionados. Um construtor de *soluções* define uma consulta para identificar os dispositivos que estão incluídos num grupo de dispositivos. Utiliza grupos de dispositivos para realizar operações a granel na sua aplicação. Para saber mais, consulte os grupos de dispositivos Use no artigo de [aplicação Azure IoT Central.](tutorial-use-device-groups.md)
 
 ### <a name="rules"></a>Regras
 > [!div class="mx-imgBorder"]
-> página de regras ![](media/overview-iot-central-tour/rules-pnp.png)
+> ![Página de regras](media/overview-iot-central-tour/rules-pnp.png)
 
 A página de regras permite definir regras baseadas na telemetria, estado ou eventos dos dispositivos. Quando uma regra dispara, pode desencadear uma ou mais ações - como enviar um e-mail, notificar um sistema externo através de alertas de webhook, etc. Para aprender, consulte o tutorial de regras de [configuração.](tutorial-create-telemetry-rules.md) 
 
 ### <a name="analytics"></a>Análise
 
 > [!div class="mx-imgBorder"]
-> ](media/overview-iot-central-tour/analytics-pnp.png) da página de análise ![
+> ![Página de análise](media/overview-iot-central-tour/analytics-pnp.png)
 
 A análise permite-lhe criar visualizações personalizadas em cima de dados do dispositivo para obter insights da sua aplicação. Para saber mais, consulte a análise Create para o seu artigo de [aplicação Azure IoT Central.](howto-create-analytics.md)
 
 ### <a name="jobs"></a>Tarefas
 
 > [!div class="mx-imgBorder"]
-> ](media/overview-iot-central-tour/jobs-pnp.png) da página ![Jobs
+> ![Página de tarefas](media/overview-iot-central-tour/jobs-pnp.png)
 
 A página de empregos permite-lhe executar operações de gestão de dispositivos a granel nos seus dispositivos. Pode atualizar as propriedades, configurações e executar comandos do dispositivo contra grupos de dispositivos. Para obter mais informações, veja o artigo [Executar uma tarefa](howto-run-a-job.md).
 
 ### <a name="device-templates"></a>Modelos de dispositivo
 
 > [!div class="mx-imgBorder"]
-> página de modelos de dispositivo ![](media/overview-iot-central-tour/templates-pnp.png)
+> ![Página de modelos de dispositivo](media/overview-iot-central-tour/templates-pnp.png)
 
 A página de modelos do dispositivo é onde um construtor cria e gere os modelos do dispositivo na aplicação. Um modelo de dispositivo especifica características do dispositivo tais como:
 
@@ -176,15 +176,15 @@ O construtor de *soluções* também pode criar formulários e dashboards para o
 
 Para obter mais informações, veja o tutorial [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](howto-set-up-template.md). 
 
-### <a name="data-export"></a>Exportação de dados
+### <a name="data-export"></a>Exportar dados
 > [!div class="mx-imgBorder"]
-> página de exportação de dados ![](media/overview-iot-central-tour/export-pnp.png)
+> ![Página de exportação de dados](media/overview-iot-central-tour/export-pnp.png)
 
 A exportação de dados permite-lhe configurar fluxos de dados, como a telemetria, desde a aplicação a sistemas externos. Para saber mais, consulte a Exportação dos seus dados no artigo [Da Azure IoT Central.](./howto-export-data.md)
 
 ### <a name="administration"></a>Administração
 > [!div class="mx-imgBorder"]
-> ](media/overview-iot-central-tour/administration-pnp.png) da página da Administração ![
+> ![Página Administração](media/overview-iot-central-tour/administration-pnp.png)
 
 A página de administração permite configurar e personalizar a sua aplicação IoT Central. Aqui pode alterar o nome da sua aplicação, URL, temática, gerir utilizadores e funções, criar tokens API e exportar a sua aplicação. Para obter mais informações, veja o artigo [Administrar a aplicação do Azure IoT Central](howto-administer.md).
 

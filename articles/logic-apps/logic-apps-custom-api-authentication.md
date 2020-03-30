@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191397"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança para chamadas a APIs personalizadas de Apps Lógicas Azure
@@ -51,14 +51,14 @@ A sua aplicação lógica utiliza esta identidade de aplicação Azure AD para a
 2. Confirme que está no mesmo diretório que a sua aplicação web ou app API.
 
    > [!TIP]
-   > Para mudar de diretórios, escolha o seu perfil e selecione outro diretório. Ou, escolha **overview** > **diretório switch**.
+   > Para mudar de diretórios, escolha o seu perfil e selecione outro diretório. Ou, escolha**o diretório** **Overview** > Switch .
 
-3. No menu de diretório, no âmbito **do Manage,** escolha **as inscrições** da App > **Novo registo de candidaturas.**
+3. No menu de diretório, em **'Gerir',** escolha **inscrições de Aplicações** > **Novo registo de candidatura.**
 
    > [!TIP]
    > Por padrão, a lista de registos de aplicações mostra todos os registos de aplicações no seu diretório. Para visualizar apenas os registos da sua aplicação, junto à caixa de pesquisa, **selecione Minhas aplicações**. 
 
-   ![Criar nova inscrição de aplicativos](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
+   ![Criar registo de aplicação novo](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
 
 4. Dê um nome à sua identidade de aplicação, deixe o tipo de **aplicação** definido para **a aplicação Web / API,** forneça uma corda única formatada como domínio para **URL de início de empresa,** e escolha **Criar**.
 
@@ -142,7 +142,7 @@ Agora você deve encontrar o ID do cliente e id do inquilino para a identidade d
 
 4. Em **emissão Url,** copie e guarde apenas o GUID para a parte 3. Também pode utilizar este GUID na sua aplicação web ou no modelo de implementação da aplicação API, se necessário.
 
-   Este GUID é o GUID do seu inquilino específico ("ID do inquilino") e deve aparecer nesta URL: `https://sts.windows.net/{GUID}`
+   Este GUID é o GUID do seu inquilino específico ("ID do inquilino") e deve aparecer neste URL:`https://sts.windows.net/{GUID}`
 
 5. Sem guardar as suas alterações, feche a página de Definições de **Diretório Ativo Azure.**
 
@@ -152,7 +152,7 @@ Agora você deve encontrar o ID do cliente e id do inquilino para a identidade d
 
 Ainda precisa de criar uma identidade de aplicação Azure AD para a sua aplicação web ou aplicação API que difere da identidade da aplicação para a sua aplicação lógica. Para criar a identidade de aplicação, siga os passos anteriores na Parte 2 para o portal Azure. 
 
-Também pode seguir os passos na Parte 1, mas **certifique-se** de usar a sua aplicação web ou o `https://{URL}` real da aplicação API para URL de início de empresa e **App ID URI**. A partir destes passos, você tem que guardar tanto o ID do cliente como o ID do inquilino para uso no modelo de implementação da sua aplicação e também para a Parte 3.
+Também pode seguir os passos na Parte 1, mas certifique-se de `https://{URL}` usar a sua aplicação web ou a aplicação API real para URL de **sign-on** e **App ID URI**. A partir destes passos, você tem que guardar tanto o ID do cliente como o ID do inquilino para uso no modelo de implementação da sua aplicação e também para a Parte 3.
 
 > [!NOTE]
 > Quando criar a identidade de aplicação Azure AD para a sua aplicação web ou aplicação API, deve utilizar o portal Azure, e não o PowerShell. O comando PowerShell não configura as permissões necessárias para assinar os utilizadores num website.
@@ -179,7 +179,7 @@ Depois de obter o ID do cliente e o ID do inquilino, inclua estas Identidades co
 
 Para implementar automaticamente uma aplicação web em branco e uma aplicação lógica juntamente com a autenticação do Diretório Ativo Azure, [veja o modelo completo aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json), ou clique em Deploy para **Azure** aqui:
 
-[![Implementar no Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+[![Desdobre para Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 #### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Povoar a secção de Autorização na sua aplicação lógica
 
@@ -199,11 +199,11 @@ Abra a definição de aplicação lógica em vista de código, vá à definiçã
 
 | Propriedade | Necessário | Descrição | 
 | -------- | -------- | ----------- | 
-| tenant | Sim | O GUID para o inquilino da AD Azure | 
-| audience | Sim | O GUID para o recurso-alvo a que pretende aceder, que é o ID do cliente a partir da identidade de aplicação para a sua aplicação web ou app API | 
+| inquilino | Sim | O GUID para o inquilino da AD Azure | 
+| público | Sim | O GUID para o recurso-alvo a que pretende aceder, que é o ID do cliente a partir da identidade de aplicação para a sua aplicação web ou app API | 
 | clientId | Sim | O GUID para o cliente que solicita acesso, que é o ID do cliente da identidade da aplicação para a sua aplicação lógica | 
 | segredo | Sim | A chave ou senha da identidade de aplicação para o cliente que está a solicitar o sinal de acesso | 
-| tipo | Sim | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| tipo | Sim | O tipo de autenticação. Para autenticação ActiveDirectoryOAuth, `ActiveDirectoryOAuth`o valor é . | 
 |||| 
 
 Por exemplo:
@@ -273,7 +273,7 @@ Na secção **de Autorização,** incluem estes imóveis:
 
 | Propriedade | Necessário | Descrição | 
 | -------- | -------- | ----------- | 
-| tipo | Sim | O tipo de autenticação que pretende utilizar. Para a autenticação básica, o valor deve ser `Basic`. | 
+| tipo | Sim | O tipo de autenticação que pretende utilizar. Para autenticação básica, o `Basic`valor deve ser . | 
 | o nome de utilizador | Sim | O nome de utilizador que pretende utilizar para autenticação | 
 | palavra-passe | Sim | A palavra-passe que pretende utilizar para autenticação | 
 |||| 

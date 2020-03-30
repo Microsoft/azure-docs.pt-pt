@@ -8,10 +8,10 @@ ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672434"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Criar definição de diagnóstico em Azure usando um modelo de Gestor de Recursos
@@ -21,7 +21,7 @@ ms.locfileid: "77672434"
 > Uma vez que não pode [criar uma definição de diagnóstico](diagnostic-settings.md) para o registo da Atividade Azure utilizando o PowerShell ou o CLI como configurações de diagnóstico para outros recursos Do Azure, crie um modelo de Gestor de Recursos para o registo de Atividade utilizando a informação neste artigo e implemente o modelo utilizando powerShell ou CLI.
 
 ## <a name="deployment-methods"></a>Métodos de implantação
-Pode implementar modelos de Gestor de Recursos utilizando qualquer método válido, incluindo PowerShell e CLI. As definições de diagnóstico do registo de atividade devem ser implementadas para uma subscrição utilizando `az deployment create` para CLI ou `New-AzDeployment` para powerShell. As definições de diagnóstico dos registos de recursos devem ser implantadas para um grupo de recursos que utilize `az group deployment create` para CLI ou `New-AzResourceGroupDeployment` para o PowerShell.
+Pode implementar modelos de Gestor de Recursos utilizando qualquer método válido, incluindo PowerShell e CLI. As definições de diagnóstico do `az deployment create` registo de `New-AzDeployment` atividade devem ser implementadas para uma subscrição utilizando cli ou powerShell. As definições de diagnóstico dos registos `az group deployment create` de recursos `New-AzResourceGroupDeployment` devem ser implantadas para um grupo de recursos que utilize o CLI ou o PowerShell.
 
 Consulte [os recursos de implantação com modelos de Gestor de Recursos e O PowerShell azure](../../azure-resource-manager/templates/deploy-powershell.md) e implemente recursos com modelos de Gestor de [Recursos e ClI Azure](../../azure-resource-manager/templates/deploy-cli.md) para mais detalhes. 
 
@@ -30,7 +30,7 @@ Consulte [os recursos de implantação com modelos de Gestor de Recursos e O Pow
 
 
 ## <a name="resource-logs"></a>Registos do recurso
-Para registos de recursos, adicione um recurso de tipo `<resource namespace>/providers/diagnosticSettings` ao modelo. A secção de propriedades segue o formato descrito nas [Definições](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)de Diagnóstico - Criar ou Atualizar . Forneça um `category` na secção `logs` para cada uma das categorias válidas para o recurso que pretende recolher. Adicione a propriedade `metrics` para recolher métricas de recursos para os mesmos destinos se o [recurso suportar métricas](metrics-supported.md).
+Para registos de recursos, `<resource namespace>/providers/diagnosticSettings` adicione um recurso de tipo ao modelo. A secção de propriedades segue o formato descrito nas [Definições](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)de Diagnóstico - Criar ou Atualizar . Forneça `category` um `logs` na secção para cada uma das categorias válidas para o recurso que pretende recolher. Adicione `metrics` a propriedade para recolher métricas de recursos para os mesmos destinos se o [recurso suportar métricas](metrics-supported.md).
 
 Segue-se um modelo que recolhe uma categoria de registo de recursos para um recurso específico para um espaço de trabalho, conta de armazenamento e centro de eventos de Log Analytics.
 

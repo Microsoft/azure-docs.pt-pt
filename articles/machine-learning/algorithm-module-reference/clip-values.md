@@ -1,7 +1,7 @@
 ---
 title: Valores de Clip
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo valores de clipes em Azure Machine Learning para detectar exceções e recortar ou substituir seus valores.
+description: Aprenda a utilizar o módulo Clip Values em Aprendizagem automática Azure para detetar outliers e clipe ou substituir os seus valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,115 +9,115 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 5f695bf739a6e096083cd6d8271b6936f24c16da
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 6466cea9fe04bb308a670cb03fd3de5314758142
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546831"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456612"
 ---
 # <a name="clip-values"></a>Valores de Clip
 
-Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo de designer de Machine Learning Azure (pré-visualização).
 
-Use o módulo valores de clipe para identificar e, opcionalmente, substituir valores de dados que estão acima ou abaixo de um limite especificado com uma média, uma constante ou outro valor substituto.  
+Utilize o módulo Clip Values para identificar e substituir opcionalmente valores de dados acima ou abaixo de um limiar especificado por um valor médio, constante ou outro valor substituto.  
 
-Você conecta o módulo a um conjunto de um que tem os números que deseja recortar, escolhe as colunas com as quais trabalhar e, em seguida, define um limite ou intervalo de valores e um método de substituição. O módulo pode gerar apenas os resultados ou os valores alterados anexados ao conjunto de banco de um original.
+Liga-se o módulo a um conjunto de dados que tem os números que pretende fixar, escolhe as colunas para trabalhar e, em seguida, estabelece um limiar ou intervalo de valores, e um método de substituição. O módulo pode ser de saída apenas dos resultados, ou os valores alterados anexados ao conjunto de dados original.
 
 ## <a name="how-to-configure-clip-values"></a>Como configurar valores de clipe
 
-Antes de começar, identifique as colunas que você deseja recortar e o método a ser usado. Recomendamos que você teste qualquer método de recorte em um pequeno subconjunto de dados primeiro.
+Antes de começar, identifique as colunas que pretende cortar e o método a utilizar. Recomendamos que teste primeiro qualquer método de recorte num pequeno subconjunto de dados.
 
-O módulo aplica os mesmos critérios e método de substituição a **todas as** colunas que você incluir na seleção. Portanto, certifique-se de excluir colunas que você não deseja alterar.
+O módulo aplica os mesmos critérios e método de substituição a **todas as** colunas que incluir na seleção. Portanto, não se esqueça de excluir colunas que não quer mudar.
 
-Se você precisar aplicar métodos de recorte ou diferentes critérios a algumas colunas, deverá usar uma nova instância de **valores de clipe** para cada conjunto de colunas semelhantes.
+Se precisar de aplicar métodos de recorte ou critérios diferentes em algumas colunas, deve utilizar uma nova instância de Valores de **Clippara** cada conjunto de colunas semelhantes.
 
-1.  Adicione o módulo **valores de clipes** ao seu pipeline e conecte-o ao conjunto de um que você deseja modificar. Você pode encontrar esse módulo em **transformação de dados**, na categoria **escala e redução** . 
+1.  Adicione o módulo **Clip Values** ao seu pipeline e ligue-o ao conjunto de dados que pretende modificar. Pode encontrar este módulo na categoria De processamento de **dados,** na **categoria Escala e Redução.** 
   
-1.  Em **lista de colunas**, use o seletor de coluna para escolher as colunas às quais os **valores de clipe** serão aplicados.  
+1.  Na **lista das colunas,** utilize o Seletor de Colunas para escolher as colunas às quais serão **aplicados valores** de clip.  
   
-1.  Para o **conjunto de limites**, escolha uma das opções a seguir na lista suspensa. Essas opções determinam como você define os limites superior e inferior para valores aceitáveis versus valores que devem ser recortados.  
+1.  Para **o conjunto de limiares,** escolha uma das seguintes opções da lista de abandono. Estas opções determinam como definir os limites superior estoirantes e inferiores para valores aceitáveis vs. valores que devem ser cortados.  
   
-    - **ClipPeaks**: quando você corta valores por picos, você especifica apenas um limite superior. Valores maiores que esse valor de limite são substituídos.
+    - **ClipPeaks**: Quando corta os valores por picos, especifica apenas um limite superior. São substituídos valores superiores ao valor limite.
   
-    -  **ClipSubpeaks**: quando você corta valores por subpicos, você especifica apenas um limite inferior. Valores menores que esse valor de limite são substituídos.  
+    -  **ClipSubpeaks**: Quando corta os valores por subpicos, especifica apenas um limite inferior. Valores inferiores a esse valor limite são substituídos.  
   
-    - **ClipPeaksAndSubpeaks**: quando você corta valores por picos e subpicos, você pode especificar os limites superior e inferior. Os valores que estão fora desse intervalo são substituídos. Os valores que correspondem aos valores de limite não são alterados.
+    - **ClipPeaksAndSubpeaks**: Quando corta valores por picos e subpicos, pode especificar os limites superiores e inferiores. Os valores que estão fora desse alcance são substituídos. Valores que correspondam aos valores de fronteira não são alterados.
   
-1.  Dependendo da sua seleção na etapa anterior, você pode definir os seguintes valores de limite: 
+1.  Dependendo da sua seleção no passo anterior, pode definir os seguintes valores limiares: 
 
-    + **Limite inferior**: exibido somente se você escolher **ClipSubPeaks**
-    + **Limite superior**: exibido somente se você escolher **ClipPeaks**
-    + **Limite**: exibido somente se você escolher **ClipPeaksAndSubPeaks**
+    + **Limiar inferior**: Apresentado apenas se escolher **ClipSubPeaks**
+    + **Limiar superior**: Apresentado apenas se escolher **ClipPeaks**
+    + **Limiar**: Apresentado apenas se escolher **ClipPeaksAndSubPeaks**
 
-    Para cada tipo de limite, escolha **constante** ou **percentil**.
+    Para cada tipo de limiar, escolha **Constant** ou **Percentil**.
 
-1. Se você selecionar **constante**, digite o valor máximo ou mínimo na caixa de texto. Por exemplo, suponha que você saiba que o valor 999 foi usado como um valor de espaço reservado. Você pode escolher **constante** para o limite superior e digitar 999 no **valor constante para o limite superior**.
+1. Se selecionar **Constant,** escreva o valor máximo ou mínimo na caixa de texto. Por exemplo, assuma que sabe que o valor 999 foi usado como um valor de espaço reservado. Pode escolher **Constant** para o limiar superior, e tipo 999 em **valor constante para o limiar superior**.
   
-1. Se você escolher **percentil**, restringirá os valores de coluna a um intervalo percentual. 
+1. Se escolher **percentil,** limita os valores da coluna a uma gama de percentil. 
 
-    Por exemplo, suponha que você deseja manter apenas os valores no intervalo de 10-80 percentil e substituir todos os outros. Você deve escolher **percentil**e, em seguida, digitar 10 para o **valor de percentil para o limite inferior**e digitar 80 para o **valor de percentil para o limite superior**. 
+    Por exemplo, assuma que quer manter apenas os valores na gama de percentil de 10-80, e substituir todos os outros. Escolheria **Percentil**, e depois escreveria 10 para **o valor percentil para um limiar mais baixo,** e escreveria 80 para o **valor percentil para o limiar superior**. 
 
-    Consulte a seção sobre [percentuais](#examples-for-clipping-using-percentiles) para ver alguns exemplos de como usar intervalos de percentil.  
+    Consulte a secção de [percentículos](#examples-for-clipping-using-percentiles) para obter alguns exemplos de como usar intervalos de percentil.  
   
-1.  Defina um valor de substituição.
+1.  Defina um valor substituto.
 
-    Os números que correspondem exatamente aos limites que você especificou são considerados dentro do intervalo de valores permitido e, portanto, não são substituídos. Todos os números que estão fora do intervalo especificado são substituídos pelo valor de substituição. 
+    Os números que correspondem exatamente aos limites que especificou são considerados dentro da gama permitida de valores, pelo que não são substituídos. Todos os números que se inserem fora do intervalo especificado são substituídos pelo valor de substituição. 
   
-    + **Valor substituto para picos**: define o valor a ser substituído por todos os valores de coluna que são maiores que o limite especificado.  
-    + **Valor de substituição para subpicos**: define o valor a ser usado como um substituto para todos os valores de coluna que são menores que o limite especificado.  
-    + Se você usar a opção **ClipPeaksAndSubpeaks** , poderá especificar valores de substituição separados para os valores recortados superior e inferior.  
+    + **Valor de substituição dos picos**: Define o valor para substituir todos os valores da coluna que sejam superiores ao limiar especificado.  
+    + **Valor de substituição dos subpicos**: Define o valor a utilizar como substituto de todos os valores da coluna inferiores ao limiar especificado.  
+    + Se utilizar a opção **ClipPeaksAndSubpeaks,** pode especificar valores de substituição separados para os valores de corte superior e inferior.  
 
-    Há suporte para os seguintes valores de substituição:  
+    Suportam-se os seguintes valores de substituição:  
   
-    -   **Limite**: substitui valores recortados pelo valor de limite especificado.  
+    -   **Limiar**: Substitui os valores cortados pelo valor limiar especificado.  
   
-    -   **Média**: substitui os valores cortados pela média dos valores de coluna. A média é calculada antes que os valores sejam recortados.  
+    -   **Média**: Substitui os valores recortados pela média dos valores da coluna. A média é calculada antes de os valores serem cortados.  
   
-    -   **Mediana**: substitui os valores recortados pela mediana dos valores da coluna. A mediana é computada antes que os valores sejam recortados.   
+    -   **Mediano**: Substitui valores recortados pela mediana dos valores da coluna. A mediana é calculada antes de os valores serem cortados.   
   
-    -   **Ausente**. Substitui os valores recortados pelo valor ausente (vazio).  
+    -   **Desaparecido.** Substitui os valores cortados pelo valor (vazio) em falta.  
   
-1.  **Adicionar colunas de indicador**: Selecione esta opção se desejar gerar uma nova coluna que informa se a operação de recorte especificada foi aplicada aos dados nessa linha. Essa opção é útil quando você está testando um novo conjunto de valores de recorte e substituição.  
+1.  **Adicione colunas indicadoras**: Selecione esta opção se pretender gerar uma nova coluna que lhe diga se a operação de recorte especificada aplicada ou não aos dados dessa linha. Esta opção é útil quando está a testar um novo conjunto de valores de recorte e substituição.  
   
-1. **Substituir sinalizador**: indica como você deseja que os novos valores sejam gerados. Por padrão, **os valores de clipes** constroem uma nova coluna com os valores de pico recortados para o limite desejado. Novos valores substituem a coluna original.  
+1. **Sobrepor a bandeira**: Indique como pretende que os novos valores sejam gerados. Por padrão, **a Clip Values** constrói uma nova coluna com os valores de pico cortados ao limiar desejado. Novos valores sobreporem a coluna original.  
   
-    Para manter a coluna original e adicionar uma nova coluna com os valores recortados, desmarque essa opção.  
+    Para manter a coluna original e adicionar uma nova coluna com os valores recortados, desmarque esta opção.  
   
-1.  Executar o pipeline.  
+1.  Submeta o oleoduto.  
   
-    Clique com o botão direito do mouse no módulo **valores de clipe** e selecione **Visualizar** ou selecione o módulo e alterne para a guia **saídas** no painel direito, clique no ícone de histograma nas **saídas de porta**para examinar os valores e verificar se a operação de recorte atende às suas expectativas.  
+    Clique no módulo **Clip Values** e selecione **Visualizar** ou selecionar o módulo e mudar para o separador **Saídas** no painel direito, clique no ícone histograma nas **saídas da Porta,** para rever os valores e certificar-se de que a operação de recorte correspondeu às suas expectativas.  
  
-### <a name="examples-for-clipping-using-percentiles"></a>Exemplos de recorte usando percentils
+### <a name="examples-for-clipping-using-percentiles"></a>Exemplos para recortar usando percentiles
 
-Para entender como o recorte por percentils funciona, considere um conjunto de registros com 10 linhas, que têm uma instância de cada um dos valores de 1-10.  
+Para entender como funciona o recorte por percentículos, considere um conjunto de dados com 10 linhas, que têm um caso cada um dos valores 1-10.  
   
-- Se você estiver usando o percentil como o limite superior, no valor do 90 º percentil, 90 por cento de todos os valores no conjunto de um deve ser menor que esse valor.  
+- Se estiver a usar o percentil como limiar superior, pelo valor para o percentil 90, 90% de todos os valores no conjunto de dados devem ser inferiores a esse valor.  
   
-- Se você estiver usando o percentil como o limite inferior, no valor do décimo percentil, 10 por cento de todos os valores no conjunto de um deve ser menor que esse valor.  
+- Se estiver a usar o percentil como limiar inferior, pelo valor do percentil 10, 10% de todos os valores no conjunto de dados devem ser inferiores a esse valor.  
   
-1.  Para o **conjunto de limites**, escolha **ClipPeaksAndSubPeaks**.  
+1.  Para **o conjunto de limiares,** escolha **ClipPeaks AndSubPeaks**.  
   
-1.  Para **limite superior**, escolha **percentil**e para **número percentil**, digite 90.  
+1.  Para **o limiar superior,** escolha **Percentil,** e para **o número percentil,** tipo 90.  
   
-1.  Para o **valor de substituição superior**, escolha **valor ausente**.  
+1.  Para **o valor de substituição superior,** escolha O Valor Em **Falta**.  
   
-1.  Para o **limite inferior**, escolha **percentil**e, para **número percentual**, digite 10.  
+1.  Para **um limiar inferior,** escolha **Percentil,** e para **o número percentil,** tipo 10.  
   
-1.  Para **valor de substituição inferior**, escolha **valor ausente**.  
+1.  Para **um menor valor de substituição,** escolha O Valor Em **Falta**.  
   
-1.  Desmarque a opção **sinalizador de substituição**e selecione a opção **adicionar coluna do indicador**.  
+1.  Desmarque a **opção Sobreescrever a bandeira**, e selecione a opção, Adicione a **coluna indicadora**.  
   
-Agora, experimente o mesmo pipeline usando 60 como o limite superior do percentil e 30 como o limite inferior do percentil e use o valor do limite como o valor de substituição. A tabela a seguir compara esses dois resultados:  
+Agora tente o mesmo gasoduto usando 60 como o limiar de percentil superior e 30 como limiar de percentil mais baixo, e use o valor limiar como o valor de substituição. O quadro seguinte compara estes dois resultados:  
   
-1.  Substituir por ausente; Limite superior = 90; Limite inferior = 20  
+1.  Substituir por falta; Limiar superior = 90; Limiar inferior = 20  
   
-1.  Substituir por limite; Percentual superior = 60; Percentual inferior = 40  
+1.  Substituir por limiar; Percentil superior = 60; Percentil inferior = 40  
   
-|Dados originais|Substituir por ausente|Substituir pelo limite|  
+|Dados originais|Substitua por falta|Substituir por limiar|  
 |-------------------|--------------------------|----------------------------|  
-|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|VERDADEIRO<br /><br /> VERDADEIRO<br /><br /> 3, FALSO<br /><br /> 4, FALSO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, FALSO<br /><br /> 8, FALSO<br /><br /> 9, FALSO<br /><br /> VERDADEIRO|4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO| 
+|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|TRUE<br /><br /> TRUE<br /><br /> 3, FALSO<br /><br /> 4, FALSO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, FALSO<br /><br /> 8, FALSO<br /><br /> 9, FALSO<br /><br /> TRUE|4, VERDADE<br /><br /> 4, VERDADE<br /><br /> 4, VERDADE<br /><br /> 4, VERDADE<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, VERDADE<br /><br /> 7, VERDADE<br /><br /> 7, VERDADE<br /><br /> 7, VERDADE| 
  
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

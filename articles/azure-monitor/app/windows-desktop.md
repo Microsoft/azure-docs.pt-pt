@@ -4,10 +4,10 @@ description: Analise a utilização e o desempenho da sua aplicação de ambient
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670836"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorização de utilização e desempenho de aplicações de Ambiente de Trabalho do Windows Clássico
@@ -20,17 +20,17 @@ As aplicações alojadas no local, no Azure e noutras clouds podem tirar todo o 
 3. No Visual Studio, edite os pacotes NuGet do seu projeto da aplicação e adicione Microsoft.ApplicationInsights.WindowsServer. (Ou escolha Microsoft.ApplicationInsights se apenas pretender a API bare, sem os módulos de coleção de telemetria standard.)
 4. Defina a chave de instrumentação no seu código:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *a sua `";` chave*
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *a sua chave* `";`
    
     ou no Applicationinsights (se tiver instalado um dos pacotes de telemetria standard):
    
-    `<InstrumentationKey>`*a sua chave*`</InstrumentationKey>` 
+    `<InstrumentationKey>`*sua chave*`</InstrumentationKey>` 
    
     Se utilizar o ApplicationInsights.config, certifique-se de que as propriedades no Explorador de Soluções estão definidas para **Ação de Compilação = Conteúdo, Copiar para o Diretório de Saída = Copiar**.
 5. [Utilize a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar telemetria.
 6. Execute a sua aplicação e veja a telemetria no recurso que criou no portal Azure.
 
-## <a name="telemetry"></a>Código de exemplo
+## <a name="example-code"></a><a name="telemetry"></a>Código de exemplo
 ```csharp
 using Microsoft.ApplicationInsights;
 
@@ -93,7 +93,7 @@ namespace CustomInitializer.Telemetry
     }
 }
 ```
-Instantie o inicializador no método `Program.cs` `Main()` abaixo, definindo a chave de instrumentação:
+Instantie o inicializador no `Program.cs` `Main()` método abaixo, definindo a chave de instrumentação:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

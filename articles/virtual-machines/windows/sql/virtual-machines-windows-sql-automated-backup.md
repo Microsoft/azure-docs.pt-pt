@@ -15,10 +15,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: c7dea85d8de17a0f65e6e73b5b5fbe619d464d3d
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650347"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatizado para Máquinas Virtuais SQL Server 2014 (Gestor de Recursos)
@@ -42,7 +42,7 @@ Para utilizar backup automatizado, considere os seguintes pré-requisitos:
 
 **Versão/edição do SQL Server:**
 
-- SQL Server 2014 Standard
+- Padrão SQL Server 2014
 - SQL Server 2014 Enterprise
 
 > [!IMPORTANT]
@@ -62,10 +62,10 @@ A tabela seguinte descreve as opções que podem ser configuradas para Backup Au
 
 | Definição | Gama (Padrão) | Descrição |
 | --- | --- | --- |
-| **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Ativa ou desativa backup automatizado para um Azure VM executando SQL Server 2014 Standard ou Enterprise. |
+| **Backup automatizado** | Ativar/Desativar (Desativado) | Ativa ou desativa backup automatizado para um Azure VM executando SQL Server 2014 Standard ou Enterprise. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter um reforço. |
-| **Storage Account** | Conta de armazenamento do Azure | Uma conta de armazenamento Azure para armazenar ficheiros de backup automatizados no armazenamento de blob. Um recipiente é criado neste local para armazenar todos os ficheiros de reserva. A convenção de nomeação de ficheiros de reserva inclui a data, hora e nome da máquina. |
-| **Encriptação** | Ativar/Desativar (Desativado) | Permite ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada no mesmo recipiente `automaticbackup` utilizando a mesma convenção de nomeação. Se a palavra-passe mudar, um novo certificado é gerado com essa palavra-passe, mas o certificado antigo permanece para restaurar cópias de segurança prévias. |
+| **Conta de Armazenamento** | Conta de armazenamento do Azure | Uma conta de armazenamento Azure para armazenar ficheiros de backup automatizados no armazenamento de blob. Um recipiente é criado neste local para armazenar todos os ficheiros de reserva. A convenção de nomeação de ficheiros de reserva inclui a data, hora e nome da máquina. |
+| **Encriptação** | Ativar/Desativar (Desativado) | Permite ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a `automaticbackup` cópia de segurança estão localizados na conta de armazenamento especificada no mesmo recipiente utilizando a mesma convenção de nomeação. Se a palavra-passe mudar, um novo certificado é gerado com essa palavra-passe, mas o certificado antigo permanece para restaurar cópias de segurança prévias. |
 | **Palavra-passe** | Texto de palavra-passe | Uma senha para chaves de encriptação. Isto só é necessário se a encriptação estiver ativada. Para restaurar uma cópia de segurança encriptada, deve ter a palavra-passe correta e o certificado relacionado que foi utilizado no momento em que a cópia de segurança foi tomada. |
 
 
@@ -115,7 +115,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se a extensão do Agente IaaS do Servidor SQL estiver instalada, deverá vê-la listada como "SqlIaASAgent" ou "SQLIaaSExtension". O Estado de **provisionamento** para a extensão também deve mostrar "Sucesso".
 
-Se não estiver instalado ou não for aprovisionado, pode instalá-lo com o seguinte comando. Além do nome vm e do grupo de recursos, deve também especificar a região ( **$region**) em que o seu VM está localizado. Especifique o tipo de licença para o seu VM de Servidor SQL, escolhendo entre pagar-as-você-go ou trazer a sua própria licença através do [Benefício Híbrido Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para mais informações sobre licenciamento, consulte [o modelo de licenciamento.](virtual-machines-windows-sql-ahb.md) 
+Se não estiver instalado ou não for aprovisionado, pode instalá-lo com o seguinte comando. Além do nome vm e do grupo de recursos, deve também especificar a região (**$region**) em que o seu VM está localizado. Especifique o tipo de licença para o seu VM de Servidor SQL, escolhendo entre pagar-as-você-go ou trazer a sua própria licença através do [Benefício Híbrido Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para mais informações sobre licenciamento, consulte [o modelo de licenciamento.](virtual-machines-windows-sql-ahb.md) 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -126,7 +126,7 @@ New-AzSqlVM  -Name $vmname `
 > [!IMPORTANT]
 > Se a extensão ainda não estiver instalada, a instalação da extensão reinicia o serviço SQL Server.
 
-### <a id="verifysettings"></a>Verifique as definições atuais
+### <a name="verify-current-settings"></a><a id="verifysettings"></a>Verifique as definições atuais
 
 Se ativou a cópia de segurança automática durante o fornecimento, pode utilizar o PowerShell para verificar a sua configuração atual. Executar o comando **De extensão Get-AzVMSqlServer** e examinar a propriedade **AutoBackupSettings:**
 

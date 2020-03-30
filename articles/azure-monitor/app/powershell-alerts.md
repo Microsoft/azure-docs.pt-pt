@@ -4,10 +4,10 @@ description: Automatizar a configuração de Insights de Aplicação para obter 
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669850"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
@@ -100,7 +100,7 @@ A mesma regra pode ser utilizada para a métrica relatada utilizando o parâmetr
 | `clientPerformance.total.value` |Tempo de carga da página do navegador |O tempo do pedido do utilizador até do M, folhas de estilo, scripts e imagens são carregados. |
 | `performanceCounter.available_bytes.value` |Memória disponível |Memória física imediatamente disponível para um processo ou para utilização do sistema. |
 | `performanceCounter.io_data_bytes_per_sec.value` |Taxa io processo |Total de bytes por segundo lido e escrito para ficheiros, rede e dispositivos. |
-| `performanceCounter.number_of_exceps_thrown_per_sec.value` |Taxa de exceção |Exceções lançadas por segundo. |
+| `performanceCounter.number_of_exceps_thrown_per_sec.value` |taxa de exceção |Exceções lançadas por segundo. |
 | `performanceCounter.percentage_processor_time.value` |CpU processo |A percentagem de tempo decorrido de todos os fios de processo utilizados pelo processador para instruções de execução para o processo de aplicações. |
 | `performanceCounter.percentage_processor_total.value` |Hora do processador |A percentagem de tempo que o processador passa em fios não-inactivos. |
 | `performanceCounter.process_private_bytes.value` |Processo bytes privados |Memória exclusivamente atribuída aos processos da aplicação monitorizada. |
@@ -118,10 +118,10 @@ As métricas são enviadas por diferentes módulos de telemetria:
 
 | Grupo métrico | Módulo de colecionador |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientePerformance,<br/>vista |[JavaScript do navegador](../../azure-monitor/app/javascript.md) |
-| performanceContador |[Performance](../../azure-monitor/app/configuration-with-applicationinsights-config.md) (Desempenho) |
-| remoteDependencyFailed |[Dependência](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| pedido,<br/>requestFailed |[Pedido do servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientePerformance,<br/>ver |[JavaScript do navegador](../../azure-monitor/app/javascript.md) |
+| performanceContador |[Desempenho](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| remotaDependênciaFailed |[Dependência](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| pedido,<br/>pedidoFailed |[Pedido do servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhooks
 Pode [automatizar a sua resposta a um alerta.](../../azure-monitor/platform/alerts-webhooks.md) O Azure irá ligar para um endereço web à sua escolha quando um alerta for levantado.

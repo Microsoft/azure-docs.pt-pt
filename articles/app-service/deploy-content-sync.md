@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77482977"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizar conteúdo de uma pasta de nuvem para o Serviço de Aplicações Azure
@@ -22,7 +22,7 @@ A implantação de sincronização de conteúdo sonoro a pedido é alimentada pe
 
 Para ativar a sincronização de conteúdos, navegue para a página da sua aplicação Do Serviço de Aplicações no [portal Azure](https://portal.azure.com).
 
-No menu esquerdo, clique no **Centro de Implementação** > **OneDrive** ou **Dropbox** > **Autorizar**. Siga os pedidos de autorização. 
+No menu esquerdo, clique no **Centro** > de Implementação**OneDrive** ou **Dropbox** > **Autorizar**. Siga os pedidos de autorização. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
@@ -32,8 +32,8 @@ Só precisa de autorizar com o OneDrive ou o Dropbox uma vez. Se já estiver aut
 
 Na página **Configure,** selecione a pasta que pretende sincronizar. Esta pasta é criada sob o seguinte caminho de conteúdo designado no OneDrive ou Dropbox. 
    
-* **OneDrive**: `Apps\Azure Web Apps`
-* **Dropbox**: `Apps\Azure`
+* **OneDrive**:`Apps\Azure Web Apps`
+* **Dropbox**:`Apps\Azure`
 
 Quando terminar, clique **em Continuar**.
 
@@ -54,13 +54,13 @@ Quando pretender sincronizar conteúdo na sua pasta de nuvem com o Serviço de A
 
 Para desativar a sincronização de conteúdos, navegue para a página da sua aplicação do App Service no [portal Azure](https://portal.azure.com).
 
-No menu esquerdo, clique no **Centro de Implantação** > **Desligar**.
+No menu esquerdo, clique em > **Desligar**o **Centro de Implantação**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Desdobre-se a partir de Git repo local](deploy-local-git.md)

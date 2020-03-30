@@ -1,15 +1,15 @@
 ---
 title: Ligações Azure Cosmos DB para funções 2.x
-description: Compreenda como utilizar o Azure Cosmos DB acionadores e enlaces nas funções do Azure.
+description: Compreenda como utilizar gatilhos e encadernações Azure Cosmos DB em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
 ms.openlocfilehash: f258a7aff52796a53540706bc8413575d63c9e7d
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77605771"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-overview"></a>Gatilho e encadernação Azure Cosmos DB para funções azure 2.x visão geral
@@ -18,7 +18,7 @@ ms.locfileid: "77605771"
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
-Este conjunto de artigos explica como trabalhar com ligações [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) em Funções Azure 2.x. Funções do Azure suporta acionaram, de entrada e saída enlaces para o Azure Cosmos DB.
+Este conjunto de artigos explica como trabalhar com ligações [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) em Funções Azure 2.x. A Azure Functions suporta ligações de gatilho, entrada e saída para o Azure Cosmos DB.
 
 | Ação | Tipo |
 |---------|---------|
@@ -29,7 +29,7 @@ Este conjunto de artigos explica como trabalhar com ligações [Azure Cosmos DB]
 > [!NOTE]
 > Esta referência é para [a versão 2.x das Funções Azure.](functions-versions.md)  Para obter informações sobre como utilizar estas ligações nas funções 1.x, consulte [ligações Azure Cosmos DB para funções Azure 1.x](functions-bindings-cosmosdb.md).
 >
-> Este enlace foi originalmente denominado DocumentDB. Nas Funções versão 2.x, o gatilho, as encadernações e o pacote são todos chamados Cosmos DB.
+> Esta ligação foi originalmente chamada DocumentDB. Nas Funções versão 2.x, o gatilho, as encadernações e o pacote são todos chamados Cosmos DB.
 
 ## <a name="supported-apis"></a>APIs suportados
 
@@ -44,8 +44,8 @@ Trabalhar com o gatilho e encadernações requer que consulte o pacote apropriad
 | Idioma                                        | Adicione por...                                   | Observações 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalação do [pacote NuGet], versão 3.x | |
-| C#Script, Java, JavaScript, Python, PowerShell | Registando o [pacote de extensão]          | Recomenda-se a [Extensão de ferramentas azure] para utilizar com o Código do Estúdio Visual. |
-| C#Script (apenas online no portal Azure)         | Adicionar uma ligação                            | Para atualizar as extensões de ligação existentes sem ter de voltar a publicar a sua aplicação de funções, consulte [Atualize as suas extensões]. |
+| C# Script, Java, JavaScript, Python, PowerShell | Registando o [pacote de extensão]          | Recomenda-se a [extensão Azure Tools] para utilizar com o Código do Estúdio Visual. |
+| C# Script (apenas online no portal Azure)         | Adicionar uma ligação                            | Para atualizar as extensões de ligação existentes sem ter de voltar a publicar a sua aplicação de funções, consulte [atualizar as suas extensões]. |
 
 [Pacote NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB
 [core tools]: ./functions-run-local.md

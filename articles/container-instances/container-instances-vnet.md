@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
 ms.openlocfilehash: 318576e9b5c5b32bbc993ea16494c938b74bd2f4
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77200066"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentores numa rede virtual Azure
@@ -24,7 +24,7 @@ Grupos de contentores implantados numa rede virtual Azure permitem cenários com
 * Comunicação de contentores com recursos no local através de um [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 > [!IMPORTANT]
-> As implantações de grupos de contentores para uma rede virtual estão geralmente disponíveis para cargas de trabalho de produção apenas nas seguintes regiões: **Leste dos EUA, Centro-Sul dos EUA e Us 2**Ocidental . Noutras regiões onde a funcionalidade está disponível, as implementações de redes virtuais estão atualmente em pré-visualização, com disponibilidade geral prevista para um futuro próximo. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. 
+> As implantações de grupos de contentores para uma rede virtual estão geralmente disponíveis para cargas de trabalho de produção apenas nas seguintes regiões: **Leste dos EUA, Centro-Sul dos EUA e Us 2**Ocidental . Noutras regiões onde a funcionalidade está disponível, as implementações de redes virtuais estão atualmente em pré-visualização, com disponibilidade geral prevista para um futuro próximo. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. 
 
 
 ## <a name="virtual-network-deployment-limitations"></a>Limitações de implantação de rede virtual
@@ -63,7 +63,7 @@ Uma rede virtual define o espaço de endereço no qual cria uma ou mais subredes
 
 ### <a name="subnet-delegated"></a>Subnet (delegado)
 
-Sub-redes segmentar a rede virtual em espaços de endereço separados utilizáveis pelos recursos do Azure que coloca nos mesmos. Cria-se uma ou várias subredes dentro de uma rede virtual.
+As subredes segmentam a rede virtual em espaços de endereços separados utilizáveis pelos recursos Azure que você colocar neles. Cria-se uma ou várias subredes dentro de uma rede virtual.
 
 A sub-rede que utiliza para grupos de contentores pode conter apenas grupos de contentores. Quando se coloca pela primeira vez um grupo de contentores numa sub-rede, o Azure delega essa sub-rede para as instâncias de contentores de Azure. Uma vez delegada, a sub-rede só pode ser utilizada para grupos de contentores. Se tentar mobilizar recursos que não os grupos de contentores para uma sub-rede delegada, a operação falha.
 
@@ -85,12 +85,12 @@ Pode utilizar a [criação de contentores Az][az-container-create] para implanta
 
 Para implantar numa nova rede virtual e fazer com que o Azure crie automaticamente os recursos de rede para si, especifique o seguinte quando executar o [recipiente Az criar:][az-container-create]
 
-* Nome de rede virtual
+* Nome da rede virtual
 * Prefixo de endereço de rede virtual no formato CIDR
 * Nome da sub-rede
 * Prefixo de endereço subnet no formato CIDR
 
-Os prefixos de endereço de rede virtual e sub-rede especificam os espaços de endereço para a rede virtual e sub-rede, respectivamente. Estes valores estão representados na notação de encaminhamento inter-domínio sem classe (CIDR), por exemplo, `10.0.0.0/16`. Para obter mais informações sobre o trabalho com subredes, consulte [Adicionar, alterar ou eliminar uma subrede de rede virtual](../virtual-network/virtual-network-manage-subnet.md).
+Os prefixos de endereço de rede virtual e sub-rede especificam os espaços de endereço para a rede virtual e sub-rede, respectivamente. Estes valores estão representados na notação de encaminhamento `10.0.0.0/16`inter-domínio sem classe (CIDR), por exemplo. Para obter mais informações sobre o trabalho com subredes, consulte [Adicionar, alterar ou eliminar uma subrede de rede virtual](../virtual-network/virtual-network-manage-subnet.md).
 
 Uma vez implantado o seu primeiro grupo de contentores com este método, pode ser implantado na mesma sub-rede especificando os nomes de rede virtual e sub-rede, ou o perfil de rede que o Azure cria automaticamente para si. Uma vez que o Azure delega a subnet a Casos de Contentores Azure, só pode *implantar* grupos de contentores na sub-rede.
 
@@ -146,7 +146,7 @@ $ az container show --resource-group myResourceGroup --name appcontainer --query
 10.0.0.4
 ```
 
-Agora, `CONTAINER_GROUP_IP` para o IP que recuperou com o comando `az container show`, e execute o seguinte comando `az container create`. Este segundo recipiente, *commchecker,* executa uma imagem baseada em Alpine Linux e executa `wget` contra o endereço IP da sub-rede privada do primeiro grupo de contentores.
+Agora, `CONTAINER_GROUP_IP` adere ao IP `az container show` que recuperou com `az container create` o comando e execute o seguinte comando. Este segundo recipiente, *commchecker,* executa uma imagem `wget` baseada em Alpine Linux e executa contra o endereço IP da subnet privada do primeiro grupo de contentores.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-here>
@@ -161,7 +161,7 @@ az container create \
     --subnet aci-subnet
 ```
 
-Depois de concluída esta segunda implantação do contentor, puxe os seus troncos para que possa ver a saída do comando `wget` que executou:
+Depois de concluída esta segunda implantação do contentor, puxe os `wget` seus troncos para que possa ver a saída do comando que executou:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name commchecker
@@ -175,7 +175,7 @@ Connecting to 10.0.0.4 (10.0.0.4:80)
 index.html           100% |*******************************|  1663   0:00:00 ETA
 ```
 
-A saída de registo deve mostrar que `wget` conseguiu ligar e descarregar o ficheiro de índice do primeiro recipiente utilizando o seu endereço IP privado na subnet local. O tráfego de rede entre os dois grupos de contentores manteve-se dentro da rede virtual.
+A saída de `wget` registo deve mostrar que foi capaz de ligar e descarregar o ficheiro de índice do primeiro recipiente utilizando o seu endereço IP privado na subnet local. O tráfego de rede entre os dois grupos de contentores manteve-se dentro da rede virtual.
 
 ### <a name="deploy-to-existing-virtual-network---yaml"></a>Implemente para a rede virtual existente - YAML
 
@@ -184,8 +184,8 @@ Também pode implantar um grupo de contentores numa rede virtual existente utili
 * `ipAddress`: As definições de endereço IP para o grupo de contentores.
   * `ports`: As portas para abrir, se houver.
   * `protocol`: O protocolo (TCP ou UDP) para a porta aberta.
-* `networkProfile`: Especifica as definições de rede como a rede virtual e a sub-rede para um recurso Azure.
-  * `id`: A identificação completa do recurso do Gestor de Recursos do `networkProfile`.
+* `networkProfile`: Especifica definições de rede como a rede virtual e a sub-rede para um recurso Azure.
+  * `id`: O ID completo do `networkProfile`recurso do Gestor de Recursos do .
 
 Para implantar um grupo de contentores numa rede virtual com um ficheiro YAML, primeiro é necessário obter a identificação do perfil da rede. Execute o comando da lista de perfis de [rede Az,][az-network-profile-list] especificando o nome do grupo de recursos que contém a sua rede virtual e subnet delegado.
 
@@ -200,7 +200,7 @@ $ az network profile list --resource-group myResourceGroup --query [0].id --outp
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Assim que tiver o ID do perfil de rede, copie o seguinte YAML num novo ficheiro chamado *vnet-deploy-aci.yaml*. Em `networkProfile`, substitua o valor `id` por ID que acabou de recuperar e, em seguida, guarde o ficheiro. Este YAML cria um grupo de contentores chamado *appcontaineryaml* na sua rede virtual.
+Assim que tiver o ID do perfil de rede, copie o seguinte YAML num novo ficheiro chamado *vnet-deploy-aci.yaml*. Em `networkProfile`baixo, `id` substitua o valor por ID que acabou de recuperar e, em seguida, guarde o ficheiro. Este YAML cria um grupo de contentores chamado *appcontaineryaml* na sua rede virtual.
 
 ```YAML
 apiVersion: '2018-09-01'
@@ -231,7 +231,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Implante o grupo de contentores com o [recipiente Az criar][az-container-create] comando, especificando o nome de ficheiro YAML para o parâmetro `--file`:
+Implante o grupo de contentores com o [recipiente az criar][az-container-create] `--file` comando, especificando o nome de ficheiro YAML para o parâmetro:
 
 ```azurecli
 az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
@@ -262,7 +262,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 Esta funcionalidade requer atualmente vários comandos adicionais para eliminar os recursos de rede que criou anteriormente. Se usou os comandos de exemplo em secções anteriores deste artigo para criar a sua rede virtual e sub-rede, então pode utilizar o seguinte script para eliminar esses recursos de rede. O script pressupõe que o seu grupo de recursos contém uma única rede virtual com um único perfil de rede.
 
-Antes de executar o script, detete a variável `RES_GROUP` para o nome do grupo de recursos que contém a rede virtual e a sub-rede que devem ser eliminadas. Atualize o nome da rede virtual se não tiver utilizado o nome `aci-vnet` sugerido anteriormente. O guião está formatado para a concha bash. Se preferir outra concha como powerShell ou Command Prompt, terá de ajustar a atribuição variável e os acessórios em conformidade.
+Antes de executar o `RES_GROUP` script, detete a variável para o nome do grupo de recursos que contém a rede virtual e a sub-rede que devem ser eliminadas. Atualize o nome da rede virtual `aci-vnet` se não tiver utilizado o nome sugerido anteriormente. O guião está formatado para a concha bash. Se preferir outra concha como powerShell ou Command Prompt, terá de ajustar a atribuição variável e os acessórios em conformidade.
 
 > [!WARNING]
 > Este guião elimina recursos! Elimina a rede virtual e todas as redes que contém. Certifique-se de que já não precisa de *nenhum* dos recursos na rede virtual, incluindo quaisquer subredes que contenha, antes de executar este script. Uma vez eliminados, **estes recursos são irrecuperáveis.**
@@ -293,7 +293,7 @@ Vários recursos e funcionalidades de rede virtuais foram discutidos neste artig
 * [Rede virtual](../virtual-network/manage-virtual-network.md)
 * [Sub-rede](../virtual-network/virtual-network-manage-subnet.md)
 * [Pontos finais de serviço](../virtual-network/virtual-network-service-endpoints-overview.md)
-* [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+* [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 <!-- IMAGES -->

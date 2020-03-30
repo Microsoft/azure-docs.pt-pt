@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: srchi
 ms.openlocfilehash: ec1ec1a8a80953f8988355341ee7128bd29b982d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77467782"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Alterar streams na API da Azure Cosmos DB para o MongoDB
@@ -19,7 +19,7 @@ ms.locfileid: "77467782"
 O suporte [para alimentação](change-feed.md) de alterações na API da Azure Cosmos DB para o MongoDB está disponível utilizando os fluxos de mudança API. Ao utilizar os fluxos de alteração API, as suas aplicações podem obter as alterações feitas na recolha ou nos itens num único fragmento. Mais tarde poderá tomar mais medidas com base nos resultados. As alterações aos itens da coleção são capturadas na ordem do seu tempo de modificação e a ordem de classificação é garantida por chave de fragmentos.
 
 > [!NOTE]
-> Para utilizar os streams de mudança, crie a conta com a versão 3.6 da API do Azure Cosmos DB para o MongoDB, ou uma versão posterior. Se executar os exemplos de fluxo de mudança contra uma versão anterior, poderá ver o erro `Unrecognized pipeline stage name: $changeStream`. 
+> Para utilizar os streams de mudança, crie a conta com a versão 3.6 da API do Azure Cosmos DB para o MongoDB, ou uma versão posterior. Se executar os exemplos de fluxo de mudança contra `Unrecognized pipeline stage name: $changeStream` uma versão anterior, poderá ver o erro. 
 
 O exemplo que se segue mostra como obter fluxos de mudança em todos os itens da coleção. Este exemplo cria um cursor para observar itens quando são inseridos, atualizados ou substituídos. A $match fase, $project estágio e a opção fullDocument são necessárias para obter os fluxos de mudança. Atualmente, não é suportado o cuidado de eliminar as operações utilizando fluxos de mudança. Como uma suver, pode adicionar um marcador suave nos itens que estão a ser eliminados. Por exemplo, pode adicionar um atributo no item chamado "eliminado" e defini-lo como "verdadeiro" e definir um TTL no item, para que possa eliminá-lo automaticamente, bem como rastreá-lo.
 
@@ -61,8 +61,8 @@ var cursor = db.coll.watch(
 
 As seguintes limitações aplicam-se quando se utilizam fluxos de mudança:
 
-* As propriedades `operationType` e `updateDescription` ainda não são suportadas no documento de saída.
-* Os tipos de operações `insert`, `update`e `replace` são atualmente suportados. A eliminação da operação ou de outros eventos ainda não são suportados.
+* As `operationType` `updateDescription` propriedades e propriedades ainda não são suportadas no documento de saída.
+* Os `insert` `update`tipos `replace` de operações e operações são atualmente suportados. A eliminação da operação ou de outros eventos ainda não são suportados.
 
 Devido a estas limitações, as opções $match fase, $project palco e fullDocument são necessárias como mostrado nos exemplos anteriores.
 
@@ -72,7 +72,7 @@ Os seguintes códigos de erro e mensagens são suportados quando utilizam os flu
 
 * Código de **erro HTTP 429** - Quando o fluxo de mudança é estrangulado, devolve uma página vazia.
 
-* **NamespaceNotFound (OperationType Invalida)** - Se executar o fluxo de alteração na recolha que não existe ou se a recolha for abandonada, então um erro `NamespaceNotFound` é devolvido. Como a propriedade `operationType` não pode ser devolvida no documento de saída, em vez do `operationType Invalidate` erro, o erro `NamespaceNotFound` é devolvido.
+* **NamespaceNotFound (OperationType Invalida)** - Se executar o fluxo de alteração na recolha que `NamespaceNotFound` não existe ou se a recolha for abandonada, então um erro é devolvido. Como `operationType` a propriedade não pode ser devolvida no `operationType Invalidate` documento de `NamespaceNotFound` saída, em vez do erro, o erro é devolvido.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorização do SAP HANA em Azure (Grandes Instâncias)  Microsoft Docs
+title: Monitorização do SAP HANA em Azure (Grandes Instâncias) [ Microsoft Docs
 description: Monitor SAP HANA em um Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 50a6b4f15a7de02533e3bb51e5659f7b4c078b40
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617296"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Como monitorizar o SAP HANA (grandes instâncias) no Azure
@@ -26,7 +26,7 @@ O SAP HANA on Azure (Grandes Instâncias) não é diferente de qualquer outra im
 
 - CPU
 - Memória
-- Largura de banda da rede
+- Largura de banda de rede
 - Espaço em disco
 
 Com as Máquinas Virtuais Azure, você precisa descobrir se as classes de recursos acima referidas são suficientes ou se ficam esgotadas. Aqui está mais detalhes sobre cada uma das diferentes classes:
@@ -48,6 +48,6 @@ Quando trabalha com a equipa de Suporte do Microsoft para resolver um problema, 
 tar  -czvf health_check_logs.tar.gz /var/log/health_check
 ```
 
-**Passos seguintes?**
+**Passos seguintes**
 
 - Consulte [como monitorizar o SAP HANA (grandes instâncias) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot).

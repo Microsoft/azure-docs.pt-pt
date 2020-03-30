@@ -3,22 +3,22 @@ title: Recue as máquinas do Windows utilizando o agente MARS
 description: Utilize o agente Microsoft Azure Recovery Services (MARS) para fazer o back-up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 0e1f7044c62bbaa9969b97690bf16b9ed446c27c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 12463f33a6fa97b33e70b77fb2fcf6b0a27b5790
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79247777"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408917"
 ---
 # <a name="back-up-windows-machines-by-using-the-azure-backup-mars-agent"></a>Faça backup das máquinas Windows utilizando o agente Azure Backup MARS
 
 Este artigo explica como fazer backup das máquinas Windows utilizando o serviço [de backup Azure](backup-overview.md) e o agente microsoft Azure Recovery Services (MARS). Mars também é conhecido como o agente Azure Backup.
 
-Neste artigo, ficará a saber como:
+Neste artigo, aprenderá a:
 
 > [!div class="checklist"]
 >
-> * Verifique os pré-requisitos
+> * Verificar os pré-requisitos
 > * Crie uma política de backup e horário.
 > * Faça um reforço a pedido.
 
@@ -43,7 +43,7 @@ Para criar uma política de backup:
 1. Em **Ações,** selecione **'Agenda'.**
 
     ![Agendar uma cópia de segurança do Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
-1. No Assistente de Reserva de Agenda, selecione **Iniciar** > **Seguinte**.
+1. No Assistente de Reserva de Agenda, selecione **Iniciar-se** > **Seguinte**.
 1. Em **itens selecionados para fazer back up,** selecione **Adicionar itens**.
 
     ![Adicione itens para fazer apoio](./media/backup-azure-manage-mars/select-item-to-backup.png)
@@ -157,4 +157,6 @@ Para mais informações, consulte [Criar uma política](#create-a-backup-policy)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [restaurar ficheiros em Azure](backup-azure-restore-windows-server.md).
+* Saiba como [restaurar ficheiros em Azure](backup-azure-restore-windows-server.md).
+* Encontre [questões comuns sobre o backup de ficheiros e pastas](backup-azure-file-folder-backup-faq.md)
+

@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - Configure alta disponibilidade a partir de instalações para gateway AVS VPN
-description: Descreve como configurar uma ligação de alta disponibilidade do seu ambiente no local para um gateway AVS VPN habilitado para alta disponibilidade
+title: Solução Azure VMware by CloudSimple - Configure a alta disponibilidade a partir de instalações para o gateway VPN CloudSimple
+description: Descreve como configurar uma ligação de alta disponibilidade do seu ambiente no local para um gateway VPN CloudSimple habilitado para alta disponibilidade
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b6dc309c1405a07cf192301208a97975ca9ce256
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025270"
 ---
-# <a name="configure-a-high-availability-connection-from-on-premises-to-an-avs-vpn-gateway"></a>Configure uma ligação de alta disponibilidade a partir do local para um gateway AVS VPN
+# <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configure uma ligação de alta disponibilidade a partir de instalações para o gateway VPN CloudSimple
 
-Os administradores de rede podem configurar uma ligação VPN iPsec de alta disponibilidade do seu ambiente no local para um gateway AVS VPN.
+Os administradores de rede podem configurar uma ligação VPN site-para-site de alta disponibilidade do seu ambiente no local para um gateway VPN CloudSimple.
 
 Este guia apresenta passos para configurar uma firewall no local para uma ligação vpn de alta disponibilidade do Site-para-Site IPsec. Os passos detalhados são específicos do tipo de firewall no local. Como exemplos, este guia apresenta passos para dois tipos de firewalls: Cisco ASA e Palo Alto Networks.
 
@@ -25,8 +25,8 @@ Este guia apresenta passos para configurar uma firewall no local para uma ligaç
 
 Complete as seguintes tarefas antes de configurar a firewall no local.
 
-1. Verifique se a sua organização [foru os](create-nodes.md) nódosos necessários e criou pelo menos uma Nuvem Privada AVS.
-2. [Configure um portal VPN site-to-site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) entre a sua rede no local e a sua Nuvem Privada AVS.
+1. Verifique se a sua organização [foru os](create-nodes.md) nódosos necessários e criou pelo menos uma CloudSimple Private Cloud.
+2. [Configure um portal VPN site-to-site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) entre a sua rede no local e a sua CloudSimple Private Cloud.
 
 Consulte a visão geral dos [gateways VPN](cloudsimple-vpn-gateways.md) para as propostas de fase 1 e fase 2 suportadas.
 
@@ -34,7 +34,7 @@ Consulte a visão geral dos [gateways VPN](cloudsimple-vpn-gateways.md) para as 
 
 As instruções nesta secção aplicam-se à versão 8.4 da Cisco ASA e posteriormente. No exemplo de configuração, a Versão 9.10 do software de segurança adaptável da Cisco adaptive é implementada e configurada no modo IKEv1.
 
-Para que a VPN do Site-a-Site funcione, deve permitir que uDP 500/4500 e ESP (protocolo IP 50) do IP público primário e secundário (PEER IP) na interface externa do gateway Cisco ASA VPN no local.
+Para que a VPN do Site-a-Site funcione, deve permitir que uDP 500/4500 e ESP (protocolo IP 50) do IP público primário e secundário (peer IP) da CloudSimple na interface externa do gateway Cisco ASA VPN no local.
 
 ### <a name="1-configure-phase-1-ikev1"></a>1. Configurar a fase 1 (IKEv1)
 
@@ -71,7 +71,7 @@ ikev1 pre-shared-key *****
 
 ### <a name="4-configure-phase-2-ipsec"></a>4. Configurar a fase 2 (IPsec)
 
-Para configurar a fase 2 (IPsec), crie uma lista de controlo de acesso (ACL) que defina o tráfego a ser encriptado e túnel. No exemplo seguinte, o tráfego de interesses provém do túnel que é proveniente da subnet local no local (10.16.1.0/24) até à subrede remota DaVs Private Cloud (192.168.0.0/24). A ACL pode conter várias entradas se houver várias subredes entre os sites.
+Para configurar a fase 2 (IPsec), crie uma lista de controlo de acesso (ACL) que defina o tráfego a ser encriptado e túnel. No exemplo seguinte, o tráfego de interesses provém do túnel que é proveniente da subnet local no local (10.16.1.0/24) até à subrede remota da Nuvem Privada (192.168.0.0/24). A ACL pode conter várias entradas se houver várias subredes entre os sites.
 
 Nas versões Cisco ASA 8.4 e posteriormente, podem ser criados objetos ou grupos de objetos que servem de recipientes para as redes, subredes, endereços IP hospedeiros ou múltiplos objetos. Crie um objeto para o local e um objeto para as subredes remotas e use-os para as declarações cripto ACL e NAT.
 
@@ -82,7 +82,7 @@ object network AZ_inside
 subnet 10.16.1.0 255.255.255.0
 ```
 
-#### <a name="define-the-avs-remote-subnet-as-an-object"></a>Defina a subrede remota AVS como um objeto
+#### <a name="define-the-cloudsimple-remote-subnet-as-an-object"></a>Defina a subnet remota CloudSimple como um objeto
 
 ```
 object network CS_inside
@@ -97,7 +97,7 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### <a name="5-configure-the-transform-set"></a>5. Configure o conjunto de transformação
 
-Configure o conjunto de transformação (TS), que deve envolver a palavra-chave ```ikev1```. Os atributos de encriptação e hash especificados no TS devem coincidir com os parâmetros listados na [configuração Padrão para gateways VPN AVS](cloudsimple-vpn-gateways.md#cryptographic-parameters).
+Configure o conjunto de transformação (TS), que deve envolver a palavra-chave ```ikev1```. Os atributos de encriptação e hash especificados no TS devem coincidir com os parâmetros listados na [configuração Padrão para gateways VPN CloudSimple](cloudsimple-vpn-gateways.md).
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
@@ -143,77 +143,75 @@ Saída da fase 2:
 
 As instruções nesta secção aplicam-se à versão 7.1 da Palo Alto Networks e posteriormente. Neste exemplo de configuração, a Versão de Software série VM da Palo Alto 8.1.0 é implementada e configurada no modo IKEv1.
 
-Para que a VPN do Site-a-Site funcione, deve permitir que uDP 500/4500 e ESP (protocolo IP 50) do IP público primário e secundário (PEER IP) na interface externa do gateway Palo Alto Networks no local.
+Para que a VPN do Site-a-Site funcione, deve permitir que uDP 500/4500 e ESP (protocolo IP 50) do IP público primário e secundário (PEER IP) da CloudSimple na interface externa do gateway Palo Alto Networks no local.
 
 ### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. Criar interfaces de túneis primários e secundários
 
-Inscreva-se na firewall de Palo Alto, selecione **Interfaces** >  >  **Túnel** >  **Adicionar,** configure os seguintes campos e clique em **OK**.
+Inscreva-se na firewall de Palo Alto, selecione **Network** > **Interfaces** > **Tunnel** > **Add,** configure os seguintes campos e clique em **OK**.
 
-* Nome da interface. O primeiro campo é autopovoado com palavra-chave "túnel". No campo adjacente, insira qualquer número entre 1 e 9999. Esta interface será usada como interface de túnel primário para transportar o tráfego Local-a-Local entre o centro de dados no local e a Nuvem Privada AVS.
+* Nome da interface. O primeiro campo é autopovoado com palavra-chave "túnel". No campo adjacente, insira qualquer número entre 1 e 9999. Esta interface será usada como interface de túnel primário para transportar o tráfego Local-a-Local entre o centro de dados no local e a Nuvem Privada.
 * Comentar, não é? Introduza comentários para facilitar a identificação do propósito do túnel
-* Perfil de fluxo de rede. Deixe o padrão.
+* Perfil de fluxo de rede. Mantenha a predefinição.
 * O Config. Atribua interface para: Router virtual: Selecione **predefinido**. 
         Zona de Segurança: Selecione a zona para tráfego LAN fidedigno. Neste exemplo, o nome da zona para o tráfego LAN é "Trust".
 * IPv4. Clique em **Adicionar** e adicione qualquer endereço ip não sobreposto no seu ambiente, que será atribuído à interface do túnel primário e será utilizado para monitorizar os túneis (explicado posteriormente).
 
 Como esta configuração é para uma VPN de alta disponibilidade, são necessárias duas interfaces de túnel: uma primária e uma secundária. Repita os passos anteriores para criar a interface do túnel secundário. Selecione um id de túnel diferente e um endereço ip diferente não utilizado .32.
 
-### <a name="2-set-up-static-routes-for-avs-private-cloud-subnets-to-be-reached-over-the-site-to-site-vpn"></a>2. Criar rotas estáticas para as subredes AVS Private Cloud a serem alcançadas através do Site-to-Site VPN
+### <a name="2-set-up-static-routes-for-private-cloud-subnets-to-be-reached-over-the-site-to-site-vpn"></a>2. Configurar rotas estáticas para as subredes privadas cloud a serem alcançadas através do Site-to-Site VPN
 
-As rotas são necessárias para que as subredes no local cheguem às subredes de nuvem privada AVS.
+As rotas são necessárias para que as subredes no local cheguem às subredes privadas CloudSimple.
 
-Selecione **Rede** > **Routers Virtuais** >  > **Rotas Estáticas** *padrão* > **Adicionar,** configure os seguintes campos e clique **em OK**.
+Selecione **Rede** > **Virtual Routers** > *predefinidoS* > Rotas > **Estáticas****Adicionar,** configurar os seguintes campos e clicar **OK**.
 
 * O nome. Insira qualquer nome para facilitar a identificação do propósito da rota.
-
-* O destino. Especifique as subredes de nuvem privada AVS a serem alcançadas através de interfaces de túneis S2S a partir do local
-
+* O destino. Especifique as subredes privadas cloudSimple a serem alcançadas através de interfaces de túnel S2S a partir do local
 * A interface. Selecione a interface do túnel primário criada no passo-1 (Secção-2) a partir do dropdown. Neste exemplo, é o túnel 20.
-* Próximo Hop. Selecione **Nenhum**.
-* Distância de administrador. Deixe o padrão.
+* Próximo Hop. selecione **Nenhuma**.
+* Distância de administrador. Mantenha a predefinição.
 * A métrica. Insira qualquer valor de 1 a 65535. A chave é introduzir uma métrica mais baixa para a rota correspondente à interface do túnel primário em comparação com a rota correspondente interface do túnel secundário, tornando a rota preferida. Se o túnel.20 tem um valor métrico de 20 em oposição a um valor métrico de 30 para o túnel.30, o túnel .20 é preferido.
-* Mesa de Rota. Deixe o padrão.
-* Perfil de BFD. Deixe o padrão.
-* Monitorização do caminho. Deixe descontrolado.
+* Mesa de Rota. Mantenha a predefinição.
+* Perfil de BFD. Mantenha a predefinição.
+* Monitorização do caminho. deixe esta opção desselecionada.
 
-Repita os passos anteriores para criar outra rota para as subredes AVS Private Cloud usarem como uma rota secundária/de reserva através da interface de túnel secundário. Desta vez, selecione diferentes id do túnel e uma métrica mais alta do que para a rota primária.
+Repita os passos anteriores para criar outra rota para as subredes Private Cloud usarem como uma rota secundária/de reserva através da interface de túnel secundário. Desta vez, selecione diferentes id do túnel e uma métrica mais alta do que para a rota primária.
 
 ### <a name="3-define-the-cryptographic-profile"></a>3. Definir o perfil criptográfico
 
 Defina um perfil criptográfico que especifica os protocolos e algoritmos para identificação, autenticação e encriptação a utilizar para a instalação de túneis VPN na Fase 1 do IKEv1.
 
-Selecione ** > ** **expandir perfis** de rede > **IKE Crypto** > **Adicionar,** configure os seguintes campos e clique em **OK**.
+Selecione > Os perfis de rede**de expansão**da **rede** > **IKE Crypto** > **Add,** configure os seguintes campos e clique **em OK**.
 
 * O nome. Introduza qualquer nome do perfil cripto-cripto ike.
 * Grupo DH. Clique em **Adicionar** e selecione o grupo DH apropriado.
 * Encriptação. Clique em **Adicionar** e selecione o método de encriptação apropriado.
-* A autenticação. Clique em **Adicionar** e selecione o método de autenticação apropriado.
-* A vida chave. Deixe o padrão.
-* IKEv2 Autenticação Múltipla. Deixe o padrão.
+* Autenticação. Clique em **Adicionar** e selecione o método de autenticação apropriado.
+* A vida chave. Mantenha a predefinição.
+* IKEv2 Autenticação Múltipla. Mantenha a predefinição.
 
 ### <a name="4-define-ike-gateways"></a>4. Definir gateways IKE
 
 Defina as portas IKE para estabelecer a comunicação entre os pares em cada extremidade do túnel VPN.
 
-Selecione **rede** > **Expandir perfis** de rede > **Gateways IKE** > **Adicionar,** configure os seguintes campos e clique em **OK**.
+Selecione > Os perfis de**rede de expansão**da **rede** > **IKE Gateways,** > **Add**configure os seguintes campos e clique em **OK**.
 
 Separador geral:
 
-* O nome. Introduza o nome para que o portal IKE seja espreitado com o principal peer VPN da AVS.
+* O nome. Introduza o nome para que o portal IKE seja espreitado com o par de VPN CloudSimple primário.
 * Versão. Selecione **o modo apenas IKEv1**.
 * Tipo de endereço. Selecione **IPv4**.
 * A interface. Selecione a interface virada para o público ou para fora.
-* Endereço IP local. Deixe o padrão.
+* Endereço IP local. Mantenha a predefinição.
 * Tipo de endereço IP peer. Selecione **IP**.
-* Endereço de pares. Introduza o endereço IP de pares avs VPN primário.
-* A autenticação. Selecione **chave pré-partilhada**.
-* Chave pré-partilhada / Confirmar Chave Pré-partilhada. Introduza a tecla pré-partilhada para combinar com a tecla de gateway AVS VPN.
+* Endereço de pares. Introduza o endereço IP ip de pares vpn vpn primário.
+* Autenticação. Selecione **chave pré-partilhada**.
+* Chave pré-partilhada / Confirmar Chave Pré-partilhada. Introduza a tecla pré-partilhada para combinar com a tecla de gateway CloudSimple VPN.
 * Identificação Local. Introduza o endereço IP público da firewall de Palo Alto no local.
-* Identificação dos pares. Introduza o endereço IP de pares avs VPN primário.
+* Identificação dos pares. Introduza o endereço IP ip de pares vpn vpn primário.
 
 Separador Opções Avançadas:
 
-* Ativar o modo passivo. Deixe descontrolado.
+* Ativar o modo passivo. deixe esta opção desselecionada.
 * Ativa o NAT Traversal. Deixe descontrolado se a firewall de Palo Alto não estiver por trás de qualquer dispositivo NAT. Caso contrário, selecione a caixa de verificação.
 
 IKEv1:
@@ -226,21 +224,21 @@ Repita os passos anteriores para criar o gateway IKE secundário.
 
 ### <a name="5-define-ipsec-crypto-profiles"></a>5. Definir perfis de Criptografia IPSEC
 
-Selecione **rede** > **Expandir perfis** de rede > **IPSEC Crypto** > **Adicionar,** configure os seguintes campos e clique **em OK**.
+Selecione > Os perfis de**rede de expansão**da **rede** > **IPSEC Crypto** > **Add,** configure os seguintes campos e clique **EM OK**.
 
 * O nome. Introduza um nome para o perfil criptodo IPsec.
 * Protocolo IPsec. Selecione **ESP**.
 * Encriptação. Clique em **Adicionar** e selecione o método de encriptação apropriado.
-* A autenticação. Clique em **Adicionar** e selecione o método de autenticação apropriado.
+* Autenticação. Clique em **Adicionar** e selecione o método de autenticação apropriado.
 * Grupo DH. Selecione **sem pfs**.
-* A vida inteira. Definir como 30 minutos.
+* Duração. Definir como 30 minutos.
 * Ativar. Deixe a caixa desmarcada.
 
-Repita os passos anteriores para criar outro perfil criptoigrafo IPsec, que será usado como o par vpn avs secundário. O mesmo perfil IPSEC Crypto também pode ser utilizado para os túneis iPsec primários e secundários (ver o seguinte procedimento).
+Repita os passos anteriores para criar outro perfil criptoigrafo IPsec, que será usado como o par vpn vpn secondary CloudSimple. O mesmo perfil IPSEC Crypto também pode ser utilizado para os túneis iPsec primários e secundários (ver o seguinte procedimento).
 
 ### <a name="6-define-monitor-profiles-for-tunnel-monitoring"></a>6. Definir perfis de monitor para monitorização de túneis
 
-Selecione **rede** > **expandir perfis** de rede > **monitor > ** **adicionar,** configurar os seguintes campos e clicar **EM OK**.
+Selecione **Network** > Expandir perfis de rede > **Adicionar,** > **Add**configurar os**seguintes**campos e clicar **EM OK**.
 
 * O nome. Introduza qualquer nome do perfil Monitor a utilizar para monitorização do túnel para uma reação proactiva à falha.
 * Ação. Selecione **Fail Over**.
@@ -249,30 +247,30 @@ Selecione **rede** > **expandir perfis** de rede > **monitor > ** **adicionar,**
 
 ### <a name="7-set-up-primary-and-secondary-ipsec-tunnels"></a>7. Instale túneis IPsec primários e secundários.
 
-Selecione **Rede** > **Túneis IPsec** > **Adicionar,** configure os seguintes campos e clique em **OK**.
+Selecione > **Túneis IPsec** >  **da****rede,** configure os seguintes campos e clique em **OK**.
 
 Separador geral:
 
-* O nome. Introduza qualquer nome para o túnel ipsec primário a ser espreitado com o par de VPN avs primário.
+* O nome. Introduza qualquer nome para o túnel ipsec primário a ser espreitado com o par vpn primário cloudSimple.
 * Interface do túnel. Selecione a interface principal do túnel.
-* tipo. Deixe o padrão.
+* Tipo, tipo. Mantenha a predefinição.
 * Tipo de endereço. Selecione **IPv4**.
 * IKE Gateway. Selecione o gateway principal IKE.
 * Perfil criptografia IPsec. Selecione o perfil principal do IPsec. Selecione **Mostrar opções avançadas**.
-* Ativar a proteção de reprodução. Deixe o padrão.
+* Ativar a proteção de reprodução. Mantenha a predefinição.
 * Cabeçalho de TOS de cópia. Deixe a caixa desmarcada.
 * Monitor de túneis. Verifique a caixa.
-* IP destino. Introduza qualquer endereço IP pertencente à subnet AVS Private Cloud que seja permitida sobre a ligação Site-a-Site. Certifique-se de que as interfaces do túnel (como o túnel.20 - 10.64.5.2/32 e o túnel.30 - 10.64.6.2/32) em Palo Alto podem chegar ao endereço IP da Nuvem Privada AVS sobre a VPN local-a-local. Consulte a seguinte configuração para identificações por procuração.
+* IP destino. Introduza qualquer endereço IP pertencente à subnet CloudSimple Private Cloud que seja permitida sobre a ligação Site-a-Site. Certifique-se de que as interfaces do túnel (como o túnel.20 - 10.64.5.2/32 e o túnel.30 - 10.64.6.2/32) em Palo Alto podem chegar ao endereço IP CloudSimple Private Cloud sobre a VPN site-to-site. Consulte a seguinte configuração para identificações por procuração.
 * O perfil. Selecione o perfil do monitor.
 
 Separador de IDs proxy: Clique em **IPv4** > **Adicionar** e configurar o seguinte:
 
 * Identidade de procuração. Insira qualquer nome para o tráfego interessante. Pode haver várias identificações por procuração transportadas dentro de um túnel iPsec.
-* Local. Especifique as subredes locais no local que são autorizadas a comunicar com subredes AVS Private Cloud através do Site-to-Site VPN.
-* É remoto. Especifique as subredes remotas AVS Private Cloud que são autorizadas a comunicar com as subredes locais.
+* Local. Especifique as subredes locais no local que são autorizadas a comunicar com subredes de Nuvem Privada através da VPN site-to-site.
+* É remoto. Especifique as subredes remotas Da Nuvem Privada que são autorizadas a comunicar com as subredes locais.
 * O protocolo. Selecione **qualquer**.
 
-Repita os passos anteriores para criar outro túnel IPsec para utilizar para o colega vpn avs secundário.
+Repita os passos anteriores para criar outro túnel IPsec para utilizar para o segundo par de VPN CloudSimple.
 
 ## <a name="references"></a>Referências
 

@@ -1,5 +1,5 @@
 ---
-title: Plataforma de dados Azure Monitor  Microsoft Docs
+title: Plataforma de dados Azure Monitor [ Microsoft Docs
 description: Os dados de monitorização recolhidos pelo Azure Monitor são separados em métricas leves e capazes de suportar cenários e registos em tempo real que são utilizados para análises avançadas.
 documentationcenter: ''
 author: bwren
@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: a1b5859341237c1b177ee8deaf636a67f4824948
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77666552"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados Azure Monitor
@@ -68,7 +68,7 @@ A tabela seguinte compara métricas e registos no Monitor Azure.
 
 | Atributo  | Métricas | Registos |
 |:---|:---|:---|
-| Benefícios | Leve e capaz de cenários quase em tempo real, como alertar. Ideal para deteção rápida de problemas. | Analisado com linguagem de consulta rica. Ideal para análise profunda e identificação de causa raiz. |
+| Vantagens | Leve e capaz de cenários quase em tempo real, como alertar. Ideal para deteção rápida de problemas. | Analisado com linguagem de consulta rica. Ideal para análise profunda e identificação de causa raiz. |
 | Dados | Apenas valores numéricos | Texto ou dados numéricos |
 | Estrutura | Conjunto padrão de propriedades, incluindo tempo de amostra, recurso a ser monitorizado, um valor numérico. Algumas métricas incluem múltiplas dimensões para mais definição. | Conjunto único de propriedades dependendo do tipo de log. |
 | Coleção | Recolhidos em intervalos regulares. | Pode ser recolhido esporadicamente à medida que os eventos desencadeiam um registo a ser criado. |
@@ -81,8 +81,8 @@ Diferentes [fontes de dados para o Monitor Azure](data-sources.md) escreverão p
 Consulte [métricas no Monitor Azure](data-platform-metrics.md) e [em Registos no Monitor Azure](data-platform-logs.md) para obter uma listagem de diferentes fontes de dados que povoam cada tipo.
 
 
-## <a name="stream-data-to-external-systems"></a>Dados de Stream a sistemas externos
-Além de usar as ferramentas no Azure para analisar dados de monitorização, pode ter um requisito reencaminhá-lo para uma ferramenta externa, como um produto de management (SIEM) de eventos e informações de segurança. Este encaminhamento é normalmente feito diretamente a partir de recursos monitorizados através de Hubs de [Eventos Azure](/azure/event-hubs/). Algumas fontes podem ser configuradas para enviar dados diretamente para um centro de eventos, enquanto você pode usar outro processo, como uma App Lógica para recuperar os dados necessários. Consulte os dados de [monitorização do Stream Azure num centro](stream-monitoring-data-event-hubs.md) de eventos para consumo por uma ferramenta externa para obter mais detalhes.
+## <a name="stream-data-to-external-systems"></a>Transmitir dados para sistemas externos
+Além de utilizar as ferramentas no Azure para analisar dados de monitorização, poderá ter a obrigação de encaminhar para uma ferramenta externa, como um produto de informação de segurança e gestão de eventos (SIEM). Este encaminhamento é normalmente feito diretamente a partir de recursos monitorizados através de Hubs de [Eventos Azure](/azure/event-hubs/). Algumas fontes podem ser configuradas para enviar dados diretamente para um centro de eventos, enquanto você pode usar outro processo, como uma App Lógica para recuperar os dados necessários. Consulte os dados de [monitorização do Stream Azure num centro](stream-monitoring-data-event-hubs.md) de eventos para consumo por uma ferramenta externa para obter mais detalhes.
 
 
 

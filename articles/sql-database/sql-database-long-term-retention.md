@@ -12,13 +12,13 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
 ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77499968"
 ---
-# <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Backups de base de dados Azure SQL por um n.º 10 anos
+# <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar cópias de segurança de Bases de Dados SQL do Azure durante até 10 anos
 
 Muitas aplicações têm fins regulamentares, de conformidade ou outros fins comerciais que exigem que você mantenha cópias de dados para além dos 7-35 dias fornecidos pela Base de Dados Azure SQL [cópias automáticas](sql-database-automated-backups.md)de backups . Utilizando a funcionalidade de retenção a longo prazo (LTR), pode armazenar cópias de segurança completas especificadas na base de dados SQL no armazenamento Azure Blob com armazenamento geo-redundante de acesso de leitura até 10 anos. Em seguida, pode restaurar qualquer cópia de segurança como nova base de dados. Para obter mais informações sobre a redundância do Armazenamento Azure, consulte o [despedimento do Azure Storage.](../storage/common/storage-redundancy.md)
 
@@ -26,7 +26,7 @@ Muitas aplicações têm fins regulamentares, de conformidade ou outros fins com
 > O LTR pode ser ativado para bases de dados individuais e reunidas. Ainda não está disponível, por exemplo, em bases de dados em Casos Geridos. Pode utilizar trabalhos do Agente SQL para agendar [cópias de dados](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como alternativa ao LTR para além de 35 dias.
 > 
 
-## <a name="how-sql-database-long-term-retention-works"></a>Como funciona a retenção a longo prazo da Base de Dados SQL
+## <a name="how-sql-database-long-term-retention-works"></a>Como funciona a retenção de longo prazo de Bases de Dados SQL
 
 A retenção de backup a longo prazo (LTR) aproveita as cópias de segurança completas que são [criadas automaticamente](sql-database-automated-backups.md) para permitir a restauração do tempo de ponto (PITR). Se uma política LTR estiver configurada, estas cópias de backup são copiadas para diferentes bolhas para armazenamento a longo prazo. A cópia é um trabalho de fundo que não tem impacto no desempenho na carga de trabalho da base de dados. A política LTR para cada base de dados SQL também pode especificar a frequência com que as cópias de segurança LTR são criadas.
 
@@ -83,6 +83,6 @@ Para aprender a configurar a retenção a longo prazo utilizando o portal Azure 
 
 Para restaurar uma base de dados do armazenamento LTR, pode selecionar uma cópia de segurança específica com base na sua marcação de tempo. A base de dados pode ser restaurada a qualquer servidor existente sob a mesma subscrição que a base de dados original. Para aprender a restaurar a sua base de dados a partir de uma cópia de segurança LTR, utilizando o portal Azure, ou PowerShell, consulte a retenção de backup a longo prazo da [Manage Azure SQL](sql-database-long-term-backup-retention-configure.md)Database .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Como as cópias de dados protegem os dados de corrupção acidental ou eliminação, são uma parte essencial de qualquer continuidade de negócios e estratégia de recuperação de desastres. Para conhecer as outras soluções de continuidade de negócio da SQL Database, consulte a [visão geral da continuidade do Negócio.](sql-database-business-continuity.md)

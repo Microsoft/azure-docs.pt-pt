@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
 ms.openlocfilehash: 577bed7ce342be14a50077a3ffd841cd901b5b31
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77473015"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Gerir o espaço do disco em Azure HDInsight
@@ -20,11 +20,11 @@ Este artigo descreve etapas de resolução de problemas e possíveis resoluçõe
 
 ## <a name="hive-log-configurations"></a>Configurações de log da colmeia
 
-1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, onde `CLUSTERNAME` é o nome do seu cluster.
+1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net`onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. Navegue até **à Hive** > **Configs** > **Advanced** > **Advanced hive-log4j**. Reveja as seguintes definições:
+1. Navegue até **Hive** > **Configs** > **Advanced** > **Hive-log4j**. Reveja as seguintes definições:
 
-    * `hive.root.logger=DEBUG,RFA`. Este é o valor predefinido, modificar o [nível de registo](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) para `INFO` para imprimir entradas de registos menos.
+    * `hive.root.logger=DEBUG,RFA`. Este é o valor predefinido, `INFO` modificar o [nível de registo](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) para imprimir entradas de registos menos.
 
     * `log4jhive.log.maxfilesize=1024MB`. Este é o valor padrão, modificar como desejado.
 
@@ -36,13 +36,13 @@ Reveja as seguintes configurações:
 
 * Apache Ambari
 
-    1. De um navegador web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, onde `CLUSTERNAME` é o nome do seu cluster.
+    1. De um navegador web, navegue até, `https://CLUSTERNAME.azurehdinsight.net`onde `CLUSTERNAME` está o nome do seu cluster.
 
-    1. Navegue até **à Hive** > **Configs** > **Advanced** > **Resource Manager**. Certifique-se de que a **agregação** de registo activaé verificada. Se desativado, os nós de nome mantêm os registos localmente e não os agregam em loja remota no final ou na rescisão da aplicação.
+    1. Navegue para **hive** > **Configs** > **Advanced** > Resource**Manager**. Certifique-se de que a **agregação** de registo activaé verificada. Se desativado, os nós de nome mantêm os registos localmente e não os agregam em loja remota no final ou na rescisão da aplicação.
 
 * Verifique se o tamanho do cluster é apropriado para a carga de trabalho. A carga de trabalho pode ter mudado recentemente ou o cluster pode ter sido redimensionado. [Aumentar](../hdinsight-scaling-best-practices.md) o cluster para corresponder a uma carga de trabalho mais elevada.
 
-* `/mnt/resource` podem estar cheios de ficheiros órfãos (como no caso do reinício do gestor de recursos). Se necessário, limpe manualmente `/mnt/resource/hadoop/yarn/log` e `/mnt/resource/hadoop/yarn/local`.
+* `/mnt/resource`pode ser preenchido com ficheiros órfãos (como no caso do reinício do gestor de recursos). Se necessário, `/mnt/resource/hadoop/yarn/log` limpe `/mnt/resource/hadoop/yarn/local`manualmente e .
 
 ## <a name="next-steps"></a>Passos seguintes
 

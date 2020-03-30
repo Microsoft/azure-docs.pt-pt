@@ -1,110 +1,110 @@
 ---
-title: Ferramenta de diagnóstico e solução
-description: Saiba como você pode solucionar problemas com seu aplicativo no serviço Azure App com a ferramenta de diagnóstico e solução no portal do Azure.
-keywords: serviço de aplicativo, serviço de aplicativo do Azure, diagnóstico, suporte, aplicativo Web, solução de problemas, autoajuda
+title: Diagnóstico e ferramenta de resolução
+description: Saiba como pode resolver problemas com a sua aplicação no Azure App Service com os diagnósticos e resolver a ferramenta no portal Azure.
+keywords: serviço de aplicações, serviço de aplicações azure, diagnósticos, suporte, aplicação web, resolução de problemas, autoajuda
 author: jen7714
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: e06e71d4436ac6c64ff2edc876d7849d084482f8
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671642"
 ---
-# <a name="azure-app-service-diagnostics-overview"></a>Visão geral do diagnóstico do serviço Azure App
+# <a name="azure-app-service-diagnostics-overview"></a>Visão geral do serviço de aplicações azure
 
-Quando você estiver executando um aplicativo Web, você deseja estar preparado para qualquer problema que possa surgir, de 500 erros aos seus usuários informando que seu site está inativo. O diagnóstico do serviço de aplicativo é uma experiência inteligente e interativa para ajudá-lo a solucionar problemas de seu aplicativo sem nenhuma configuração necessária. Quando você tiver problemas com seu aplicativo, o diagnóstico do serviço de aplicativo indicará o que há de errado para orientá-lo sobre as informações corretas para solucionar problemas e resolver o problema com mais facilidade e rapidez.
+Quando estiver a executar uma aplicação web, pretende estar preparado para quaisquer problemas que possam surgir, desde 500 erros aos seus utilizadores, dizendo-lhe que o seu site está em baixo. O diagnóstico do Serviço de Aplicações é uma experiência inteligente e interativa para ajudá-lo a resolver problemas com a sua aplicação sem necessidade de configuração. Quando se depara com problemas com a sua aplicação, os diagnósticos do Serviço de Aplicações apontam o que está errado em guiá-lo para a informação certa para mais facilmente e rapidamente resolver o problema.
 
-Embora essa experiência seja mais útil quando você estiver tendo problemas com seu aplicativo nas últimas 24 horas, todos os gráficos de diagnóstico estarão sempre disponíveis para você analisar.
+Embora esta experiência seja mais útil quando se está a ter problemas com a sua app nas últimas 24 horas, todos os gráficos de diagnóstico estão sempre disponíveis para analisar.
 
-O diagnóstico do serviço de aplicativo funciona para não apenas seu aplicativo no Windows, mas também aplicativos em [Linux/contêineres](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [ambiente do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/environment/intro)e [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+Os diagnósticos do Serviço de Aplicações funcionam não só para a sua aplicação no Windows, mas também para aplicações em [Linux/contentores,](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro) [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)e [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
 
-## <a name="open-app-service-diagnostics"></a>Abrir o diagnóstico do serviço de aplicativo
+## <a name="open-app-service-diagnostics"></a>Diagnósticos de Serviço de Aplicações Abertas
 
-Para acessar o diagnóstico do serviço de aplicativo, navegue até o aplicativo Web do serviço de aplicativo ou Ambiente do Serviço de Aplicativo na [portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **diagnosticar e resolver problemas**.
+Para aceder aos diagnósticos do Serviço de Aplicações, navegue para a sua aplicação web do App Service ou para o App Service Environment no [portal Azure](https://portal.azure.com). Na navegação à esquerda, clique em **Diagnosticar e resolver problemas**.
 
-Para Azure Functions, navegue até seu aplicativo de funções e, na barra de navegação superior, clique em **recursos da plataforma**e selecione **diagnosticar e resolver problemas** na seção **Gerenciamento de recursos** .
+Para funções Azure, navegue para a sua app de funções e na navegação de topo, clique nas **funcionalidades da Plataforma**, e selecione **Diagnosticar e resolver problemas** a partir da secção de gestão de **Recursos.**
 
-Na home page do diagnóstico do serviço de aplicativo, você pode escolher a categoria que melhor descreve o problema com seu aplicativo usando as palavras-chave em cada bloco de página inicial. Além disso, essa página é onde você pode encontrar **ferramentas de diagnóstico** para aplicativos do Windows. Consulte [ferramentas de diagnóstico (somente para o aplicativo do Windows)](#diagnostic-tools-only-for-windows-app).
+Na página inicial de diagnósticodo Serviço de Aplicações, pode escolher a categoria que melhor descreve o problema com a sua aplicação utilizando as palavras-chave em cada azulejo da página inicial. Além disso, esta página é onde pode encontrar **Ferramentas de Diagnóstico** para aplicações Windows. Consulte [as ferramentas de diagnóstico (apenas para aplicação Windows)](#diagnostic-tools-only-for-windows-app).
 
-![Principal](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+![Home page](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>Interface interativa
 
-Depois de selecionar uma categoria de Home Page que melhor se alinha com o problema do aplicativo, a interface interativa do diagnóstico do serviço de aplicativo, gênio, pode orientá-lo durante o diagnóstico e a resolução de problemas com seu aplicativo. Você pode usar os atalhos de bloco fornecidos pelo gênio para exibir o relatório de diagnóstico completo da categoria do problema que você está interessado. Os atalhos de bloco fornecem uma maneira direta de acessar suas métricas de diagnóstico.
+Uma vez que selecione uma categoria de página inicial que melhor se alinha com o problema da sua aplicação, a interface interativa dos diagnósticos do Serviço de Aplicações, Genie, pode guiá-lo através do diagnóstico e resolução de problemas com a sua app. Pode utilizar os atalhos de azulejos fornecidos pela Genie para ver o relatório completo de diagnóstico da categoria de problemas que está interessado. Os atalhos de azulejos proporcionam-lhe uma forma direta de aceder às suas métricas de diagnóstico.
 
-![Atalhos de bloco](./media/app-service-diagnostics/tile-shortcuts-2.png)
+![Atalhos de azulejos](./media/app-service-diagnostics/tile-shortcuts-2.png)
 
-Depois de clicar nesses blocos, você poderá ver uma lista de tópicos relacionados ao problema descrito no bloco. Esses tópicos fornecem trechos de informações notáveis do relatório completo. Você pode clicar em qualquer um desses tópicos para investigar mais os problemas. Além disso, você pode clicar em **Exibir relatório completo** para explorar todos os tópicos em uma única página.
+Depois de clicar nestes azulejos, pode ver uma lista de tópicos relacionados com o problema descrito no azulejo. Estes tópicos fornecem fragmentos de informações notáveis a partir do relatório completo. Pode clicar em qualquer um destes tópicos para investigar mais aprofundadamente as questões. Além disso, pode clicar no **Ver Relatório Completo** para explorar todos os tópicos numa única página.
 
 ![Tópicos](./media/app-service-diagnostics/application-logs-insights-3.png)
 
-![Exibir relatório completo](./media/app-service-diagnostics/view-full-report-4.png)
+![Ver Relatório Completo](./media/app-service-diagnostics/view-full-report-4.png)
 
 ## <a name="diagnostic-report"></a>Relatório de diagnóstico
 
-Depois de optar por investigar o problema mais tarde clicando em um tópico, você pode exibir mais detalhes sobre o tópico muitas vezes complementado com grafos e reexplicações. O relatório de diagnóstico pode ser uma ferramenta poderosa para identificar o problema com seu aplicativo.
+Depois de optar por investigar mais aprofundadamente o assunto clicando num tópico, pode ver mais detalhes sobre o tema muitas vezes complementado com gráficos e marcações. O relatório de diagnóstico pode ser uma ferramenta poderosa para identificar o problema com a sua aplicação.
 
 ![Relatório de diagnóstico](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 
-## <a name="health-checkup"></a>Verificação de integridade
+## <a name="health-checkup"></a>Check-up de saúde
 
-Se você não sabe o que há de errado com seu aplicativo ou não sabe por onde começar a solucionar seus problemas, a verificação de integridade é um bom lugar para começar. A verificação de integridade analisa seus aplicativos para fornecer uma visão geral rápida e interativa que indica o que está íntegro e o que está errado, informando a você onde procurar investigar o problema. Sua interface inteligente e interativa fornece orientações sobre o processo de solução de problemas. A verificação de integridade é integrada ao relatório de diagnóstico da experiência gênio para aplicativos do Windows e aplicativo Web inoperante para aplicativos Linux.
+Se não sabe o que há de errado com a sua aplicação ou não sabe por onde começar a resolver problemas, o check-up de saúde é um bom lugar para começar. O check-up de saúde analisa as suas aplicações para lhe dar uma visão rápida e interativa que aponta o que é saudável e o que está errado, dizendo-lhe onde procurar investigar o problema. A sua interface inteligente e interativa fornece-lhe orientação através do processo de resolução de problemas. O check-up de saúde está integrado com a experiência Genie para aplicações windows e aplicação web para baixo relatório de diagnóstico para aplicações Linux.
 
-### <a name="health-checkup-graphs"></a>Grafos da verificação de integridade
+### <a name="health-checkup-graphs"></a>Gráficos de check-up de saúde
 
-Há quatro grafos diferentes na verificação de integridade.
+Há quatro gráficos diferentes no check-up de saúde.
 
-- **solicitações e erros:** Um grafo que mostra o número de solicitações feitas nas últimas 24 horas, juntamente com erros do servidor HTTP.
-- **desempenho do aplicativo:** Um grafo que mostra o tempo de resposta nas últimas 24 horas para vários grupos de percentil.
-- **Uso da CPU:** Um grafo que mostra o percentual de uso de CPU geral por instância nas últimas 24 horas.  
-- **uso de memória:** Um grafo que mostra o percentual geral de uso de memória física por instância nas últimas 24 horas.
+- **pedidos e erros:** Um gráfico que mostra o número de pedidos feitos nas últimas 24 horas juntamente com erros do servidor HTTP.
+- **desempenho da aplicação:** Um gráfico que mostra o tempo de resposta nas últimas 24 horas para vários grupos de percentil.
+- **Utilização do CPU:** Um gráfico que mostra o uso global de CPU por exemplo nas últimas 24 horas.  
+- **utilização da memória:** Um gráfico que mostra o uso geral da memória física por exemplo nas últimas 24 horas.
 
-![Verificação de integridade](./media/app-service-diagnostics/health-checkup-6.png)
+![Check-up de saúde](./media/app-service-diagnostics/health-checkup-6.png)
 
-### <a name="investigate-application-code-issues-only-for-windows-app"></a>Investigar problemas de código do aplicativo (somente para o aplicativo do Windows)
+### <a name="investigate-application-code-issues-only-for-windows-app"></a>Investigar problemas de código de aplicação (apenas para aplicação Windows)
 
-Como muitos problemas de aplicativo estão relacionados a problemas no código do aplicativo, o diagnóstico do serviço de aplicativo integra-se com [Application insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) para realçar exceções e problemas de dependência para correlacionar com o tempo de inatividade selecionado. O Application Insights precisa ser habilitado separadamente.
+Como muitos problemas de aplicações estão relacionados com problemas no seu código de aplicação, o diagnóstico do App Service integra-se com [os Insights de Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) para destacar exceções e problemas de dependência para se relacionar com o tempo de inatividade selecionado. Os Insights de Aplicação têm de ser ativados separadamente.
 
-![Estatísticas das Aplicações](./media/app-service-diagnostics/application-insights-7.png)
+![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 
-Para exibir Application Insights exceções e dependências, selecione o **aplicativo Web inoperante** ou atalhos de bloco **lentos do aplicativo Web** .
+Para ver as exceções e dependências da Application Insights, selecione a **aplicação web para baixo** ou a **aplicação web aparatos lentos** de azulejos.
 
-### <a name="troubleshooting-steps-only-for-windows-app"></a>Etapas de solução de problemas (somente para o aplicativo do Windows)
+### <a name="troubleshooting-steps-only-for-windows-app"></a>Passos de resolução de problemas (apenas para aplicação Windows)
 
-Se for detectado um problema com uma categoria de problema específica nas últimas 24 horas, você poderá exibir o relatório de diagnóstico completo e o diagnóstico do serviço de aplicativo poderá solicitar que você veja mais conselhos de solução de problemas e as próximas etapas para uma experiência mais guiada.
+Se um problema for detetado com uma categoria de problema específico nas últimas 24 horas, pode ver o relatório completo de diagnóstico, e os diagnósticos do Serviço de Aplicações podem levar-lhe a ver mais conselhos de resolução de problemas e próximos passos para uma experiência mais guiada.
 
-![Application Insights e solução de problemas e próximas etapas](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
+![Insights de aplicação e resolução de problemas e próximos passos](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
 
-## <a name="diagnostic-tools-only-for-windows-app"></a>Ferramentas de diagnóstico (somente para o aplicativo do Windows)
+## <a name="diagnostic-tools-only-for-windows-app"></a>Ferramentas de diagnóstico (apenas para aplicação Windows)
 
-As ferramentas de diagnóstico incluem ferramentas de diagnóstico mais avançadas que ajudam você a investigar problemas de código do aplicativo, lentidão, cadeias de conexão e muito mais. e ferramentas proativas que ajudam a atenuar problemas com uso de CPU, solicitações e memória.
+DiagnósticoS As ferramentas incluem ferramentas de diagnóstico mais avançadas que o ajudam a investigar problemas de código de aplicação, lentidão, cordas de ligação e muito mais. e ferramentas proativas que o ajudam a mitigar problemas com o uso, pedidos e memória do CPU.
 
-### <a name="proactive-cpu-monitoring"></a>Monitoramento proativo de CPU
+### <a name="proactive-cpu-monitoring"></a>Monitorização proactiva do CPU
 
-O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada. Para obter mais informações, consulte [atenuar os problemas de CPU antes que eles ocorram](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html).
+A monitorização proactiva do CPU proporciona-lhe uma forma fácil e proativa de tomar uma ação quando a sua app ou processo infantil para a sua aplicação está a consumir elevados recursos cpu. Pode definir as suas próprias regras de limiar de CPU para atenuar temporariamente um problema elevado de CPU até que a verdadeira causa para o problema inesperado seja encontrada. Para mais informações, consulte [atenuar os seus problemas de CPU antes de acontecerem](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html).
 
-![Monitoramento proativo de CPU](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
+![Monitorização proactiva do CPU](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### <a name="auto-healing-and-proactive-auto-healing"></a>Recuperação automática e auto-recuperação proativa
+### <a name="auto-healing-and-proactive-auto-healing"></a>Auto-cura e cura automática proactiva
 
-A recuperação automática é uma ação de mitigação que você pode tomar quando seu aplicativo estiver tendo um comportamento inesperado. Você pode definir suas próprias regras com base na contagem de solicitações, solicitação lenta, limite de memória e código de status HTTP para disparar ações de mitigação. Use a ferramenta para mitigar temporariamente um comportamento inesperado até encontrar a causa raiz. Para obter mais informações, consulte [anunciando a nova experiência de recuperação automática no diagnóstico do serviço de aplicativo](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+A cicatrização automática é uma ação de mitigação que pode tomar quando a sua aplicação está a ter um comportamento inesperado. Pode definir as suas próprias regras com base na contagem de pedidos, pedido lento, limite de memória e código de estado HTTP para desencadear ações de mitigação. Utilize a ferramenta para atenuar temporariamente um comportamento inesperado até encontrar a causa da raiz. Para mais informações, consulte Anunciando a nova experiência de cura automática em diagnósticos de [serviçode aplicações.](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html)
 
-![Autorrecuperação](./media/app-service-diagnostics/auto-healing-10.png)
+![Auto-cura](./media/app-service-diagnostics/auto-healing-10.png)
 
-Como o monitoramento proativo de CPU, a auto-recuperação proativa é uma solução de chave para reduzir o comportamento inesperado de seu aplicativo. A recuperação automática proativa reinicia seu aplicativo quando o serviço de aplicativo determina que seu aplicativo está em um estado irrecuperável. Para obter mais informações, consulte [introdução à reparo automático proativo](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html).
+Tal como a monitorização proactiva do CPU, a auto-cura proativa é uma solução chave-na-mão para atenuar comportamentos inesperados da sua aplicação. A cura automática proactiva reinicia a sua aplicação quando o Serviço de Aplicações determina que a sua aplicação se encontra num estado irrecuperável. Para mais informações, consulte A introdução proactiva de [auto-cura](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html).
 
-## <a name="navigator-and-change-analysis-only-for-windows-app"></a>Navegador e análise de alterações (somente para aplicativo do Windows)
+## <a name="navigator-and-change-analysis-only-for-windows-app"></a>Navegador e alteração de análise (apenas para aplicação Windows)
 
-Em uma equipe grande com integração contínua e em que seu aplicativo tem muitas dependências, pode ser difícil identificar a alteração específica que causa um comportamento não íntegro. O navegador ajuda a obter visibilidade sobre a topologia do aplicativo ao renderizar automaticamente um mapa de dependências de seu aplicativo e todos os recursos na mesma assinatura. O Navigator permite que você exiba uma lista consolidada de alterações feitas pelo seu aplicativo e suas dependências e restrinja uma alteração que causa um comportamento não íntegro. Ele pode ser acessado por meio do **navegador** de bloco da Home Page e precisa ser habilitado antes de ser usado pela primeira vez. Para obter mais informações, consulte [obter visibilidade das dependências do seu aplicativo com o navegador](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html).
+Numa grande equipa com integração contínua e onde a sua app tem muitas dependências, pode ser difícil identificar a mudança específica que causa um comportamento pouco saudável. A Navigator ajuda a obter visibilidade na topologia da sua aplicação, tornando automaticamente um mapa de dependência da sua app e todos os recursos na mesma subscrição. A Navigator permite-lhe visualizar uma lista consolidada de alterações feitas pela sua app e as suas dependências e reduzir-se a uma mudança que causa comportamentos pouco saudáveis. Pode ser acedido através do **navegador** de azulejos inicial e precisa de ser ativado antes de usá-lo pela primeira vez. Para mais informações, consulte [Obter visibilidade nas dependências da sua aplicação com](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html)o Navigator .
 
 ![Página padrão do navegador](./media/app-service-diagnostics/navigator-default-page-11.png)
 
-![Exibição de comparação](./media/app-service-diagnostics/diff-view-12.png)
+![Vista difusa](./media/app-service-diagnostics/diff-view-12.png)
 
-A análise de alteração para alterações de aplicativo pode ser acessada por meio de atalhos de bloco, **alterações de aplicativo** e **falhas de aplicativo** em **disponibilidade e desempenho** para que você possa usá-lo simultaneamente com outras métricas. Antes de usar o recurso, você deve primeiro habilitá-lo. Para obter mais informações, consulte [anunciando a nova experiência de análise de alterações no diagnóstico do serviço de aplicativo](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+A análise de alterações de alterações de alterações de aplicações pode ser acedida através de atalhos de azulejos, **alterações de aplicações** e falhas de **aplicação** na **Disponibilidade e Desempenho** para que possa utilizá-la simultaneamente com outras métricas. Antes de utilizar a funcionalidade, tem de a ativar primeiro. Para mais informações, consulte Anunciando a nova experiência de análise de [alterações em Diagnósticos](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html)de Serviços de Aplicações.
 
-Poste suas perguntas ou comentários no [UserVoice](https://feedback.azure.com/forums/169385-web-apps) adicionando "[diag]" no título.
+Publique as suas perguntas ou feedback no [UserVoice](https://feedback.azure.com/forums/169385-web-apps) adicionando "[Diag]" no título.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77605218"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guia de modelação de modelação ioT Plug e Play Preview
@@ -97,7 +97,7 @@ Uma interface tem alguns campos necessários:
 
 Neste simples exemplo, há apenas um único campo de telemetria. Uma descrição mínima do campo tem um:
 
-- `@type`: especifica o tipo de capacidade: `Telemetry`, `Property`ou `Command`.
+- `@type`: especifica o tipo de `Telemetry` `Property`capacidade: `Command`, ou .
 - `name`: fornece o nome do valor da telemetria.
 - `schema`: especifica o tipo de dados para a telemetria. Este valor pode ser um tipo primitivo, como duplo, inteiro, booleano ou corda. Tipos complexos de objetos, matrizes e mapas também são suportados.
 
@@ -111,13 +111,13 @@ Você também pode marcar uma propriedade como recedível em uma interface. Um d
 
 Os dispositivos não têm de ser ligados para definir valores de propriedade. Os valores atualizados são transferidos quando o dispositivo se liga ao centro. Este comportamento aplica-se tanto a propriedades de leitura como de escrita.
 
-Não utilize propriedades para enviar telemetria do seu dispositivo. Por exemplo, uma propriedade de leitura apenas como `temperatureSetting=80` deve significar que a temperatura do dispositivo foi definida para 80, e o dispositivo está tentando chegar ou ficar a esta temperatura.
+Não utilize propriedades para enviar telemetria do seu dispositivo. Por exemplo, uma propriedade `temperatureSetting=80` de leitura como deve significar que a temperatura do dispositivo foi definida para 80, e o dispositivo está tentando chegar ou ficar a esta temperatura.
 
 Para propriedades de supreendiáveis, a aplicação do dispositivo devolve um código de estado, versão e descrição desejados para indicar se recebeu e aplicou o valor da propriedade.
 
 ### <a name="telemetry"></a>Telemetria
 
-Por padrão, o IoT Hub direciona todas as mensagens de telemetria dos dispositivos para o seu ponto final virado para o [serviço incorporado **(mensagens/eventos)** ](../iot-hub/iot-hub-devguide-messages-read-builtin.md) que é compatível com [os Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)de Eventos .
+Por padrão, o IoT Hub direciona todas as mensagens de telemetria dos dispositivos para o seu ponto final virado para o [serviço incorporado **(mensagens/eventos)**](../iot-hub/iot-hub-devguide-messages-read-builtin.md) que é compatível com [os Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)de Eventos .
 
 Você pode usar [os pontos finais personalizados do IoT Hub e regras de encaminhamento](../iot-hub/iot-hub-devguide-messages-d2c.md) para enviar telemetria para outros destinos, como armazenamento de blob ou outros centros de eventos. As regras de encaminhamento utilizam propriedades de mensagens para selecionar mensagens.
 
@@ -127,11 +127,11 @@ Os comandos são sincronizados ou assíncronos. Um comando sincronizado deve ser
 
 Utilize comandos assíncronos para operações de longa duração. O dispositivo envia informações de progresso usando mensagens de telemetria. Estas mensagens de progresso têm as seguintes propriedades do cabeçalho:
 
-- `iothub-command-name`: o nome do comando, por exemplo, `UpdateFirmware`.
+- `iothub-command-name`: o nome do `UpdateFirmware`comando, por exemplo.
 - `iothub-command-request-id`: o ID de pedido gerado no lado do servidor e enviado para o dispositivo na chamada inicial.
-- `iothub-interface-id`: A identificação da interface em que este comando é definido, por exemplo, `urn:example:AssetTracker:1`.
- `iothub-interface-name`: o nome por exemplo desta interface, por exemplo, `myAssetTracker`.
-- `iothub-command-statuscode`: o código de estado devolvido do dispositivo, por exemplo, `202`.
+- `iothub-interface-id`: A identificação da interface em que `urn:example:AssetTracker:1`este comando é definido, por exemplo.
+ `iothub-interface-name`: o nome por exemplo `myAssetTracker`desta interface, por exemplo.
+- `iothub-command-statuscode`: o código de estado devolvido `202`do dispositivo, por exemplo.
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
@@ -182,35 +182,35 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 O IoT Plug and Play permite-lhe utilizar dispositivos que tenham registado as suas capacidades com o seu hub IoT. Por exemplo, pode aceder diretamente às propriedades e comandos de um dispositivo.
 
-Para utilizar um dispositivo IoT Plug and Play que esteja ligado ao seu hub IoT, utilize a API Do IoT Hub REST ou um dos SDKs em língua IoT. Os seguintes exemplos utilizam a IoT Hub REST API. A versão atual da API é `2019-07-01-preview`. Aprete `?api-version=2019-07-01-preview` às suas chamadas PI REST.
+Para utilizar um dispositivo IoT Plug and Play que esteja ligado ao seu hub IoT, utilize a API Do IoT Hub REST ou um dos SDKs em língua IoT. Os seguintes exemplos utilizam a IoT Hub REST API. A versão atual da `2019-07-01-preview`API é . Anexar `?api-version=2019-07-01-preview` as suas chamadas PI REST.
 
-Para obter o valor de uma propriedade de dispositivo, como a versão firmware (`fwVersion`) na interface `DeviceInformation` no termóstato, utiliza-se os gémeos digitais REST API.
+Para obter o valor de uma propriedade de`fwVersion`dispositivo, `DeviceInformation` como a versão firmware ( ) na interface do termóstato, utiliza-se os gémeos digitais REST API.
 
-Se o seu dispositivo termóstato for chamado `t-123`, obtém todas as propriedades em todas as interfaces implementadas pelo seu dispositivo com uma chamada REST API GET:
+Se o seu dispositivo termóstato for chamado, `t-123`obtém todas as propriedades em todas as interfaces implementadas pelo seu dispositivo com uma chamada REST API GET:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-De uma forma mais geral, todas as propriedades em todas as interfaces são acedidas com este modelo REST API onde `{device-id}` é o identificador para o dispositivo:
+De uma forma mais geral, todas as propriedades em todas `{device-id}` as interfaces são acedidas com este modelo REST API onde está o identificador para o dispositivo:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-Se souber o nome da interface, como `deviceInformation`, e pretender obter propriedades para essa interface específica, faça o âmbito do pedido para uma interface específica pelo nome:
+Se souber o nome da interface, como, por exemplo, `deviceInformation`e pretender obter propriedades para essa interface específica, faça o pedido para uma interface específica pelo nome:
 
 ```REST
 GET /digitalTwins/t-123/interfaces/deviceInformation
 ```
 
-De uma forma mais geral, as propriedades para uma interface específica podem ser acedidas através deste modelo REST API onde `device-id` é o identificador do dispositivo e `{interface-name}` é o nome da interface:
+De uma forma mais geral, as propriedades para uma interface `device-id` específica podem ser acedidas através deste modelo REST API onde está o identificador do dispositivo e `{interface-name}` é o nome da interface:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces/{interface-name}
 ```
 
-Pode ligar diretamente para os comandos do dispositivo IoT Plug e Play. Se a interface `Thermostat` no dispositivo `t-123` tiver um comando `restart`, pode chamá-lo com uma chamada REST API POST:
+Pode ligar diretamente para os comandos do dispositivo IoT Plug e Play. Se `Thermostat` a interface `t-123` do `restart` dispositivo tiver um comando, pode chamá-lo com uma chamada REST API POST:
 
 ```REST
 POST /digitalTwins/t-123/interfaces/thermostat/commands/restart
@@ -231,5 +231,5 @@ De uma forma mais geral, os comandos podem ser chamados através deste modelo RE
 Agora que aprendeu sobre modelação de dispositivos, aqui estão alguns recursos adicionais:
 
 - [Linguagem de Definição Dupla Digital (DTDL)](https://aka.ms/DTDL)
-- [SDK de dispositivo para C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+- [Dispositivo C SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)

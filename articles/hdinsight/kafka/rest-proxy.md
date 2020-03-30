@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: d99a3b803b80dc41990a63e647d3ba928deb31af
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198910"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um proxy REST
@@ -72,8 +72,8 @@ Pode usar o código python abaixo para interagir com o proxy REST no seu cluster
     1.  *ID do inquilino* – O inquilino Azure onde está a sua subscrição.
     1.  *ID do cliente* – O ID para a aplicação que registou no grupo de segurança.
     1.  *Segredo do Cliente* – O segredo para a aplicação que registou no grupo de segurança
-    1.  *Kafkarest_endpoint* – obtenha este valor a partir do separador "propriedades" na visão geral do cluster, conforme descrito na [secção de implantação](#create-a-kafka-cluster-with-rest-proxy-enabled). Deve estar no seguinte formato – `https://<clustername>-kafkarest.azurehdinsight.net`
-3. A partir da linha de comando, execute o ficheiro python executando `python <filename.py>`
+    1.  *Kafkarest_endpoint* – obtenha este valor a partir do separador "propriedades" na visão geral do cluster, conforme descrito na [secção de implantação](#create-a-kafka-cluster-with-rest-proxy-enabled). Deve estar no seguinte formato –`https://<clustername>-kafkarest.azurehdinsight.net`
+3. A partir da linha de comando, execute o ficheiro python executando`python <filename.py>`
 
 Este código faz o seguinte:
 

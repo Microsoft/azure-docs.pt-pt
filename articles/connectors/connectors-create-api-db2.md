@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651387"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Acesso e gestão de recursos IBM DB2 utilizando aplicações lógicas azure
@@ -42,7 +42,7 @@ O conector IBM DB2 suporta estas operações de base de dados, que mapeiam as a�
 | Lista de tabelas de bases de dados | Obter mesas |
 | Leia uma linha usando SELECT | Obter fila |
 | Leia todas as linhas usando SELECT | Obter filas |
-| Adicione uma linha usando o INSERT | Insira a linha |
+| Adicione uma linha usando o INSERT | Inserir linha |
 | Editar uma linha usando update | Linha de atualização |
 | Remova uma linha utilizando o DELETE | Excluir linha |
 |||
@@ -83,10 +83,10 @@ Para configurar a sua ligação, forneça estes detalhes de ligação quando sol
 | Propriedade | Necessário | Descrição |
 |----------|----------|-------------|
 | **Ligar através do gateway no local** | Não | Aplica-se apenas para ligações no local. |
-| **Nome da Ligação** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" |
+| **Nome de ligação** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" |
 | **Servidor** | Sim | O endereço ou pseudónimo número de porta do cólon para o seu servidor DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer iPv6, seguido de um cólon e um número de porta TCP/IP. |
 | **Base de Dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa uma nomede base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 for i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
-| **Nome de Utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 pois aceito uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma corda de 30 bytes. |
+| **Nome de utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 pois aceito uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma corda de 30 bytes. |
 | **Palavra-passe** | Sim | A sua senha para a base de dados |
 ||||
 
@@ -103,11 +103,11 @@ Antes de criar a sua ligação, já deve ter o seu portal de dados instalado no 
 | Propriedade | Necessário | Descrição |
 |----------|----------|-------------|
 | **Ligar através do gateway no local** | Sim | Aplica-se quando deseja uma ligação no local e mostra as propriedades de ligação no local. |
-| **Nome da Ligação** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" | 
+| **Nome de ligação** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" | 
 | **Servidor** | Sim | O endereço ou pseudónimo número da porta do cólon para o seu servidor DB2, por exemplo, "myDB2server:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer iPv6, seguido de um cólon e um número de porta TCP/IP. |
 | **Base de Dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa uma nomede base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 for i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
 | **Autenticação** | Sim | O tipo de autenticação para a sua ligação, por exemplo, "Básico" <p><p>**Nota:** Selecione este valor da lista, que inclui Basic ou Windows (Kerberos). |
-| **Nome de Utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 pois aceito uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma corda de 30 bytes. |
+| **Nome de utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 pois aceito uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma corda de 30 bytes. |
 | **Palavra-passe** | Sim | A sua senha para a base de dados |
 | **Gateway** | Sim | O nome para o seu gateway de dados instalado no local <p><p>**Nota**: Selecione este valor da lista, que inclui todos os gateways de dados instalados dentro do seu grupo de subscrição e recursos Azure. |
 ||||
@@ -141,7 +141,7 @@ Expanda a ação das **tabelas Get.**
 
 ## <a name="get-row"></a>Obter fila
 
-Para obter um disco numa tabela de bases de dados DB2, use a ação da **linha Get** na sua aplicação lógica. Esta ação executa uma declaração de `SELECT WHERE` DB2, por exemplo, `SELECT FROM AREA WHERE AREAID = '99999'`.
+Para obter um disco numa tabela de bases de dados DB2, use a ação da **linha Get** na sua aplicação lógica. Esta ação executa `SELECT WHERE` uma declaração `SELECT FROM AREA WHERE AREAID = '99999'`de DB2, por exemplo, .
 
 1. Se nunca usou ações de DB2 na sua aplicação lógica, reveja os passos na [ação Add DB2 - Obtenha tabelas,](#add-db2-action) mas adicione a ação da **linha Get** e, em seguida, volte aqui para continuar.
 
@@ -153,7 +153,7 @@ Para obter um disco numa tabela de bases de dados DB2, use a ação da **linha G
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da mesa** | Sim | A tabela que tem o registo que deseja, como "AREA" neste exemplo |
+   | **Nome da tabela** | Sim | A tabela que tem o registo que deseja, como "AREA" neste exemplo |
    | **ID da área** | Sim | A identificação para o registo que deseja, como "99999" neste exemplo |
    ||||
 
@@ -182,7 +182,7 @@ Expanda a ação da **linha Get.**
 
 ## <a name="get-rows"></a>Obter filas
 
-Para obter todos os registos numa tabela de bases de dados DB2, use a ação **get rows** na sua aplicação lógica. Esta ação executa uma declaração de `SELECT` DB2, por exemplo, `SELECT * FROM AREA`.
+Para obter todos os registos numa tabela de bases de dados DB2, use a ação **get rows** na sua aplicação lógica. Esta ação executa `SELECT` uma declaração `SELECT * FROM AREA`de DB2, por exemplo, .
 
 1. Se nunca usou ações de DB2 na sua aplicação lógica, reveja os passos na [ação Add DB2 - Obtenha](#add-db2-action) **tabelas,** mas adicione a ação das linhas Get e, em seguida, volte aqui para continuar.
 
@@ -217,9 +217,9 @@ Expanda a ação **get rows.**
 
    ![Ver linhas de saída](./media/connectors-create-api-db2/db2-connector-get-rows-outputs.png)
 
-## <a name="insert-row"></a>Insira a linha
+## <a name="insert-row"></a>Inserir linha
 
-Para adicionar um único disco a uma tabela de bases de dados DB2, utilize a ação da **linha Insert** na sua aplicação lógica. Esta ação executa uma declaração de `INSERT` DB2, por exemplo, `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+Para adicionar um único disco a uma tabela de bases de dados DB2, utilize a ação da **linha Insert** na sua aplicação lógica. Esta ação executa `INSERT` uma declaração `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`de DB2, por exemplo, .
 
 1. Se nunca usou ações de DB2 na sua aplicação lógica, reveja os passos na [ação Add DB2 - Obtenha tabelas,](#add-db2-action) mas adicione a ação da **linha Insert** e, em seguida, volte aqui para continuar.
 
@@ -233,7 +233,7 @@ Para adicionar um único disco a uma tabela de bases de dados DB2, utilize a aç
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da mesa** | Sim | A tabela onde adicionar o recorde, como "AREA" |
+   | **Nome da tabela** | Sim | A tabela onde adicionar o recorde, como "AREA" |
    | **ID da área** | Sim | O ID para a área a adicionar, como "99999" |
    | **Descrição da área** | Sim | A descrição para a área a adicionar, como "Área 99999" |
    | **ID da região** | Sim | O ID para a região adicionar, como "102" |
@@ -266,7 +266,7 @@ Expanda a ação da **linha Insert.**
 
 ## <a name="update-row"></a>Linha de atualização
 
-Para atualizar um único disco numa tabela de bases de dados DB2, utilize a ação da **linha Update** na sua aplicação lógica. Esta ação executa uma declaração de `UPDATE` DB2, por exemplo, `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`.
+Para atualizar um único disco numa tabela de bases de dados DB2, utilize a ação da **linha Update** na sua aplicação lógica. Esta ação executa `UPDATE` uma declaração `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`de DB2, por exemplo, .
 
 1. Se nunca usou ações de DB2 na sua aplicação lógica, reveja os passos na [ação Add DB2 - Obtenha tabelas,](#add-db2-action) mas adicione a ação da **linha Update** e, em seguida, volte aqui para continuar.
 
@@ -280,7 +280,7 @@ Para atualizar um único disco numa tabela de bases de dados DB2, utilize a aç�
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da mesa** | Sim | A tabela onde atualizar o registo, como "AREA" |
+   | **Nome da tabela** | Sim | A tabela onde atualizar o registo, como "AREA" |
    | **ID da linha** | Sim | O ID para que o registo atualização, como "99999" |
    | **ID da área** | Sim | A nova área ID, como "99999" |
    | **Descrição da área** | Sim | A nova descrição da área, como "Atualizado 99999" |
@@ -314,7 +314,7 @@ Expanda a ação da **linha Update.**
 
 ## <a name="delete-row"></a>Excluir linha
 
-Para eliminar um único registo de uma tabela de bases de dados DB2, utilize a ação da **linha Delete** na sua aplicação lógica. Esta ação executa uma declaração de `DELETE` DB2, por exemplo, `DELETE FROM AREA WHERE AREAID = '99999'`.
+Para eliminar um único registo de uma tabela de bases de dados DB2, utilize a ação da **linha Delete** na sua aplicação lógica. Esta ação executa `DELETE` uma declaração `DELETE FROM AREA WHERE AREAID = '99999'`de DB2, por exemplo, .
 
 1. Se nunca usou ações de DB2 na sua aplicação lógica, reveja os passos na [ação Add DB2 - Obtenha tabelas,](#add-db2-action) mas adicione a ação da **linha Delete** e, em seguida, volte aqui para continuar.
 
@@ -328,7 +328,7 @@ Para eliminar um único registo de uma tabela de bases de dados DB2, utilize a a
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da mesa** | Sim | A tabela onde apagar o registo, como "AREA" |
+   | **Nome da tabela** | Sim | A tabela onde apagar o registo, como "AREA" |
    | **ID da linha** | Sim | O ID para que o registo apague, como "99999" |
    ||||
 

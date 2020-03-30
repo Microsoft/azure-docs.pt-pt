@@ -1,54 +1,54 @@
 ---
-title: Configurar a autenticação do Google
-description: Saiba como configurar a autenticação do Google como um provedor de identidade para seu aplicativo do serviço de aplicativo.
+title: Configure a autenticação do Google
+description: Saiba como configurar a autenticação do Google como fornecedor de identidade para a sua aplicação App Service.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 09/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: 81ce3e393d308323c8d5a3d688c16c9b45e7be9d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74670818"
 ---
-# <a name="configure-your-app-service-app-to-use-google-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon do Google
+# <a name="configure-your-app-service-app-to-use-google-login"></a>Configure a sua app app Service para usar o login do Google
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este tópico mostra como configurar o serviço de Azure App para usar o Google como um provedor de autenticação.
+Este tópico mostra-lhe como configurar o Azure App Service para utilizar o Google como fornecedor de autenticação.
 
-Para concluir o procedimento neste tópico, você deve ter uma conta do Google que tenha um endereço de email verificado. Para criar uma nova conta do Google, aceda a [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
+Para completar o procedimento neste tópico, deve ter uma conta no Google que tenha um endereço de e-mail verificado. Para criar uma nova conta do Google, aceda a [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-## <a name="register"> </a>Registrar seu aplicativo com o Google
+## <a name="register-your-application-with-google"></a><a name="register"> </a>Registe a sua aplicação no Google
 
-1. Siga a documentação do Google na [entrada do Google para aplicativos do lado do servidor](https://developers.google.com/identity/sign-in/web/server-side-flow) para criar uma ID do cliente e um segredo do cliente. Não há necessidade de fazer nenhuma alteração de código. Basta usar as seguintes informações:
-    - Para **origens JavaScript autorizadas**, use `https://<app-name>.azurewebsites.net` com o nome do seu aplicativo em *\<nome de aplicativo >* .
-    - Para **URI de redirecionamento autorizado**, use `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
-1. Copie a ID do aplicativo e os valores de segredo do aplicativo.
+1. Siga a documentação do Google no [Google Sign-In para aplicações do lado do servidor](https://developers.google.com/identity/sign-in/web/server-side-flow) para criar um ID do cliente e segredo de cliente. Não há necessidade de fazer alterações de código. Basta utilizar as seguintes informações:
+    - Para **origens JavaScript autorizadas,** utilize `https://<app-name>.azurewebsites.net` com o nome da sua aplicação no * \<nome da aplicação>*.
+    - Para **redirecionar URI autorizado,** utilize `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
+1. Copie o ID da app e os valores secretos da App.
 
     > [!IMPORTANT]
-    > O segredo do aplicativo é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém ou distribua-o em um aplicativo cliente.
+    > O segredo da App é uma importante credencial de segurança. Não partilhe este segredo com ninguém nem o distribua dentro de uma aplicação de cliente.
 
-## <a name="secrets"> </a>Adicionar informações do Google ao seu aplicativo
+## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Adicione informações do Google à sua aplicação
 
-1. Na [portal do Azure], vá para o aplicativo do serviço de aplicativo.
-1. Selecione **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
-1. Selecione **Google**e cole os valores de ID do aplicativo e segredo do aplicativo que você obteve anteriormente. Habilite todos os escopos necessários para seu aplicativo.
+1. No [portal Azure,]vá à sua app App Service.
+1. Selecione **Definições** > **Autenticação / Autorização,** e certifique-se de que a autenticação do serviço de aplicações está **a ser ressoada**. **App Service Authentication**
+1. Selecione **Google**, em seguida, colá-se nos valores de ID da app e App Secret que obteve anteriormente. Ative todos os âmbitos necessários pela sua aplicação.
 1. Selecione **OK**.
 
-   O serviço de aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo e às APIs do site. Para obter mais informações, consulte [autorizar ou negar usuários](app-service-authentication-how-to.md#authorize-or-deny-users).
+   O Serviço de Aplicações fornece a autenticação, mas não restringe o acesso autorizado aos conteúdos e APIs do seu site. Para mais informações, consulte [Autorizar ou negar aos utilizadores](app-service-authentication-how-to.md#authorize-or-deny-users).
 
-1. Adicional Para restringir o acesso ao site somente para usuários autenticados pelo Google, defina **a ação a ser tomada quando a solicitação não for autenticada** para o **Google**. Quando você define essa funcionalidade, seu aplicativo requer que todas as solicitações sejam autenticadas. Ele também redireciona todas as solicitações não autenticadas para o Google para autenticação.
+1. (Opcional) Para restringir o acesso ao site apenas aos utilizadores autenticados pela Google, detete a **Action totake quando o pedido não for autenticado** no **Google**. Ao definir esta funcionalidade, a sua aplicação requer que todos os pedidos sejam autenticados. Também redireciona todos os pedidos não autenticados para a Google para autenticação.
 
     > [!CAUTION]
-    > Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que têm um home page publicamente disponível, como em muitos aplicativos de página única. Para tais aplicativos, **Permitir solicitações anônimas (nenhuma ação)** pode ser preferível para que o aplicativo inicie manualmente a autenticação em si. Para obter mais informações, consulte [fluxo de autenticação](overview-authentication-authorization.md#authentication-flow).
+    > Restringir o acesso desta forma aplica-se a todas as chamadas para a sua app, o que pode não ser desejável para aplicações que tenham uma página inicial disponível ao público, como em muitas aplicações de página única. Para tais aplicações, **permitir pedidos anónimos (nenhuma ação)** pode ser preferido para que a aplicação comece manualmente a autenticação em si. Para mais informações, consulte o [fluxo de autenticação](overview-authentication-authorization.md#authentication-flow).
 
 1. Selecione **Guardar**.
 
-Agora você está pronto para usar o Google para autenticação em seu aplicativo.
+Está agora pronto para utilizar o Google para autenticação na sua aplicação.
 
-## <a name="related-content"> </a>Passos seguintes
+## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
@@ -63,5 +63,5 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Portal do Azure]: https://portal.azure.com/
+[Portal Azure]: https://portal.azure.com/
 

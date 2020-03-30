@@ -7,10 +7,10 @@ ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655655"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Funcionalidades suportadas por Insights de Aplicação para Funções Azure
@@ -23,31 +23,31 @@ Para obter mais informações sobre versões compatíveis de Insights de Aplica�
 
 ## <a name="supported-features"></a>Funcionalidades suportadas
 
-| Funções do Azure                       | V1                | V2 e V3   | 
+| Funções do Azure                       | V1                | V2 & V3   | 
 |-----------------------------------    |---------------    |------------------ |
 | | | | 
 | **Recolha automática de**        |                 |                   |               
-| Pedidos &bull;                     | Sim             | Sim               | 
-| exceções &bull;                   | Sim             | Sim               | 
-| contadores de desempenho &bull;         | Sim             | Sim               |
-| Dependências &bull;                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sim               | 
+| &bull;Pedidos                     | Sim             | Sim               | 
+| &bull;Exceções                   | Sim             | Sim               | 
+| &bull;Contadores de Desempenho         | Sim             | Sim               |
+| &bull;Dependências                   |                   |                   |               
+| &nbsp;&nbsp;&nbsp;&mdash;HTTP      |                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash;ServiceBus|                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash;EventHub  |                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash;Rio SQL       |                 | Sim               | 
 | | | | 
-| **Características suportadas**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canal de Controlo Seguro|                 | Sim               | 
-| Amostragem &bull;                     | Sim             | Sim               | 
-| &bull; Heartbeats                   |                 | Sim               | 
+| **Funcionalidades suportadas**                |                   |                   |               
+| &bull;QuickPulse/LiveMetrics       | Sim             | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash;Canal de Controlo Seguro|                 | Sim               | 
+| &bull;Amostragem                     | Sim             | Sim               | 
+| &bull;Batimentos cardíacos                   |                 | Sim               | 
 | | | | 
 | **Correlação**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Sim               | 
-| &bull; EventHub                       |                   | Sim               | 
+| &bull;ServiceBus                     |                   | Sim               | 
+| &bull;EventHub                       |                   | Sim               | 
 | | | | 
 | **Configurável**                      |                   |                   |           
-| &bull;totalmente configurável.<br/>Consulte [as funções Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
+| &bull;Totalmente configurável.<br/>Consulte [as funções Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
 
 
 ## <a name="performance-counters"></a>Contadores de Desempenho
@@ -55,7 +55,7 @@ Para obter mais informações sobre versões compatíveis de Insights de Aplica�
 A recolha automática de Contadores de Desempenho funciona apenas com máquinas Windows.
 
 
-## <a name="live-metrics--secure-control-channel"></a>Live Metrics e Secure Control Channel
+## <a name="live-metrics--secure-control-channel"></a>As métricas vivas & canal de controlo seguro
 
 Os critérios de filtro personalizados que especifica são enviados de volta para o componente Métricas Vivas no SDK de Insights de Aplicação. Os filtros podem potencialmente conter informações sensíveis, tais como iDs de clientes. Pode tornar o canal seguro com uma chave API secreta. Consulte [A segurança do canal de controlo](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) para obter instruções.
 

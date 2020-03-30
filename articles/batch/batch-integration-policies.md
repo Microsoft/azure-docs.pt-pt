@@ -15,10 +15,10 @@ ms.date: 02/24/2020
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 9a306457f838fc79d12be3217d96cc8fb25c9c1b
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77618376"
 ---
 # <a name="integration-with-azure-policy"></a>Integração com a Política Azure
@@ -32,7 +32,7 @@ O Azure Batch tem duas extensões incorporadas para ajudá-lo a gerir o cumprime
 |Os registos de diagnóstico nas contas do Lote devem ser ativados|   Auditoria que permite registos de diagnóstico. Isto permite-lhe recriar trilhas de atividade para fins de investigação; quando ocorre um incidente de segurança ou quando a sua rede está comprometida|AuditoriaIfNotExists, Deficiente|  2.0.0|  GitHub|
 |As regras de alerta métrico devem ser configuradas nas contas do Lote| Configuração de auditoria das regras de alerta métrico na conta do Lote para ativar a métrica necessária|   AuditoriaIfNotExists, Deficiente| 1.0.0|  GitHub|
 
-As definições políticas descrevem as condições que devem ser satisfeitas. Uma condição compara a propriedade do recurso a um valor exigido. Os campos de propriedade de recursos são acedidos usando pseudónimos pré-definidos. Você usa pseudónimos de propriedade para aceder a propriedades específicas para um tipo de recurso. Aliases permitem-lhe restringir quais valores ou condições são permitidas para uma propriedade num recurso. Cada alias mapeia para caminhos em diferentes versões de API para um tipo de recurso específico. Durante a avaliação da política, o mecanismo da diretiva obtém o caminho de propriedade para essa versão de API.
+As definições políticas descrevem as condições que devem ser satisfeitas. Uma condição compara a propriedade do recurso a um valor exigido. Os campos de propriedade de recursos são acedidos usando pseudónimos pré-definidos. Você usa pseudónimos de propriedade para aceder a propriedades específicas para um tipo de recurso. Os pseudónimos permitem-lhe restringir quais os valores ou condições permitidos para uma propriedade num recurso. Cada pseudónimo mapeia caminhos em diferentes versões API para um determinado tipo de recursos. Durante a avaliação política, o motor de política obtém o caminho da propriedade para a versão API.
 
 Os recursos exigidos pelo Batch incluem: conta, nó de cálculo, piscina, trabalho e tarefa. Assim, você usaria pseudónimos de propriedade para aceder a propriedades específicas para estes recursos. Saiba mais sobre [pseudónimos](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 

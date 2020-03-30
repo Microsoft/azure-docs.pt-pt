@@ -9,10 +9,10 @@ ms.date: 02/18/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 26e76731f663ac9038bc87182d52c4bd245f1b6e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77471710"
 ---
 ## <a name="limitations"></a>Limitações
@@ -25,12 +25,12 @@ ms.locfileid: "77471710"
 
 ## <a name="deploy-an-azure-shared-disk"></a>Implementar um disco partilhado Azure
 
-Para implantar um disco gerido com a funcionalidade de disco partilhado ativada, utilize a nova propriedade `maxShares` e defina um valor `>1`. Isto torna o disco partilhável em vários VMs.
+Para implantar um disco gerido com a funcionalidade de `maxShares` disco partilhado `>1`ativada, utilize a nova propriedade e defina um valor . Isto torna o disco partilhável em vários VMs.
 
 > [!IMPORTANT]
-> O valor da `maxShares` só pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os tamanhos do Disco para os [valores permitidos](#disk-sizes) para `maxShares`.
+> O valor `maxShares` de apenas pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os tamanhos do Disco `maxShares`para os [valores permitidos](#disk-sizes) para .
 
-Antes de utilizar o seguinte modelo, substitua `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`e `[parameters('maxShares')]` com os seus próprios valores.
+Antes de utilizar o `[parameters('dataDiskName')]` `[resourceGroup().location]`seguinte `[parameters('dataDiskSizeGB')]`modelo, substitua, e `[parameters('maxShares')]` com os seus próprios valores.
 
 ```json
 { 
@@ -73,7 +73,7 @@ Antes de utilizar o seguinte modelo, substitua `[parameters('dataDiskName')]`, `
 
 ### <a name="using-azure-shared-disks-with-your-vms"></a>Utilizando discos compartilhados azure com os seus VMs
 
-Depois de ter implantado um disco partilhado com `maxShares>1`, pode montar o disco num ou mais dos seus VMs.
+Depois de ter implantado um `maxShares>1`disco partilhado com, pode montar o disco num ou mais dos seus VMs.
 
 > [!IMPORTANT]
 > Todos os VMs que partilham um disco devem ser implantados no mesmo grupo de [colocação](../articles/virtual-machines/windows/proximity-placement-groups.md)de proximidade .

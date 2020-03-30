@@ -1,5 +1,5 @@
 ---
-title: A bordo das suas máquinas virtuais Azure Stack para O Sentinela Azul  Microsoft Docs
+title: A bordo das suas máquinas virtuais Azure Stack para O Sentinela Azul [ Microsoft Docs
 description: Este artigo mostra-lhe como fornecer a extensão virtual da máquina virtual Do Monitor, Atualização e Configuração do Azure Monitor, Update e Configuration Management nas máquinas virtuais do Azure Stack e começar a monitorizá-las com o Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588523"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Conecte máquinas virtuais Azure Stack a Azure Sentinel
@@ -45,7 +45,7 @@ Adicione a extensão virtual do **Monitor Azure, Atualização e Gestão** de Co
    >[!NOTE]
    > Se não vir a extensão de **Monitorização, Atualização e Gestão** de Configurações e Monitorização de Configuração do Azure listada no seu mercado, contacte o operador do Azure Stack para o disponibilizar.
 
-6. No menu Azure Sentinel, selecione **as definições** do Espaço de Trabalho seguidas por **Advanced**, e copie o ID do **espaço de trabalho** e a chave **workspace (Chave Primária)** . 
+6. No menu Azure Sentinel, selecione **as definições** do Espaço de Trabalho seguidas por **Advanced**, e copie o ID do **espaço de trabalho** e a chave **workspace (Chave Primária)**. 
 1. Na janela de extensão de **instalação** de pilhas azure, cola-as nos campos indicados e clica **EM OK**.
 1. Após o fim da instalação da extensão, o seu estado mostra como **o provisionamento foi bem sucedido**. Pode levar até uma hora para a máquina virtual aparecer no portal Azure Sentinel.
 

@@ -1,6 +1,6 @@
 ---
-title: Monitorizar a utilização e custos estimados no Azure Monitor
-description: Descrição geral do processo de uso de utilização do Azure Monitor e a página de custos estimados
+title: Monitorização da utilização e custos estimados no Monitor Azure
+description: Visão geral do processo de utilização do Monitor Azure e página de custos estimados
 author: dalekoetke
 services: azure-monitor
 ms.topic: conceptual
@@ -9,13 +9,13 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 22c7243cd966f458610c2abc67ed5540b37357b8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658820"
 ---
-# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorizar a utilização e custos estimados no Azure Monitor
+# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorização da utilização e custos estimados no Monitor Azure
 
 > [!NOTE]
 > Este artigo descreve como visualizar o uso e os custos estimados em várias funcionalidades de monitorização do Azure. Artigos relacionados para componentes específicos do Monitor Azure incluem:
@@ -72,23 +72,23 @@ Mais detalhes sobre o seu uso estão disponíveis [através do download da sua u
 > [!NOTE]
 > A **utilização** da Cost Management no hub **Azure Cost Management + Billing** é a abordagem preferida para compreender amplamente os custos de monitorização.  As experiências **de Utilização e Custos Estimados** para [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) e [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#understand-your-usage-and-estimate-costs) fornecem insights mais profundos para cada uma dessas partes do Monitor Azure.
 
-Outra opção para visualizar o seu uso do Monitor Azure é a página **de utilização e custos estimados** no centro do Monitor. Isto mostra o uso de funcionalidades de monitorização do núcleo tais como [alerta, métricas, notificações,](https://azure.microsoft.com/pricing/details/monitor/) [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)e Insights de [Aplicação Azure](https://azure.microsoft.com/pricing/details/application-insights/). Para os clientes sobre os planos de preços disponíveis antes de Abril de 2018, isso também inclui a utilização do Log Analytics adquirida por meio das informações e análise da oferta.
+Outra opção para visualizar o seu uso do Monitor Azure é a página **de utilização e custos estimados** no centro do Monitor. Isto mostra o uso de funcionalidades de monitorização do núcleo tais como [alerta, métricas, notificações,](https://azure.microsoft.com/pricing/details/monitor/) [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)e Insights de [Aplicação Azure](https://azure.microsoft.com/pricing/details/application-insights/). Para os clientes sobre os planos de preços disponíveis antes de abril de 2018, isto também inclui o uso do Log Analytics adquirido através da oferta Insights e Analytics.
 
-Nesta página, os utilizadores podem ver a utilização de recursos nos últimos 31 dias, agregados por cada subscrição. `Drill-ins` mostrar tendências de utilização durante o período de 31 dias. Uma grande quantidade de dados tem de se reúnem para esta estimativa, portanto, seja paciente como a página for carregada.
+Nesta página, os utilizadores podem visualizar o seu uso de recursos nos últimos 31 dias, agregados por subscrição. `Drill-ins`mostrar tendências de utilização durante o período de 31 dias. Muitos dados precisam de se juntar para esta estimativa, por isso, por favor, sejam pacientes à medida que a página carrega.
 
-Este exemplo mostra a utilização de monitorização e uma estimativa dos custos resultantes:
+Este exemplo mostra a monitorização da utilização e uma estimativa dos custos resultantes:
 
-![Utilização e custos estimados portal captura de ecrã](./media/usage-estimated-costs/001.png)
+![Utilização e imagem do portal de custos estimados](./media/usage-estimated-costs/001.png)
 
-Selecione a ligação na coluna mensal de utilização para abrir um gráfico que mostra as tendências de utilização ao longo do último período de 31 dias: 
+Selecione o link na coluna de utilização mensal para abrir um gráfico que mostre as tendências de utilização durante o último período de 31 dias: 
 
-![Incluído por nó de barra captura de ecrã do gráfico](./media/usage-estimated-costs/002.png)
+![Incluído por imagem de gráfico de barra de nó](./media/usage-estimated-costs/002.png)
 
 ## <a name="operations-management-suite-subscription-entitlements"></a>Direitos de subscrição da Suite de Gestão de Operações
 
-Os clientes que compraram o Microsoft Operations Management Suite E1 e E2 são elegíveis para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Para receber esta elegibilidade para áreas de trabalho do Log Analytics ou recursos do Application Insights numa determinada subscrição: 
+Os clientes que compraram o Microsoft Operations Management Suite E1 e E2 são elegíveis para direitos de ingestão de dados por nó para [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Para receber estes direitos para espaços de trabalho log Analytics ou recursos de Insights de Aplicação numa determinada subscrição: 
 
-- Áreas de trabalho do log Analytics, devem utilizar o "por nó (OMS)" escalão de preço.
+- Os espaços de trabalho do Log Analytics devem utilizar o nível de preços "Per-nó (OMS)".
 - Os recursos da Application Insights devem utilizar o nível de preços "Enterprise".
 
 Dependendo do número de nós da suite que a sua organização adquiriu, mover algumas subscrições para um nível de preços Pay-As-You-Go (Per GB) pode ser vantajoso, mas isso requer uma cuidadosa consideração.

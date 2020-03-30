@@ -8,10 +8,10 @@ ms.date: 02/21/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: e2e3c7763a13c8850554b079a426ed4172b74d28
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77599278"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio de Diretório Ativo azure em ficheiros Azure
@@ -119,7 +119,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Para ativar a autenticação AD Azure sobre sMB com o Azure CLI, instale a versão MAIS recente do CLI (versão 2.0.70 ou mais recente). Para obter mais informações sobre a instalação do Azure CLI, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Para criar uma nova conta de armazenamento, ligue para a conta de[armazenamento az criar,](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e definir a propriedade `--enable-files-aadds` **verdadeiramente.** No exemplo seguinte, lembre-se de substituir os valores do espaço reservado por valores próprios. (Se estiver a utilizar o módulo de pré-visualização anterior, o parâmetro para a ativação da funcionalidade é **aad de ficheiro**.)
+Para criar uma nova conta de armazenamento, ligue `--enable-files-aadds` para a conta de armazenamento[az criar,](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)e definir a propriedade como **verdadeira**. No exemplo seguinte, lembre-se de substituir os valores do espaço reservado por valores próprios. (Se estiver a utilizar o módulo de pré-visualização anterior, o parâmetro para a ativação da funcionalidade é **aad de ficheiro**.)
 
 ```azurecli-interactive
 # Create a new storage account

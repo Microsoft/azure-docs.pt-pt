@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 8315560c679f9807715af14dc315fa3000be0472
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624816"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o Serviço Azure Kubernetes (AKS)
@@ -94,7 +94,7 @@ Para mais informações, consulte os limites de [subscrição e serviço do Azur
 
 Se a sua aplicação não conseguir lidar com o tempo de inatividade, terá de seguir as melhores práticas para cenários de migração de alta disponibilidade.  As melhores práticas para um planeamento complexo da continuidade do negócio, recuperação de desastres e maximização do tempo de espera estão fora do âmbito deste documento.  Leia mais sobre [as melhores práticas para a continuidade do negócio e recuperação de desastres no Serviço Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) para saber mais.
 
-Para aplicações complexas, você normalmente migrará ao longo do tempo em vez de tudo ao mesmo tempo. Isto significa que os ambientes antigos e novos podem ter de comunicar através da rede. As aplicações que utilizaram anteriormente serviços `ClusterIP` para comunicar podem ter de ser expostas como tipo `LoadBalancer` e ser devidamente protegidas.
+Para aplicações complexas, você normalmente migrará ao longo do tempo em vez de tudo ao mesmo tempo. Isto significa que os ambientes antigos e novos podem ter de comunicar através da rede. As aplicações que `ClusterIP` utilizaram anteriormente serviços `LoadBalancer` para comunicar podem ter de ser expostas como tipo e ser devidamente protegidas.
 
 Para completar a migração, vai querer apontar os clientes para os novos serviços que estão a decorrer na AKS. Recomendamos que redirecione o tráfego atualizando dNS para apontar para o Balancer load que se encontra em frente ao seu cluster AKS.
 
@@ -131,7 +131,7 @@ Se a sua aplicação puder alojar várias réplicas que apontem para a mesma quo
 * Aponte o seu tráfego ao vivo para o seu novo aglomerado AKS.
 * Desligue o velho aglomerado.
 
-Se quiser começar com uma parte vazia e fazer uma cópia dos dados de origem, pode utilizar os [comandos`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) para migrar os seus dados.
+Se quiser começar com uma parte vazia e fazer uma cópia [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) dos dados de origem, pode utilizar os comandos para migrar os seus dados.
 
 
 #### <a name="migrating-persistent-volumes"></a>Volumes persistentes migratórios
@@ -158,7 +158,7 @@ Algumas ferramentas de código aberto podem ajudá-lo a criar discos geridos e a
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Implementação da configuração do seu cluster
 
-Recomendamos que utilize o seu oleoduto de Integração Contínua (CI) e Entrega Contínua (CD) para implementar uma configuração conhecida de bom para AKS. Pode utilizar os Gasodutos Azure para [construir e implementar as suas aplicações para aks](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone as suas tarefas de implantação existentes e certifique-se de que `kubeconfig` aponta para o novo cluster AKS.
+Recomendamos que utilize o seu oleoduto de Integração Contínua (CI) e Entrega Contínua (CD) para implementar uma configuração conhecida de bom para AKS. Pode utilizar os Gasodutos Azure para [construir e implementar as suas aplicações para aks](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone as suas tarefas de `kubeconfig` implantação existentes e certifique-se de que isso aponta para o novo cluster AKS.
 
 Se isso não for possível, exporte definições de recursos do seu aglomerado kubernetes existente e, em seguida, aplique-as à AKS. Pode usar `kubectl` para exportar objetos.
 

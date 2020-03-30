@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
 ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660262"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Experiência de Registos Simples no Monitor Azure (Pré-visualização)
@@ -28,7 +28,7 @@ Navegue para qualquer Cosmos DB ou Key Vault na sua subscrição Azure com confi
 
 ![Menu](media/simple-logs/menu.png)
 
-Selecione um **Campo** e um **Operador** e especifique um **Valor** para comparação. Clique em **+** e especifique **E/Ou** para adicionar critérios adicionais.
+Selecione um **Campo** e um **Operador** e especifique um **Valor** para comparação. Clique **+** e especifique **E/Ou** para adicionar critérios adicionais.
 
 ![Critérios](media/simple-logs/criteria.png)
 
@@ -37,7 +37,7 @@ Clique **em Correr** para ver os resultados da consulta.
 ## <a name="view-and-edit-kql"></a>Ver e editar KQL
 Selecione **O editor** da Consulta para abrir o KQL gerado pela consulta de Registos Simples em toda a experiência Log Analytics. 
 
-![Editor de consulta](media/simple-logs/query-editor.png)
+![Editor de consultas](media/simple-logs/query-editor.png)
 
 Pode editar diretamente o KQL e utilizar outras funcionalidades no Log Analytics, como filtros para aperfeiçoar ainda mais os seus resultados.
 

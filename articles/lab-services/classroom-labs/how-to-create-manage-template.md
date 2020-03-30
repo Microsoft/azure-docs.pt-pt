@@ -1,5 +1,5 @@
 ---
-title: Gerir um modelo de um laboratório de sala de aula em Serviços de Laboratório Azure  Microsoft Docs
+title: Gerir um modelo de um laboratório de sala de aula em Serviços de Laboratório Azure [ Microsoft Docs
 description: Aprenda a criar e gerir um modelo de laboratório em laboratório em Azure Lab Services.
 services: lab-services
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
 ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77539037"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Criar e gerir um modelo de sala de aula em Serviços de Laboratório Azure

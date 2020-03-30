@@ -1,72 +1,72 @@
 ---
-title: Implantação sem tempo de inatividade para Durable Functions
-description: Saiba como habilitar sua orquestração de Durable Functions para implantações sem tempo de inatividade.
+title: Implantação de tempo zero para funções duráveis
+description: Aprenda a permitir a sua orquestração de Funções Duráveis para implementações de tempo zero.
 author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74231262"
 ---
-# <a name="zero-downtime-deployment-for-durable-functions"></a>Implantação sem tempo de inatividade para Durable Functions
+# <a name="zero-downtime-deployment-for-durable-functions"></a>Implantação de tempo zero para funções duráveis
 
-O [modelo de execução confiável](durable-functions-checkpointing-and-replay.md) do Durable Functions exige que as orquestrações sejam determinísticas, o que cria um desafio adicional a ser considerado ao implantar atualizações. Quando uma implantação contém alterações nas assinaturas da função de atividade ou na lógica do Orchestrator, as instâncias de orquestração em andamento falham. Essa situação é especialmente um problema para instâncias de orquestrações de longa execução, que podem representar horas ou dias de trabalho.
+O [modelo de execução fiável](durable-functions-checkpointing-and-replay.md) das Funções Duráveis requer que as orquestrações sejam determinísticas, o que cria um desafio adicional a considerar quando implementa atualizações. Quando uma implantação contém alterações nas assinaturas da função de atividade ou lógica orquestradora, as instâncias de orquestração a bordo falham. Esta situação é especialmente um problema para os casos de orquestrações de longa duração, que podem representar horas ou dias de trabalho.
 
-Para evitar que essas falhas ocorram, você tem duas opções: 
-- Adie a implantação até que todas as instâncias de orquestração em execução tenham sido concluídas.
-- Certifique-se de que qualquer instância de orquestração em execução use as versões existentes de suas funções. 
+Para evitar que estas falhas aconteçam, tem duas opções: 
+- Atrase a sua implantação até que todos os casos de orquestração em execução tenham terminado.
+- Certifique-se de que quaisquer instâncias de orquestração em execução utilizam as versões existentes das suas funções. 
 
 > [!NOTE]
-> Este artigo fornece diretrizes para aplicativos de funções direcionados Durable Functions 1. x. Ele não foi atualizado para considerar as alterações introduzidas no Durable Functions 2. x. Para obter mais informações sobre as diferenças entre versões de extensão, consulte [Durable Functions versões](durable-functions-versions.md).
+> Este artigo fornece orientação para aplicações de funções que visam funções duráveis 1.x. Não foi atualizado para ter em conta as alterações introduzidas nas Funções Duráveis 2.x. Para obter mais informações sobre as diferenças entre versões de extensão, consulte [versões De Funções Duráveis](durable-functions-versions.md).
 
-O gráfico a seguir compara as três principais estratégias para obter uma implantação sem tempo de inatividade para Durable Functions: 
+O gráfico seguinte compara as três principais estratégias para alcançar uma implementação de tempo zero para funções duráveis: 
 
-| Estratégia |  Quando utilizar | Profissionais de TI | Contras |
+| Estratégia |  Quando utilizar | Vantagens | Contras |
 | -------- | ------------ | ---- | ---- |
-| [Versão](#versioning) |  Aplicativos que não experimentam [alterações significativas](durable-functions-versioning.md) frequentes. | Simples de implementar. |  Maior tamanho do aplicativo de funções na memória e no número de funções.<br/>Duplicação de código. |
-| [Verificação de status com slot](#status-check-with-slot) | Um sistema que não tem orquestrações de longa execução que duram mais de 24 horas ou orquestrações que se sobrepõem com frequência. | Base de código simples.<br/>Não requer gerenciamento de aplicativo de funções adicional. | Requer gerenciamento de Hub de tarefas ou conta de armazenamento adicional.<br/>Requer períodos de tempo em que nenhuma orquestração está em execução. |
-| [Roteamento de aplicativos](#application-routing) | Um sistema que não tem períodos de tempo em que as orquestrações não estão sendo executadas, como os períodos de tempo com orquestrações que duram mais de 24 horas ou com orquestrações com maior frequência. | Lida com novas versões de sistemas com orquestrações continuamente em execução que têm alterações significativas. | Requer um roteador de aplicativo inteligente.<br/>Pode esgotar o número de aplicativos de funções permitidos pela sua assinatura. O padrão é 100. |
+| [Controlo de versões](#versioning) |  Aplicações que não experimentam mudanças frequentes [de quebra.](durable-functions-versioning.md) | Simples de implementar. |  Aumento do tamanho da aplicação de função na memória e número de funções.<br/>Duplicação de código. |
+| [Verificação de estado com ranhura](#status-check-with-slot) | Um sistema que não tem orquestrações de longa duração que duram mais de 24 horas ou frequentemente sobrepõem orquestrações. | Base de código simples.<br/>Não requer gestão adicional de aplicações de função. | Requer uma conta de armazenamento adicional ou uma gestão do centro de tarefas.<br/>Requer períodos de tempo em que não há orquestrações a decorrer. |
+| [Encaminhamento de aplicações](#application-routing) | Um sistema que não tem períodos de tempo em que as orquestrações não estão a funcionar, como os períodos de tempo com orquestrações que duram mais de 24 horas ou com orquestrações frequentemente sobrepostas. | Lida com novas versões de sistemas com orquestrações contínuas que têm mudanças de rutura. | Requer um router de aplicação inteligente.<br/>Poderia atingir o número de aplicações de função permitidas pela sua subscrição. A predefinição é 100. |
 
 ## <a name="versioning"></a>Controlo de versões
 
-Defina novas versões de suas funções e deixe as versões antigas em seu aplicativo de funções. Como você pode ver no diagrama, a versão da função se torna parte do seu nome. Como as versões anteriores das funções são preservadas, as instâncias de orquestração em andamento podem continuar a referenciá-las. Enquanto isso, as solicitações para novas instâncias de orquestração chamam a versão mais recente, à qual sua função de cliente de orquestração pode fazer referência a partir de uma configuração de aplicativo.
+Defina novas versões das suas funções e deixe as versões antigas na sua aplicação de funções. Como pode ver no diagrama, a versão de uma função torna-se parte do seu nome. Como as versões anteriores das funções são preservadas, as instâncias de orquestração a bordo podem continuar a referi-las. Entretanto, os pedidos de novas instâncias de orquestração exigem a versão mais recente, que a função do cliente da orquestração pode fazer referência a partir de uma configuração de aplicação.
 
-![Estratégia de controle de versão](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
+![Estratégia de versão](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
 
-Nessa estratégia, cada função deve ser copiada e suas referências a outras funções devem ser atualizadas. Você pode torná-lo mais fácil escrevendo um script. Aqui está um [projeto de exemplo](https://github.com/TsuyoshiUshio/DurableVersioning) com um script de migração.
+Nesta estratégia, todas as funções devem ser copiadas e as suas referências a outras funções devem ser atualizadas. Pode facilitar a escrita de um guião. Aqui está um [projeto de amostra](https://github.com/TsuyoshiUshio/DurableVersioning) com um roteiro de migração.
 
 >[!NOTE]
->Essa estratégia usa slots de implantação para evitar o tempo de inatividade durante a implantação. Para obter informações mais detalhadas sobre como criar e usar novos slots de implantação, consulte [Azure Functions slots de implantação](../functions-deployment-slots.md).
+>Esta estratégia utiliza ranhuras de implantação para evitar o tempo de inatividade durante a implantação. Para obter informações mais detalhadas sobre como criar e utilizar novas ranhuras de implantação, consulte as ranhuras de implantação das [Funções Azure](../functions-deployment-slots.md).
 
-## <a name="status-check-with-slot"></a>Verificação de status com slot
+## <a name="status-check-with-slot"></a>Verificação de estado com ranhura
 
-Embora a versão atual do seu aplicativo de funções esteja em execução no slot de produção, implante a nova versão do seu aplicativo de funções em seu slot de preparo. Antes de trocar os slots de produção e de preparo, verifique se há alguma instância de orquestração em execução. Depois que todas as instâncias de orquestração forem concluídas, você poderá fazer a permuta. Essa estratégia funciona quando você tem períodos previsíveis quando não há instâncias de orquestração em trânsito. Essa é a melhor abordagem quando suas orquestrações não são de execução longa e quando suas execuções de orquestração não se sobrepõem com frequência.
+Enquanto a versão atual da sua aplicação de funções estiver a funcionar na sua ranhura de produção, implemente a nova versão da sua aplicação de função para o seu slot de encenação. Antes de trocar as suas ranhuras de produção e encenação, verifique se existem casos de orquestração em execução. Depois de todos os casos de orquestração estarem completos, pode fazer a troca. Esta estratégia funciona quando se tem períodos previsíveis quando não há casos de orquestração em voo. Esta é a melhor abordagem quando as suas orquestrações não são longas e quando as suas execuções de orquestração não se sobrepõem frequentemente.
 
-### <a name="function-app-configuration"></a>Configuração do aplicativo de funções
+### <a name="function-app-configuration"></a>Configuração de aplicativo de função
 
-Use o procedimento a seguir para configurar esse cenário.
+Utilize o seguinte procedimento para configurar este cenário.
 
-1. [Adicione slots de implantação](../functions-deployment-slots.md#add-a-slot) ao seu aplicativo de funções para preparo e produção.
+1. [Adicione ranhuras](../functions-deployment-slots.md#add-a-slot) de implementação à sua aplicação de funções para encenação e produção.
 
-1. Para cada slot, defina a [configuração de aplicativo AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) como a cadeia de conexão de uma conta de armazenamento compartilhada. Essa cadeia de conexão da conta de armazenamento é usada pelo Azure Functions Runtime. Essa conta é usada pelo tempo de execução do Azure Functions e gerencia as chaves da função.
+1. Para cada ranhura, defina a definição da [aplicação AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) na cadeia de ligação de uma conta de armazenamento partilhada. Esta cadeia de ligação à conta de armazenamento é utilizada pelo tempo de funcionamento das Funções Azure. Esta conta é utilizada pelo tempo de funcionamento das Funções Azure e gere as teclas da função.
 
-1. Para cada slot, crie uma nova configuração de aplicativo, por exemplo, `DurableManagementStorage`. Defina seu valor como a cadeia de conexão de contas de armazenamento diferentes. Essas contas de armazenamento são usadas pela extensão de Durable Functions para [execução confiável](durable-functions-checkpointing-and-replay.md). Use uma conta de armazenamento separada para cada slot. Não marque essa configuração como uma configuração de slot de implantação.
+1. Para cada ranhura, crie uma nova `DurableManagementStorage`configuração de aplicações, por exemplo, . Delineie o seu valor para a cadeia de ligação de diferentes contas de armazenamento. Estas contas de armazenamento são utilizadas pela extensão das Funções Duráveis para [uma execução fiável](durable-functions-checkpointing-and-replay.md). Utilize uma conta de armazenamento separada para cada ranhura. Não marque esta definição como uma definição de ranhura de implantação.
 
-1. Na [seção durableTask do arquivo host. JSON](durable-functions-bindings.md#hostjson-settings)do seu aplicativo de funções, especifique `azureStorageConnectionStringName` como o nome da configuração do aplicativo que você criou na etapa 3.
+1. Na secção de [tarefas duradouras do ficheiro host.json](durable-functions-bindings.md#hostjson-settings)da sua aplicação de função, especifique `azureStorageConnectionStringName` como o nome da definição da aplicação que criou no passo 3.
 
-O diagrama a seguir mostra a configuração descrita de Slots de implantação e contas de armazenamento. Nesse cenário potencial de pré-implantação, a versão 2 de um aplicativo de funções está em execução no slot de produção, enquanto a versão 1 permanece no slot de preparo.
+O diagrama seguinte mostra a configuração descrita de ranhuras de implantação e contas de armazenamento. Neste potencial cenário de pré-implantação, a versão 2 de uma aplicação de função está a funcionar na ranhura de produção, enquanto a versão 1 permanece na ranhura de encenação.
 
 ![Slots de implantação e contas de armazenamento](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>exemplos de host. JSON
+### <a name="hostjson-examples"></a>exemplos host.json
 
-Os fragmentos JSON a seguir são exemplos da configuração da cadeia de conexão no arquivo *host. JSON* .
+Os seguintes fragmentos JSON são exemplos da definição de cadeia de ligação no ficheiro *host.json.*
 
-#### <a name="functions-20"></a>Funções 2,0
+#### <a name="functions-20"></a>Funções 2.0
 
 ```json
 {
@@ -89,9 +89,9 @@ Os fragmentos JSON a seguir são exemplos da configuração da cadeia de conexã
 }
 ```
 
-### <a name="cicd-pipeline-configuration"></a>Configuração de pipeline de CI/CD
+### <a name="cicd-pipeline-configuration"></a>Configuração do gasoduto CI/CD
 
-Configure seu pipeline de CI/CD para implantar somente quando seu aplicativo de funções não tiver instâncias de orquestração pendentes ou em execução. Quando você estiver usando Azure Pipelines, poderá criar uma função que verifica essas condições, como no exemplo a seguir:
+Configure o seu pipeline CI/CD para implantar apenas quando a sua aplicação de funções não tiver instâncias de orquestração pendentes ou em execução. Quando estiver a utilizar os Gasodutos Azure, pode criar uma função que verifica estas condições, como no seguinte exemplo:
 
 ```csharp
 [FunctionName("StatusCheck")]
@@ -110,68 +110,68 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-Em seguida, configure o portão de preparo para aguardar até que nenhuma orquestração esteja em execução. Para obter mais informações, consulte [liberar controle de implantação usando Gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
+Em seguida, configure o portão de preparação para esperar até que nenhuma orquestração esteja em execução. Para mais informações, consulte o controlo de implementação de [lançamento utilizando portões](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
 
-![Portão de implantação](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
+![Porta de implementação](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 
-Azure Pipelines verifica seu aplicativo de funções para executar instâncias de orquestração antes do início da implantação.
+A Azure Pipelines verifica a sua aplicação de funções para executar instâncias de orquestração antes do início da sua implementação.
 
 ![Portão de implantação (em execução)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
 
-Agora, a nova versão do seu aplicativo de funções deve ser implantada no slot de preparo.
+Agora, a nova versão da sua aplicação de funções deve ser implementada para a ranhura de encenação.
 
-![Slot de preparo](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
+![Ranhura de encenação](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
 
-Por fim, slots de permuta. 
+Finalmente, troque as ranhuras. 
 
-As configurações do aplicativo que não são marcadas como configurações do slot de implantação também são trocadas, portanto, o aplicativo da versão 2 mantém sua referência à conta de armazenamento A. Como o estado de orquestração é acompanhado na conta de armazenamento, todas as orquestrações em execução no aplicativo da versão 2 continuam a ser executadas no novo slot sem interrupção.
+As definições de aplicação que não estão marcadas como definições de slot de implementação também são trocadas, pelo que a aplicação versão 2 mantém a sua referência à conta de armazenamento A. Como o estado de orquestração é rastreado na conta de armazenamento, quaisquer orquestrações em execução na aplicação da versão 2 continuam a funcionar na nova ranhura sem interrupção.
 
 ![Ranhura de implementação](media/durable-functions-zero-downtime-deployment/deployment-slot-3.png)
 
-Para usar a mesma conta de armazenamento para ambos os slots, você pode alterar os nomes dos hubs de tarefas. Nesse caso, você precisa gerenciar o estado de seus slots e as configurações de HubName do seu aplicativo. Para saber mais, confira [hubs de tarefas em Durable Functions](durable-functions-task-hubs.md).
+Para utilizar a mesma conta de armazenamento para ambas as ranhuras, pode alterar os nomes dos seus centros de tarefas. Neste caso, precisa de gerir o estado das suas faixas horárias e as definições do HubName da sua aplicação. Para saber mais, consulte [os centros de tarefas em Funções Duráveis.](durable-functions-task-hubs.md)
 
-## <a name="application-routing"></a>Roteamento de aplicativos
+## <a name="application-routing"></a>Encaminhamento de aplicações
 
-Essa estratégia é a mais complexa. No entanto, ele pode ser usado para aplicativos de funções que não têm tempo entre orquestrações em execução.
+Esta estratégia é a mais complexa. No entanto, pode ser usado para aplicações de funções que não têm tempo entre orquestrações de execução.
 
-Para essa estratégia, você deve criar um *roteador de aplicativo* na frente de seu Durable functions. Esse roteador pode ser implementado com Durable Functions. O roteador tem a responsabilidade de:
+Para esta estratégia, deve criar um router de *aplicação* em frente às suas Funções Duráveis. Este router pode ser implementado com Funções Duráveis. O router tem a responsabilidade de:
 
-* Implante o aplicativo de funções.
-* Gerencie a versão do Durable Functions. 
-* Rotear solicitações de orquestração para aplicativos de funções.
+* Implemente a aplicação de função.
+* Gerir a versão das Funções Duráveis. 
+* Encaminhe pedidos de orquestração para funcionar apps.
 
-Na primeira vez que uma solicitação de orquestração é recebida, o roteador realiza as seguintes tarefas:
+A primeira vez que um pedido de orquestração é recebido, o router faz as seguintes tarefas:
 
-1. Cria um novo aplicativo de funções no Azure.
-2. Implanta o código do aplicativo de funções no novo aplicativo de funções no Azure.
-3. Encaminha a solicitação de orquestração para o novo aplicativo.
+1. Cria uma nova aplicação de funções em Azure.
+2. Implementa o código da sua aplicação de funções para a nova aplicação de funções no Azure.
+3. Reencaminha o pedido de orquestração para a nova app.
 
-O roteador gerencia o estado de qual versão do código do aplicativo é implantada em qual aplicativo de funções no Azure.
+O router gere o estado de qual versão do código da sua aplicação é implementada para a aplicação de funções em Azure.
 
-![Roteamento de aplicativos (primeira vez)](media/durable-functions-zero-downtime-deployment/application-routing.png)
+![Encaminhamento de aplicações (primeira vez)](media/durable-functions-zero-downtime-deployment/application-routing.png)
 
-O roteador direciona as solicitações de implantação e orquestração para o aplicativo de funções apropriado com base na versão enviada com a solicitação. Ele ignora a versão do patch.
+O router direciona pedidos de implantação e orquestração para a aplicação de função apropriada com base na versão enviada com o pedido. Ignora a versão do patch.
 
-Ao implantar uma nova versão do seu aplicativo sem uma alteração significativa, você pode incrementar a versão do patch. O roteador é implantado em seu aplicativo de funções existente e envia solicitações para as versões antigas e novas do código, que são roteadas para o mesmo aplicativo de funções.
+Quando implementar uma nova versão da sua aplicação sem uma alteração de rutura, pode incrementar a versão patch. O router implementa para a sua aplicação de função existente e envia pedidos para as versões antigas e novas do código, que são encaminhados para a mesma aplicação de funções.
 
-![Roteamento de aplicativos (sem alteração significativa)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
+![Encaminhamento de aplicações (sem alteração de rutura)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
 
-Ao implantar uma nova versão do seu aplicativo com uma alteração significativa, você pode incrementar a versão principal ou secundária. Em seguida, o roteador de aplicativo cria um novo aplicativo de funções no Azure, implanta-o e roteia solicitações para a nova versão do seu aplicativo para ele. No diagrama a seguir, a execução de orquestrações na versão 1.0.1 do aplicativo continua em execução, mas as solicitações para a versão 1.1.0 são roteadas para o novo aplicativo de funções.
+Quando implementar uma nova versão da sua aplicação com uma mudança de rutura, pode incrementar a versão principal ou menor. Em seguida, o router de aplicação cria uma nova aplicação de função no Azure, implanta-se para o mesmo, e encaminha os pedidos para a nova versão da sua aplicação para o mesmo. No diagrama seguinte, as orquestrações de execução na versão 1.0.1 da aplicação continuam a funcionar, mas os pedidos para a versão 1.1.0 são encaminhados para a nova aplicação de funções.
 
-![Roteamento de aplicativos (alteração significativa)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
+![Encaminhamento de aplicações (alteração de rutura)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
 
-O roteador monitora o status das orquestrações na versão 1.0.1 e remove os aplicativos após a conclusão de todas as orquestrações. 
+O router monitoriza o estado das orquestrações na versão 1.0.1 e remove as aplicações depois de todas as orquestrações estarem terminadas. 
 
-### <a name="tracking-store-settings"></a>Configurações do repositório de rastreamento
+### <a name="tracking-store-settings"></a>Definições de loja de rastreio
 
-Cada aplicativo de funções deve usar filas de agendamento separadas, possivelmente em contas de armazenamento separadas. Se você quiser consultar todas as instâncias de orquestrações em todas as versões do seu aplicativo, você pode compartilhar instâncias e tabelas de histórico em seus aplicativos de funções. Você pode compartilhar tabelas configurando as configurações `trackingStoreConnectionStringName` e `trackingStoreNamePrefix` no arquivo de [configurações do host. JSON](durable-functions-bindings.md#host-json) para que todas usem os mesmos valores.
+Cada aplicação de função deve utilizar filas de agendamento separadas, possivelmente em contas de armazenamento separadas. Se quiser consultar todas as instâncias de orquestração em todas as versões da sua aplicação, pode partilhar instâncias e tabelas de história nas suas aplicações de funções. Pode partilhar tabelas configurando as `trackingStoreConnectionStringName` definições e `trackingStoreNamePrefix` definições no ficheiro de [definições host.json](durable-functions-bindings.md#host-json) para que todos utilizem os mesmos valores.
 
-Para obter mais informações, consulte [gerenciar instâncias no Durable Functions no Azure](durable-functions-instance-management.md).
+Para mais informações, consulte [Gerir instâncias em Funções Duráveis em Azure](durable-functions-instance-management.md).
 
-![Configurações do repositório de rastreamento](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
+![Definições de loja de rastreio](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Durable Functions de controle de versão](durable-functions-versioning.md)
+> [Veredura Funções Duráveis](durable-functions-versioning.md)
 

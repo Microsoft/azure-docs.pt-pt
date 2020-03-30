@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/24/2020
 ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623094"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utilizar o Apache Spark para ler e escrever dados do Apache HBase
@@ -25,7 +25,7 @@ Apache HBase é tipicamente consultado com a sua API de baixo nível (digitaliza
 
 * Um cliente SSH. Para mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando O SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* O [esquema URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Este esquema seria wasb:// para o Armazenamento de Blob Azure, abfs:// para o Azure Data Lake Storage Gen2 ou adl:// para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Blob, o URI será `wasbs://`.  Ver também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
+* O [esquema URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Este esquema seria wasb:// para o Armazenamento de Blob Azure, abfs:// para o Azure Data Lake Storage Gen2 ou adl:// para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Armazenamento Blob, o URI seria .  Ver também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
 
 ## <a name="overall-process"></a>Processo geral
 
@@ -34,7 +34,7 @@ O processo de alto nível para permitir que o seu cluster Spark questione o seu 
 1. Prepare alguns dados da amostra na Base HBase.
 2. Adquira o ficheiro hbase-site.xml da sua pasta de configuração de cluster HBase (/etc/hbase/conf).
 3. Coloque uma cópia do hbase-site.xml na sua pasta de configuração Spark 2 (/etc/spark2/conf).
-4. Execute `spark-shell` referindo-se ao Conector Spark HBase pelas suas coordenadas Maven na opção `packages`.
+4. Executar `spark-shell` referenciar o Conector Spark HBase `packages` pelas suas coordenadas Maven na opção.
 5. Defina um catálogo que mapeie o esquema de Spark para HBase.
 6. Interaja com os dados da Base H utilizando as APIs RDD ou DataFrame.
 
@@ -42,25 +42,25 @@ O processo de alto nível para permitir que o seu cluster Spark questione o seu 
 
 Neste passo, cria-se e povoa-se uma tabela em Apache HBase que pode consultar usando o Spark.
 
-1. Utilize o comando `ssh` para ligar ao seu cluster HBase. Editar o comando abaixo substituindo `HBASECLUSTER` com o nome do seu cluster HBase e, em seguida, introduzir o comando:
+1. Utilize `ssh` o comando para ligar ao seu cluster HBase. Editar o comando abaixo `HBASECLUSTER` substituindo pelo nome do seu cluster HBase e, em seguida, introduzir o comando:
 
     ```cmd
     ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Utilize o comando `hbase shell` para iniciar a concha interativa HBase. Introduza o seguinte comando na sua ligação SSH:
+2. Utilize `hbase shell` o comando para iniciar a concha interativa HBase. Introduza o seguinte comando na sua ligação SSH:
 
     ```bash
     hbase shell
     ```
 
-3. Utilize o comando `create` para criar uma tabela HBase com famílias de duas colunas. Introduza o seguinte comando:
+3. Use `create` o comando para criar uma tabela HBase com famílias de duas colunas. Introduza o seguinte comando:
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. Utilize o comando `put` para inserir valores numa coluna especificada numa determinada linha numa determinada tabela. Introduza o seguinte comando:
+4. Utilize `put` o comando para inserir valores numa coluna especificada numa linha especificada numa determinada tabela. Introduza o seguinte comando:
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -73,7 +73,7 @@ Neste passo, cria-se e povoa-se uma tabela em Apache HBase que pode consultar us
     put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
     ```
 
-5. Utilize o comando `exit` para parar a concha interativa HBase. Introduza o seguinte comando:
+5. Utilize `exit` o comando para parar a concha interativa HBase. Introduza o seguinte comando:
 
     ```hbase
     exit
@@ -83,7 +83,7 @@ Neste passo, cria-se e povoa-se uma tabela em Apache HBase que pode consultar us
 
 Copie o hbase-site.xml do armazenamento local para a raiz do armazenamento padrão do seu cluster Spark.  Edite o comando abaixo para refletir a sua configuração.  Em seguida, da sua sessão aberta sSH para o cluster HBase, insira o comando:
 
-| Valor da sintaxe | Novo valor|
+| Valor da sintaxe | Valor novo|
 |---|---|
 |[Regime URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modifique para refletir o seu armazenamento.  A sintaxe abaixo é para armazenamento de blob com transferência segura ativada.|
 |`SPARK_STORAGE_CONTAINER`|Substitua-a com o nome do recipiente de armazenamento predefinido utilizado para o cluster Spark.|
@@ -101,13 +101,13 @@ exit
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Coloque hbase-site.xml no seu cluster Spark
 
-1. Ligue-se ao nó da cabeça do seu cluster Spark utilizando SSH. Edite o comando abaixo substituindo `SPARKCLUSTER` com o nome do seu cluster Spark e, em seguida, introduza o comando:
+1. Ligue-se ao nó da cabeça do seu cluster Spark utilizando SSH. Edite o comando `SPARKCLUSTER` abaixo substituindo pelo nome do seu cluster Spark e, em seguida, introduza o comando:
 
     ```cmd
     ssh sshuser@SPARKCLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Introduza o comando abaixo para copiar `hbase-site.xml` do armazenamento predefinido do cluster Spark para a pasta de configuração Spark 2 no armazenamento local do cluster:
+2. Introduza o comando `hbase-site.xml` abaixo para copiar do armazenamento predefinido do cluster Spark para a pasta de configuração Spark 2 no armazenamento local do cluster:
 
     ```bash
     sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
@@ -127,7 +127,7 @@ exit
 
 Neste passo, você define um objeto de catálogo que mapeia o esquema de Apache Spark para Apache HBase.  
 
-1. Na sua Spark Shell aberta, insira as seguintes declarações `import`:
+1. Na sua spark shell aberta, insira as seguintes `import` declarações:
 
     ```scala
     import org.apache.spark.sql.{SQLContext, _}
@@ -154,11 +154,11 @@ Neste passo, você define um objeto de catálogo que mapeia o esquema de Apache 
 
     O código faz o seguinte:  
 
-     a. Defina um esquema de catálogo para a tabela HBase chamada `Contacts`.  
-     b. Identifique a tecla de remo como `key`, e mapeie os nomes da coluna utilizados em Spark para a família da coluna, nome da coluna e tipo de coluna como utilizado na Base H.  
-     c. A chave de linha também deve ser definida em detalhe como uma coluna nomeada (`rowkey`), que tem uma família de colunas específica `cf` de `rowkey`.  
+     a. Defina um esquema de catálogo para `Contacts`a tabela HBase chamada .  
+     b. Identifique a tecla `key`de linha como , e mapeie os nomes da coluna utilizados em Spark para a família da coluna, nome da coluna e tipo de coluna como usado na Base H.  
+     c. A chave de linha também deve ser definida`rowkey`em detalhe como `cf` uma `rowkey`coluna nomeada , que tem uma família de colunas específicade .  
 
-1. Introduza o comando abaixo para definir um método que forneça um DataFrame em torno da tabela `Contacts` em HBase:
+1. Introduza o comando abaixo para definir um método `Contacts` que forneça um DataFrame à volta da sua tabela em HBase:
 
     ```scala
     def withCatalog(cat: String): DataFrame = {
@@ -199,7 +199,7 @@ Neste passo, você define um objeto de catálogo que mapeia o esquema de Apache 
     df.createTempView("contacts")
     ```
 
-1. Emita uma consulta SQL contra a tabela `contacts`:
+1. Emita uma consulta SQL contra a `contacts` mesa:
 
     ```scala
     spark.sqlContext.sql("select personalName, officeAddress from contacts").show
@@ -218,7 +218,7 @@ Neste passo, você define um objeto de catálogo que mapeia o esquema de Apache 
 
 ## <a name="insert-new-data"></a>Inserir novos dados
 
-1. Para inserir um novo registo de contacto, defina uma classe `ContactRecord`:
+1. Para inserir um novo registo `ContactRecord` de contacto, defina uma classe:
 
     ```scala
     case class ContactRecord(
@@ -230,7 +230,7 @@ Neste passo, você define um objeto de catálogo que mapeia o esquema de Apache 
         )
     ```
 
-1. Crie um exemplo de `ContactRecord` e coloque-o numa matriz:
+1. Crie um `ContactRecord` exemplo de e coloque-o numa matriz:
 
     ```scala
     val newContact = ContactRecord("16891", "40 Ellis St.", "674-555-0110", "John Jackson","230-555-0194")

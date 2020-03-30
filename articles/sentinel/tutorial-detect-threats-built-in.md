@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: df855aa768fdeb279482b8407259be1a644322d9
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77585208"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detetar ameaças fora da caixa
@@ -27,9 +27,9 @@ ms.locfileid: "77585208"
 > [!IMPORTANT]
 > A deteção de ameaças fora da caixa está atualmente em pré-visualização pública.
 > Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
-Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pretende ser notificado quando algo suspeito acontecer. Para permitir-lhe fazê-lo, o Azure Sentinel fornece-lhe modelos embutidos fora da caixa. Estes modelos foram projetados pela equipa de especialistas e analistas de segurança da Microsoft com base em ameaças conhecidas, vetores comuns de ataque e cadeias de escalada de atividades suspeitas. Depois de ativar estes modelos, eles vão automaticamente procurar qualquer atividade que pareça suspeita em todo o seu ambiente. Muitos dos modelos podem ser personalizados para procurar, ou filtrar, atividades, de acordo com as suas necessidades. Os alertas gerados por estes modelos criarão incidentes que pode atribuir e investigar no seu ambiente.
+Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pretende ser notificado quando algo suspeito acontecer. Para permitir-lhe fazê-lo, o Azure Sentinel fornece-lhe modelos embutidos fora da caixa. Estes modelos foram projetados pela equipa de especialistas e analistas de segurança da Microsoft com base em ameaças conhecidas, vetores comuns de ataque e cadeias de escalada de atividades suspeitas. Depois de ativar estes modelos, eles vão automaticamente procurar qualquer atividade que pareça suspeita em todo o seu ambiente. Muitos dos modelos podem ser personalizados para procurar, ou filtrar, atividades, de acordo com as suas necessidades. Os alertas gerados por estes modelos criarão incidentes que pode atribuir e investigar no seu ambiente.
 
 Este tutorial ajuda-o a detetar ameaças com o Azure Sentinel:
 
@@ -37,7 +37,7 @@ Este tutorial ajuda-o a detetar ameaças com o Azure Sentinel:
 > * Utilizar deteções fora da caixa
 > * Automatizar respostas de ameaças
 
-## <a name="about-out-of-the-box-detections"></a>Sobre deteções fora da caixa
+## <a name="about-out-of-the-box-detections"></a>Acerca das deteções completas
 
 Para ver todas as deteções fora da caixa, vá ao **Analytics** e, em seguida, **reine os modelos**. Este separador contém todas as regras incorporadas do Azure Sentinel.
 

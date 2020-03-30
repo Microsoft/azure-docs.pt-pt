@@ -17,10 +17,10 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77565898"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança da gestão de identidade azure
@@ -29,9 +29,9 @@ ms.locfileid: "77565898"
  
 Aproveitando os benefícios de segurança do Azure Ative Directory (Azure AD), pode:
 
-* Crie e gerencie uma única identidade para cada utilizador em toda a sua empresa híbrida, mantendo os utilizadores, grupos e dispositivos em sincronização. 
+* Crie e faça a gestão de uma única identidade para cada utilizador em toda a sua empresa híbrida, ao manter os utilizadores, os grupos e os dispositivos sincronizados. 
 * Forneça acesso sso às suas aplicações, incluindo milhares de aplicações SaaS pré-integradas.
-* Ativar a segurança no acesso à aplicação, aplicando a autenticação multi-factor baseada em regras tanto no local como aplicações na nuvem.
+* Ativar a segurança do acesso a aplicações mediante a aplicação da Multi-Factor Authentication baseada em regras, tanto nas aplicações no local, como na cloud.
 * Provisão segura acesso remoto a aplicações web no local através do Proxy de Aplicação AD Azure.
 
 O objetivo deste artigo é fornecer uma visão geral das principais funcionalidades de segurança do Azure que ajudam na gestão da identidade. Também fornecemos links para artigos que dão detalhes de cada funcionalidade para que possa saber mais.  
@@ -45,7 +45,7 @@ O artigo centra-se nas seguintes capacidades de gestão da identidade Azure:
 * Relatórios de monitorização de segurança, alertas e relatórios baseados em machine learning
 * Identidade do consumidor e gestão de acesso
 * Registo de dispositivo
-* Gestão privilegiada da identidade
+* Privileged Identity Management
 * Proteção de identidade
 * Gestão de identidade híbrida/Ligação Azure AD
 * Revisões de acesso do Azure AD
@@ -73,8 +73,8 @@ A Aplicação Azure AD Proxy permite-lhe publicar aplicações no local, tais co
 Saiba mais:
 
 * [Habilitar a procuração de aplicação ad azure](/azure/active-directory/manage-apps/application-proxy-enable)
-* [Publicar aplicações usando procuração de aplicação ad azure](/azure/active-directory/active-directory-application-proxy-publish)
-* [Inscrição única com Procuração de Aplicação](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Publicar aplicações com o Proxy da Aplicação do Azure AD](/azure/active-directory/active-directory-application-proxy-publish)
+* [Início de sessão único com o Proxy de Aplicações](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Trabalhar com acesso condicional](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -84,12 +84,12 @@ A autenticação multi-factor Azure é um método de autenticação que requer a
 Saiba mais:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é o Multi-Factor Authentication do Azure?](/azure/active-directory/authentication/multi-factor-authentication)
-* [Como funciona a autenticação de vários fatores azure](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [O que é a Multi-Factor Authentication do Azure?](/azure/active-directory/authentication/multi-factor-authentication)
+* [Como funciona o Multi-Factor Authentication do Azure](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="rbac"></a>RBAC
 
-O RBAC é um sistema de autorização construído no Azure Resource Manager que fornece uma gestão de acesso de grãos finos de recursos em Azure. O RBAC permite controlar granularmente o nível de acesso que os utilizadores têm. Por exemplo, pode limitar um utilizador a gerir apenas redes virtuais e outro utilizador para gerir todos os recursos num grupo de recursos. O Azure inclui várias funções incorporadas que pode supor. São apresentadas em seguida quatro funções incorporadas fundamentais. As três primeiras aplicam-se a todos os tipos de recursos.
+O RBAC é um sistema de autorização criado com base no Azure Resource Manager que fornece gestão pormenorizada de acesso de recursos no Azure. O RBAC permite controlar granularmente o nível de acesso que os utilizadores têm. Por exemplo, pode limitar um utilizador a gerir apenas redes virtuais e outro utilizador para gerir todos os recursos num grupo de recursos. O Azure inclui várias funções incorporadas que pode utilizar. São apresentadas em seguida quatro funções incorporadas fundamentais. As três primeiras aplicam-se a todos os tipos de recursos.
 
 Saiba mais:
 
@@ -125,7 +125,7 @@ Quando utiliza o Azure AD B2C, os seus consumidores podem inscrever-se nas suas 
 Saiba mais:
 
 * [O que é o Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Pré-visualização do Diretório Ativo Azure B2C: Inscreva-se e inscreva-se nos consumidores nas suas aplicações](../../active-directory-b2c/overview.md)
+* [Pré-visualização do Azure Active Directory B2C: inscrever-se e iniciar sessão em consumidores nas suas aplicações](../../active-directory-b2c/overview.md)
 * [Pré-visualização do Diretório Ativo Azure B2C: Tipos de aplicações](../../active-directory-b2c/application-types.md)
 
 ## <a name="device-registration"></a>Registo de dispositivo
@@ -140,7 +140,7 @@ Saiba mais:
 * [Registo automático de dispositivos com AD Azure para dispositivos ligados ao domínio do Windows](/azure/active-directory/active-directory-conditional-access-automatic-device-registration)
 * [Configurar registo automático de dispositivos ligados ao domínio do Windows com AD Azure](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
 
-## <a name="privileged-identity-management"></a>Gestão privilegiada da identidade
+## <a name="privileged-identity-management"></a>Privileged Identity Management
 
 Com a Azure AD Privileged Identity Management, pode gerir, controlar e monitorizar as suas identidades privilegiadas e acesso a recursos em Azure AD, bem como outros serviços online da Microsoft, como o Office 365 e o Microsoft Intune.
 
@@ -155,7 +155,7 @@ Com a Azure AD Privileged Identity Management, pode:
 
 Saiba mais:
 
-* [O que é a Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
+* [O que é o Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Atribuir funções de diretório da AD Azure na PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Proteção de identidade
@@ -188,5 +188,5 @@ As revisões de acesso do Azure Active Directory (Azure AD) permitem que as orga
 
 Saiba mais:
 
-* [Avaliações de acesso a Anúncio saqueadas](../../active-directory/governance/access-reviews-overview.md)
+* [Revisões de acesso do Azure AD](../../active-directory/governance/access-reviews-overview.md)
 * [Gerir o acesso de utilizador com as revisões de acesso do Azure AD](../../active-directory/governance/access-reviews-overview.md)

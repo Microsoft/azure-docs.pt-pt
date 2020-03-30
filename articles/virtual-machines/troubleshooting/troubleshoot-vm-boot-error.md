@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ms.openlocfilehash: c24a840716841d04537ac5b77bcaf26fca4b78cf
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77561954"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Botas VM Linux para O Resgate Grub
@@ -41,13 +41,13 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 
 * Se estiver a obter o **erro Erro 15: Ficheiro não encontrado ou disco RAM inicial** ou ficheiro **initramfs/initramfs não encontrados,** siga os passos abaixo.
 
-    * Para o ficheiro em falta `/boot/grub2/grub.cfg` ou `initrd/initramfs` prosseguir com o seguinte processo:
+    * Para o `/boot/grub2/grub.cfg` ficheiro `initrd/initramfs` em falta ou prossiga com o seguinte processo:
 
-    1. Certifique-se de que existem `/etc/default/grub` e tem definições corretas/desejadas. Se não souber quais são as definições predefinidas, pode verificar com um VM de trabalho.
+    1. Certifique-se de `/etc/default/grub` existir e tem definições corretas/desejadas. Se não souber quais são as definições predefinidas, pode verificar com um VM de trabalho.
 
-    2. Em seguida, executar o seguinte comando para regenerar a sua configuração: `grub2-mkconfig -o /boot/grub2/grub.cfg`
+    2. Em seguida, executar o seguinte comando para regenerar a sua configuração:`grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * Se o ficheiro em falta for `/boot/grub/menu.lst`, este erro é para versões mais antigas de SO **(RHEL 6.x,** **Centos 6.x** e **Ubuntu 14.04**), para que os comandos possam diferir. Terá de girar um servidor antigo e testar para garantir que os comandos corretos são fornecidos.
+   * Se o ficheiro `/boot/grub/menu.lst`em falta for , este erro é para versões mais antigas de SO **(RHEL 6.x,** **Centos 6.x** e **Ubuntu 14.04**) para que os comandos possam diferir. Terá de girar um servidor antigo e testar para garantir que os comandos corretos são fornecidos.
 
 ### <a name="error---no-such-partition"></a>Erro - Não há tal partição
 
@@ -57,13 +57,13 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 
 * Se estiver a obter o **erro /boot/grub2/grub.cfg ficheiro não encontrado,** siga os passos abaixo.
 
-    * Para o ficheiro em falta `/boot/grub2/grub.cfg` ou `initrd/initramfs` prosseguir com o seguinte processo:
+    * Para o `/boot/grub2/grub.cfg` ficheiro `initrd/initramfs` em falta ou prossiga com o seguinte processo:
 
-    1. Certifique-se de que existem `/etc/default/grub` e tem definições corretas/desejadas. Se não souber quais são as definições predefinidas, pode verificar com um VM de trabalho.
+    1. Certifique-se de `/etc/default/grub` existir e tem definições corretas/desejadas. Se não souber quais são as definições predefinidas, pode verificar com um VM de trabalho.
 
-    2. Em seguida, execute o seguinte comando para regenerar a sua configuração: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
+    2. Em seguida, execute o seguinte `grub2-mkconfig -o /boot/grub2/grub.cfg`comando para regenerar a sua configuração: .
 
-   * Se o ficheiro em falta for `/boot/grub/menu.lst`, este erro é para versões mais antigas de SO **(RHEL 6.x,** **Centos 6.x** e **Ubuntu 14.04**) para que os comandos possam adiar. Rode um servidor antigo e teste-o para garantir que os comandos corretos são fornecidos.
+   * Se o ficheiro `/boot/grub/menu.lst`em falta for , este erro é para versões mais antigas de SO **(RHEL 6.x,** **Centos 6.x** e **Ubuntu 14.04**) para que os comandos possam adiar. Rode um servidor antigo e teste-o para garantir que os comandos corretos são fornecidos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

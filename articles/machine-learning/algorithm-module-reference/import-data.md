@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598464"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456204"
 ---
 # <a name="import-data-module"></a>Módulo de Dados de Importação
 
@@ -24,13 +24,13 @@ Utilize este módulo para carregar dados num pipeline de aprendizagem automátic
 
 > [!Note]
 > Todas as funcionalidades fornecidas por este módulo podem ser feitas por **datastore** e **conjuntos** de dados na página de aterragem worksapce. Recomendamos que utilize **datastore** e **dataset,** que inclua funcionalidades adicionais como monitorização de dados. Para saber mais, consulte [como aceder a dados](../how-to-access-data.md) e como registar o artigo [Datasets.](../how-to-create-register-datasets.md)
-> Depois de registar um conjunto de dados, pode encontrá-lo na categoria **Datasets** -> **My Datasets** na interface de designer. Este módulo está reservado para utilizadores do Studio (clássico) para uma experiência familiar. 
+> Depois de registar um conjunto de dados, pode encontrá-lo na categoria **Datasets** -> **My Datasets** na interface do designer. Este módulo está reservado para utilizadores do Studio (clássico) para uma experiência familiar. 
 >
 
 O suporte do módulo **de dados de importação** lê dados de fontes seguintes:
 
 - URL via HTTP
-- Armazenamentos em nuvem azure através [**de Datastores)** ](../how-to-access-data.md)
+- Armazenamentos em nuvem azure através [**de Datastores)**](../how-to-access-data.md)
     - Recipiente de blob azure
     - Partilha de Ficheiros do Azure
     - Azure Data Lake
@@ -52,7 +52,7 @@ Se os seus dados de origem forem alterações, pode atualizar o conjunto de dado
 
 1. Selecione **fonte de dados**e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
 
-    Se escolher a datastore, pode selecionar as lojas de dados existentes que já estão registadas no seu espaço de trabalho azure Machine Learning ou criar uma nova loja de dados. Em seguida, defina o caminho dos dados para importar na loja de dados. Pode navegar facilmente no caminho clicando em **Navegar path** ![](media/module/import-data-path.png) de import-data
+    Se escolher a datastore, pode selecionar as lojas de dados existentes que já estão registadas no seu espaço de trabalho azure Machine Learning ou criar uma nova loja de dados. Em seguida, defina o caminho dos dados para importar na loja de dados. Você pode facilmente navegar no caminho clicando **em Caminho de** ![Navegação-caminho de importação-data](media/module/import-data-path.png)
 
 1. Selecione o esquema de pré-visualização para filtrar as colunas que pretende incluir. Também pode definir configurações avançadas como Delimiter em opções de Parsing.
 
@@ -65,7 +65,7 @@ Se os seus dados de origem forem alterações, pode atualizar o conjunto de dado
     Se for selecionado, o sistema executará novamente o módulo para regenerar a saída. Por isso, selecione esta opção quando os dados subjacentes no armazenamento forem atualizados, pode ajudar a obter os dados mais recentes.
 
 
-1. Executar o pipeline.
+1. Submeta o oleoduto.
 
     Quando os Dados de Importação carregam os dados no designer, infere o tipo de dados de cada coluna com base nos valores que contém, numéricos ou categóricos.
 

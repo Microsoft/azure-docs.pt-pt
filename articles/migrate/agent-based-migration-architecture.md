@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
 ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425867"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agentes
@@ -45,7 +45,7 @@ A tabela resume os componentes utilizados para a migração baseada no agente.
 
 ## <a name="mobility-service-installation"></a>Instalação do serviço de Mobilidade
 
-Você pode implantar o serviço de mobilidade usando os seguintes métodos:
+Pode utilizar o Serviço de Mobilidade utilizando os seguintes métodos:
 
 - **Instalação de impulso**: O serviço de Mobilidade é instalado pelo servidor de processo quando ativa a proteção de uma máquina. 
 - **Instale manualmente:** Pode instalar manualmente o serviço mobility em cada máquina através de UI ou pedido de comando.
@@ -97,9 +97,9 @@ Utilize os valores nesta tabela para descobrir se precisa de um servidor de proc
 
 **CPU** | **Memória** | **Cache de dados espaciais gratuitos** | **Taxa de churn** | **Limites de replicação**
 --- | --- | --- | --- | ---
-8 vCPUs (2 tomadas * 4 núcleos \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | E 100 máquinas 
-12 vCPUs (2 tomadas * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | 100-150 máquinas.
-16 vCPUs (2 tomadas * 8 núcleos \@ 2,5 GHz) | 32 G1 |  1 TB | 1 TB a 2 TB | 151-200 máquinas.
+8 vCPUs (2 tomadas \@ * 4 núcleos 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | < 100 máquinas 
+12 vCPUs (2 tomadas \@ * 6 núcleos 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | 100-150 máquinas.
+16 vCPUs (2 tomadas \@ * 8 núcleos 2,5 GHz) | 32 G1 |  1 TB | 1 TB a 2 TB | 151-200 máquinas.
 
 ### <a name="sizing-scale-out-process-servers"></a>Dimensionamento de servidores de processos de escala
 
@@ -107,9 +107,9 @@ Se precisar de implementar um servidor de processo sem escalas, utilize esta tab
 
 **Servidor de processos** | **Espaço livre para recolha de dados** | **Taxa de churn** | **Limites de replicação**
 --- | --- | --- | --- 
-4 vCPUs (2 tomadas * 2 núcleos \@ 2,5 GHz), memória de 8-GB | 300 GB | 250 GB ou menos | Até 85 máquinas 
-8 vCPUs (2 tomadas * 4 núcleos \@ 2,5 GHz), memória de 12 GB | 600 GB | 251 GB a 1 TB    | 86-150 máquinas.
-12 vCPUs (2 tomadas * 6 núcleos \@ 2,5 GHz), memória de 24-GB | 1 TB | 1-2 TB | 151-225 máquinas.
+4 vCPUs (2 tomadas \@ * 2 núcleos 2,5 GHz), memória de 8-GB | 300 GB | 250 GB ou menos | Até 85 máquinas 
+8 vCPUs (2 tomadas \@ * 4 núcleos 2,5 GHz), memória de 12-GB | 600 GB | 251 GB a 1 TB    | 86-150 máquinas.
+12 vCPUs (2 tomadas \@ * 6 núcleos 2,5 GHz), memória 24-GB | 1 TB | 1-2 TB | 151-225 máquinas.
 
 ## <a name="throttle-upload-bandwidth"></a>Largura de banda de carregamento de aceleração.
 

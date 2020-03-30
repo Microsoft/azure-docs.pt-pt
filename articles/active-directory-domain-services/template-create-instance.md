@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: iainfou
 ms.openlocfilehash: 2daadb539bc08df37f15c187866b735e45309288
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77612791"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Criar um domínio gerido por Serviços de Domínio de Diretório Ativo Azure utilizando um modelo de Gestor de Recursos Azure
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Com o grupo de *administradores aAD DC* criado, adicione um utilizador ao grupo utilizando o Cmdlet [Add-AzureADGroupMember.][Add-AzureADGroupMember] Primeiro obtém o ID de objeto de grupo *aAD DC* administradores utilizando o cmdlet [Get-AzureADGroup,][Get-AzureADGroup] em seguida, o ID de objeto do utilizador desejado utilizando o cmdlet [Get-AzureADUser.][Get-AzureADUser]
 
-No exemplo seguinte, o id do objeto do utilizador para a conta com uma UPN de `admin@aaddscontoso.onmicrosoft.com`. Substitua esta conta de utilizador pela UPN do utilizador que pretende adicionar ao grupo de *Administradores aAD DC:*
+No exemplo seguinte, o id do objeto do `admin@aaddscontoso.onmicrosoft.com`utilizador para a conta com uma UPN de . Substitua esta conta de utilizador pela UPN do utilizador que pretende adicionar ao grupo de *Administradores aAD DC:*
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -123,9 +123,9 @@ Como parte da definição de recursos do Gestor de Recursos, são necessários o
 
 | Parâmetro               | Valor |
 |-------------------------|---------|
-| domainName              | O nome de domínio DNS para o seu domínio gerido, tendo em conta os pontos anteriores sobre a nomeação de prefixos e conflitos. |
+| nome de domínio              | O nome de domínio DNS para o seu domínio gerido, tendo em conta os pontos anteriores sobre a nomeação de prefixos e conflitos. |
 | sincronizado            | O Azure AD DS permite sincronizar *todos os* utilizadores e grupos disponíveis em Azure AD, ou uma sincronização *de* apenas grupos específicos. Se optar por sincronizar todos os utilizadores e grupos, não poderá optar mais tarde por realizar apenas uma sincronização com âmbito de aplicação.<br /> Para obter mais informações sobre a sincronização por via geminada, consulte a [sincronização de sincronização dos Serviços de Domínio da AD Azure.][scoped-sync]|
-| notificationSettings    | Se houver alertas gerados no domínio gerido pelo Azure AD DS, as notificações de e-mail podem ser enviadas. <br />*Os administradores globais* do inquilino Azure e membros do grupo de administradores da *AAD DC* podem ser *ativados* para estas notificações.<br /> Se desejar, pode adicionar destinatários adicionais para notificações quando houver alertas que requerem atenção.|
+| notificaçãoDefinições    | Se houver alertas gerados no domínio gerido pelo Azure AD DS, as notificações de e-mail podem ser enviadas. <br />*Os administradores globais* do inquilino Azure e membros do grupo de administradores da *AAD DC* podem ser *ativados* para estas notificações.<br /> Se desejar, pode adicionar destinatários adicionais para notificações quando houver alertas que requerem atenção.|
 | domainConfigurationType | Por padrão, um domínio gerido por Azure AD DS é criado como uma floresta *de utilizadores.* Este tipo de floresta sincroniza todos os objetos da AD Azure, incluindo quaisquer contas de utilizador criadas num ambiente AD DS no local. Não é necessário especificar um valor de *configuração* de domínio para criar uma floresta de utilizadores.<br /> Uma floresta de *recursos* apenas sincroniza utilizadores e grupos criados diretamente em Azure AD. As florestas de recursos estão atualmente em pré-visualização. Detete o valor para *a ResourceTrusting* para criar uma floresta de recursos.<br />Para obter mais informações sobre as florestas de *Recursos,* incluindo por que você pode usar uma e como criar fundos florestais com domínios AD DS no local, consulte a visão geral das florestas de [recursos da AD DS azure][resource-forests].|
 
 A definição de parâmetros condensados seguinte mostra como estes valores são declarados. Uma floresta de utilizadores chamada *aaddscontoso.com* é criada com todos os utilizadores desde o Azure AD sincronizado para o domínio gerido pela AD DS do Azure:

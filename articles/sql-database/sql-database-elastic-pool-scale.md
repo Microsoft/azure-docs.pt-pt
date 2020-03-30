@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
 ms.openlocfilehash: daca108cfc8bb2e5b2a068170a4a0244c72c9592
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462603"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensione recursos de piscina elástica na Base de Dados Azure SQL
@@ -47,9 +47,9 @@ A latência estimada para alterar o nível de serviço ou redimensionar o tamanh
 
 |Camada de serviços|Base de dados única básica,</br>Padrão (S0-S1)|Piscina elástica básica,</br>Padrão (S2-S12), </br>Hiperescala, </br>Base de dados única de propósito geral ou piscina elástica|Premium ou Business Critical única base de dados ou piscina elástica|
 |:---|:---|:---|:---|
-|**Base de dados única básica,</br> Standard (S0-S1)**|&bull; &nbsp;latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Tipicamente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
-|**Piscina elástica básica, </br>Standard (S2-S12), </br>Hiperescala, base de dados única </br>Propósito Geral ou piscina elástica**|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Tipicamente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
-|**Premium ou Business Critical única base de dados ou piscina elástica**|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
+|**Base de</br> dados única básica, Standard (S0-S1)**|&bull;&nbsp;Latência de tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
+|**Piscina elástica </br>básica, Standard (S2-S12), </br>Hiperescala, Base de </br>Dados Única de Propósito Geral ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência de tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
+|**Premium ou Business Critical única base de dados ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
 
 > [!NOTE]
 >
@@ -71,7 +71,7 @@ A latência estimada para alterar o nível de serviço ou redimensionar o tamanh
 ## <a name="change-elastic-pool-storage-size"></a>Alterar o tamanho do armazenamento da piscina elástica
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ser necessário encolher uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
@@ -83,7 +83,7 @@ A latência estimada para alterar o nível de serviço ou redimensionar o tamanh
 - O preço de armazenamento de uma piscina elástica é o valor de armazenamento multiplicado pelo preço unitário de armazenamento do nível de serviço. Para mais detalhes sobre o preço do armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ser necessário encolher uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
@@ -92,7 +92,7 @@ A latência estimada para alterar o nível de serviço ou redimensionar o tamanh
 - O preço do armazenamento extra para uma piscina elástica é o valor extra de armazenamento multiplicado pelo preço extra de armazenamento do nível de serviço. Para mais detalhes sobre o preço do armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ser necessário encolher uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560189"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
@@ -100,11 +100,11 @@ Antes de começar, certifique-se de que o seu dispositivo completou **Prepare-se
 
     |Nome de ficheiro  |Tipo de armazenamento azure  |Protocolo de ligação utilizado |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Blobs de bloco         |SMB/NFS         |
+    |databoxe2etest_BlockBlob.txt     |Blobs de blocos         |SMB/NFS         |
     |databoxe2etest_PageBlob.txt     |Blobs de páginas         |SMB/NFS         |
     |databoxe2etest_AzFile-BOM.txt    |Ficheiros do Azure         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Blobs de páginas         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blobs de bloco         |REST         |
+    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blobs de blocos         |REST         |
     |mydbmdrg1_MDisk-BOM.txt    |Disco Gerido         |SMB/NFS         |
     |mydbmdrg2_MDisk-BOM.txt     |Disco Gerido         |SMB/NFS         |
 

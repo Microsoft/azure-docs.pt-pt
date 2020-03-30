@@ -17,17 +17,17 @@ ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
 ms.openlocfilehash: 54ddf6818b95a4037188ab222501ddfa69b28149
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587903"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Caça às ameaças com O Sentinela
 
 Se você é um investigador que quer ser proativo em procurar ameaças à segurança, Azure Sentinel poderosa procura de caça e ferramentas de consulta para caçar ameaças de segurança através de fontes de dados da sua organização. Mas os seus sistemas e aparelhos de segurança geram montanhas de dados que podem ser difíceis de analisar e filtrar em eventos significativos. Para ajudar os analistas de segurança a procurarem proativamente novas anomalias que não foram detetadas pelas suas aplicações de segurança, as consultas de caça incorporadas do Azure Sentinel guiam-no a fazer as perguntas certas para encontrar problemas nos dados que já tem na sua rede. 
 
-Por exemplo, uma consulta incorporada fornece dados sobre os processos mais incomuns em execução na sua infraestrutura - você não quereria um alerta sobre cada vez que eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se você th é algo incomum. 
+Por exemplo, uma consulta incorporada fornece dados sobre os processos mais incomuns em execução na sua infraestrutura - você não quereria um alerta sobre cada vez que eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você pode querer dar uma olhada na consulta de vez em quando para ver se eles são executados, eles podem ser totalmente inocentes, mas você há algo de anormal. 
 
 
 
@@ -74,9 +74,9 @@ Confira o [repositório](https://github.com/Azure/Orion)de consulta de caça. Co
 
  
 
-## <a name="sample-query"></a>Consulta de amostra
+## <a name="sample-query"></a>Consulta de exemplo
 
-Uma consulta típica começa com um nome de mesa seguido por uma série de operadores separados por \|.
+Uma consulta típica começa com um nome de mesa \|seguido por uma série de operadores separados por .
 
 No exemplo acima, comece com o nome de tabela SecurityEvent e adicione elementos canalizados conforme necessário.
 

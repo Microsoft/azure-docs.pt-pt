@@ -3,18 +3,18 @@ title: Backup da base de dados do Servidor SQL de resolução de problemas
 description: Informações de resolução de problemas para o backup das bases de dados do SQL Server em execução em VMs Azure com Backup Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 7ebe76fde344b1dabca9a3aee2d0cc9e1edb8df4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 8d49adb0ab741903ccb2989cfeb4ceaef2e8a38d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79247829"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408621"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Backup da base de dados Do Servidor SQL de sessão de problemas utilizando a cópia de segurança do Azure
 
 Este artigo fornece informações de resolução de problemas para bases de dados do SQL Server em execução em máquinas virtuais Azure.
 
-Para obter mais informações sobre o processo de backup e limitações, consulte [a cópia de segurança do SQL Server em VMs Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
+Para obter mais informações sobre o processo de backup e limitações, consulte [a cópia de segurança do SQL Server em VMs Azure](sql-support-matrix.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Permissões do Servidor SQL
 
@@ -46,7 +46,7 @@ Por vezes, podem ocorrer falhas aleatórias nas operações de backup e restauro
 
     `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
 
-    Substitua `C:\` com a letra do seu *SystemDrive*.
+    Substitua-a `C:\` pela letra do seu *SystemDrive*.
 
 1. Excluir os três processos que se seguem dentro de um VM da varredura antivírus:
 
@@ -221,7 +221,7 @@ Se o tamanho da cadeia do conteúdo exceder 20.000 bytes, os ficheiros de base d
 
 ### <a name="override-the-default-target-restore-file-path"></a>Anular a trajetória de ficheiro de restauro do alvo padrão
 
-Pode substituir o caminho de ficheiro de restauro do alvo durante a operação de restauro, colocando um ficheiro JSON que contém o mapeamento do ficheiro base de dados para o caminho de restauro do alvo. Crie um ficheiro `database_name.json` e coloque-o no local *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
+Pode substituir o caminho de ficheiro de restauro do alvo durante a operação de restauro, colocando um ficheiro JSON que contém o mapeamento do ficheiro base de dados para o caminho de restauro do alvo. Crie `database_name.json` um ficheiro e coloque-o no local *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
 O conteúdo do ficheiro deve estar neste formato:
 

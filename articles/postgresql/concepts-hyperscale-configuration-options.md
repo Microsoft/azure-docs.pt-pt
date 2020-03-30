@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 2/18/2020
 ms.openlocfilehash: 1c9b4b1099bda69764aa7a1a5a984a6316e1047d
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462416"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>Base de Dados Azure para opções de desempenho PostgreSQL – Hiperescala (Citus)
@@ -32,7 +32,7 @@ Pode selecionar as definições de cálculo e armazenamento de forma independent
 ## <a name="regions"></a>Regiões
 Os grupos de servidores de hiperescala (Citus) estão disponíveis nas seguintes regiões do Azure:
 
-* Américas:
+* Américas: 
     * Canadá Central
     * E.U.A. Central
     * E.U.A. Leste
@@ -47,7 +47,7 @@ Os grupos de servidores de hiperescala (Citus) estão disponíveis nas seguintes
 * Europa:
     * Europa do Norte
     * Sul do Reino Unido
-    * Europa Ocidental
+    * Europa ocidental
 
 Algumas destas regiões podem não ser inicialmente ativadas em todas as subscrições do Azure. Se quiser utilizar uma região da lista acima e não a vir na sua subscrição, ou se quiser utilizar uma região que não esteja nesta lista, abra um pedido de [apoio.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 

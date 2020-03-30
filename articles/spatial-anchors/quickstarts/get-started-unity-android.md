@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 7acff7f0249cdedcebd367fc315be92cafb9ab78
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77615447"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma app Android unidade com âncoras espaciais Azure
@@ -36,7 +36,7 @@ Para concluir este início rápido, certifique-se de que tem:
 
 - Uma máquina Windows ou macOS com <a href="https://unity3d.com/get-unity/download" target="_blank">Unidade 2019.1 ou 2019.2,</a> incluindo os módulos Android Build Support e Android SDK & NDK Tools.
   - Se estiver a funcionar no Windows, também vai precisar de <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> e <a href="https://git-lfs.github.com/">Git LFS</a>.
-  - Se funcionar no macOS, instale o Git via HomeBrew. Introduza o seguinte comando numa única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Depois, corre `brew install git` e `brew install git-lfs`.
+  - Se funcionar no macOS, instale o Git via HomeBrew. Introduza o seguinte comando numa única `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`linha do Terminal: . Então, `brew install git` `brew install git-lfs`corra e.
 - Um <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">desenvolvedor ativado</a> e dispositivo Android <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">capaz de ARCore.</a>
   - Podem ser necessários controladores adicionais para que o seu computador se comunique com o seu dispositivo Android. Consulte [aqui](https://developer.android.com/studio/run/device.html) informações e instruções adicionais.
 
@@ -52,7 +52,7 @@ Para concluir este início rápido, certifique-se de que tem:
 
 ## <a name="configure-account-identifier-and-key"></a>Configurar identificador de conta e chave
 
-No painel do **Projeto,** navegue para `Assets/AzureSpatialAnchors.Examples/Scenes` e abra o ficheiro de cena `AzureSpatialAnchorsBasicDemo.unity`.
+No painel do **Projeto,** navegue e `Assets/AzureSpatialAnchors.Examples/Scenes` abra o arquivo de `AzureSpatialAnchorsBasicDemo.unity` cena.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -62,7 +62,7 @@ Guarde a cena selecionando **File** -> **Save**.
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Selecione o seu dispositivo no **Dispositivo executar** e clique em Construir **e Executar**. Será-lhe pedido que guarde um ficheiro `.apk` para o qual pode escolher qualquer nome.
+Selecione o seu dispositivo no **Dispositivo executar** e clique em Construir **e Executar**. Será-lhe pedido que `.apk` guarde um ficheiro para o qual pode escolher qualquer nome.
 
 Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
 
@@ -70,7 +70,7 @@ Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
 
 ### <a name="rendering-issues"></a>Questões de renderização
 
-Ao executar a aplicação, se não vê a câmara como o fundo (por exemplo, vê uma textura em branco, azul ou outra) então provavelmente precisa de reimportar ativos na Unidade. Pare a aplicação. A partir do menu de topo da Unidade, escolha **Ativos -> Reimporte todos**. Em seguida, executar a aplicação novamente.
+Ao executar a aplicação, se não vê a câmara como o fundo (por exemplo, vê uma textura em branco, azul ou outra) então provavelmente precisa de reimportar ativos na Unidade. Pare a aplicação. A partir do menu superior da Unidade, escolha **Ativos -> Reimportar tudo.** Em seguida, executar a aplicação novamente.
 
 ### <a name="unity-20193"></a>Unidade 2019.3
 

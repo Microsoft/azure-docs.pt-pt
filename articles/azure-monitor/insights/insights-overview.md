@@ -1,5 +1,5 @@
 ---
-title: Visão geral de Insights no Monitor Azure  Microsoft Docs
+title: Visão geral de Insights no Monitor Azure [ Microsoft Docs
 description: Insights fornecem uma experiência de monitorização personalizada no Monitor Azure para aplicações e serviços particulares. Este artigo fornece uma breve descrição de cada uma das informações que estão atualmente disponíveis.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
 ms.openlocfilehash: 15ea7698c9e90fa8b0dfa20f71b552a2b0e9c7d2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657253"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Visão geral de Insights no Monitor Azure
@@ -26,7 +26,7 @@ Ver [o que é Informação de Aplicação?](../app/app-insights-overview.md)
 ![Application Insights](media/insights-overview/app-insights.png)
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para Contentores
-O Monitor Azure para contentores monitoriza o desempenho das cargas de trabalho dos contentores implantadas em instâncias de contentores Azure ou em clusters Kubernetes geridos hospedados no Serviço Azure Kubernetes (AKS). Os contentores é fundamental monitorizar, especialmente quando estiver a executar um cluster de produção em escala, com várias aplicações.
+O Monitor Azure para contentores monitoriza o desempenho das cargas de trabalho dos contentores implantadas em instâncias de contentores Azure ou em clusters Kubernetes geridos hospedados no Serviço Azure Kubernetes (AKS). Monitorizar os seus contentores é fundamental, especialmente quando se está a executar um cluster de produção, em escala, com múltiplas aplicações.
 
 Consulte [o Monitor Azure para ver a visão geral](../insights/container-insights-overview.md)dos recipientes .
 
@@ -40,7 +40,7 @@ Consulte [monitor de recursos com Monitor Azure (pré-visualização)](../insigh
 ![Monitor Azure para grupos de recursos](media/insights-overview/resource-group-insights.png)
 
 ## <a name="azure-monitor-for-vms-preview"></a>Monitor Azure para VMs (pré-visualização)
-Monitor do Azure para VMs monitoriza máquinas de virtuais do Azure (VM) e conjuntos de dimensionamento de máquinas virtuais em escala. Analisa o desempenho e o estado de funcionamento das suas VMs do Windows e do Linux e monitoriza os respetivos processos e dependências noutros recursos e processos externos.
+O Monitor Azure para VMs monitoriza as suas máquinas virtuais Azure (VM) e conjuntos de escala de máquinas virtuais à escala. Analisa o desempenho e o estado de funcionamento das suas VMs do Windows e do Linux e monitoriza os respetivos processos e dependências noutros recursos e processos externos.
 
 Vê [o que é o Monitor Azure para VMs?](vminsights-overview.md)
 

@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
 ms.openlocfilehash: 396e5bc31723768ada334dd5043bca724af5e84f
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595863"
 ---
-# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de escala para aplicações no Serviço Azure Kubernetes (AKS)
+# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Serviço Kubernetes do Azure (AKS)
 
 À medida que executa aplicações no Serviço Azure Kubernetes (AKS), poderá ter de aumentar ou diminuir a quantidade de recursos computacionais. Como o número de casos de aplicação que precisa de ser alterado, o número de nós kubernetes subjacentes também pode ter de mudar. Também poderá ter de fornecer rapidamente um grande número de casos adicionais de candidatura.
 
@@ -92,7 +92,7 @@ Os nós virtuais são implantados para uma subrede adicional na mesma rede virtu
 
 Para começar com aplicações de escala, siga primeiro o [quickstart para criar um cluster AKS com o Azure CLI][aks-quickstart]. Em seguida, pode começar a escalar aplicações manual ou automaticamente no seu cluster AKS:
 
-- Pods [][aks-manually-scale-pods] ou [nósos][aks-manually-scale-nodes] de escala manual
+- Pods [pods][aks-manually-scale-pods] ou [nósos][aks-manually-scale-nodes] de escala manual
 - Utilize o [autoscaler horizontal da cápsula][aks-hpa]
 - Utilize o [autoscaler][aks-cluster-autoscaler] do cluster
 

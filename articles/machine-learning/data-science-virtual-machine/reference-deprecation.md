@@ -9,10 +9,10 @@ ms.author: gopalv
 ms.date: 10/14/2019
 ms.topic: reference
 ms.openlocfilehash: 71ce8519dca6fa71340b1c34fe3a6891ccf5753f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77525792"
 ---
 # <a name="reference-deprecation-of-dsvm-images"></a>Referência: Depreciação das imagens DSVM

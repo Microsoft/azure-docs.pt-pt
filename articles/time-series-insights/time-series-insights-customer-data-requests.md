@@ -10,13 +10,13 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
 ms.openlocfilehash: 64660e497bb1765b649e00b07fdb5db8c05910f5
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77368692"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados do cliente
+# <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados dos clientes
 
 O Azure Time Series Insights é um serviço de nuvem gerido com componentes de armazenamento, análise e visualização que facilitam a ingestão, loja, exploração e análise de milhares de milhões de eventos simultaneamente.
 
@@ -28,7 +28,7 @@ Para visualizar, exportar e eliminar dados pessoais que possam estar sujeitos a 
 
 A Azure Time Series Insights considera que os dados pessoais são dados associados a administradores e utilizadores de Time Series Insights. Time Series Insights armazena o Azure Ative Directory object-ID dos utilizadores com acesso ao ambiente. O portal Azure exibe endereços de e-mail de utilizador, mas estes endereços de e-mail não são armazenados dentro da Time Series Insights, são analisados dinamicamente usando o Id de objeto sonorizador Azure Ative no Diretório Ativo Azure.
 
-## <a name="deleting-customer-data"></a>A eliminação de dados do cliente
+## <a name="deleting-customer-data"></a>Apagar dados dos clientes
 
 Um administrador de inquilino pode eliminar os dados dos clientes através do portal Azure.
 
@@ -40,7 +40,7 @@ Também pode efetuar operações de eliminação de políticas de acesso utiliza
 
 A Time Series Insights está integrada com a lâmina política no portal Azure. Tanto os Insights da Série Time como a lâmina Política permitem-lhe visualizar, exportar e eliminar os dados dos utilizadores armazenados dentro do serviço. Qualquer ação de exclusão tomada dentro da lâmina política do portal Azure resulta na eliminação dos dados dos utilizadores dentro da Time Series Insights. Por exemplo, se um utilizador tiver uma consulta pessoal guardada, essa consulta é permanentemente eliminada do explorador de Insights da Série Time. Se o utilizador tiver uma consulta partilhada guardada, a consulta persiste, mas a informação do utilizador é permanentemente eliminada. A seguinte nota contém instruções sobre como realizar estas tarefas.
 
-## <a name="exporting-customer-data"></a>Exportar dados do cliente
+## <a name="exporting-customer-data"></a>Exportação de dados dos clientes
 
 Da mesma forma que a pagando dados, um administrador de inquilino pode visualizar e exportar dados armazenados em Time Series Insights a partir da lâmina política no portal Azure.
 

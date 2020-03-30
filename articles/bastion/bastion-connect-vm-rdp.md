@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6ec60dc313c8a4374637adf38ea0e5a7d4ed964b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77597354"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Ligue-se a uma máquina virtual do Windows usando o Bastião Azure
@@ -38,14 +38,14 @@ Para ligar ao Windows VM, deve ter as seguintes portas abertas no seu Windows VM
 
 * Portas de entrada: PDR (3389)
 
-## <a name="rdp"></a>Ligar
+## <a name="connect"></a><a name="rdp"></a>Ligar
 
-1. Abra o [Portal do Azure](https://portal.azure.com). Navegue para a máquina virtual a que pretende ligar, em seguida, clique em **Ligar** e selecione **Bastion** a partir do dropdown.
+1. Abra o [portal Azure.](https://portal.azure.com) Navegue para a máquina virtual a que pretende ligar, em seguida, clique em **Ligar** e selecione **Bastion** a partir do dropdown.
 
    ![Ligação VM](./media/bastion-connect-vm-rdp/connect.png)
 1. Depois de clicar em Bastion, aparece uma barra lateral que tem três separadores – RDP, SSH e Bastion. Se a Bastion foi aprovisionada para a rede virtual, o separador Bastion está ativo por defeito. Se não disponibilizou a Bastion para a rede virtual, pode clicar no link para configurar o Bastion. Para instruções de configuração, consulte [Configure Bastion](bastion-create-host-portal.md).
 
-   ![Guia de bastião](./media/bastion-connect-vm-rdp/bastion.png)
+   ![separador bastião](./media/bastion-connect-vm-rdp/bastion.png)
 1. No separador Bastion, insera o nome de utilizador e a palavra-passe para a sua máquina virtual e, em seguida, clique em **Connect**. A ligação RDP a esta máquina virtual via Bastion abrirá diretamente no portal Azure (mais HTML5) utilizando a porta 443 e o serviço Bastião.
 
    ![Ligação RDP](./media/bastion-connect-vm-rdp/443rdp.png)

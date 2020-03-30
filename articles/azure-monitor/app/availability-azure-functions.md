@@ -6,10 +6,10 @@ author: morgangrobin
 ms.author: mogrobin
 ms.date: 11/22/2019
 ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665804"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados utilizando funções azure
@@ -42,10 +42,10 @@ Este artigo cobrirá como criar uma Função Azure com TrackAvailability() que s
 Copie o código abaixo no ficheiro run.csx (isto substituirá o código pré-existente). Para isso, entre na aplicação Funções Azure e selecione a função de gatilho do temporizador à esquerda.
 
 >[!div class="mx-imgBorder"]
->![função Azure run.csx no portal Azure](media/availability-azure-functions/runcsx.png)
+>![Função Azure run.csx no portal Azure](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> Para o Endereço Final, utilizaria: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. A menos que o seu recurso esteja localizado numa região como o Governo Azure ou a Azure China, caso em que consulte este artigo sobre [a sobreposição dos pontos finais padrão](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selecione o ponto final apropriado do Canal da Telemetria para a sua região.
+> Para o endereço de ponto `EndpointAddress= https://dc.services.visualstudio.com/v2/track`final, utilizaria: . A menos que o seu recurso esteja localizado numa região como o Governo Azure ou a Azure China, caso em que consulte este artigo sobre [a sobreposição dos pontos finais padrão](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selecione o ponto final apropriado do Canal da Telemetria para a sua região.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -163,17 +163,17 @@ Para se certificar de que está tudo a funcionar, pode olhar para o gráfico no 
 > Se implementou a sua própria lógica de negócio no runAvailabilityTest.csx, então verá resultados bem sucedidos como nas imagens abaixo, se não o fez, então verá resultados falhados.
 
 >[!div class="mx-imgBorder"]
->![separador disponibilidade com resultados bem-sucedidos](media/availability-azure-functions/availtab.png)
+>![Separador de disponibilidade com resultados bem sucedidos](media/availability-azure-functions/availtab.png)
 
 Quando configurar o seu teste utilizando funções Azure, notará que, ao contrário de utilizar o **teste Add** no separador Disponibilidade, o nome do seu teste não aparecerá e não poderá interagir com ele. Os resultados são visualizados mas obtém-se uma visão sumária em vez da mesma vista detalhada que obtém quando cria um teste de disponibilidade através do portal.
 
 Para ver os detalhes da transação de ponta a ponta, selecione **Successful** ou **Failed** under drill e, em seguida, selecione uma amostra. Também pode chegar aos detalhes da transação de ponta a ponta selecionando um ponto de dados no gráfico.
 
 >[!div class="mx-imgBorder"]
->![Selecione um teste de disponibilidade de amostra](media/availability-azure-functions/sample.png)
+>![Selecione um teste de disponibilidade de amostras](media/availability-azure-functions/sample.png)
 
 >[!div class="mx-imgBorder"]
->![detalhes da transação final](media/availability-azure-functions/end-to-end.png)
+>![Detalhes da transação de ponta a ponta](media/availability-azure-functions/end-to-end.png)
 
 Se correu tudo como está (sem adicionar lógica de negócio), então verá que o teste falhou.
 
@@ -182,12 +182,12 @@ Se correu tudo como está (sem adicionar lógica de negócio), então verá que 
 Pode utilizar Registos (análise) para ver os resultados de disponibilidade, dependências e muito mais. Para saber mais sobre Os Registos, visite a visão geral da [consulta de registo](../../azure-monitor/log-query/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
->![Resultados da Disponibilidade](media/availability-azure-functions/availabilityresults.png)
+>![Resultados de disponibilidade](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
 >![Dependências](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
+- [Mapa de aplicações](../../azure-monitor/app/app-map.md)
 - [Diagnósticos de transações](../../azure-monitor/app/transaction-diagnostics.md)

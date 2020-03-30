@@ -1,5 +1,5 @@
 ---
-title: Criar uma instância de Vigilante da Rede Azure  Microsoft Docs
+title: Criar uma instância de Vigilante da Rede Azure [ Microsoft Docs
 description: Saiba como ativar o Network Watcher numa região do Azure.
 services: network-watcher
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 77812a3765a027152c957f6dbb7c9b3811a2278f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191184"
 ---
-# <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância de Observador de Rede Azure
+# <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
 
 O Network Watcher é um serviço regional que lhe permite monitorizar e diagnosticar condições ao nível do cenário da rede, de e para o Azure. A monitorização do nível de cenário permite diagnosticar problemas no final da visão do nível da rede. As ferramentas de diagnóstico e visualização de rede disponíveis com o Network Watcher ajudam-no a compreender, diagnosticar e obter informações sobre a sua rede em Azure. O Network Watcher está ativado através da criação de um recurso Do Observador de Rede. Este recurso permite-lhe utilizar as capacidades do Observador de Rede.
 
@@ -27,7 +27,7 @@ O Network Watcher é um serviço regional que lhe permite monitorizar e diagnost
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>O Observador de Rede está ativado automaticamente
-Quando criar ou atualizar uma rede virtual na sua subscrição, o Observador de Rede será ativado automaticamente na região da rede Virtual. Não há qualquer impacto nos seus recursos ou encargos associados para ativar automaticamente o Observador da Rede.
+Quando criar ou atualizar uma rede virtual na subscrição, o Observador de Rede será ativado automaticamente na região da Rede Virtual. Não existe impacto sobre os seus recursos ou custos associados à ativação automática do Observador de Rede.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Opt-out da ativação automática do Observador de Rede
 Se quiser optar por não ativar o Observador de Rede, pode fazê-lo executando os seguintes comandos:
@@ -107,7 +107,7 @@ Navegue para **todos os serviços** > **Networking** > **Network Watcher**.
 
 Selecione o separador de visão geral, se ainda não estiver lá. Utilize o dropdown para selecionar a subscrição em que pretende desativar o observador da rede.
 Expanda a lista de regiões para a sua subscrição escolhida clicando na seta. Para qualquer dado, utilize os 3 pontos no direito de aceder ao menu de contexto.
-Clique em "Disable network watcher" para começar a desativar. Será-lhe pedido que confirme este passo. Clique sim para continuar.
+Clique em "Disable network watcher" para começar a desativar. Será-lhe pedido que confirme este passo. Clique em Sim para continuar.
 No portal, terá de o fazer individualmente para cada região em cada subscrição.
 
 
@@ -126,7 +126,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 Agora que tem uma instância de Network Watcher, saiba mais sobre as funcionalidades disponíveis:
 
 * [Topologia](network-watcher-topology-overview.md)
-* [Captura de pacote](network-watcher-packet-capture-overview.md)
+* [Captura de pacotes](network-watcher-packet-capture-overview.md)
 * [Verificação do fluxo de IP](network-watcher-ip-flow-verify-overview.md)
 * [Salto seguinte](network-watcher-next-hop-overview.md)
 * [Vista do grupo de segurança](network-watcher-security-group-view-overview.md)

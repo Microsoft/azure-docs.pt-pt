@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 2a427eab107c70b19932b7b8ddc5a7fc531ef19a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77615433"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Quickstart: Criar uma app HoloLens de unidade que usa âncoras espaciais Azure
@@ -34,9 +34,9 @@ Vai aprender a:
 Para concluir este guia de início rápido:
 
 - Precisa de um computador Windows no qual a <a href="https://unity3d.com/get-unity/download" target="_blank">Unidade 2019.1 ou 2019.2</a> ou posteriormente e o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> ou mais tarde são instalados. A instalação do Seu Estúdio Visual deve incluir a carga de trabalho de desenvolvimento da **Plataforma Universal Windows** e o componente Windows **10 SDK (10.0.18362.0 ou mais recente).** Também deve instalar <a href="https://git-scm.com/download/win" target="_blank">git para Windows</a> e <a href="https://git-lfs.github.com/">Git LFS</a>.
-- Precisa de um dispositivo HoloLens no modo de [desenvolvimento](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ativado. [A atualização do Windows 10 outubro 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (também conhecida como RS5) deve ser instalada no dispositivo. Para atualizar a mais recente versão do HoloLens, abra a aplicação **Definições,** vá a **Update & Security,** e, em seguida, selecione **Verificar se há atualizações**.
-- Na sua aplicação, tem de ativar a capacidade **de SpatialPerception.** Esta definição está em **Definições de construção** > **Definições** de jogador > **definições de publicação** > **capacidades**.
-- Na sua aplicação, é necessário ativar o Suporte à **Realidade Virtual** com o Windows Mixed **Reality SDK**. Esta definição está em **Definições de construção** > **definições do jogador** > **Definições XR**.
+- Precisa de um dispositivo HoloLens no modo de [desenvolvimento](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ativado. [A atualização do Windows 10 outubro 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (também conhecida como RS5) deve ser instalada no dispositivo. Para atualizar a mais recente versão do HoloLens, abra a aplicação **Definições,** vá ao **Update & Security**, e, em seguida, selecione Verificar se há **atualizações**.
+- Na sua aplicação, tem de ativar a capacidade **de SpatialPerception.** Esta definição está na **Definição de Definições** > de**Definições** > do Jogador**Capacidades**de**publicação** > .
+- Na sua aplicação, é necessário ativar o Suporte à **Realidade Virtual** com o Windows Mixed **Reality SDK**. Esta definição está em**Definições** >  **de Definições** > do Jogador de Construção**Definições XR**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -46,7 +46,7 @@ Para concluir este guia de início rápido:
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
-Abra **as definições** de construção selecionando definições de > **de construção**de **ficheiros** .
+Abra **as definições** de construção selecionando definições de**construção**de **ficheiros** > .
 
 Na secção **Plataforma,** selecione **Universal Windows Platform**. Mude o **dispositivo-alvo** para **HoloLens**.
 
@@ -58,7 +58,7 @@ Feche a janela Definições de **Construção.**
 
 ## <a name="configure-the-account-identifier-and-key"></a>Configure o identificador de conta e a chave
 
-No painel do **Projeto,** vá a `Assets/AzureSpatialAnchors.Examples/Scenes` e abra o arquivo de cena `AzureSpatialAnchorsBasicDemo.unity`.
+No painel do **Projeto,** vá `Assets/AzureSpatialAnchors.Examples/Scenes` `AzureSpatialAnchorsBasicDemo.unity` e abra o arquivo de cena.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -84,7 +84,7 @@ Se utilizar hololens 2, utilize o **ARM64** como Plataforma de **Solução**, em
 
 Ligue o dispositivo HoloLens, inscreva-se e ligue o dispositivo ao PC utilizando um cabo USB.
 
-Selecione **Debug** > **Comece a depurar** para implementar a sua aplicação e comece a depurar.
+Selecione **Debug** > **Comece a depurar-se** para implementar a sua aplicação e comece a depurar.
 
 Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
 

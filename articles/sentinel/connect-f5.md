@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 6f33cecca1c67f91d0f2be64ab156f45ee500521
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588268"
 ---
 # <a name="connect-f5-to-azure-sentinel"></a>Ligue F5 ao Sentinela Azure
@@ -35,7 +35,7 @@ Este artigo explica como ligar o seu aparelho F5 ao Azure Sentinel. O conector d
    - Detete o número da **porta** para **514**, ou a porta que definiu o seu agente para utilizar.
    - Pode definir o tamanho máximo da **corda de consulta** para o tamanho que se define no seu agente.
 
-1. Para utilizar o esquema relevante no Log Analytics para os eventos CEF, procure `CommonSecurityLog`.
+1. Para utilizar o esquema relevante no Log Analytics para `CommonSecurityLog`os eventos CEF, procure .
 
 1. Continuar a [PASSO 3: Validar a conectividade.](connect-cef-verify.md)
 

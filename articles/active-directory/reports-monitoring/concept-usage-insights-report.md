@@ -1,6 +1,6 @@
 ---
-title: Relatório de uso e informações | Microsoft Docs
-description: Introdução ao relatório de uso e informações no portal de Azure Active Directory
+title: Relatório de utilização e insights / Microsoft Docs
+description: Introdução ao relatório de utilização e insights no portal Azure Ative Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,49 +17,49 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008272"
 ---
-# <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Relatório de uso e informações no portal de Azure Active Directory
+# <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Relatório de utilização e insights no portal azure ative diretório
 
-Com o relatório de uso e informações, você pode obter uma exibição centrada no aplicativo de seus dados de entrada. Você pode encontrar respostas para as seguintes perguntas:
+Com o relatório de utilização e insights, pode obter uma visão centrada na aplicação dos seus dados de inscrição. Pode encontrar respostas para as seguintes perguntas:
 
-*   Quais são os principais aplicativos usados em minha organização?
-*   Quais aplicativos têm as entradas mais malsucedidas? 
-*   Quais são os erros de entrada mais importantes para cada aplicativo?
+*   Quais são as aplicações mais usadas na minha organização?
+*   Que aplicações têm os sign-ins mais falhados? 
+*   Quais são os principais erros de inscrição para cada aplicação?
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Para acessar os dados do relatório de uso e informações, você precisa:
+Para aceder aos dados do relatório de utilização e insights, é necessário:
 
-* Um locatário do Azure AD
-* Uma licença do Azure AD Premium (P1/P2) para exibir os dados de entrada
-* Um usuário nas funções administrador global, administrador de segurança, leitor de segurança ou leitor de relatório. Além disso, qualquer usuário (não administradores) pode acessar suas próprias entradas. 
+* Um inquilino da AD Azure
+* Uma licença azure AD premium (P1/P2) para visualizar os dados de entrada
+* Um utilizador no administrador global, administrador de segurança, leitor de segurança ou papel de leitor de relatórios. Além disso, qualquer utilizador (não administradores) pode aceder aos seus próprios sign-ins. 
 
-## <a name="access-the-usage-and-insights-report"></a>Acessar o relatório de uso e informações
+## <a name="access-the-usage-and-insights-report"></a>Aceda ao relatório de utilização e insights
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
-2. Selecione o diretório certo e, em seguida, selecione **Azure Active Directory** e escolha **aplicativos empresariais**.
-3. Na seção **atividade** , selecione **uso & insights** para abrir o relatório. 
+1. Navegue para o [portal Azure.](https://portal.azure.com)
+2. Selecione o diretório certo, em seguida, selecione **O Diretório Ativo Azure** e escolha **as aplicações enterprise**.
+3. A partir da secção **Atividade,** selecione **Usage & insights** para abrir o relatório. 
 
 ![Relatório de Utilização e Informações](./media/concept-usage-insights-report/main-menu.png)
                                      
 
-## <a name="use-the-report"></a>Usar o relatório
+## <a name="use-the-report"></a>Use o relatório
 
-O relatório uso e informações mostra a lista de aplicativos com uma ou mais tentativas de entrada e permite que você classifique o número de entradas bem-sucedidas, entradas com falha e a taxa de êxito.
+O relatório de utilização e insights mostra a lista de aplicações com um ou mais sinais na tentativa, e permite-lhe classificar pelo número de inscrições bem sucedidas, inscrições falhadas e a taxa de sucesso.
 
-Clicar em carregar mais na parte inferior da lista permite que você exiba aplicativos adicionais na página. Você pode selecionar o intervalo de datas para exibir todos os aplicativos que foram usados dentro do intervalo.
+Clicar mais na carga na parte inferior da lista permite-lhe visualizar aplicações adicionais na página. Pode selecionar o intervalo de datas para visualizar todas as aplicações que tenham sido utilizadas dentro do intervalo.
 
-Você também pode definir o foco em um aplicativo específico. Selecione **Exibir atividade de entrada** para ver a atividade de entrada ao longo do tempo para o aplicativo, bem como os principais erros.  
+Também pode definir o foco numa aplicação específica. Selecione **a atividade de início de sessão** para ver o sinal de atividade ao longo do tempo para a aplicação, bem como os erros de topo.  
 
-Ao selecionar um dia no grafo de uso do aplicativo, você obtém uma lista detalhada das atividades de entrada para o aplicativo.  
+Quando seleciona um dia no gráfico de utilização da aplicação, obtém uma lista detalhada das atividades de inscrição para a aplicação.  
 
 ![Relatório de Utilização e Informações](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Relatório de entradas](concept-sign-ins.md)
+* [Relatório de inscrição](concept-sign-ins.md)

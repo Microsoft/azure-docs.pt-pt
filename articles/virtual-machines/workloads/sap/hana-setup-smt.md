@@ -1,5 +1,5 @@
 ---
-title: Como configurar o servidor SMT para SAP HANA no Azure (Grandes Instâncias)  Microsoft Docs
+title: Como configurar o servidor SMT para SAP HANA no Azure (Grandes Instâncias) [ Microsoft Docs
 description: Como configurar o servidor SMT para SAP HANA no Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616983"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configurar o servidor SMT para SUSE Linux
@@ -34,7 +34,7 @@ Os pré-requisitos para a instalação de um servidor SMT que cumpre a tarefa pa
 
 Primeiro, inscreva-se no Centro de [Clientes SUSE](https://scc.suse.com/).
 
-Vá para **a Organização** > As Credenciais da **Organização.** Nessa secção, deve encontrar as credenciais necessárias para configurar o servidor SMT.
+Vá para**as credenciais**da **organização.** >  Nessa secção, deve encontrar as credenciais necessárias para configurar o servidor SMT.
 
 Em seguida, instale um VM SUSE Linux na rede virtual Azure. Para implantar a máquina virtual, pegue uma imagem de galeria SLES 12 SP2 do Azure (selecione byos sUSE image). No processo de implementação, não defina um nome DNS e não utilize endereços IP estáticos.
 

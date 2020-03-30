@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655945"
 ---
 # <a name="multi-step-web-tests"></a>Testes Web com vários passos
@@ -23,7 +23,7 @@ Pode monitorizar uma sequência gravada de URLs e interações com um website at
 * Visual Studio 2017 Enterprise ou maior.
 * Ferramentas de desempenho web do Estúdio Visual e ferramentas de teste de carga.
 
-Para localizar as ferramentas de teste pré-requisitos. Lance o **Instalador de Estúdio Visual** > **componentes individuais** > **Depuração e teste** > ferramentas de desempenho web e de teste de **carga.**
+Para localizar as ferramentas de teste pré-requisitos. Lance o **Instalador** > **Individual components** > de Estúdio Visual Componentes Individuais**Depurando e testando** > **ferramentas**de desempenho web e de teste de carga .
 
 ![Screenshot do instalador do Estúdio Visual UI com componentes individuais selecionados com uma caixa de verificação ao lado do item para ferramentas de desempenho web e de teste de carga](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -39,11 +39,11 @@ Para obter orientações sobre a criação de testes web do Visual Studio, consu
 
 ## <a name="upload-the-web-test"></a>Faça upload do teste web
 
-1. No portal De insights de aplicação sobre o painel de disponibilidade selecione **Criar teste** > tipo de **teste** > teste web **em várias etapas**.
+1. In the Application Insights portal on the Availability pane select **Create Test** > **Test type** > **Multi-step web test**.
 
 2. Defina os locais de teste, frequência e parâmetros de alerta.
 
-### <a name="frequency--location"></a>Frequência e localização
+### <a name="frequency--location"></a>Localização & de frequência
 
 |Definição| Explicação
 |----|----|----|
@@ -63,8 +63,8 @@ Para obter orientações sobre a criação de testes web do Visual Studio, consu
 |Definição| Explicação
 |----|----|----|
 |**Quase em tempo real (Pré-visualização)** | Recomendamos a utilização de alertas quase em tempo real. Configurar este tipo de alerta é feito após a criação do seu teste de disponibilidade.  |
-|**Clássico** | Já não recomendamos a utilização de alertas clássicos para novos testes de disponibilidade.|
-|**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização do alerta e o número de locais de teste é o limiar de **localização de alerta** = número de **locais de teste - 2, com um mínimo de cinco locais de teste.**|
+|**Clássica** | Já não recomendamos a utilização de alertas clássicos para novos testes de disponibilidade.|
+|**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização do alerta e o número de locais de teste é o número **de pontos-limite** = de localização de localização**de pontos de ensaio - 2, com um mínimo de cinco locais de teste.**|
 
 ## <a name="configuration"></a>Configuração
 
@@ -109,9 +109,9 @@ Em todos os casos, deve criar uma conta na sua aplicação apenas para efeitos d
 | Público Uri | O público URI para o símbolo SAML.  Este é o URI para o Serviço de Controlo de Acesso (ACS) – incluindo o espaço de nome ACS e o nome do anfitrião. |
 | Palavra-passe do certificado | A palavra-passe para o certificado de cliente que dará acesso à chave privada incorporada. |
 | Certificado de Cliente  | O valor do certificado de cliente com chave privada no formato codificado Base64. |
-| Identificador de nome | O identificador de nome para o símbolo |
-| Não depois | A hora do tempo para a qual o símbolo será válido.  O padrão é de 5 minutos. |
-| Não antes | O tempo para o qual um símbolo criado no passado será válido (para abordar os desvios de tempo).  A predefinição é (negativa) 5 minutos. |
+| Identificador de Nome | O identificador de nome para o símbolo |
+| Não Após | A hora do tempo para a qual o símbolo será válido.  O padrão é de 5 minutos. |
+| Não Antes | O tempo para o qual um símbolo criado no passado será válido (para abordar os desvios de tempo).  A predefinição é (negativa) 5 minutos. |
 | Nome do parâmetro de contexto-alvo | O parâmetro de contexto que receberá a afirmação gerada. |
 
 

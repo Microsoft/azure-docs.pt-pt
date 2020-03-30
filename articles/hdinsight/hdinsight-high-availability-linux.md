@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.openlocfilehash: 085933f9a74ee37779ce63ce499d89ea53a9f7d6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198944"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e fiabilidade dos clusters Apache Hadoop no HDInsight
@@ -29,7 +29,7 @@ Os nós de um cluster HDInsight são implementados utilizando máquinas virtuais
 > [!NOTE]  
 > Nem todos os tipos de nós são usados para um tipo de cluster. Por exemplo, um cluster Hadoop não tem nenhum nó Nimbus. Para obter mais informações sobre os nós utilizados pelos tipos de cluster HDInsight, consulte a secção de tipos de Cluster dos [clusters Hadoop baseados em Linux no documento HDInsight.](hdinsight-hadoop-provision-linux-clusters.md#cluster-type)
 
-### <a name="head-nodes"></a>Nós de cabeça
+### <a name="head-nodes"></a>Nódosos da cabeça
 
 Para garantir uma elevada disponibilidade de serviços Hadoop, o HDInsight fornece dois nós de cabeça. Ambos os nós da cabeça estão ativos e em funcionamento dentro do cluster HDInsight simultaneamente. Alguns serviços, como o Apache HDFS ou o Apache Hadoop YARN, só estão 'activos' num nó de cabeça a qualquer momento. Outros serviços, como o HiveServer2 ou o Hive MetaStore, estão ativos em ambos os nós de cabeça ao mesmo tempo.
 
@@ -46,7 +46,7 @@ Os nós de Nimbus estão disponíveis com aglomerados de tempestade Apache. Os n
 
 Os nódosos [do ZooKeeper](https://zookeeper.apache.org/) são usados para a eleição de líderes de serviços principais em narizes de cabeça. Também estão habituados a garantir que os serviços, os nós de dados (trabalhadores) e os gateways sabem em que cabeça um diretor de um serviço principal está ativo. Por padrão, o HDInsight fornece três nós zooKeeper.
 
-### <a name="worker-nodes"></a>Nós de trabalho
+### <a name="worker-nodes"></a>Nódosos operários
 
 Os nós dos trabalhadores realizam a análise real de dados quando um trabalho é submetido ao cluster. Se um nó de trabalhador falhar, a tarefa que estava a desempenhar é submetida a outro nó operário. Por padrão, o HDInsight cria quatro nós de trabalhador. Pode alterar este número de acordo com as suas necessidades durante e após a criação do cluster.
 
@@ -76,7 +76,7 @@ Para obter mais informações sobre a utilização do SSH, consulte o SSH use co
 
 Os nós de um cluster HDInsight têm um endereço IP interno e FQDN que só podem ser acedidos a partir do cluster. Ao aceder aos serviços no cluster utilizando o endereço FQDN ou IP interno, deve utilizar a Ambari para verificar o IP ou o FQDN para utilizar ao aceder ao serviço.
 
-Por exemplo, o serviço Apache Oozie só pode funcionar com um nó de cabeça, e usar o comando `oozie` de uma sessão SSH requer o URL para o serviço. Este URL pode ser recuperado de Ambari utilizando o seguinte comando:
+Por exemplo, o serviço Apache Oozie só pode funcionar `oozie` num nó de cabeça, e usar o comando de uma sessão SSH requer o URL para o serviço. Este URL pode ser recuperado de Ambari utilizando o seguinte comando:
 
 ```bash
 export password='PASSWORD'
@@ -85,7 +85,7 @@ export clusterName="CLUSTERNAME"
 curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 ```
 
-Este comando devolve um valor semelhante ao seguinte, que contém o URL interno para utilizar com o comando `oozie`:
+Este comando devolve um valor semelhante ao seguinte, que `oozie` contém o URL interno para utilizar com o comando:
 
 ```output
 "oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
@@ -109,7 +109,7 @@ Para verificar o estado dos serviços que funcionam nos nós da cabeça, utilize
 
 ### <a name="ambari-web-ui"></a>Ambari Web UI
 
-O Ambari Web UI é visível em `https://CLUSTERNAME.azurehdinsight.net`. Substitua **CLUSTERNAME** pelo nome do cluster. Se solicitado, introduza as credenciais de utilizador http para o seu cluster. O nome de utilizador 'HTTP' predefinido é **administrador** e a palavra-passe é a palavra-passe que introduziu ao criar o cluster.
+O Ambari Web UI `https://CLUSTERNAME.azurehdinsight.net`é visível em . Substitua o **CLUSTERNAME** pelo nome do seu cluster. Se solicitado, introduza as credenciais de utilizador http para o seu cluster. O nome de utilizador 'HTTP' predefinido é **administrador** e a palavra-passe é a palavra-passe que introduziu ao criar o cluster.
 
 Quando chega à página ambari, os serviços instalados estão listados à esquerda da página.
 
@@ -129,7 +129,7 @@ Os seguintes alertas ajudam a monitorizar a disponibilidade de um cluster:
 | Servidor Spark2 Thrift                     | Este alerta de nível de hospedeiro é acionado se o Spark2 Thrift Server não puder ser determinado a subir.                                                                                                |
 | Processo de servidor de histórico                   | Este alerta de nível de hospedeiro é desencadeado se o processo do History Server não puder ser estabelecido para estar em cima e ouvir na rede.                                                                |
 | Web UI do servidor de história                    | Este alerta de nível de anfitrião é desencadeado se o Web UI do Servidor de História estiver inacessível.                                                                                                              |
-| `ResourceManager` Web UI                   | Este alerta de nível de hospedeiro é desencadeado se o `ResourceManager` Web UI for inacessível.                                                                                                             |
+| `ResourceManager`Web UI                   | Este alerta de nível de `ResourceManager` hospedeiro é acionado se o UI web estiver inacessível.                                                                                                             |
 | Resumo da Saúde nodeManager               | Este alerta de nível de serviço é desencadeado se houver NodeManagers pouco saudáveis                                                                                                                    |
 | Web UI da linha do tempo da aplicação                      | Este alerta de nível de anfitrião é desencadeado se o Web UI do servidor de linha de linha do tempo da aplicação estiver inacessível.                                                                                                         |
 | Resumo da Saúde dataNode                  | Este alerta de nível de serviço é desencadeado se não houver DataNodes saudáveis                                                                                                                       |
@@ -139,7 +139,7 @@ Os seguintes alertas ajudam a monitorizar a disponibilidade de um cluster:
 | Estado do servidor Oozie                      | Este alerta de nível de anfitrião é desencadeado se o servidor Oozie não puder estar determinado a estar de pé e responder aos pedidos do cliente.                                                                      |
 | Processo de Metaloja da Colmeia                   | Este alerta de nível de hospedeiro é desencadeado se o processo da Hive Metastore não puder ser determinado a estar em cima e a ouvir na rede.                                                                 |
 | Processo HiveServer2                      | Este alerta de nível de anfitrião é desencadeado se o HiveServer não puder estar determinado a estar de pé e responder aos pedidos do cliente.                                                                        |
-| Estado do servidor webhcat                    | Este alerta de nível de hospedeiro é desencadeado se o estado do servidor `templeton` não for saudável.                                                                                                            |
+| Estado do servidor webhcat                    | Este alerta de nível de `templeton` hospedeiro é acionado se o estado do servidor não estiver saudável.                                                                                                            |
 | Por cento dos servidores do ZooKeeper disponíveis      | Este alerta é desencadeado se o número de servidores do ZooKeeper no cluster for maior do que o limiar crítico configurado. Agrega os resultados dos controlos do processo zookeeper.     |
 | Spark2 Livy Server                       | Este alerta de nível de hospedeiro é desencadeado se o Servidor Livy2 não puder estar determinado a estar de pé.                                                                                                        |
 | Servidor de História Spark2                    | Este alerta de nível de hospedeiro é desencadeado se o Spark2 History Server não puder estar determinado a estar em alta.                                                                                               |
@@ -241,14 +241,14 @@ Cada nó de cabeça pode ter entradas de registo únicas, por isso deve verifica
 
 Também pode ligar-se ao nó principal utilizando o Protocolo de Transferência de Ficheiros SSH ou o Protocolo de Transferência de Ficheiros Seguros (SFTP) e transferir os ficheiros de registo diretamente.
 
-Semelhante à utilização de um cliente SSH, ao ligar-se ao cluster deve fornecer o nome da conta de utilizador SSH e o endereço SSH do cluster. Por exemplo, `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a palavra-passe para a conta quando solicitado ou forneça uma chave pública utilizando o parâmetro `-i`.
+Semelhante à utilização de um cliente SSH, ao ligar-se ao cluster deve fornecer o nome da conta de utilizador SSH e o endereço SSH do cluster. Por exemplo, `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a palavra-passe para a conta quando solicitado `-i` ou forneça uma chave pública utilizando o parâmetro.
 
-Uma vez ligado, é-lhe apresentado um `sftp>`. A partir desta solicitação, pode alterar diretórios, fazer upload e transferir ficheiros. Por exemplo, os seguintes comandos mudam de diretórios para o diretório **/var/log/hadoop/hdfs** e, em seguida, descarregue todos os ficheiros no diretório.
+Uma vez ligado, é-lhe apresentado um `sftp>` pedido. A partir desta solicitação, pode alterar diretórios, fazer upload e transferir ficheiros. Por exemplo, os seguintes comandos mudam de diretórios para o diretório **/var/log/hadoop/hdfs** e, em seguida, descarregue todos os ficheiros no diretório.
 
     cd /var/log/hadoop/hdfs
     get *
 
-Para obter uma lista de comandos disponíveis, introduza `help` no `sftp>` pronta.
+Para obter uma lista de `help` comandos disponíveis, insira no `sftp>` momento.
 
 > [!NOTE]  
 > Existem também interfaces gráficas que permitem visualizar o sistema de ficheiros quando ligado sFTP. Por exemplo, o [MobaXTerm](https://mobaxterm.mobatek.net/) permite-lhe navegar no sistema de ficheiros utilizando uma interface semelhante ao Windows Explorer.
@@ -272,9 +272,9 @@ Ao criar um cluster, pode especificar o tamanho dos nós. As seguintes informaç
 
     ![Imagem do assistente de criação de cluster com seleção de tamanho do nó](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-* **Azure CLI**: Ao utilizar o comando [`az hdinsight create`,](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) pode definir o tamanho da cabeça, dos pés de trabalho e do ZooKeeper utilizando os parâmetros `--headnode-size`, `--workernode-size`e `--zookeepernode-size`.
+* **Azure CLI**: [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) Ao utilizar o comando, pode definir o tamanho da cabeça, `--headnode-size`dos `--workernode-size`pés `--zookeepernode-size` de trabalho e do ZooKeeper utilizando os parâmetros e parâmetros.
 
-* **Azure PowerShell**: Ao utilizar o cmdlet [New-AzHDInsightCluster,](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) pode definir o tamanho dos nós da cabeça, do trabalhador e do ZooKeeper utilizando os `-HeadNodeSize`, `-WorkerNodeSize`e `-ZookeeperNodeSize` parâmetros.
+* **Azure PowerShell**: Ao utilizar o cmdlet [New-AzHDInsightCluster,](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) pode definir o tamanho dos nós `-HeadNodeSize`da `-WorkerNodeSize`cabeça, do trabalhador e do ZooKeeper utilizando os parâmetros e `-ZookeeperNodeSize` parâmetros.
 
 ## <a name="next-steps"></a>Passos seguintes
 

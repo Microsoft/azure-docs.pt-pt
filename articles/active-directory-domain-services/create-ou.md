@@ -1,5 +1,5 @@
 ---
-title: Criar uma unidade organizacional (OU) nos Serviços de Domínio da AD azure  Microsoft Docs'
+title: Criar uma unidade organizacional (OU) nos Serviços de Domínio da AD azure [ Microsoft Docs'
 description: Aprenda a criar e gerir uma Unidade Organizacional Personalizada (OU) num domínio gerido pelo Azure AD Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
 ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614071"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Criar uma Unidade Organizacional (OU) num domínio gerido pela Azure AD Domain Services
@@ -70,7 +70,7 @@ Para criar um OU personalizado, utilize as Ferramentas Administrativas de Diret�
 
     ![Selecione o seu domínio gerido azure AD DS no Ative Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-1. O painel **Tasks** é mostrado no lado direito do Centro Administrativo de Diretório Ativo. Sob o domínio, tais como *aaddscontoso.com,* selecione **New > Unidade Organizacional**.
+1. O painel **Tasks** é mostrado no lado direito do Centro Administrativo de Diretório Ativo. Sob o domínio, como *aaddscontoso.com,* selecione **Unidade Organizacional nova >.**
 
     ![Selecione a opção de criar um novo OU no Ative Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 
@@ -87,7 +87,7 @@ Para criar um OU personalizado, utilize as Ferramentas Administrativas de Diret�
 Para obter mais informações sobre a utilização das ferramentas administrativas ou sobre a criação e utilização de contas de serviço, consulte os seguintes artigos:
 
 * [Centro Administrativo de Diretório Ativo: Começar](https://technet.microsoft.com/library/dd560651.aspx)
-* [Guia de Contas de Serviço Passo a Passo](https://technet.microsoft.com/library/dd548356.aspx)
+* [Guia Passo a Passo de Contas de Serviço](https://technet.microsoft.com/library/dd548356.aspx)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

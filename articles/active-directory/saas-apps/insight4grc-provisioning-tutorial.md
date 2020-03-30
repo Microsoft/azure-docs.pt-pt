@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Insight4GRC para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Insight4GRC para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a fornecer e desfornecer automaticamente contas de utilizadores de Azure AD para Insight4GRC.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
 ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77621519"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Tutorial: Configure Insight4GRC para fornecimento automático de utilizadores
@@ -74,7 +74,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
 ### <a name="to-configure-automatic-user-provisioning-for-insight4grc-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para insight4GRC em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -90,7 +90,7 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
     ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. Na secção **credenciais de administrador,** insera o URL final do ponto final do SCIM no URL do **Arrendatário**. O URL de enpoint deve estar no formato `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` onde o Nome de **Domínio Insight4GRC** é o valor recuperado em etapas anteriores. Insera o valor simbólico do portador recuperado anteriormente em **Secret Token**. Clique em **Ligação de Teste** para garantir que o Azure AD pode ligar-se ao Insight4GRC. Se a ligação falhar, certifique-se de que a sua conta Insight4GRC tem permissões de administrador e tente novamente.
+5. Na secção **credenciais de administrador,** insera o URL final do ponto final do SCIM no URL do **Arrendatário**. O URL de enpoint `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` deve estar no formato onde o Nome de **Domínio Insight4GRC** é o valor recuperado em etapas anteriores. Insera o valor simbólico do portador recuperado anteriormente em **Secret Token**. Clique em **Ligação de Teste** para garantir que o Azure AD pode ligar-se ao Insight4GRC. Se a ligação falhar, certifique-se de que a sua conta Insight4GRC tem permissões de administrador e tente novamente.
 
     ![provisionamento](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
@@ -106,14 +106,14 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
    |Atributo|Tipo|
    |---|---|
-   |userName|String|
-   |externalId|String|
+   |userName|Cadeia|
+   |id externo|Cadeia|
    |ativo|Booleano|
-   |Título|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |. Value de e-mails [tipo eq "trabalho"]|String|
-   |. Value de phoneNumbers [tipo eq "trabalho"]|String|
+   |título|Cadeia|
+   |nome.dadoNome|Cadeia|
+   |nome.familyName|Cadeia|
+   |e-mails[tipo eq "work"].valor|Cadeia|
+   |telefoneNumbers[tipo eq "trabalho"].valor|Cadeia|
 
 10. Na secção **Mapeamentos,** **selecione Synchronize Azure Ative Directory Groups to Insight4GRC**.
 
@@ -121,8 +121,8 @@ Esta secção orienta-o através dos passos para configurar o serviço de provis
 
       |Atributo|Tipo|
       |---|---|
-      |displayName|String|
-      |externalId|String|
+      |displayName|Cadeia|
+      |id externo|Cadeia|
       |membros|Referência|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

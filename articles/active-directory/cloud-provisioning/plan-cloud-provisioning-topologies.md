@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77620878"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Azure AD Connect cloud provisionando topologs e cenários suportados
@@ -50,7 +50,7 @@ Uma topologia comum é uma múltipla floresta de AD, com um ou vários domínios
 Este cenário é superior ao cenário multiflorestal, no entanto este envolve um ambiente Azure AD Connect existente e, em seguida, trazer uma nova floresta usando o fornecimento de nuvem Azure AD Connect.  Para um exemplo deste cenário ver [Tutorial: Uma floresta existente com um único inquilino Azure AD](tutorial-existing-forest.md)
 
 ## <a name="piloting-azure-ad-connect-cloud-provisioning-in-an-existing-hybrid-ad-forest"></a>Pilotagem Azure AD Connect cloud provisioning em uma floresta aD híbrida existente
-![Topologia para uma única floresta e um único inquilino](media/plan-cloud-provisioning-topologies/migrate.png) O cenário de pilotagem envolve a existência de tanto a Azure AD Connect como a Azure AD Connect aprovisionar na mesma floresta e a analisar os utilizadores e grupos em conformidade. NOTA: Um objeto deve estar no âmbito apenas de uma das ferramentas. 
+![Topologia para uma única floresta](media/plan-cloud-provisioning-topologies/migrate.png) e um único inquilino O cenário de pilotagem envolve a existência tanto da nuvem Azure AD Connect como da Azure AD Connect na mesma floresta e de scoping os utilizadores e grupos em conformidade. NOTA: Um objeto deve estar no âmbito apenas de uma das ferramentas. 
 
 Para um exemplo deste cenário consulte [Tutorial: Pilot Azure AD Connect cloud provisioning em uma floresta aD sincronizada existente](tutorial-pilot-aadc-aadccp.md)
 
@@ -58,6 +58,6 @@ Para um exemplo deste cenário consulte [Tutorial: Pilot Azure AD Connect cloud 
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- [O que é o provisionamento?](what-is-provisioning.md)
-- [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)
+- [O que é o aprovisionamento?](what-is-provisioning.md)
+- [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)
 

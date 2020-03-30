@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
 ms.openlocfilehash: 9042ed8ddbb698192e638fa7538f74561574c262
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668235"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com apps lógicas
@@ -33,7 +33,7 @@ Este artigo assume que o leitor está familiarizado com
 
 1.  Selecione o gatilho: **Quando um pedido HTTP for recebido**.
 
-    ![Gatilhos de aplicativológico](media/action-groups-logic-app/logic-app-triggers.png "Acionadores da aplicação lógica")
+    ![Acionadores da aplicação lógica](media/action-groups-logic-app/logic-app-triggers.png "Acionadores da aplicação lógica")
 
 1.  Selecione **Editar** para alterar o gatilho de pedido HTTP.
 
@@ -109,9 +109,9 @@ Este artigo assume que o leitor está familiarizado com
         }
     ```
 
-1. Selecione **+** **Novo passo** e, em seguida, escolha Adicionar uma **ação**.
+1. Selecione **+** **novo passo** e, em seguida, escolha Adicionar uma **ação**.
 
-    ![Adicione uma ação](media/action-groups-logic-app/add-action.png "Adicionar uma ação")
+    ![Adicionar uma ação](media/action-groups-logic-app/add-action.png "Adicionar uma ação")
 
 1. Nesta fase, você pode adicionar uma variedade de conectores (Microsoft Teams, Slack, Salesforce, etc.) com base nos seus requisitos de negócio específicos. Pode utilizar os "campos essenciais" fora da caixa. 
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: dcfc6ea4afe23424e72c625518356be52f62bc81
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77602185"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Compare as predefinições v3 da Azure Media Services e o Indexer de Vídeo 
@@ -31,11 +31,11 @@ Atualmente, existe uma sobreposição entre as funcionalidades oferecidas pelas 
 
 |Funcionalidade|APIs indexador de vídeo |Presets de Analisador de Vídeo e Analisador de Áudio<br/>em Media Services v3 APIs|
 |---|---|---|
-|Media Insights|[Melhorado](video-indexer-output-json-v2.md) |[Noções Básicas](../latest/intelligence-concept.md)|
-|Experiências|Consulte a lista completa de funcionalidades suportadas: <br/> [Descrição geral](video-indexer-overview.md)|Devolve apenas informações de vídeo|
+|Media Insights|[Melhorada](video-indexer-output-json-v2.md) |[Noções Básicas](../latest/intelligence-concept.md)|
+|Experiências|Consulte a lista completa de funcionalidades suportadas: <br/> [Descrição Geral](video-indexer-overview.md)|Devolve apenas informações de vídeo|
 |Faturação|[Preços dos Serviços de Media](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Preços dos Serviços de Media](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Conformidade|Para as atualizações de conformidade mais atuais, visite [A Oferta de Conformidade Azure.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e procure por "Video Indexer" para ver se cumpre um certificado de interesse.|Para as atualizações de conformidade mais atuais, visite [A Oferta de Conformidade Azure.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e procure "Media Services" para ver se cumpre com um certificado de interesse.|
-|Julgamento Gratuito|E.U.A. Leste|Não disponível|
+|Avaliação Gratuita|E.U.A. Leste|Não disponível|
 |Disponibilidade de região|Ver Disponibilidade de [Serviços Cognitivos por região](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)|Ver [Disponibilidade de Serviços de Media por região.](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)|
 
 ## <a name="next-steps"></a>Passos seguintes

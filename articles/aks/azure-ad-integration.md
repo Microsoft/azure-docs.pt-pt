@@ -1,17 +1,17 @@
 ---
-title: Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes
+title: Integrar o Azure Active Directory com o Azure Kubernetes Service
 description: Como criar clusters azure Ative Directory Service (AKS) habilitados para o Azure Ative Directory
 services: container-service
 ms.topic: article
 ms.date: 02/02/2019
 ms.openlocfilehash: 0476acadf5af3a3e2c470fe6c08ebbd355653e22
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77596594"
 ---
-# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory com o Azure Kubernetes Service
 
 O Serviço Azure Kubernetes (AKS) pode ser configurado para utilizar o Azure Ative Directory (Azure AD) para autenticação do utilizador. Nesta configuração, pode iniciar sessão num cluster AKS utilizando o seu símbolo de autenticação Azure AD.
 
@@ -47,13 +47,13 @@ Para fornecer autenticação Azure AD para um cluster AKS, são criadas duas apl
 
 A primeira aplicação Azure AD é aplicada para obter a adesão de um utilizador ao grupo Azure AD. Para criar esta aplicação no portal Azure:
 
-1. Selecione **Registos** de > de **Diretório Ativo do Azure** > **Nova inscrição.**
+1. Selecione Registos de**Aplicações** >  **de Diretório** > Ativo Azure**Novas inscrições**.
 
     a. Dê à aplicação um nome, como *AKSAzureADServer*.
 
     b. Para **tipos de conta suportados,** selecione Contas **apenas neste diretório organizacional**.
     
-    c. Escolha web para o tipo URI redirecionamento e, em seguida, introduza qualquer valor formato URI, como *https://aksazureadserver* .
+    c. Escolha **Web** web para o tipo URI redirecionamento e, *https://aksazureadserver*em seguida, introduza qualquer valor formato URI, como .
 
     d. Selecione **Registar-se** quando terminar.
 
@@ -61,7 +61,7 @@ A primeira aplicação Azure AD é aplicada para obter a adesão de um utilizado
 
     ![Atualizar a adesão ao grupo para todos](media/aad-integration/edit-manifest.png)
 
-3. No painel esquerdo da aplicação Azure AD, selecione **Certificados e segredos.**
+3. No painel esquerdo da aplicação Azure AD, selecione **Certificados & segredos.**
 
     a. Selecione **+ Novo segredo de cliente.**
 
@@ -73,11 +73,11 @@ A primeira aplicação Azure AD é aplicada para obter a adesão de um utilizado
 
     a. Em **apis da Microsoft,** selecione **Microsoft Graph**.
 
-    b. Selecione **permissões delegadas**, e, em seguida, selecione a caixa de verificação ao lado do **Diretório > Diretório.Read.All (Ler dados de diretório)** .
+    b. Selecione **permissões delegadas**, e, em seguida, selecione a caixa de verificação ao lado do **Diretório > Diretório.Leia.Todos (Leia os dados do diretório)**.
 
-    c. Se não existir uma permissão dedelegado predefinida para **o Utilizador > User.Read (Iniciar sessão e ler o perfil** do utilizador) não existir, selecione a caixa de verificação ao lado.
+    c. Se não existir uma permissão dedelegado predefinida para **o Utilizador > Utilizador.Leia (Faça o check-in e leia** o perfil do utilizador) não existe, selecione a caixa de verificação ao lado.
 
-    d. Selecione **permissões de aplicação**, e, em seguida, selecione a caixa de verificação ao lado do **Diretório > Diretório.Read.All (Ler dados de diretório)** .
+    d. Selecione **permissões de aplicação**, e, em seguida, selecione a caixa de verificação ao lado do **Diretório > Diretório.Leia.Todos (Leia os dados do diretório)**.
 
     ![Definir permissões de gráfico](media/aad-integration/graph-permissions.png)
 
@@ -107,18 +107,18 @@ A primeira aplicação Azure AD é aplicada para obter a adesão de um utilizado
 
 A segunda aplicação Azure AD é usada quando se inscreveu no Kubernetes CLI (kubectl).
 
-1. Selecione **Registos** de > de **Diretório Ativo do Azure** > **Nova inscrição.**
+1. Selecione Registos de**Aplicações** >  **de Diretório** > Ativo Azure**Novas inscrições**.
 
     a. Dê à aplicação um nome, como *AKSAzureADClient*.
 
     b. Para **tipos de conta suportados,** selecione Contas **apenas neste diretório organizacional**.
 
-    c. Selecione **Web** para o tipo URI redirecionamento e, em seguida, introduza qualquer valor formato URI, como *https://aksazureadclient* .
+    c. Selecione **Web** para o tipo URI redirecionamento *https://aksazureadclient*e, em seguida, introduza qualquer valor formato URI, tais como .
 
     >[!NOTE]
-    >Se estiver a criar um novo cluster ativado por RBAC para suportar o Monitor Azure para contentores, adicione os seguintes dois URLs adicionais de redirecionamento a esta lista como tipos de aplicações **Web.** O valor url da primeira base deve ser `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e o valor url da segunda base deve ser `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >Se estiver a criar um novo cluster ativado por RBAC para suportar o Monitor Azure para contentores, adicione os seguintes dois URLs adicionais de redirecionamento a esta lista como tipos de aplicações **Web.** O valor url da `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` primeira base deve ser `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`e o valor url da segunda base deve ser .
     >
-    >Se estiver a utilizar esta funcionalidade na Azure China, o valor url da primeira base deve ser `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e o valor de URL da segunda base deve ser `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >Se estiver a utilizar esta funcionalidade na Azure China, `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` o valor url da `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`primeira base deve ser e o valor url da segunda base deve ser .
     >
     >Para mais informações, consulte [como configurar a funcionalidade Live Data (pré-visualização)](../azure-monitor/insights/container-insights-livedata-setup.md) para o Monitor Azure para contentores e as etapas para configurar a autenticação no âmbito da secção de [autenticação integrada da Configuração AD.](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication)
 
@@ -184,7 +184,7 @@ Um aglomerado AKS leva alguns minutos para criar.
 
 Antes de utilizar uma conta de Diretório Ativo Azure com um cluster AKS, deve criar uma ligação de funções ou de ligação ao cluster. As funções definem as permissões de concessão e as encadernações aplicam-nas aos utilizadores pretendidos. Estas atribuições podem ser aplicadas a um determinado espaço de nome, ou em todo o cluster. Para mais informações, consulte [a utilização da autorização RBAC][rbac-authorization].
 
-Primeiro, use o comando [az aks get-credentials][az-aks-get-credentials] com o argumento `--admin` para assinar no cluster com acesso administrativo.
+Primeiro, use o comando [az aks get-credentials][az-aks-get-credentials] com o `--admin` argumento de assinar no cluster com acesso administrativo.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -258,7 +258,7 @@ Puxe o contexto para o utilizador não administrador utilizando o comando [az ak
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Depois de executar o comando `kubectl`, será solicitado a autenticar usando Azure. Siga as instruções no ecrã para terminar o processo, como mostra o seguinte exemplo:
+Depois de `kubectl` executar o comando, será solicitado a autenticar usando Azure. Siga as instruções no ecrã para terminar o processo, como mostra o seguinte exemplo:
 
 ```console
 $ kubectl get nodes
@@ -282,7 +282,7 @@ error: You must be logged in to the server (Unauthorized)
 
 - Definiu o ID ou UPN de objeto apropriado, dependendo se a conta de utilizador está ou não no mesmo inquilino Azure AD.
 - O utilizador não é membro de mais de 200 grupos.
-- O segredo definido no registo de aplicação para servidor corresponde ao valor configurado através da utilização `--aad-server-app-secret`.
+- O segredo definido no registo de aplicação para `--aad-server-app-secret`servidor corresponde ao valor configurado pela utilização .
 
 ## <a name="next-steps"></a>Passos seguintes
 

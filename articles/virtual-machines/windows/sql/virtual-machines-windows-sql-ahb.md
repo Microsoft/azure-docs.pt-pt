@@ -15,10 +15,10 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 502d1fe599accb29ccc99c9e527f8d1c8e1d52b8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77201832"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Altere o modelo de licença para uma máquina virtual SQL Server em Azure
@@ -53,7 +53,7 @@ Alterar o modelo de licenciamento do seu VM servidor SQL tem os seguintes requis
 
 ## <a name="vms-already-registered-with-the-resource-provider"></a>VMs já registados no fornecedor de recursos 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -67,7 +67,7 @@ Pode modificar o modelo de licença diretamente a partir do portal:
 ![Benefício Híbrido Azure no portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pode utilizar o Azure CLI para alterar o modelo de licença.  
 
@@ -90,7 +90,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-**Recuperação de desastres (DR)**
+**Recuperação após desastre (DR)**
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
@@ -99,7 +99,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type DR
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pode utilizar o PowerShell para alterar o modelo de licença.
 
@@ -110,7 +110,7 @@ Pode utilizar o PowerShell para alterar o modelo de licença.
 Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType AHUB
 ```
 
-**Pague à medida que for.**
+**Pay as you go**
 
 ```powershell-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
@@ -154,7 +154,7 @@ Mudar o modelo de licença é:
 
 ## <a name="known-errors"></a>Erros conhecidos
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>O Recurso 'Microsoft.SqlVirtualMachines/SqlVirtualMachines/\<resource-group>' no âmbito do grupo de recursos\<grupo de recursos>' não foi encontrado.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>Não foi encontrado o recurso 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<\<>' do grupo de recursos no âmbito do grupo de recursos> de recursos.
 
 Este erro ocorre quando tenta alterar o modelo de licença num VM de servidor SQL que não foi registado no fornecedor de recursos SQL VM:
 
@@ -163,7 +163,7 @@ Este erro ocorre quando tenta alterar o modelo de licença num VM de servidor SQ
 Terá de registar a sua subscrição junto do fornecedor de recursos e, em [seguida, registar o seu VM de Servidor SQL com o fornecedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
-### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>A máquina virtual '\<vmname\>' tem mais de um NIC associado
+### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>O vmname\<\>da máquina virtual tem mais do que um NIC associado
 
 Este erro ocorre em máquinas virtuais que têm mais de um NIC. Retire um dos NICs antes de alterar o modelo de licenciamento. Embora possa adicionar o NIC de volta ao VM depois de alterar o modelo de licença, as operações no portal Azure, como cópia de segurança automática e patching, deixarão de ser suportadas. 
 

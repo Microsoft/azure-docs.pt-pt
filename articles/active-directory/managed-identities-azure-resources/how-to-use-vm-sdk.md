@@ -1,6 +1,6 @@
 ---
-title: Usar identidades gerenciadas em uma VM do Azure com SDKs do Azure-Azure AD
-description: Exemplos de código para usar SDKs do Azure com uma VM do Azure que tem identidades gerenciadas para recursos do Azure.
+title: Utilize identidades geridas num Azure VM com SDKs Azure - Azure AD
+description: Amostras de código para a utilização de SDKs Azure com um VM Azure que tem gerido identidades para recursos Azure.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,38 +16,38 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 422b4c63a86904721fc6910193ffa63a8fe46f0a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74184158"
 ---
-# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure com SDKs do Azure 
+# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Como utilizar identidades geridas para recursos Azure num Azure VM com SDKs Azure 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-Este artigo fornece uma lista de exemplos de SDK, que demonstram o uso do suporte do respectivo SDK do Azure para identidades gerenciadas para recursos do Azure.
+Este artigo fornece uma lista de amostras de SDK, que demonstram a utilização do apoio do respetivo Azure SDK a identidades geridas para recursos Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 > [!IMPORTANT]
-> - Todo o código/script de exemplo neste artigo pressupõe que o cliente está sendo executado em uma VM com identidades gerenciadas para recursos do Azure habilitados. Use o recurso "conectar" da VM no portal do Azure para conectar-se remotamente à sua VM. Para obter detalhes sobre como habilitar identidades gerenciadas para recursos do Azure em uma VM, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (usando o PowerShell, a CLI, um modelo ou um SDK do Azure). 
+> - Todo o código/script da amostra neste artigo pressupõe que o cliente está a executar um VM com identidades geridas para recursos Azure habilitados. Utilize a função VM "Connect" no portal Azure, para ligar remotamente ao seu VM. Para mais detalhes sobre a possibilidade de permitir identidades geridas para os recursos Azure num VM, consulte [as identidades geridas pela Configure para os recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (utilizando PowerShell, CLI, um modelo ou um Azure SDK). 
 
-## <a name="sdk-code-samples"></a>Exemplos de código do SDK
+## <a name="sdk-code-samples"></a>Amostras de código SDK
 
 | SDK             | Exemplo de código |
 | --------------- | ----------- |
-| .NET            | [Implantar um modelo de Azure Resource Manager de uma VM do Windows usando identidades gerenciadas para recursos do Azure](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
-| .NET Core       | [Chamar serviços do Azure de uma VM do Linux usando identidades gerenciadas para recursos do Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
-| Node.js         | [Gerenciar recursos usando identidades gerenciadas para recursos do Azure](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
-| Python          | [Usar identidades gerenciadas para recursos do Azure para autenticar simplesmente de dentro de uma VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
-| Ruby            | [Gerenciar recursos de uma VM com identidades gerenciadas para recursos do Azure habilitados](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) |
+| .NET            | [Implemente um modelo de Gestor de Recursos Azure a partir de um VM do Windows utilizando identidades geridas para recursos Azure](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
+| .NET Core       | [Ligue para os serviços Azure de um VM Linux usando identidades geridas para recursos Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
+| Node.js         | [Gerir recursos utilizando identidades geridas para recursos Azure](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
+| Python          | [Utilize identidades geridas para os recursos do Azure autenticarsimplesmente a partir de dentro de um VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
+| Ruby            | [Gerir recursos de um VM com identidades geridas para recursos Azure habilitados](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte [SDKs do Azure](https://azure.microsoft.com/downloads/) para obter a lista completa de recursos do SDK do Azure, incluindo downloads de biblioteca, documentação e muito mais.
-- Para habilitar identidades gerenciadas para recursos do Azure em uma VM do Azure, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md).
+- Consulte os [SDKs Azure](https://azure.microsoft.com/downloads/) para obter a lista completa de recursos Do SDK azure, incluindo transferências de bibliotecas, documentação e muito mais.
+- Para permitir identidades geridas para os recursos Azure num Azure VM, consulte [as identidades geridas pela Configure para os recursos Azure num VM utilizando o portal Azure.](qs-configure-portal-windows-vm.md)
 
 
 

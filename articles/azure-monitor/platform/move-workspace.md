@@ -1,5 +1,5 @@
 ---
-title: Mova um espaço de trabalho log Analytics no Monitor Azure  Microsoft Docs
+title: Mova um espaço de trabalho log Analytics no Monitor Azure [ Microsoft Docs
 description: Saiba como mover o seu espaço de trabalho Log Analytics para outra subscrição ou grupo de recursos.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
 ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659497"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mova um espaço de trabalho log Analytics para diferentes subscrições ou grupo de recursos
@@ -77,7 +77,7 @@ Utilize o seguinte procedimento para desligar a conta Automation a partir do esp
 2. Na secção **Recursos Relacionados** do menu, selecione **Espaço de trabalho Linked**. 
 3. Clique em **Deslink espaço** de trabalho para desligar o espaço de trabalho da sua conta Automation.
 
-    ![Espaço de trabalho desvinculado](media/move-workspace/unlink-workspace.png)
+    ![Unlink workspace (Desassociar a área de trabalho)](media/move-workspace/unlink-workspace.png)
 
 ## <a name="move-your-workspace"></a>Mova o seu espaço de trabalho
 

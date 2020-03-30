@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: e296ae36eeeb816d8704ab03824f8cbb80082ea6
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77163012"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Envie eventos ou receba eventos a partir de centros de eventos utilizando javaScript (versão azure/event-hubs 5)
@@ -24,7 +24,7 @@ Este quickstart mostra como enviar eventos e receber eventos de um hub de evento
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](event-hubs-about.md) antes de fazer este quickstart. 
 
-Para concluir este guia de início rápido, você precisa dos seguintes pré-requisitos:
+Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
 - Node.js versão 8.x ou mais tarde. Descarregue a versão mais recente [de suporte a longo prazo (LTS).](https://nodejs.org)  
@@ -44,7 +44,7 @@ Para instalar o pacote De [node Package Manager (npm) para Centros de Eventos,](
 npm install @azure/event-hubs
 ```
 
-Para o lado de recebimento, você precisa instalar mais dois pacotes. Neste arranque rápido, você usa o armazenamento Azure Blob para persistir pontos de verificação para que o programa não leia os eventos que já leu. Executa postos de controlo de metadados em mensagens recebidas em intervalos regulares numa bolha. Esta abordagem facilita a continuação de receber mensagens mais tarde de onde deixou de lado.
+Para o lado recetor, é necessário instalar mais dois pacotes. Neste arranque rápido, você usa o armazenamento Azure Blob para persistir pontos de verificação para que o programa não leia os eventos que já leu. Executa postos de controlo de metadados em mensagens recebidas em intervalos regulares numa bolha. Esta abordagem facilita a continuação de receber mensagens mais tarde de onde deixou de lado.
 
 Execute os seguintes comandos:
 
@@ -96,15 +96,15 @@ Nesta secção, cria-se uma aplicação JavaScript que envia eventos para um cen
 1. No código, utilize valores reais para substituir o seguinte:
     * `EVENT HUBS NAMESPACE CONNECTION STRING` 
     * `EVENT HUB NAME`
-1. Execute `node send.js` executar este ficheiro. Este comando envia um lote de três eventos para o seu centro de eventos.
-1. No portal Azure, verifique se o centro do evento recebeu as mensagens. Na secção **Métricas,** mude para a vista **Mensagens.** Atualize a página para atualizar o gráfico. Pode levar alguns segundos para mostrar que as mensagens foram recebidas.
+1. Corra `node send.js` para executar este ficheiro. Este comando envia um lote de três eventos para o seu centro de eventos.
+1. No portal Azure, verifique se o centro do evento recebeu as mensagens. Na secção **Métricas,** mude para a vista **Mensagens.** Refresque a página para atualizar o gráfico. Pode levar alguns segundos para mostrar que as mensagens foram recebidas.
 
     [![Verifique se o centro do evento recebeu as mensagens](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
     > Para obter o código fonte completo, incluindo comentários informísticos adicionais, aceda à [página GitHub sendEvents.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/samples/javascript/sendEvents.js).
 
-Parabéns! Agora você enviou eventos para um hub de eventos.
+Parabéns! Agora enviaste eventos para um centro de eventos.
 
 
 ## <a name="receive-events"></a>Receber eventos
@@ -114,12 +114,12 @@ Nesta secção, você recebe eventos de um hub de eventos usando uma loja de con
 Para criar uma conta de armazenamento Azure e um recipiente de bolhas, faça as seguintes ações:
 
 1. [Criar uma conta de armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
-2. [Criar um recipiente de bolha na conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
+2. [Criar um contentor de blobs na conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
 3. [Obtenha a cadeia de ligação à conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
 
 Certifique-se de que regista o nome da cadeia de ligação e do recipiente para posterior utilização no código de receção.
 
-### <a name="write-code-to-receive-events"></a>Escrever código para receber eventos
+### <a name="write-code-to-receive-events"></a>Escreva código para receber eventos
 
 1. Abra o seu editor favorito, como [Visual Studio Code](https://code.visualstudio.com).
 1. Crie um ficheiro chamado *receive.js*e colhe o seguinte código nele:
@@ -178,7 +178,7 @@ Certifique-se de que regista o nome da cadeia de ligação e do recipiente para 
     - `EVENT HUB NAME`
     - `AZURE STORAGE CONNECTION STRING`
     - `BLOB CONTAINER NAME`
-1. Execute `node receive.js` num pedido de comando para executar este ficheiro. A janela deve exibir mensagens sobre eventos recebidos.
+1. Execute `node receive.js` um pedido de comando para executar este ficheiro. A janela deve exibir mensagens sobre eventos recebidos.
 
     > [!NOTE]
     > Para obter o código fonte completo, incluindo comentários informísticos adicionais, aceda à [página DeEventosUseCheckpointStore.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsUsingCheckpointStore.js).
@@ -186,7 +186,7 @@ Certifique-se de que regista o nome da cadeia de ligação e do recipiente para 
 Parabéns! Recebeu eventos do seu centro de eventos. O programa recetor receberá eventos de todas as divisórias do grupo de consumidores padrão no centro do evento.
 
 ## <a name="next-steps"></a>Passos seguintes
-Confira estes exemplos no GitHub:
+Confira estas amostras no GitHub:
 
-- [Amostras javaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
+- [Exemplos de JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
 - [Amostras de TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)

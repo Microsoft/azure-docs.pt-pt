@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: f284d4dfbe550c357f81c01fa0a66aa9878b6c1e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671567"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemas de resolução de problemas que permitem ou visualizam o Perfil de Insights de Aplicação
@@ -20,7 +20,7 @@ ms.locfileid: "77671567"
 * O perfil para ASP.NET aplicações Core 3.x ainda não foi suportado.
   * Se tiver de ter o Profiler ligado, uma suticidade é utilizar o Perfil de Insights de [Aplicação para ASP.NET Core](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore). O perfilr está rotulado para Linux, mas também funciona com aplicações .NET Core 3.0+ no Windows. Para mais detalhes, consulte [versões suportadas](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions).
 
-## <a id="troubleshooting"></a>Resolução geral de problemas
+## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Resolução geral de problemas
 
 ### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Os perfis só são carregados se houver pedidos para a sua aplicação enquanto o Profiler está em execução
 
@@ -49,10 +49,10 @@ O Profiler escreve mensagens de rastreio e eventos personalizados para o seu rec
 * Certifique-se de que a sua aplicação está em execução no .NET Framework 4.6.
 * Se a sua aplicação web for uma aplicação ASP.NET Core, deve estar a funcionar pelo menos ASP.NET Core 2.0.
 * Se os dados que está a tentar visualizar forem mais antigos do que algumas semanas, tente limitar o filtro de tempo e tente novamente. Os vestígios são apagados após sete dias.
-* Certifique-se de que os proxies ou uma firewall não bloquearam o acesso a https://gateway.azureserviceprofiler.net.
+* Certifique-se de que os proxies ou https://gateway.azureserviceprofiler.netuma firewall não bloquearam o acesso a .
 * O Profiler não é suportado em planos de serviço de aplicações gratuitos ou partilhados. Se está a usar um desses planos, tente aumentar para um dos planos básicos e o Profiler deve começar a trabalhar.
 
-### <a id="double-counting"></a>Contagem dupla em fios paralelos
+### <a name="double-counting-in-parallel-threads"></a><a id="double-counting"></a>Contagem dupla em fios paralelos
 
 Em alguns casos, a métrica total do tempo no espectador da pilha é mais do que a duração do pedido.
 
@@ -81,14 +81,14 @@ Para que o Profiler funcione corretamente:
    1. No menu **Ferramentas,** selecione **WebJobs Dashboard**.  
       O painel **WebJobs** abre. 
    
-      ![profiler-webjob]   
+      ![perfilr-webjob]   
    
    1. Para ver os detalhes do webjob, incluindo o registo, selecione o link **ApplicationInsightsProfiler3.**  
      Abre-se o painel **de detalhes contínuos do WebJob.**
 
       ![profiler-webjob-log]
 
-Se não consegue descobrir porque é que o Profiler não está a trabalhar para si, pode descarregar o registo e enviá-lo para a nossa equipa para obter assistência, serviceprofilerhelp@microsoft.com. 
+Se não consegue descobrir porque é que o Profiler não está a trabalhar para si, serviceprofilerhelp@microsoft.compode descarregar o registo e enviá-lo para a nossa equipa para obter assistência. 
     
 ### <a name="manual-installation"></a>Instalação manual
 
@@ -111,11 +111,11 @@ Quando configura o Profiler, as atualizações são feitas para as definições 
 
 Atualmente, pode ativar o Profiler num máximo de quatro aplicações web Azure e slots de implementação que estão a funcionar no mesmo plano de serviço. Se tiver mais de quatro aplicações web a funcionar num plano de serviço de aplicações, o Profiler poderá lançar um *Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException*. O Profiler funciona separadamente para cada aplicação web e tenta iniciar uma sessão de Rastreio de Eventos para Windows (ETW) para cada aplicação. Mas um número limitado de sessões de ETW pode estar ativa ao mesmo tempo. Se o Webjob profiler reportar demasiadas sessões de perfis ativos, mova algumas aplicações web para um plano de serviço diferente.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Erro de implantação: Diretório Não Vazio 'D:\\local de\\\\wwwroot\\App_Data\\empregos'
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Erro de implantação: Diretório\\\\Não\\Vazio\\\\'D: site doméstico wwwroot App_Data empregos'
 
 Se estiver a reimplantar a sua aplicação web para um recurso de Aplicações Web com o Profiler ativado, poderá ver a seguinte mensagem:
 
-*Diretório Não Vazio 'D: site\\\\casa\\wwwroot\\App_Data\\empregos'*
+*Diretório Não Vazio\\'D:\\site\\\\\\wwwroot App_Data empregos'*
 
 Este erro ocorre se executar web Deploy a partir de scripts ou a partir do pipeline de implementação Azure DevOps. A solução consiste em adicionar os seguintes parâmetros de implementação adicionais à tarefa de implantação web:
 
@@ -169,7 +169,7 @@ Para verificar as definições utilizadas para configurar diagnósticos azure:
     Quando o vestígio está a ser carregado, é apresentada a seguinte mensagem: *Comece a carregar o rastreio*. 
 
 
-## <a name="edit-network-proxy-or-firewall-rules"></a>Editar regras de firewall ou um proxy de rede
+## <a name="edit-network-proxy-or-firewall-rules"></a>Editar regras de procuração de rede ou firewall
 
 Se a sua aplicação se ligar à Internet através de um proxy ou de uma firewall, poderá ter de editar as regras para permitir que a sua aplicação se comunique com o serviço de Perfil de Insights de Aplicação. Os IPs utilizados pelo Perfilde Insights de Aplicação estão incluídos na etiqueta de serviço Do Monitor Azure.
 

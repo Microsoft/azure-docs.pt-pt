@@ -4,10 +4,10 @@ description: Saiba como o Azure Backup fornece semântica semelhante a fita que 
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425107"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mova o seu armazenamento a longo prazo da fita para a nuvem Azure
@@ -26,7 +26,7 @@ O horário de reserva indica a frequência da operação de reserva. Por exemplo
 
 ![Horário diário](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
 
-Os clientes também podem agendar uma cópia de segurança semanal. Por exemplo, as definições no ecrã seguinte indicam que as cópias de segurança são tomadas todos os domingos e quartas-feiras alternados às 9:30 am e 1:00 AM.
+Os clientes também podem agendar uma cópia de segurança semanal. Por exemplo, as definições no ecrã seguinte indicam que as cópias de segurança são tomadas todos os domingos alternativos & quarta-feira às 9:30 am e 1:00 AM.
 
 ![Horário semanal](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
@@ -71,4 +71,4 @@ Ao clicar em **Modificar** no ecrã anterior, os clientes têm mais flexibilidad
 Para mais informações sobre o Azure Backup, consulte:
 
 * [Introdução ao Azure Backup](backup-introduction-to-azure-backup.md)
-* [Tente backup Azure](backup-try-azure-backup-in-10-mins.md)
+* [Experimentar o Backup do Azure](backup-try-azure-backup-in-10-mins.md)

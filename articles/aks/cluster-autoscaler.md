@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77596254"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escala automaticamente um cluster para satisfazer as exigências de aplicação no Serviço Azure Kubernetes (AKS)
@@ -19,7 +19,7 @@ Este artigo mostra-lhe como ativar e gerir o autoscaler de cluster num cluster A
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer que esteja a executar a versão Azure CLI 2.0.76 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Este artigo requer que esteja a executar a versão Azure CLI 2.0.76 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="limitations"></a>Limitações
 
@@ -81,7 +81,7 @@ Leva alguns minutos para criar o cluster e configurar as definições de autoesc
 ## <a name="change-the-cluster-autoscaler-settings"></a>Alterar as definições de autoescalador do cluster
 
 > [!IMPORTANT]
-> Se tiver várias piscinas de nós no seu cluster AKS, salte para a [escala automática com várias piscinas](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)de agentes . Os clusters com várias piscinas de agentes requerem a utilização do conjunto de comando `az aks nodepool` para alterar propriedades específicas do nó em vez de `az aks`.
+> Se tiver várias piscinas de nós no seu cluster AKS, salte para a [escala automática com várias piscinas](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)de agentes . Os clusters com várias piscinas de agentes requerem a `az aks nodepool` `az aks`utilização do conjunto de comandos para alterar propriedades específicas da piscina de nós em vez de .
 
 No passo anterior para criar um cluster AKS ou atualizar um conjunto de nóexistente, a contagem mínima de nó de escalar de cluster foi fixada para *1*, e a contagem máxima do nó foi fixada para *3*. Como a sua aplicação exige alterações, poderá ter de ajustar a contagem de nósdea de escala automática do cluster.
 
@@ -212,7 +212,7 @@ A AKS gere o autoscaler do cluster em seu nome e executa-o no plano de controlo 
 
 Para configurar os registos a serem empurrados do autoscaler do cluster para o Log Analytics, siga estes passos.
 
-1. Configurar uma regra para os registos de diagnóstico para empurrar os registos de escalar de cluster para log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), certifique-se de verificar se a caixa tem `cluster-autoscaler` ao selecionar opções para "Registos".
+1. Configurar uma regra para os registos de diagnóstico para empurrar os registos de escalar de cluster para log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs) `cluster-autoscaler` , certifique-se de verificar se a caixa está a selecionar opções para "Registos".
 1. Clique na secção "Registos" no seu cluster através do portal Azure.
 1. Insera a seguinte consulta de exemplo no Log Analytics:
 
@@ -225,7 +225,7 @@ Deve ver registos semelhantes ao seguinte exemplo, desde que existam registos pa
 
 ![Log Analytics logs](media/autoscaler/autoscaler-logs.png)
 
-O autoscaler cluster também irá escrever o estado de saúde para um configmap chamado `cluster-autoscaler-status`. Para recuperar estes troncos, execute o seguinte comando `kubectl`. Será reportado um estado de saúde para cada piscina de nó configurada com o autoescalador do cluster.
+O autoscaler cluster também irá escrever o estado `cluster-autoscaler-status`de saúde para um configmap chamado . Para recuperar estes troncos, `kubectl` execute o seguinte comando. Será reportado um estado de saúde para cada piscina de nó configurada com o autoescalador do cluster.
 
 ```
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
@@ -249,7 +249,7 @@ az aks nodepool update \
   --max-count 5
 ```
 
-O autoscaler do cluster pode ser desativado com a atualização de [nodepool az aks][az-aks-nodepool-update] e passando o parâmetro `--disable-cluster-autoscaler`.
+O autoscaler do cluster pode ser desativado com `--disable-cluster-autoscaler` a atualização de [nodepool az aks][az-aks-nodepool-update] e passando o parâmetro.
 
 ```azurecli-interactive
 az aks nodepool update \

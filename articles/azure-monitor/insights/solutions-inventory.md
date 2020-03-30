@@ -7,14 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
 ms.openlocfilehash: 7b88d957bce45bf518fc77584f1691de8010459a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663135"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Inventário e detalhes de recolha de dados para soluções de monitorização em Azure
-[A monitorização](solutions.md) de soluções de alavancagem de serviços em Azure para fornecer informações adicionais sobre o funcionamento de uma determinada aplicação ou serviço. As soluções de monitorização normalmente recolhem dados de registo e fornecem consultas e pontos de vista para analisar os dados recolhidos. Pode adicionar soluções de monitorização ao Azure Monitor para quaisquer aplicações e serviços que utilize. Eles estão normalmente disponíveis em nenhum dado de custo mas recolher invoca os custos de utilização.
+[A monitorização](solutions.md) de soluções de alavancagem de serviços em Azure para fornecer informações adicionais sobre o funcionamento de uma determinada aplicação ou serviço. As soluções de monitorização normalmente recolhem dados de registo e fornecem consultas e pontos de vista para analisar os dados recolhidos. Pode adicionar soluções de monitorização ao Azure Monitor para quaisquer aplicações e serviços que utilize. Normalmente estão disponíveis sem custos, mas recolhem dados que podem invocar taxas de utilização.
 
 Este artigo inclui uma lista de soluções de [montioring](solutions.md) disponíveis na Microsoft com links para a sua documentação detalhada.  Também fornece informações sobre o seu método e frequência de recolha de dados no Monitor Azure.  Pode utilizar a informação neste artigo para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo de dados e ligação para diferentes soluções de monitorização.
 
@@ -35,7 +35,7 @@ As explicações das colunas são as seguintes:
 
 
 
-| **Solução de monitorização** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Gestor de Operações** | **Armazenamento do Azure** | **Gestor de Operações necessário?** | **Dados do agente de operações enviados através de grupo de gestão** | **Frequência de recolha** |
+| **Solução de monitorização** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento azure** | **Gestor de Operações necessário?** | **Dados do agente de operações enviados através de grupo de gestão** | **Frequência da recolha** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Análise de Registo de Atividades](../platform/activity-log-collect.md) | Azure | | | | | | a quando a notificação |
 | [Avaliação do AD](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
@@ -44,14 +44,14 @@ As explicações das colunas são as seguintes:
 | [Gestão de Alerta](../platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |à chegada |
 | [Gestão de Alerta](../platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minuto |
 | [Gestão de Alerta](../platform/alert-management-solution.md) (Gestor de Operações) |Windows | |&#8226; | |&#8226; |&#8226; |3 minutos |
-| [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/d |
+| [Recuperação do site azure](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/d |
 | [Conector insights de aplicação (Depreciado)](../platform/app-insights-connector.md) | Azure | | | |  |  | a quando a notificação |
 | [Automação Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/d |
 | [Azure Application Gateway Analytics](azure-networking-analytics.md) | Azure |  |  |  |  |  | a quando a notificação |
-| **Solução de monitorização** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Gestor de Operações** | **Armazenamento do Azure** | **Gestor de Operações necessário?** | **Dados do agente de operações enviados através de grupo de gestão** | **Frequência de recolha** |
+| **Solução de monitorização** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento azure** | **Gestor de Operações necessário?** | **Dados do agente de operações enviados através de grupo de gestão** | **Frequência da recolha** |
 | [Azure Network Security Group Analytics (Deprecated)](azure-networking-analytics.md) | Azure |  |  |  |  |  | a quando a notificação |
 | [Análise Azure SQL (Pré-visualização)](azure-sql.md) | Windows | | | | | | 1 minuto |
-| [Cópia de segurança](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | a quando a notificação |
+| [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | a quando a notificação |
 | [Capacidade e Desempenho (Pré-visualização)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |à chegada |
 | [Monitorização de Alterações](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [Monitorização de Alterações](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varia](../../automation/change-tracking.md#change-tracking-data-collection-details) |
@@ -60,9 +60,9 @@ As explicações das colunas são as seguintes:
 | [Avaliação de Software Maligno](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |de hora em hora |
 | [Monitor de Desempenho da Rede](network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Apertos de mão tCP a cada 5 segundos, dados enviados a cada 3 minutos |
 | [Office 365 Analytics (Pré-visualização)](solution-office-365.md) |Windows | | | | | |a quando a notificação |
-| **Solução de monitorização** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Gestor de Operações** | **Armazenamento do Azure** | **Gestor de Operações necessário?** | **Dados do agente de operações enviados através de grupo de gestão** | **Frequência de recolha** |
+| **Solução de monitorização** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento azure** | **Gestor de Operações necessário?** | **Dados do agente de operações enviados através de grupo de gestão** | **Frequência da recolha** |
 | [Análise do Service Fabric](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minutos |
-| [Mapa do Serviço](service-map.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 15 segundos |
+| [Mapa de Serviços](service-map.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 15 segundos |
 | [Avaliação do SQL](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
 | [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |à chegada |
 | [Avaliação do Gestor de Operações do Centro de Sistema (Pré-visualização)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | sete dias |

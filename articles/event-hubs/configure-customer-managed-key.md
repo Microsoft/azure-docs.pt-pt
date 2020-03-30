@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77621995"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
@@ -96,19 +96,19 @@ Siga estes passos para ativar os registos das chaves geridas pelo cliente.
 
     ![Selecione a opção de registo de registos de utilizadores de chaves gerida pelo cliente](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
 
-## <a name="log-schema"></a>Esquema de registo 
-Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que utilizam o formato descrito na tabela seguinte. 
+## <a name="log-schema"></a>Esquema de log 
+Todos os registos são armazenados no formato JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que utilizam o formato descrito na tabela seguinte. 
 
 | Nome | Descrição |
 | ---- | ----------- | 
-| TaskName | Descrição da tarefa que falhou. |
-| ActivityId | Identificação interna que é usada para rastrear. |
+| Nome de tarefa | Descrição da tarefa que falhou. |
+| Atividadeid | Identificação interna que é usada para rastrear. |
 | categoria | Define a classificação da tarefa. Por exemplo, se a chave do seu cofre chave estiver a ser desativada, então seria uma categoria de informação ou se uma chave não pode ser desembrulhada, pode cair por engano. |
 | resourceId | ID de recurso do Gestor de Recursos Azure |
 | keyVault | Nome completo do cofre da chave. |
 | key | O nome chave que é usado para encriptar o espaço de nome do Event Hubs. |
-| version | A versão da chave que está a ser usada. |
-| operation | A operação que foi realizada na chave do seu cofre chave. Por exemplo, desativar/ativar a chave, embrulhar ou desembrulhar |
+| versão | A versão da chave que está a ser usada. |
+| operação | A operação que foi realizada na chave do seu cofre chave. Por exemplo, desativar/ativar a chave, embrulhar ou desembrulhar |
 | code | O código que está associado à operação. Exemplo: Código de erro, 404 significa que a chave não foi encontrada. |
 | message | Qualquer mensagem de erro associada à operação |
 
@@ -228,9 +228,9 @@ Esta secção mostra-lhe como criar um espaço de nome do Azure Event Hubs com i
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<EventHubsClusterName>` - Nome do seu cluster De Hubs de Eventos    
-    > - `<EventHubsNamespaceName>` - Nome do seu espaço de nome Sem Nome do Evento Hubs
-    > - `<Location>` - Localização do seu espaço de nome Sem Nome Do seu Evento Hubs
+    > - `<EventHubsClusterName>`- Nome do seu cluster De Centros de Eventos    
+    > - `<EventHubsNamespaceName>`- Nome do seu espaço de nome Sem Nome do Evento Hubs
+    > - `<Location>`- Localização do seu espaço de nome Sem Nome Do seu Evento Hubs
 
     ```json
     {
@@ -250,7 +250,7 @@ Esta secção mostra-lhe como criar um espaço de nome do Azure Event Hubs com i
     }
     
     ```
-3. Executar o seguinte comando PowerShell para implementar o modelo para criar um espaço de nome de Event Hubs. Em seguida, recupere a identificação do espaço de nome do Event Hubs para usá-lo mais tarde. Substitua `{MyRG}` com o nome do grupo de recursos antes de executar o comando.  
+3. Executar o seguinte comando PowerShell para implementar o modelo para criar um espaço de nome de Event Hubs. Em seguida, recupere a identificação do espaço de nome do Event Hubs para usá-lo mais tarde. Substitua-o `{MyRG}` pelo nome do grupo de recursos antes de executar o comando.  
 
     ```powershell
     $outputs = New-AzResourceGroupDeployment -Name CreateEventHubClusterAndNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateEventHubClusterAndNamespace.json -TemplateParameterFile ./CreateEventHubClusterAndNamespaceParams.json
@@ -365,11 +365,11 @@ Neste passo, irá atualizar o espaço de nome do Event Hubs com informações so
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<EventHubsClusterName>` - Nome do seu cluster De Eventos Hubs.        
-    > - `<EventHubsNamespaceName>` - Nome do seu espaço de nome Sem Nome do Evento Hubs
-    > - `<Location>` - Localização do seu espaço de nome Sem Nome Do seu Evento Hubs
-    > - `<KeyVaultName>` - Nome do seu cofre chave
-    > - `<KeyName>` - Nome da chave no cofre da chave
+    > - `<EventHubsClusterName>`- Nome do seu cluster De Centros de Eventos.        
+    > - `<EventHubsNamespaceName>`- Nome do seu espaço de nome Sem Nome do Evento Hubs
+    > - `<Location>`- Localização do seu espaço de nome Sem Nome Do seu Evento Hubs
+    > - `<KeyVaultName>`- Nome do seu cofre chave
+    > - `<KeyName>`- Nome da chave no cofre da chave
 
     ```json
     {
@@ -394,7 +394,7 @@ Neste passo, irá atualizar o espaço de nome do Event Hubs com informações so
        }
     }
     ```             
-3. Executar o seguinte comando PowerShell para implementar o modelo de Gestor de Recursos. Substitua `{MyRG}` com o nome do seu grupo de recursos antes de executar o comando. 
+3. Executar o seguinte comando PowerShell para implementar o modelo de Gestor de Recursos. Substitua-o `{MyRG}` pelo nome do seu grupo de recursos antes de executar o comando. 
 
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
@@ -422,7 +422,7 @@ Seguem-se os códigos de erros comuns a procurar quando a encriptação BYOK est
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
-- [Descrição geral dos Hubs de Eventos](event-hubs-about.md)
+- [Descrição geral dos Event Hubs](event-hubs-about.md)
 - [Visão geral do cofre da chave](../key-vault/key-vault-overview.md)
 
 

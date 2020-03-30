@@ -1,13 +1,13 @@
 ---
-title: Exportação para SQL a partir de Insights de Aplicação Azure  Microsoft Docs
+title: Exportação para SQL a partir de Insights de Aplicação Azure [ Microsoft Docs
 description: Exporte continuamente dados de Insights de Aplicação para ASQL utilizando o Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663696"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Walkthrough: Export para SQL a partir de Application Insights usando Stream Analytics
@@ -64,7 +64,7 @@ A exportação contínua produz sempre dados para uma conta de Armazenamento Azu
 1. Deixe acumular alguns dados. Senta-te e deixa que as pessoas usem a tua candidatura por uns tempos. A telemetria chegará e verá gráficos estatísticos em [exploradores métricos](../../azure-monitor/app/metrics-explorer.md) e eventos individuais em [pesquisa de diagnóstico.](../../azure-monitor/app/diagnostic-search.md) 
    
     E também, os dados serão exportados para o seu armazenamento. 
-2. Inspecione os dados exportados, quer no portal - escolha **Navegar,** selecione a sua conta de armazenamento, e depois **contentores** - ou no Estúdio Visual. No Estúdio Visual, escolha **View / Cloud Explorer,** e abra O Azure/Armazenamento. (Se não tiver esta opção de menu, precisa de instalar o Azure SDK: Abra o diálogo do Novo Projeto e abra visual C# / nuvem / obtenha o Microsoft Azure SDK para .NET.)
+2. Inspecione os dados exportados, quer no portal - escolha **Navegar,** selecione a sua conta de armazenamento, e depois **contentores** - ou no Estúdio Visual. No Estúdio Visual, escolha **View / Cloud Explorer,** e abra O Azure/Armazenamento. (Se não tiver esta opção de menu, precisa de instalar o Azure SDK: Abra o diálogo do Novo Projeto e abra o Visual C# / Cloud / Obtenha o Microsoft Azure SDK para .NET.)
    
     ![No Estúdio Visual, abra o Navegador server, Azure, Armazenamento](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -161,10 +161,10 @@ O Padrão de Prefixo path especifica como o Stream Analytics encontra os ficheir
 
 Neste exemplo:
 
-* `webapplication27` é o nome do recurso Application Insights, **tudo em caso inferior**. 
-* `1234...` é a chave de instrumentação do recurso Application Insights **com traços removidos.** 
-* `PageViews` é o tipo de dados que queremos analisar. Os tipos disponíveis dependem do filtro definido na Exportação Contínua. Examinar os dados exportados para ver os outros tipos disponíveis e ver o modelo de dados de [exportação.](../../azure-monitor/app/export-data-model.md)
-* `/{date}/{time}` é um padrão escrito literalmente.
+* `webapplication27`é o nome do recurso Application Insights, **tudo em caso inferior**. 
+* `1234...`é a chave de instrumentação do recurso Application Insights **com traços removidos.** 
+* `PageViews`é o tipo de dados que queremos analisar. Os tipos disponíveis dependem do filtro definido na Exportação Contínua. Examinar os dados exportados para ver os outros tipos disponíveis e ver o modelo de dados de [exportação.](../../azure-monitor/app/export-data-model.md)
+* `/{date}/{time}`é um padrão escrito literalmente.
 
 Para obter o nome e iKey do seu recurso Application Insights, abra o Essentials na sua página de visão geral ou abra as Definições.
 

@@ -1,5 +1,5 @@
 ---
-title: Limites de recursos para ficheiros Azure NetApp  Microsoft Docs
+title: Limites de recursos para ficheiros Azure NetApp [ Microsoft Docs
 description: Descreve limites para os recursos do Azure NetApp Files e como solicitar o aumento do limite de recursos.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 3/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 7637d18017f5bdc76c8a271198a88f21a59a6aac
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 36b2d50722a1840e461d6907f440d859c7c82117
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604972"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408832"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -41,10 +41,13 @@ O quadro seguinte descreve os limites de recursos para ficheiros Azure NetApp:
 |  Tamanho máximo de uma piscina de capacidade única    |  500 TiB   |   Não   |
 |  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
 |  Tamanho máximo de um único volume     |    100 Tib    |    Não    |
+|  Tamanho máximo de um único ficheiro     |    16 TiB    |    Não    |    
+|  Tamanho máximo de um único diretório      |    320 MB    |    Não    |    
 |  Número máximo de ficheiros[(maxfiles)](#maxfiles)por volume     |    100 milhões    |    Sim    |    
-|  Tamanho máximo de um único ficheiro     |    16 Tib    |    Não    |    
 
-## Limites de maxfiles<a name="maxfiles"></a> 
+Para mais informações, consulte [as FAQs](azure-netapp-files-faqs.md#capacity-management-faqs)de gestão da capacidade.
+
+## <a name="maxfiles-limits"></a>Limites de maxfiles<a name="maxfiles"></a> 
 
 Os volumes de Ficheiros Azure NetApp têm um limite chamado *maxfiles*. O limite máximo de ficheiros é o número de ficheiros que um volume pode conter. O limite máximo de ficheiros máximos para um volume de Ficheiros Azure NetApp é indexado com base no tamanho (quota) do volume. O limite máximo de ficheiros máximos para um volume aumenta ou diminui à taxa de 20 milhões de ficheiros por TiB do tamanho do volume provisionado. 
 
@@ -60,7 +63,7 @@ O serviço ajusta dinamicamente o limite máximo de ficheiros máximos para um v
 
 Para qualquer tamanho de volume, pode iniciar um pedido de [suporte](#limit_increase) para aumentar o limite de ficheiros máximos para além de 100 milhões.
 
-## Aumento do limite de pedidos<a name="limit_increase"></a> 
+## <a name="request-limit-increase"></a>Aumento do limite de pedidos<a name="limit_increase"></a> 
 
 Pode criar um pedido de apoio Azure para aumentar os limites ajustáveis da tabela acima. 
 
@@ -69,7 +72,7 @@ A partir do portal Azure, avião de navegação:
 1. Clique em **Ajuda + suporte**.
 2. Clique **+ Novo pedido de suporte**.
 3. No separador Basics, forneça as seguintes informações: 
-    1. Tipo de problema: Selecione limites de **serviço e subscrição (quotas)** .
+    1. Tipo de problema: Selecione limites de **serviço e subscrição (quotas)**.
     2. Assinaturas: Selecione a subscrição do recurso de que necessita, a quota aumentada.
     3. Tipo de quota: Selecionar **armazenamento: Limites de ficheiros Azure NetApp**.
     4. Clique **em seguir: Soluções**.
@@ -90,5 +93,5 @@ A partir do portal Azure, avião de navegação:
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Compreender a hierarquia de armazenamento dos Ficheiros Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md)
-- [Modelo de custo para ficheiros Azure NetApp](azure-netapp-files-cost-model.md)
+- [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+- [Modelo de custo para os Azure NetApp Files](azure-netapp-files-cost-model.md)

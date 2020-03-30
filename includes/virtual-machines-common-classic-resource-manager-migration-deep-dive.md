@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tanmaygore
 ms.openlocfilehash: 215057640dd08d9ea524d8f6b3bed8b03a8b5b8c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77068422"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrar recursos IaaS do modelo clássico de implantação para O Gestor de Recursos Azure
@@ -121,7 +121,7 @@ Este é um passo opcional se quiser reverter as suas alterações para o modelo 
 Depois de concluída a validação, pode consolidar a migração. Os recursos já não aparecem no modelo clássico de implementação, e estão disponíveis apenas no modelo de implementação do Gestor de Recursos. Os recursos migrados só podem ser geridos no portal novo.
 
 > [!NOTE]
-> Esta é uma operação idempotent. Se falhar, tente novamente a operação. Se continuar a falhar, crie um bilhete de suporte ou crie um fórum na [Microsoft Q&A](https://docs.microsoft.com/answers/index.html)
+> Esta é uma operação idempotent. Se falhar, tente novamente a operação. Se continuar a falhar, crie um bilhete de suporte ou crie um fórum no [Microsoft Q&A](https://docs.microsoft.com/answers/index.html)
 >
 >
 

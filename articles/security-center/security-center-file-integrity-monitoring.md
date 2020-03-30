@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
 ms.openlocfilehash: 4d65ca8d97e1cca81886259d4f15cc880e45be9c
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604282"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização da integridade do ficheiro no Centro de Segurança Azure
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>File Integrity Monitoring in Azure Security Center (Monitorização da Integridade dos Ficheiros no Centro de Segurança do Azure)
 Saiba como configurar a Monitorização da Integridade do Ficheiro (FIM) no Centro de Segurança Azure utilizando esta passagem.
 
 ## <a name="what-is-fim-in-security-center"></a>O que é fim no Centro de Segurança?
@@ -50,10 +50,10 @@ O Security Center recomenda quais os ficheiros que deve monitorizar como padrão
 ## <a name="using-file-integrity-monitoring"></a>Utilização da monitorização da integridade do ficheiro
 1. Abra o dashboard **Centro de Segurança**.
 2. No painel esquerdo sob **a Advanced Cloud Defense,** selecione **Monitorização da Integridade**do Ficheiro .
-![Centro de Segurança][1]
+![Dashboard Centro de Segurança][1]
 
 **Abre-se a Monitorização da Integridade do Ficheiro.**
-  ![Centro de Segurança][2]
+  ![Dashboard Centro de Segurança][2]
 
 São fornecidas as seguintes informações para cada espaço de trabalho:
 
@@ -65,7 +65,7 @@ São fornecidas as seguintes informações para cada espaço de trabalho:
 Os seguintes botões também podem ser mostrados para um espaço de trabalho:
 
 - ![Ativar o ícone][3] Indica que o FIM não está ativado para o espaço de trabalho. A seleção do espaço de trabalho permite ativar o FIM em todas as máquinas sob o espaço de trabalho.
-- ![ícone do plano de upgrade][4] Indica que o espaço de trabalho ou subscrição não está a funcionar sob o nível Padrão do Security Center. Para utilizar a funcionalidade FIM, a sua subscrição deve estar a executar o Standard.  A seleção do espaço de trabalho permite-lhe atualizar para Standard. Para saber mais sobre o nível Standard e como fazer upgrade, consulte upgrade para o [nível Standard do Security Center para uma maior segurança](security-center-pricing.md).
+- ![Ícone de][4] plano de upgrade Indica que o espaço de trabalho ou subscrição não está a funcionar sob o nível Standard do Security Center. Para utilizar a funcionalidade FIM, a sua subscrição deve estar a executar o Standard.  A seleção do espaço de trabalho permite-lhe atualizar para Standard. Para saber mais sobre o nível Standard e como fazer upgrade, consulte upgrade para o [nível Standard do Security Center para uma maior segurança](security-center-pricing.md).
 - Um espaço em branco (não há botão) significa que o FIM já está ativado no espaço de trabalho.
 
 Sob **monitorização da integridade**do ficheiro, pode selecionar um espaço de trabalho para ativar o FIM para esse espaço de trabalho, ver o painel de monitorização da integridade do ficheiro para esse espaço de trabalho ou [atualizar](security-center-pricing.md) o espaço de trabalho para Standard.
@@ -134,7 +134,7 @@ O separador **Alterações** (mostrado abaixo) lista todas as alterações para 
 
    **Workspace Configuração** abre exibindo três separadores: **Registo do Windows,** **Ficheiros Windows**e **Ficheiros Linux**. Cada separador lista as entidades que pode editar nessa categoria. Para cada entidade listada, o Security Center identifica se o FIM está ativado (verdadeiro) ou não (falso).  Editar a entidade permite-lhe ativar ou desativar o FIM.
 
-   ![Configuração de área de trabalho][12]
+   ![Configuração do espaço de trabalho][12]
 
 2. Selecione uma proteção de identidade. Neste exemplo, selecionamos um item no Windows Registry. **Edição para Change Tracking** abre.
 
@@ -167,7 +167,7 @@ Em **Editar para Rastreio de Alterações** pode:
 
 3. Sob monitorização da integridade do ficheiro, selecione **Definições**.
 
-   ![Selecione definições][17]
+   ![selecionar as definições][17]
 
 4. Sob **configuração do espaço**de trabalho, selecione um grupo onde o **Habilitado** estiver definido como verdadeiro.
 
@@ -185,7 +185,7 @@ Use wildcards para simplificar o rastreio através de diretórios. Aplicam-se as
 -   Os wildcards são necessários para rastrear vários ficheiros.
 -   Os wildcards só podem ser utilizados no último segmento de um caminho, como C:\folder\file ou /etc/*.conf
 -   Se uma variável ambiental incluir um caminho que não é válido, a validação terá sucesso, mas o caminho falhará quando o inventário correr.
--   Ao definir o caminho, evite caminhos gerais como c:\*.* o que resultará em demasiadas pastas a serem atravessadas.
+-   Ao definir o caminho, evite caminhos\*gerais como c: .* o que resultará em demasiadas pastas a serem atravessadas.
 
 ## <a name="disable-fim"></a>Desativar fim
 Pode desativar o FIM. O FIM utiliza a solução Azure Change Tracking para rastrear e identificar mudanças no seu ambiente. Ao desativar o FIM, remova a solução Change Tracking do espaço de trabalho selecionado.

@@ -1,5 +1,5 @@
 ---
-title: Implementar procuração de aplicação ad azure para serviços de domínio azure ad  Microsoft Docs
+title: Implementar procuração de aplicação ad azure para serviços de domínio azure ad [ Microsoft Docs
 description: Saiba como fornecer acesso seguro a aplicações internas para trabalhadores remotos, implementando e configurando o Proxy de Aplicação de Diretório Ativo Azure num domínio gerido pelo Azure Ative Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/6/2019
 ms.author: iainfou
 ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613978"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Implemente procuração de aplicação ad azure para acesso seguro a aplicações internas num domínio gerido pelos Serviços de Domínio Da Azure AD
@@ -58,7 +58,7 @@ Execute os seguintes passos para descarregar o conector De Proxy de Aplicação 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta de utilizador que tenha permissões de *administrador da Enterprise* em Azure AD.
 1. Procure e selecione **Azure Ative Directory** no topo do portal e, em seguida, escolha **aplicações Enterprise**.
 1. Selecione **proxy de aplicação** do menu do lado esquerdo. Para criar o seu primeiro conector e ativar o Proxy da Aplicação, selecione o link para **descarregar um conector**.
-1. Na página de descarregamento, aceite os termos da licença e o acordo de privacidade e, em seguida, **selecione Aceitar termos e download**.
+1. Na página de descarregamento, aceite os termos da licença e o acordo de privacidade e, em seguida, **selecione Aceitar termos & Download**.
 
     ![Descarregue o conector De Proxy da App AD Azure](./media/app-proxy/download-app-proxy-connector.png)
 
@@ -74,11 +74,11 @@ Com um VM pronto a ser utilizado como conector De Procuração de Aplicação AD
         > [!NOTE]
         > A conta de administrador global utilizada para registar o conector deve pertencer ao mesmo diretório onde ativa o serviço Proxy de Aplicação.
         >
-        > Por exemplo, se o domínio AD Azure for *aaddscontoso.com,* o administrador global deve ser `admin@aaddscontoso.com` ou outro pseudónimo válido nesse domínio.
+        > Por exemplo, se o domínio AD Azure for `admin@aaddscontoso.com` *aaddscontoso.com,* o administrador global deve ser ou outro pseudónimo válido nesse domínio.
 
    * Se a configuração de segurança melhorada do Internet Explorer for ligada para o VM onde instala o conector, o ecrã de registo poderá estar bloqueado. Para permitir o acesso, siga as instruções na mensagem de erro ou desligue a Segurança Melhorada do Internet Explorer durante o processo de instalação.
    * Se o registo do conector falhar, consulte [o Proxy da Aplicação Troubleshoot](../active-directory/manage-apps/application-proxy-troubleshoot.md).
-1. No final da configuração, é mostrada uma nota para ambientes com procuração de saída. Para configurar o conector proxy de aplicação AD Azure para trabalhar através do proxy de saída, executar o script fornecido, como `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
+1. No final da configuração, é mostrada uma nota para ambientes com procuração de saída. Para configurar o conector proxy de aplicação AD Azure para `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`trabalhar através do proxy de saída, executar o script fornecido, como .
 1. Na página proxy da Aplicação no portal Azure, o novo conector está listado com um estatuto de *Ative,* como mostra o seguinte exemplo:
 
     ![O novo conector De Procuração de Aplicação AD Azure mostrado como ativo no portal Azure](./media/app-proxy/connected-app-proxy.png)

@@ -7,16 +7,16 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: f66a23c0562ec9f1987bd119a45b7b767f2dfe46
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671635"
 ---
 # <a name="configure-application-insights-profiler"></a>Configure Perfil de Insights de Aplicação
 
 ## <a name="updated-profiler-agent"></a>Agente de perfil atualizado
-O gatilho funciona apenas com a versão 2.6 ou mais recente do agente de perfis. Se estiver a executar um Serviço de Aplicações Azure, o seu agente será atualizado automaticamente. Pode ver que versão do agente está a executar se for ao URL kudu para o seu website e anexar \DiagnosticServices até ao fim, como esta: https://yourwebsite.scm.azurewebsites.net/diagnosticservices. O Webjob do Perfil de Insights de Aplicação deve ver a versão 2.6 ou mais recente. Pode forçar uma atualização reiniciando a sua aplicação web. 
+O gatilho funciona apenas com a versão 2.6 ou mais recente do agente de perfis. Se estiver a executar um Serviço de Aplicações Azure, o seu agente será atualizado automaticamente. Pode ver que versão do agente está a executar se for ao URL kudu para o seu website https://yourwebsite.scm.azurewebsites.net/diagnosticservicese anexar \DiagnosticServices até ao fim, assim: . O Webjob do Perfil de Insights de Aplicação deve ver a versão 2.6 ou mais recente. Pode forçar uma atualização reiniciando a sua aplicação web. 
 
 Se estiver a executar o perfil num VM ou cloud Service, precisa de ter a versão 16.0.4 ou mais recente do Windows Azure Diagnostics (WAD) ou mais recente. Pode verificar a versão do WAD iniciando login no seu VM e olhando para este diretório: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. O nome do diretório é a versão do WAD que está instalada. O agente Azure VM atualizará o WAD automaticamente quando estiverem disponíveis novas versões.
 
@@ -65,10 +65,10 @@ Nome da Aplicação | Nome da aplicação que foi perfilada.
 Instância da Máquina | Nome da máquina que o agente de perfis correu.
 Carimbo de data/hora | Está na altura em que o perfil foi capturado.
 Tracee | Número de vestígios ligados a pedidos individuais.
-CPU % | Percentagem de CPU que estava a ser usada enquanto o perfil estava a funcionar.
+% de CPU | Percentagem de CPU que estava a ser usada enquanto o perfil estava a funcionar.
 Memória % | Percentagem de memória que estava a ser usada enquanto o profiler estava a funcionar.
 
-## <a id="profileondemand"></a>Utilize testes de desempenho web para gerar tráfego na sua aplicação
+## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a>Utilize testes de desempenho web para gerar tráfego na sua aplicação
 
 Pode ativar o Profiler manualmente com um único clique. Suponha que esteja a fazer um teste de desempenho na web. Você precisará de vestígios para ajudá-lo a entender como a sua aplicação web está a funcionar sob carga. Ter controlo sobre quando os vestígios são capturados é crucial, porque sabe quando o teste de carga estará em execução. Mas o intervalo de amostragem aleatório pode perdê-lo.
 
@@ -78,7 +78,7 @@ As próximas secções ilustram como este cenário funciona:
 
 Se a sua aplicação já tiver tráfego de entrada ou se apenas quiser gerar tráfego manualmente, ignore esta secção e continue até ao Passo 2.
 
-1. No portal Insights da Aplicação, **selecione Configure** > Teste de **Desempenho**. 
+1. No portal Insights da Aplicação, selecione **Configure** > **Performance Testing**. 
 
 1. Para iniciar um novo teste de desempenho, selecione o botão **Novo.**
 

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
 ms.openlocfilehash: b03256ee65a3c40d8a64d70b877c49e44e68f822
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595226"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Quickstart: Desenvolver no Serviço Azure Kubernetes (AKS) com Draft
@@ -22,9 +22,9 @@ Este artigo mostra-lhe como usar o Draft para embalar e executar uma aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free).
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
 * A [CLI do Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Docker instalado e configurado. O Docker fornece pacotes que configuram o Docker num sistema [Mac,][docker-for-mac] [Windows][docker-for-windows]ou [Linux.][docker-for-linux]
+* Docker instalado e configurado. O Docker disponibiliza pacotes que o configuram num sistema [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 * [Leme v2 instalado.][helm-install]
 * [Projeto instalado][draft-documentation].
 
@@ -75,7 +75,7 @@ Para que o Draft utilize a instância ACR, tem de iniciar sessão. Use o comando
 az acr login --name MyDraftACR
 ```
 
-O comando devolve a mensagem *Início de sessão com êxito* após a conclusão.
+O comando devolve uma mensagem *login bem sucedida* uma vez concluída.
 
 ## <a name="create-trust-between-aks-cluster-and-acr"></a>Criar confiança entre o cluster AKS e o ACR
 
@@ -94,7 +94,7 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 ## <a name="connect-to-your-aks-cluster"></a>Ligue-se ao seu cluster AKS
 
-Para se ligar ao cluster Kubernetes a partir do seu computador local, utiliza [kubectl,][kubectl]o cliente da linha de comando Kubernetes.
+Para ligar ao cluster de Kubernetes a partir do computador local, utilize [kubectl][kubectl], o cliente de linha de comandos do Kubernetes.
 
 Se utilizar o Azure Cloud Shell, o `kubectl` já está instalado. Também pode instalá-lo a nível local com o comando [az aks install-cli][]:
 
@@ -102,7 +102,7 @@ Se utilizar o Azure Cloud Shell, o `kubectl` já está instalado. Também pode i
 az aks install-cli
 ```
 
-Para configurar `kubectl` para se ligar ao seu cluster Kubernetes, use o comando [az aks get-credentials.][] O exemplo que se segue obtém credenciais para o cluster AKS denominado *MyAKS* no *MyResourceGroup:*
+Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][]. O exemplo que se segue obtém credenciais para o cluster AKS denominado *MyAKS* no *MyResourceGroup:*
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
@@ -112,7 +112,7 @@ az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 
 Antes de poder implantar o Helm num cluster AKS ativado pelo RBAC, precisa de uma conta de serviço e de uma ligação de funções para o serviço Tiller. Para obter mais informações sobre a segurança do Leme / Tiller num cluster ativado por RBAC, consulte [Tiller, Namespaces e RBAC][tiller-rbac]. Se o seu cluster AKS não estiver ativado por RBAC, ignore este passo.
 
-Crie um ficheiro chamado `helm-rbac.yaml` e copie no seguinte YAML:
+Criar um `helm-rbac.yaml` ficheiro nomeado e copiar no seguinte YAML:
 
 ```yaml
 apiVersion: v1
@@ -135,14 +135,14 @@ subjects:
     namespace: kube-system
 ```
 
-Criar a conta de serviço e a vinculação de funções com o comando `kubectl apply`:
+Criar a conta de serviço `kubectl apply` e a vinculação de funções com o comando:
 
 ```console
 kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="configure-helm"></a>Configure Helm
-Para implantar um Tiller básico num aglomerado AKS, use o comando de entrada do [leme.][helm-init] Se o seu cluster não estiver ativado, remova o argumento e o valor `--service-account`.
+Para implantar um Tiller básico num aglomerado AKS, use o comando de entrada do [leme.][helm-init] Se o seu cluster não estiver ativado, remova o argumento e o `--service-account` valor.
 
 ```console
 helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
@@ -150,7 +150,7 @@ helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="lin
 
 ## <a name="configure-draft"></a>Configurar Rascunho
 
-Se ainda não configurar o Projeto na sua máquina local, faça `draft init`:
+Se ainda não configurar o Projeto na `draft init`sua máquina local, faça o seguinte:
 
 ```console
 $ draft init
@@ -161,7 +161,7 @@ Installing default pack repositories...
 Happy Sailing!
 ```
 
-Também precisa de configurar o Draft para utilizar o *loginServer* do seu ACR. O comando seguinte utiliza `draft config set` para usar `mydraftacr.azurecr.io` como registo.
+Também precisa de configurar o Draft para utilizar o *loginServer* do seu ACR. O seguinte `draft config set` comando `mydraftacr.azurecr.io` utiliza-se como registo.
 
 ```console
 draft config set registry mydraftacr.azurecr.io
@@ -171,7 +171,7 @@ Configurou o Draft para usar o seu ACR, e o Draft pode empurrar imagens de conte
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
-Este quickstart utiliza [um exemplo de aplicação Java do repositório Draft GitHub][example-java]. Clone a aplicação do GitHub e navegue para o diretório `draft/examples/example-java/`.
+Este quickstart utiliza [um exemplo de aplicação Java do repositório Draft GitHub][example-java]. Clone a aplicação do GitHub e navegue para o `draft/examples/example-java/` diretório.
 
 ```console
 git clone https://github.com/Azure/draft
@@ -180,7 +180,7 @@ cd draft/examples/example-java/
 
 ## <a name="run-the-sample-application-with-draft"></a>Executar a aplicação da amostra com O Projeto
 
-Utilize o comando `draft create` para preparar a aplicação.
+Utilize `draft create` o comando para preparar a aplicação.
 
 ```console
 draft create
@@ -195,7 +195,7 @@ $ draft create
 --> Ready to sail
 ```
 
-Para executar a aplicação da amostra no seu cluster AKS, use o comando `draft up`.
+Para executar a aplicação da amostra `draft up` no seu cluster AKS, use o comando.
 
 ```console
 draft up
@@ -215,7 +215,7 @@ Inspect the logs with `draft logs 01CMZAR1F4T1TJZ8SWJQ70HCNH`
 
 ## <a name="connect-to-the-running-sample-application-from-your-local-machine"></a>Ligue-se à aplicação da amostra de execução da sua máquina local
 
-Para testar a aplicação, utilize o comando `draft connect`.
+Para testar a aplicação, utilize o `draft connect` comando.
 
 ```console
 draft connect
@@ -234,13 +234,13 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-Navegue para a aplicação num browser usando o URL `localhost` para ver a aplicação da amostra. No exemplo acima, o URL é `http://localhost:49804`. Pare a ligação utilizando `Ctrl+c`.
+Navegue para a aplicação `localhost` num browser usando o URL para ver a aplicação da amostra. No exemplo acima, o `http://localhost:49804`URL é . Pare a `Ctrl+c`ligação utilizando .
 
 ## <a name="access-the-application-on-the-internet"></a>Aceda à aplicação na internet
 
 O passo anterior criou uma ligação proxy ao casulo de aplicação no seu cluster AKS. À medida que desenvolve e testa a sua aplicação, pode querer disponibilizar a aplicação na internet. Para expor uma aplicação na internet, pode criar um serviço Kubernetes com um tipo de [LoadBalancer][kubernetes-service-loadbalancer].
 
-Atualizar `charts/example-java/values.yaml` criar um serviço *LoadBalancer.* Altere o valor do *serviço.type* de *ClusterIP* para *LoadBalancer*.
+Atualização `charts/example-java/values.yaml` para criar um serviço *LoadBalancer.* Altere o valor do *serviço.type* de *ClusterIP* para *LoadBalancer*.
 
 ```yaml
 ...
@@ -252,13 +252,13 @@ service:
 ...
 ```
 
-Guarde as suas alterações, feche o ficheiro e faça `draft up` para reexecutar a aplicação.
+Guarde as suas alterações, `draft up` feche o ficheiro e corra para reexecutar a aplicação.
 
 ```console
 draft up
 ```
 
-Leva alguns minutos para o serviço devolver um endereço IP público. Para monitorizar o progresso, utilize o comando `kubectl get service` com o parâmetro de *relógio:*
+Leva alguns minutos para o serviço devolver um endereço IP público. Para monitorizar o progresso, utilize o `kubectl get service` comando com o parâmetro do *relógio:*
 
 ```console
 $ kubectl get service --watch
@@ -269,11 +269,11 @@ example-java-java   LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 example-java-java   LoadBalancer   10.0.141.72   52.175.224.118  80:32150/TCP   7m
 ```
 
-Navegue para o equilibrador de carga da sua aplicação num browser utilizando o *EXTERNAL-IP* para ver a aplicação da amostra. No exemplo acima, o PI é `52.175.224.118`.
+Navegue para o equilibrador de carga da sua aplicação num browser utilizando o *EXTERNAL-IP* para ver a aplicação da amostra. No exemplo acima, o `52.175.224.118`IP é .
 
 ## <a name="iterate-on-the-application"></a>Iterado na aplicação
 
-Pode iterar a sua aplicação fazendo alterações localmente e reexecutando `draft up`.
+Pode iterar a sua aplicação fazendo alterações localmente e reexecutando. `draft up`
 
 Atualizar a mensagem devolvida na [linha 7 do sRC/main/java/helloworld/Hello.java][example-java-hello-l7]
 
@@ -283,7 +283,7 @@ Atualizar a mensagem devolvida na [linha 7 do sRC/main/java/helloworld/Hello.jav
     }
 ```
 
-Executar o comando `draft up` para reimplantar a aplicação:
+Executar `draft up` o comando para recolocar a aplicação:
 
 ```console
 $ draft up
@@ -306,7 +306,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter medidas sobre como remover o diretor de serviço, consulte as [principais considerações e a eliminação do serviço AKS.][sp-delete]
+> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete].
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -319,7 +319,7 @@ Para obter mais informações sobre a utilização do Projeto, consulte o Projet
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-create]: /cli/azure/acr#az-acr-login
 [az-group-delete]: /cli/azure/group#az-group-delete
-[az aks get-credentials.]: /cli/azure/aks#az-aks-get-credentials
+[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [kubernetes-ingress]: ./ingress-basic.md
 

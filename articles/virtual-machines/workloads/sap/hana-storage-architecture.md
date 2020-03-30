@@ -1,5 +1,5 @@
 ---
-title: Arquitetura de armazenamento da SAP HANA em Azure (Grandes Instâncias)  Microsoft Docs
+title: Arquitetura de armazenamento da SAP HANA em Azure (Grandes Instâncias) [ Microsoft Docs
 description: Arquitetura de armazenamento de como implantar SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616892"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitetura de armazenamento SAP HANA (Grandes Instâncias)
@@ -30,23 +30,23 @@ Consulte a tabela seguinte em termos de atribuição de armazenamento. A tabela 
 
 | HANA Grande Instância SKU | hana/dados | hana/log | hana/compartilhado | hana/logbackups |
 | --- | --- | --- | --- | --- |
-| S72 | 1\.280 GB | 512 GB | 768 GB | 512 GB |
-| S72m | 3\.328 GB | 768 GB |1\.280 GB | 768 GB |
-| S96 | 1\.280 GB | 512 GB | 768 GB | 512 GB |
-| S192 | 4\.608 GB | 1\.024 GB | 1\.536 GB | 1\.024 GB |
-| S192m | 11.520 GB | 1\.536 GB | 1\.792 GB | 1\.536 GB |
-| S192xm |  11.520 GB |  1\.536 GB |  1\.792 GB |  1\.536 GB |
-| S224 |  4\.224 GB |  512 GB |  1\.024 GB |  512 GB |
-| S224m |  8\.448 GB |  512 GB |  1\.024 GB |  512 GB |
-| S384 | 11.520 GB | 1\.536 GB | 1\.792 GB | 1\.536 GB |
-| S384m | 12.000 GB | 2\.050 GB | 2\.050 GB | 2\.040 GB |
-| S384xm | 16.000 GB | 2\.050 GB | 2\.050 GB | 2\.040 GB |
-| S384xxm |  20.000 GB | 3\.100 GB | 2\.050 GB | 3\.100 GB |
-| S576m | 20.000 GB | 3\.100 GB | 2\.050 GB | 3\.100 GB |
-| S576xm | 31.744 GB | 4\.096 GB | 2\.048 GB | 4\.096 GB |
-| S768m | 28.000 GB | 3\.100 GB | 2\.050 GB | 3\.100 GB |
-| S768xm | 40.960 GB | 6\.144 GB | 4\.096 GB | 6\.144 GB |
-| S960m | 36.000 GB | 4\.100 GB | 2\.050 GB | 4\.100 GB |
+| S72 | 1.280 GB | 512 GB | 768 GB | 512 GB |
+| S72m | 3.328 GB | 768 GB |1.280 GB | 768 GB |
+| S96 | 1.280 GB | 512 GB | 768 GB | 512 GB |
+| S192 | 4.608 GB | 1.024 GB | 1.536 GB | 1.024 GB |
+| S192m | 11.520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
+| S192xm |  11.520 GB |  1.536 GB |  1.792 GB |  1.536 GB |
+| S224 |  4.224 GB |  512 GB |  1.024 GB |  512 GB |
+| S224m |  8.448 GB |  512 GB |  1.024 GB |  512 GB |
+| S384 | 11.520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
+| S384m | 12.000 GB | 2.050 GB | 2.050 GB | 2.040 GB |
+| S384xm | 16.000 GB | 2.050 GB | 2.050 GB | 2.040 GB |
+| S384xxm |  20.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
+| S576m | 20.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
+| S576xm | 31.744 GB | 4.096 GB | 2.048 GB | 4.096 GB |
+| S768m | 28.000 GB | 3.100 GB | 2.050 GB | 3.100 GB |
+| S768xm | 40.960 GB | 6.144 GB | 4.096 GB | 6.144 GB |
+| S960m | 36.000 GB | 4.100 GB | 2.050 GB | 4.100 GB |
 
 
 Os volumes implantados reais podem variar em função da implementação e da ferramenta que é usada para mostrar os tamanhos de volume.
@@ -57,9 +57,9 @@ Se subdividir um HANA Large Instance SKU, alguns exemplos de possíveis peças d
 | --- | --- | --- | --- | --- |
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
-| 768 | 1\.280 GB | 512 GB | 768 GB | 512 GB |
-| 1,024 | 1\.792 GB | 640 GB | 1\.024 GB | 640 GB |
-| 1,536 | 3\.328 GB | 768 GB | 1\.280 GB | 768 GB |
+| 768 | 1.280 GB | 512 GB | 768 GB | 512 GB |
+| 1,024 | 1.792 GB | 640 GB | 1.024 GB | 640 GB |
+| 1,536 | 3.328 GB | 768 GB | 1.280 GB | 768 GB |
 
 
 Estes tamanhos são números de volume brutoque podem variar ligeiramente com base na implementação e nas ferramentas usadas para olhar para os volumes. Há também outros tamanhos de divisórias, como 2,5 TB. Estes tamanhos de armazenamento são calculados com uma fórmula semelhante à utilizada para as divisórias anteriores. O termo "divisórias" não significa que o sistema operativo, a memória ou os recursos da CPU estejam de alguma forma divididos. Indica divisórias de armazenamento para as diferentes instâncias HANA que você pode querer implementar numa única unidade HANA Large Instance. 
@@ -101,7 +101,7 @@ O armazenamento utilizado em HANA Grandes Instâncias tem uma limitação de tam
 > [!IMPORTANT]
 > Para evitar que a HANA tente cultivar ficheiros de dados para além do limite de tamanho de ficheiro de 16 TB do armazenamento HANA Large Instance, precisa de definir os seguintes parâmetros no ficheiro de configuração global.ini da HANA
 > 
-> - datavolume_striping=true
+> - datavolume_striping=verdade
 > - datavolume_striping_size_gb = 15000
 > - Consulte também a nota SAP [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
 > - Esteja atento à nota da SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
@@ -109,5 +109,5 @@ O armazenamento utilizado em HANA Grandes Instâncias tem uma limitação de tam
 
 
 
-**Passos seguintes?**
+**Passos seguintes**
 - Consulte [cenários apoiados para grandes instâncias HANA](hana-supported-scenario.md)

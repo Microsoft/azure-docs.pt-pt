@@ -1,7 +1,7 @@
 ---
-title: Multilocação e isolamento de conteúdo
+title: Isolamento multimédia e conteúdo
 titleSuffix: Azure Cognitive Search
-description: Saiba mais sobre os padrões de design comuns para aplicativos SaaS multilocatários ao usar o Azure Pesquisa Cognitiva.
+description: Conheça padrões comuns de design para aplicações SaaS multiarrendatárias enquanto utiliza a Pesquisa Cognitiva Azure.
 manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
@@ -9,123 +9,123 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113271"
 ---
-# <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicativos SaaS multilocatários e Pesquisa Cognitiva do Azure
-Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não podem ver ou compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatários para aplicativos multilocatários criados com o Azure Pesquisa Cognitiva.
+# <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicações SaaS multiarrendatárias e pesquisa cognitiva Azure
+Uma aplicação multiarrendatária é aquela que fornece os mesmos serviços e capacidades a qualquer número de inquilinos que não possam ver ou partilhar os dados de qualquer outro inquilino. Este documento discute estratégias de isolamento de inquilinos para aplicações multiarrendatárias construídas com pesquisa cognitiva Azure.
 
-## <a name="azure-cognitive-search-concepts"></a>Conceitos de Pesquisa Cognitiva do Azure
-Como uma solução de pesquisa como serviço, o Azure Pesquisa Cognitiva permite aos desenvolvedores adicionar experiências de pesquisa avançada a aplicativos sem gerenciar qualquer infraestrutura ou se tornar um especialista em recuperação de informações. Os dados são carregados no serviço e, em seguida, armazenados na nuvem. Usando solicitações simples para a API de Pesquisa Cognitiva do Azure, os dados podem ser modificados e pesquisados. Uma visão geral do serviço pode ser encontrada neste [artigo](https://aka.ms/whatisazsearch). Antes de discutir os padrões de design, é importante entender alguns conceitos no Azure Pesquisa Cognitiva.
+## <a name="azure-cognitive-search-concepts"></a>Conceitos de pesquisa cognitiva azure
+Como uma solução de pesquisa como um serviço, a Azure Cognitive Search permite que os desenvolvedores adicionem experiências de pesquisa ricas a aplicações sem gerir qualquer infraestrutura ou tornar-se um especialista em recuperação de informação. Os dados são enviados para o serviço e depois armazenados na nuvem. Utilizando pedidos simples para a API de Pesquisa Cognitiva Azure, os dados podem então ser modificados e pesquisados. Neste [artigo](https://aka.ms/whatisazsearch)pode ser encontrada uma visão geral do serviço. Antes de discutir padrões de design, é importante entender alguns conceitos na Pesquisa Cognitiva Azure.
 
-### <a name="search-services-indexes-fields-and-documents"></a>Pesquisar serviços, índices, campos e documentos
-Ao usar o Azure Pesquisa Cognitiva, um assina um *serviço de pesquisa*. À medida que os dados são carregados no Azure Pesquisa Cognitiva, eles são armazenados em um *índice* dentro do serviço de pesquisa. Pode haver vários índices em um único serviço. Para usar os conceitos familiares dos bancos de dados, o serviço de pesquisa pode ser comparados a um banco de dados, enquanto os índices dentro de um serviço podem ser comparadosdos para tabelas em um banco de dados.
+### <a name="search-services-indexes-fields-and-documents"></a>Serviços de pesquisa, índices, campos e documentos
+Ao utilizar a Pesquisa Cognitiva Azure, subscreve-se um serviço de *pesquisa*. À medida que os dados são enviados para a Pesquisa Cognitiva Azure, este é armazenado num *índice* dentro do serviço de pesquisa. Pode haver uma série de índices dentro de um único serviço. Para utilizar os conceitos familiares das bases de dados, o serviço de pesquisa pode ser comparado a uma base de dados enquanto os índices dentro de um serviço podem ser comparados a tabelas dentro de uma base de dados.
 
-Cada índice em um serviço de pesquisa tem seu próprio esquema, que é definido por um número de *campos*personalizáveis. Os dados são adicionados a um índice de Pesquisa Cognitiva do Azure na forma de *documentos*individuais. Cada documento deve ser carregado para um índice específico e deve ajustar o esquema desse índice. Ao pesquisar dados usando o Azure Pesquisa Cognitiva, as consultas de pesquisa de texto completo são emitidas em relação a um índice específico.  Para comparar esses conceitos com os de um banco de dados, os campos podem ser comparadosdos para colunas em uma tabela e os documentos podem ser comparadosdos em linhas.
+Cada índice dentro de um serviço de pesquisa tem o seu próprio esquema, que é definido por uma série de *campos*personalizáveis. Os dados são adicionados a um índice de Pesquisa Cognitiva Azure sob a forma de *documentos*individuais . Cada documento deve ser enviado para um determinado índice e deve caber no esquema desse índice. Ao pesquisar dados utilizando a Pesquisa Cognitiva Azure, as consultas de pesquisa de texto completo são emitidas contra um determinado índice.  Para comparar estes conceitos com os de uma base de dados, os campos podem ser comparados a colunas numa tabela e os documentos podem ser comparados a linhas.
 
 ### <a name="scalability"></a>Escalabilidade
-Qualquer serviço de Pesquisa Cognitiva do Azure no [tipo de preço](https://azure.microsoft.com/pricing/details/search/) Standard pode ser dimensionado em duas dimensões: armazenamento e disponibilidade.
+Qualquer serviço de Pesquisa Cognitiva Azure no [nível](https://azure.microsoft.com/pricing/details/search/) de preços Standard pode escalar em duas dimensões: armazenamento e disponibilidade.
 
-* As *partições* podem ser adicionadas para aumentar o armazenamento de um serviço de pesquisa.
-* As *réplicas* podem ser adicionadas a um serviço para aumentar a taxa de transferência de solicitações que um serviço de pesquisa pode manipular.
+* *As divisórias* podem ser adicionadas para aumentar o armazenamento de um serviço de pesquisa.
+* *As réplicas* podem ser adicionadas a um serviço para aumentar a entrada de pedidos que um serviço de pesquisa pode suportar.
 
-Adicionar e remover partições e réplicas em permitirá que a capacidade do serviço de pesquisa cresça com a quantidade de dados e o tráfego exigido pelo aplicativo. Para que um serviço de pesquisa obtenha um [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)de leitura, ele requer duas réplicas. Para que um serviço obtenha um [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)de leitura/gravação, ele requer três réplicas.
+A adição e remoção de divisórias e réplicas permitirão que a capacidade do serviço de pesquisa cresça com a quantidade de dados e tráfego que a aplicação exige. Para que um serviço de pesquisa consiga uma [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)de leitura, requer duas réplicas. Para que um serviço consiga um [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)de leitura, requer três réplicas.
 
-### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limites de serviço e índice no Azure Pesquisa Cognitiva
-Há alguns [tipos de preço](https://azure.microsoft.com/pricing/details/search/) diferentes no pesquisa cognitiva do Azure, cada uma das camadas tem [limites e cotas](search-limits-quotas-capacity.md)diferentes. Alguns desses limites estão no nível de serviço, alguns estão no nível de índice e alguns estão no nível de partição.
+### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limites de serviço e índice na Pesquisa Cognitiva Azure
+Existem [alguns níveis](https://azure.microsoft.com/pricing/details/search/) de preços diferentes na Pesquisa Cognitiva Azure, cada um dos níveis tem [diferentes limites e quotas.](search-limits-quotas-capacity.md) Alguns destes limites estão ao nível do serviço, alguns estão ao nível do índice, e alguns estão ao nível da partição.
 
-|  | Básico | Standard1 | Standard2 | Standard3 | HD Standard3 |
+|  | Básico | Standard1 | Padrão2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| Máximo de réplicas por serviço |3 |12 |12 |12 |12 |
-| Máximo de partições por serviço |1 |12 |12 |12 |3 |
-| Máximo de unidades de pesquisa (réplicas * partições) por serviço |3 |36 |36 |36 |36 (máximo de 3 partições) |
-| Armazenamento máximo por serviço |2GB |300 GB |1.2 TB |2.4 TB |600 GB |
+| Réplicas máximas por serviço |3 |12 |12 |12 |12 |
+| Divisórias máximas por serviço |1 |12 |12 |12 |3 |
+| Unidades de Pesquisa Máximas (Réplicas*Divisórias) por Serviço |3 |36 |36 |36 |36 (alumiver3) |
+| Armazenamento Máximo por Serviço |2GB |300 GB |1.2 TB |2.4 TB |600 GB |
 | Armazenamento máximo por partição |2GB |25 GB |100 GB |200 GB |200 GB |
-| Máximo de índices por serviço |5 |50 |200 |200 |3000 (máximo de 1000 índices/partição) |
+| Índices Máximos por Serviço |5 |50 |200 |200 |3000 (máximo 1000 índices/partição) |
 
-#### <a name="s3-high-density"></a>Alta densidade S3 '
-No tipo de preço S3 do Azure Pesquisa Cognitiva, há uma opção para o modo HD (alta densidade) projetada especificamente para cenários multilocatários. Em muitos casos, é necessário dar suporte a um grande número de locatários menores em um único serviço para obter os benefícios de simplicidade e eficiência de custo.
+#### <a name="s3-high-density"></a>S3 Alta Densidade'
+No nível de preços S3 da Azure Cognitive Search, existe uma opção para o modo de alta densidade (HD) projetado especificamente para cenários multiarrendatários. Em muitos casos, é necessário apoiar um grande número de inquilinos menores ao abrigo de um único serviço para alcançar os benefícios da simplicidade e da eficiência dos custos.
 
-O S3 HD permite que os vários índices pequenos sejam empacotados sob o gerenciamento de um único serviço de pesquisa, negociando a capacidade de escalar horizontalmente os índices usando partições para a capacidade de hospedar mais índices em um único serviço.
+O S3 HD permite que os muitos pequenos índices sejam embalados sob a gestão de um único serviço de pesquisa, negociando a capacidade de escalar índices usando divisórias para a capacidade de hospedar mais índices num único serviço.
 
-Concretamente, um serviço S3 poderia ter entre 1 e 200 índices que juntos poderiam hospedar até 1.400.000.000 documentos. Um HD S3, por outro lado, permitiria que índices individuais passem até 1 milhão documentos, mas ele pode lidar com até 1000 índices por partição (até 3000 por serviço) com uma contagem total de documentos de 200 milhões por partição (até 600 milhões por serviço).
+Concretamente, um serviço S3 poderia ter entre 1 e 200 índices que juntos poderiam acolher até 1,4 mil milhões de documentos. Por outro lado, um S3 HD permitiria que os índices individuais subissem apenas até 1 milhão de documentos, mas pode lidar com até 1000 índices por partição (até 3000 por serviço) com uma contagem total de documentos de 200 milhões por partição (até 600 milhões por serviço).
 
-## <a name="considerations-for-multitenant-applications"></a>Considerações para aplicativos multilocatários
-Os aplicativos multilocatários devem distribuir efetivamente os recursos entre os locatários e, ao mesmo tempo, preservar algum nível de privacidade entre os vários locatários. Há algumas considerações ao criar a arquitetura para um aplicativo como esse:
+## <a name="considerations-for-multitenant-applications"></a>Considerações para aplicações multiarrendatárias
+As aplicações multiarrendatárias devem efetivamente distribuir recursos entre os inquilinos, preservando ao mesmo tempo algum nível de privacidade entre os vários inquilinos. Existem algumas considerações ao conceber a arquitetura para tal aplicação:
 
-* *Isolamento de locatário:* Os desenvolvedores de aplicativos precisam tomar medidas apropriadas para garantir que nenhum locatário tenha acesso não autorizado ou indesejado aos dados de outros locatários. Além da perspectiva da privacidade dos dados, as estratégias de isolamento do locatário exigem o gerenciamento eficaz de recursos compartilhados e a proteção contra vizinhos com ruídos.
-* *Custo de recursos de nuvem:* Assim como acontece com qualquer outro aplicativo, as soluções de software devem permanecer competitivas como um componente de um aplicativo multilocatário.
-* *Facilidade de operações:* Ao desenvolver uma arquitetura multilocatário, o impacto sobre as operações e a complexidade do aplicativo é uma consideração importante. O Azure Pesquisa Cognitiva tem um [SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Superfície global:* Os aplicativos multilocatários podem precisar atender aos locatários que são distribuídos em todo o mundo de forma eficaz.
-* *Escalabilidade:* Os desenvolvedores de aplicativos precisam considerar como eles reconciliam entre manter um nível suficientemente baixo de complexidade do aplicativo e projetar o aplicativo para dimensionar com o número de locatários e o tamanho dos dados e da carga de trabalho dos locatários.
+* *Isolamento do inquilino:* Os desenvolvedores de aplicações devem tomar as medidas adequadas para garantir que nenhum inquilino tenha acesso não autorizado ou indesejado aos dados de outros inquilinos. Para além da perspetiva da privacidade dos dados, as estratégias de isolamento dos inquilinos requerem uma gestão eficaz dos recursos partilhados e proteção dos vizinhos barulhentos.
+* *Custo do recurso em nuvem:* Como em qualquer outra aplicação, as soluções de software devem permanecer competitivas em termos de custos como componente de uma aplicação multiarrendatária.
+* *Facilidade de Operações:* Ao desenvolver uma arquitetura multiarrendatária, o impacto nas operações e complexidade da aplicação é uma consideração importante. A Pesquisa Cognitiva Azure tem um SLA de [99,9%.](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
+* *Pegada global:* As aplicações multiarrendatárias podem precisar de servir efetivamente os inquilinos que são distribuídos por todo o mundo.
+* *Escalabilidade:* Os desenvolvedores de aplicações devem considerar como se reconciliam entre manter um nível de complexidade de aplicação suficientemente baixo e conceber a aplicação à escala com o número de inquilinos e a dimensão dos dados dos inquilinos e da carga de trabalho.
 
-O Azure Pesquisa Cognitiva oferece alguns limites que podem ser usados para isolar dados e carga de trabalho dos locatários.
+A Azure Cognitive Search oferece alguns limites que podem ser usados para isolar os dados dos inquilinos e a carga de trabalho.
 
-## <a name="modeling-multitenancy-with-azure-cognitive-search"></a>Modelando multilocação com o Azure Pesquisa Cognitiva
-No caso de um cenário multilocatário, o desenvolvedor do aplicativo consome um ou mais serviços de pesquisa e divide seus locatários entre serviços, índices ou ambos. O Azure Pesquisa Cognitiva tem alguns padrões comuns ao modelar um cenário multilocatário:
+## <a name="modeling-multitenancy-with-azure-cognitive-search"></a>Modelação multitenancy com pesquisa cognitiva azure
+No caso de um cenário multiarrendatário, o desenvolvedor de aplicações consome um ou mais serviços de pesquisa e divide os seus inquilinos entre serviços, índices ou ambos. A Pesquisa Cognitiva Azure tem alguns padrões comuns ao modelar um cenário multiarrendatário:
 
-1. *Índice por locatário:* Cada locatário tem seu próprio índice em um serviço de pesquisa que é compartilhado com outros locatários.
-2. *Serviço por locatário:* Cada locatário tem seu próprio serviço de Pesquisa Cognitiva do Azure dedicado, oferecendo mais alto nível de dados e separação de carga de trabalho.
-3. *Combinação de ambos:* Locatários maiores e mais ativos são atribuídos a serviços dedicados, enquanto os locatários menores são atribuídos a índices individuais nos serviços compartilhados.
+1. *Índice por inquilino:* Cada inquilino tem o seu próprio índice dentro de um serviço de pesquisa que é partilhado com outros inquilinos.
+2. *Serviço por inquilino:* Cada inquilino tem o seu próprio serviço dedicado de Pesquisa Cognitiva Azure, oferecendo o mais alto nível de data e separação de carga de trabalho.
+3. *Mistura de ambos:* Os inquilinos maiores e mais ativos são atribuídos serviços dedicados, enquanto os inquilinos mais pequenos são atribuídos índices individuais dentro de serviços partilhados.
 
-## <a name="1-index-per-tenant"></a>1. índice por locatário
-![Um retrata do modelo de índice por locatário](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+## <a name="1-index-per-tenant"></a>1. Índice por inquilino
+![Um retrato do modelo index-per-inquilino](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
 
-Em um modelo de índice por locatário, vários locatários ocupam um único serviço de Pesquisa Cognitiva do Azure, em que cada locatário tem seu próprio índice.
+Num modelo index-per-inquilino, vários inquilinos ocupam um único serviço de Pesquisa Cognitiva Azure onde cada inquilino tem o seu próprio índice.
 
-Os locatários obtêm isolamento de dados porque todas as solicitações de pesquisa e operações de documentos são emitidas em um nível de índice no Azure Pesquisa Cognitiva. Na camada de aplicativo, há a necessidade de conscientizar para direcionar o tráfego de vários locatários para os índices apropriados, ao mesmo tempo em que gerencia recursos no nível de serviço em todos os locatários.
+Os inquilinos obtêm isolamento de dados porque todos os pedidos de pesquisa e operações documentais são emitidos a um nível de índice em Pesquisa Cognitiva Azure. Na camada de candidatura, é necessário sensibilizar os vários inquilinos para os índices adequados, gerindo também recursos ao nível do serviço em todos os inquilinos.
 
-Um atributo de chave do modelo de índice por locatário é a capacidade do desenvolvedor do aplicativo de assinar a capacidade de um serviço de pesquisa entre os locatários do aplicativo. Se os locatários tiverem uma distribuição desigual da carga de trabalho, a combinação ideal de locatários poderá ser distribuída pelos índices de um serviço de pesquisa para acomodar vários locatários altamente ativos e com uso intensivo de recursos, enquanto atende simultaneamente a uma cauda longa de menos locatários ativos. A desvantagem é a incapacidade do modelo de lidar com situações em que cada locatário é simultaneamente altamente ativo.
+Um atributo-chave do modelo index-per-inquilino é a capacidade de o desenvolvedor de aplicações sobrepor a capacidade de um serviço de pesquisa entre os inquilinos da aplicação. Se os inquilinos tiverem uma distribuição desigual da carga de trabalho, a combinação ideal de inquilinos pode ser distribuída através dos índices de um serviço de pesquisa para acomodar uma série de inquilinos altamente ativos e intensivos de recursos, ao mesmo tempo que servem uma longa cauda de menos inquilinos ativos. A compensação é a incapacidade do modelo para lidar com situações em que cada inquilino é simultaneamente altamente ativo.
 
-O modelo de índice por locatário fornece a base para um modelo de custo variável, em que um serviço de Pesquisa Cognitiva do Azure inteiro é comprado antecipadamente e, posteriormente, preenchido com locatários. Isso permite que a capacidade não utilizada seja designada para avaliações e contas gratuitas.
+O modelo index-per-tenant fornece a base para um modelo de custo variável, onde todo um serviço de Pesquisa Cognitiva Azure é comprado antecipadamente e, em seguida, preenchido com inquilinos. Isto permite que a capacidade não utilizada seja designada para ensaios e contas gratuitas.
 
-Para aplicativos com uma superfície global, o modelo de índice por locatário pode não ser o mais eficiente. Se os locatários de um aplicativo forem distribuídos em todo o mundo, um serviço separado poderá ser necessário para cada região, o que pode duplicar os custos em cada um deles.
+Para aplicações com pegada global, o modelo index-per-tenant pode não ser o mais eficiente. Se os inquilinos de uma aplicação forem distribuídos por todo o mundo, pode ser necessário um serviço separado para cada região que possa duplicar os custos em cada um deles.
 
-O Azure Pesquisa Cognitiva permite a escala dos índices individuais e o número total de índices a serem aumentados. Se um tipo de preço apropriado for escolhido, as partições e réplicas poderão ser adicionadas a todo o serviço de pesquisa quando um índice individual dentro do serviço ficar muito grande em termos de armazenamento ou tráfego.
+A Pesquisa Cognitiva Azure permite que a escala dos índices individuais e o número total de índices cresçam. Se for escolhido um nível de preços adequado, as divisórias e réplicas podem ser adicionadas a todo o serviço de pesquisa quando um índice individual dentro do serviço cresce demasiado grande em termos de armazenamento ou tráfego.
 
-Se o número total de índices ficar muito grande para um único serviço, outro serviço precisará ser provisionado para acomodar os novos locatários. Se os índices tiverem que ser movidos entre os serviços de pesquisa à medida que novos serviços forem adicionados, os dados do índice precisarão ser copiados manualmente de um índice para outro, pois o Azure Pesquisa Cognitiva não permite que um índice seja movido.
+Se o número total de índices crescer demasiado para um único serviço, outro serviço tem de ser prestado para acomodar os novos inquilinos. Se os índices tiverem de ser movidos entre os serviços de pesquisa à medida que os novos serviços são adicionados, os dados do índice têm de ser copiados manualmente de um índice para o outro, uma vez que a Pesquisa Cognitiva Azure não permite que um índice seja movido.
 
-## <a name="2-service-per-tenant"></a>2. serviço por locatário
-![Um retrata do modelo de serviço por locatário](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+## <a name="2-service-per-tenant"></a>2. Serviço por inquilino
+![Um retrato do modelo de serviço por inquilino](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
 
-Em uma arquitetura de serviço por locatário, cada locatário tem seu próprio serviço de pesquisa.
+Numa arquitetura de serviço por inquilino, cada inquilino tem o seu próprio serviço de pesquisa.
 
-Nesse modelo, o aplicativo obtém o nível máximo de isolamento para seus locatários. Cada serviço tem armazenamento dedicado e taxa de transferência para manipular a solicitação de pesquisa, bem como chaves de API separadas.
+Neste modelo, a aplicação atinge o nível máximo de isolamento para os seus inquilinos. Cada serviço tem armazenamento e entrada dedicados para manusear pedido de pesquisa, bem como chaves API separadas.
 
-Para aplicativos em que cada locatário tem uma grande superfície ou a carga de trabalho tem pouca variabilidade de locatário para locatário, o modelo de serviço por locatário é uma opção eficaz, pois os recursos não são compartilhados entre cargas de trabalho de vários locatários.
+Para aplicações em que cada inquilino tem uma grande pegada ou a carga de trabalho tem pouca variabilidade de inquilino para inquilino, o modelo de serviço por inquilino é uma escolha eficaz, uma vez que os recursos não são partilhados entre as cargas de trabalho de vários inquilinos.
 
-Um modelo de serviço por locatário também oferece o benefício de um modelo de custo fixo e previsível. Não há nenhum investimento antecipado em um serviço de pesquisa inteiro até que haja um locatário para preenchê-lo, no entanto, o custo por locatário é maior do que um modelo de índice por locatário.
+Um modelo de serviço por inquilino também oferece o benefício de um modelo de custo fixo previsível. Não há investimento antecipado em todo um serviço de pesquisa até que haja um inquilino para o preencher, no entanto o custo por inquilino é superior a um modelo index-per-inquilino.
 
-O modelo de serviço por locatário é uma opção eficiente para aplicativos com uma superfície global. Com locatários distribuídos geograficamente, é fácil ter o serviço de cada locatário na região apropriada.
+O modelo de serviço por inquilino é uma escolha eficiente para aplicações com uma pegada global. Com inquilinos geograficamente distribuídos, é fácil ter o serviço de cada inquilino na região apropriada.
 
-Os desafios no dimensionamento desse padrão surgem quando locatários individuais superam seu serviço. No momento, o Azure Pesquisa Cognitiva não dá suporte à atualização do tipo de preço de um serviço de pesquisa, portanto, todos os dados precisariam ser copiados manualmente para um novo serviço.
+Os desafios na escalação deste padrão surgem quando os inquilinos individuais superam o seu serviço. A Azure Cognitive Search não suporta atualmente a atualização do nível de preços de um serviço de pesquisa, pelo que todos os dados teriam de ser copiados manualmente para um novo serviço.
 
-## <a name="3-mixing-both-models"></a>3. misturando os dois modelos
-Outro padrão para modelar a multilocação é misturar as estratégias de índice por locatário e de serviço por locatário.
+## <a name="3-mixing-both-models"></a>3. Misturar ambos os modelos
+Outro padrão para modelar multitenancy é misturar estratégias de index-per-inquilino e de serviço por inquilino.
 
-Ao misturar os dois padrões, os maiores locatários de um aplicativo podem ocupar serviços dedicados, enquanto a longa cauda de locatários menos ativos e menores pode ocupar índices em um serviço compartilhado. Esse modelo garante que os maiores locatários tenham um desempenho consistentemente alto do serviço, ao mesmo tempo em que ajudam a proteger os locatários menores de vizinhos com ruídos.
+Ao misturar os dois padrões, os maiores inquilinos de uma aplicação podem ocupar serviços dedicados, enquanto a longa cauda de inquilinos menos ativos e menores pode ocupar índices num serviço partilhado. Este modelo garante que os maiores inquilinos têm consistentemente um alto desempenho do serviço, ao mesmo tempo que ajudam a proteger os inquilinos mais pequenos de quaisquer vizinhos barulhentos.
 
-No entanto, a implementação dessa estratégia depende antecipação na previsão de quais locatários exigirão um serviço dedicado em vez de um índice em um serviço compartilhado. A complexidade do aplicativo aumenta com a necessidade de gerenciar esses dois modelos de multilocação.
+No entanto, a implementação desta estratégia baseia-se na previsão de quais os inquilinos que exigirão um serviço dedicado contra um índice num serviço partilhado. A complexidade da aplicação aumenta com a necessidade de gerir ambos estes modelos multitenuantes.
 
-## <a name="achieving-even-finer-granularity"></a>Obtendo uma granularidade ainda mais definada
-Os padrões de design acima para modelar cenários de multilocatário no Azure Pesquisa Cognitiva assumem um escopo uniforme em que cada locatário é uma instância inteira de um aplicativo. No entanto, os aplicativos podem, às vezes, lidar com muitos escopos menores.
+## <a name="achieving-even-finer-granularity"></a>Alcançando ainda mais fina granularidade
+Os padrões de design acima para modelar cenários multiarrendatários em Azure Cognitive Search assumem um âmbito uniforme onde cada inquilino é um exemplo de uma aplicação. No entanto, as aplicações podem, por vezes, lidar com muitos âmbitos menores.
 
-Se os modelos de serviço por locatário e índice por locatário não forem escopos suficientemente pequenos, será possível modelar um índice para atingir um grau ainda maior de granularidade.
+Se os modelos de serviço por inquilino e index-per-inquilino não forem suficientemente pequenos, é possível modelar um índice para atingir um grau de granularidade ainda mais fino.
 
-Para que um único índice se comporte de forma diferente para diferentes pontos de extremidade do cliente, um campo pode ser adicionado a um índice que designa um determinado valor para cada cliente possível. Cada vez que um cliente chama o Azure Pesquisa Cognitiva para consultar ou modificar um índice, o código do aplicativo cliente especifica o valor apropriado para esse campo usando a funcionalidade de [filtro](https://msdn.microsoft.com/library/azure/dn798921.aspx) do Azure pesquisa cognitiva no momento da consulta.
+Para ter um único índice a comportar-se de forma diferente para diferentes pontos finais do cliente, um campo pode ser adicionado a um índice que designa um determinado valor para cada possível cliente. Cada vez que um cliente chama Azure Cognitive Search para consultar ou modificar um índice, o código da aplicação do cliente especifica o valor apropriado para esse campo usando a capacidade de [filtro](https://msdn.microsoft.com/library/azure/dn798921.aspx) da Pesquisa Cognitiva Azure no momento da consulta.
 
-Esse método pode ser usado para obter a funcionalidade de contas de usuário separadas, níveis de permissão separados e até mesmo aplicativos completamente separados.
+Este método pode ser utilizado para obter funcionalidades de contas separadas de utilizadores, níveis de permissão separados e até aplicações completamente separadas.
 
 > [!NOTE]
-> Usar a abordagem descrita acima para configurar um único índice para atender a vários locatários afeta a relevância dos resultados da pesquisa. As pontuações de relevância de pesquisa são computadas em um escopo de nível de índice, não em um escopo de nível de locatário, de modo que os dados de todos os locatários sejam incorporados nas estatísticas subjacentes das pontuações de relevância, como a frequência de termos.
+> A utilização da abordagem acima descrita para configurar um único índice para servir vários inquilinos afeta a relevância dos resultados da pesquisa. As pontuações de relevância da pesquisa são calculadas num âmbito de nível de índice, não num âmbito de nível de inquilino, pelo que todos os dados dos inquilinos são incorporados nas estatísticas subjacentes das notas de relevância, tais como frequência de prazo.
 > 
 > 
 
 ## <a name="next-steps"></a>Passos seguintes
-O Azure Pesquisa Cognitiva é uma opção atraente para muitos aplicativos. Ao avaliar os vários padrões de design para aplicativos multilocatários, considere os [vários tipos de preço](https://azure.microsoft.com/pricing/details/search/) e os respectivos [limites de serviço](search-limits-quotas-capacity.md) para melhor adaptar os pesquisa cognitiva do Azure para ajustar as cargas de trabalho e arquiteturas de todos os tamanhos do aplicativo.
+A Pesquisa Cognitiva Azure é uma escolha convincente para muitas aplicações. Ao avaliar os vários padrões de design para aplicações multiarrendatárias, considere os [vários níveis](https://azure.microsoft.com/pricing/details/search/) de preços e os [respetivos limites](search-limits-quotas-capacity.md) de serviço para o melhor alfaiate Azure Cognitive Search para encaixar as cargas de trabalho e arquiteturas de aplicações de todos os tamanhos.
 
-Todas as perguntas sobre os cenários do Azure Pesquisa Cognitiva e multilocatário podem ser direcionadas para azuresearch_contact@microsoft.com.
+Quaisquer questões sobre a Pesquisa Cognitiva Azure azuresearch_contact@microsoft.come cenários multiarrendatários podem ser direcionadas para .
 

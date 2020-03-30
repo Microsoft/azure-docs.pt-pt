@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
 ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77581842"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use cadernos Jupyter para caçar ameaças à segurança
@@ -54,18 +54,18 @@ O [repositório Azure Sentinel Community GitHub](https://github.com/Azure/Azure-
 Para utilizar os cadernos, deve ter uma conta De Cadernos Azure. Para mais informações, consulte [Quickstart: Inicie o seu acesso e detete teime um id](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) do utilizador a partir da documentação dos Cadernos Azure. Para criar esta conta, pode utilizar a opção **'Sign up' para cadernos Azure** a partir da barra de comando **sintetizadora em Azure Sentinel - Notebooks:**
 
 > [!div class="mx-imgBorder"]
->![Inscreva-se na opção Deporporna Azure](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
+>![Inscreva-se na opção Cadernos Azure](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
 
 Você pode executar um caderno diretamente de Azure Sentinel, ou clonar todos os cadernos Azure Sentinel para um novo projeto Denotebooks Azure.
 
 ## <a name="run-a-notebook-from-azure-sentinel"></a>Executar um caderno de Azure Sentinel
  
-1. Do portal Azure, navegue até > **à** **gestão** de > de  Desemposição de  **Cadernos,** onde pode ver cadernos que o Azure Sentinel fornece. 
+1. Do portal Azure, navegue até**aos Cadernos**de**Gestão** > de Ameaças Do >  **Sentinela,** onde pode ver cadernos que o Azure Sentinel fornece. 
 
 2. Selecione cadernos individuais para ler as suas descrições, tipos de dados necessários e fontes de dados. Por exemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![lançamento de](./media/notebooks/sentinel-azure-notebooks-launch.png) de caderno
+    > ![caderno de lançamento](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
 3. Selecione o caderno que pretende utilizar e, em seguida, selecione **Launch Notebook (Preview)** para clonar e configurar o caderno num novo projeto de Cadernos Azure que se conecta ao seu espaço de trabalho Azure Sentinel. Quando o processo estiver concluído, o caderno abre dentro dos Cadernos Azure para que possa executar.
 
@@ -73,10 +73,10 @@ Você pode executar um caderno diretamente de Azure Sentinel, ou clonar todos os
 
 Este procedimento cria um projeto de Cadernos Azure para si, que contém os cadernos Azure Sentinel. Em seguida, pode executar os cadernos como está, ou fazer alterações neles e, em seguida, executá-los.
 
-1. A partir do portal Azure, navegue até à **gestão** de > ameaça **do Azure Sentinel** > **Cadernos** e, em seguida, selecione **Cadernos Clone** da barra de comando:
+1. A partir do portal Azure, navegue até**aos Cadernos** de**Gestão** > de Ameaças De **Sentinela** > e, em seguida, selecione **Cadernos Clone** da barra de comando:
   
     > [!div class="mx-imgBorder"]
-    >![opção Cadernos Clone](./media/notebooks/sentinel-azure-clone-notebooks.png)
+    >![Opção Cadernos Clone](./media/notebooks/sentinel-azure-clone-notebooks.png)
 
 2. Quando aparecer o seguinte diálogo, selecione **Import** para clonar o repo GitHub no seu projeto Deporporporna Azure. Se não tiver uma conta de Cadernos Azure existente, será solicitado a criar um e iniciar sessão.
 
@@ -93,7 +93,7 @@ Este procedimento cria um projeto de Cadernos Azure para si, que contém os cade
 Em seguida, pode executar os cadernos dos Cadernos Azure. Para voltar a estes cadernos do Azure Sentinel, selecione **Ir aos seus Cadernos** a partir do bar de comandos em **Azure Sentinel - Notebooks:**
 
 > [!div class="mx-imgBorder"]
->![vá à sua opção de Cadernos](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+>![Vá à sua opção Cadernos](./media/notebooks/sentinel-azure-to-go-notebooks.png)
 
 
 ## <a name="using-notebooks-to-hunt"></a>Usando cadernos para caçar
@@ -103,7 +103,7 @@ Cada caderno acompanha-o através dos degraus para realizar uma caça ou investi
 1. Se ainda não estiver nos Cadernos Azure, pode utilizar a opção Ir para a sua opção **Deporporado** a partir do bar de comandos em **Azure Sentinel - Notebooks**:
     
     > [!div class="mx-imgBorder"]
-    >![vá à sua opção de Cadernos](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+    >![Vá à sua opção Cadernos](./media/notebooks/sentinel-azure-to-go-notebooks.png)
     
     Nos Cadernos Azure, selecione **My Projects**, depois o projeto que contém os cadernos Azure Sentinel e, finalmente, a pasta **Cadernos.**
     
@@ -115,7 +115,7 @@ Cada caderno acompanha-o através dos degraus para realizar uma caça ou investi
 
 3. Selecione um caderno para o abrir.
     
-    A primeira vez que abrir um caderno, pode ser solicitado a selecionar uma versão kernel. Se não for solicitado, pode selecionar a versão kernel de **Kernel** >  **Alterar kernel**, e, em seguida, selecionar uma versão que seja pelo menos 3.6. A versão kernel selecionada é exibida na parte superior direita da janela do caderno:
+    A primeira vez que abrir um caderno, pode ser solicitado a selecionar uma versão kernel. Se não for solicitado, pode selecionar a versão kernel do **kernel** >  **Change kernel**e, em seguida, selecionar uma versão que seja pelo menos 3.6. A versão kernel selecionada é exibida na parte superior direita da janela do caderno:
     
    ![caderno selecionado](./media/notebooks/sentinel-select-kernel.png)
 

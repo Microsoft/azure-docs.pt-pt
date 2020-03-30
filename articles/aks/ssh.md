@@ -1,17 +1,17 @@
 ---
-title: SSH em Nódos de Cluster Azure Kubernetes Service (AKS)
+title: SSH em nós de cluster do Azure Kubernetes Service (AKS)
 description: Aprenda a criar uma ligação SSH com os nós de cluster azure Kubernetes Service (AKS) para tarefas de resolução de problemas e manutenção.
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: dfdcda40a24142f85bbeb360aacf0971d72d181f
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593636"
 ---
-# <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ligue-se com os nós de cluster SSH a Azure Kubernetes Service (AKS) para manutenção ou resolução de problemas
+# <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ligar com SSH aos nós de cluster do Azure Kubernetes Service (AKS) para manutenção ou resolução de problemas
 
 Ao longo do ciclo de vida do seu cluster Azure Kubernetes Service (AKS), poderá ter de aceder a um nó AKS. Este acesso pode ser para manutenção, recolha de registos ou outras operações de resolução de problemas. Pode aceder aos nós AKS utilizando sSH, incluindo os nós do Windows Server (atualmente em pré-visualização no AKS). Também pode [ligar-se aos nós do Windows Server utilizando ligações remotas][aks-windows-rdp]de protocolo de ambiente de trabalho (RDP). Para fins de segurança, os nós aks não estão expostos à internet. Para sSH para os nós AKS, você usa o endereço IP privado.
 
@@ -25,7 +25,7 @@ Por padrão, as teclas SSH são obtidas, ou geradas, e depois adicionadas aos n�
 
 Este artigo também assume que você tem uma chave SSH. Pode criar uma tecla SSH utilizando [macOS ou Linux][ssh-nix] ou [Windows][ssh-windows]. Se utilizar o PuTTY Gen para criar o par de chaves, guarde o par chave num formato OpenSSH em vez do formato de chave privada padrão PuTTy (ficheiro.ppk).
 
-Também precisa da versão 2.0.64 do Azure CLI ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Também precisa da versão 2.0.64 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ## <a name="configure-virtual-machine-scale-set-based-aks-clusters-for-ssh-access"></a>Configure clusters AKS baseados em escala de máquina virtual para acesso ssh
 
@@ -138,7 +138,7 @@ aks-nodepool1-79590246-0  10.240.0.4
 
 Para criar uma ligação SSH a um nó AKS, você executa uma cápsula de ajuda no seu cluster AKS. Este casulo de ajuda fornece-lhe acesso SSH ao cluster e, em seguida, acesso adicional ao nó SSH. Para criar e utilizar esta cápsula de ajuda, complete os seguintes passos:
 
-1. Execute uma imagem de recipiente `debian` e prenda-lhe uma sessão terminal. Este recipiente pode ser utilizado para criar uma sessão sSH com qualquer nó no cluster AKS:
+1. Execute `debian` uma imagem de recipiente e prenda-lhe uma sessão terminal. Este recipiente pode ser utilizado para criar uma sessão sSH com qualquer nó no cluster AKS:
 
     ```console
     kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
@@ -149,7 +149,7 @@ Para criar uma ligação SSH a um nó AKS, você executa uma cápsula de ajuda n
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
-1. Uma vez que a sessão terminal esteja ligada ao recipiente, instale um cliente SSH utilizando `apt-get`:
+1. Uma vez que a sessão terminal esteja ligada `apt-get`ao recipiente, instale um cliente SSH utilizando:
 
     ```console
     apt-get update && apt-get install openssh-client -y
@@ -163,7 +163,7 @@ Para criar uma ligação SSH a um nó AKS, você executa uma cápsula de ajuda n
     kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
     ```
 
-1. Volte à sessão terminal para o seu recipiente, atualize as permissões na chave SSH privada copiada `id_rsa` para que seja apenas leitura do utilizador:
+1. Volte à sessão terminal para o seu recipiente, `id_rsa` atualize as permissões na chave SSH privada copiada para que seja apenas leitura do utilizador:
 
     ```console
     chmod 0600 id_rsa
@@ -194,7 +194,7 @@ Para criar uma ligação SSH a um nó AKS, você executa uma cápsula de ajuda n
 
 ## <a name="remove-ssh-access"></a>Remover o acesso sSH
 
-Quando terminar, `exit` a sessão sSH e, em seguida, `exit` a sessão de contentores interativos. Quando esta sessão de contentores fechar, a cápsula utilizada para o acesso sSH do cluster AKS é eliminada.
+Quando feito, `exit` a sessão `exit` sHH e, em seguida, a sessão de contentores interativos. Quando esta sessão de contentores fechar, a cápsula utilizada para o acesso sSH do cluster AKS é eliminada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.openlocfilehash: 4bb19d7da971a82aef9c0e1fc092cc648ac49c4c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595999"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicações no Serviço Azure Kubernetes (AKS)
@@ -53,14 +53,14 @@ Um Volume Persistente pode ser *criado estáticamente* por um administrador de c
 
 ## <a name="storage-classes"></a>Aulas de armazenamento
 
-Para definir diferentes níveis de armazenamento, como Premium e Standard, pode criar uma *Classe de Armazenamento.* A Classe de Armazenamento também define a política de *recuperação.* Este reclaimPolicy controla o comportamento do recurso de armazenamento do Azure subjacentes, quando o pod é eliminado e o volume persistente já não poderá ser necessário. O recurso de armazenamento subjacente pode ser eliminado ou retido para utilização com um pod futura.
+Para definir diferentes níveis de armazenamento, como Premium e Standard, pode criar uma *Classe de Armazenamento.* A Classe de Armazenamento também define a política de *recuperação.* Esta recuperaçãoPolicy controla o comportamento do recurso de armazenamento Azure subjacente quando a cápsula é eliminada e o volume persistente pode deixar de ser necessário. O recurso de armazenamento subjacente pode ser eliminado ou retido para utilização com uma futura cápsula.
 
 No AKS, são criadas duas Classes de Armazenamento iniciais:
 
 - *predefinição* - Utiliza o armazenamento Azure Standard para criar um Disco Gerido. A política de recuperação indica que o Disco Azure subjacente é eliminado quando o volume persistente que o utilizou é eliminado.
 - *managed-premium* - Utiliza o armazenamento Azure Premium para criar o Disco Gerido. A política de recuperação indica mais uma vez que o disco Azure subjacente é eliminado quando o volume persistente que o utilizou é eliminado.
 
-Se não for especificada a StorageClass para um volume persistente, é utilizada a Classe de Armazenamento predefinida. Tenha cuidado ao solicitar volumes persistentes para que utilizem o armazenamento apropriado de que necessita. Pode criar uma StorageClass para necessidades adicionais utilizando `kubectl`. O exemplo seguinte utiliza discos geridos premium e especifica que o Disco Azure subjacente deve ser *mantido* quando o casulo é eliminado:
+Se não for especificada a StorageClass para um volume persistente, é utilizada a Classe de Armazenamento predefinida. Tenha cuidado ao solicitar volumes persistentes para que utilizem o armazenamento apropriado de que necessita. Pode criar uma StorageClass para `kubectl`necessidades adicionais de utilização . O exemplo seguinte utiliza discos geridos premium e especifica que o Disco Azure subjacente deve ser *mantido* quando o casulo é eliminado:
 
 ```yaml
 kind: StorageClass
@@ -74,11 +74,11 @@ parameters:
   kind: Managed
 ```
 
-## <a name="persistent-volume-claims"></a>Reclamações persistentes de volume
+## <a name="persistent-volume-claims"></a>Afirmações de volumes persistentes
 
 Um PersistenteVolumeClaim solicita o armazenamento de discos ou ficheiros de uma determinada Classe de Armazenamento, modo de acesso e tamanho. O servidor Kubernetes API pode fornecer dinamicamente o recurso de armazenamento subjacente em Azure se não houver recurso existente para cumprir a reclamação com base na Classe de Armazenamento definida. A definição da cápsula inclui o volume de montagem uma vez que o volume tenha sido ligado à cápsula.
 
-![Afirmações de volume persistente num cluster de serviços de Kubernetes do Azure (AKS)](media/concepts-storage/persistent-volume-claims.png)
+![Reclamações de volume persistentes num cluster azure Kubernetes Services (AKS)](media/concepts-storage/persistent-volume-claims.png)
 
 Um Volume Persistente está *ligado* a um PersistenteVolumeClaim uma vez que um recurso de armazenamento disponível foi atribuído ao pod que o solicita. Há um mapeamento 1:1 de volumes persistentes para reclamações.
 

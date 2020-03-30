@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98ea416305f080850d85498f74693eb2d45b0944
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162349"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Habilidade cognitiva de fusão de texto
@@ -27,12 +27,12 @@ Microsoft.Skills.Text.MergeSkill
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
-Os parâmetros são sensíveis aos casos.
+Os parâmetros são sensíveis às maiúsculas e minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| inserirPreTag  | Corda a ser incluída antes de cada inserção. O valor predefinido é `" "`. Para omitir o espaço, detete o valor para `""`.  |
-| insertPostTag | Corda a ser incluída após cada inserção. O valor predefinido é `" "`. Para omitir o espaço, detete o valor para `""`.  |
+| inserirPreTag  | Corda a ser incluída antes de cada inserção. O valor predefinido é `" "`. Para omitir o espaço, `""`detete o valor para .  |
+| inserirPostTag | Corda a ser incluída após cada inserção. O valor predefinido é `" "`. Para omitir o espaço, `""`detete o valor para .  |
 
 
 ##  <a name="sample-input"></a>Entrada da amostra
@@ -55,7 +55,7 @@ Um documento da JSON que forneça uma entrada utilizável para esta habilidade p
 ```
 
 ##  <a name="sample-output"></a>Resultado da amostra
-Este exemplo mostra a saída da entrada anterior, assumindo que o *preserção* de entrada está definido para `" "`, e *a inserção PostTag* está definida para `""`. 
+Este exemplo mostra a saída da entrada anterior, assumindo `" "`que a *inserçãoPreTag* está definida para , e inserir *PostTag* está definida para `""`. 
 
 ```json
 {
@@ -140,8 +140,8 @@ O exemplo acima pressupõe que existe um campo de imagens normalizadas. Para obt
 }
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
-+ [Criar Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

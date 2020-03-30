@@ -7,21 +7,21 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: mjbrown
 ms.openlocfilehash: 00740bc2255962089789682e3227ce414fd0ce64
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77582505"
 ---
-# <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como registar e utilizar procedimentos, gatilhos e funções definidas pelo utilizador no Azure Cosmos DB
+# <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como registar e utilizar procedimentos armazenados, acionadores e funções definidas pelo utilizador no Azure Cosmos DB
 
 A API de SQL no Azure Cosmos DB suporta o registo e a invocação de procedimentos armazenados, acionadores e funções definidas pelo utilizador (UDFs) escritos em linguagem JavaScript. Pode utilizar os SQL API [.NET](sql-api-sdk-dotnet.md), [.NET Core,](sql-api-sdk-dotnet-core.md) [Java,](sql-api-sdk-java.md) [JavaScript,](sql-api-sdk-node.md) [Node.js](sql-api-sdk-node.md)ou [Python](sql-api-sdk-python.md) SDKs para registar e invocar os procedimentos armazenados. Depois de ter definido um ou mais procedimentos armazenados, gatilhos e funções definidas pelo utilizador, pode carregá-los e vê-los no [portal Azure](https://portal.azure.com/) utilizando o Data Explorer.
 
-## <a id="stored-procedures"></a>Como executar procedimentos armazenados
+## <a name="how-to-run-stored-procedures"></a><a id="stored-procedures"></a>Como executar procedimentos armazenados
 
 Os procedimentos armazenados são escritos usando javaScript. Podem criar, atualizar, ler, consultar e apagar itens dentro de um contentor Azure Cosmos. Para obter mais informações sobre como escrever procedimentos armazenados em Azure Cosmos DB, consulte [Como escrever procedimentos armazenados no artigo da Azure Cosmos DB.](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures)
 
-Os seguintes exemplos mostram como registar e chamar um procedimento armazenado utilizando os SDKs DB Azure Cosmos. Consulte a [Create a Document,](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) uma vez que a fonte deste procedimento armazenado é guardada de acordo com `spCreateToDoItem.js`.
+Os seguintes exemplos mostram como registar e chamar um procedimento armazenado utilizando os SDKs DB Azure Cosmos. Consulte a [Create a Document](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) como a fonte `spCreateToDoItem.js`para este procedimento armazenado é guardada como .
 
 > [!NOTE]
 > Para os recipientes divididos, ao executar um procedimento armazenado, deve ser fornecido um valor-chave de partição nas opções de pedido. Os procedimentos armazenados são sempre remetos a uma chave de partição. Os itens que tenham um valor-chave de divisória diferente não serão visíveis ao procedimento armazenado. Isto também se aplica aos gatilhos.
@@ -195,11 +195,11 @@ new_item = [{
 client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 ```
 
-## <a id="pre-triggers"></a>Como executar pré-gatilhos
+## <a name="how-to-run-pre-triggers"></a><a id="pre-triggers"></a>Como executar pré-gatilhos
 
-Os exemplos seguintes mostram como registar e chamar um pré-gatilho utilizando os SDKs DB Azure Cosmos. Consulte o [exemplo do pré-gatilho,](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) uma vez que a fonte para este pré-gatilho é guardada como `trgPreValidateToDoItemTimestamp.js`.
+Os exemplos seguintes mostram como registar e chamar um pré-gatilho utilizando os SDKs DB Azure Cosmos. Consulte o [exemplo pré-gatilho](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) como a fonte para `trgPreValidateToDoItemTimestamp.js`este pré-gatilho é guardada como .
 
-Ao executar, os pré-gatilhos são passados no objeto RequestOptions especificando `PreTriggerInclude` e, em seguida, passando o nome do gatilho num objeto de Lista.
+Ao executar, os pré-gatilhos são passados no `PreTriggerInclude` objeto RequestOptions especificando e, em seguida, passando o nome do gatilho num objeto de Lista.
 
 > [!NOTE]
 > Mesmo que o nome do gatilho seja passado como Lista, ainda pode executar apenas um gatilho por operação.
@@ -353,9 +353,9 @@ client.CreateItem(container_link, item, {
                   'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
 ```
 
-## <a id="post-triggers"></a>Como executar pós-gatilhos
+## <a name="how-to-run-post-triggers"></a><a id="post-triggers"></a>Como executar pós-gatilhos
 
-Os exemplos seguintes mostram como registar um pós-gatilho utilizando os SDKs DB Azure Cosmos. Consulte o [exemplo pós-gatilho,](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) uma vez que a fonte para este pós-gatilho é guardada como `trgPostUpdateMetadata.js`.
+Os exemplos seguintes mostram como registar um pós-gatilho utilizando os SDKs DB Azure Cosmos. Consulte o [exemplo pós-gatilho](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) como a fonte para `trgPostUpdateMetadata.js`este pós-gatilho é guardada como .
 
 ### <a name="post-triggers---net-sdk-v2"></a>Pós-gatilhos - .NET SDK V2
 
@@ -500,9 +500,9 @@ client.CreateItem(container_link, item, {
                   'postTriggerInclude': 'trgPostUpdateMetadata'})
 ```
 
-## <a id="udfs"></a>Como trabalhar com funções definidas pelo utilizador
+## <a name="how-to-work-with-user-defined-functions"></a><a id="udfs"></a>Como trabalhar com funções definidas pelo utilizador
 
-Os exemplos seguintes mostram como registar uma função definida pelo utilizador utilizando os SDKs DB Azure Cosmos. Consulte este [exemplo de função definido pelo Utilizador](how-to-write-stored-procedures-triggers-udfs.md#udfs) como a fonte para este pós-gatilho é guardada como `udfTax.js`.
+Os exemplos seguintes mostram como registar uma função definida pelo utilizador utilizando os SDKs DB Azure Cosmos. Consulte este [exemplo de função definido pelo Utilizador](how-to-write-stored-procedures-triggers-udfs.md#udfs) como `udfTax.js`a fonte para este pós-gatilho é guardada como .
 
 ### <a name="user-defined-functions---net-sdk-v2"></a>Funções definidas pelo utilizador - .NET SDK V2
 

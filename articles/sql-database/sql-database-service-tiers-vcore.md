@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: e53fb46b7c13e1feb0cc24663fb0782b4de06f2b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255824"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481087"
 ---
 # <a name="vcore-model-overview"></a>Descrição geral do modelo vCore
 
@@ -29,10 +29,10 @@ O modelo de núcleo virtual (vCore) proporciona vários benefícios:
 
 As opções de nível de serviço no modelo vCore incluem Propósito Geral, Business Critical e Hyperscale. O nível de serviço define geralmente os limites de arquitetura de armazenamento, espaço e IO, e opções de continuidade do negócio relacionadas com disponibilidade e recuperação de desastres.
 
-||**Fins gerais**|**Crítico de negócios**|**Hiperescala**|
+||**Fins gerais**|**Crítico de negócios**|**Hyperscale**|
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho de negócios. Oferece opções de cálculo e armazenamento orientados para o orçamento, equilibrados e escaláveis. |Oferece às aplicações empresariais a maior resiliência a falhas utilizando várias réplicas isoladas, e fornece o desempenho de I/S mais elevado por réplica de base de dados.|A maioria das cargas de trabalho empresariais com armazenamento altamente escalável e requisitos à escala de leitura.  Oferece maior resiliência às falhas, permitindo a configuração de mais de uma réplica de base de dados isolada. |
-|Armazenamento|Usa armazenamento remoto.<br/>**Bases de dados únicas e piscinas elásticas aprovisionadas computação:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Instância Gerida**: 32 GB - 8 TB |Usa armazenamento local de SSD.<br/>**Bases de dados únicas e piscinas elásticas aprovisionadas computação:**<br/>5 GB - 4 TB<br/>**Instância gerida:**<br/>32 GB - 4 TB |Auto-cultivo flexível de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento local de SSD para cache de piscina tampão local e armazenamento de dados locais. Utiliza o armazenamento remoto Azure como loja de dados final de longo prazo. |
+|Storage|Usa armazenamento remoto.<br/>**Bases de dados únicas e piscinas elásticas aprovisionadas computação:**<br/>5 GB - 4 TB<br/>**Computação sem servidor:**<br/>5 GB - 3 TB<br/>**Instância Gerida**: 32 GB - 8 TB |Usa armazenamento local de SSD.<br/>**Bases de dados únicas e piscinas elásticas aprovisionadas computação:**<br/>5 GB - 4 TB<br/>**Instância gerida:**<br/>32 GB - 4 TB |Auto-cultivo flexível de armazenamento, se necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento local de SSD para cache de piscina tampão local e armazenamento de dados locais. Utiliza o armazenamento remoto Azure como loja de dados final de longo prazo. |
 |IOPS e entrada (aproximada)|**Bases de dados únicas e piscinas elásticas**: Consulte os limites dos recursos para [bases de dados únicas](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [piscinas elásticas](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Instância gerida**: Ver [visão geral Azure SQL Base](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics)de dados gerido limites de recursos de instância .|Consulte os limites de recursos para [bases de dados individuais](../sql-database/sql-database-vcore-resource-limits-single-databases.md) e [piscinas elásticas](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|Hyperscale é uma arquitetura multi-nível com cache a vários níveis. IOPS eficaz estórias e a sua entrada dependerá da carga de trabalho.|
 |Disponibilidade|1 réplica, sem réplicas à escala de leitura|3 réplicas, 1 [réplica em escala de leitura,](sql-database-read-scale-out.md)<br/>alta disponibilidade redundante (HA)|1 réplica de leitura- escrita, mais [0-4 réplicas em escala de leitura](sql-database-read-scale-out.md)|
 |Cópias de segurança|[Armazenamento geo-redundante de acesso de leitura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|[RA-GRS,](../storage/common/storage-designing-ha-apps-with-ragrs.md)7-35 dias (7 dias por defeito)|Backups baseados em instantâneos no armazenamento remoto azure. Os restauros usam estes instantâneos para uma rápida recuperação. As cópias de segurança são instantâneas e não impactam o desempenho do Computação Em/O. As restaurações são rápidas e não são uma operação de tamanho de dados (demorando minutos em vez de horas ou dias).|
@@ -81,13 +81,15 @@ Para as regiões onde a Gen4/Gen5 está disponível, consulte [a disponibilidade
 - Dependendo da carga de trabalho, a série Fsv2 pode fornecer mais desempenho cpu por vCore do que gen5, e o tamanho de 72 vCore pode fornecer mais desempenho cpu por menos custo do que 80 vCores em Gen5. 
 - O Fsv2 fornece menos memória e tempdb por vCore do que outro hardware, pelo que cargas de trabalho sensíveis a esses limites podem querer considerar a Gen5 ou a série M.  
 
-Para as regiões onde a série Fsv2 está disponível, consulte a [disponibilidade da série Fsv2](#fsv2-series).
+Série Fsv2 apenas suportada no nível de Propósito Geral.  Para as regiões onde a série Fsv2 está disponível, consulte a [disponibilidade da série Fsv2](#fsv2-series).
 
 
 ### <a name="m-seriespreview"></a>Série M (pré-visualização)
 
 - A série M é uma opção de hardware otimizada pela memória para cargas de trabalho que exigem mais memória e limites de computação mais elevados do que o fornecido pela Gen5.
 - A série M fornece 29 GB por vCore e 128 vCores, o que aumenta o limite de memória relativo à Gen5 em 8x para quase 4 TB.
+
+A série M só é suportada no nível Business Critical e não suporta a redundância da zona.
 
 Para permitir o hardware da série M para uma subscrição e região, deve ser aberto um pedido de apoio. A subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA).  Se o pedido de suporte for aprovado, então a experiência de seleção e provisionamento da série M segue o mesmo padrão que para outras gerações de hardware. Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series).
 
@@ -102,7 +104,7 @@ Para permitir o hardware da série M para uma subscrição e região, deve ser a
 |Série Fsv2     |- Processadores Intel Xeon Platinum 8168 (SkyLake)<br>- Com uma velocidade de relógio turbo de 3,4 GHz e uma velocidade máxima de 3,7 GHz no relógio turbo do núcleo único.<br>- Provisão 72 vCores (1 vCore = 1 hiper-fio)|- 1,9 GB por vCore<br>- Provisão 136 GB|
 |Série M     |- Processadores Intel Xeon E7-8890 v3 2.5 GHz<br>- Provisão 128 vCores (1 vCore = 1 hiper-fio)|- 29 GB por vCore<br>- Provisão 3.7 TB|
 
-\* Na visão dinâmica de gestão da [sys.dm_user_db_resource_governance,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) a geração de hardware para bases de dados gen5 utilizando processadores Intel SP-8160 (Skylake) aparece como Gen6. Os limites de recursos para todas as bases de dados gen5 são os mesmos, independentemente do tipo de processador (Broadwell ou Skylake).
+\*Na visão dinâmica de gestão [sys.dm_user_db_resource_governance,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) a geração de hardware para bases de dados gen5 usando processadores Intel SP-8160 (Skylake) aparece como Gen6. Os limites de recursos para todas as bases de dados gen5 são os mesmos, independentemente do tipo de processador (Broadwell ou Skylake).
 
 Para obter mais informações sobre os limites dos recursos, consulte [os limites de recursos para bases de dados únicas (vCore)](sql-database-vcore-resource-limits-single-databases.md)ou limites de [recursos para piscinas elásticas (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
 
@@ -153,7 +155,7 @@ Na página do **nível** de preços poderá alterar a geração de hardware conf
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilize o seguinte script PowerShell:
+Utilize o seguinte script do PowerShell:
 
 ```powershell-interactive
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
@@ -161,7 +163,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 Para mais detalhes, consulte o comando [Set-AzSqlInstance.](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Utilize o seguinte comando CLI:
 
@@ -175,7 +177,7 @@ Para mais detalhes, consulte o comando de [atualização az sql mi.](https://doc
 
 ### <a name="hardware-availability"></a>Disponibilidade de hardware
 
-#### <a name="gen4gen5-1"></a>Gen4/Gen5
+#### <a name="gen4gen5"></a><a name="gen4gen5-1"></a>Gen4/Gen5
 
 O hardware gen4 está [a ser eliminado gradualmente](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) e já não está disponível para as novas implementações. Todas as novas bases de dados devem ser implantadas no hardware gen5.
 
@@ -201,7 +203,7 @@ Para permitir a disponibilidade da série M numa subscrição, o acesso deve ser
 
 Na página **Basics,** forneça o seguinte:
 
-1. Para **o tipo de emissão,** selecione limites de serviço e **subscrição (quotas)** .
+1. Para **o tipo de emissão,** selecione limites de serviço e **subscrição (quotas)**.
 2. Para **subscrição** = selecione a subscrição para ativar a série M.
 3. Para **o tipo quota,** selecione base de **dados SQL**.
 4. Selecione **Next** para ir à página **Detalhes.**

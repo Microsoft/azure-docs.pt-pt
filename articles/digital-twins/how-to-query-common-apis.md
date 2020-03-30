@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: 133c0e0dcc07afb85a0f3af9ae51d2207abac293
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77589118"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar as APIs de Gémeos Digitais Azure para tarefas comuns
@@ -56,7 +56,7 @@ Esta secção mostra consultas de amostra para obter mais informações sobre os
     YOUR_MANAGEMENT_API_URL/propertykeys?spaceId=YOUR_SPACE_ID
     ```
 
-- Obtenha espaços com chave de propriedade chamada *AreaInSqMeters* e o seu valor é de 30. Você também pode fazer operações de cordas, por exemplo, obter espaços que contenham chave de propriedade com `name = X contains Y`.
+- Obtenha espaços com chave de propriedade chamada *AreaInSqMeters* e o seu valor é de 30. Você também pode fazer operações de cordas, `name = X contains Y`por exemplo, obter espaços que contenham chave de propriedade com .
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?propertyKey=AreaInSqMeters&propertyValue=30

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671737"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção Inteligente - Anomalias de Desempenho
@@ -41,7 +41,7 @@ As notificações incluem informações de diagnóstico. Segue-se um exemplo:
 
 1. **Triagem.** A notificação mostra quantos utilizadores ou quantas operações são afetadas. Isto pode ajudá-lo a atribuir uma prioridade ao problema.
 2. **Âmbito**. O problema está a afetar todo o tráfego, ou apenas algumas páginas? Está restrito a navegadores ou locais específicos? Estas informações podem ser obtidas a partir da notificação.
-3. **Diagnosticar.** Muitas vezes, as informações de diagnóstico na notificação sugerem a natureza do problema. Por exemplo, se o tempo de resposta abrandar quando a taxa de pedido é elevada, isso sugere que o seu servidor ou dependências estão sobrecarregados. 
+3. **Diagnosticar**. Muitas vezes, as informações de diagnóstico na notificação sugerem a natureza do problema. Por exemplo, se o tempo de resposta abrandar quando a taxa de pedido é elevada, isso sugere que o seu servidor ou dependências estão sobrecarregados. 
 
     Caso contrário, abra a lâmina de desempenho em Insights de Aplicação. Aí, encontrará dados do [Profiler.](profiler.md) Se forem lançadas exceções, também pode experimentar o [desfoque](../../azure-monitor/app/snapshot-debugger.md)instantâneo.
 
@@ -129,7 +129,7 @@ A notificação de degradação do tempo de resposta diz-lhe:
 
 ## <a name="dependency-duration-degradation"></a>Degradação da duração da dependência
 
-Aplicações modernas adotam cada vez mais a abordagem de conceção de micro serviços, o que, em muitos casos, leva a uma forte fiabilidade nos serviços externos. Por exemplo, se a sua aplicação depender de alguma plataforma de dados ou mesmo se construir o seu próprio serviço de bots provavelmente transmitirá em algum fornecedor de serviços cognitivos para permitir que os seus bots interajam de formas mais humanas e algum serviço de loja de dados para o bot puxar as respostas fro M.  
+Aplicações modernas adotam cada vez mais a abordagem de conceção de micro serviços, o que, em muitos casos, leva a uma forte fiabilidade nos serviços externos. Por exemplo, se a sua aplicação depender de alguma plataforma de dados ou mesmo se construir o seu próprio serviço de bots provavelmente transmitirá em algum fornecedor de serviços cognitivos para permitir que os seus bots interajam de formas mais humanas e algum serviço de loja de dados para o bot puxar as respostas De.  
 
 Notificação de degradação da dependência de exemplo:
 
@@ -174,11 +174,11 @@ Modifique a gama de tempo e os filtros para explorar a telemetria.
 Estas ferramentas de diagnóstico ajudam-no a inspecionar a telemetria da sua aplicação:
 
 * [Gerador de perfis](profiler.md) 
-* [Debugger instantâneo](../../azure-monitor/app/snapshot-debugger.md)
+* [Depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md)
 * [Análise](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnósticos inteligentes de análise](../../azure-monitor/app/analytics.md)
 
 As deteções inteligentes são completamente automáticas. Mas talvez queira criar mais alguns alertas?
 
 * [Alertas métricos configurados manualmente](../../azure-monitor/app/alerts.md)
-* [Disponibilidade de testes web](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)

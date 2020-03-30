@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.openlocfilehash: 1439383598517f57bc77e718d4ded7f53941d3bb
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444201"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-python"></a>Criar uma ligação de dados da Rede de Eventos para o Azure Data Explorer utilizando python
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-event-grid.md)
-> * [C#](data-connection-event-grid-csharp.md)
-> * [python](data-connection-event-grid-python.md)
-> * [Modelo do Azure Resource Manager](data-connection-event-grid-resource-manager.md)
+> * [C #](data-connection-event-grid-csharp.md)
+> * [Pitão](data-connection-event-grid-python.md)
+> * [Modelo Azure Resource Manager](data-connection-event-grid-resource-manager.md)
 
 Neste artigo, cria uma ligação de dados da Rede de Eventos para o Azure Data Explorer utilizando o Python. O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão, ou carregamento de dados, a partir de Hubs de Eventos, Hubs IoT e bolhas escritas para recipientes blob.
 
@@ -102,6 +102,6 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | event_hub_resource_id | *ID de recursos* | O ID de recursos do seu Hub de Eventos onde a Grelha de Eventos está configurada para enviar eventos. |
 | storage_account_resource_id | *ID de recursos* | A identificação de recursos da sua conta de armazenamento que detém os dados para ingestão. |
 | consumer_group | *$Default* | O grupo de consumidores do seu Hub de Eventos.|
-| localização | *Centro dos EUA* | A localização do recurso de ligação de dados.|
+| localização | *E.U.A. Central* | A localização do recurso de ligação de dados.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

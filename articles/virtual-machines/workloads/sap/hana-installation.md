@@ -1,5 +1,5 @@
 ---
-title: Instale sAP HANA no SAP HANA no Azure (Grandes Instâncias)  Microsoft Docs
+title: Instale sAP HANA no SAP HANA no Azure (Grandes Instâncias) [ Microsoft Docs
 description: Como instalar o SAP HANA num SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ca59305b22fcf1e81ef518612910731cb6edea5d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617095"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Grandes Instâncias) no Azure
@@ -63,14 +63,14 @@ Especificamente, verifique os seguintes parâmetros e eventualmente ajuste-se a:
 - net.core.rmem_default = 16777216
 - net.core.wmem_default = 16777216
 - net.core.optmem_max = 16777216
-- net.ipv4.tcp_rmem = 65536 16777216 16777216
-- net.ipv4.tcp_wmem = 65536 16777216 16777216
+- net.ipv4.tcp_rmem = 65536 1677216 16777216
+- net.ipv4.tcp_wmem = 65536 1677216 16777216
 
 A partir do SLES12 SP1 e do RHEL 7.2, estes parâmetros devem ser definidos num ficheiro de configuração no diretório /etc/sysctl.d. Por exemplo, deve ser criado um ficheiro de configuração com o nome 91-NetApp-HANA.conf. Para as libertações mais antigas de SLES e RHEL, estes parâmetros devem ser definidos em/etc/sysctl.conf.
 
 Para todos os lançamentos rHEL a partir de RHEL 6.3, lembre-se: 
 - O sunrpc.tcp_slot_table_entries = 128 parâmetros deve ser colocado em/etc/modprobe.d/sunrpc-local.conf. Se o ficheiro não existir, tem de o criar primeiro adicionando a entrada: 
-    - options sunrpc tcp_max_slot_table_entries=128
+    - opções sunrpc tcp_max_slot_table_entries=128
 
 O **quinto passo** é verificar o tempo do sistema da sua unidade HANA Large Instance. As ocorrências são implantadas com um fuso horário do sistema. Este fuso horário representa a localização da região de Azure na qual se encontra o carimbo HANA Large Instance. Pode alterar o tempo ou o fuso horário do sistema das instâncias que possui. 
 
@@ -115,9 +115,9 @@ Seguem-se as notas de suporte SAP aplicáveis à implementação do SAP HANA na 
 - [Nota de suporte SAP #2397039 - FAQ: SAP no RHEL](https://launchpad.support.sap.com/#/notes/2397039)
 - [Nota de suporte SAP #2002167 - Red Hat Enterprise Linux 7.x: Instalação e upgrade](https://launchpad.support.sap.com/#/notes/2002167)
 
-### <a name="time-synchronization"></a>Sincronização do tempo
+### <a name="time-synchronization"></a>Sincronização de hora
 
-As aplicações SAP que são construídas sobre a arquitetura SAP NetWeaver são sensíveis às diferenças de tempo para os vários componentes que compõem o sistema SAP. SAP ABAP despeje-se com o título de erro de ZDATE\_GRANDE\_TEMPO\_DIFF são provavelmente familiares. Isso porque estas pequenas lixeiras aparecem quando o tempo do sistema de diferentes servidores ou VMs está a afastar-se demasiado.
+As aplicações SAP que são construídas sobre a arquitetura SAP NetWeaver são sensíveis às diferenças de tempo para os vários componentes que compõem o sistema SAP. As lixeiras curtas SAP ABAP\_com\_\_o título de erro de ZDATE LARGE TIME DIFF são provavelmente familiares. Isso porque estas pequenas lixeiras aparecem quando o tempo do sistema de diferentes servidores ou VMs está a afastar-se demasiado.
 
 Para o SAP HANA on Azure (Grandes Instâncias), a sincronização temporal que é feita em Azure não se aplica às unidades computadas nos selos de Grande Instância. Esta sincronização não é aplicável para executar aplicações SAP em VMs azure nativos, porque Azure garante que o tempo de um sistema é corretamente sincronizado. 
 
@@ -134,9 +134,9 @@ Há alguns detalhes que vale a pena mencionar sobre o networking das unidades in
 
 Para obter mais informações sobre os detalhes da Ethernet para a sua arquitetura, consulte os [cenários suportados pelo HLI.](hana-supported-scenario.md)
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
-O layout de armazenamento para SAP HANA on Azure (Grandes Instâncias) é configurado pela SAP HANA em Azure `service management` através de diretrizes recomendadas pela SAP. Estas diretrizes estão documentadas no livro branco de [armazenamento SAP HANA.](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 
+O layout de armazenamento para SAP HANA on Azure (Grandes Instâncias) `service management` é configurado pela SAP HANA on Azure através de diretrizes recomendadas pela SAP. Estas diretrizes estão documentadas no livro branco de [armazenamento SAP HANA.](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 
 
 Os tamanhos ásperos dos diferentes volumes com as diferentes SKUs de grandes instâncias HANA estão documentados na [visão geral e arquitetura sap HANA (Grandes Instâncias) em Azure.](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -144,11 +144,11 @@ As convenções de nomeação dos volumes de armazenagem estão enumeradas no qu
 
 | Utilização de armazenamento | Nome do monte | Nome de volume | 
 | --- | --- | ---|
-| Dados hana | /hana/data/SID/mnt0000\<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
-| Diário hana | /hana/log/SID/mnt0000\<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
+| Dados hana | /hana/data/SID/mnt0000\<m> | IP de armazenamento:/hana_data_SID_mnt00001_tenant_vol |
+| Diário hana | /hana/log/SID/mnt0000\<m> | IP de armazenamento:/hana_log_SID_mnt00001_tenant_vol |
 | Backup de log HANA | /hana/log/backups | IP de armazenamento:/hana_log_backups_SID_mnt00001_tenant_vol |
-| HANA compartilhado | /hana/shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
-| usr/seiva | /usr/sap/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
+| HANA compartilhado | /hana/shared/SID | IP de armazenamento:/hana_shared_SID_mnt00001_tenant_vol/partilhado |
+| usr/seiva | /usr/sap/SID | IP de armazenamento:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 *SID* é o ID do sistema de instância HANA. 
 
@@ -164,7 +164,7 @@ O volume HANA/log/backup não deve ser o volume para cópias de dados. É dimens
 
 Além do armazenamento que é fornecido, pode adquirir capacidade de armazenamento adicional em incrementos de 1-TB. Este armazenamento adicional pode ser adicionado como novos volumes a uma grande instância HANA.
 
-Durante o embarque com o SAP HANA no Azure `service management`, o cliente especifica um ID de utilizador (UID) e id de grupo (GID) para o utilizador sidadm e grupo sapsys (por exemplo: 1000.500). Durante a instalação do sistema SAP HANA, deve utilizar os mesmos valores. Como pretende implementar várias instâncias HANA numa unidade, obtém vários conjuntos de volumes (um conjunto para cada instância). Como resultado, no momento de implantação é necessário definir:
+Durante o embarque com o SAP HANA no Azure, `service management`o cliente especifica um ID de utilizador (UID) e id de grupo (GID) para o utilizador sidadm e grupo sapsys (por exemplo: 1000.500). Durante a instalação do sistema SAP HANA, deve utilizar os mesmos valores. Como pretende implementar várias instâncias HANA numa unidade, obtém vários conjuntos de volumes (um conjunto para cada instância). Como resultado, no momento de implantação é necessário definir:
 
 - O SID das diferentes instâncias HANA (sidadm é derivado dele).
 - Os tamanhos de memória dos diferentes casos hana. O tamanho da memória por exemplo define o tamanho dos volumes em cada conjunto de volume individual.
@@ -200,7 +200,7 @@ O armazenamento utilizado em HANA Grandes Instâncias tem uma limitação de tam
 > [!IMPORTANT]
 > Para evitar que a HANA tente cultivar ficheiros de dados para além do limite de tamanho de ficheiro de 16 TB do armazenamento HANA Large Instance, precisa de definir os seguintes parâmetros no ficheiro de configuração global SAP HANA.ini
 > 
-> - datavolume_striping=true
+> - datavolume_striping=verdade
 > - datavolume_striping_size_gb = 15000
 > - Consulte também a nota SAP [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
 > - Esteja atento à nota da SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
@@ -211,7 +211,7 @@ Com o SAP HANA 2.0, a estrutura do hdbparam foi depreciada. Como resultado, os p
 Consulte [cenários apoiados pelo HLI](hana-supported-scenario.md) para saber mais sobre o layout de armazenamento para a sua arquitetura.
 
 
-**Passos seguintes?**
+**Passos seguintes**
 
 - Consulte a [instalação HANA no HLI](hana-example-installation.md)
 

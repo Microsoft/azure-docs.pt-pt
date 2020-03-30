@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
 ms.openlocfilehash: 6f767abdf8673e3adffc6c4e3748733054ba723d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77201871"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Adicione ou remova uma delegação de sub-rede
@@ -33,7 +33,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Nesta secção, cria-se uma rede virtual e a subnet que posteriormente delegará num serviço Azure.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > rede de **rede** > **rede virtual**.
+1. No lado superior esquerdo do ecrã, selecione **Criar uma** > **rede virtual**de**rede** > de recursos .
 1. Na **Create rede virtual,** introduza ou selecione esta informação:
 
     | Definição | Valor |
@@ -74,12 +74,12 @@ Nesta secção, delega a subnet que criou na secção anterior a um serviço Azu
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se decidir instalar e utilizar o Azure CLI localmente, este artigo requer que utilize a versão Azure CLI 2.0.28 ou posterior. Para encontrar a sua versão instalada, execute `az --version`. Consulte [o Azure CLI](/cli/azure/install-azure-cli) para instalar ou atualizar informações.
+Se decidir instalar e utilizar o Azure CLI localmente, este artigo requer que utilize a versão Azure CLI 2.0.28 ou posterior. Para encontrar a sua `az --version`versão instalada, corra. Consulte [o Azure CLI](/cli/azure/install-azure-cli) para instalar ou atualizar informações.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-O exemplo seguinte cria um grupo de recursos com o nome **myResourceGroup** na localização **eastus**:
+O exemplo seguinte cria um grupo de recursos chamado **myResourceGroup** na localização **oriental:**
 
 ```azurecli-interactive
 
@@ -183,10 +183,10 @@ A saída do comando é um suporte nulo:
   Connect-AzAccount
 ```
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um grupo de recursos com [o New-AzResourceGroup](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
 
 ```azurepowershell-interactive
   New-AzResourceGroup -Name myResourceGroup -Location eastus

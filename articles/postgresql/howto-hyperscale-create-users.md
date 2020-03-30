@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 1/8/2019
 ms.openlocfilehash: 674fd4372bdf7c3782d18aaf04b48eb0067a9b2e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484932"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
@@ -27,23 +27,23 @@ O motor PostgreSQL utiliza [funções](https://www.postgresql.org/docs/current/s
 * `postgres`
 * `citus`
 
-Uma vez que a Hyperscale é um serviço PaaS gerido, só a Microsoft pode iniciar sessão com a função `postgres` super utilizador. Para um acesso administrativo limitado, a Hyperscale proporciona o papel `citus`.
+Uma vez que a Hyperscale é um serviço PaaS gerido, só a Microsoft pode iniciar sessão com a `postgres` função de super utilizador. Para um acesso administrativo limitado, `citus` a Hyperscale fornece o papel.
 
-Permissões para o papel `citus`:
+Permissões `citus` para o papel:
 
 * Leia todas as variáveis de configuração, mesmo variáveis normalmente visíveis apenas para superutilizadores.
-* Leia todos os pontos\_de vista\_\* e use várias extensões relacionadas com estatísticas -- mesmo vistas ou extensões normalmente visíveis apenas para superutilizadores.
+* Leia todas\_\_ \* as vistas estatísticas do PG e use várias extensões relacionadas com estatísticas -- mesmo vistas ou extensões normalmente visíveis apenas para superutilizadores.
 * Execute funções de monitorização que possam ter fechaduras DE PARTILHA DE ACESSO nas mesas, potencialmente durante muito tempo.
-* [Crie extensões PostgreSQL](concepts-hyperscale-extensions.md) (porque o papel é membro da `azure_pg_admin`).
+* [Crie extensões PostgreSQL](concepts-hyperscale-extensions.md) (porque o `azure_pg_admin`papel é membro de ).
 
-Nomeadamente, o papel `citus` tem algumas restrições:
+Nomeadamente, `citus` o papel tem algumas restrições:
 
 * Não pode criar papéis
 * Não pode criar bases de dados
 
 ## <a name="how-to-create-additional-user-roles"></a>Como criar funções adicionais de utilizador
 
-Como referido, a conta de administração `citus` carece de autorização para criar utilizadores adicionais. Para adicionar um utilizador, utilize a interface do portal Azure.
+Como mencionado, `citus` a conta de administração carece de autorização para criar utilizadores adicionais. Para adicionar um utilizador, utilize a interface do portal Azure.
 
 1. Vá à página **De Papéis** para o seu grupo de servidores Hyperscale e clique **em + Adicionar:**
 
@@ -53,19 +53,19 @@ Como referido, a conta de administração `citus` carece de autorização para c
 
    ![Adicionar papel](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
-O utilizador será criado no nó coordenador do grupo de servidores, e propagado a todos os nós dos trabalhadores. As funções criadas através do portal Azure têm o atributo `LOGIN`, o que significa que são verdadeiros utilizadores que podem entrar na base de dados.
+O utilizador será criado no nó coordenador do grupo de servidores, e propagado a todos os nós dos trabalhadores. As funções criadas através `LOGIN` do portal Azure têm o atributo, o que significa que são verdadeiros utilizadores que podem entrar na base de dados.
 
 ## <a name="how-to-modify-privileges-for-user-role"></a>Como modificar privilégios para o papel do utilizador
 
 As novas funções de utilizador são geralmente utilizadas para fornecer acesso à base de dados com privilégios restritos. Para modificar os privilégios do utilizador, utilize comandos PostgreSQL padrão, utilizando uma ferramenta como pgAdmin ou psql. (Ver [ligação com o psql](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) no arranque rápido de Hiperescala (Citus).
 
-Por exemplo, para permitir que `db_user` leiam `mytable`, conceda a permissão:
+Por exemplo, `db_user` para `mytable`permitir a leitura, conceda a permissão:
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
 ```
 
-A hiperescala (Citus) propaga declarações de SUBVENÇDE de mesa única através de todo o cluster, aplicando-as em todos os nós dos trabalhadores. No entanto, os GRANTs que são de todo o sistema (por exemplo, para todas as tabelas num esquema) precisam de ser executados em cada nó de data.  Utilize a função `run_command_on_workers()` ajudante:
+A hiperescala (Citus) propaga declarações de SUBVENÇDE de mesa única através de todo o cluster, aplicando-as em todos os nós dos trabalhadores. No entanto, os GRANTs que são de todo o sistema (por exemplo, para todas as tabelas num esquema) precisam de ser executados em cada nó de data.  Utilize `run_command_on_workers()` a função de ajudante:
 
 ```sql
 -- applies to the coordinator node
@@ -79,13 +79,13 @@ SELECT run_command_on_workers(
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Como eliminar uma função de utilizador ou alterar a sua palavra-passe
 
-Para atualizar um utilizador, visite a página **'Funções'** para o seu grupo de servidores Hyperscale e clique nas elipses... ao lado do utilizador. As elipses abrirão um menu para eliminar o utilizador ou redefinir a sua palavra-passe.
+Para atualizar um utilizador, visite a página **'Funções'** para o seu grupo de servidores Hyperscale e clique nas elipses... ao lado do utilizador. **...** As elipses abrirão um menu para eliminar o utilizador ou redefinir a sua palavra-passe.
 
    ![Editar um papel](media/howto-hyperscale-create-users/edit-role.png)
 
-O papel `citus` é privilegiado e não pode ser apagado.
+O `citus` papel é privilegiado e não pode ser apagado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Abra a firewall para os endereços IP das máquinas dos novos utilizadores para que possam ligar: Criar e gerir as regras de [firewall da Hiperescala (Citus) utilizando o portal Azure](howto-hyperscale-manage-firewall-using-portal.md).
 

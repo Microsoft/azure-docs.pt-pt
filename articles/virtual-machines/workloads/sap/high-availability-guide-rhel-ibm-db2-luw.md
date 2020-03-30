@@ -15,22 +15,22 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: c6a230f6abeab45c56aab2db40b8b1defcc06d90
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598702"
 ---
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
-[2233094]: https://launchpad.support.sap.com/#/notes/2233094
-[1612105]: https://launchpad.support.sap.com/#/notes/1612105
-[2694118]: https://launchpad.support.sap.com/#/notes/2694118
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[1612105]:https://launchpad.support.sap.com/#/notes/1612105
+[2694118]:https://launchpad.support.sap.com/#/notes/2694118
 
 
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
@@ -161,7 +161,7 @@ O agente de recursos da IBM Db2 LUW está incluído no Red Hat Enterprise Linux 
 Faça uma lista de todos os nomes de anfitriões, incluindo nomes de anfitriões virtuais, e atualize os seus servidores DNS para ativar o endereço IP adequado para a resolução de nomes de anfitrião. Se um servidor DNS não existir ou não conseguir atualizar e criar entradas de DNS, precisa de utilizar os ficheiros anfitriões locais dos VMs individuais que estão a participar neste cenário. Se estiver a utilizar as entradas de ficheiros do anfitrião, certifique-se de que as entradas são aplicadas a todos os VMs no ambiente do sistema SAP. No entanto, recomendamos que use o seu DNS que, idealmente, se estende até Azure
 
 
-### <a name="manual-deployment"></a>Implantação manual
+### <a name="manual-deployment"></a>Implementação manual
 
 Certifique-se de que o SISTEMA selecionado é suportado pela IBM/SAP para a IBM Db2 LUW. A lista de versões de OS suportadas para lançamentos de VMs E Db2 está disponível na nota SAP [1928533]. A lista de lançamentos de SO por versão individual do Db2 está disponível na Matriz de Disponibilidade de Produto SAP. Recomendamos vivamente um mínimo de Red Hat Enterprise Linux 7.4 para SAP devido a melhorias de desempenho relacionadas com o Azure nesta ou posterior red hat enterprise linux.
 
@@ -215,7 +215,7 @@ Para configurar a principal instância de base de dados IBM Db2 LUW:
 
 > [!IMPORTANT] 
 > Escreva a "porta de comunicação da base de dados" que está definida durante a instalação. Deve ser o mesmo número de porta para ambas as instâncias da base de dados.
->![sAP SWPM Definição de Definição de Definição de Porto](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-swpm-db2-port.png)
+>![Definição de porta SAP SWPM](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-swpm-db2-port.png)
 
 ### <a name="ibm-db2-hadr-settings-for-azure"></a>Definições IBM Db2 HADR para Azure
 
@@ -240,7 +240,7 @@ Recomendamos os parâmetros anteriores baseados em testes iniciais de failover/t
 
 Para configurar o servidor de base de dados Standby utilizando o procedimento de cópia homogénea do sistema SAP, execute estas etapas:
 
-1. Selecione a opção **de cópia do Sistema** > **Sistemas-alvo** > instância de base de **dados**de > **distribuídas** .
+1. Selecione a opção **de cópia do Sistema** >**sistemas**de **dados distribuídos** > **Distributed** > .
 1. Como método de cópia, **selecione Sistema Homogéneo** para que possa utilizar a cópia de segurança para restaurar uma cópia de segurança na instância do servidor de espera.
 1. Quando chegar à etapa de saída para restaurar a base de dados para cópia homogénea do sistema, saia do instalador. Restaure a base de dados de uma cópia de segurança do hospedeiro principal. Todas as fases de instalação subsequentes já foram executadas no servidor de base de dados primário.
 
@@ -366,13 +366,13 @@ Quando utilizar o Pacemaker para uma falha automática em caso de falha no nó, 
 
 Os seguintes itens são pré-fixados com:
 
-- **[A]** : Aplicável a todos os nós
-- **[1]** : Aplicável apenas ao nó 1 
-- **[2]** : Aplicável apenas ao nó 2
+- **[A]**: Aplicável a todos os nós
+- **[1]**: Aplicável apenas ao nó 1 
+- **[2]**: Aplicável apenas ao nó 2
 
 **[A]** Pré-requisito para a configuração do Pacemaker:
-1. Desligue ambos os servidores de base de dados com o utilizador db2\<sid> com db2stop.
-1. Altere o ambiente da concha para db2\<sid> utilizador para */bin/ksh:*
+1. Desligue ambos os servidores de\<base de dados com o utilizador db2 sid> com db2stop.
+1. Altere o ambiente\<da concha para db2 sid> utilizador para */bin/ksh:*
 <pre><code># Install korn shell:
 sudo yum install ksh
 # Change users shell:
@@ -499,7 +499,7 @@ sudo firewall-cmd --reload</code></pre>
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Faça alterações nos perfis SAP para utilizar IP virtual para ligação
 Para se ligar à instância primária da configuração HADR, a camada de aplicação SAP precisa de utilizar o endereço IP virtual que definiu e configurado para o Equilíbrio de Carga Azure. São necessárias as seguintes alterações:
 
-/sapmnt/\<SID>/profile/DEFAULT. PFL
+/sapmnt/\<SID>/perfil/DEFAULT. PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
@@ -525,7 +525,7 @@ Utilize a ferramenta J2EE Config para verificar ou atualizar o URL JDBC. Como a 
     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
     
 1. No quadro esquerdo, escolha uma loja de **segurança.**
-1. No quadro certo, escolha a chave `jdbc/pool/\<SAPSID>/url`.
+1. No quadro certo, escolha `jdbc/pool/\<SAPSID>/url`a tecla .
 1. Mude o nome do anfitrião no URL JDBC para o nome de anfitrião virtual.
     
     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
@@ -578,7 +578,7 @@ Daemon Status:
   pcsd: active/enabled
 </code></pre>
 
-O estado original num sistema SAP está documentado em Transaction DBACOCKPIT > Configuração > Visão Geral, como mostra a seguinte imagem:
+O estado original num sistema SAP está documentado na Configuração > Configuração de Transações DBACOCKPIT > >, como mostra a seguinte imagem:
 
 ![DBACockpit - Pré-Migração](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-org-rhel.png)
 
@@ -592,7 +592,7 @@ O estado original num sistema SAP está documentado em Transaction DBACOCKPIT > 
 > Antes de iniciar o teste, certifique-se de que:
 > * O Pacemaker não tem nenhuma ação falhada (estado do PCS).
 > * Não existem restrições de localização (restos de teste de migração)
-> * A sincronização IBM Db2 HADR está a funcionar. Consulte o utilizador db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * A sincronização IBM Db2 HADR está a funcionar. Consulte o utilizador\<db2 sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migrar o nó que está a executar a base de dados primária do Db2 executando o seguinte comando:
@@ -616,7 +616,7 @@ Full list of resources:
 
 </code></pre>
 
-O estado original num sistema SAP está documentado em Transaction DBACOCKPIT > Configuração > Visão Geral, como mostra a seguinte imagem:
+O estado original num sistema SAP está documentado na Configuração > Configuração de Transações DBACOCKPIT > >, como mostra a seguinte imagem:
 
 ![DBACockpit - Pós Migração](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-post-rhel.png)
 
@@ -648,9 +648,9 @@ Migrar o recurso de volta para *az-idb01* e limpar os constrangimentos de locali
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 </code></pre>
 
-- **pcs recursos movem-se \<res_name> <host>:** Cria constrangimentos de localização e pode causar problemas com a aquisição
-- **pcs recurso claro \<res_name>** : Limpa os constrangimentos de localização
-- **pcs limpeza de recursos \<res_name>** : Elimina todos os erros do recurso
+- **pcs recursos \< <host>movem-se res_name>:** Cria constrangimentos de localização e pode causar problemas com a aquisição
+- **pcs recursos \<clarores_name>**: Limpa os constrangimentos de localização
+- **pcs limpeza \<de recursos res_name>**: Elimina todos os erros do recurso
 
 ### <a name="test-a-manual-takeover"></a>Testar uma aquisição manual
 
@@ -745,7 +745,7 @@ A instância Db2 é reiniciada no papel secundário que tinha atribuído anterio
 
 ### <a name="stop-db-via-db2stop-force-on-the-node-that-runs-the-hadr-primary-database-instance"></a>Pare DB através da força db2stop no nó que executa a instância de base de dados primária HADR
 
-Como utilizador db2\<sid> execute a força de comando db2stop:
+Como utilizador\<db2 sid> executar força de comando db2stop:
 <pre><code>az-idb01:db2ptr> db2stop force</code></pre>
 
 Falha detetada:

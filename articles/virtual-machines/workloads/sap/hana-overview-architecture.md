@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616959"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA nas Instâncias Grandes do Azure?
@@ -40,7 +40,7 @@ A partir de julho de 2019, diferenciamos entre duas revisões diferentes dos sel
 - "Revisão 4" (Rev 4): Novo design de selos que é implantado nas proximidades dos anfitriões Azure VM e que até agora são lançados nas regiões de Azure de:
     -  E.U.A. Oeste 2 
     -  E.U.A. Leste 
-    -  Europa Ocidental
+    -  Europa ocidental
     -  Europa do Norte
 
 
@@ -57,5 +57,5 @@ Os diferentes documentos de orientação de grandes instâncias hana abrangem as
 - [Elevada disponibilidade criada em SUSE utilizando o STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
 - [Backup osS e restauro para SKUs tipo II de carimbos de Revisão 3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
-**Passos seguintes?**
+**Passos seguintes**
 - Consulte [os termos](hana-know-terms.md)

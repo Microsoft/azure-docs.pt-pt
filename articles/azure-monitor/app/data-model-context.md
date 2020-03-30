@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671868"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetria: Modelo de dados de Insights de Aplicação
@@ -25,12 +25,12 @@ Comprimento máximo: 1024
 
 ## <a name="client-ip-address"></a>Endereço IP do cliente
 
-O endereço IP do dispositivo cliente. IPv4 e IPv6 são suportados. Quando a telemetria é enviada de um serviço, o contexto de localização é sobre o utilizador que iniciou a operação no serviço. Os Insights de Aplicação extraem as informações de geolocalização do IP do cliente e, em seguida, trunca-as. Assim, o IP do cliente por si só não pode ser usado como informação identificável do utilizador final. 
+O endereço IP do dispositivo cliente. São suportados IPv4 e IPv6. Quando a telemetria é enviada de um serviço, o contexto de localização é sobre o utilizador que iniciou a operação no serviço. Os Insights de Aplicação extraem as informações de geolocalização do IP do cliente e, em seguida, trunca-as. Assim, o IP do cliente por si só não pode ser usado como informação identificável do utilizador final. 
 
 Comprimento máximo: 46
 
 
-## <a name="device-type"></a>Tipo de dispositivo
+## <a name="device-type"></a>Tipo de Dispositivo
 
 Originalmente, este campo foi utilizado para indicar o tipo de dispositivo que o utilizador final da aplicação está a utilizar. Hoje usado principalmente para distinguir a telemetria JavaScript com o tipo de dispositivo 'Browser' da telemetria do lado do servidor com o tipo de dispositivo 'PC'.
 
@@ -90,7 +90,7 @@ Identidade autenticada do utilizador. O oposto de id de utilizador anónimo, est
 Comprimento máximo: 1024
 
 
-## <a name="account-id"></a>ID de conta
+## <a name="account-id"></a>Id conta
 
 Nas aplicações multi-arrendatárias este é o ID da conta ou nome, com o qual o utilizador está a agir. Exemplos podem ser ID de subscrição para portal Azure ou nome de blog para uma plataforma de blog.
 

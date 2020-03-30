@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: d91595a863901fcc420611ac644c7856e74320dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655128"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados da Azure Application Insights
@@ -70,7 +70,7 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Relatório de digestão programado de Insights de aplicação
 
-1. A partir do portal Azure, selecione **Create a Resource** > **Compute** > **Function App**.
+1. A partir do portal Azure, selecione **Criar uma** > App de**Função****de Computação** > de Recursos .
 
    ![Criar uma aplicação de função de recurso Azure](./media/automate-custom-reports/function-app-01.png)
 
@@ -87,7 +87,7 @@ availabilityResults
 5. Selecione o modelo de **_digestão programado_** para insights de aplicação .
 
      > [!NOTE]
-     > Por padrão, as aplicações de função são criadas com a versão 2.x runtime. Tem de visar as [funções do Azure](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) na versão **1.x** para utilizar o modelo de digestão programado para insights de aplicação.  ![](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png) de execução
+     > Por padrão, as aplicações de função são criadas com a versão 2.x runtime. Tem de visar as [funções do Azure](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) na versão **1.x** para utilizar o modelo de digestão programado para insights de aplicação.  ![screenshot tempo de execução](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 
@@ -97,11 +97,11 @@ availabilityResults
 
    ![Screenshot de definições de função](./media/automate-custom-reports/function-app-05.png)
 
-7. Selecione a sua **aplicação de função** > **Plataforma tem** ** > definições**de aplicação .
+7. Selecione a sua plataforma de **aplicação** > de funções**funcionalidades funcionalidades** > definições de**aplicações**.
 
     ![Imagem de configuração da aplicação da função Azure](./media/automate-custom-reports/function-app-07.png)
 
-8. Crie três novas definições de aplicação com valores correspondentes adequados ``AI_APP_ID``, ``AI_APP_KEY``e ``SendGridAPI``. Selecione **Guardar**.
+8. Crie três novas definições ``AI_APP_ID`` ``AI_APP_KEY``de ``SendGridAPI``aplicação com valores correspondentes adequados, e . Selecione **Guardar**.
 
      ![Screenshot de interface de integração de funções](./media/automate-custom-reports/function-app-08.png)
     
@@ -114,7 +114,7 @@ availabilityResults
      > [!NOTE]
      > Se não tiver uma conta SendGrid, pode criar uma. A documentação da SendGrid para as Funções Azure está [aqui.](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid) Se apenas quiser uma explicação mínima sobre como configurar sendGrid e gerar uma chave API é fornecida no final deste artigo. 
 
-9. Selecione **Integrar** e em saídas clique **em SendGrid ($return)** .
+9. Selecione **Integrar** e em saídas clique **em SendGrid ($return)**.
 
      ![Screenshot de saída](./media/automate-custom-reports/function-app-09.png)
 
@@ -134,7 +134,7 @@ availabilityResults
 
 Estes passos só se aplicam se ainda não tiver uma conta SendGrid configurada.
 
-1. A partir do portal Azure selecione **Criar uma** pesquisa de recursos para Envio **de E-mail Entrega** > Clique em **Criar** > e preencha as instruções específicas de criação da SendGrid. 
+1. A partir do portal Azure selecione **Criar uma** pesquisa de recursos para a entrega de **e-mail sendGrid** > Clique **em criar** > e preencher as instruções específicas de criação da SendGrid. 
 
      ![Criar screenshot de recurso sendgrid](./media/automate-custom-reports/function-app-13.png)
 
@@ -146,7 +146,7 @@ Estes passos só se aplicam se ainda não tiver uma conta SendGrid configurada.
 
      ![Criar e ver a imagem da aplicação chave API](./media/automate-custom-reports/function-app-15.png)
 
-4. Crie uma Chave API > escolha **Create & View** (por favor, reveja a documentação da SendGrid sobre acesso restrito para determinar qual o nível de permissões adequado para a sua Chave API. O Acesso Integral é selecionado aqui apenas para fins por exemplo.)
+4. Crie uma chave API > escolha **Criar & View** (por favor, reveja a documentação da SendGrid sobre o acesso restrito para determinar qual o nível de permissões adequado para a sua Chave API. O Acesso Integral é selecionado aqui apenas para fins por exemplo.)
 
    ![Screenshot de acesso completo](./media/automate-custom-reports/function-app-16.png)
 

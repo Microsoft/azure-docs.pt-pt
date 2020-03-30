@@ -9,17 +9,17 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121009"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Quickstart: Ligue uma amostra IoT Plug e reproduçãoC#de dispositivo de pré-visualização ao IoT Hub ()
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Quickstart: Ligue uma amostra IoT Plug e reprodução de dispositivo de pré-visualização ao IoT Hub (C#)
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
-Este quickstart mostra-lhe como construir uma aplicação de dispositivo IoT Plug e Play, conectá-la ao seu hub IoT e utilizar a ferramenta exploradora Azure IoT para visualizar a informação que envia para o centro. A aplicação da C# amostra é escrita em (com .NET), e é C# fornecida como parte das amostras Azure IoT para (.NET) coleção. Um desenvolvedor de soluções pode usar a ferramenta exploradora Azure IoT para entender as capacidades de um dispositivo IoT Plug and Play sem a necessidade de visualizar qualquer código do dispositivo.
+Este quickstart mostra-lhe como construir uma aplicação de dispositivo IoT Plug e Play, conectá-la ao seu hub IoT e utilizar a ferramenta exploradora Azure IoT para visualizar a informação que envia para o centro. A aplicação da amostra é escrita em C# (com .NET), e é fornecida como parte da coleção De amostras Azure IoT para C# (.NET). Um desenvolvedor de soluções pode usar a ferramenta exploradora Azure IoT para entender as capacidades de um dispositivo IoT Plug and Play sem a necessidade de visualizar qualquer código do dispositivo.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -47,9 +47,9 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
-Neste arranque rápido, você prepara um ambiente de desenvolvimento que você pode usar C# para clonar e construir as amostras Azure IoT para (.NET).
+Neste arranque rápido, você prepara um ambiente de desenvolvimento que você pode usar para clonar e construir as amostras Azure IoT para C# (.NET).
 
-Abra um pedido de comando no diretório à sua escolha. Execute o seguinte comando para clonar as [amostras Azure C# IoT para (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) Repositório GitHub neste local:
+Abra um pedido de comando no diretório à sua escolha. Execute o seguinte comando para clonar as [amostras Azure IoT para c# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) Repositório GitHub neste local:
 
 ```cmd/sh
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp

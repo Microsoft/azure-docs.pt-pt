@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: e7efdb7244e2c7e4651a4507b538123f8d320c1e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650780"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Questões conhecidas/limitações de migração com migrações online para base de dados Azure SQL
@@ -38,7 +38,7 @@ Se a sua base de dados de origem for constituída por uma ou mais tabelas tempor
 
  ![Exemplo de erros de tabela temporal](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
-**Solução**
+**Supor**
 
 Utilize os seguintes passos.
 
@@ -64,7 +64,7 @@ Pode ver uma Exceção SQL sugerindo que "o texto é incompatível com a hierarq
 
 ![exemplo de erros hierárquios](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
-**Solução**
+**Supor**
 
 Utilize os seguintes passos.
 
@@ -80,7 +80,7 @@ Utilize os seguintes passos.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Falhas migratórias com várias violações de integridade com gatilhos ativos no esquema durante "Carga completa de dados" ou "Sincronização incremental de dados"
 
-**Solução**
+**Supor**
 
 Utilize os seguintes passos.
 
@@ -104,7 +104,7 @@ Se o comprimento da coluna De Objeto Grande (LOB) for superior a 32 KB, os dados
 SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 ```
 
-**Solução**
+**Supor**
 
 Se tiver uma coluna LOB superior a 32 KB, contacte a equipa de engenharia da [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
@@ -114,7 +114,7 @@ Se tiver uma coluna LOB superior a 32 KB, contacte a equipa de engenharia da [As
 
 O Serviço de Migração da Base de Dados Azure não migra o valor do carimbo de tempo de origem; em vez disso, o Azure Database Migration Service gera um novo valor de carimbo temporal na tabela-alvo.
 
-**Solução**
+**Supor**
 
 Se precisar do Serviço de Migração de Bases de Dados Azure para migrar o valor exato de carimbo de tempo armazenado na tabela de origem, contacte a equipa de engenharia da [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
@@ -126,7 +126,7 @@ Quando se depara com falhas migratórias na visão de estado dos Dados de Dados,
 
 ![erros de migração de dados sem exemplo de detalhes](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
-**Solução**
+**Supor**
 
 Para obter detalhes específicos de falha, use os seguintes passos.
 
@@ -144,11 +144,11 @@ A migração falha com uma mensagem de erro contendo o seguinte texto:
 
      “** encountered a fatal error”, "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode."
 
-**Solução**
+**Supor**
 
 Enquanto o Azure Database Migration Service suporta o tipo de dados de Geografia para migrações offline para a Base de Dados Azure SQL, para migrações online, o tipo de dados de Geografia não é suportado. Tente métodos alternativos para alterar o tipo de dados na fonte para um tipo suportado antes de tentar utilizar o Serviço de Migração de Bases de Dados Azure para uma migração online desta base de dados.
 
-### <a name="supported-editions"></a>Edições suportadas
+### <a name="supported-editions"></a>Edições apoiadas
 
 **Sintoma**
 
@@ -156,6 +156,6 @@ A migração falha com uma mensagem de erro contendo o seguinte texto:
 
     Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
 
-**Solução**
+**Supor**
 
 O suporte para migrações on-line para a Base de Dados Azure SQL utilizando o Serviço de Migração de Bases de Dados Azure estende-se apenas às edições Enterprise, Standard e Developer. Certifique-se de que está a usar uma edição apoiada antes de iniciar o processo de migração.

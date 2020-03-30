@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: spelluru
 ms.openlocfilehash: fbac5a2fab91cdac8ebf626e324f12f209cfade5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588710"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Alertas de segurança para ambientes em Laboratórios Azure DevTest
@@ -43,4 +43,4 @@ Atualmente, você pode ver alertas de segurança apenas para a plataforma como u
 Para saber mais sobre ambientes, consulte os seguintes artigos:
 
 - [Crie ambientes multi-vm e recursos PaaS com modelos de Gestor de Recursos Azure](devtest-lab-create-environment-from-arm.md)
-- [Configure e use ambientes públicos](devtest-lab-configure-use-public-environments.md)
+- [Configurar e utilizar ambientes públicos](devtest-lab-configure-use-public-environments.md)

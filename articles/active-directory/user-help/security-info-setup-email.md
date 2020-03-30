@@ -1,6 +1,6 @@
 ---
-title: Configurar um endereço de email como seu método de verificação-Azure AD
-description: Como configurar sua página de informações de segurança (versão prévia) para verificar sua identidade usando um endereço de email como seu método de verificação.
+title: Configurar um endereço de e-mail como o seu método de verificação - Azure AD
+description: Como configurar a sua página de Informações de Segurança (pré-visualização) para verificar a sua identidade usando um endereço de e-mail como método de verificação.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,99 +12,99 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 9488b96dda15b0ffb794f83826dc299a5f397b77
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064007"
 ---
-# <a name="set-up-an-email-address-as-your-verification-method"></a>Configurar um endereço de email como seu método de verificação
+# <a name="set-up-an-email-address-as-your-verification-method"></a>Configurar um endereço de e-mail como o seu método de verificação
 
-Você pode seguir estas etapas para adicionar o método de redefinição de senha. Depois de configurar isto pela primeira vez, pode voltar à página de **informações** de Segurança para adicionar, atualizar ou apagar as suas informações de segurança.
+Pode seguir estes passos para adicionar o método de reset da palavra-passe. Depois de configurar isto pela primeira vez, pode voltar à página de **informações** de Segurança para adicionar, atualizar ou apagar as suas informações de segurança.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se você não vir uma opção de email, é possível que sua organização não permita que você use essa opção para seu método de redefinição de senha. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais ajuda.
+>Se não vir uma opção de e-mail, é possível que a sua organização não lhe permita utilizar esta opção para o seu método de reset de palavra-passe. Neste caso, terá de escolher outro método ou contactar o balcão de ajuda da sua organização para obter mais ajuda.
 
-## <a name="security-vs-password-reset-verification"></a>Segurança vs. verificação de redefinição de senha
+## <a name="security-vs-password-reset-verification"></a>Verificação de segurança vs redefinição de palavra-passe
 
-Os métodos de informações de segurança são usados para a verificação de segurança de dois fatores e para a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+Os métodos de informação de segurança são utilizados tanto para a verificação de segurança de dois fatores como para o reset de palavras-passe. No entanto, nem todos os métodos podem ser utilizados para ambos.
 
 | Método | Utilizado para |
 | ------ | -------- |
-| Aplicativo autenticador | Verificação de dois fatores e autenticação de redefinição de senha. |
-| Mensagens de texto | Verificação de dois fatores e autenticação de redefinição de senha. |
-| Chamadas telefônicas | Verificação de dois fatores e autenticação de redefinição de senha. |
-| Chave de segurança | Verificação de dois fatores e autenticação de redefinição de senha. |
-| Conta de email | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
-| Questões de segurança | Somente autenticação de redefinição de senha. Você precisará escolher outro método para verificação de dois fatores. |
+| Aplicação de autenticação | Verificação de dois fatores e autenticação de reset de palavra-passe. |
+| Mensagens de texto | Verificação de dois fatores e autenticação de reset de palavra-passe. |
+| Telefonemas | Verificação de dois fatores e autenticação de reset de palavra-passe. |
+| Chave de segurança | Verificação de dois fatores e autenticação de reset de palavra-passe. |
+| Conta de e-mail | Apenas a autenticação de reset da palavra-passe. Terá de escolher outro método para verificação de dois fatores. |
+| Perguntas de segurança | Apenas a autenticação de reset da palavra-passe. Terá de escolher outro método para verificação de dois fatores. |
 
-## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurar seu endereço de email na página de informações de segurança
+## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurar o seu endereço de e-mail a partir da página de informações de Segurança
 
-Dependendo das configurações da sua organização, você poderá usar seu endereço de email como um dos seus métodos de informações de segurança.
+Dependendo das definições da sua organização, poderá utilizar o seu endereço de e-mail como um dos seus métodos de informação de segurança.
 
 >[!Note]
->É recomendável usar um endereço de email que não exija sua senha de rede para acessar o. Se você não vir a opção de email, é possível que sua organização não permita que você use um email para verificação. Se esse for o caso, você precisará escolher outro método ou entrar em contato com o administrador para obter mais ajuda.
+>Recomendamos a utilização de um endereço de e-mail que não exija o acesso da sua senha de rede. Se não vir a opção de e-mail, é possível que a sua organização não lhe permita usar um e-mail para verificação. Se for esse o caso, terá de escolher outro método ou contactar o seu administrador para obter mais ajuda.
 
-### <a name="to-set-up-your-email-address"></a>Para configurar seu endereço de email
+### <a name="to-set-up-your-email-address"></a>Para configurar o seu endereço de e-mail
 
-1. Inscreva-se na sua conta de trabalho ou escola e depois vá à sua página de https://myprofile.microsoft.com/.
+1. Inscreva-se na sua conta de trabalho https://myprofile.microsoft.com/ ou escola e depois vá para a sua página.
 
-    ![Minha página de perfil, mostrando links de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
+    ![A minha página de Perfil, mostrando links de informação de segurança destacados](media/security-info/securityinfo-myprofile-page.png)
 
 2. Selecione **informações de segurança** a partir do painel de navegação esquerdo ou do link no bloco de **informações** de Segurança e, em seguida, selecione **adicionar método** a partir da página de informações de **Segurança.**
 
-    ![Página informações de segurança com a opção Adicionar método realçado](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Página de informações de segurança com opção de método de adição realçada](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Na página **Adicionar uma página de método,** selecione **Email** da lista de drop-down e, em seguida, selecione **Adicionar**.
 
-    ![Caixa Adicionar método, com email selecionado](media/security-info/securityinfo-myprofile-addemail.png)
+    ![Adicionar caixa de método, com e-mail selecionado](media/security-info/securityinfo-myprofile-addemail.png)
 
-4. Na página de **E-mail,** digite o seu endereço de e-mail (por exemplo, alain@gmail.com), e depois selecione **Next**.
+4. Na página **de E-mail,** digite alain@gmail.como seu endereço de e-mail (por exemplo, e depois selecione **Seguinte**.
 
-    ![Adicionar número de telefone e escolher chamadas telefônicas](media/security-info/securityinfo-myprofile-emailaddress.png)
+    ![Adicione o número de telefone e escolha chamadas telefónicas](media/security-info/securityinfo-myprofile-emailaddress.png)
 
     >[!Important]
-    >Este endereço de email não pode ser seu email corporativo ou de estudante.
+    >Este email não pode ser o seu trabalho ou e-mail escolar.
 
 5. Digite o código enviado para o seu endereço de e-mail especificado e, em seguida, selecione **Next**.
 
-    ![Adicionar número de telefone e escolher mensagens de texto](media/security-info/securityinfo-myprofile-emailcode.png)
+    ![Adicione o número de telefone e escolha mensagens de texto](media/security-info/securityinfo-myprofile-emailcode.png)
 
-    Suas informações de segurança são atualizadas e você pode usar seu endereço de email para verificar sua identidade ao usar a redefinição de senha.
+    A sua informação de segurança é atualizada e pode utilizar o seu endereço de e-mail para verificar a sua identidade ao utilizar o reset da palavra-passe.
 
-## <a name="delete-your-email-address-from-your-security-info-methods"></a>Exclua seu endereço de email de seus métodos de informações de segurança
+## <a name="delete-your-email-address-from-your-security-info-methods"></a>Elimine o seu endereço de e-mail dos seus métodos de informação de segurança
 
 Se já não quiser utilizar o seu endereço de e-mail como um método de informação de segurança, pode removê-lo da página de informações de **Segurança.**
 
 >[!Important]
->Se você excluir seu endereço de email por engano, não há como desfazê-lo. Terá de adicionar o método novamente, seguindo os passos na secção de [endereço de e-mail](#set-up-your-email-address-from-the-security-info-page) deste artigo.
+>Se apagar o seu endereço de e-mail por engano, não há como desfazê-lo. Terá de adicionar o método novamente, seguindo os passos na secção de [endereço de e-mail](#set-up-your-email-address-from-the-security-info-page) deste artigo.
 
-### <a name="to-delete-your-email-address"></a>Para excluir seu endereço de email
+### <a name="to-delete-your-email-address"></a>Para eliminar o seu endereço de e-mail
 
 1. Na página de informações de **Segurança,** selecione o link **Eliminar** ao lado da opção **Email.**
 
-    ![Link para excluir o método de telefone das informações de segurança](media/security-info/securityinfo-myprofile-emaildelete.png)
+    ![Link para eliminar o método do telefone a partir de informações de segurança](media/security-info/securityinfo-myprofile-emaildelete.png)
 
 2. Selecione **Sim** a partir da caixa de confirmação para eliminar a conta **de e-mail.** Após a eliminação da conta de e-mail, é removida das suas informações de segurança e desaparece da página de informações de **Segurança.**
 
-## <a name="additional-security-info-methods"></a>Métodos adicionais de informações de segurança
+## <a name="additional-security-info-methods"></a>Métodos adicionais de informação de segurança
 
-Você tem opções adicionais de como sua organização entra em contato com você para verificar sua identidade, com base no que você está tentando fazer. As opções incluem:
+Tem opções adicionais para como a sua organização o contacta para verificar a sua identidade, com base no que está a tentar fazer. As opções incluem:
 
-- **Aplicação autenticadora.** Baixe e use um aplicativo autenticador para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como configurar e utilizar a aplicação Microsoft Authenticator, consulte [Configurar informações de segurança para utilizar uma aplicação autenticadora](security-info-setup-auth-app.md).
+- **Aplicação autenticadora.** Descarregue e use uma aplicação autenticadora para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou reset de palavra-passe. Para obter instruções passo a passo sobre como configurar e utilizar a aplicação Microsoft Authenticator, consulte [Configurar informações de segurança para utilizar uma aplicação autenticadora](security-info-setup-auth-app.md).
 
-- **Texto do dispositivo móvel.** Insira o número do seu dispositivo móvel e obtenha um texto de um código que você usará para a verificação em duas etapas ou a redefinição de senha. Para obter instruções passo a passo sobre como verificar a sua identidade com uma mensagem de texto (SMS), consulte Configurar informações de segurança para utilizar mensagens de [texto (SMS)](security-info-setup-text-msg.md).
+- **Texto do dispositivo móvel.** Insira o número do seu dispositivo móvel e obtenha um código de texto que utilizará para verificação em duas etapas ou reset de palavra-passe. Para obter instruções passo a passo sobre como verificar a sua identidade com uma mensagem de texto (SMS), consulte Configurar informações de segurança para utilizar mensagens de [texto (SMS)](security-info-setup-text-msg.md).
 
-- **Dispositivo móvel ou chamada telefónica de trabalho.** Insira o número do seu dispositivo móvel e obtenha uma chamada telefônica para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar a sua identidade com um número de telefone, consulte [Configurar informações](security-info-setup-phone-number.md)de segurança para utilizar chamadas telefónicas .
+- **Dispositivo móvel ou chamada telefónica de trabalho.** Insira o número do seu dispositivo móvel e obtenha uma chamada telefónica para verificação em duas etapas ou reset de palavra-passe. Para obter instruções passo a passo sobre como verificar a sua identidade com um número de telefone, consulte [Configurar informações](security-info-setup-phone-number.md)de segurança para utilizar chamadas telefónicas .
 
-- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar a sua identidade com uma chave de segurança, consulte [Configurar informações](security-info-setup-security-key.md)de segurança para utilizar uma chave de segurança .
+- **Chave de segurança.** Registe a sua chave de segurança compatível com a Microsoft e utilize-a juntamente com um PIN para verificação em duas etapas ou reset de palavra-passe. Para obter instruções passo a passo sobre como verificar a sua identidade com uma chave de segurança, consulte [Configurar informações](security-info-setup-security-key.md)de segurança para utilizar uma chave de segurança .
 
-- **Questões de segurança.** Responda a algumas perguntas de segurança criadas pelo administrador da sua organização. Essa opção só está disponível para a redefinição de senha e não para a verificação em duas etapas. Para obter instruções passo a passo sobre como configurar as suas questões de segurança, consulte a informação de [segurança configurar para utilizar](security-info-setup-questions.md) o artigo de questões de segurança.
+- **Questões de segurança.** Responda a algumas questões de segurança criadas pelo seu administrador para a sua organização. Esta opção só está disponível para reset de palavra-passe e não para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar as suas questões de segurança, consulte a informação de [segurança configurar para utilizar](security-info-setup-questions.md) o artigo de questões de segurança.
 
     >[!Note]
-    >Se algumas dessas opções estiverem ausentes, isso provavelmente ocorrerá porque sua organização não permite esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
+    >Se algumas destas opções estão em falta, é muito provável porque a sua organização não permite esses métodos. Se for esse o caso, terá de escolher um método disponível ou contactar o seu administrador para obter mais ajuda.
 
 ## <a name="next-steps"></a>Passos seguintes
 

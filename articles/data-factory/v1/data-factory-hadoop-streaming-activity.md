@@ -1,6 +1,6 @@
 ---
-title: Transformar dados usando a atividade de streaming do Hadoop – Azure
-description: Saiba como você pode usar a atividade de streaming do Hadoop em uma data factory do Azure para transformar dados executando programas de streaming do Hadoop em um cluster sob demanda/seu próprio HDInsight.
+title: Transforme dados usando a Atividade de Streaming hadoop - Azure
+description: Saiba como pode utilizar a Atividade de Streaming Hadoop numa fábrica de dados Azure para transformar dados executando programas de Streaming Hadoop num cluster a pedido/seu próprio HDInsight.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,38 +13,38 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703371"
 ---
-# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
-> [!div class="op_single_selector" title1="Atividades de transformação"]
-> * [Atividade do hive](data-factory-hive-activity.md) 
-> * [Atividade Pig](data-factory-pig-activity.md)
-> * [Atividade MapReduce](data-factory-map-reduce.md)
-> * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Atividade do Spark](data-factory-spark.md)
+# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transforme dados usando a atividade de streaming de Hadoop na Fábrica de Dados Azure
+> [!div class="op_single_selector" title1="Atividades de Transformação"]
+> * [Atividade da Colmeia](data-factory-hive-activity.md) 
+> * [Atividade do Porco](data-factory-pig-activity.md)
+> * [MapReduce Atividade](data-factory-map-reduce.md)
+> * [Atividade de streaming de hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade de Faísca](data-factory-spark.md)
 > * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade de Recursos de Atualização de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade de U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
-> * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
+> * [.NET Atividade Personalizada](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [transformar dados usando a atividade de streaming do Hadoop no data Factory](../transform-data-using-hadoop-streaming.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte a transformação de dados utilizando a atividade de [streaming Hadoop na Data Factory](../transform-data-using-hadoop-streaming.md).
 
 
-Você pode usar a atividade HDInsightStreamingActivity para invocar um trabalho de streaming do Hadoop de um pipeline Azure Data Factory. O trecho JSON a seguir mostra a sintaxe para usar o HDInsightStreamingActivity em um arquivo JSON de pipeline. 
+Pode utilizar a Atividade de Atividade De Streaming HDInsightStreaming invocando um trabalho de Streaming hadoop a partir de um oleoduto Azure Data Factory. O seguinte snippet JSON mostra a sintaxe para a utilização da Atividade HDInsightStreaming num ficheiro JSON de pipeline. 
 
-A atividade de streaming do HDInsight em um [pipeline](data-factory-create-pipelines.md) data Factory executa programas de streaming do Hadoop em [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster do HDInsight baseado em Windows/Linux [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Este artigo se baseia no artigo [atividades de transformação de dados](data-factory-data-transformation-activities.md) , que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte.
+A Atividade de Streaming HDInsight num [pipeline](data-factory-create-pipelines.md) data Factory executa programas de Streaming Hadoop por [conta própria](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou a [pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do cluster HDInsight baseado em HDInsight baseado em HDInsight. Este artigo baseia-se no artigo sobre atividades de transformação de [dados,](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.
 
 > [!NOTE] 
-> Se você for novo no Azure Data Factory, leia a [introdução ao Azure data Factory](data-factory-introduction.md) e faça o tutorial: [criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
+> Se é novo na Azure Data Factory, leia através da [Introdução à Azure Data Factory](data-factory-introduction.md) e faça o tutorial: [Construa](data-factory-build-your-first-pipeline.md) o seu primeiro pipeline de dados antes de ler este artigo. 
 
-## <a name="json-sample"></a>Exemplo de JSON
-O cluster HDInsight é preenchido automaticamente com programas de exemplo (WC. exe e Cat. exe) e dados (DaVinci. txt). Por padrão, o nome do contêiner que é usado pelo cluster HDInsight é o nome do próprio cluster. Por exemplo, se o nome do cluster for myhdicluster, o nome do contêiner de blob associado seria myhdicluster. 
+## <a name="json-sample"></a>Amostra JSON
+O cluster HDInsight é automaticamente povoado com programas de exemplo (wc.exe e cat.exe) e dados (davinci.txt). Por predefinição, o nome do recipiente utilizado pelo cluster HDInsight é o nome do próprio cluster. Por exemplo, se o seu nome de cluster for myhdicluster, o nome do recipiente blob associado seria myhdicluster. 
 
 ```JSON
 {
@@ -94,28 +94,28 @@ O cluster HDInsight é preenchido automaticamente com programas de exemplo (WC. 
 
 Tenha em atenção os seguintes pontos:
 
-1. Defina **linkedServiceName** como o nome do serviço vinculado que aponta para o cluster HDInsight no qual o trabalho de streaming MapReduce é executado.
-2. Defina o tipo da atividade como **HDInsightStreaming**.
-3. Para a propriedade **Mapper** , especifique o nome do executável do mapeador. No exemplo, Cat. exe é o executável do mapeador.
-4. Para a propriedade **redutor** , especifique o nome do executável redutor. No exemplo, WC. exe é o executável do redutor.
-5. Para a propriedade tipo de **entrada** , especifique o arquivo de entrada (incluindo o local) para o mapeador. No exemplo: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample é o contêiner de BLOB, example/data/Gutenberg é a pasta e DaVinci. txt é o blob.
-6. Para a propriedade tipo de **saída** , especifique o arquivo de saída (incluindo o local) para o redutor. A saída do trabalho de streaming do Hadoop é gravada no local especificado para essa propriedade.
-7. Na seção arquivos de **caminho** , especifique os caminhos para os executáveis do mapeador e do redutor. No exemplo: "adfsample/example/apps/WC. exe", adfsample é o contêiner de BLOB, example/apps é a pasta e WC. exe é o executável.
-8. Para a propriedade **fileLinkedService** , especifique o serviço vinculado do armazenamento do Azure que representa o armazenamento do Azure que contém os arquivos especificados na seção filePaths.
-9. Para a propriedade **arguments** , especifique os argumentos para o trabalho de streaming.
-10. A propriedade **getDebugInfo** é um elemento opcional. Quando definido como falha, os logs são baixados apenas em caso de falha. Quando definido como sempre, os logs são sempre baixados, independentemente do status de execução.
+1. Defina o **LinkedServiceName** para o nome do serviço ligado que aponta para o seu cluster HDInsight no qual o trabalho de redução de mapas de streaming é executado.
+2. Defina o tipo de atividade para **HDInsightStreaming**.
+3. Para a propriedade do **mapper,** especifique o nome do mapper executável. No exemplo, cat.exe é o mapeexecutável.
+4. Para a propriedade **redutor,** especifique o nome do redutor executável. No exemplo, wc.exe é o redutor executável.
+5. Para a propriedade do tipo **de entrada,** especifique o ficheiro de entrada (incluindo a localização) para o mapper. No exemplo: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`adfsample é o recipiente blob, exemplo/dados/Gutenberg é a pasta, e davinci.txt é a bolha.
+6. Para a propriedade do tipo **de saída,** especifique o ficheiro de saída (incluindo a localização) para o redutor. A saída do trabalho de Streaming Hadoop está escrita para o local especificado para esta propriedade.
+7. Na secção **filePaths,** especifique os caminhos para o mapper e executáveis redutores. No exemplo: "adfsample/example/apps/wc.exe", a adfsample é o recipiente blob, exemplo/apps é a pasta, e wc.exe é o executável.
+8. Para a propriedade **fileLinkedService,** especifique o serviço ligado ao Armazenamento Azure que representa o armazenamento Azure que contém os ficheiros especificados na secção ficheiroS.
+9. Para a propriedade de **argumentos,** especifique os argumentos para o trabalho de streaming.
+10. A propriedade **getDebugInfo** é um elemento opcional. Quando está definido para falha, os registos são descarregados apenas por falha. Quando está definido para Sempre, os registos são sempre descarregados independentemente do estado de execução.
 
 > [!NOTE]
-> Conforme mostrado no exemplo, você especifica um conjunto de uma saída para a atividade de streaming do Hadoop para a propriedade **Outputs** . Esse conjunto de e é apenas um conjunto de uma fictício que é necessário para direcionar a agenda do pipeline. Você não precisa especificar nenhum conjunto de dados de entrada para a atividade da propriedade **entradas** .  
+> Como mostra o exemplo, especifica um conjunto de dados de saída para a Atividade de Streaming Hadoop para a propriedade de **saídas.** Este conjunto de dados é apenas um conjunto de dados de boneco que é necessário para impulsionar o calendário do gasoduto. Não necessita de especificar qualquer conjunto de dados de entrada para a atividade da propriedade de **inputs.**  
 > 
 > 
 
 ## <a name="example"></a>Exemplo
-O pipeline neste tutorial executa o programa de mapa/redução de streaming de contagem de palavras em seu cluster do Azure HDInsight. 
+O pipeline neste walkthrough executa o programa de streaming Word Count Map/Reduce no seu cluster Azure HDInsight. 
 
 ### <a name="linked-services"></a>Serviços ligados
 #### <a name="azure-storage-linked-service"></a>Serviço ligado do Storage do Azure
-Primeiro, você cria um serviço vinculado para vincular o armazenamento do Azure que é usado pelo cluster do Azure HDInsight para o data factory do Azure. Se você copiar/colar o código a seguir, não se esqueça de substituir o nome da conta e a chave da conta pelo nome e pela chave do armazenamento do Azure. 
+Em primeiro lugar, cria-se um serviço ligado para ligar o Armazenamento Azure que é utilizado pelo cluster Azure HDInsight à fábrica de dados Azure. Se copiar/colar o seguinte código, não se esqueça de substituir o nome da conta e a chave da conta pelo nome e chave do seu Armazenamento Azure. 
 
 ```JSON
 {
@@ -129,8 +129,8 @@ Primeiro, você cria um serviço vinculado para vincular o armazenamento do Azur
 }
 ```
 
-#### <a name="azure-hdinsight-linked-service"></a>Serviço vinculado do Azure HDInsight
-Em seguida, você cria um serviço vinculado para vincular seu cluster do Azure HDInsight ao data factory do Azure. Se você copiar/colar o código a seguir, substitua o nome do cluster HDInsight pelo nome do seu cluster HDInsight e altere os valores de nome de usuário e senha. 
+#### <a name="azure-hdinsight-linked-service"></a>Serviço ligado azure HDInsight
+Em seguida, cria um serviço ligado para ligar o seu cluster Azure HDInsight à fábrica de dados Azure. Se copiar/colar o seguinte código, substitua o nome do cluster HDInsight com o nome do seu cluster HDInsight e altere os valores de nome de utilizador e palavra-passe. 
 
 ```JSON
 {
@@ -148,8 +148,8 @@ Em seguida, você cria um serviço vinculado para vincular seu cluster do Azure 
 ```
 
 ### <a name="datasets"></a>Conjuntos de dados
-#### <a name="output-dataset"></a>Conjunto de saída
-O pipeline neste exemplo não pega nenhuma entrada. Você especifica um conjunto de uma saída para a atividade de streaming do HDInsight. Esse conjunto de e é apenas um conjunto de uma fictício que é necessário para direcionar a agenda do pipeline. 
+#### <a name="output-dataset"></a>Conjunto de dados de saída
+O gasoduto neste exemplo não tem quaisquer inputs. Especifica um conjunto de dados de saída para a Atividade de Streaming HDInsight. Este conjunto de dados é apenas um conjunto de dados de boneco que é necessário para impulsionar o calendário do gasoduto. 
 
 ```JSON
 {
@@ -174,9 +174,9 @@ O pipeline neste exemplo não pega nenhuma entrada. Você especifica um conjunto
 ```
 
 ### <a name="pipeline"></a>Pipeline
-O pipeline neste exemplo tem apenas uma atividade que é do tipo: **HDInsightStreaming**. 
+O oleoduto neste exemplo tem apenas uma atividade que é de tipo: **HDInsightStreaming**. 
 
-O cluster HDInsight é preenchido automaticamente com programas de exemplo (WC. exe e Cat. exe) e dados (DaVinci. txt). Por padrão, o nome do contêiner que é usado pelo cluster HDInsight é o nome do próprio cluster. Por exemplo, se o nome do cluster for myhdicluster, o nome do contêiner de blob associado seria myhdicluster.  
+O cluster HDInsight é automaticamente povoado com programas de exemplo (wc.exe e cat.exe) e dados (davinci.txt). Por predefinição, o nome do recipiente utilizado pelo cluster HDInsight é o nome do próprio cluster. Por exemplo, se o seu nome de cluster for myhdicluster, o nome do recipiente blob associado seria myhdicluster.  
 
 ```JSON
 {
@@ -222,10 +222,10 @@ O cluster HDInsight é preenchido automaticamente com programas de exemplo (WC. 
     }
 }
 ```
-## <a name="see-also"></a>Consulte também
-* [Atividade do hive](data-factory-hive-activity.md)
-* [Atividade Pig](data-factory-pig-activity.md)
-* [Atividade MapReduce](data-factory-map-reduce.md)
+## <a name="see-also"></a>Veja também
+* [Atividade da Colmeia](data-factory-hive-activity.md)
+* [Atividade do Porco](data-factory-pig-activity.md)
+* [MapReduce Atividade](data-factory-map-reduce.md)
 * [Invocar programas do Spark](data-factory-spark.md)
 * [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

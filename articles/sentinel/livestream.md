@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 12/06/2019
 ms.author: yelevin
 ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77582131"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use o livestream da caça em Azure Sentinel para detetar ameaças
 
 > [!IMPORTANT]
 > O livestream de caça em Azure Sentinel está atualmente em pré-visualização pública e gradualmente a ser lançado para os inquilinos.
-> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 
 
 Use o livestream de caça para criar sessões interativas que lhe permitam testar consultas recém-criadas à medida que os eventos ocorrem, receber notificações das sessões quando um jogo é encontrado, e lançar investigações se necessário. Pode criar rapidamente uma sessão de livestream utilizando qualquer consulta de Log Analytics.
@@ -48,7 +48,7 @@ Use o livestream de caça para criar sessões interativas que lhe permitam testa
 
 Você pode criar uma sessão livestream a partir de uma consulta de caça existente, ou criar sua sessão de raiz.
 
-1. No portal Azure, navegue até à **gestão** de ameaças **sentinela** >  > **Caça.**
+1. No portal Azure, navegue para a**caça à****caça** > de ameaça **sentinela.** > 
 
 2. Para criar uma sessão livestream a partir de uma consulta de caça:
     
@@ -56,7 +56,7 @@ Você pode criar uma sessão livestream a partir de uma consulta de caça existe
     2. Clique na consulta e selecione **Adicionar ao livestream**. Por exemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![criar sessão livestream a partir de](./media/livestream/livestream-from-query.png) de consulta de caça Azure Sentinel
+    > ![criar sessão livestream a partir de consulta de caça Azure Sentinel](./media/livestream/livestream-from-query.png)
 
 3. Para criar uma sessão livestream do zero: 
     
@@ -73,7 +73,7 @@ Você pode criar uma sessão livestream a partir de uma consulta de caça existe
     A barra de estado sob a barra de comando indica se a sua sessão de livestream está a decorrer ou fez uma pausa. No exemplo seguinte, a sessão está a decorrer:
     
     > [!div class="mx-imgBorder"]
-    > ![criar sessão de livestream da](./media/livestream/livestream-session.png) de caça Azure Sentinel
+    > ![criar sessão livestream da caça Azure Sentinel](./media/livestream/livestream-session.png)
 
 6. Selecione **Guardar** a partir da barra de comando.
     
@@ -81,12 +81,12 @@ Você pode criar uma sessão livestream a partir de uma consulta de caça existe
 
 ## <a name="view-your-livestream-sessions"></a>Veja as suas sessões de livestream
 
-1. No portal Azure, navegue até **sentinel** > **gestão de ameaças** > guia **Hunting** > **Livestream.**
+1. No portal Azure, navegue para o separador**Hunting** > **Livestream,** **gestão** > de ameaças **sentinelas.** > 
 
 2. Selecione a sessão livestream que pretende ver ou editar. Por exemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![criar sessão de livestream a partir de](./media/livestream/livestream-tab.png) de consulta de caça Azure Sentinel
+    > ![criar sessão livestream a partir de consulta de caça Azure Sentinel](./media/livestream/livestream-tab.png)
     
     A sua sessão de livestream selecionada abre para que possa reproduzir, pausar, editar, e assim por diante.
 
@@ -103,7 +103,7 @@ Selecione a notificação para abrir o painel **Livestream.**
 Você pode promover uma sessão livestream para um novo alerta, selecionando **Elevate para alertar** a partir da barra de comando na sessão livestream relevante:
 
 > [!div class="mx-imgBorder"]
-> ![Elevate livestream sessão para um alerta](./media/livestream/elevate-to-alert.png)
+> ![Elevar a sessão livestream para um alerta](./media/livestream/elevate-to-alert.png)
 
 Esta ação abre o feiticeiro de criação de regras, que é prepovoado com a consulta que está associada à sessão livestream.
 

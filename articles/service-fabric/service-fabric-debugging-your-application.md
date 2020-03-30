@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: fff8a19d5643f7ce866c9eb9c57486340b6f8a50
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624144"
 ---
-# <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Desinvia a aplicação Service Fabric utilizando o Visual Studio
+# <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar a sua aplicação do Service Fabric com o Visual Studio
 > [!div class="op_single_selector"]
 > * [Estúdio Visual/CSharp](service-fabric-debugging-your-application.md) 
 > * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
@@ -23,7 +23,7 @@ ms.locfileid: "77624144"
 Pode economizar tempo e dinheiro implementando e depurando a sua aplicação Azure Service Fabric num cluster de desenvolvimento informático local. O Visual Studio 2019 ou 2015 pode implementar a aplicação para o cluster local e ligar automaticamente o debugger a todas as instâncias da sua aplicação. O Estúdio Visual tem de ser executado como Administrador para ligar o debugger.
 
 1. Inicie um cluster de desenvolvimento local seguindo os passos na configuração do seu ambiente de desenvolvimento de [Tecido de Serviço.](service-fabric-get-started.md)
-2. Prima **F5** ou clique em **Debug** > **Começar depuração**.
+2. Prima **F5** ou clique em **Depurar** > **Depuração**.
    
     ![Comece a depurar uma aplicação][startdebugging]
 3. Desloque os pontos de rutura no seu código e passe pela aplicação clicando em comandos no menu **Debug.**

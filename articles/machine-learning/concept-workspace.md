@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77505573"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
@@ -28,7 +28,7 @@ Os preços e funcionalidades disponíveis dependem se a [edição Basic ou Enter
 
 Uma taxonomia do espaço de trabalho é ilustrada no seguinte diagrama:
 
-[![taxonomia do espaço de trabalho](./media/concept-workspace/azure-machine-learning-taxonomy.png)](./media/concept-workspace/azure-machine-learning-taxonomy.png#lightbox)
+[![Taxonomia do espaço de trabalho](./media/concept-workspace/azure-machine-learning-taxonomy.png)](./media/concept-workspace/azure-machine-learning-taxonomy.png#lightbox)
 
 O diagrama mostra os seguintes componentes de um espaço de trabalho:
 
@@ -81,7 +81,7 @@ Também pode executar as seguintes tarefas de gestão do espaço de trabalho:
 > [!WARNING]
 > A mudança do seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou a mudança da subscrição própria para um novo inquilino, não é suportada. Fazê-lo pode causar erros.
 
-## <a name='create-workspace'></a>Criar um espaço de trabalho
+## <a name="create-a-workspace"></a><a name='create-workspace'></a>Criar um espaço de trabalho
 
 Quando cria um espaço de trabalho, decide se o cria com [edição Basic ou Enterprise.](overview-what-is-azure-ml.md#sku) A edição determina as funcionalidades disponíveis no espaço de trabalho. Entre outras funcionalidades, a edição enterprise dá-lhe acesso ao [designer de Machine Learning Azure](concept-designer.md) e à versão de estúdio da construção de [experiências automatizadas](tutorial-first-experiment-automated-ml.md)de machine learning.  Para mais detalhes e informações sobre preços, consulte os preços do [Azure Machine Learning.](https://azure.microsoft.com/pricing/details/machine-learning/)
 
@@ -95,13 +95,13 @@ Existem várias formas de criar um espaço de trabalho:
 > [!NOTE]
 > O nome do espaço de trabalho é insensível a casos.
 
-## <a name="upgrade"></a>Upgrade para edição enterprise
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Upgrade para edição enterprise
 
 Pode [atualizar o seu espaço de trabalho de Basic para Enterprise edição](how-to-manage-workspace.md#upgrade) utilizando o portal Azure. Não é possível desvalorizar um espaço de trabalho da edição da Enterprise para um espaço de trabalho de edição básica. 
 
-## <a name="resources"></a>Recursos associados
+## <a name="associated-resources"></a><a name="resources"></a>Recursos associados
 
-Quando cria uma nova área de trabalho, este cria automaticamente vários recursos do Azure que são utilizados pela área de trabalho:
+Quando se cria um novo espaço de trabalho, cria automaticamente vários recursos Azure que são utilizados pelo espaço de trabalho:
 
 + [Registo de contentores Azure](https://azure.microsoft.com/services/container-registry/): Regista os recipientes de estivador que utiliza durante o treino e quando implementa um modelo. Para minimizar os custos, o ACR é preguiçoso até que as imagens **de** implantação sejam criadas.
 + [Conta de Armazenamento Azure](https://azure.microsoft.com/services/storage/): É utilizada como a loja de dados padrão para o espaço de trabalho.  Os cadernos jupyter que são usados com os seus casos de computação Azure Machine Learning também são armazenados aqui.
@@ -111,7 +111,7 @@ Quando cria uma nova área de trabalho, este cria automaticamente vários recurs
 > [!NOTE]
 > Além de criar novas versões, também pode utilizar os serviços Azure existentes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com o Azure Machine Learning, veja:
 

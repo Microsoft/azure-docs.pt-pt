@@ -4,19 +4,19 @@ description: Traga o suporte da sua própria chave (BYOK) para encriptação de 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/12/2020
-ms.openlocfilehash: a29466ad5b261e1e2ce818d7b4a18260e35caaec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/18/2020
+ms.openlocfilehash: 462326fb16663a6f25ff4b51ea11791201086fd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255655"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528733"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de dados transparente sql Azure com chave gerida pelo cliente
 
@@ -73,7 +73,7 @@ Os auditores podem usar o Monitor Azure para rever os registos do cofre de chave
 
 - O cofre chave e a Base de Dados SQL/instância gerida devem pertencer ao mesmo inquilino do Diretório Ativo Azure. O cofre de chaves de inquilinos cruzados e as interações do servidor não são suportadas. Para movimentar recursos depois, o TDE com AKV terá de ser reconfigurado. Saiba mais sobre [recursos móveis.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 
-- A função [de eliminação suave](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) deve ser ativada no cofre da chave, para proteger contra a eliminação da chave acidental (ou cofre chave) de perda de dados. Os recursos eliminados suavemente são retidos durante 90 dias, a menos que recuperados ou purgados pelo cliente entretanto. As ações de *recuperação* e *purga* têm as suas próprias permissões associadas a uma política chave de acesso ao cofre. A função soft-delete está desligada por defeito e pode ser ativada através de [Powershell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) ou [CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete). Não pode ser ativado através do portal Azure.  
+- A função [de eliminação suave](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) deve ser ativada no cofre da chave, para proteger contra a eliminação da chave acidental (ou cofre chave) de perda de dados. Os recursos eliminados suavemente são retidos durante 90 dias, a menos que recuperados ou purgados pelo cliente entretanto. As ações de *recuperação* e *purga* têm as suas próprias permissões associadas a uma política chave de acesso ao cofre. A função soft-delete está desligada por defeito e pode ser ativada através de [PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) ou [CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete). Não pode ser ativado através do portal Azure.  
 
 - Conceda ao servidor de base de dados SQL ou acesso de instância gerido ao cofre chave (get, wrapKey, unwrapKey) utilizando a sua identidade azure Ative Directory. Ao utilizar o portal Azure, a identidade Azure AD é criada automaticamente. Ao utilizar o PowerShell ou o CLI, a identidade Azure AD deve ser explicitamente criada e a conclusão deve ser verificada. Consulte [o Configure TDE com BYOK](transparent-data-encryption-byok-azure-sql-configure.md) e [Configure TDE com BYOK para Managed Instance](https://aka.ms/sqlmibyoktdepowershell) para obter instruções passo a passo detalhadas ao utilizar o PowerShell.
 
@@ -99,7 +99,7 @@ Os auditores podem usar o Monitor Azure para rever os registos do cofre de chave
 
 - Ativar auditoria e reportagem em todas as chaves de encriptação: O cofre chave fornece registos que são fáceis de injetar em outras ferramentas de informação de segurança e gestão de eventos. O [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) de Gestão de Operações é um exemplo de um serviço que já está integrado.
 
-- Ligue cada servidor a dois cofres chave que residem em diferentes regiões e possuam o mesmo material chave, para garantir uma alta disponibilidade de bases de dados encriptadas. Marque apenas a chave do cofre chave na mesma região que um protetor TDE. O sistema vai usar
+- Ligue cada servidor a dois cofres chave que residem em diferentes regiões e possuam o mesmo material chave, para garantir uma alta disponibilidade de bases de dados encriptadas. Marque apenas a chave do cofre chave na mesma região que um protetor TDE. O sistema mudará automaticamente para o cofre chave na região remota se houver uma falha que afete o cofre chave na mesma região.
 
 ### <a name="recommendations-when-configuring-tde-protector"></a>Recomendações ao configurar o protetor TDE
 - Guarde uma cópia do protetor TDE num local seguro ou deposite-a no serviço de caução.
@@ -159,17 +159,17 @@ Para restaurar uma cópia de segurança encriptada com um protetor TDE do Key Va
 > [!IMPORTANT]
 > A qualquer momento não pode haver mais do que um conjunto de protetor TDE para um servidor. É a chave marcada com "Faça da chave o protetor TDE padrão" na lâmina do portal Azure. No entanto, várias teclas adicionais podem ser ligadas a um servidor sem as marcar como protetora TDE. Estas teclas não são utilizadas para proteger o DEK, mas podem ser utilizadas durante a restauração a partir de uma cópia de segurança, se o ficheiro de reserva for encriptado com a chave com a impressão digital correspondente.
 
-Se a chave necessária para restaurar uma cópia de segurança já não estiver disponível para o servidor-alvo, a seguinte mensagem de erro é devolvida na tentativa de restauro: "O servidor-alvo `<Servername>` não tem acesso a todos os URIs AKV criados entre \<Timestamp #1> e \<Timestamp #2>. Por favor, retente a operação depois de restaurar todos os URIs AKV."
+Se a chave necessária para restaurar uma cópia de segurança já não estiver disponível para o `<Servername>` servidor-alvo, a seguinte mensagem de \<erro é \<devolvida na tentativa de restauro: "O servidor-alvo não tem acesso a todos os URIs AKV criados entre a Timestamp #1> e a Timestamp #2>. Por favor, retente a operação depois de restaurar todos os URIs AKV."
 
 Para mitigar, execute o [get-AzSqlServerKeyKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet para o servidor lógico De base de dados SQL alvo ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para a instância gerida pelo alvo para devolver a lista de chaves disponíveis e identificar as que faltam. Para garantir que todas as cópias de segurança podem ser restauradas, certifique-se de que o servidor-alvo para a restauração tem acesso a todas as teclas necessárias. Estas chaves não precisam de ser marcadas como protetora tde.
 
-Para saber mais sobre a recuperação de cópias de segurança para a Base de Dados SQL, consulte Recuperar uma base de [dados Azure SQL](sql-database-recovery-using-backups.md). Para saber mais sobre a recuperação de backup para o SQL Pool, consulte [Recuperar um SQL Pool](../sql-data-warehouse/backup-and-restore.md). Para a cópia de segurança/restauro nativo do SQL Server com instância gerida, consulte [Quickstart: Restaurar uma base de dados para uma instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
+Para saber mais sobre a recuperação de cópias de segurança para a Base de Dados SQL, consulte Recuperar uma base de [dados Azure SQL](sql-database-recovery-using-backups.md). Para saber mais sobre a recuperação de backup para o SQL Pool, consulte [Recuperar um SQL Pool](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para a cópia de segurança/restauro nativo do SQL Server com instância gerida, consulte [Quickstart: Restaurar uma base de dados para uma instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
 
 Consideração adicional para ficheiros de registo: Os ficheiros de registo apoiados permanecem encriptados com o protetor TDE original, mesmo que tenha sido rodado e a base de dados esteja agora a utilizar um novo protetor TDE.  No momento de restauro, ambas as chaves serão necessárias para restaurar a base de dados.  Se o ficheiro de registo estiver a utilizar um protetor TDE armazenado no Cofre de Chaves Azure, esta chave será necessária no momento de reestabelecimento, mesmo que a base de dados tenha sido alterada para utilizar o TDE gerido pelo serviço entretanto.
 
 ## <a name="high-availability-with-customer-managed-tde"></a>Alta disponibilidade com TDE gerido pelo cliente
 
-Mesmo nos casos em que não há geo-redundância configurada para o servidor, é altamente recomendado configurar o servidor para usar dois cofres chave diferentes em duas regiões diferentes com o mesmo material chave. Pode ser realizado criando um protetor TDE usando o cofre principal co-localizado na mesma região que o servidor e clonando a chave em um cofre chave em uma região azure diferente, de modo que o servidor tem acesso a um segundo cofre chave se o cofre principal exper ience uma paragem enquanto a base de dados está em funcionamento.
+Mesmo nos casos em que não há geo-redundância configurada para o servidor, é altamente recomendado configurar o servidor para usar dois cofres chave diferentes em duas regiões diferentes com o mesmo material chave. Pode ser realizado criando um protetor TDE usando o cofre principal co-localizado na mesma região que o servidor e clonando a chave em um cofre chave em uma região azure diferente, de modo que o servidor tem acesso a um segundo cofre chave se o cofre principal chave experimentar uma paragem enquanto a base de dados está em funcionamento.
 
 Utilize o cmdlet Backup-AzKeyVaultKey para recuperar a chave em formato encriptado a partir do cofre principal da chave e, em seguida, utilize o cmdlet Restore-AzKeyVaultKey e especifique um cofre chave na segunda região para clonar a chave. Em alternativa, utilize o portal Azure para fazer backup e restaurar a chave. A chave no cofre secundário em se outra região não deve ser marcada como protetorta TDE, e nem sequer é permitida.
 

@@ -1,6 +1,6 @@
 ---
-title: Como configurar um aplicativo de proxy de aplicativo para usar o PingAccess
-description: Saiba como usar o PingAccess para estender os benefícios do proxy de aplicativo para aplicativos usando a autenticação baseada em cabeçalho
+title: Como configurar uma aplicação proxy de aplicação para usar o PingAccess
+description: Saiba como usar o PingAccess para alargar os benefícios do Proxy de Aplicação a aplicações usando a autenticação baseada em cabeçalhos
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,26 +17,26 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c852c69b6f64b59845b551202bd1a25646a49eb6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275646"
 ---
-# <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Como configurar um aplicativo de Application proxy para usar o PingAccess
+# <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Como configurar uma aplicação proxy de aplicação para usar o PingAccess
 
-Nossa colaboração com o PingAccess agora permite que você estenda os benefícios do proxy de aplicativo para aplicativos que usam a autenticação baseada em cabeçalho. Se seus aplicativos não usam cabeçalhos, consulte nossa [documentação de logon único](application-proxy-configure-single-sign-on-with-kcd.md) para obter detalhes sobre outras opções.
+A nossa colaboração com o PingAccess permite agora alargar os benefícios do Proxy de Aplicação a aplicações utilizando a autenticação baseada em cabeçalhos. Se as suas aplicações não utilizarem cabeçalhos, consulte a nossa [documentação De Assinatura Única](application-proxy-configure-single-sign-on-with-kcd.md) para mais detalhes sobre outras opções.
 
-## <a name="overview-of-steps-and-recommended-documents"></a>Visão geral das etapas e documentos recomendados
+## <a name="overview-of-steps-and-recommended-documents"></a>Visão geral dos passos e documentos recomendados
 
-Para configurar um aplicativo com o PingAccess, há quatro etapas:
+Para configurar uma aplicação com o PingAccess, existem quatro etapas:
 
-1.  Configurar conectores de proxy de aplicativo
+1.  Configure Conectores proxy de aplicação
 
-2.  Criar um aplicativo de Proxy de Aplicativo do AD do Azure
+2.  Criar uma aplicação de procuração de aplicação ad ida e resumida
 
-3.  Baixar & configurar o PingAccess
+3.  Baixar & Configure PingAccess
 
-4.  Configurar aplicativos no PingAccess
+4.  Configure aplicações no PingAccess
 
-Para obter detalhes sobre cada uma dessas etapas, consulte [a documentação de logon único com cabeçalhos](application-proxy-configure-single-sign-on-with-ping-access.md).
+Para mais detalhes sobre cada um destes passos, consulte a nossa [documentação Single Sign-On com Cabeçalhos](application-proxy-configure-single-sign-on-with-ping-access.md).

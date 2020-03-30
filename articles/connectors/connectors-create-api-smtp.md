@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 60acd128495176cd0a90418c61edf53bdcd88e5a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77647583"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envie e-mail da sua conta SMTP com Aplicações Lógicas Azure
@@ -43,7 +43,7 @@ Com aplicativos azure logic e o conector Simple Mail Transfer Protocol (SMTP), p
 1. Sob o último passo em que pretende adicionar uma ação SMTP, escolha **novo passo**. 
 
    Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. 
-   Escolha o sinal plus **(+)** que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Escolha o sinal**+** de mais () que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, introduza "smtp" como filtro. Na lista de ações, selecione a ação que deseja.
 
@@ -51,7 +51,7 @@ Com aplicativos azure logic e o conector Simple Mail Transfer Protocol (SMTP), p
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da Ligação** | Sim | Um nome para a ligação ao seu servidor SMTP | 
+   | **Nome de ligação** | Sim | Um nome para a ligação ao seu servidor SMTP | 
    | **Endereço do servidor SMTP** | Sim | O endereço do seu servidor SMTP | 
    | **Nome do utilizador** | Sim | O seu nome de utilizador para a sua conta SMTP | 
    | **Palavra-passe** | Sim | A sua palavra-passe para a sua conta SMTP | 

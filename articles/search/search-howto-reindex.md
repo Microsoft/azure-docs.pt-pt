@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77498385"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como reconstruir um índice em Pesquisa Cognitiva Azure
@@ -27,7 +27,7 @@ Uma *reconstrução* refere-se à queda e recriação das estruturas de dados f�
 
 Deixe cair e recrie um índice se alguma das seguintes condições for verdadeira. 
 
-| condição | Descrição |
+| Condição | Descrição |
 |-----------|-------------|
 | Alterar uma definição de campo | A revisão de um nome de campo, tipo de dados ou [atributos](https://docs.microsoft.com/rest/api/searchservice/create-index) específicos do índice (pesquisável, filterável, classificativa, facetable) requer uma reconstrução completa. |
 | Atribuir um analisador a um campo | [Os analisadores](search-analyzers.md) são definidos num índice e depois atribuídos aos campos. Pode adicionar uma nova definição de analisador a um índice a qualquer momento, mas só pode *atribuir* um analisador quando o campo é criado. Isto é verdade tanto para as propriedades **do analisador** como para o **indexAnalyzer.** A propriedade **searchAnalyzer** é uma exceção (você pode atribuir esta propriedade a um campo existente). |
@@ -77,13 +77,13 @@ Quando carrega o índice, o índice invertido de cada campo é povoado com todas
 > [!NOTE]
 > Se tiver requisitos sla rigorosos, poderá considerar o fornecimento de um novo serviço especificamente para este trabalho, com o desenvolvimento e a indexação a ocorrerem em total isolamento a partir de um índice de produção. Um serviço separado funciona no seu próprio hardware, eliminando qualquer possibilidade de contenção de recursos. Quando o desenvolvimento estiver concluído, ou deixaria o novo índice no lugar, redirecionando as consultas para o novo ponto final e índice, ou executaria código final para publicar um índice revisto no seu serviço original de Pesquisa Cognitiva Azure. Atualmente, não existe um mecanismo para mover um índice de pronto-a-uso para outro serviço.
 
-## <a name="check-for-updates"></a>Verifique se há novidades
+## <a name="check-for-updates"></a>Procurar atualizações
 
 Pode começar a consultar um índice assim que o primeiro documento estiver carregado. Se você sabe o ID de um documento, o [Documento De Procura ÇÃO REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) devolve o documento específico. Para testes mais amplos, deve esperar até que o índice esteja completamente carregado e, em seguida, use consultas para verificar o contexto que espera ver.
 
 Pode utilizar o [Search Explorer](search-explorer.md) ou uma ferramenta de teste web como [o Carteiro](search-get-started-postman.md) para verificar se há conteúdo atualizado.
 
-Se adicionou ou renomeou um campo, use [$select](search-query-odata-select.md) para devolver esse campo: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
+Se adicionou ou renomeou um campo, utilize [$select](search-query-odata-select.md) para devolver esse campo:`search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
 ## <a name="see-also"></a>Consulte também
 

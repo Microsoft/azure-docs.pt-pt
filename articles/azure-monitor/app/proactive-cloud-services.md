@@ -1,14 +1,14 @@
 ---
-title: Alerta sobre questões nos Serviços Azure Cloud utilizando a integração de Diagnósticos Azure com insights de aplicação Azure  Microsoft Docs
+title: Alerta sobre questões nos Serviços Azure Cloud utilizando a integração de Diagnósticos Azure com insights de aplicação Azure [ Microsoft Docs
 description: Monitor para problemas como falhas de startups, falhas e ciclos de reciclagem de papéis em Azure Cloud Services com Insights de Aplicação Azure
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669748"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre questões nos Serviços Azure Cloud utilizando a integração de diagnósticos Azure com insights de aplicação Azure
@@ -111,7 +111,7 @@ Depois de definir o grupo Action, confirme as suas alterações e clique em **Cr
 
 Saiba mais sobre a deteção automática:
 
-[Anomalias](../../azure-monitor/app/proactive-failure-diagnostics.md) de falha
-fugas de [memória](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[anomalias](../../azure-monitor/app/proactive-performance-diagnostics.md) de desempenho
+[Falha anomalias](../../azure-monitor/app/proactive-failure-diagnostics.md)
+[Memória Leaks](../../azure-monitor/app/proactive-potential-memory-leak.md)
+[Anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

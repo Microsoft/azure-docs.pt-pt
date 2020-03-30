@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471028"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicione bibliotecas personalizadas da Hive Apache ao criar o seu cluster HDInsight
@@ -23,7 +23,7 @@ Saiba como pré-carregar as bibliotecas [apache hive](https://hive.apache.org/) 
 
 Ao criar um cluster, pode usar uma Ação de Script para modificar os nós de cluster à medida que são criados. O script neste documento aceita um único parâmetro, que é a localização das bibliotecas. Esta localização deve estar numa Conta de Armazenamento Azure, e as bibliotecas devem ser armazenadas como ficheiros de frascos.
 
-Durante a criação do cluster, o script enumera os ficheiros, copia-os para o `/usr/lib/customhivelibs/` diretório na cabeça e nos nós dos trabalhadores, acrescentando-os ao `hive.aux.jars.path` imóvel no ficheiro `core-site.xml`. Nos clusters baseados no Linux, também atualiza o ficheiro `hive-env.sh` com a localização dos ficheiros.
+Durante a criação do cluster, o script `/usr/lib/customhivelibs/` enumera os ficheiros, copia-os para `hive.aux.jars.path` o diretório na cabeça e nos nós dos trabalhadores, acrescentando-os depois à propriedade no `core-site.xml` ficheiro. Nos clusters baseados no Linux, `hive-env.sh` também atualiza o ficheiro com a localização dos ficheiros.
 
 A utilização da ação do script neste artigo disponibiliza as bibliotecas quando se utiliza um cliente da Colmeia para **WebHCat**e **HiveServer2**.
 
@@ -41,7 +41,7 @@ A utilização da ação do script neste artigo disponibiliza as bibliotecas qua
 
 * A conta de armazenamento que contém a biblioteca de ficheiros de frascos **deve** ser ligada ao cluster HDInsight durante a criação. Deve ser a conta de armazenamento por defeito ou uma conta adicionada através das __Definições da Conta de Armazenamento__.
 
-* O caminho WASB para o recipiente deve ser especificado como parâmetro para a Ação do Script. Por exemplo, se os frascos forem guardados num recipiente chamado **libs** numa conta de armazenamento chamada **mystorage,** o parâmetro seria `wasbs://libs@mystorage.blob.core.windows.net/`.
+* O caminho WASB para o recipiente deve ser especificado como parâmetro para a Ação do Script. Por exemplo, se os frascos forem guardados num recipiente chamado **libs** numa `wasbs://libs@mystorage.blob.core.windows.net/`conta de armazenamento chamada **mystorage,** o parâmetro seria .
 
   > [!NOTE]  
   > Este documento pressupõe que já criou uma conta de armazenamento, um recipiente blob, e carregou os ficheiros para o mesmo.
@@ -65,11 +65,11 @@ A utilização da ação do script neste artigo disponibiliza as bibliotecas qua
     |Parâmetros|Introduza o endereço WASB no recipiente e na conta de armazenamento que contém os frascos. Por exemplo, `wasbs://libs@mystorage.blob.core.windows.net/`.|
 
     > [!NOTE]
-    > Para Apache Spark 2.1, use este roteiro de bash URI: `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`.
+    > Para Apache Spark 2.1, use `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`este roteiro de bash URI: .
 
 1. Continue a fornecer o cluster conforme descrito nos [clusters Provision HDInsight no Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-Uma vez que a criação do cluster complete, você é capaz de usar os frascos adicionados através deste script da Hive sem ter que usar a declaração `ADD JAR`.
+Uma vez que a criação do cluster complete, você é capaz de usar `ADD JAR` os frascos adicionados através deste script da Hive sem ter que usar a declaração.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: 537d84639523a74cbd9403d4ad25c34a798b7061
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665107"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar as suas regras clássicas de alerta
@@ -42,7 +42,7 @@ O processo de migração converte regras clássicas de alerta para novas regras 
     > [!NOTE]
     > O processo de migração não terá impacto na avaliação das suas regras clássicas de alerta. Continuarão a correr e a enviar alertas até que sejam migrados e as novas regras de alerta entrem em vigor.
 
-## <a name="how-to-use-the-migration-tool"></a>Como usar a ferramenta de migração
+## <a name="how-to-use-the-migration-tool"></a>Como utilizar a ferramenta de migração
 
 Para desencadear a migração das suas regras clássicas de alerta no portal Azure, siga estes passos:
 

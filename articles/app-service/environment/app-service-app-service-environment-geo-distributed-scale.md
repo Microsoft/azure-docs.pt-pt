@@ -1,6 +1,6 @@
 ---
-title: Escala distribuída geográfica
-description: Saiba como dimensionar horizontalmente os aplicativos usando a distribuição geográfica com os ambientes do Gerenciador de tráfego e do serviço de aplicativo.
+title: Escala geo distribuída
+description: Aprenda a escalar horizontalmente aplicações usando geodistribuição com Traffic Manager e App Service Environments.
 author: stefsch
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
@@ -8,60 +8,60 @@ ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 7ab04e23b838f2dfd39b73476db7492947d62e6e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688805"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Cenários de aplicativos que exigem escala muito alta podem exceder a capacidade de recursos de computação disponível para uma única implantação de um aplicativo.  Os aplicativos de votação, eventos esportivos e eventos de entretenimento televisionados são exemplos de cenários que exigem escala extremamente alta. Os requisitos de alta escala podem ser atendidos por meio da expansão horizontal de aplicativos, com várias implantações de aplicativo sendo feitas em uma única região, bem como entre regiões, para lidar com requisitos de carga extrema.
+Cenários de aplicação que requerem uma escala muito elevada podem exceder a capacidade de recursos computacionais disponíveis para uma única implementação de uma app.  As candidaturas de voto, eventos desportivos e eventos de entretenimento televisivo são todos exemplos de cenários que requerem uma escala extremamente elevada. Os requisitos de alta escala podem ser cumpridos através da escala horizontal de aplicações, com múltiplas implementações de aplicações a serem feitas numa única região, bem como em todas as regiões, para lidar com requisitos de carga extremas.
 
-Ambientes de serviço de aplicativo são uma plataforma ideal para expansão horizontal.  Depois que uma configuração de Ambiente do Serviço de Aplicativo tiver sido selecionada que possa dar suporte a uma taxa de solicitação conhecida, os desenvolvedores poderão implantar ambientes de serviço de aplicativo adicionais no modo "cookie cortador" para obter uma capacidade de carga de pico desejada.
+Os Ambientes de Serviço de Aplicações são uma plataforma ideal para a escala horizontal.  Uma vez selecionada uma configuração do App Service Environment que pode suportar uma taxa de pedido conhecida, os desenvolvedores podem implementar ambientes adicionais de serviço de aplicação em forma de "cortador de cookies" para alcançar uma capacidade de carga máxima desejada.
 
-Por exemplo, suponha que um aplicativo em execução em uma configuração de Ambiente do Serviço de Aplicativo tenha sido testado para manipular solicitações de 20 mil por segundo (RPS).  Se a capacidade de carga de pico desejada for de 100 mil RPS, cinco (5) ambientes de serviço de aplicativo poderão ser criados e configurados para garantir que o aplicativo possa lidar com a carga projetada máxima.
+Por exemplo, suponha que uma aplicação em execução numa configuração do App Service Environment foi testada para lidar com pedidos de 20K por segundo (RPS).  Se a capacidade de carga máxima desejada for de 100K RPS, então cinco (5) Ambientes de Serviço de Aplicações podem ser criados e configurados para garantir que a aplicação pode lidar com a carga máxima projetada.
 
-Como os clientes normalmente acessam aplicativos usando um domínio personalizado (ou intuitivo), os desenvolvedores precisam de uma maneira de distribuir solicitações de aplicativo em todas as instâncias de Ambiente do Serviço de Aplicativo.  Uma ótima maneira de fazer isso é resolver o domínio personalizado usando um [perfil do Gerenciador de tráfego do Azure][AzureTrafficManagerProfile].  O perfil do Gerenciador de tráfego pode ser configurado para apontar para todos os ambientes individuais do serviço de aplicativo.  O Traffic Manager lidará automaticamente com a distribuição de clientes em todos os ambientes do serviço de aplicativo com base nas configurações de balanceamento de carga no perfil do Gerenciador de tráfego.  Essa abordagem funciona independentemente de todos os ambientes do serviço de aplicativo serem implantados em uma única região do Azure ou implantados em todo o mundo em várias regiões do Azure.
+Uma vez que os clientes normalmente acedem a apps usando um domínio personalizado (ou vaidade), os desenvolvedores precisam de uma forma de distribuir pedidos de aplicações em todas as instâncias do App Service Environment.  Uma ótima maneira de o conseguir é resolver o domínio personalizado usando um perfil do Gestor de [Tráfego Azure.][AzureTrafficManagerProfile]  O perfil do Gestor de Tráfego pode ser configurado para apontar em todos os ambientes individuais do Serviço de Aplicações.  O Traffic Manager irá lidar automaticamente com a distribuição de clientes em todos os Ambientes de Serviço de Aplicação com base nas definições de equilíbrio de carga no perfil do Gestor de Tráfego.  Esta abordagem funciona independentemente de todos os Ambientes de Serviço saem implantados numa única região do Azure, ou implantados em todo o mundo em várias regiões do Azure.
 
-Além disso, como os clientes acessam aplicativos por meio do domínio intuitivo, os clientes não sabem do número de ambientes de serviço de aplicativo que executam um aplicativo.  Como resultado, os desenvolvedores podem adicionar e remover com rapidez e facilidade ambientes de serviço de aplicativo com base na carga de tráfego observada.
+Além disso, uma vez que os clientes acedem a apps através do domínio da vaidade, os clientes desconhecem o número de Ambientes de Serviço de Aplicações que executam uma aplicação.  Como resultado, os desenvolvedores podem adicionar e remover de forma rápida e fácil, ambientes de serviço de aplicação com base na carga de tráfego observada.
 
-O diagrama conceitual abaixo descreve um aplicativo dimensionado horizontalmente em três ambientes de serviço de aplicativo em uma única região.
+O diagrama conceptual abaixo retrata uma aplicação horizontalmente escalada através de três Ambientes de Serviço de Aplicações numa única região.
 
-![Arquitetura conceitual][ConceptualArchitecture] 
+![Arquitetura Conceptual][ConceptualArchitecture] 
 
-O restante deste tópico percorre as etapas envolvidas na configuração de uma topologia distribuída para o aplicativo de exemplo usando vários ambientes de serviço de aplicativo.
+O restante deste tópico percorre os passos envolvidos na criação de uma topologia distribuída para a aplicação de amostra suster vários Ambientes de Serviço de Aplicações.
 
-## <a name="planning-the-topology"></a>Planejando a topologia
-Antes de criar uma superfície de aplicativo distribuído, ele ajuda a ter algumas informações com antecedência.
+## <a name="planning-the-topology"></a>Planejamento da Topologia
+Antes de construir uma pegada de aplicativo distribuída, ajuda a ter algumas informações de peças com antecedência.
 
-* **Domínio personalizado para o aplicativo:**  Qual é o nome de domínio personalizado que os clientes usarão para acessar o aplicativo?  Para o aplicativo de exemplo, o nome de domínio personalizado é `www.scalableasedemo.com`
-* **Domínio do Gerenciador de tráfego:**  Um nome de domínio precisa ser escolhido ao criar um [perfil do Gerenciador de tráfego do Azure][AzureTrafficManagerProfile].  Esse nome será combinado com o sufixo *trafficmanager.net* para registrar uma entrada de domínio que é gerenciada pelo Gerenciador de tráfego.  Para o aplicativo de exemplo, o nome escolhido é *Scalable-ase-demo*.  Como resultado, o nome de domínio completo que é gerenciado pelo Gerenciador de tráfego é *Scalable-ase-demo.trafficmanager.net*.
-* **Estratégia para dimensionar a superfície do aplicativo:**  A superfície do aplicativo será distribuída entre vários ambientes de serviço de aplicativo em uma única região?  Várias regiões?  Uma combinação e uma correspondência de ambas as abordagens?  A decisão deve ser baseada em expectativas de onde o tráfego do cliente será originado, assim como o restante da infra-estrutura de back-end de suporte de um aplicativo pode ser dimensionada.  Por exemplo, com um aplicativo de 100% sem monitoração de estado, um aplicativo pode ser amplamente dimensionado usando uma combinação de vários ambientes de serviço de aplicativo por região do Azure, multiplicado por ambientes de serviço de aplicativo implantados em várias regiões do Azure.  Com mais de 15 regiões públicas do Azure disponíveis para escolher, os clientes podem realmente criar uma superfície de aplicativo de hiperescala em todo o mundo.  Para o aplicativo de exemplo usado neste artigo, três ambientes de serviço de aplicativo foram criados em uma única região do Azure (EUA Central do Sul).
-* **Convenção de nomenclatura para os ambientes do serviço de aplicativo:**  Cada Ambiente do Serviço de Aplicativo requer um nome exclusivo.  Além de um ou dois ambientes de serviço de aplicativo, é útil ter uma Convenção de nomenclatura para ajudar a identificar cada Ambiente do Serviço de Aplicativo.  Para o aplicativo de exemplo, foi usada uma Convenção de nomenclatura simples.  Os nomes dos três ambientes de serviço de aplicativo são *fe1ase*, *fe2ase*e *fe3ase*.
-* **Convenção de nomenclatura para os aplicativos:**  Como várias instâncias do aplicativo serão implantadas, um nome será necessário para cada instância do aplicativo implantado.  Um recurso pouco conhecido, mas muito conveniente, dos ambientes do serviço de aplicativo é que o mesmo nome de aplicativo pode ser usado em vários ambientes de serviço de aplicativo.  Como cada Ambiente do Serviço de Aplicativo tem um sufixo de domínio exclusivo, os desenvolvedores podem optar por usar novamente o mesmo nome de aplicativo em cada ambiente.  Por exemplo, um desenvolvedor poderia ter aplicativos chamados da seguinte maneira: *MyApp.foo1.p.azurewebsites.net*, *MyApp.Foo2.p.azurewebsites.net*, *MyApp.foo3.p.azurewebsites.net*, etc.  Para o aplicativo de exemplo, embora cada instância de aplicativo também tenha um nome exclusivo.  Os nomes de instância de aplicativo usados são *webfrontend1*, *webfrontend2*e *webfrontend3*.
+* **Domínio personalizado para a aplicação:**  Qual é o nome de domínio personalizado que os clientes vão usar para aceder à aplicação?  Para a aplicação de amostra, o nome de domínio personalizado é`www.scalableasedemo.com`
+* **Domínio do Gestor de Tráfego:**  Um nome de domínio precisa de ser escolhido na criação de um perfil de Gestor de [Tráfego Azure][AzureTrafficManagerProfile].  Este nome será combinado com o *sufixo trafficmanager.net* para registar uma entrada de domínio que é gerida pelo Gestor de Tráfego.  Para a aplicação de amostra, o nome escolhido é *escalável-ase-demo*.  Como resultado, o nome de domínio completo que é gerido pelo Traffic Manager é *scalable-ase-demo.trafficmanager.net*.
+* **Estratégia para escalar a pegada da aplicação:**  A pegada da aplicação será distribuída por vários Ambientes de Serviços de Aplicações numa única região?  Várias regiões?  Uma mistura e correspondência de ambas as abordagens?  A decisão deve basear-se nas expectativas de onde o tráfego de clientes irá originar, bem como como o resto da infraestrutura de apoio de uma aplicação pode escalar.  Por exemplo, com uma aplicação 100% apátrida, uma aplicação pode ser massivamente dimensionada usando uma combinação de múltiplos ambientes de serviço de aplicação por região azure, multiplicado por Ambientes de Serviço de Aplicações implantados em várias regiões do Azure.  Com mais de 15 regiões públicas do Azure disponíveis para escolher, os clientes podem realmente construir uma pegada de aplicação em escala mundial.  Para a aplicação de amostras utilizada para este artigo, três Ambientes de Serviço sacar foram criados numa única região do Azure (Centro-Sul dos EUA).
+* **Convenção de nomeação para os Ambientes de Serviço de Aplicações:**  Cada ambiente de serviço de aplicações requer um nome único.  Além de um ou dois Ambientes de Serviço de Aplicações, é útil ter uma convenção de nomeação para ajudar a identificar cada ambiente de serviço de aplicação.  Para a aplicação de amostra foi utilizada uma convenção de nomeação simples.  Os nomes dos três Ambientes de Serviço de Aplicação são *fe1ase,* *fe2ase,* e *fe3ase.*
+* **Convenção de nomeação para as aplicações:**  Uma vez que vários casos da aplicação serão implementados, é necessário um nome para cada instância da aplicação implementada.  Uma característica pouco conhecida mas muito conveniente do App Service Environments é que o mesmo nome de aplicação pode ser usado em vários Ambientes de Serviço de Aplicações.  Uma vez que cada app service Environment tem um sufixo de domínio único, os desenvolvedores podem optar por reutilizar o mesmo nome de aplicação em cada ambiente.  Por exemplo, um desenvolvedor poderia ter aplicações com o seguinte nome: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net,* *myapp.foo3.p.azurewebsites.net,* etc.  Para a aplicação de amostras, embora cada instância de aplicação também tenha um nome único.  Os nomes da instância da aplicação utilizados são *webfrontend1*, *webfrontend2*, e *webfrontend3*.
 
-## <a name="setting-up-the-traffic-manager-profile"></a>Configurando o perfil do Gerenciador de tráfego
-Depois que várias instâncias de um aplicativo são implantadas em vários ambientes do serviço de aplicativo, as instâncias individuais do aplicativo podem ser registradas com o Gerenciador de tráfego.  Para o aplicativo de exemplo, um perfil do Gerenciador de tráfego é necessário para *Scalable-ase-demo.trafficmanager.net* que pode rotear clientes para qualquer uma das seguintes instâncias de aplicativo implantadas:
+## <a name="setting-up-the-traffic-manager-profile"></a>Configuração do perfil do gestor de tráfego
+Uma vez que várias instâncias de uma aplicação são implementadas em vários Ambientes de Serviço de Aplicações, as instâncias individuais de aplicações podem ser registadas com o Traffic Manager.  Para a aplicação de amostra, é necessário um perfil do Traffic Manager para *scalable-ase-demo.trafficmanager.net* que possa direcionar os clientes para qualquer uma das seguintes instâncias de aplicações implementadas:
 
-* **webfrontend1.fe1ase.p.azurewebsites.net:**  Uma instância do aplicativo de exemplo implantada no primeiro Ambiente do Serviço de Aplicativo.
-* **webfrontend2.fe2ase.p.azurewebsites.net:**  Uma instância do aplicativo de exemplo implantada na segunda Ambiente do Serviço de Aplicativo.
-* **webfrontend3.fe3ase.p.azurewebsites.net:**  Uma instância do aplicativo de exemplo implantada no terceiro Ambiente do Serviço de Aplicativo.
+* **webfrontend1.fe1ase.p.azurewebsites.net:**  Uma instância da aplicação de amostra seleção implementada no primeiro Ambiente de Serviço de Aplicações.
+* **webfrontend2.fe2ase.p.azurewebsites.net:**  Uma instância da aplicação de amostra seleção implantada no segundo App Service Environment.
+* **webfrontend3.fe3ase.p.azurewebsites.net:**  Uma instância da aplicação de amostra seleção implantada no terceiro App Service Environment.
 
-A maneira mais fácil de registrar vários pontos de extremidade de serviço Azure App, todos em execução na **mesma** região do Azure, é com o [suporte ao Gerenciador de tráfego][ARMTrafficManager]do PowerShell Azure Resource Manager.  
+A forma mais fácil de registar vários pontos finais do Serviço de Aplicações Azure, todos em execução na **mesma** região do Azure, é com o suporte do [Powershell Azure Resource Manager][ARMTrafficManager]de Tráfego.  
 
-A primeira etapa é criar um perfil do Gerenciador de tráfego do Azure.  O código a seguir mostra como o perfil foi criado para o aplicativo de exemplo:
+O primeiro passo é criar um perfil de Gestor de Tráfego Azure.  O código abaixo mostra como o perfil foi criado para a aplicação da amostra:
 
     $profile = New-AzureTrafficManagerProfile –Name scalableasedemo -ResourceGroupName yourRGNameHere -TrafficRoutingMethod Weighted -RelativeDnsName scalable-ase-demo -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
-Observe como o parâmetro *RelativeDnsName* foi definido como *Scalable-ase-demo*.  É assim que o nome de domínio *Scalable-ase-demo.trafficmanager.net* é criado e associado a um perfil do Gerenciador de tráfego.
+Note como o parâmetro *RelativoDnsName* foi definido para *escalável-ase-demo*.  É assim que o nome de domínio *scalable-ase-demo.trafficmanager.net* é criado e associado a um perfil de Gestor de Tráfego.
 
-O parâmetro *TrafficRoutingMethod* define a política de balanceamento de carga que o Gerenciador de tráfego usará para determinar como espalhar a carga do cliente em todos os pontos de extremidade disponíveis.  Neste exemplo, o método *ponderado* foi escolhido.  Isso fará com que as solicitações do cliente sejam distribuídas em todos os pontos de extremidade do aplicativo registrado com base nos pesos relativos associados a cada ponto de extremidades. 
+O parâmetro *TrafficRoutingMethod* define a política de equilíbrio de carga que o Traffic Manager utilizará para determinar como difundir a carga do cliente em todos os pontos finais disponíveis.  Neste exemplo, foi escolhido o método *Ponderado.*  Isto resultará na distribuição de pedidos de clientes em todos os pontos finais da aplicação registada com base nos pesos relativos associados a cada ponto final. 
 
-Com o perfil criado, cada instância de aplicativo é adicionada ao perfil como um ponto de extremidade do Azure nativo.  O código a seguir busca uma referência a cada aplicativo Web de front-end e, em seguida, adiciona cada aplicativo como um ponto de extremidade do Gerenciador de tráfego por meio do parâmetro *TargetResourceId* .
+Com o perfil criado, cada instância de aplicação é adicionada ao perfil como um ponto final nativo do Azure.  O código abaixo adquire uma referência a cada aplicação frontal frontal web e, em seguida, adiciona cada aplicação como ponto final do Gestor de Tráfego através do parâmetro *TargetResourceId.*
 
     $webapp1 = Get-AzWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
@@ -74,42 +74,42 @@ Com o perfil criado, cada instância de aplicativo é adicionada ao perfil como 
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-Observe como há uma chamada para *Add-AzureTrafficManagerEndpointConfig* para cada instância de aplicativo individual.  O parâmetro *TargetResourceId* em cada comando do PowerShell faz referência a uma das três instâncias de aplicativo implantadas.  O perfil do Gerenciador de tráfego espalhará a carga entre todos os três pontos de extremidade registrados no perfil.
+Note como há uma chamada para *Add-AzureTrafficManagerEndpointConfig* para cada instância de aplicação individual.  O parâmetro *TargetResourceId* em cada comando Powershell refere uma das três instâncias de aplicações implementadas.  O perfil do Gestor de Tráfego irá espalhar a carga pelos três pontos finais registados no perfil.
 
-Todos os três pontos de extremidade usam o mesmo valor (10) para o parâmetro *Weight* .  Isso resulta na difusão do Gerenciador de tráfego de solicitações de clientes entre todas as três instâncias de aplicativo de maneira relativamente uniforme. 
+Todos os três pontos finais utilizam o mesmo valor (10) para o parâmetro *peso.*  Isto resulta em Traffic Manager a espalhar pedidos de clientes em todas as três instâncias de aplicações de forma relativamente uniforme. 
 
-## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Apontando o domínio personalizado do aplicativo no domínio do Traffic Manager
-A etapa final necessária é apontar o domínio personalizado do aplicativo no domínio do Traffic Manager.  Para o aplicativo de exemplo, isso significa apontar `www.scalableasedemo.com` em `scalable-ase-demo.trafficmanager.net`.  Essa etapa precisa ser concluída com o registrador de domínio que gerencia o domínio personalizado.  
+## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Apontando o domínio personalizado da app para o domínio do gestor de tráfego
+O passo final necessário é apontar o domínio personalizado da app para o domínio do Traffic Manager.  Para a aplicação `www.scalableasedemo.com` de `scalable-ase-demo.trafficmanager.net`amostra, isto significa apontar para .  Este passo tem de ser concluído com o registo de domínio que gere o domínio personalizado.  
 
-Usando as ferramentas de gerenciamento de domínio do registrador, é necessário criar registros CNAME que apontam o domínio personalizado no domínio do Traffic Manager.  A figura abaixo mostra um exemplo de como essa configuração de CNAME é semelhante a:
+Utilizando as ferramentas de gestão de domínio do seu registo, é necessário criar um registo CNAME que aponte o domínio personalizado no domínio do Traffic Manager.  A imagem abaixo mostra um exemplo de como esta configuração CNAME se parece:
 
-![CNAME para domínio personalizado][CNAMEforCustomDomain] 
+![CNAME para Domínio Personalizado][CNAMEforCustomDomain] 
 
-Embora não seja abordado neste tópico, lembre-se de que cada instância de aplicativo individual precisa ter o domínio personalizado registrado com ele também.  Caso contrário, se uma solicitação a fizer em uma instância de aplicativo e o aplicativo não tiver o domínio personalizado registrado com o aplicativo, a solicitação falhará.  
+Apesar de não estar abrangida por este tópico, lembre-se que cada instância de aplicação individual precisa de ter o domínio personalizado registado com ele também.  Caso contrário, se um pedido chegar a uma instância de aplicação, e a aplicação não tiver o domínio personalizado registado na aplicação, o pedido falhará.  
 
-Neste exemplo, o domínio personalizado é `www.scalableasedemo.com`e cada instância do aplicativo tem o domínio personalizado associado a ele.
+Neste exemplo, o `www.scalableasedemo.com`domínio personalizado é , e cada instância de aplicação tem o domínio personalizado associado a ele.
 
 ![Domínio Personalizado][CustomDomain] 
 
-Para uma recapitulação do registro de um domínio personalizado com aplicativos de serviço Azure App, consulte o seguinte artigo sobre como [registrar domínios personalizados][RegisterCustomDomain].
+Para uma recapitulação do registo de um domínio personalizado com aplicações do Serviço de Aplicações Azure, consulte o seguinte artigo sobre o registo de [domínios personalizados][RegisterCustomDomain].
 
-## <a name="trying-out-the-distributed-topology"></a>Experimentando a topologia distribuída
-O resultado final do Gerenciador de tráfego e da configuração de DNS é que as solicitações para `www.scalableasedemo.com` fluirão através da seguinte sequência:
+## <a name="trying-out-the-distributed-topology"></a>Experimentando a Topologia Distribuída
+O resultado final da configuração do Gestor de `www.scalableasedemo.com` Tráfego e dNS é que os pedidos irão fluir através da seguinte sequência:
 
-1. Um navegador ou dispositivo fará uma pesquisa de DNS para `www.scalableasedemo.com`
-2. A entrada CNAME no registrador de domínio faz com que a pesquisa de DNS seja redirecionada para o Gerenciador de tráfego do Azure.
-3. Uma pesquisa DNS é feita para *Scalable-ase-demo.trafficmanager.net* em um dos servidores DNS do Gerenciador de tráfego do Azure.
-4. Com base na política de balanceamento de carga (o parâmetro *TrafficRoutingMethod* usado anteriormente ao criar o perfil do Gerenciador de tráfego), o Gerenciador de tráfego selecionará um dos pontos de extremidade configurados e retornará o FQDN desse ponto para o navegador ou dispositivo.
-5. Como o FQDN do ponto de extremidade é a URL de uma instância de aplicativo em execução em um Ambiente do Serviço de Aplicativo, o navegador ou dispositivo solicitará que um servidor DNS Microsoft Azure resolva o FQDN para um endereço IP. 
-6. O navegador ou dispositivo enviará a solicitação HTTP/S para o endereço IP.  
-7. A solicitação chegará em uma das instâncias do aplicativo em execução em um dos ambientes do serviço de aplicativo.
+1. Um navegador ou dispositivo fará uma procura de DNS`www.scalableasedemo.com`
+2. A entrada cname no registo de domínio faz com que a procura de DNS seja redirecionada para o Gestor de Tráfego Azure.
+3. Um look up DNS é feito para *scalable-ase-demo.trafficmanager.net* contra um dos servidores DNS do Gestor de Tráfego Azure.
+4. Com base na política de equilíbrio de carga (o parâmetro *TrafficRoutingMethod* utilizado anteriormente ao criar o perfil do Gestor de Tráfego), o Traffic Manager selecionará um dos pontos finais configurados e devolverá o FQDN desse ponto final ao navegador ou dispositivo.
+5. Uma vez que o FQDN do ponto final é o Url de uma instância de aplicação que funciona num Ambiente de Serviço de Aplicações, o navegador ou dispositivo pedirá a um servidor DNS microsoft Azure para resolver o FQDN num endereço IP. 
+6. O navegador ou dispositivo enviará o pedido HTTP/S para o endereço IP.  
+7. O pedido chegará a uma das instâncias da aplicação em execução num dos Ambientes de Serviço de Aplicações.
 
-A imagem de console abaixo mostra uma pesquisa de DNS para o domínio personalizado do aplicativo de exemplo resolvendo com êxito uma instância de aplicativo em execução em um dos três ambientes de serviço de aplicativo de exemplo (neste caso, o segundo dos três ambientes de serviço de aplicativo):
+A imagem da consola abaixo mostra um olhar DNS para o domínio personalizado da aplicação da amostra resolvendo com sucesso uma instância de aplicação em execução em um dos três ambientes de serviço de aplicação de aplicação (neste caso o segundo dos três Ambientes de Serviço de Aplicações):
 
-![Pesquisa de DNS][DNSLookup] 
+![DNS Lookup][DNSLookup] 
 
-## <a name="additional-links-and-information"></a>Links e informações adicionais
-Documentação sobre o [suporte do Gerenciador de tráfego do Azure Resource Manager][ARMTrafficManager]PowerShell.  
+## <a name="additional-links-and-information"></a>Links e Informações Adicionais
+Documentação sobre o suporte do [Powershell Azure Resource Manager Traffic Manager][ARMTrafficManager].  
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Solução de Monitor de Desempenho de Rede no Azure Log Analytics  Microsoft Docs
+title: Solução de Monitor de Desempenho de Rede no Azure Log Analytics [ Microsoft Docs
 description: Utilize a capacidade do Monitor ExpressRoute no Monitor de Desempenho da Rede para monitorizar a conectividade e desempenho de ponta a ponta entre as suas filiais e o Azure, sobre o Azure ExpressRoute.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660755"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
@@ -27,7 +27,7 @@ Pode utilizar a capacidade do Monitor Azure ExpressRoute no Monitor de Desempenh
 Para abrir a configuração do Monitor de Desempenho da Rede, abra a [solução](network-performance-monitor.md) do Monitor de Desempenho da Rede e selecione **Configurar**.
 
 ### <a name="configure-network-security-group-rules"></a>Configure as regras do grupo de segurança da rede 
-Para os servidores do Azure que são utilizados para monitorização através do Network Performance Monitor, configurar as regras do grupo de segurança da rede (NSG) para permitir o tráfego de TCP na porta utilizada pelo Network Performance Monitor para transações sintéticas. A porta predefinida é 8084. Esta configuração permite que o agente Log Analytics instalado em VMs Azure se comunique com um agente de monitorização no local. 
+Para os servidores do Azure que são utilizados para monitorização através do Network Performance Monitor, configurar as regras do grupo de segurança da rede (NSG) para permitir o tráfego de TCP na porta utilizada pelo Network Performance Monitor para transações sintéticas. A porta padrão é 8084. Esta configuração permite que o agente Log Analytics instalado em VMs Azure se comunique com um agente de monitorização no local. 
 
 Para obter mais informações sobre nsgs, consulte [grupos](../../virtual-network/manage-network-security-group.md)de segurança da Rede . 
 
@@ -75,7 +75,7 @@ O painel do Monitor de Desempenho da Rede mostra uma visão geral da saúde dos 
 
 ### <a name="circuits-list"></a>Lista de circuitos 
 
-Para ver uma lista de todos os circuitos ExpressRoute monitorizados, selecione o azulejo dos circuitos ExpressRoute. Pode selecionar um circuito e ver o estado de funcionamento, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência. Os gráficos são interativos. Pode selecionar uma janela de tempo personalizado para desenhar gráficos. Arraste o rato sobre uma área na tabela para ampliar e ver pontos de dados de grãos finos. 
+Para ver uma lista de todos os circuitos ExpressRoute monitorizados, selecione o azulejo dos circuitos ExpressRoute. Pode selecionar um circuito e visualizar o seu estado de saúde, gráficos de tendências para perda de pacotes, utilização da largura de banda e latência. Os gráficos são interativos. Pode selecionar uma janela de tempo personalizada para traçar as tabelas. Arraste o rato sobre uma área na tabela para ampliar e ver pontos de dados de grãos finos. 
 
 ![Lista de circuitos ExpressRoute](media/network-performance-monitor-expressroute/expressroute-circuits.png) 
 
@@ -87,7 +87,7 @@ A utilização da largura de banda, a latência e os gráficos de perda são int
 
 ### <a name="peerings-list"></a>Lista de pares 
 
-Para apresentar uma lista de todas as ligações a redes virtuais através de um epeering privado, selecione o azulejo **Private Peerings** no painel de instrumentos. Aqui, pode selecionar um virtual ligação de rede e para ver o estado de funcionamento, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência. 
+Para apresentar uma lista de todas as ligações a redes virtuais através de um epeering privado, selecione o azulejo **Private Peerings** no painel de instrumentos. Aqui, você pode selecionar uma conexão de rede virtual e ver o seu estado de saúde, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência. 
 
 ![Peerings ExpressRoute](media/network-performance-monitor-expressroute/expressroute-peerings.png) 
 

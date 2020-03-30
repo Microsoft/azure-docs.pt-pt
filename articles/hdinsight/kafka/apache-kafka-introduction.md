@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
 ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77672179"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é Apache Kafka em Azure HDInsight
@@ -59,7 +59,7 @@ A replicação é utilizada para duplicar as partições nos nós, ao proteger c
 
 Seguem-se as tarefas comuns e os padrões que podem ser efetuados com o Kafka no HDInsight:
 
-|Utilização |Descrição |
+|Utilizar |Descrição |
 |---|---|
 |Replicação de dados apache kafka|Kafka fornece o utilitário MirrorMaker, que replica dados entre os clusters kafka. Para obter informações sobre a utilização do MirrorMaker, consulte [tópicos Replicate Apache Kafka com Apache Kafka no HDInsight](apache-kafka-mirroring.md).|
 |Padrão de mensagens de subscrição de publicação|Kafka fornece um Produtor API para publicar registos a um tópico kafka. A API de Consumidor é utilizada ao subscrever um tópico. Para mais informações, consulte [Start with Apache Kafka no HDInsight](apache-kafka-get-started.md).|
@@ -81,4 +81,4 @@ Utilize as seguintes ligações para saber como utilizar o Apache Kafka no HDIns
 
 * [Tutorial: Use Apache Spark com Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Tutorial: Use Apache Storm com Apache Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Tutorial: Utilizar o Apache Storm com Apache Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)

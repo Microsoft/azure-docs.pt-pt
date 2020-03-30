@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be447b001b0b2e14999aac98ba2125f8cbfe9853
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77186618"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Quickstart: Bloquear o acesso quando um risco de sessão é detetado com acesso condicional do Diretório Ativo Azure  
@@ -26,7 +26,7 @@ Este quickstart mostra como configurar uma política de [acesso condicional](../
 
 ![Criar política](./media/app-sign-in-risk/1000.png)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ Esta secção mostra como criar a política de acesso condicional necessária. N
 | Utilizadores e grupos | Alain Charon  |
 | Aplicativos em nuvem | Todas as aplicações em nuvem |
 | Risco de inscrição | Médio |
-| Concessão | Acesso ao bloco |
+| Concessão | Bloquear acesso |
 
 ![Criar política](./media/app-sign-in-risk/130.png)
 
@@ -108,7 +108,7 @@ Esta secção mostra como criar a política de acesso condicional necessária. N
 
 1. Na página **Condições:**
 
-   ![Nível de risco de inscrição](./media/app-sign-in-risk/21.png)
+   ![Nível de risco de início de sessão](./media/app-sign-in-risk/21.png)
 
    1. Clique **no risco de iniciar sessão**.
    1. Como **Configurar,** clique **sim.**
@@ -143,7 +143,7 @@ Quando executar o **instrumento de política** para este cenário, o acesso do B
 
 1. Na página [Acesso Condicional - Políticas,](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) no menu em cima, clique no **What If**.  
 
-   ![What If](./media/app-sign-in-risk/14.png)
+   ![Hipótese](./media/app-sign-in-risk/14.png)
 
 1. Clique em **Utilizador,** **selecione Alan Charon** na página **Utilizadores** e, em seguida, clique em **Selecionar**.
 
@@ -177,5 +177,5 @@ Quando já não for necessário, elimine o utilizador do teste, o Tor Browser e 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Exigir que os termos de uso sejam aceites](require-tou.md)
-> [exigir MFA para aplicações específicas](app-based-mfa.md)
+> [Exigir termos de uso para ser aceite](require-tou.md)
+> [Exigir MFA para aplicações específicas](app-based-mfa.md)

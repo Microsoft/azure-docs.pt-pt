@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77559238"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no seu Diretório Ativo Azure
@@ -67,7 +67,7 @@ Tem de alterar ou eliminar qualquer recurso no seu diretório Azure AD antes de 
 
 ### <a name="forcedelete-option"></a>Opção ForceDelete
 
-Pode **eliminar** um nome de domínio no Centro de [Administração AD Azure](https://aad.portal.azure.com) ou utilizar a [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Estas opções utilizam uma operação assíncrona e atualizam todas as referências do nome de domínio personalizado como "user@contoso.com" para o nome inicial de domínio padrão, como "user@contoso.onmicrosoft.com." 
+Pode **eliminar** um nome de domínio no Centro de [Administração AD Azure](https://aad.portal.azure.com) ou utilizar a [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Estas opções usam uma operação assíncrona e atualizam todasuser@contoso.comas referências do nomeuser@contoso.onmicrosoft.comde domínio personalizado como " " ao nome inicial de domínio padrão como " ." 
 
 Para ligar para **forceDelete** no portal Azure, deve certificar-se de que existem menos de 1000 referências ao nome de domínio, e quaisquer referências em que o Exchange é o serviço de provisionamento devem ser atualizadas ou removidas no [Centro de Administração de Intercâmbio.](https://outlook.office365.com/ecp/) Isto inclui grupos de segurança ativados por correio de troca e listas distribuídas; para obter mais informações, consulte [A remoção de grupos de segurança ativados por correio](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Além disso, a operação **ForceDelete** não terá sucesso se qualquer uma das seguintes palavras for verdadeira:
 
@@ -91,9 +91,9 @@ Um erro é devolvido quando:
 **A:** Hoje em dia, certos grupos como os grupos de segurança ativados por correio e as listas distribuídas são provisionados pela Exchange e precisam de ser limpos manualmente no [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). Pode haver proxyAddresses persistentes que dependem do nome de domínio personalizado e terão de ser atualizados manualmente para outro nome de domínio. 
 
 **P: Estou registado como administrador\@contoso.com mas não posso apagar o nome de domínio "contoso.com"?**<br>
-**A:** Não é possível fazer referência ao nome de domínio personalizado que está a tentar apagar no nome da sua conta de utilizador. Certifique-se de que a conta De Administrador Global está a usar o nome de domínio padrão inicial (.onmicrosoft.com) como admin@contoso.onmicrosoft.com. Inscreva-se numa conta de Administrador Global diferente que, como admin@contoso.onmicrosoft.com ou outro nome de domínio personalizado como "fabrikam.com" onde a conta é admin@fabrikam.com.
+**A:** Não é possível fazer referência ao nome de domínio personalizado que está a tentar apagar no nome da sua conta de utilizador. Certifique-se de que a conta De Administrador Global está admin@contoso.onmicrosoft.coma utilizar o nome de domínio padrão inicial (.onmicrosoft.com) como . Inscreva-se numa conta de Administrador admin@contoso.onmicrosoft.com Global diferente que, como ou outro admin@fabrikam.comnome de domínio personalizado como "fabrikam.com" onde está a conta.
 
-**P: Cliquei no botão de domínio Eliminar e ver `In Progress` estado para a operação Delete. Quanto tempo demora? O que acontece se falhar?**<br>
+**P: Cliquei no botão `In Progress` de domínio Eliminar e ver o estado da operação Delete. Quanto tempo demora? O que acontece se falhar?**<br>
 **A:** A operação de domínio de exclusão é uma tarefa de fundo assíncrona que renomea todas as referências ao nome de domínio. Deve estar concluído dentro de um minuto ou dois. Se a eliminação do domínio falhar, certifique-se de que não tem:
 
 * Aplicativos configurados no nome de domínio com a appIdentifierURI

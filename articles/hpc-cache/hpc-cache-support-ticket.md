@@ -1,32 +1,32 @@
 ---
-title: Abrir um tíquete de suporte para o cache do Azure HPC
-description: Como abrir uma solicitação de ajuda para o cache do Azure HPC
+title: Abra um bilhete de apoio para Azure HPC Cache
+description: Como abrir um pedido de ajuda para azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: rohogue
 ms.openlocfilehash: 76261f4e2e42b4272abcd976fcf2644fd43aa818
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74169355"
 ---
-# <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Abrir um tíquete de suporte para o cache do Azure HPC
+# <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Abra um bilhete de apoio para Azure HPC Cache
 
-Use o portal do Azure para abrir um tíquete de suporte. Navegue até a instância do cache e clique no link **nova solicitação de suporte** que aparece na parte inferior da barra lateral.
+Utilize o portal Azure para abrir um bilhete de apoio. Navegue para a sua instância de cache e, em seguida, clique no novo link de pedido de **suporte** que aparece na parte inferior da barra lateral.
 
-Para abrir um tíquete quando você não tem um cache ativo, use a página principal ajuda + suporte do portal do Azure. Abra o menu do portal no controle na parte superior esquerda da tela e, em seguida, role até a parte inferior e clique em **ajuda + suporte**.
+Para abrir um bilhete quando não tiver uma cache ativa, utilize a página principal de suporte Ajuda + do portal Azure. Abra o menu do portal a partir do controlo na parte superior esquerda do ecrã, em seguida, percorra para baixo e clique em **Ajuda + suporte**.
 
-Escolha **nova solicitação de suporte** e selecione **técnico** para obter ajuda específica para o cache do HPC do Azure.
+Escolha **novo pedido** de suporte e selecione **Técnico** para ajuda específica à Cache Azure HPC.
 
-Selecione sua assinatura na lista.
+Selecione a sua subscrição na lista.
 
-Para localizar o serviço de cache do HPC do Azure, clique no botão **todos os serviços** e procure HPC.
+Para encontrar o serviço Azure HPC Cache, clique no botão **Todos os serviços** e procure hPC.
 
-![Captura de tela da guia noções básicas de solicitação de suporte, parcialmente preenchida conforme descrito](media/hpc-cache-support-request.png)
+![Screenshot do pedido de suporte - Separador Basics, parcialmente preenchido como descrito](media/hpc-cache-support-request.png)
 
-Preencha o restante dos campos com suas informações e preferências e, em seguida, envie o tíquete quando estiver pronto.
+Preencha o resto dos campos com as suas informações e preferências e, em seguida, envie o bilhete quando estiver pronto.
 
-Depois de enviar a solicitação, você receberá um email de confirmação com um número de tíquete. Um membro da equipe de suporte entrará em contato com você sobre a solicitação.
+Depois de submeter o pedido, receberá um e-mail de confirmação com um número de bilhete. Um membro do pessoal de apoio irá contactá-lo sobre o pedido.

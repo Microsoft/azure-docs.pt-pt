@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
 ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655366"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados num espaço de trabalho de Log Analytics no Monitor Azure (Pré-visualização)
@@ -50,7 +50,7 @@ O primeiro passo é identificar os registos que terão o campo personalizado.  C
 ### <a name="step-2---perform-initial-extract"></a>Passo 2 - Executar extrato inicial.
 Depois de identificar os registos que terão o campo personalizado, identifica os dados que pretende extrair.  O Log Analytics utilizará esta informação para identificar padrões semelhantes em registos semelhantes.  No passo seguinte poderá validar os resultados e fornecer mais detalhes para o Log Analytics utilizar na sua análise.
 
-1. Realce o texto no registo da amostra que pretende povoar o campo personalizado.  Em seguida, será-lhe apresentada uma caixa de diálogo para fornecer um nome e tipo de dados para o campo e para executar o extrato inicial.  Os caracteres **\_CF** serão automaticamente anexados.
+1. Realce o texto no registo da amostra que pretende povoar o campo personalizado.  Em seguida, será-lhe apresentada uma caixa de diálogo para fornecer um nome e tipo de dados para o campo e para executar o extrato inicial.  Os ** \_** caracteres CF serão automaticamente anexados.
 2. Clique em **Extrato** para efetuar uma análise dos registos recolhidos.  
 3. As secções **de Resumo** e **Resultados** de Pesquisa mostram os resultados do extrato para que possa inspecionar a sua precisão.  **O resumo** apresenta os critérios utilizados para identificar registos e uma contagem para cada um dos valores de dados identificados.  **Os Resultados** da Pesquisa fornecem uma lista detalhada de registos que correspondem aos critérios.
 
@@ -98,7 +98,7 @@ Destacamos o nome do serviço na propriedade **RenderedDescription** e utilizamo
 
 Vemos que o nome do serviço está devidamente identificado para alguns registos, mas não para outros.   Os **Resultados** de Pesquisa mostram que parte do nome para o Adaptador de **Desempenho wMI** não foi selecionada.  O **Resumo** mostra que um registo identificou o **Instalador** de Módulos em vez do Instalador de **Módulos Windows**.  
 
-![Resultados da procura](media/custom-fields/search-results-01.png)
+![Resultados de pesquisa](media/custom-fields/search-results-01.png)
 
 Começamos com o disco do Adaptador de **Desempenho wMI.**  Clicamos no seu ícone de edição e, em seguida, **modificamos este destaque**.  
 
@@ -110,7 +110,7 @@ Aumentamos o destaque para incluir a palavra **WMI** e, em seguida, reexecutar o
 
 Podemos ver que as entradas para **o Adaptador** de Desempenho WMI foram corrigidas, e o Log Analytics também utilizou essa informação para corrigir os registos do Instalador de **Módulos windows**.
 
-![Resultados da procura](media/custom-fields/search-results-02.png)
+![Resultados de pesquisa](media/custom-fields/search-results-02.png)
 
 Podemos agora fazer uma consulta que verifica **Service_CF** é criada, mas ainda não é adicionado a quaisquer registos. Isso porque o campo personalizado não funciona contra os registos existentes, por isso temos de esperar que sejam recolhidos novos registos.
 

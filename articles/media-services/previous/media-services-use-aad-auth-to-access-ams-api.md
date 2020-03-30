@@ -1,5 +1,5 @@
 ---
-title: Access Azure Media Services API com autenticação de Diretório Ativo Azure  Microsoft Docs
+title: Access Azure Media Services API com autenticação de Diretório Ativo Azure [ Microsoft Docs
 description: Conheça conceitos e passos a tomar para utilizar o Azure Ative Directory (Azure AD) para autenticar o acesso à API azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77157861"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Aceda à API azure Media Services com autenticação Azure AD  
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Aceder à API de Serviços de Multimédia do Azure com a autenticação do Azure AD  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 A API azure Media Services é uma API RESTful. Pode usá-lo para realizar operações em recursos de mídia utilizando uma API REST ou utilizando SDKs de clientes disponíveis. A Azure Media Services oferece um sDK de clientes de Media Services para a Microsoft .NET. Para ser autorizado a aceder aos recursos dos Serviços de Media e à API dos Serviços de Media, tem primeiro de ser autenticado. 
 
@@ -46,7 +46,7 @@ Pedidos não autorizados falham, com código de estado de 401. Se vir este códi
  
 Quando utiliza a autenticação Azure AD com o Azure Media Services, tem duas opções de autenticação:
 
-- **Autenticação do utilizador**. Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador as credenciais do utilizador. Um exemplo é uma aplicação de consola de gestão usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
+- **Autenticação de utilizador**. Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador as credenciais do utilizador. Um exemplo é uma aplicação de consola de gestão usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
 - **Autenticação do principal de serviço.** Autenticar um serviço. Aplicações que geralmente utilizam este método de autenticação são aplicações que executam serviços de daemon, serviços de nível médio ou empregos regulares. Exemplos são aplicações web, aplicações de função, aplicações lógicas, API e microserviços.
 
 ### <a name="user-authentication"></a>Autenticação de utilizador 
@@ -79,13 +79,13 @@ No diagrama anterior, os números representam o fluxo dos pedidos por ordem cron
        A informação do inquilino pode ser recuperada do portal Azure. Coloque o cursor sobre o nome do utilizador inscrito no canto superior direito.
    * Recurso URI dos Serviços de Media. 
 
-       Este URI é o mesmo para as contas dos Media Services que se encontram no mesmo ambiente Azure (por exemplo, https://rest.media.azure.net).
+       Este URI é o mesmo para contas de Media Services que https://rest.media.azure.net)estão no mesmo ambiente Azure (por exemplo, .
 
    * Id do cliente de aplicação de Media Services (nativo).
    * A aplicação de Media Services (nativa) redireciona o URI.
    * Recursos URI para REST Media Services.
         
-       O URI representa o ponto final da API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
+       O URI representa o ponto final da https://test03.restv2.westus.media.azure.net/api/)API REST (por exemplo, .
 
      Para obter valores para estes parâmetros, consulte [Utilize o portal Azure para aceder às definições de autenticação do Azure AD](media-services-portal-get-started-with-aad.md) utilizando a opção de autenticação do utilizador.
 
@@ -125,7 +125,7 @@ Na figura anterior, os números representam o fluxo dos pedidos por ordem cronol
 
    * Recursos URI para REST Media Services.
 
-       O URI representa o ponto final da API REST (por exemplo, https://test03.restv2.westus.media.azure.net/api/).
+       O URI representa o ponto final da https://test03.restv2.westus.media.azure.net/api/)API REST (por exemplo, .
 
    * Valores de aplicação Azure AD: o ID do cliente e o segredo do cliente.
     

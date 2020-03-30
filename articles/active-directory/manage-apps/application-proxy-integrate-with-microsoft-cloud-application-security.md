@@ -1,6 +1,6 @@
 ---
-title: Integrar aplicativos locais com o Cloud App Security-Azure AD
-description: Configure um aplicativo local no Azure Active Directory para trabalhar com Microsoft Cloud App Security (MCAS). Use o Controle de Aplicativos de Acesso Condicional MCAS para monitorar e controlar sessões em tempo real com base em políticas de acesso condicional. Você pode aplicar essas políticas a aplicativos locais que usam o proxy de aplicativo no Azure Active Directory (AD do Azure).
+title: Integrar aplicações no local com Cloud App Security - Azure AD
+description: Configure uma aplicação no local no Azure Ative Directory para trabalhar com o Microsoft Cloud App Security (MCAS). Utilize o McAS Conditional Access App Control para monitorizar e controlar sessões em tempo real com base nas políticas de Acesso Condicional. Pode aplicar estas políticas a aplicações no local que utilizam o Proxy de Aplicação em Diretório Ativo Azure (Azure AD).
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
@@ -12,60 +12,60 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb97f9dd87277215a5d4708d3a6f49564c490204
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275498"
 ---
-# <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configurar o monitoramento de acesso a aplicativos em tempo real com Microsoft Cloud App Security e Azure Active Directory
-Configure um aplicativo local no Azure Active Directory (Azure AD) para usar Microsoft Cloud App Security (MCAS) para monitoramento em tempo real. O MCAS usa Controle de Aplicativos de Acesso Condicional para monitorar e controlar sessões em tempo real com base em políticas de acesso condicional. Você pode aplicar essas políticas a aplicativos locais que usam o proxy de aplicativo no Azure Active Directory (AD do Azure).
+# <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configure a monitorização do acesso a aplicações em tempo real com o Microsoft Cloud App Security e o Diretório Ativo do Azure
+Configure uma aplicação no local no Azure Ative Directory (Azure AD) para utilizar o Microsoft Cloud App Security (MCAS) para monitorização em tempo real. O MCAS utiliza o Controlo de Aplicações de Acesso Condicional para monitorizar e controlar sessões em tempo real com base nas políticas de Acesso Condicional. Pode aplicar estas políticas a aplicações no local que utilizam o Proxy de Aplicação em Diretório Ativo Azure (Azure AD).
 
-Aqui estão alguns exemplos dos tipos de políticas que você pode criar com MCAS:
+Aqui estão alguns exemplos dos tipos de políticas que pode criar com o MCAS:
 
-- Bloquear ou proteger o download de documentos confidenciais em dispositivos não gerenciados.
-- Monitore quando os usuários de alto risco entram em aplicativos e registram suas ações dentro da sessão. Com essas informações, você pode analisar o comportamento do usuário para determinar como aplicar políticas de sessão.
-- Use certificados de cliente ou a conformidade do dispositivo para bloquear o acesso a aplicativos específicos de dispositivos não gerenciados.
-- Restrinja as sessões de usuário de redes não corporativas. Você pode conceder acesso restrito a usuários que acessam um aplicativo de fora de sua rede corporativa. Por exemplo, esse acesso restrito pode impedir que o usuário Baixe documentos confidenciais.
+- Bloqueie ou proteja o download de documentos sensíveis em dispositivos não geridos.
+- Monitorize quando os utilizadores de alto risco acedem às aplicações e, em seguida, inicieo o registo das suas ações a partir da sessão. Com esta informação, pode analisar o comportamento do utilizador para determinar como aplicar as políticas de sessão.
+- Utilize certificados de cliente ou conformidade do dispositivo para bloquear o acesso a aplicações específicas de dispositivos não geridos.
+- Restringir as sessões de utilizadores de redes não empresariais. Pode dar acesso restrito aos utilizadores que acedam a uma aplicação de fora da sua rede corporativa. Por exemplo, este acesso restrito pode impedir o utilizador de descarregar documentos sensíveis.
 
-Para obter mais informações, consulte [proteger aplicativos com Microsoft Cloud App Security controle de aplicativos de acesso condicional](/cloud-app-security/proxy-intro-aad).
+Para mais informações, consulte [Proteja as aplicações com](/cloud-app-security/proxy-intro-aad)o Microsoft Cloud App Security Conditional Access App Control .
 
 ## <a name="requirements"></a>Requisitos
 
-Carteira
+Licença:
 
-- Licença do EMS E5 ou 
-- Azure Active Directory Premium P1 e MCAS autônomos.
+- Licença EMS E5, ou 
+- Azure Ative Directory Premium P1 e MCAS Autónomos.
 
-Aplicativo local:
+Pedido no local:
 
-- O aplicativo local deve usar a delegação restrita de Kerberos (KCD)
+- O pedido no local deve utilizar a Delegação Limitada kerberos (KCD)
 
-Configurar o proxy de aplicativo:
+Configure Procuração de aplicação:
 
-- Configure o Azure AD para usar o proxy de aplicativo, incluindo preparar seu ambiente e instalar o conector de proxy de aplicativo. Para obter um tutorial, consulte [Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure ad](application-proxy-add-on-premises-application.md). 
+- Configure o AD Azure para utilizar o Proxy da Aplicação, incluindo preparar o seu ambiente e instalar o conector Proxy de Aplicação. Para um tutorial, consulte [Adicionar um pedido no local para acesso remoto através de Application Proxy em Azure AD](application-proxy-add-on-premises-application.md). 
 
-## <a name="add-on-premises-application-to-azure-ad"></a>Adicionar aplicativo local ao Azure AD
+## <a name="add-on-premises-application-to-azure-ad"></a>Adicionar aplicação no local à Azure AD
 
-Adicione um aplicativo local ao Azure AD. Para obter um início rápido, consulte [Adicionar um aplicativo local ao Azure ad](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). Ao adicionar o aplicativo, certifique-se de definir as duas configurações a seguir na folha **Adicionar seu aplicativo local** :
+Adicione uma aplicação no local ao Azure AD. Para um arranque rápido, consulte [Adicionar uma aplicação no local ao Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). Ao adicionar a aplicação, **certifique-se** de definir as seguintes duas definições na lâmina de aplicação Adicionar no local:
 
-- **Pré-autenticação**: insira **Azure Active Directory**.
-- **Traduzir URLs no corpo do aplicativo**: escolha **Sim**.
+- **Pré-Autenticação**: Insira **o Diretório Ativo Azure**.
+- **Traduzir URLs no Corpo**de Aplicação : Escolha **Sim**.
 
-Essas duas configurações são necessárias para que o aplicativo funcione com o MCAS.
+Estas duas definições são necessárias para que a aplicação funcione com o MCAS.
 
-## <a name="test-the-on-premises-application"></a>Testar o aplicativo local
+## <a name="test-the-on-premises-application"></a>Testar o pedido no local
 
-Depois de adicionar seu aplicativo ao Azure AD, use as etapas em [testar o aplicativo](application-proxy-add-on-premises-application.md#test-the-application) para adicionar um usuário para teste e teste o logon. 
+Depois de adicionar a sua aplicação ao Azure AD, utilize os passos em [Teste da aplicação](application-proxy-add-on-premises-application.md#test-the-application) para adicionar um utilizador para testes e testar o sinal. 
 
-## <a name="deploy-conditional-access-app-control"></a>Implantar Controle de Aplicativos de Acesso Condicional
+## <a name="deploy-conditional-access-app-control"></a>Implementar controlo de aplicações de acesso condicional
 
-Para configurar seu aplicativo com o controle de aplicativo de acesso condicional, siga as instruções em [implantar controle de aplicativo de acesso condicional para aplicativos do Azure ad](/cloud-app-security/proxy-deployment-aad).
+Para configurar a sua aplicação com o Controlo de Aplicações de Acesso Condicional, siga as instruções no Controlo de Aplicações de [Acesso Condicional para aplicações Azure AD](/cloud-app-security/proxy-deployment-aad).
 
 
-## <a name="test-conditional-access-app-control"></a>Controle de Aplicativos de Acesso Condicional de teste
+## <a name="test-conditional-access-app-control"></a>Teste controlo de aplicações de acesso condicional
 
-Para testar a implantação de aplicativos do Azure AD com o controle de aplicativo de acesso condicional, siga as instruções em [testar a implantação para aplicativos do Azure ad](/cloud-app-security/proxy-deployment-aad).
+Para testar a implementação de aplicações Azure AD com controlo de aplicações de acesso condicional, siga as instruções em [Teste da implementação de aplicações Azure AD](/cloud-app-security/proxy-deployment-aad).
 
 
 

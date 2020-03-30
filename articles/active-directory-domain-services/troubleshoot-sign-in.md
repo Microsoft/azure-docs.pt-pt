@@ -1,5 +1,5 @@
 ---
-title: Sinal de resolução de problemas em problemas nos Serviços de Domínio da AD Azure  Microsoft Docs
+title: Sinal de resolução de problemas em problemas nos Serviços de Domínio da AD Azure [ Microsoft Docs
 description: Saiba como resolver o sinal de utilizador comum em problemas e erros nos Serviços de Domínio de Diretório Ativo Azure.
 services: active-directory-ds
 author: iainfoulds
@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
 ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77612739"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Problemas de entrada na conta com um domínio gerido pelos Serviços de Domínio Da Azure AD
@@ -59,7 +59,7 @@ O Azure AD DS geriu domínios sem sincronização no local, apenas contas em Azu
     * [Altere a palavra-passe para a conta][enable-user-accounts] para gerar as hashes de senha necessárias e, em seguida, aguarde 15 minutos antes de tentar iniciar sessão novamente.
     * Se desativar o Azure AD DS e, em seguida, voltar a ativar, cada conta deve seguir novamente os passos para alterar a sua palavra-passe e gerar as hashes de senha necessárias.
 * **Sim, a senha foi alterada.**
-    * Tente iniciar sessão utilizando o formato *UPN,* como `driley@aaddscontoso.com`, em vez do formato *SAMAccountName* como `AADDSCONTOSO\deeriley`.
+    * Tente iniciar sessão utilizando o formato *UPN,* como, `driley@aaddscontoso.com`em `AADDSCONTOSO\deeriley`vez do formato *SAMAccountName* como .
     * O *Nome SAMAccountPode* ser gerado automaticamente para utilizadores cujo prefixo UPN seja excessivamente longo ou seja o mesmo que outro utilizador no domínio gerido. O formato *UPN* é garantido ser único dentro de um inquilino Azure AD.
 
 ## <a name="the-account-is-locked-out"></a>A conta está bloqueada.

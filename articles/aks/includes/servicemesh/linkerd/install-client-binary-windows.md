@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: b7d832ba375925d30a976dfde63a776b5d0742bb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593741"
 ---
 ## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Descarregue e instale o linkerd linkerd client binary
 
-Numa concha baseada no PowerShell no Windows, utilize `Invoke-WebRequest` para descarregar o linkerd da seguinte forma:
+Numa concha baseada no PowerShell `Invoke-WebRequest` no Windows, utilize para descarregar o lançamento do Linkerd da seguinte forma:
 
 ```powershell
 # Specify the Linkerd version that will be leveraged throughout these instructions
@@ -23,7 +23,7 @@ $LINKERD_VERSION="stable-2.6.0"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-windows.exe" -OutFile "linkerd2-cli-$LINKERD_VERSION-windows.exe"
 ```
 
-O binário `linkerd` cliente funciona na sua máquina cliente e permite-lhe interagir com a malha de serviço Linkerd. Utilize os seguintes comandos para instalar o Linkerd `linkerd` binário do cliente numa concha baseada em PowerShell no Windows. Estes comandos copiam o `linkerd` binário do cliente para uma pasta Linkerd e, em seguida, disponibilizam-no imediatamente (na concha atual) e permanentemente (através de reinícios de concha) através do seu `PATH`. Não precisa de privilégios elevados (administradores) para executar estes comandos e não precisa reiniciar a sua concha.
+O `linkerd` binário do cliente funciona na sua máquina cliente e permite-lhe interagir com a malha de serviço Linkerd. Utilize os seguintes comandos para `linkerd` instalar o binário do cliente Linkerd numa concha baseada em PowerShell no Windows. Estes comandos `linkerd` copiam o binário do cliente para uma pasta Linkerd e, em seguida, disponibilizam-no `PATH`imediatamente (na concha atual) e permanentemente (através da casca reinicia) através da sua . Não precisa de privilégios elevados (administradores) para executar estes comandos e não precisa reiniciar a sua concha.
 
 ```powershell
 # Copy linkerd.exe to C:\Linkerd

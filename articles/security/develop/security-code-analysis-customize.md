@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77499992"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configure e personalize as tarefas de construção
@@ -78,7 +78,7 @@ Os detalhes da configuração da tarefa são mostrados na seguinte imagem e list
            analyze *.dll *.exe --recurse --verbose
 
           > [!NOTE]
-          > O \\* é importante se especificar os diretórios para o alvo.
+          > O rasto \\* é importante se especificar os diretórios para o alvo.
 
 Para obter mais informações sobre os argumentos da linha de comando BinSkim, regras por ID ou códigos de saída, consulte o Guia de [Utilizador BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
@@ -98,11 +98,11 @@ As opções disponíveis incluem:
   - Tipo de **ficheiro dos pesquisadores**: As opções para localizar o ficheiro dos pesquisadores que é utilizado para digitalizar.
   - **Ficheiro de Supressões**: Um ficheiro [JSON](https://json.org/) pode suprimir problemas no registo de saída. Para obter mais informações sobre cenários de supressão, consulte a secção DE PERGUNTAS FAQ deste artigo.
   - **Saída verbosa**: Autoexplicativo.
-  - **Tamanho do lote**: O número de fios simultâneos utilizados para executar o Scanner Credencial. O valor predefinido é 20. Os valores possíveis variam entre 1 e 2.147.483.647.
+  - **Tamanho do lote**: O número de fios simultâneos utilizados para executar o Scanner Credencial. O valor padrão é de 20. Os valores possíveis variam entre 1 e 2.147.483.647.
   - **Tempo de jogo**: O tempo em segundos para passar a tentar uma partida de pesquisa antes de abandonar o cheque.
   - **Ficheiro Scan Ler Tamanho do tampão**: O tamanho dos bytes do tampão utilizado durante a leitura do conteúdo. O valor padrão é de 524.288.  
   - **Varredura máxima de ficheiroS Bytes**: O número máximo de bytes para ler a partir de um ficheiro durante a análise de conteúdo. O valor padrão é de 104.857.600.
-  - **Opções** de controlo > **Executar esta tarefa**: Especifica quando a tarefa será executada. Selecione **condições personalizadas** para especificar condições mais complexas.
+  - **Opções** > de Controlo**Executar esta tarefa**: Especifica quando a tarefa será executada. Selecione **condições personalizadas** para especificar condições mais complexas.
   - **Versão**: A versão de tarefa de construção dentro do Azure DevOps. Esta opção não é frequentemente usada.
 
 Para obter informações sobre a configuração yAML para esta tarefa, consulte as nossas [opções De YAML](yaml-configuration.md#credential-scanner-task) do Scanner Credencial
@@ -130,7 +130,7 @@ Os detalhes para configurar esta tarefa são mostrados na seguinte lista. Para q
        - **Test Driver Executable Architecture**: A arquitetura do ficheiro executável alvo. Os valores disponíveis são **x86** e **amd64**.
        - **Argumentos**do condutor de teste : Os argumentos da linha de comando passaram para o ficheiro executável do teste. O argumento "%testfile%", incluindo as aspas, é automaticamente substituído pelo caminho completo para o ficheiro-alvo. Este ficheiro é analisado pelo controlador de teste e é necessário.
        - **Test Driver Process Exits Upon Test Test Test Completion**: Selecione esta caixa de verificação se o controlador de teste for encerrado após a conclusão. Limpe-o se o condutor do teste precisar de ser fechado à força.
-       - **Duração máxima (em segundos)** : Uma estimativa do tempo razoavelmente esperado mais longo que o programa-alvo requer para analisar um ficheiro de entrada. Quanto mais precisa for a estimativa, mais eficientemente a aplicação de difusão corre.
+       - **Duração máxima (em segundos)**: Uma estimativa do tempo razoavelmente esperado mais longo que o programa-alvo requer para analisar um ficheiro de entrada. Quanto mais precisa for a estimativa, mais eficientemente a aplicação de difusão corre.
        - **Test Driver Pode ser executado repetidamente**: Selecione esta caixa de verificação se o controlador de teste pode funcionar repetidamente sem depender de um estado global persistente ou partilhado.
        - Controlador de **teste Pode ser renomeado**: Selecione esta caixa de verificação se o ficheiro executável do controlador de teste puder ser renomeado e ainda funcionar corretamente.
        - **A aplicação Fuzzing funciona como um processo único de OS:** Selecione esta caixa de verificação se o controlador de teste for executado num único processo de Os. Limpe-o se o condutor de teste der origem a processos adicionais.
@@ -142,7 +142,7 @@ Para obter informações sobre a configuração yAML para esta tarefa, consulte 
 > [!NOTE]
 > Antes de poder executar a tarefa roslyn Analisers, a sua construção precisa de satisfazer estas condições:
 >
-> - A sua definição de construção inclui a tarefa de C# construção de MSBuild ou VSBuild incorporada para compilar ou código Básico Visual. A tarefa dos analisadores baseia-se na entrada e saída da tarefa incorporada para executar a compilação MSBuild com analisadores Roslyn habilitados.
+> - A sua definição de construção inclui a tarefa de construção incorporada mSBuild ou VSBuild para compilar o código C# ou Visual Basic. A tarefa dos analisadores baseia-se na entrada e saída da tarefa incorporada para executar a compilação MSBuild com analisadores Roslyn habilitados.
 > - O agente de construção que executa esta tarefa de construção tem visual Studio 2017 versão 15.5 ou posteriormente instalado, de modo que usa a versão compilada 2.6 ou posterior.
 
 Os detalhes da configuração da tarefa são mostrados na lista e nota seguintes.
@@ -152,7 +152,7 @@ As opções disponíveis incluem:
 - **Regra definido**: Os valores são Exigidos pelo **SDL,** **Recomendado sDL,** ou o seu próprio conjunto de regras personalizado.
 - **Versão dos Analisadores**: Recomendamos que selecione **Mais recente**.
 - **Ficheiro de supressões**de avisos de compilador : Um ficheiro de texto com uma lista de iDs de avisos que são suprimidos.
-- **Opções** de controlo > **Executar esta tarefa**: Especifica quando a tarefa será executada. Escolha **condições personalizadas** para especificar condições mais complexas.
+- **Opções** > de Controlo**Executar esta tarefa**: Especifica quando a tarefa será executada. Escolha **condições personalizadas** para especificar condições mais complexas.
 
 > [!NOTE]
 >
@@ -164,7 +164,7 @@ As opções disponíveis incluem:
 >
 > - Os Analisadores Roslyn estão integrados com o compilador. Para ser invocado, roslyn Analisers exige compilação.
 >
->   Esta nova tarefa de construção C# é implementada através da recompilação de projetos que já foram construídos. A nova tarefa utiliza apenas as tarefas de construção mSBuild e VSBuild na mesma definição de construção ou construção que a tarefa original. No entanto, neste caso, a nova tarefa usa-os com roslyn Analisers habilitados.
+>   Esta nova tarefa de construção é implementada através da recompilação de projetos C# que já foram construídos. A nova tarefa utiliza apenas as tarefas de construção mSBuild e VSBuild na mesma definição de construção ou construção que a tarefa original. No entanto, neste caso, a nova tarefa usa-os com roslyn Analisers habilitados.
 >
 >   Se a nova tarefa for no mesmo agente que a tarefa original, a saída da nova tarefa substitui a saída da tarefa original na pasta de fontes *da s.* Embora a saída de construção seja a mesma, aconselhamos que execute a MSBuild, copie a saída para o diretório de encenação de artefactos, e, em seguida, executar Roslyn Analisers.
 
@@ -220,7 +220,7 @@ Os detalhes da configuração da tarefa são mostrados na seguinte imagem e list
 
 Para obter informações sobre a configuração yAML para esta tarefa, consulte as nossas [opções de YAML](yaml-configuration.md#post-analysis-task) de Análise Pós
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre a configuração baseada em YAML, consulte o nosso guia de [configuração YAML](yaml-configuration.md).
 

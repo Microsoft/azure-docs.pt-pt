@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Zendesk para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Zendesk para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizador à Zendesk.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a480119ee88521b920be88669f6d80e3754d24d3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062755"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configure Zendesk para fornecimento automático de utilizadores
@@ -50,11 +50,11 @@ Para adicionar Zendesk do Marketplace, siga estes passos.
 
 2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
 3. Para adicionar uma nova aplicação, selecione **Nova aplicação** na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
 4. Na caixa de pesquisa, introduza **zendesk** e selecione **Zendesk** a partir do painel de resultados. Para adicionar a aplicação, selecione **Adicionar**.
 
@@ -83,9 +83,9 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para zendesk em Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Enterprise** > **Todas as aplicações** > **Zendesk**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações** > Enterprise**Todas as aplicações** > **Zendesk**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Zendesk**.
 
@@ -99,15 +99,15 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
     ![Modo de provisionamento Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk1.png)
 
-5. De acordo com a secção **de Credenciais de Administrador,** insera o nome de utilizador do administrador, o token secreto e o domínio da sua conta Zendesk. Exemplos desses valores são:
+5. De acordo com a secção **de Credenciais de Administrador,** insera o nome de utilizador do administrador, o token secreto e o domínio da sua conta Zendesk. Exemplos destes valores são:
 
    * Na caixa de nome de **utilizador da Admin,** preencha o nome de utilizador da conta de administrador no seu inquilino Zendesk. Um exemplo é admin@contoso.com.
 
    * Na caixa **Secreta Token,** preencha o símbolo secreto como descrito no Passo 6.
 
-   * Na caixa **de Domínio,** preencha o subdomínio do seu inquilino Zendesk. Por exemplo, para uma conta com um URL de inquilino de `https://my-tenant.zendesk.com`, o seu subdomínio é **o meu inquilino.**
+   * Na caixa **de Domínio,** preencha o subdomínio do seu inquilino Zendesk. Por exemplo, para uma conta `https://my-tenant.zendesk.com`com um URL de inquilino de, o seu subdomínio é **o meu inquilino.**
 
-6. O símbolo secreto da sua conta Zendesk está localizado em ** > ** **API** > **Definições**. Certifique-se de que o **Acesso token** está programado para **ativado**.
+6. O símbolo secreto da sua conta Zendesk está localizado nas > **Definições**da **Admin** > **API**. Certifique-se de que o **Acesso token** está programado para **ativado**.
 
     ![Definições de administração Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 

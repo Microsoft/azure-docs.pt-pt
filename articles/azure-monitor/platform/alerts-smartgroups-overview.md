@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665498"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
@@ -30,7 +30,7 @@ Os seguintes estados inteligentes são apoiados.
 | Estado | Descrição |
 |:---|:---|
 | Novo | A questão acaba de ser detetada e ainda não foi revista. |
-| Reconhecido | Um administrador reviu o grupo inteligente e começou a trabalhar nele. |
+| Confirmado | Um administrador reviu o grupo inteligente e começou a trabalhar nele. |
 | Fechado | A questão foi resolvida. Depois de um grupo inteligente ter sido fechado, pode reabri-lo mudando-o para outro estado. |
 
 [Aprenda a mudar o estado do seu grupo inteligente.](https://aka.ms/managing-alert-smart-group-states)

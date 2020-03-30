@@ -1,6 +1,6 @@
 ---
-title: UDF do Python com Apache Hive e Apache Pig-Azure HDInsight
-description: Saiba como usar UDF (funções definidas pelo usuário) do Python de Apache Hive e Apache Pig no HDInsight, a pilha de tecnologia Apache Hadoop no Azure.
+title: Python UDF com Apache Hive e Apache Pig - Azure HDInsight
+description: Aprenda a utilizar funções definidas pelo utilizador Python (UDF) da Apache Hive e apache pig no HDInsight, a pilha de tecnologia Apache Hadoop no Azure.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,52 +9,52 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.openlocfilehash: 201bb40e5024442587f5508886da7e844f35be40
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74148401"
 ---
-# <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usar funções definidas pelo usuário do Python (UDF) com Apache Hive e Apache Pig no HDInsight
+# <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Utilize funções definidas pelo utilizador Python (UDF) com hiv apache e porco Apache em HDInsight
 
-Saiba como usar as funções definidas pelo usuário (UDF) do Python com o Apache Hive e o Apache Pig no Apache Hadoop no Azure HDInsight.
+Aprenda a utilizar funções definidas pelo utilizador python (UDF) com Apache Hive e Apache Pig em Apache Hadoop no Azure HDInsight.
 
-## <a name="python"></a>Python no HDInsight
+## <a name="python-on-hdinsight"></a><a name="python"></a>Python no HDInsight
 
-O Python 2.7 é instalado por padrão no HDInsight 3,0 e posterior. Apache Hive pode ser usado com esta versão do Python para processamento de fluxo. O processamento de fluxo usa STDOUT e STDIN para passar dados entre o hive e o UDF.
+Python2.7 é instalado por padrão no HDInsight 3.0 e posteriormente. A Apache Hive pode ser usada com esta versão de Python para processamento de fluxo. O processamento de fluxo utiliza STDOUT e STDIN para passar dados entre a Hive e a UDF.
 
-O HDInsight também inclui Jython, que é uma implementação do Python escrita em Java. O Jython é executado diretamente no Máquina Virtual Java e não usa streaming. Jython é o intérprete do Python recomendado ao usar o Python com o Pig.
+HDInsight também inclui Jython, que é uma implementação python escrita em Java. Jython corre diretamente na Máquina Virtual Java e não usa streaming. Jython é o intérprete python recomendado ao usar Python com Porco.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster Hadoop no HDInsight**. Consulte [introdução ao HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **Um cliente SSH**. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário de clusters. Isso seria `wasb://` para o armazenamento do Azure, `abfs://` para Azure Data Lake Storage Gen2 ou adl://para Azure Data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, o URI seria wasbs://.  Consulte também a [transferência segura](../../storage/common/storage-require-secure-transfer.md).
-* **Alteração possível na configuração de armazenamento.**  Consulte [configuração de armazenamento](#storage-configuration) se estiver usando o tipo de conta de armazenamento `BlobStorage`.
-* Opcional.  Se estiver planejando usar o PowerShell, você precisará do [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) instalado.
+* **Um aglomerado de Hadoop no HDInsight**. Ver [Começar com HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Um cliente SSH**. Para mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando O SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* O [esquema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Isto seria `wasb://` para o `abfs://` Armazenamento Azure, para o Azure Data Lake Storage Gen2 ou adl:// para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI será wasbs://.  Ver também, [transferência segura.](../../storage/common/storage-require-secure-transfer.md)
+* **Possível alteração na configuração de armazenamento.**  Consulte a [configuração](#storage-configuration) do `BlobStorage`armazenamento se utilizar a conta de armazenamento tipo .
+* Opcional.  Se planejar utilizar o PowerShell, necessitará do [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) instalado.
 
 > [!NOTE]  
-> A conta de armazenamento usada neste artigo foi o armazenamento do Azure com [transferência segura](../../storage/common/storage-require-secure-transfer.md) habilitada e, portanto, `wasbs` é usada em todo o artigo.
+> A conta de armazenamento utilizada neste artigo foi o `wasbs` Armazenamento Azure com transferência [segura](../../storage/common/storage-require-secure-transfer.md) ativada e, portanto, é utilizada em todo o artigo.
 
 ## <a name="storage-configuration"></a>Configuração do armazenamento
 
-Nenhuma ação será necessária se a conta de armazenamento usada for do tipo `Storage (general purpose v1)` ou `StorageV2 (general purpose v2)`.  O processo neste artigo produzirá saída para pelo menos `/tezstaging`.  Uma configuração padrão do Hadoop conterá `/tezstaging` na variável de configuração `fs.azure.page.blob.dir` no `core-site.xml` para `HDFS`de serviço.  Essa configuração fará com que a saída para o diretório seja blobs de páginas, que não têm suporte para o tipo de conta de armazenamento `BlobStorage`.  Para usar `BlobStorage` para este artigo, remova `/tezstaging` da variável de configuração `fs.azure.page.blob.dir`.  A configuração pode ser acessada na [interface do usuário do amAmbari](../hdinsight-hadoop-manage-ambari.md).  Caso contrário, você receberá a mensagem de erro: `Page blob is not supported for this account type.`
+Não é necessária qualquer ação se a `Storage (general purpose v1)` `StorageV2 (general purpose v2)`conta de armazenamento utilizada for amável ou .  O processo neste artigo produzirá, `/tezstaging`pelo menos, a produção .  Uma configuração de hadoop `fs.azure.page.blob.dir` predefinido `core-site.xml` conterá `/tezstaging` na variável de configuração para o serviço `HDFS`.  Esta configuração fará com que a saída para o diretório seja blobs de página, que não são suportados para o tipo `BlobStorage`de conta de armazenamento .  Para `BlobStorage` utilizar para este `/tezstaging` artigo, remova da `fs.azure.page.blob.dir` variável de configuração.  A configuração pode ser acedida a partir do [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Caso contrário, receberá a mensagem de erro:`Page blob is not supported for this account type.`
 
 > [!WARNING]  
-> As etapas neste documento fazem as seguintes suposições:  
+> Os passos deste documento fazem os seguintes pressupostos:  
 >
-> * Você cria os scripts do Python em seu ambiente de desenvolvimento local.
-> * Você carrega os scripts no HDInsight usando o comando `scp` ou o script do PowerShell fornecido.
+> * Cria os scripts Python no seu ambiente de desenvolvimento local.
+> * Faça o upload dos scripts para `scp` HDInsight utilizando o comando ou o script PowerShell fornecido.
 >
-> Se você quiser usar o [Azure cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) para trabalhar com o HDInsight, deverá:
+> Se quiser utilizar a Casca de [Nuvem Azure (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) para trabalhar com o HDInsight, então deve:
 >
-> * Crie os scripts dentro do ambiente do Cloud Shell.
-> * Use `scp` para carregar os arquivos do Cloud Shell para o HDInsight.
-> * Use `ssh` do Cloud Shell para se conectar ao HDInsight e executar os exemplos.
+> * Crie os scripts dentro do ambiente de nuvens.
+> * Utilize `scp` para fazer o upload dos ficheiros da casca da nuvem para o HDInsight.
+> * Utilize `ssh` a partir da casca de nuvem para ligar ao HDInsight e executar os exemplos.
 
-## <a name="hivepython"></a>UDF Apache Hive
+## <a name="apache-hive-udf"></a><a name="hivepython"></a>Apache Hive UDF
 
-O Python pode ser usado como um UDF do hive por meio da instrução HiveQL `TRANSFORM`. Por exemplo, o HiveQL a seguir invoca o arquivo de `hiveudf.py` armazenado na conta de armazenamento do Azure padrão para o cluster.
+Python pode ser usado como uma UDF da `TRANSFORM` Hive através da declaração da HiveQL. Por exemplo, o seguinte HiveQL invoca o `hiveudf.py` ficheiro armazenado na conta de armazenamento de Armazenamento Azure padrão para o cluster.
 
 ```hiveql
 add file wasbs:///hiveudf.py;
@@ -66,17 +66,17 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-Veja o que este exemplo faz:
+Aqui está o que este exemplo faz:
 
-1. A instrução `add file` no início do arquivo adiciona o arquivo de `hiveudf.py` ao cache distribuído, de modo que ele é acessível por todos os nós no cluster.
-2. A instrução `SELECT TRANSFORM ... USING` seleciona dados do `hivesampletable`. Ele também passa os valores ClientID, devicemake e devicemodel para o script `hiveudf.py`.
-3. A cláusula `AS` descreve os campos retornados de `hiveudf.py`.
+1. A `add file` declaração no início do `hiveudf.py` ficheiro adiciona o ficheiro à cache distribuída, por isso é acessível por todos os nós do cluster.
+2. A `SELECT TRANSFORM ... USING` declaração seleciona `hivesampletable`dados do . Também passa os valores do clienteid, dispositivoe modelação para o `hiveudf.py` script.
+3. A `AS` cláusula descreve os `hiveudf.py`campos devolvidos de .
 
 <a name="streamingpy"></a>
 
-### <a name="create-file"></a>Criar arquivo
+### <a name="create-file"></a>Criar ficheiro
 
-Em seu ambiente de desenvolvimento, crie um arquivo de texto chamado `hiveudf.py`. Use o código a seguir como o conteúdo do arquivo:
+No seu ambiente de desenvolvimento, `hiveudf.py`crie um ficheiro de texto chamado . Utilize o seguinte código como conteúdo do ficheiro:
 
 ```python
 #!/usr/bin/env python
@@ -95,49 +95,49 @@ while True:
     print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])
 ```
 
-Esse script executa as seguintes ações:
+Este script executa as seguintes ações:
 
-1. Lê uma linha de dados de STDIN.
-2. O caractere de nova linha à direita é removido usando `string.strip(line, "\n ")`.
-3. Ao fazer o processamento de fluxo, uma única linha contém todos os valores com um caractere de tabulação entre cada valor. Portanto `string.split(line, "\t")` pode ser usado para dividir a entrada em cada guia, retornando apenas os campos.
-4. Quando o processamento é concluído, a saída deve ser gravada em STDOUT como uma única linha, com uma Tabulação entre cada campo. Por exemplo, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
-5. O loop de `while` se repete até que nenhuma `line` seja lida.
+1. Lê uma linha de dados do STDIN.
+2. O carácter de linha nova `string.strip(line, "\n ")`que segue é removido usando .
+3. Ao efazer o processamento do fluxo, uma única linha contém todos os valores com um caracteres de separador entre cada valor. Assim `string.split(line, "\t")` pode ser usado para dividir a entrada em cada separador, devolvendo apenas os campos.
+4. Quando o processamento estiver concluído, a saída deve ser escrita para STDOUT como uma única linha, com um separador entre cada campo. Por exemplo, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+5. O `while` laço repete-se até não `line` ser lido.
 
-A saída do script é uma concatenação dos valores de entrada para `devicemake` e `devicemodel`e um hash do valor concatenado.
+A saída do script é uma concatenação dos valores de entrada para `devicemake` e, `devicemodel`e um hash do valor concatenado.
 
-### <a name="upload-file-shell"></a>Carregar arquivo (Shell)
+### <a name="upload-file-shell"></a>Upload ficheiro (concha)
 
-Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for diferente.  Substitua `mycluster` pelo nome real do cluster.  Verifique se o diretório de trabalho é onde o arquivo está localizado.
+Nos comandos abaixo, `sshuser` substitua-o pelo nome de utilizador real, se for diferente.  Substitua-a `mycluster` com o nome real do cluster.  Certifique-se de que o seu diretório de trabalho está onde o ficheiro está localizado.
 
-1. Use `scp` para copiar os arquivos para o cluster HDInsight. Edite e insira o comando a seguir:
+1. Utilize `scp` para copiar os ficheiros para o seu cluster HDInsight. Editar e inserir o comando abaixo:
 
     ```cmd
     scp hiveudf.py sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. Use o SSH para se conectar ao cluster.  Edite e insira o comando a seguir:
+2. Utilize o SSH para se ligar ao cluster.  Editar e inserir o comando abaixo:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. Na sessão do SSH, adicione os arquivos do Python carregados anteriormente para o armazenamento do cluster.
+3. A partir da sessão SSH, adicione os ficheiros python enviados anteriormente ao armazenamento do cluster.
 
     ```bash
     hdfs dfs -put hiveudf.py /hiveudf.py
     ```
 
-### <a name="use-hive-udf-shell"></a>Usar UDF do hive (Shell)
+### <a name="use-hive-udf-shell"></a>Use hive UDF (concha)
 
-1. Para se conectar ao Hive, use o seguinte comando em sua sessão SSH aberta:
+1. Para ligar à Hive, utilize o seguinte comando da sua sessão SSH aberta:
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
 
-    Esse comando inicia o cliente beeline.
+    Este comando começa o cliente Beeline.
 
-2. Insira a seguinte consulta no prompt de `0: jdbc:hive2://headnodehost:10001/>`:
+2. Introduza a seguinte `0: jdbc:hive2://headnodehost:10001/>` consulta no pedido:
 
    ```hive
    add file wasbs:///hiveudf.py;
@@ -148,7 +148,7 @@ Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for dife
    ORDER BY clientid LIMIT 50;
    ```
 
-3. Depois de inserir a última linha, o trabalho deve ser iniciado. Quando o trabalho for concluído, ele retornará uma saída semelhante ao exemplo a seguir:
+3. Depois de entrar na última linha, o trabalho deve começar. Uma vez concluída a função, devolve a saída semelhante ao seguinte exemplo:
 
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -156,15 +156,15 @@ Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for dife
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-4. Para sair do beeline, digite o seguinte comando:
+4. Para sair de Beeline, insira o seguinte comando:
 
     ```hive
     !q
     ```
 
-### <a name="upload-file-powershell"></a>Carregar arquivo (PowerShell)
+### <a name="upload-file-powershell"></a>Ficheiro de upload (PowerShell)
 
-O PowerShell também pode ser usado para executar consultas de Hive remotamente. Verifique se o diretório de trabalho é onde `hiveudf.py` está localizado.  Use o seguinte script do PowerShell para executar uma consulta de Hive que usa o script `hiveudf.py`:
+PowerShell também pode ser usado para executar remotamente consultas da Hive. Certifique-se de que `hiveudf.py` o seu diretório de trabalho está localizado.  Utilize o seguinte script PowerShell para executar uma `hiveudf.py` consulta da Hive que usa o script:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -205,9 +205,9 @@ Set-AzStorageBlobContent `
 ```
 
 > [!NOTE]  
-> Para obter mais informações sobre como carregar arquivos, consulte o documento [carregar dados para trabalhos de Apache Hadoop no HDInsight](../hdinsight-upload-data.md) .
+> Para obter mais informações sobre o upload de ficheiros, consulte os [dados de Upload para trabalhos de Apache Hadoop no documento HDInsight.](../hdinsight-upload-data.md)
 
-#### <a name="use-hive-udf"></a>Usar UDF do hive
+#### <a name="use-hive-udf"></a>Use Hive UDF
 
 ```PowerShell
 # Script should stop on failures
@@ -279,7 +279,7 @@ Get-AzHDInsightJobOutput `
     -HttpCredential $creds
 ```
 
-A saída para o trabalho do **Hive** deve ser semelhante ao exemplo a seguir:
+A saída para o trabalho da **Colmeia** deve parecer semelhante ao seguinte exemplo:
 
     100041    RIM 9650    d476f3687700442549a83fac4560c51c
     100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -287,22 +287,22 @@ A saída para o trabalho do **Hive** deve ser semelhante ao exemplo a seguir:
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-## <a name="pigpython"></a>UDF do Apache Pig
+## <a name="apache-pig-udf"></a><a name="pigpython"></a>Apache Pig UDF
 
-Um script Python pode ser usado como um UDF do Pig por meio da instrução `GENERATE`. Você pode executar o script usando o Jython ou o Python C.
+Um guião python pode ser usado como `GENERATE` uDF do Porco através da declaração. Podes executar o guião usando o Jython ou o C Python.
 
-* Jython é executado na JVM e pode ser chamado nativamente de Pig.
-* O Python C é um processo externo, portanto, os dados do Pig na JVM são enviados para o script em execução em um processo do Python. A saída do script Python é enviada de volta ao Pig.
+* Jython corre no JVM, e pode ser chamado de porco.
+* C Python é um processo externo, por isso os dados do Pig no JVM são enviados para o script em execução num processo python. A saída do guião python é enviada de volta para Pig.
 
-Para especificar o intérprete do Python, use `register` ao referenciar o script Python. Os exemplos a seguir registram scripts com Pig como `myfuncs`:
+Para especificar o intérprete `register` Python, utilize ao fazer referência ao guião Python. Os seguintes exemplos registam `myfuncs`scripts com porco como:
 
-* **Para usar Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Para usar o Python C**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Para usar Jython:**`register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Para utilizar C Python:**`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
-> Ao usar Jython, o caminho para o arquivo de pig_jython pode ser um caminho local ou um caminho WASBS://. No entanto, ao usar o Python C, você deve fazer referência a um arquivo no sistema de arquivos local do nó que você está usando para enviar o trabalho Pig.
+> Ao usar Jython, o caminho para o ficheiro pig_jython pode ser um caminho local ou um caminho WASBS://. No entanto, ao utilizar o C Python, deve fazer referência a um ficheiro no sistema de ficheiros local do nó que está a usar para submeter a função de Porco.
 
-Após o registro anterior, o Pig Latin para este exemplo é o mesmo para ambos:
+Uma vez registado anteriormente, o Pig Latin para este exemplo é o mesmo para ambos:
 
 ```pig
 LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
@@ -311,16 +311,16 @@ DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
 DUMP DETAILS;
 ```
 
-Veja o que este exemplo faz:
+Aqui está o que este exemplo faz:
 
-1. A primeira linha carrega o arquivo de dados de exemplo, `sample.log` em `LOGS`. Ele também define cada registro como um `chararray`.
-2. A próxima linha filtra quaisquer valores nulos, armazenando o resultado da operação em `LOG`.
-3. Em seguida, ele itera sobre os registros em `LOG` e usa `GENERATE` para invocar o método `create_structure` contido no script Python/Jython carregado como `myfuncs`. `LINE` é usado para passar o registro atual para a função.
-4. Por fim, as saídas são despejadas para STDOUT usando o comando `DUMP`. Esse comando exibe os resultados após a conclusão da operação.
+1. A primeira linha carrega o `sample.log` `LOGS`ficheiro de dados da amostra, em . Também define cada registo `chararray`como .
+2. A linha seguinte filtra quaisquer valores nulos, `LOG`armazenando o resultado da operação em .
+3. Em seguida, iterates sobre `LOG` os `GENERATE` registos `create_structure` e usa para invocar o método contido `myfuncs`no script Python/Jython carregado como . `LINE`é usado para passar o registo atual para a função.
+4. Finalmente, as saídas são despejadas para `DUMP` O DSTOUT utilizando o comando. Este comando apresenta os resultados após a operação estar concluída.
 
-### <a name="create-file"></a>Criar arquivo
+### <a name="create-file"></a>Criar ficheiro
 
-Em seu ambiente de desenvolvimento, crie um arquivo de texto chamado `pigudf.py`. Use o código a seguir como o conteúdo do arquivo:
+No seu ambiente de desenvolvimento, `pigudf.py`crie um ficheiro de texto chamado . Utilize o seguinte código como conteúdo do ficheiro:
 
 <a name="streamingpy"></a>
 
@@ -337,57 +337,57 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-No exemplo de Pig Latin, a entrada `LINE` é definida como um matriz porque não há esquema consistente para a entrada. O script Python transforma os dados em um esquema consistente para saída.
+No exemplo do Pig `LINE` Latin, a entrada é definida como uma chararray porque não há um esquema consistente para a entrada. O script Python transforma os dados num esquema consistente para a saída.
 
-1. A instrução `@outputSchema` define o formato dos dados que são retornados para Pig. Nesse caso, é um recipiente de **dados**, que é um tipo de dados Pig. A bolsa contém os campos a seguir, todos os quais são matriz (cadeias de caracteres):
+1. A `@outputSchema` declaração define o formato dos dados que são devolvidos ao Porco. Neste caso, é um saco de **dados,** que é um tipo de dados de porco. O saco contém os seguintes campos, todos chararray (cordas):
 
-   * data-a data em que a entrada de log foi criada
-   * hora-a hora em que a entrada de log foi criada
-   * ClassName-o nome de classe para o qual a entrada foi criada
-   * nível-o nível de log
-   * detalhe-detalhes detalhados para a entrada de log
+   * data - a data em que a entrada de registo foi criada
+   * tempo - o momento em que a entrada de registo foi criada
+   * nome de classe - o nome de classe a entrada foi criado para
+   * nível - o nível de registo
+   * detalhe - detalhes verbosos para a entrada de registo
 
-2. Em seguida, a `def create_structure(input)` define a função para a qual Pig passa itens de linha.
+2. Em seguida, a função para a `def create_structure(input)` qual o Porco passa itens de linha.
 
-3. Os dados de exemplo, `sample.log`, geralmente estão em conformidade com a data, hora, ClassName, nível e esquema de detalhes. No entanto, ele contém algumas linhas que começam com `*java.lang.Exception*`. Essas linhas devem ser modificadas para corresponder ao esquema. A instrução `if` verifica isso e, em seguida, movimenta os dados de entrada para mover a cadeia de caracteres de `*java.lang.Exception*` para o final, colocando os dados em linha com o esquema de saída esperado.
+3. Os dados `sample.log`de exemplo, na sua maioria em conformidade com a data, hora, nome de classe, nível e esquema de detalhe. No entanto, contém algumas `*java.lang.Exception*`linhas que começam com . Estas linhas devem ser modificadas para combinar com o esquema. A `if` declaração verifica-as e depois massaja os `*java.lang.Exception*` dados de entrada para mover a corda até ao fim, alinhando os dados com o esquema de saída esperado.
 
-4. Em seguida, o comando `split` é usado para dividir os dados nos quatro primeiros caracteres de espaço. A saída é atribuída em `date`, `time`, `classname`, `level`e `detail`.
+4. Em seguida, o `split` comando é usado para dividir os dados nos primeiros quatro caracteres espaciais. A saída é `date`atribuída `time` `classname`a, , e `level` `detail`.
 
-5. Por fim, os valores são retornados para Pig.
+5. Finalmente, os valores são devolvidos ao Porco.
 
-Quando os dados são retornados para Pig, ele tem um esquema consistente, conforme definido na instrução `@outputSchema`.
+Quando os dados são devolvidos ao Pig, tem um `@outputSchema` esquema consistente, tal como definido no comunicado.
 
-### <a name="upload-file-shell"></a>Carregar arquivo (Shell)
+### <a name="upload-file-shell"></a>Upload ficheiro (concha)
 
-Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for diferente.  Substitua `mycluster` pelo nome real do cluster.  Verifique se o diretório de trabalho é onde o arquivo está localizado.
+Nos comandos abaixo, `sshuser` substitua-o pelo nome de utilizador real, se for diferente.  Substitua-a `mycluster` com o nome real do cluster.  Certifique-se de que o seu diretório de trabalho está onde o ficheiro está localizado.
 
-1. Use `scp` para copiar os arquivos para o cluster HDInsight. Edite e insira o comando a seguir:
+1. Utilize `scp` para copiar os ficheiros para o seu cluster HDInsight. Editar e inserir o comando abaixo:
 
     ```cmd
     scp pigudf.py sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. Use o SSH para se conectar ao cluster.  Edite e insira o comando a seguir:
+2. Utilize o SSH para se ligar ao cluster.  Editar e inserir o comando abaixo:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. Na sessão do SSH, adicione os arquivos do Python carregados anteriormente para o armazenamento do cluster.
+3. A partir da sessão SSH, adicione os ficheiros python enviados anteriormente ao armazenamento do cluster.
 
     ```bash
     hdfs dfs -put pigudf.py /pigudf.py
     ```
 
-### <a name="use-pig-udf-shell"></a>Usar UDF Pig (Shell)
+### <a name="use-pig-udf-shell"></a>Use Pig UDF (concha)
 
-1. Para se conectar ao Pig, use o seguinte comando em sua sessão SSH aberta:
+1. Para ligar ao porco, utilize o seguinte comando da sua sessão SSH aberta:
 
     ```bash
     pig
     ```
 
-2. Insira as seguintes instruções no prompt de `grunt>`:
+2. Introduza as seguintes declarações no `grunt>` momento seguinte:
 
    ```pig
    Register wasbs:///pigudf.py using jython as myfuncs;
@@ -397,7 +397,7 @@ Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for dife
    DUMP DETAILS;
    ```
 
-3. Depois de inserir a linha a seguir, o trabalho deve ser iniciado. Quando o trabalho for concluído, ele retornará uma saída semelhante aos seguintes dados:
+3. Depois de entrar na seguinte linha, o trabalho deve começar. Uma vez concluída a função, devolve a saída semelhante aos seguintes dados:
 
         ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
         ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -405,21 +405,21 @@ Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for dife
         ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
         ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-4. Use `quit` para sair do Shell Grunt e, em seguida, use o seguinte para editar o arquivo pigudf.py no sistema de arquivos local:
+4. Utilize `quit` para sair da concha Grunt e, em seguida, use o seguinte para editar o ficheiro pigudf.py no sistema de ficheiros local:
 
     ```bash
     nano pigudf.py
     ```
 
-5. Uma vez no editor, remova a marca de comentário da linha a seguir removendo o `#` caractere do início da linha:
+5. Uma vez no editor, não comente `#` a seguinte linha removendo o personagem do início da linha:
 
     ```bash
     #from pig_util import outputSchema
     ```
 
-    Essa linha modifica o script Python para trabalhar com o Python C em vez de Jython. Depois que a alteração tiver sido feita, use **Ctrl + X** para sair do editor. Selecione **Y**e, em seguida, **Enter** para salvar as alterações.
+    Esta linha modifica o guião python para trabalhar com C Python em vez de Jython. Uma vez feita a alteração, utilize **ctrl+X** para sair do editor. Selecione **Y**e, em seguida, **introduza** para guardar as alterações.
 
-6. Use o comando `pig` para iniciar o Shell novamente. Quando você estiver no prompt de `grunt>`, use o seguinte para executar o script Python usando o interpretador do Python C.
+6. Use `pig` o comando para reinicie a concha. Uma vez que `grunt>` esteja na solicitação, use o seguinte para executar o script Python usando o intérprete C Python.
 
    ```pig
    Register 'pigudf.py' using streaming_python as myfuncs;
@@ -429,11 +429,11 @@ Nos comandos abaixo, substitua `sshuser` pelo nome de usuário real, se for dife
    DUMP DETAILS;
    ```
 
-    Quando esse trabalho for concluído, você deverá ver a mesma saída como quando executou o script anteriormente usando Jython.
+    Uma vez concluído este trabalho, deve ver a mesma saída que quando já executou o guião usando Jython.
 
-### <a name="upload-file-powershell"></a>Carregar arquivo (PowerShell)
+### <a name="upload-file-powershell"></a>Ficheiro de upload (PowerShell)
 
-O PowerShell também pode ser usado para executar consultas de Hive remotamente. Verifique se o diretório de trabalho é onde `pigudf.py` está localizado.  Use o seguinte script do PowerShell para executar uma consulta de Hive que usa o script `pigudf.py`:
+PowerShell também pode ser usado para executar remotamente consultas da Hive. Certifique-se de que `pigudf.py` o seu diretório de trabalho está localizado.  Utilize o seguinte script PowerShell para executar uma `pigudf.py` consulta da Hive que usa o script:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -474,12 +474,12 @@ Set-AzStorageBlobContent `
     -Context $context
 ```
 
-### <a name="use-pig-udf-powershell"></a>Usar UDF Pig (PowerShell)
+### <a name="use-pig-udf-powershell"></a>Use Pig UDF (PowerShell)
 
 > [!NOTE]  
-> Ao enviar remotamente um trabalho usando o PowerShell, não é possível usar o Python C como o intérprete.
+> Ao submeter remotamente um trabalho utilizando powerShell, não é possível utilizar C Python como intérprete.
 
-O PowerShell também pode ser usado para executar trabalhos do Pig Latin. Para executar um trabalho Pig Latin que usa o script `pigudf.py`, use o seguinte script do PowerShell:
+A PowerShell também pode ser usada para gerir trabalhos em Pig Latin. Para executar um trabalho em `pigudf.py` latim pig que usa o script, use o seguinte script PowerShell:
 
 ```PowerShell
 # Script should stop on failures
@@ -547,7 +547,7 @@ Get-AzHDInsightJobOutput `
     -HttpCredential $creds
 ```
 
-A saída para o trabalho **Pig** deve ser semelhante aos seguintes dados:
+A produção para o trabalho de **porco** deve parecer semelhante aos seguintes dados:
 
     ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
     ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -555,38 +555,38 @@ A saída para o trabalho **Pig** deve ser semelhante aos seguintes dados:
     ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a><a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="errors-when-running-jobs"></a>Erros ao executar trabalhos
+### <a name="errors-when-running-jobs"></a>Erros ao executar empregos
 
-Ao executar o trabalho do hive, você pode encontrar um erro semelhante ao seguinte texto:
+Ao executar o trabalho de colmeia, pode encontrar um erro semelhante ao seguinte texto:
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 
-Esse problema pode ser causado pelas terminações de linha no arquivo Python. Muitos editores do Windows usam o padrão CRLF como terminação de linha, mas os aplicativos Linux geralmente esperam LF.
+Este problema pode ser causado pelos terminações de linha no ficheiro Python. Muitos editores do Windows não usam o CRLF como o fim da linha, mas as aplicações linux geralmente esperam LF.
 
-Você pode usar as seguintes instruções do PowerShell para remover os caracteres CR antes de carregar o arquivo para o HDInsight:
+Pode utilizar as seguintes declarações powerShell para remover os caracteres CR antes de enviar o ficheiro para HDInsight:
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
 
-### <a name="powershell-scripts"></a>Scripts do PowerShell
+### <a name="powershell-scripts"></a>Scripts PowerShell
 
-Ambos os scripts do PowerShell de exemplo usados para executar os exemplos contêm uma linha comentada que exibe a saída de erro para o trabalho. Se você não estiver vendo a saída esperada para o trabalho, remova a marca de comentário da linha a seguir e veja se as informações de erro indicam um problema.
+Ambos os scripts de exemplo PowerShell usados para executar os exemplos contêm uma linha comentada que exibe saída de erro para o trabalho. Se não estiver a ver a saída esperada para o trabalho, não comente a seguinte linha e veja se a informação de erro indica um problema.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
-As informações de erro (STDERR) e o resultado do trabalho (STDOUT) também são registrados no armazenamento do HDInsight.
+As informações de erro (STDERR) e o resultado do trabalho (STDOUT) também estão registadas no seu armazenamento HDInsight.
 
-| Para este trabalho... | Examinar esses arquivos no contêiner de BLOBs |
+| Para este trabalho... | Olhe para estes arquivos no recipiente de bolhas |
 | --- | --- |
 | Hive |/HivePython/stderr<p>/HivePython/stdout |
 | Pig |/PigPython/stderr<p>/PigPython/stdout |
 
-## <a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 
-Se você precisar carregar módulos Python que não são fornecidos por padrão, consulte [como implantar um módulo no Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+Se necessitar de carregar módulos Python que não são fornecidos por padrão, consulte [como implementar um módulo para o Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
 
-Para outras maneiras de usar o Pig, o hive e para saber mais sobre como usar o MapReduce, consulte os seguintes documentos:
+Para outras formas de usar o Porco, a Colmeia e aprender a usar o MapReduce, consulte os seguintes documentos:
 
-* [Usar o Apache Hive com o HDInsight](hdinsight-use-hive.md)
-* [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
+* [Use a Colmeia Apache com HDInsight](hdinsight-use-hive.md)
+* [Utilizar mapeiaReduzir com HDInsight](hdinsight-use-mapreduce.md)

@@ -7,26 +7,26 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 705ebb5809840155e6bbf3f8eef091eb95f63e63
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461645"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Adicione autenticação à sua aplicação Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Resumo
-Neste tutorial, adiciona-se autenticação ao projeto de arranque rápido todo-lista no Android utilizando um fornecedor de identidade suportado. Este tutorial é baseado no Get started com o tutorial de [Começar com aplicativos móveis] que você deve completar primeiro.
+Neste tutorial, adiciona-se autenticação ao projeto de arranque rápido todo-lista no Android utilizando um fornecedor de identidade suportado. Este tutorial é baseado no Get started com o tutorial de [Aplicações Móveis,] que você deve completar primeiro.
 
-## <a name="register"></a>Registe a sua aplicação para autenticação e configure o Serviço de Aplicações Azure
+## <a name="register-your-app-for-authentication-and-configure-azure-app-service"></a><a name="register"></a>Registe a sua aplicação para autenticação e configure o Serviço de Aplicações Azure
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
 
 A autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isto permite que o sistema de autenticação redirecione para a sua aplicação uma vez concluído o processo de autenticação. Neste tutorial, usamos o _nome_ de aplicativo do esquema URL em toda a parte. No entanto, pode utilizar qualquer esquema de URL que escolha. Deve ser exclusivo da sua aplicação móvel. Para ativar a reorientação do lado do servidor:
 
-1. No [Portal do Azure]selecione o seu Serviço de Aplicações.
+1. No [portal Azure,]selecione o seu Serviço de Aplicações.
 
 2. Clique na opção de **menu Autenticação/Autorização.**
 
@@ -36,10 +36,10 @@ A autenticação segura requer que defina um novo esquema de URL para a sua apli
 
 5. Clique em **Guardar**.
 
-## <a name="permissions"></a>Restringir permissões a utilizadores autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a utilizadores autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* No Android Studio, abra o projeto que completou com o tutorial [Começar com aplicativos móveis] A partir do menu **Executar,** clique na **aplicação Executar**, e verifique se uma exceção não tratada com um código de estado de 401 (Não autorizado) é levantada após o início da aplicação.
+* No Android Studio, abra o projeto que completou com o tutorial [Get started com Aplicações Móveis.] A partir do menu **Executar,** clique na **aplicação Executar**, e verifique se uma exceção não tratada com um código de estado de 401 (Não autorizado) é levantada após o início da aplicação.
 
      Esta exceção acontece porque a aplicação tenta aceder à parte de trás como um utilizador não autenticado, mas a tabela *TodoItem* agora requer autenticação.
 
@@ -50,7 +50,7 @@ Em seguida, atualiza a aplicação para autenticar os utilizadores antes de soli
 
 
 
-## <a name="cache-tokens"></a>Fichas de autenticação cache no cliente
+## <a name="cache-authentication-tokens-on-the-client"></a><a name="cache-tokens"></a>Fichas de autenticação cache no cliente
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -59,7 +59,7 @@ Agora que completou este tutorial básico de autenticação, considere continuar
 * [Adicione notificações push à sua aplicação Android](app-service-mobile-android-get-started-push.md).
   Saiba como configurar as suas Aplicações Móveis no final para utilizar centros de notificação Azure para enviar notificações push.
 * [Ative a sincronização offline para a sua aplicação Android.](app-service-mobile-android-get-started-offline-data.md)
-  Aprenda a adicionar suporte offline à sua aplicação utilizando uma extremidade de apps móveis. Com sincronização offline, os utilizadores podem interagir com uma aplicação móvel&mdash;visualização, adição ou modificação de dados&mdash;mesmo quando não há ligação de rede.
+  Aprenda a adicionar suporte offline à sua aplicação utilizando uma extremidade de apps móveis. Com sincronização offline, os utilizadores&mdash;podem interagir com uma&mdash;visualização de aplicações móveis, adicionar ou modificar dados mesmo quando não há ligação de rede.
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -72,4 +72,4 @@ Agora que completou este tutorial básico de autenticação, considere continuar
 
 <!-- URLs. -->
 [Começar com aplicativos móveis]: app-service-mobile-android-get-started.md
-[Portal do Azure]: https://portal.azure.com/
+[Portal Azure]: https://portal.azure.com/

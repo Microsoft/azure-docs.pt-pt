@@ -1,6 +1,6 @@
 ---
-title: Sincronização de horário para VMs do Windows no Azure
-description: Sincronização de horário para máquinas virtuais do Windows.
+title: Sincronização de tempo para VMs windows em Azure
+description: Sincronização de tempo para máquinas virtuais windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,137 +14,137 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: dd2ae2159c43da6a049d67cae739f111eba682c9
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74534460"
 ---
-# <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de horário para VMs do Windows no Azure
+# <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de tempo para VMs windows em Azure
 
-A sincronização de tempo é importante para a correlação de segurança e evento. Às vezes, ele é usado para a implementação de transações distribuídas. A precisão de tempo entre vários sistemas de computador é obtida por meio da sincronização. A sincronização pode ser afetada por várias coisas, incluindo reinicializações e tráfego de rede entre a fonte de tempo e o computador que busca a hora. 
+A sincronização temporal é importante para a segurança e correlação de eventos. Por vezes, é utilizado para a implementação de transações distribuídas. A precisão do tempo entre vários sistemas informáticos é conseguida através da sincronização. A sincronização pode ser afetada por várias coisas, incluindo reboots e tráfego de rede entre a fonte de tempo e o computador que vai buscar o tempo. 
 
-O Azure agora tem o suporte da infraestrutura que executa o Windows Server 2016. O Windows Server 2016 tem algoritmos aprimorados usados para corrigir a hora e a condição do relógio local para sincronizar com o UTC.  O Windows Server 2016 também melhorou o serviço VMICTimeSync que controla como as VMs são sincronizadas com o host para o tempo preciso. Os aprimoramentos incluem um tempo inicial mais preciso na inicialização da VM ou na recuperação da VM e na correção da latência de interrupção para exemplos fornecidos para o tempo do Windows (W32time). 
+O Azure é agora apoiado pela infraestrutura que executa o Windows Server 2016. O Windows Server 2016 melhorou os algoritmos utilizados para corrigir o tempo e condicionar o relógio local para sincronizar com a UTC.  O Windows Server 2016 também melhorou o serviço VMICTimeSync que rege a forma como os VMs se sincronizam com o anfitrião por um tempo preciso. As melhorias incluem um tempo inicial mais preciso no arranque de VM ou no restabelecimento de VM e interromper a correção de latência para as amostras fornecidas ao Windows Time (W32time). 
 
 
 >[!NOTE]
->Para obter uma visão geral rápida do serviço de tempo do Windows, veja este [vídeo de visão geral de alto nível](https://aka.ms/WS2016TimeVideo).
+>Para uma visão geral rápida do serviço Windows Time, veja este [vídeo de visão geral de alto nível](https://aka.ms/WS2016TimeVideo).
 >
-> Para obter mais informações, consulte [tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Para mais informações, consulte [o tempo exato para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-A precisão de um relógio de computador é avaliada em quão próximo o relógio do computador é o padrão de tempo UTC (tempo Universal Coordenado). O UTC é definido por um exemplo multinacional de relógios de Atomic precisos que só podem ser desativados por um segundo em 300 anos. Mas, ler o UTC diretamente requer hardware especializado. Em vez disso, os servidores de horário são sincronizados com o UTC e são acessados de outros computadores para fornecer escalabilidade e robustez. Cada computador tem o serviço de sincronização de tempo em execução que sabe quais servidores de tempo usar e verifica periodicamente se o relógio do computador precisa ser corrigido e ajusta o tempo se necessário. 
+A precisão de um relógio de computador é avaliada na proximidade do relógio do computador à norma de tempo coordenada do tempo universal (UTC). A UTC é definida por uma amostra multinacional de relógios atómicos precisos que só pode ser desligado por um segundo em 300 anos. Mas, ler UTC requer hardware especializado. Em vez disso, os servidores de tempo são sincronizados com utc e são acedidos a partir de outros computadores para fornecer escalabilidade e robustez. Todos os computadores têm um serviço de sincronização temporal em execução que sabe a que horas os servidores devem usar e verifica periodicamente se o relógio do computador precisa de ser corrigido e ajusta o tempo se necessário. 
 
-Os hosts do Azure são sincronizados com os servidores de tempo internos da Microsoft que levam seu tempo em dispositivos de camada 1 de propriedade da Microsoft, com antenas de GPS. As máquinas virtuais no Azure podem depender de seu host para passar o tempo preciso (*tempo de host*) para a VM ou a VM pode obter tempo diretamente de um servidor de horário ou uma combinação de ambos. 
+Os anfitriões do Azure são sincronizados com servidores de tempo internos da Microsoft que levam o seu tempo a partir de dispositivos Stratum 1, propriedade da Microsoft, com antenas GPS. As máquinas virtuais em Azure podem depender do seu hospedeiro para passar o tempo exato (tempo de*anfitrião)* para o VM ou o VM pode obter diretamente tempo a partir de um servidor de tempo, ou uma combinação de ambos. 
 
-As interações de máquina virtual com o host também podem afetar o relógio. Durante a [manutenção da preservação da memória](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), as VMs são pausadas por até 30 segundos. Por exemplo, antes de a manutenção começar, o relógio da VM mostra 10:00:00 AM e dura 28 segundos. Depois que a VM for retomada, o relógio na VM ainda mostrará 10:00:00 AM, que teria 28 segundos de desconto. Para corrigir isso, o serviço VMICTimeSync monitora o que está acontecendo no host e solicita que as alterações ocorram nas VMs para compensar.
+As interações virtuais com o hospedeiro também podem afetar o relógio. Durante [a manutenção da conservação](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)da memória, os VMs são interrompidos por até 30 segundos. Por exemplo, antes de a manutenção começar, o relógio VM mostra 10:00:00 AM e dura 28 segundos. Após o reinício do VM, o relógio do VM ainda mostraria 10:00:00 am, o que seria 28 segundos de desconto. Para corrigir isto, o serviço VMICTimeSync monitoriza o que está a acontecer no hospedeiro e solicita que as alterações ocorram nos VMs para compensar.
 
-O serviço VMICTimeSync opera no modo de exemplo ou de sincronização e influenciará apenas o relógio. No modo de exemplo, que exige que o W32time esteja em execução, o serviço VMICTimeSync sonda o host a cada 5 segundos e fornece amostras de tempo para o W32time. Aproximadamente a cada 30 segundos, o serviço W32time usa o último exemplo de tempo e o usa para influenciar o relógio do convidado. O modo de sincronização será ativado se um convidado tiver sido retomado ou se o relógio de um convidado ficar mais de 5 segundos atrás do relógio do host. Nos casos em que o serviço W32time está em execução corretamente, o último caso nunca deve acontecer.
+O serviço VMICTimeSync funciona em modo de amostra ou sincronização e só influenciará o relógio para a frente. No modo amostra, que requer tempo w32 para estar em execução, o serviço VMICTimeSync vota o anfitrião a cada 5 segundos e fornece amostras de tempo para W32time. Aproximadamente a cada 30 segundos, o serviço W32time tira a amostra de tempo mais recente e usa-a para influenciar o relógio do hóspede. O modo sync ativa-se se um hóspede tiver sido retomado ou se o relógio de um hóspede se desviar mais de 5 segundos atrás do relógio do anfitrião. Nos casos em que o serviço W32 time está em funcionamento adequado, este último caso nunca deverá acontecer.
 
-Sem que a sincronização de tempo funcione, o relógio na VM acumularia erros. Quando há apenas uma VM, o efeito pode não ser significativo, a menos que a carga de trabalho exija uma redução do dia altamente precisa. Mas, na maioria dos casos, temos várias VMs interconectadas que usam tempo para controlar transações e o tempo precisa ser consistente em toda a implantação. Quando o tempo entre as VMs for diferente, você poderá ver os seguintes efeitos:
+Sem que a sincronização do tempo funcione, o relógio do VM acumularia erros. Quando há apenas um VM, o efeito pode não ser significativo a menos que a carga de trabalho exija uma cronometragem muito precisa. Mas na maioria dos casos, temos múltiplos VMs interligados que usam o tempo para rastrear transações e o tempo precisa ser consistente em toda a implementação. Quando o tempo entre VMs é diferente, pode ver os seguintes efeitos:
 
-- A autenticação falhará. Protocolos de segurança como a tecnologia dependente de certificado ou Kerberos dependem do tempo de consistência entre os sistemas. 
-- É muito difícil descobrir o que aconteceu em um sistema se os logs (ou outros dados) não concordarem no tempo. O mesmo evento pareceria que ocorreu em momentos diferentes, dificultando a correlação.
-- Se o relógio estiver desativado, a cobrança poderá ser calculada incorretamente.
+- A autenticação falhará. Protocolos de segurança como Kerberos ou tecnologia dependente de certificados dependem do tempo ser consistente em todos os sistemas. 
+- É muito difícil descobrir o que aconteceu num sistema se os registos (ou outros dados) não concordam com o tempo. O mesmo evento pareceria que ocorreu em momentos diferentes, dificultando a correlação.
+- Se o relógio estiver desligado, a faturação pode ser calculada incorretamente.
 
-Os melhores resultados para implantações do Windows são obtidos usando o Windows Server 2016 como o sistema operacional convidado, o que garante que você possa usar as melhorias mais recentes na sincronização de tempo.
+Os melhores resultados para implementações do Windows são alcançados utilizando o Windows Server 2016 como o sistema operativo de hóspedes, que garante que pode utilizar as mais recentes melhorias na sincronização de tempo.
 
 ## <a name="configuration-options"></a>Opções de configuração
 
-Há três opções para configurar a sincronização de horário para suas VMs do Windows hospedadas no Azure:
+Existem três opções para configurar a sincronização de tempo para os seus VMs windows hospedados no Azure:
 
-- Tempo de host e time.windows.com. Essa é a configuração padrão usada nas imagens do Azure Marketplace.
-- Somente host.
-- Use outro servidor de horário externo com ou sem usar a hora do host.
-
-
-### <a name="use-the-default"></a>Usar o padrão
-
-Por padrão, as imagens de VM do sistema operacional Windows são configuradas para W32Time para sincronização de duas fontes: 
-
-- O provedor do NtpClient, que obtém informações de time.windows.com.
-- O serviço VMICTimeSync, usado para comunicar o tempo de host para as VMs e fazer correções depois que a VM é pausada para manutenção. Os hosts do Azure usam dispositivos de camada 1 de propriedade da Microsoft para manter o tempo preciso.
-
-o W32Time prefere o provedor de tempo na seguinte ordem de prioridade: nível de estrato, atraso raiz, dispersão de raiz, deslocamento de tempo. Na maioria dos casos, o W32Time prefere o time.windows.com ao host porque o time.windows.com relata a parte inferior do estrato. 
-
-Para computadores ingressados no domínio, o próprio domínio estabelece a hierarquia de sincronização de tempo, mas a raiz da floresta ainda precisa levar tempo de algum lugar e as considerações a seguir ainda seriam verdadeiras.
+- Hora e time.windows.com. Esta é a configuração predefinida utilizada nas imagens do Azure Marketplace.
+- Só de anfitrião.
+- Utilize outro servidor de tempo externo com ou sem o tempo de anfitrião.
 
 
-### <a name="host-only"></a>Somente host 
+### <a name="use-the-default"></a>Use o padrão
 
-Como o time.windows.com é um servidor NTP público, o tempo de sincronização com ele requer o envio de tráfego pela Internet, os atrasos de pacotes variados podem afetar negativamente a qualidade da sincronização de tempo. A remoção de time.windows.com alternando para sincronização somente de host pode às vezes melhorar o tempo de sincronização dos resultados.
+Por predefinição, as imagens VM do Windows Estão configuradas para o sincronismo de duas fontes: 
 
-Mudar para a sincronização de tempo somente de host faz sentido se você tiver problemas de sincronização de tempo usando a configuração padrão. Experimente a sincronização somente de host para ver se isso melhoraria a sincronização de horário na VM. 
+- O fornecedor NtpClient, que obtém informações de time.windows.com.
+- O serviço VMICTimeSync, utilizado para comunicar o tempo de acolhimento aos VMs e fazer correções após a pausa do VM para manutenção. Os anfitriões do Azure utilizam dispositivos Stratum 1 da Microsoft para manter o tempo preciso.
 
-### <a name="external-time-server"></a>Servidor de horário externo
+w32 time preferiria o provedor de tempo na seguinte ordem de prioridade: nível de estrato, atraso de raiz, dispersão de raízes, compensação de tempo. Na maioria dos casos, a w32 time preferiria time.windows.com ao hospedeiro porque time.windows.com reporta menor estratos. 
 
-Se você tiver requisitos de sincronização de tempo específicos, também há uma opção de usar servidores de horário externos. Os servidores de horário externos podem fornecer um tempo específico, o que pode ser útil para cenários de teste, garantindo a uniformidade do tempo com computadores hospedados em datacenters não Microsoft ou lidando com segundos bissextos de forma especial.
-
-Você pode combinar servidores externos com o serviço VMICTimeSync e VMICTimeProvider para fornecer resultados semelhantes à configuração padrão. 
-
-## <a name="check-your-configuration"></a>Verifique sua configuração
+Para as máquinas unidas de domínio, o domínio em si estabelece a hierarquia da sincronização do tempo, mas a raiz da floresta ainda precisa de levar tempo de algum lugar e as seguintes considerações continuariam a ser verdadeiras.
 
 
-Verifique se o provedor de tempo do NtpClient está configurado para usar servidores NTP explícitos (NTP) ou sincronização de horário do domínio (NT5DS).
+### <a name="host-only"></a>Só para hospedeiros 
+
+Como time.windows.com é um servidor PÚBLICO ntp, sincronizar o tempo com ele requer o envio de tráfego através da internet, vários atrasos de pacotes podem afetar negativamente a qualidade da sincronização de tempo. Remover time.windows.com mudando para sincronização apenas para o hospedeiro pode, por vezes, melhorar os resultados da sincronização do tempo.
+
+Mudar para sincronização de tempo apenas para o anfitrião faz sentido se experimentar problemas de sincronização de tempo usando a configuração predefinida. Experimente a sincronização apenas do hospedeiro para ver se isso melhoraria a sincronização de tempo em VM. 
+
+### <a name="external-time-server"></a>Servidor de tempo externo
+
+Se tiver requisitos específicos de sincronização de tempo, existe também a opção de utilizar servidores de tempo externos. Os servidores de tempo externos podem fornecer um tempo específico, o que pode ser útil para cenários de teste, garantindo a uniformidade do tempo com máquinas alojadas em datacenters não Microsoft, ou manuseando segundos de salto de forma especial.
+
+Pode combinar servidores externos com o serviço VMICTimeSync e vMICTimeProvider para fornecer resultados semelhantes à configuração predefinida. 
+
+## <a name="check-your-configuration"></a>Verifique a configuração
+
+
+Verifique se o fornecedor de tempo NtpClient está configurado para utilizar servidores NTP explícitos (NTP) ou sincronização de tempo de domínio (NT5DS).
 
 ```
 w32tm /dumpreg /subkey:Parameters | findstr /i "type"
 ```
 
-Se a VM estiver usando o NTP, você verá a seguinte saída:
+Se o VM estiver a utilizar a NTP, verá a seguinte saída:
 
 ```
 Value Name                 Value Type          Value Data
 Type                       REG_SZ              NTP
 ```
 
-Para ver qual servidor de horário o provedor de tempo do NtpClient está usando, em um prompt de comando elevado, digite:
+Para ver que servidor de tempo o fornecedor de tempo NtpClient está a usar, num tipo de pedido de comando elevado:
 
 ```
 w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 ```
 
-Se a VM estiver usando o padrão, a saída terá a seguinte aparência:
+Se o VM estiver a utilizar o padrão, a saída será assim:
 
 ```
 NtpServer                  REG_SZ              time.windows.com,0x8
 ```
 
 
-Para ver qual provedor de tempo está sendo usado no momento.
+Para ver que horas o fornecedor está a ser utilizado atualmente.
 
 ```
 w32tm /query /source
 ```
 
 
-Aqui está a saída que você poderia ver e o que significaria:
+Aqui está a saída que se pode ver e o que significaria:
     
-- **time.Windows.com** -na configuração padrão, W32Time obteria o tempo de time.Windows.com. A qualidade da sincronização de tempo depende da conectividade com a Internet e é afetada por atrasos de pacotes. Essa é a saída normal da configuração padrão.
-- **Provedor de sincronização de tempo da VM IC** -a VM está sincronizando o tempo do host. Isso geralmente é o resultado se você aceitar a sincronização de horário somente de host ou o NtpServer não estiver disponível no momento. 
-- *Seu servidor de domínio* -o computador atual está em um domínio e o domínio define a hierarquia de sincronização de tempo.
-- *Algum outro servidor* -W32Time foi configurado explicitamente para obter o tempo desse outro servidor. A qualidade de sincronização de tempo depende dessa qualidade de servidor de tempo.
-- Relógio **CMOS local** -o relógio não está sincronizado. Você poderá obter essa saída se o W32Time não tiver tempo suficiente para iniciar após uma reinicialização ou quando todas as fontes de tempo configuradas não estiverem disponíveis.
+- **time.windows.com** - na configuração predefinida, a w32 time obteria tempo de time.windows.com. A qualidade da sincronização temporal depende da conectividade da Internet e é afetada por atrasos nos pacotes. Esta é a saída habitual da configuração predefinida.
+- **VM IC Time Synchronization Provider** - o VM está sincronizando o tempo do hospedeiro. Este é normalmente o resultado se optar por sincronização de tempo apenas para o anfitrião ou o NtpServer não estiver disponível no momento. 
+- *O seu servidor* de domínio - a máquina atual está num domínio e o domínio define a hierarquia da sincronização temporal.
+- *Algum outro servidor* - o w32time foi explicitamente configurado para obter o tempo de outro servidor. A qualidade da sincronização de tempo depende da qualidade do servidor do tempo.
+- **Relógio CMOS local** - o relógio não está sincronizado. Pode obter esta saída se o w32time não tiver tido tempo suficiente para começar após um reboot ou quando todas as fontes de tempo configuradas não estiverem disponíveis.
 
 
-## <a name="opt-in-for-host-only-time-sync"></a>Aceitar a sincronização de tempo somente de host
+## <a name="opt-in-for-host-only-time-sync"></a>Opt-in para sincronização de tempo apenas para hospedeiro
 
-O Azure trabalha constantemente para melhorar a sincronização de tempo em hosts e pode garantir que toda a infraestrutura de sincronização seja colocada em data centers de propriedade da Microsoft. Se você tiver problemas de sincronização de tempo com a configuração padrão que prefere usar o time.windows.com como a fonte de tempo primária, poderá usar os comandos a seguir para aceitar a sincronização de horário somente de host.
+O Azure está constantemente a trabalhar na melhoria da sincronização de tempo nos anfitriões e pode garantir que todo o tempo de infraestrutura de sincronização está colocalizado em datacenters da Microsoft. Se tiver problemas de sincronização de tempo com a configuração predefinida que prefere usar time.windows.com como fonte de tempo principal, pode utilizar os seguintes comandos para optar pela sincronização de tempo apenas do hospedeiro.
 
-Marque o provedor VMIC como habilitado. 
+Marque o fornecedor VMIC como ativado. 
 
 ```
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\TimeProviders\VMICTimeProvider /v Enabled /t REG_DWORD /d 1 /f
 ```
 
-Marque o provedor do NTPClient como desabilitado.
+Marque o fornecedor NTPClient como desativado.
 
 ```
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\TimeProviders\NtpClient /v Enabled /t REG_DWORD /d 0 /f
 ```
 
-Reinicie o serviço W32Time.
+Reinicie o serviço w32time.
 
 ```
 net stop w32time && net start w32time
@@ -153,11 +153,11 @@ net stop w32time && net start w32time
 
 ## <a name="windows-server-2012-and-r2-vms"></a>VMs do Windows Server 2012 e R2 
 
-O Windows Server 2012 e o Windows Server 2012 R2 têm configurações padrão diferentes para a sincronização de horário. O W32Time, por padrão, é configurado de forma que prefira uma baixa sobrecarga do serviço em relação ao tempo preciso. 
+O Windows Server 2012 e o Windows Server 2012 R2 têm diferentes definições predefinidas para sincronização de tempo. A w32time por padrão é configurada de uma forma que prefere a sobrecarga baixa do serviço até ao tempo preciso. 
 
-Se você quiser mover suas implantações do Windows Server 2012 e 2012 R2 para usar os padrões mais recentes que preferem o tempo preciso, você poderá aplicar as seguintes configurações.
+Se pretender mover as implementações do Windows Server 2012 e 2012 R2 para utilizar as falhas mais recentes que preferem o tempo preciso, pode aplicar as seguintes definições.
 
-Atualize os intervalos de pesquisa e atualização do W32Time para corresponder às configurações do Windows Server 2016.
+Atualize os intervalos da sondagem e da atualização da w32time para corresponder às definições do Windows Server 2016.
 
 ```
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v MinPollInterval /t REG_DWORD /d 6 /f
@@ -166,9 +166,9 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v U
 w32tm /config /update
 ```
 
-Para que o W32Time possa usar os novos intervalos de sondagem, o NtpServers deve ser marcado como usando-os. Se os servidores forem anotados com a máscara bitflag 0x1, isso substituiria esse mecanismo e o W32Time usaria SpecialPollInterval em vez disso. Verifique se os servidores NTP especificados estão usando o sinalizador 0x8 ou nenhum sinalizador:
+Para que a w32 time possa utilizar os novos intervalos de sondagens, os NtpServers serão marcados como usando-os. Se os servidores forem anotados com máscara de bitflag 0x1, isso substituiria este mecanismo e o w32time usaria o SpecialPollInterval. Certifique-se de que os servidores NTP especificados estão a usar uma bandeira 0x8 ou nenhuma bandeira:
 
-Verifique quais sinalizadores estão sendo usados para os servidores NTP usados.
+Verifique quais as bandeiras que estão a ser utilizadas para os servidores NTP usados.
 
 ```
 w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
@@ -176,11 +176,11 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Abaixo estão os links para obter mais detalhes sobre a sincronização de horário:
+Abaixo estão os links para mais detalhes sobre a sincronização do tempo:
 
-- [Ferramentas e configurações de serviço de tempo do Windows](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
-- [Aprimoramentos do Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Tempo preciso para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-- [Limite de suporte para configurar o serviço de tempo do Windows para ambientes de alta precisão](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
+- [Ferramentas e Definições do Serviço de Hora do Windows](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
+- [Melhorias do Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Hora precisa para o Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+- [Limite de suporte para configurar o serviço Windows Time para ambientes de alta precisão](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
 
 

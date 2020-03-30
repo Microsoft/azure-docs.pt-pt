@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 61fc64e140af091b5ff3f631398daf901557791b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663033"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar Log Analytics guardou pesquisas e alertas para a solução de gestão (Pré-visualização)
@@ -73,16 +73,16 @@ Cada propriedade de uma pesquisa guardada é descrita na tabela seguinte.
 | Propriedade | Descrição |
 |:--- |:--- |
 | categoria | A categoria para a pesquisa guardada.  Quaisquer pesquisas guardadas na mesma solução muitas vezes partilharão uma única categoria para que estejam agrumoradas na consola. |
-| DisplayName | Nome a exibir para a pesquisa guardada no portal. |
+| nome de exibição | Nome a exibir para a pesquisa guardada no portal. |
 | consulta | Consulta para correr. |
 
 > [!NOTE]
-> Você pode precisar usar caracteres de fuga na consulta se incluir caracteres que podem ser interpretados como JSON. Por exemplo, se a sua consulta fosse **AzureActivity  OperationName:"Microsoft.Compute/virtualMachines/write",** deve ser escrito no ficheiro de solução como **AzureActivity  Nome de funcionamento:/\"Microsoft.Compute/virtualMachines/write\"** .
+> Você pode precisar usar caracteres de fuga na consulta se incluir caracteres que podem ser interpretados como JSON. Por exemplo, se a sua consulta fosse **AzureActivity [ OperationName:"Microsoft.Compute/virtualMachines/write",** deve ser escrito no ficheiro de solução como **AzureActivity [ Nome da\"operação:/ Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Alertas
 Os [alertas De Log Azure](../../azure-monitor/platform/alerts-unified-log.md) são criados pelas regras do Alerta Azure que executam consultas de registo especificadas em intervalos regulares. Se os resultados da consulta corresponderem aos critérios especificados, é criado um registo de alerta e uma ou mais ações são executadas utilizando [grupos](../../azure-monitor/platform/action-groups.md)de ação .
 
-Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando um espaço de trabalho e os seus alertas são estendidos ao Azure, pode recuperar ou adicionar ações utilizando o Modelo de Gestor de [Recursos Azure](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Para os utilizadores que estendem alertas ao Azure, as ações são agora controladas em grupos de ação Azure. Quando um espaço de trabalho e os seus alertas são estendidos ao Azure, pode recuperar ou adicionar ações utilizando o Modelo de Gestor de [Recursos Azure](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 As regras de alerta na solução de gestão do legado são compostas dos seguintes três recursos diferentes.
 
 - **Busca guardada.** Define a pesquisa de registo que é executada. Várias regras de alerta podem partilhar uma única pesquisa guardada.
@@ -93,7 +93,7 @@ Os recursos de pesquisa guardados são descritos acima. Os outros recursos são 
 
 ### <a name="schedule-resource"></a>Recurso de agenda
 
-Uma pesquisa guardada pode ter um ou mais horários com cada horário representando uma regra de alerta separada. O horário define a frequência com que a pesquisa é executada e o intervalo de tempo sobre o qual os dados são recuperados. Os recursos de agendação têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` e têm a seguinte estrutura. Isto inclui variáveis e parâmetros comuns para que possa copiar e colar este código no seu ficheiro de solução e alterar os nomes dos parâmetros.
+Uma pesquisa guardada pode ter um ou mais horários com cada horário representando uma regra de alerta separada. O horário define a frequência com que a pesquisa é executada e o intervalo de tempo sobre o qual os dados são recuperados. Os recursos de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` agendação têm um tipo de e têm a seguinte estrutura. Isto inclui variáveis e parâmetros comuns para que possa copiar e colar este código no seu ficheiro de solução e alterar os nomes dos parâmetros.
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name)]",
@@ -113,19 +113,19 @@ As propriedades para recursos de horário são descritas na tabela seguinte.
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| enabled       | Sim | Especifica se o alerta está ativado quando é criado. |
+| ativado       | Sim | Especifica se o alerta está ativado quando é criado. |
 | intervalo      | Sim | Quantas vezes a consulta corre em minutos. |
-| queryTimeSpan | Sim | Duração do tempo em minutos para avaliar resultados. |
+| consultaTimeSpan | Sim | Duração do tempo em minutos para avaliar resultados. |
 
 O recurso de agenda deve depender da pesquisa guardada para que seja criado antes do horário.
 > [!NOTE]
 > O nome da agenda deve ser único num determinado espaço de trabalho; dois horários não podem ter o mesmo ID mesmo que estejam associados a diferentes pesquisas guardadas. Também o nome para todas as pesquisas, horários e ações criadas com a API log analytics devem estar em minúsculas.
 
 ### <a name="actions"></a>Ações
-Uma agenda pode ter várias ações. Uma ação pode definir um ou mais processos para efetuar como enviar um email ou iniciar um runbook ou ele pode definir um limiar que determina quando os resultados de uma pesquisa corresponderem a critérios. Algumas ações definir ambos, para que os processos são executados quando o limiar for cumprido.
+Um horário pode ter múltiplas ações. Uma ação pode definir um ou mais processos para executar, tais como enviar um correio ou iniciar um livro de execução, ou pode definir um limiar que determina quando os resultados de uma pesquisa correspondem a alguns critérios. Algumas ações definirão ambos para que os processos sejam realizados quando o limiar é cumprido.
 As ações podem ser definidas usando recursos ou recursos de ação [grupo de ação].
 
-Existem dois tipos de recurso de ação especificados pela propriedade **Tipo.** Um horário requer uma ação **de Alerta,** que define os detalhes da regra de alerta e que ações são tomadas quando um alerta é criado. Os recursos de ação têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
+Existem dois tipos de recurso de ação especificados pela propriedade **Tipo.** Um horário requer uma ação **de Alerta,** que define os detalhes da regra de alerta e que ações são tomadas quando um alerta é criado. Os recursos de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`ação têm um tipo de .
 
 As ações de alerta têm a seguinte estrutura. Isto inclui variáveis e parâmetros comuns para que possa copiar e colar este código no seu ficheiro de solução e alterar os nomes dos parâmetros.
 
@@ -166,7 +166,7 @@ As propriedades para os recursos de ação de alerta são descritas nas seguinte
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
 | `type` | Sim | Tipo de ação.  Este é **alerta** para ações de alerta. |
-| `name` | Sim | Nome a apresentar para o alerta.  Este é o nome que está exposto na consola para a regra de alerta. |
+| `name` | Sim | Mostrar o nome do alerta.  Este é o nome que está exposto na consola para a regra de alerta. |
 | `description` | Não | Descrição opcional do alerta. |
 | `severity` | Sim | Gravidade do registo de alerta dos seguintes valores:<br><br> **crítico**<br>**aviso**<br>**informativo**
 
@@ -175,16 +175,16 @@ Esta secção é necessária. Define as propriedades para o limiar de alerta.
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior do que<br>lt = menos do que** |
+| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt =<br>maior do que lt = menos do que** |
 | `Value` | Sim | O valor para comparar os resultados. |
 
-##### <a name="metricstrigger"></a>MetricsTrigger
+##### <a name="metricstrigger"></a>MétricasTrigger
 Esta secção é opcional. Inclua-o para um alerta de medição métrica.
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| `TriggerCondition` | Sim | Especifica se o limiar é para o número total de infrações ou infrações consecutivas dos seguintes valores:<br><br>**Total<br>Consecutiva** |
-| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior do que<br>lt = menos do que** |
+| `TriggerCondition` | Sim | Especifica se o limiar é para o número total de infrações ou infrações consecutivas dos seguintes valores:<br><br>**Total<br>Consecutivo** |
+| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt =<br>maior do que lt = menos do que** |
 | `Value` | Sim | Número de vezes que os critérios devem ser cumpridos para desencadear o alerta. |
 
 
@@ -193,16 +193,16 @@ Esta secção é opcional. Inclua esta secção se quiser suprimir alertas da me
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| DurationInMinutes | Sim, se o elemento throttling incluído | Número de minutos para suprimir alertas após a criação de um da mesma regra de alerta. |
+| Duração InMinutes | Sim, se o elemento throttling incluído | Número de minutos para suprimir alertas após a criação de um da mesma regra de alerta. |
 
 #### <a name="azure-action-group"></a>Grupo de ação Azure
-Todos os alertas no Azure, utilize o grupo de ação como o mecanismo predefinido para a manipulação de ações. Com o grupo de ação, pode especificar as suas ações de uma vez e, em seguida, associar o grupo de ação para múltiplos alertas - em todo o Azure. Sem a necessidade, repetidamente declarar as mesmas ações repetidamente. Os grupos de ação suportam várias ações - incluindo e-mail, SMS, chamada de voz, a ligação ITSM, Runbook de automatização, Webhook URI e muito mais.
+Todos os alertas em Azure, use o Action Group como o mecanismo padrão para o manuseamento de ações. Com o Action Group, pode especificar as suas ações uma vez e, em seguida, associar o grupo de ação a múltiplos alertas - através do Azure. Sem a necessidade, de declarar repetidamente as mesmas ações repetidamente. Os Action Groups apoiam múltiplas ações - incluindo e-mail, SMS, Voice Call, ITSM Connection, Automation Runbook, Webhook URI e muito mais.
 
-Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Os detalhes do e-mail, URLs Webhook, detalhes da Automatização do Livro de Executa e outras Ações, precisam de ser definidos ao lado de um Grupo de Ação primeiro antes de criar um alerta; pode criar [o Grupo de Ação do Monitor Azure](../../azure-monitor/platform/action-groups.md) no Portal ou utilizar o Grupo de Ação - Modelo de [Recurso](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Para os utilizadores que tenham alargado os seus alertas ao Azure - um calendário deve agora ter detalhes do Action Group aprovados juntamente com o limiar, para poderem criar um alerta. Os detalhes do e-mail, URLs Webhook, detalhes da Automatização do Livro de Executa e outras Ações, precisam de ser definidos ao lado de um Grupo de Ação primeiro antes de criar um alerta; pode criar [o Grupo de Ação do Monitor Azure](../../azure-monitor/platform/action-groups.md) no Portal ou utilizar o Grupo de Ação - Modelo de [Recurso](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| AzNsNotification | Sim | O iD de recursos do grupo de ação Azure deve ser associado ao alerta para tomar as medidas necessárias quando os critérios de alerta são cumpridos. |
+| Notificação AzNs | Sim | O iD de recursos do grupo de ação Azure deve ser associado ao alerta para tomar as medidas necessárias quando os critérios de alerta são cumpridos. |
 | CustomEmailSubject | Não | Linha de assunto personalizado do correio enviado para todos os endereços especificados em grupo de ação associado. |
 | CustomWebhookPayload | Não | Carga útil personalizada a ser enviada para todos os pontos finais do webhook definidos em grupo de ação associado. O formato depende do que o webhook espera e deve ser um JSON serializado válido. |
 
@@ -212,7 +212,7 @@ Segue-se uma amostra de uma solução que inclui os seguintes recursos:
 
 - Pesquisa guardada
 - Agenda
-- Grupo de ação
+- Grupo de ações
 
 A amostra utiliza variáveis de parâmetros de [solução padrão]( solutions-solution-file.md#parameters) que normalmente seriam usadas numa solução em oposição aos valores de codificação de dificuldade nas definições de recursos.
 

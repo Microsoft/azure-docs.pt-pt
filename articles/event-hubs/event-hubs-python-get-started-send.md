@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
 ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162604"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Quickstart: Envie e receba eventos com Hubs de Eventos usando Python (versão azure-eventhub 1)
@@ -26,11 +26,11 @@ Este quickstart mostra como enviar eventos e receber eventos de um hub de evento
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](event-hubs-about.md) antes de fazer este quickstart. 
 
-Para concluir este guia de início rápido, você precisa dos seguintes pré-requisitos:
+Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
-- Python 3.4 ou mais tarde, com `pip` instalados e atualizados.
-- O pacote do Python para hubs de eventos. Para instalar o pacote, execute este comando em um prompt de comando que tenha o Python em seu caminho: 
+- Python 3.4 ou `pip` posterior, com instalado e atualizado.
+- O pacote Python para Centros de Eventos. Para instalar o pacote, execute este comando num pedido de comando que tenha python no seu caminho: 
   
   ```cmd
   pip install azure-eventhub==1.3.*
@@ -40,14 +40,14 @@ Para concluir este guia de início rápido, você precisa dos seguintes pré-req
 
 ## <a name="send-events"></a>Enviar eventos
 
-Para criar um aplicativo Python que envia eventos para um hub de eventos:
+Para criar uma aplicação Python que envia eventos para um centro de eventos:
 
 > [!NOTE]
-> Em vez de trabalhar através do quickstart, você pode baixar e executar as [aplicações](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) de amostra do GitHub. Substitua as cordas `EventHubConnectionString` e `EventHubName` com os valores do centro do evento.
+> Em vez de trabalhar através do quickstart, você pode baixar e executar as [aplicações](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) de amostra do GitHub. Substitua `EventHubConnectionString` `EventHubName` as cordas e as cordas com os valores do centro do evento.
 
 1. Abra o seu editor favorito da Python, como [Visual Studio Code](https://code.visualstudio.com/)
-2. Crie um novo ficheiro chamado *send.py.* Este script para enviar eventos de 100 para o hub de eventos.
-3. Colhe o seguinte código em *send.py,* substituindo os Centros de Eventos \<namespace>, \<eventhub>, \<AccessKeyName>e \<principal valor chave> com os seus valores: 
+2. Crie um novo ficheiro chamado *send.py.* Este guião envia 100 eventos para o seu centro de eventos.
+3. Colhe o seguinte código em *send.py,* \<substituindo o \<espaço de \<nome sem \<nome do Event Hubs>,> eventhub, AccessKeyName> e> de valor-chave primário pelos seus valores: 
    
    ```python
    import sys
@@ -107,10 +107,10 @@ Parabéns! Enviou agora mensagens para um hub de eventos.
 
 ## <a name="receive-events"></a>Receber eventos
 
-Para criar um aplicativo Python que recebe eventos de um hub de eventos:
+Para criar uma aplicação Python que receba eventos a partir de um centro de eventos:
 
 1. No seu editor python, crie um ficheiro chamado *recv.py.*
-2. Colhe o seguinte código em *recv.py,* substituindo os Hubs de Eventos \<nomespace>, \<eventhub>, \<AccessKeyName>e \<valor chave primário> com os seus valores: 
+2. Colhe o seguinte código em *recv.py,* \<substituindo o \<espaço de \<nome sem \<nome do Event Hubs>,> eventhub, AccessKeyName> e> de valor chave primário pelos seus valores: 
    
    ```python
    import os
@@ -168,7 +168,7 @@ start python recv.py
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre os hubs de eventos, consulte os seguintes artigos:
+Para mais informações sobre os Centros de Eventos, consulte os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Funcionalidades e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)

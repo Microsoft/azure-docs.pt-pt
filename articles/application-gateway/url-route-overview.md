@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77251843"
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
@@ -24,7 +24,7 @@ No exemplo seguinte, o Gateway de Aplicação está a enviar tráfego para conto
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Os pedidos para http\://contoso.com/video/* são encaminhados para VideoServerPool, e http\://contoso.com/images/* são encaminhados para O ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
+Os pedidos\:para http //contoso.com/video/* são encaminhados\:para VideoServerPool, e http/contoso.com/images/* são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
 
 > [!IMPORTANT]
 > Para o V1 SKU, as regras são processadas na ordem em que estão listadas no portal. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta. Para o V2 SKU, os fósforos exatos têm maior precedência. No entanto, é altamente recomendado configurar os ouvintes multi-sites primeiro antes de configurar um ouvinte básico. Desta forma, assegura que o tráfego é encaminhado para o back-end certo.

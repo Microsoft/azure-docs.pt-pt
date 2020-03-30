@@ -14,10 +14,10 @@ ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 041da4198b0bdd040a4916008a1135aa2e2a5f7d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614529"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Arquitetura SAP HANA (Grandes Instâncias) em Azure
@@ -60,5 +60,5 @@ Assim como pode escolher entre diferentes tipos de VM com Máquinas Virtuais Azu
 
 Pode encontrar [SKUs disponíveis disponíveis para HLI](hana-available-skus.md).
 
-**Passos seguintes?**
+**Passos seguintes**
 - Consulte a arquitetura de [rede SAP HANA (Grandes Instâncias)](hana-network-architecture.md)

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 66a260fbb03f770ee98ec29a5f5e15e3d7dd1310
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77599395"
 ---
 # <a name="permissions"></a>Permissões
@@ -26,7 +26,7 @@ ms.locfileid: "77599395"
 
 O Centro de Segurança do Azure utiliza o [Controlo de Acesso Baseado em Funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.
 
-Centro de segurança avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Centro de segurança, apenas verá informações relacionadas com a um recurso quando for atribuída a função de proprietário, contribuinte ou leitor para a subscrição ou grupo de recursos que um recurso pertence.
+O Security Center avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Centro de Segurança, só se vê informações relacionadas com um recurso quando lhe é atribuído o papel de Proprietário, Colaborador ou Leitor para a subscrição ou grupo de recursos a que pertence um recurso.
 
 Consulte [permissões no Centro](security-center-permissions.md) de Segurança Azure para saber mais sobre papéis e permitiu ações no Centro de Segurança.
 
@@ -34,6 +34,6 @@ Consulte [permissões no Centro](security-center-permissions.md) de Segurança A
 
 ## <a name="who-can-modify-a-security-policy"></a>Quem pode modificar uma política de segurança?
 
-Para modificar uma política de segurança, tem de ser um administrador de segurança ou um proprietário ou contribuinte dessa subscrição.
+Para modificar uma política de segurança, deve ser administrador de segurança ou proprietário ou colaborador dessa subscrição.
 
 Para aprender a configurar uma política de segurança, consulte definições de políticas de [segurança no Azure Security Center](tutorial-security-policy.md).

@@ -8,24 +8,24 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 95d7abca27ec9db46a72140bc8a61b2841c63fcb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77598600"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
 Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI do Azure localmente, para seguir os passos neste artigo, tem de executar a versão 2.0.4 da CLI do Azure ou uma versão posterior. Execute **az --version** para encontrar a versão da CLI do Azure. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI do Azure localmente, para seguir os passos neste artigo, tem de executar a versão 2.0.4 da CLI do Azure ou uma versão posterior. Execute **az --version** para encontrar a versão da CLI do Azure. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 Por predefinição, os comandos da CLI do Azure devolvem JavaScript Object Notation (JSON). JSON é a forma padrão de enviar e receber mensagens a partir de APIs REST. Para facilitar a utilização das respostas JSON, alguns dos exemplos neste artigo utilizam o parâmetro *query* nos comandos da CLI do Azure. Este parâmetro utiliza a [linguagem de consulta JMESPath](http://jmespath.org/) para analisar o JSON. Para saber mais sobre como utilizar os resultados dos comandos da CLI do Azure ao seguir a linguagem de consulta do JMESPath, veja o [tutorial JMESPath](http://jmespath.org/tutorial.html).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Se ainda não tiver um grupo de recursos do Azure, pode utilizar o comando [az group create](/cli/azure/group) para criar um. 
 
 O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *West US 2:*
@@ -40,7 +40,7 @@ az group create \
     --output none
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 Uma conta de armazenamento é um conjunto partilhado de armazenamento no qual pode implementar partilhas de ficheiros do Azure ou outros recursos de armazenamento, como blobs ou filas. Uma conta de armazenamento pode conter um número ilimitado de partilhas de ficheiros. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 
 O exemplo seguinte cria uma conta de armazenamento utilizando a conta de [armazenamento az criar](/cli/azure/storage/account) comando. Os nomes de contas de armazenamento têm de ser exclusivos, por isso, utilize `$RANDOM` para anexar um número ao nome e torná-lo exclusivo.
@@ -59,7 +59,7 @@ az storage account create \
 ```
 
 > [!Note]  
-> As ações superiores a 5 TiB (até um máximo de 100 TiB por ação) só estão disponíveis em contas de armazenamento redundantes localmente redundantes (LRS) e zonas redundantes (ZRS). Para criar uma conta de armazenamento geo-redundante (GRS) ou geozona-redundante (GZRS), remova o parâmetro `--enable-large-file-share`.
+> As ações superiores a 5 TiB (até um máximo de 100 TiB por ação) só estão disponíveis em contas de armazenamento redundantes localmente redundantes (LRS) e zonas redundantes (ZRS). Para criar uma conta de armazenamento geo-redundante (GRS) ou geozona-redundante (GZRS), remova o `--enable-large-file-share` parâmetro.
 
 ### <a name="get-the-storage-account-key"></a>Obter a chave da conta de armazenamento
 As chaves de contas de armazenamento controlam o acesso aos recursos numa conta de armazenamento. As chaves são criadas automaticamente quando cria uma conta de armazenamento. Pode obter as chaves da conta de armazenamento para a mesma com o comando [az storage account keys list](/cli/azure/storage/account/keys): 
@@ -85,7 +85,7 @@ az storage share create \
     --output none
 ```
 
-Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and referencing shares, directories, files, and metadata (Nomenclatura e referência de partilhas, diretórios, ficheiros e metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre a nomeação de partilhas e ficheiros de ficheiros, consulte [nomear e referenciar ações, diretórios, ficheiros e metadados.](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)
 
 ## <a name="use-your-azure-file-share"></a>Utilizar a partilha de ficheiros do Azure
 O serviço Ficheiros do Azure fornece dois métodos para utilizar ficheiros e pastas na sua partilha de ficheiros do Azure : o [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor e o [protocolo REST de Ficheiros](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
@@ -107,7 +107,7 @@ Contamos que a maioria das utilizações dos Ficheiros do Azure irão querer tra
 Os seguintes exemplos mostram como usar o CLI Azure para manipular a sua partilha de ficheiros Azure com o protocolo File REST. 
 
 ### <a name="create-a-directory"></a>Criar um diretório
-Para criar um novo diretório com o nome *myDirectory* na raiz da partilha de ficheiros do Azure, utilize o comando [`az storage directory create`](/cli/azure/storage/directory):
+Para criar um novo diretório chamado *myDirectory* na raiz da [`az storage directory create`](/cli/azure/storage/directory) sua partilha de ficheiros Azure, use o comando:
 
 ```azurecli-interactive
 az storage directory create \
@@ -119,7 +119,7 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>Carregar um ficheiro
-Para demonstrar como carregar um ficheiro com o comando [`az storage file upload`](/cli/azure/storage/file), primeiro crie um ficheiro para carregar na unidade temporária do Cloud Shell. No exemplo seguinte, irá criar e carregar o ficheiro:
+Para demonstrar como carregar um [`az storage file upload`](/cli/azure/storage/file) ficheiro utilizando o comando, crie primeiro um ficheiro para carregar na unidade de risco Cloud Shell. No exemplo seguinte, irá criar e carregar o ficheiro:
 
 ```azurecli-interactive
 cd ~/clouddrive/
@@ -135,7 +135,7 @@ az storage file upload \
 
 Se estiver a executar a CLI do Azure localmente, substitua `~/clouddrive` por um caminho existente no seu computador.
 
-Depois de carregar o ficheiro, pode utilizar o comando [`az storage file list`](/cli/azure/storage/file) para assegurar que o ficheiro foi carregado para a partilha de ficheiros do Azure:
+Depois de fazer o upload [`az storage file list`](/cli/azure/storage/file) do ficheiro, pode utilizar o comando para se certificar de que o ficheiro foi enviado para a sua parte de ficheiro Azure:
 
 ```azurecli-interactive
 az storage file list \
@@ -147,7 +147,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>Transferir um ficheiro
-Pode utilizar o comando [`az storage file download`](/cli/azure/storage/file) para transferir uma cópia do ficheiro que carregou para a unidade temporária do Cloud Shell:
+Pode utilizar [`az storage file download`](/cli/azure/storage/file) o comando para descarregar uma cópia do ficheiro que fez passar para a unidade de risco Cloud Shell:
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -202,7 +202,7 @@ az storage file list \
     --output table
 ```
 
-Embora o comando `az storage file copy start` seja conveniente para movimentos de ficheiros entre as partilhas de ficheiros Azure, para migrações e movimentos de dados maiores, recomendamos `rsync` no macOS e linux e `robocopy` no Windows. `rsync` e `robocopy` utilizar o SMB para realizar os movimentos de dados em vez da API FileREST.
+Embora `az storage file copy start` o comando seja conveniente para movimentos de ficheiros entre as partilhas `rsync` de ficheiros Azure, para migrações e movimentos de dados maiores, recomendamos no macOS e Linux e `robocopy` no Windows. `rsync`e `robocopy` utilize o SMB para executar os movimentos de dados em vez da API FileREST.
 
 ## <a name="create-and-manage-share-snapshots"></a>Criar e gerir instantâneos de partilha
 Outra tarefa útil que pode realizar com uma partilha de ficheiros do Azure é criar instantâneos de partilha. Os instantâneos preservam uma cópia de ponto no tempo das partilhas de ficheiros do Azure. Os instantâneos de partilha são semelhantes a algumas tecnologias de sistema operativo com as quais pode já estar familiarizado:
@@ -211,7 +211,7 @@ Outra tarefa útil que pode realizar com uma partilha de ficheiros do Azure é c
 - Instantâneos do [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS.
 - Serviço de [Cópia de Sombra de Volume (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros Windows, tais como NTFS e ReFS.
  
-Pode criar um instantâneo de partilha com o comando [`az storage share snapshot`](/cli/azure/storage/share):
+Pode criar uma imagem de [`az storage share snapshot`](/cli/azure/storage/share) partilha utilizando o comando:
 
 ```azurecli-interactive
 snapshot=$(az storage share snapshot \
@@ -275,7 +275,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Eliminar um instantâneo de partilha
-Pode eliminar um instantâneo de partilha com o comando [`az storage share delete`](/cli/azure/storage/share). Utilize a variável que contém a referência `$SNAPSHOT` para o parâmetro `--snapshot`:
+Pode eliminar uma fotografia de [`az storage share delete`](/cli/azure/storage/share) partilha utilizando o comando. Utilize a variável que contém a referência `$SNAPSHOT` para o parâmetro `--snapshot`:
 
 ```azurecli-interactive
 az storage share delete \
@@ -287,7 +287,7 @@ az storage share delete \
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando terminar, pode utilizar o comando [`az group delete`](/cli/azure/group) para remover o grupo de recursos e todos os recursos relacionados: 
+Quando terminar, pode usar [`az group delete`](/cli/azure/group) o comando para remover o grupo de recursos e todos os recursos relacionados: 
 
 ```azurecli-interactive 
 az group delete --name $resourceGroupName

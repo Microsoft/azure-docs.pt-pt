@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c0160513eb9abca54adbc3819b982348dc202c90
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77566000"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Crie e gerencie VLANs/subnets para as suas Nuvens Privadas
@@ -47,7 +47,7 @@ Para criar um grupo portuário distribuído na vSphere, siga as instruções do 
 
 ## <a name="select-a-firewall-table"></a>Selecione uma tabela de firewall
 
-As tabelas de firewall e as regras associadas são definidas na página de **tabelas Network > Firewall.** Para selecionar a tabela de firewall para aplicar à VLAN/subnet para uma Nuvem Privada, selecione o anexo de **tabela De firewall** VLAN/subnet na página **VLANs/Subnets.** Consulte [as tabelas de firewall](firewall.md) para obter instruções sobre a configuração de tabelas de firewall e regras de definição.
+As tabelas de firewall e as regras associadas são definidas na página de **tabelas de firewall da Rede >** Firewall. Para selecionar a tabela de firewall para aplicar à VLAN/subnet para uma Nuvem Privada, selecione o anexo de **tabela De firewall** VLAN/subnet na página **VLANs/Subnets.** Consulte [as tabelas de firewall](firewall.md) para obter instruções sobre a configuração de tabelas de firewall e regras de definição.
 
 ![Link de tabela firewall](media/vlan-subnet-firewall-link.png)
 

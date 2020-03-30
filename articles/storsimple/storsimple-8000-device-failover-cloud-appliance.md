@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 347b899608d4322a7873b9f80f38ca1c767194d7
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77468750"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Falhe no seu storSimple Cloud Appliance
@@ -43,8 +43,8 @@ Execute os seguintes passos para restaurar o dispositivo num aparelho de nuvem S
 
 1.  Verifique se o recipiente de volume que pretende falhar tem imagens de nuvem associadas. Para mais informações, vá ao [serviço StorSimple Device Manager para criar backups](storsimple-8000-manage-backup-policies-u2.md).
 2. Aceda ao seu serviço Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. Na lâmina **dispositivos,** vá à lista de dispositivos ligados ao seu serviço.
-    ![Selecione](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png) do dispositivo
-3. Selecione e clique no seu dispositivo de origem. O dispositivo de origem tem os recipientes de volume que pretende falhar. Ir a **Definições > Contentores de Volume**.
+    ![Selecione dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
+3. Selecione e clique no seu dispositivo de origem. O dispositivo de origem tem os recipientes de volume que pretende falhar. Vá a **Definições > recipientes**de volume .
 
     ![Selecione dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     

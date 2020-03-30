@@ -1,5 +1,5 @@
 ---
-title: Criar um balanceador de carga interno – modelo do Azure
+title: Criar um Balancer de Carga Interna - Modelo Azure
 titleSuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga interno com um modelo no Resource Manager
 services: load-balancer
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: bdc9a8079c46a05e5045d72cd6d7b07a9a457899
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0d7cc4d571ddeb0b57fd4f025b8cbf7b204f61e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215281"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456969"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Criar um balanceador de carga interno com um modelo
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -42,10 +42,10 @@ O modelo de exemplo disponível no repositório público utiliza um ficheiro de 
 
 Para implementar o modelo que transferiu com o PowerShell, siga os passos abaixo.
 
-1. Se nunca tiver utilizado o Azure PowerShell, veja [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) e siga as instruções até ao fim para iniciar sessão no Azure e selecionar a sua subscrição.
+1. Se nunca utilizou o Azure PowerShell, consulte [como instalar e configurar](/powershell/azure/overview) o PowerShell e siga as instruções até ao fim para iniciar sessão no Azure e selecione a sua subscrição.
 2. Transfira o ficheiro de parâmetros para o disco local.
 3. Edite o ficheiro e guarde-o.
-4. Execute o cmdlet **New-AzResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
+4. Executar o cmdlet **new-AzResourceGroupDeployment** cmdlet para criar um grupo de recursos usando o modelo.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -57,10 +57,10 @@ Para implementar o modelo que transferiu com o PowerShell, siga os passos abaixo
 
 Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
 
-1. Se nunca tiver utilizado a CLI do Azure, veja [Install and Configure the Azure CLI (Instalar e Configurar a CLI do Azure)](../cli-install-nodejs.md) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
-2. Execute o comando **azure config mode** para mudar para o modo Resource Manager, como mostrado abaixo.
+1. Se nunca utilizou o Azure CLI, consulte [Instalar e Configurar o Azure CLI](../cli-install-nodejs.md) e siga as instruções até ao ponto em que seleciona a sua conta Azure e a sua subscrição.
+2. Vá [https://shell.azure.com](https://shell.azure.com) abrir cloud shell no seu navegador. Execute o comando **azure config mode** para mudar para o modo Resource Manager, como mostrado abaixo.
 
-    ```azurecli-interactive
+    ```console
     azure config mode arm
     ```
 
@@ -71,7 +71,7 @@ Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
 3. Abra o ficheiro de parâmetros, selecione o conteúdo e guarde-o num ficheiro no seu computador. Para este exemplo, guardámos o ficheiro de parâmetros em *parameters.json*.
 4. Execute o comando **azure group deployment create** para implementar o novo balanceador de carga interno com o modelo e os ficheiros de parâmetros que transferiu e alterou acima. A lista apresentada depois do resultado explica os parâmetros utilizados.
 
-    ```azurecli
+    ```console
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
     ```
 
@@ -81,4 +81,4 @@ Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
 
 [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-Para obter a sintaxe JSON e as propriedades de um balanceador de carga em um modelo, consulte [Microsoft. Network/Load Balancers](/azure/templates/microsoft.network/loadbalancers).
+Para a sintaxe JSON e propriedades de um equilibrador de carga num modelo, consulte [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

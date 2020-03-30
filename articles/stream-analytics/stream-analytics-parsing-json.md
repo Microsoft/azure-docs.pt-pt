@@ -7,10 +7,10 @@ ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484592"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Dados da Parse JSON e da Avro no Azure Stream Analytics
@@ -63,13 +63,13 @@ FROM input
 
 O resultado é:
 
-|DispositivoID|lat|Longo|Temperatura|Versão|
+|DispositivoID|Lat|Longo|Temperatura|Versão|
 |-|-|-|-|-|
 |12345|47|122|80|1.2.45|
 
 
 ### <a name="select-all-properties"></a>Selecione todas as propriedades
-Pode selecionar todas as propriedades de um registo aninhado usando wildcard '*'. Considere o seguinte exemplo:
+Pode selecionar todas as propriedades de um registo aninhado usando wildcard '*'. Considere o exemplo seguinte:
 
 ```SQL
 SELECT
@@ -80,7 +80,7 @@ FROM input
 
 O resultado é:
 
-|DispositivoID|lat|Longo|
+|DispositivoID|Lat|Longo|
 |-|-|-|
 |12345|47|122|
 
@@ -170,7 +170,7 @@ SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE
 ```
 
 ### <a name="parse-json-record-in-sql-reference-data"></a>Registo parse JSON em dados de referência SQL
-Ao utilizar a Base de Dados Azure SQL como dados de referência no seu trabalho, é possível ter uma coluna que tenha dados no formato JSON. Um exemplo é mostrado abaixo.
+Ao utilizar a Base de Dados Azure SQL como dados de referência no seu trabalho, é possível ter uma coluna que tenha dados no formato JSON. Apresentamos um exemplo abaixo.
 
 |DispositivoID|Dados|
 |-|-|
@@ -205,7 +205,7 @@ Em seguida, pode criar um passo na sua consulta stream analytics, como mostrado 
 
 Os tipos de dados matrizes são uma recolha ordenada de valores. Algumas operações típicas sobre valores de matriz são detalhadas abaixo. Estes exemplos utilizam as funções [GetArrayElement,](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics) [GetArrayElements,](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)e o operador [APPLY.](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics)
 
-Aqui está um exemplo de um único evento. Tanto `CustomSensor03` como `SensorMetadata` são de **tipo matriz:**
+Aqui está um exemplo de um único evento. Ambos `CustomSensor03` `SensorMetadata` e são de **tipo matriz:**
 
 ```json
 {
@@ -323,9 +323,9 @@ LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId A
 
 O resultado é:
 
-|DeviceId|lat|Longo|smVersion|smManufacturer|
+|DeviceId|Lat|Longo|smVersion|smManufacturer|
 |-|-|-|-|-|
 |12345|47|122|1.2.45|ABC|
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Veja também
 [Tipos de dados em Análise de Fluxo de Azure](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)

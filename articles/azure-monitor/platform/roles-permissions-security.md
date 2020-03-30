@@ -8,10 +8,10 @@ ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658987"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Monitor Azure
@@ -60,7 +60,7 @@ As pessoas atribuídas à função de Colaborador Monitorado podem visualizar to
 * Criar e eliminar e executar pesquisas guardadas no espaço de trabalho do Log Analytics.
 * Crie e elimine a configuração de armazenamento do espaço de trabalho Log Analytics.
 
-\*utilizador também deve ser concedida separadamente a permissão ListKeys no recurso-alvo (conta de armazenamento ou espaço de nome do centro de eventos) para definir um perfil de registo ou definição de diagnóstico.
+\*o utilizador também deve ser concedido separadamente a permissão listKeys no recurso-alvo (conta de armazenamento ou espaço de nome do centro de eventos) para definir um perfil de registo ou definição de diagnóstico.
 
 > [!NOTE]
 > Esta função não dá acesso a dados de registo que tenham sido transmitidos para um centro de eventos ou armazenados numa conta de armazenamento. [Veja abaixo](#security-considerations-for-monitoring-data) informações sobre a configuração do acesso a estes recursos.
@@ -72,23 +72,23 @@ Se as funções acima incorporadas não atenderem às necessidades exatas da sua
 
 | Operação | Descrição |
 | --- | --- |
-| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Leia/escreva/apague grupos de ação. |
-| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Ler/escrever/eliminar alertas de registo de atividade. |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Leia/escreva/apague as regras de alerta (a partir de alertas clássicos). |
+| Microsoft.Insights/ActionGroups/[Ler, Escrever, Excluir] |Leia/escreva/apague grupos de ação. |
+| Microsoft.Insights/ActivityLogAlerts/[Ler, Escrever, Excluir] |Ler/escrever/eliminar alertas de registo de atividade. |
+| Microsoft.Insights/AlertRules/[Ler, Escrever, Excluir] |Leia/escreva/apague as regras de alerta (a partir de alertas clássicos). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Enumeram incidentes (histórico da regra de alerta a ser desencadeado) para regras de alerta. Isto só se aplica ao portal. |
-| Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Ler/escrever/eliminar as definições de escala automática. |
+| Microsoft.Insights/AutoscaleSettings/[Ler, Escrever, Excluir] |Ler/escrever/eliminar as definições de escala automática. |
 | Microsoft.Insights/DiagnosticSettings/[Ler, Escrever, Excluir] |Ler/escrever/eliminar as definições de diagnóstico. |
 | Microsoft.Insights/EventCategories/Read |Enumerar todas as categorias possíveis no Registo de Atividades. Usado pelo portal Azure. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Esta permissão é necessária para os utilizadores que necessitem de acesso a Registos de Atividade através do portal. |
 | Microsoft.Insights/eventtypes/values/Read |Lista de eventos de Registo de Atividades (eventos de gestão) numa subscrição. Esta permissão é aplicável tanto ao acesso programático como ao portal ao Registo de Atividades. |
-| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Leia/escreva/elimine as definições de diagnóstico dos registos de fluxo de rede. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Ler, Escrever, Excluir] | Leia/escreva/elimine as definições de diagnóstico dos registos de fluxo de rede. |
 | Microsoft.Insights/LogDefinitions/Read |Esta permissão é necessária para os utilizadores que necessitem de acesso a Registos de Atividade através do portal. |
 | Microsoft.Insights/LogProfiles/[Ler, Escrever, Excluir] |Ler/escrever/eliminar perfis de registo (streaming Registo de Atividades para centro de eventos ou conta de armazenamento). |
-| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Ler/escrever/eliminar alertas métricos em tempo real |
+| Microsoft.Insights/MetricAlerts/[Ler, Escrever, Excluir] |Ler/escrever/eliminar alertas métricos em tempo real |
 | Microsoft.Insights/MetricDefinitions/Read |Ler definições métricas (lista dos tipos métricos disponíveis para um recurso). |
 | Microsoft.Insights/Metrics/Read |Leia as métricas para um recurso. |
 | Microsoft.Insights/Register/Action |Registe o fornecedor de recursos Do Monitor Azure. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Leia/escreva/apague os alertas de registo no Monitor Azure. |
+| Microsoft.Insights/ScheduledQueryRules/[Ler, Escrever, Excluir] |Leia/escreva/apague os alertas de registo no Monitor Azure. |
 
 
 
@@ -174,14 +174,14 @@ Um padrão semelhante pode ser seguido com centros de eventos, mas primeiro voc�
    New-AzRoleDefinition -Role $role 
    ```
 
-## <a name="monitoring-within-a-secured-virtual-network"></a>Monitorização dentro de uma rede virtual segura
+## <a name="monitoring-within-a-secured-virtual-network"></a>Monitorização numa Rede Virtual segura
 
 O Azure Monitor precisa de acesso aos seus recursos Azure para fornecer os serviços que permite. Se quiser monitorizar os seus recursos Azure, garantindo-os do acesso à Internet Pública, pode ativar as seguintes definições.
 
 ### <a name="secured-storage-accounts"></a>Contas de Armazenamento Seguras 
 
 Os dados de monitorização são frequentemente escritos numa conta de armazenamento. Pode querer certificar-se de que os dados copiados para uma Conta de Armazenamento não podem ser acedidos por utilizadores não autorizados. Para obter segurança adicional, pode bloquear o acesso à rede apenas para permitir que os seus recursos autorizados e serviços confiáveis da Microsoft acedam a uma conta de armazenamento, restringindo uma conta de armazenamento para utilizar "redes selecionadas".
-![Definições de armazenamento Azure O diálogo](./media/roles-permissions-security/secured-storage-example.png) O Monitor Azure é considerado um destes "serviços confiáveis da Microsoft" Se permitir que os serviços fidedignos da Microsoft acedam ao seu Armazenamento Seguro, o monitor Azure terá acesso à sua Conta de Armazenamento Segura; permitindo a escrita de registos de recursos do Monitor Azure, registo de atividade e métricas na sua Conta de Armazenamento nestas condições protegidas. Isto também permitirá que o Log Analytics leia os registos a partir de armazenamento seguro.   
+![Definições de armazenamento](./media/roles-permissions-security/secured-storage-example.png) Azure O Dialog Azure Monitor é considerado um destes "serviços confiáveis da Microsoft" Se permitir que os serviços fidedignos da Microsoft acedam ao seu Armazenamento Seguro, o monitor Azure terá acesso à sua Conta de Armazenamento Segura; permitindo a escrita de registos de recursos do Monitor Azure, registo de atividade e métricas na sua Conta de Armazenamento nestas condições protegidas. Isto também permitirá que o Log Analytics leia os registos a partir de armazenamento seguro.   
 
 
 Para mais informações, consulte [segurança da rede e armazenamento azure](../../storage/common/storage-network-security.md)

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: be6c1fdc5deb6d541656c198469822dae0a5f7c5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77463209"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informações e diretrizes gerais de segurança empresarial no Azure HDInsight
@@ -43,9 +43,9 @@ Ao implantar um cluster HDInsight seguro, existem algumas boas práticas que dev
 
 * Quando o acesso aos dados é feito através de um serviço em que a autorização está ativada:
   * O plugin de autorização ranger é invocado e dado o contexto do pedido.
-  * Ranger aplica as políticas configuradas para o serviço. Se as políticas dos Rangers falharem, a verificação de acesso é adiada para o sistema de ficheiros. Alguns serviços como o MapReduce apenas verificam se o ficheiro/pasta que está a ser propriedade do mesmo utilizador que está a enviar o pedido. Serviços como a Hive, verifique se quer a correspondência de propriedade quer as permissões adequadas do sistema de ficheiros (`rwx`).
+  * Ranger aplica as políticas configuradas para o serviço. Se as políticas dos Rangers falharem, a verificação de acesso é adiada para o sistema de ficheiros. Alguns serviços como o MapReduce apenas verificam se o ficheiro/pasta que está a ser propriedade do mesmo utilizador que está a enviar o pedido. Serviços como a Hive, verifique se quer`rwx`a correspondência de propriedade quer as permissões adequadas do sistema de ficheiros ().
 
-* Para a Hive, além de ter as permissões para fazer criar /atualizar / eliminar permissões, o utilizador deve ter `rwx`permissões no diretório no armazenamento e em todos os subdiretórios.
+* Para a Hive, além de ter as permissões para fazer `rwx`Criar / Atualizar / Eliminar permissões, o utilizador deve ter permissões no diretório no armazenamento e em todos os subdiretórios.
 
 * As políticas podem ser aplicadas a grupos (preferíveis) em vez de indivíduos.
 
@@ -66,14 +66,14 @@ Quando o espaço hierárquico do nome não está ativado:
 
 ### <a name="default-hdfs-permissions"></a>Permissões HDFS padrão
 
-* Por padrão, os utilizadores não têm acesso à **pasta/** no HDFS (precisam de estar na função do proprietário do blob de armazenamento para ter acesso ao sucesso).
-* Para o diretório de encenação para mapreduce e outros, é criado um diretório específico do utilizador e fornecido `sticky _wx` permissões. Os utilizadores podem criar ficheiros e pastas por baixo, mas não podem olhar para outros itens.
+* Por padrão, os utilizadores não **/** têm acesso à pasta no HDFS (precisam de estar na função do proprietário do blob de armazenamento para ter acesso ao sucesso).
+* Para o diretório de encenação para mapreduce e outros, `sticky _wx` é criado um diretório específico do utilizador e fornecido permissões. Os utilizadores podem criar ficheiros e pastas por baixo, mas não podem olhar para outros itens.
 
 ### <a name="url-auth"></a>Url auth
 
 Se o auth url estiver ativado:
 
-* O config config conterá os prefixos que estão cobertos no auth url (como `adl://`).
+* O config config conterá os prefixos que `adl://`estão cobertos no auth url (como).
 * Se o acesso for para este url, então o Ranger verificará se o utilizador está na lista de espera.
 * Ranger não vai verificar nenhuma das políticas de grãos finos.
 
@@ -95,7 +95,7 @@ Utilize um novo grupo de recursos para cada cluster para que possa distinguir en
 
 * Desative a política de acesso condicional utilizando a política baseada em endereçoip. Isto requer que os pontos finais do serviço sejam ativados nos VNETs onde os clusters são implantados. Se utilizar um serviço externo para MFA (algo que não seja AAD), a política baseada em endereçoIP não funcionará
 
-* `AllowCloudPasswordValidation` política é necessária para os utilizadores federados. Uma vez que o HDInsight utiliza o nome de utilizador/palavra-passe diretamente para obter fichas da Azure AD, esta política tem de ser ativada para todos os utilizadores federados.
+* `AllowCloudPasswordValidation`a política é necessária para os utilizadores federados. Uma vez que o HDInsight utiliza o nome de utilizador/palavra-passe diretamente para obter fichas da Azure AD, esta política tem de ser ativada para todos os utilizadores federados.
 
 * Ative pontos finais de serviço se necessitar de um bypass de acesso condicional utilizando IPs fidedignos.
 
@@ -119,7 +119,7 @@ O HDInsight não pode depender de controladores de domínio no local ou controla
 
 ### <a name="azure-ad-ds-instance"></a>Instância Azure AD DS
 
-* Crie a instância com o `.onmicrosoft.com domain`. Desta forma, não haverá vários servidores DNS a servir o domínio.
+* Crie a `.onmicrosoft.com domain`instância com o . Desta forma, não haverá vários servidores DNS a servir o domínio.
 * Crie um certificado auto-assinado para o LDAPS e carregue-o para o Azure AD DS.
 * Utilize uma rede virtual peered para implementar clusters (quando tiver várias equipas a implementar clusters ESP HDInsight, isso será útil). Isto garante que não precisa de abrir portas (NSGs) na rede virtual com controlador de domínio.
 * Configure corretamente o DNS para a rede virtual (o nome de domínio Azure AD DS deve ser resolvido sem quaisquer entradas de ficheiros dos anfitriões).

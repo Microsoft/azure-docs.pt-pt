@@ -1,6 +1,6 @@
 ---
-title: Como configurar o logon único federado para um aplicativo inexistente na Galeria
-description: Como configurar o logon único federado para um aplicativo de não Galeria personalizado que você deseja integrar com o Azure AD
+title: Como configurar um único sign-on federado para uma aplicação não-galeria
+description: Como configurar um único sign-on federado para uma aplicação personalizada não-galeria que pretende integrar com a Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,173 +16,173 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1d49ec5ef80b284aa6b1a305b037d19dae34870
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274599"
 ---
-# <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único federado para um aplicativo inexistente na Galeria
+# <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar um único sign-on federado para uma aplicação não-galeria
 
-Para configurar o logon único para um aplicativo que não seja da Galeria *sem escrever código*, você precisa ter uma assinatura ou Azure ad Premium e o aplicativo deve dar suporte a SAML 2,0. Para obter mais informações sobre versões do Azure AD, visite [preços do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
+Para configurar um único sinal para uma aplicação *não-galeria sem código*de escrita, precisa de ter uma subscrição ou Azure AD Premium e a aplicação deve suportar o SAML 2.0. Para mais informações sobre as versões Azure AD, visite [o preço da AD Azure.](https://azure.microsoft.com/pricing/details/active-directory/)
 
-## <a name="overview-of-steps-required"></a>Visão geral das etapas necessárias
-Veja abaixo uma visão geral de alto nível das etapas necessárias para configurar o logon único federado com o SAML 2,0 para um aplicativo de não galeria (por exemplo, personalizado).
+## <a name="overview-of-steps-required"></a>Visão geral dos passos necessários
+Abaixo está uma visão geral de alto nível dos passos necessários para configurar um único sign-on federado com o SAML 2.0 para uma aplicação não-galeria (por exemplo, personalizada).
 
--   Configurar os valores de metadados do aplicativo no Azure AD (URL de logon, identificador, URL de resposta)
+-   Configure os valores dos metadados da aplicação em AD Azure (Sign on URL, Identifier, Answer URL)
 
--   [Selecione o identificador de usuário e adicione atributos de usuário a serem enviados para o aplicativo](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
+-   [Selecione identificador de utilizador e adicione atributos de utilizador a serem enviados para a aplicação](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
--   [Recuperar metadados e certificados do Azure AD](#download-the-azure-ad-metadata-or-certificate)
+-   [Recuperar metadados e certificado saqueados da AD](#download-the-azure-ad-metadata-or-certificate)
 
--   Configurar os valores de metadados do Azure AD no aplicativo (URL de logon, emissor, URL de logout e certificado)
+-   Configure os valores dos metadados da AD Azure na aplicação (Sign on URL, Emitente, URL de logout e certificado)
 
 -   Atribuir utilizadores à aplicação
 
-## <a name="configuring-single-sign-on-to-non-gallery-applications"></a>Configurando o logon único para aplicativos que não são da Galeria
+## <a name="configuring-single-sign-on-to-non-gallery-applications"></a>Configurar uma única inscrição para aplicações não-galeria
 
-Para configurar o logon único para um aplicativo que não está na galeria do Azure AD, siga as etapas abaixo:
+Para configurar um único sinal para uma aplicação que não esteja na galeria Azure AD, siga os passos abaixo:
 
-1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador.**
 
-2. Abra a **extensão Azure Active Directory** clicando em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3. Digite **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
+3. Digite em **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
 
-4. clique em **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
+4. clique **em Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative Diretório.
 
-5. Clique no botão **Adicionar** no canto superior direito do painel **aplicativos empresariais** .
+5. clique no botão **Adicionar** no canto superior direito no painel **de aplicações da empresa.**
 
-6. clique em **aplicativo inexistente na Galeria** na seção **Adicionar seu próprio aplicativo**
+6. clique na **aplicação Não-galeria** na secção Adicionar a **sua própria app**
 
-7. Insira o nome do aplicativo na caixa de texto **nome** .
+7. Insira o nome da aplicação na caixa de texto **Nome.**
 
-8. Clique no botão **Adicionar** para adicionar o aplicativo.
+8. Clique no botão **Adicionar,** para adicionar a aplicação.
 
-9. Depois que o aplicativo for carregado, clique no **logon único** no menu de navegação esquerdo do aplicativo.
+9. Uma vez que a aplicação seja carregada, clique no único sinal de **inscrição** do menu de navegação à esquerda da aplicação.
 
-10. Selecione **logon baseado em SAML** na lista suspensa **modo** .
+10. Selecione **sign-on baseado em SAML** no **modo** drop-down.
 
-11. Insira os valores necessários em **domínio e URLs.** Você deve obter esses valores do fornecedor do aplicativo.
+11. Introduza os valores exigidos em **Domínioe URLs.** Deve obter estes valores do vendedor de aplicações.
 
-    1. Para configurar o aplicativo como SSO iniciado por IdP, insira a URL de resposta e o identificador.
+    1. Para configurar a aplicação como SSO iniciado pelo IDP, introduza o URL de resposta e o Identificador.
 
-    2. **Opcional:** Para configurar o aplicativo como SSO iniciado por SP, a URL de logon é um valor obrigatório.
+    2. **Opcional:** Para configurar a aplicação como SSO iniciado por SP, o URL de início de sinal é um valor exigido.
 
-12. Nos **atributos de usuário**, selecione o identificador exclusivo para seus usuários na lista suspensa **identificador de usuário** .
+12. Nos **atributos do Utilizador,** selecione o identificador único para os seus utilizadores no dropdown do Identificador de **Utilizador.**
 
-13. **Opcional:** clique em **Exibir e edite todos os outros atributos de usuário** para editar os atributos a serem enviados para o aplicativo no token SAML quando os usuários entrarem.
+13. **Opcional:** clique em **Ver e editar todos os outros atributos do utilizador** para editar os atributos a enviar para a aplicação no token SAML quando os utilizadores iniciarem o seu insessão.
 
     Para adicionar um atributo:
 
-    1. clique em **Adicionar atributo**. Insira o **nome** e selecione o **valor** na lista suspensa.
+    1. clique **Em adicionar atributo**. Introduza o **Nome** e selecione o **Valor** a partir da queda.
 
-    2. Clique em **salvar.** O atributo novo é apresentado na tabela.
+    2. Clique em **Guardar.** O atributo novo é apresentado na tabela.
 
-14. clique em **configurar &lt;nome do aplicativo&gt;** para acessar a documentação sobre como configurar o logon único no aplicativo. Além disso, você tem URLs e certificados do Azure AD necessários para o aplicativo.
+14. clique no ** &lt;nome&gt; da aplicação Configure** para aceder à documentação sobre como configurar um único sinal na aplicação. Além disso, tem URLs AD Azure e certificado necessário para a aplicação.
 
-15. [Atribua usuários ao aplicativo.](#assign-users-to-the-application)
+15. [Atribuir utilizadores à aplicação.](#assign-users-to-the-application)
 
-## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecione o identificador de usuário e adicione atributos de usuário a serem enviados para o aplicativo
+## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecione identificador de utilizador e adicione atributos de utilizador a serem enviados para a aplicação
 
-Para selecionar o identificador de usuário ou adicionar atributos de usuário, siga as etapas abaixo:
+Para selecionar o Identificador de Utilizador ou adicionar atributos do utilizador, siga os passos abaixo:
 
-1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador.**
 
-2. Abra a **extensão Azure Active Directory** clicando em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3. Digite **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
+3. Digite em **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
 
-4. clique em **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
+4. clique **em Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative Diretório.
 
-5. clique em **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
+5. clique em **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
+   * Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações.**
 
-6. Selecione o aplicativo que você configurou o logon único.
+6. Selecione a aplicação que configurau um único sinal.
 
-7. Depois que o aplicativo for carregado, clique no **logon único** no menu de navegação esquerdo do aplicativo.
+7. Uma vez que a aplicação seja carregada, clique no único sinal de **inscrição** do menu de navegação à esquerda da aplicação.
 
-8. Na seção **atributos de usuário** , selecione o identificador exclusivo para seus usuários na lista suspensa **identificador de usuário** . A opção selecionada precisa corresponder ao valor esperado no aplicativo para autenticar o usuário.
+8. Na secção de **atributos do Utilizador,** selecione o identificador único para os seus utilizadores no dropdown do Identificador de **Utilizador.** A opção selecionada precisa de corresponder ao valor esperado na aplicação para autenticar o utilizador.
 
    >[!NOTE]
-   >Azure AD selecione o formato para o atributo NameID (identificador de usuário) com base no valor selecionado ou no formato solicitado pelo aplicativo no AuthRequest do SAML. Para obter mais informações, visite o artigo [protocolo SAML de logon único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na seção NameIDPolicy.
+   >A Azure AD selecione o formato para o atributo NameID (Identificador de utilizador) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações visite o [protocolo Single Sign-On SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) ao abrigo da secção NameIDPolicy.
    >
    >
 
-9. Para adicionar atributos de usuário, clique em **Exibir e editar todos os outros atributos de usuário** para editar os atributos a serem enviados ao aplicativo no token SAML quando os usuários entrarem.
+9. Para adicionar atributos de utilizador, clique em **Ver e editar todos os outros atributos do utilizador** para editar os atributos a enviar para a aplicação no token SAML quando os utilizadores iniciarem o seu insessão.
 
    Para adicionar um atributo:
 
-   1. clique em **Adicionar atributo**. Insira o **nome** e selecione o **valor** na lista suspensa.
+   1. clique **Em adicionar atributo**. Introduza o **Nome** e selecione o **Valor** a partir da queda.
 
-   2. Clique em **salvar.** O atributo novo é apresentado na tabela.
+   2. Clique em **Guardar.** O atributo novo é apresentado na tabela.
 
-## <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
+## <a name="download-the-azure-ad-metadata-or-certificate"></a>Descarregue os metadados ou certificado da AD Azure
 
-Para baixar os metadados do aplicativo ou o certificado do Azure AD, siga as etapas abaixo:
+Para descarregar os metadados ou certificados de aplicação da Azure AD, siga os passos abaixo:
 
-1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministrador.**
 
-2. Abra a **extensão Azure Active Directory** clicando em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3. Digite **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
+3. Digite em **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
 
-4. clique em **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
+4. clique **em Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative Diretório.
 
-5. clique em **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
+5. clique em **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
+   * Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações.**
 
-6. Selecione o aplicativo que você configurou o logon único.
+6. Selecione a aplicação que configurau um único sinal.
 
-7. Depois que o aplicativo for carregado, clique no **logon único** no menu de navegação esquerdo do aplicativo.
+7. Uma vez que a aplicação seja carregada, clique no único sinal de **inscrição** do menu de navegação à esquerda da aplicação.
 
-8. Vá para a seção **certificado de autenticação SAML** e clique em **baixar** valor da coluna. Dependendo do que o aplicativo requer para configurar o logon único, você verá a opção para baixar o XML de metadados ou o certificado.
+8. Vá à secção **de Certificado de Assinatura SAML** e, em seguida, clique no valor da coluna **Descarregue.** Dependendo do que a aplicação requer configurar um único sinal, você vê a opção de descarregar o Metadata XML ou o Certificado.
 
-O AD do Azure também fornece uma URL para obter os metadados. Siga este padrão para obter a URL de metadados específica para o aplicativo: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+A Azure AD também fornece um URL para obter os metadados. Siga este padrão para obter o URL `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`dos metadados específico da aplicação: .
 
 ## <a name="assign-users-to-the-application"></a>Atribuir utilizadores à aplicação
 
-Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os passos abaixo:
+Para atribuir um ou mais utilizadores a uma aplicação diretamente, siga os passos abaixo:
 
-1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global.**
 
-2. Abra a **extensão Azure Active Directory** clicando em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra a extensão do **Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
 
-3. Digite **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
+3. Digite em **"Azure Ative Directory"** na caixa de pesquisa de filtros e selecione o item **azure Ative Directory.**
 
-4. clique em **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
+4. clique **em Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative Diretório.
 
-5. clique em **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
+5. clique em **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
 
-   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
+   * Se não vir a aplicação que deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e detetete a opção **Mostrar** para Todas **as Aplicações.**
 
-6. Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
+6. Selecione a aplicação que pretende atribuir a um utilizador da lista.
 
-7. Depois que o aplicativo for carregado, clique em **usuários e grupos** no menu de navegação esquerdo do aplicativo.
+7. Assim que a aplicação for carregada, clique em **Utilizadores e Grupos** a partir do menu de navegação à esquerda da aplicação.
 
-8. Clique no botão **Adicionar** na parte superior da lista **usuários e grupos** para abrir o painel **Adicionar atribuição** .
+8. Clique no botão **Adicionar** em cima da lista de **Utilizadores e Grupos** para abrir o painel de atribuição de **adicionar.**
 
-9. Clique no seletor **usuários e grupos** no painel **Adicionar atribuição** .
+9. clique nos Utilizadores e no seletor de **grupos** a partir do painel **adicionar atribuição.**
 
-10. Digite o **nome completo** ou o **endereço de email** do usuário que você está interessado em atribuir à caixa de pesquisa **Pesquisar por nome ou endereço de email** .
+10. Digite o **nome completo** ou endereço de **e-mail** do utilizador que está interessado em atribuir na caixa de pesquisa de endereços de correio eletrónico **Pesquisar pelo nome ou pelo endereço de e-mail.**
 
-11. Passe o mouse sobre o **usuário** na lista para revelar uma **caixa de seleção**. Clique na caixa de seleção ao lado da foto ou do logotipo do perfil do usuário para adicionar o usuário à lista **selecionada** .
+11. Passe por cima do **utilizador** na lista para revelar uma caixa de **verificação**. Clique na caixa de verificação ao lado da foto ou logotipo do perfil do utilizador para adicionar o seu utilizador à lista **Selecionada.**
 
-12. **Opcional:** Se você quiser **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na CheckBox para adicionar esse usuário à lista **selecionada** .
+12. **Opcional:** Se quiser **adicionar mais do que um utilizador**, digite outro nome **completo** ou endereço de **e-mail** na caixa de pesquisa de endereços de pesquisa de nome ou endereço de **e-mail,** e clique na caixa de verificação para adicionar este utilizador à lista **Selecionada.**
 
-13. Quando terminar de selecionar usuários, clique no botão **selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
+13. Quando terminar de selecionar os utilizadores, clique no botão **Select** para adicioná-los à lista de utilizadores e grupos a atribuir à aplicação.
 
-14. **Opcional:** clique no seletor **selecionar função** no painel **Adicionar atribuição** para selecionar uma função a ser atribuída aos usuários selecionados.
+14. **Opcional:** clique no seletor **de funções seletor** no painel **de atribuição** de adicionar para selecionar uma função para atribuir aos utilizadores que selecionou.
 
-15. Clique no botão **atribuir** para atribuir o aplicativo aos usuários selecionados.
+15. Clique no botão **Atribuir** para atribuir a aplicação aos utilizadores selecionados.
 
-Após um curto período de tempo, os utilizadores que selecionou ser capaz de iniciar esses aplicativos usando os métodos descritos na secção de descrição de solução.
+Após um curto período de tempo, os utilizadores selecionados podem lançar estas aplicações utilizando os métodos descritos na secção de descrição da solução.
 
-## <a name="customizing-the-saml-claims-sent-to-an-application"></a>Personalizando as declarações SAML enviadas a um aplicativo
+## <a name="customizing-the-saml-claims-sent-to-an-application"></a>Personalização das reclamações da SAML enviadas para um pedido
 
-Para saber como personalizar as declarações de atributo SAML enviadas ao seu aplicativo, consulte [mapeamento de declarações em Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
+Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Fornecer logon único para seus aplicativos com o proxy de aplicativo](application-proxy-configure-single-sign-on-with-kcd.md)
+[Forneça um único sinal às suas apps com Procuração de Aplicação](application-proxy-configure-single-sign-on-with-kcd.md)

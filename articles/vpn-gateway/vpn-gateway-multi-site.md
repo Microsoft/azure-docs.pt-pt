@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: yushwang
 ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198105"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicione uma ligação Site-a-Site a um VNet com uma conexão de gateway VPN existente (clássica)
@@ -20,7 +20,7 @@ ms.locfileid: "77198105"
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Portal Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (clássico)](vpn-gateway-multi-site.md)
 >
 >
@@ -59,7 +59,7 @@ Antes de iniciar a configuração, verifique se tem o seguinte:
 * O endereço IP varia que pretende utilizar para a sua rede virtual (se ainda não criou um).
 * O endereço IP varia para cada um dos sites de rede locais a que irá ligar. Terá de se certificar de que o endereço IP varia para cada um dos sites de rede locais a que pretende ligar não se sobrepõe. Caso contrário, o portal ou a API REST rejeitarão a configuração que está a ser carregada.<br>Por exemplo, se tiver dois sites de rede locais que contenham a gama de endereços IP 10.2.3.0/24 e tiver um pacote com um endereço de destino 10.2.3.3, o Azure não saberia para que site pretende enviar o pacote porque as gamas de endereços estão sobrepostas. Para evitar problemas de encaminhamento, o Azure não lhe permite carregar um ficheiro de configuração que tem gamas sobrepostas.
 
-### <a name="working-with-azure-powershell"></a>Trabalhar com o Azure PowerShell
+### <a name="working-with-azure-powershell"></a>Trabalhar com a Azure PowerShell
 
 [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
@@ -74,7 +74,7 @@ Se já tem uma VPN site-to-site com um gateway de encaminhamento dinâmico, óti
 1. Crie a sua rede virtual Site-to-Site utilizando estas instruções: [Criar uma Rede Virtual com uma ligação VPN site-to-site](vpn-gateway-site-to-site-create.md).  
 2. Configure um gateway de encaminhamento dinâmico utilizando estas instruções: [Configure um Gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md). Certifique-se de selecionar **o encaminhamento dinâmico** para o seu tipo de gateway.
 
-## <a name="export"></a>2. Exportar o ficheiro de configuração da rede
+## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. Exportar o ficheiro de configuração da rede
 
 Abra a consola PowerShell com direitos elevados. Para mudar para a gestão do serviço, utilize este comando:
 

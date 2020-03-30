@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665226"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Monitor Azure
@@ -25,11 +25,11 @@ O Alerta de Registo consiste em regras de pesquisa de log criadas para registos 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regra de alerta de pesquisa de registo - definição e tipos
 
-São criadas regras de pesquisa de registos pelos Alertas do Azure para executar automaticamente consultas de registos especificados a intervalos regulares.  Se os resultados da pesquisa de registos corresponderem a critérios específicos, é criado um registo de alerta. A regra pode executar automaticamente uma ou mais ações através dos [Grupos de Ações](../../azure-monitor/platform/action-groups.md). Pode ser necessário o papel do Colaborador de [Monitorização Azure](../../azure-monitor/platform/roles-permissions-security.md) para a criação, modificação e atualização de alertas de registo; juntamente com os direitos de acesso e consulta de execução para os alvos de análise em regra de alerta ou consulta de alerta. Caso a criação do utilizador não tenha acesso a todos os alvos de análise em regra de alerta ou consulta de alerta - a criação de regras pode falhar ou a regra de alerta de registo será executada com resultados parciais.
+São criadas regras de pesquisa de registos pelos Alertas do Azure para executar automaticamente consultas de registos especificados a intervalos regulares.  Se os resultados da pesquisa de registos corresponderem a critérios específicos, é criado um registo de alerta. A regra pode executar automaticamente uma ou mais ações através dos [Grupos de Ações](../../azure-monitor/platform/action-groups.md). Pode ser necessário o papel do Colaborador de [Monitorização Azure](../../azure-monitor/platform/roles-permissions-security.md) para a criação, modificação e atualização de alertas de registo; juntamente com o acesso & direitos de execução de consulta para os alvos de análise em regra de alerta ou consulta de alerta. Caso a criação do utilizador não tenha acesso a todos os alvos de análise em regra de alerta ou consulta de alerta - a criação de regras pode falhar ou a regra de alerta de registo será executada com resultados parciais.
 
 As regras de pesquisa de registo são definidas pelos seguintes detalhes:
 
-- **Consulta de registo**.  A consulta que corre sempre que o alerta governa.  Os registos devolvidos por esta consulta são usados para determinar se um alerta deve ser desencadeado. A consulta de análise pode ser para um espaço de trabalho específico log Analytics ou app Application Insights e até mesmo abranger [vários recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) de Log Analytics e Application Insights desde que o utilizador tenha acesso, bem como direitos de consulta a todos os recursos. 
+- **Consulta de registo**.  a consulta que é executada sempre que a regra de alerta é acionada.  Os registos devolvidos por esta consulta são usados para determinar se um alerta deve ser desencadeado. A consulta de análise pode ser para um espaço de trabalho específico log Analytics ou app Application Insights e até mesmo abranger [vários recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) de Log Analytics e Application Insights desde que o utilizador tenha acesso, bem como direitos de consulta a todos os recursos. 
     > [!IMPORTANT]
     > suporte [de consulta de recursos cruzados](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) em alertas de registo para Insights de aplicação e alertas de registo para Log Analytics [configurado apenas usando API agendadoQueryRules.](../../azure-monitor/platform/alerts-log-api-switch.md)
 
@@ -44,7 +44,7 @@ As regras de pesquisa de registo são definidas pelos seguintes detalhes:
 As regras de pesquisa de registos são para Registos de [Monitores Azure](../../azure-monitor/learn/tutorial-viewdata.md) ou Insights de [Aplicação,](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)podem ser de dois tipos. Cada um destes tipos é descrito em detalhe nas secções que se seguem.
 
 - **[Número de resultados.](#number-of-results-alert-rules)** O único alerta criado quando os registos de números devolvidos pela pesquisa de registo excedem um número especificado.
-- **[Medição métrica](#metric-measurement-alert-rules)** .  Alerta criado para cada objeto nos resultados da pesquisa de registo com valores que excedem o limiar especificado.
+- **[Medição métrica](#metric-measurement-alert-rules)**.  Alerta criado para cada objeto nos resultados da pesquisa de registo com valores que excedem o limiar especificado.
 
 As diferenças entre os tipos de regra de alerta são as seguintes.
 
@@ -96,10 +96,10 @@ A configuração errada da opção *Agregado On* ou *metricColumn* pode causar r
 
 Considere um cenário em que quisesse um alerta se algum computador excedesse a utilização do processador de 90% três vezes em 30 minutos.  Criaria uma regra de alerta com os seguintes detalhes:  
 
-- **Consulta:** Perf  Perf  onde o ObjectName == "Processador" e ContraNome == "% Tempo do Processador"  resumir AgregadaValue = avg(CounterValue) por bin (TimeGenerated, 5m), Computer<br>
+- **Consulta:** Perf [ Perf ] onde o ObjectName == "Processador" e ContraNome == "% Tempo do Processador" [ resumir AgregadaValue = avg(CounterValue) por bin (TimeGenerated, 5m), Computer<br>
 - **Período de tempo:** 30 minutos<br>
 - **Frequência de alerta:** cinco minutos<br>
-- **Lógica de Alerta - Condição e Limiar:** Mais de 90<br>
+- **Lógica de Alerta - Limiar de condição &:** Mais de 90<br>
 - **Campo de Grupo (Agregado):** Computador
 - **Alerta de disparo com base em:** Total de infrações Superiores a 2<br>
 
@@ -108,9 +108,9 @@ A consulta criaria um valor médio para cada computador em intervalos de 5 minut
 
 |TimeGenerated [UTC] |Computador  |Valor Agregado  |
 |---------|---------|---------|
-|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
-|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
-|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|20xx-xx-xxT01:00:00     |   srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00     |   srv02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00     |   srv03.contoso.com      |    83     |
 |...     |   ...      |    ...     |
 |20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
 |20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
@@ -147,22 +147,22 @@ Utilizando o caso anterior como exemplo:
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preços e Faturação de Alertas de Registo
 
-Os preços aplicáveis aos Alertas de Registo estão indicados na página de Preços do [Monitor Do Azure.](https://azure.microsoft.com/pricing/details/monitor/) Nas contas azure, os Alertas de Registo são representados como tipo `microsoft.insights/scheduledqueryrules` com:
+Os preços aplicáveis aos Alertas de Registo estão indicados na página de Preços do [Monitor Do Azure.](https://azure.microsoft.com/pricing/details/monitor/) Nas contas azure, os Alertas `microsoft.insights/scheduledqueryrules` de Registo são representados como tipo com:
 
 - Alertas de log em Insights de Aplicação mostrados com nome de alerta exato juntamente com grupo de recursos e propriedades de alerta
 - Alertas de log no Log Analytics mostrados com o nome de alerta exato juntamente com propriedades do grupo de recursos e alerta; quando criado usando [a API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
-O [legado Log Analytics API](../../azure-monitor/platform/api-alerts.md) tem ações de alerta e horários como parte da Pesquisa Guardada de Log Analytics e não de recursos [próprios do Azure.](../../azure-resource-manager/management/overview.md) Assim, para permitir a faturação de tais alertas de registo sinuosos criados para log Analytics usando o portal Azure **sem** [mudar para novo API](../../azure-monitor/platform/alerts-log-api-switch.md) ou através do legado Log Analytics [API](../../azure-monitor/platform/api-alerts.md) - são criadas regras ocultas de alerta de pseudo-alerta em `microsoft.insights/scheduledqueryrules` para faturação em Azure. As regras ocultas de alerta de pseudo-alerta criadas para faturação em `microsoft.insights/scheduledqueryrules` como mostrado como `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` juntamente com o grupo de recursos e propriedades de alerta.
+O [legado Log Analytics API](../../azure-monitor/platform/api-alerts.md) tem ações de alerta e horários como parte da Pesquisa Guardada de Log Analytics e não de recursos [próprios do Azure.](../../azure-resource-manager/management/overview.md) Daí permitir a faturação de tais alertas de registo sinuosos criados para log Analytics usando o portal `microsoft.insights/scheduledqueryrules` Azure **sem** mudar para novo [API](../../azure-monitor/platform/alerts-log-api-switch.md) ou através do legado Log Analytics [API](../../azure-monitor/platform/api-alerts.md) - são criadas regras ocultas de alerta de pseudo-alerta para faturação em Azure. As regras ocultas de alerta `microsoft.insights/scheduledqueryrules` de pseudo-alerta criadas para faturação como mostrado como `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` juntamente com o grupo de recursos e propriedades de alerta.
 
 > [!NOTE]
-> Se estiverem presentes personagens inválidos como `<, >, %, &, \, ?, /`, serão substituídos por `_` no nome da regra de pseudo alerta oculto e, portanto, também na conta Azure.
+> Se caracteres inválidos como `<, >, %, &, \, ?, /` estão presentes, serão substituídos no `_` nome da regra de pseudo alerta escondido e, portanto, também na conta Azure.
 
 Para remover os horários ocultosOs recursos criados para faturação de regras de alerta utilizando a [API de Log Analytics,](api-alerts.md)o utilizador pode fazer qualquer um dos seguintes recursos:
 
 - Qualquer utilizador pode mudar a preferência da [API pelas regras](../../azure-monitor/platform/alerts-log-api-switch.md) de alerta no espaço de trabalho do Log Analytics e sem perda das suas regras de alerta ou de monitorização para o Funcionamento do Gestor de Recursos Azure, [a API .](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) Elimine assim a necessidade de fazer pseudo regras de alerta escondidas para a faturação.
 - Ou se o utilizador não quiser mudar a preferência da API, o utilizador terá de **eliminar** a programação original e alertar a ação utilizando o [legacy Log Analytics API](api-alerts.md) ou eliminar no portal [Azure a regra original](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal) de alerta de registo
 
-Adicionalmente para os horários ocultosOs recursos criados para faturação de regras de alerta utilizando o [legado Log Analytics API,](api-alerts.md)qualquer operação de modificação como PUT falhará. Como as regras pseudo tipo `microsoft.insights/scheduledqueryrules` são para efeitos de faturação das regras de alerta criadas usando o [legado Log Analytics API](api-alerts.md). Qualquer modificação da regra de alerta deve ser feita utilizando o legado do [Log Analytics API](api-alerts.md) (ou) utilizador pode mudar a [preferência de API para as regras](../../azure-monitor/platform/alerts-log-api-switch.md) de alerta para utilizar a [API agendada.](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
+Adicionalmente para os horários ocultosOs recursos criados para faturação de regras de alerta utilizando o [legado Log Analytics API,](api-alerts.md)qualquer operação de modificação como PUT falhará. Como `microsoft.insights/scheduledqueryrules` as regras pseudo tipo são para efeitos de faturação das regras de alerta criadas usando o [legado Log Analytics API](api-alerts.md). Qualquer modificação da regra de alerta deve ser feita utilizando o legado do [Log Analytics API](api-alerts.md) (ou) utilizador pode mudar a [preferência de API para as regras](../../azure-monitor/platform/alerts-log-api-switch.md) de alerta para utilizar a [API agendada.](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
 ## <a name="next-steps"></a>Passos seguintes
 

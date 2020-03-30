@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562127"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Monitorizar cenário em Funções Duráveis - Amostra de observador meteorológico
@@ -38,7 +38,7 @@ Esta amostra monitoriza as condições meteorológicas atuais de um local e aler
 
 Esta amostra envolve a utilização da API Weather Underground para verificar as condições meteorológicas atuais para obter uma localização.
 
-A primeira coisa que precisas é de uma conta no Weather Underground. Pode criar um de graça na [https://www.wunderground.com/signup. ](https://www.wunderground.com/signup) Assim que tiver uma conta, terá de adquirir uma chave API. Pode fazê-lo visitando [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)e, em seguida, selecionando As Definições de Chave. O plano de desenvolvimento stratus é gratuito e suficiente para executar esta amostra.
+A primeira coisa que precisas é de uma conta no Weather Underground. Pode criar um de [https://www.wunderground.com/signup](https://www.wunderground.com/signup)graça em . Assim que tiver uma conta, terá de adquirir uma chave API. Pode fazê-lo visitando [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)e, em seguida, selecionando As Definições de Chave. O plano de desenvolvimento stratus é gratuito e suficiente para executar esta amostra.
 
 Assim que tiver uma tecla API, adicione a seguinte definição de **aplicação** à sua aplicação de função.
 
@@ -50,17 +50,17 @@ Assim que tiver uma tecla API, adicione a seguinte definição de **aplicação*
 
 Este artigo explica as seguintes funções na aplicação da amostra:
 
-* `E3_Monitor`: Uma [função orquestradora](durable-functions-bindings.md#orchestration-trigger) que chama `E3_GetIsClear` periodicamente. Chama-`E3_SendGoodWeatherAlert` se `E3_GetIsClear` voltar a ser verdade.
-* `E3_GetIsClear`: Uma [função de atividade](durable-functions-bindings.md#activity-trigger) que verifica as condições meteorológicas atuais para um local.
+* `E3_Monitor`: Uma [função orquestradora](durable-functions-bindings.md#orchestration-trigger) que liga `E3_GetIsClear` periodicamente. Chama `E3_SendGoodWeatherAlert` se `E3_GetIsClear` voltar a verdade.
+* `E3_GetIsClear`: Uma [função de atividade](durable-functions-bindings.md#activity-trigger) que verifique as condições meteorológicas atuais para um local.
 * `E3_SendGoodWeatherAlert`: Uma função de atividade que envia uma mensagem SMS via Twilio.
 
 ### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor função orquestradora
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
-O orquestrador requer uma localização para monitorizar e um número de telefone para enviar uma mensagem para quando o local ficar claro. Estes dados são transmitidos ao orquestrador como um objeto `MonitorRequest` fortemente digitado.
+O orquestrador requer uma localização para monitorizar e um número de telefone para enviar uma mensagem para quando o local ficar claro. Estes dados são transmitidos ao orquestrador `MonitorRequest` como um objeto fortemente dactilografado.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -87,9 +87,9 @@ Várias instâncias orquestradoras podem ser executadas simultaneamente, chamand
 
 ### <a name="e3_getisclear-activity-function"></a>função de atividade E3_GetIsClear
 
-Tal como acontece com outras amostras, as funções de atividade do ajudante são funções regulares que utilizam a ligação do gatilho `activityTrigger`. A função **E3_GetIsClear** obtém as condições meteorológicas atuais usando a API weather underground e determina se o céu está limpo.
+Tal como acontece com outras amostras, as funções de atividade do ajudante são funções regulares que utilizam a ligação do `activityTrigger` gatilho. A função **E3_GetIsClear** obtém as condições meteorológicas atuais usando a API weather underground e determina se o céu está limpo.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
 
@@ -109,12 +109,12 @@ E aqui está a implementação.
 
 A função **E3_SendGoodWeatherAlert** utiliza a ligação Twilio para enviar uma mensagem SMS notificando o utilizador final de que é uma boa hora para uma caminhada.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
 > [!NOTE]
-> Terá de instalar o pacote `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget para executar o código da amostra.
+> Terá de instalar `Microsoft.Azure.WebJobs.Extensions.Twilio` o pacote Nuget para executar o código da amostra.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -169,7 +169,7 @@ Pode ver a atividade da orquestração olhando para os registos de funções no 
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-A orquestração [terminará](durable-functions-instance-management.md) assim que o seu tempo for atingido ou se detetar céu limpo. Também pode utilizar `TerminateAsync` (.NET) ou `terminate` (JavaScript) dentro de outra função ou invocar o **webhook post pós-terminada PostUri** HTTP referenciado na resposta de 202 acima, substituindo `{text}` com a razão da rescisão:
+A orquestração [terminará](durable-functions-instance-management.md) assim que o seu tempo for atingido ou se detetar céu limpo. Também pode `TerminateAsync` utilizar (.NET) ou `terminate` (JavaScript) dentro de outra função ou invocar o **webhook post post terminateAdo PostUri** http referenciado na resposta de 202 acima, substituindo `{text}` pela razão da rescisão:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

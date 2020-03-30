@@ -1,5 +1,5 @@
 ---
-title: Infraestrutura azure para SAP ASCS/SCS HA com WSFC&file Share  Microsoft Docs
+title: Infraestrutura azure para SAP ASCS/SCS HA com WSFC&arquivo Partilhar [ Microsoft Docs
 description: Preparação de infraestrutura Azure para alta disponibilidade do SAP utilizando um cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77591545"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Prepare a infraestrutura Azure para uma alta disponibilidade do SAP utilizando um cluster de falhas do Windows e partilha de ficheiros para instâncias SAP ASCS/SCS
@@ -237,10 +237,10 @@ Antes de iniciar a instalação, reveja o seguinte artigo:
 
 | Papel de nome de anfitrião virtual | Nome de anfitrião virtual | Endereço IP estático | Conjunto de disponibilidade |
 | --- | --- | --- | --- |
-| Primeiro nó de cluster | sofás-1 | 10.0.6.10 | sofs-as |
-| Segundo nó de cluster | sofs-2 | 10.0.6.11 | sofs-as |
-| Terceiro nó de cluster | sofs-3 | 10.0.6.12 | sofs-as |
-| Nome da rede cluster | sofs-cl | 10.0.6.13 | n/d |
+| Primeiro nó de cluster | sofás-1 | 10.0.6.10 | sofás-como |
+| Segundo nó de cluster | sofás-2 | 10.0.6.11 | sofás-como |
+| Terceiro nó de cluster | sofás-3 | 10.0.6.12 | sofás-como |
+| Nome da rede cluster | sofás-cl | 10.0.6.13 | n/d |
 | Nome de anfitrião global SAP | sapglobal | Use IPs de todos os nós de cluster | n/d |
 
 **Tabela 3**: Cluster do servidor de ficheiros scale-out
@@ -348,7 +348,7 @@ Depois de instalar com sucesso o cluster do Windows Scale-Out File Server, adapt
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
-- RoutingHistoryLength = 30
+- RoutHistoryLength = 30
 
 Estas configurações foram testadas com os clientes, e oferecem um bom compromisso. São suficientemente resistentes, mas também proporcionam falhas suficientemente rápidas em condições reais de erro ou falha vm.
 

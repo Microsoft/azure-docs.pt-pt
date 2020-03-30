@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/16/2019
 ms.openlocfilehash: 20e4827b1a86bff338646ef71f0dd732255c09c9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77460029"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topoologias de tempestade Apache usando Python no HDInsight
@@ -36,7 +36,7 @@ Aprenda a criar uma topologia [de tempestade Apache](https://storm.apache.org/) 
 
 ## <a name="storm-multi-language-support"></a>Suporte multilingma tempestade
 
-A Tempestade Apache foi projetada para trabalhar com componentes escritos usando qualquer linguagem de programação. Os componentes devem entender como trabalhar com a definição thrift para tempestade. Para python, um módulo é fornecido como parte do projeto Apache Storm que permite-lhe interagir facilmente com storm. Pode encontrar este módulo em [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+A Tempestade Apache foi projetada para trabalhar com componentes escritos usando qualquer linguagem de programação. Os componentes devem entender como trabalhar com a definição thrift para tempestade. Para python, um módulo é fornecido como parte do projeto Apache Storm que permite-lhe interagir facilmente com storm. Pode encontrar este [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)módulo em .
 
 Storm é um processo de Java que funciona na Máquina Virtual de Java (JVM). Os componentes escritos noutras línguas são executados como subprocessos. A Tempestade comunica com estes subprocessos usando mensagens JSON enviadas por stdin/stdout. Mais detalhes sobre a comunicação entre componentes podem ser encontrados na documentação do [Protocolo Multi-lang.](https://storm.apache.org/releases/current/Multilang-protocol.html)
 
@@ -58,9 +58,9 @@ spouts:
     parallelism: 1
 ```
 
-A classe `FluxShellSpout` é usada para iniciar o `sentencespout.py` script que implementa o bico.
+A `FluxShellSpout` aula é usada `sentencespout.py` para iniciar o script que implementa o bico.
 
-O Flux espera que os scripts python estejam no `/resources` diretório dentro do ficheiro do frasco que contém a topologia. Portanto, este exemplo armazena os scripts Python no diretório `/multilang/resources`. O `pom.xml` inclui este ficheiro utilizando o seguinte XML:
+O Flux espera que os `/resources` scripts python estejam no diretório dentro do ficheiro do frasco que contém a topologia. Então este exemplo armazena `/multilang/resources` os scripts Python no diretório. O `pom.xml` ficheiro inclui este ficheiro utilizando o seguinte XML:
 
 ```xml
 <!-- include the Python components -->
@@ -70,23 +70,23 @@ O Flux espera que os scripts python estejam no `/resources` diretório dentro do
 </resource>
 ```
 
-Como mencionado anteriormente, há um ficheiro `storm.py` que implementa a definição thrift para tempestade. A estrutura do Flux inclui `storm.py` automaticamente quando o projeto é construído, para que não tenha que se preocupar em incluí-lo.
+Como mencionado anteriormente, há `storm.py` um ficheiro que implementa a definição thrift para tempestade. A estrutura `storm.py` do Flux inclui automaticamente quando o projeto é construído, para que não tenha que se preocupar em incluí-lo.
 
 ## <a name="build-the-project"></a>Compilar o projeto
 
-1. Transfira o projeto a partir de [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+1. Descarregue [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)o projeto de .
 
-1. Abra um pedido de comando e navegue para a raiz do projeto: `hdinsight-python-storm-wordcount-master`. Introduza o seguinte comando:
+1. Abra um pedido de comando e `hdinsight-python-storm-wordcount-master`navegue para a raiz do projeto: . Introduza o seguinte comando:
 
     ```cmd
     mvn clean compile package
     ```
 
-    Este comando cria um ficheiro `target/WordCount-1.0-SNAPSHOT.jar` que contém a topologia compilada.
+    Este comando `target/WordCount-1.0-SNAPSHOT.jar` cria um ficheiro que contém a topologia compilada.
 
 ## <a name="run-the-storm-topology-on-hdinsight"></a>Executar a topologia da tempestade no HDInsight
 
-1. Utilize o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para copiar o ficheiro `WordCount-1.0-SNAPSHOT.jar` para o seu cluster Storm on HDInsight. Editar o comando abaixo substituindo CLUSTERNAME pelo nome do seu cluster e, em seguida, introduzir o comando:
+1. Utilize o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para copiar o ficheiro para o `WordCount-1.0-SNAPSHOT.jar` seu aglomerado Storm on HDInsight. Editar o comando abaixo substituindo CLUSTERNAME pelo nome do seu cluster e, em seguida, introduzir o comando:
 
     ```cmd
     scp target/WordCount-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:
@@ -106,7 +106,7 @@ Como mencionado anteriormente, há um ficheiro `storm.py` que implementa a defin
 
     Uma vez iniciado, uma topologia da tempestade corre até parar.
 
-1. Use a Tempestade UI para ver a topologia no cluster. A Tempestade UI está localizada em `https://CLUSTERNAME.azurehdinsight.net/stormui`. Substitua `CLUSTERNAME` pelo nome do cluster.
+1. Use a Tempestade UI para ver a topologia no cluster. A Tempestade UI `https://CLUSTERNAME.azurehdinsight.net/stormui`está localizada a . Substitua-o `CLUSTERNAME` pelo nome do cluster.
 
 1. Parem a topologia da tempestade. Utilize o seguinte comando para parar a topologia no cluster:
 

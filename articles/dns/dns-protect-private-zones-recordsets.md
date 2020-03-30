@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: allensu
 ms.openlocfilehash: da94c9aa97483ab5792e917d6a8f60f846b0722e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77473067"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Como proteger zonas e registos privados de DNS
@@ -164,8 +164,8 @@ O exemplo que se segue mostra uma definição de função personalizada para a g
 
 A propriedade Actions define as seguintes permissões específicas do DNS:
 
-* `Microsoft.Network/privateDnsZones/CNAME/*` concede controlo total sobre os registos CNAME
-* `Microsoft.Network/privateDNSZones/read` concede permissão para ler zonas privadas dNS, mas não modificá-las, permitindo-lhe ver a zona em que o CNAME está sendo criado.
+* `Microsoft.Network/privateDnsZones/CNAME/*`concede controlo total sobre os registos CNAME
+* `Microsoft.Network/privateDNSZones/read`concede permissão para ler zonas privadas dNS, mas não para modificá-las, permitindo-lhe ver a zona em que o CNAME está sendo criado.
 
 > [!NOTE]
 > Utilizar uma função RBAC personalizada para evitar a apagar os conjuntos de registos, permitindo ainda que sejam atualizados, não é um controlo eficaz. Impede que os conjuntos de registos sejam eliminados, mas não impede que sejam modificados.  As modificações permitidas incluem a adição e remoção de registos do conjunto de registos, incluindo a remoção de todos os registos para deixar um conjunto de registos vazio. Isto tem o mesmo efeito que apagar o recorde estabelecido de um ponto de vista de resolução do DNS.
@@ -190,7 +190,7 @@ O papel pode então ser atribuído da mesma forma que as funções incorporadas,
 
 Para obter mais informações sobre como criar, gerir e atribuir papéis personalizados, consulte [Papéis Personalizados em Azure RBAC](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Bloqueios de recursos
+## <a name="resource-locks"></a>Bloqueios de recurso
 
 O Azure Resource Manager suporta outro tipo de controlo de segurança, a capacidade de bloquear recursos. Os bloqueios de recursos são aplicados ao recurso e são eficazes em todos os utilizadores e funções. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 

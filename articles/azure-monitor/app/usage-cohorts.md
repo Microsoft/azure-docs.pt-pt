@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671091"
 ---
 # <a name="application-insights-cohorts"></a>Coortes de Insights de Aplicação
@@ -104,7 +104,7 @@ As duas coortes anteriores foram definidas usando caixas de entrega. Mas também
 
    * Uma secção de consulta, onde se define a coorte utilizando uma consulta de análise.
 
-     Na secção de consulta, [escreve-se uma consulta de análise.](/azure/kusto/query) A consulta seleciona o conjunto certo de linhas que descrevem a coorte que pretende definir. A ferramenta Cohorts adiciona então implicitamente um "   resumo pela cláusula user_Id" à consulta. Estes dados são pré-visualizados abaixo da consulta numa tabela, para que possa certificar-se de que a sua consulta está a devolver resultados.
+     Na secção de consulta, [escreve-se uma consulta de análise.](/azure/kusto/query) A consulta seleciona o conjunto certo de linhas que descrevem a coorte que pretende definir. A ferramenta Cohorts adiciona então implicitamente um "[ [ ] resumo pela cláusula user_Id" à consulta. Estes dados são pré-visualizados abaixo da consulta numa tabela, para que possa certificar-se de que a sua consulta está a devolver resultados.
 
      > [!NOTE]
      > Se não vir a consulta, tente redimensionar a secção para torná-la mais alta e revelar a consulta. O animado .gif no início desta secção ilustra o comportamento de redimensionamento.

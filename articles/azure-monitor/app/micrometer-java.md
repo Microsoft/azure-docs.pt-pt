@@ -6,10 +6,10 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
 ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670071"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como utilizar o Micrometer com Insights de Aplicação Azure Java SDK
@@ -94,7 +94,7 @@ Métricas padrão:
 Como desligar a recolha automática de métricas: 
  
 - Métricas JVM: 
-    - management.metrics.binders.jvm.enabled=false 
+    - gestão.metrics.binders.jvm.enabled=falso 
 - Métricas de logback: 
     - gestão.metrics.binders.logback.enabled=falso
 - Métricas uptime: 
@@ -104,7 +104,7 @@ Como desligar a recolha automática de métricas:
 - FicheiroDescriptorMetrics:
     - gestão.metrics.binders.files.enabled=false 
 - Histrix Metrics se biblioteca em classe: 
-    - management.metrics.binders.hystrix.enabled=false 
+    - gestão.metrics.binders.hystrix.enabled=falso 
 - AspectJ Métricas se biblioteca em classe: 
     - spring.aop.enabled=falso 
 
@@ -137,7 +137,7 @@ Passos:
         </dependency>
      ```
 
-2. Coloque `ApplicationInsights.xml` ficheiro na pasta de recursos:
+2. Coloque `ApplicationInsights.xml` o ficheiro na pasta de recursos:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

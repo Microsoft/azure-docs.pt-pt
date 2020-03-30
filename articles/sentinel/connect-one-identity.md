@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588149"
 ---
 # <a name="connect-one-identity-safeguard"></a>Ligar uma salvaguarda de identidade
@@ -31,7 +31,7 @@ O conector de dados one Identity Safeguard melhora o conector padrão de formato
 
 ## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Ligue o Sentinela Azure a uma salvaguarda de identidade
 
-1. No portal Azure, navegue até aos **conectores** de dados > **Azure Sentinel** e, em seguida, selecione o conector **de Salvaguarda de Identidade Única.**
+1. No portal Azure, navegue para**os conectores** De Dados **Azure Sentinel** > e, em seguida, selecione o conector **de Salvaguarda de Identidade Única.**
 
 2. Selecione página do **conector Aberto**.
 

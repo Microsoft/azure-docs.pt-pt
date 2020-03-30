@@ -1,6 +1,6 @@
 ---
-title: Planejar relatórios & implantação de monitoramento-Azure AD
-description: Descreve como planejar e executar implmentation de relatórios e monitoramento.
+title: Relatórios de planos & monitorização - Azure AD
+description: Descreve como planear e executar a implação de relatórios e monitorização.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,173 +13,173 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232112"
 ---
-# <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planejar uma Azure Active Directory a implantação de relatórios e monitoramento
+# <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeie um relatório e monitorização de diretórios ativos do Azure
 
-Sua solução de relatório e monitoramento do Azure Active Directory (AD do Azure) depende dos seus requisitos legais, de segurança e operacionais e de seus processos e ambiente existentes. Este artigo apresenta as várias opções de design e orienta você para a estratégia de implantação certa.
+A sua solução de reporte e monitorização do Seu Diretório Ativo Azure (Azure AD) depende dos seus requisitos legais, de segurança e operacionais e do seu ambiente e processos existentes. Este artigo apresenta as várias opções de design e guia-o para a estratégia de implementação certa.
 
-### <a name="benefits-of-azure-ad-reporting-and-monitoring"></a>Benefícios dos relatórios e monitoramento do Azure AD
+### <a name="benefits-of-azure-ad-reporting-and-monitoring"></a>Benefícios do relatório e monitorização da AD Azure
 
-Os relatórios do Azure AD fornecem uma exibição e logs abrangentes da atividade do Azure AD em seu ambiente, incluindo eventos de entrada, eventos de auditoria e alterações no diretório.
+O relatório Azure AD fornece uma visão abrangente e registos da atividade da AD Azure no seu ambiente, incluindo assinar em eventos, eventos de auditoria e alterações no seu diretório.
 
 Os dados fornecidos permite-lhe:
 
-* Determine como seus aplicativos e serviços são usados.
+* determine como as suas aplicações e serviços são usados.
 
-* detecte possíveis riscos que afetem a integridade do seu ambiente.
+* detetar riscos potenciais que afetem a saúde do seu ambiente.
 
-* Solucionar problemas que impedem seus usuários de realizar seu trabalho.
+* problemas de resolução de problemas que impedem os seus utilizadores de fazer o seu trabalho.
 
-* obter informações observando eventos de auditoria de alterações no seu diretório do Azure AD.
+* obtenha insights vendo eventos de auditoria de alterações ao seu diretório Azure AD.
 
 > [!IMPORTANT]
-> O monitoramento do AD do Azure permite que você encaminhe seus logs gerados pelo Azure AD Reporting para sistemas de destino diferentes. Em seguida, pode retê-los para utilização a longo prazo ou integrá-los com ferramentas de Gestão de Informações e Eventos de Segurança (SIEM) de terceiros para obter informações sobre o seu ambiente.
+> A monitorização da AD Azure permite-lhe encaminhar os seus registos gerados pela Azure AD reportando para diferentes sistemas-alvo. Em seguida, pode retê-los para utilização a longo prazo ou integrá-los com ferramentas de Gestão de Informações e Eventos de Segurança (SIEM) de terceiros para obter informações sobre o seu ambiente.
 
-Com o monitoramento do AD do Azure, você pode rotear logs para:
+Com a monitorização da AD Azure, pode encaminhar registos para:
 
-* uma conta de armazenamento do Azure para fins de arquivamento.
-* Azure Monitor logs, anteriormente conhecidos como espaço de trabalho do Azure Log Analytics, em que você pode analisar os dados, criar painéis e alertar sobre eventos específicos.
-* um hub de eventos do Azure em que você pode se integrar com suas ferramentas SIEM existentes, como Splunk, Sumologic ou QRadar.
+* uma conta de armazenamento Azure para fins de arquivo.
+* Os registos do Azure Monitor, anteriormente conhecido como Espaço de trabalho Azure Log Analytics, onde pode analisar os dados, criar dashboards e alertar sobre eventos específicos.
+* um hub de eventos Azure onde pode integrar-se com as suas ferramentas SIEM existentes, tais como Splunk, Sumologic ou QRadar.
 
 > [!NOTE]
-Recentemente, começamos a usar o termo Azure Monitor logs em vez de Log Analytics. Os dados de log ainda são armazenados em um espaço de trabalho Log Analytics e ainda são coletados e analisados pelo mesmo serviço Log Analytics. Estamos atualizando a terminologia para refletir melhor a função dos [logs em Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection). Confira [Azure monitor alterações de terminologia](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand) para obter detalhes.
+Recentemente começamos a usar os registos do Monitor Azure em vez de Log Analytics. Os dados de registo ainda são armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics. Estamos a atualizar a terminologia para melhor refletir o papel dos [registos no Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection) Consulte [as alterações da terminologia do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand) para obter detalhes.
 
-[Saiba mais sobre as políticas de retenção de relatório](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention).
+[Saiba mais sobre as políticas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention)de retenção de relatórios.
 
-### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licenciamento e pré-requisitos para relatórios e monitoramento do Azure AD
+### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licenciamento e pré-requisitos para relatórios e monitorização da AD Azure
 
-Você precisará de uma licença do Azure AD Premium para acessar os logs de logon do Azure AD.
+Você precisará de uma licença premium Azure AD para aceder ao sinal de anúncio azure em registos.
 
-Para obter informações detalhadas sobre recursos e licenciamento no [Guia de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Para informações detalhadas sobre funcionalidades e licenciamentos no guia de preços do [Diretório Ativo Azure.](https://azure.microsoft.com/pricing/details/active-directory/)
 
-Para implantar o monitoramento e o relatório do Azure AD, você precisará de um usuário que seja um administrador global ou administrador de segurança para o locatário do Azure AD.
+Para implementar a monitorização e reportagem da Azure AD, precisará de um utilizador que seja administrador global ou administrador de segurança do inquilino da AD Azure.
 
-Dependendo do destino final dos seus dados de log, você precisará de um dos seguintes:
+Dependendo do destino final dos seus dados de registo, necessitará de um dos seguintes dados:
 
-* Uma conta de armazenamento do Azure para a qual você tem permissões de ListKeys. Recomendamos que utilize uma conta de armazenamento para fins gerais e não uma conta de armazenamento de Blobs. Para obter informações sobre os preços de armazenamento, veja a [Calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage).
+* Uma conta de armazenamento do Azure, para a qual tenha permissões ListKeys. Recomendamos que utilize uma conta de armazenamento para fins gerais e não uma conta de armazenamento de Blobs. Para obter informações sobre os preços de armazenamento, veja a [Calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage).
 
-* Um namespace de hubs de eventos do Azure para integração com soluções SIEM de terceiros.
+* Um espaço de nome Azure Event Hubs para integrar com soluções SIEM de terceiros.
 
-* Um espaço de trabalho do Azure Log Analytics para enviar logs para Azure Monitor logs.
+* Um espaço de trabalho Azure Log Analytics para enviar registos para registos do Monitor Azure.
 
-## <a name="plan-an-azure-reporting-and-monitoring-deployment-project"></a>Planejar um projeto de implantação de relatórios e monitoramento do Azure
+## <a name="plan-an-azure-reporting-and-monitoring-deployment-project"></a>Planeie um projeto de implantação de relatórios e monitorização do Azure
 
-Neste projeto, você definirá as audiências que consumirão e monitorarão relatórios e definirá sua arquitetura de monitoramento do Azure AD.
+Neste projeto, irá definir o público que irá consumir e monitorizar relatórios, e definir a sua arquitetura de monitorização de Anúncios Azure.
 
-### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
+### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](https://aka.ms/deploymentplans). Além disso, certifique-se de que as funções de Stakeholder no projeto sejam bem compreendidas documentando os participantes e suas entradas de projeto e responsabilidades.
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas sobre impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas.](https://aka.ms/deploymentplans) Certifique-se também de que as funções das partes interessadas no projeto são bem compreendidas documentando as partes interessadas e as suas entradas e responsabilidades no projeto.
 
-### <a name="plan-communications"></a>Planejar comunicações
+### <a name="plan-communications"></a>Planear as comunicações
 
-A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique-se de forma proativa com seus usuários como sua experiência será alterada, quando ele será alterado e como obter suporte se eles tiverem problemas.
+A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunicar proativamente com os seus utilizadores como a sua experiência vai mudar, quando irá mudar, e como obter suporte se experimentarem problemas.
 
-### <a name="document-your-current-infrastructure-and-policies"></a>Documente sua infraestrutura e políticas atuais
+### <a name="document-your-current-infrastructure-and-policies"></a>Documente as suas infraestruturas e políticas atuais
 
-Sua infraestrutura e políticas atuais direcionarão seu design de relatórios e monitoramento. Verifique se você conhece
+As suas atuais infraestruturas e políticas conduzirão o seu design de relatórios e monitorização. Certifique-se de que sabe
 
-* Quais são as ferramentas SIEM que você está usando.
+* O que, se houver, ferramentas SIEM que estás a usar.
 
-* Sua infraestrutura do Azure, incluindo contas de armazenamento e monitoramento existentes que estão sendo usados.
+* A sua infraestrutura Azure, incluindo as contas de armazenamento existentes e a monitorização em uso.
 
-* Suas políticas de retenção organizacional para logs, incluindo todas as estruturas de conformidade aplicáveis necessárias. 
+* As suas políticas de retenção organizacional para registos, incluindo quaisquer quadros de conformidade aplicáveis necessários. 
 
-## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Planejar uma implantação de relatórios e monitoramento do Azure AD
+## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Planeie uma implantação de relatórios e monitorização da AD Azure
 
-Relatórios e monitoramento são usados para atender às suas necessidades de negócios, obter informações sobre padrões de uso e não aumentar a postura de segurança de suas organizações.
+O reporte e monitorização são usados para satisfazer os seus requisitos de negócio, obter insights sobre padrões de uso e não aumentar a postura de segurança das suas organizações.
 
 ### <a name="business-use-cases"></a>Casos de uso de negócios
 
-* Necessário para a solução atender às necessidades dos negócios
-* Bom para ter de atender às necessidades dos negócios
+* Necessária para solução para atender às necessidades empresariais
+* É bom ter de satisfazer as necessidades do negócio.
 * Não aplicável
 
 |Área |Descrição |
 |-|-|
-|Retenção| **Retenção de log de mais de 30 dias**. Devido aos requisitos legais ou comerciais, é necessário armazenar os logs de auditoria e os logs de logon do Azure AD por mais de 30 dias. |
-|Análise| **Os logs precisam ser pesquisáveis**. Os logs armazenados precisam ser pesquisáveis com ferramentas analíticas. |
-| Informações Operacionais| **Informações para várias equipes**. A necessidade de conceder acesso a diferentes usuários para obter informações operacionais, como uso do aplicativo, erros de entrada, uso de autoatendimento, tendências, etc. |
-| Informações de segurança| **Informações para várias equipes**. A necessidade de conceder acesso a diferentes usuários para obter informações operacionais, como uso do aplicativo, erros de entrada, uso de autoatendimento, tendências, etc. |
-| Integração em sistemas SIEM      | **Integração do Siem**. A necessidade de integrar e transmitir logs de logon do Azure AD e logs de auditoria para sistemas SIEM existentes. |
+|Retenção| **Retenção de registos superiores a 30 dias.** Devido a requisitos legais ou empresariais, é necessário armazenar registos de auditoria e assinar em registos de AD Azure por mais de 30 dias. |
+|Análise| **Os registos têm de ser pesquisáveis.** Os registos armazenados precisam de ser pesquisáveis com ferramentas analíticas. |
+| Informações Operacionais| **Insights para várias equipas.** A necessidade de dar acesso a diferentes utilizadores para obter insights operacionais, tais como o uso da aplicação, assinar erros, uso de self-service, tendências, etc. |
+| Insights de Segurança| **Insights para várias equipas.** A necessidade de dar acesso a diferentes utilizadores para obter insights operacionais, tais como o uso da aplicação, assinar erros, uso de self-service, tendências, etc. |
+| Integração nos sistemas SIEM      | **Integração SIEM.** A necessidade de integrar e transmitir o sinal de AD Azure em registos e registos de auditoria aos sistemas SIEM existentes. |
 
-### <a name="choose-a-monitoring-solution-architecture"></a>Escolher uma arquitetura de solução de monitoramento
+### <a name="choose-a-monitoring-solution-architecture"></a>Escolha uma arquitetura de solução de monitorização
 
-Com o monitoramento do AD do Azure, você pode rotear seus logs de atividade do Azure AD para um sistema que melhor atenda às suas necessidades de negócios. Você pode remantê-los para relatórios e análises de longo prazo para obter informações sobre seu ambiente e integrá-los a ferramentas SIEM.
+Com a monitorização da AD Azure, pode encaminhar os seus registos de atividade do Azure AD para um sistema que melhor responda às necessidades do seu negócio. Em seguida, pode retê-los para relatórios e análises a longo prazo para obter insights sobre o seu ambiente, e integrá-lo com ferramentas SIEM.
 
-#### <a name="decision-flow-chartan-image-showing-what-is-described-in-subsequent-sectionsmediareporting-deployment-plandeploy-reporting-flow-diagrampng"></a>Gráfico de fluxo de decisão![Uma imagem mostrando o que está descrito nas seções subsequentes](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
+#### <a name="decision-flow-chartan-image-showing-what-is-described-in-subsequent-sections"></a>Gráfico de fluxo de decisão![Uma imagem mostrando o que é descrito em secções subsequentes](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
 
-#### <a name="archive-logs-in-a-storage-account"></a>Arquivar logs em uma conta de armazenamento
+#### <a name="archive-logs-in-a-storage-account"></a>Arquivo de registos numa conta de armazenamento
 
-Ao rotear logs para uma conta de armazenamento do Azure, você pode mantê-los por mais tempo do que o período de retenção padrão descrito em nossas [políticas de retenção](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention). Use esse método se você precisar arquivar seus logs, mas não precisar integrá-los a um sistema SIEM e não precisar de consultas e análises em andamento. Você ainda pode fazer pesquisas sob demanda.
+Ao encaminhar os registos para uma conta de armazenamento Azure, pode mantê-los por mais tempo do que o período de retenção padrão delineado nas nossas políticas de [retenção](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention). Utilize este método se precisar de arquivar os seus registos, mas não precisa integrá-los com um sistema SIEM, e não precisa de consultas e análises contínuas. Ainda pode fazer buscas a pedido.
 
 Saiba como [encaminhar dados para a sua conta de armazenamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account).
 
-#### <a name="send-logs-to-azure-monitor-logs"></a>Enviar logs para Azure Monitor logs
+#### <a name="send-logs-to-azure-monitor-logs"></a>Envie registos para registos do Monitor Azure
 
-[Os logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) consolidam dados de monitoramento de fontes diferentes. Ele também fornece uma linguagem de consulta e um mecanismo de análise que fornece informações sobre a operação de seus aplicativos e o uso de recursos. Ao enviar logs de atividade do Azure AD para Azure Monitor logs, você pode recuperar, monitorar e alertar rapidamente os dados coletados. Use esse método quando você não tiver uma solução SIEM existente para a qual deseja enviar seus dados diretamente, mas quiser consultas e análises. Depois que os dados estiverem em logs de Azure Monitor, você poderá enviá-los para o Hub de eventos e daí para um SIEM, se desejar.
+Os [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) consolidam os dados de monitorização de diferentes fontes. Também fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e utilização de recursos. Ao enviar registos de atividade da Azure AD para registos do Monitor Azure, pode recuperar, monitorizar e alertar rapidamente sobre os dados recolhidos. Utilize este método quando não tiver uma solução SIEM existente para a qual pretende enviar os seus dados diretamente, mas quer consultas e análises. Uma vez que os seus dados estão nos registos do Monitor Azure, pode enviá-los para o centro de eventos e daí para um SIEM, se quiser.
 
-Saiba como [enviar dados para logs de Azure monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+Saiba como [enviar dados para os registos do Monitor Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
-Você também pode instalar os modos de exibição pré-criados para logs de atividades do Azure AD para monitorar cenários comuns que envolvem eventos de entrada e auditoria.
+Também pode instalar as vistas pré-construídas para registos de atividade da Azure AD para monitorizar cenários comuns envolvendo eventos de inscrição e auditoria.
 
-Saiba como [instalar e usar exibições do log Analytics para logs de atividades do Azure ad](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views).
+Aprenda a instalar e utilizar vistas de análise de [registos para registos de atividade da Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views).
 
-#### <a name="stream-logs-to-your-azure-event-hub"></a>Transmitir logs para o Hub de eventos do Azure
+#### <a name="stream-logs-to-your-azure-event-hub"></a>Registos de streaming para o seu centro de eventos Azure
 
-Os logs de roteamento para um hub de eventos do Azure permitem a integração com ferramentas SIEM de terceiros. Essa integração permite que você combine dados de log de atividades do Azure AD com outros dados gerenciados por seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. 
+Os registos de encaminhamento para um hub de eventos Azure permitem a integração com ferramentas SIEM de terceiros. Esta integração permite combinar dados de registo de atividade do Azure AD com outros dados geridos pelo seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. 
 
 Saiba como [transmitir registos a um hub de eventos](https://docs.microsoft.com//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
-## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planejar operações e segurança para relatórios e monitoramento do Azure AD
+## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Plano de Operações e Segurança para relatórios e monitorização da AD Azure
 
-Os participantes precisam acessar os logs do Azure AD para obter informações operacionais. Os usuários provavelmente incluem membros da equipe de segurança, auditores internos ou externos e a equipe de operações de gerenciamento de identidade e acesso.
+As partes interessadas precisam de aceder aos registos da AD Azure para obter informações operacionais. Os utilizadores prováveis incluem membros da equipa de segurança, auditores internos ou externos, e a equipa de operações de gestão de identidade e acesso.
 
-As funções do Azure AD permitem que você delegue a capacidade de configurar e exibir relatórios do Azure AD com base em sua função. Identifique quem em sua organização precisa de permissão para ler relatórios do Azure AD e qual função seria apropriada para eles. 
+As funções Azure AD permitem-lhe delegar a capacidade de configurar e ver relatórios de AD Azure com base no seu papel. Identifique quem na sua organização precisa de autorização para ler relatórios da AD Azure e qual o papel apropriado para eles. 
 
-As funções a seguir podem ler os relatórios do Azure AD:
+As seguintes funções podem ler relatórios da AD Azure:
 
 * Admin Global
 
 * Administrador de Segurança
 
-* Leitor de segurança
+* Leitor de Segurança
 
-* Leitor de relatórios
+* Leitor de Relatórios
 
-Saiba mais sobre as [funções administrativas do Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
+Saiba mais sobre [funções administrativas da AD Azure.](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 
-*Sempre aplique o conceito de privilégios mínimos para reduzir o risco de um comprometimento de conta*. Considere implementar [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) para proteger ainda mais sua organização.
+*Aplique sempre o conceito de menos privilégios para reduzir o risco de um compromisso de conta.* Considere implementar a [Gestão](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) de Identidade Privilegiada para garantir ainda mais a sua organização.
 
 ##  
 
-## <a name="deploy-azure-ad-reporting-and-monitoring"></a>Implantar relatórios e monitoramento do Azure AD
+## <a name="deploy-azure-ad-reporting-and-monitoring"></a>Implementar relatórios e monitorização da AD Azure
 
-Dependendo das decisões feitas anteriormente usando as diretrizes de design acima, esta seção orientará você na documentação sobre as diferentes opções de implantação.
+Dependendo das decisões que tomou anteriormente usando a orientação de design acima, esta secção irá guiá-lo para a documentação sobre as diferentes opções de implementação.
 
-### <a name="consume-and-archive-azure-ad-logs"></a>Consumir e arquivar logs do Azure AD
+### <a name="consume-and-archive-azure-ad-logs"></a>Consumir e arquivar registos de Anúncios Azure
 
 [Encontrar relatórios de atividade no portal do Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
 
-[Arquivar logs do Azure AD em uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
+[Registos de Anúncios De Arquivo Azure para uma conta de Armazenamento Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
 
-### <a name="implement-monitoring-and-analytics"></a>Implementar monitoramento e análise
+### <a name="implement-monitoring-and-analytics"></a>Implementar monitorização e análise
 
-[Enviar logs para Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+[Enviar registos para o Monitor Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-[Instalar e usar as exibições do log Analytics para Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
+[Instale e utilize as vistas de análise de registo para o Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
 
-[Analisar logs de atividades do Azure AD com logs de Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
+[Analise registos de atividade da Azure AD com registos do Monitor Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
 
-* [Interpret audit logs schema in Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema) (Interpretar o esquema dos registos de auditoria no Azure Monitor)
+* [Interpretar esquemas de registos de auditoria no Monitor Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
 
-* [Interpretar o esquema de logs de entrada no Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema)
+* [Interpretar o sinal em logs schema no Monitor Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema)
 
- * [Transmitir logs do Azure AD para um hub de eventos do Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
+ * [Stream Azure AD regista um hub de eventos Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
 
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk) (Utilizar o Azure Monitor para integrar registos do Azure AD no Splunk)
 
@@ -189,10 +189,10 @@ Dependendo das decisões feitas anteriormente usando as diretrizes de design aci
 
  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Considere a implementação de [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
+Considere implementar [a Gestão](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) de Identidade Privilegiada 
 
-Considere implementar o [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Considere implementar [o controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
  

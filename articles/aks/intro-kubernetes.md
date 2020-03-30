@@ -6,10 +6,10 @@ ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
 ms.openlocfilehash: f78b65169899107bcd4626bbed65bd4fddd8af43
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77595455"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
@@ -20,7 +20,7 @@ Pode criar um cluster do AKS no portal do Azure, com a CLI do Azure, ou um model
 
 Para obter mais informações sobre os fundamentos de Kubernetes, consulte os [conceitos centrais da Kubernetes para a AKS][concepts-clusters-workloads].
 
-Para começar, complete o quickstart AKS [no portal Azure][aks-portal] ou [com o Azure CLI][aks-cli].
+Para começar, conclua o guia de introdução do AKS [no portal do Azure][aks-portal] ou [com a CLI do Azure][aks-cli].
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -30,17 +30,17 @@ Para maior segurança e gestão, o AKS permite a integração com o Azure Active
 
 ### <a name="identity-and-security-management"></a>Gestão de identidade e segurança
 
-Para limitar o acesso aos recursos de cluster, a AKS apoia o controlo de acesso baseado em funções da [Kubernetes (RBAC)][kubernetes-rbac]. O RBAC permite-lhe controlar o acesso aos recursos e aos espaços de nomes do Kubernetes, e as permissões para esses recursos. Também pode configurar um cluster do AKS para integração com o Azure Active Directory (AD). Com a integração do Microsoft Azure AD, o acesso ao Kubernetes pode ser configurado com base na identidade e na associação de grupos existentes. Os seus utilizadores do Microsoft Azure AD e grupos existentes podem obter acesso aos recursos AKS com uma experiência de início de sessão integrada.
+Para limitar o acesso aos recursos do cluster, o AKS suporta o [controlo de acesso baseado em funções (RBAC)][kubernetes-rbac]. O RBAC permite-lhe controlar o acesso aos recursos e aos espaços de nomes do Kubernetes, e as permissões para esses recursos. Também pode configurar um cluster do AKS para integração com o Azure Active Directory (AD). Com a integração do Microsoft Azure AD, o acesso ao Kubernetes pode ser configurado com base na identidade e na associação de grupos existentes. Os seus utilizadores do Microsoft Azure AD e grupos existentes podem obter acesso aos recursos AKS com uma experiência de início de sessão integrada.
 
 Para obter mais informações sobre identidade, consulte Opções de [Acesso e identidade para AKS][concepts-identity].
 
-Para proteger os seus clusters AKS, consulte Integrar o [Diretório Ativo Azure com AKS][aks-aad].
+Para proteger os seus clusters AKS, veja [Integrar o Azure Active Directory com o AKS][aks-aad].
 
 ### <a name="integrated-logging-and-monitoring"></a>Registo e monitorização integrados
 
-Para compreender o desempenho do cluster do AKS e das aplicações implementadas, o Azure Monitor do estado de funcionamento do contentor recolhe as métricas de memória e do processador a partir de contentores, nós e controladores. Os registos de contentores estão disponíveis e também pode [rever os registos principais da Kubernetes.][aks-master-logs] Estes dados de monitorização são armazenados numa área de trabalho do Log Analytics do Azure e estão disponíveis através do portal do Azure, da CLI do Azure ou de um ponto final REST.
+Para compreender o desempenho do cluster do AKS e das aplicações implementadas, o Azure Monitor do estado de funcionamento do contentor recolhe as métricas de memória e do processador a partir de contentores, nós e controladores. Os registos de contentor estão disponíveis e também pode [rever os registos dos mestres do Kubernetes][aks-master-logs]. Estes dados de monitorização são armazenados numa área de trabalho do Log Analytics do Azure e estão disponíveis através do portal do Azure, da CLI do Azure ou de um ponto final REST.
 
-Para mais informações, consulte monitor [Azure Kubernetes Serviço de saúde][container-health]do contentor .
+Para obter mais informações, veja [Monitorizar o estado de funcionamento do contentor do Azure Kubernetes Service][container-health].
 
 ## <a name="clusters-and-nodes"></a>Aglomerados e nós
 
@@ -50,19 +50,19 @@ Os nós AKS são executados nas máquinas virtuais do Azure. Pode ligar o armaze
 
 À medida que a procura dos recursos se altera, o número de pods ou nós do cluster que executam os serviços pode aumentar ou reduzir verticalmente de forma automática. Pode utilizar o dimensionamento automático horizontal do pod ou o dimensionamento automático do cluster. Esta abordagem do dimensionamento permite que o cluster do AKS se ajuste automaticamente às exigências e execute apenas os recursos necessários.
 
-Para mais informações, consulte [scale a Azure Kubernetes Service (AKS) cluster][aks-scale].
+Para obter mais informações, veja [Dimensionar um cluster do Azure Kubernetes Service (AKS)][aks-scale].
 
 ### <a name="cluster-node-upgrades"></a>Atualizações do nó de cluster
 
 O Azure Kubernetes Service oferece várias versões de Kubernetes. À medida que novas versões ficam disponíveis no AKS, a versão do seu cluster pode ser atualizada através do portal do Azure ou da CLI do Azure. Durante o processo de atualização, os nós são cuidadosamente isolados e drenados para minimizar a interrupção das aplicações em execução.
 
-Para saber mais sobre versões de ciclo de vida, consulte [versões De Kubernetes suportadas no AKS][aks-supported versions]. Para obter passos sobre como fazer upgrade, consulte [Upgrade um cluster do Serviço Azure Kubernetes (AKS).][aks-upgrade]
+Para saber mais sobre as versões do ciclo de vida, veja [Versões suportadas do Kubernetes no AKS][aks-supported versions]. Para obter os passos de atualização, veja [Atualizar um cluster do Azure Kubernetes Service (AKS)][aks-upgrade].
 
 ### <a name="gpu-enabled-nodes"></a>Nós de GPU ativados
 
 O AKS suporta a criação de conjuntos de nós ativados por GPU. O Azure oferece atualmente VMs ativadas por GPU, únicas ou várias. As VMs ativadas por GPU foram concebidas para cargas de trabalho de computação intensiva, gráficos intensivos e visualização.
 
-Para mais informações, consulte [a utilização de GPUs em AKS][aks-gpu].
+Para obter mais informações, veja [Utilizar GPUs no AKS][aks-gpu].
 
 ### <a name="storage-volume-support"></a>Suporte para volume de armazenamento
 
@@ -78,29 +78,29 @@ Um cluster do AKS pode ser implementado numa rede virtual existente. Nesta confi
 
 Para obter mais informações, consulte os [conceitos de Rede para aplicações no AKS][aks-networking].
 
-Para começar com o tráfego de ingressos, consulte o [encaminhamento de aplicações HTTP][aks-http-routing].
+Para obter uma introdução ao tráfego de entrada, veja [Encaminhamento de aplicações de HTTP][aks-http-routing].
 
 ### <a name="ingress-with-http-application-routing"></a>Entrar com encaminhamento de aplicações de HTTP
 
 O suplemento de encaminhamento de aplicações de HTTP facilita o acesso às aplicações implementadas no cluster do AKS. Quando ativada, a solução de encaminhamento de aplicação de HTTP configura um controlador de entradas no seu cluster AKS. À medida que as aplicações são implementadas, os nomes DNS publicamente acessíveis são configurados automaticamente. O encaminhamento de aplicações de HTTP configura uma zona DNS e integra-a com o cluster do AKS. Em seguida, pode implementar os recursos de entrada do Kubernetes como habitualmente.
 
-Para começar com o tráfego de ingressos, consulte o [encaminhamento de aplicações HTTP][aks-http-routing].
+Para obter uma introdução ao tráfego de entrada, veja [Encaminhamento de aplicações de HTTP][aks-http-routing].
 
 ## <a name="development-tooling-integration"></a>Integração de ferramentas de desenvolvimento
 
 O Kubernetes oferece um ecossistema rico de ferramentas de desenvolvimento e gestão, como o Helm, Draft e a extensão do Kubernetes para o Visual Studio Code. Essas ferramentas funcionam perfeitamente com o AKS.
 
-Adicionalmente, os Espaços de Programador do Azure oferecem uma experiência de desenvolvimento do Kubernetes rápida e iterativa para equipas. Com a configuração mínima, pode executar e depurar contentores diretamente no AKS. Para começar, consulte [o Azure Dev Spaces.][azure-dev-spaces]
+Adicionalmente, os Espaços de Programador do Azure oferecem uma experiência de desenvolvimento do Kubernetes rápida e iterativa para equipas. Com a configuração mínima, pode executar e depurar contentores diretamente no AKS. Para obter uma introdução, veja[Azure Dev Spaces][azure-dev-spaces].
 
 O projeto Azure DevOps fornece uma solução simples para trazer código existente e o repositório Git para o Azure. O projeto DevOps cria automaticamente os recursos do Azure, como o AKS, um pipeline de lançamento no Azure DevOps Services, que inclui um pipeline de compilação para CI, configura um pipeline de lançamento para CD e, em seguida, cria um recurso do Azure Application Insights para monitorização.
 
-Para mais informações, consulte [o projeto Azure DevOps.][azure-devops]
+Para obter mais informações, veja [Projeto Azure DevOps][azure-devops].
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Suporte de imagem do Docker e registo de contentor privado
 
 O AKS suporta o formato de imagem do Docker. Para o armazenamento privado das suas imagens do Docker, pode integrar AKS com o Azure Container Registry (ACR).
 
-Para criar uma loja de imagens privada, consulte [o Registo de Contentores Azure.][acr-docs]
+Para criar o arquivo de imagens privado, veja [Azure Container Registry][acr-docs].
 
 ## <a name="kubernetes-certification"></a>Certificação Kubernetes
 
@@ -115,7 +115,7 @@ O Azure Kubernetes Service (AKS) está em conformidade com SOC, ISO, PCI DSS e H
 Saiba mais sobre como implementar e gerir o AKS com o guia de introdução da CLI do Azure.
 
 > [!div class="nextstepaction"]
-> [AKS quickstart][aks-cli]
+> [Início Rápido do AKS][aks-cli]
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine

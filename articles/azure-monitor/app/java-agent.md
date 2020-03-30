@@ -4,10 +4,10 @@ description: Desempenho alargado e monitorização de utilização do seu websit
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: b29618179d22eac97a07bf41906465aba1fd7929
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657032"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorize dependências, exceções apanhadas e tempos de execução de métodos em aplicações web java
@@ -16,7 +16,7 @@ ms.locfileid: "77657032"
 Se [tiver instrumentado a sua aplicação web Java com Application Insights,][java]pode utilizar o Agente Java para obter informações mais profundas, sem alterações de código:
 
 * **Dependências:** Dados sobre chamadas que a sua aplicação faz a outros componentes, incluindo:
-  * **As chamadas http-as** feitas via Apache HttpClient, OkHttp e `java.net.HttpURLConnection` são capturadas.
+  * **Chamadas http-000 de saída** feitas via Apache HttpClient, OkHttp, e `java.net.HttpURLConnection` capturadas.
   * As **chamadas** vermelhas feitas através do cliente Jedis são capturadas.
   * **Consultas JDBC** - Para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente reporta o plano de consulta.
 
@@ -26,8 +26,8 @@ Se [tiver instrumentado a sua aplicação web Java com Application Insights,][ja
   * **Logback**
 
 * **Melhor operação nomeação:** (utilizado para agregação de pedidos no portal)
-  * **primavera** - com base em `@RequestMapping`.
-  * **JAX-RS** - com base em `@Path`. 
+  * **primavera** - `@RequestMapping`com base em .
+  * **JAX-RS** - `@Path`baseado em . 
 
 Para utilizar o agente Java, instale-o no seu servidor. As suas aplicações web devem ser instrumentadas com os Insights de [Aplicação Java SDK][java]. 
 
@@ -42,8 +42,8 @@ Para utilizar o agente Java, instale-o no seu servidor. As suas aplicações web
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 3. Reinicie o seu servidor de aplicações.
 
-## <a name="configure-the-agent"></a>Configurar o agente
-Crie um ficheiro chamado `AI-Agent.xml` e coloque-o na mesma pasta que o ficheiro JAR do agente.
+## <a name="configure-the-agent"></a>Configure o agente
+Crie um `AI-Agent.xml` ficheiro nomeado e coloque-o na mesma pasta que o ficheiro JAR do agente.
 
 Detete o conteúdo do ficheiro xml. Editar o seguinte exemplo para incluir ou omitir as funcionalidades que deseja.
 
@@ -84,17 +84,17 @@ Para serviços de aplicações Azure, faça o seguinte:
 * Selecione Definições > Definições da Aplicação
 * Em Definições da Aplicação, adicione um par de chaves-valores novo:
 
-Chave: valor `JAVA_OPTS`: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+Chave: `JAVA_OPTS` Valor:`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
 Para obter a versão mais recente do agente Java, consulte os lançamentos [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
-O agente deve ser embalado como recurso no seu projeto de modo a que ele acabe no D:/home/site/wwwroot/ diretório. Pode confirmar que o seu agente está no diretório correto do App Service, indo para **ferramentas** de desenvolvimento > **Ferramentas Avançadas** > **Consola de Debug** e examinando os conteúdos do diretório do site.    
+O agente deve ser embalado como recurso no seu projeto de modo a que ele acabe no D:/home/site/wwwroot/ diretório. Pode confirmar que o seu agente está no diretório correto do App Service, indo para **ferramentas** > **Advanced Tools** > avançadas de desenvolvimento**Consola Debug** e examinando os conteúdos do diretório do site.    
 
-* Guarde as definições e reinicie a sua aplicação. (Estes passos aplicam-se apenas aos Serviços de Aplicações em execução no Windows.)
+* Guarde as definições e reinicie a aplicação. (Estes passos aplicam-se apenas aos Serviços de Aplicações em execução no Windows.)
 
 > [!NOTE]
-> AI-Agent.xml e o ficheiro do frasco do agente devem estar na mesma pasta. São muitas vezes colocados juntos na pasta `/resources` do projeto.  
+> AI-Agent.xml e o ficheiro do frasco do agente devem estar na mesma pasta. São muitas vezes `/resources` colocados juntos na pasta do projeto.  
 
 #### <a name="enable-w3c-distributed-tracing"></a>Ativar rastreio distribuído W3C
 
@@ -113,7 +113,7 @@ Adicione o seguinte a AI-Agent.xml:
 
 Idealmente, este seria o caso quando todos os seus serviços foram atualizados para a versão mais recente dos SDKs que suportam o protocolo W3C. É altamente recomendado passar para a versão mais recente de SDKs com suporte W3C o mais rápido possível.
 
-Certifique-se de que as configurações de  **[entrada](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) e de saída (agente)** são exatamente iguais.
+Certifique-se de que as configurações de ** [entrada](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) e de saída (agente)** são exatamente iguais.
 
 ## <a name="view-the-data"></a>Ver os dados
 No recurso Application Insights, os tempos agregados de dependência remota e execução de métodos aparecem [sob o azulejo performance][metrics].

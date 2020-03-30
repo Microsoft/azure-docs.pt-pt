@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Live Streaming utilizando os Serviços De Mídia Azure  Microsoft Docs
+title: Visão geral do Live Streaming utilizando os Serviços De Mídia Azure [ Microsoft Docs
 description: Este artigo dá uma visão geral do streaming ao vivo usando o Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 99efe375fad142963214b09df24be70bc3bc9d99
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77131607"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Visão geral do Live Streaming usando os Serviços de Media
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -47,7 +47,7 @@ Os **Media Services do Microsoft Azure** (AMS) fornecem a capacidade de inserir,
 Com os Media Services, pode usufruir de [embalagens dinâmicas,](media-services-dynamic-packaging-overview.md)que lhe permitem transmitir os seus streams ao vivo em formatos MPEG DASH, HLS e Smooth Streaming a partir do feed de contribuição que está a ser enviado para o serviço. Os seus espectadores podem reproduzir o live stream com quaisquer jogadores compatíveis hls, DASH ou Smooth Streaming. Pode utilizar o Azure Media Player nas suas aplicações web ou móveis para entregar o seu stream em qualquer um destes protocolos.
 
 > [!NOTE]
-> A partir de 12 de maio de 2018, os canais ao vivo não serão mais compatíveis com o protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Migre do RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
+> A partir de 12 de maio de 2018, os canais ao vivo deixarão de apoiar o protocolo de transporte sintetizador da RTP/MPEG-2. Por favor, emigrar de PROTOCOLOS de ingerir RTP/MPEG-2 para RTMP ou MP4 fragmentados (Smooth Streaming).
 
 ## <a name="streaming-endpoints-channels-programs"></a>Pontos finais de streaming, canais, programas
 
@@ -74,16 +74,16 @@ A tabela seguinte fornece um guia para comparar os dois tipos de Canal suportado
 
 | Funcionalidade | Canal pass-through | Canal Padrão |
 | --- | --- | --- |
-| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não |Sim |
+| A entrada única de bitrate é codificada em várias bitrates na nuvem |Não |Sim |
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60+fps |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Preço |Consulte a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Live Video" |Ver a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
-| Tempo de execução máximo |24x7 |8 horas |
-| Suporte para inserção de slates |Não |Sim |
+| Tempo máximo de execução |24x7 |8 horas |
+| Suporte para inserção de ardósias |Não |Sim |
 | Suporte para sinalização de anúncios |Não |Sim |
 | Legendas pass-through CEA 608/708 |Sim |Sim |
-| Suporte para GOPS segundos de entrada não uniforme |Sim |Não – a entrada deve ser fixada 2sec GOPs |
-| Suporte para entrada de taxa de quadros variável |Sim |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas de movimento alto. Mas o codificador não pode cair para 10 fotogramas/seg. |
+| Suporte para GOPs de entrada não uniformes |Sim |Não – a entrada deve ser fixada 2sec GOPs |
+| Suporte para entrada de taxa de fotogramas variável |Sim |Não – a entrada deve ser fixada.<br/>Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o codificador não pode cair para 10 fotogramas/seg. |
 | Desligamento automático dos Canais quando se perde o feed de entrada |Não |Depois de 12 horas, se não houver programa em execução |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhar com Canais que recebem transmissões em fluxo em direto com velocidade de transmissão múltipla a partir de codificadores no local (pass-through)
@@ -137,21 +137,21 @@ Para impedir que o Canal o faça mais longe, tem de parar o Canal através da AP
 >
 >
 
-### <a id="states"></a>Estados do canal e como mapeiam para o modo de faturação
-O estado atual de um Canal. Os valores possíveis incluem:
+### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Estados do canal e como mapeiam para o modo de faturação
+O estado atual de um Canal. Valores possíveis incluem:
 
 * **Parou.** Este é o estado inicial do Canal após a sua criação (a menos que o autoarranque tenha sido selecionado no portal.) Não há faturação neste estado. Neste estado, as propriedades do Canal podem ser atualizadas, mas o streaming não é permitido.
-* **A partir de**. O Canal está a ser iniciado. Nenhuma cobrança ocorre nesse estado. Não são permitidas atualizações ou streaming durante este estado. Se ocorrer um erro, o Canal regressa ao estado de parada.
+* **A partir de**. O Canal está a ser iniciado. Não há faturação neste estado. Não são permitidas atualizações ou streaming durante este estado. Se ocorrer um erro, o Canal regressa ao estado de parada.
 * **A correr.** O Canal é capaz de processar transmissões ao vivo. Está agora a cobrar o uso. Tem de parar o canal para evitar mais faturações.
-* **Parando.** O Canal está a ser detido. Nenhuma cobrança ocorre nesse estado transitório. Não são permitidas atualizações ou streaming durante este estado.
-* **Apagar.** O Canal está a ser apagado. Nenhuma cobrança ocorre nesse estado transitório. Não são permitidas atualizações ou streaming durante este estado.
+* **Parando.** O Canal está a ser detido. Não ocorre nenhuma faturação neste estado transitório. Não são permitidas atualizações ou streaming durante este estado.
+* **Apagar.** O Canal está a ser apagado. Não ocorre nenhuma faturação neste estado transitório. Não são permitidas atualizações ou streaming durante este estado.
 
 A tabela que se segue mostra como os estados do Canal mapeiam para o modo de faturação.
 
 | Estado do canal | Indicadores do Portal UI | É billing? |
 | --- | --- | --- |
 | A iniciar |A iniciar |Não (estado transitório) |
-| A executar |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa de execução) |SIM, SIM. |
+| A executar |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa de execução) |SIM |
 | A parar |A parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
@@ -166,7 +166,7 @@ A tabela que se segue mostra como os estados do Canal mapeiam para o modo de fat
 
 [Trabalhar com canais que estão habilitados a realizar encodificação ao vivo com os Serviços De Mídia Azure](media-services-manage-live-encoder-enabled-channels.md)
 
-[Trabalhar com Canais que Recebem Transmissões em Fluxo em Direto com Velocidade de Transmissão Múltipla a partir de Codificadores no Local (Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders)](media-services-live-streaming-with-onprem-encoders.md)
+[Trabalhar com Canais que Recebem Transmissões em Fluxo em Direto com Velocidade de Transmissão Múltipla a partir de Codificadores no Local](media-services-live-streaming-with-onprem-encoders.md)
 
 [Quotas e limitações.](media-services-quotas-and-limitations.md)  
 

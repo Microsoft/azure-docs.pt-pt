@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672383"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Visão geral da extensão do Azure Diagnostics
@@ -38,7 +38,7 @@ As tabelas seguintes listam os dados que podem ser recolhidos pela extensão de 
 
 | Origem de Dados | Descrição |
 | --- | --- |
-| Registos de Eventos do Windows   | Eventos do registo de eventos do Windows. |
+| Registos do Evento Windows   | Eventos do registo de eventos do Windows. |
 | Contadores de desempenho | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
 | Registos do IIS             | Informações de utilização para web sites IIS em execução no sistema operativo de hóspedes. |
 | Registos de aplicação     | Rastreie mensagens escritas pela sua aplicação. |
@@ -92,7 +92,7 @@ Também pode instalar e configurar a extensão de diagnóstico windows e linux n
 Consulte os seguintes artigos para obter mais informações sobre a instalação e configuração da extensão de diagnóstico para Windows e Linux.
 
 - [Instalar e configurar extensão de diagnóstico do Windows Azure (WAD)](diagnostics-extension-windows-install.md)
-- [Utilize a extensão de diagnóstico do Linux para monitorizar métricas e registos](../../virtual-machines/extensions/diagnostics-linux.md)
+- [Using Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos)
 
 ## <a name="other-documentation"></a>Outra documentação
 
