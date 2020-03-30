@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258996"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento e escalação de capacidades para tecido de serviço Azure
@@ -34,7 +34,7 @@ A utilização de escalas automáticas através de conjuntos de escala de máqui
    A capacidade mínima para as regras de autoscalcificação deve ser igual ou superior a cinco casos de máquinas virtuais. Também deve ser igual ou superior ao mínimo do seu Nível de Fiabilidade para o seu tipo de nó primário.
 
 > [!NOTE]
-> O tecido de serviço de serviço de serviço audacível:/Sistema/InfastructureService/<NODE_TYPE_NAME> funciona em todos os tipos de nó que têm prata ou maior durabilidade. É o único serviço de sistema que é suportado para funcionar em Azure em qualquer um dos seus clusters tipos de nós.
+> O tecido de serviço de serviço imponente:/Sistema/InfastructureServiço/<NODE_TYPE_NAME> funciona em todos os tipos de nó que têm prata ou maior durabilidade. É o único serviço de sistema que é suportado para funcionar em Azure em qualquer um dos seus clusters tipos de nós.
 
 ## <a name="vertical-scaling-considerations"></a>Considerações de escala vertical
 
@@ -48,7 +48,7 @@ A utilização de escalas automáticas através de conjuntos de escala de máqui
 
 A escala vertical de um conjunto de escala de máquina virtual é uma operação destrutiva. Em vez disso, escala horizontalmente o seu cluster adicionando um novo conjunto de escala com o SKU desejado. Em seguida, emigre os seus serviços para o SKU desejado para completar uma operação de escala vertical segura. Mudar um recurso de conjunto de máquina virtual SKU é uma operação destrutiva porque reimagens os seus anfitriões, que remove todo o estado persponia localmente.
 
-O seu cluster utiliza propriedades do nó de tecido de serviço [e restrições](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) de colocação para decidir onde hospedar os serviços da sua aplicação. Quando estiver a escalar verticalmente o seu tipo de nó primário, declare valores de propriedade idênticos para `"nodeTypeRef"`. Pode encontrar estes valores na extensão de Tecido de Serviço para conjuntos de escala de máquinavirtual. 
+O seu cluster utiliza propriedades do nó de tecido de serviço [e restrições](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) de colocação para decidir onde hospedar os serviços da sua aplicação. Quando estiver a escalar verticalmente o seu tipo de nó `"nodeTypeRef"`primário, declare valores de propriedade idênticos para . Pode encontrar estes valores na extensão de Tecido de Serviço para conjuntos de escala de máquinavirtual. 
 
 O seguinte corte de um modelo de Gestor de Recursos mostra as propriedades que irá declarar. Tem o mesmo valor para os conjuntos de escala recém-provisionados a que está a escalonar, e é suportado apenas como um serviço temporário e statal para o seu cluster.
 
@@ -59,18 +59,18 @@ O seguinte corte de um modelo de Gestor de Recursos mostra as propriedades que i
 ```
 
 > [!NOTE]
-> Não deixe o seu cluster a funcionar com conjuntos de escala múltiplas que usam o mesmo valor de propriedade `nodeTypeRef` mais tempo do que o necessário para completar uma operação de escala vertical bem sucedida.
+> Não deixe o seu cluster a funcionar com `nodeTypeRef` conjuntos de escala múltiplas que usam o mesmo valor de propriedade mais tempo do que o necessário para completar uma operação de escala vertical bem sucedida.
 >
 > Valide sempre as operações em ambientes de teste antes de tentar alterações no ambiente de produção. Por predefinição, os serviços do sistema de cluster service Fabric têm uma restrição de colocação apenas ao tipo de nó primário alvo.
 
 Com as propriedades do nó e os constrangimentos de colocação declarados, faça os seguintes passos um caso VM de cada vez. Isto permite que os serviços do sistema (e os seus serviços estatais) sejam encerrados graciosamente na instância VM que está a remover à medida que novas réplicas são criadas em outros lugares.
 
-1. A partir da PowerShell, execute `Disable-ServiceFabricNode` com intenção `RemoveNode` dedesactivar o nó que vai remover. Retire o tipo de nó que tem o maior número. Por exemplo, se tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
-2. Faça `Get-ServiceFabricNode` para garantir que o nó passou para deficientes. Caso contrário, aguarde até que o nó está desabilitado. Isto pode levar algumas horas para cada nó. Não prossiga até que o nó tenha transitado para deficientes.
+1. Da PowerShell, `Disable-ServiceFabricNode` corra `RemoveNode` com intenção de desativar o nó que vai remover. Retire o tipo de nó que tem o maior número. Por exemplo, se tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
+2. Corra `Get-ServiceFabricNode` para se certificar de que o nó passou para deficientes. Caso contrário, aguarde até que o nó esteja desativado. Isto pode levar algumas horas para cada nó. Não prossiga até que o nó tenha transitado para deficientes.
 3. Diminua o número de VMs por um nesse tipo de nó. A maior instância vm será agora removida.
-4. Repita os passos 1 a 3 conforme necessário, mas nunca reduzir verticalmente o número de instâncias, os tipos de nó primário, de menos do que o que justifica o escalão de fiabilidade. Consulte [a capacidade do cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
+4. Repita os passos 1 a 3 conforme necessário, mas nunca reduza o número de instâncias nos tipos do nó primário menos do que o que o nível de fiabilidade garante. Consulte [a capacidade do cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
 5. Uma vez que todos os VMs se foram (representados como "Down") o tecido:/Sistema/Serviço de Infraestruturas/[nome do nó] mostrará um estado de erro. Em seguida, pode atualizar o recurso do cluster para remover o tipo de nó. Pode utilizar a implementação do modelo ARM ou editar o recurso de cluster através do gestor de [recursos Azure](https://resources.azure.com). Isto iniciará uma atualização do cluster que removerá o serviço de tecido:/Sistema/Infra-estruturaService/[nó tipo] que está em estado de erro.
- 6. Depois disso, pode eliminar opcionalmente o VMScaleSet, ainda verá os nós como "Down" da vista Service Fabric Explorer. O último passo seria limpá-los com `Remove-ServiceFabricNodeState` comando.
+ 6. Depois disso, pode eliminar opcionalmente o VMScaleSet, ainda verá os nós como "Down" da vista Service Fabric Explorer. O último passo seria limpá-los com `Remove-ServiceFabricNodeState` o comando.
 
 ## <a name="horizontal-scaling"></a>Dimensionamento horizontal
 
@@ -108,8 +108,8 @@ A escala requer mais consideração do que escalonar. Por exemplo:
 
 Para escalar manualmente, siga estes passos:
 
-1. A partir da PowerShell, execute `Disable-ServiceFabricNode` com intenção `RemoveNode` dedesactivar o nó que vai remover. Retire o tipo de nó que tem o maior número. Por exemplo, se tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
-2. Faça `Get-ServiceFabricNode` para garantir que o nó passou para deficientes. Caso contrário, aguarde até que o nó está desabilitado. Isto pode levar algumas horas para cada nó. Não prossiga até que o nó tenha transitado para deficientes.
+1. Da PowerShell, `Disable-ServiceFabricNode` corra `RemoveNode` com intenção de desativar o nó que vai remover. Retire o tipo de nó que tem o maior número. Por exemplo, se tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
+2. Corra `Get-ServiceFabricNode` para se certificar de que o nó passou para deficientes. Caso contrário, aguarde até que o nó esteja desativado. Isto pode levar algumas horas para cada nó. Não prossiga até que o nó tenha transitado para deficientes.
 3. Diminua o número de VMs por um nesse tipo de nó. A maior instância vm será agora removida.
 4. Repita os passos 1 a 3, conforme necessário até fornecer a capacidade que deseja. Não reduza o número de instâncias nos tipos do nó primário para menos do que o nível de fiabilidade garante. Consulte [a capacidade do cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
 
@@ -140,7 +140,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Desative e remova o nó utilizando a mesma `FabricClient` instância (`client` neste caso) e a instância do nó (`instanceIdString` neste caso) que utilizou no código anterior:
+Desative e remova o nó `FabricClient` utilizando`client` a mesma instância (neste`instanceIdString` caso) e a instância nó (neste caso) que utilizou no código anterior:
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -213,7 +213,7 @@ O nível de durabilidade deve ser fixado em dois recursos. Um deles é o perfil 
 }
 ```
 
-O outro recurso está sob `nodeTypes` no [recurso Microsoft.ServiceFabric/clusters:](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters) 
+O outro recurso `nodeTypes` encontra-se no [recurso Microsoft.ServiceFabric/clusters:](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters) 
 
 ```json
 "nodeTypes": [
@@ -224,7 +224,7 @@ O outro recurso está sob `nodeTypes` no [recurso Microsoft.ServiceFabric/cluste
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Crie um cluster em VMs ou computadores que executem o Windows Server: [Criação](service-fabric-cluster-creation-for-windows-server.md)de cluster de tecido de serviço para o Windows Server .
 * Crie um cluster em VMs ou computadores em execução de Linux: [Crie um cluster Linux](service-fabric-cluster-creation-via-portal.md).

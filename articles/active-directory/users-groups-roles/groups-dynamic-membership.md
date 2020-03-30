@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253081"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Diretório Ativo do Azure
@@ -43,7 +43,7 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 - Governar com mais de cinco expressões
 - A regra dos relatórios diretos
 - Definição da [precedência do operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) por exemplo, `(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regras com expressões complexas;](groups-dynamic-membership.md#rules-with-complex-expressions) Por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Pode ver uma mensagem quando o construtor de regras não é capaz de exibir a regra. O construtor de regras não altera de forma alguma a sintaxe suportada, validação ou processamento de regras dinâmicas do grupo.
@@ -54,7 +54,7 @@ Para obter mais instruções passo a passo, consulte [Criar ou atualizar um grup
 
 ### <a name="rule-syntax-for-a-single-expression"></a>Sintaxe de regra para uma única expressão
 
-Uma única expressão é a forma mais simples de uma regra de adesão e só tem as três partes acima mencionadas. Uma regra com uma única expressão parece semelhante a esta: `Property Operator Value`, onde a sintaxe para a propriedade é o nome de objeto.propriedade.
+Uma única expressão é a forma mais simples de uma regra de adesão e só tem as três partes acima mencionadas. Uma regra com uma única expressão `Property Operator Value`é semelhante a esta: , onde a sintaxe para a propriedade é o nome de objeto.propriedade.
 
 Segue-se um exemplo de uma regra de adesão devidamente construída com uma única expressão:
 
@@ -79,7 +79,7 @@ A ordem das peças dentro de uma expressão é importante para evitar erros de s
 Existem três tipos de propriedades que podem ser usadas para construir uma regra de adesão.
 
 - Booleano
-- String
+- Cadeia
 - Coleção de cordas
 
 Seguem-se as propriedades do utilizador que pode utilizar para criar uma única expressão.
@@ -88,7 +88,7 @@ Seguem-se as propriedades do utilizador que pode utilizar para criar uma única 
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| accountEnabled |verdadeiro falso |user.accountEnabled -eq true |
+| contaEnabled |verdadeiro falso |user.accountEnabled -eq true |
 | dirSyncEnabled |verdadeiro falso |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propriedades da cadeia de tipo
@@ -97,37 +97,37 @@ Seguem-se as propriedades do utilizador que pode utilizar para criar uma única 
 | --- | --- | --- |
 | city |Qualquer valor de cadeia ou *nulo* |(user.city -eq "value") |
 | país |Qualquer valor de cadeia ou *nulo* |(user.country -eq "value") |
-| companyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
-| Departamento |Qualquer valor de cadeia ou *nulo* |(user.department -eq "value") |
-| displayName |qualquer valor de cadeia |(user.displayName -eq "value") |
-| employeeId |qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId -ne *nulo)* |
-| facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName -eq "value") |
-| jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle -eq "value") |
-| mail |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail -eq "value") |
+| nome da empresa | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
+| departamento |Qualquer valor de cadeia ou *nulo* |(user.department -eq "value") |
+| displayName |Qualquer valor de cadeia |(user.displayName -eq "value") |
+| funcionárioId |Qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId -ne *nulo)* |
+| facsimilePhoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimilePhoneNumber -eq "value") |
+| nomeDado |Qualquer valor de cadeia ou *nulo* |(user.givenName -eq "value") |
+| empregoTítulo |Qualquer valor de cadeia ou *nulo* |(user.jobTitle -eq "value") |
+| correio |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail -eq "value") |
 | mailNickName |Qualquer valor de cadeia (pseudónimo de correio do utilizador) |(user.mailNickName -eq "value") |
-| móvel |Qualquer valor de cadeia ou *nulo* |(user.mobile -eq "value") |
-| objectId |GUIA do objeto do utilizador |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | Identificador de segurança no local (SID) para utilizadores que foram sincronizados desde as instalações até à nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| dispositivo móvel |Qualquer valor de cadeia ou *nulo* |(user.mobile -eq "value") |
+| objectId |GUIA do objeto do utilizador |(user.objectId -eq "11111111-1111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | Identificador de segurança no local (SID) para utilizadores que foram sincronizados desde as instalações até à nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-11111111-111111-1111111-111111111-11111111") |
 | passwordPolíticas |Nenhum desactivapalavra-passe-passe desactivaavalidade depassworddesativação depassword, desactivapalavra-passe forte |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualquer valor de cadeia ou *nulo* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Qualquer valor de cadeia ou *nulo* |(user.postalCode -eq "value") |
+| Código postal |Qualquer valor de cadeia ou *nulo* |(user.postalCode -eq "value") |
 | língua preferida |Código ISO 639-1 |(user.preferredLanguage -eq "en-US") |
 | sipProxyAddress |Qualquer valor de cadeia ou *nulo* |(user.sipProxyAddress -eq "value") |
 | state |Qualquer valor de cadeia ou *nulo* |(user.state -eq "value") |
 | streetAddress |Qualquer valor de cadeia ou *nulo* |(user.streetAddress -eq "value") |
-| Apelido |Qualquer valor de cadeia ou *nulo* |(user.surname -eq "value") |
+| surname |Qualquer valor de cadeia ou *nulo* |(user.surname -eq "value") |
 | telefoneNúmero |Qualquer valor de cadeia ou *nulo* |(user.telephoneNumber -eq "value") |
-| usageLocation |Dois código de país com letras |(user.usageLocation -eq "US") |
-| userPrincipalName |qualquer valor de cadeia |(user.userPrincipalName -eq "alias@domain") |
-| Tipo de utilizador |membro convidado *nulo* |(user.userType -eq "Member") |
+| utilizaçãoLocalização |Dois código de país com letras |(user.usageLocation -eq "US") |
+| userPrincipalName |Qualquer valor de cadeia |(user.userPrincipalName -eqalias@domain" ") |
+| userType |membro convidado *nulo* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades da coleção de cordas tipo
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| otherMails |qualquer valor de cadeia |(user.otherMails -contém "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresss - contém "SMTP: alias@domain") |
+| outros Mails |Qualquer valor de cadeia |(user.otherMails -contémalias@domain" |
+| proxyAddresses |SMTP: alias@domain SMTP:alias@domain |(user.proxyAddresss -contém "SMTP: alias@domain") |
 
 Para as propriedades utilizadas para as regras do dispositivo, consulte [Regras para dispositivos](#rules-for-devices).
 
@@ -140,12 +140,12 @@ A tabela seguinte lista todos os operadores apoiados e a sua sintaxe para uma ú
 | Não é igual |-ne |
 | É igual a |-eq |
 | Não começa com |-notStartsWith |
-| Começa com |-startsWith |
-| Não contém |-notContains |
-| Contains |-contains |
+| Começa com |-começaCom |
+| Não contém |-nãoContém |
+| Contains |- contém |
 | Não Corresponder |-notMatch |
-| Jogo |-jogo |
-| Em | \- em |
+| Match |-jogo |
+| Entrada | - em |
 | Não em | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Utilização dos operadores -in e -notIn
@@ -185,8 +185,8 @@ Ao especificar um valor dentro de uma expressão, é importante utilizar a sinta
 
 * As cotações duplas são opcionais a menos que o valor seja uma corda.
 * As operações de cordas e regex não são sensíveis ao caso.
-* Quando um valor de cadeia contém cotações duplas, ambas as cotações devem ser escapadas usando o caráter \`, por exemplo, user.department -eq \`"Sales\`" é a sintaxe adequada quando "Vendas" é o valor.
-* Também pode efetuar cheques Nulos, utilizando o nulo como valor, por exemplo, `user.department -eq null`.
+* Quando um valor de cadeia contém cotações duplas, \` ambas as cotações devem ser \`escapadas usando o personagem, por exemplo, user.department -eq "Sales"\`é a sintaxe adequada quando "Vendas" é o valor.
+* Também pode efetuar controlos Nulos, `user.department -eq null`utilizando o nulo como valor, por exemplo, .
 
 ### <a name="use-of-null-values"></a>Utilização de valores nulos
 
@@ -213,7 +213,7 @@ Seguem-se exemplos de regras de adesão devidamente construídas com múltiplas 
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Precedência do operador
+### <a name="operator-precedence"></a>Precedência de operadores
 
 Todos os operadores estão listados abaixo por ordem de precedência do mais alto para o mais baixo. Os operadores da mesma linha são de igual precedência:
 
@@ -251,8 +251,8 @@ Propriedades de vários valores são coleções de objetos do mesmo tipo. Podem 
 
 | Propriedades | Valores | Utilização |
 | --- | --- | --- |
-| assignedPlans | Cada objeto da coleção expõe as seguintes propriedades de cordas: capabilityStatus, serviço, servicePlanId |user.designadoSPlanos -any (designadoPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -e designadoPlan.capabilityStatus -eq "Habilitado") |
-| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresss -any (\_ -contém "contoso")) |
+| planos atribuídos | Cada objeto da coleção expõe as seguintes propriedades de cordas: capabilityStatus, serviço, servicePlanId |user.designadoSPlanos -any (designadoPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -e designadoPlan.capabilityStatus -eq "Habilitado") |
+| proxyAddresses| SMTP: alias@domain SMTP:alias@domain | (user.proxyAddresss -any\_ (-contém "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Usando os operadores - qualquer e -todos os operadores
 
@@ -279,11 +279,11 @@ A seguinte expressão seleciona todos os utilizadores que tenham qualquer plano 
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore-_-syntax"></a>Utilizando a sintaxe de sublinhado (\_)
+### <a name="using-the-underscore-_-syntax"></a>Usando a\_sintaxe de sublinhado
 
-A sintaxe de sublinhado (\_) corresponde a ocorrências de um valor específico numa das propriedades de recolha de cordas multivalorizadas para adicionar utilizadores ou dispositivos a um grupo dinâmico. É utilizado com os operadores.
+A sintaxe de sublinhado\_corresponde a ocorrências de um valor específico numa das propriedades de recolha de cordas multivalorizadas para adicionar utilizadores ou dispositivos a um grupo dinâmico. É utilizado com os operadores.
 
-Aqui está um exemplo de usar o sublinhado (\_) numa regra para adicionar membros com base em user.proxyAddress (funciona o mesmo para user.otherMails). Esta regra adiciona qualquer utilizador com endereço proxy que contenha "contoso" ao grupo.
+Aqui está um exemplo de\_usar o sublinhado ( ) numa regra para adicionar membros com base em user.proxyAddress (funciona o mesmo para user.otherMails). Esta regra adiciona qualquer utilizador com endereço proxy que contenha "contoso" ao grupo.
 
 ```
 (user.proxyAddresses -any (_ -contains "contoso"))
@@ -347,7 +347,7 @@ Os atributos de extensão e as propriedades de extensão personalizada são supo
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-As propriedades de [extensão personalizada](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) sincronizadas a partir de No local, o Windows Server AD ou a partir de uma aplicação SaaS conectada e são do formato de `user.extension_[GUID]_[Attribute]`, onde:
+As propriedades de [extensão personalizada](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) sincronizadas a partir de No local, o `user.extension_[GUID]_[Attribute]`Windows Server AD ou a partir de uma aplicação SaaS conectada e são do formato de, onde:
 
 * [GUID] é o identificador único em Azure AD para a aplicação que criou o imóvel em Azure AD
 * [Atributo] é o nome da propriedade tal como foi criado
@@ -358,7 +358,7 @@ Um exemplo de uma regra que usa uma propriedade de extensão personalizada é:
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-O nome de propriedade personalizado pode ser encontrado no diretório consultando a propriedade de um utilizador usando o Graph Explorer e procurando o nome da propriedade. Além disso, pode agora selecionar o link de propriedades de **extensão personalizada** no dinâmico construtor de regras do grupo de utilizadores para introduzir um ID de aplicação único e receber a lista completa de propriedades de extensão personalizadas para usar ao criar uma regra de adesão dinâmica. Esta lista também pode ser atualizada para obter quaisquer novas propriedades de extensão personalizado para essa aplicação.
+O nome de propriedade personalizado pode ser encontrado no diretório consultando a propriedade de um utilizador usando o Graph Explorer e procurando o nome da propriedade. Além disso, pode agora selecionar o link de propriedades de **extensão personalizada** no dinâmico construtor de regras do grupo de utilizadores para introduzir um ID de aplicação único e receber a lista completa de propriedades de extensão personalizadas para usar ao criar uma regra de adesão dinâmica. Esta lista também pode ser atualizada para obter quaisquer novas propriedades de extensão personalizada para essa aplicação.
 
 ## <a name="rules-for-devices"></a>Regras para dispositivos
 
@@ -376,18 +376,18 @@ Podem ser utilizados os seguintes atributos do dispositivo.
 
  Atributo do dispositivo  | Valores | Exemplo
  ----- | ----- | ----------------
- accountEnabled | verdadeiro falso | (dispositivo.accountEnabled -eq true)
- displayName | qualquer valor de cadeia |(device.displayName -eq "Rob iPhone")
- deviceOSType | qualquer valor de cadeia | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(dispositivo.deviceOSType -contém "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
- dispositivoSVersão | qualquer valor de cadeia | (device.deviceOSVersion -eq "9.1")
- dispositivoCategoria | um nome de categoria de dispositivo válido | (device.deviceCategory -eq "BYOD")
- dispositivoFabricante | qualquer valor de cadeia | (device.deviceManufacturer -eq "Samsung")
- deviceModel | qualquer valor de cadeia | (device.deviceModel -eq "iPad Air")
+ contaEnabled | verdadeiro falso | (dispositivo.accountEnabled -eq true)
+ displayName | qualquer valor de cadeia |(dispositivo.displayName -eq "Rob iPhone")
+ tipoDeSODoDispositivo | qualquer valor de cadeia | (dispositivo.deviceOSType -eq "iPad") -ou (dispositivo.deviceOSType -eq "iPhone")<br>(dispositivo.deviceOSType -contém "AndroidEnterprise")<br>(dispositivo.deviceOSType -eq "AndroidForWork")
+ versãoDeSODoDispositivo | qualquer valor de cadeia | (dispositivo.deviceOSVersão -eq "9.1")
+ dispositivoCategoria | um nome de categoria de dispositivo válido | (dispositivo.deviceCategoria -eq "BYOD")
+ dispositivoFabricante | qualquer valor de cadeia | (dispositivo.deviceManufacturer -eq "Samsung")
+ dispositivoModelo | qualquer valor de cadeia | (dispositivo.deviceModel -eq "iPad Air")
  dispositivoPropriedade | Pessoal, Empresa, Desconhecido | (dispositivo.deviceOwnership -eq "Empresa")
- enrollmentProfileName | Perfil de inscrição de dispositivos apple, inscrição de dispositivos - identificadores de dispositivos corporativos (Android - Quiosque) ou nome do perfil do Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ nome perfil de inscrição | Perfil de inscrição de dispositivos apple, inscrição de dispositivos - identificadores de dispositivos corporativos (Android - Quiosque) ou nome do perfil do Windows Autopilot | (dispositivo.registrationProfileName -eq "DEP iPhones")
  isRooted | verdadeiro falso | (dispositivo.isRooted -eq true)
- managementType | MDM (para dispositivos móveis)<br>PC (para computadores geridos pelo agente intune PC) | (device.managementType -eq "MDM")
- deviceId | um id de dispositivo Azure AD válido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ gestãoType | MDM (para dispositivos móveis)<br>PC (para computadores geridos pelo agente intune PC) | (dispositivo.managementType -eq "MDM")
+ deviceId | um id de dispositivo Azure AD válido | (dispositivo.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | um id de objeto azure válido |  (dispositivo.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  dispositivoPhysicalIds | qualquer valor de cadeia utilizado pelo Autopilot, tais como todos os dispositivos Autopilot, OrderID ou PurchaseOrderID  | (dispositivo.devicePhysicalIDs -any _ - contém "[ZTDId]") (dispositivo.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (dispositivo.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")
  sistemaRótulos | qualquer corda que corresponda à propriedade do dispositivo Intune para a marcação de dispositivos de local de trabalho modernos | (dispositivo.systemLabels -contém "M365Managed")

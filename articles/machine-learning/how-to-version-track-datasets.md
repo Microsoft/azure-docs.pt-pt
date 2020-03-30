@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
-author: sihhu
+author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 7b124c0f35b5cfda4380555385971e4968d4c45c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: acbd2e3ba756255cbc69ae8a7b7ad62d7a1c1c5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939258"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528477"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Versão e conjuntos de dados de rastreio em experiências
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +52,7 @@ Ao registar um conjunto de dados, pode versão, reutilizar e partilhá-lo em exp
 
 ### <a name="register-a-dataset-version"></a>Registar uma versão dataset
 
-O código seguinte regista uma nova versão do conjunto de dados `titanic_ds`, definindo o parâmetro `create_new_version` para `True`. Se não existir um conjunto de dados `titanic_ds` registado no espaço de trabalho, o código cria um novo conjunto de dados com o nome `titanic_ds` e define a sua versão para 1.
+O código seguinte regista uma `titanic_ds` nova versão do `create_new_version` conjunto `True`de dados, definindo o parâmetro para . Se não houver um `titanic_ds` conjunto de dados existente registado no espaço de trabalho, o código cria um novo conjunto de dados com o nome `titanic_ds` e define a sua versão para 1.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -64,9 +64,9 @@ Também pode registar uma nova versão de um conjunto de dados em
 
 ### <a name="retrieve-a-dataset-by-name"></a>Recuperar um conjunto de dados pelo nome
 
-Por predefinição, o método [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) da classe `Dataset` devolve a versão mais recente do conjunto de dados registado no espaço de trabalho. 
+Por predefinição, o método `Dataset` [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) da classe devolve a versão mais recente do conjunto de dados registado no espaço de trabalho. 
 
-O código seguinte obtém a versão 1 do conjunto de dados `titanic_ds`.
+O código seguinte obtém `titanic_ds` a versão 1 do conjunto de dados.
 
 ```Python
 from azureml.core import Dataset
@@ -157,9 +157,9 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>Rastrear conjuntos de dados em experiências
 
-Para cada experiência de Machine Learning, pode rastrear facilmente os conjuntos de dados utilizados como entrada através da experiência `Run` objeto.
+Para cada experiência de Machine Learning, pode rastrear facilmente os `Run` conjuntos de dados utilizados como entrada através do objeto de experiência.
 
-O seguinte código utiliza o método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) para rastrear quais os conjuntos de dados de entrada utilizados com a execução da experiência:
+O seguinte código [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) utiliza o método para rastrear quais os conjuntos de dados de entrada utilizados com a execução da experiência:
 
 ```Python
 # get input datasets
@@ -170,9 +170,9 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Também pode encontrar o `input_datasets` a partir de experiências utilizando https://ml.azure.com/. 
+Também pode encontrar `input_datasets` as experiências https://ml.azure.com/utilizando . 
 
-A imagem que se segue mostra onde encontrar o conjunto de dados de entrada de uma experiência no estúdio Azure Machine Learning. Para este exemplo, vá ao painel de **experiências** e abra o separador **Propriedades** para uma execução específica da sua experiência, `keras-mnist`.
+A imagem que se segue mostra onde encontrar o conjunto de dados de entrada de uma experiência no estúdio Azure Machine Learning. Para este exemplo, vá ao painel de **experiências** e abra o `keras-mnist`separador **Propriedades** para uma execução específica da sua experiência, .
 
 ![Conjuntos de dados de entrada](./media/how-to-version-track-datasets/input-datasets.png)
 
@@ -190,7 +190,7 @@ A seguinte vista é do painel **datasets** em **Ativos**. Selecione o conjunto d
 
 ![Modelos de conjuntos de dados de entrada](./media/how-to-version-track-datasets/dataset-models.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Treinar com conjuntos de dados](how-to-train-with-datasets.md)
+* [Preparar com conjuntos de dados](how-to-train-with-datasets.md)
 * [Mais cadernos de conjuntos de dados de amostra](https://aka.ms/dataset-tutorial)

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 48a2ed5e4774ac07b4b8fa72a5ee0be86811cfb2
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298738"
 ---
 # <a name="sensor-partner-integration"></a>Integração de parceiros de sensores
@@ -46,7 +46,7 @@ As APIs contêm documentação técnica da Swagger. Para obter mais informaçõe
 
 **Autenticação**
 
-FarmBeats usa autenticação do Microsoft Azure Ative Directory. O Azure App Service fornece autenticação incorporada e suporte de autorização.
+FarmBeats usa autenticação do Microsoft Azure Ative Directory.O Azure App Service fornece autenticação incorporada e suporte de autorização.
 
 Para mais informações, consulte [o Diretório Ativo azure.](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)
 
@@ -90,13 +90,13 @@ Aqui estão os cabeçalhos de pedido mais comuns que precisam de ser especificad
 
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
-Tipo de conteúdo | O formato de pedido (Tipo de conteúdo: aplicação/<format>). Para FarmBeats Datahub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
-Autorização | Especifica o sinal de acesso necessário para fazer uma chamada aPi. Autorização: Bearer <Access-Token>
+Content-Type | O formato de pedido (Tipo de conteúdo: aplicação/<format>). Para FarmBeats Datahub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
+Autorização | Especifica o sinal de acesso necessário para fazer uma chamada aPi. Autorização:> de acesso ao <do portador
 Aceitar | O formato de resposta. Para FarmBeats Datahub APIs, o formato é JSON. Aceitar: aplicação/json
 
 **Pedidos da API**
 
-Para fazer um pedido de API REST, combina o método HTTP (GET, POST ou PUT), o URL ao serviço API, o Uniform Resource Identifier (URI) a um recurso para consultar, submeter dados para, atualizar ou eliminar, e um ou mais cabeçalhos de pedido http. O URL do serviço API é o ponto final da API que fornece. Aqui está uma amostra: https://\<o seu datahub-website-name>.azurewebsites.net
+Para fazer um pedido de API REST, combina o método HTTP (GET, POST ou PUT), o URL ao serviço API, o Uniform Resource Identifier (URI) a um recurso para consultar, submeter dados para, atualizar ou eliminar, e um ou mais cabeçalhos de pedido http. O URL do serviço API é o ponto final da API que fornece. Aqui está uma amostra: https://\<o seu site-website>.azurewebsites.net
 
 Opcionalmente, pode incluir parâmetros de consulta nas chamadas GET para filtrar, limitar o tamanho e classificar os dados nas respostas.
 
@@ -121,15 +121,15 @@ JSON é um formato de dados independente da linguagem comum que fornece uma repr
 
 O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros do dispositivo criar e gerir metadados de dispositivos ou sensores.
 
-- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é gateway ou nó.
-- **dispositivo**/: O dispositivo corresponde a um dispositivo físico presente na exploração.
+- /**DispositivoModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é gateway ou nó.
+- /**Dispositivo**: O dispositivo corresponde a um dispositivo físico presente na exploração.
 - /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medida do sensor, como temperatura ambiente e pressão.
-- **sensor**/: Sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
+- /**Sensor**: Sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
 
-  **Modelo de Dispositivos** |  |
+  **DeviceModel** |  |
   --- | ---
   Tipo (nó, porta de entrada)  | Tipo do dispositivo - Nó ou Gateway |
-  Manufacturer  | Nome do fabricante |
+  Fabricante  | Nome do fabricante |
   Código de Produto  | Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor#6800. |
   Portas  | Nome e tipo de porta, que é digital ou analógico.  |
   Nome  | Nome para identificar recurso. Por exemplo, nome do modelo ou nome do produto. |
@@ -146,14 +146,14 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros do disposit
   Propriedades  |Propriedades adicionais do fabricante.  |
   **Modelo de Sensores** |  |
   Tipo (analógico, digital)  |Mencione o sensor analógico ou digital.|
-  Manufacturer  | Nome do fabricante. |
+  Fabricante  | Nome do fabricante. |
   Código de Produto  | Código do produto ou nome ou número do modelo. Por exemplo, RS-CO2-N01.  |
   SensorMeasures > Nome  | Nome da medida do sensor. Só a minúscula é suportada. Para medições de diferentes profundidades, especifique a profundidade. Por exemplo, soil_moisture_15cm. Este nome tem de ser consistente com os dados da telemetria. |
-  SensorMeasures > DataType  | Tipo de dados de telemetria. Atualmente, o dobro é suportado. |
-  SensorMeasures > Tipo  | Tipo de medição dos dados de telemetria do sensor. Seguem-se os tipos definidos pelo sistema: AmbienteTemperatura, CO2, Profundidade, Condutividade Elétrica, LeafWetness, Comprimento, Nível Líquido, Nitrato, O2, PH, Fosfato, PointInTime, Potássio, Pressão, RainGauge, Humidade Relativa, Salinidade, Humidade do Solo, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte a API /ExtendedType.
-  SensorMeasures > Unidade | Unidade de dados de telemetria de sensores. Seguem-se as unidades definidas pelo sistema: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercúrio, PSI, MilliMeter, Centímetro, Meter, Polegada, Pés, Milha, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliwattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond e InchesPerHour. Para adicionar mais, consulte a API /ExtendedType.
+  SensorMes > DataType  | Tipo de dados de telemetria. Atualmente, o dobro é suportado. |
+  SensorMedidas > tipo  | Tipo de medição dos dados de telemetria do sensor. Seguem-se os tipos definidos pelo sistema: AmbienteTemperatura, CO2, Profundidade, Condutividade Elétrica, LeafWetness, Comprimento, Nível Líquido, Nitrato, O2, PH, Fosfato, PointInTime, Potássio, Pressão, RainGauge, Humidade Relativa, Salinidade, Humidade do Solo, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte a API /ExtendedType.
+  SensorMeasures > Unit | Unidade de dados de telemetria de sensores. Seguem-se as unidades definidas pelo sistema: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercúrio, PSI, MilliMeter, Centímetro, Meter, Polegada, Pés, Milha, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliwattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond e InchesPerHour. Para adicionar mais, consulte a API /ExtendedType.
   SensorMeasures > AgregaçãoType  | Ou nenhuma, média, máxima, mínima ou StandardDeviation.
-  SensorMeasures > Profundidade  | A profundidade do sensor em centímetros. Por exemplo, a medição da humidade 10 cm debaixo do solo.
+  SensorMedidas > profundidade  | A profundidade do sensor em centímetros. Por exemplo, a medição da humidade 10 cm debaixo do solo.
   SensorMeasures > Descrição  | Forneça uma descrição significativa da medição.
   Nome  | Nome para identificar recurso. Por exemplo, o nome do modelo ou o nome do produto.
   Descrição  | Forneça uma descrição significativa do modelo.
@@ -162,7 +162,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros do disposit
   HardwareId  | ID único para o sensor definido pelo fabricante.
   SensorModelid  | Identificação do modelo de sensor associado.
   Localização  | Latitude do sensor (-90 a +90), longitude (-180 a 180) e elevação (em metros).
-  Porto > Nome  |Nome e tipo da porta a que o sensor está ligado no dispositivo. Este deve ser o mesmo nome definido no modelo do dispositivo.
+  Nome > do Porto  |Nome e tipo da porta a que o sensor está ligado no dispositivo. Este deve ser o mesmo nome definido no modelo do dispositivo.
   DeviceId  | Identificação do dispositivo a que o sensor está ligado.
   Nome  | Nome para identificar o recurso. Por exemplo, o nome do sensor ou nome do produto e o número do modelo ou código do produto.
   Descrição  | Forneça uma descrição significativa.
@@ -292,7 +292,7 @@ Por exemplo, aqui está uma mensagem de telemetria:
 Depois de os clientes terem adquirido e implementado dispositivos ou sensores, podem aceder aos dados do dispositivo e telemetria no software dos parceiros do dispositivo como portal de serviço (SaaS). Os parceiros de dispositivos podem permitir que os clientes liguem a sua conta à sua instância FarmBeats no Azure, fornecendo uma forma de inserir as seguintes credenciais:
 
    - Nome de exibição (um campo opcional para os utilizadores definirem um nome para esta integração)
-   - Ponto final da API
+   - Ponto final de API
    - ID do inquilino
    - ID de Cliente
    - Segredo do cliente
@@ -343,6 +343,6 @@ Os fabricantes ou parceiros de dispositivos podem utilizar a seguinte lista de v
    - Verifique se uma chamada da API é bem sucedida com o sinal de acesso que foi recebido.
    - Verifique se a ligação ao cliente EventHub está estabelecida.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre a API REST, consulte [rest API](rest-api-in-azure-farmbeats.md).

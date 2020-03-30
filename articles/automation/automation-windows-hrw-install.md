@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 420775fee36df900ce95718e58fee145de3a9f53
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 2bd9b4f46e28a28f99045319d8ac606cdcee7216
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79366994"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536790"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de resta híbrida do Windows
 
@@ -27,7 +27,7 @@ Depois de implementar com sucesso um trabalhador do livro de corridas, reveja os
 
 Para instalar e configurar um Trabalhador do Livro híbrido do Windows, pode utilizar um dos seguintes métodos.
 
-* Para VMs Azure, instale o agente Log Analytics para Windows utilizando a [extensão](../virtual-machines/extensions/oms-windows.md)da máquina virtual para windows . A extensão instala o agente Log Analytics em máquinas virtuais Azure e inscreve máquinas virtuais num espaço de trabalho existente no Log Analytics utilizando um modelo de Gestor de Recursos Azure ou PowerShell. Uma vez instalado o agente, o VM pode ser adicionado a um grupo híbrido runbook worker na sua conta Automação após o passo 4 na secção de [implantação manual.](#manual-deployment)
+* Para VMs Azure, instale o agente Log Analytics para Windows utilizando a [extensão](../virtual-machines/extensions/oms-windows.md)da máquina virtual para windows . A extensão instala o agente Log Analytics em máquinas virtuais Azure e inscreve máquinas virtuais num espaço de trabalho existente no Log Analytics utilizando um modelo de Gestor de Recursos Azure ou PowerShell. Uma vez instalado o agente, o VM pode ser adicionado a um grupo híbrido runbook worker na sua conta Automation. Consulte os passos 3 e 4 na secção [de implantação manual.](#manual-deployment)
 
 * Utilize um livro de execução automation para automatizar completamente o processo de configuração de um computador Windows. Este é o método recomendado para máquinas no seu datacenter ou outro ambiente de nuvem.
 
@@ -61,7 +61,7 @@ Ativar a [solução De Gestão](../operations-management-suite/oms-solution-upda
 
 Pode adicionar o computador de trabalho a um grupo híbrido de trabalho de runbook na sua conta de Automação. Note que deve apoiar os livros de execução automation desde que esteja a usar a mesma conta tanto para a solução como para a associação do grupo Hybrid Runbook Worker. Esta funcionalidade foi adicionada à versão 7.2.12024.0 da Função de Trabalho de Runbook Híbrida.
 
-## <a name="automated-deployment"></a>Implantação automatizada
+## <a name="automated-deployment"></a>Implementação automatizada
 
 Na máquina-alvo, execute os seguintes passos para automatizar a instalação e configuração da função Do Trabalhador Híbrido do Windows.
 
@@ -75,7 +75,7 @@ Descarregue o script **New-OnPremiseHybridWorker.ps1** da [PowerShell Gallery](h
 | `AutomationAccountName` | Obrigatório | O nome da sua conta de Automação.
 | `Credential` | Opcional | As credenciais a utilizar ao iniciar sessão no ambiente Azure. |
 | `HybridGroupName` | Obrigatório | O nome de um grupo híbrido runbook worker que especifica como alvo para os livros de execução que suportam este cenário. |
-| `OMSResourceGroupName` | Opcional | O nome do grupo de recursos para o espaço de trabalho log Analytics. Se este grupo de recursos não for especificado, o valor da `AAResourceGroupName` é utilizado. |
+| `OMSResourceGroupName` | Opcional | O nome do grupo de recursos para o espaço de trabalho log Analytics. Se este grupo de recursos não `AAResourceGroupName` for especificado, o valor é utilizado. |
 | `SubscriptionID` | Obrigatório | O identificador da subscrição Azure associado à sua conta Automation. |
 | `TenantID` | Opcional | O identificador da organização de inquilinos associado à sua conta de Automação. |
 | `WorkspaceName` | Opcional | O nome do espaço de trabalho Log Analytics. Se não tiver um espaço de trabalho no Log Analytics, o script cria e configura um. |
@@ -89,7 +89,7 @@ Abra o **Windows PowerShell** a partir do ecrã **Iniciar** no modo Administrado
 
 ### <a name="step-3---run-the-powershell-script"></a>Passo 3 - Executar o script PowerShell
 
-Na concha da linha de comando PowerShell, navegue para a pasta que contém o script que descarregou. Alterar os valores dos parâmetros `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID`e `WorkspaceName`. Então executa o guião.
+Na concha da linha de comando PowerShell, navegue para a pasta que contém o script que descarregou. Mude os valores `AutomationAccountName`para `AAResourceGroupName` `OMSResourceGroupName`os `HybridGroupName` `SubscriptionID`parâmetros, , , e `WorkspaceName`. Então executa o guião.
 
 É-te pedido que autentiques com o Azure depois de executares o guião. Deve inscrever-se com uma conta que seja membro do papel de Administradorde Subscrição e coadministrador da subscrição.
 
@@ -107,7 +107,7 @@ Na concha da linha de comando PowerShell, navegue para a pasta que contém o scr
 
 Após a terminação do guião, a página dos Grupos de Trabalhadores Híbridos mostra o novo grupo e o número de membros. Se for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na página dos Grupos de Trabalhadores Híbridos e escolher o azulejo **Dos Trabalhadores Híbridos.** Na página dos Trabalhadores Híbridos, pode ver cada membro do grupo listado.
 
-## <a name="manual-deployment"></a>Implantação manual
+## <a name="manual-deployment"></a>Implementação manual
 
 Na máquina-alvo, execute os dois primeiros passos uma vez para o seu ambiente de Automação. Em seguida, execute os passos restantes para cada computador trabalhador.
 
@@ -149,7 +149,7 @@ Utilize os seguintes passos para completar a instalação e a instalação do ag
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>Passo 4 - Instale o ambiente do livro de corridas e ligue-se à Automação Azure
 
-Quando configura um agente para reportar a um espaço de trabalho do Log Analytics, a solução Automation empurra para baixo o `HybridRegistration` módulo PowerShell, que contém o `Add-HybridRunbookWorker` cmdlet. Utilize este cmdlet para instalar o ambiente do livro de recortes no computador e registá-lo com a Automação Azure.
+Quando configura um agente para reportar a um espaço de trabalho `HybridRegistration` do Log Analytics, `Add-HybridRunbookWorker` a solução Automation empurra para baixo o módulo PowerShell, que contém o cmdlet. Utilize este cmdlet para instalar o ambiente do livro de recortes no computador e registá-lo com a Automação Azure.
 
 Abra uma sessão PowerShell no modo Administrador e execute os seguintes comandos para importar o módulo.
 
@@ -158,7 +158,7 @@ cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\
 Import-Module .\HybridRegistration.psd1
 ```
 
-Agora execute o `Add-HybridRunbookWorker` cmdlet utilizando a seguinte sintaxe.
+Agora corra `Add-HybridRunbookWorker` o cmdlet utilizando a seguinte sintaxe.
 
 ```powershell-interactive
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
@@ -168,18 +168,18 @@ Pode obter as informações necessárias para este cmdlet a partir da página 'G
 
 ![Gerir a página de Chaves](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* Para o parâmetro `GroupName`, utilize o nome do grupo Híbrido Runbook Worker. Se este grupo já existir na conta Automation, o computador atual é adicionado ao mesmo. Se este grupo não existir, é adicionado.
-* Para o parâmetro `EndPoint`, utilize a entrada **URL** na página 'Gerir teclas'.
-* Para o parâmetro `Token`, utilize a entrada **CHAVE DE ACESSO PRIMÁRIO** na página 'Gerir chaves'.
-* Se necessário, defina o parâmetro `Verbose` para receber detalhes sobre a instalação.
+* Para `GroupName` o parâmetro, utilize o nome do grupo Híbrido Runbook Worker. Se este grupo já existir na conta Automation, o computador atual é adicionado ao mesmo. Se este grupo não existir, é adicionado.
+* Para `EndPoint` o parâmetro, utilize a entrada **URL** na página 'Gerir teclas'.
+* Para `Token` o parâmetro, utilize a entrada **CHAVE DE ACESSO PRIMÁRIO** na página 'Gerir chaves'.
+* Se necessário, defina o `Verbose` parâmetro para receber detalhes sobre a instalação.
 
 ### <a name="step-5----install-powershell-modules"></a>Passo 5 - Instalar módulos PowerShell
 
 Os livros de execução podem utilizar qualquer uma das atividades e cmdlets definidos nos módulos instalados no seu ambiente de Automação Azure. Uma vez que estes módulos não são automaticamente implantados em computadores no local, deve instalá-los manualmente. A exceção é o módulo Azure. Este módulo é instalado por padrão e proporciona acesso a cmdlets para todos os serviços e atividades do Azure Automation.
 
-Como o principal objetivo da funcionalidade Hybrid Runbook Worker é gerir os recursos locais, é provável que seja necessário instalar os módulos que suportam estes recursos, nomeadamente o módulo `PowerShellGet`. Para obter informações sobre a instalação de módulos Windows PowerShell, consulte [o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Como o principal objetivo da funcionalidade Hybrid Runbook Worker é gerir os recursos locais, é provável `PowerShellGet` que seja necessário instalar os módulos que suportam estes recursos, nomeadamente o módulo. Para obter informações sobre a instalação de módulos Windows PowerShell, consulte [o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
 
-Os módulos instalados devem estar num local referenciado pela variável ambiente `PSModulePath`, de modo a que o trabalhador híbrido possa importá-los automaticamente. Para mais informações, consulte [Instalar Módulos no PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Os módulos instalados devem estar num local `PSModulePath` referenciado pela variável ambiental, de modo a que o trabalhador híbrido possa importá-los automaticamente. Para mais informações, consulte [Instalar Módulos no PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
 
 ## <a name="next-steps"></a>Passos seguintes
 

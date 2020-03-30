@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 493ba6396a7ceb11b917fbda5dd6c37c070f2fee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261934"
 ---
 # <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as definições de pedido e aprovação para um pacote de acesso na gestão de direitos da AD Azure
@@ -37,8 +37,8 @@ A forma como especifica quem pode solicitar um pacote de acesso é com uma apól
 
 | Cenário | Número de políticas |
 | --- | --- |
-| Quero que todos os utilizadores do meu diretório tenham as mesmas definições de pedido e aprovação para um pacote de acesso | 1 |
-| Quero que todos os utilizadores de certas organizações conectadas possam solicitar um pacote de acesso | 1 |
+| Quero que todos os utilizadores do meu diretório tenham as mesmas definições de pedido e aprovação para um pacote de acesso | Um |
+| Quero que todos os utilizadores de certas organizações conectadas possam solicitar um pacote de acesso | Um |
 | Quero permitir que os utilizadores do meu diretório e também utilizadores fora do meu diretório solicitem um pacote de acesso | Vários |
 | Quero especificar diferentes definições de aprovação para alguns utilizadores | Vários |
 | Quero que alguns utilizadores acedam a tarefas de pacotes para expirar enquanto outros utilizadores podem estender o seu acesso | Vários |
