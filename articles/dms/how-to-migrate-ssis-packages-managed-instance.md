@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: a0669724888f02672d18ef9e8f725eef1c744f90
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 97a466ab033a42016c0d82465d1f98e2dcae8080
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650969"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297186"
 ---
-# <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Pacotes de Serviços de Integração de Servidores SQL migrados para uma base de dados Azure SQL gerida
+# <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Migrar os pacotes SSIS para uma instância gerida da Base de Dados SQL do Azure
 Se utilizar os Serviços de Integração de Servidores SQL (SSIS) e pretender migrar os seus projetos/pacotes SSIS da fonte SSISDB hospedada pelo SQL Server para o destino SSISDB hospedado por uma instância gerida pela Azure SQL Database, pode utilizar o Serviço de Migração azure Database.
 
 Se a versão do SSIS que utiliza for mais cedo do que em 2012 ou utilizar tipos de lojas de pacotes não-SSISDB, antes de migrar os seus projetos/pacotes SSIS, precisa convertê-los utilizando o Assistente de Conversão de Projetos de Integração, que também pode ser lançado a partir de SSMS. Para mais informações, consulte o artigo Conversão de projetos para o modelo de [implantação do projeto.](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert)
@@ -67,7 +67,7 @@ Embora a avaliação da fonte SSISDB ainda não esteja integrada no Assistant de
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Criar uma instância do Azure Database Migration Service
 
-1. No portal do Azure, selecione + **Criar um recurso**, procure o **Azure Database Migration Service** e selecione **Azure Database Migration Service**, na lista pendente.
+1. No portal Azure, selecione + **Crie um recurso,** procure o Serviço de Migração de Bases de **Dados Azure**e, em seguida, selecione O Serviço de Migração de Bases de **Dados Azure** da lista de drop-down.
 
      ![Azure Marketplace](media/how-to-migrate-ssis-packages-mi/portal-marketplace.png)
 
@@ -103,7 +103,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
     ![Localizar todas as instâncias do Azure Database Migration Service](media/how-to-migrate-ssis-packages-mi/dms-search.png)
 
-2. No ecrã **Azure Database Migration Service**, procure o nome da instância que criou e selecione-a.
+2. No ecrã do Serviço de Migração de Bases de **Dados Azure,** procure o nome da instância que criou e, em seguida, selecione a instância.
 
 3. Selecione + **Novo Projeto de Migração**.
 
@@ -122,7 +122,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
     Se não tiver um certificado fidedigno instalado, o SQL Server gera um certificado autoassinado quando a instância é iniciada. Este certificado é utilizado para encriptar as credenciais para as ligações de cliente.
 
     > [!CAUTION]
-    > As ligações SSL encriptadas que utilizem um certificado autoassinado não proporcionam segurança forte. São suscetíveis a ataques man-in-the-middle. Não deve confiar em SSL com certificados autoassinados num ambiente de produção ou em servidores que estejam ligados à Internet.
+    > As ligações TLS que são encriptadas utilizando um certificado auto-assinado não proporcionam uma segurança forte. São suscetíveis a ataques man-in-the-middle. Não deve confiar no TLS utilizando certificados auto-assinados num ambiente de produção ou em servidores ligados à internet.
 
    ![Detalhes da origem](media/how-to-migrate-ssis-packages-mi/dms-source-details1.png)
 

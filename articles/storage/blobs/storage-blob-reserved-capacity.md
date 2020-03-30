@@ -1,131 +1,133 @@
 ---
-title: Otimizar os custos para o armazenamento de BLOBs com capacidade reservada-armazenamento do Azure
-description: Saiba como comprar a capacidade reservada do armazenamento do Azure para economizar custos em blob de blocos e recursos de Azure Data Lake Storage Gen2.
+title: Otimizar os custos para o armazenamento blob com capacidade reservada - Armazenamento Azure
+description: Saiba mais sobre a aquisição de capacidade reservada ao Azure Storage para economizar custos em blocos blob e recursos Azure Data Lake Storage Gen2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/26/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 3f9a1cfa92ffa454758849f52cc1977cef6df63a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e73686629de8481f6a37e5bfafc9b723206b4853
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768399"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351038"
 ---
-# <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar os custos para o armazenamento de BLOBs com capacidade reservada
+# <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar os custos do Armazenamento de blobs com a capacidade reservada
 
-Você pode economizar dinheiro em custos de armazenamento para dados de blob com capacidade reservada de armazenamento do Azure. A capacidade reservada do armazenamento do Azure oferece um desconto sobre a capacidade para BLOBs de blocos e para Azure Data Lake Storage Gen2 dados em contas de armazenamento padrão quando você se compromete com uma reserva por um ou três anos. Uma reserva fornece uma quantidade fixa de capacidade de armazenamento para o termo da reserva.
+Pode economizar dinheiro em custos de armazenamento para dados blob com capacidade reservada ao Armazenamento Azure. A capacidade reservada ao Azure Storage oferece-lhe um desconto na capacidade de blocos blobs e para os dados do Azure Data Lake Storage Gen2 em contas de armazenamento padrão quando se compromete a uma reserva por um ano ou três anos. Uma reserva fornece uma quantidade fixa de capacidade de armazenamento para o período da reserva.
 
-A capacidade reservada de armazenamento do Azure pode reduzir significativamente os custos de capacidade para BLOBs de bloco e dados de Azure Data Lake Storage Gen2. As economias de custo obtidas dependem da duração da sua reserva, da capacidade total que você optar por reservar e da camada de acesso e do tipo de redundância que você escolheu para sua conta de armazenamento. A capacidade reservada fornece um desconto de cobrança e não afeta o estado dos seus recursos de armazenamento do Azure.
+A capacidade reservada ao Azure Storage pode reduzir significativamente os seus custos de capacidade para blocos de bolhas e dados do Azure Data Lake Storage Gen2. As economias de custos alcançadas dependem da duração da sua reserva, da capacidade total que escolhe reservar, do nível de acesso e do tipo de redundância que escolheu para a sua conta de armazenamento. A capacidade reservada proporciona um desconto de faturação e não afeta o estado dos seus recursos de Armazenamento Azure.
 
 Para obter mais informações sobre os preços de reserva do Armazenamento do Microsoft Azure, veja os [Preços do blob de blocos](https://azure.microsoft.com/pricing/details/storage/blobs/) e os [Preços do Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
-## <a name="reservation-terms-for-azure-storage"></a>Termos de reserva para o armazenamento do Azure
+## <a name="reservation-terms-for-azure-storage"></a>Termos de reserva para Armazenamento Azure
 
-As seções a seguir descrevem os termos de uma reserva de armazenamento do Azure.
+As seguintes secções descrevem os termos de uma reserva de armazenamento Azure.
 
 ### <a name="reservation-capacity"></a>Capacidade de reserva
 
-Você pode comprar a capacidade reservada do armazenamento do Azure em unidades de 100 TB e 1 PB por mês por um período de um ou três anos.
+Pode adquirir capacidade reservada ao Azure Storage em unidades de 100 TB e 1 PB por mês para um período de um ano ou três anos.
 
-### <a name="reservation-scope"></a>Escopo de reserva
+### <a name="reservation-scope"></a>Âmbito de reserva
 
-A capacidade reservada do armazenamento do Azure está disponível para uma única assinatura ou para um grupo de recursos compartilhado. Ao comprar a capacidade reservada do armazenamento do Azure, você pode usar sua reserva para dados de BLOB e de Azure Data Lake Storage Gen2 de bloco. Uma reserva é aplicada ao seu uso dentro do escopo comprado e não pode ser limitada a uma conta de armazenamento, contêiner ou objeto específico dentro da assinatura. Uma reserva não pode ser dividida em várias assinaturas.
+A capacidade reservada ao Azure Storage está disponível para uma única subscrição ou para várias subscrições (âmbito partilhado). Quando se aplica a uma única subscrição, o desconto de reserva é aplicado apenas à subscrição selecionada. Quando consultado em várias subscrições, o desconto de reserva é partilhado através dessas subscrições dentro do contexto de faturação do cliente.
 
-Uma reserva de armazenamento do Azure abrange apenas a quantidade de dados armazenados em uma assinatura ou grupo de recursos compartilhado. A exclusão antecipada, as operações, a largura de banda e os encargos de transferência de dados não estão incluídos na reserva. Assim que você comprar uma reserva, os encargos de capacidade que correspondem aos atributos de reserva serão cobrados com as tarifas de desconto em vez de nas tarifas pagas conforme o uso. Para obter mais informações sobre reservas do Azure, consulte [o que são as reservas do Azure?](/azure/billing/billing-save-compute-costs-reservations).
+Ao adquirir a capacidade reservada ao Azure Storage, pode utilizar a sua reserva tanto para os dados do Block Blob como do Azure Data Lake Storage Gen2. Uma reserva é aplicada ao seu uso dentro do âmbito adquirido e não pode ser limitada a uma conta de armazenamento específica, recipiente ou objeto dentro da subscrição. Uma reserva não pode ser dividida em várias subscrições.
 
-### <a name="supported-account-types-tiers-and-redundancy-options"></a>Tipos de conta, camadas e opções de redundância com suporte
+Uma reserva de armazenamento azure cobre apenas a quantidade de dados que são armazenados em um grupo de subscrição ou recursos partilhados. A eliminação precoce, operações, largura de banda e taxas de transferência de dados não estão incluídas na reserva. Assim que comprar uma reserva, os custos de capacidade que correspondem aos atributos de reserva são cobrados às tarifas de desconto em vez das tarifas de pagamento. Para mais informações sobre reservas do Azure, consulte [o Que são as Reservas Azure?](/azure/billing/billing-save-compute-costs-reservations)
 
-A capacidade reservada do armazenamento do Azure está disponível para recursos em contas de armazenamento Standard, incluindo contas de armazenamento de BLOBs v2 (GPv2) e de uso geral.
+### <a name="supported-account-types-tiers-and-redundancy-options"></a>Tipos de conta suportados, níveis e opções de despedimento
 
-Todas as camadas de acesso (quentes, frias e arquivos) têm suporte para reservas. Para obter mais informações sobre camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](storage-blob-storage-tiers.md).
+A capacidade reservada ao Azure Storage está disponível para recursos em contas de armazenamento padrão, incluindo contas de armazenamento v2 (GPv2) e Blob.
 
-Todos os tipos de redundância têm suporte para reservas. Para obter mais informações sobre as opções de redundância, consulte [redundância de armazenamento do Azure](../common/storage-redundancy.md).
+Todos os níveis de acesso (quentes, frescos e arquivados) são suportados para reservas. Para obter mais informações sobre os níveis de acesso, consulte o [armazenamento do Azure Blob: hot, cool e archive access tiers](storage-blob-storage-tiers.md).
+
+Todos os tipos de despedimentosão apoiados para reservas. Para obter mais informações sobre opções de despedimento, consulte o [despedimento do Azure Storage.](../common/storage-redundancy.md)
 
 > [!NOTE]
-> A capacidade reservada do armazenamento do Azure não está disponível para contas de armazenamento Premium, contas de armazenamento de uso geral V1 (GPv1), Azure Data Lake Storage Gen1, blobs de páginas, armazenamento de filas do Azure, armazenamento de tabelas do Azure ou arquivos do Azure.  
+> A capacidade reservada ao Azure Storage não está disponível para contas de armazenamento premium, contas de armazenamento v1 (GPv1) de uso geral, Armazenamento de Lagos Azure Gen1, blobs de página, armazenamento de fila Azure, armazenamento de mesa azure ou Ficheiros Azure.  
 
-### <a name="security-requirements-for-purchase"></a>Requisitos de segurança para a compra
+### <a name="security-requirements-for-purchase"></a>Requisitos de segurança para compra
 
-Para comprar a capacidade reservada:
+Para adquirir a capacidade reservada:
 
-- Você deve estar na função de **proprietário** de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.
-- Para assinaturas empresariais, **adicionar instâncias reservadas** deve estar habilitada no portal de ea. Ou, se essa configuração estiver desabilitada, você deverá ser um administrador de EA na assinatura.
+- Você deve estar no papel **de Proprietário** para pelo menos uma Empresa ou subscrição individual com taxas pay-as-you-go.
+- Para as subscrições da Enterprise, **adicionar instâncias reservadas** deve ser ativado no portal EA. Ou, se essa definição for desativada, deve ser um Administrador EA na subscrição.
 - Para o programa Cloud Solution Provider (CSP), apenas agentes de administração ou agentes de vendas podem comprar capacidade reservada ao Armazenamento Azure Blob.
 
 ## <a name="determine-required-capacity-before-purchase"></a>Determinar a capacidade necessária antes da compra
 
-Ao comprar uma reserva de armazenamento do Azure, você deve escolher a opção região, camada de acesso e redundância para a reserva. Sua reserva é válida somente para dados armazenados nessa região, camada de acesso e nível de redundância. Por exemplo, suponha que você compre uma reserva de dados no oeste dos EUA para a camada quente usando o ZRS (armazenamento com redundância de zona). Você não pode usar a mesma reserva de dados no leste dos EUA, dados na camada de arquivo ou dados no armazenamento com redundância geográfica (GRS). No entanto, você pode comprar outra reserva para suas necessidades adicionais.  
+Ao comprar uma reserva de Armazenamento Azure, deve escolher a região, o nível de acesso e a opção de despedimento para a reserva. A sua reserva é válida apenas para dados armazenados naquela região, nível de acesso e nível de despedimento. Por exemplo, suponha que você compra uma reserva para dados no US West para o nível quente usando armazenamento de zona redundante (ZRS). Não é possível utilizar a mesma reserva para dados no Leste dos EUA, dados no nível de arquivo ou dados em armazenamento geo-redundante (GRS). No entanto, pode comprar outra reserva para as suas necessidades adicionais.  
 
-As reservas estão disponíveis hoje para blocos de 100 TB ou 1 PB, com descontos mais altos para blocos de 1 PB. Quando você compra uma reserva no portal do Azure, a Microsoft pode fornecer recomendações com base no uso anterior para ajudar a determinar qual reserva você deve comprar.
+As reservas estão disponíveis hoje para 100 tb ou 1 blocos PB, com descontos mais elevados para 1 blocos PB. Ao adquirir uma reserva no portal Azure, a Microsoft poderá fornecer-lhe recomendações com base no seu uso anterior para ajudar a determinar qual a reserva que deve comprar.
 
-## <a name="purchase-azure-storage-reserved-capacity"></a>Comprar capacidade reservada do armazenamento do Azure
+## <a name="purchase-azure-storage-reserved-capacity"></a>Adquirir capacidade reservada ao Armazenamento Azure
 
-Você pode comprar a capacidade reservada do armazenamento do Azure por meio do [portal do Azure](https://portal.azure.com). Pague pela reserva antecipada ou com pagamentos mensais. Para obter mais informações sobre como comprar com pagamentos mensais, consulte [comprar reservas do Azure com pagamentos iniciais ou mensais](/azure/billing/billing-monthly-payments-reservations).
+Pode adquirir a capacidade reservada ao Azure Storage através do [portal Azure.](https://portal.azure.com) Pague pela reserva antecipadamente ou com pagamentos mensais. Para obter mais informações sobre a compra com pagamentos mensais, consulte [as reservas do Purchase Azure com pagamentos antecipados ou mensais.](/azure/billing/billing-monthly-payments-reservations)
 
-Para obter ajuda para identificar os termos de reserva que são adequados para seu cenário, consulte [entender o desconto de capacidade reservada do armazenamento do Azure](../../cost-management-billing/reservations/understand-storage-charges.md).
+Para ajudar na identificação dos termos de reserva que estão certos para o seu cenário, consulte Compreender o desconto de [capacidade reservado ao Azure Storage.](../../cost-management-billing/reservations/understand-storage-charges.md)
 
-Siga estas etapas para comprar a capacidade reservada:
+Siga estes passos para adquirir a capacidade reservada:
 
-1. Navegue até o painel [reservas de compra](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) na portal do Azure.  
-1. Selecione **armazenamento de BLOBs do Azure** para comprar uma nova reserva.  
-1. Preencha os campos obrigatórios, conforme descrito na tabela a seguir:
+1. Navegue para o painel de [reservas de compra](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) no portal Azure.  
+1. Selecione **Armazenamento Azure Blob** para comprar uma nova reserva.  
+1. Preencha os campos necessários, conforme descrito no quadro seguinte:
 
-    ![Captura de tela mostrando como comprar capacidade reservada](media/storage-blob-reserved-capacity/select-reserved-capacity.png)
+    ![Screenshot mostrando como comprar capacidade reservada](media/storage-blob-reserved-capacity/select-reserved-capacity.png)
 
    |Campo  |Descrição  |
    |---------|---------|
-   |**Âmbito**   |  Indica quantas assinaturas podem usar o benefício de cobrança associado à reserva. Ele também controla como a reserva é aplicada a assinaturas específicas. <br/><br/> Se você selecionar **compartilhado**, o desconto de reserva será aplicado à capacidade de armazenamento do Azure em qualquer assinatura no contexto de cobrança. O contexto de cobrança é baseado em como você se inscreveu no Azure. Para clientes corporativos, o escopo compartilhado é o registro e inclui todas as assinaturas dentro do registro. Para clientes pagos conforme o uso, o escopo compartilhado inclui todas as assinaturas individuais com tarifas pagas conforme o uso criadas pelo administrador da conta.  <br/><br/>  Se você selecionar **assinatura única**, o desconto de reserva será aplicado à capacidade de armazenamento do Azure na assinatura selecionada. <br/><br/> Se você selecionar **um único grupo de recursos**, o desconto de reserva será aplicado à capacidade de armazenamento do Azure na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura. <br/><br/> Você pode alterar o escopo de reserva depois de comprar a reserva.  |
-   |**Subscrição**  | A assinatura que é usada para pagar pela reserva de armazenamento do Azure. O método de pagamento na assinatura selecionada é usado para cobrar os custos. A assinatura deve ser um dos seguintes tipos: <br/><br/>  Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P): para uma assinatura corporativa, os encargos são deduzidos do saldo de compromisso monetário do registro ou cobrados como excedentes. <br/><br/> Assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P): para uma assinatura individual com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.    |
-   | **Região** | A região em que a reserva está em vigor. |
-   | **Camada de acesso** | A camada de acesso em que o para o qual a reserva está em vigor. As opções incluem *quente*, *fria*ou *arquivo morto*. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](storage-blob-storage-tiers.md). |
-   | **Redundância** | A opção de redundância para a reserva. As opções incluem *LRS*, *ZRS*, *grs*e *ra-GZRS*. Para obter mais informações sobre as opções de redundância, consulte [redundância de armazenamento do Azure](../common/storage-redundancy.md). |
-   | **Frequência de cobrança** | Indica com que frequência a conta é cobrada pela reserva. As opções incluem *mensalmente* ou *antecipadamente*. |
-   | **Tamanho** | A região em que a reserva está em vigor. |
-   |**Prazo**  | Um ano ou três anos.   |
+   |**Âmbito**   |  Indica quantas subscrições podem usar o benefício de faturação associado à reserva. Também controla a forma como a reserva é aplicada a subscrições específicas. <br/><br/> Se selecionar **Shared**, o desconto de reserva é aplicado à capacidade de Armazenamento Azure em qualquer subscrição dentro do seu contexto de faturação. O contexto de faturação baseia-se na forma como se inscreveu no Azure. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes pay-as-you-go, o âmbito partilhado inclui todas as subscrições individuais com taxas de pagamento criadas pelo administrador da conta.  <br/><br/>  Se selecionar **subscrição Única,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada. <br/><br/> Se selecionar o **grupo de recursos Single,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada e ao grupo de recursos selecionados dentro dessa subscrição. <br/><br/> Pode alterar o âmbito da reserva depois de comprar a reserva.  |
+   |**Assinatura**  | A subscrição que é usada para pagar a reserva de armazenamento Azure. O método de pagamento da subscrição selecionada é utilizado para cobrar os custos. A subscrição deve ser um dos seguintes tipos: <br/><br/>  Acordo empresarial (números de oferta: MS-AZR-0017P ou MS-AZR-0148P): Para uma subscrição da Enterprise, os encargos são deduzidos do saldo de compromisso monetário da inscrição ou cobrados como overage. <br/><br/> Subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P): Para uma subscrição individual com taxas de pagamento, os encargos são cobrados para o cartão de crédito ou método de pagamento de fatura na subscrição.    |
+   | **Região** | A região onde a reserva está em vigor. |
+   | **Escalão de acesso** | O nível de acesso onde a reserva está em vigor. As opções incluem *Hot,* *Cool*ou *Archive*. Para obter mais informações sobre os níveis de acesso, consulte o [armazenamento do Azure Blob: hot, cool e archive access tiers](storage-blob-storage-tiers.md). |
+   | **Redundância** | A opção de redundância para a reserva. As opções incluem *LRS,* *ZRS,* *GRS*e *RA-GZRS*. Para obter mais informações sobre opções de despedimento, consulte o [despedimento do Azure Storage.](../common/storage-redundancy.md) |
+   | **Frequência de faturação** | Indica quantas vezes a conta é cobrada para a reserva. As opções incluem *Mensal ou* *Frontal*. |
+   | **Tamanho** | A região onde a reserva está em vigor. |
+   |**Termo**  | Um ano ou três anos.   |
 
-1. Depois de selecionar os parâmetros para sua reserva, o portal do Azure exibirá o custo. O portal também mostra a porcentagem de desconto sobre a cobrança paga conforme o uso.
+1. Depois de selecionar os parâmetros para a sua reserva, o portal Azure exibe o custo. O portal também mostra a percentagem de desconto sobre a faturação de pagamento.
 
-1. No painel **reservas de compra** , examine o custo total da reserva. Você também pode fornecer um nome para a reserva.
+1. No painel **de reservas de compra,** reveja o custo total da reserva. Também pode fornecer um nome para a reserva.
 
-    ![Captura de tela mostrando como comprar uma reserva](media/storage-blob-reserved-capacity/purchase-reservations.png)
+    ![Screenshot mostrando como comprar uma reserva](media/storage-blob-reserved-capacity/purchase-reservations.png)
 
-Depois de comprar uma reserva, ela é aplicada automaticamente a qualquer blob de blocos de armazenamento do Azure existente ou Azure Data Lake Storage Gen2 recursos que correspondem aos termos da reserva. Se você ainda não tiver criado nenhum recurso de armazenamento do Azure, a reserva será aplicada sempre que você criar um recurso que corresponda aos termos da reserva. Em ambos os casos, o termo da reserva começa imediatamente após uma compra bem-sucedida.
+Depois de adquirir uma reserva, é automaticamente aplicada a qualquer bloco de armazenamento Azure existente ou recursos Azure Data Lake Storage Gen2 que correspondam aos termos da reserva. Se ainda não criou quaisquer recursos de Armazenamento Azure, a reserva será aplicável sempre que criar um recurso que corresponda aos termos da reserva. Em qualquer dos casos, o prazo da reserva começa imediatamente após uma compra bem sucedida.
 
 ## <a name="exchange-or-refund-a-reservation"></a>Trocar ou reembolsar uma reserva
 
-Você pode trocar ou reembolsar uma reserva, com certas limitações. Essas limitações são descritas nas seções a seguir.
+Pode trocar ou reembolsar uma reserva, com determinadas limitações. Estas limitações são descritas nas seguintes secções.
 
-Para trocar ou reembolsar uma reserva, navegue até os detalhes de reserva na portal do Azure. Selecione **Exchange** ou **reembolso**e siga as instruções para enviar uma solicitação de suporte. Quando a solicitação tiver sido processada, a Microsoft lhe enviará um email para confirmar a conclusão da solicitação.
+Para trocar ou reembolsar uma reserva, navegue para os detalhes da reserva no portal Azure. Selecione **Troca** ou **Reembolso**e siga as instruções para submeter um pedido de apoio. Quando o pedido tiver sido processado, a Microsoft enviar-lhe-á um e-mail para confirmar a conclusão do pedido.
 
-Para obter mais informações sobre as políticas de reservas do Azure, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Para mais informações sobre as políticas de Reservas Azure, consulte [trocas de self-service e reembolsos para Reservas Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ### <a name="exchange-a-reservation"></a>Trocar uma reserva
 
-A troca de uma reserva permite que você receba um reembolso rateado com base na parte não usada da reserva. Em seguida, você pode aplicar o reembolso ao preço de compra de uma nova reserva de armazenamento do Azure.
+Trocar uma reserva permite-lhe receber um reembolso prostrado com base na parte não utilizada da reserva. Em seguida, pode aplicar o reembolso ao preço de compra de uma nova reserva de armazenamento Azure.
 
-Não existe nenhum limite no número de trocas realizadas. Além disso, não existem honorários associados a uma troca. A nova reserva que você compra deve ser de valor igual ou maior do que o crédito rateado da reserva original. Uma reserva de armazenamento do Azure pode ser trocada apenas para outra reserva de armazenamento do Azure e não para uma reserva para qualquer outro serviço do Azure.
+Não há limite para o número de trocas que pode fazer. Além disso, não há nenhuma taxa associada a uma troca. A nova reserva que compra deve ser de valor igual ou superior ao crédito provalorizado da reserva original. Uma reserva de armazenamento Azure só pode ser trocada por outra reserva de Armazenamento Azure, e não para uma reserva para qualquer outro serviço Azure.
 
 ### <a name="refund-a-reservation"></a>Reembolsar uma reserva
 
-Você pode cancelar uma reserva de armazenamento do Azure a qualquer momento. Ao cancelar, você receberá um reembolso rateado com base no termo restante da reserva, menos uma taxa de rescisão inicial de 12%. O reembolso máximo por ano é de $50000.
+Pode cancelar uma reserva de armazenamento Azure a qualquer momento. Quando cancelar, receberá um reembolso prostílico com base no restante prazo da reserva, menos uma taxa de rescisão antecipada de 12%. O reembolso máximo por ano é $50.000.
 
-O cancelamento de uma reserva termina imediatamente a reserva e retorna os meses restantes à Microsoft. O saldo rateado restante, menos a taxa, será reembolsado em sua forma original de compra.
+O cancelamento de uma reserva termina imediatamente a reserva e devolve os restantes meses à Microsoft. O restante saldo, menos a taxa, será reembolsado à sua forma original de compra.
 
 ## <a name="expiration-of-a-reservation"></a>Expiração de uma reserva
 
-Quando uma reserva expira, qualquer capacidade de armazenamento do Azure que você esteja usando sob essa reserva é cobrada com a taxa paga conforme o uso. As reservas não se renovam automaticamente.
+Quando uma reserva expira, qualquer capacidade de Armazenamento Azure que você está usando sob essa reserva é faturada à taxa de pagamento como você ir. As reservas não se renovam automaticamente.
 
-Você receberá uma notificação por email 30 dias antes da expiração da reserva e novamente na data de validade. Para continuar aproveitando a economia de custos que uma reserva fornece, renove-a não depois da data de expiração.
+Receberá uma notificação por e-mail 30 dias antes da expiração da reserva e novamente na data de validade. Para continuar a tirar partido das poupanças de custos que uma reserva proporciona, renove-a o mais tardar na data de validade.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se tiver dúvidas ou precisar de ajuda, [crie um pedido](https://go.microsoft.com/fwlink/?linkid=2083458)de apoio.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que são as reservas do Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Entenda como o desconto de reserva é aplicado ao armazenamento do Azure](../../cost-management-billing/reservations/understand-storage-charges.md)
+- [O que são Reservas Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Compreender como o desconto de reserva é aplicado ao Armazenamento do Microsoft Azure](../../cost-management-billing/reservations/understand-storage-charges.md)

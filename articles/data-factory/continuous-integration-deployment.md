@@ -11,18 +11,18 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: dc0da82447b5df0735b16f46298a2f473ee61ea0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 8bbb11a8811582bea26e784636564eb5d5a4d284
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371380"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384335"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas na Azure Data Factory
 
 ## <a name="overview"></a>Descrição geral
 
-A integração contínua é a prática de testar cada alteração feita à sua base de código automaticamente e o mais cedo possível. A entrega contínua segue os testes que odeiam durante a integração contínua e impulsiona alterações para um sistema de encenação ou produção.
+A integração contínua é a prática de testar cada alteração feita à sua base de código automaticamente e o mais cedo possível.A entrega contínua segue os testes que odeiam durante a integração contínua e impulsiona alterações para um sistema de encenação ou produção.
 
 Na Azure Data Factory, integração contínua e entrega (CI/CD) significa mover os gasodutos da Fábrica de Dados de um ambiente (desenvolvimento, teste, produção) para outro. Pode utilizar a integração ux da Fábrica de Dados com modelos do Gestor de Recursos Azure para fazer CI/CD.
 
@@ -120,7 +120,7 @@ Segue-se um guia para a criação de uma versão da Azure Pipelines, que automat
 
     d.  Na lista **de Ação,** selecione **Criar ou atualizar o grupo de recursos**.
 
-    e.  Selecione o botão de elipse **(...** ) ao lado da caixa **do modelo.** Procure o modelo do Gestor de Recursos Azure que criou utilizando o **modelo de ARM de Importação** no modelo Criar um Gestor de Recursos para cada secção de [ambiente](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) deste artigo. Procure este ficheiro na pasta <FactoryName> da filial adf_publish.
+    e.  Selecione o botão de elipse **(...**) ao lado da caixa **do modelo.** Procure o modelo do Gestor de Recursos Azure que criou utilizando o **modelo de ARM de Importação** no modelo Criar um Gestor de Recursos para cada secção de [ambiente](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) deste artigo. Procure este ficheiro <FactoryName> na pasta da filial adf_publish.
 
     f.  Selecione **...** junto à caixa de **parâmetros do Modelo** para escolher o ficheiro de parâmetros. O ficheiro que escolher dependerá se criou uma cópia ou se está a utilizar o ficheiro predefinido, ARMTemplateParametersForFactory.json.
 
@@ -181,7 +181,7 @@ Há duas maneiras de lidar com segredos:
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Conceder permissões ao agente da Azure Pipelines
 
-A tarefa do Cofre de Chaves Azure pode falhar com um erro de Acesso Negado se as permissões corretas não estiverem definidas. Descarregue os registos para o lançamento e localize o ficheiro .ps1 que contém o comando para dar permissões ao agente azure pipelines. Pode dirigir o comando diretamente. Ou pode copiar o ID principal do ficheiro e adicionar a política de acesso manualmente no portal Azure. `Get` e `List` são as permissões mínimas necessárias.
+A tarefa do Cofre de Chaves Azure pode falhar com um erro de Acesso Negado se as permissões corretas não estiverem definidas. Descarregue os registos para o lançamento e localize o ficheiro .ps1 que contém o comando para dar permissões ao agente azure pipelines. Pode dirigir o comando diretamente. Ou pode copiar o ID principal do ficheiro e adicionar a política de acesso manualmente no portal Azure. `Get`e `List` são as permissões mínimas necessárias.
 
 ### <a name="update-active-triggers"></a>Atualizar gatilhos ativos
 
@@ -199,7 +199,7 @@ A implementação pode falhar se tentar atualizar os gatilhos ativos. Para atual
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
-Pode completar passos semelhantes (com a função `Start-AzDataFactoryV2Trigger`) para reiniciar os gatilhos após a colocação.
+Pode completar passos semelhantes (com a `Start-AzDataFactoryV2Trigger` função) para reiniciar os gatilhos após a colocação.
 
 ### <a name="sample-pre--and-post-deployment-script"></a>Exemplo de script pré e pós-implantação
 
@@ -214,7 +214,7 @@ Ao executar um script pós-implantação, terá de especificar uma variação do
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Tarefa Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Aqui está o script que pode ser usado para pré e pós-implantação. É responsável por recursos eliminados e referências de recursos.
 
@@ -366,7 +366,13 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Disabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
@@ -459,12 +465,18 @@ else {
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Enabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
 
-## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Use parâmetros personalizados com o modelo de Gestor de Recursos
+## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Utilizar parâmetros personalizados com o modelo do Resource Manager
 
 Se estiver no modo GIT, pode substituir as propriedades padrão no seu modelo de Gestor de Recursos para definir propriedades que são parametrizadas no modelo e propriedades que estão codificadas. Talvez queira anular o modelo de parametrização padrão nestes cenários:
 
@@ -480,14 +492,14 @@ Nestas condições, para anular o modelo de parametrização predefinido, crie u
 
 Seguem-se algumas diretrizes a seguir quando criar o ficheiro de parâmetros personalizados. O ficheiro consiste numa secção para cada tipo de entidade: gatilho, pipeline, serviço ligado, conjunto de dados, tempo de execução de integração, e assim por diante.
 * Insira o caminho da propriedade sob o tipo de entidade relevante.
-* Definir um nome de propriedade para `*` indica que pretende parametrizar todas as propriedades por baixo (apenas até ao primeiro nível, não recursivamente). Também pode fornecer exceções a esta configuração.
-* Definir o valor de uma propriedade como uma corda indica que você quer parametrizar a propriedade. Utilize o formato `<action>:<name>:<stype>`.
-   *  `<action>` pode ser um destes personagens:
+* Definir um nome `*` de propriedade para indicar que pretende parametrizar todas as propriedades por baixo (apenas até ao primeiro nível, não recursivamente). Também pode fornecer exceções a esta configuração.
+* Definir o valor de uma propriedade como uma corda indica que você quer parametrizar a propriedade. Utilize o `<action>:<name>:<stype>`formato .
+   *  `<action>` pode ser um destes caracteres:
       * `=` significa manter o valor atual como valor padrão para o parâmetro.
       * `-` significa não manter o valor padrão para o parâmetro.
-      * `|` é um caso especial para segredos do Cofre chave azure para cordas ou chaves de ligação.
-   * `<name>` é o nome do parâmetro. Se estiver em branco, leva o nome da propriedade. Se o valor começar com um personagem `-`, o nome é encurtado. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria encurtado para `AzureStorage1_connectionString`.
-   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo predefinido é `string`. Valores suportados: `string`, `bool`, `number`, `object`e `securestring`.
+      * `|` é um caso especial para segredos do Cofre chave Azure para cordas de ligação ou chaves.
+   * `<name>` é o nome do parâmetro. Se estiver em branco, leva o nome da propriedade. Se o valor `-` começar com um personagem, o nome é encurtado. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria encurtado para `AzureStorage1_connectionString`.
+   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, `string`o tipo predefinido é . `string`Valores suportados: , `bool`, `number`, `object`e `securestring`.
 * Especificar uma matriz no ficheiro de definição indica que a propriedade correspondente no modelo é uma matriz. A Fábrica de Dados iterates através de todos os objetos da matriz usando a definição especificada no objeto de tempo de funcionação de integração da matriz. O segundo objeto, uma corda, torna-se o nome da propriedade, que é usada como nome para o parâmetro para cada iteração.
 * Uma definição não pode ser específica para uma instância de recursos. Qualquer definição aplica-se a todos os recursos desse tipo.
 * Por padrão, todas as cordas seguras, como segredos do Cofre chave, e cordas seguras, como cordas de ligação, chaves e fichas, são parametrizadas.
@@ -559,27 +571,27 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 
 #### <a name="pipelines"></a>Pipelines
     
-* Qualquer propriedade no caminho `activities/typeProperties/waitTimeInSeconds` é parametrizada. Qualquer atividade num oleoduto que tenha uma propriedade de nível de código chamada `waitTimeInSeconds` (por exemplo, a atividade `Wait`) é parametrizada como um número, com um nome predefinido. Mas não terá um valor predefinido no modelo do Gestor de Recursos. Será uma entrada obrigatória durante a implantação do Gestor de Recursos.
-* Da mesma forma, uma propriedade chamada `headers` (por exemplo, numa atividade `Web`) é parametrizada com tipo `object` (JObject). Tem um valor predefinido, que é o mesmo valor da fábrica de origem.
+* Qualquer propriedade no `activities/typeProperties/waitTimeInSeconds` caminho é parametrizada. Qualquer atividade num oleoduto que tenha uma `waitTimeInSeconds` propriedade de `Wait` nível de código chamada (por exemplo, a atividade) é parametrizada como um número, com um nome predefinido. Mas não terá um valor predefinido no modelo do Gestor de Recursos. Será uma entrada obrigatória durante a implantação do Gestor de Recursos.
+* Da mesma forma, `headers` uma propriedade chamada `Web` (por exemplo, numa `object` atividade) é parametrizada com tipo (JObject). Tem um valor predefinido, que é o mesmo valor da fábrica de origem.
 
-#### <a name="integrationruntimes"></a>IntegrationRuntimes
+#### <a name="integrationruntimes"></a>IntegraçãoRuntimes
 
-* Todas as propriedades sob o caminho `typeProperties` são parametrizadas com os respetivos valores predefinidos. Por exemplo, existem duas propriedades em propriedades do tipo `IntegrationRuntimes`: `computeProperties` e `ssisProperties`. Ambos os tipos de propriedades são criados com os respetivos valores e tipos padrão (Objeto).
+* Todas as propriedades `typeProperties` sob o caminho são parametrizadas com os respetivos valores predefinidos. Por exemplo, existem `IntegrationRuntimes` duas propriedades `computeProperties` `ssisProperties`em propriedades do tipo: e . Ambos os tipos de propriedades são criados com os respetivos valores e tipos padrão (Objeto).
 
 #### <a name="triggers"></a>Acionadores
 
-* Sob `typeProperties`, duas propriedades são parametrizadas. O primeiro é `maxConcurrency`, que é especificado para ter um valor predefinido e é de tipo`string`. Tem o nome de parâmetro padrão `<entityName>_properties_typeProperties_maxConcurrency`.
-* A propriedade `recurrence` também é parametrizada. Por baixo, todas as propriedades a esse nível são especificadas para serem parametrizadas como cordas, com valores predefinidos e nomes de parâmetros. Uma exceção é a propriedade `interval`, que é parametrizada como tipo `number`. O nome do parâmetro é sufixo com `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma, a propriedade `freq` é uma corda e é parametrizada como uma corda. No entanto, a propriedade `freq` é parametrizada sem um valor predefinido. O nome é encurtado e sufixo. Por exemplo, `<entityName>_freq`.
+* Em `typeProperties`baixo, duas propriedades são parametrizadas. O primeiro `maxConcurrency`é , que é especificado para ter`string`um valor predefinido e é de tipo . Tem o nome `<entityName>_properties_typeProperties_maxConcurrency`de parâmetro predefinido .
+* A `recurrence` propriedade também é parametrizada. Por baixo, todas as propriedades a esse nível são especificadas para serem parametrizadas como cordas, com valores predefinidos e nomes de parâmetros. Uma exceção `interval` é a propriedade, que `number`é parametrizada como tipo . O nome do parâmetro é `<entityName>_properties_typeProperties_recurrence_triggerSuffix`sufixo com . Da mesma `freq` forma, a propriedade é uma corda e é parametrizada como uma corda. No entanto, a `freq` propriedade é parametrizada sem um valor predefinido. O nome é encurtado e sufixo. Por exemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Os serviços ligados são únicos. Como os serviços e conjuntos de dados ligados têm uma vasta gama de tipos, pode fornecer personalização específica do tipo. Neste exemplo, para todos os serviços ligados do tipo `AzureDataLakeStore`, será aplicado um modelo específico. Para todos os outros (via `*`), será aplicado um modelo diferente.
-* A propriedade `connectionString` será parametrizada como um valor `securestring`. Não terá um valor padrão. Terá um nome de parâmetro encurtado que é sufixo com `connectionString`.
-* A propriedade `secretAccessKey` passa a ser uma `AzureKeyVaultSecret` (por exemplo, num serviço ligado à Amazon S3). É automaticamente parametido como um segredo azure key vault e recolhido do cofre de chaves configurado. Também pode parametrizar o cofre chave em si.
+* Os serviços ligados são únicos. Como os serviços e conjuntos de dados ligados têm uma vasta gama de tipos, pode fornecer personalização específica do tipo. Neste exemplo, para todos os `AzureDataLakeStore`serviços de tipo ligados, será aplicado um modelo específico. Para todos os `*`outros (via), será aplicado um modelo diferente.
+* A `connectionString` propriedade será parametrizada como um `securestring` valor. Não terá um valor padrão. Terá um nome de parâmetro encurtado que `connectionString`é sufixo com .
+* A `secretAccessKey` propriedade passa `AzureKeyVaultSecret` a ser um (por exemplo, num serviço ligado à Amazon S3). É automaticamente parametido como um segredo azure key vault e recolhido do cofre de chaves configurado. Também pode parametrizar o cofre chave em si.
 
 #### <a name="datasets"></a>Conjuntos de dados
 
-* Embora a personalização específica do tipo esteja disponível para conjuntos de dados, pode fornecer configuração sem ter explicitamente uma configuração de nível \*. No exemplo anterior, todas as propriedades do conjunto de dados sob `typeProperties` são parametrizadas.
+* Embora a personalização específica do tipo esteja disponível para conjuntos \*de dados, pode fornecer configuração sem ter explicitamente uma configuração de nível. No exemplo anterior, todas as `typeProperties` propriedades do conjunto de dados em baixo são parametrizadas.
 
 ### <a name="default-parameterization-template"></a>Modelo de parametrização padrão
 
@@ -693,7 +705,7 @@ Segue-se o modelo de parametrização padrão atual. Se precisar de adicionar ap
 }
 ```
 
-O exemplo seguinte mostra como adicionar um único valor ao modelo de parametrização padrão. Apenas queremos adicionar um ID de cluster interativo Azure Databricks existente para um serviço ligado a Databricks ao ficheiro de parâmetros. Note que este ficheiro é o mesmo que o ficheiro anterior, com exceção da adição de `existingClusterId` no âmbito do campo de propriedades de `Microsoft.DataFactory/factories/linkedServices`.
+O exemplo seguinte mostra como adicionar um único valor ao modelo de parametrização padrão. Apenas queremos adicionar um ID de cluster interativo Azure Databricks existente para um serviço ligado a Databricks ao ficheiro de parâmetros. Note que este ficheiro é o mesmo que `existingClusterId` o ficheiro anterior, exceto a adição no campo de propriedades de `Microsoft.DataFactory/factories/linkedServices`.
 
 ```json
 {
@@ -824,25 +836,25 @@ Se não tiver Git configurado, pode aceder aos modelos ligados através do Model
 
 Se implantar uma fábrica para produção e perceber que há um bug que precisa de ser corrigido imediatamente, mas não pode implantar o atual ramo de colaboração, talvez precise de implementar um hotfix. Esta abordagem é conhecida como engenharia de correção rápida ou QFE.
 
-1.  Em Azure DevOps, vá ao lançamento que foi implantado para produção. Encontre o último compromisso que foi implantado.
+1.    Em Azure DevOps, vá ao lançamento que foi implantado para produção. Encontre o último compromisso que foi implantado.
 
-2.  A partir da mensagem de compromisso, obtenha a identificação comprometedora do ramo de colaboração.
+2.    A partir da mensagem de compromisso, obtenha a identificação comprometedora do ramo de colaboração.
 
-3.  Crie um novo ramo de fixação a partir desse compromisso.
+3.    Crie um novo ramo de fixação a partir desse compromisso.
 
-4.  Vá à Fábrica de Dados Azure UX e mude para o ramo de hotfix.
+4.    Vá à Fábrica de Dados Azure UX e mude para o ramo de hotfix.
 
-5.  Utilizando o Ux da Fábrica de Dados Azure, corrija o bug. Teste as suas alterações.
+5.    Utilizando o Ux da Fábrica de Dados Azure, corrija o bug. Teste as suas alterações.
 
-6.  Depois de verificada a correção, selecione o modelo braço de **exportação** para obter o modelo de Gestor de Recursos de fixação.
+6.    Depois de verificada a correção, selecione o modelo braço de **exportação** para obter o modelo de Gestor de Recursos de fixação.
 
-7.  Verifique manualmente esta construção no ramo adf_publish.
+7.    Verifique manualmente esta construção no ramo adf_publish.
 
-8.  Se configurar o seu pipeline de libertação para acionar automaticamente com base em adf_publish check-ins, uma nova versão começará automaticamente. Caso contrário, faça uma fila manual de lançamento.
+8.    Se configurar o seu pipeline de libertação para acionar automaticamente com base em adf_publish check-ins, uma nova versão começará automaticamente. Caso contrário, faça uma fila manual de lançamento.
 
-9.  Implante a libertação de hotfix para as fábricas de teste e produção. Esta versão contém a carga útil de produção anterior mais a correção que fez no passo 5.
+9.    Implante a libertação de hotfix para as fábricas de teste e produção. Esta versão contém a carga útil de produção anterior mais a correção que fez no passo 5.
 
-10. Adicione as alterações do hotfix para o ramo de desenvolvimento para que os lançamentos posteriores não incluam o mesmo bug.
+10.    Adicione as alterações do hotfix para o ramo de desenvolvimento para que os lançamentos posteriores não incluam o mesmo bug.
 
 ## <a name="best-practices-for-cicd"></a>Boas práticas para CI/CD
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245008"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
+# <a name="get-started-guide-for-azure-developers"></a>Inicie guia para desenvolvedores do Azure
 
-## <a name="what-is-azure"></a>O que é Azure?
+## <a name="what-is-azure"></a>O que é o Azure?
 
 O Azure é uma plataforma cloud completa que pode acolher as suas aplicações existentes e dinamizar o desenvolvimento de novas aplicações. O Azure pode até melhorar as aplicações no local. O Azure integra os serviços na nuvem que precisa para desenvolver, testar, implementar e gerir as suas aplicações, aproveitando todas as eficiências da computação em nuvem.
 
@@ -50,7 +50,7 @@ O Azure oferece serviços que suportam o desenvolvimento da sua aplicação e as
 ![Opções de hospedagem de aplicações Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>Serviço de Aplicações do Azure
+#### <a name="azure-app-service"></a>App Service do Azure
 
 Quando quiser o caminho mais rápido para publicar os seus projetos baseados na web, considere o Azure App Service. O Serviço de Aplicações facilita a extensão das suas aplicações web para apoiar os seus clientes móveis e publicar APIs REST facilmente consumidos. Esta plataforma fornece a autenticação utilizando fornecedores sociais, autoscalcificação baseada no tráfego, testes em produção e implementações contínuas e baseadas em contentores.
 
@@ -80,7 +80,7 @@ Devido ao nível de controlo que tem com VMs, pode executar uma vasta gama de ca
 
 #### <a name="azure-functions-serverless"></a>Funções Azure (servidor)
 
-Em vez de se preocupar em construir e gerir toda uma aplicação ou a infraestrutura para executar o seu código, e se pudesse simplesmente escrever o seu código e executá-lo em resposta a eventos ou a um horário?  [O Azure Functions](../../azure-functions/functions-overview.md) é uma oferta de estilo "servidor" que permite escrever apenas o código de que precisa. Com funções, pode desencadear a execução de código com pedidos HTTP, webhooks, eventos de serviço na nuvem ou em horário. Você pode codificar na sua linguagem de desenvolvimento de eleição, tais como C\#, F\#, Node.js, Python ou PHP. Com a faturação baseada no consumo, paga-se apenas pelo tempo que o seu código executa, e as escalas Azure, se necessário.
+Em vez de se preocupar em construir e gerir toda uma aplicação ou a infraestrutura para executar o seu código, e se pudesse simplesmente escrever o seu código e executá-lo em resposta a eventos ou a um horário?  [O Azure Functions](../../azure-functions/functions-overview.md) é uma oferta de estilo "servidor" que permite escrever apenas o código de que precisa. Com funções, pode desencadear a execução de código com pedidos HTTP, webhooks, eventos de serviço na nuvem ou em horário. Você pode codificar na sua linguagem\#de\#desenvolvimento de eleição, tais como C, F, Node.js, Python ou PHP. Com a faturação baseada no consumo, paga-se apenas pelo tempo que o seu código executa, e as escalas Azure, se necessário.
 
 > **Quando utilizar**: Utilize funções Azure quando tiver um código que é acionado por outros serviços Azure, por eventos baseados na web ou numa programação. Também pode utilizar Funções quando não precisa da sobrecarga de um projeto completo hospedado ou quando apenas quer pagar pelo tempo em que o seu código funciona. Para saber mais, consulte a visão geral das [Funções Azure.](../../azure-functions/functions-overview.md)
 >
@@ -93,7 +93,7 @@ Em vez de se preocupar em construir e gerir toda uma aplicação ou a infraestru
 O Azure Service Fabric é uma plataforma de sistemas distribuídos. Esta plataforma facilita a construção, embalagem, implantação e gestão de microserviços escaláveis e fiáveis. Também fornece capacidades abrangentes de gestão de aplicações, tais como:
 
 * Aprovisionamento
-* Implementação
+* Implantação
 * Monitorização
 * Upgrade/remendação
 * Apagando
@@ -124,7 +124,7 @@ A maioria das aplicações deve armazenar dados, por isso, seja qual for a decis
 
   > **Quando utilizar**: Quando a sua aplicação armazena dados não relacionais, tais como pares de valor-chave (tabelas), blobs, partilhas de ficheiros ou mensagens (filas).
   >
-  > **Início**: Escolha entre um destes tipos de armazenamento: [bolhas, mesas,](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) [filas,](../../storage/queues/storage-dotnet-how-to-use-queues.md)ou [ficheiros](../../storage/files/storage-dotnet-how-to-use-files.md). [](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+  > **Início**: Escolha entre um destes tipos de armazenamento: [bolhas, mesas,](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) [filas,](../../storage/queues/storage-dotnet-how-to-use-queues.md)ou [ficheiros](../../storage/files/storage-dotnet-how-to-use-files.md). [tables](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 
 - **Base de Dados Azure SQL**: Uma versão baseada em Azure do motor Microsoft SQL Server para armazenar dados tabulares relacionais na nuvem. A Base de Dados SQL proporciona um desempenho previsível, escalabilidade sem tempo de inatividade, continuidade do negócio e proteção de dados.
 
@@ -167,7 +167,7 @@ A Azure fornece várias formas de utilizar contentores nas suas aplicações.
 
 É crucial não só saber quem está a usar as suas aplicações, mas também impedir o acesso não autorizado aos seus recursos. A Azure fornece várias formas de autenticar os seus clientes de aplicações.
 
-- **Azure Ative Directory (Azure AD)** : O multiinquilino da Microsoft, serviço de gestão de identidade e acesso baseado na nuvem. Pode adicionar um único sinal nas suas aplicações, integrando-se com o Azure AD. Pode aceder diretamente às propriedades do diretório utilizando a API do Gráfico AD Azure ou a API do Microsoft Graph. Pode integrar-se com o suporte da AD Azure para o quadro de autorização OAuth2.0 e Open ID Connect utilizando pontos finais http/REST nativos e as bibliotecas de autenticação adautenticação multiplataforma Azure AD.
+- **Azure Ative Directory (Azure AD)**: O multiinquilino da Microsoft, serviço de gestão de identidade e acesso baseado na nuvem. Pode adicionar um único sinal nas suas aplicações, integrando-se com o Azure AD. Pode aceder diretamente às propriedades do diretório utilizando a API do Gráfico AD Azure ou a API do Microsoft Graph. Pode integrar-se com o suporte da AD Azure para o quadro de autorização OAuth2.0 e Open ID Connect utilizando pontos finais http/REST nativos e as bibliotecas de autenticação adautenticação multiplataforma Azure AD.
 
   > **Quando utilizar**: Quando pretender fornecer uma experiência SSO, trabalhe com dados baseados em Gráficos ou autenticar utilizadores baseados em domínios.
   >
@@ -226,7 +226,7 @@ Alguns serviços, como a Virtual Machine e os App Services, utilizam o Gestor de
 
 >**Quando utilizar**: Quando tem aplicações empresariais e de alta disponibilidade que beneficiam de falhas e replicação.
 
-## <a name="how-do-i-manage-my-applications-and-projects"></a>Como posso gerir as minhas candidaturas e projetos?
+## <a name="how-do-i-manage-my-applications-and-projects"></a>Como posso gerir as minhas aplicações e projetos?
 
 O Azure oferece um conjunto rico de experiências para que possa criar e gerir os seus recursos, aplicações e projetos Azure — tanto programáticamente como no [portal Azure.](https://portal.azure.com/)
 
@@ -255,12 +255,12 @@ O Azure é construído sobre um conjunto de APIs REST que suportam o portal Azur
 Juntamente com as APIs REST, muitos serviços Azure também permitem gerir programáticamente os recursos a partir das suas aplicações, utilizando SDKs Azure específicos da plataforma, incluindo SDKs para as seguintes plataformas de desenvolvimento:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](https://docs.microsoft.com/azure/javascript/)
+-   [Nó.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [python](/azure/python/)
+-   [Pitão](/azure/python/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](https://docs.microsoft.com/azure/go)
+-   [Ir](https://docs.microsoft.com/azure/go)
 
 Serviços como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) e [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) fornecem SDKs do lado do cliente para permitir o acesso a serviços de aplicações de clientes web e móveis.
 
@@ -276,11 +276,11 @@ Desenvolve estas implementações utilizando um modelo de Gestor de Recursos Azu
 >
 > **Começar**: Para começar a usar modelos, consulte [os modelos de Gestor de Recursos Do Azure.](../../resource-group-authoring-templates.md)
 
-## <a name="understanding-accounts-subscriptions-and-billing"></a>Compreender contas, subscrições e faturação
+## <a name="understanding-accounts-subscriptions-and-billing"></a>Compreender as contas, subscrições e faturação
 
 Como desenvolvedores, gostamos de mergulhar no código e tentar começar o mais rápido possível com a execução das nossas aplicações. Queremos certamente encorajá-lo a começar a trabalhar em Azure o mais facilmente possível. Para ajudar a facilitar a vida, o Azure oferece um [teste gratuito.](https://azure.microsoft.com/free/) Alguns serviços têm até uma funcionalidade "Experimente gratuitamente", como o [Azure App Service](https://tryappservice.azure.com/), que não requer sequer criar uma conta. Por mais divertido que seja mergulhar na codificação e implantação da sua aplicação para o Azure, também é importante ter algum tempo para perceber como funciona o Azure. Especificamente, deve entender como funciona do ponto de vista das contas de utilizador, subscrições e faturação.
 
-### <a name="what-is-an-azure-account"></a>O que é uma conta Azure?
+### <a name="what-is-an-azure-account"></a>O que é uma conta do Azure?
 
 Para criar ou trabalhar com uma subscrição Azure, você deve ter uma conta Azure. Uma conta Azure é simplesmente uma identidade em Azure AD ou num diretório, como um trabalho ou organização escolar, que a Azure AD confia. Se não pertencer a tal organização, pode sempre criar uma subscrição utilizando a sua Conta Microsoft, que é de confiança do Azure AD. Para saber mais sobre a integração no local do Windows Server Ative Directory com o Azure AD, consulte a integração das suas identidades no local com o [Diretório Ativo azure](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
@@ -288,7 +288,7 @@ Cada subscrição do Azure tem uma relação de confiança com uma instância do
 
 Além de definir identidades individuais da conta Azure, também chamadas *de utilizadores,* pode definir *grupos* em Azure AD. A criação de grupos de utilizadores é uma boa forma de gerir o acesso aos recursos numa subscrição utilizando o controlo de acesso baseado em papéis (RBAC). Para aprender a criar grupos, consulte [Criar um grupo na pré-visualização do Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Também pode criar e gerir grupos [utilizando o PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
-### <a name="manage-your-subscriptions"></a>Gerir as suas subscrições
+### <a name="manage-your-subscriptions"></a>Gerir as subscrições
 
 Uma subscrição é um agrupamento lógico de serviços Azure que está ligado a uma conta Azure. Uma única conta Azure pode conter várias subscrições. A faturação dos serviços Azure é feita por subscrição. Para obter uma lista das ofertas de subscrição disponíveis por tipo, consulte o [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/). As subscrições do Azure têm um Administrador de Conta que tem total controlo sobre a subscrição. Eles também têm um Administrador de Serviço que tem controlo sobre todos os serviços na subscrição. Para obter informações sobre administradores de subscrição clássicos, consulte Adicionar ou alterar administradores de [subscrição do Azure.](../../cost-management-billing/manage/add-change-subscription-administrator.md) As contas individuais podem ser concedidas com um controlo detalhado dos recursos do Azure utilizando [o controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md).
 
@@ -302,7 +302,7 @@ O Azure Resource Explorer é uma excelente ferramenta para visualizar os recurso
 
 Quando permite o acesso aos recursos do Azure, é sempre uma boa prática proporcionar aos utilizadores o menor privilégio que é necessário para fazer uma determinada tarefa.
 
-- **Controlo de acesso baseado em funções (RBAC)** : No Azure, pode conceder acesso às contas de utilizador (principais) num âmbito especificado: subscrição, grupo de recursos ou recursos individuais. O RBAC permite-lhe implantar recursos num grupo de recursos e conceder permissões a um utilizador ou grupo específico. Permite também limitar o acesso apenas aos recursos que pertencem ao grupo de recursos-alvo. Também pode conceder acesso a um único recurso, como uma máquina virtual ou rede virtual. Para conceder acesso, atribui uma função ao utilizador, grupo ou diretor de serviço. Existem muitos papéis predefinidos, e também pode definir os seus próprios papéis personalizados. Para saber mais, veja [O que é o controlo de acesso baseado em papéis (RBAC)?](../../role-based-access-control/overview.md)
+- **Controlo de acesso baseado em funções (RBAC)**: No Azure, pode conceder acesso às contas de utilizador (principais) num âmbito especificado: subscrição, grupo de recursos ou recursos individuais. O RBAC permite-lhe implantar recursos num grupo de recursos e conceder permissões a um utilizador ou grupo específico. Permite também limitar o acesso apenas aos recursos que pertencem ao grupo de recursos-alvo. Também pode conceder acesso a um único recurso, como uma máquina virtual ou rede virtual. Para conceder acesso, atribui uma função ao utilizador, grupo ou diretor de serviço. Existem muitos papéis predefinidos, e também pode definir os seus próprios papéis personalizados. Para saber mais, veja [O que é o controlo de acesso baseado em papéis (RBAC)?](../../role-based-access-control/overview.md)
 
   > **Quando utilizar**: Quando necessitar de uma gestão de acesso de grãos finos para utilizadores e grupos ou quando necessita de fazer de um utilizador um utilizador de uma subscrição.
   >

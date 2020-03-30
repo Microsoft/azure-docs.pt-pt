@@ -4,12 +4,12 @@ description: Métricas e APIs clássicos de escala automática, também chamados
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 980f4e840f7778c6ea3025db9b37a3454267bac7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9dfa6b278587f4ed79b1c3cd9eff1defd09ec0bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663560"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294664"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Reforma do Azure Monitor do modelo clássico de implantação APIs para métricas e escala automática
 
@@ -35,9 +35,9 @@ Este artigo aplica-se a si se estiver a utilizar os seguintes componentes:
 
 Se não tem a certeza se o seu código ou ferramentas personalizadas estão a chamar as APIs clássicas, veja o seguinte:
 
-- Reveja o URI referenciado no seu código ou ferramenta. Os APIs clássicos usam o https://management.core.windows.netURI. Você deve estar usando o URI mais recente para as APIs baseadas em Recursos começa com https://management.azure.com/.
+- Reveja o URI referenciado no seu código ou ferramenta. As APIs clássicas https://management.core.windows.netusam o URI. Você deve estar usando o URI mais recente para `https://management.azure.com/`as APIs baseadas em Recursos começa com .
 
-- Compare o nome de montagem na sua máquina. A montagem clássica mais antiga está em https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
+- Compare o nome de montagem na sua máquina. A montagem clássica https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/mais antiga está em .
 
 - Se estiver a usar a autenticação de certificado para aceder a métricas ou APIs de escala automática, está a utilizar um ponto final clássico e uma biblioteca. As APIs do newresource Manager exigem a autenticação do Diretório Ativo Azure através de um diretor de serviço ou do utilizador principal.
 
@@ -83,7 +83,7 @@ Foi enviada uma notificação de aposentadoria para endereços de e-mail para as
 - Administradores de conta e de serviços
 - Coadministradores  
 
-Se tiver alguma dúvida, contacte-nos em MonitorClassicAPIhelp@microsoft.com.  
+Se tiver alguma dúvida, MonitorClassicAPIhelp@microsoft.comcontacte-nos em .  
 
 ## <a name="references"></a>Referências
 

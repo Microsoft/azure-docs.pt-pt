@@ -1,106 +1,105 @@
 ---
-title: Backup e restauração-portal do Azure-banco de dados do Azure para MariaDB
-description: Este artigo descreve como restaurar um servidor no banco de dados do Azure para MariaDB usando o portal do Azure.
+title: Backup e restauro - Portal Azure - Base de Dados Azure para MariaDB
+description: Este artigo descreve como restaurar um servidor na Base de Dados Azure para MariaDB usando o portal Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 952bfe9a669b833b20a9bccf2813fb6a5eec4826
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: fa8ead8daa202f5747c134a62fbd43bcdf2af0d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769324"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369247"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para MariaDB usando o portal do Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor na Base de Dados Azure para o MariaDB utilizando o portal Azure
 
-## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
-O backup do banco de dados do Azure para servidores MariaDB é feito periodicamente para habilitar os recursos de restauração. Usando esse recurso, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior no tempo, em um novo servidor.
+## <a name="backup-happens-automatically"></a>A cópia de segurança acontece automaticamente
+A Base de Dados Azure para servidores MariaDB é apoiada periodicamente para permitir as funcionalidades de Restauro. Utilizando esta funcionalidade, poderá restaurar o servidor e todas as suas bases de dados num momento anterior, num novo servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este guia de instruções, você precisa de:
-- Um [banco de dados do Azure para servidor MariaDB e banco de dados](quickstart-create-mariadb-server-database-using-azure-portal.md)
+Para completar este guia de como orientar, precisa de:
+- Uma [Base de Dados Azure para servidor mariaDB e base de dados](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="set-backup-configuration"></a>Definir configuração de backup
 
-Você faz a escolha entre configurar o servidor para backups com redundância local ou backups com redundância geográfica na criação do servidor, na janela **tipo de preço** .
+Você faz a escolha entre configurar o seu servidor para backups redundantes localmente ou backups geograficamente redundantes na criação do servidor, na janela **Nível de Preços.**
 
 > [!NOTE]
-> Depois que um servidor é criado, o tipo de redundância que ele tem, geograficamente redundante versus redundância local, não pode ser alternado.
+> Depois de criado um servidor, o tipo de redundância que tem, geograficamente redundante vs localmente redundante, não pode ser trocado.
 >
 
-Ao criar um servidor por meio do portal do Azure, a janela **tipo de preço** é onde você seleciona backups com redundância **local** ou com **redundância geográfica** para seu servidor. Essa janela também é onde você seleciona o **período de retenção de backup** – por quanto tempo (em número de dias) você deseja que os backups de servidor sejam armazenados.
+Ao criar um servidor através do portal Azure, a janela **De Nível de Preços** é onde seleciona backups **localmente redundantes** ou **geograficamente redundantes** para o seu servidor. Esta janela também é onde seleciona o Período de **Retenção** de Backup - quanto tempo (em número de dias) deseja que as cópias de segurança do servidor sejam armazenadas.
 
-   ![Tipo de preço – escolha a redundância de backup](./media/howto-restore-server-portal/pricing-tier.png)
+   ![Nível de preços - Escolha Redundância de Backup](./media/howto-restore-server-portal/pricing-tier.png)
 
-Para obter mais informações sobre como definir esses valores durante a criação, consulte o guia de [início rápido do banco de dados do Azure para MariaDB Server](quickstart-create-mariadb-server-database-using-azure-portal.md).
+Para obter mais informações sobre a definição destes valores durante a criação, consulte a Base de [Dados Azure para](quickstart-create-mariadb-server-database-using-azure-portal.md)o quickstart do servidor MariaDB .
 
-O período de retenção de backup pode ser alterado em um servidor por meio das seguintes etapas:
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+O período de retenção de cópia de segurança pode ser alterado num servidor através dos seguintes passos:
+1. Assine no [portal Azure.](https://portal.azure.com/)
 
-2. Selecione o banco de dados do Azure para o servidor MariaDB. Essa ação abre a página **visão geral** .
+2. Selecione a sua Base de Dados Azure para o servidor MariaDB. Esta ação abre a página **de visão geral.**
 
-3. Selecione **tipo de preço** no menu, em **configurações**. Usando o controle deslizante, você pode alterar o **período de retenção de backup** para sua preferência entre 7 e 35 dias.
-Na captura de tela abaixo, foi aumentado para 35 dias.
-![período de retenção de backup aumentado](./media/howto-restore-server-portal/3-increase-backup-days.png)
+3. Selecione **Nível** de Preços a partir do menu, em **DEFINIÇÕES**. Utilizando o slider, pode alterar o Período de **Retenção** de Backup para a sua preferência entre 7 e 35 dias.
+Na imagem abaixo foi aumentada para 35 dias.
+![Período de retenção de backup aumentado](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
-4. Clique em **OK** para confirmar a alteração.
+4. Clique **em OK** para confirmar a alteração.
 
-O período de retenção de backup controla o quanto o tempo uma restauração pontual pode ser recuperada, pois ela é baseada em backups disponíveis. A restauração pontual é descrita mais detalhadamente na seção a seguir. 
+O período de retenção de reserva rege o quão longe no tempo um restauro pontual pode ser recuperado, uma vez que é baseado em backups disponíveis. A restauração ponto-a-tempo é descrita mais na secção seguinte. 
 
 ## <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
-O banco de dados do Azure para MariaDB permite que você restaure o servidor de volta para um ponto no tempo e para uma nova cópia do servidor. Você pode usar esse novo servidor para recuperar seus dados ou fazer com que os aplicativos cliente apontem para esse novo servidor.
+A Base de Dados Azure para O DNDB permite-lhe restaurar o servidor de volta a um ponto-a-tempo e a uma nova cópia do servidor. Pode utilizar este novo servidor para recuperar os seus dados ou ter as suas aplicações de cliente apontadas para este novo servidor.
 
-Por exemplo, se uma tabela foi acidentalmente descartada ao meio-dia de hoje, você poderia restaurar o tempo logo antes do meio-dia e recuperar a tabela e os dados ausentes dessa nova cópia do servidor. A restauração pontual está no nível do servidor, não no nível do banco de dados.
+Por exemplo, se uma mesa foi acidentalmente largada ao meio-dia de hoje, você poderia restaurar o tempo pouco antes do meio-dia e recuperar a tabela e os dados em falta da nova cópia do servidor. A restauração pontual está ao nível do servidor, não ao nível da base de dados.
 
-As etapas a seguir restauram o servidor de exemplo para um ponto no tempo:
-1. Na portal do Azure, selecione o banco de dados do Azure para o servidor MariaDB. 
+Os seguintes passos restauram o servidor da amostra para um ponto no tempo:
+1. No portal Azure, selecione a sua Base de Dados Azure para o servidor MariaDB. 
 
-2. Na barra de ferramentas da página **visão geral** do servidor, selecione **restaurar**.
+2. Na barra de ferramentas da página **de visão geral** do servidor, selecione **Restaurar**.
 
-   ![Banco de dados do Azure para MariaDB-visão geral-botão restaurar](./media/howto-restore-server-portal/2-server.png)
+   ![Base de Dados Azure para MariaDB - Visão geral - Restaurar botão](./media/howto-restore-server-portal/2-server.png)
 
-3. Preencha o formulário de restauração com as informações necessárias:
+3. Preencha o formulário Restaurar com as informações necessárias:
 
-   ![Banco de dados do Azure para MariaDB-informações de restauração](./media/howto-restore-server-portal/3-restore.png)
-   - **Ponto de restauração**: selecione o ponto no tempo no qual você deseja restaurar.
-   - **Servidor de destino**: forneça um nome para o novo servidor.
-   - **Local**: não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
-   - **Tipo de preço**: não é possível alterar esses parâmetros ao fazer uma restauração pontual. É igual ao servidor de origem. 
+   ![Base de Dados Azure para MariaDB - Restaurar informações](./media/howto-restore-server-portal/3-restore.png)
+   - **Ponto de restauro**: Selecione o ponto-a-tempo a que pretende restaurar.
+   - **Servidor de destino**: Forneça um nome para o novo servidor.
+   - **Localização**: Não é possível selecionar a região. Por predefinição é o mesmo que o servidor de origem.
+   - **Nível**de preços: Não é possível alterar estes parâmetros ao fazer uma restauração pontual. É igual ao servidor de origem. 
 
-4. Clique em **OK** para restaurar o servidor para restaurar para um ponto no tempo. 
+4. Clique em **OK** para restaurar o servidor para restaurar um ponto-em-tempo. 
 
-5. Quando a restauração for concluída, localize o novo servidor que é criado para verificar se os dados foram restaurados conforme o esperado.
+5. Assim que o restauro terminar, localize o novo servidor que é criado para verificar se os dados foram restaurados como esperado.
 
 
-O novo servidor criado pela restauração pontual tem o mesmo nome de logon do administrador do servidor e a senha que era válida para o servidor existente no momento escolhido. Você pode alterar a senha na página de **visão geral** do novo servidor.
+O novo servidor criado por restauração pontual tem o mesmo nome de login de servidor e senha que era válido para o servidor existente no momento escolhido. Pode alterar a palavra-passe a partir da página **'Overview'** do novo servidor.
 
-O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
+O novo servidor criado durante uma restauração não tem os pontos finais do serviço VNet que existiam no servidor original. Estas regras têm de ser criadas separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
-## <a name="geo-restore"></a>Restauração geográfica
+## <a name="geo-restore"></a>Geo restaurar
 
-Se você configurou o servidor para backups com redundância geográfica, um novo servidor pode ser criado a partir do backup desse servidor existente. Esse novo servidor pode ser criado em qualquer região em que o banco de dados do Azure para MariaDB esteja disponível.  
+Se configurar o seu servidor para backups geograficamente redundantes, um novo servidor pode ser criado a partir da cópia de segurança desse servidor existente. Este novo servidor pode ser criado em qualquer região que o Azure Database para MariaDB esteja disponível.  
 
-1. Selecione **bancos** **de dados > banco de dados do Azure para MariaDB**. Você também pode digitar **MariaDB** na caixa de pesquisa para localizar o serviço.
+1. Selecione **Bases de** > **dados Azure Base de dados para MariaDB**. Também pode escrever **MariaDB** na caixa de pesquisa para encontrar o serviço.
 
-   ![A opção "banco de dados do Azure para MariaDB"](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
+   ![A opção "Base de Dados Azure para MariaDB"](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 
-2. Na lista suspensa **selecionar origem** do formulário, escolha **backup**. Esta ação carrega uma lista de servidores que têm backups com redundância geográfica habilitada. Selecione um desses backups para ser a origem do novo servidor.
-   ![selecionar fonte: backup e lista de backups com redundância geográfica](./media/howto-restore-server-portal/2-georestore.png)
+2. No formulário **Select Source** dropdown, escolha **Backup**. Esta ação carrega uma lista de servidores que têm cópias de segurança georedundantes ativadas. Selecione uma destas cópias de segurança para ser a fonte do seu novo servidor.
+   ![Fonte selecionada: Backup e lista de backups georedundantes](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
-   > Quando um servidor é criado pela primeira vez, ele pode não estar imediatamente disponível para a restauração geográfica. Pode levar algumas horas para que os metadados necessários sejam preenchidos.
+   > Quando um servidor é criado pela primeira vez, pode não estar imediatamente disponível para restauro geo. Pode levar algumas horas para que os metadados necessários sejam povoados.
    >
 
-3. Preencha o restante do formulário com suas preferências. Você pode selecionar qualquer **local**. Depois de selecionar o local, você pode selecionar **tipo de preço**. Por padrão, os parâmetros do servidor existente do qual você está restaurando são exibidos. Você pode clicar em **OK** sem fazer nenhuma alteração para herdar essas configurações. Ou você pode alterar **a geração de computação** (se disponível na região que você escolheu), o número de **VCores**, o período de **retenção de backup**e a opção de **redundância de backup**. A alteração do **tipo de preço** (básico, uso geral ou otimizado para memória) ou o tamanho do **armazenamento** durante a restauração não tem suporte.
+3. Preencha o resto do formulário com as suas preferências. Pode selecionar qualquer **Local**. Depois de selecionar a localização, pode selecionar o **Nível de Preços**. Por predefinição, os parâmetros para o servidor existente de onde está a restaurar são apresentados. Pode clicar em **OK** sem fazer alterações para herdar essas definições. Ou pode alterar a **Geração Compute** (se disponível na região que escolheu), número de **vCores,** Período de **Retenção**de Backup e Opção de **Redundância de Backup**. Não é suportado **o nível** de alteração dos preços (Básico, Propósito Geral ou Tamanho de **Armazenamento)** ou armazenamento durante a restauração.
 
-O novo servidor criado pela restauração geográfica tem o mesmo nome de logon do administrador do servidor e a senha que era válida para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **visão geral** do novo servidor.
+O novo servidor criado pela Geo Restore tem o mesmo nome de login de administrador do servidor e senha que era válido para o servidor existente no momento em que o restauro foi iniciado. A palavra-passe pode ser alterada a partir da página **de visão geral** do novo servidor.
 
-O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
-
+O novo servidor criado durante uma restauração não tem os pontos finais do serviço VNet que existiam no servidor original. Estas regras têm de ser criadas separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre os [backups](concepts-backup.md) do serviço
 - Saiba mais sobre [réplicas](concepts-read-replicas.md)
-- Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md)
+- Saiba mais sobre opções [de continuidade do negócio](concepts-business-continuity.md)

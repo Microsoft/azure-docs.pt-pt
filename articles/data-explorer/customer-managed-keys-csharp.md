@@ -1,52 +1,55 @@
 ---
-title: Configurar chaves gerenciadas pelo cliente usando oC#
-description: Este artigo descreve como configurar a criptografia de chaves gerenciadas pelo cliente em seus dados no Azure Data Explorer.
+title: 'Configure as chaves geridas pelo cliente utilizando C #'
+description: Este artigo descreve como configurar a encriptação de chaves geridas pelo cliente nos seus dados no Azure Data Explorer.
 author: saguiitay
 ms.author: itsagui
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 16c108790dd696e98a1264691254c9e99dac6cd3
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: a00b0876c4a188b932032129ed5a394e94198930
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280612"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297952"
 ---
-# <a name="configure-customer-managed-keys-using-c"></a>Configurar chaves gerenciadas pelo cliente usando oC#
+# <a name="configure-customer-managed-keys-using-c"></a>Configure as chaves geridas pelo cliente utilizando C #
 
 > [!div class="op_single_selector"]
-> * [C#](customer-managed-keys-csharp.md)
-> * [Modelo do Azure Resource Manager](customer-managed-keys-resource-manager.md)
+> * [Portal](customer-managed-keys-portal.md)
+> * [C #](customer-managed-keys-csharp.md)
+> * [Modelo Azure Resource Manager](customer-managed-keys-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 
-## <a name="configure-encryption-with-customer-managed-keys"></a>Configurar a criptografia com chaves gerenciadas pelo cliente
+[!INCLUDE [data-explorer-configure-customer-managed-keys part 2](../../includes/data-explorer-configure-customer-managed-keys-b.md)]
 
-Esta seção mostra como configurar a criptografia de chaves gerenciadas pelo cliente usando o cliente C# do Azure data Explorer. 
+## <a name="configure-encryption-with-customer-managed-keys"></a>Configure encriptação com chaves geridas pelo cliente
+
+Esta secção mostra-lhe como configurar a encriptação de chaves gerida pelo cliente utilizando o cliente Azure Data Explorer C#. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver o Visual Studio 2019 instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+* Se não tiver o Visual Studio 2019 instalado, pode descarregar e utilizar a Edição Comunitária **gratuita** do [Visual Studio 2019.](https://www.visualstudio.com/downloads/) Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-### <a name="install-c-nuget"></a>Instalar C# o NuGet
+### <a name="install-c-nuget"></a>Instalar C# NuGet
 
-* Instale o [pacote NuGet do Azure data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Instale o pacote NuGet do [Azure Data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
-* Instale o [pacote NuGet Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para autenticação.
+* Instale o [pacote Microsoft.IdentityModel.Clients.ActiveDirectory NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para autenticação.
 
 ### <a name="authentication"></a>Autenticação
 
-Para executar os exemplos neste artigo, [crie um aplicativo do Azure AD e uma](/azure/active-directory/develop/howto-create-service-principal-portal) entidade de serviço que possa acessar recursos. Você pode adicionar a atribuição de função no escopo da assinatura e obter os `Directory (tenant) ID`, `Application ID`e `Client Secret`necessários.
+Para executar os exemplos deste artigo, crie uma aplicação e diretor de serviço [seletiva azure](/azure/active-directory/develop/howto-create-service-principal-portal) que possa aceder a recursos. Pode adicionar a atribuição de funções no `Directory (tenant) ID` `Application ID`âmbito `Client Secret`da subscrição e obter o necessário, e .
 
 ### <a name="configure-cluster"></a>Configurar cluster
 
-Por padrão, a criptografia de Data Explorer do Azure usa chaves gerenciadas pela Microsoft. Configure seu cluster de Data Explorer do Azure para usar chaves gerenciadas pelo cliente e especifique a chave a ser associada ao cluster.
+Por padrão, a encriptação do Azure Data Explorer utiliza chaves geridas pela Microsoft. Configure o seu cluster Azure Data Explorer para utilizar chaves geridas pelo cliente e especificar a chave para associar-se ao cluster.
 
-1. Atualize o cluster usando o seguinte código:
+1. Atualize o seu cluster utilizando o seguinte código:
 
     ```csharp
     var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -74,23 +77,23 @@ Por padrão, a criptografia de Data Explorer do Azure usa chaves gerenciadas pel
     await kustoManagementClient.Clusters.UpdateAsync(resourceGroupName, clusterName, clusterUpdate);
     ```
 
-1. Execute o seguinte comando para verificar se o cluster foi atualizado com êxito:
+1. Execute o seguinte comando para verificar se o seu cluster foi atualizado com sucesso:
 
     ```csharp
     kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
-    Se o resultado contiver `ProvisioningState` com o valor de `Succeeded`, o cluster foi atualizado com êxito.
+    Se o `ProvisioningState` resultado `Succeeded` contiver o valor, então o seu cluster foi atualizado com sucesso.
 
-## <a name="update-the-key-version"></a>Atualizar a versão de chave
+## <a name="update-the-key-version"></a>Atualizar a versão chave
 
-Ao criar uma nova versão de uma chave, você precisará atualizar o cluster para usar a nova versão. Primeiro, chame `Get-AzKeyVaultKey` para obter a versão mais recente da chave. Em seguida, atualize as propriedades do cofre de chaves do cluster para usar a nova versão da chave, conforme mostrado em [Configurar cluster](#configure-cluster).
+Quando criar uma nova versão de uma chave, terá de atualizar o cluster para utilizar a nova versão. Primeiro, `Get-AzKeyVaultKey` ligue para obter a versão mais recente da chave. Em seguida, atualize as propriedades chave do cofre do cluster para utilizar a nova versão da chave, como mostrado no [cluster Configure](#configure-cluster).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Proteger clusters de Data Explorer do Azure no Azure](security.md)
-* [Configurar identidades gerenciadas para o cluster de Data Explorer do Azure](managed-identities.md)
-* [Proteja seu cluster no Azure data Explorer-portal do Azure](manage-cluster-security.md) habilitando a criptografia em repouso.
-* [Configurar chaves gerenciadas pelo cliente usando o modelo de Azure Resource Manager](customer-managed-keys-resource-manager.md)
+* [Clusters Secure Azure Data Explorer em Azure](security.md)
+* [Configure identidades geridas para o seu cluster Azure Data Explorer](managed-identities.md)
+* [Proteja o seu cluster no Azure Data Explorer - portal Azure,](manage-cluster-security.md) permitindo a encriptação em repouso.
+* [Configure as chaves geridas pelo cliente utilizando o modelo do Gestor de Recursos Azure](customer-managed-keys-resource-manager.md)
 
 

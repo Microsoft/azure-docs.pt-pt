@@ -1,6 +1,6 @@
 ---
-title: Criar uma regra de autorização do barramento de serviço usando um modelo do Azure
-description: Criar uma regra de autorização do barramento de serviço para namespace e fila usando Azure Resource Manager modelo
+title: Crie uma regra de autorização de ônibus de serviço usando um modelo Azure
+description: Crie uma regra de autorização de ônibus de serviço para espaço de nome e fila usando o modelo de Gestor de Recursos Azure
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,51 +14,52 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: c795c61ec4891205ad9c77e96914d9b374fa88af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bfb2d2d946a85c1d051315fb29a5a63f7a00871
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426902"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384930"
 ---
-# <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Criar uma regra de autorização do barramento de serviço para namespace e fila usando um modelo de Azure Resource Manager
+# <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Crie uma regra de autorização de ônibus de serviço para espaço de nome e fila usando um modelo de Gestor de Recursos Azure
 
-Este artigo mostra como usar um modelo de Azure Resource Manager que cria uma [regra de autorização](service-bus-authentication-and-authorization.md#shared-access-signature) para um namespace e uma fila do barramento de serviço. O artigo explica como especificar quais recursos são implantados e como definir parâmetros que são especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
+Este artigo mostra como usar um modelo de Gestor de Recursos Azure que cria uma regra de [autorização](service-bus-authentication-and-authorization.md#shared-access-signature) para um espaço de nome e fila de ônibus de serviço. O artigo explica como especificar quais os recursos que são implantados e como definir parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
 
-Para obter mais informações sobre como criar modelos, consulte [criação de modelos de Azure Resource Manager][Authoring Azure Resource Manager templates].
+Para mais informações sobre a criação de modelos, consulte [os modelos de Gestor de Recursos Do Azure.][Authoring Azure Resource Manager templates]
 
-Para obter o modelo completo, consulte o [modelo de regra de autorização do barramento de serviço][Service Bus auth rule template] no github.
+Para obter o modelo completo, consulte o modelo de regra de autorização de [ônibus de serviço][Service Bus auth rule template] no GitHub.
 
 > [!NOTE]
-> Os modelos de Azure Resource Manager a seguir estão disponíveis para download e implantação.
+> Os seguintes modelos do Gestor de Recursos Azure estão disponíveis para download e implementação.
 > 
-> * [Criar um namespace do barramento de serviço](service-bus-resource-manager-namespace.md)
-> * [Criar um namespace do barramento de serviço com fila](service-bus-resource-manager-namespace-queue.md)
-> * [Criar um namespace do barramento de serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
-> * [Criar um namespace do barramento de serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Criar um espaço de nomes do Service Bus](service-bus-resource-manager-namespace.md)
+> * [Crie um espaço de nome de ônibus de serviço com fila](service-bus-resource-manager-namespace-queue.md)
+> * [Crie um espaço de nome de ônibus de serviço com tópico e subscrição](service-bus-resource-manager-namespace-topic.md)
+> * [Criar um espaço de nome de ônibus de serviço com tópico, subscrição e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite a Galeria de [modelos de início rápido do Azure][Azure Quickstart Templates] e pesquise por **barramento de serviço**.
+> Para verificar os modelos mais recentes, visite a galeria [de modelos Azure Quickstart][Azure Quickstart Templates] e procure o **Ônibus de Serviço.**
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-will-you-deploy"></a>O que irá implementar?
 
-Com esse modelo, você implanta uma regra de autorização do barramento de serviço para um namespace e uma entidade de mensagens (nesse caso, uma fila).
+Com este modelo, você implementa uma regra de autorização de ônibus de serviço para um espaço de nome e entidade de mensagens (neste caso, uma fila).
 
-Este modelo usa [SAS (assinatura de acesso compartilhado)](service-bus-sas.md) para autenticação. A SAS permite que os aplicativos se autentiquem no barramento de serviço usando uma chave de acesso configurada no namespace ou na entidade de mensagens (fila ou tópico) à qual direitos específicos estão associados. Você pode usar essa chave para gerar um token SAS que os clientes podem, por sua vez, usar para autenticar no barramento de serviço.
+Este modelo utiliza [a Assinatura de Acesso Partilhado (SAS)](service-bus-sas.md) para autenticação. A SAS permite que as aplicações se autentiquem ao Service Bus utilizando uma chave de acesso configurada no espaço de nome, ou na entidade de mensagens (fila ou tópico) com a qual os direitos específicos estão associados. Em seguida, pode utilizar esta chave para gerar um símbolo SAS que os clientes podem, por sua vez, usar para autenticar o Service Bus.
 
 Para executar automaticamente a implementação, clique no seguinte botão:
 
-[![Implementar no Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
+[![Desdobre para Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parâmetros
 
-Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma seção chamada `Parameters` que contém todos os valores de parâmetro. Você deve definir um parâmetro para esses valores que irão variar com base no projeto que você está implantando ou com base no ambiente no qual você está implantando. Não defina parâmetros para valores que sempre permanecerão os mesmos. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
+Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui `Parameters` uma secção chamada que contém todos os valores do parâmetro. Deve definir um parâmetro para os valores que variarão em função do projeto que está a implementar ou com base no ambiente para o qual está a implementar. Não defina parâmetros para valores que se mantenham sempre os mesmos. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados.
 
 O modelo define os seguintes parâmetros.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-O nome do namespace do barramento de serviço a ser criado.
+
+O nome do espaço de nome do Ônibus de serviço para criar.
 
 ```json
 "serviceBusNamespaceName": {
@@ -66,8 +67,9 @@ O nome do namespace do barramento de serviço a ser criado.
 }
 ```
 
-### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
-O nome da regra de autorização para o namespace.
+### <a name="namespaceauthorizationrulename"></a>nome spaceAuthorizationRuleName
+
+O nome da regra de autorização para o espaço de nome.
 
 ```json
 "namespaceAuthorizationRuleName ": {
@@ -76,7 +78,8 @@ O nome da regra de autorização para o namespace.
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
-O nome da fila no namespace do barramento de serviço.
+
+O nome da fila no espaço de nome do Autocarro de Serviço.
 
 ```json
 "serviceBusQueueName": {
@@ -84,8 +87,9 @@ O nome da fila no namespace do barramento de serviço.
 }
 ```
 
-### <a name="servicebusapiversion"></a>serviceBusApiVersion
-A versão da API do barramento de serviço do modelo.
+### <a name="servicebusapiversion"></a>serviçoBusApiVersion
+
+A versão API do bus de serviço do modelo.
 
 ```json
 "serviceBusApiVersion": { 
@@ -97,7 +101,8 @@ A versão da API do barramento de serviço do modelo.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos a implementar
-Cria um namespace padrão do barramento de serviço do tipo **mensagens**e uma regra de autorização do barramento de serviço para o namespace e a entidade.
+
+Cria um espaço de nome de ônibus de serviço padrão de tipo **Mensagens,** e uma regra de autorização de ônibus de serviço para espaço de nome e entidade.
 
 ```json
 "resources": [
@@ -149,29 +154,33 @@ Cria um namespace padrão do barramento de serviço do tipo **mensagens**e uma r
     ]
 ```
 
-Para sintaxe e propriedades JSON, consulte [namespaces](/azure/templates/microsoft.servicebus/namespaces), [filas](/azure/templates/microsoft.servicebus/namespaces/queues)e [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
+Para sintaxe jSON e propriedades, consulte espaços de [nome,](/azure/templates/microsoft.servicebus/namespaces) [filas,](/azure/templates/microsoft.servicebus/namespaces/queues)e [Regras de Autorização.](/azure/templates/microsoft.servicebus/namespaces/authorizationrules)
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implementação
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>CLI do Azure
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que você criou e implantou recursos usando Azure Resource Manager, saiba como gerenciar esses recursos exibindo estes artigos:
 
-* [Gerir o Service Bus com o PowerShell](service-bus-powershell-how-to-provision.md)
-* [Gerenciar recursos do barramento de serviço com o Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
-* [Autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md)
+Agora que criou e implantou recursos usando o Azure Resource Manager, aprenda a gerir estes recursos visualizando estes artigos:
+
+* [Gerir o Barramento de Serviço com o PowerShell](service-bus-powershell-how-to-provision.md)
+* [Gerir os recursos de ônibus de serviço com o Explorador de Ônibus de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Autenticação e autorização do Service Bus](service-bus-authentication-and-authorization.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

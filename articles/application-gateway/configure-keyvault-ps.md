@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 2f7eafc6fc1533bd837fae60dd3b9673f6f97aa8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 15e10d34120ab5475f241235bbebeb0c7689ca14
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913026"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371229"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configure a rescisão do SSL com certificados key vault utilizando o Azure PowerShell
 
@@ -23,9 +23,9 @@ Para mais informações, consulte a [rescisão do SSL com certificados key vault
 
 Este artigo mostra-lhe como usar um script Azure PowerShell para integrar o seu cofre chave com a sua porta de aplicação para certificados de rescisão SSL.
 
-Este artigo requer a versão 1.0.0 ou posterior do módulo PowerShell Azure. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, também precisa de criar uma ligação com o Azure executando `Connect-AzAccount`.
+Este artigo requer a versão 1.0.0 ou posterior do módulo PowerShell Azure. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, também precisa de criar `Connect-AzAccount`uma ligação com o Azure executando .
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> A bandeira -EnableSoftDelete deve ser utilizada para que a terminação SSL funcione corretamente.
+> A bandeira -EnableSoftDelete deve ser utilizada para que a terminação SSL funcione corretamente. Se estiver a configurar o [soft-delete do Key Vault através do Portal,](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)o período de retenção deve ser mantido em 90 dias, o valor predefinido. O Application Gateway ainda não suporta um período de retenção diferente. 
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

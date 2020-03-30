@@ -1,19 +1,19 @@
 ---
 title: Mostrar dados de tráfego no mapa android / Microsoft Azure Maps
 description: Neste artigo você vai aprender, como exibir dados de tráfego em um mapa usando o Microsoft Azure Maps Android SDK.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 37de55d671bb19cfcd9fd494c2e76f658fc7db21
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249501"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335382"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostre dados de tráfego no mapa usando Azure Maps Android SDK
 
@@ -25,13 +25,13 @@ Antes de poder mostrar o tráfego no mapa, tem de [fazer uma Conta Azure](quick-
 
 ## <a name="incidents-traffic-data"></a>Incidentes dados de tráfego 
 
-Terá de importar as seguintes bibliotecas para chamar `setTraffic` e `incidents`:
+Terá de importar as seguintes `setTraffic` bibliotecas para ligar e: `incidents`
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- O seguinte código de corte mostra-lhe como exibir dados de tráfego no mapa. Passamos um valor booleano para o método `incidents`, e passamos isso para o método `setTraffic`. 
+ O seguinte código de corte mostra-lhe como exibir dados de tráfego no mapa. Passamos um valor booleano ao `incidents` método, `setTraffic` e passamos isso para o método. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,14 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## <a name="flow-traffic-data"></a>Dados de tráfego de fluxo
 
-Primeiro terá de importar as seguintes bibliotecas para chamar `setTraffic` e `flow`:
+Primeiro terá de importar as seguintes `setTraffic` `flow`bibliotecas para ligar e:
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-Utilize o seguinte código para definir os dados de fluxo de tráfego. Semelhante ao código na secção anterior, passamos o valor de retorno do método `flow` ao método `setTraffic`. Há quatro valores que podem ser passados para `flow`, e cada valor desencadearia `flow` devolver o respetivo valor. O valor de retorno da `flow` será então aprovado como argumento para `setTraffic`. Consulte a tabela abaixo para estes quatro valores:
+Utilize o seguinte código para definir os dados de fluxo de tráfego. Semelhante ao código na secção anterior, passamos `flow` o valor `setTraffic` de retorno do método ao método. Há quatro valores que `flow`podem ser passados `flow` para, e cada valor desencadearia a devolução do respetivo valor. O valor `flow` de retorno será então `setTraffic`passado como argumento para . Consulte a tabela abaixo para estes quatro valores:
 
 | | |
 | :-- | :-- |
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Para obter os incidentes para uma característica específica, pode utilizar o código abaixo. Quando uma funcionalidade é clicada, a lógica do código verifica incidentes e constrói uma mensagem sobre o incidente. Uma mensagem aparece na parte inferior do ecrã com os detalhes.
 
-1. Primeiro, você precisa editar **res > layout > activity_main.xml,** para que se pareça com o abaixo. Pode substituir o `mapcontrol_centerLat`, `mapcontrol_centerLng`e `mapcontrol_zoom` dos valores desejados. Lembre-se, o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro encaixa-se num único azulejo.
+1. Primeiro, é necessário editar **res > layout > activity_main.xml,** para que se pareça com o que está por baixo. Pode substituir `mapcontrol_centerLat`o, `mapcontrol_centerLng` `mapcontrol_zoom` e os valores desejados. Lembre-se, o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro encaixa-se num único azulejo.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -234,13 +234,13 @@ Para obter os incidentes para uma característica específica, pode utilizar o c
 Consulte os seguintes guias para saber como adicionar mais dados ao seu mapa:
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de símbolo](how-to-add-symbol-to-android-map.md)
+> [Adicionar uma camada de símbolo](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de azulejos](how-to-add-tile-layer-android-map.md)
+> [Adicionar uma camada de mosaico](how-to-add-tile-layer-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Adicione formas ao mapa android](how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Mostrar informações sobre recursos](display-feature-information-android.md)
+> [Apresentar informações da funcionalidade](display-feature-information-android.md)

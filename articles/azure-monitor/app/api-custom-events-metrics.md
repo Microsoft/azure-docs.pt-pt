@@ -3,26 +3,26 @@ title: Aplicação Insights API para eventos e métricas personalizados / Micros
 description: Insira algumas linhas de código no seu dispositivo ou na aplicação de desktop, página web ou serviço, para rastrear problemas de utilização e diagnóstico.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 74736966013581296483d1444f4ab2b8a35bbd98
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 4275d3ea3a340f0a4083ab929eb7f7872f3311e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79276364"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295040"
 ---
-# <a name="application-insights-api-for-custom-events-and-metrics"></a>API insights de aplicação para eventos e métricas personalizados
+# <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
 Insira algumas linhas de código na sua aplicação para saber o que os utilizadores estão a fazer com ela, ou para ajudar a diagnosticar problemas. Pode enviar telemetria a partir de aplicações de dispositivos e desktop, clientes web e servidores web. Utilize a API core telemetria de insights de [aplicação Azure](../../azure-monitor/app/app-insights-overview.md) para enviar eventos e métricas personalizados, e as suas próprias versões de telemetria padrão. Esta API é a mesma API que os colecionadores de dados de Aplicação Padrão Insights utilizam.
 
 ## <a name="api-summary"></a>Resumo da API
 
-A API central é uniforme em todas as plataformas, para além de algumas variações como `GetMetric`(apenas.NET).
+A API central é uniforme em todas as plataformas, além de algumas variações como `GetMetric`(apenas NET).
 
 | Método | Utilizado para |
 | --- | --- |
 | [`TrackPageView`](#page-views) |Páginas, ecrãs, lâminas ou formulários. |
 | [`TrackEvent`](#trackevent) |Ações de utilizador e outros eventos. Usado para monitorizar o comportamento do utilizador ou para monitorizar o desempenho. |
-| [`GetMetric`](#getmetric) |Métricas zero e multidimensionais, agregação C# configurada centralmente, apenas. |
+| [`GetMetric`](#getmetric) |Métricas zero e multidimensionais, agregação configurada centralmente, apenas C# |
 | [`TrackMetric`](#trackmetric) |Medições de desempenho tais como comprimentos de fila não relacionados com eventos específicos. |
 | [`TrackException`](#trackexception) |Exceções para o diagnóstico. Trace onde ocorrem em relação a outros eventos e examine os vestígios da pilha. |
 | [`TrackRequest`](#trackrequest) |Registando a frequência e duração dos pedidos do servidor para análise de desempenho. |
@@ -31,7 +31,7 @@ A API central é uniforme em todas as plataformas, para além de algumas variaç
 
 Pode [anexar propriedades e métricas](#properties) à maioria destas chamadas de telemetria.
 
-## <a name="prep"></a>Antes de começar
+## <a name="before-you-start"></a><a name="prep"></a>Antes de começar
 
 Se ainda não tiver uma referência no SDK de Insights de Aplicação:
 
@@ -44,25 +44,28 @@ Se ainda não tiver uma referência no SDK de Insights de Aplicação:
   * [JavaScript em cada página web](../../azure-monitor/app/javascript.md) 
 * No seu dispositivo ou código de servidor web, inclua:
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    *C#:*`using Microsoft.ApplicationInsights;`
 
-    *Básico Visual:* `Imports Microsoft.ApplicationInsights`
+    *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
-    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
+    *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
 
-    *Node.js:* `var applicationInsights = require("applicationinsights");`
+    *Nó.js:*`var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>Obtenha uma instância telemetriaClient
 
-Obtenha uma instância de `TelemetryClient` (exceto no JavaScript nas páginas web):
+Obtenha uma `TelemetryClient` instância de (exceto no JavaScript nas páginas web):
 
-Para ASP.NET aplicações [Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) e Non HTTP/Worker para as aplicações [.NET/.NET Core,](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) recomenda-se obter uma instância de `TelemetryClient` do recipiente de injeção de dependência, conforme explicado na respetiva documentação.
+Para ASP.NET aplicações [Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) e Non HTTP/Worker para as aplicações [.NET/.NET Core,](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) recomenda-se obter uma instância do recipiente de injeção de `TelemetryClient` dependência, conforme explicado na respetiva documentação.
 
-*C#*
+Se utilizar o AzureFunctions v2+ ou o Azure WebJobs v3+ - siga este documento:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-3
+
+*C #*
 
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
 ```
+Para quem vê este método são mensagens obsoletas, visite [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152) para mais detalhes.
 
 *Básico Visual*
 
@@ -76,7 +79,7 @@ Private Dim telemetry As New TelemetryClient
 private TelemetryClient telemetry = new TelemetryClient();
 ``` 
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 var telemetry = applicationInsights.defaultClient;
@@ -86,7 +89,7 @@ TelemetriaClient é seguro para fios.
 
 Para ASP.NET e java projetos, os pedidos http estão automaticamente capturados. É melhor criar instâncias adicionais de TelemettryClient para outro módulo da sua aplicação. Por exemplo, pode ter uma instância telemetriaClient na sua classe de middleware para reportar eventos de lógica empresarial. Pode definir propriedades como UserId e DeviceId para identificar a máquina. Esta informação está anexada a todos os eventos que a instância envia.
 
-*C#*
+*C #*
 
 ```csharp
 TelemetryClient.Context.User.Id = "...";
@@ -100,7 +103,7 @@ telemetry.getContext().getUser().setId("...");
 telemetry.getContext().getDevice().setId("...");
 ```
 
-Nos projetos Node.js, você pode usar `new applicationInsights.TelemetryClient(instrumentationKey?)` para criar uma nova instância, mas isso é recomendado apenas para cenários que requerem configuração isolada do singleton `defaultClient`.
+Nos projetos Node.js, `new applicationInsights.TelemetryClient(instrumentationKey?)` você pode usar para criar uma nova instância, mas isso `defaultClient`é recomendado apenas para cenários que requerem configuração isolada do singleton .
 
 ## <a name="trackevent"></a>TrackEvent
 
@@ -116,7 +119,7 @@ Por exemplo, numa aplicação de jogo, envie um evento sempre que um utilizador 
 appInsights.trackEvent({name:"WinGame"});
 ```
 
-*C#*
+*C #*
 
 ```csharp
 telemetry.TrackEvent("WinGame");
@@ -134,7 +137,7 @@ telemetry.TrackEvent("WinGame")
 telemetry.trackEvent("WinGame");
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 telemetry.trackEvent({name: "WinGame"});
@@ -142,7 +145,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Eventos personalizados em Analytics
 
-A telemetria está disponível na tabela `customEvents` em [Application Insights Analytics.](analytics.md) Cada linha representa uma chamada para `trackEvent(..)` na sua aplicação.
+A telemetria está `customEvents` disponível na tabela em [Application Insights Analytics](analytics.md). Cada linha representa uma `trackEvent(..)` chamada para a sua aplicação.
 
 Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade do Conde mostra um valor superior a 1. Por exemplo, o itemCount==10 significa que de 10 chamadas para trackEvent(), o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de eventos personalizados, deve, portanto, utilizar códigos como `customEvents | summarize sum(itemCount)`.
 
@@ -150,7 +153,7 @@ Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento,
 
 ### <a name="examples"></a>Exemplos
 
-*C#*
+*C #*
 
 ```csharp
 namespace User.Namespace.Example01
@@ -235,18 +238,18 @@ namespace User.Namespace.Example01
 }
 ```
 
-## <a name="trackmetric"></a>TrackMetric
+## <a name="trackmetric"></a>TrackMétrico
 
 > [!NOTE]
 > Microsoft.ApplicationInsights.TelemettryClient.TrackMetric não é o método preferido para o envio de métricas. As métricas devem ser sempre pré-agregadas num período de tempo antes de serem enviadas. Utilize uma das sobrecargas GetMetric(..) para obter um objeto métrico para aceder às capacidades de pré-agregação de SDK. Se estiver a implementar a sua própria lógica de pré-agregação, pode utilizar o método TrackMetric() para enviar os agregados resultantes. Se a sua aplicação necessitar de enviar um item de telemetria separado em todas as ocasiões sem agregação ao longo do tempo, provavelmente terá um caso de utilização para telemetria de eventos; ver TelemettryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemettry).
 
 Os Insights de Aplicação podem traçar métricas que não estão ligadas a eventos específicos. Por exemplo, pode monitorizar um comprimento de fila em intervalos regulares. Com as métricas, as medições individuais são de menor interesse do que as variações e tendências, e assim os gráficos estatísticos são úteis.
 
-Para enviar métricas para Application Insights, pode utilizar a API `TrackMetric(..)`. Há duas maneiras de enviar uma métrica:
+Para enviar métricas para Application Insights, `TrackMetric(..)` pode utilizar a API. Há duas maneiras de enviar uma métrica:
 
-* Um único valor. Sempre que efetua uma medição na sua aplicação, envia o valor correspondente para O Insights de Aplicação. Por exemplo, assuma que tem uma métrica descrevendo o número de itens num recipiente. Durante um determinado período de tempo, coloca-se primeiro três itens no recipiente e depois remove-se dois itens. Assim, chamar-se-ia `TrackMetric` duas vezes: primeiro passando o valor `3` e depois o valor `-2`. Application Insights armazena ambos os valores em seu nome.
+* Um único valor. Sempre que efetua uma medição na sua aplicação, envia o valor correspondente para O Insights de Aplicação. Por exemplo, assuma que tem uma métrica descrevendo o número de itens num recipiente. Durante um determinado período de tempo, coloca-se primeiro três itens no recipiente e depois remove-se dois itens. Assim, ligaria `TrackMetric` duas vezes: `3` primeiro passando `-2`o valor e depois o valor. Application Insights armazena ambos os valores em seu nome.
 
-* Agregação. Quando se trabalha com métricas, cada medição raramente é interessante. Em vez disso, é importante um resumo do que aconteceu durante um determinado período de tempo. Tal resumo chama-se _agregação._ No exemplo acima, a soma métrica agregada para esse período é `1` e a contagem dos valores métricos é `2`. Ao utilizar a abordagem de agregação, apenas invoca `TrackMetric` uma vez por período de tempo e envia os valores agregados. Esta é a abordagem recomendada, uma vez que pode reduzir significativamente o custo e a sobrecarga de desempenho enviando menos pontos de dados para a Application Insights, ao mesmo tempo que recolhe todas as informações relevantes.
+* Agregação. Quando se trabalha com métricas, cada medição raramente é interessante. Em vez disso, é importante um resumo do que aconteceu durante um determinado período de tempo. Tal resumo chama-se _agregação._ No exemplo acima, a soma métrica agregada para esse período `1` `2`é e a contagem dos valores métricos é . Ao utilizar a abordagem de agregação, basta invocar `TrackMetric` uma vez por período de tempo e enviar os valores agregados. Esta é a abordagem recomendada, uma vez que pode reduzir significativamente o custo e a sobrecarga de desempenho enviando menos pontos de dados para a Application Insights, ao mesmo tempo que recolhe todas as informações relevantes.
 
 ### <a name="examples"></a>Exemplos
 
@@ -260,7 +263,7 @@ Para enviar um único valor métrico:
 appInsights.trackMetric("queueLength", 42.0);
  ```
 
-*C#*
+*C #*
 
 ```csharp
 var sample = new MetricTelemetry();
@@ -275,7 +278,7 @@ telemetryClient.TrackMetric(sample);
 telemetry.trackMetric("queueLength", 42.0);
 ```
 
-*Node.js*
+*Nó.js*
 
  ```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
@@ -283,10 +286,10 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### <a name="custom-metrics-in-analytics"></a>Métricas personalizadas em Analytics
 
-A telemetria está disponível na tabela `customMetrics` em [Application Insights Analytics.](analytics.md) Cada linha representa uma chamada para `trackMetric(..)` na sua aplicação.
+A telemetria está `customMetrics` disponível na tabela em [Application Insights Analytics](analytics.md). Cada linha representa uma `trackMetric(..)` chamada para a sua aplicação.
 
-* `valueSum` - Esta é a soma das medições. Para obter o valor médio, divida por `valueCount`.
-* `valueCount` - O número de medições que foram agregadas nesta chamada `trackMetric(..)`.
+* `valueSum`- Esta é a soma das medições. Para obter o valor `valueCount`médio, divida por .
+* `valueCount`- O número de medições que `trackMetric(..)` foram agregadas nesta chamada.
 
 ## <a name="page-views"></a>Vistas da página
 
@@ -302,7 +305,7 @@ Os dados do utilizador e da sessão são enviados como propriedades juntamente c
 appInsights.trackPageView("tab1");
 ```
 
-*C#*
+*C #*
 
 ```csharp
 telemetry.TrackPageView("GameReviewPage");
@@ -332,8 +335,8 @@ Por predefinição, os tempos reportados como tempo de carregamento de **visuali
 
 Em vez disso, pode:
 
-* Delineie uma duração explícita na chamada [pageview:](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/API.md#trackpageview) `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
-* Utilize as chamadas de horário da visualização da página `startTrackPage` e `stopTrackPage`.
+* Delineie uma duração explícita `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`na chamada pageview da [faixa:](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/API.md#trackpageview) .
+* Utilize as chamadas `startTrackPage` de `stopTrackPage`tempo da visualização da página e .
 
 *JavaScript*
 
@@ -355,8 +358,8 @@ As durações de carga da página resultantes apresentadas no Metrics Explorer s
 
 No [Analytics](analytics.md) duas tabelas mostram dados das operações do navegador:
 
-* A tabela `pageViews` contém dados sobre o URL e o título da página
-* A tabela `browserTimings` contém dados sobre o desempenho do cliente, como o tempo que se demorou a processar os dados que chegam
+* A `pageViews` tabela contém dados sobre o URL e o título da página
+* A `browserTimings` tabela contém dados sobre o desempenho do cliente, tais como o tempo que se demorou a processar os dados que chegam
 
 Para saber quanto tempo o navegador demora a processar diferentes páginas:
 
@@ -395,7 +398,7 @@ Consulte a [correlação de Telemetria em Insights de Aplicação](../../azure-m
 
 Ao rastrear a telemetria manualmente, a maneira mais fácil de garantir a correlação de telemetria utilizando este padrão:
 
-*C#*
+*C #*
 
 ```csharp
 // Establish an operation context and associated telemetry item:
@@ -415,7 +418,7 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 } // When operation is disposed, telemetry item is sent.
 ```
 
-Juntamente com a definição de um contexto de funcionamento, `StartOperation` cria um item de telemetria do tipo que especifica. Envia o item de telemetria quando elimina a operação, ou se ligar explicitamente `StopOperation`. Se utilizar `RequestTelemetry` como tipo de telemetria, a sua duração é definida no intervalo cronometrado entre o início e a paragem.
+Juntamente com a `StartOperation` definição de um contexto de funcionamento, cria um item de telemetria do tipo que especifica. Envia o item de telemetria quando elimina a operação, ou se ligar `StopOperation`explicitamente . Se utilizar `RequestTelemetry` como tipo de telemetria, a sua duração é definida no intervalo cronometrado entre o início e a paragem.
 
 Os artigos de telemetria relatados no âmbito da operação tornam-se "crianças" de tal operação. Os contextos de funcionamento podem ser aninhados.
 
@@ -427,7 +430,7 @@ Consulte [as operações personalizadas do Track com Application Insights .NET S
 
 ### <a name="requests-in-analytics"></a>Pedidos em Analytics
 
-Na [Aplicação Insights Analytics,](analytics.md)os pedidos aparecem na tabela `requests`.
+Na [Aplicação Insights Analytics,](analytics.md)os `requests` pedidos aparecem na tabela.
 
 Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade do ItemCount mostrará um valor superior a 1. Por exemplo, o itemCount==10 significa que de 10 chamadas para rastrearPedido(), o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de pedidos e duração média segmentada por nomes de pedido, utilize código como:
 
@@ -445,7 +448,7 @@ Enviar exceções aos Insights de Aplicação:
 
 Os relatórios incluem os vestígios da pilha.
 
-*C#*
+*C #*
 
 ```csharp
 try
@@ -481,7 +484,7 @@ catch (ex)
 }
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 try
@@ -509,16 +512,16 @@ Os SDKs apanham automaticamente muitas exceções, pelo que nem sempre é precis
 
 ### <a name="exceptions-in-analytics"></a>Exceções em Analytics
 
-Na [Aplicação Insights Analytics,](analytics.md)as exceções aparecem na tabela `exceptions`.
+Na [Aplicação Insights Analytics,](analytics.md)as `exceptions` exceções aparecem na tabela.
 
-Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade `itemCount` mostra um valor superior a 1. Por exemplo, o itemCount==10 significa que de 10 chamadas para trackException(), o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de exceções segmentadas por tipo de exceção, utilize código sinuoso como:
+Se a [amostragem](../../azure-monitor/app/sampling.md) `itemCount` estiver em funcionamento, a propriedade mostra um valor superior a 1. Por exemplo, o itemCount==10 significa que de 10 chamadas para trackException(), o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de exceções segmentadas por tipo de exceção, utilize código sinuoso como:
 
 ```kusto
 exceptions
 | summarize sum(itemCount) by type
 ```
 
-A maior parte da informação importante da pilha já está extraída em variáveis separadas, mas você pode desmontar a estrutura `details` para obter mais. Uma vez que esta estrutura é dinâmica, deve lançar o resultado para o tipo que espera. Por exemplo:
+A maior parte da informação importante da pilha já está `details` extraída em variáveis separadas, mas você pode desmontar a estrutura para obter mais. Uma vez que esta estrutura é dinâmica, deve lançar o resultado para o tipo que espera. Por exemplo:
 
 ```kusto
 exceptions
@@ -540,7 +543,7 @@ Em .NET [Os adaptadores](../../azure-monitor/app/asp-net-trace-logs.md) de log u
 
 Em Java para [madeireiros Standard como o Log4J, o Logback](../../azure-monitor/app/java-trace-logs.md) utiliza o Application Insights Log4j ou os Apendes de Logback para enviar registos de terceiros para o portal.
 
-*C#*
+*C #*
 
 ```csharp
 telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
@@ -552,7 +555,7 @@ telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 telemetry.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 telemetry.trackTrace({
@@ -578,12 +581,12 @@ Faça loga num evento de diagnóstico como entrar ou deixar um método.
 
 Pode pesquisar o conteúdo da mensagem, mas (ao contrário dos valores de propriedade) não pode filtrar nele.
 
-O limite de tamanho na `message` é muito superior ao limite de propriedades.
+O limite `message` de tamanho é muito superior ao limite de propriedades.
 Uma vantagem do TrackTrace é que pode colocar dados relativamente longos na mensagem. Por exemplo, pode codificar os dados do POST.  
 
 Além disso, pode adicionar um nível de gravidade à sua mensagem. E, tal como outras telemetrias, pode adicionar valores de propriedade para ajudá-lo a filtrar ou procurar diferentes conjuntos de vestígios. Por exemplo:
 
-*C#*
+*C #*
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -604,15 +607,15 @@ Em [Search,](../../azure-monitor/app/diagnostic-search.md)pode filtrar facilment
 
 ### <a name="traces-in-analytics"></a>Vestígios em Analytics
 
-Na [Aplicação Insights Analytics,](analytics.md)as chamadas para trackTrace aparecem na tabela `traces`.
+Na [Aplicação Insights Analytics,](analytics.md)as chamadas `traces` para trackTrace aparecem na tabela.
 
-Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade do Conde mostra um valor superior a 1. Por exemplo, itemCount==10 significa que de 10 chamadas para `trackTrace()`, o processo de amostragem só transmitiu uma delas. Para obter uma contagem correta de chamadas de rastreio, deve utilizar, portanto, código como `traces | summarize sum(itemCount)`.
+Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade do Conde mostra um valor superior a 1. Por exemplo, o itemCount==10 significa `trackTrace()`que de 10 chamadas para , o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de chamadas de rastreio, deve utilizar, portanto, código como `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
 
 Utilize a chamada TrackDependency para acompanhar os tempos de resposta e as taxas de sucesso das chamadas para um código externo. Os resultados aparecem nos gráficos de dependência no portal. O código abaixo precisa de ser adicionado onde quer que seja feita uma chamada de dependência.
 
-*C#*
+*C #*
 
 ```csharp
 var success = false;
@@ -652,7 +655,7 @@ finally {
 }
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 var success = false;
@@ -679,11 +682,11 @@ Em Java, certas chamadas de dependência podem ser rastreadas automaticamente us
 
 Usa esta chamada se quiser rastrear chamadas que o rastreio automatizado não apanha, ou se não quiser instalar o agente.
 
-Para desligar o módulo padrão de C#rastreio da dependência, edite [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) e elimine a referência a `DependencyCollector.DependencyTrackingTelemetryModule`. Em Java, por favor, não instale o agente Java se não quiser recolher as dependências padrão automaticamente.
+Para desligar o módulo padrão de rastreio da dependência em C#, editar `DependencyCollector.DependencyTrackingTelemetryModule` [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) e eliminar a referência a . Em Java, por favor, não instale o agente Java se não quiser recolher as dependências padrão automaticamente.
 
 ### <a name="dependencies-in-analytics"></a>Dependências em Analytics
 
-Na [Aplicação Insights Analytics,](analytics.md)as chamadas trackDependency aparecem na tabela `dependencies`.
+Na [Aplicação Insights Analytics,](analytics.md)as chamadas `dependencies` trackDependency aparecem na tabela.
 
 Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade do Conde mostra um valor superior a 1. Por exemplo, o itemCount==10 significa que de 10 chamadas para rastrearA Dependência(), o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de dependências segmentadas por componente-alvo, utilize código sinuoso como:
 
@@ -703,7 +706,7 @@ dependencies
 
 Normalmente, o SDK envia dados em intervalos fixos (tipicamente 30 segundos) ou sempre que o tampão está cheio (normalmente 500 itens). No entanto, em alguns casos, é melhor descarregar o tampão- por exemplo, se estiver a usar o SDK numa aplicação que se desliga.
 
-*C#*
+*C #*
 
  ```csharp
 telemetry.Flush();
@@ -719,7 +722,7 @@ telemetry.flush();
 Thread.sleep(5000);
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 telemetry.flush();
@@ -761,7 +764,7 @@ Numa aplicação ASP.NET web MVC, por exemplo:
 }
 ```
 
-Não é necessário usar o nome de inscrição real do utilizador. Só tem de ser um ID que seja exclusivo desse utilizador. Não deve incluir espaços ou qualquer um dos caracteres `,;=|`.
+Não é necessário usar o nome de inscrição real do utilizador. Só tem de ser um ID que seja exclusivo desse utilizador. Não deve incluir espaços ou `,;=|`qualquer um dos caracteres.
 
 O ID do utilizador também é definido num cookie de sessão e enviado para o servidor. Se o SDK do servidor estiver instalado, o ID do utilizador autenticado é enviado como parte das propriedades de contexto da telemetria do cliente e do servidor. Em seguida, pode filtrar e procurar nele.
 
@@ -775,7 +778,7 @@ No [Metrics Explorer,](../../azure-monitor/app/metrics-explorer.md)pode criar um
 
 Também pode [pesquisar](../../azure-monitor/app/diagnostic-search.md) pontos de dados do cliente com nomes e contas de utilizadores específicos.
 
-## <a name="properties"></a>Filtrar, pesquisar e segmentar os seus dados utilizando propriedades
+## <a name="filtering-searching-and-segmenting-your-data-by-using-properties"></a><a name="properties"></a>Filtrar, pesquisar e segmentar os seus dados utilizando propriedades
 
 Pode anexar propriedades e medições aos seus eventos (e também a métricas, vistas de página, exceções e outros dados de telemetria).
 
@@ -809,7 +812,7 @@ appInsights.trackPageView
         );
 ```
 
-*C#*
+*C #*
 
 ```csharp
 // Set up some properties and metrics:
@@ -822,7 +825,7 @@ var metrics = new Dictionary <string, double>
 telemetry.TrackEvent("WinGame", properties, metrics);
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 // Set up some properties and metrics:
@@ -886,13 +889,13 @@ telemetry.TrackEvent(event);
 ```
 
 > [!WARNING]
-> Não reutilize a mesma instância de artigo de telemetria (`event` neste exemplo) para chamar Track*() várias vezes. Isto pode fazer com que a telemetria seja enviada com uma configuração incorreta.
+> Não reutilize a mesma instância de artigo`event` de telemetria (neste exemplo) para ligar várias vezes ao Track*() Isto pode fazer com que a telemetria seja enviada com uma configuração incorreta.
 >
 >
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Medições e propriedades personalizadas em Analytics
 
-No [Analytics,](analytics.md)métricas e propriedades personalizadas mostram no `customMeasurements` e `customDimensions` atributos de cada registo de telemetria.
+Em [Analytics,](analytics.md)métricas e propriedades `customMeasurements` `customDimensions` personalizadas mostram nos atributos de cada disco de telemetria.
 
 Por exemplo, se adicionou uma propriedade chamada "game" à sua telemetria de pedido, esta consulta conta as ocorrências de diferentes valores de "jogo", e mostra a média da métrica personalizada "pontuação":
 
@@ -903,14 +906,14 @@ requests
 
 Note que:
 
-* Quando extrai um valor das Dimensões personalizadas ou personalizados JSON, tem um tipo dinâmico, pelo que deve lançá-lo `tostring` ou `todouble`.
-* Para ter em conta a possibilidade de [amostragem,](../../azure-monitor/app/sampling.md)deve utilizar `sum(itemCount)`, não `count()`.
+* Quando extrai um valor das Dimensões personalizadas ou personalizados JSON, tem um `tostring` `todouble`tipo dinâmico, pelo que deve lançá-lo ou .
+* Para ter em conta a possibilidade `sum(itemCount)`de `count()` [amostragem,](../../azure-monitor/app/sampling.md)deve utilizar, não .
 
-## <a name="timed"></a>Eventos de cronometragem
+## <a name="timing-events"></a><a name="timed"></a>Eventos de cronometragem
 
 Às vezes queremos traçar o tempo que demora a realizar uma ação. Por exemplo, talvez queira saber quanto tempo os utilizadores demoram a considerar escolhas num jogo. Pode utilizar o parâmetro de medição para isto.
 
-*C#*
+*C #*
 
 ```csharp
 var stopwatch = System.Diagnostics.Stopwatch.StartNew();
@@ -949,11 +952,11 @@ properties.put("signalSource", currentSignalSource.getName());
 telemetry.trackEvent("SignalProcessed", properties, metrics);
 ```
 
-## <a name="defaults"></a>Propriedades padrão para telemetria personalizada
+## <a name="default-properties-for-custom-telemetry"></a><a name="defaults"></a>Propriedades padrão para telemetria personalizada
 
 Se quiser definir valores de propriedade padrão para alguns dos eventos personalizados que escreve, pode defini-los numa instância TelemettryClient. Estão ligados a todos os artigos de telemetria que são enviados daquele cliente.
 
-*C#*
+*C #*
 
 ```csharp
 using Microsoft.ApplicationInsights.DataContracts;
@@ -988,7 +991,7 @@ context.getProperties().put("Game", currentGame.Name);
 gameTelemetry.TrackEvent("WinGame");
 ```
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 var gameTelemetry = new applicationInsights.TelemetryClient();
@@ -1001,15 +1004,15 @@ As chamadas de telemetria individuais podem sobrepor-se aos valores padrão nos 
 
 *Para clientes web JavaScript,* utilize os iniciais de telemetria JavaScript.
 
-*Para adicionar propriedades a toda a telemetria,* incluindo os dados dos módulos de recolha padrão, [implemente `ITelemetryInitializer`](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
+*Para adicionar propriedades a toda a telemetria,* incluindo os dados dos módulos de recolha padrão, [implemente `ITelemetryInitializer` ](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>Amostragem, filtragem e telemetria de processamento
 
 Pode escrever código para processar a sua telemetria antes de ser enviada do SDK. O processamento inclui dados enviados a partir dos módulos padrão de telemetria, tais como recolha de pedidos http e recolha de dependência.
 
-[Adicione propriedades](../../azure-monitor/app/api-filtering-sampling.md#add-properties) à telemetria implementando `ITelemetryInitializer`. Por exemplo, pode adicionar números de versão ou valores que são calculados a partir de outras propriedades.
+[Adicione propriedades](../../azure-monitor/app/api-filtering-sampling.md#add-properties) à telemetria `ITelemetryInitializer`implementando . Por exemplo, pode adicionar números de versão ou valores que são calculados a partir de outras propriedades.
 
-[A filtragem](../../azure-monitor/app/api-filtering-sampling.md#filtering) pode modificar ou descartar a telemetria antes de ser enviada do SDK implementando `ITelemetryProcessor`. Controla o que é enviado ou descartado, mas tem de explicar o efeito nas suas métricas. Dependendo da forma como descarta itens, pode perder a capacidade de navegar entre itens relacionados.
+[A filtragem](../../azure-monitor/app/api-filtering-sampling.md#filtering) pode modificar ou descartar a telemetria antes de `ITelemetryProcessor`ser enviada do SDK implementando . Controla o que é enviado ou descartado, mas tem de explicar o efeito nas suas métricas. Dependendo da forma como descarta itens, pode perder a capacidade de navegar entre itens relacionados.
 
 [A amostragem](../../azure-monitor/app/api-filtering-sampling.md) é uma solução embalada para reduzir o volume de dados que é enviado da sua app para o portal. Fá-lo sem afetar as métricas expostas. E fá-lo sem afetar a sua capacidade de diagnosticar problemas navegando entre itens relacionados, como exceções, pedidos e visualizações de páginas.
 
@@ -1019,7 +1022,7 @@ Pode escrever código para processar a sua telemetria antes de ser enviada do SD
 
 Para *parar e iniciar dinamicamente* a recolha e transmissão da telemetria:
 
-*C#*
+*C #*
 
 ```csharp
 using  Microsoft.ApplicationInsights.Extensibility;
@@ -1035,7 +1038,7 @@ telemetry.getConfiguration().setTrackingDisabled(true);
 
 Para *desativar os colecionadores padrão selecionados*-- por exemplo, contadores de desempenho, pedidos HTTP ou dependências -- excluir ou comentar as linhas relevantes em [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Pode fazê-lo, por exemplo, se quiser enviar os seus próprios dados do TrackRequest.
 
-*Node.js*
+*Nó.js*
 
 ```javascript
 telemetry.config.disableAppInsights = true;
@@ -1053,13 +1056,13 @@ applicationInsights.setup()
     .start();
 ```
 
-Para desativar estes colecionadores após a inicialização, utilize o objeto de configuração: `applicationInsights.Configuration.setAutoCollectRequests(false)`
+Para desativar estes colecionadores após a inicialização, utilize o objeto de configuração:`applicationInsights.Configuration.setAutoCollectRequests(false)`
 
-## <a name="debug"></a>Modo de desenvolvimento
+## <a name="developer-mode"></a><a name="debug"></a>Modo de desenvolvimento
 
 Durante a depuração, é útil ter a sua telemetria acelerada através do oleoduto para que possa ver os resultados imediatamente. Também recebe mensagens adicionais que o ajudam a rastrear qualquer problema com a telemetria. Desligue-o em produção, pois pode abrandar a sua aplicação.
 
-*C#*
+*C #*
 
 ```csharp
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
@@ -1071,9 +1074,9 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 ```
 
-*Node.js*
+*Nó.js*
 
-Para node.js, pode ativar o modo de desenvolvimento, permitindo a exploração interna através de `setInternalLogging` e definindo `maxBatchSize` a 0, o que faz com que a sua telemetria seja enviada assim que for recolhida.
+Para node.js, pode ativar o modo `setInternalLogging` de `maxBatchSize` desenvolvimento, permitindo a exploração interna através e a regulação para 0, o que faz com que a sua telemetria seja enviada assim que for recolhida.
 
 ```js
 applicationInsights.setup("ikey")
@@ -1082,9 +1085,9 @@ applicationInsights.setup("ikey")
 applicationInsights.defaultClient.config.maxBatchSize = 0;
 ```
 
-## <a name="ikey"></a>Definição da chave de instrumentação para telemetria personalizada selecionada
+## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a>Definição da chave de instrumentação para telemetria personalizada selecionada
 
-*C#*
+*C #*
 
 ```csharp
 var telemetry = new TelemetryClient();
@@ -1092,13 +1095,13 @@ telemetry.InstrumentationKey = "---my key---";
 // ...
 ```
 
-## <a name="dynamic-ikey"></a>Chave de instrumentação dinâmica
+## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Chave de instrumentação dinâmica
 
 Para evitar misturar telemetria a partir de ambientes de desenvolvimento, teste e produção, pode [criar recursos separados](../../azure-monitor/app/create-new-resource.md ) de Insights de Aplicação e alterar as suas chaves, dependendo do ambiente.
 
 Em vez de obter a chave de instrumentação do ficheiro de configuração, pode defini-la no seu código. Desloque a chave num método de inicialização, como global.aspx.cs num serviço ASP.NET:
 
-*C#*
+*C #*
 
 ```csharp
 protected void Application_Start()
@@ -1142,7 +1145,7 @@ var appInsights = window.appInsights || function(config){ ...
     }
 ```
 
-## <a name="telemetrycontext"></a>TelemetryContext
+## <a name="telemetrycontext"></a>TelemetriaContexto
 
 TelemettryClient tem uma propriedade Context, que contém valores que são enviados juntamente com todos os dados de telemetria. São normalmente definidos pelos módulos padrão de telemetria, mas também pode defini-los por si mesmo. Por exemplo:
 
@@ -1179,13 +1182,13 @@ Para determinar quanto tempo os dados são mantidos, consulte a [retenção de d
 * [Referência JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 
-## <a name="sdk-code"></a>Código SDK
+## <a name="sdk-code"></a>Código do SDK 
 
 * [SDK de ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Pacotes do Servidor do Windows](https://github.com/Microsoft/applicationInsights-dotnet-server)
-* [SDK Java](https://github.com/Microsoft/ApplicationInsights-Java)
-* [SDK Node.js](https://github.com/Microsoft/ApplicationInsights-Node.js)
+* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 
@@ -1198,7 +1201,7 @@ Para determinar quanto tempo os dados são mantidos, consulte a [retenção de d
 
     Sim, os [dados acedem à API.](https://dev.applicationinsights.io/) Outras formas de extrair dados incluem [a exportação de Analytics para Power BI](../../azure-monitor/app/export-power-bi.md ) e [exportação contínua.](../../azure-monitor/app/export-telemetry.md)
 
-## <a name="next"></a>Passos seguintes
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 
 * [Pesquisar eventos e registos](../../azure-monitor/app/diagnostic-search.md)
 * [Resolução de problemas](../../azure-monitor/app/troubleshoot-faq.md)

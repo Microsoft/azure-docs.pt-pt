@@ -1,6 +1,6 @@
 ---
-title: Codificar um ativo com Media Encoder Standard usando .NET | Microsoft Docs
-description: Este artigo mostra como usar o .NET para codificar um ativo usando Media Encoder Standard.
+title: Codificar um ativo com media Encoder Standard usando .NET [ Microsoft Docs
+description: Este artigo mostra como usar .NET para codificar um ativo usando media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -16,57 +16,57 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 259e32d55f25c4a146b7ff358eb503763dd5fab2
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69016592"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com Media Encoder Standard usando o .NET  
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com media Encoder Standard usando .NET  
 
-As tarefas de codificação são uma das operações de processamento mais comuns nos Serviços de Multimédia. Estes Serviços permitem-lhe criar tarefas de codificação para converter ficheiros de multimédia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia interno dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro dos serviços de mídia; os codificadores de terceiros estão disponíveis por meio do Azure Marketplace. 
+Os postos de trabalho de codificação são uma das operações de processamento mais comuns nos Serviços de Media. Cria-se trabalhos de codificação para converter ficheiros de mídia de uma codificação para outra. Quando codificar, pode utilizar o Media Services incorporado Media Encoder. Também pode utilizar um codificador fornecido por um parceiro de Serviços de Media; os codificadores de terceiros estão disponíveis através do Mercado Azure. 
 
-Este artigo mostra como usar o .NET para codificar seus ativos com o Media Encoder Standard (MES). Media Encoder Standard é configurado usando uma das predefinições de codificadores descritas [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Este artigo mostra como usar .NET para codificar os seus ativos com media Encoder Standard (MES). Media Encoder Standard é configurado utilizando uma das predefinições dos codificadores descritas [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-É recomendável sempre codificar os arquivos de origem em um conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md). 
+Recomenda-se codificar sempre os seus ficheiros de origem num conjunto de MP4 bitrate adaptativo e, em seguida, converter o conjunto para o formato pretendido utilizando a [Embalagem Dinâmica](media-services-dynamic-packaging-overview.md). 
 
-Se o ativo de saída for armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte Configurando a [política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
+Se o seu ativo de saída estiver encriptado de armazenamento, tem de configurar a política de entrega de ativos. Para mais informações, consulte [a política de entrega de ativos configurando.](media-services-dotnet-configure-asset-delivery-policy.md)
 
 > [!NOTE]
-> MES produz um arquivo de saída com um nome que contém os primeiros 32 caracteres do nome do arquivo de entrada. O nome é baseado no que é especificado no arquivo predefinido. Por exemplo, "FileName": "{basename} _ {index} {Extension}". {Basename} é substituído pelos primeiros 32 caracteres do nome do arquivo de entrada.
+> O MES produz um ficheiro de saída com um nome que contém os primeiros 32 caracteres do nome do ficheiro de entrada. O nome baseia-se no que está especificado no ficheiro predefinido. Por exemplo, "Nome de ficheiro": "{Basename}_{Index}{Extension}". {Nome base} é substituído pelos primeiros 32 caracteres do nome do ficheiro de entrada.
 > 
 > 
 
-### <a name="mes-formats"></a>Formatos de MES
+### <a name="mes-formats"></a>Formatos MES
 [Formatos e codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>Predefinições MES
-Media Encoder Standard é configurado usando uma das predefinições de codificadores descritas [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard é configurado utilizando uma das predefinições dos codificadores descritas [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
-Ao codificar um ativo de entrada (ou ativos) usando MES, você obtém um ativo de saída na conclusão bem-sucedida dessa tarefa de codificação. O ativo de saída contém vídeo, áudio, miniaturas, manifesto, etc., com base na predefinição de codificação usada.
+Quando codifica um ativo de entrada (ou ativos) utilizando MES, obtém-se um ativo de saída no final bem-sucedido dessa tarefa codificada. O ativo de saída contém vídeo, áudio, miniaturas, manifesto, etc. com base no predefinição de codificação que utiliza.
 
-O ativo de saída também contém um arquivo com metadados sobre o ativo de entrada. O nome do arquivo XML de metadados tem o seguinte formato: < asset_id > _metadata. XML (por exemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata. xml), em que < asset_id > é o valor de AssetID do ativo de entrada. O esquema desse XML de metadados de entrada é descrito [aqui](media-services-input-metadata-schema.md).
+O ativo de saída também contém um ficheiro com metadados sobre o ativo de entrada. O nome do ficheiro XML metadados tem o seguinte formato: <asset_id>_metadata.xml (por exemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), onde <asset_id> é o valor AssetId do ativo de entrada. O esquema deste saque de metadados de entrada XML é descrito [aqui](media-services-input-metadata-schema.md).
 
-O ativo de saída também contém um arquivo com metadados sobre o ativo de saída. O nome do arquivo XML de metadados tem o seguinte formato: < source_file_name > _manifest. XML (por exemplo, BigBuckBunny_manifest. xml). O esquema desse XML de metadados de saída é descrito [aqui](media-services-output-metadata-schema.md).
+O ativo de saída também contém um ficheiro com metadados sobre o ativo de saída. O nome do ficheiro XML dos metadados tem o seguinte formato: <source_file_name>_manifest.xml (por exemplo, BigBuckBunny_manifest.xml). O esquema deste metadados de saída XML é descrito [aqui](media-services-output-metadata-schema.md).
 
-Se você quiser examinar qualquer um dos dois arquivos de metadados, poderá criar um localizador SAS e baixar o arquivo em seu computador local. Você pode encontrar um exemplo de como criar um localizador SAS e baixar um arquivo usando as extensões do SDK do .NET dos serviços de mídia.
+Se quiser examinar qualquer um dos dois ficheiros de metadados, pode criar um localizador SAS e transferir o ficheiro para o seu computador local. Pode encontrar um exemplo sobre como criar um localizador SAS e descarregar um ficheiro Utilizando as extensões SDK dos Media Services .NET.
 
 ## <a name="download-sample"></a>Transferir exemplo
-Você pode obter e executar um exemplo que mostra como codificar com MES [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Você pode obter e executar uma amostra que mostra como codificar com MES a partir [daqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="net-sample-code"></a>Código de exemplo do .NET
+## <a name="net-sample-code"></a>Código de amostra .NET
 
-O exemplo de código a seguir usa o SDK do .NET dos serviços de mídia para executar as seguintes tarefas:
+O exemplo de código que se segue utiliza media services .NET SDK para executar as seguintes tarefas:
 
 * Criar um trabalho de codificação.
-* Obtenha uma referência para o codificador de Media Encoder Standard.
-* Especifique para usar a predefinição de [streaming adaptável](media-services-autogen-bitrate-ladder-with-mes.md) . 
+* Obtenha uma referência ao codificador Padrão do Codificador De Media.
+* Especifique para utilizar o predefinido [de Streaming Adaptativo.](media-services-autogen-bitrate-ladder-with-mes.md) 
 * Adicione uma única tarefa de codificação ao trabalho. 
-* Especifique o ativo de entrada a ser codificado.
+* Especifique o ativo de entrada a codificar.
 * Crie um ativo de saída que contenha o ativo codificado.
-* Adicione um manipulador de eventos para verificar o andamento do trabalho.
-* Envie o trabalho.
+* Adicione um manipulador de eventos para verificar o progresso do trabalho.
+* Submeta o trabalho.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -196,12 +196,12 @@ namespace MediaEncoderStandardSample
 }
 ```
 
-## <a name="advanced-encoding-features-to-explore"></a>Recursos avançados de codificação para explorar
+## <a name="advanced-encoding-features-to-explore"></a>Funcionalidades avançadas de codificação para explorar
 * [Como gerar miniaturas](media-services-dotnet-generate-thumbnail-with-mes.md)
-* [Gerando miniaturas durante a codificação](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
-* [Cortar vídeos durante a codificação](media-services-crop-video.md)
+* [Gerar miniaturas durante a codificação](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Vídeos de colheita durante a codificação](media-services-crop-video.md)
 * [Personalizando predefinições de codificação](media-services-custom-mes-presets-with-dotnet.md)
-* [Sobreposição ou marca d' água de um vídeo com uma imagem](media-services-advanced-encoding-with-mes.md#overlay)
+* [Sobreposição ou marcação de água um vídeo com uma imagem](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -209,7 +209,7 @@ namespace MediaEncoderStandardSample
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
-[Como gerar miniaturas usando Media Encoder Standard com](media-services-dotnet-generate-thumbnail-with-mes.md)
-[visão geral de codificação do .net Media Services](media-services-encode-asset.md)
+## <a name="next-steps"></a>Passos seguintes
+[Como gerar miniatura utilizando media Encoder Standard com .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+[Media Services Encoding Overview](media-services-encode-asset.md)
 

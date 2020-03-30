@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
-ms.openlocfilehash: 47da8146d3984982a9024b3bd084a1ab384c944f
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 6ccc29422c6abf1120d13c05d10125efd0871ca6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79298789"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502058"
 ---
 # <a name="manage-users"></a>Gerir utilizadores
 
@@ -26,13 +26,11 @@ O Azure FarmBeats inclui a gestão de utilizadores para pessoas que fazem parte 
 O Azure FarmBeats utiliza a Azure AD para autenticação, controlo de acesso e funções. Pode adicionar utilizadores no inquilino Azure AD como utilizadores em Azure FarmBeats.
 
 > [!NOTE]
-> Se um utilizador não for um utilizador de inquilino sinuoso Azure AD, siga as instruções na secção de **utilizadores add Azure AD** para completar a configuração.
-
-> Se um utilizador que está a tentar adicionar como utilizador da Azure FarmBeats não estiver presente no inquilino DaAzure AD, complete a configuração seguindo as instruções na secção "Utilizadores add Azure AD".
+> Se um utilizador não for um utilizador inquilino da AD Azure, siga as instruções na secção de **utilizadores add Azure AD** para completar a configuração.
 
 O Azure FarmBeats suporta dois tipos de funções de utilizador:
 
- - **Administrador**: Acesso total às APIs do Datahub Azure FarmBeats. Os utilizadores desta função podem consultar todos os objetos Do Datahub DaHub Da Azure FarmBeats e executar todas as operações a partir do Acelerador FarmBeats.
+ - **Administrador**: Acesso completo a APIs do Datahub Dahub Dahub Dahub FarmE. Os utilizadores desta função podem consultar todos os objetos Do Datahub DaHub Da Azure FarmBeats e executar todas as operações a partir do Acelerador FarmBeats.
  - **Leia-Só:** Acesso apenas de leitura a APIs do Datahub FarmBeats. Os utilizadores podem ver as APIs do Datahub, os Dashboards do Acelerador e os mapas. Os utilizadores com acesso apenas à leitura não podem realizar operações como gerar mapas, associar dispositivos ou criar quintas.
 
 ## <a name="add-users-to-azure-farmbeats"></a>Adicione utilizadores a Azure FarmBeats
@@ -67,11 +65,11 @@ Para remover os utilizadores do sistema Azure FarmBeats:
 > [!NOTE]
 > Os utilizadores da Azure FarmBeats precisam de existir no inquilino da AD Azure antes de os atribuir a aplicações e funções. Se um utilizador não existir no inquilino da AD Azure, siga as instruções nesta secção. Ignore as instruções, se um utilizador já existir no inquilino da AD Azure.
 
-Para adicionar utilizadores ao Azure AD, faça o seguinte:
+Siga os passos para adicionar utilizadores ao Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Na parte superior direita, selecione a sua conta e, em seguida, mude para o inquilino Azure AD que está associado com FarmBeats.
-3. Selecione **Diretório Ativo azure** > **Utilizadores**.
+3. Selecione > **Utilizadores**de **Diretório Ativo Azure**.
 
     É apresentada uma lista de utilizadores de Anúncios Azure.
 
@@ -84,6 +82,6 @@ Para adicionar utilizadores ao Azure AD, faça o seguinte:
 
 Para obter informações sobre a gestão dos utilizadores de Anúncios Azure, consulte [Adicionar ou excluir utilizadores em AD Azure](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Adicionou utilizadores com sucesso à sua instância Azure FarmBeats. Agora, aprenda a [criar e gerir quintas.](manage-farms-in-azure-farmbeats.md#create-farms)

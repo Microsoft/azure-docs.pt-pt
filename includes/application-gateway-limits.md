@@ -4,20 +4,20 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 48f4c7497583e872c89e4d8cd92dab52ab4f9239
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
-ms.translationtype: HT
+ms.openlocfilehash: a3fb3dbf026a696b9d472efcba139c371ff1e587
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78305069"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334627"
 ---
-| Recurso | Limite padrão/máximo | Nota |
+| Recurso | Limite | Nota |
 | --- | --- | --- |
-| Gateway de Aplicação do Azure |1\.000 por subscrição | |
+| Gateway de Aplicação do Azure |1.000 por subscrição | |
 | Configurações IP front-end |2 |1 pública e 1 privada |
 | Portas frontais |100<sup>1</sup> | |
 | Piscinas de endereços de back-end |100<sup>1</sup> | |
-| Servidores de back-end por piscina |1,200 | |
+| Servidores de back-end por piscina |1200 | |
 | Ouvintes http |200<sup>1</sup> |Limitado a 100 ouvintes ativos que estão a encaminhar o tráfego. Ouvintes ativos = número total de ouvintes - ouvintes não ativos.<br>Se uma configuração predefinida dentro de uma regra de encaminhamento for definida para o tráfego de rota (por exemplo, tem um ouvinte, uma piscina de backend e definições HTTP) então isso também conta como ouvinte.|
 | REGRAS de equilíbrio de carga http |100<sup>1</sup> | |
 | Definições de HTTP de back-end |100<sup>1</sup> | |
@@ -25,7 +25,7 @@ ms.locfileid: "78305069"
 | Certificados SSL |100<sup>1</sup> |1 por ouvinte HTTP |
 | Tamanho máximo do certificado SSL |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | Certificados de autenticação |100 | |
-| Certificados de raiz de confiança |100 | |
+| Certificados de raiz fidedignos |100 | |
 | Pedir tempo mínimo |1 segundo | |
 | Pedir tempo máximo |24 horas | |
 | Número de sites |100<sup>1</sup> |1 por ouvinte HTTP |
@@ -35,7 +35,7 @@ ms.locfileid: "78305069"
 | Conexões WebSocket simultâneas |Gateways médios 20k<br> Grandes portas 50k| |
 | Comprimento máximo do URL|32KB| |
 | Tamanho máximo do cabeçalho para HTTP/2 |4KB| |
-| Tamanho máximo do upload de ficheiro, Standard |2 GB | |
+| Tamanho máximo do upload de ficheiro, Standard |2GB | |
 | Tamanho máximo do carregamento de ficheiros WAF |Portais V1 Medium WAF, 100 MB<br>Portais v1 grandes WAF, 500 MB<br>V2 WAF, 750 MB| |
 | Limite de tamanho do corpo waf, sem ficheiros|128 KB||
 | Regras máximas de costume waf|100||

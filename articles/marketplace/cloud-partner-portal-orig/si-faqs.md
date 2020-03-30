@@ -1,102 +1,101 @@
 ---
-title: Perguntas frequentes sobre o vendedor insights
-description: Perguntas frequentes sobre o recurso de informações do vendedor do Portal do Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Insights do Vendedor FAQ
+description: Perguntas frequentes sobre a funcionalidade "Insights do Vendedor" do Portal do Parceiro cloud.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: b015d21005448d24d24923ba424a10a4af0d47b1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 011558baa43ee3db2803e9229d1d15df5158d668
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821607"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285389"
 ---
-<a name="seller-insights-faq"></a>Perguntas frequentes sobre o vendedor insights
+<a name="seller-insights-faq"></a>Insights do Vendedor FAQ
 ===================
 
-Este artigo fornece diretrizes para procedimentos de usuário comuns no e perguntas sobre o vendedor insights.
+Este artigo fornece orientações para procedimentos comuns do utilizador dentro e perguntas sobre insights de vendedor.
 
 
-<a name="find-definitions-for-the-values-in-the-downloaded-transaction-file"></a>Localizar definições para os valores no arquivo de transação baixado
+<a name="find-definitions-for-the-values-in-the-downloaded-transaction-file"></a>Encontre definições para os valores no ficheiro de transação descarregado
 ------------------------------------------------------------------
 
-As definições dos valores de métrica no arquivo de transação são encontradas no artigo [definições do vendedor insights](./si-insights-definitions-v4.md).
+As definições dos valores métricos no ficheiro de transações encontram-se no artigo [Definições](./si-insights-definitions-v4.md)de Insights do Vendedor .
 
 
-<a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Consulte os detalhes do cliente das transações para as quais fui pago
+<a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Consulte os detalhes do cliente das transações pelas quais fui pago
 -------------------------------------------------------------
 
-Depois de baixar suas transações do módulo pagamento, localize a coluna denominada **status de pagamento**e aplique o filtro para exibir apenas o valor "pago". As colunas a seguir aparecerão contendo os detalhes do cliente: **nome da empresa**, **email do cliente**, **país do cliente**, **estado do cliente**e CEP do **cliente**.
+Depois de descarregar as suas transações a partir do módulo Payout, localize a coluna rotulada **de Estado**de Pagamento , e aplique o filtro apenas para exibir o valor "Pago". As seguintes colunas aparecerão contendo os dados do cliente: **Nome da empresa,** **E-mail do Cliente,** **País de Cliente,** **Estado cliente**e Código Postal do **Cliente.**
 
 
-<a name="calculate-my-open-accounts-receivable"></a>Calcular minhas contas a receber abertas
+<a name="calculate-my-open-accounts-receivable"></a>Calcular as minhas contas abertas a receber
 -------------------------------------
 
-Depois de baixar suas transações do módulo pagamento, localize a coluna denominada **status de pagamento**e aplique o filtro para exibir apenas o valor "pagamento futuro" e "não está pronto para pagamento". Em seguida, some a coluna rotulada como **valor do pagamento (PC)** .
+Depois de descarregar as suas transações a partir do módulo Payout, localize a coluna rotulada **de Estado**de Pagamento , e aplique o filtro apenas para exibir o valor "Pagamento De Futuro" e "Não Pronto para Pagamento". Em seguida, soma a coluna rotulada **Valor de Pagamento (PC)**.
 
 
-<a name="calculate-revenue-by-customer-usage-period"></a>Calcular receita por período de uso do cliente
+<a name="calculate-revenue-by-customer-usage-period"></a>Calcular as receitas por período de utilização do cliente
 ------------------------------------------
 
-Depois de baixar suas transações do módulo pagamento, localize a coluna denominada **status da transação**e filtre o valor "pago".   Para cada transação listada, a coluna denominada **valor do pagamento (PC)** representa o valor pago.  Para estimar o período de uso associado à transação, use a **data de cobrança**da coluna, que é uma aproximação aproximada do último dia de uso do período ao qual a transação se aplica.
+Depois de descarregar as suas transações a partir do módulo 'Pagamento', localize o Estado de **Transação**da coluna, e filtre o valor "Pago".   Para cada transação listada, a coluna rotulada de Valor de **Pagamento (PC)** representa o valor que lhe foi pago.  Para estimar o período de utilização associado à transação, utilize a data de **carregamento**da coluna, que é uma aproximação próxima do último dia de utilização para o período a que a transação se aplica.
 
 
-<a name="calculate-your-bad-debt"></a>Calcular a dívida inadequada
+<a name="calculate-your-bad-debt"></a>Calcule a sua dívida má
 ---------------------
 
-Depois de baixar suas transações do módulo pagamento, localize a coluna denominada **status da coleção final**e aplique o filtro para exibir apenas o valor "write off". Em seguida, some a coluna rotulada como **valor do pagamento (PC)** .
+Depois de descarregar as suas transações a partir do módulo Payout, localize a coluna com o nome De Estatuto de **Recolha Final**, e aplique o filtro apenas para exibir o valor "Write Off". Em seguida, soma a coluna rotulada **Valor de Pagamento (PC)**.
 
 
-<a name="view-payout-or-customer-contact-information"></a>Exibir informações de pagamento ou contato do cliente
+<a name="view-payout-or-customer-contact-information"></a>Ver informações de pagamento ou de contacto com o cliente
 -------------------------------------------
 
-Entre como um usuário com a função "proprietário" e não a função "colaborador". Somente a função de proprietário verá o pagamento e as informações do cliente. Você pode saber mais sobre as funções de usuário no artigo [gerenciar usuários](./cloud-partner-portal-manage-users.md).
+Inscreva-se como utilizador com a função "proprietário" e não com a função de "contribuinte". Apenas o papel do proprietário verá o pagamento e a informação do cliente. Pode saber mais sobre as funções dos utilizadores no artigo [Gerir utilizadores](./cloud-partner-portal-manage-users.md).
 
 
-<a name="calculate-my-advance-payouts"></a>Calcular meus pagamentos antecipados
+<a name="calculate-my-advance-payouts"></a>Calcular os meus pagamentos antecipados
 ----------------------------
 
-Depois de baixar suas transações do módulo pagamento, localize a coluna chamada **tipo de transação**e aplique o filtro para exibir apenas o valor "encargo". Em seguida, localize a coluna denominada **status da coleção final**e aplique o filtro para exibir apenas o valor "em andamento". Por fim, some a coluna **valor do pagamento (PC)** para calcular todos os avanços pagos antes da coleta do cliente.
+Depois de descarregar as suas transações a partir do módulo 'Pagamento', localize a coluna com a etiqueta Tipo de **Transação**, e aplique o filtro apenas para exibir o valor "Cobrar". Em seguida, localize a coluna com o estatuto de **recolha final,** e aplique o filtro apenas para mostrar o valor "Em Progresso". Por fim, soma a coluna **Valor de Pagamento (PC)** para calcular todos os adiantamentos que lhe foram pagos antes da cobrança do cliente.
 
 
 <a name="calculate-customer-refunds"></a>Calcular reembolsos de clientes
 --------------------------
 
-Depois de baixar suas transações do módulo pagamento, localize a coluna denominada **status da coleção final**e aplique o filtro para exibir apenas o valor "reembolso". Some a coluna **valor da cobrança (PC)** para calcular todos os reembolsos processados para seus clientes.
+Depois de descarregar as suas transações a partir do módulo Payout, localize a coluna com o nome De Estatuto de **Recolha Final**, e aplique o filtro apenas para mostrar o valor "Reembolso". Soma a coluna **Valor De Cobrança (PC)** para calcular todos os reembolsos processados para os seus clientes.
 
 
-<a name="identify-which-transactions-involved-a-microsoft-channel-partner"></a>Identificar quais transações envolvem um parceiro de canal da Microsoft
+<a name="identify-which-transactions-involved-a-microsoft-channel-partner"></a>Identifique quais as transações envolvidas num Microsoft Channel Partner
 ----------------------------------------------------------------
 
-Todas as transações na coluna **tipo de licença do Azure** que são filtradas para exibir os valores "Enterprise por revendedor" e "provedor de soluções na nuvem" envolvem um parceiro de canal da Microsoft. Para obter mais detalhes sobre o parceiro, você pode encontrar o **nome do revendedor** e o **email do revendedor** no download do módulo de pagamento e o download do módulo do cliente.
+Todas as transações na coluna Do Tipo de **Licença Azure** que são filtradas para exibir os valores "Enterprise through Reseller" e "Cloud Solution Provider" envolvem um Parceiro do Microsoft Channel. Para mais detalhes sobre o parceiro, pode encontrar o seu **Nome revendedor** e **e-mail revendedor** no download do módulo Payout e o download do módulo Cliente.
 
 
-<a name="identify-trial-usage-and-trial-conversions"></a>Identificar conversões de avaliação e uso de avaliação
+<a name="identify-trial-usage-and-trial-conversions"></a>Identificar o uso do ensaio e as conversões experimentais
 ------------------------------------------
 
-Os downloads de módulo de pagamento, ordem e uso agora contêm a **data de término da avaliação** para ajudá-lo a entender quando o período de avaliação terminou para esse pedido específico, quando aplicável. Para ver o uso e as ordens de avaliação, localize a coluna **tipo de cobrança de SKU** nos downloads e aplique o filtro para exibir apenas o valor "avaliação". Para ver as conversões de avaliação, localize a coluna **data de término da avaliação** nos downloads e aplique o filtro para exibir apenas os pedidos quando a data de término da **avaliação** for anterior à data de hoje e a coluna de **data de cancelamento** estiver vazia ou posterior à data de término da **avaliação**.
+Os downloads do módulo de encomenda, utilização e pagamento contêm agora data de fim de **prova** para ajudá-lo a entender quando o período experimental terminou para essa ordem específica, quando aplicável. Para ver o uso do ensaio e as encomendas, localize a coluna **SKU Billing Type** nos downloads e aplique o filtro apenas para mostrar o valor "Trial". Para ver conversões de ensaios, localize a coluna **Data final** experimental nos downloads e aplique o filtro apenas para exibir ordens quando a data de fim de **julgamento** terminar a data de hoje e a coluna De cancelamento da **data** estiver vazia ou posterior à data de fim de **julgamento**.
 
 
-<a name="when-is-my-monthly-payout-calculated"></a>Quando meu pagamento mensal é calculado
+<a name="when-is-my-monthly-payout-calculated"></a>Quando é calculado o meu pagamento mensal
 ------------------------------------
 
-Seus pagamentos são emitidos para você pelo 15º de cada mês para todos os valores prontos para pagamento pelo último dia do calendário do mês anterior. No terceiro dia do mês, a Microsoft calculará o valor de pagamento do mês anterior e atualizará todas as transações de cobrança aplicáveis em seu download com "pagamento futuro" na coluna **status do pagamento** . Essas transações permanecerão nesse estado até que a solicitação de pagamento seja enviada para sua conta bancária, quando o **status** do pagamento for atualizado para "pago", e a "data de pagamento" será atualizada para mostrar a data em que enviamos a solicitação de pagamento ao seu banco.
+Os seus pagamentos são-lhe emitidos até ao dia 15 de cada mês por todos os valores prontos para serem pagamentos até ao último dia civil do mês anterior. No terceiro dia do mês, a Microsoft calculará o valor do pagamento do mês anterior e atualizará todas as transações de cobrança aplicáveis no seu download com "Upcoming Payout" na coluna **'Pagamento** de Pagamento'. Essas transações permanecerão nesse estado até que o pedido de pagamento seja enviado para a sua conta bancária, altura em que o seu Estado de **Pagamento** será atualizado para "Paid out", e a "Data de Pagamento" será atualizada para mostrar a data em que submetemos o pedido de pagamento ao seu banco.
 
 
-<a name="calculate-customer-acquisition-and-loss"></a>Calcular a aquisição e a perda do cliente
+<a name="calculate-customer-acquisition-and-loss"></a>Calcular a aquisição e perda de clientes
 ---------------------------------------
 
-Você pode ver a data em que o cliente comprou primeiro uma de suas ofertas localizando a coluna **data de aquisição** no download do cliente. Da mesma forma, você pode ver a data após a qual elas não tinham mais nenhuma oferta publicada por você, localizando a coluna **data de perda** no download do cliente.
+Pode ver a data em que o cliente comprou pela primeira vez uma das suas ofertas, localizando a coluna **Data Adquirida** no download do cliente. Da mesma forma, pode ver a data após a qual já não tinham qualquer oferta publicada por si, localizando a coluna **Date Lost** no download do cliente.
 
 
-<a name="finding-more-help"></a>Encontrando mais ajuda
+<a name="finding-more-help"></a>Encontrar mais ajuda
 -----------------
 
-- [Definições do vendedor insights](./si-insights-definitions-v4.md) – localizar definições para métricas e dados
+- [Definições de Insights do Vendedor](./si-insights-definitions-v4.md) - Encontrar definições para métricas e dados
 
-- [Introdução ao vendedor insights](./si-getting-started.md) – introdução ao recurso de informações do vendedor.
+- [Começando com O Seller Insights](./si-getting-started.md) - Introdução à funcionalidade Seller Insights.
 

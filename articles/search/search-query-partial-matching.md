@@ -1,50 +1,50 @@
 ---
-title: Corresponder padrões e caracteres especiais
+title: Padrões de correspondência e caracteres especiais
 titleSuffix: Azure Cognitive Search
-description: Use as consultas curinga e de prefixo para corresponder a termos inteiros ou parciais em uma solicitação de consulta do Azure Pesquisa Cognitiva. Padrões de difícil correspondência que incluem caracteres especiais podem ser resolvidos usando a sintaxe de consulta completa e os analisadores personalizados.
+description: Utilize consultas de wildcard e prefixo para combinar em termos inteiros ou parciais num pedido de consulta de pesquisa cognitiva Azure. Padrões difíceis de combinar que incluem caracteres especiais podem ser resolvidos usando sintaxe de consulta completa e analisadores personalizados.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: ec1422d03cce78bdd8206f6687a78b63ddf989dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f78ba5b351a3da46d7b8b3780cf00772c4f3b2ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989621"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289316"
 ---
-# <a name="match-on-patterns-and-special-characters-dashes"></a>Correspondência em padrões e caracteres especiais (traços)
+# <a name="match-on-patterns-and-special-characters-dashes"></a>Combine em padrões e caracteres especiais (traços)
 
-Para consultas que incluem caracteres especiais (`-, *, (, ), /, \, =`) ou para padrões de consulta com base em termos parciais em um termo maior, normalmente são necessárias etapas de configuração adicionais para garantir que o índice contenha o conteúdo esperado, no formato correto. 
+Para consultas que incluam`-, *, (, ), /, \, =`caracteres especiais ( ), ou para padrões de consulta baseados em termos parciais dentro de um termo maior, são normalmente necessários passos de configuração adicionais para garantir que o índice contém o conteúdo esperado, no formato certo. 
 
-Por padrão, um número de telefone como `+1 (425) 703-6214` é indexado como `"1"`, `"425"`, `"703"``"6214"`. Como você pode imaginar, Pesquisar em `"3-62"`, termos parciais que incluem um traço, falhará porque esse conteúdo não existe realmente no índice. 
+Por predefinição, `+1 (425) 703-6214` um número de `"1"` `"425"`telefone `"703"` `"6214"`como é tokenized como , , . Como pode imaginar, `"3-62"`pesquisar em termos parciais que incluem um traço, falhará porque esse conteúdo não existe realmente no índice. 
 
-Quando você precisar pesquisar em cadeias de caracteres parciais ou especiais, poderá substituir o analisador padrão por um analisador personalizado que opera sob regras de geração de tokens mais simples, preservando os termos inteiros, necessários quando as cadeias de caracteres de consulta incluem partes de um termo ou especial personagens. Voltando um pouco, a abordagem é parecida com esta:
+Quando você precisa pesquisar em cordas parciais ou caracteres especiais, você pode substituir o analisador padrão com um analisador personalizado que opera sob regras de tokenização mais simples, preservando termos inteiros, necessários quando as cordas de consulta incluem partes de um termo ou especial personagens. Dando um passo para trás, a abordagem é a seguinte:
 
 + Escolha um analisador predefinido ou defina um analisador personalizado que produza a saída desejada
 + Atribuir o analisador ao campo
-+ Compilar o índice e o teste
++ Construa o índice e teste
 
-Este artigo orienta você durante essas tarefas. A abordagem descrita aqui é útil em outros cenários: as consultas de expressão regular e curinga também precisam de termos inteiros como base para correspondência de padrões. 
+Este artigo acompanha-o nestas tarefas. A abordagem aqui descrita é útil noutros cenários: perguntas de wildcard e expressão regular também precisam de termos inteiros como base para a correspondência de padrões. 
 
 > [!TIP]
-> Avaliar o analyers é um processo iterativo que requer recompilações de índice frequentes. Você pode tornar essa etapa mais fácil usando o postmaster, as APIs REST para [criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index), [excluir índice](https://docs.microsoft.com/rest/api/searchservice/delete-index),[carregar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)e [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents). Para carregar documentos, o corpo da solicitação deve conter um pequeno conjunto de dados representativos que você deseja testar (por exemplo, um campo com números de telefone ou códigos de produto). Com essas APIs na mesma coleção do postmaster, você pode percorrer essas etapas rapidamente.
+> Avaliar os analíers é um processo iterativo que requer reconstruções frequentes do índice. Pode facilitar este passo utilizando o Carteiro, as APIs REST para [Criar Índice,](https://docs.microsoft.com/rest/api/searchservice/create-index) [Eliminar Índice,](https://docs.microsoft.com/rest/api/searchservice/delete-index)[Carregar Documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)e Documentos de [Pesquisa.](https://docs.microsoft.com/rest/api/searchservice/search-documents) Para documentos de carga, o organismo de pedido deve conter um pequeno conjunto de dados representativo que pretende testar (por exemplo, um campo com números de telefone ou códigos de produto). Com estas APIs na mesma coleção de Carteiro, você pode pedalar através destes passos rapidamente.
 
-## <a name="choosing-an-analyzer"></a>Escolhendo um analisador
+## <a name="choosing-an-analyzer"></a>Escolher um analisador
 
-Ao escolher um analisador que produz tokens de termo inteiro, os seguintes analisadores são opções comuns:
+Ao escolher um analisador que produz fichas de todo o termo, os seguintes analisadores são escolhas comuns:
 
-| Analyzer | Comportamentos |
+| Analisador | Comportamentos |
 |----------|-----------|
-| [chaves](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | O conteúdo de todo o campo é indexado como um único termo. |
-| [diferente](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa somente em espaços em branco. Os termos que incluem traços ou outros caracteres são tratados como um único token. |
-| [analisador personalizado](index-add-custom-analyzers.md) | aconselhável A criação de um analisador personalizado permite especificar o filtro de token e criador. Os analisadores anteriores devem ser usados no estado em que se encontram. Um analisador personalizado permite que você escolha quais filtros de criadores e token usar. <br><br>Uma combinação recomendada é a [palavra-chave criador](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) com um [filtro de token em](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)minúsculas. Por si só, o [analisador de palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinido não faz minúsculas em texto em letras maiúsculas, o que pode fazer com que as consultas falhem. Um analisador personalizado oferece um mecanismo para adicionar o filtro de token em minúsculas. |
+| [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | O conteúdo de todo o campo é tokenizado como um único termo. |
+| [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa-se apenas em espaços brancos. Termos que incluem traços ou outros caracteres são tratados como um único símbolo. |
+| [analisador personalizado](index-add-custom-analyzers.md) | (recomendado) A criação de um analisador personalizado permite especificar tanto o tokenizer como o filtro de fichas. Os analisadores anteriores devem ser utilizados como está. Um analisador personalizado permite-lhe escolher quais tokenizers e filtros de fichas para usar. <br><br>Uma combinação recomendada é o [tokenizer de palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) com um [filtro de ficha inferior](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). Por si só, o analisador de [palavras-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinido não diminui qualquer texto maiúsculo, o que pode fazer com que as consultas falhem. Um analisador personalizado dá-lhe um mecanismo para adicionar o filtro de ficha sinuoso. |
 
-Se você estiver usando uma ferramenta de teste de API da Web como o postmaster, poderá adicionar a [chamada REST do analisador de teste](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para inspecionar a saída com tokens. Dado um índice existente e um campo contendo traços ou termos parciais, você pode experimentar vários analisadores sobre termos específicos para ver quais tokens são emitidos.  
+Se estiver a utilizar uma ferramenta de teste web API como o Carteiro, pode adicionar a [chamada DE TESTE ANALISADOR REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para inspecionar a saída tokenizada. Dado um índice existente e um campo que contenha traços ou termos parciais, pode experimentar vários analisadores em termos específicos para ver quais os tokens emitidos.  
 
-1. Verifique o analisador padrão para ver como os termos são indexados por padrão.
+1. Verifique o analisador Standard para ver como os termos são tokenizados por padrão.
 
    ```json
    {
@@ -53,7 +53,7 @@ Se você estiver usando uma ferramenta de teste de API da Web como o postmaster,
    }
     ```
 
-1. Avalie a resposta para ver como o texto é indexado no índice. Observe como cada termo é inferior e dividido.
+1. Avalie a resposta para ver como o texto é tokenizado dentro do índice. Repare como cada termo é minúsculo e separado.
 
     ```json
     {
@@ -79,7 +79,7 @@ Se você estiver usando uma ferramenta de teste de API da Web como o postmaster,
         ]
     }
     ```
-1. Modifique a solicitação para usar o `whitespace` ou o analisador de `keyword`:
+1. Modificar o pedido `whitespace` de `keyword` utilização do ou analisador:
 
     ```json
     {
@@ -88,7 +88,7 @@ Se você estiver usando uma ferramenta de teste de API da Web como o postmaster,
     }
     ```
 
-1. Agora, a resposta consiste em um único token, com maiúsculas e minúsculas, com traços preservados como parte da cadeia de caracteres. Se você precisar pesquisar em um padrão ou em um termo parcial, o mecanismo de consulta agora terá a base para encontrar uma correspondência.
+1. Agora a resposta consiste de um único símbolo, maiúsculo, com traços preservados como parte da corda. Se precisar de pesquisar um padrão ou um termo parcial, o motor de consulta tem agora a base para encontrar uma correspondência.
 
 
     ```json
@@ -105,15 +105,15 @@ Se você estiver usando uma ferramenta de teste de API da Web como o postmaster,
     }
     ```
 > [!Important]
-> Lembre-se de que os analisadores de consulta geralmente são os termos minúsculos em uma expressão de pesquisa ao criar a árvore de consulta. Se você estiver usando um analisador que não faz entradas de texto em letras minúsculas e não estiver obtendo resultados esperados, isso pode ser o motivo. A solução é adicionar um filtro de token lwower.
+> Esteja ciente de que os parsers de consulta muitas vezes em termos minúsculos em uma expressão de pesquisa ao construir a árvore de consulta. Se estiver a utilizar um analisador que não reduz as inputs de texto, e não está a obter resultados esperados, esta pode ser a razão. A solução é adicionar um filtro de token de caixa lwower.
 
-## <a name="analyzer-definitions"></a>Definições do analisador
+## <a name="analyzer-definitions"></a>Definições de analisadores
  
-Se você estiver avaliando analisadores ou avançando com uma configuração específica, será necessário especificar o analisador na definição de campo e, possivelmente, configurar o próprio analisador se você não estiver usando um analisador interno. Ao trocar analisadores, normalmente você precisa recompilar o índice (remover, recriar e recarregar). 
+Quer esteja a avaliar os analisadores ou a avançar com uma configuração específica, terá de especificar o analisador na definição de campo e, possivelmente, configurar o próprio analisador se não estiver a utilizar um analisador incorporado. Ao trocar os analisadores, normalmente é necessário reconstruir o índice (baixar, recriar e recarregar). 
 
-### <a name="use-built-in-analyzers"></a>Usar analisadores internos
+### <a name="use-built-in-analyzers"></a>Utilizar analisadores incorporados
 
-Os analisadores internos ou predefinidos podem ser especificados pelo nome em uma propriedade `analyzer` de uma definição de campo, sem nenhuma configuração adicional necessária no índice. O exemplo a seguir demonstra como você definiria o `whitespace` Analyzer em um campo.
+Os analisadores incorporados ou predefinidos podem `analyzer` ser especificados pelo nome numa propriedade de uma definição de campo, sem nenhuma configuração adicional necessária no índice. O exemplo que se segue `whitespace` demonstra como colocaria o analisador num campo.
 
 ```json
     {
@@ -125,18 +125,18 @@ Os analisadores internos ou predefinidos podem ser especificados pelo nome em um
       "analyzer": "whitespace"
     }
 ```
-Para obter mais informações sobre todos os analisadores internos disponíveis, consulte a [lista de analisadores predefinidos](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Para obter mais informações sobre todos os analisadores incorporados disponíveis, consulte a lista de [analisadores predefinidos](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
-### <a name="use-custom-analyzers"></a>Usar analisadores personalizados
+### <a name="use-custom-analyzers"></a>Use analisadores personalizados
 
-Se você estiver usando um [analisador personalizado](index-add-custom-analyzers.md), defina-o no índice com uma combinação definida pelo usuário de criador, tokenfilter, com possíveis parâmetros de configuração. Em seguida, faça referência a ela em uma definição de campo, exatamente como você faria com um analisador interno.
+Se estiver a utilizar um [analisador personalizado,](index-add-custom-analyzers.md)defina-o no índice com uma combinação definida pelo utilizador de tokenizer, filtro de token, com possíveis configurações de configuração. Em seguida, remecite-o numa definição de campo, assim como um analisador incorporado.
 
-Quando o objetivo é a geração de tokens de longo prazo, é recomendado um analisador personalizado que consiste em uma **palavra-chave criador** e um **filtro de token com letras minúsculas** .
+Quando o objetivo é a tokenização a termo inteiro, recomenda-se um analisador personalizado que consista num **tokenizer de palavra-chave** e num filtro de **token de minúscula.**
 
-+ A palavra-chave criador cria um único token para todo o conteúdo de um campo.
-+ O filtro de token em minúsculas transforma letras maiúsculas em texto em minúsculas. Analisadores de consulta geralmente são minúsculos quaisquer entradas de texto em maiúsculas. Minúsculas homogenizes as entradas com os termos com token.
++ O tokenizer de palavra-chave cria um único símbolo para todo o conteúdo de um campo.
++ O filtro de ficha minúscula transforma letras maiúsculas em texto minúsculo. Os parsers de consulta normalmente diminuem qualquer entrada de texto maiúscula. A redução da redução homogeneiza as inputs com os termos tokenizados.
 
-O exemplo a seguir ilustra um analisador personalizado que fornece a palavra-chave criador e um filtro de token em minúsculas.
+O exemplo seguinte ilustra um analisador personalizado que fornece o tokenizer de palavra-chave e um filtro de ficha minúscula.
 
 ```json
 {
@@ -151,7 +151,7 @@ O exemplo a seguir ilustra um analisador personalizado que fornece a palavra-cha
   "sortable": false,
   "facetable": false
   }
-]
+],
 
 "analyzers": [
   {
@@ -168,15 +168,15 @@ O exemplo a seguir ilustra um analisador personalizado que fornece a palavra-cha
 ```
 
 > [!NOTE]
-> O filtro de token `keyword_v2` criador e `lowercase` é conhecido pelo sistema e usando suas configurações padrão, motivo pelo qual você pode referenciá-los por nome sem precisar defini-los primeiro.
+> O `keyword_v2` tokenizer `lowercase` e o filtro de fichas são conhecidos do sistema e utilizam as suas configurações predefinidas, razão pela qual pode referencia-los pelo nome sem ter que defini-los primeiro.
 
 ## <a name="tips-and-best-practices"></a>Sugestões e melhores práticas
 
 ### <a name="tune-query-performance"></a>Otimizar o desempenho de consultas
 
-Se você implementar a configuração recomendada que inclui o keyword_v2 criador e o filtro de token em letras minúsculas, poderá notar uma redução no desempenho da consulta devido ao processamento adicional de filtro de token sobre os tokens existentes no índice. 
+Se implementar a configuração recomendada que inclui o keyword_v2 tokenizer e o filtro de fichas minúsculas, poderá notar uma diminuição do desempenho da consulta devido ao processamento adicional de filtros simbólicos sobre as fichas existentes no seu índice. 
 
-O exemplo a seguir adiciona um [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) para fazer correspondências de prefixo mais rapidamente. Tokens adicionais são gerados em combinações de caracteres de 2-25 que incluem caracteres: (não apenas MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL). Como você pode imaginar, a geração de tokens adicional resulta em um índice maior.
+O exemplo seguinte adiciona um [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) para tornar as correspondências prefixomais rápidas. São geradas tokens adicionais em combinações de caracteres 2-25 que incluem caracteres: (não só MS, MSF, MSFT, MSFT, MSFT/, MSFT/S, MSFT/S, MSFT/SQ, MSFT/SQL). Como pode imaginar, a tokenização adicional resulta num índice maior.
 
 ```json
 {
@@ -191,7 +191,7 @@ O exemplo a seguir adiciona um [EdgeNGramTokenFilter](https://lucene.apache.org/
   "sortable": false,
   "facetable": false
   }
-]
+],
 
 "analyzers": [
   {
@@ -215,13 +215,13 @@ O exemplo a seguir adiciona um [EdgeNGramTokenFilter](https://lucene.apache.org/
 ]
 ```
 
-### <a name="use-different-analyzers-for-indexing-and-query-processing"></a>Usar analisadores diferentes para indexação e processamento de consulta
+### <a name="use-different-analyzers-for-indexing-and-query-processing"></a>Utilize diferentes analisadores para indexação e processamento de consultas
 
-Os analisadores são chamados durante a indexação e durante a execução da consulta. É comum usar o mesmo analisador para ambos, mas você pode configurar analisadores personalizados para cada carga de trabalho. As substituições do analisador são especificadas na [definição do índice](https://docs.microsoft.com/rest/api/searchservice/create-index) em uma `analyzers` seção e, em seguida, referenciadas em campos específicos. 
+Os analisadores são chamados durante a indexação e durante a execução da consulta. É comum usar o mesmo analisador para ambos, mas pode configurar analisadores personalizados para cada carga de trabalho. As sobreposições do analisador são especificadas na [definição](https://docs.microsoft.com/rest/api/searchservice/create-index) de índice numa `analyzers` secção e, em seguida, referenciadas em campos específicos. 
 
-Quando a análise personalizada é necessária apenas durante a indexação, você pode aplicar o analisador personalizado para apenas indexar e continuar a usar o analisador Lucene padrão (ou outro analisador) para consultas.
+Quando a análise personalizada é necessária apenas durante a indexação, pode aplicar o analisador personalizado apenas indexação e continuar a usar o analisador lucene padrão (ou outro analisador) para consultas.
 
-Para especificar a análise específica de função, você pode definir propriedades no campo para cada uma, definindo `indexAnalyzer` e `searchAnalyzer` em vez da propriedade de `analyzer` padrão.
+Para especificar a análise específica do papel, pode definir `indexAnalyzer` propriedades `searchAnalyzer` no campo `analyzer` para cada uma, definindo e em vez da propriedade predefinida.
 
 ```json
 "name": "featureCode",
@@ -229,9 +229,9 @@ Para especificar a análise específica de função, você pode definir propried
 "searchAnalyzer":"standard",
 ```
 
-### <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para cenários diferentes
+### <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para diferentes cenários
 
-Outra opção aproveita a atribuição do analisador por campo para otimizar para cenários diferentes. Especificamente, você pode definir "featureCode" e "featureCodeRegex" para dar suporte à pesquisa de texto completo regular na primeira e à correspondência de padrão avançada no segundo.
+Outra opção aproveita a atribuição de analisador por campo para otimizar para diferentes cenários. Especificamente, pode definir "featureCode" e "featureCodeRegex" para suportar uma pesquisa regular de texto completo no primeiro, e padrão avançado correspondente no segundo.
 
 ```json
 {
@@ -252,9 +252,9 @@ Outra opção aproveita a atribuição do analisador por campo para otimizar par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo explica como os analisadores contribuem para problemas de consulta e solucionam problemas de consulta. Como uma próxima etapa, examine atentamente o impacto do analisador sobre a indexação e o processamento de consultas. Em particular, considere usar a API de análise de texto para retornar a saída com tokens para que você possa ver exatamente o que um analisador está criando para o índice.
+Este artigo explica como os analisadores contribuem tanto para problemas de consulta e para resolver problemas de consulta. Como próximo passo, veja mais de perto o impacto do analisador na indexação e processamento de consultas. Em particular, considere usar a API de Texto Analisado para devolver a saída tokenizada para que possa ver exatamente o que um analisador está a criar para o seu índice.
 
 + [Analisadores de idiomas](search-language-support.md)
-+ [Analisadores para processamento de texto no Azure Pesquisa Cognitiva](search-analyzers.md)
-+ [API de análise de texto (REST)](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)
-+ [Como funciona a pesquisa de texto completo (arquitetura de consulta)](search-lucene-query-architecture.md)
++ [Analisadores para processamento de texto em Pesquisa Cognitiva Azure](search-analyzers.md)
++ [Analisar a API de Texto (REST)](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)
++ [Como funciona a pesquisa completa de texto (arquitetura de consulta)](search-lucene-query-architecture.md)

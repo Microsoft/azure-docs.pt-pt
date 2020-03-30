@@ -1,5 +1,5 @@
 ---
-title: Upload de ficheiros de dispositivos para Azure IoT Hub com Nó  Microsoft Docs
+title: Upload de ficheiros de dispositivos para Azure IoT Hub com Nó [ Microsoft Docs
 description: Como fazer o upload de ficheiros de um dispositivo para a nuvem utilizando o dispositivo Azure IoT SDK para Node.js. Os ficheiros carregados são armazenados num recipiente de armazenamento Azure.
 author: wesmc7777
 manager: philmea
@@ -10,10 +10,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: db3da5ff2d7e8b6fa493f5338fac93df0d1a7fe2
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110908"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (Node.js)
@@ -117,9 +117,9 @@ Nesta secção, cria a aplicação do dispositivo para fazer o upload de um fich
 
 8. Guarde e feche o ficheiro **SimulatedDevice.js**.
 
-9. Copie um ficheiro de imagem para a pasta `simulateddevice` e mude o nome `myimage.png`.
+9. Copie um ficheiro `simulateddevice` de imagem `myimage.png`para a pasta e mude o nome.
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 Neste artigo cria um serviço de backend para receber mensagens de notificação de envio de ficheiros do hub IoT que criou no [Envio de telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md). Para receber mensagens de notificação de upload de ficheiros, o seu serviço necessita da permissão de ligação do **serviço.** Por padrão, cada Hub IoT é criado com uma política de acesso partilhado chamada **serviço** que concede esta permissão.
 
@@ -137,15 +137,15 @@ Pode utilizar a cadeia de ligação **iothubowner** do seu Hub IoT para completa
     npm init
     ```
 
-2. Ao seu pedido de comando na pasta ```fileuploadnotification```, execute o seguinte comando para instalar o pacote SDK **azure-iothub:**
+2. Ao seu pedido ```fileuploadnotification``` de comando na pasta, execute o seguinte comando para instalar o pacote SDK **azure-iothub:**
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
 
-3. Utilizando um editor de texto, crie um ficheiro **FileUploadNotification.js** na pasta `fileuploadnotification`.
+3. Utilizando um editor de texto, crie um `fileuploadnotification` ficheiro **FileUploadNotification.js** na pasta.
 
-4. Adicione as seguintes `require` declarações no início do ficheiro **FileUploadNotification.js:**
+4. Adicione as `require` seguintes declarações no início do ficheiro **FileUploadNotification.js:**
 
     ```javascript
     'use strict';
@@ -153,7 +153,7 @@ Pode utilizar a cadeia de ligação **iothubowner** do seu Hub IoT para completa
     var Client = require('azure-iothub').Client;
     ```
 
-5. Adicione uma variável `iothubconnectionstring` e utilize-a para criar uma instância **Cliente**.  Substitua o valor do espaço reservado `{iothubconnectionstring}` pela cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
+5. Adicione uma variável `iothubconnectionstring` e utilize-a para criar uma instância **Cliente**.  Substitua `{iothubconnectionstring}` o valor do espaço reservado pela cadeia de ligação do hub IoT que copiou anteriormente na cadeia de ligação do [hub IoT:](#get-the-iot-hub-connection-string)
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -196,13 +196,13 @@ Pode utilizar a cadeia de ligação **iothubowner** do seu Hub IoT para completa
 
 Agora pode executar as aplicações.
 
-Num pedido de comando na pasta `fileuploadnotification`, execute o seguinte comando:
+Num pedido de `fileuploadnotification` comando na pasta, execute o seguinte comando:
 
 ```cmd/sh
 node FileUploadNotification.js
 ```
 
-Num pedido de comando na pasta `simulateddevice`, execute o seguinte comando:
+Num pedido de `simulateddevice` comando na pasta, execute o seguinte comando:
 
 ```cmd/sh
 node SimulatedDevice.js

@@ -1,58 +1,56 @@
 ---
-title: Crie sua página de aterrissagem no Azure Marketplace | Azure
-description: Saiba como criar uma página de aterrissagem no Azure Marketplace e Microsoft AppSource para Publicadores de aplicativo e serviço.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Construa a sua página de aterragem no Azure Marketplace Azure
+description: Saiba como criar uma página de aterragem no Azure Marketplace e microsoft AppSource, para editores de aplicações e serviços.
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/04/2018
-ms.author: ellacroi
-ms.openlocfilehash: cf7d15ba375faf7dfb38bf5f691799875f2dd6e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6959e7ba7fbf7d9afca84a803f8df588ac9149f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819816"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280597"
 ---
-# <a name="build-your-landing-page"></a>Crie sua página de aterrissagem
+# <a name="build-your-landing-page"></a>Construa a sua página de aterragem
 
-Uma página de aterrissagem no site da sua empresa é um gateway de suas atividades de geração de demanda para sua listagem no [Azure Marketplace](https://azuremarketplace.microsoft.com).
+Uma página de aterragem no site da sua empresa é uma porta de entrada das suas atividades de geração de procura para a sua listagem no [Azure Marketplace.](https://azuremarketplace.microsoft.com)
 
-Comece identificando suas metas. Para suas soluções, escolha o cliente de destino e a ação que seu cliente executará. Sua solução pode incluir as seguintes ações:
-*   Testar a solução
-*   Obtenha uma solução agora mesmo
+Comece por identificar os seus objetivos. Para as suas soluções, escolha o seu cliente-alvo e a ação que o seu cliente irá tomar. A sua solução pode incluir as seguintes ações:
+*   Test-drive a solução
+*   Obter uma solução agora
 
-Você pode fazer referência à sua página de aterrissagem em várias táticas de marketing. Você pode usar as seguintes táticas de marketing: 
+Pode supor a sua página de aterragem em várias táticas de marketing. Pode usar as seguintes táticas de marketing: 
 *   Eventos
 *   Webcasts
-*   Comunicação social
+*   Redes sociais
 *   Documentação técnica
-*   Sessões de treinamento técnico
-*   Press Releases
+*   Sessões de formação técnica
+*   Comunicados de imprensa
 
-Quanto mais consistente você estiver em suas mensagens e em seu plano de ação, mais fácil será que seus clientes encontrem sua solução.
+Quanto mais consistente estiver nas suas mensagens e na sua chamada à ação, mais fácil é para os seus clientes encontrarem a sua solução.
 
 ## <a name="recommendations"></a>Recomendações
 
-Quando você tiver um plano de campanha pronto, crie sua página de aterrissagem no Marketplace. A tabela a seguir descreve como você pode ajudar a maximizar a eficácia da sua página de aterrissagem: 
+Quando tiver um plano de campanha pronto, crie a sua página de aterragem no Mercado. A tabela a seguir descreve formas de ajudar a maximizar a eficácia da sua página de aterragem: 
 
-| Melhores práticas | Procure |
+| Melhores práticas | Avoid |
 |:--- |:--- |
-| **Comunique o problema do cliente que sua solução resolve e como usar o Azure para fazê-lo acontecer** | Não se comunicando com as maneiras como sua solução funciona com o Azure. |
-| **Crie uma URL curta e fácil de lembrar** | Usando URLs longas. URLs longas não são memorizadas e são difíceis de localizar. |
-| **Adicione conteúdo Visual relevante, como um vídeo de testemunhos de clientes ou uma arquitetura de solução** | Usar muito texto faz com que seus clientes ignorem seu conteúdo e parem de explorar.|
-| **Criar um plano de ação claro para direcionar os visitantes para a página do catálogo do Marketplace** | Ter muitos links ou ações na página. |
-| **Colocar sua chamada para ação em um cabeçalho ou seção claramente delineada** | Inserindo os links para sua listagem no Marketplace em um parágrafo de texto. |
-| **Pesquise as melhores palavras-chave e otimize a página para pesquisa** | Supondo que o nome do produto gere classificações de pesquisa mais altas. |
-| **Usar palavras-chave de suas campanhas publicitárias** | Usar várias palavras-chave diferentes em suas propriedades da Web dilutes seus investimentos de publicidade. |
-| **Colocar nomes de produtos e palavras-chave relevantes "acima da dobra"** | Fazer com que os usuários rolem para ver o produto ou a solução que você está mostrando. |
-| **Use imagens de marca para validar sua solução de acordo com as diretrizes de identidade visual da Microsoft, como o Azure Certified** | Usando imagens da marca da Microsoft que não são aprovadas. |
+| **Comunique o problema do cliente que a sua solução resolve e como usa o Azure para o fazer acontecer** | Não comunicando as formas como a sua solução funciona com o Azure. |
+| **Crie um URL curto e fácil de lembrar** | Usando URLs compridos. UrLs longos não são memoráveis e são difíceis de localizar. |
+| **Adicione conteúdo visual relevante, como um vídeo testemunho do cliente ou uma arquitetura de solução** | Usar demasiado texto faz com que os seus clientes ignorem o seu conteúdo e parem de explorar.|
+| **Crie uma chamada clara para a ação para direcionar os visitantes para a sua página de catálogo do Marketplace** | Ter demasiados links ou ações na página. |
+| **Coloque a sua chamada em ação num cabeçalho ou secção claramente delineada** | Incorporar os links para a sua listagem no Mercado num parágrafo de texto. |
+| **Pesquise as melhores palavras-chave e otimize a página para pesquisa** | Assumindo que o nome do seu produto gera classificações de pesquisa mais elevadas. |
+| **Use palavras-chave das suas campanhas publicitárias** | Usar muitas palavras-chave diferentes em todas as suas propriedades web dilui os seus investimentos publicitários. |
+| **Coloque os nomes e as palavras-chave relevantes "acima da dobra"** | Fazer os utilizadores percorrerem o pergaminho para ver o produto ou a solução que está a mostrar. |
+| **Utilize imagens da marca para validar a sua solução de acordo com as diretrizes de marca da Microsoft, como a Azure Certified** | Utilizando imagens da marca Microsoft que não sejam aprovadas. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-*   Para obter mais informações sobre a notificação do Azure Certified, consulte [Microsoft Azure diretrizes certificadas](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).
-*   Para obter mais recursos sobre identidade visual, consulte [central da marca](https://microsoft.sharepoint.com/teams/brandcentral).
-*   Para obter mais informações sobre a ferramenta de compilador de logotipo, consulte [logo Builder](https://logobuilder.partner.microsoft.com).
-*   Examine [como o Microsoft Partner Program funciona para você](https://partner.microsoft.com/membership/how-it-works).
+*   Para obter mais informações sobre o crachá Azure Certified, consulte [as diretrizes certificadas microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).
+*   Para mais recursos sobre branding, consulte [brand Central.](https://microsoft.sharepoint.com/teams/brandcentral)
+*   Para mais informações sobre a ferramenta Logo Builder, consulte [Logo Builder](https://logobuilder.partner.microsoft.com).
+*   Reveja [como funciona o programa Microsoft Partner para si.](https://partner.microsoft.com/membership/how-it-works)

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
-ms.date: 07/16/2019
-ms.openlocfilehash: 1c1995b4daf3b76abf7663d8d6c1f4cb7b1d6e2b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/17/2020
+ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201684"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80364166"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database gerido instância frequentemente feita perguntas (FAQ)
 
@@ -31,24 +31,24 @@ Para obter uma lista de funcionalidades suportadas em instância gerida, consult
 Para diferenças na sintaxe e no comportamento entre a Base de Dados Azure SQL gerida por instância sql e no local SQL Server, consulte [as diferenças T-SQL do SQL Server](sql-database-managed-instance-transact-sql-information.md).
 
 
-## <a name="tech-spec--resource-limits"></a>Especificações tecnológicas e limites de recursos
+## <a name="tech-spec--resource-limits"></a>Especificação tecnológica & limites de recursos
  
 **Onde posso encontrar características técnicas e limites de recursos para instâncias geridas?**
 
 Para obter características de geração de hardware disponíveis, consulte [diferenças técnicas nas gerações](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)de hardware .
 Para os níveis de serviço disponíveis e as suas características, consulte [diferenças técnicas entre os níveis](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)de serviço .
 
-## <a name="known-issues--bugs"></a>Questões e bugs conhecidos
+## <a name="known-issues--bugs"></a>Questões conhecidas & bugs
 
 **Onde posso encontrar problemas e insetos conhecidos?**
 
-Para bugs e questões conhecidas veja [questões conhecidas](sql-database-managed-instance-transact-sql-information.md#Issues).
+Para bugs e questões conhecidas veja [questões conhecidas](sql-database-release-notes.md#known-issues).
 
-## <a name="new-features"></a>Novos recursos
+## <a name="new-features"></a>Novas funcionalidades
 
 **Onde posso encontrar as últimas funcionalidades e as funcionalidades na pré-visualização pública?**
 
-Para novas funcionalidades de pré-visualização, consulte [as notas](/azure/sql-database/sql-database-release-notes?tabs=managed-instance)de lançamento .
+Para novas funcionalidades de pré-visualização, consulte [as notas](sql-database-release-notes.md?tabs=managed-instance)de lançamento .
 
 ## <a name="deployment-times"></a>Tempos de implantação 
 
@@ -60,7 +60,11 @@ O tempo esperado para criar um novo nível de instância gerido ou alterar o ní
 
 **Uma instância gerida pode ter o mesmo nome que o SQL Server no local?**
 
-O exemplo gerido deve ter um nome que termine com *database.windows.net*. Para utilizar outra zona DNS em vez do padrão, por exemplo, **mi-outro nome**.contoso.com: 
+A alteração do nome de instância gerida não é suportada.
+
+Zona dNS padrão de instância gerida *.database.windows.net* poderia ser alterada. 
+
+Utilizar outra zona DNS em vez do predefinido, por exemplo, *.contoso.com:* 
 - Use cliConfig para definir um pseudónimo. A ferramenta é apenas um invólucro de definições de registo, por isso pode ser feito usando a política de grupo ou script também.
 - Utilize *O CNAME* com *TrustServerCertificate=verdadeira* opção.
 
@@ -72,7 +76,7 @@ Pode [exportar base de dados para o BACPAC](sql-database-export.md) e, em seguid
 
 A replicação transacional pode ser utilizada se todas as tabelas da base de dados tiverem chaves primárias.
 
-As cópias de segurança nativas `COPY_ONLY` retiradas da instância gerida não podem ser restauradas ao SQL Server porque a instância gerida tem uma versão de base de dados mais alta em comparação com o SQL Server.
+As `COPY_ONLY` cópias de segurança nativas retiradas da instância gerida não podem ser restauradas ao SQL Server porque a instância gerida tem uma versão de base de dados mais alta em comparação com o SQL Server.
 
 ## <a name="migrate-instance-db"></a>Migrar instância DB
 
@@ -101,7 +105,7 @@ A instância gerida pelo General Purpose utiliza armazenamento remoto devido ao 
 
 Se a sua carga de trabalho for constituída por muitas pequenas transações, considere mudar o tipo de ligação de proxy para modo de redirecionamento.
 
-## <a name="maximum-storage-size"></a>Tamanho máximo de armazenamento
+## <a name="maximum-storage-size"></a>Tamanho máximo do armazenamento
 
 **Qual é o tamanho máximo de armazenamento para o caso gerido?**
 
@@ -119,30 +123,30 @@ Não, o armazenamento de reserva não é deduzido do seu espaço de armazenament
 
 Pode fazê-lo utilizando a [solução Azure Cost Management](/azure/cost-management/). Navegue para **Assinaturas** no [portal Azure](https://portal.azure.com) e selecione Análise de **Custos**. 
 
-Utilize a opção **custos acumulados** e, em seguida, filtre pelo **tipo Recurso** como `microsoft.sql/managedinstances`. 
+Utilize a opção **custos acumulados** e, em seguida, filtrar pelo **tipo Recurso** como `microsoft.sql/managedinstances`. 
   
 ## <a name="inbound-nsg-rules"></a>Regras de NSG de entrada
 
 **Como posso estabelecer regras de entrada de NSG em portos de gestão?**
 
-A funcionalidade de firewall incorporada configura a firewall do Windows em todas as máquinas virtuais do cluster para permitir ligações de entrada a partir de gamas IP associadas apenas a máquinas de gestão/implementação da Microsoft e estações de trabalho de administração seguras, evitando eficazmente intrusões através da camada de rede.
+O plano de controlo de instâncias gerido mantém as regras da NSG que protegem as portas de gestão.
 
-Aqui está o que as portas são usadas para:
+Aqui está o que as portas de gestão são usadas para:
 
 Os portos 9000 e 9003 são utilizados pela infraestrutura de tecido de serviço. Serviço O papel primário do Tecido é manter o cluster virtual saudável e manter o estado objetivo em termos de número de réplicas de componentes.
 
-Os portos 1438, 1440 e 1452 são usados pelo Agente nó. O agente nó é uma aplicação que funciona dentro do cluster e é usada pelo plano de controlo para executar comandos de gestão.
+Os portos 1438, 1440 e 1452 são usados pelo agente do nó. O agente nó é uma aplicação que funciona dentro do cluster e é usada pelo plano de controlo para executar comandos de gestão.
 
-Além da firewall incorporada na camada de rede, a comunicação também está protegida com certificados.
+Além das regras da NSG, a firewall incorporada protege a instância na camada de rede. Na comunicação da camada de aplicação está protegida com os certificados.
   
 Para obter mais informações e como verificar a firewall incorporada, consulte a Base de [Dados Azure SQL gerida por instância incorporada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 
-## <a name="mitigate-network-risks"></a>Mitigar riscos de rede  
+## <a name="mitigate-data-exfiltration-risks"></a>Mitigar riscos de exfiltração de dados  
 
-**Como posso mitigar os riscos de networking?**
+**Como posso mitigar os riscos de exfiltração de dados?**
 
-Para mitigar quaisquer riscos de networking, recomenda-se aos clientes que apliquem um conjunto de definições e controlos de segurança:
+Para mitigar quaisquer riscos de exfiltração de dados, recomenda-se aos clientes que apliquem um conjunto de definições e controlos de segurança:
 
 - Ligue a [Encriptação transparente de dados (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) em todas as bases de dados.
 - Desligue o tempo de execução da linguagem comum (CLR). Isto também é recomendado no local.
@@ -162,7 +166,7 @@ Estudos de caso geridos por exemplo:
 - [Rio Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
 - [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
 - [Detalhes de Energia](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)   
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
 Para obter uma melhor compreensão dos benefícios, custos e riscos associados à implementação de caso gerido pela Azure SQL Database, há também um estudo de Forrester: [Impacto Económico Total do MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
@@ -180,19 +184,19 @@ A configuração DNS é eventualmente renovada:
 Como uma suver, desaperte a instância gerida para 4 vCore e atualize-a novamente depois. Isto tem um efeito colateral de refrescar a configuração DNS.
 
 
-## <a name="static-ip-address"></a>Endereço IP estático
+## <a name="ip-address"></a>Endereço IP
+
+**Posso ligar-me à instância gerida usando o endereço IP?**
+
+A ligação à instância gerida utilizando o endereço IP não é suportada. Mapas de nomes de anfitriões geridos para carregar o equilibrador em frente ao cluster virtual de instância gerido. Como um cluster virtual poderia acolher múltiplas instâncias geridas a ligação não poderia ser encaminhada para instância gerida adequada sem especificar o seu nome.
+
+Para obter mais informações sobre arquitetura de cluster virtual gerida, consulte a arquitetura de conectividade de [cluster virtual.](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture)
 
 **Um caso gerido pode ter um endereço IP estático?**
 
 Em situações raras, mas necessárias, talvez tenhamos de fazer uma migração online de um exemplo gerido para um novo aglomerado virtual. Se necessário, esta migração deve-se a mudanças na nossa pilha de tecnologia destinadas a melhorar a segurança e a fiabilidade do serviço. Migrar para um novo cluster virtual resulta na alteração do endereço IP que é mapeado para o nome do anfitrião da instância gerida. O serviço de instância gerido não reclama suporte de endereço IP estático e reserva-se o direito de alterá-lo sem aviso prévio como parte de ciclos regulares de manutenção.
 
 Por esta razão, desencorajamos fortemente a immutabilidade do endereço IP, uma vez que poderia causar tempo de inatividade desnecessário.
-
-## <a name="moving-mi"></a>MI em movimento
-
-**Posso mover uma instância gerida ou o seu VNet para outro grupo de recursos?**
-
-Não, esta é a limitação da plataforma atual. Após a criação de uma instância gerida, a mudança da instância gerida ou vNet para outro grupo de recursos ou subscrição não é suportada.
 
 ## <a name="change-time-zone"></a>Alterar o fuso horário
 

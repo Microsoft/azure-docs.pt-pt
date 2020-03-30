@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0050112dc7d9d2fa20da612691f1ff0927df93fb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: e104877ef641a87eac4ba19bb3342c6e029bf80c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274375"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294585"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Monitor Azure
 
@@ -24,7 +24,7 @@ As métricas personalizadas podem ser enviadas para o Monitor Azure através de 
 - Instrumente a sua aplicação utilizando o Azure Application Insights SDK e envie telemetria personalizada para o Monitor Azure. 
 - Instale a extensão de Diagnósticos Windows Azure (WAD) no seu [Azure VM,](collect-custom-metrics-guestos-resource-manager-vm.md)conjunto de [escala de máquinavirtual,](collect-custom-metrics-guestos-resource-manager-vmss.md) [VM clássico](collect-custom-metrics-guestos-vm-classic.md)ou [serviços de nuvem clássicos](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e envie contadores de desempenho para o Monitor Azure. 
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) no seu VM Azure Linux e envie métricas utilizando o plug-in de saída do Monitor Azure.
-- Envie métricas personalizadas [diretamente para a API REST Do Monitor Azure,](../../azure-monitor/platform/metrics-store-custom-rest-api.md)`https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Envie métricas personalizadas [diretamente para a API REST Do Monitor Azure,](../../azure-monitor/platform/metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 Quando envia métricas personalizadas para o Monitor Azure, cada ponto de dados, ou valor, reportado deve incluir as seguintes informações.
 
@@ -35,9 +35,9 @@ Para submeter métricas personalizadas ao Azure Monitor, a entidade que submete 
 Para autenticar o pedido, o Monitor Azure valida a aplicação através da utilização de chaves públicas Azure AD. O papel existente de **Monitoring Metrics Publisher** já tem esta permissão. Está disponível no portal Azure. O diretor de serviço, dependendo dos recursos para os quais emite métricas personalizadas, pode ser dado o papel de Editor de Métricas de **Monitorização** no âmbito necessário. Exemplos são uma subscrição, grupo de recursos ou recurso específico.
 
 > [!NOTE]  
-> Quando solicitar um token Azure AD para emitir métricas personalizadas, certifique-se de que o público ou recurso que o token é solicitado é https://monitoring.azure.com/. Certifique-se de incluir o '/'.
+> Quando solicitar um token Azure AD para emitir métricas personalizadas, certifique-se de `https://monitoring.azure.com/`que o público ou recurso que o token é solicitado é . Certifique-se de incluir o '/'.
 
-### <a name="subject"></a>Requerente
+### <a name="subject"></a>Assunto
 Esta propriedade captura o qual o iD de recurso Azure a métrica personalizada é reportada. Estas informações serão codificadas no URL da chamada DaPI que está a ser feita. Cada API só pode submeter valores métricos para um único recurso Azure.
 
 > [!NOTE]  
@@ -76,7 +76,7 @@ Ao reportar um ponto de dados métrico, para cada chave de dimensão na métrica
 Ao publicar um valor métrico, só pode especificar um valor de dimensão única por chave de dimensão. Se recolher a mesma utilização de memória para múltiplos processos no VM, pode reportar vários valores métricos para essa marca de tempo. Cada valor métrico especificaria um valor de dimensão diferente para a chave de dimensão do **Processo.**
 As dimensões são opcionais, nem todas as métricas podem ter dimensões. Se um post métrico define as teclas de dimensão, os valores de dimensão correspondentes são obrigatórios.
 
-### <a name="metric-values"></a>Valores métricos
+### <a name="metric-values"></a>Valores de métricas
 O Azure Monitor armazena todas as métricas em intervalos de granularidade de um minuto. Entendemos que durante um dado minuto, uma métrica pode precisar de ser amostrada várias vezes. Um exemplo é a utilização do CPU. Ou pode ter de ser medido para muitos eventos discretos. Um exemplo são as tardios de transação de inscrição. Para limitar o número de valores brutos que tem de emitir e pagar no Monitor Azure, pode pré-agregar localmente e emitir os valores:
 
 * **Min**: O valor mínimo observado de todas as amostras e medições durante o minuto.
@@ -161,7 +161,7 @@ Depois de submetidas métricas personalizadas ao Monitor Azure, pode navegá-las
 > Tem de ser um leitor ou um papel de contribuinte para ver métricas personalizadas.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Navegue nas suas métricas personalizadas através do portal Azure
-1.    Aceda ao [Portal do Azure](https://portal.azure.com).
+1.    Vá ao [portal Azure.](https://portal.azure.com)
 2.    Selecione o painel **monitor.**
 3.    Selecione **Métricas**.
 4.    Selecione um recurso contra o qual emitiste métricas personalizadas.
@@ -183,7 +183,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |E.U.A. Leste| https:\//eastus.monitoring.azure.com/ |
 | **Europa** | |
 |Europa do Norte    | https:\//northeurope.monitoring.azure.com/ |
-|Europa Ocidental     | https:\//westeurope.monitoring.azure.com/ |
+|Europa ocidental     | https:\//westeurope.monitoring.azure.com/ |
 |Sul do Reino Unido | https:\//uksouth.monitoring.azure.com
 |França Central | https:\//francecentral.monitoring.azure.com |
 | **África** | |
@@ -211,9 +211,9 @@ Uma série de tempo ativa é definida como qualquer combinação única de métr
 ## <a name="next-steps"></a>Passos seguintes
 Utilize métricas personalizadas de diferentes serviços: 
  - [Máquinas Virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
- - [Conjunto de escala de máquina virtual](collect-custom-metrics-guestos-resource-manager-vmss.md)
+ - [Conjuntos de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas Virtuais Azure (clássica)](collect-custom-metrics-guestos-vm-classic.md)
  - [Máquina Virtual Linux usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Serviços clássicos de nuvem](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

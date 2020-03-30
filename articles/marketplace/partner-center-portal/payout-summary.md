@@ -1,18 +1,17 @@
 ---
 title: Resumo do pagamento do mercado comercial Mercado Azure
 description: O resumo do Pagamento mostra-lhe detalhes sobre o dinheiro que ganhou com a sua oferta. Também lhe permite saber quando receberá os pagamentos e quanto será pago.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 678dc8b058d0ae0694dafeb4222b2fc9f10ecda7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269903"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288704"
 ---
 # <a name="payout-reporting"></a>Relatórios de pagamento
 
@@ -32,7 +31,7 @@ Se vender ofertas no Azure Marketplace, também verá informações sobre pagame
 
 ## <a name="roles-and-permission-to-access-the-payout-report"></a>Funções e permissão para aceder ao relatório de pagamento
 
-| Relatórios/Páginas    | Proprietário da conta    | Gestor  | Desenvolvedor | Contribuinte de negócios |  Contribuinte financeiro | Marketer |
+| Relatórios/Páginas    | Proprietário de Conta    | Gestor  | Programador | Contribuinte de negócios |  Contribuinte financeiro | Marketer |
 |------------------|------------------|----------|-----------|----|----|-----|
 | Relatório de aquisição (incluindo dados de tempo próximo em tempo real) | Pode ver | Pode ver | Sem acesso | Sem acesso | Pode ver | Sem acesso |
 | Relatório/respostas de feedback | Pode ver e enviar feedback | Pode ver e enviar feedback | Pode ver e enviar feedback | Sem acesso | Sem acesso | Pode ver e enviar feedback |
@@ -46,7 +45,7 @@ Se vender ofertas no Azure Marketplace, também verá informações sobre pagame
 
 | | Portal de Parceiros da Cloud | Centro de Parceiros |
 |---------|---------|---------|
-| Ligações | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) e [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+| Ligações | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory)e[https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Navegação | Relatóriode pagamento fornecido no Pagamento de Insights | Relatório de pagamento fornecido no Partner Center – Ícone de pagamento |
 | Âmbito | <ul> <li>Transação por rubrica é visível, para cobrança em curso, recolhida e paga </li> <li>Reporte – mostra todos os itens de linha uma vez que a encomenda de compra é criada, incluindo a recolha em andamento e faturação em Progresso, e o estado de cobrança e itens de linha que ainda não são elegíveis para serem pagos. </li> </ul> | <ul> <li>Mostra os itens de linha uma vez que são considerados como ganhos elegíveis.</li> <li>Os clientes pagam primeiro à Microsoft, e depois os ISVs podem ver o relatório de pagamento a começar.</li> <li>O relatório de pagamento não mostrará a cobrança em curso e a faturação em curso.  </li> </ul>  |
 | Transação não está pronta para pagamento | Faturação em Progresso | Próximo pagamento estimado: O estado do pagamento está no estado não processado.  |
@@ -68,23 +67,23 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 
 ## <a name="corelation-between-payout-and-usage"></a>Corelação entre pagamento e utilização
 
-|Descrição    |    Data  | Encomendas/Utilização  | Pagamento |
+|Descrição    |    Date  | Encomendas/Utilização  | Pagamento |
 |----------|----------|-----------|-------------|
-|Período de encomenda   | 15 de agosto de 2019 - 30 de agosto de 2019 | **Ordens de Atributos correlaçãois** <br> <ul> <li>Rdenouno</li> <li>clienteId</li> </ul> <br> **Utilização** <br> <ul> <li>clienteId </li> <li>Nome do cliente</li> <li>(Referência de utilização) BuyRecordId/LineItemId</li> <li> Carga alargada estimada <br> Pagamento Estimado (PC) </li> </ul> |  |
+|Período de encomenda   | 15 de agosto de 2019 - 30 de agosto de 2019 | **Ordens de Atributos correlaçãois** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Utilização** <br> <ul> <li>CustomerId </li> <li>Nome do cliente</li> <li>(Referência de utilização) BuyRecordId/LineItemId</li> <li> Carga alargada estimada <br> Pagamento Estimado (PC) </li> </ul> |  |
 |Fim do Prazo (mês)   | 30 de agosto de 2019 | | |
 |Data de faturação | 1 de setembro de 2019 | | |
 |Data de Pagamento do Cliente | 1 de setembro de 2019 | | |
-|Período de caução (apenas cartões de crédito, 30 dias) | 1 de setembro de 2019 - 30 set, 2019 | | **Correlação atribui ordens:** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>clienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** Não processado |
+|Período de caução (apenas cartões de crédito, 30 dias) | 1 de setembro de 2019 - 30 set, 2019 | | **Correlação atribui ordens:** <br> <ul><li>Assetid</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** Não processado |
 |Início do Período de Recolha | 1 de setembro de 2019 | | |
 |Fim do Período de Recolha (máximo, 30 dias) | 30 de setembro de 2019 | | |
-|Data de Cálculo do Pagamento (mensalmente no dia 15) | 1 de outubro de 2019 | | **Atributos de Correlação** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li>Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>clienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** A seguir |
-|Data de Pagamento | 15 out, 2019 | | **Atributos de Correlação** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>clienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** Pagamento enviado |
+|Data de Cálculo do Pagamento (mensalmente no dia 15) | 1 de outubro de 2019 | | **Atributos de Correlação** <br> <ul><li>Assetid</li> <li>ID de Cliente</li> <li>Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** A seguir |
+|Data de Pagamento | 15 out, 2019 | | **Atributos de Correlação** <br> <ul><li>Assetid</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** Pagamento enviado |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Acordo de empresa (clientes trimestrais/mensais)
 
-| Descrição |    Data  | Utilização | Pagamento |
+| Descrição |    Date  | Utilização | Pagamento |
 |----------|----------|---------|-----------|
-|Período de encomenda | 15 de agosto de 2019 - 30 de agosto de 2019 | **Correlação atribui ordens** <br> <ul> <li>Rdenouno</li> <li>clienteId</li> </ul> <br> **Relatório de utilização** <br> <ul> <li>clienteId </li> <li>Nome do cliente</li> <li>(Referência de utilização) BuyRecordId/LineItemId</li> <li> Carga alargada estimada <br> Pagamento Estimado (PC) </li> </ul> | |
+|Período de encomenda | 15 de agosto de 2019 - 30 de agosto de 2019 | **Correlação atribui ordens** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Relatório de utilização** <br> <ul> <li>CustomerId </li> <li>Nome do cliente</li> <li>(Referência de utilização) BuyRecordId/LineItemId</li> <li> Carga alargada estimada <br> Pagamento Estimado (PC) </li> </ul> | |
 |Fim do Prazo (trimestre) | 30 de setembro de 2019 | | |
 |Data de faturação | 15 out, 2019 | | |
 |Período de caução (apenas cartões de crédito, 30 dias) | n/d | | |
@@ -93,7 +92,7 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 |Fim do Período de Recolha (máximo, 90 dias) | 15 de janeiro de 2020 | | |
 |Data de Pagamento do Cliente | 30 de dezembro de 2019 | | |
 |Cálculo do pagamento | 15 de janeiro de 2020 | | |
-|Data de Pagamento | Fev 15, 2020 | | **Para clientes trimestrais** <br> <br> **Relatório de encomendas** <br> <ul><li>Assetid</li> <li>ID do cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>clienteId</li> <li>Nome do cliente</li> <li>Rdenouno</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** enviado |
+|Data de Pagamento | Fev 15, 2020 | | **Para clientes trimestrais** <br> <br> **Relatório de encomendas** <br> <ul><li>Assetid</li> <li>ID de Cliente</li> <li> Nome do cliente</li> </ul> <br> **Utilização** <br> <ul> <li>Assetid</li> <li>CustomerId</li> <li>Nome do cliente</li> <li>OrderId</li> <li>LineItemId</li> <li>transaçõesMontante</li> <li>Valor InLastPaymentCurrency</li> </ul> <br> **Estado do pagamento:** enviado |
 
 ## <a name="transaction-history-download-export"></a>Transferência de transferência de histórico de transações
 
@@ -107,7 +106,7 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | nome de participante                | Nome do parceiro de ganhos                                                                                                              |
 | parceiroCountryCode             | Localização/país do parceiro de ganhos                                                                                                  |
 | programaNome                    | Nome do programa de incentivo/loja                                                                                                             |
-| transactionId                  | Identificador único para a transação                                                                                                    |
+| transaçãoId                  | Identificador único para a transação                                                                                                    |
 | transaçãoMoeda            | Moeda em que ocorreu a transação original do cliente (não é a moeda de localização do parceiro)                                     |
 | transacçãoData                | Data da transação. Útil para programas onde muitas transações contribuem para um ganho                                           |
 | transacçõesExchangeRate        | Taxa de câmbio utilizada para mostrar o valor de usd transação correspondente                                                                 |
@@ -130,14 +129,14 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | pagamentoId            | Identificador único para o pagamento. Este número é visível no seu extrato bancário                                            |
 | pagamentoEstatuto            | Estado de pagamento                                            |
 | pagamentoStatusDescription            | Descrição amigável do estado do pagamento                                            |
-| clienteId                     | Sempre estará em branco                                                                                                                     |
+| customerId                     | Sempre estará em branco                                                                                                                     |
 | nome do cliente                   | Sempre estará em branco                                                                                                                     |
 | partNumber                     | Sempre estará em branco                                                                                                                     |
 | nome do produto                    | Nome do produto ligado à transação                                                                                                       |
 | productId                      | Identificador de produto único                                                                                                                |
 | parentProductId                | Identificador de produto parental único. Nota: se não houver um produto-mãe para a transação, então o ID do Produto-Mãe = ID do Produto. |
 | nome do produto parental              | Nome do produto-mãe. Nota: se não houver um produto-mãe para a transação, então nome do produto-mãe = Nome do produto.   |
-| produtoType                    | Tipo de produto (como App, Add-on, Game, etc.)                                                                                        |
+| productType                    | Tipo de produto (como App, Add-on, Game, etc.)                                                                                        |
 | faturaNúmero                  | Número de fatura (aplicável apenas para EA)                                                                                                  |
 | revendedorId                     | Identificador de revendedor                                                                                                                      |
 | revendedorNome                   | Nome do revendedor                                                                                                                            |
@@ -162,10 +161,10 @@ Esta opção fornece um download de cada item de linha de ganho que você vê na
 | taxZipCode       | Vendido ao Cliente Zip                                                                                                                  |
 | Nome do Programa de Licenciamento       |                                                                                                                   |
 | Código do Programa       | Corda para mapear com o nome do programa                                                                                                                   |
-| Valor InLastPaymentCurrency       | Valor dos ganhos na última moeda de pagamento (campo estará vazio, se não tiverem sido pagos pagamentos prévios)                                                                                                                   |
+| ganhoAmountInLastPaymentCurrency       | Valor dos ganhos na última moeda de pagamento (campo estará vazio, se não tiverem sido pagos pagamentos prévios)                                                                                                                   |
 | últimaMoeda de pagamento       | Última moeda de pagamento (campo estará vazio, se não tiver sido pago nenhum pagamento prévio)                                                                                                                   |
 | Assetid       | O identificador único para as encomendas do cliente para o seu serviço de marketplace.  Representa os itens de linha de compra transacionados. Pode haver vários bens.                                                                                                                   |
-| Rdenouno       | refere-se à fatura de um cliente                                                                                                                   |
+| OrderId       | refere-se à fatura de um cliente                                                                                                                   |
 | LineItemId       | linha individual na fatura de um cliente                                                                                                                   |
 | País cliente       | O nome do país fornecido pelo cliente.  Isto pode ser diferente do país na subscrição do Azure de um cliente.                                                                                                                   |
 | Endereço de e-mail do cliente       | O endereço de e-mail fornecido pelo cliente final.  Isto poderia ser diferente do endereço de e-mail na Subscrição Azure de um cliente.                                                                                                                   |

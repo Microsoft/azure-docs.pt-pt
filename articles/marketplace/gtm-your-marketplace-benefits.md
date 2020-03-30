@@ -1,19 +1,18 @@
 ---
 title: Go-To-Market Services - os seus benefícios no mercado comercial Azure
 description: Go-To-Market Services - Os recursos da Microsoft que os editores podem utilizar são descritos nesta secção.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2020
-ms.author: evansma
-ms.openlocfilehash: 1ecb48751715d32e1e67f09e0e3d4bf9577c8eab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.author: dsindona
+ms.openlocfilehash: d34fb989e7f656df93faae63ef4dc42ed0fe5abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269942"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286239"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -42,10 +41,10 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
 Os seus passos para começar são fáceis:
 
 1. Publique uma oferta no Microsoft AppSource ou no Azure Marketplace.
-2. A equipa contacta o "proprietário" ou o "contacto primário" por oferta de mercado. É uma boa prática entrar num indivíduo ou num pseudónimo que verifica regularmente: mensagens enviadas a pseudónimos como info@company.com muitas vezes se perdem.
+2. A equipa contacta o "proprietário" ou o "contacto primário" por oferta de mercado. É uma boa prática entrar num indivíduo ou num pseudónimo que verifica regularmente: info@company.com mensagens enviadas a pseudónimos como muitas vezes perdem-se.
 
 >[!Note]
->Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, consulte dentro da sua organização quem é o proprietário da oferta em questão, quer olhando para o Cloud Partner Portal ou no Partner Center. Devem ter a comunicação e os próximos passos. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário deixou a sua empresa, pode levantar um bilhete de apoio em https://aka.ms/marketplacepublishersupport.
+>Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, consulte dentro da sua organização quem é o proprietário da oferta em questão, quer olhando para o Cloud Partner Portal ou no Partner Center. Devem ter a comunicação e os próximos passos. <br> <br> Se não conseguir determinar o proprietário, ou se o proprietário deixou https://aka.ms/marketplacepublishersupporta sua empresa, pode levantar um bilhete de apoio em .
 
 O âmbito das atividades disponíveis para si expande-se à medida que cultiva as suas ofertas no mercado. Todos os anúncios recebem um nível base de recomendações de otimização e promoção como parte de um e-mail auto-servido de recursos e boas práticas.
 
@@ -76,7 +75,7 @@ Todos os parceiros que tenham uma oferta ao vivo podem trabalhar com um gestor d
 
 ![Benefícios técnicos](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* limite de venda de Bancos aplica-se apenas a aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2020.
+\*O limiar de venda de lugares aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2020.
 
 Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards](https://aka.ms/marketplacerewards).
 

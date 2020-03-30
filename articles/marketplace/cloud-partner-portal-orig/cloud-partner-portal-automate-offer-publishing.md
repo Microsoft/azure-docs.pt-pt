@@ -1,34 +1,33 @@
 ---
-title: Automatizar a publicação da oferta | Azure Marketplace
-description: Explica como automatizar programaticamente o fluxo de trabalho de publicação de máquina virtual.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Automate oferta de publicação / Mercado Azure
+description: Explica como automatizar programáticamente o fluxo de trabalho de publicação de máquinas virtuais.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 6464c8354c9d56092380e4b76c1ea962f5102c72
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 25c7429dc369fb8fc70a135950b16c0a5997656b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824333"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280342"
 ---
-<a name="automate-offer-publishing"></a>Publicação automatizada de ofertas
+<a name="automate-offer-publishing"></a>Automatizar a publicação da oferta
 =========================
 
-Você também pode automatizar programaticamente o fluxo de trabalho de publicação de VM, usando as APIs na seção de [referência de API](./cloud-partner-portal-api-overview.md) . Há dois cenários distintos a serem considerados durante o planejamento da automação: ofereça publicação inicial e publicação de oferta subsequente.
+Também pode automatizar programáticamente o fluxo de trabalho de publicação VM, utilizando as APIs na secção [De Referência API.](./cloud-partner-portal-api-overview.md) Existem dois cenários distintos a considerar ao planear a automação: oferecer a publicação inicial e posterior publicação de ofertas.
 
 
-<a name="offer-initial-publishing"></a>Oferecer publicação inicial
+<a name="offer-initial-publishing"></a>Oferta de publicação inicial
 -------------------------
 
-Quando você publica uma oferta pela primeira vez, ela requer algumas etapas adicionais antes de carregar no Marketplace.  Por exemplo, você deve preparar os metadados e criar um rascunho de oferta. O fluxo de trabalho de publicação inicial é mostrado no diagrama a seguir.
+Quando publica uma oferta pela primeira vez, requer alguns passos adicionais antes de enviar para o mercado.  Por exemplo, deve preparar os metadados e criar um rascunho de oferta. O fluxo de trabalho de publicação inicial é mostrado no diagrama seguinte.
 
-![Interações de uma publicação de oferta inicial](media/cloud-partner-portal-automate-offer-publishing/first-time-offer-publishing.png)
+![Interações de uma publicação inicial de oferta](media/cloud-partner-portal-automate-offer-publishing/first-time-offer-publishing.png)
 
-O código de exemplo a seguir demonstra essas etapas.
+O seguinte código de amostra demonstra estes passos.
 
 ``` csharp
   CreateOfferAndPublish()
@@ -78,9 +77,9 @@ O código de exemplo a seguir demonstra essas etapas.
 <a name="subsequent-offer-publishing"></a>Publicação de oferta subsequente
 ---------------------------
 
-Depois que a oferta de VM (máquina virtual) for integrada a um pipeline de integração contínua, você poderá automatizar o fluxo de trabalho de publicação para ser executado sempre que um novo VHD (disco rígido virtual) for criado.  Esse fluxo de trabalho é ilustrado pelo diagrama e código de exemplo a seguir.
+Uma vez que a oferta da máquina virtual (VM) é integrada num pipeline de integração contínua, pode automatizar o fluxo de trabalho de publicação para funcionar sempre que for criado um novo disco rígido virtual (VHD).  Este fluxo de trabalho é ilustrado pelo seguinte diagrama e código de amostra.
 
-![Interações de publicações de oferta subsequentes](media/cloud-partner-portal-automate-offer-publishing/update-offer-and-publish.png)
+![Interações de publicações de ofertas subsequentes](media/cloud-partner-portal-automate-offer-publishing/update-offer-and-publish.png)
 
 ``` csharp
     UpdateOfferAndPublish()

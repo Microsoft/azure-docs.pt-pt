@@ -15,22 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
 ms.openlocfilehash: 46fad0dd2e39f1f563ed248458da622ad83f061e
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78161121"
 ---
-# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos para máquinas virtuais Linux em Azure
+# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos de máquinas virtuais do Windows no Azure
 
 Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtuais Azure que pode usar para executar as suas aplicações e cargas de trabalho do Linux. Também fornece considerações de implantação para estar ciente de quando você está planejando usar estes recursos. Este artigo também está disponível para [máquinas virtuais windows.](../windows/sizes.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
 
 | Tipo | Tamanhos | Descrição |
 |------|-------|-------------|
-| [Fins gerais](../sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2  | Rácio CPU-memória equilibrado. Ideal para testes e desenvolvimento, bases de dados pequenas a médias e servidores web de tráfego baixo a médio. |
+| [Fins gerais](../sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2  | Rácio CPU-memória equilibrado. Ideais para testes e programação, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
 | [Com otimização de computação](../sizes-compute.md) | Fsv2 | Alta relação CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações. |
-| [Com otimização de memória](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | Alta relação memória-CPU. Ótimo para servidores de base de dados relacionais, caches médios a grandes e análise sintetizada.                 |
-| [Com otimização de armazenamento](../sizes-storage.md) | Lsv2 | Alta entrada de disco e IO ideal para Big Data, SQL, NoSQL bases de dados, armazenamento de dados e grandes bases de dados transacionais.  |
+| [Com otimização de memória](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | Alta relação memória-CPU. Ideais para servidores de bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Com otimização de armazenamento](../sizes-storage.md) | Rio Lsv2 | Alta entrada de disco e IO ideal para Big Data, SQL, NoSQL bases de dados, armazenamento de dados e grandes bases de dados transacionais.  |
 | [GPU](../sizes-gpu.md) | NC, Ncv2, Ncv3, ND, NDv2 (Pré-visualização), NV, Nvv3, Nvv4 | Máquinas virtuais especializadas direcionadas para renderização gráfica pesada e edição de vídeo, bem como treino de modelos e inferência (ND) com aprendizagem profunda. Disponível com GPUs individuais ou múltiplos. |
 | [Computação de elevado desempenho](../sizes-hpc.md) | HB, HBv2, HC, H | As nossas máquinas virtuais CPU mais rápidas e poderosas com interfaces de rede de alta-corrente opcional (RDMA). |
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: rohink
-ms.openlocfilehash: d56e3fe759d2c9dbee9a8f19a6f1a030565c8e4e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 6c5c5c185063caf8ca258ad70a70903c9b583e07
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938480"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294848"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gestor de Tráfego do Azure
 
@@ -23,9 +23,9 @@ Quando cria um perfil do Gestor de Tráfego, o Azure atribui automaticamente um 
 
 Por exemplo, para apontar o nome `www.contoso.com` para o nome de DNS do Gestor de Tráfego `contoso.trafficmanager.net`, cria o registo de recursos de DNS seguinte:
 
-    www.contoso.com IN CNAME contoso.trafficmanager.net
+    `www.contoso.com IN CNAME contoso.trafficmanager.net`
 
-Todos os pedidos de tráfego para *www\.contoso.com* ser direcionados para *contoso.trafficmanager.net*.
+Todos os pedidos de tráfego para *\.www contoso.com* ser direcionados para *contoso.trafficmanager.net*.
 
 > [!IMPORTANT]
 > Não é possível apontar um domínio de segundo nível, como *contoso.com*, para o domínio do Traffic Manager. Os padrões de protocolo DNS não permitem registos CNAME para nomes de domínio de segundo nível.
@@ -33,5 +33,5 @@ Todos os pedidos de tráfego para *www\.contoso.com* ser direcionados para *cont
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Métodos de encaminhamento do Gestor de Tráfego](traffic-manager-routing-methods.md)
-* [Gestor de Tráfego – Desativar, ativar ou eliminar um perfil](disable-enable-or-delete-a-profile.md)
+* [Gestor de Tráfego - Desativar, ativar ou apagar um perfil](disable-enable-or-delete-a-profile.md)
 * [Gestor de Tráfego – Desativar ou ativar um ponto final](disable-or-enable-an-endpoint.md)

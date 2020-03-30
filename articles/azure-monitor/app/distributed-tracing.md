@@ -1,17 +1,17 @@
 ---
-title: Rastreio distribuído em Insights de Aplicação Azure  Microsoft Docs
-description: Fornece informações sobre o suporte da Microsoft para rastreio distribuído através do nosso avançado local e parceria no projeto OpenCensus
+title: Rastreio distribuído em Insights de Aplicação Azure [ Microsoft Docs
+description: Fornece informações sobre o suporte da Microsoft para rastreio distribuído através da nossa parceria no projeto OpenCensus
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9f67250a232d4666e4655f83e9bdc7622754331
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136745"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294962"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é Rastreio Distribuído?
 
@@ -36,9 +36,9 @@ Os SDKs de Insights de Aplicação para .NET, .NET Core, Java, Node.js e JavaScr
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
-* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
+* [Nó.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
-* [python](opencensus-python.md)
+* [Pitão](opencensus-python.md)
 
 Com a aplicação adequada Insights SDK instalada e configurada, a informação de rastreio é recolhida automaticamente para quadros populares, bibliotecas e tecnologias por auto-coleccionadores de dependência sdK. A lista completa de tecnologias suportadas está disponível na documentação de [recolha automática dependency.](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)
 
@@ -48,12 +48,12 @@ Com a aplicação adequada Insights SDK instalada e configurada, a informação 
 
 Além dos SDKs de Insights de Aplicação, a Application Insights também suporta o rastreio distribuído através do [OpenCensus](https://opencensus.io/). OpenCensus é uma distribuição única de bibliotecas de código aberto, fornecedor-agnóstico, para fornecer recolha de métricas e rastreio distribuído para serviços. Também permite à comunidade de código aberto permitir rastreios distribuídos com tecnologias populares como Redis, Memcached ou MongoDB. A [Microsoft colabora no OpenCensus com vários outros parceiros de monitorização e nuvem.](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/)
 
-[python](opencensus-python.md) 
+[Pitão](opencensus-python.md) 
 
 O site OpenCensus mantém documentação de referência da API para [Python](https://opencensus.io/api/python/trace/usage.html) e [Go,](https://godoc.org/go.opencensus.io)bem como vários guias diferentes para a utilização do OpenCensus. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Guia de utilização OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
-* [Mapa de aplicações](./../../azure-monitor/app/app-map.md)
+* [Application map](./../../azure-monitor/app/app-map.md) (Mapeamento de aplicações)
 * [Monitorização do desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

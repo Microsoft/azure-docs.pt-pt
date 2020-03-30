@@ -1,19 +1,19 @@
 ---
 title: Cobertura de tráfego Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre cobertura de tráfego no Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 02d57f39f2a911864ebe16d05456409d0119b495
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209533"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333950"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego do Azure Maps
 
@@ -42,7 +42,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para todo
 |País/Região   |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
-|Rio Brunei   |✓         |✓        |
+|Brunei   |✓         |✓        |
 |RAE de Hong Kong     |✓         |✓         |
 |Índia   |✓         |✓         |
 |Indonésia     |✓         |✓         |
@@ -110,7 +110,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para todo
 |Ucrânia     |✓         |✓         |
 |Reino Unido     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
-|+Guernsey e Jersey     |✓         |✓         |
+|+Guernsey & Jersey     |✓         |✓         |
 |+Ilha de Man     |✓         |✓         |
 |Cidade do Vaticano   |✓         |✓         |
 

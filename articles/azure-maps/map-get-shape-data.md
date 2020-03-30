@@ -1,19 +1,19 @@
 ---
 title: Obtenha dados de formas num mapa Microsoft Azure Maps
 description: Neste artigo aprende, como obter dados de forma desenhados num mapa usando o Microsoft Azure Maps Web SDK.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 63d947b85e75e3809445c5bc65577aeaed38caa1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 88db018575f92e777223f383c65cd6db51ba515a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209669"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334416"
 ---
 # <a name="get-shape-data"></a>Obter dados da forma
 
@@ -36,7 +36,7 @@ Abaixo está a amostra completa do código de execução, onde pode desenhar uma
 
 <br/>
 
-<iframe height="686" title="Obter dados da forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Consulte os dados de forma da Pen <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>Get</a> por Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
+<iframe height="686" title="Obter dados da forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Consulte os dados de <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>forma</a> da<a href='https://codepen.io/azuremaps'>@azuremaps</a>Pen Get por Azure Maps () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 

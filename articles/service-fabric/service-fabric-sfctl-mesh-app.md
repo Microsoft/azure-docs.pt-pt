@@ -1,32 +1,32 @@
 ---
-title: CLI do Azure Service Fabric-aplicativo de malha sfctl
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar Service Fabric recursos de aplicativo de malha.
+title: App de malha de malha de tecido de serviço Azure CLI-sfctl
+description: Conheça o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerir os recursos de aplicação de malha de malha de tecido de serviço.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 7c571136e6bef64c2024c81db85ef736f64a4e01
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906073"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
-Obter e excluir recursos do aplicativo.
+Obtenha e elimine os recursos de aplicação.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Exclui o recurso de aplicativo. |
-| list | Lista todos os recursos do aplicativo. |
-| mostrar | Obtém o recurso de aplicativo com o nome fornecido. |
+| delete | Elimina o recurso Aplicação. |
+| list | Lista todos os recursos de candidatura. |
+| Mostrar | Obtém o recurso de aplicação com o nome dado. |
 
-## <a name="sfctl-mesh-app-delete"></a>exclusão do aplicativo de malha sfctl
-Exclui o recurso de aplicativo.
+## <a name="sfctl-mesh-app-delete"></a>app de malha sfctl excluir
+Elimina o recurso Aplicação.
 
-Exclui o recurso de aplicativo identificado pelo nome.
+Elimina o recurso Aplicação identificado pelo nome.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -34,35 +34,35 @@ Exclui o recurso de aplicativo identificado pelo nome.
 | --- | --- |
 | --nome -n [Obrigatório] | O nome da aplicação. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
 ## <a name="sfctl-mesh-app-list"></a>lista de aplicativos de malha sfctl
-Lista todos os recursos do aplicativo.
+Lista todos os recursos de candidatura.
 
-Obtém as informações sobre todos os recursos do aplicativo em um determinado grupo de recursos. As informações incluem a descrição e outras propriedades do aplicativo.
+Obtém a informação sobre todos os recursos de aplicação num determinado grupo de recursos. As informações incluem a descrição e outras propriedades do Pedido.
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
-## <a name="sfctl-mesh-app-show"></a>Mostrar aplicativo de malha sfctl
-Obtém o recurso de aplicativo com o nome fornecido.
+## <a name="sfctl-mesh-app-show"></a>sfctl malha app mostrar
+Obtém o recurso de aplicação com o nome dado.
 
-Obtém as informações sobre o recurso de aplicativo com o nome fornecido. As informações incluem a descrição e outras propriedades do aplicativo.
+Obtém a informação sobre o recurso aplicação com o nome dado. As informações incluem a descrição e outras propriedades do Pedido.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -70,17 +70,17 @@ Obtém as informações sobre o recurso de aplicativo com o nome fornecido. As i
 | --- | --- |
 | --nome -n [Obrigatório] | O nome da aplicação. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Instale](service-fabric-cli.md) o CLI de tecido de serviço.
+- Aprenda a utilizar o CLI de tecido de serviço utilizando as [scripts de amostra](/azure/service-fabric/scripts/sfctl-upgrade-application).

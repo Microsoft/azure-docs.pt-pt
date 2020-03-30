@@ -1,32 +1,31 @@
 ---
-title: Página aprovações do Azure Marketplace
-description: Visão geral da página aprovações no Portal do Cloud Partner para o Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Página de aprovações para o Azure Marketplace
+description: Visão geral da página de Aprovações no Portal do Parceiro cloud para o Mercado Azure.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pabutler
-ms.openlocfilehash: de6ad58ebd0442772eddfcf14792bc77cd76aad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8bd00e3b71e74775697a615152885e55703a41fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821538"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288942"
 ---
 # <a name="approvals-page"></a>Página de aprovações
 
-A página [**aprovações**](https://cloudpartner.azure.com/#approvals) fornece uma lista de ofertas aprovadas, incluindo o nome da oferta, o editor, o tipo de oferta e a ação atual.  As ofertas aprovadas já estão publicadas ou no processo de serem publicadas.  Os resultados podem ser ordenados por coluna ou filtrados em uma cadeia de caracteres especificada.  A área de status na parte inferior da página exibe a agregação e as contagens de página e permite que você navegue entre as páginas da lista.  A seleção de uma oferta nesta lista exibirá essa oferta no editor de oferta associado. 
+A página [**Aprovações**](https://cloudpartner.azure.com/#approvals) fornece uma lista de ofertas aprovadas, incluindo o nome da oferta, editor, tipo de oferta e ação atual.  As ofertas aprovadas já estão publicadas ou em processo de publicação.  Os resultados podem ser encomendados por coluna ou filtrados numa corda especificada.  A área de estado na parte inferior da página apresenta contagem agregada e página, e permite-lhe navegar entre páginas de listas.  Selecionando uma oferta nesta lista irá exibir essa oferta no editor de oferta associado. 
 
 
 ## <a name="example-page"></a>Página de exemplo
 
-A imagem a seguir mostra a página **aprovações** da contoso.
+A imagem seguinte mostra a página **Aprovações** para Contoso.
 
 ![Página de ofertas aprovadas](./media/approvals-page1.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O próximo item de menu de navegação exibe uma [página todos os Publicadores](./cpp-all-publishers-page.md), que lista todos os Publicadores registrados.
+O próximo item de menus de navegação apresenta uma página de Todas as [Editoras,](./cpp-all-publishers-page.md)que lista todos os editores registados.

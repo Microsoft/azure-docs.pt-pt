@@ -4,34 +4,34 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c3028ed7629c41eece354dd2554ede9249bac4f8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "68669790"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334595"
 ---
-Você pode anexar um número de discos de dados a uma máquina virtual do Azure. Com base nas metas de escalabilidade e desempenho dos discos de dados de uma VM, você pode determinar o número e o tipo de disco necessários para atender aos requisitos de desempenho e capacidade.
+Pode anexar vários discos de dados a uma máquina virtual Azure. Com base nos alvos de escalabilidade e desempenho dos discos de dados de um VM, pode determinar o número e o tipo de disco que necessita para satisfazer os seus requisitos de desempenho e capacidade.
 
 > [!IMPORTANT]
-> Para obter um desempenho ideal, limite o número de discos altamente utilizados anexados à máquina virtual para evitar uma limitação possível. Se todos os discos anexados não forem altamente utilizados ao mesmo tempo, a máquina virtual poderá dar suporte a um número maior de discos.
+> Para um desempenho ótimo, limite o número de discos altamente utilizados ligados à máquina virtual para evitar uma possível aceleração. Se todos os discos ligados não forem altamente utilizados ao mesmo tempo, a máquina virtual pode suportar um maior número de discos.
 
-**Para Azure Managed disks:**
+**Para discos geridos pelo Azure:**
 
-A tabela a seguir ilustra os limites padrão e máximo do número de recursos por região por assinatura. Não há nenhum limite para o número de Managed Disks, instantâneos e imagens por grupo de recursos.  
+O quadro que se segue ilustra o padrão e os limites máximos do número de recursos por região por subscrição. Não existe limite para o número de Discos Geridos, instantâneos e imagens por grupo de recursos.  
 
-> | Recurso | Limite predefinido  | Limite máximo |
-> | --- | --- | --- |
-> | Managed disks Standard | 50 000 | 50 000 |
-> | SSD Standard discos gerenciados | 50 000 | 50 000 |
-> | Discos gerenciados Premium | 50 000 | 50 000 |
-> | Instantâneos de Standard_LRS | 50 000 | 50 000 |
-> | Instantâneos de Standard_ZRS | 50 000 | 50 000 |
-> | Imagem gerenciada | 50 000 | 50 000 |
+> | Recurso | Limite |
+> | --- | --- |
+> | Discos geridos por padrão | 50 000 |
+> | Discos geridos por SSD padrão | 50 000 |
+> | Discos geridos premium | 50 000 |
+> | Standard_LRS instantâneos | 50 000 |
+> | Standard_ZRS instantâneos | 50 000 |
+> | Imagem gerida | 50 000 |
 
-* **Para contas de armazenamento padrão:** Uma conta de armazenamento Standard tem uma taxa de solicitação total máxima de 20.000 IOPS. O total de IOPS em todos os discos de máquina virtual em uma conta de armazenamento Standard não deve exceder esse limite.
+* **Para contas de armazenamento standard:** Uma conta de armazenamento Standard tem uma taxa total máxima de pedido de 20.000 IOPS. O total de IOPS em todos os seus discos de máquina virtual numa conta de armazenamento Standard não deve exceder este limite.
   
-    Você pode calcular aproximadamente o número de discos altamente utilizados com suporte em uma única conta de armazenamento Standard com base no limite da taxa de solicitação. Por exemplo, para uma VM de camada básica, o número máximo de discos altamente utilizados é de cerca de 66, que é de 20.000/300 IOPS por disco. O número máximo de discos altamente utilizados para uma VM de camada Standard é de cerca de 40, que é de 20.000/500 IOPS por disco. 
+    Pode calcular aproximadamente o número de discos altamente utilizados suportados por uma única conta de armazenamento Standard com base no limite da taxa de pedido. Por exemplo, para um VM de nível básico, o número máximo de discos altamente utilizados é de cerca de 66, que é de 20.000/300 IOPS por disco. O número máximo de discos altamente utilizados para um VM de nível Standard é de cerca de 40, que é de 20.000/500 IOPS por disco. 
 
-* **Para contas de armazenamento Premium:** Uma conta de armazenamento Premium tem uma taxa de transferência total máxima de 50 Gbps. O débito total em todos os discos da VM não deve exceder este limite.
+* **Para contas de armazenamento Premium:** Uma conta de armazenamento Premium tem uma taxa máxima de produção total de 50 Gbps. O débito total em todos os discos da VM não deve exceder este limite.
 

@@ -1,72 +1,71 @@
 ---
 title: Guia de publicação do Azure Marketplace e do AppSource
-description: Uma visão geral do Azure Marketplace e Microsoft AppSource para editores de aplicativo e serviço.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+description: Uma visão geral do Azure Marketplace e microsoft AppSource para editores de aplicações e serviços.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
-ms.openlocfilehash: fba9c481ad9b3da1eb0dd5d8a4ff2499240a8cfa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 368cb4fdce23e695c074b4893dcdc314c974dd54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826487"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288398"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guia de publicação do Azure Marketplace e do AppSource
 
-O guia de publicação do Marketplace foi projetado para ajudar os editores novos e existentes a aprender a usar as vitrines no [Azure Marketplace](https://azuremarketplace.microsoft.com) e a [Microsoft AppSource](https://appsource.microsoft.com) para aumentar seus negócios em parceria com a Microsoft, Listando aplicativos e serviços.
+O guia editorial do Marketplace foi concebido para ajudar editores novos e existentes a aprender a usar montras no [Azure Marketplace](https://azuremarketplace.microsoft.com) e [microsoft AppSource](https://appsource.microsoft.com) para crescer o seu negócio em parceria com a Microsoft, listando aplicações e serviços.
 
 >[!Note]
->O Marketplace aqui se refere ao Azure Marketplace e ao AppSource.  Veja [um Marketplace, duas vitrines](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) para obter mais informações.
+>O Marketplace aqui refere-se tanto ao Azure Marketplace como ao AppSource.  Consulte [one marketplace, duas montras](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) para mais informações.
 
 Este guia aborda os seguintes tópicos: 
-*   O que é o Marketplace e como ele funciona 
-*   A diferença entre as vitrines do Azure Marketplace e do AppSource 
-*   Os benefícios de participar do Marketplace 
-*   Como se tornar um Publicador e listar seu aplicativo ou serviço 
-*   Como expandir seus negócios 
+*   O que é o Mercado e como funciona 
+*   A diferença entre as montras Azure Marketplace e AppSource 
+*   Os benefícios de participar no Mercado 
+*   Como tornar-se editor e listar a sua aplicação ou serviço 
+*   Como fazer crescer o seu negócio 
 
-Este guia contém informações técnicas e comerciais sobre as etapas que você precisa executar antes de listar seus aplicativos e serviços. Use o Sumário para ir para seções diferentes do guia e ir diretamente para tópicos principais.
+Este guia contém informações técnicas e empresariais sobre os passos que precisa de tomar antes de listar as suas aplicações e serviços. Utilize a tabela de conteúdos para ir a diferentes secções do guia e para ir diretamente a tópicos-chave.
 
-Para perguntas sobre o Azure Marketplace e o AppSource, envie-nos uma mensagem em **tipo de problema** > **integração do Marketplace**.  Nossa equipe de integração do editor do Marketplace ficará feliz em ajudar! 
+Para perguntas sobre o Azure Marketplace e appSource, envie-nos uma mensagem no âmbito do **"Problem Type** > **Marketplace Onboarding".** A nossa equipa de onboarding da Editora marketplace ficará feliz em ajudar! 
 
-## <a name="benefits-of-participating-in-the-marketplace"></a>Benefícios de participar do Marketplace 
+## <a name="benefits-of-participating-in-the-marketplace"></a>Benefícios da participação no Mercado 
 
-O Marketplace é o painel de lançamento para atividades conjuntas de entrada no mercado com a Microsoft que pode ajudar a acelerar seu crescimento de negócios. Usando a promoção de lançamento, geração de demanda e vendas conjuntas e marketing, suas ofertas do Marketplace podem ser a ponto central do seu mecanismo de negócios na nuvem. Não há nenhuma taxa para participar do Marketplace.
+O Marketplace é a rampa de lançamento para atividades conjuntas de ir ao mercado com a Microsoft que podem ajudar a acelerar o crescimento do seu negócio. Ao utilizar a promoção de lançamento, a geração de procura e as vendas e marketing conjuntos, as suas ofertas de Marketplace podem ser a peça central do seu motor de negócio sinuoso. Não há taxas para participar no Mercado.
 
-Nosso objetivo é conectar clientes da Microsoft com as melhores soluções que nosso ecossistema de parceiros oferece. Para fazer isso, damos suporte a você em toda a jornada, desde a integração até a publicação e o crescimento. 
+O nosso objetivo é conectar os clientes da Microsoft com as melhores soluções que o nosso ecossistema parceiro oferece. Para isso, apoiamo-lo ao longo da sua viagem, desde o embarque até à publicação e crescimento. 
 
-Aproveite os recursos do Marketplace para expandir seus negócios.
+Aproveite as capacidades do Marketplace para fazer crescer o seu negócio.
 
-### <a name="expand-to-new-markets-and-segments-and-generate-new-sales-opportunities"></a>Expanda para novos mercados e segmentos e gere novas oportunidades de vendas
+### <a name="expand-to-new-markets-and-segments-and-generate-new-sales-opportunities"></a>Expandir para novos mercados e segmentos e gerar novas oportunidades de vendas
 
-Use o Marketplace como um canal para acessar novos mercados, segmentos e usuários de nuvem da Microsoft com seu portfólio de soluções. Gere novos leads de marketing e incentivá novos clientes potenciais a oportunidades de vendas. Beneficie-se de atividades conjuntas de marketing e vendas para obter mais clientes.
+Use o Marketplace como um canal para aceder a novos mercados, segmentos e utilizadores da nuvem da Microsoft com o seu portfólio de soluções. Gerar novos leads de marketing e criar novas pistas de vendas. Beneficie de atividades conjuntas de marketing e vendas para obter mais clientes.
 
-### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>Aprimore o valor comercial e aumente o tamanho do negócio com os clientes novos e existentes 
+### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>Aumentar o valor do negócio e aumentar a dimensão do negócio com os clientes existentes e novos 
 
-Venda e venda cruzada de suas soluções abordando problemas do cliente depois de mover cargas de trabalho para a nuvem. Se você vender ou implantar por meio do Marketplace, poderá reduzir os ciclos de vendas, acelerar os projetos e aumentar a lucratividade dos negócios, vendendo soluções completas que visam cargas de trabalho específicas e cenários do setor. 
+Venda e cross-sell suas soluções abordando os problemas do cliente depois de mover cargas de trabalho para a nuvem. Se vender ou implementar através do Marketplace, pode reduzir os ciclos de vendas, acelerar os projetos e aumentar a rentabilidade do negócio através da venda de soluções completas que visam cargas de trabalho específicas e cenários da indústria. 
 
-### <a name="get-actionable-insights"></a>Obtenha informações acionáveis 
+### <a name="get-actionable-insights"></a>Obtenha insights atuais 
 
-Obtenha informações sobre o desempenho de suas listagens por meio de informações e análises que estão disponíveis para você por meio do Marketplace. Obtenha mais informações sobre o desempenho da campanha, pedidos e pagamentos e como maximizar as atividades de campanha para sua solução.
+Obtenha informações sobre o desempenho das suas listas através dos insights e análises que estão disponíveis para si através do Marketplace. Obtenha mais informações sobre o desempenho da campanha, encomendas e pagamentos, e como maximizar as atividades de campanha para a sua solução.
 
-### <a name="commercial-marketplace-benefits"></a>Benefícios do Marketplace comercial 
+### <a name="commercial-marketplace-benefits"></a>Benefícios do mercado comercial 
 
-Novas listagens no Marketplace são elegíveis para um conjunto diversificado de benefícios gratuitos para ajudar os parceiros a aumentarem seus negócios no Marketplace. Esses benefícios se enquadram nas seguintes categorias: 
+As novas listas no Mercado são elegíveis para um conjunto diversificado de benefícios gratuitos para ajudar os parceiros a crescer o seu negócio no Mercado. Estes benefícios enquadram-se nas seguintes categorias: 
 
-*   Técnico: tudo o que você precisa para preparar seu aplicativo para o lançamento. Do suporte técnico, do design de aplicativos e do design de arquitetura, aos créditos do Azure para desenvolvimento e teste. 
+*   Técnico: Tudo o que precisa para preparar a sua aplicação para o lançamento. Desde suporte técnico, design de aplicações e design de arquitetura, até créditos Azure para desenvolvimento e testes. 
 
-*   Co-marketing: tudo o que você precisa para iniciar sua oferta. Acesse os conceitos básicos de lançamento gratuitos do Microsoft go-to-Market para ajudá-lo a iniciar e promover sua solução. Você também pode estar qualificado para inclusão e oportunidades adicionais de campanha de marketing da Microsoft em destaque no Marketplace.
+*   Co-marketing: Tudo o que precisa para lançar a sua oferta. Aceda gratuitamente aos fundamentos de lançamento gratuitos da Microsoft Go-To-Market para o ajudar a lançar e promover a sua solução. Você também pode ser elegível para inclusão adicional de campanha de marketing da Microsoft e oportunidades para ser apresentado no Marketplace.
 
-*   Venda em conjunto: Comece ou Acelere sua jornada para vender com a Microsoft por meio do Marketplace. Acesse programas e suporte para impulsionar as vendas em conjunto com as equipes da Microsoft.
+*   Co-venda: Inicie ou acelere a sua jornada para vender com a Microsoft através do Marketplace. Aceder a programas e suporte para impulsionar vendas conjuntas com equipas da Microsoft.
 
-Depois de [enviar sua solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para o Marketplace, nossa equipe de integração entrará em contato com você para dar suporte à sua experiência de publicação.  Consulte [como criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
+Depois de submeter a [sua solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) ao Marketplace, a nossa equipa de bordo contacta-o para apoiar a sua experiência de publicação.  Veja [como criar uma conta de Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
 
-Saiba mais sobre os [benefícios do seu Marketplace comercial](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
+Saiba mais sobre os seus benefícios de [mercado comercial.](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Examine informações detalhadas sobre tópicos do Marketplace de nuvem explorando o Sumário à esquerda. 
+Reveja informações aprofundadas sobre tópicos de mercado na nuvem, explorando a tabela de conteúdos à esquerda. 

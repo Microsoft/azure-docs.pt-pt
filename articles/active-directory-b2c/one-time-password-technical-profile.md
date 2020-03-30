@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4732d780bb241a18e0738c99603799c31c2102f
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933067"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332772"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico de senha única numa política personalizada Azure AD B2C
 
@@ -28,7 +28,7 @@ O perfil técnico de senha única também pode devolver uma mensagem de erro dur
 
 ## <a name="protocol"></a>Protocolo
 
-O **nome** atributo do elemento **protocolo** tem de ser definido para `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolos que é utilizado pelo Azure AD B2C:
+O **atributo** nome do elemento **protocolo** `Proprietary`tem de ser definido para . O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolos que é utilizado pelo Azure AD B2C:
 
 ```XML
 Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -53,7 +53,7 @@ O elemento **InputClaims** contém uma lista de reclamações necessárias para 
 
 | ReivindicaçãoReferenceid | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Identificador | Sim | O identificador para identificar o utilizador que precisa de verificar o código mais tarde. É comumente usado como o identificador do destino para onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
+| identificador | Sim | O identificador para identificar o utilizador que precisa de verificar o código mais tarde. É comumente usado como o identificador do destino para onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **inputClaimsTransformation** que são usados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha única.
 
@@ -80,13 +80,9 @@ As seguintes definições podem ser utilizadas para configurar o modo de geraç�
 | Operação | Sim | A operação a ser realizada. Valor possível: `GenerateCode`. |
 | Reutilização Do SameCode | Não | Se um código duplicado deve ser dado em vez de gerar um novo código quando o código não expirou e ainda é válido. O valor predefinido é `false`. |
 
-### <a name="returning-error-message"></a>Mensagem de erro de retorno
-
-Não há nenhuma mensagem de erro devolvida para o modo de geração de códigos.
-
 ### <a name="example"></a>Exemplo
 
-O exemplo seguinte `TechnicalProfile` é utilizado para gerar um código:
+O exemplo `TechnicalProfile` que se segue é utilizado para gerar um código:
 
 ```XML
 <TechnicalProfile Id="GenerateCode">
@@ -119,7 +115,7 @@ O elemento **InputClaims** contém uma lista de reclamações necessárias para 
 
 | ReivindicaçãoReferenceid | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Identificador | Sim | O identificador para identificar o utilizador que já gerou um código. É comumente usado como o identificador do destino para onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
+| identificador | Sim | O identificador para identificar o utilizador que já gerou um código. É comumente usado como o identificador do destino para onde o código é entregue, por exemplo, endereço de e-mail ou número de telefone. |
 | otpToVerificar | Sim | O código de verificação fornecido pelo utilizador. |
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **inputClaimsTransformation** que são usados para modificar as reclamações de entrada ou gerar novos antes de enviar para o fornecedor de protocolo de senha única.
@@ -139,9 +135,9 @@ As seguintes definições podem ser utilizadas para codificar o modo de verifica
 | Operação | Sim | A operação a ser realizada. Valor possível: `VerifyCode`. |
 
 
-### <a name="error-messages"></a>Mensagens de erro
+### <a name="ui-elements"></a>Elementos da IU
 
-As seguintes definições podem ser utilizadas para configurar as mensagens de erro apresentadas após falha de verificação de código. Os metadados devem ser configurados no perfil técnico [autoafirmado.](self-asserted-technical-profile.md) As mensagens de erro podem ser [localizadas.](localization-string-ids.md#one-time-password-error-messages)
+Os seguintes metadados podem ser utilizados para configurar as mensagens de erro apresentadas após falha de verificação de código. Os metadados devem ser configurados no perfil técnico [autoafirmado.](self-asserted-technical-profile.md) As mensagens de erro podem ser [localizadas.](localization-string-ids.md#one-time-password-error-messages)
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
@@ -152,7 +148,7 @@ As seguintes definições podem ser utilizadas para configurar as mensagens de e
 
 ### <a name="example"></a>Exemplo
 
-É utilizado o seguinte exemplo `TechnicalProfile` para verificar um código:
+É utilizado `TechnicalProfile` o seguinte exemplo para a verificação de um código:
 
 ```XML
 <TechnicalProfile Id="VerifyCode">

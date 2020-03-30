@@ -9,18 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: c5acda0ccec409ec06d0f3f2226b9819e3f130c7
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: aba987ba232a29ffc240f72039b1e24bb87a2ed4
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538418"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345913"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Criar uma entrada de emprego a partir de um arquivo local
 
 Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar os seus vídeos, terá de informar os Serviços de Multimédia do Azure sobre onde se encontra o vídeo de entrada. O vídeo de entrada pode ser armazenado como um Media Service Asset, caso em que cria um ativo de entrada com base num ficheiro (armazenado localmente ou no armazenamento do Azure Blob). Este tópico mostra como criar uma entrada de emprego a partir de um arquivo local. Para um exemplo completo, consulte esta [amostra GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
+
+## <a name="prerequisites"></a>Pré-requisitos 
+
+* [Criar uma conta de Media Services.](create-account-cli-how-to.md)
+* Rever [os ativos de gestão.](manage-asset-concept.md)
 
 ## <a name="net-sample"></a>amostra .NET
 

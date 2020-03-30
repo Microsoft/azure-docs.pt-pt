@@ -3,16 +3,16 @@ title: Insights de aplicação Azure sobrepõem pontos finais sdk padrão
 description: Modificar os pontos finais de aplicação do Monitor de Azure padrão SDK para regiões como o Governo Azure.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 3aa18a6b96458533c3dc53f3f420ed264b298a3e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671992"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298324"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Insights de aplicação sobrepondo pontos finais de padrão
 
-Para enviar dados de Informações de Aplicação para determinadas regiões, terá de anular os endereços de ponto final predefinidos. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Estas alterações requerem ajustar o código da amostra e substituir os valores do espaço reservado para `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`e `Profile_Query_Endpoint_address` com os endereços finais reais para a sua região específica. O final deste artigo contém links para os endereços de ponto final para regiões onde esta configuração é necessária.
+Para enviar dados de Informações de Aplicação para determinadas regiões, terá de anular os endereços de ponto final predefinidos. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Estas alterações requerem ajustar o código da `QuickPulse_Endpoint_Address`amostra `TelemetryChannel_Endpoint_Address`e `Profile_Query_Endpoint_address` substituir os valores do espaço reservado para, e com os endereços finais reais para a sua região específica. O final deste artigo contém links para os endereços de ponto final para regiões onde esta configuração é necessária.
 
 ## <a name="sdk-code-changes"></a>Alterações de código SDK
 
@@ -54,7 +54,7 @@ Modifique o ficheiro appsettings.json no seu projeto da seguinte forma de ajusta
   }
 ```
 
-Os valores das Métricas Ao Vivo e do Ponto final da Consulta de Perfil só podem ser definidos por código. Para anular os valores predefinidos para todos os valores de ponto final através de código, epreenda as seguintes alterações no método `ConfigureServices` do ficheiro `Startup.cs`:
+Os valores das Métricas Ao Vivo e do Ponto final da Consulta de Perfil só podem ser definidos por código. Para anular os valores predefinidos para todos os valores de ponto final através de código, epreenda as seguintes alterações no `ConfigureServices` método do `Startup.cs` ficheiro:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -149,7 +149,7 @@ Modificar o ficheiro applicationinsights.xml para alterar o endereço de ponto f
 
 ### <a name="spring-boot"></a>Spring Boot
 
-Modificar o ficheiro `application.properties` e adicionar:
+Modificar `application.properties` o ficheiro e adicionar:
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
@@ -174,7 +174,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 ```javascript
 <script type="text/javascript">
@@ -186,6 +186,10 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
     );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
+
+### <a name="python"></a>Python
+
+Para obter orientações sobre a modificação do ponto final de ingestão para o SDK de sonton opencensus-python consulte o [repo opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
 
 ## <a name="regions-that-require-endpoint-modification"></a>Regiões que exigem modificação do ponto final
 

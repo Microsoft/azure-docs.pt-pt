@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfb5fb17abd5a433c177d3efc5a4f0a2cec3d4d7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186127"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295311"
 ---
 # <a name="common-conditional-access-policies"></a>Políticas de Acesso Condicional comuns
 
@@ -33,18 +33,23 @@ Podem ser encontradas mais informações sobre as contas de acesso de emergênci
 
 ## <a name="typical-policies-deployed-by-organizations"></a>Políticas típicas implementadas por organizações
 
+* [Autenticação do legado do bloco](howto-conditional-access-policy-block-legacy.md)\*
 * [Exigir MFA para administradores](howto-conditional-access-policy-admin-mfa.md)\*
-* [Exigir MFA para\* de gestão azure](howto-conditional-access-policy-azure-management.md)
+* [Exigir MFA para a gestão do Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Exigir MFA para todos os utilizadores](howto-conditional-access-policy-all-users-mfa.md)\*
-* [Bloco de autenticação do legado](howto-conditional-access-policy-block-legacy.md)\*
-* [Acesso Condicional baseado no risco (requer Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
-* [Exigir localização fidedigna para o registo do MFA](howto-conditional-access-policy-registration.md)
-* [Bloquear acesso por localização](howto-conditional-access-policy-location.md)
-* [Exigir dispositivo compatível](howto-conditional-access-policy-compliant-device.md)
 
-\* Estas quatro políticas quando configuradas em conjunto, imitariam a funcionalidade ativada por [predefinições](../fundamentals/concept-fundamentals-security-defaults.md)de segurança .
+\*Estas quatro políticas quando configuradas em conjunto, imitariam a funcionalidade ativada por [predefinições](../fundamentals/concept-fundamentals-security-defaults.md)de segurança .
+
+## <a name="additional-policies"></a>Políticas adicionais
+
+* [Acesso Condicional baseado no risco (Requer o Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Exigir localização fidedigna para o registo com MFA](howto-conditional-access-policy-registration.md)
+* [Bloquear acesso por localização](howto-conditional-access-policy-location.md)
+* [Pedir dispositivo conforme](howto-conditional-access-policy-compliant-device.md)
+* [Bloquear acesso, exceto aplicações específicas](howto-conditional-access-policy-block-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Simular o sinal de comportamento utilizando a ferramenta de acesso condicional E Se.](troubleshoot-conditional-access-what-if.md)
+
 - [Utilize o modo de acesso condicional apenas para o relatório para determinar o impacto das novas decisões políticas.](concept-conditional-access-report-only.md)

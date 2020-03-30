@@ -1,64 +1,63 @@
 ---
-title: Introdução com informações sobre o vendedor
-description: Introdução ao recurso de informações do vendedor do Portal do Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Começar com insights de vendedor
+description: Introdução à funcionalidade de insights do Vendedor do Portal do Parceiro cloud.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: d335525a23ca2e1442ae009dcfbc062bff8cc77d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b86c2c8b8d0e44adffa0411799b9be01b9f54a9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824773"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285355"
 ---
-<a name="getting-started-with-seller-insights"></a>Introdução com informações sobre o vendedor
+<a name="getting-started-with-seller-insights"></a>Começar com insights de vendedor
 ====================================
 
-Este artigo aborda o recurso de informações do vendedor disponível para você dentro do [portal do Cloud Partner](https://cloudpartner.azure.com/#insights).
+Este artigo discute a funcionalidade "Insights do Vendedor" disponível dentro do Portal do [Parceiro cloud](https://cloudpartner.azure.com/#insights).
 
 
-<a name="insights-tour"></a>Tour do insights
+<a name="insights-tour"></a>Passeio insights
 -------------
 
-O Portal do Cloud Partner oferece informações relacionadas aos seus clientes e uso do Azure e do VS Marketplace. Aqui está uma visão geral rápida dos vários dados e informações que você provavelmente interagirá com mais.
+O Cloud Partner Portal oferece-lhe informações relacionadas com os seus clientes Azure e VS Marketplace e utilização. Aqui está uma visão geral rápida dos vários dados e insights que provavelmente irá interagir com mais.
 
 <a name="top-navigation-bar"></a>Barra de navegação superior
 ------------------
 
-Depois de selecionar **percepções** da barra de menus à esquerda, você verá uma barra de navegação na parte superior que indica a quais módulos de informações você tem acesso.
+Depois de selecionar **Insights** a partir da barra de menus esquerda, verá uma barra de navegação em toda a parte superior indicando quais os módulos de insights a que tem acesso.
 
-1.  **Resumo** -essa guia mostra grafos, tendências e valores dos dados que são mais buscados após os Publicadores.
+1.  **Resumo** - Este separador mostra gráficos, tendências e valores dos dados mais procurados pelos editores.
 
-2.  **Pagamento** -essa guia mostra informações sobre pagamentos e transações relacionadas em grafos e formatos baixáveis.
+2.  **Payout** - Este separador mostra informações sobre pagamentos e transações relacionadas em gráficos e formatos transferíveis.
 
-3.  **Orders & Usage** -essa guia mostra as informações de pedidos e uso em grafos e em formatos baixáveis.
+3.  **Encomendas & Utilização** - Este separador mostra encomendas e informações de utilização em gráficos e formatos descarregados.
 
-4.  **Cliente** -essa guia mostra informações sobre seus clientes e suas compras.
+4.  **Cliente** - Este separador mostra informações sobre os seus clientes e as suas compras.
 
-5.  **Implantação** -essa guia mostra as informações de êxito e falha de implantação nos formatos de nível de evento e grafos.
+5.  **Implementação** - Este separador mostra o sucesso da implementação e informações de falha em ambos os gráficos e formatos de nível de evento.
 
-6.  **Downloads** – o download de conjuntos de Big data é mais fácil e menos prejudicial com uma nova experiência de download.
+6.  **Downloads** - O download de grandes conjuntos de dados é mais fácil e menos disruptivo com uma nova experiência de download.
 
-Você pode achar que só pode ver um conjunto limitado dos módulos listados acima.
-Somente os usuários com permissões de *proprietário* podem ver os módulos **pagamento** e **cliente** devido a informações confidenciais do cliente e da empresa. Trabalhe com uma função de proprietário dentro de sua organização para alterar suas permissões se precisar de acesso a esses módulos.
+Pode descobrir que só pode ver um conjunto limitado dos módulos listados acima.
+Apenas os utilizadores com permissões *do Proprietário* podem ver os módulos **De Pagamento** e **Cliente** devido a informações sensíveis do cliente e da empresa. Trabalhe com um papel do Proprietário dentro da sua organização para alterar as suas permissões se precisar de acesso a estes módulos.
 
 
-<a name="tips"></a>Sobre
+<a name="tips"></a>Sugestões:
 -----
 
--   Certifique-se de ajustar as datas para exibir as informações nas quais você está mais interessado.
--   Baixe os dados de nível de transação para executar análises adicionais sobre as informações fornecidas pelo vendedor insights.
--   Se você estiver procurando informações sobre pagamento ou cliente, certifique-se de que você está conectado como uma função de proprietário e não uma função de colaborador. Para saber mais sobre permissões de usuário, consulte [gerenciar usuários](./cloud-partner-portal-manage-users.md).
+-   Certifique-se de ajustar as datas para ver as informações que mais lhe interessam.
+-   Descarregue os dados do nível de transação para efetuar análises adicionais sobre as informações fornecidas pela Seller Insights.
+-   Se estiver à procura de informações de pagamento ou cliente, certifique-se de que está registado como uma função de Proprietário e não como colaborador. Para saber mais sobre as permissões dos utilizadores, consulte [Gerir os utilizadores.](./cloud-partner-portal-manage-users.md)
 
 
-<a name="finding-more-help"></a>Encontrando mais ajuda
+<a name="finding-more-help"></a>Encontrar mais ajuda
 -----------------
 
-- [Definições do vendedor insights](./si-insights-definitions-v4.md) – localizar definições para métricas e dados
+- [Definições de Insights do Vendedor](./si-insights-definitions-v4.md) - Encontrar definições para métricas e dados
 
-- [Introdução ao vendedor insights](./si-getting-started.md) – introdução ao recurso de informações do vendedor.
+- [Começando com O Seller Insights](./si-getting-started.md) - Introdução à funcionalidade Seller Insights.
 

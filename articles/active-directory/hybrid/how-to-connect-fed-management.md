@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7249f2077666530964afa16ef47d69731cee846a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: fcbeedddc65a916f869a778616779917a9571181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261596"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331987"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar serviços da Federação de Diretórios Ativos utilizando o Azure AD Connect
 Este artigo descreve como gerir e personalizar os Serviços da Federação de Diretórios Ativos (AD FS) utilizando o Azure Ative Directory (Azure AD) Connect. Também inclui outras tarefas comuns da AD FS que você pode precisar fazer para uma configuração completa de uma fazenda AD FS.
@@ -36,7 +36,7 @@ Este artigo descreve como gerir e personalizar os Serviços da Federação de Di
 | [Adicione um servidor AD FS](#addadfsserver) |Como expandir uma quinta AD FS com um servidor AD FS adicional. |
 | [Adicione um servidor proxy de aplicação web aD FS](#addwapserver) |Como expandir uma quinta AD FS com um servidor adicional de Proxy de Aplicações Web (WAP). |
 | [Adicione um domínio federado](#addfeddomain) |Como adicionar um domínio federado. |
-| [Atualizar o certificado SSL](how-to-connect-fed-ssl-update.md)| Como atualizar o certificado SSL para uma exploração aD FS. |
+| [Atualizar o certificado TLS/SSL](how-to-connect-fed-ssl-update.md)| Como atualizar o certificado TLS/SSL para uma exploração aD FS. |
 | **Personalizar AD Fs** | |
 | [Adicione um logotipo ou ilustração personalizado da empresa](#customlogo) |Como personalizar uma página de login AD FS com um logotipo da empresa e ilustração. |
 | [Adicione uma descrição de sessão](#addsignindescription) |Como adicionar uma descrição da página de inscrição. |
@@ -45,11 +45,11 @@ Este artigo descreve como gerir e personalizar os Serviços da Federação de Di
 ## <a name="manage-ad-fs"></a>Gerir AD FS
 Pode executar várias tarefas relacionadas com AD FS no Azure AD Connect com a mínima intervenção do utilizador utilizando o assistente Azure AD Connect. Depois de terminar de instalar o Azure AD Connect executando o assistente, pode executar o assistente novamente para executar tarefas adicionais.
 
-## <a name="repairthetrust"></a>Reparar a confiança 
+## <a name="repair-the-trust"></a><a name="repairthetrust"></a>Reparar a confiança 
 Pode utilizar o Azure AD Connect para verificar a saúde atual do fundo AD FS e Azure AD e tomar as medidas adequadas para reparar o fundo. Siga estes passos para reparar a sua confiança Azure AD e AD FS.
 
 1. Selecione **Repair AAD e ADFS Trust** na lista de tarefas adicionais.
-   ![Reparação AAD e](./media/how-to-connect-fed-management/RepairADTrust1.PNG) ADFS Trust
+   ![Reparação AAD e ADFS Trust](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
 2. Na página **'Connect to Azure AD',** forneça as suas credenciais de administrador global para a AD Azure e clique em **Next**.
    ![Ligar ao Azure AD](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
@@ -71,8 +71,8 @@ Pode utilizar o Azure AD Connect para verificar a saúde atual do fundo AD FS e 
 > [!NOTE]
 > O Azure AD Connect só pode reparar ou atuar em certificados auto-assinados. O Azure AD Connect não consegue reparar certificados de terceiros.
 
-## <a name="alternateid"></a>Federato com Anúncio Azure usando O Id Alternativo 
-Recomenda-se que o nome principal do utilizador no local (UPN) e o nome principal do utilizador em nuvem sejam mantidos o mesmo. Se a UPN no local utilizar um domínio não repreensível (ex. Contoso.local) ou não pode ser alterado devido às dependências de aplicação locais, recomendamos a criação de identificação de login alternativa. O ID de login alternativo permite configurar uma experiência de login onde os utilizadores podem iniciar sessão com um atributo diferente do seu UPN, como o correio. A escolha para o nome principal do utilizador no Azure AD Connect predefinido para o atributo do userPrincipalName no Diretório Ativo. Se escolher qualquer outro atributo para o Nome Principal do Utilizador e estiver a federar usando AD FS, então o Azure AD Connect configurará AD FS para identificação de login alternativa. Um exemplo de escolha de um atributo diferente para o Nome Principal do Utilizador é mostrado abaixo:
+## <a name="federate-with-azure-ad-using-alternateid"></a><a name="alternateid"></a>Federato com Anúncio Azure usando O Id Alternativo 
+Recomenda-se que o nome principal do utilizador no local (UPN) e o nome principal do utilizador em nuvem sejam mantidos o mesmo. Se o UPN no local utiliza um domínio não encaminháveis internos (ex. Contoso.local) ou não pode ser alterado devido às dependências de aplicação locais, recomendamos a criação de identificação de login alternativa. O ID de login alternativo permite configurar uma experiência de login onde os utilizadores podem iniciar sessão com um atributo diferente do seu UPN, como o correio. A escolha para o nome principal do utilizador no Azure AD Connect predefinido para o atributo do userPrincipalName no Diretório Ativo. Se escolher qualquer outro atributo para o Nome Principal do Utilizador e estiver a federar usando AD FS, então o Azure AD Connect configurará AD FS para identificação de login alternativa. Um exemplo de escolha de um atributo diferente para o Nome Principal do Utilizador é mostrado abaixo:
 
 ![Seleção alternativa de atributo seleção de atributos de ID](./media/how-to-connect-fed-management/attributeselection.png)
 
@@ -87,7 +87,7 @@ Configurar o ID de login alternativo para AD FS consiste em dois passos principa
 > [!NOTE]
 > Para obter mais informações sobre id alternativo e passos para configurar manualmente, leia [Configurar o ID de login alternativo](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
 
-## <a name="addadfsserver"></a>Adicione um servidor AD FS 
+## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>Adicione um servidor AD FS 
 
 > [!NOTE]
 > Para adicionar um servidor AD FS, o Azure AD Connect requer o certificado PFX. Por isso, só pode realizar esta operação se configurar a quinta AD FS utilizando o Azure AD Connect.
@@ -108,7 +108,7 @@ Configurar o ID de login alternativo para AD FS consiste em dois passos principa
 
    ![Senha de certificado](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Especificar certificado SSL](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Especificar certificado TLS/SSL](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. Na página **AD FS Servers,** introduza o nome do servidor ou endereço IP a adicionar à quinta AD FS.
 
@@ -120,7 +120,7 @@ Configurar o ID de login alternativo para AD FS consiste em dois passos principa
 
     ![Instalação concluída](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
-## <a name="addwapserver"></a>Adicione um servidor AD FS WAP 
+## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Adicione um servidor AD FS WAP 
 
 > [!NOTE]
 > Para adicionar um servidor WAP, o Azure AD Connect requer o certificado PFX. Portanto, só pode executar esta operação se configurar a quinta AD FS utilizando o Azure AD Connect.
@@ -134,9 +134,9 @@ Configurar o ID de login alternativo para AD FS consiste em dois passos principa
    ![Ligar ao Azure AD](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. Na página de **certificado SSL Especificação,** forneça a palavra-passe para o ficheiro PFX que forneceu quando configurar a quinta AD FS com o Azure AD Connect.
-   ](./media/how-to-connect-fed-management/WapServer3.PNG) de senha de certificado de ![
+   ![Senha de certificado](./media/how-to-connect-fed-management/WapServer3.PNG)
 
-    ![Especificar certificado SSL](./media/how-to-connect-fed-management/WapServer4.PNG)
+    ![Especificar certificado TLS/SSL](./media/how-to-connect-fed-management/WapServer4.PNG)
 
 4. Adicione o servidor a ser adicionado como um servidor WAP. Como o servidor WAP pode não ser unido ao domínio, o assistente pede credenciais administrativas para o servidor que está a ser adicionado.
 
@@ -154,7 +154,7 @@ Configurar o ID de login alternativo para AD FS consiste em dois passos principa
 
    ![Instalação concluída](./media/how-to-connect-fed-management/WapServer8.PNG)
 
-## <a name="addfeddomain"></a>Adicione um domínio federado 
+## <a name="add-a-federated-domain"></a><a name="addfeddomain"></a>Adicione um domínio federado 
 
 É fácil adicionar um domínio para ser federado com Azure AD usando Azure AD Connect. O Azure AD Connect adiciona o domínio para a federação e modifica as regras de reclamação para refletir corretamente o emitente quando se tem vários domínios federados com AD Azure.
 
@@ -186,23 +186,23 @@ Configurar o ID de login alternativo para AD FS consiste em dois passos principa
 ## <a name="ad-fs-customization"></a>Personalização AD FS
 As seguintes secções fornecem detalhes sobre algumas das tarefas comuns que poderá ter de executar quando personalizar a sua página de inscrição AD FS.
 
-## <a name="customlogo"></a>Adicione um logotipo ou ilustração personalizado da empresa 
+## <a name="add-a-custom-company-logo-or-illustration"></a><a name="customlogo"></a>Adicione um logotipo ou ilustração personalizado da empresa 
 Para alterar o logótipo da empresa que está exposto na página **de Iniciar sessão,** utilize o seguinte cmdlet e sintaxe do Windows PowerShell.
 
 > [!NOTE]
-> As dimensões recomendadas para o logótipo são de 260 x 35 \@ 96 dpi com um tamanho de ficheiro não superior a 10 KB.
+> As dimensões recomendadas para o logótipo \@ são de 260 x 35 96 dpi com um tamanho de ficheiro não superior a 10 KB.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
-> É necessário o parâmetro *TargetName*. O tema padrão que é lançado com AD FS chama-se Padrão.
+> É necessário o parâmetro *TargetName.* O tema padrão que é lançado com AD FS chama-se Padrão.
 
-## <a name="addsignindescription"></a>Adicione uma descrição de sessão 
+## <a name="add-a-sign-in-description"></a><a name="addsignindescription"></a>Adicione uma descrição de sessão 
 Para adicionar uma descrição da página de iniciar sessão na **página de iniciar**sessão, utilize o seguinte cmdlet e sintaxe do Windows PowerShell.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-## <a name="modclaims"></a>Modificar as regras de reclamação da AD FS 
+## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modificar as regras de reclamação da AD FS 
 O AD FS suporta uma linguagem rica que pode usar para criar regras de reivindicação personalizadas. Para mais informações, consulte [o papel da linguagem da regra de reclamação.](https://technet.microsoft.com/library/dd807118.aspx)
 
 As seguintes secções descrevem como pode escrever regras personalizadas para alguns cenários relacionados com a Federação Azure AD e AD FS.
@@ -226,7 +226,7 @@ Além disso, ao utilizar **o add** e não **emitir,** evita adicionar uma quest�
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Esta regra define uma bandeira temporária chamada **idflag** que está definida para **usar o guid** se não houver **ms-ds-consistência** povoada para o utilizador. A lógica por trás disto é o facto de a AD FS não permitir afirmações vazias. Assim, quando adiciona reclamações http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid na Regra 1, acaba com uma reclamação **msdsconsistênciala** apenas se o valor for povoado para o utilizador. Se não for povoada, a AD FS vê que terá um valor vazio e o deixa cair imediatamente. Todos os objetos terão **objectguida**, para que essa reivindicação esteja sempre presente após a execução da Regra 1.
+Esta regra define uma bandeira temporária chamada **idflag** que está definida para **usar o guid** se não houver **ms-ds-consistência** povoada para o utilizador. A lógica por trás disto é o facto de a AD FS não permitir afirmações vazias. Assim, quando adiciona `http://contoso.com/ws/2016/02/identity/claims/objectguid` `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` reclamações e na regra 1, acaba com uma reclamação **msdsconsistênciala** apenas se o valor for povoado para o utilizador. Se não for povoada, a AD FS vê que terá um valor vazio e o deixa cair imediatamente. Todos os objetos terão **objectguida**, para que essa reivindicação esteja sempre presente após a execução da Regra 1.
 
 **Regra 3: Emitir ms-ds-consistência como ID imutável se estiver presente**
 

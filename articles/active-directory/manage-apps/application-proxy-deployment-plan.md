@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: b3278615b90fe2ef539456c3f00eb877918aa9c2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: edd607c4d708df9fcfd3cbd5fdb71f0a7652d6c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78248365"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330916"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planeie uma implementação de proxy de aplicação ad azure
 
@@ -68,7 +68,7 @@ Os seguintes requisitos fundamentais devem ser cumpridos para configurar e imple
 
 * **Limites de serviço**: Para proteger contra o consumo excessivo de recursos por parte de inquilinos individuais, existem limites de estrangulamento definidos por aplicação e inquilino. Para ver estes limites consulte [os limites e restrições de serviço da Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Estes limites de estrangulamento baseiam-se numa referência muito acima do volume de utilização típico e fornecem um amplo tampão para a maioria das implementações.
 
-* **Certificado público**: Se estiver a usar nomes de domínio personalizados, deve adquirir um certificado SSL. Dependendo dos seus requisitos organizacionais, obter um certificado pode demorar algum tempo e recomendamos iniciar o processo o mais cedo possível. A Procuração de Aplicações Azure suporta certificados padrão, [wildcard](application-proxy-wildcard.md)ou san. Para mais detalhes consulte [Configure domínios personalizados com procuração de aplicação ad azure](application-proxy-configure-custom-domain.md).
+* **Certificado público**: Se estiver a usar nomes de domínio personalizados, deve adquirir um certificado TLS/SSL. Dependendo dos seus requisitos organizacionais, obter um certificado pode demorar algum tempo e recomendamos iniciar o processo o mais cedo possível. A Procuração de Aplicações Azure suporta certificados padrão, [wildcard](application-proxy-wildcard.md)ou san. Para mais detalhes consulte [Configure domínios personalizados com procuração de aplicação ad azure](application-proxy-configure-custom-domain.md).
 
 * **Requisitos de domínio**: Um único sinal nas suas aplicações publicadas utilizando a Delegação Limitada kerberos (KCD) requer que o servidor que executa o Connector e o servidor que executa a aplicação sejam integrados no domínio e parte do mesmo domínio ou domínios de confiança.
 Para obter informações detalhadas sobre o tema, consulte [a KCD para um único registo](application-proxy-configure-single-sign-on-with-kcd.md) com o Application Proxy. O serviço de conector funciona no contexto do sistema local e não deve ser configurado para utilizar uma identidade personalizada.
@@ -95,7 +95,7 @@ Compile um inventário de todas as aplicações no âmbito que estão a ser publ
 |---|---|
 | Tipo de Serviço| Por exemplo: SharePoint, SAP, CRM, Aplicação Web Personalizada, API |
 | Plataforma de aplicação | Por exemplo: Windows IIS, Apache em Linux, Tomcat, NGINX |
-| Adesão ao domínio| Nome de domínio totalmente qualificado do servidor web (FQDN) |
+| Associação ao domínio| Nome de domínio totalmente qualificado do servidor web (FQDN) |
 | Localização da candidatura | Onde o servidor web ou quinta está localizado na sua infraestrutura |
 | Acesso interno | O URL exato utilizado no acesso interno à aplicação. <br> Se uma fazenda, que tipo de equilíbrio de carga está em uso? <br> Se a aplicação extrai conteúdo de outras fontes que não a si mesma.<br> Determine se a aplicação funciona através de WebSockets. |
 | Acesso externo | A solução do fornecedor a que a aplicação já está exposta externamente. <br> O URL que pretende utilizar para acesso externo. Se o SharePoint, certifique-se de que os Mapeamentos de Acesso Alternativos estão configurados por [esta orientação](https://docs.microsoft.com/SharePoint/administration/configure-alternate-access-mappings). Caso contrário, terá de definir URLs externos. |
@@ -125,7 +125,7 @@ As seguintes são áreas para as quais deve definir os requisitos de negócio da
 
 * Apenas os utilizadores atribuídos a aplicações através de membros do grupo ou individualmente podem aceder a essas aplicações.
 
-**Performance** (Desempenho)
+**Desempenho**
 
 * Não existe degradação do desempenho da aplicação em comparação com o acesso à aplicação da rede interna.
 
@@ -155,7 +155,7 @@ Os seguintes elementos de design devem aumentar o sucesso da sua implementação
 
 **Definições únicas de inscrição**: Algumas definições de SSO têm dependências específicas que podem levar tempo a configurar, por isso evite os atrasos de controlo de mudança, garantindo que as dependências são abordadas com antecedência. Isto inclui anfitriões de conector de ligação de domínio para executar SSO usando a Delegação Limitada Kerberos (KCD) e cuidar de outras atividades que demoram tempo. Por exemplo, configurar uma instância de acesso PING, se precisar de SSO baseado em cabeçalho.
 
-**SSL Entre o anfitrião do conector e a aplicação do alvo**: A segurança é primordial, pelo que o TLS entre o anfitrião do conector e as aplicações-alvo deve ser sempre utilizado. Especialmente se a aplicação web estiver configurada para autenticação baseada em formulários (FBA), uma vez que as credenciais do utilizador são então transmitidas eficazmente em texto claro.
+**TLS Entre o anfitrião do conector e**a aplicação do alvo : A segurança é primordial, pelo que o TLS entre o anfitrião do conector e as aplicações-alvo deve ser sempre utilizado. Especialmente se a aplicação web estiver configurada para autenticação baseada em formulários (FBA), uma vez que as credenciais do utilizador são então transmitidas eficazmente em texto claro.
 
 **Implementar incrementalmente e testar cada passo**. Realizar testes funcionais básicos após a publicação de uma aplicação para garantir que todos os requisitos do utilizador e da empresa são cumpridos seguindo as instruções abaixo:
 
@@ -192,7 +192,7 @@ Abaixo estão algumas boas práticas a seguir ao publicar uma aplicação:
 
    * **Cookie persistente**: Permite que o cookie de sessão proxy de aplicação persista entre os encerramentos do navegador, permanecendo válido até que expire ou seja eliminado. Usado para cenários em que uma aplicação rica como o office acede a um documento dentro de uma aplicação web publicada, sem que o utilizador seja resolicitado para autenticação. No entanto, ative com cautela, uma vez que os cookies persistentes podem, em última análise, deixar um serviço em risco de acesso não autorizado, se não for utilizado em conjunto com outros controlos compensatórios. Esta definição só deve ser utilizada para aplicações mais antigas que não possam partilhar cookies entre processos. É melhor atualizar a sua aplicação para lidar com a partilha de cookies entre processos em vez de usar esta definição.
 
-* **Traduza URLs em Cabeçalhos**: Permite-o para cenários em que o DNS interno não pode ser configurado para corresponder ao espaço de nomepúblico da organização (também conhecido como DNS split). A menos que o seu pedido exija o cabeçalho original do anfitrião no pedido do cliente, deixe este valor definido para Sim. A alternativa é que o conector utilize o FQDN no URL interno para o encaminhamento do tráfego real, e o FQDN no URL externo, como cabeçalho do anfitrião. Na maioria dos casos, esta alternativa deve permitir que a aplicação funcione normalmente, quando acedida remotamente, mas os seus utilizadores perdem os benefícios de ter um URL correspondente dentro e externo.
+* **Traduza URLs em Cabeçalhos**: Permite-o para cenários em que o DNS interno não pode ser configurado para corresponder ao espaço de nomepúblico da organização (também conhecido como DNS split). A menos que o seu pedido exija o cabeçalho original do anfitrião no pedido do cliente, deixe este valor definido para Sim. A alternativa é que o conector utilize o FQDN no URL interno para o encaminhamento do tráfego real, e o FQDN no URL externo, como cabeçalho do anfitrião. Na maioria dos casos, esta alternativa deve permitir que a aplicação funcione normalmente, quando acedida remotamente, mas os seus utilizadores perdem os benefícios de ter uma correspondência dentro & URL externo.
 
 * **Tradução de URLs no Corpo**de Aplicação : Ligue a tradução de link do Corpo de Aplicação para uma aplicação quando quiser que os links dessa aplicação sejam traduzidos em respostas ao cliente. Se ativada, esta função proporciona uma melhor tentativa de esforço para traduzir todas as ligações internas que a App Proxy encontra nas respostas HTML e CSS sendo devolvidas aos clientes. É útil publicar aplicações que contenham links de nome absoluto ou netBIOS de código duro no conteúdo, ou aplicações com conteúdo que se ligue a outras aplicações no local.
 
@@ -233,7 +233,7 @@ Uma vez publicada a sua aplicação, deve ser acessível digitando o seu URL ext
 
 Verifique se a sua aplicação está acessível através do Proxy de Aplicação, acedendo-a através do URL externo. 
 
-1. Navegue para **as aplicações** de > Enterprise de **Diretório Ativo Azur** da Azure > **Todas as aplicações** e escolha a app que pretende gerir.
+1. Navegue para**aplicações** >  **Da Azure Ative Directory** > Enterprise**Todas as aplicações** e escolha a app que pretende gerir.
 
 2. Selecione **Procuração de Aplicação**.
 
@@ -300,13 +300,13 @@ Estes registos fornecem informações detalhadas sobre logins a aplicações con
 
 #### <a name="application-proxy-connector-monitoring"></a>Monitorização do Conector proxy da aplicação
 
-Os conectores e o serviço de cuidam de todas as tarefas de elevada disponibilidade. Pode monitorizar o estado dos seus conectores a partir da página Proxy de Aplicação no Portal AD Azure. Para obter mais informações sobre a manutenção do conector, consulte [Conectores proxy de aplicação ad azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
+Os conectores e o serviço cuidam de todas as tarefas de alta disponibilidade. Pode monitorizar o estado dos seus conectores a partir da página Proxy de Aplicação no Portal AD Azure. Para obter mais informações sobre a manutenção do conector, consulte [Conectores proxy de aplicação ad azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
 
 ![Exemplo: Conectores de proxy de aplicação da AD Azure](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Registos de eventos do Windows e contadores de desempenho
 
-Os conectores têm registos de administração e sessão. Os registos de administrador incluem eventos principais e os erros. Os registos de sessão incluem todas as transações e os respetivos detalhes de processamento. Os registos e balcões estão localizados nos Registos de Eventos do Windows para obter mais informações ver [Understand Azure Application Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Siga este tutorial para configurar fontes de dados de registo de [eventos no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Os conectores têm registos de administração e sessão. Os registos de administração incluem eventos-chave e seus erros. Os registos da sessão incluem todas as transações e os seus detalhes de processamento. Os registos e balcões estão localizados nos Registos de Eventos do Windows para obter mais informações ver [Understand Azure Application Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Siga este tutorial para configurar fontes de dados de registo de [eventos no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Guia e passos de resolução de problemas
 
@@ -326,4 +326,4 @@ Os seguintes artigos abrangem cenários comuns que também podem ser usados para
 * [Configurar com o PingAccess](application-proxy-back-end-ping-access-how-to.md)
 * [Não é possível aceder a este erro de aplicação corporativa](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [Problema ao instalar o Conector do Agente do Proxy de Aplicações](application-proxy-connector-installation-problem.md)
-* [Problema de inscrição](application-sign-in-problem-on-premises-application-proxy.md)
+* [Problema ao iniciar sessão](application-sign-in-problem-on-premises-application-proxy.md)

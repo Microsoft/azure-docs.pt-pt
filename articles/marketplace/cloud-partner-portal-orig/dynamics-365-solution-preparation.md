@@ -1,36 +1,34 @@
 ---
-title: Preparação da solução do Dynamics 365
-description: Estrutura para empacotamento, instalação e desinstalação de componentes
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricarod.Villalobos
+title: Preparação de soluções Dinâmica 365
+description: Enquadramento para embalagens, instalação e desinstalação de componentes
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bcb3bb63f305aeb98efda3baf0f6661bd7f67a7c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ac1e4fa541e945f20904ced114a36b58d14585ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824236"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278591"
 ---
-# <a name="dynamics-365-solution-preparation"></a>Preparação da solução do Dynamics 365
+# <a name="dynamics-365-solution-preparation"></a>Preparação de soluções Dinâmica 365
 
-O sistema de soluções do Dynamics 365 é uma estrutura para empacotar, instalar e desinstalar componentes que fornecem funcionalidade comercial específica. As soluções são usadas por ISVs e outros parceiros do Microsoft Dynamics 365 para distribuir extensões que criam.
+O sistema de soluções Dynamics 365 é um quadro para a embalagem, instalação e desinstalação de componentes que fornecem funcionalidades de negócio específicas. As soluções são utilizadas pelos ISVs e outros parceiros da Microsoft Dynamics 365 para distribuir extensões que criam.
 
-Se você for um ISV do Dynamics 365 (xRM) existente, provavelmente já terá criado uma solução gerenciada e ter um arquivo. zip de solução. Em sua solução, certifique-se de que os campos "nome de exibição" e "Descrição" reflitam o que você deseja que os clientes vejam. Eles são exibidos no centro de administração do CRM Online.
+Se é um ISV da Dynamics 365 (xRM) existente, provavelmente já criou uma solução gerida e tem um ficheiro solution.zip. Na sua solução, certifique-se de que os campos "Display Name" e "Description" refletem o que pretende que os clientes vejam. Estes são apresentados no Centro de Administração Online CRM.
 
 ![CRMScreenShot1](media/CRMScreenShot1.png)
 
-_**Observação:** No exemplo de pacote a seguir, vamos supor que o nome da solução é "SampleSolution. zip"_
+_**Nota:** No exemplo do pacote que se segue vamos assumir que o nome da solução é "SampleSolution.zip"_
 
-Se você for um novo ISV, poderá obter mais detalhes sobre como criar uma solução aqui: [https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
+Se você é um novo ISV, você pode obter mais detalhes sobre a criação de uma solução aqui:[https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
 
-Se sua solução exigir dados de suporte:
+Se a sua solução necessitar de dados de suporte:
 
-* Criar os dados de exemplo em seu ambiente de teste
-* Use a ferramenta de migração de configuração para criar um esquema com regras de comparação para seus dados.
-* Salve o esquema de configuração com seus arquivos de projeto. Você precisará disso mais tarde se atualizar os dados de configuração.
-* Exporte seus dados de configuração. Certifique-se de dar um nome ao arquivo de exportação que seja significativo para a sua exportação.
+* Crie os dados da amostra no seu ambiente de teste
+* Utilize a Ferramenta de Migração de Configuração para criar um Schema com regras de comparação para os seus dados.
+* Guarde o seu esquema de configuração com os seus ficheiros de projeto. Precisará disto mais tarde se atualizar os seus dados de configuração.
+* Exporte os seus dados de configuração. Certifique-se de dar ao ficheiro de exportação um nome que seja significativo para a sua exportação.

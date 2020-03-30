@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
 ms.openlocfilehash: 29ad5ca6c9058b88a539c7a3bb8ace4d9a65083a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278093"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Dados de importação e exportação em Azure Cache para Redis
@@ -124,11 +124,11 @@ O Azure Cache for Redis suporta a importação de RDB através da versão 7 do R
 Sim, e pode importar/exportar entre uma cache agrupada e uma cache não agrupada. Uma vez que o cluster Redis apenas suporta a [base de dados 0,](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)quaisquer dados em bases de dados que não 0 não são importados. Quando os dados de cache agrupados são importados, as chaves são redistribuídas entre os fragmentos do cluster.
 
 ### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>Como funciona a Importação/Exportação com uma definição de bases de dados personalizada?
-Alguns níveis de preços têm [diferentes limites](cache-configure.md#databases)de bases de dados, pelo que existem algumas considerações ao importar se configurar um valor personalizado para a configuração `databases` durante a criação de cache.
+Alguns níveis de preços têm [diferentes limites](cache-configure.md#databases)de bases de dados, pelo que existem algumas considerações ao importar se configurar um valor personalizado para a configuração durante a `databases` criação de cache.
 
-* Ao importar para um nível de preços com um limite de `databases` inferior ao de onde exportou:
-  * Se estiver a utilizar o número padrão de `databases`, que é 16 para todos os níveis de preços, não se perdem dados.
-  * Se estiver a utilizar um número personalizado de `databases` que se insere dentro dos limites para o nível a que está a importar, não se perdem dados.
+* Ao importar para um nível `databases` de preços com um limite inferior ao do nível a partir do qual exportou:
+  * Se estiver a utilizar `databases`o número padrão de , que é 16 para todos os níveis de preços, não se perdem dados.
+  * Se estiver a utilizar `databases` um número personalizado que se insere dentro dos limites para o nível a que está a importar, não se perdem dados.
   * Se os seus dados exportados contiverem dados numa base de dados que exceda os limites do novo nível, os dados dessas bases de dados mais elevadas não são importados.
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>Como é que a Importação/Exportação é diferente da persistência do Redis?
@@ -149,7 +149,7 @@ Para resolver esta questão, inicie a operação de importação ou exportação
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Tive um erro ao exportar os meus dados para o Armazém Azure Blob. O que aconteceu?
 A exportação funciona apenas com ficheiros RDB armazenados como bolhas de página. Outros tipos de blob não são atualmente suportados, incluindo contas de armazenamento Blob com camadas quentes e frescas. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../storage/common/storage-account-overview.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba como usar mais funcionalidades de cache premium.
 
 * [Introdução ao Cache Azure para o nível Redis Premium](cache-premium-tier-intro.md)

@@ -1,5 +1,5 @@
 ---
-title: Persista ficheiros em Azure Cloud Shell  Microsoft Docs
+title: Persista ficheiros em Azure Cloud Shell [ Microsoft Docs
 description: Walkthrough de como azure Cloud Shell persiste ficheiros.
 services: azure
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 15a5770eb2964f0f2039fe93de904af65d4c81ed
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d4d59642f638e7b1221c35a4bb281923571d5066
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252106"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297592"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistem ficheiros em Azure Cloud Shell
 A Cloud Shell utiliza o armazenamento de ficheiros Azure para persistir ficheiros em sessões. No início inicial, a Cloud Shell pede-lhe que associe uma nova ou existente partilha de ficheiros para persistir ficheiros em sessões.
@@ -34,14 +34,14 @@ A Cloud Shell utiliza o armazenamento de ficheiros Azure para persistir ficheiro
 
 Quando utiliza configurações básicas e seleciona apenas uma subscrição, a Cloud Shell cria três recursos em seu nome na região apoiada que lhe é mais próxima:
 * Grupo de recursos: `cloud-shell-storage-<region>`
-* Conta de armazenamento: `cs<uniqueGuid>`
-* Partilha de ficheiros: `cs-<user>-<domain>-com-<uniqueGuid>`
+* Conta de armazenamento:`cs<uniqueGuid>`
+* Partilha de ficheiros:`cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![A definição de subscrição](media/persisting-shell-storage/basic-storage.png)
 
-A partilha de ficheiros é `clouddrive` no seu diretório `$Home`. Esta é uma ação única, e a partilha de ficheiros aumenta automaticamente nas sessões subsequentes. 
+A partilha de `clouddrive` ficheiros `$Home` é montada como no seu diretório. Esta é uma ação única, e a partilha de ficheiros aumenta automaticamente nas sessões subsequentes. 
 
-A partilha de ficheiros também contém uma imagem de 5 GB que é criada para si, que automaticamente persiste dados no seu `$Home` diretório. Isto aplica-se tanto à Bash como à PowerShell.
+A partilha de ficheiros também contém uma imagem de 5 GB `$Home` que é criada para si, que automaticamente persiste dados no seu diretório. Isto aplica-se tanto à Bash como à PowerShell.
 
 ## <a name="use-existing-resources"></a>Utilizar os recursos existentes
 
@@ -62,7 +62,7 @@ A Cloud Shell utiliza uma Partilha de Ficheiros Azure numa conta de armazenament
 Os utilizadores devem bloquear o acesso aos seus ficheiros, definindo as permissões na conta de armazenamento ou no nível de subscrição.
 
 ## <a name="supported-storage-regions"></a>Regiões de armazenamento apoiadas
-Para encontrar a sua região atual, poderá correr `env` em Bash e localizar a `ACC_LOCATION`variável , ou a partir de powerShell executar `$env:ACC_LOCATION`. As partilhas de ficheiros recebem uma imagem de 5 GB criada para que persista o seu diretório `$Home`.
+Para encontrar a sua `env` região atual, `ACC_LOCATION`pode correr em `$env:ACC_LOCATION`Bash e localizar a variável , ou da corrida powerShell . As partilhas de ficheiros recebem uma `$Home` imagem de 5 GB criada para que persista o seu diretório.
 
 Existem máquinas Cloud Shell nas seguintes regiões:
 
@@ -80,27 +80,28 @@ Se for utilizada uma região de armazenamento secundário, a conta de armazename
 > [!NOTE]
 > Se for utilizada uma região secundária, o acesso ao ficheiro e o tempo de arranque da Cloud Shell podem ser mais lentos.
 
-Um utilizador pode executá`(Get-CloudDrive | Get-AzStorageAccount).Location` na PowerShell para ver a localização da sua Partilha de Ficheiros.
+Um utilizador `(Get-CloudDrive | Get-AzStorageAccount).Location` pode correr no PowerShell para ver a localização da sua Partilha de Ficheiros.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir a criação de recursos com uma política de recursos Azure
-As contas de armazenamento que cria na Cloud Shell estão marcadas com `ms-resource-usage:azure-cloud-shell`. Se pretender proibir os utilizadores de criarem contas de armazenamento na Cloud Shell, crie uma política de [recursos Azure para etiquetas](../azure-policy/json-samples.md) que sejam desencadeadas por esta etiqueta específica.
+As contas de armazenamento que cria na `ms-resource-usage:azure-cloud-shell`Cloud Shell estão marcadas com . Se pretender proibir os utilizadores de criarem contas de armazenamento na Cloud Shell, crie uma política de [recursos Azure para etiquetas](../azure-policy/json-samples.md) que sejam desencadeadas por esta etiqueta específica.
 
 ## <a name="how-cloud-shell-storage-works"></a>Como funciona o armazenamento da Cloud Shell 
 Cloud Shell persiste ficheiros através de ambos os seguintes métodos: 
-* Criar uma imagem em disco do seu diretório `$Home` para persistir todos os conteúdos dentro do diretório. A imagem do disco é guardada na sua partilha de ficheiros especificada como `acc_<User>.img` em `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, e sincroniza automaticamente as alterações. 
-* Montagem da sua parte de ficheiro especificada como `clouddrive` no seu diretório `$Home` para interação direta de partilha de ficheiros. `/Home/<User>/clouddrive` está mapeado para `fileshare.storage.windows.net/fileshare`.
+* Criar uma imagem `$Home` em disco do seu diretório para persistir todos os conteúdos dentro do diretório. A imagem do disco é guardada `acc_<User>.img` `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`na sua parte de ficheiro especificada como em , e sincroniza automaticamente as alterações. 
+* Montagem da sua parte `clouddrive` de `$Home` ficheiro especificada como no seu diretório para interação direta de partilha de ficheiros. `/Home/<User>/clouddrive`está mapeado para `fileshare.storage.windows.net/fileshare`.
  
 > [!NOTE]
-> Todos os ficheiros do seu `$Home` diretório, como as teclas SSH, são persistentes na sua imagem de disco de utilizador, que está armazenada na sua partilha de ficheiros montada. Aplique as melhores práticas quando persistir informações no seu diretório `$Home` e partilha de ficheiros montado.
+> Todos os `$Home` ficheiros do seu diretório, como as teclas SSH, são persistentes na sua imagem de disco de utilizador, que está armazenada na sua partilha de ficheiros montada. Aplique as melhores práticas `$Home` quando persistir informação no seu diretório e partilha de ficheiros montado.
 
 ## <a name="clouddrive-commands"></a>comandos clouddrive
 
-### <a name="use-the-clouddrive-command"></a>Use o comando `clouddrive`
-Na Cloud Shell, pode executar um comando chamado `clouddrive`, que lhe permite atualizar manualmente a partilha de ficheiros que é montada na Cloud Shell.
-![Correndo o comando "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
+### <a name="use-the-clouddrive-command"></a>Use `clouddrive` o comando
+Na Cloud Shell, pode executar `clouddrive`um comando chamado , que lhe permite atualizar manualmente a partilha de ficheiros que é montada na Cloud Shell.
 
-### <a name="list-clouddrive"></a>Lista `clouddrive`
-Para descobrir qual a partilha de ficheiros montada como `clouddrive`, execute o comando `df`. 
+![Executando o comando "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
+
+### <a name="list-clouddrive"></a>Lista`clouddrive`
+Para descobrir que partilha de `clouddrive`ficheiros `df` é montada como , executar o comando. 
 
 O caminho do ficheiro para clouddrive mostra o nome da sua conta de armazenamento e a partilha de ficheiros no URL. Por exemplo, `//storageaccountname.file.core.windows.net/filesharename`
 
@@ -119,22 +120,22 @@ justin@Azure:~$
 ### <a name="mount-a-new-clouddrive"></a>Monte uma nova clouddrive
 
 #### <a name="prerequisites-for-manual-mounting"></a>Pré-requisitos para montagem manual
-Pode atualizar a partilha de ficheiros associada à Cloud Shell utilizando o comando `clouddrive mount`.
+Pode atualizar a partilha de ficheiros associada à `clouddrive mount` Cloud Shell utilizando o comando.
 
-Se montar uma parte de ficheiro existente, as contas de armazenamento devem estar localizadas na sua região de Cloud Shell selecionada. Recupere a localização executando `env` e verificando a `ACC_LOCATION`.
+Se montar uma parte de ficheiro existente, as contas de armazenamento devem estar localizadas na sua região de Cloud Shell selecionada. Recupere a `env` localização correndo `ACC_LOCATION`e verificando o .
 
-#### <a name="the-clouddrive-mount-command"></a>O comando `clouddrive mount`
+#### <a name="the-clouddrive-mount-command"></a>O `clouddrive mount` comando
 
 > [!NOTE]
-> Se estiver a montar uma nova partilha de ficheiros, é criada uma nova imagem de utilizador para o seu diretório `$Home`. A sua imagem de `$Home` anterior é mantida na sua partilha de ficheiros anterior.
+> Se estiver a montar uma nova partilha de ficheiros, é criada uma nova imagem de utilizador para o seu `$Home` diretório. A `$Home` sua imagem anterior é mantida na sua partilha de ficheiros anterior.
 
-Executar o comando `clouddrive mount` com os seguintes parâmetros:
+Executar `clouddrive mount` o comando com os seguintes parâmetros:
 
 ```
 clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareName
 ```
 
-Para ver mais detalhes, corra `clouddrive mount -h`, como mostrado aqui:
+Para ver mais `clouddrive mount -h`detalhes, corra, como mostrado aqui:
 
 ![Executando o comando 'clouddrive mount'](media/persisting-shell-storage/mount-h.png)
 
@@ -144,29 +145,29 @@ Podes desmontar uma parte de ficheiro montada na Cloud Shell a qualquer momento.
 1. Execute `clouddrive unmount`.
 2. Reconheça e confirme as indicações.
 
-A sua parte do ficheiro continuará a existir a menos que a pague manualmente. A Cloud Shell deixará de procurar esta partilha de ficheiros nas sessões subsequentes. Para ver mais detalhes, corra `clouddrive unmount -h`, como mostrado aqui:
+A sua parte do ficheiro continuará a existir a menos que a pague manualmente. A Cloud Shell deixará de procurar esta partilha de ficheiros nas sessões subsequentes. Para ver mais `clouddrive unmount -h`detalhes, corra, como mostrado aqui:
 
 ![Executando o comando 'clouddrive unmount'](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Embora executar este comando não apague quaisquer recursos, eliminando manualmente um grupo de recursos, uma conta de armazenamento ou uma partilha de ficheiros que esteja mapeada para a Cloud Shell apaga a sua imagem de `$Home` distilar e quaisquer ficheiros na sua partilha de ficheiros. Esta ação não pode ser desfeita.
+> Embora executar este comando não apague quaisquer recursos, eliminando manualmente um grupo de recursos, uma conta `$Home` de armazenamento ou uma partilha de ficheiros que esteja mapeada para a Cloud Shell apaga a sua imagem de disco de diretório e quaisquer ficheiros na sua partilha de ficheiros. Esta ação não pode ser desfeita.
 ## <a name="powershell-specific-commands"></a>Comandos específicos powerShell
 
-### <a name="list-clouddrive-azure-file-shares"></a>Lista `clouddrive` ações de ficheiros Azure
-O `Get-CloudDrive` cmdlet recupera as informações de partilha de ficheiros Azure atualmente montadas pelo `clouddrive` na Cloud Shell. <br>
-![execução get-cloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
+### <a name="list-clouddrive-azure-file-shares"></a>List `clouddrive` Azure ações de ficheiros
+O `Get-CloudDrive` cmdlet recupera as informações de partilha de `clouddrive` ficheiros Azure atualmente montadas pela Cloud Shell. <br>
+![Running Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
-### <a name="unmount-clouddrive"></a>Desmontar `clouddrive`
+### <a name="unmount-clouddrive"></a>Desmontar`clouddrive`
 Podes desmontar uma partilha de ficheiros Azure que está montada na Cloud Shell a qualquer momento. Se a parte do ficheiro Azure tiver sido removida, será solicitado a criar e montar uma nova partilha de ficheiros Azure na próxima sessão.
 
-O `Dismount-CloudDrive` cmdlet desmonta uma parte de ficheiro Azure da conta de armazenamento corrente. Desmontar o `clouddrive` encerra a sessão atual. O utilizador será solicitado a criar e montar uma nova partilha de ficheiros Azure durante a próxima sessão.
-![executar](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png) Desmontado-CloudDrive
+O `Dismount-CloudDrive` cmdlet desmonta uma parte de ficheiro Azure da conta de armazenamento corrente. Desmontar `clouddrive` as terminações da sessão atual. O utilizador será solicitado a criar e montar uma nova partilha de ficheiros Azure durante a próxima sessão.
+![Execução Desmontagem-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 Nota: Se precisar de definir uma função num ficheiro e chamá-la a partir dos cmdlets PowerShell, então o operador de pontos deve ser incluído. Por exemplo:. .\MyFunctions.ps1
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Cloud Shell Quickstart](quickstart.md) <br>
 [Saiba mais sobre o armazenamento do Microsoft Azure Files](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [Saiba mais sobre etiquetas de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

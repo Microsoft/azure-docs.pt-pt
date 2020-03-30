@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 083d59a2d8720a08abc7ea8998c1fbe048db3f28
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2cfd376f595ae70daf9ab468d464dd9c8ff13d74
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67184617"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334607"
 ---
-| Resource | Limite predefinido | Limite máximo |
-| --- | --- | --- |
-| [Máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) por serviço de nuvem<sup>1</sup> |50 |50 |
-| Pontos de extremidade de entrada por serviço de nuvem<sup>2</sup> |150 |150 |
+| Recurso | Limite |
+| --- | --- |
+| [Máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) por serviço de nuvem<sup>1</sup> |50 |
+| Pontos finais de entrada por serviço na nuvem<sup>2</sup> |150 |
 
-<sup>1</sup> As máquinas virtuais criadas usando o modelo de implantação clássico em vez de Azure Resource Manager são armazenadas automaticamente em um serviço de nuvem. Você pode adicionar mais máquinas virtuais a esse serviço de nuvem para balanceamento de carga e disponibilidade. 
+<sup>1</sup> As máquinas virtuais criadas utilizando o modelo de implantação clássico em vez do Azure Resource Manager são automaticamente armazenadas num serviço na nuvem. Pode adicionar mais máquinas virtuais a esse serviço de nuvem para equilibrar e disponibilidade de carga. 
 
-<sup>2</sup> Os pontos de extremidade de entrada permitem a comunicação com uma máquina virtual fora do serviço de nuvem da máquina virtual. As máquinas virtuais no mesmo serviço de nuvem ou rede virtual podem se comunicar automaticamente entre si. Para obter mais informações, consulte [como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
+<sup>2</sup> Os pontos finais de entrada permitem comunicações a uma máquina virtual de fora do serviço de nuvem da máquina virtual. As máquinas virtuais no mesmo serviço de nuvem ou rede virtual podem comunicar-se automaticamente entre si. Para mais informações, consulte [Como configurar pontos finais para uma máquina virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 

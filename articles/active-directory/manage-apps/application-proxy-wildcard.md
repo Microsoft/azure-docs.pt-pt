@@ -1,6 +1,6 @@
 ---
-title: Aplicativos curinga no Proxy de Aplicativo do AD do Azure
-description: Saiba como utilizar aplicações de caráter universal no proxy de aplicações do Azure Active Directory.
+title: Aplicações wildcard no Proxy de Aplicação AD Azure
+description: Saiba como utilizar aplicações Wildcard no proxy de aplicação do Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,182 +16,182 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a9e7be5f582051e03cba08733fcbfa697cc8f5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3ad2032497b4b01476389428f5a2ef4a3961a1c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275035"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481250"
 ---
-# <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações de caráter universal no proxy de aplicações do Azure Active Directory
+# <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações wildcard no proxy de aplicação de diretório ativo Azure
 
-No Azure Active Directory (Azure AD), configurar um grande número de locais aplicativos podem rapidamente tornar-se impossível de gerenciar e apresenta os riscos desnecessários para erros de configuração se muitos deles exigirem as mesmas definições. Com o [Azure proxy de aplicativo do AD](application-proxy.md), você pode resolver esse problema usando a publicação de aplicativos curinga para publicar e gerenciar vários aplicativos de uma só vez. Esta é uma solução que lhe permite:
+No Azure Ative Directory (Azure AD), configurar um grande número de aplicações no local pode rapidamente tornar-se incontrolável e introduzir riscos desnecessários para erros de configuração se muitos deles necessitarem das mesmas configurações. Com o Procurador de [Aplicação AD Azure,](application-proxy.md)pode abordar este problema utilizando a publicação de aplicações wildcard para publicar e gerir muitas aplicações ao mesmo tempo. Esta é uma solução que lhe permite:
 
-- Simplificar o overhead administrativo
+- Simplifique a sua despesa administrativa
 - Reduzir o número de potenciais erros de configuração
-- Permitir que os utilizadores acedam em segurança às mais recursos
+- Permitir aos seus utilizadores aceder em segurança a mais recursos
 
-Este artigo fornece as informações necessárias configurar a publicação de aplicações de caráter universal no seu ambiente.
+Este artigo fornece-lhe a informação de que precisa para configurar a publicação de aplicações wildcard no seu ambiente.
 
-## <a name="create-a-wildcard-application"></a>Criar uma aplicação de caráter universal
+## <a name="create-a-wildcard-application"></a>Criar uma aplicação wildcard
 
-Pode criar uma aplicação de caráter universal (*), se tiver um grupo de aplicações com a mesma configuração. Possíveis candidatos para a aplicação de caráter universal são as seguintes definições de partilha de aplicações:
+Pode criar uma aplicação wildcard (*) se tiver um grupo de aplicações com a mesma configuração. Os potenciais candidatos a uma aplicação wildcard são aplicações que partilham as seguintes definições:
 
 - O grupo de utilizadores que têm acesso aos mesmos
 - O método SSO
 - O protocolo de acesso (http, https)
 
-Pode publicar aplicações com carateres universais se tanto, os URLs internos e externos são no seguinte formato:
+Pode publicar aplicações com wildcards se ambos, os URLs internos e externos estiverem no seguinte formato:
 
-> http (s)://*.\> de domínio\<
+> http(s)://*. \<domínio\>
 
 Por exemplo: `http(s)://*.adventure-works.com`.
 
-Enquanto os URLs internos e externos podem utilizar domínios diferentes, como melhor prática, deve ser igual. Quando a publicação da aplicação, verá um erro se um dos URLs de não tiver um caráter universal.
+Enquanto os URLs internos e externos podem usar diferentes domínios, como uma melhor prática, devem ser os mesmos. Ao publicar a aplicação, vê um erro se um dos URLs não tiver um wildcard.
 
-Se tiver aplicações adicionais com diferentes definições de configuração, tem de publicar essas exceções como aplicações separadas para substituir as configurações padrão para o caráter universal. Aplicativos sem um caráter universal sempre têm precedência sobre aplicações de caráter universal. Da perspectiva do configuração, são aplicativos "apenas" regulares.
+Se tiver aplicações adicionais com diferentes configurações de configuração, tem de publicar estas exceções como aplicações separadas para substituir as predefinições definidas para o wildcard. As aplicações sem wildcard têm sempre precedência sobre aplicações wildcard. Do ponto de vista da configuração, estas são aplicações "justas" regulares.
 
-A criação de um aplicativo curinga é baseada no mesmo [fluxo de publicação de aplicativos](application-proxy-add-on-premises-application.md) que está disponível para todos os outros aplicativos. A única diferença é que inclua um caráter universal nos URLs e, potencialmente, a configuração de SSO.
+A criação de uma aplicação wildcard baseia-se no mesmo fluxo de publicação de [aplicações](application-proxy-add-on-premises-application.md) que está disponível para todas as outras aplicações. A única diferença é que você inclui um wildcard nos URLs e potencialmente a configuração SSO.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, verifique se você atendeu a esses requisitos.
+Para começar, certifique-se de que cumpriu estes requisitos.
 
 ### <a name="custom-domains"></a>Domínios personalizados
 
-Embora os [domínios personalizados](application-proxy-configure-custom-domain.md) sejam opcionais para todos os outros aplicativos, eles são pré-requisitos para aplicativos curinga. Criar domínios personalizados requer que:
+Embora os [domínios personalizados](application-proxy-configure-custom-domain.md) sejam opcionais para todas as outras aplicações, são um pré-requisito para aplicações wildcard. Criar domínios personalizados requer que:
 
-1. Crie um domínio verificado no Azure.
-1. Carregar um certificado SSL no formato PFX para o proxy de aplicações.
+1. Crie um domínio verificado dentro do Azure.
+1. Faça o upload de um certificado TLS/SSL no formato PFX para o seu proxy de aplicação.
 
-Deve considerar a utilização de um certificado de caráter universal para corresponder a aplicação que pretende criar. Em alternativa, também pode utilizar um certificado que apenas apresenta uma lista de determinados aplicativos. Neste caso, apenas as aplicações listadas no certificado estará acessíveis por meio desta aplicação de caráter universal.
+Deve considerar usar um certificado wildcard para corresponder à aplicação que pretende criar. Em alternativa, também pode utilizar um certificado que apenas lista aplicações específicas. Neste caso, apenas os pedidos listados no certificado estarão acessíveis através desta aplicação wildcard.
 
-Por motivos de segurança, este é um requisito rígido e iremos não suportar carateres universais para aplicações que não é possível utilizar um domínio personalizado para o URL externo.
+Por razões de segurança, este é um requisito difícil e não apoiaremos wildcards para aplicações que não podem usar um domínio personalizado para o URL externo.
 
-### <a name="dns-updates"></a>Atualizações de DNS
+### <a name="dns-updates"></a>Atualizações do DNS
 
-Ao usar domínios personalizados, você precisa criar uma entrada DNS com um registro CNAME para a URL externa (por exemplo, `*.adventure-works.com`) apontando para a URL externa do ponto de extremidade do proxy de aplicativo. Para aplicativos curinga, o registro CNAME precisa apontar para as URLs externas relevantes:
+Ao utilizar domínios personalizados, é necessário criar uma entrada DNS com um `*.adventure-works.com`registo CNAME para o URL externo (por exemplo, ) apontando para o URL externo do ponto final do proxy da aplicação. Para aplicações wildcard, o registo CNAME deve apontar para os URLs externos relevantes:
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Para confirmar que você configurou o CNAME corretamente, você pode usar o [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) em um dos pontos de extremidade de destino, por exemplo, `expenses.adventure-works.com`.  Sua resposta deve incluir o alias já mencionado (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+Para confirmar que configura corretamente o seu CNAME, pode utilizar o [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) num `expenses.adventure-works.com`dos pontos finais do alvo, por exemplo, .  A sua resposta deve incluir`<yourAADTenantId>.tenant.runtime.msappproxy.net`o pseudónimo já mencionado .
 
 ## <a name="considerations"></a>Considerações
 
-Aqui estão algumas considerações que você deve levar em conta para aplicativos curinga.
+Aqui ficam algumas considerações que deve ter em conta as aplicações wildcard.
 
 ### <a name="accepted-formats"></a>Formatos aceites
 
-Para aplicativos curinga, a **URL interna** deve ser formatada como `http(s)://*.<domain>`.
+Para aplicações wildcard, o **URL** Interno `http(s)://*.<domain>`deve ser formatado como .
 
-![Para URL interna, use o formato http (s)://*. > de domínio\<](./media/application-proxy-wildcard/22.png)
+![Para URL interno, utilize o formato http(s)://*. \<> de domínio](./media/application-proxy-wildcard/22.png)
 
-Ao configurar uma **URL externa**, você deve usar o seguinte formato: `https://*.<custom domain>`
+Quando configurar um **URL Externo,** deve utilizar o seguinte formato:`https://*.<custom domain>`
 
-![Para URL externa, use o formato https://*.\<> de domínio personalizado](./media/application-proxy-wildcard/21.png)
+![Para URL externo, utilize o formato https://*. \<> de domínio personalizado](./media/application-proxy-wildcard/21.png)
 
-Outras posições do caráter universal, vários carateres universais ou outras cadeias de caracteres de regex não são suportadas e estão a causar erros.
+Outras posições do wildcard, vários wildcards ou outras cordas regex não são suportadas e estão a causar erros.
 
-### <a name="excluding-applications-from-the-wildcard"></a>Excluir aplicativos do caráter universal
+### <a name="excluding-applications-from-the-wildcard"></a>Excluindo as aplicações do wildcard
 
-Pode excluir um aplicativo da aplicação de caráter universal por
+Pode excluir uma aplicação da aplicação wildcard por
 
-- Publicação da aplicação de exceção como aplicativo regular
-- Ativar o caráter universal apenas para aplicações específicas, por meio de suas definições de DNS
+- Publicação do pedido de exceção como aplicação regular
+- Ativar o wildcard apenas para aplicações específicas através das definições do DNS
 
-Publicar uma aplicação como aplicativo comum é o método preferencial para excluir uma aplicação a partir de um caráter universal. Deve publicar as aplicações excluídas antes das aplicações de caráter universal para garantir que suas exceções são impostas desde o início. O aplicativo mais específico sempre terá precedência – um aplicativo publicado como `budgets.finance.adventure-works.com` tem precedência sobre o `*.finance.adventure-works.com`do aplicativo, que, por sua vez, tem precedência sobre a `*.adventure-works.com`do aplicativo.
+Publicar uma aplicação como aplicação regular é o método preferido para excluir uma aplicação de um wildcard. Deve publicar as aplicações excluídas antes das aplicações wildcard para garantir que as suas exceções são aplicadas desde o início. A aplicação mais específica terá sempre precedência – uma aplicação publicada como `budgets.finance.adventure-works.com` tem precedência sobre a aplicação `*.finance.adventure-works.com`, que por sua vez tem precedência sobre a aplicação `*.adventure-works.com`.
 
-Também pode limitar o caráter universal só funcionar para aplicações específicas através da sua gestão de DNS. Como melhor prática, deve criar uma entrada CNAME, que inclui um caráter universal e corresponde ao formato do URL externo que configurou. No entanto, em vez disso, pode apontar URLs de aplicação específica para os carateres universais. Por exemplo, em vez de `*.adventure-works.com`, aponte `hr.adventure-works.com`, `expenses.adventure-works.com` e `travel.adventure-works.com individually` para `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`.
+Também pode limitar o wildcard a trabalhar apenas para aplicações específicas através da sua gestão DNS. Como uma boa prática, deve criar uma entrada CNAME que inclua um wildcard e corresponda ao formato do URL externo que configurado. No entanto, pode, em vez disso, apontar URLs de aplicação específicas para os wildcards. Por exemplo, `*.adventure-works.com`em `hr.adventure-works.com`vez `expenses.adventure-works.com` `travel.adventure-works.com individually` de `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`, apontar, e para .
 
-Se você usar essa opção, também precisará de outra entrada CNAME para o valor `AppId.domain`, por exemplo, `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, também apontando para o mesmo local. Você pode encontrar o **AppID** na página de propriedades do aplicativo curinga:
+Se utilizar esta opção, também precisa de `AppId.domain`outra entrada `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`CNAME para o valor , por exemplo, também apontando para a mesma localização. Pode encontrar o **AppId** na página de propriedades da aplicação da aplicação wildcard:
 
-![Localizar a ID do aplicativo na página de propriedades do aplicativo](./media/application-proxy-wildcard/01.png)
+![Encontre o ID da aplicação na página de propriedade da aplicação](./media/application-proxy-wildcard/01.png)
 
-### <a name="setting-the-homepage-url-for-the-myapps-panel"></a>Definir o URL da página para o painel de My Apps
+### <a name="setting-the-homepage-url-for-the-myapps-panel"></a>Definição do URL da página inicial para o painel MyApps
 
-O aplicativo curinga é representado com apenas um bloco no [painel myapps](https://myapps.microsoft.com). Por predefinição, este mosaico está oculta. Para mostrar o mosaico e ter ' s land de usuários numa página específica:
+A aplicação wildcard está representada com apenas um azulejo no [painel MyApps](https://myapps.microsoft.com). Por defeito, este azulejo está escondido. Para mostrar o azulejo e fazer com que os utilizadores aterrem numa página específica:
 
-1. Siga as diretrizes para [definir uma URL da Home Page](application-proxy-configure-custom-home-page.md).
-1. Defina **Mostrar aplicativo** como **verdadeiro** na página de propriedades do aplicativo.
+1. Siga as diretrizes para [definir um URL](application-proxy-configure-custom-home-page.md)de página inicial .
+1. Definir **Mostrar Aplicação** **verdadeiramente** na página de propriedades da aplicação.
 
-### <a name="kerberos-constrained-delegation"></a>Delegação restringida de Kerberos
+### <a name="kerberos-constrained-delegation"></a>Delegação restrita de Kerberos
 
-Para aplicativos que usam a [KCD (delegação restrita de Kerberos) como o método SSO](application-proxy-configure-single-sign-on-with-kcd.md), o SPN listado para o método SSO também pode precisar de um curinga. Por exemplo, o SPN pode ser: `HTTP/*.adventure-works.com`. Você ainda precisa ter os SPNs individuais configurados em seus servidores de back-end (por exemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Para aplicações que utilizem [a delegação limitada de Kerberos (KCD) como método SSO,](application-proxy-configure-single-sign-on-with-kcd.md)o SPN listado para o método SSO também pode necessitar de um wildcard. Por exemplo, o SPN `HTTP/*.adventure-works.com`pode ser: . Ainda precisa de ter as SPNs individuais configuradas nos `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`seus servidores de backend (por exemplo, ).
 
-## <a name="scenario-1-general-wildcard-application"></a>Cenário 1: Aplicação de caráter universal de geral
+## <a name="scenario-1-general-wildcard-application"></a>Cenário 1: Aplicação geral wildcard
 
-Neste cenário, tem três diferentes aplicações que pretende publicar:
+Neste cenário, tem três aplicações diferentes que pretende publicar:
 
 - `expenses.adventure-works.com`
 - `hr.adventure-works.com`
 - `travel.adventure-works.com`
 
-Todos os aplicativos de três:
+Todas as três aplicações:
 
 - São utilizados por todos os seus utilizadores
-- Usar a *autenticação integrada do Windows*
+- Utilizar *autenticação integrada do Windows*
 - Ter as mesmas propriedades
 
-Você pode publicar o aplicativo curinga usando as etapas descritas em [publicar aplicativos usando o Azure proxy de aplicativo do AD](application-proxy-add-on-premises-application.md). Este cenário pressupõe:
+Pode publicar a aplicação wildcard utilizando os [passos descritos nas aplicações Publicar utilizando o Proxy de Aplicação AD Azure](application-proxy-add-on-premises-application.md). Este cenário pressupõe:
 
-- Um locatário com a seguinte ID: `000aa000-11b1-2ccc-d333-4444eee4444e`
-- Um domínio verificado chamado `adventure-works.com` foi configurado.
-- Uma entrada **CNAME** que aponta `*.adventure-works.com` para `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` foi criada.
+- Um inquilino com a seguinte identificação:`000aa000-11b1-2ccc-d333-4444eee4444e`
+- Um domínio verificado `adventure-works.com` chamado foi configurado.
+- Foi criada uma `*.adventure-works.com` entrada `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` **CNAME** que aponta para a criação.
 
-Seguindo as [etapas documentadas](application-proxy-add-on-premises-application.md), você cria um novo aplicativo de proxy de aplicativo em seu locatário. Neste exemplo, o caráter universal é nos campos a seguir:
+Seguindo as [etapas documentadas,](application-proxy-add-on-premises-application.md)cria uma nova aplicação de procuração de aplicação no seu inquilino. Neste exemplo, o wildcard está nos seguintes campos:
 
 - URL interno:
 
-    ![Exemplo: curinga na URL interna](./media/application-proxy-wildcard/42.png)
+    ![Exemplo: Wildcard em URL interno](./media/application-proxy-wildcard/42.png)
 
 - URL externo:
 
-    ![Exemplo: curinga na URL externa](./media/application-proxy-wildcard/43.png)
+    ![Exemplo: Wildcard em URL externo](./media/application-proxy-wildcard/43.png)
 
-- SPN da aplicação interna:
+- Aplicação interna SPN:
 
-    ![Exemplo: curinga na configuração de SPN](./media/application-proxy-wildcard/44.png)
+    ![Exemplo: Wildcard na configuração SPN](./media/application-proxy-wildcard/44.png)
 
-Ao publicar o aplicativo curinga, agora você pode acessar seus três aplicativos navegando até as URLs às quais você está acostumado (por exemplo, `travel.adventure-works.com`).
+Ao publicar a aplicação wildcard, pode agora aceder às suas três aplicações navegando para `travel.adventure-works.com`os URLs a que está habituado (por exemplo, ).
 
 A configuração implementa a seguinte estrutura:
 
-![Mostra a estrutura implementada pela configuração de exemplo](./media/application-proxy-wildcard/05.png)
+![Mostra a estrutura implementada pela configuração do exemplo](./media/application-proxy-wildcard/05.png)
 
 | Cor | Descrição |
 | ---   | ---         |
-| Azul  | Aplicativos publicados explicitamente e visíveis no portal do Azure. |
-| Cinzento  | Aplicativos que pode acessíveis através da aplicação principal. |
+| Azul  | Aplicações explicitamente publicadas e visíveis no portal Azure. |
+| Cinzento  | Aplicações que pode ser acessível através da aplicação dos pais. |
 
-## <a name="scenario-2-general-wildcard-application-with-exception"></a>Cenário 2: Aplicação de caráter universal de geral com exceção
+## <a name="scenario-2-general-wildcard-application-with-exception"></a>Cenário 2: Aplicação geral wildcard com exceção
 
-Nesse cenário, você tem, além dos três aplicativos gerais, outro aplicativo, `finance.adventure-works.com`, que só deve ser acessível pela divisão de finanças. Com a estrutura de aplicação atual, o seu aplicativo de finanças estariam acessível através da aplicação de caráter universal e por todos os funcionários. Para alterar isso, excluir a aplicação da sua com carateres universais ao configurar Finanças como um aplicativo separado com permissões mais restritivas.
+Neste cenário, tem além das três aplicações `finance.adventure-works.com`gerais outra aplicação, que só deverá ser acessível pela divisão de Finanças. Com a estrutura de candidatura atual, a sua aplicação financeira estaria acessível através da aplicação wildcard e por todos os colaboradores. Para alterar isto, exclui a sua aplicação do seu wildcard configurando o Financiamento como uma aplicação separada com permissões mais restritivas.
 
-Você precisa certificar-se de que há registros CNAME que apontam `finance.adventure-works.com` para o ponto de extremidade específico do aplicativo, especificado na página proxy de aplicativo para o aplicativo. Para esse cenário, `finance.adventure-works.com` aponta para `https://finance-awcycles.msappproxy.net/`.
+Tem de se certificar de que existem registos CNAME que apontam `finance.adventure-works.com` para o ponto final específico da aplicação, especificado na página proxy de aplicação para a aplicação. Para este `finance.adventure-works.com` cenário, `https://finance-awcycles.msappproxy.net/`aponta para .
 
-Seguindo as [etapas documentadas](application-proxy-add-on-premises-application.md), esse cenário requer as seguintes configurações:
+Seguindo as [etapas documentadas,](application-proxy-add-on-premises-application.md)este cenário requer as seguintes definições:
 
-- Na **URL interna**, você define **Finance** em vez de um curinga.
+- No **URL Interno,** você define **finanças** em vez de um wildcard.
 
-    ![Exemplo: definir finanças em vez de um curinga na URL interna](./media/application-proxy-wildcard/52.png)
+    ![Exemplo: Definir financiamento em vez de um wildcard em URL interno](./media/application-proxy-wildcard/52.png)
 
-- Na **URL externa**, você define **Finance** em vez de um curinga.
+- No **URL Externo,** você define **finanças** em vez de um wildcard.
 
-    ![Exemplo: definir finanças em vez de um curinga na URL externa](./media/application-proxy-wildcard/53.png)
+    ![Exemplo: Definir financiamento em vez de um wildcard em URL externo](./media/application-proxy-wildcard/53.png)
 
-- SPN do aplicativo interno você define **Finance** em vez de um curinga.
+- Aplicação Interna SPN você define **financiamento** em vez de um wildcard.
 
-    ![Exemplo: definir finanças em vez de um curinga na configuração de SPN](./media/application-proxy-wildcard/54.png)
+    ![Exemplo: Definir financiamento em vez de um wildcard na configuração SPN](./media/application-proxy-wildcard/54.png)
 
 Esta configuração implementa o seguinte cenário:
 
-![Mostra a configuração implementada pelo cenário de exemplo](./media/application-proxy-wildcard/09.png)
+![Mostra a configuração implementada pelo cenário da amostra](./media/application-proxy-wildcard/09.png)
 
-Como `finance.adventure-works.com` é uma URL mais específica do que `*.adventure-works.com`, ela tem precedência. Os usuários que navegam para `finance.adventure-works.com` têm a experiência especificada no aplicativo de recursos de finanças. Nesse caso, somente os funcionários de finanças podem acessar `finance.adventure-works.com`.
+Porque `finance.adventure-works.com` é um URL `*.adventure-works.com`mais específico do que, tem precedência. Os utilizadores `finance.adventure-works.com` que navegam para ter a experiência especificada na aplicação Recursos Financeiros. Neste caso, só os trabalhadores `finance.adventure-works.com`das finanças podem aceder.
 
-Se você tiver vários aplicativos publicados para finanças e tiver `finance.adventure-works.com` como um domínio verificado, poderá publicar outro aplicativo curinga `*.finance.adventure-works.com`. Como isso é mais específico do que o `*.adventure-works.com`genérico, ele terá precedência se um usuário acessar um aplicativo no domínio de finanças.
+Se tiver várias aplicações publicadas `finance.adventure-works.com` para financiamento e tiver como domínio `*.finance.adventure-works.com`verificado, poderá publicar outra aplicação wildcard . Como isto é mais `*.adventure-works.com`específico do que o genérico, tem precedência se um utilizador aceder a uma aplicação no domínio financeiro.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre **domínios personalizados**, confira [trabalhando com domínios personalizados no Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md).
-- Para saber mais sobre a **publicação de aplicativos**, consulte [publicar aplicativos usando o Azure proxy de aplicativo do AD](application-proxy-add-on-premises-application.md)
+- Para saber mais sobre **domínios personalizados,** consulte [Trabalhar com domínios personalizados em Procuração de Aplicação AD Azure](application-proxy-configure-custom-domain.md).
+- Para saber mais sobre **aplicações de publicação,** consulte [Publicar aplicações usando procuração de aplicação ad azure](application-proxy-add-on-premises-application.md)

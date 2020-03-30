@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d2ebcc885b4018f4d9c3ff1b525ffc19b1abdda
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671934"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295313"
 ---
 # <a name="building-a-conditional-access-policy"></a>Construção de uma política de acesso condicional
 
@@ -56,7 +56,7 @@ As informações utilizadas para calcular a plataforma do dispositivo provêm de
 
 Os dados de localização são fornecidos por dados de geolocalização IP. Os administradores podem optar por definir localizações e optar por marcar alguns como os de confiança para as localizações da sua organização.
 
-#### <a name="client-apps"></a>Aplicativos para clientes
+#### <a name="client-apps"></a>Aplicações do cliente
 
 Por padrão, as políticas de Acesso Condicional aplicam-se a aplicações de navegador, aplicações móveis e clientes de desktop que suportam a autenticação moderna. 
 
@@ -74,7 +74,7 @@ A parte de controlo de acesso saem da política de acesso condicional na forma c
 
 [Grant](concept-conditional-access-grant.md) fornece aos administradores um meio de aplicação da política onde podem bloquear ou conceder acesso.
 
-#### <a name="block-access"></a>Acesso ao bloco
+#### <a name="block-access"></a>Bloquear acesso
 
 O acesso ao bloco faz isso mesmo, bloqueará o acesso ao abrigo das atribuições especificadas. O controlo do bloco é poderoso e deve ser exercido com o conhecimento adequado.
 
@@ -85,7 +85,7 @@ O controlo da subvenção pode desencadear a aplicação de um ou mais controlos
 - Exigir autenticação multi-factor (autenticação azure multi-factor)
 - Exigir que o dispositivo seja marcado como conforme (Intune)
 - Exigir dispositivo ad ad hybrid Azure
-- Requer aplicação aprovada do cliente
+- Exigir aplicação de cliente aprovada
 - Pedir uma política de proteção de aplicações
 
 Os administradores podem optar por exigir um dos controlos anteriores ou todos os controlos selecionados utilizando as seguintes opções. O padrão para vários controlos é exigir todos.
@@ -129,7 +129,7 @@ O artigo [Políticas de Acesso Condicional Comum](concept-conditional-access-pol
 
 [Simular o sinal de comportamento usando a ferramenta de acesso condicional O que se a ferramenta](troubleshoot-conditional-access-what-if.md)
 
-[Planejando uma implementação de autenticação azure multi-factor baseada na nuvem](../authentication/howto-mfa-getstarted.md)
+[Planear a implementação da Multi-Factor Authentication do Azure baseada na cloud](../authentication/howto-mfa-getstarted.md)
 
 [Gerir o cumprimento do dispositivo com o Intune](/intune/device-compliance-get-started)
 

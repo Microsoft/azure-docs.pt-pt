@@ -1,19 +1,19 @@
 ---
 title: Detete um estilo de mapa usando o Azure Maps Android SDK. Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre as funcionalidades relacionadas com o estilo Do Microsoft Azure Maps para o Android SDK.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 96564a89a2b64203eef913b0d8300f0dafa332c5
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a4d761abf54682ed0263922d0a118debc9eccf0a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209584"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334359"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Definir o estilo do mapa usando O Android SDK do Azure Maps
 
@@ -51,15 +51,15 @@ Pode definir um estilo de mapa no ficheiro de layout para a sua aula de atividad
 </FrameLayout>
 ```
 
-O atributo `mapcontrol_style` acima define o estilo do mapa para **grayscale_dark**. 
+O `mapcontrol_style` atributo acima define o estilo do mapa para **grayscale_dark**. 
 
 <center>
 
-![](./media/set-android-map-styles/grayscale-dark.png)</center> de grayscale_dark de estilo
+![estilo-grayscale_dark](./media/set-android-map-styles/grayscale-dark.png)</center>
 
 ## <a name="set-map-style-in-the-activity-class"></a>Definir o estilo do mapa na classe de atividade
 
-O estilo do mapa pode ser definido na classe de atividade. Copie o seguinte código no método **onCreate()** da sua classe `MainActivity.java`. Este código definirá o estilo do mapa para **satellite_road_labels**.
+O estilo do mapa pode ser definido na classe de atividade. Copie o seguinte código no método **onCreate()** da sua `MainActivity.java` classe. Este código definirá o estilo do mapa para **satellite_road_labels**.
 
 ```Java
 mapControl.onReady(map -> {
@@ -73,4 +73,4 @@ mapControl.onReady(map -> {
 
 <center>
 
-![rótulos de estrada-satélite](./media/set-android-map-styles/satellite-road-labels.png)</center>
+![estilo-satélite-rótulos de estrada](./media/set-android-map-styles/satellite-road-labels.png)</center>

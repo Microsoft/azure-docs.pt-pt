@@ -1,18 +1,18 @@
 ---
-title: Solucionar problemas de replicação de VMs do Azure com Azure Site Recovery
-description: Solucionar problemas de replicação na recuperação de desastre de VM do Azure com Azure Site Recovery
+title: Replicação de lançamento de problemas de VMs Azure com recuperação do site Azure
+description: Replicação de problemas na recuperação de desastres da VM Azure com recuperação do site Azure
 author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.openlocfilehash: e5e52c6e8560c7369054cfc9fcf2ba4c405671e0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 67b68cc8a1db4a058675dc51fb3805093c455908
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190815"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276670"
 ---
-# <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
+# <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Replicação de problemas na recuperação de desastres da VM Azure
 
 Este artigo descreve problemas comuns na Recuperação do Sítio Azure quando está a replicar e a recuperar máquinas virtuais Azure de uma região para outra. Também explica como resolver os problemas comuns. Para obter mais informações sobre configurações suportadas, consulte a matriz de [suporte para replicar VMs Azure](site-recovery-support-matrix-azure-to-azure.md).
 
@@ -23,9 +23,9 @@ ID de erro: 153007
 
 As seguintes secções descrevem causas e soluções.
 
-## <a name="high-data-change-rate-on-the-source-virtal-machine"></a>Alta taxa de variação de dados na máquina virtual de origem
+## <a name="high-data-change-rate-on-the-source-virtual-machine"></a><a name="high-data-change-rate-on-the-source-virtal-machine"></a>Taxa elevada de alteração de dados na máquina virtual de origem
 
-A Recuperação do Site Azure cria um evento se a taxa de alteração de dados na máquina virtual de origem for superior aos limites suportados. Para ver se o problema se deve ao alto rebuliço, vá a **itens replicados** > **VM** > **Events - dura72 horas**.
+A Recuperação do Site Azure cria um evento se a taxa de alteração de dados na máquina virtual de origem for superior aos limites suportados. Para ver se o problema se deve ao alto churn, vá a **itens replicados** > **VM** > **Eventos VM - dura72 horas**.
 Deve ver o evento "Taxa de alteração de dados para além dos limites suportados":
 
 ![Página de Recuperação de Sites Azure que mostra uma alta taxa de mudança de dados que é muito alta](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png)
@@ -40,14 +40,14 @@ A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites basei
 
 Há dois limites a ter em conta: o churn de dados por disco e o churn de dados por máquina virtual. Vejamos o disco Premium P20 na tabela seguinte, por exemplo. Para um único VM, a Recuperação do Site pode manusear 5 MB/s de churn por disco com um máximo de cinco discos deste tipo. A Recuperação do Site tem um limite de 25 MB/s de total de churn por VM.
 
-**Destino do armazenamento da replicação** | **Tamanho médio de I/S para disco de origem** |**Recolha média de dados para disco de origem** | **Total de dados churn por dia para disco de dados de origem**
+**Alvo de armazenamento de replicação** | **Tamanho médio de I/S para disco de origem** |**Recolha média de dados para disco de origem** | **Total de dados churn por dia para disco de dados de origem**
 ---|---|---|---
-Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
-Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
-Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
+Armazenamento Standard | 8 KB    | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 8 KB    | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 16 KB | 4 MB/s |    336 GB por disco
 Disco Premium P10 ou P15 | 32 KB ou superior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MB/s | 842 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB por disco
 
 ### <a name="solution"></a>Solução
 
@@ -69,7 +69,7 @@ Um pico na taxa de mudança de dados pode vir de uma explosão ocasional de dado
     1. Pode ver um banner em **visão geral** que diz que um URL SAS foi gerado. Selecione este banner e cancele a exportação. Ignore este passo se não vir o estandarte.
     1. Assim que o URL SAS for revogado, vá à **Configuração** para o disco gerido. Aumente o tamanho de modo que a Recuperação do Site suporte a taxa de churn observada no disco de origem.
 
-## <a name="Network-connectivity-problem"></a>Problemas de conectividade da rede
+## <a name="network-connectivity-problems"></a><a name="Network-connectivity-problem"></a>Problemas de conectividade da rede
 
 ### <a name="network-latency-to-a-cache-storage-account"></a>Latência da rede a uma conta de armazenamento de cache
 
@@ -79,7 +79,7 @@ Para verificar se há um problema relacionado com a latência, utilize o [AzCopy
 
 Recomendamos a criação de um ponto final do serviço de rede na sua rede virtual para "Armazenamento" para que o tráfego de replicação não vá para o NVA. Para mais informações, consulte a [configuração do aparelho virtual da Rede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
 
-### <a name="network-connectivity"></a>Conectividade da rede
+### <a name="network-connectivity"></a>Conectividade de rede
 
 Para que a replicação da recuperação do site funcione, precisa do VM para fornecer conectividade de saída a URLs específicos ou intervalos IP. Pode ter o seu VM atrás de uma firewall ou utilizar regras do grupo de segurança da rede (NSG) para controlar a conectividade de saída. Se assim for, pode ter problemas. Para se certificar de que todos os URLs estão ligados, consulte a [conectividade de saída para URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)de Recuperação do Local .
 
@@ -96,9 +96,9 @@ Seguem-se algumas das questões mais comuns.
 **Como corrigir**: Consulte o artigo Cópias de [segurança VSS não componentes, tais como trabalhos de recuperação de sites do Azure, falham nos servidores que hospedam instâncias do Servidor SQL com DBs AUTO_CLOSE](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser).
 
 
-#### <a name="known-issue-in-sql-server-2016-and-2017"></a>Edição conhecida no SQL Server 2016 e 2017
+#### <a name="known-issue-in-sql-server-2016-and-2017"></a>Problema conhecido no SQL Server 2016 e 2017
 
-**Como corrigir**: Consulte o artigo O erro ocorre quando faz backup de uma máquina virtual com cópia de [segurança não baseada em componentes no SQL Server 2016 e 2017](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component).
+**Como corrigir**: Consulte o artigo O erro ocorre quando faz backup de uma máquina virtual com cópia de [segurança não baseada em componentes no SQL Server 2016 e 2017](https://support.microsoft.com/en-us/help/4508218/cumulative-update-16-for-sql-server-2017).
 
 #### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Está a usar a configuração direta dos espaços de armazenamento azure
 

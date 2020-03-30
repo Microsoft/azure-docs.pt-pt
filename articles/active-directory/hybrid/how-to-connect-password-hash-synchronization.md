@@ -1,5 +1,5 @@
 ---
-title: Implementar a sincronização de hash de palavra-passe com o Azure AD Connect sync | Documentos da Microsoft
+title: Implementar sincronização de hash de senha com sincronização Azure AD Connect / Microsoft Docs
 description: Fornece informações sobre como funciona a sincronização de hash de palavra-passe e como configurar.
 services: active-directory
 documentationcenter: ''
@@ -15,79 +15,79 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6451507eb5a25f432c73468d0da0db1838c8c9a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c41b11ab65f5710d338ce0041579e1eb4678ec42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261388"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331373"
 ---
-# <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
-Este artigo fornece informações que precisa sincronizar suas senhas de usuário de uma instância do Active Directory no local para uma instância do Azure Active Directory (Azure AD) com base na cloud.
+# <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização hash de palavras-passe com a sincronização do Azure AD Connect
+Este artigo fornece informações de que necessita de sincronizar as suas palavras-passe de utilizador de uma instância de Diretório Ativo no local para uma instância de Azure Ative Directory (Azure AD) baseada na nuvem.
 
 ## <a name="how-password-hash-synchronization-works"></a>Como funciona a sincronização de hash de palavra-passe
-O serviço de domínio do Active Directory armazena as palavras-passe na forma de uma representação de valor de hash, a palavra-passe de utilizador reais. Um valor de hash é o resultado de uma função matemática de sentido único (o algoritmo de *hashing).* Não existe nenhum método para reverter o resultado de uma função unidirecional para a versão de texto simples de uma palavra-passe. 
+O serviço de domínio Ative Directory armazena senhas sob a forma de uma representação de valor hash, da senha real do utilizador. Um valor de hash é o resultado de uma função matemática de sentido único (o algoritmo de *hashing).* Não existe nenhum método para reverter o resultado de uma função unidirecional para a versão de texto simples de uma palavra-passe. 
 
-Para sincronizar a palavra-passe, a sincronização do Azure AD Connect extrai o hash de palavra-passe da instância do Active Directory no local. Processamento extra de segurança é aplicado para o hash de palavra-passe antes dos dados foram sincronizados para o serviço de autenticação do Azure Active Directory. Palavras-passe são sincronizadas numa base por utilizador e por ordem cronológica.
+Para sincronizar a sua palavra-passe, o sincronia Azure AD Connect extrai o seu hash de palavra-passe a partir da instância de Diretório Ativo no local. O processamento de segurança extra é aplicado ao hash de senha antes de ser sincronizado no serviço de autenticação do Diretório Ativo Azure. As palavras-passe são sincronizadas por utilizador e por ordem cronológica.
 
-O fluxo de dados reais do processo de sincronização de hash de palavra-passe é semelhante da sincronização dos dados de utilizador. No entanto, as palavras-passe são sincronizadas com mais frequência do que a janela de sincronização de diretório padrão para outros atributos. O processo de sincronização de hash de palavra-passe é executado a cada 2 minutos. Não é possível modificar a frequência desse processo. Ao sincronizar uma palavra-passe, ele substitui a palavra-passe na cloud existente.
+O fluxo real de dados do processo de sincronização de hash de palavra-passe é semelhante à sincronização dos dados dos utilizadores. No entanto, as palavras-passe são sincronizadas com mais frequência do que a janela padrão de sincronização do diretório para outros atributos. O processo de sincronização de hash de palavra-passe decorre a cada 2 minutos. Não é possível modificar a frequência deste processo. Ao sincronizar uma palavra-passe, substitui a senha de nuvem existente.
 
-Na primeira vez que habilitar a funcionalidade de sincronização de hash de palavra-passe, ele executa uma sincronização inicial das palavras-passe de todos os utilizadores dentro do âmbito. Não é possível definir explicitamente um subconjunto de palavras-passe de utilizador que pretende sincronizar. No entanto, se existirem vários conectores, é possível desativar a sincronização de hash de palavra-passe para alguns conectores, mas não outros utilizando o [cmdlet Set-ADSyncADPasswordSyncConfiguration.](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant)
+A primeira vez que ativa a funcionalidade de sincronização de hash de palavra-passe, realiza uma sincronização inicial das palavras-passe de todos os utilizadores no âmbito. Não é possível definir explicitamente um subconjunto de palavras-passe do utilizador que pretende sincronizar. No entanto, se existirem vários conectores, é possível desativar a sincronização de hash de palavra-passe para alguns conectores, mas não outros utilizando o [cmdlet Set-ADSyncADPasswordSyncConfiguration.](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant)
 
-Quando altera uma palavra-passe no local, a palavra-passe atualizada está sincronizado, com mais freqüência em questão de minutos.
-A funcionalidade de sincronização de hash de palavra-passe tenta automaticamente repete tentativas com falha de sincronização. Se ocorrer um erro durante uma tentativa para sincronizar uma palavra-passe, é registado um erro no Visualizador de eventos.
+Quando muda uma senha no local, a palavra-passe atualizada é sincronizada, na maioria das vezes em questão de minutos.
+A função de sincronização de hash de palavra-passe tenta automaticamente tentar sincronização falhada. Se ocorrer um erro durante uma tentativa de sincronização de uma palavra-passe, é registado um erro no seu visualizador de eventos.
 
-A sincronização de uma palavra-passe não tem impacto sobre o utilizador que tem atualmente sessão iniciado.
-A sessão do serviço de nuvem atual não é afetada imediatamente por uma alteração de palavra-passe sincronizadas que ocorre, enquanto tem sessão iniciada, um serviço em nuvem. No entanto, quando o serviço em nuvem tem de autenticar novamente, terá de fornecer a sua nova palavra-passe.
+A sincronização de uma palavra-passe não tem qualquer impacto no utilizador que está atualmente inscrito.
+A sua atual sessão de serviço na nuvem não é imediatamente afetada por uma alteração de senha sincronizada que ocorre, enquanto está inscrito, num serviço na nuvem. No entanto, quando o serviço de nuvem requer que volte a autenticar, tem de fornecer a sua nova senha.
 
-Um utilizador tem de introduzir as credenciais da empresa uma segunda vez para autenticar para o Azure AD, independentemente se tem sessão iniciadas respetiva rede empresarial. Este padrão pode ser minimizado, no entanto, se o utilizador seleciona mantenha-me conectado na caixa de verificação (KMSI) no início de sessão. Esta seleção define um cookie de sessão que ignora a autenticação por 180 dias. Comportamento KMSI pode ser ativado ou desativado pelo administrador do Azure AD. Além disso, pode reduzir as indicações de palavra-passe ligando o [SSO Sem Emenda](how-to-connect-sso.md), que automaticamente institu os utilizadores quando estão nos seus dispositivos corporativos ligados à sua rede corporativa.
+Um utilizador deve introduzir as suas credenciais corporativas uma segunda vez para autenticar a Azure AD, independentemente de estarem inscritos na sua rede corporativa. No entanto, este padrão pode ser minimizado se o utilizador selecionar a caixa de verificação Keep me signed in (KMSI) no registo. Esta seleção define um cookie de sessão que contorna a autenticação por 180 dias. O comportamento da KMSI pode ser ativado ou desativado pelo administrador da AD Azure. Além disso, pode reduzir as indicações de palavra-passe ligando o [SSO Sem Emenda](how-to-connect-sso.md), que automaticamente institu os utilizadores quando estão nos seus dispositivos corporativos ligados à sua rede corporativa.
 
 > [!NOTE]
-> Sincronização de palavra-passe só é suportada para o utilizador de tipo de objeto no Active Directory. Não é suportada para o tipo de objeto iNetOrgPerson.
+> A sincronização de palavras-passe só é suportada para o utilizador do tipo de objeto no Diretório Ativo. Não é suportado para o tipo de objeto iNetOrgPerson.
 
-### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Descrição detalhada do funcionamento da sincronização de hash de palavra-passe
+### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Descrição detalhada de como funciona a sincronização de hash de palavra-passe
 
-A seguinte secção descreve, detalhada, como funciona a sincronização de hash de palavra-passe entre o Active Directory e o Azure AD.
+A secção seguinte descreve, em profundidade, como funciona a sincronização de hash de senha entre o Ative Directory e o Azure AD.
 
-![Fluxo de palavra-passe detalhadas](./media/how-to-connect-password-hash-synchronization/arch3b.png)
+![Fluxo de senha detalhado](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
-1. A cada dois minutos, o agente de sincronização de hash de palavra-passe nos pedidos de servidor AD Connect armazenados hashes de palavra-passe (o atributo unicodePwd) de um controlador de domínio.  Este pedido é através do protocolo padrão de replicação [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) usado para sincronizar dados entre DCs. A conta de serviço tem de ter os replicar as alterações de diretório e replicar Directory todas as alterações de AD permissões (por predefinição em instalação), para obter a palavra-passe hashes.
-2. Antes de enviar, o DC encripta o hash de senha MD4 utilizando uma chave que é um hash [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) da chave de sessão RPC e um sal. Em seguida, envia o resultado para o agente de sincronização de hash de palavra-passe através de RPC. O controlador de domínio também passa a salt para o agente de sincronização utilizando o protocolo de replicação do controlador de domínio, por isso, o agente será capaz de descriptografar o envelope.
-3. Depois de o agente de sincronização de hash de palavra-passe ter o envelope encriptado, utiliza [o MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) e o sal para gerar uma chave para desencriptar os dados recebidos de volta ao seu formato MD4 original. O agente de sincronização de hash de palavra-passe nunca tem acesso para a palavra-passe de texto não encriptado. Utilização de palavra-passe hash sincronização do agente de MD5 é estritamente para compatibilidade de protocolo de replicação com o controlador de domínio e só é utilizado no local entre o controlador de domínio e o agente de sincronização de hash de palavra-passe.
-4. O agente de sincronização de hash de palavra-passe expande o hash de senha de binários de 16 bytes em 64 bytes, converta primeiro o hash para uma cadeia hexadecimal de 32 bytes, em seguida, convertendo essa cadeia de caracteres de volta no binário com codificação UTF-16.
-5. O agente de sincronização de hash de palavra-passe adiciona um por salt de utilizador, que consiste de salt um comprimento de 10 bytes, para o binário de 64 bytes para proteger ainda mais o hash original.
+1. De dois em dois minutos, o agente de sincronização de hash de palavra-passe no servidor AD Connect solicita hashes de palavra-passe armazenados (o atributo unicodePwd) de um DC.  Este pedido é através do protocolo padrão de replicação [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) usado para sincronizar dados entre DCs. A conta de serviço deve ter Alterações de Diretório replicadas e alterações de diretório de replicação Todas as permissões ad (concedidas por predefinição na instalação) para obter as hashes de senha.
+2. Antes de enviar, o DC encripta o hash de senha MD4 utilizando uma chave que é um hash [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) da chave de sessão RPC e um sal. Em seguida, envia o resultado para o agente de sincronização de hash de palavra-passe sobre RPC. O DC também passa o sal para o agente de sincronização usando o protocolo de replicação de DC, para que o agente seja capaz de desencriptar o envelope.
+3. Depois de o agente de sincronização de hash de palavra-passe ter o envelope encriptado, utiliza [o MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) e o sal para gerar uma chave para desencriptar os dados recebidos de volta ao seu formato MD4 original. O agente de sincronização de hash de palavra-passe nunca tem acesso à senha de texto clara. A utilização do MD5 pelo agente de sincronização de hash por palavra-passe é estritamente para a compatibilidade do protocolo de replicação com o DC, e só é utilizada em instalações entre o DC e o agente de sincronização de hash de palavra-passe.
+4. O agente de sincronização de hash de palavra-passe expande o hash binário de 16 bytes para 64 bytes, convertendo primeiro o hash para uma corda hexadecimal de 32 bytes, depois convertendo esta cadeia de volta em binário com a codificação UTF-16.
+5. O agente de sincronização de hash de palavra-passe adiciona um sal por utilizador, composto por um sal de 10 bytes, ao binário de 64 bytes para proteger ainda mais o hash original.
 6. O agente de sincronização de hash de palavra-passe combina então o hash MD4 mais o sal por utilizador e insere-o na função [PBKDF2.](https://www.ietf.org/rfc/rfc2898.txt) São utilizadas 1000 iterações do algoritmo de hashing com chaves [HMAC-SHA256.](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) 
-7. O agente de sincronização de hash de palavra-passe leva o hash de 32 bytes resultante, concatena ambos o por salt de utilizador e o número de SHA256 iterações a ele (para utilização pelo Azure AD), transmite, em seguida, a cadeia a partir do Azure AD Connect para o Azure AD através de SSL.</br> 
-8. Quando um utilizador tenta iniciar sessão Azure AD e introduz a palavra-passe, a palavra-passe é executada através do mesmo MD4 + salt + PBKDF2 + HMAC-SHA256 processo. Se o hash resultante corresponda ao hash armazenado no Azure AD, o utilizador ter introduzido a palavra-passe correta e é autenticado.
+7. O agente de sincronização de hash de palavra-passe toma o hash de 32 bytes resultante, concatena tanto o sal por utilizador como o número de iterações SHA256 para ele (para utilização por Azure AD), em seguida, transmite a cadeia de Azure AD Connect para Azure AD através de TLS.</br> 
+8. Quando um utilizador tenta iniciar sessão no Azure AD e introduz a sua palavra-passe, a palavra-passe é executada através do mesmo processo MD4+salt+PBKDF2+HMAC-SHA256. Se o hash resultante corresponder ao hash armazenado em Azure AD, o utilizador introduziu a senha correta e é autenticado.
 
 > [!NOTE]
-> O hash MD4 original não é transmitido para o Azure AD. Em vez disso, o hash de SHA256 do original MD4 hash é transmitido. Como resultado, se o hash armazenado no Azure AD é obtido, não pode ser utilizado num ataque de passagem do hash no local.
+> O hash MD4 original não é transmitido para Azure AD. Em vez disso, o hash SHA256 do hash MD4 original é transmitido. Como resultado, se o hash armazenado em Azure AD for obtido, não pode ser usado num ataque de passe-o-hash no local.
 
 ### <a name="security-considerations"></a>Considerações de segurança
 
-Durante a sincronização de palavras-passe, a versão de texto sem formatação da sua palavra-passe não é exposta para o recurso de sincronização de hash de palavra-passe, para o Azure AD, ou qualquer um dos serviços associados.
+Ao sincronizar palavras-passe, a versão de texto simples da sua palavra-passe não está exposta à funcionalidade de sincronização de hash de palavra-passe, à AD Azure ou a qualquer um dos serviços associados.
 
-É feita no Azure AD, em vez de na instância do Active Directory da organização a autenticação de utilizador. Os dados de palavra-passe de SHA256 armazenados no Azure AD – um hash do hash MD4 original, é mais seguro do que o que é armazenado no Active Directory. Além disso, porque não é possível desencriptar este hash SHA256, ele não pode ser recuperado para o ambiente do Active Directory da organização e apresentado como uma palavra-passe de utilizador válido num ataque de passagem do hash.
+A autenticação do utilizador ocorre contra a AD Azure e não contra a instância de Diretório Ativo da própria organização. Os dados de senha SHA256 armazenados em Azure AD -- um hash do hash MD4 original -- é mais seguro do que o armazenado no Ative Directory. Além disso, como este hash SHA256 não pode ser desencriptado, não pode ser trazido de volta para o ambiente ative diretório da organização e apresentado como uma senha de utilizador válida num ataque de passe-o-hash.
 
-### <a name="password-policy-considerations"></a>Considerações de política de palavra-passe
+### <a name="password-policy-considerations"></a>Considerações de política de senha
 
-Existem dois tipos de políticas de palavra-passe que são afetadas por ativar a sincronização de hash de palavra-passe:
+Existem dois tipos de políticas de senha que são afetadas por permitir a sincronização de hash de senha:
 
-* Política de complexidade de palavra-passe
+* Política de complexidade de senhas
 * Política de expiração de palavra-passe
 
-#### <a name="password-complexity-policy"></a>Política de complexidade de palavra-passe
+#### <a name="password-complexity-policy"></a>Política de complexidade de senhas
 
-Quando a sincronização de hash de palavra-passe está ativada, as políticas de complexidade de palavra-passe na sua instância do Active Directory no local substituir políticas de complexidade na cloud para os utilizadores sincronizados. Pode utilizar todas as palavras-passe válidas da sua instância do Active Directory no local para aceder aos serviços do Azure AD.
+Quando a sincronização de hash de palavra-passe é ativada, as políticas de complexidade da palavra-passe no seu caso Ative Diretório no local sobrepõem as políticas de complexidade na nuvem para utilizadores sincronizados. Pode utilizar todas as palavras-passe válidas da sua instância de Diretório Ativo no local para aceder aos serviços da Azure AD.
 
 > [!NOTE]
-> Palavras-passe para utilizadores que são criados diretamente na cloud, estão ainda sujeitos a políticas de palavra-passe, conforme definido na cloud.
+> As palavras-passe para utilizadores que são criadas diretamente na nuvem ainda estão sujeitas a políticas de senha, tal como definidas na nuvem.
 
 #### <a name="password-expiration-policy"></a>Política de expiração de palavra-passe
 
 Se um utilizador estiver no âmbito da sincronização de hash de palavra-passe, por padrão, a palavra-passe da conta na nuvem está definida para *Nunca Expirar*.
 
-Pode continuar a iniciar sessão para os serviços cloud, com uma palavra-passe sincronizada expirado em seu ambiente no local. A palavra-passe da cloud é atualizada da próxima vez que alterar a palavra-passe no ambiente no local.
+Pode continuar a fazer sessão nos seus serviços na nuvem utilizando uma senha sincronizada que está expirada no seu ambiente no local. A sua palavra-passe na nuvem é atualizada da próxima vez que alterar a palavra-passe no ambiente no local.
 
 ##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Pré-visualização pública da funcionalidade *EnforceCloudPasswordPolicyForPasswordSyncedUsers*
 
@@ -110,15 +110,15 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-Uma vez ativado, o Azure AD não vai a cada utilizador sincronizado remover o valor `DisablePasswordExpiration` do atributo PasswordPolicies. Em vez disso, o valor é definido para `None` durante a próxima sincronização de palavra-passe para cada utilizador quando alterar em seguida a sua palavra-passe em AD no local.  
+Uma vez ativado, o Azure AD não vai a `DisablePasswordExpiration` cada utilizador sincronizado remover o valor do atributo PasswordPolicies. Em vez disso, `None` o valor é definido durante a próxima sincronização de palavra-passe para cada utilizador quando alterar em seguida a sua palavra-passe em AD no local.  
 
-Recomenda-se ativar o EnforceCloudPasswordPolicyForPasswordSyncedUsers, antes de ativar o sincronização de hash de palavra-passe, de modo a que a sincronização inicial de hashes de palavra-passe não adicione o valor `DisablePasswordExpiration` ao atributo passwordPolicies para os utilizadores.
+Recomenda-se ativar o EnforceCloudPasswordPolicyForPasswordSyncedUsers, antes de ativar o sincronização de hash de palavra-passe, de modo a que a sincronização inicial de hashes de palavra-passe não adicione o `DisablePasswordExpiration` valor ao atributo passwordPolicies para os utilizadores.
 
 A política de senha seletiva do Azure exige que os utilizadores alterem as suas palavras-passe a cada 90 dias. Se a sua política em AD também for de 90 dias, as duas políticas devem corresponder. No entanto, se a política de AD não for de 90 dias, pode atualizar a política de passwords Azure AD para corresponder utilizando o comando Set-MsolPasswordPolicy PowerShell.
 
 A Azure AD suporta uma política de expiração de senha separada por domínio registado.
 
-Caveat: Se houver contas sincronizadas que precisam de ter senhas não expiradas em AD Azure, deve adicionar explicitamente o valor `DisablePasswordExpiration` ao atributo passwordPolicies do objeto de utilizador em Azure AD.  Pode fazê-lo executando o seguinte comando.
+Caveat: Se houver contas sincronizadas que precisam de ter senhas não expiradas em AD `DisablePasswordExpiration` Azure, deve adicionar explicitamente o valor ao atributo passwordPolicies do objeto de utilizador em Azure AD.  Pode fazê-lo executando o seguinte comando.
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
@@ -147,22 +147,22 @@ Para suportar senhas temporárias no Azure AD para utilizadores sincronizados, p
 
 #### <a name="account-expiration"></a>Expiração da conta
 
-Se a sua organização utiliza o atributo accountExpires como parte da gestão de contas de utilizador, este atributo não está sincronizado com o Azure AD. Como resultado, uma conta do Active Directory expirada num ambiente configurado para sincronização de hash de palavra-passe ainda estará ativa no Azure AD. Recomendamos que, se a conta estiver caducada, uma ação de fluxo de trabalho deve desencadear um script PowerShell que desative a conta AD Azure do utilizador (utilize o cmdlet [Set-AzureADUser).](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) Por outro lado, quando a conta estiver ativada, a instância do Azure AD deve ser ativada.
+Se a sua organização utilizar o atributo da conta Expira como parte da gestão da conta de utilizador, este atributo não é sincronizado com a AD Azure. Como resultado, uma conta de Diretório Ativo expirada num ambiente configurado para sincronização de hash de palavra-passe continuará a estar ativa em Azure AD. Recomendamos que, se a conta estiver caducada, uma ação de fluxo de trabalho deve desencadear um script PowerShell que desative a conta AD Azure do utilizador (utilize o cmdlet [Set-AzureADUser).](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) Inversamente, quando a conta é ligada, a instância da AD Azure deve ser ligada.
 
-### <a name="overwrite-synchronized-passwords"></a>Substituir as palavras-passe sincronizadas
+### <a name="overwrite-synchronized-passwords"></a>Sobrepor palavras-passe sincronizadas
 
-Um administrador pode repor a palavra-passe manualmente com o Windows PowerShell.
+Um administrador pode redefinir manualmente a sua palavra-passe utilizando o Windows PowerShell.
 
-Neste caso, a nova palavra-passe substitui a palavra-passe sincronizada e todas as políticas de palavra-passe definidas na cloud são aplicadas para a nova palavra-passe.
+Neste caso, a nova senha substitui a sua senha sincronizada, e todas as políticas de senha definidas na nuvem são aplicadas à nova palavra-passe.
 
-Se alterar a palavra-passe de locais novamente, a nova palavra-passe é sincronizado para a cloud e substitui a palavra-passe atualizada manualmente.
+Se alterar novamente a sua senha no local, a nova palavra-passe é sincronizada na nuvem e substitui a senha atualizada manualmente.
 
-A sincronização de uma palavra-passe não tem qualquer impacto no utilizador do Azure que tenha sessão iniciado. A sessão do serviço de nuvem atual não é afetada imediatamente por uma alteração de palavra-passe sincronizadas que ocorre enquanto tem sessão iniciada num serviço em nuvem. KMSI estende a duração essa diferença. Quando o serviço em nuvem tem de autenticar novamente, tem de fornecer a sua nova palavra-passe.
+A sincronização de uma palavra-passe não tem impacto no utilizador azure que está inscrito. A sua atual sessão de serviço na nuvem não é imediatamente afetada por uma alteração de senha sincronizada que ocorre durante a sua assinatura num serviço na nuvem. A KMSI prolonga a duração desta diferença. Quando o serviço de nuvem requer que volte a autenticar, tem de fornecer a sua nova senha.
 
 ### <a name="additional-advantages"></a>Vantagens adicionais
 
-- Em geral, a sincronização de hash de palavra-passe é mais simples de implementar do que um serviço de Federação. Ele não requer quaisquer servidores adicionais e elimina a dependência de um serviço de Federação de elevada disponibilidade para autenticar os utilizadores.
-- Também pode ser ativada a sincronização de hash de palavra-passe, além de Federação. Pode ser utilizada como contingência se o seu serviço de Federação sofrer um período de indisponibilidade.
+- Geralmente, a sincronização de hash de palavra-passe é mais simples de implementar do que um serviço da federação. Não requer servidores adicionais e elimina a dependência de um serviço da federação altamente disponível para autenticar os utilizadores.
+- A sincronização de hash de palavra-passe também pode ser ativada para além da federação. Pode ser usado como um recuo se o seu serviço da federação experimentar uma paragem.
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Processo de sincronização de hash de palavra-passe para serviços de domínio Azure AD
 
@@ -206,22 +206,22 @@ Se utilizar os Serviços de Domínio Azure AD para fornecer autenticação legad
 
 Quando instala o Azure AD Connect utilizando a opção **Definições expressas,** a sincronização do hash de palavra-passe é ativada automaticamente. Para mais informações, consulte [Iniciar-se com o Azure AD Connect utilizando definições expressas](how-to-connect-install-express.md).
 
-Se utilizar definições personalizadas quando instalar o Azure AD Connect, sincronização de hash de palavra-passe está disponível na página de início de sessão do utilizador. Para mais informações, consulte a [instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md).
+Se utilizar as definições personalizadas quando instalar o Azure AD Connect, a sincronização de hash isisestá disponível na página de entrada do utilizador. Para mais informações, consulte a [instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md).
 
 ![Ativar a sincronização de hash de palavras-passe](./media/how-to-connect-password-hash-synchronization/usersignin2.png)
 
 ### <a name="password-hash-synchronization-and-fips"></a>Sincronização de hash de palavra-passe e FIPS
-Se o servidor tiver sido bloqueado para baixo, de acordo com Federal Information Processing Standard (FIPS), em seguida, MD5 está desativada.
+Se o seu servidor tiver sido bloqueado de acordo com o Federal Information Processing Standard (FIPS), então o MD5 está desativado.
 
 **Para ativar o MD5 para a sincronização de hash de palavra-passe, execute os seguintes passos:**
 
-1. Vá para Sync\Bin %programfiles%\Azure AD.
+1. Vá a %programfiles%\Azure AD Sync\Bin.
 2. Abra miiserver.exe.config.
-3. Vá para o nó de configuração/tempo de execução no final do ficheiro.
-4. Adicione o seguinte nó: `<enforceFIPSPolicy enabled="false"/>`
+3. Vá ao nó de configuração/tempo de execução no final do ficheiro.
+4. Adicione o seguinte nó:`<enforceFIPSPolicy enabled="false"/>`
 5. Guarde as alterações.
 
-Para referência, este trecho de código é o que deve ser semelhante:
+Para referência, este corte é o que deve parecer:
 
 ```
     <configuration>
@@ -233,7 +233,7 @@ Para referência, este trecho de código é o que deve ser semelhante:
 
 Para obter informações sobre segurança e FIPS, consulte a [sincronização de hash, encriptação e conformidade com a palavra-passe da AD Azure.](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
-## <a name="troubleshoot-password-hash-synchronization"></a>Resolver problemas de sincronização de hash de palavra-passe
+## <a name="troubleshoot-password-hash-synchronization"></a>Sincronização de hash de palavra-passe de resolução de problemas
 Se tiver problemas com a sincronização de hash de senha, consulte a sincronização de hash de [palavra-passe de Troubleshoot](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Passos seguintes

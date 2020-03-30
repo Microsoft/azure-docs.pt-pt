@@ -1,25 +1,25 @@
 ---
 title: Estilos de mapa suportados / Microsoft Azure Maps
 description: Neste artigo, você aprenderá sobre diferentes estilos de renderização de mapas suportados pelo Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a65f20e04603403a1d3a180e364626d5b4440661
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334030"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapas suportados pelo Azure Maps
 O Azure Maps suporta vários diferentes estilos de mapas incorporados, como descrito abaixo.
 
 ## <a name="road"></a>estrada
-Um roteiro é um mapa padrão que exibe estradas, características naturais e artificiais juntamente com os rótulos para essas características.
+Um **road** roteiro é um mapa padrão que exibe estradas, características naturais e artificiais juntamente com os rótulos para essas características.
 
 ![estilo de mapa de estrada](./media/supported-map-styles/road.png)
 
@@ -34,12 +34,12 @@ Um roteiro é um mapa padrão que exibe estradas, características naturais e ar
 Os estilos de mapa **em branco** e **blank_accessible** fornecem uma tela em branco para visualizar dados. O estilo **blank_accessible** continuará a fornecer atualizações de leitores de ecrã com detalhes de localização do mapa, mesmo que o mapa base não seja exibido.
 
 > [!Note]
-> No SDK web pode alterar a cor de fundo do mapa definindo o estilo CSS `background-color` do elemento DIV do mapa.
+> No SDK web pode alterar a cor de fundo do `background-color` mapa definindo o estilo CSS do elemento DIV do mapa.
 
 **APIs aplicáveis:**
 * Controlo do mapa Web SDK
 
-## <a name="satellite"></a>satélite 
+## <a name="satellite"></a>satellite 
 O estilo **satélite** é uma combinação de imagens de satélite e antena.
 
 ![estilo de mapa de azulejos de satélite](./media/supported-map-styles/satellite.png)
@@ -80,7 +80,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 * Controlo de mapas Android
 
 
-## <a name="night"></a>Noite
+## <a name="night"></a>noite
 **noite** é uma versão escura do estilo do roteiro com estradas e símbolos coloridos.
 
 ![estilo mapa noturno](./media/supported-map-styles/night.png)
@@ -113,4 +113,4 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 Saiba como definir um estilo de mapa no Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Escolha um estilo de mapa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+> [Escolher um estilo de mapa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

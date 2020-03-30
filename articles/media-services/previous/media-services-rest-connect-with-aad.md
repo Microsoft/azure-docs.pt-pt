@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: fc6766943747c066581fe3820481cfe4a35d5296
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774967"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295447"
 ---
-# <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utilize a autenticação Azure AD para aceder à API dos Serviços de Media com REST
+# <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utilizar a autenticação do Azure AD para aceder à API de Serviços de Multimédia com REST
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [a orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando estiver a utilizar a autenticação Azure AD com a Azure Media Services, pode autenticar de uma de duas formas:
 
@@ -49,31 +49,31 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - [Crie uma conta Azure Media Services utilizando o portal Azure.](media-services-portal-create-account.md)
 - Consulte o Accessing Azure Media Services API com o artigo de [autenticação da AD Azure.](media-services-use-aad-auth-to-access-ams-api.md)
 - Instale o cliente [DO REPOUSADO](https://www.getpostman.com/) para executar as APIs REST mostradas neste artigo. 
 
-    Neste tutorial, estamos a usar **o Carteiro,** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou **Telerik Fiddler**. 
+    Neste tutorial, estamos a usar **o Carteiro,** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plugin REST ou **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtenha a informação de autenticação do portal Azure
 
-### <a name="overview"></a>Visão geral
+### <a name="overview"></a>Descrição geral
 
 Para aceder à API dos Serviços de Media, é necessário recolher os seguintes pontos de dados.
 
 |Definição|Exemplo|Descrição|
 |---|-------|-----|
-|Domínio de inquilino de Diretório Ativo Azure|microsoft.onmicrosoft.com|O Azure AD como ponto final do Serviço De Token Seguro (STS) é criado utilizando o seguinte formato: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. A Azure AD emite um JWT para aceder a recursos (um sinal de acesso).|
+|Domínio de inquilino de Diretório Ativo Azure|microsoft.onmicrosoft.com|O Azure AD como ponto final do Serviço De Token Seguro <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>(STS) é criado utilizando o seguinte formato: . A Azure AD emite um JWT para aceder a recursos (um sinal de acesso).|
 |Ponto final da API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este é o ponto final contra o qual todas as chamadas da Media Services REST API na sua aplicação são feitas.|
-|ID do cliente (ID da aplicação)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID de aplicação Azure AD (cliente). A identificação do cliente é necessária para obter o sinal de acesso. |
+|ID do cliente (ID da aplicação)|f7fbbb29-a02d-4d91-bbc6-59a25792|ID de aplicação Azure AD (cliente). A identificação do cliente é necessária para obter o sinal de acesso. |
 |Segredo do Cliente|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Chaves de aplicação Azure AD (segredo do cliente). O segredo do cliente é necessário para obter o sinal de acesso.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>Obtenha informações auth AAD do portal Azure
 
 Para obter a informação, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure.](https://portal.azure.com)
 2. Navegue para a sua instância AMS.
 3. Selecione **acesso API**.
 4. Clique em **Connect to Azure Media Services API com o principal serviço**.
@@ -124,11 +124,11 @@ Pode adicionar valores para parâmetros de ligação AD ao seu ficheiro web.conf
 
 Esta secção mostra como usar o **Carteiro** para executar uma API REST que devolve um JWT Bearer Token (ficha de acesso). Para ligar para qualquer Media Services REST API, você precisa adicionar o cabeçalho "Autorização" às chamadas, e adicionar o valor de "Bearer *your_access_token"* a cada chamada (como mostrado na secção seguinte deste tutorial). 
 
-1. CarteiroAberto.
+1. Carteiro **Postman**Aberto.
 2. Selecione **PUBLICAR**.
 3. Introduza o URL que inclui o nome do seu inquilino utilizando o seguinte formato: o nome do inquilino deve terminar com **.onmicrosoft.com** e o URL deve terminar com **oauth2/token:** 
 
-    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
 4. Selecione o separador **Cabeçalhos.**
 5. Introduza as informações **dos Cabeçalhos** utilizando a grelha de dados "Chave/Valor". 
@@ -162,9 +162,9 @@ A resposta devolvida contém o **sinal de acesso** que precisa de usar para aced
 
 Esta secção mostra como aceder à API **de ativos** utilizando **o Carteiro.**
 
-1. CarteiroAberto.
+1. Carteiro **Postman**Aberto.
 2. Selecione **OBTER**.
-3. Colar o ponto final da API REST (por exemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Colar o ponto final da API REST (por exemplo,https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selecione o separador **Autorização.** 
 5. Selecione **Token bearer**.
 6. Colar o símbolo que foi criado na secção anterior.

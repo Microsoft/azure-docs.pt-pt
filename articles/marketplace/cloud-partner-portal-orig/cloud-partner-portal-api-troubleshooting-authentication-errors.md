@@ -1,36 +1,35 @@
 ---
-title: Solucionando problemas de erros comuns de autenticação | Azure Marketplace
-description: Fornece assistência com erros comuns de autenticação ao usar as APIs de Portal do Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Resolução de erros de autenticação comum de resolução de problemas Mercado Azure
+description: Fornece assistência com erros de autenticação comuns ao utilizar as APIs do Portal do Parceiro cloud.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 0990e9aedf17f6d4ad01e4911e47efd60001f3d7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1da9bbd1ed4bc4abea0699e56d8adc397086d6e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827374"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280427"
 ---
-# <a name="troubleshooting-common-authentication-errors"></a>Solucionando problemas de erros comuns de autenticação
+# <a name="troubleshooting-common-authentication-errors"></a>Resolução de erros de autenticação comuns
 
-Este artigo fornece assistência com erros comuns de autenticação ao usar as APIs de Portal do Cloud Partner.
+Este artigo fornece assistência com erros comuns de autenticação ao utilizar as APIs do Portal do Parceiro cloud.
 
 ## <a name="unauthorized-error"></a>Erro não autorizado
 
-Se você receber erros de `401 unauthorized` consistentemente, verifique se você tem um token de acesso válido.  Se você ainda não tiver feito isso, crie um aplicativo Azure Active Directory básico (AD do Azure) e uma entidade de serviço conforme descrito em [usar o portal para criar um aplicativo Azure Active Directory e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Em seguida, use o aplicativo ou uma solicitação HTTP POST simples para verificar seu acesso.  Você incluirá a ID do locatário, a ID do aplicativo, a ID do objeto e a chave secreta para obter o token de acesso, conforme mostrado na imagem a seguir:
+Se tiver `401 unauthorized` erros consistentemente, verifique se tem um sinal de acesso válido.  Se ainda não o fez, crie uma aplicação básica do Azure Ative Directory (Azure AD) e um diretor de serviço, tal como descrito no [portal Use, para criar uma aplicação e diretor de serviço sinuoso azure ative que possa aceder a recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) Em seguida, utilize a aplicação ou um simples pedido HTTP POST para verificar o seu acesso.  Incluirá o ID do Inquilino, id de aplicação, id do objeto, e a chave secreta para obter o token de acesso como mostrado na seguinte imagem:
 
-![Solucionando problemas do erro 401](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
+![Resolução de problemas do erro 401](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 
 
-## <a name="forbidden-error"></a>Erro proibido
+## <a name="forbidden-error"></a>Erro de proibição
 
-Se você receber um erro de `403 forbidden`, verifique se a entidade de serviço correta foi adicionada à sua conta de editor na Portal do Cloud Partner.
-Siga as etapas na página [pré-requisitos](./cloud-partner-portal-api-prerequisites.md) para adicionar a entidade de serviço ao Portal.
+Se tiver `403 forbidden` um erro, certifique-se de que o diretor de serviço correto foi adicionado à sua conta de editor no Portal do Parceiro cloud.
+Siga os passos na página [pré-requisitos](./cloud-partner-portal-api-prerequisites.md) para adicionar o seu principal de serviço ao portal.
 
-Se a entidade de serviço correta tiver sido adicionada, verifique todas as outras informações. Preste muita atenção à ID de objeto inserida no Portal. Há duas IDs de objeto na página de registro do aplicativo Azure Active Directory, e você deve usar a ID do objeto local. Você pode encontrar o valor correto acessando a página **registros de aplicativo** para seu aplicativo e clicando no nome do aplicativo em **aplicativo gerenciado no diretório local**. Isso leva você para as propriedades locais do aplicativo, onde você pode encontrar a ID de objeto correta na página **Propriedades** , conforme mostrado na figura a seguir. Além disso, certifique-se de usar a ID correta do editor ao adicionar a entidade de serviço e fazer a chamada à API.
+Se o diretor de serviço correto tiver sido adicionado, verifique todas as outras informações. Preste muita atenção ao ID do Objeto introduzido no portal. Existem duas IDs de Objeto na página de registo de aplicações Azure Ative Directory, e você deve usar o ID de objeto local. Pode encontrar o valor correto indo para a página de **registos** da App para a sua aplicação e clicando no nome da aplicação sob **aplicação gerida no diretório local**. Isto leva-o às propriedades locais para a aplicação, onde pode encontrar o ID de objeto correto na página **Propriedades,** como mostra a figura seguinte. Além disso, certifique-se de que utiliza o ID da editora correta quando adicionar o diretor de serviço e fazer a chamada a API.
 
-![Solucionando problemas do erro 403](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-403-error.jpg)
+![Resolução de problemas do erro 403](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-403-error.jpg)

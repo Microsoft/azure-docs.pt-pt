@@ -1,5 +1,5 @@
 ---
-title: Conectividade de ponto final público para VMs E ILB Padrão Azure em cenários SAP HA
+title: Conectividade de ponto final público para VMs Azure&Standard ILB em cenários SAP HA
 description: Conectividade de ponto final público para máquinas virtuais usando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade SAP
 services: virtual-machines-windows,virtual-network,storage,
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: radeltch
-ms.openlocfilehash: e0bb959429786bf83be23b1374ef43ce553bf2c7
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4fd01764c183098a8bd78d502eea7ab173fa22cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598685"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80293903"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade SAP
 
@@ -89,9 +89,9 @@ A configuração seria como:
 
 ### <a name="deployment-steps"></a>Passos da implementação
 
-1. Criar Balanceador de carga  
+1. Criar balanceadores de carga  
    1. No [portal Azure,](https://portal.azure.com) clique em todos os recursos, adicione, em seguida, procure por **Balancer de Carga**  
-   1. Clique em **Criar**. 
+   1. Clique em **Criar** 
    1. Nome do equilíbrio de carga **MyPublicILB**  
    1. Selecione **Público** como tipo, **Standard** as SKU  
    1. Selecione **Criar endereço IP público** e especificar como um nome **MyPublicILBFrondEndIP**  
@@ -102,7 +102,7 @@ A configuração seria como:
    1. Selecione os VMs e os seus endereços IP e adicione-os à piscina de backend  
 3. [Criar regras de saída.](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule) Atualmente não é possível criar regras de saída a partir do portal Azure. Pode criar regras de saída com [o Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
 
-   ```
+   ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
@@ -154,7 +154,7 @@ A arquitetura seria como:
 4. Crie a Regra de Firewall Azure para permitir a conectividade de saída a pontos finais públicos especificados. O exemplo mostra como permitir o acesso ao ponto final da API de Gestão Azure.  
    1. Selecione Regras, Recolha de Regras de Rede e, em seguida, clique em Adicionar a recolha de regras de rede.  
    1. Nome: **MyOutboundRule**, introduza Prioridade, **Selecione**Action Allow .  
-   1. Serviço: Nome **ToAzureAPI**.  Protocolo: Selecione **Qualquer**. Endereço fonte: introduza o intervalo para a sua sub-rede, onde os VMs e o Standard Load Balancer são implantados por exemplo: **11.97.0.0.0/24**. Portas de destino: insira <b>*</b>.  
+   1. Serviço: Nome **ToAzureAPI**.  Protocolo: Selecione **Qualquer**. Endereço fonte: introduza o intervalo para a sua sub-rede, onde os VMs e o Standard Load Balancer são implantados por exemplo: **11.97.0.0.0/24**. Portas de destino: entrar <b>*</b>.  
    1. Guardar
    1. Como ainda está posicionado na Firewall Azure, selecione a visão geral. Anote o endereço IP privado da Firewall Azure.  
 5. Criar rota para o Firewall Azure  
@@ -162,7 +162,7 @@ A arquitetura seria como:
    1. Introduza o Nome MyRouteTable, selecione Subscrição, Grupo de Recursos e Localização (correspondendo à localização da sua rede Virtual e Firewall).  
    1. Guardar  
 
-   A regra da firewall seria como: ![ligação de saída com o Azure Firewall](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   A regra da firewall ![seria como: Ligação de saída com Firewall Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Crie a Rota Definida do Utilizador desde a subnet a subnet dos seus VMs até ao IP privado do **MyAzureFirewall**.
    1. À medida que estiver posicionado na Tabela de Rotas, clique em Rotas. Selecione Adicionar. 
@@ -176,7 +176,7 @@ Você poderia usar procuração para permitir chamadas pacemaker para o ponto fi
 ### <a name="important-considerations"></a>Considerações importantes
 
   - Se já houver procuração corporativa, pode encaminhar chamadas de saída para pontos finais públicos através dele. Chamadas de saída para pontos finais públicos passarão pelo ponto de controlo corporativo.  
-  - Certifique-se de que a configuração proxy permite a conectividade de saída à API de gestão do Azure: https://management.azure.com  
+  - Certifique-se de que a configuração proxy permite a conectividade de saída à API de gestão azure:`https://management.azure.com`  
   - Certifique-se de que há uma rota dos VMs para o Proxy  
   - Proxy tratará apenas de chamadas HTTP/HTTPS. Se houver necessidade adicional de fazer chamadas de saída para o ponto final público sobre diferentes protocolos (como o RFC), será necessária uma solução alternativa  
   - A solução Proxy deve estar altamente disponível, para evitar instabilidade no cluster Pacemaker  
@@ -188,8 +188,9 @@ Você poderia usar procuração para permitir chamadas pacemaker para o ponto fi
 Existem muitas opções proxy diferentes disponíveis na indústria. As instruções passo a passo para a implantação por procuração estão fora do âmbito deste documento. No exemplo abaixo, assumimos que o seu representante está a responder ao **MyProxyService** e a ouvir a porta **MyProxyPort**.  
 Para permitir que o pacemaker se comunique com a API de gestão azure, execute os seguintes passos em todos os nós do cluster:  
 
-1. Editar o ficheiro de configuração do pacemaker /etc/sysconfig/pacemaker e adicionar as seguintes linhas (todos os nós do cluster):  
-   ```
+1. Editar o ficheiro de configuração do pacemaker /etc/sysconfig/pacemaker e adicionar as seguintes linhas (todos os nós do cluster):
+
+   ```console
    sudo vi /etc/sysconfig/pacemaker
    # Add the following lines
    http_proxy=http://MyProxyService:MyProxyPort
@@ -197,8 +198,9 @@ Para permitir que o pacemaker se comunique com a API de gestão azure, execute o
    ```
 
 2. Reinicie o serviço de pacemaker em **todos os** nós do cluster.  
-  - SUSE  
-     ```
+  - SUSE
+ 
+     ```console
      # Place the cluster in maintenance mode
      sudo crm configure property maintenance-mode=true
      #Restart on all nodes
@@ -208,7 +210,8 @@ Para permitir que o pacemaker se comunique com a API de gestão azure, execute o
      ```
 
   - Red Hat  
-     ```
+
+     ```console
      # Place the cluster in maintenance mode
      sudo pcs property set maintenance-mode=true
      #Restart on all nodes

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
 ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658494"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Crie vistas personalizadas usando o View Designer no Monitor Azure
@@ -34,7 +34,7 @@ As vistas que cria com o View Designer contêm os elementos descritos na tabela 
 
 | Parte | Descrição |
 |:--- |:--- |
-| Azulejos | Estão expostos na sua página de **visão geral** do Monitor Azure. Cada azulejo apresenta um resumo visual da vista personalizada que representa. Cada tipo de azulejo proporciona uma visualização diferente dos seus registos. Selecione um azulejo para exibir uma vista personalizada. |
+| Mosaicos | Estão expostos na sua página de **visão geral** do Monitor Azure. Cada azulejo apresenta um resumo visual da vista personalizada que representa. Cada tipo de azulejo proporciona uma visualização diferente dos seus registos. Selecione um azulejo para exibir uma vista personalizada. |
 | Vista personalizada | Exibido quando seleciona um azulejo. Cada vista contém uma ou mais peças de visualização. |
 | Peças de visualização | Apresentar uma visualização de dados no espaço de trabalho do Log Analytics com base numa ou mais consultas de [registo](../log-query/log-query-overview.md). A maioria das peças inclui um cabeçalho, que proporciona uma visualização de alto nível, e uma lista, que apresenta os melhores resultados. Cada tipo de peça proporciona uma visualização diferente dos registos no espaço de trabalho log Analytics. Selecione elementos da peça para realizar uma consulta de registo que forneça registos detalhados. |
 
@@ -99,7 +99,7 @@ As opções para trabalhar com pontos de vista no modo de edição são descrita
 |:--|:--|
 | Guardar        | Economiza as suas alterações e fecha a vista. |
 | Cancelar      | Descarta as suas alterações e fecha a vista. |
-| Eliminar Vista | Apaga a vista. |
+| Excluir vista | Apaga a vista. |
 | Exportar      | Exporta a vista para um modelo de Gestor de [Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) que você pode importar para outro espaço de trabalho. O nome do ficheiro é o nome da vista, e tem uma extensão *omsview.* |
 | Importar      | Importa o ficheiro *omsview* que exportou de outro espaço de trabalho. Esta ação substitui a configuração da vista existente. |
 | Clone       | Cria uma nova vista e abre-a no View Designer. O nome da nova vista é o mesmo que o nome original, mas com *Copy* anexado a ele. |

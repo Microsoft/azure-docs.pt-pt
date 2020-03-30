@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f31c5583671ed3441e1a3f0f53c8518e550080a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283553"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297070"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerir espaços de trabalho azure machine learning no portal Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ Neste artigo, você vai criar, visualizar e eliminar espaços de [**trabalho Azu
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
+Para criar um espaço de trabalho, precisa de uma subscrição Azure. Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando as credenciais para a sua subscrição Azure. 
 
@@ -42,15 +42,16 @@ Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não 
 
    Campo|Descrição 
    ---|---
-   Nome do espaço de trabalho |Introduza um nome único que identifique o seu espaço de trabalho. Neste exemplo, utilizamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e para diferenciar dos espaços de trabalho criados por outros. O nome do espaço de trabalho é insensível a casos.
+   Nome da área de trabalho |Introduza um nome único que identifique o seu espaço de trabalho. Neste exemplo, utilizamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e para diferenciar dos espaços de trabalho criados por outros. O nome do espaço de trabalho é insensível a casos.
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
-   Grupo de recursos | Utilize um grupo de recursos existente na sua subscrição ou insira um nome para criar um novo grupo de recursos. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, utilizamos **docs-aml**. 
+   Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, utilizamos **docs-aml**. 
    Localização | Selecione a localização mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
    Edição do espaço de trabalho | Selecione **Basic** ou **Enterprise**.  Esta edição do espaço de trabalho determina as funcionalidades a que terá acesso e preços. Saiba mais sobre as ofertas de [edição Basic e Enterprise.](overview-what-is-azure-ml.md#sku) 
 
     ![Configure o seu espaço de trabalho](./media/how-to-manage-workspace/select-edition.png)
 
-1. Depois de terminar de configurar o espaço de trabalho, selecione **Criar**. 
+1. Quando terminar de configurar o espaço de trabalho, selecione **Review + Create**.
+2. Reveja as definições e efelo quaisquer alterações ou correções adicionais. Quando estiver satisfeito com as definições, selecione **Criar**.
 
    > [!Warning] 
    > Pode levar vários minutos para criar o seu espaço de trabalho na nuvem.
@@ -69,7 +70,7 @@ Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não 
    
    Coloque o ficheiro na estrutura do diretório com os seus scripts Python ou Cadernos Jupyter. Pode estar no mesmo diretório, um subdiretório chamado *.azureml,* ou num directório-mãe. Quando cria uma instância de cálculo, este ficheiro é adicionado ao diretório correto no VM para si.
 
-## <a name="upgrade"></a>Upgrade para edição enterprise
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Upgrade para edição enterprise
 
 Pode atualizar o seu espaço de trabalho da edição Basic para a edição Enterprise para aproveitar as funcionalidades melhoradas, tais como experiências de baixo código e funcionalidades de segurança melhoradas.
 
@@ -79,7 +80,7 @@ Pode atualizar o seu espaço de trabalho da edição Basic para a edição Enter
 
 1. Selecione **Saiba mais** na parte superior direita da página.
 
-   [![Atualizar um espaço de trabalho](./media/how-to-manage-workspace/upgrade.png)](./media/how-to-manage-workspace/upgrade.png#lightbox)
+   [![Atualizar um](./media/how-to-manage-workspace/upgrade.png) espaço de trabalho](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
 1. Selecione **Upgrade** na janela que aparece.
 
@@ -87,7 +88,7 @@ Pode atualizar o seu espaço de trabalho da edição Basic para a edição Enter
 > [!IMPORTANT]
 > Não é possível desvalorizar um espaço de trabalho da edição da Enterprise para um espaço de trabalho de edição básica. 
 
-## <a name="view"></a>Encontre um espaço de trabalho
+## <a name="find-a-workspace"></a><a name="view"></a>Encontre um espaço de trabalho
 
 1. No campo de pesquisa superior, digite **Machine Learning**.  
 
@@ -95,15 +96,15 @@ Pode atualizar o seu espaço de trabalho da edição Basic para a edição Enter
 
    ![Pesquisa por espaço de trabalho azure machine learning](./media/how-to-manage-workspace/find-workspaces.png)
 
-1. Consultar a lista de áreas de trabalho foi encontrado. Pode filtrar com base na subscrição, grupos de recursos e localizações.  
+1. Veja a lista de espaços de trabalho encontrados. Pode filtrar com base em subscrições, grupos de recursos e locais.  
 
 1. Selecione um espaço de trabalho para exibir as suas propriedades.
 
 ## <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 
-Utilize o botão de eliminação na parte superior da área de trabalho que pretende eliminar.
+Utilize o botão Apagar na parte superior do espaço de trabalho que pretende eliminar.
 
-  ![Botão de eliminar](./media/how-to-manage-workspace/delete-workspace.png)
+  ![Eliminar botão](./media/how-to-manage-workspace/delete-workspace.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

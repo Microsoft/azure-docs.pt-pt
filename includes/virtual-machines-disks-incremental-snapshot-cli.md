@@ -8,17 +8,14 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 69be71a58c3aed4f52b77e63c9ddf12365301b08
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299196"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80343053"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
-
-### <a name="supported-regions"></a>Regiões suportadas
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
 
 ## <a name="restrictions"></a>Restrições
 
@@ -34,9 +31,9 @@ Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI
 ```
 No Linux, a instalação CLI variará consoante a versão do sistema operativo.  Consulte [a instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para a sua versão Linux em particular.
 
-Para criar um instantâneo incremental, utilize [az snapshot criar](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) com o parâmetro `--incremental`.
+Para criar um instantâneo incremental, utilize `--incremental` [az snapshot criar](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) com o parâmetro.
 
-O exemplo seguinte cria um instantâneo incremental, substitua `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`e `<exampleLocation>` com os seus próprios valores, e, em seguida, execute o exemplo:
+O exemplo seguinte cria um `<yourDesiredSnapShotNameHere>` `<yourResourceGroupNameHere>`instantâneo`<exampleDiskName>`incremental, substitua, e `<exampleLocation>` com os seus próprios valores, em seguida, execute o exemplo:
 
 ```bash
 sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
@@ -48,13 +45,13 @@ az snapshot create -g <yourResourceGroupNameHere> \
 --incremental
 ```
 
-Pode identificar instantâneos incrementais do mesmo disco com o `SourceResourceId` e as propriedades `SourceUniqueId` de instantâneos. `SourceResourceId` é a identificação de recursos do Gestor de Recursos Azure do disco-mãe. `SourceUniqueId` é o valor herdado da propriedade `UniqueId` do disco. Se apagar um disco e, em seguida, criar um novo disco com o mesmo nome, o valor da propriedade `UniqueId` muda.
+Pode identificar instantâneos incrementais do `SourceResourceId` mesmo `SourceUniqueId` disco com as propriedades e as propriedades dos instantâneos. `SourceResourceId`é o Id de recurso do gestor de recursos Azure do disco-mãe. `SourceUniqueId`é o valor herdado da `UniqueId` propriedade do disco. Se apagar um disco e, em seguida, criar um novo `UniqueId` disco com o mesmo nome, o valor da propriedade muda.
 
-Pode utilizar `SourceResourceId` e `SourceUniqueId` para criar uma lista de todos os instantâneos associados a um determinado disco. O exemplo seguinte listará todos os instantâneos incrementais associados a um determinado disco, mas requer alguma configuração.
+Pode utilizar `SourceResourceId` `SourceUniqueId` e criar uma lista de todos os instantâneos associados a um determinado disco. O exemplo seguinte listará todos os instantâneos incrementais associados a um determinado disco, mas requer alguma configuração.
 
 Este exemplo utiliza jq para consulta dos dados. Para executar o exemplo, tem de [instalar jq](https://stedolan.github.io/jq/download/).
 
-Substitua `<yourResourceGroupNameHere>` e `<exampleDiskName>` com os seus valores, então pode usar o seguinte exemplo para listar os seus instantâneos incrementais existentes, desde que também tenha instalado jq:
+`<yourResourceGroupNameHere>` Substitua `<exampleDiskName>` e com os seus valores, então pode usar o seguinte exemplo para listar os seus instantâneos incrementais existentes, desde que também tenha instalado jq:
 
 ```bash
 sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
@@ -102,6 +99,6 @@ Também pode usar modelos do Gestor de Recursos Azure para criar um instantâneo
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se quiser ver o código de amostra que demonstra a capacidade diferencial de instantâneos incrementais, utilizando .NET, consulte cópia [seleções de discos geridos por Copy Azure para outra região com capacidade diferencial de instantâneos incrementais](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

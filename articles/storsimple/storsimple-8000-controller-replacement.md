@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267927"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Substitua um módulo de controlador no seu dispositivo StorSimple
@@ -31,7 +31,7 @@ Este tutorial explica como remover e substituir um ou ambos os módulos controla
 > Para evitar danos no seu dispositivo StorSimple, não ejete o controlador até que os LEDs apareçam como um dos seguintes:
 > 
 > * Todas as luzes estão apagadas.
-> * LED 3, ![ícone de verificação verde](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png), e ![ícone de cruz vermelha](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) estão a piscar, e led 0 e LED 7 estão **ligados**.
+> * LED ![3, ícone](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png)de ![verificação](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) verde, e ícone de cruz vermelha estão a piscar, e LED 0 e LED 7 estão **ligados**.
 
 
 A tabela seguinte mostra os cenários de substituição do controlador suportado.
@@ -58,7 +58,7 @@ Tem de remover um módulo de controlador se tiver falhado. Um ou ambos os módul
 > 
 > 
 
-## <a name="replace-a-single-controller"></a>Substitua um único controlador
+## <a name="replace-a-single-controller"></a>Replace a single controller (Substituir um controlador individual)
 Quando um dos dois controladores do dispositivo Microsoft Azure StorSimple falhou, está avariado ou está em falta, tem de substituir um único controlador.
 
 ### <a name="single-controller-replacement-logic"></a>Lógica de substituição do controlador único
@@ -79,7 +79,7 @@ Complete os seguintes passos se um dos controladores do seu dispositivo Microsof
 
 #### <a name="to-remove-a-single-failed-controller-module"></a>Para remover um único módulo de controlador falhado
 1. No portal Azure, vá ao serviço StorSimple Device Manager, clique em **Dispositivos**e clique no nome do dispositivo que pretende monitorizar.
-2. Vá ao **Monitor > Saúde de Hardware.** O estado do controlador 0 ou do controlador 1 deve ser vermelho, o que indica uma falha.
+2. Vá para monitor > saúde de **hardware.** O estado do controlador 0 ou do controlador 1 deve ser vermelho, o que indica uma falha.
    
    > [!NOTE]
    > O controlador falhado numa única substituição do controlador é sempre um controlador de espera.
@@ -105,7 +105,7 @@ Complete os seguintes passos se um dos controladores do seu dispositivo Microsof
 > [!NOTE]
 > Se estiver a monitorizar o dispositivo através da consola em série, poderá ver vários reinícios enquanto o controlador está a recuperar do procedimento de substituição. Quando o menu da consola em série for apresentado, então sabe que a substituição está completa. Se o menu não aparecer dentro de duas horas após o início da substituição do controlador, [contacte](storsimple-8000-contact-microsoft-support.md)o Microsoft Support .
 >
-> Iniciar o Update 4, também pode utilizar o cmdlet `Get-HCSControllerReplacementStatus` na interface Windows PowerShell do dispositivo para monitorizar o estado do processo de substituição do controlador.
+> Iniciar o Update 4, também pode `Get-HCSControllerReplacementStatus` utilizar o cmdlet na interface Windows PowerShell do dispositivo para monitorizar o estado do processo de substituição do controlador.
 > 
 
 ## <a name="replace-both-controllers"></a>Substitua ambos os controladores
@@ -195,7 +195,7 @@ Utilize o seguinte procedimento para instalar um módulo de controlador fornecid
    > [!NOTE]
    > Pode levar até 5 minutos para o controlador e o LED ativarem.
   
-5. Para verificar se a substituição é bem sucedida, no portal Azure, vá ao seu dispositivo e navegue para **monitorizar** > saúde de **hardware,** e certifique-se de que tanto o controlador 0 como o controlador 1 são saudáveis (o estado é verde).
+5. Para verificar se a substituição é bem sucedida, no portal Azure, vá ao seu dispositivo e navegue para **monitorizar** > a saúde do**Hardware,** e certifique-se de que tanto o controlador 0 como o controlador 1 são saudáveis (o estado é verde).
 
 ## <a name="identify-the-active-controller-on-your-device"></a>Identifique o controlador ativo no seu dispositivo
 Existem muitas situações, como o registo do dispositivo pela primeira vez ou a substituição do controlador, que exigem que você localize o controlador ativo num dispositivo StorSimple. O controlador ativo processa todas as operações de firmware e networking do disco. Pode utilizar qualquer um dos seguintes métodos para identificar o controlador ativo:
@@ -207,7 +207,7 @@ Existem muitas situações, como o registo do dispositivo pela primeira vez ou a
 Cada um destes procedimentos é descrito em seguida.
 
 ### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Utilize o portal Azure para identificar o controlador ativo
-No portal Azure, navegue até ao seu dispositivo e, em seguida, para **monitorizar** a **saúde**do hardware > , e percorra a secção **controladores.** Aqui pode verificar qual o controlador ativo.
+No portal Azure, navegue para o seu dispositivo e, em seguida, para **monitorizar** > a saúde do**hardware,** e percorra a secção **controladores.** Aqui pode verificar qual o controlador ativo.
 
 ![Identificar controlador ativo no portal Azure](./media/storsimple-controller-replacement/IC752072.png)
 

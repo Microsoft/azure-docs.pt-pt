@@ -2,18 +2,17 @@
 title: Criar uma conta de Marketplace Comercial no Partner Center
 description: Saiba como criar uma conta de Marketplace Comercial no Partner Center.
 author: qianw211
-manager: evansma
-ms.author: evansma
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 03/10/2020
-ms.openlocfilehash: 59f37585dfea08e9343cf052f680fd6e9531852b
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 82caf46905c0b76deae524d8b172d70b436361d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968831"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281362"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de Marketplace Comercial no Partner Center
 
@@ -74,7 +73,7 @@ Depois de confirmar as informações sobre o perfil da sua editora, concorde com
 >[!IMPORTANT]
 >*Deve ser autorizado a agir em nome da sua empresa para aceitar estes termos.*
 
-Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar **Definições** > **Definições** de Parceiro > **Programas,** verá que o Mercado Comercial está listado como registado.
+Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar Programas de Definições de > **Parceiros**de **Definições,** > **Partner Settings**verá que o Mercado Comercial está listado como registado.
 
 Obrigado por criar uma conta de Marketplace Comercial no Partner Center! Para obter ajuda, consulte a visão geral do [Mercado Comercial](./commercial-marketplace-overview.md). Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao programa Mercado Comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -111,14 +110,14 @@ Depois de iniciar sessão, utilize os seguintes passos para terminar a configura
 >[!NOTE]
 > Deve ter um administrador de **conta** ou um papel **de administrador global** para iniciar sessão na Microsoft Partner Network.
 
-1. Do [Partner Center,](https://partner.microsoft.com/)selecione **Definições** > Definições de **parceiro > ** **programas** > **começar**.
+1. Do [Partner Center,](https://partner.microsoft.com/)selecione Definições de Definições**de Parceiros** >  **Settings** > Programas De**Definições** > **Get Started**.
 2. A Microsoft Partner Network deteta a sua subscrição e exibe a página de perfil da editora para que introduza o nome da sua empresa e o ID MPN.
 3. Leia os termos e condições no Acordo de Editor estivado da [Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione Aceitar e **continuar** a completar a sua inscrição.
 
     >[!IMPORTANT]
     >*Deve ser autorizado a agir em nome da sua empresa para aceitar estes termos.*
 
-Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar **Definições** > **Definições** de Parceiro > **Programas,** verá que o Mercado Comercial está listado como registado.
+Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar Programas de Definições de > **Parceiros**de **Definições,** > **Partner Settings**verá que o Mercado Comercial está listado como registado.
 
 Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte a visão geral do [Mercado Comercial](./commercial-marketplace-overview.md). Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao programa Mercado Comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -135,14 +134,14 @@ Assine no [Partner Center](https://partner.microsoft.com/) com a sua conta Micro
 
 Depois de iniciar sessão, utilize os seguintes passos para terminar a configuração da sua conta:
 
-1. Do Partner Center, selecione **Definições** > **Definições** de **Desenvolvedores** > Programas > **Começar**e introduza o seu endereço de e-mail de trabalho.
+1. Do Partner Center, selecione**Definições** > de **Definições** > de**Definições** > **De Programar Start,** e introduza o seu endereço de e-mail de trabalho.
 2. Complete os detalhes na página de perfil da editora.
 3. Leia os termos e condições no Acordo de Editor estivado da [Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione Aceitar e **continuar** a completar a sua inscrição.
 
     >[!Important]
     >*Deve ser autorizado a agir em nome da sua empresa para aceitar estes termos.*
 
-Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar **Definições** > **Definições** de Desenvolvimento > **Programas,** verá que o Mercado Comercial está listado como registado.
+Uma vez matriculado, é levado para a página de visão geral do Mercado Comercial. **O Mercado Comercial** é exibido na barra de navegação esquerda. Se selecionar**programas**de **Definições** > de Definições de**Definições,** > verá que o Mercado Comercial está listado como registado.
 
 Obrigado por criar uma conta no Partner Center! Para obter ajuda, consulte a visão geral do [Mercado Comercial](./commercial-marketplace-overview.md). Para obter ajuda na adição de editores, consulte [Adicionar novas editoras ao programa Mercado Comercial](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -158,10 +157,10 @@ Depois de a informação da sua conta ser transferida do CPP para o Partner Cent
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Adicione novos editores ao programa Mercado Comercial
 
-Uma organização pode ter vários editores associados a uma conta de Mercado Comercial. Um utilizador existente pode adicionar mais Editores depois de iniciar sessão no Partner Center selecionando **definições** de conta > **Editores** > **Adicionar Editor**.
+Uma organização pode ter vários editores associados a uma conta de Mercado Comercial. Um utilizador existente pode adicionar mais Editores depois de iniciar sessão no Partner Center selecionando as **definições** > de conta**Editoras** > **Add Publisher**.
 
 >[!NOTE]
->Antes de adicionar uma nova editora, reveja os seus editores existentes, iniciando sessão no Partner Center e selecionando **Definições** de Conta > **Editoras** para ver uma lista de editores existentes.
+>Antes de adicionar uma nova editora, reveja os seus editores existentes, iniciando sessão no Partner Center e selecionando as **Definições** > de Conta**Editoras** para ver uma lista de editores existentes.
 
 Outro utilizador do mesmo inquilino do Azure Ative Directory pode adicionar um novo editor seguindo os passos abaixo:
 
@@ -172,7 +171,7 @@ Outro utilizador do mesmo inquilino do Azure Ative Directory pode adicionar um n
 5. Atualize os detalhes da **editora** no formulário.
 
    1. **Nome da editora**: O nome que será exibido no Azure Marketplace ou appSource com a oferta.
-   1. **PublisherID**: Um identificador utilizado pelo Partner Center para identificar exclusivamente o seu editor. O padrão para este campo mapeia para um `PublisherID` existente e único no sistema, que não pode ser reutilizado, e, portanto, este campo precisa de ser atualizado.
+   1. **PublisherID**: Um identificador utilizado pelo Partner Center para identificar exclusivamente o seu editor. O padrão para este campo mapeia para um existente e único `PublisherID` no sistema, que não pode ser reutilizado, e, portanto, este campo precisa de ser atualizado.
    1. **Informações de contacto**: Atualize as informações de contacto quando necessário.
 
 Depois de concluir o processo, pode gerir o seu editor recém-criado indo para o programa **Mercado Comercial** listado no menu de navegação à esquerda. Se não vir o programa **Mercado Comercial,** refresque a página. A nova editora aparecerá na lista de **Editores.**

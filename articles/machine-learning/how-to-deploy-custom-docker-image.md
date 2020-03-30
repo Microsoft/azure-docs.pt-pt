@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: 24ca37f5610589ae675a47a1dd966871b3004800
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.date: 03/16/2020
+ms.openlocfilehash: 1f11d6667c22990b3cba2079959bec6f413d5951
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851267"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80296938"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementar um modelo usando uma imagem de base personalizada do Docker
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -69,7 +69,7 @@ As informações nesta secção pressupõem que está a usar um Registo de Conte
 
     Para obter informações sobre a utilização de diretores de serviço com registo de contentores Azure, consulte a autenticação do Registo de [Contentores Azure com os diretores de serviço](/azure/container-registry/container-registry-auth-service-principal).
 
-* Registo de contentores azure e informações de imagem: Forneça o nome da imagem a quem precisa de o utilizar. Por exemplo, uma imagem chamada `myimage`, armazenada num registo chamado `myregistry`, é referenciada como `myregistry.azurecr.io/myimage` ao utilizar a imagem para a implementação do modelo
+* Registo de contentores azure e informações de imagem: Forneça o nome da imagem a quem precisa de o utilizar. Por exemplo, uma `myimage`imagem chamada , armazenada `myregistry`num registo `myregistry.azurecr.io/myimage` chamado , é referenciada como quando se utiliza a imagem para a implementação do modelo
 
 * Requisitos de imagem: O Azure Machine Learning apenas suporta imagens do Docker que fornecem o seguinte software:
 
@@ -96,7 +96,9 @@ Se já treinou ou implementou modelos utilizando o Azure Machine Learning, foi c
 
     Siga as instruções para autenticar a subscrição.
 
-2. Utilize o seguinte comando para listar o registo do contentor para o espaço de trabalho. Substitua `<myworkspace>` pelo nome do espaço de trabalho Azure Machine Learning. Substitua `<resourcegroup>` pelo grupo de recursos Azure que contém o seu espaço de trabalho:
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
+2. Utilize o seguinte comando para listar o registo do contentor para o espaço de trabalho. Substitua-o `<myworkspace>` pelo nome do espaço de trabalho Azure Machine Learning. Substitua-o `<resourcegroup>` pelo grupo de recursos Azure que contém o seu espaço de trabalho:
 
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
@@ -110,13 +112,13 @@ Se já treinou ou implementou modelos utilizando o Azure Machine Learning, foi c
     /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ContainerRegistry/registries/<registry_name>
     ```
 
-    O valor `<registry_name>` é o nome do Registo de Contentores Azure para o seu espaço de trabalho.
+    O `<registry_name>` valor é o nome do Registo de Contentores Azure para o seu espaço de trabalho.
 
 ### <a name="build-a-custom-base-image"></a>Construa uma imagem de base personalizada
 
 Os passos nesta secção walk-through criando uma imagem personalizada do Docker no seu Registo de Contentores Azure.
 
-1. Crie um novo ficheiro de texto chamado `Dockerfile`e utilize o seguinte texto como conteúdo:
+1. Crie um novo `Dockerfile`ficheiro de texto chamado , e utilize o seguinte texto como conteúdo:
 
     ```text
     FROM ubuntu:16.04
@@ -143,20 +145,20 @@ Os passos nesta secção walk-through criando uma imagem personalizada do Docker
         find / -type d -name __pycache__ -prune -exec rm -rf {} \;
     ```
 
-2. A partir de um reservatório ou de um pedido de comando, utilize o seguinte para autenticar o Registo de Contentores Azure. Substitua o `<registry_name>` pelo nome do registo de contentores onde pretende armazenar a imagem:
+2. A partir de um reservatório ou de um pedido de comando, utilize o seguinte para autenticar o Registo de Contentores Azure. Substitua `<registry_name>` o nome do registo de contentores onde pretende armazenar a imagem em:
 
     ```azurecli-interactive
     az acr login --name <registry_name>
     ```
 
-3. Para carregar o Dockerfile, e construí-lo, use o seguinte comando. Substitua `<registry_name>` com o nome do registo de contentores que pretende armazenar a imagem em:
+3. Para carregar o Dockerfile, e construí-lo, use o seguinte comando. Substitua `<registry_name>` pelo nome do registo de contentores que pretende armazenar a imagem em:
 
     ```azurecli-interactive
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
     > [!TIP]
-    > Neste exemplo, uma etiqueta de `:v1` é aplicada à imagem. Se não for fornecida qualquer etiqueta, é aplicada uma etiqueta de `:latest`.
+    > Neste exemplo, uma `:v1` etiqueta é aplicada à imagem. Se não for fornecida nenhuma `:latest` etiqueta, é aplicada uma etiqueta de.
 
     Durante o processo de construção, a informação é transmitida para trás para a linha de comando. Se a construção for bem sucedida, recebe uma mensagem semelhante ao seguinte texto:
 
@@ -175,7 +177,7 @@ Para utilizar uma imagem personalizada, necessita das seguintes informações:
 * O nome da __imagem.__ Por exemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` é o caminho para uma Imagem De Docker básica fornecida pela Microsoft.
 
     > [!IMPORTANT]
-    > Para imagens personalizadas que criou, não se esqueça de incluir todas as etiquetas que foram usadas com a imagem. Por exemplo, se a sua imagem foi criada com uma etiqueta específica, como `:v1`. Se não usou uma etiqueta específica na criação da imagem, foi aplicada uma etiqueta de `:latest`.
+    > Para imagens personalizadas que criou, não se esqueça de incluir todas as etiquetas que foram usadas com a imagem. Por exemplo, se a sua imagem foi `:v1`criada com uma etiqueta específica, como . Se não usou uma etiqueta específica na criação `:latest` da imagem, foi aplicada uma etiqueta de.
 
 * Se a imagem estiver num __repositório privado,__ necessita das seguintes informações:
 
@@ -205,7 +207,7 @@ Para obter mais informações sobre as imagens base onNX Runtime, consulte a [se
 Para mais informações, consulte [os recipientes de Aprendizagem automática Azure](https://github.com/Azure/AzureML-Containers).
 
 > [!TIP]
->__Se o seu modelo for treinado na Azure Machine Learning Compute__, utilizando __a versão 1.0.22 ou superior__ do Azure Machine Learning SDK, é criada uma imagem durante o treino. Para descobrir o nome desta imagem, use `run.properties["AzureML.DerivedImageName"]`. O exemplo que se segue demonstra como utilizar esta imagem:
+>__Se o seu modelo for treinado na Azure Machine Learning Compute__, utilizando __a versão 1.0.22 ou superior__ do Azure Machine Learning SDK, é criada uma imagem durante o treino. Para descobrir o nome desta `run.properties["AzureML.DerivedImageName"]`imagem, use. O exemplo que se segue demonstra como utilizar esta imagem:
 >
 > ```python
 > # Use an image built during training with SDK 1.0.22 or greater
@@ -246,7 +248,7 @@ conda_dep.add_pip_package("azureml-defaults")
 myenv.python.conda_dependencies=conda_dep
 ```
 
-Deve adicionar incumprimentos em azureml com versão >= 1.0.45 como dependência do pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web. Deve também definir inferencing_stack_version imóvel no ambiente para "mais recente", esta instalação de pacotes aptos específicos necessários pelo serviço web. 
+Deve adicionar incumprimentos em azul com versão >= 1,0,45 como dependência do pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web. Deve também definir inferencing_stack_version imóvel no ambiente para "mais recente", esta instalação de pacotes aptos específicos necessários pelo serviço web. 
 
 Depois de definir o ambiente, use-o com um objeto [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) para definir o ambiente de inferência em que o modelo e o serviço web funcionarão.
 
@@ -277,22 +279,53 @@ Para obter mais informações sobre a personalização do seu ambiente Python, c
 > [!IMPORTANT]
 > Atualmente, o CLI de Aprendizagem automática pode utilizar imagens do Registo de Contentores Azure para o seu espaço de trabalho ou repositórios acessíveis ao público. Não pode usar imagens de registos privados autónomos.
 
-Ao implementar um modelo utilizando o CLI de Aprendizagem automática, fornece um ficheiro de configuração de inferência que faz referência à imagem personalizada. O seguinte documento da JSON demonstra como fazer referência a uma imagem num registo de contentores públicos:
+Antes de implementar um modelo utilizando o CLI de Aprendizagem automática, crie um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) que utilize a imagem personalizada. Em seguida, crie um ficheiro de configuração de inferência que referencia o ambiente. Também pode definir o ambiente diretamente no ficheiro de configuração de inferência. O seguinte documento da JSON demonstra como fazer referência a uma imagem num registo de contentores públicos. Neste exemplo, o ambiente é definido inline:
 
 ```json
 {
-   "entryScript": "score.py",
-   "runtime": "python",
-   "condaFile": "infenv.yml",
-   "extraDockerfileSteps": null,
-   "sourceDirectory": null,
-   "enableGpu": false,
-   "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
-   "baseImageRegistry": "mcr.microsoft.com"
+    "entryScript": "score.py",
+    "environment": {
+        "docker": {
+            "arguments": [],
+            "baseDockerfile": null,
+            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+            "enabled": false,
+            "sharedVolumes": true,
+            "shmSize": null
+        },
+        "environmentVariables": {
+            "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+        },
+        "name": "my-deploy-env",
+        "python": {
+            "baseCondaEnvironment": null,
+            "condaDependencies": {
+                "channels": [
+                    "conda-forge"
+                ],
+                "dependencies": [
+                    "python=3.6.2",
+                    {
+                        "pip": [
+                            "azureml-defaults",
+                            "azureml-telemetry",
+                            "scikit-learn",
+                            "inference-schema[numpy-support]"
+                        ]
+                    }
+                ],
+                "name": "project_environment"
+            },
+            "condaDependenciesFile": null,
+            "interpreterPath": "python",
+            "userManagedDependencies": false
+        },
+        "version": "1"
+    }
 }
 ```
 
-Este ficheiro é utilizado com o comando `az ml model deploy`. O parâmetro `--ic` é utilizado para especificar o ficheiro de configuração de inferência.
+Este ficheiro é `az ml model deploy` utilizado com o comando. O `--ic` parâmetro é utilizado para especificar o ficheiro de configuração de inferência.
 
 ```azurecli
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget

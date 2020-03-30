@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: c189ad1a6b6ebc13b71ca547176af27a43a78a7d
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 88c3d1f4213b161d5e322349a7f0e1bc1dd952e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673448"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239651"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Utilize a extensão IoT para o Azure CLI para a gestão do dispositivo Azure IoT Hub
 
@@ -71,13 +71,13 @@ Executar O ClI Azure e a extensão IoT para o Azure CLI com várias opções de 
 
 Inscreva-se na sua conta Azure executando o seguinte comando:
 
-```bash
+```azurecli
 az login
 ```
 
 ## <a name="direct-methods"></a>Métodos diretos
 
-```bash
+```azurecli
 az iot hub invoke-device-method --device-id <your device id> \
   --hub-name <your hub name> \
   --method-name <the method name> \
@@ -88,7 +88,7 @@ az iot hub invoke-device-method --device-id <your device id> \
 
 Definir um intervalo de propriedade desejado = 3000 executando o seguinte comando:
 
-```bash
+```azurecli
 az iot hub device-twin update -n <your hub name> \
   -d <your device id> --set properties.desired.interval = 3000
 ```
@@ -99,7 +99,7 @@ Esta propriedade pode ser lida a partir do seu dispositivo.
 
 Obtenha as propriedades reportadas do dispositivo executando o seguinte comando:
 
-```bash
+```azurecli
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
@@ -109,13 +109,13 @@ Uma das propriedades reportadas é $metadata.$lastUpdated, o que mostra a últim
 
 Mostrar as etiquetas e propriedades do dispositivo executando o seguinte comando:
 
-```bash
+```azurecli
 az iot hub device-twin show --hub-name <your hub name> --device-id <your device id>
 ```
 
-Adicione uma função de campo = temperatura e humidade ao dispositivo executando o seguinte comando:
+Adicione uma função de campo = temperatura&humidade ao dispositivo executando o seguinte comando:
 
-```bash
+```azurecli
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
@@ -124,16 +124,16 @@ az iot hub device-twin update \
 
 ## <a name="device-twin-queries"></a>Consultas gémeas do dispositivo
 
-Dispositivos de consulta com uma etiqueta de papel = "temperatura e humidade" executando o seguinte comando:
+Dispositivos de consulta com uma etiqueta de papel = "temperatura&humidade" executando o seguinte comando:
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
-Consulta de todos os dispositivos exceto aqueles com uma etiqueta de papel = "temperatura e humidade" executando o seguinte comando:
+Consulta de todos os dispositivos exceto aqueles com uma etiqueta de papel = "temperatura&humidade" executando o seguinte comando:
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```

@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: eb303ecb5657e9312445093841cfa6c501efda18
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944803"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366499"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando autenticação de Diretório Ativo Azure
 
@@ -21,7 +21,7 @@ Para melhorar a segurança das máquinas virtuais Linux (VMs) em Azure, pode int
 
 > [!IMPORTANT]
 > A autenticação do Diretório Ativo Azure está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 > Utilize esta função numa máquina virtual de teste que espera descartar após os testes.
 >
 
@@ -44,9 +44,9 @@ As seguintes distribuições linux são atualmente suportadas durante a pré-vis
 | Distribuição | Versão |
 | --- | --- |
 | CentOS | Centos 6, Centos 7 |
-| Debian | Debian 9 |
+| Debian | Debiano 9 |
 | openSUSE | abrir Salto SUSE 42.3 |
-| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| Red Hat Enterprise Linux | RHEL 6, RHEL 7 | 
 | SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 e Ubuntu Server 18.04 |
 
@@ -57,15 +57,18 @@ As seguintes regiões azure são atualmente apoiadas durante a pré-visualizaç�
 
 >[!IMPORTANT]
 > Para utilizar esta função de pré-visualização, apenas implemente um distro Linux apoiado e numa região azure apoiada. A característica não é apoiada no Governo de Azure ou em nuvens soberanas.
+>
+> Não é suportado para usar esta extensão em clusters do Serviço Azure Kubernetes (AKS). Para mais informações, consulte as políticas de [apoio para a AKS](../../aks/support-policies.md).
 
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.0.31 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.0.31 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
-## <a name="network-requirements"></a>Requisitos de rede
+## <a name="network-requirements"></a>Requisitos da rede
 
 Para ativar a autenticação AD Azure para os seus VMs Linux em Azure, tem de garantir que a configuração da rede VMs permite o acesso de saída aos seguintes pontos finais sobre a porta TCP 443:
 
 * https:\//login.microsoftonline.com
+* https:\//login.windows.net
 * https:\//device.login.microsoftonline.com
 * https:\//pas.windows.net
 * https:\//management.azure.com
@@ -145,30 +148,31 @@ Em primeiro lugar, veja o endereço IP público do seu VM com [o az vm show:](/c
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Inicie sessão na máquina virtual Azure Linux utilizando as suas credenciais De AD Azure. O parâmetro `-l` permite especificar o seu próprio endereço de conta Azure AD. Substitua a conta de exemplo pela sua. Os endereços da conta devem ser introduzidos em todas as minúsculas. Substitua o endereço IP do exemplo pelo endereço IP público do seu VM do comando anterior.
+Inicie sessão na máquina virtual Azure Linux utilizando as suas credenciais De AD Azure. O `-l` parâmetro permite especificar o seu próprio endereço de conta Azure AD. Substitua a conta de exemplo pela sua. Os endereços da conta devem ser introduzidos em todas as minúsculas. Substitua o endereço IP do exemplo pelo endereço IP público do seu VM do comando anterior.
 
-```azurecli-interactive
+```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-É solicitado que aceda ao Azure AD com um código de utilização único em [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Copie e cole o código de utilização único na página de login do dispositivo.
+É solicitado que aceda ao Azure AD com um [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)código de utilização único em . Copie e cole o código de utilização único na página de login do dispositivo.
 
 Quando solicitado, introduza as credenciais de login do Azure AD na página de login. 
 
-A seguinte mensagem é mostrada no navegador da Web quando tiver autenticado com sucesso: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+A seguinte mensagem é mostrada no navegador da Web quando tiver autenticado com sucesso:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Feche a janela do navegador, volte ao ssh e prima a tecla **Enter.** 
 
-Está agora inscrito na máquina virtual Azure Linux com as permissões de funções atribuídas, tais como *Utilizador VM* ou *Administrador VM*. Se a sua conta de utilizador for atribuída a função de Login do Administrador de *Máquina Virtual,* pode utilizar `sudo` para executar comandos que requerem privilégios de raiz.
+Está agora inscrito na máquina virtual Azure Linux com as permissões de funções atribuídas, tais como *Utilizador VM* ou *Administrador VM*. Se a sua conta de utilizador for atribuída a `sudo` função de Login do Administrador de Máquina *Virtual,* pode utilizar para executar comandos que requerem privilégios de raiz.
 
 ## <a name="sudo-and-aad-login"></a>Sessão sudo e AAD
 
-A primeira vez que correr sudo, será convidado a autenticar uma segunda vez. Se não quiser ter de autenticar novamente para correr sudo, pode editar o seu ficheiro sudoers `/etc/sudoers.d/aad_admins` e substituir esta linha:
+A primeira vez que correr sudo, será convidado a autenticar uma segunda vez. Se não quiser ter de autenticar novamente para executar o sudo, `/etc/sudoers.d/aad_admins` pode editar o seu ficheiro sudoers e substituir esta linha:
 
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
-com esta linha:
+
+Com esta linha:
 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
@@ -183,7 +187,7 @@ Alguns erros comuns quando se tenta ssh com credenciais De AD Azure não incluem
 
 Se vir o seguinte erro no seu pedido SSH, verifique se configuraas as políticas rBAC para o VM que concede ao utilizador o *Login* do Administrador da Máquina Virtual ou a função de Login do Utilizador da *Máquina Virtual:*
 
-```bash
+```output
 login as: azureuser@contoso.onmicrosoft.com
 Using keyboard-interactive authentication.
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJX327AXD to authenticate. Press ENTER when ready.
@@ -196,18 +200,18 @@ Access denied
 
 Se completar com sucesso o passo de autenticação num navegador web, poderá ser imediatamente solicitado a iniciar sessão com um novo código. Este erro é normalmente causado por um desfasamento entre o nome de entrada especificado no ssh e a conta com que assinou no Azure AD. Para corrigir esta questão:
 
-- Verifique se o nome de início de sessão especificado no aviso SSH está correto. Um erro no nome de entrada pode causar uma incompatibilidade entre o nome de entrada especificado no pedido ssh e a conta com que assinou no Azure AD. Por exemplo, escreveu *\@contoso.onmicrosoft.com* em vez de *azureuser\@contoso.onmicrosoft.com*.
+- Verifique se o nome de início de sessão especificado no aviso SSH está correto. Um erro no nome de entrada pode causar uma incompatibilidade entre o nome de entrada especificado no pedido ssh e a conta com que assinou no Azure AD. Por exemplo, escreveu *contoso.onmicrosoft.com azuresuer\@* em vez de *\@azureuser contoso.onmicrosoft.com*.
 - Se tiver várias contas de utilizador, certifique-se de que não fornece uma conta de utilizador diferente na janela do navegador ao iniciar sessão no Azure AD.
-- Linux é um sistema operativo sensível a casos. Há uma diferença entre "Azureuser@contoso.onmicrosoft.com" e 'azureuser@contoso.onmicrosoft.com', que pode causar um desfasamento. Certifique-se de que especifica a UPN com a sensibilidade de caso correta no aviso SSH.
+- Linux é um sistema operativo sensível a casos. Há uma diferençaAzureuser@contoso.onmicrosoft.comentre 'azureuser@contoso.onmicrosoft.come ' ' ' ' ' ' que pode causar um desfasamento. Certifique-se de que especifica a UPN com a sensibilidade de caso correta no aviso SSH.
 
 ### <a name="other-limitations"></a>Outras limitações
 
 Os utilizadores que herdam direitos de acesso através de grupos aninhados ou atribuições de papéis não são atualmente suportados. O utilizador ou grupo deve ser diretamente atribuído às atribuições de [funções necessárias](#configure-role-assignments-for-the-vm). Por exemplo, o uso de grupos de gestão ou atribuições de papéis de grupo aninhados não concederá as permissões corretas para permitir que o utilizador assine.
 
-## <a name="preview-feedback"></a>Feedback de pré-visualização
+## <a name="preview-feedback"></a>Comentários sobre a pré-visualização
 
 Partilhe o seu feedback sobre esta funcionalidade de pré-visualização ou reporte problemas que o utilizam no fórum de [feedback da AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o Diretório Ativo azure, consulte [o What is Azure Ative Directory](../../active-directory/fundamentals/active-directory-whatis.md)

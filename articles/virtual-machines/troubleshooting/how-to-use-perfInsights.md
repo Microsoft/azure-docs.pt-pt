@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250130"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
@@ -116,7 +116,7 @@ São recolhidas informações sobre o Windows VM, disquetes ou configuração de
 | Saída de Netstat                    | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Configuração da rede             | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Configuração da firewall            | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Configuração do Servidor SQL          | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
+| Configuração do SQL Server          | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Rastreios de diagnóstico de desempenho *  | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Rastreio do contador de desempenho **      |                            |                                    | Sim                      |                      | Sim                  |
 | Traço de contador SMB **              |                            |                                    |                          | Sim                  |                      |
@@ -145,7 +145,7 @@ Recolhe os seguintes contadores de desempenho:
 
 - \Process, \Processador, \Memória, \Thread, \PhysicalDisk e \LogicalDisk
 - \Cache\Dirty Pages, \Cache\Lazy Write Flushes/seg, \Server\Pool Nonpaged, Failures, and \Server\Pool Paged Failures
-- Contadores selecionados em \Network Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segmentos, \TCPv6\Segmentos, \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \T\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv Política de Rede QoS\Pacotes, \Per Processor Network Interface Card Activity, e \Microsoft Winsock BSP
+- Contadores selecionados em \Network Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segmentos, \TCPv6\Segmentos, \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TC4\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv6\Connection, \TCPv Política de Rede QoS\Pacotes, \Per Processor Network Interface Card Activity, e \Microsoft Winsock BSP
 
 #### <a name="for-sql-server-instances"></a>Para casos de Servidor SQL
 - \SQL Server:Buffer Manager, \SQLServer:Estatísticas da piscina de recursos e \SQLServer:Estatísticas SQL\
@@ -248,12 +248,12 @@ Quando os vestígios ou operações estiverem concluídos, um novo ficheiro apar
 
 ## <a name="review-the-diagnostics-report"></a>Reveja o relatório de diagnóstico
 
-Dentro do **Ficheiro PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, pode encontrar um relatório HTML que detalha as conclusões da PerfInsights. Para rever o relatório, expanda o **Ficheiro PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** e, em seguida, abra o ficheiro **PerfInsights Report.html.**
+Dentro do ficheiro **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip,** pode encontrar um relatório HTML que detalha as conclusões da PerfInsights. Para rever o relatório, expanda o ficheiro **\_PerformanceDiagnostics\_yyyy-MM-dd hh-mm-ss-fff.zip** e, em seguida, abra o ficheiro **PerfInsights Report.html.**
 
 Selecione o separador **Resultados.**
 
-![Screenshot do Relatório PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
-![Screenshot do relatório PerfInsights](media/how-to-use-perfInsights/pi-findings.png)
+![Screenshot de PerfInsights Report](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Screenshot do Relatório PerfInsights](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > As descobertas classificadas como altas são questões conhecidas que podem causar problemas de desempenho. As descobertas categorizadas como médias representam configurações não ótimas que não causam necessariamente problemas de desempenho. Os resultados classificados como baixos são apenas declarações informativas.
@@ -270,7 +270,7 @@ Na perspetiva do disco físico (Mapa do Disco), a tabela mostra todos os volumes
 
 ![Screenshot do separador de disco](media/how-to-use-perfInsights/pi-disk-tab.png)
 
-Na perspetiva do volume (Mapa do Volume), as tabelas mostram todos os discos físicos em cada volume lógico. Note que para discos RAID/Dynamic, poderá executar um volume lógico em vários discos físicos. No exemplo seguinte, *C:\\montagem* é um ponto de montagem configurado como *SpannedDisk* nos discos físicos 2 e 3:
+Na perspetiva do volume (Mapa do Volume), as tabelas mostram todos os discos físicos em cada volume lógico. Note que para discos RAID/Dynamic, poderá executar um volume lógico em vários discos físicos. No exemplo seguinte, *C:\\o suporte* é um ponto de montagem configurado como *SpannedDisk* nos discos físicos 2 e 3:
 
 ![Screenshot do separador de volume](media/how-to-use-perfInsights/pi-volume-tab.png)
 
@@ -313,5 +313,5 @@ A imagem que se segue mostra uma mensagem semelhante à que poderá receber:
 
 Siga as instruções na mensagem para aceder ao espaço de trabalho de transferência de ficheiros. Para obter segurança adicional, tem de alterar a sua palavra-passe na primeira utilização.
 
-Depois de iniciar sessão, encontrará uma caixa de diálogo para fazer o upload do **Ficheiro PerformanceDiagnostics\_yyy-MM-dd\_ficheiro hh-mm-ss-fff.zip** que foi recolhido pela PerfInsights.
+Depois de iniciar sessão, encontrará uma caixa de diálogo para carregar o ficheiro **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** que foi recolhido pela PerfInsights.
 

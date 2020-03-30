@@ -1,20 +1,20 @@
 ---
 title: Render dados personalizados num mapa de rasters / Microsoft Azure Maps
 description: Neste artigo, você aprenderá a renderizar dados personalizados num mapa de raster usando o Serviço de imagem estática do Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 78068a8deda68434daaeb18cc994099d74d9ccdf
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b8d47b69b4aba14c86fb09176b662aee7d5482d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209958"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335507"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Render dados personalizados num mapa de raster
 
@@ -37,7 +37,7 @@ Para completar os procedimentos neste artigo, primeiro é necessário criar uma 
 > [!Note]
 > O procedimento nesta secção requer uma conta Azure Maps nos níveis de preços S0 ou S1.
 
-A conta Azure Maps S0 suporta apenas uma instância do parâmetro `pins`. Permite-lhe renderizar até cinco pinos, especificados no pedido de URL, com uma imagem personalizada.
+A conta Azure Maps S0 suporta apenas `pins` uma instância do parâmetro. Permite-lhe renderizar até cinco pinos, especificados no pedido de URL, com uma imagem personalizada.
 
 Para renderizar pinos com etiquetas e uma imagem personalizada, complete estes passos:
 
@@ -70,7 +70,7 @@ Também pode obter as informações de localização do caminho e pin utilizando
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
 
-2. No separador **Params,** introduza os seguintes pares chave/valor, que são utilizados para o URL de pedido de POST. Substitua o valor `subscription-key` pela chave de subscrição do Azure Maps.
+2. No separador **Params,** introduza os seguintes pares chave/valor, que são utilizados para o URL de pedido de POST. Substitua `subscription-key` o valor pela chave de subscrição do Azure Maps.
     
     ![Principais params de chave/valor no Carteiro](./media/how-to-render-custom-data/postman-key-vals.png)
 
@@ -156,7 +156,7 @@ Também pode obter as informações de localização do caminho e pin utilizando
    }
    ```
 
-7. Utilize o valor `udId` recebido da API de upload de dados para renderizar funcionalidades no mapa. Para tal, abra um novo separador na coleção que criou na secção anterior. Selecione o método GET HTTP no separador construtor, substitua a {chave de subscrição} e {udId} com os seus valores e introduza este URL para fazer um pedido GET:
+7. Utilize `udId` o valor recebido da API de upload de dados para renderizar funcionalidades no mapa. Para tal, abra um novo separador na coleção que criou na secção anterior. Selecione o método GET HTTP no separador construtor, substitua a {chave de subscrição} e {udId} com os seus valores e introduza este URL para fazer um pedido GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -192,7 +192,7 @@ Pode modificar a aparência de um polígono utilizando modificadores de estilo c
 > O procedimento nesta secção requer uma conta Azure Maps no nível de preços S1.
 
 
-Pode modificar a aparência dos pinos adicionando modificadores de estilo. Por exemplo, para fazer pinos e respetivas etiquetas maiores ou menores, utilize o modificador `sc` "estilo de escala". Este modificador tem um valor superior a zero. Um valor de 1 é a escala padrão. Valores maiores que 1 tornarão os pinos maiores, e valores menores que 1 os tornarão menores. Para obter mais informações sobre modificadores de estilo, consulte [os parâmetros do caminho](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters)do serviço de imagem estática .
+Pode modificar a aparência dos pinos adicionando modificadores de estilo. Por exemplo, para fazer pinos e respetivas etiquetas `sc` maiores ou menores, utilize o modificador "scale style". Este modificador tem um valor superior a zero. Um valor de 1 é a escala padrão. Valores maiores que 1 tornarão os pinos maiores, e valores menores que 1 os tornarão menores. Para obter mais informações sobre modificadores de estilo, consulte [os parâmetros do caminho](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters)do serviço de imagem estática .
 
 
 Siga estes passos para renderizar um círculo e empurrões com etiquetas personalizadas:
@@ -207,7 +207,7 @@ Siga estes passos para renderizar um círculo e empurrões com etiquetas persona
 
     ![Renderum círculo com pinos personalizados](./media/how-to-render-custom-data/circle-custom-pins.png)
 
-2. Para alterar a cor dos pinos do último passo, mude o modificador de estilo "co". Olhe para `pins=default|la15+50|al0.66|lc003C62|co002D62|`, a cor atual seria especificada como #002D62 em CSS. Digamos que quer mudá-lo para #41d42a. Escreva o novo valor de cor após o especificador "co", como este: `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Faça um novo pedido GET:
+2. Para alterar a cor dos pinos do último passo, mude o modificador de estilo "co". Olhe `pins=default|la15+50|al0.66|lc003C62|co002D62|`para, a cor atual seria especificada como #002D62 em CSS. Digamos que quer mudá-lo para #41d42a. Escreva o novo valor de cor após o `pins=default|la15+50|al0.66|lc003C62|co41D42A|`especificador "co", assim: . Faça um novo pedido GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
