@@ -1,44 +1,44 @@
 ---
-title: Criar uma regra de Azure Load Balancer para um cluster
-description: Configure um Azure Load Balancer para abrir portas para o cluster de Service Fabric do Azure.
+title: Criar uma regra de Equilíbrio de Carga Azure para um cluster
+description: Configure um Balancer de Carga Azure para abrir portas para o seu cluster Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025389"
 ---
-# <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um Cluster Service Fabric
+# <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas de um cluster do Service Fabric
 
-O balanceador de carga implantado com o cluster de Service Fabric do Azure direciona o tráfego para seu aplicativo em execução em um nó. Se você alterar seu aplicativo para usar uma porta diferente, deverá expor essa porta (ou rotear uma porta diferente) no Azure Load Balancer.
+O equilibrador de carga implantado com o seu cluster Azure Service Fabric direciona o tráfego para a sua aplicação em funcionamento num nó. Se alterar a sua aplicação para utilizar uma porta diferente, tem de expor essa porta (ou encaminhar uma porta diferente) no Equilíbrio de Carga Azure.
 
-Quando você implantou o Cluster Service Fabric no Azure, um balanceador de carga foi criado automaticamente para você. Se você não tiver um balanceador de carga, consulte [configurar um balanceador de carga voltado para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
+Quando implantou o seu cluster De Tecido de Serviço para o Azure, foi criado automaticamente um equilibrador de carga para si. Se não tiver um equilibrador de carga, consulte [Configure um equilibrador de carga virado para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="configure-service-fabric"></a>Configurar o Service Fabric
+## <a name="configure-service-fabric"></a>Configurar tecido de serviço
 
-Seu arquivo de configuração do Service Fabric Application **inmanifest. xml** define os pontos de extremidade que seu aplicativo espera usar. Depois que o arquivo de configuração tiver sido atualizado para definir um ponto de extremidade, o balanceador de carga deverá ser atualizado para expor essa porta (ou outra). Para obter mais informações sobre como criar o ponto de extremidade do Service Fabric, consulte [configurar um ponto de extremidade](service-fabric-service-manifest-resources.md).
+O ficheiro de config **ServiceManifesto.xml** do seu serviço de tecido define os pontos finais que a sua aplicação espera utilizar. Depois de atualizado o ficheiro config para definir um ponto final, o equilibrador de carga deve ser atualizado para expor essa (ou uma outra) porta. Para obter mais informações sobre como criar o ponto final do tecido de serviço, consulte [Configurar um Ponto final](service-fabric-service-manifest-resources.md).
 
 ## <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
-Uma regra de Load Balancer abre uma porta voltada para a Internet e encaminha o tráfego para a porta do nó interno usada pelo seu aplicativo. Se você não tiver um balanceador de carga, consulte [configurar um balanceador de carga voltado para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
+Uma regra do Balancer de Carga abre uma porta virada para a Internet e encaminha o tráfego para a porta do nó interno utilizada pela sua aplicação. Se não tiver um equilibrador de carga, consulte [Configure um equilibrador de carga virado para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
 
-Para criar uma regra de Load Balancer, você precisa coletar as seguintes informações:
+Para criar uma regra do Balancer de Carga, é necessário recolher as seguintes informações:
 
-- Nome do balanceador de carga.
-- Grupo de recursos do balanceador de carga e cluster do Service Fabric.
-- Porta externa.
-- Porta interna.
+- Nome do equilibrador de carga.
+- Grupo de recursos do balanceor de carga e cluster de tecido de serviço.
+- Porto externo.
+- Porto interno.
 
 ## <a name="azure-cli"></a>CLI do Azure
-Ele usa apenas um único comando para criar uma regra de balanceador de carga com o **CLI do Azure**. Você só precisa saber o nome do balanceador de carga e do grupo de recursos para criar uma nova regra.
+É preciso apenas um único comando para criar uma regra de equilíbrio de carga com o **Azure CLI**. Basta saber o nome do equilibrador de carga e do grupo de recursos para criar uma nova regra.
 
 >[!NOTE]
->Se você precisar determinar o nome do balanceador de carga, use este comando para obter rapidamente uma lista de todos os balanceadores de carga e os grupos de recursos associados.
+>Se precisar determinar o nome do equilibrista de carga, use este comando para obter rapidamente uma lista de todos os equilibradores de carga e dos grupos de recursos associados.
 >
 >`az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"`
 >
@@ -48,31 +48,31 @@ Ele usa apenas um único comando para criar uma regra de balanceador de carga co
 az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol Tcp --lb-name LB-svcfab3 -g svcfab_cli -n my-app-rule
 ```
 
-O comando CLI do Azure tem alguns parâmetros descritos na tabela a seguir:
+O comando Azure CLI tem alguns parâmetros descritos na tabela seguinte:
 
 | Parâmetro | Descrição |
 | --------- | ----------- |
-| `--backend-port`  | A porta à qual o aplicativo Service Fabric está escutando. |
-| `--frontend-port` | A porta que o balanceador de carga expõe para conexões externas. |
-| `-lb-name` | O nome do balanceador de carga a ser alterado. |
-| `-g`       | O grupo de recursos que tem o balanceador de carga e o cluster de Service Fabric. |
+| `--backend-port`  | A porta que a aplicação Service Fabric está a ouvir. |
+| `--frontend-port` | A porta que o equilibrador de carga expõe para ligações externas. |
+| `-lb-name` | O nome do equilibrador de carga para mudar. |
+| `-g`       | O grupo de recursos que tem tanto o balanceador de carga como o cluster Service Fabric. |
 | `-n`       | O nome desejado da regra. |
 
 
 >[!NOTE]
->Para obter mais informações sobre como criar um balanceador de carga com o CLI do Azure, consulte [criar um balanceador de carga com o CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
+>Para obter mais informações sobre como criar um equilibrador de carga com o Azure CLI, consulte [Criar um equilibrador de carga com o Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
-O PowerShell é um pouco mais complicado do que o CLI do Azure. Siga estas etapas conceituais para criar uma regra:
+PowerShell é um pouco mais complicado que o Azure CLI. Siga estes passos conceptuais para criar uma regra:
 
-1. Obtenha o balanceador de carga do Azure.
-2. Crie uma regra.
-3. Adicione a regra ao balanceador de carga.
-4. Atualize o balanceador de carga.
+1. Pegue o equilibrador de carga do Azure.
+2. Criar uma regra.
+3. Adicione a regra ao equilibrador de carga.
+4. Atualize o equilibrador de carga.
 
 >[!NOTE]
->Se você precisar determinar o nome do balanceador de carga, use este comando para obter rapidamente uma lista de todos os balanceadores de carga e grupos de recursos associados.
+>Se precisar determinar o nome do equilibrista de carga, use este comando para obter rapidamente uma lista de todos os equilibradores de carga e grupos de recursos associados.
 >
 >`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
@@ -93,11 +93,11 @@ $lb.LoadBalancingRules.Add($lbrule)
 $lb | Set-AzLoadBalancer
 ```
 
-Em relação ao comando `New-AzLoadBalancerRuleConfig`, o `-FrontendPort` representa a porta que o balanceador de carga expõe para conexões externas e o `-BackendPort` representa a porta que o aplicativo do Service Fabric está ouvindo.
+No que `New-AzLoadBalancerRuleConfig` diz `-FrontendPort` respeito ao comando, o porta que o equilibrador de carga expõe para ligações externas, e o `-BackendPort` que representa a porta que a aplicação de tecido de serviço está a ouvir.
 
 >[!NOTE]
->Para obter mais informações sobre como criar um balanceador de carga com o PowerShell, consulte [criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
+>Para obter mais informações sobre como criar um equilibrador de carga com a PowerShell, consulte Criar um equilibrador de [carga com powerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a [rede em Service Fabric](service-fabric-patterns-networking.md).
+Saiba mais sobre [networking em Tecido de Serviço.](service-fabric-patterns-networking.md)

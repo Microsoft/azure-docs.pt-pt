@@ -2,18 +2,17 @@
 title: Obtenha suporte para o portal Mercado Comercial no Partner Center
 description: Conheça as suas opções de suporte no Partner Center, incluindo como apresentar um pedido de suporte.
 author: qianw211
-manager: evansma
-ms.author: jamwall
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: a85d9ebb03ea0c9ebe078ad49ce6bbf40a5b004d
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: fbfc8cc29a1584dbc9f7e4ff0b73513d85950f99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927543"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281396"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte ao programa Mercado Comercial no Partner Center
 
@@ -54,7 +53,7 @@ Agora está pronto para abrir um bilhete de apoio no ecrã **de Ajuda e Suporte.
 
 **Opção 1:** Introduza palavras-chave como: Marketplace, app Azure, oferta SaaS, gestão de conta, gestão de chumbo, emissão de implementação, pagamento, etc.
 
-**Opção 2:** Navegue nos tópicos -> selecione **Categoria** = mercado comercial -> selecione o **tópico** apropriado e depois **Subtópico**.
+**Opção 2:** Navegue nos tópicos -> **categoria** selecione = mercado comercial -> selecione o **tópico** apropriado e depois **subtópico**.
 
 Depois de ter encontrado o tópico à sua escolha, selecione **Review Solutions**.
 

@@ -9,17 +9,17 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d1cf75d8e678bc5bd3e3036930eea42526194df1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184500"
 ---
-## <a name="create-a-queue-in-the-azure-portal"></a>Criar uma fila no portal do Azure
-1. Sobre o **espaço de nomes do Service Bus** página, selecione **filas** no menu de navegação à esquerda.
-1. Sobre o **filas** página, selecione **+ fila** na barra de ferramentas.
-1. Introduza um **nome** para a fila e deixe os outros valores com as respetivas predefinições.
-1. Agora, selecione **criar**.
+## <a name="create-a-queue-in-the-azure-portal"></a>Crie uma fila no portal Azure
+1. Na página **Service Bus Namespace,** selecione **Filas** no menu de navegação à esquerda.
+1. Na página **Filas,** selecione **+ Fila** na barra de ferramentas.
+1. Introduza um **nome** para a fila e deixe os outros valores com os seus incumprimentos.
+1. Agora, selecione **Criar**.
  
-    ![Filas -> + fila-Enter > nome -> criar](./media/service-bus-create-queue-portal/create-queue3.png)
+    ![Filas - > + fila -> Insira o nome -> Criar](./media/service-bus-create-queue-portal/create-queue3.png)
 

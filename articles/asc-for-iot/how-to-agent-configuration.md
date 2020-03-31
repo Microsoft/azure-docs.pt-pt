@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: 70396cdcaf8b6e2ac66619290eea35a7b260cd9a
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461254"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configure agentes de segurança
@@ -122,29 +122,29 @@ Os valores predefinidos estão disponíveis no esquema adequado no [GitHub](http
 
 | Nome| Estado | Valores válidos| Valores predefinidos| Descrição |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Obrigatório: falso |Valores válidos: Duração no formato ISO 8601 |Valor predefinido: PT7M |Intervalo de tempo máximo antes de enviar mensagens de alta prioridade.|
-|lowPriorityMessageFrequency |Obrigatório: falso|Valores válidos: Duração no formato ISO 8601 |Valor predefinido: PT5H |Tempo máximo antes de enviarem mensagens de baixa prioridade.| 
+|altaPrioridadeMessageFrequência|Obrigatório: falso |Valores válidos: Duração no formato ISO 8601 |Valor predefinido: PT7M |Intervalo de tempo máximo antes de enviar mensagens de alta prioridade.|
+|baixaPrioridadeMessageFrequência |Obrigatório: falso|Valores válidos: Duração no formato ISO 8601 |Valor predefinido: PT5H |Tempo máximo antes de enviarem mensagens de baixa prioridade.| 
 |snapshotFrequência |Exigir: falso|Valores válidos: Duração no formato ISO 8601 |Valor predefinido PT13H |Intervalo de tempo para a criação de instantâneos do estado do dispositivo.| 
 |maxLocalCacheSizeInBytes |Obrigatório: falso |Valores válidos: |Valor predefinido: 2560000, superior a 8192 | Armazenamento máximo (in bytes) permitido para o cache de mensagem de um agente. Quantidade máxima de espaço permitida para armazenar mensagens no dispositivo, antes de enviar mensagens.| 
 |maxMessageSizeInBytes |Obrigatório: falso |Valores válidos: Um número positivo, superior a 8192, inferior a 262144 |Valor predefinido: 204800 |O tamanho máximo permitido de um agente para cloud message. Esta definição controla a quantidade de dados máximos enviados em cada mensagem. |
-|eventPriority${EventName} |Obrigatório: falso |Valores válidos: Alto, Baixo, Off |Valores predefinidos: |Prioridade de todos os eventos gerados por agentes | 
+|eventoPriority${EventName} |Obrigatório: falso |Valores válidos: Alto, Baixo, Off |Valores predefinidos: |Prioridade de todos os eventos gerados por agentes | 
 
 ### <a name="supported-security-events"></a>Eventos de segurança apoiados
 
-|Nome do evento| propertyName | Default Value| Evento Snapshot| Estado dos Detalhes  |
+|Nome do evento| PropertyName | Valor Predefinido| Evento Snapshot| Estado dos Detalhes  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Evento de diagnóstico|eventPriorityDiagnostic| Desativado| Falso| Eventos de diagnóstico relacionados com o agente. Utilize este evento para a exploração madeireira verbosa.| 
-|Erro de configuração |eventPriorityConfigurationError |Baixa |Falso |O agente não analisou a configuração. Verifique a configuração contra o esquema.| 
-|Estatísticas de eventos derrubados |eventPriorityDroppedEventsStatistics |Baixa |Verdadeiro|Estatísticas de eventos relacionadas com o agente. |
-|Hardware conectado|eventPriorityConnectedHardware |Baixa |Verdadeiro |Foto de todo o hardware ligado ao dispositivo.|
+|Evento de diagnóstico|eventoPriorityDiagnostic| Desativado| Falso| Eventos de diagnóstico relacionados com o agente. Utilize este evento para a exploração madeireira verbosa.| 
+|Erro de configuração |eventoPriorityConfigurationError |Baixa |Falso |O agente não analisou a configuração. Verifique a configuração contra o esquema.| 
+|Estatísticas de eventos derrubados |eventoPriorityDroppedEventsStatistics |Baixa |Verdadeiro|Estatísticas de eventos relacionadas com o agente. |
+|Hardware conectado|eventoPriorityConnectedHardware |Baixa |Verdadeiro |Foto de todo o hardware ligado ao dispositivo.|
 |Portas de escuta|eventoPriorityListeningPorts |Alta |Verdadeiro |Instantâneo de todas as portas de escuta abertas no dispositivo.|
-|Processo criar |eventPriorityProcessCreate |Baixa |Falso |Auditorias processam criação no dispositivo.|
-|Processo encerrado|eventPriorityProcessTerminate |Baixa |Falso |Auditorias processam rescisão no dispositivo.| 
-|Informação do sistema |eventPrioritySystemInformation |Baixa |Verdadeiro |Uma imagem instantânea da informação do sistema (por exemplo: OS ou CPU).| 
-|Utilizadores locais| eventPriorityLocalUsers |Alta |Verdadeiro|Uma foto dos utilizadores locais registados dentro do sistema. |
+|Processo criar |eventoPriorityProcessCreate |Baixa |Falso |Auditorias processam criação no dispositivo.|
+|Processo encerrado|eventoPriorityProcessTerminate |Baixa |Falso |Auditorias processam rescisão no dispositivo.| 
+|Informação do sistema |eventoPrioritySystemInformation |Baixa |Verdadeiro |Uma imagem instantânea da informação do sistema (por exemplo: OS ou CPU).| 
+|Utilizadores locais| eventoPrioritárioLocalUsers |Alta |Verdadeiro|Uma foto dos utilizadores locais registados dentro do sistema. |
 |Iniciar sessão|  eventoPriorityLogin |Alta|Falso|Audite os eventos de login no dispositivo (logins locais e remotos).|
-|Criação de conexão |eventPriorityConnectionCreate|Baixa|Falso|Audita as ligações TCP criadas de e para o dispositivo. |
-|Configuração da firewall| eventPriorityFirewallConfiguration|Baixa|Verdadeiro|Instantâneo da configuração da firewall do dispositivo (regras de firewall). |
+|Criação de conexão |eventoPriorityConnectionCreate|Baixa|Falso|Audita as ligações TCP criadas de e para o dispositivo. |
+|Configuração da firewall| eventoPriorityFirewallConfiguration|Baixa|Verdadeiro|Instantâneo da configuração da firewall do dispositivo (regras de firewall). |
 |Linha de base do OS| eventoPriorityOSBaseline| Baixa|Verdadeiro|Foto instantânea da verificação da linha de base do dispositivo OS.|
 |
  
@@ -153,4 +153,4 @@ Os valores predefinidos estão disponíveis no esquema adequado no [GitHub](http
 
 - [Compreender o Centro de Segurança Azure para recomendações do IoT](concept-recommendations.md)
 - [Explore o Centro de Segurança Azure para alertas IoT](concept-security-alerts.md)
-- [Acesso a dados de segurança bruta](how-to-security-data-access.md)
+- [Aceder a dados de segurança não processados](how-to-security-data-access.md)

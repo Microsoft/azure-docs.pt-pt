@@ -15,6 +15,8 @@
       href: web-query-data.md
 - name: Tutoriais
   items:
+    - name: Escrever consultas
+      href: write-queries.md
     - name: Ingestão programática de blobs E2E
       items:
         - name: 'C#'
@@ -32,14 +34,22 @@
         - name: Descrição geral da ingestão de dados
           displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
           href: ingest-data-overview.md
+        - name: Propriedades de ingestão de dados
+          href: ingestion-properties.md
+        - name: Formatos para ingestão de dados
+          href: ingestion-supported-formats.md
     - name: Kusto Query Language
       items:
         - name: Guia de referência rápida
           href: kql-quick-reference.md
     - name: Descrição geral da visualização de dados
       href: viz-overview.md
-    - name: Descrição geral da segurança
-      href: security.md
+    - name: Segurança
+      items:
+        - name: Descrição geral da segurança
+          href: security.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de procedimentos
   items:
     - name: Criar um cluster e uma base de dados
@@ -60,6 +70,8 @@
           href: ingest-data-one-click.md
         - name: Ingestão em transmissão em fluxo
           href: ingest-data-streaming.md
+        - name: Utilizar o LightIngest
+          href: lightingest.md
         - name: Hub de Eventos
           items:
             - name: Portal do Azure
@@ -106,8 +118,6 @@
           href: ingest-json-formats.md
     - name: Consultar dados
       items:
-        - name: Escrever consultas
-          href: write-queries.md
         - name: Consultar dados no Azure Data Lake
           href: data-lake-query-data.md
         - name: Consultar dados no Azure Monitor
@@ -158,12 +168,22 @@
           href: k2bridge.md
     - name: Proteger
       items:
+        - name: Isolamento de rede (VNet)
+          items:
+            - name: Criar um cluster na VNet - Portal
+              href: vnet-create-cluster-portal.md
+            - name: Implementar o cluster na VNet
+              href: vnet-deployment.md
+            - name: 'Resolver problemas de criação, conectividade e operação do cluster da VNet'
+              href: vnet-deploy-troubleshoot.md
         - name: Gerir a segurança do cluster
           href: manage-cluster-security.md
         - name: Configurar identidades geridas
           href: managed-identities.md
         - name: Configurar chaves geridas pelo cliente
           items:
+            - name: Portal
+              href: customer-managed-keys-portal.md
             - name: 'C#'
               href: customer-managed-keys-csharp.md
             - name: Modelo Azure Resource Manager
@@ -214,10 +234,6 @@
               href: delete-data.md
             - name: Lidar com dados duplicados
               href: dealing-with-duplicates.md
-    - name: Implementação
-      items:
-        - name: Implementar o cluster na sua rede virtual
-          href: vnet-deployment.md
     - name: Monitorizar
       items:
         - name: Utilizar registos de diagnósticos para monitorizar a ingestão
@@ -236,6 +252,12 @@
               href: data-factory-template.md
             - name: Executar comandos de controlo com o Azure Data Factory
               href: data-factory-command-activity.md
+        - name: Conector do Microsoft Flow
+          items:
+            - name: Conector do Microsoft Flow
+              href: flow.md
+            - name: Exemplos de utilização do conector do Microsoft Flow
+              href: flow-usage.md
         - name: Conector do Apache Spark
           href: spark-connector.md
         - name: Ligar a partir do Databricks com o Python

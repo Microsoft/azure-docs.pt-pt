@@ -1,6 +1,6 @@
 ---
-title: 'ExpressRoute: mover circuitos do clássico para o Azure Resource Manager'
-description: Descrição geral do protocolo de bridge clássica e os modelos de implementação do Resource Manager.
+title: 'ExpressRoute: Mover circuitos do clássico para o Gestor de Recursos Azure'
+description: Visão geral da ponte entre os modelos clássicos e de implementação do Gestor de Recursos.
 services: expressroute
 author: ganesr
 ms.service: expressroute
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
 ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645910"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mover circuitos ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager
@@ -57,7 +57,7 @@ As seguintes operações clássicas são suportadas num circuito ExpressRoute qu
 * Criar/atualizar/obter/eliminar ligações de rede virtual em redes virtuais clássicas
 * Criar/atualizar/obter/eliminar autorizações de ligações de rede virtual para conectividade entre subscrições
 
-No entanto, quando **allowClassicOperations** é definido como TRUE, não é possível efetuar as seguintes operações clássicas:
+No entanto, quando **o permitirOClassicOperations** está definido para TRUE, não é possível realizar as seguintes operações clássicas:
 
 * Criar/atualizar/obter/eliminar peerings do protocolo BGP (Border Gateway Protocol) para peerings do Azure privado, Azure público e da Microsoft
 * Eliminar um circuito do ExpressRoute

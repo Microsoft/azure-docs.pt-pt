@@ -1,6 +1,6 @@
 ---
-title: Diferenças de validação por tipos de conta com suporte – plataforma de identidade da Microsoft | Azure
-description: Saiba mais sobre as diferenças de validação de várias propriedades para diferentes tipos de conta com suporte ao registrar seu aplicativo com a plataforma de identidade da Microsoft.
+title: Diferenças de validação por tipos de conta suportados - plataforma de identidade da Microsoft / Azure
+description: Conheça as diferenças de validação de várias propriedades para diferentes tipos de conta suportadas ao registar a sua aplicação com a plataforma de identidade microsoft.
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
@@ -10,44 +10,44 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 812ca0d502572f43c968c75dee17f45d066bcf04
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701302"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128864"
 ---
-# <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferenças de validação por tipos de conta com suporte (signInAudience)
+# <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferenças de validação por tipos de conta suportados (signInAudience)
 
-Ao registrar um aplicativo com a plataforma de identidade da Microsoft para desenvolvedores, você será solicitado a selecionar a quais tipos de conta o aplicativo dá suporte. No objeto de aplicativo e no manifesto, essa propriedade é `signInAudience`.
+Ao registar uma aplicação com a plataforma de identidade da Microsoft para programadores, é-lhe pedido que selecione quais os tipos de conta que a sua aplicação suporta. No objeto de aplicação e `signInAudience`manifesto, este imóvel é .
 
-As opções incluem o seguinte:
+As opções incluem:
 
-- *AzureADMyOrg*: somente as contas no diretório organizacional em que o aplicativo está registrado (locatário único)
-- *AzureADMultipleOrgs*: contas em qualquer diretório organizacional (multilocatário)
-- *AzureADandPersonalMicrosoftAccount*: contas em qualquer diretório organizacional (multilocatário) e contas pessoais da Microsoft (por exemplo, Skype, Xbox e Outlook.com)
+- *AzureADMyOrg*: Apenas contas no diretório organizacional onde a app está registada (inquilino único)
+- *AzureADMultipleOrgs*: Contas em qualquer diretório organizacional (multi-inquilino)
+- *AzureADandPersonalMicrosoftAccount*: Contas em qualquer diretório organizacional (multi-inquilino) e contas pessoais da Microsoft (por exemplo, Skype, Xbox e Outlook.com)
 
-Para aplicativos registrados, você pode encontrar o valor dos tipos de conta com suporte na seção de **autenticação** de um aplicativo. Você também pode encontrá-lo na propriedade `signInAudience` no **manifesto**.
+Para aplicações registadas, pode encontrar o valor para tipos de conta suportados na secção **Autenticação** de uma aplicação. Você também pode encontrá-lo sob a `signInAudience` propriedade no **Manifesto.**
 
-O valor selecionado para essa propriedade tem implicações em outras propriedades de objeto de aplicativo. Como resultado, se você alterar essa propriedade, talvez seja necessário alterar as outras propriedades primeiro.
+O valor que seleciona para esta propriedade tem implicações em outras propriedades de objetos de aplicação. Como resultado, se você mudar este imóvel você pode precisar de alterar outras propriedades primeiro.
 
-Consulte a tabela a seguir para obter as diferenças de validação de várias propriedades para diferentes tipos de conta com suporte.
+Consulte a tabela seguinte para as diferenças de validação de vários imóveis para diferentes tipos de conta suportada.
 
-| Propriedade | `AzureADMyOrg` | `AzureADMultipleOrgs`  | `AzureADandPersonalMicrosoftAccount` |
+| Propriedade | `AzureADMyOrg` | `AzureADMultipleOrgs` | `AzureADandPersonalMicrosoftAccount` e `PersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
-| URI da ID do aplicativo (`identifierURIs`)  | Deve ser exclusivo no locatário <br><br> Há suporte para esquemas urn:// <br><br> Não há suporte para curingas <br><br> Há suporte para cadeias de caracteres de consulta e fragmentos <br><br> Comprimento máximo de 255 caracteres <br><br> Sem limite * no número de identifierURIs  | Deve ser globalmente exclusivo <br><br> Há suporte para esquemas urn:// <br><br> Não há suporte para curingas <br><br> Há suporte para cadeias de caracteres de consulta e fragmentos <br><br> Comprimento máximo de 255 caracteres <br><br> Sem limite * no número de identifierURIs | Deve ser globalmente exclusivo <br><br> Não há suporte para esquemas urn:// <br><br> Não há suporte para curingas, fragmentos e cadeias de consulta <br><br> Comprimento máximo de 120 caracteres <br><br> Máximo de 50 identifierURIs |
-| Certificados (`keyCredentials`) | Chave de assinatura simétrica | Chave de assinatura simétrica | Criptografia e chave de assinatura assimétrica | 
-| Segredos do cliente (`passwordCredentials`) | Sem limite * | Sem limite * | Se liveSDK estiver habilitado: máximo de 2 segredos de cliente | 
-| Redirecionar URIs (`replyURLs`) | Confira [restrições de redirecionamento de URI/URL de resposta e limitações](reply-url.md) para obter mais informações. | | | 
-| Permissões de API (`requiredResourceAccess`) | Sem limite * | Sem limite * | Máximo de 30 permissões por recurso permitido (por exemplo, Microsoft Graph) | 
-| Escopos definidos por esta API (`oauth2Permissions`) | Comprimento máximo do nome de escopo de 120 caracteres <br><br> Sem limite * no número de escopos definidos | Comprimento máximo do nome de escopo de 120 caracteres <br><br> Sem limite * no número de escopos definidos |  Comprimento máximo do nome de escopo de 40 caracteres <br><br> Máximo de 100 escopos definidos | 
-| Aplicativos cliente autorizados (`preautorizedApplications`) | Sem limite * | Sem limite * | Máximo total de 500 <br><br> Máximo de 100 aplicativos cliente definidos <br><br> Máximo de 30 escopos definidos por cliente | 
-| appRoles | Suportadas <br> Sem limite * | Suportadas <br> Sem limite * | Não suportado | 
-| URL de fim de sessão | http://localhost é permitido <br><br> Comprimento máximo de 255 caracteres | http://localhost é permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhost é permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> O esquema HTTP não é permitido <br><br> Não há suporte para curingas | 
+| ID de`identifierURIs`aplicação URI ()  | Deve ser único no inquilino <br><br> urn:// esquemas são apoiados <br><br> Wildcards não são suportados <br><br> Cordas de consulta e fragmentos são suportados <br><br> Comprimento máximo de 255 caracteres <br><br> Sem limite* no número de identificadores  | Deve ser globalmente único <br><br> urn:// esquemas são apoiados <br><br> Wildcards não são suportados <br><br> Cordas de consulta e fragmentos são suportados <br><br> Comprimento máximo de 255 caracteres <br><br> Sem limite* no número de identificadores | Deve ser globalmente único <br><br> urn:// esquemas não são apoiados <br><br> Wildcards, fragmentos e cordas de consulta não são suportados <br><br> Comprimento máximo de 120 caracteres <br><br> Máximo de 50 identificadores |
+| Certificados`keyCredentials`() | Chave de assinatura simétrica | Chave de assinatura simétrica | Chave de assinatura de encriptação e assimétrica | 
+| Segredos`passwordCredentials`do cliente () | Sem limite* | Sem limite* | Se liveSDK estiver ativado: Máximo de 2 segredos de cliente | 
+| Redirecionamento`replyURLs`de URIs () | Consulte [Redirecionamento de restrições e limitações de URL DE URI/resposta](reply-url.md) para mais informações. | | | 
+| Permissões API ()`requiredResourceAccess` | Sem limite* | Sem limite* | Máximo de 30 permissões por recurso permitidas (por exemplo, Microsoft Graph) | 
+| Âmbitos definidos por`oauth2Permissions`esta API ( ) | Comprimento máximo de nome de âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos | Comprimento máximo de nome de âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos |  Comprimento máximo de nome de âmbito de 40 caracteres <br><br> Máximo de 100 âmbitos definidos | 
+| Pedidos de cliente`preautorizedApplications`autorizados () | Sem limite* | Sem limite* | Máximo total de 500 <br><br> Máximo de 100 aplicações de clientes definidas <br><br> Máximo de 30 âmbitos definidos por cliente | 
+| appRoles | Suportado <br> Sem limite* | Suportado <br> Sem limite* | Não suportado | 
+| Logout URL | http://localhosté permitido <br><br> Comprimento máximo de 255 caracteres | http://localhosté permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhosté permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> Esquema HTTP não é permitido <br><br> Wildcards não são suportados | 
 
-\* Há um limite global de cerca de 1000 itens em todas as propriedades de coleção no objeto de aplicativo
+*Existe um limite global de cerca de 1000 itens em todas as propriedades de coleção no objeto da aplicação
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [registro do aplicativo](app-objects-and-service-principals.md)
-- Saiba mais sobre o [manifesto do aplicativo](reference-app-manifest.md)
+- Conheça o [registo de candidaturas](app-objects-and-service-principals.md)
+- Conheça o manifesto de [Candidatura](reference-app-manifest.md)

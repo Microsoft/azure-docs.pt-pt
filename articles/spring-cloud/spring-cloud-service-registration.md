@@ -1,26 +1,26 @@
 ---
-title: Automatizar o registro e a descoberta de serviços
-description: Saiba como automatizar a descoberta e o registro de serviços usando o registro de serviço do Spring Cloud
+title: Automate o registo e a descoberta do serviço de automatização
+description: Saiba automatizar a descoberta e o registo de serviços através do Registo de Serviço sinuoso da Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: brendm
 ms.openlocfilehash: 6c217096f0ba4200f49bd1fd8056768a6f6f6dbd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278864"
 ---
-# <a name="discover-and-register-your-spring-cloud-services"></a>Descobrir e registrar seus serviços de nuvem Spring
+# <a name="discover-and-register-your-spring-cloud-services"></a>Descubra e registe os seus serviços de Nuvem de primavera
 
-A descoberta de serviço é um requisito fundamental para uma arquitetura baseada em microserviço.  Configurar cada cliente manualmente leva tempo e introduz a possibilidade de erro humano.  O registro do serviço de nuvem do Azure Spring resolve esse problema.  Uma vez configurado, um servidor de registro de serviço controlará o registro e a descoberta do serviço para os microserviços do seu aplicativo. O servidor do registro de serviço mantém um registro dos microserviços implantados, habilita o balanceamento de carga do lado do cliente e dissocia os provedores de serviço de clientes sem depender do DNS.
+Service Discovery é um requisito chave para uma arquitetura baseada em microserviços.  Configurar cada cliente manualmente leva tempo e introduz a possibilidade de erro humano.  O Registo de Serviço sinuoso da Nuvem de primavera de Azure resolve este problema.  Uma vez configurado, um servidor de Registo de Serviço controlará o registo e a descoberta do serviço para os microserviços da sua aplicação. O servidor do Registo de Serviços mantém um registo dos microserviços implantados, permite o equilíbrio de carga do lado do cliente e dissocia os prestadores de serviços dos clientes sem depender do DNS.
 
-## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registrar seu aplicativo usando o registro de serviço do Spring Cloud
+## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registe a sua aplicação através do Registo de Serviço sinuoso da Nuvem de primavera
 
-Antes que seu aplicativo possa gerenciar o registro e a descoberta de serviços usando o registro de serviço do Spring Cloud, várias dependências devem ser incluídas no arquivo *pom. xml* do aplicativo.
-Inclua dependências para *Spring-Cloud-startr-Netflix-Eureka-Client* e *Spring-Cloud-startr-Azure-Spring-Cloud-Client* ao seu *pom. xml*
+Antes que a sua aplicação possa gerir o registo e a descoberta do serviço através do Registo de Serviço seleções da Spring Cloud, várias dependências devem ser incluídas no ficheiro *pom.xml* da aplicação.
+Inclua dependências para *spring-cloud-starter-netflix-eureka-client* e *spring-cloud-starter-azure-spring-cloud-client* to your *pom.xml*
 
 ```xml
     <dependency>
@@ -34,9 +34,9 @@ Inclua dependências para *Spring-Cloud-startr-Netflix-Eureka-Client* e *Spring-
     </dependency>
 ```
 
-## <a name="update-the-top-level-class"></a>Atualizar a classe de nível superior
+## <a name="update-the-top-level-class"></a>Atualize a classe de nível superior
 
-Por fim, adicionamos uma anotação à classe de nível superior do seu aplicativo
+Finalmente, adicionamos uma anotação à classe de nível superior da sua aplicação
 
  ```java
     package foo.bar;
@@ -52,6 +52,6 @@ Por fim, adicionamos uma anotação à classe de nível superior do seu aplicati
     }
  ```
 
-O ponto de extremidade do servidor do registro do serviço de nuvem Spring será injetado como uma variável de ambiente em seu aplicativo.  Os microserviços agora serão capazes de se registrar no servidor do registro de serviço e descobrir outros microserviços dependentes.
+O ponto final do servidor do serviço da Nuvem de primavera será injetado como uma variável ambiental na sua aplicação.  Os microserviços poderão agora registar-se no servidor do Registo de Serviços e descobrir outros microserviços dependentes.
 
-Observe que pode levar alguns minutos para que as alterações sejam propagadas do servidor para todos os microserviços.
+Note que pode demorar alguns minutos para que as alterações se propaguem do servidor para todos os microserviços.

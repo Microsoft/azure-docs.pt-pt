@@ -14,10 +14,10 @@ ms.topic: overview
 ms.date: 02/03/2020
 ms.author: spelluru
 ms.openlocfilehash: ef296035ee8f0c80b4ee078303639d7aedf5a91d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76986636"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introdução ao Azure Lab Services
@@ -76,7 +76,7 @@ As seguintes secções fornecem mais detalhes sobre estes laboratórios.
 ## <a name="managed-lab-types"></a>Tipos de laboratório geridos
 O Azure Lab Services permite-lhe criar laboratórios cuja infraestrutura é gerida pelo Azure. Este artigo refere-se a eles como tipos de laboratório geridos. Os tipos de laboratório geridos oferecem diferentes tipos de laboratórios que se adequam à sua necessidade específica. Atualmente, apenas o tipo de laboratório gerido que é suportado é **o laboratório de sala de aula.** 
 
-Os tipos de laboratório geridos permitem-lhe começar imediatamente, com a configuração mínima. O próprio serviço processa toda a gestão da infraestrutura do laboratório, desde gerar as VMs até processar os erros e dimensionar a infraestrutura. Para criar um laboratório gerido, como um laboratório de sala de aula, precisa criar uma conta de laboratório para a sua organização primeiro. A conta de laboratório serve como a conta central em que são geridos todos os laboratórios na organização. 
+Os tipos de laboratório geridos permitem-lhe começar imediatamente, com a configuração mínima. O próprio serviço processa toda a gestão da infraestrutura do laboratório, desde gerar as VMs até processar os erros e dimensionar a infraestrutura.Para criar um laboratório gerido, como um laboratório de sala de aula, precisa criar uma conta de laboratório para a sua organização primeiro. A conta de laboratório serve como a conta central em que são geridos todos os laboratórios na organização. 
 
 Quando cria e utiliza recursos Azure nestes tipos de laboratório geridos, o serviço cria e gere recursos em subscrições internas da Microsoft. Não são criados na sua própria subscrição do Azure. O serviço mantém um registo da utilização destes recursos nas subscrições internas da Microsoft. A utilização é faturada na sua subscrição do Azure que contém a conta de laboratório.   
 
@@ -89,9 +89,9 @@ Aqui estão alguns dos casos de **utilização para tipos de laboratório gerido
 
 
 ## <a name="devtest-labs"></a>DevTest Labs
-Poderá ter cenários em que pretende gerir toda a infraestrutura e configuração, na sua própria subscrição. Para o fazer, pode criar um laboratório com o Azure DevTest Labs no portal do Azure. Para estes laboratórios, não precisas de criar uma conta de laboratório. Estes laboratórios não aparecem na conta de laboratório (que existe para os tipos de laboratório geridos).  
+Poderá ter cenários em que pretende gerir toda a infraestrutura e configuração, na sua própria subscrição. Para o fazer, pode criar um laboratório com o Azure DevTest Labs no portal do Azure.Para estes laboratórios, não tem de criar uma conta de laboratório. Estes laboratórios não aparecem na conta de laboratório (que existe para os tipos de laboratório geridos).  
 
-Veja a seguir alguns **casos de utilização do DevTest Labs**: 
+Aqui estão alguns dos casos de **utilização para a utilização de Laboratórios DevTest:** 
 
 - Aprovisione rapidamente um laboratório de máquinas virtuais para alojar um hackathon ou uma sessão prática numa conferência. Elimine o laboratório com um único clique quando terminar. 
 - Crie um conjunto de VMs configuradas com a sua aplicação e permita que a sua equipa utilize facilmente uma máquina virtual para deteção de erros.  
@@ -116,4 +116,4 @@ A seguinte tabela compara dois tipos de laboratórios suportados pelo Azure Lab 
 Consulte os seguintes artigos: 
 
 - [Sobre laboratórios de sala de aula](./classroom-labs/classroom-labs-overview.md)
-- [Sobre devTest Labs](devtest-lab-overview.md)
+- [Sobre o DevTest Labs](devtest-lab-overview.md)

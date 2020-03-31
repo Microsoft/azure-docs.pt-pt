@@ -9,10 +9,10 @@ ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241417"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre o Azure Virtual WAN
@@ -29,7 +29,7 @@ Este artigo fornece uma visão rápida da conectividade da rede em Azure Virtual
 * **Instalação e configuração automatizadas do spoke:** ligue as redes virtuais e as cargas de trabalho diretamente ao hub do Azure.
 * **Resolução intuitiva de problemas:** Você pode ver o fluxo de ponta a ponta dentro do Azure, e depois usar esta informação para tomar as ações necessárias.
 
-## <a name="basicstandard"></a>WaNs virtuais básicos e standard
+## <a name="basic-and-standard-virtual-wans"></a><a name="basicstandard"></a>WaNs virtuais básicos e standard
 
 Existem dois tipos de WANs virtuais: Básico e Standard. A tabela seguinte mostra as configurações disponíveis para cada tipo.
 
@@ -37,14 +37,14 @@ Existem dois tipos de WANs virtuais: Básico e Standard. A tabela seguinte mostr
 
 Para obter passos para atualizar um WAN virtual, consulte [Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md).
 
-## <a name="architecture"></a>Arquitetura
+## <a name="architecture"></a><a name="architecture"></a>Arquitetura
 
 Para obter informações sobre a arquitetura Virtual WAN e como migrar para o WAN Virtual, consulte os seguintes artigos:
 
 * [Arquitetura virtual WAN](migrate-from-hub-spoke-topology.md)
-* [Arquitetura global da rede de trânsito](virtual-wan-global-transit-network-architecture.md)
+* [Arquitetura de rede de trânsito global](virtual-wan-global-transit-network-architecture.md)
 
-## <a name="resources"></a>Recursos da WAN virtual
+## <a name="virtual-wan-resources"></a><a name="resources"></a>Recursos da WAN virtual
 
 Para configurar uma WAN virtual ponto a ponto, crie os seguintes recursos:
 
@@ -64,40 +64,40 @@ Para configurar uma WAN virtual ponto a ponto, crie os seguintes recursos:
 
   * **Local:** Este recurso é utilizado apenas para ligações site-to-site. O recurso do site é **vpnsite**. Representa o seu dispositivo VPN no local e as suas definições. Ao trabalhar com um parceiro de WAN Virtual, tem uma solução integrada para exportar automaticamente estas informações para o Azure.
 
-## <a name="connectivity"></a>Tipos de conectividade
+## <a name="types-of-connectivity"></a><a name="connectivity"></a>Tipos de conectividade
 
 O WAN virtual permite os seguintes tipos de conectividade: VPN site-to-site, User VPN (Ponto-a-Local) e ExpressRoute.
 
-### <a name="s2s"></a>Ligações VPN site-to-site
+### <a name="site-to-site-vpn-connections"></a><a name="s2s"></a>Ligações de Rede de VPNs
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-about/virtualwan.png)
 
 Quando criar uma ligação virtual wan site-to-site, você pode trabalhar com um parceiro disponível. Se não quiser utilizar um parceiro, pode configurar a ligação manualmente. Para mais informações, consulte [Criar uma ligação site-a-site utilizando o WAN virtual](virtual-wan-site-to-site-portal.md).
 
-#### <a name="s2spartner"></a>Fluxo de trabalho de parceiro virtual WAN
+#### <a name="virtual-wan-partner-workflow"></a><a name="s2spartner"></a>Fluxo de trabalho de parceiro virtual WAN
 
 Quando se trabalha com um parceiro Virtual WAN, o fluxo de trabalho é:
 
-1. O controlador de dispositivos de ramo (VPN/SDWAN) é autenticado para exportar informações centradas nos sites para o Azure com um [Principal de Serviço do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
+1. O controlador do dispositivo de ramificação (VPN/SDWAN) é autenticado para exportar informações centradas no local para o Azure utilizando um diretor de [serviço seleção Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 2. O controlador de dispositivos de ramo (VPN/SDWAN) obtém a configuração de conectividade do Azure e atualiza o dispositivo local. Isto automatiza a transferência de configuração, a edição e a atualização do dispositivo VPN no local.
 3. Depois de o dispositivo ter a configuração certa do Azure, é estabelecida uma ligação site a site (dois túneis ativos) à WAN do Azure. O Azure suporta IKEv1 e IKEv2. O BGP é opcional.
 
-#### <a name="partners"></a>Parceiros para ligações wan virtuais site-to-site
+#### <a name="partners-for-site-to-site-virtual-wan-connections"></a><a name="partners"></a>Parceiros para ligações wan virtuais site-to-site
 
 Para obter uma lista dos parceiros e locais disponíveis, consulte o artigo de [parceiros e locais Virtuais WAN.](virtual-wan-locations-partners.md)
 
-### <a name="uservpn"></a>Ligações VPN do utilizador (ponto-a-local)
+### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Ligações VPN do utilizador (ponto-a-local)
 
 Pode ligar-se aos seus recursos em Azure através de uma ligação IPsec/IKE (IKEv2) ou OpenVPN. Este tipo de ligação requer que um cliente VPN seja configurado no computador cliente. Para mais informações, consulte [Criar uma ligação ponto-a-local](virtual-wan-point-to-site-portal.md).
 
-### <a name="er"></a>Ligações ExpressRoute
+### <a name="expressroute-connections"></a><a name="er"></a>Ligações ExpressRoute
 O ExpressRoute permite ligar a rede no local ao Azure sobre uma ligação privada. Para criar a ligação, consulte [Criar uma ligação ExpressRoute utilizando o WAN Virtual](virtual-wan-expressroute-portal.md).
 
-## <a name="locations"></a>Localizações
+## <a name="locations"></a><a name="locations"></a>Localizações
 
 Para obter informações sobre a localização, consulte o artigo dos [parceiros e locais virtuais WAN.](virtual-wan-locations-partners.md)
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a><a name="faq"></a>FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

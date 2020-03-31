@@ -1,5 +1,5 @@
 ---
-title: Criar e gerir VMs reputáveis em Laboratórios Azure DevTest  Microsoft Docs
+title: Criar e gerir VMs reputáveis em Laboratórios Azure DevTest [ Microsoft Docs
 description: Saiba como adicionar uma máquina virtual reivindicativa a um laboratório em Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 13d642597fdf5d0eae6c6fd4f0cab16181f033c2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270800"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerir VMs reputáveis em Laboratórios Azure DevTest
 Você adiciona um VM repreensível a um laboratório de forma semelhante à forma como [adiciona um VM padrão](devtest-lab-add-vm.md) – a partir de uma *base* que é ou uma [imagem personalizada,](devtest-lab-create-template.md) [fórmula,](devtest-lab-manage-formulas.md)ou [imagem do Mercado.](devtest-lab-configure-marketplace-images.md) Este tutorial acompanha-o através da utilização do portal Azure para adicionar um VM repreensível a um laboratório em DevTest Labs, e mostra os processos que um utilizador segue para reclamar e desreclamar o VM.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Passos para adicionar um VM reivindicavel a um laboratório em Azure DevTest Labs
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços**e, em seguida, selecione **DevTest Labs** na secção **DEVOPS.** Se selecionar * (estrela) ao lado de **DevTest Labs** na secção **DEVOPS.** Esta ação adiciona **DevTest Labs** ao menu de navegação esquerdo para que possa acessá-lo facilmente da próxima vez. Em seguida, pode selecionar **DevTest Labs** no menu de navegação esquerdo.
 
     ![Todos os serviços - selecione DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -55,7 +55,7 @@ Você adiciona um VM repreensível a um laboratório de forma semelhante à form
    A página de laboratório mostra o estado da criação do VM - primeiro como **Criação**, depois como **Correr** depois do VM ter sido iniciado.
 
 > [!NOTE]
-> Se implementar VMs de laboratório através de modelos do Gestor de [Recursos Azure,](devtest-lab-create-environment-from-arm.md)pode criar VMs recedíveis, definindo a propriedade de direito supérrio verdadeira na secção de propriedades.
+> Se implementar VMs de laboratório através de modelos do Gestor de [Recursos Azure,](devtest-lab-create-environment-from-arm.md)pode criar VMs recedíveis, definindo a propriedade de direito supérrio verdadeira na secção de propriedades. **allowClaim**
 
 
 ## <a name="using-a-claimable-vm"></a>Usando um VM repreensível
@@ -97,6 +97,6 @@ Isto é conhecido como "transferência do disco de dados". O disco de dados fica
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Uma vez criado, pode ligar-se ao VM selecionando **O Connect** no seu painel de gestão.
 * Explore a galeria de [modelos quickStart Do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

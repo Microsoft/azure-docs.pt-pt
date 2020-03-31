@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253484"
 ---
 # <a name="how-to-investigate-risk"></a>Como: Investigar o risco
@@ -26,7 +26,7 @@ Todos os três relatórios permitem o download de eventos em . Formato CSV para 
 
 As organizações podem aproveitar as integrações da Microsoft Graph API para agregar dados com outras fontes a que possam ter acesso como organização.
 
-Os três relatórios encontram-se no **portal Azure** > **Diretório Ativo** do Azure > **Security**.
+Os três relatórios encontram-se no **portal** > **Azure Ative Directory** > **Security.**
 
 ## <a name="navigating-the-reports"></a>Navegar nos relatórios
 

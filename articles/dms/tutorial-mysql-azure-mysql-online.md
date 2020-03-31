@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar mySQL on-line para Azure Database para MySQL'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line do MySQL no local para a Base de Dados Azure para mySQL utilizando o Serviço de Migração de Bases de Dados Azure.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 50787a5bbfdc9baddfa4307247e8b505be6e3003
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 7c8087a01bb71657e816be89b6a562dd4783b271
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273247"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240745"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS
 
@@ -27,7 +27,7 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > * Migre o esquema de exemplo com o utilitário mysqldump.
-> * Crie uma instância do Serviço de Migração de Bases de Dados Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração utilizando o Serviço de Migração de Bases de Dados Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
@@ -71,7 +71,7 @@ Para concluir este tutorial, precisa de:
 * Ativar o registo binário no ficheiro my.ini (Windows) ou my.cnf (Unix) na base de dados de origem, utilizando a seguinte configuração:
 
   * **server_id** = 1 ou superior (relevante apenas para o MySQL 5.6)
-  * **log-bin** =\<path> (relevante apenas para MySQL 5.6) Por exemplo: log-bin = E:\MySQL_logs\\BinLog
+  * > de via **de log-bin** = \<(relevante apenas para MySQL 5.6) Por exemplo: log-bin = E:\MySQL_logs\\BinLog
   * **binlog_format** = row
   * **Expire_logs_days** = 5 (recomenda-se não usar zero; relevante apenas para MySQL 5.6)
   * **Binlog_row_image** = full (relevante apenas para o MySQL 5.6)
@@ -235,7 +235,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 * Selecione **Executar a migração**.
 
-    É apresentada a janela da atividade de migração e o **Estado** da atividade é **a inicializar**.
+    A janela da atividade migratória aparece, e o **Estado** da atividade está **a rubricar.**
 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 

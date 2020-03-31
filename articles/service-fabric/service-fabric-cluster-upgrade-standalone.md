@@ -1,45 +1,45 @@
 ---
-title: Atualizar um cluster autônomo do Azure Service Fabric
-description: Saiba mais sobre como atualizar a versão ou a configuração de um cluster autônomo do Azure Service Fabric.  T
+title: Atualizar um cluster autónomo de Tecido de Serviço Azure
+description: Aprenda sobre a atualização da versão ou configuração de um cluster autónomo do Tecido de Serviço Azure.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451831"
 ---
-# <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Atualizando e atualizando um Cluster Service Fabric autônomo
+# <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Atualizar e atualizar um cluster autónomo de Tecido de Serviço
 
-Para qualquer sistema moderno, a criação de uma grande possibilidade é a chave para atingir o sucesso de longo prazo de seu produto. Um cluster autônomo do Azure Service Fabric é um recurso que você possui. Este artigo descreve o que pode ser atualizado ou atualizado.
+Para qualquer sistema moderno, conceber para a graduação é fundamental para alcançar o sucesso a longo prazo do seu produto. Um cluster autónomo azure Service Fabric é um recurso que possui. Este artigo descreve o que pode ser atualizado ou atualizado.
 
-## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão da malha que é executada no cluster
-Certifique-se de que o cluster sempre execute uma [versão de Service Fabric com suporte](service-fabric-versions.md). Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior é marcada para o fim do suporte após um mínimo de 60 dias a partir da data do anúncio. Novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). A nova versão está disponível para escolha nesse ponto.
+## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão de tecido que corre no seu cluster
+Certifique-se de que o seu cluster executa sempre uma [versão de Tecido de Serviço suportado](service-fabric-versions.md). Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior está marcada para o fim do suporte após um mínimo de 60 dias a contar da data do anúncio. Novos lançamentos são anunciados [no blog da equipa de Service Fabric.](https://blogs.msdn.microsoft.com/azureservicefabric/) O novo lançamento está disponível para escolher nessa altura.
 
-Você pode definir seu cluster para receber atualizações automáticas de malha à medida que elas são lançadas pela Microsoft ou você pode selecionar manualmente uma versão de malha com suporte na qual você deseja que o cluster esteja. Para obter mais informações, leia [atualizar a versão de Service Fabric que é executada no cluster](service-fabric-cluster-upgrade-windows-server.md).
+Pode configurar o seu cluster para receber atualizações automáticas de tecido saem à medida que são lançadas pela Microsoft ou pode selecionar manualmente uma versão de tecido suportado em que pretende que o seu cluster esteja ligado. Para mais informações, leia [Atualizar a versão Service Fabric que corre no seu cluster](service-fabric-cluster-upgrade-windows-server.md).
 
-## <a name="customize-configuration-settings"></a>Personalizar definições de configuração
+## <a name="customize-configuration-settings"></a>Personalizar as definições de configuração
 
-Muitas [definições de configuração](service-fabric-cluster-manifest.md) diferentes podem ser definidas no arquivo *ClusterConfig. JSON* , como o nível de confiabilidade das propriedades do cluster e do nó.  Para saber mais, leia [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).  Muitas outras configurações, mais avançadas, também podem ser personalizadas.  Para obter mais informações, leia [Service Fabric configurações de malha de cluster](service-fabric-cluster-fabric-settings.md).
+Muitas configurações de [configuração diferentes](service-fabric-cluster-manifest.md) podem ser definidas no ficheiro *ClusterConfig.json,* como o nível de fiabilidade das propriedades do cluster e do nó.  Para saber mais, leia [Atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).  Muitas outras configurações, mais avançadas, também podem ser personalizadas.  Para mais informações, leia [as definições](service-fabric-cluster-fabric-settings.md)de tecido de cluster de tecido de serviço .
 
-## <a name="define-node-properties"></a>Definir propriedades de nó
-Às vezes, talvez você queira garantir que determinadas cargas de trabalho sejam executadas apenas em determinados tipos de nós no cluster. Por exemplo, alguma carga de trabalho pode exigir GPUs ou SSDs, enquanto outras não podem. Para cada um dos tipos de nó em um cluster, você pode adicionar propriedades de nó personalizadas a nós de cluster. As restrições de posicionamento são as instruções anexadas a serviços individuais que selecionam uma ou mais propriedades de nó. As restrições de posicionamento definem onde os serviços devem ser executados.
+## <a name="define-node-properties"></a>Definir propriedades do nó
+Por vezes, é possível garantir que determinadas cargas de trabalho funcionam apenas em certos tipos de nós no cluster. Por exemplo, alguma carga de trabalho pode exigir GPUs ou SSDs, enquanto outros não podem. Para cada um dos tipos de nós em um cluster, você pode adicionar propriedades personalizadas do nó aos nós de cluster. Os constrangimentos de colocação são as declarações anexas a serviços individuais que selecionam para uma ou mais propriedades do nó. Os constrangimentos de colocação definem onde os serviços devem ser executados.
 
-Para obter detalhes sobre o uso de restrições de posicionamento, propriedades de nó e como defini-las, leia [as propriedades do nó e as restrições de posicionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
+Para mais detalhes sobre a utilização de restrições de colocação, propriedades do nó e como defini-las, leia as propriedades do nó e os constrangimentos de [colocação.](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
  
 
 ## <a name="add-capacity-metrics"></a>Adicionar métricas de capacidade
-Para cada um dos tipos de nó, você pode adicionar métricas de capacidade personalizadas que deseja usar em seus aplicativos para relatar a carga. Para obter detalhes sobre o uso de métricas de capacidade para relatar carga, consulte os documentos Service Fabric cluster Resource Manager sobre como [descrever o cluster e as](service-fabric-cluster-resource-manager-cluster-description.md) [métricas e a carga](service-fabric-cluster-resource-manager-metrics.md).
+Para cada um dos tipos de nós, pode adicionar métricas de capacidade personalizadas que pretende utilizar nas suas aplicações para reportar carga. Para obter mais detalhes sobre a utilização de métricas de capacidade para reportar a carga, consulte os documentos do Gestor de Recursos de Cluster de Cluster de Tecidos de Serviço sobre [a descrição](service-fabric-cluster-resource-manager-cluster-description.md) do seu cluster e [métricas e carga](service-fabric-cluster-resource-manager-metrics.md).
 
-## <a name="patch-the-os-in-the-cluster-nodes"></a>Corrigir o sistema operacional nos nós do cluster
-O POA (aplicativo de orquestração de patch) é um aplicativo Service Fabric que automatiza a aplicação de patch do sistema operacional em um Cluster Service Fabric sem tempo de inatividade. O [aplicativo de orquestração de patch para Windows](service-fabric-patch-orchestration-application.md) pode ser implantado em seu cluster para instalar patches de maneira orquestrada enquanto mantém os serviços disponíveis o tempo todo. 
+## <a name="patch-the-os-in-the-cluster-nodes"></a>Remendar o SO nos nós do cluster
+A aplicação de orquestração de patch (POA) é uma aplicação service Fabric que automatiza o sistema operativo patching em um cluster de Tecido de Serviço sem tempo de inatividade. A Aplicação de [Orquestração de Patch para Windows](service-fabric-patch-orchestration-application.md) pode ser implementada no seu cluster para instalar patches de forma orquestrada, mantendo os serviços sempre disponíveis. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba como personalizar algumas das configurações de [malha de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
-* Saiba mais sobre [atualizações de aplicativos](service-fabric-application-upgrade.md)
+* Aprenda a personalizar algumas das [configurações](service-fabric-cluster-fabric-settings.md) de tecido de tecido de serviço
+* Aprenda a [escalar o seu cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
+* Conheça as atualizações de [aplicações](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

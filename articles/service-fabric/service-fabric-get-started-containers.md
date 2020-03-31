@@ -4,10 +4,10 @@ description: Crie a sua primeira aplicação de contentor do Windows no Azure Se
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258476"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
@@ -35,7 +35,7 @@ Para executar uma aplicação existente num contentor do Windows num cluster do 
 
   Para este artigo, a versão (construção) do Windows Server com contentores em execução nos seus nós de cluster deve corresponder à da sua máquina de desenvolvimento. Isto porque você constrói a imagem do estivador na sua máquina de desenvolvimento e existem restrições de compatibilidade entre as versões do osso do recipiente e o sistema operativo hospedeiro no qual é implantado. Para mais informações, consulte o [sistema operativo Windows Server OS e](#windows-server-container-os-and-host-os-compatibility)o hospedeiro OS compatibilidade . 
   
-Para determinar a versão do Windows Server com recipientes de que necessita para o seu cluster, execute o comando `ver` a partir de um pedido de comando do Windows na sua máquina de desenvolvimento:
+Para determinar a versão do Windows Server com recipientes `ver` de que necessita para o seu cluster, execute o comando a partir de um pedido de comando do Windows na sua máquina de desenvolvimento:
 
 * Se a versão contiver *x.x.14323.x,* então selecione *O WindowsServer 2016-Datacenter-with-Containers* para o sistema operativo ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
   * Se a versão contiver *x.x.16299.x,* então selecione *O WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* para o sistema operativo ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
@@ -142,12 +142,12 @@ Assim que o contentor for iniciado, localize o respetivo endereço IP para que p
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Se esse comando não devolver nada, execute o seguinte comando e inspecione o elemento **NetworkSettings**->**Networks** para o endereço IP:
+Se esse comando não devolver nada, execute o seguinte comando e inspecione o elemento**Redes** **De Definições**->de Rede para o endereço IP:
 ```
 docker inspect my-web-site
 ```
 
-Ligue-se ao contentor em execução. Abra um navegador web apontando para o endereço IP devolvido, por exemplo "http:\//172.31.194.61". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
+Ligue-se ao contentor em execução. Abra um navegador web apontando para o endereço\/IP devolvido, por exemplo "http: /172.31.194.61". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
 Para parar o contentor, execute:
 
@@ -166,7 +166,7 @@ docker rm my-web-site
 
 Depois de confirmar que o contentor é executado no seu computador de programação, envie a imagem para o seu registo no Azure Container Registry.
 
-Execute ``docker login`` para iniciar sessão no seu registo de contentores com as suas [credenciais de registo](../container-registry/container-registry-authentication.md).
+Corra ``docker login`` para iniciar sessão no seu registo de contentores com as suas [credenciais de registo](../container-registry/container-registry-authentication.md).
 
 O exemplo seguinte transmite o ID e a palavra-passe de um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, poderá ter atribuído um principal de serviço ao seu registo no âmbito de um cenário de automatização. Ou pode iniciar sessão utilizando o seu nome de utilizador e senha de registo.
 
@@ -189,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Criar o serviço do contentor no Visual Studio
 O SDK e as ferramentas do Service Fabric fornecem um modelo de serviço para o ajudar a criar uma aplicação de contentor.
 
-1. Inicie o Visual Studio. Selecione **Ficheiro** > **Novo** > **Projeto**.
+1. Inicie o Visual Studio. Selecione **File** > **New** > **Project**.
 2. Selecione **Aplicação do Service Fabric**, dê-lhe o nome "MyFirstContainer" e clique em **OK**.
 3. Selecione **Contentor** na lista de **modelos de serviço**.
 4. Em **Nome da Imagem**, introduza "myregistry.azurecr.io/samples/helloworldapp", a imagem que enviou para o repositório do seu contentor.
@@ -281,9 +281,9 @@ A [governação de recursos](service-fabric-resource-governance.md) restringe os
   </Policies>
 </ServiceManifestImport>
 ```
-## <a name="configure-docker-healthcheck"></a>Configurar docker HEALTHCHECK 
+## <a name="configure-docker-healthcheck"></a>Configurar HEALTHCHECK do docker 
 
-A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o **health_status** for [bom estado de funcionamento](service-fabric-visualizing-your-cluster.md) é apresentado no *Service Fabric Explorer* um relatório com o estado de funcionamento *OK* e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. 
+A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. 
 
 Começando com a mais recente versão de atualização do v6.4, tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser reportadas como um erro. Se esta opção estiver ativada, aparecerá um relatório de saúde **OK** quando *health_status* estiver *saudável* e o **ERROR** aparecerá quando *health_status* não for *saudável.*
 
@@ -315,7 +315,7 @@ Se *RestartContainerOnUnhealthyDockerHealthStatus* estiver definido como **verda
 
 Se o *TreatContainerUnhealthyStatusAsError* estiver definido como **verdadeiro,** surgirão relatórios de saúde **ERROR** quando o *health_status* do recipiente não for *saudável*.
 
-Se pretender desativar a integração de **HEALTHCHECK** em todo o cluster do Service Fabric, terá de definir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **falso**.
+Se pretender desativar a integração **HEALTHCHECK** para todo o cluster do Service Fabric, terá de definir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) para **falso**.
 
 ## <a name="deploy-the-container-application"></a>Implementar a aplicação de contentor
 Guarde todas as alterações e crie a aplicação. Para publicar a sua aplicação, clique com o botão direito do rato em **MyFirstContainer**, no Explorador de Soluções, e selecione **Publicar**.
@@ -368,7 +368,7 @@ Recomendamos as seguintes práticas para garantir que os recipientes sejam impla
  
 ## <a name="specify-os-build-specific-container-images"></a>Indicar imagens de contentor específicas da compilação de SO 
 
-Os recipientes do Windows Server podem não ser compatíveis em diferentes versões do SISTEMA. Por exemplo, os recipientes do Windows Server construídos utilizando o Windows Server 2016 não funcionam na versão 1709 do Windows Server no modo de isolamento de processos. Assim, se os nós de cluster forem atualizados para a versão mais recente, os serviços de contentores construídos utilizando as versões anteriores do SISTEMA podem falhar. Para contornar isto com a versão 6.1 do tempo de execução e mais recente, o Service Fabric suporta especificar várias imagens de S por recipiente e marcá-las com as versões de construção do SISTEMA no manifesto de aplicação. Pode obter a versão de construção do OS executando `winver` num pedido de comando do Windows. Antes de atualizar o SO nos nós, atualize os manifestos da aplicação e especifique a substituições de imagem por versão de SO. O fragmento seguinte mostra como especificar várias imagens de contentor no manifesto da aplicação, **ApplicationManifest.xml**:
+Os recipientes do Windows Server podem não ser compatíveis em diferentes versões do SISTEMA. Por exemplo, os recipientes do Windows Server construídos utilizando o Windows Server 2016 não funcionam na versão 1709 do Windows Server no modo de isolamento de processos. Assim, se os nós de cluster forem atualizados para a versão mais recente, os serviços de contentores construídos utilizando as versões anteriores do SISTEMA podem falhar. Para contornar isto com a versão 6.1 do tempo de execução e mais recente, o Service Fabric suporta especificar várias imagens de S por recipiente e marcá-las com as versões de construção do SISTEMA no manifesto de aplicação. Pode obter a versão de construção do SISTEMA executando `winver` a uma solicitação de comando do Windows. Antes de atualizar o SO nos nós, atualize os manifestos da aplicação e especifique a substituições de imagem por versão de SO. O fragmento seguinte mostra como especificar várias imagens de contentor no manifesto da aplicação, **ApplicationManifest.xml**:
 
 
 ```xml
@@ -496,7 +496,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurar o intervalo de tempo antes do contentor ser forçado a terminar
 
-Pode configurar um intervalo de tempo para o tempo de execução para aguardar antes do contentor ser removido após a eliminação do serviço (ou uma mudança para outro nó) ser iniciada. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contentor.  Para obter mais detalhes, veja [paragem do docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na secção `Hosting`. A secção `Hosting` pode ser adicionada na criação de cluster ou posteriormente numa atualização de configuração. O fragmento do manifesto do cluster seguinte mostra como definir o intervalo de espera:
+Pode configurar um intervalo de tempo para o tempo de execução para aguardar antes do contentor ser removido após a eliminação do serviço (ou uma mudança para outro nó) ser iniciada. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contentor.  Para obter mais detalhes, veja [paragem do docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na secção `Hosting`. A `Hosting` secção pode ser adicionada na criação de cluster ou posteriormente numa atualização de configuração. O fragmento do manifesto do cluster seguinte mostra como definir o intervalo de espera:
 
 ```json
 "fabricSettings": [

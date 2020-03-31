@@ -1,6 +1,6 @@
 ---
-title: Desenvolvimento iterativo e depuração no Azure Data Factory
-description: Saiba como desenvolver e depurar Data Factory pipelines iterativamente no portal do Azure.
+title: Desenvolvimento iterativo e depuração na Fábrica de Dados Azure
+description: Aprenda a desenvolver e depurar oleodutos da Fábrica de Dados iterativamente no portal Azure.
 ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
@@ -11,67 +11,67 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 3a771181f8f2785339cbc47e0a0234b9c4e39adc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74926852"
 ---
-# <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com Azure Data Factory
+# <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e de depuração com o Azure Data Factory
 
-Azure Data Factory permite desenvolver e depurar de forma iterativa Data Factory pipelines.
+A Azure Data Factory permite-lhe desenvolver e depurar iterativamente os oleodutos data factory.
 
-Para uma introdução e uma demonstração de oito minutos desse recurso, Assista ao vídeo a seguir:
+Para uma introdução de oito minutos e demonstração desta funcionalidade, veja o seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
-## <a name="iterative-debugging-features"></a>Recursos de depuração iterativa
-Crie pipelines e execute testes usando o recurso de **depuração** na tela do pipeline sem escrever uma única linha de código.
+## <a name="iterative-debugging-features"></a>Características iterativas de depuração
+Crie gasodutos e faça ensaios utilizando a capacidade **de Debug** na tela do gasoduto sem escrever uma única linha de código.
 
-![Capacidade de depuração na tela do pipeline](media/iterative-development-debugging/iterative-development-image1.png)
+![Capacidade de depuração na tela do oleoduto](media/iterative-development-debugging/iterative-development-image1.png)
 
-Exiba os resultados das execuções de teste na janela **saída** da tela do pipeline.
+Veja os resultados dos seus ensaios na janela **de saída** da tela do gasoduto.
 
-![Janela de saída da tela do pipeline](media/iterative-development-debugging/iterative-development-image2.png)
+![Janela de saída da tela do gasoduto](media/iterative-development-debugging/iterative-development-image2.png)
 
-Depois que uma execução de teste for realizada com sucesso, adicione mais atividades ao seu pipeline e continue a depuração de maneira iterativa. Você também pode **Cancelar** uma execução de teste enquanto ele está em andamento.
+Depois de um teste ter sucesso, adicione mais atividades ao seu oleoduto e continue a depurar-se de forma iterativa. Também pode **cancelar** um teste enquanto estiver em curso.
 
-![Cancelar uma execução de teste](media/iterative-development-debugging/iterative-development-image3.png)
+![Cancele um teste](media/iterative-development-debugging/iterative-development-image3.png)
 
-Quando você realiza execuções de teste, não precisa publicar suas alterações na data factory antes de selecionar **depurar**. Esse recurso é útil em cenários em que você deseja garantir que as alterações funcionem conforme o esperado antes de atualizar o data factory fluxo de trabalho.
+Quando faz testes, não tem de publicar as suas alterações na fábrica de dados antes de selecionar **o Debug**. Esta funcionalidade é útil em cenários onde pretende certificar-se de que as alterações funcionam como esperado antes de atualizar o fluxo de trabalho da fábrica de dados.
 
 > [!IMPORTANT]
-> Selecionar **depurar** realmente executa o pipeline. Portanto, por exemplo, se o pipeline contiver atividade de cópia, a execução de teste copiará dados da origem para o destino. Como resultado, recomendamos que você use pastas de teste em suas atividades de cópia e outras atividades durante a depuração. Depois de ter depurado o pipeline, alterne para as pastas reais que você deseja usar em operações normais.
+> Selecionando **debug** realmente executa o oleoduto. Assim, por exemplo, se o gasoduto contiver atividade de cópia, o teste executa dados de origem para destino. Como resultado, recomendamos que utilize pastas de teste nas suas atividades de cópia e outras atividades ao depurar. Depois de ter depurado o gasoduto, mude para as pastas reais que pretende utilizar em operações normais.
 
-## <a name="visualizing-debug-runs"></a>Visualizando execuções de depuração
+## <a name="visualizing-debug-runs"></a>Visualizar corridas de depuração
 
-Você pode visualizar todas as execuções de depuração que estão em andamento para sua data factory em um único local. Selecione **Exibir execuções de depuração** no canto superior direito da página. Esse recurso é útil em cenários em que você tem os pipelines mestres iniciar fora das execuções de depuração para pipelines filho e você deseja uma única exibição para ver todas as execuções de depuração ativas.
+Pode visualizar todas as corridas de depuração que estão em curso para a sua fábrica de dados num só local. Selecione **Ver depuração corre** no canto superior direito da página. Esta funcionalidade é útil em cenários em que você tem os principais oleodutos que iniciam corridas de depuração para gasodutos infantis, e você quer uma única vista para ver todas as corridas de depuração ativas.
 
-![Selecione o ícone Exibir execuções de depuração ativas](media/iterative-development-debugging/view-debug-runs-image1.png)
+![Selecione o ícone de depuração ativo Ver](media/iterative-development-debugging/view-debug-runs-image1.png)
 
-![Lista de exemplos de execuções de depuração ativas](media/iterative-development-debugging/view-debug-runs-image2.png)
+![Lista de amostras de corridas ativas de depuração](media/iterative-development-debugging/view-debug-runs-image2.png)
 
-Se você tiver sessões de depuração de fluxo de dados ativas, essas sessões serão exibidas na parte inferior da janela de depuração ativa. Você pode selecionar uma sessão de fluxo de dados ativa e parar o respectivo cluster.
+Se tiver sessões ativas de depuração do Fluxo de Dados, essas sessões aparecerão na parte inferior da janela de depuração ativa. Pode selecionar uma sessão de fluxo de dados ativa e parar o respetivo cluster.
 
-![Lista de exemplos de execuções de depuração de fluxo de dados ativas](media/data-flow/dfsessions.png)
+![Lista de amostras de depuração de fluxo de dados ativos](media/data-flow/dfsessions.png)
 
-## <a name="monitoring-debug-runs"></a>Monitorando execuções de depuração
+## <a name="monitoring-debug-runs"></a>Monitorização de depurações
 
-As execuções de teste iniciadas com a capacidade de **depuração** não estão disponíveis na lista na guia **Monitor** . Você só pode ver execuções disparadas com gatilhos de **janela** de **gatilho agora**, **agendamento**ou em cascata na guia **monitorar** . Você pode ver a última execução de teste iniciada com a capacidade de **depuração** na janela **saída** da tela do pipeline.
+Os ensaios iniciados com a capacidade **Debug** não estão disponíveis na lista no separador **Monitor.** Só é possível ver as correções acionadas com gatilhos **de gatilho agora,** **agendar**ou **tumbling window** no separador **Monitor.** Pode ver o último ensaio iniciado com a capacidade **de Depuração** na janela **de saída** da tela do gasoduto.
 
-## <a name="setting-breakpoints-for-debugging"></a>Definindo pontos de interrupção para depuração
+## <a name="setting-breakpoints-for-debugging"></a>Definição de pontos de rutura para depuração
 
-Data Factory também permite que você depure até atingir uma atividade específica na tela do pipeline. Basta colocar um ponto de interrupção na atividade até o qual você deseja testar e selecionar **depurar**. Data Factory garante que o teste seja executado somente até a atividade de ponto de interrupção na tela do pipeline. Esse recurso de *depuração until* é útil quando você não deseja testar todo o pipeline, mas apenas um subconjunto de atividades dentro do pipeline.
+A Data Factory também permite depurar até atingir uma determinada atividade na tela do gasoduto. Basta colocar um ponto de rutura na atividade até que queira testar, e selecione **Debug**. A Data Factory garante que o teste só funciona até à atividade do breakpoint na tela do gasoduto. Este *depurado Até que* a funcionalidade seja útil quando não quer testar todo o oleoduto, mas apenas um subconjunto de atividades dentro do pipeline.
 
-![Pontos de interrupção na tela do pipeline](media/iterative-development-debugging/iterative-development-image4.png)
+![Pontos de rutura na tela do oleoduto](media/iterative-development-debugging/iterative-development-image4.png)
 
-Para definir um ponto de interrupção, selecione um elemento na tela do pipeline. Uma opção *debug until* aparece como um círculo vermelho vazio no canto superior direito do elemento.
+Para definir um ponto de rutura, selecione um elemento na tela do gasoduto. Um *Debug Até que* a opção apareça como um círculo vermelho vazio no canto superior direito do elemento.
 
-![Antes de definir um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image5.png)
+![Antes de definir um ponto de rutura no elemento selecionado](media/iterative-development-debugging/iterative-development-image5.png)
 
-Depois de selecionar a opção *depurar até* , ela é alterada para um círculo vermelho preenchido para indicar que o ponto de interrupção está habilitado.
+Depois de selecionar o *Debug Até à* opção, muda para um círculo vermelho preenchido para indicar que o ponto de rutura está ativado.
 
-![Depois de definir um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image6.png)
+![Depois de definir um ponto de rutura no elemento selecionado](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-[Integração e implantação contínuas no Azure Data Factory](continuous-integration-deployment.md)
+[Integração e implantação contínuas na Azure Data Factory](continuous-integration-deployment.md)

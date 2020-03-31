@@ -7,35 +7,35 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.openlocfilehash: 9ed62ea6fdfc0732128ed340cc0bc48481eb73ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/25/2020
+ms.openlocfilehash: 248ef093601eda7a180a6465ccb97e6fc1c9fe41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841085"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369717"
 ---
 # <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de pesquisa no portal (Pesquisa Cognitiva Azure)
 
 Utilize o assistente de **aplicações** de pesquisa Create do portal para gerar uma aplicação web de estilo "localhost" descarregada e "local" que funciona num navegador. Dependendo da sua configuração, a aplicação gerada está operacional na primeira utilização, com uma ligação ao vivo a um índice remoto. Uma aplicação padrão pode incluir uma barra de pesquisa, área de resultados, filtros de barra lateral e suporte à máquina de escrever.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você vai querer fazer upgrade para a [versão mais recente do Microsoft Edge](https://www.microsoft.com/edge) ou usar o navegador Chrome da Google para este quickstart neste momento.
+Atualize para a [versão mais recente do Microsoft Edge](https://www.microsoft.com/edge) ou use o navegador Chrome da Google para este arranque rápido.
 
-[Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido. 
+[Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido. 
 
 [Crie um índice](search-create-index-portal.md) para usar como base da sua aplicação. 
 
-Este quickstart usa os dados e índice da amostra imobiliária incorporada porque tem imagens de miniaturas. Para criar o índice utilizado neste exercício, execute o assistente de **dados da Importação,** escolhendo a fonte de dados da *amostra realestate-us.*
+Este quickstart utiliza os dados e índice da amostra imobiliária incorporada porque tem imagens de miniaturas (o assistente suporta adicionar imagens à página de resultados). Para criar o índice utilizado neste exercício, execute o assistente de **dados da Importação,** escolhendo a fonte de dados da *amostra realestate-us.*
 
 ![página de fonte de dados para dados de amostra](media/search-create-app-portal/import-data-realestate.png)
 
 Quando o índice estiver pronto a ser utilizado, passe para o próximo passo.
 
-## <a name="start-the-wizard"></a>Iniciar o assistente
+## <a name="start-the-wizard"></a>Inicie o assistente
 
 1. Assine no [portal Azure](https://portal.azure.com) e encontre o [seu serviço de pesquisa.](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 
@@ -96,11 +96,11 @@ O índice subjacente é composto por dados fictícios e gerados que foram duplic
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando está a trabalhar na sua própria subscrição, é uma boa ideia no final de um projeto identificar se ainda precisa dos recursos que criou. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
-Você pode encontrar e gerenciar recursos no portal, usando o link **todos os recursos** ou **grupos de recursos** no painel de navegação esquerdo.
+Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
 
-Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
+Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para se manter abaixo do limite. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Atualizar dados de perfis e contas do portal My Apps - Azure AD
+title: Atualizar o perfil & informação de conta do portal My Apps - Azure AD
 description: Saiba como atualizar o seu perfil e as informações sobre o seu trabalho ou conta escolar, incluindo alterar a sua palavra-passe, ligar a palavra-passe, atualizar os seus métodos de verificação de segurança, visualizar os termos de utilização da sua organização e assinar fora em todos os lugares que assinou usando o seu trabalho ou conta escolar.
 services: active-directory
 author: curtand
@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266341"
 ---
 # <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Atualize o seu perfil e informações sobre contas no portal My Apps
@@ -53,7 +53,7 @@ Dependendo do que a sua organização escolheu incluir na sua página de **Perfi
 
     - **Reveja os seus detalhes relacionados com a organização.** Consulte a sua foto, nome, título, endereços de e-mail associados e informações do escritório. Esta informação é gerida pela sua organização e não poderá alterá-la. Se vir um erro, contacte o seu Helpdesk.
 
-    - **Reveja os seus Dispositivos e atividades.** Certifique-se de que cada dispositivo é familiar e devidamente ligado à sua organização. Se não reconhecer um dispositivo, selecione **Desativar** o dispositivo para remover a associação com a sua conta. Depois de desativar um dispositivo, é removido desta página.
+    - **Reveja a atividade & dispositivos.** Certifique-se de que cada dispositivo é familiar e devidamente ligado à sua organização. Se não reconhecer um dispositivo, selecione **Desativar** o dispositivo para remover a associação com a sua conta. Depois de desativar um dispositivo, é removido desta página.
 
     - **Reveja as suas Organizações.** Certifique-se de que ainda trabalha com cada uma das organizações especificadas. Se já não trabalhar com uma organização, recomendamos vivamente que selecione **Iniciar sessão para deixar a organização.** Depois de deixar a organização, é removido desta página.
 
@@ -114,7 +114,7 @@ A verificação de dois fatores requer que utilize duas peças de informação d
 
     - **Configurar a aplicação Microsoft Authenticator.** Pode optar por configurar a aplicação Microsoft Authenticator para funcionar como método de verificação. Para obter mais informações sobre a aplicação Microsoft Authenticator, consulte [o que é a aplicação Autenticadora Microsoft?](user-help-auth-app-overview.md)
 
-3. Selecione **Guardar** para guardar as suas alterações.
+3. Selecione **Guardar** para guardar as alterações.
 
 ## <a name="review-your-organizations-terms-of-use-statement"></a>Reveja os termos de utilização da sua organização
 

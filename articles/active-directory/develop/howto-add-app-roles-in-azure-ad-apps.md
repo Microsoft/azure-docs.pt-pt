@@ -15,10 +15,10 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399082"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação na sua aplicação e recebê-las no símbolo
@@ -31,31 +31,31 @@ Outra abordagem é utilizar os Grupos AD Azure e as Reivindicações de Grupo, c
 
 ## <a name="declare-roles-for-an-application"></a>Declarar funções para uma candidatura
 
-Estas funções de candidatura são definidas no [portal Azure](https://portal.azure.com) no manifesto de registo da aplicação.  Quando um utilizador assina na aplicação, a Azure AD emite uma `roles` pedido de cada função de que o utilizador foi concedido individualmente ao utilizador e à sua adesão ao grupo.  A atribuição de utilizadores e grupos para funções pode ser feita através do UI do portal, ou utilizando programáticamente o [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+Estas funções de candidatura são definidas no [portal Azure](https://portal.azure.com) no manifesto de registo da aplicação.  Quando um utilizador assina na aplicação, a `roles` Azure AD emite uma alegação de cada função de que o utilizador foi concedido individualmente ao utilizador e à sua adesão ao grupo.  A atribuição de utilizadores e grupos para funções pode ser feita através do UI do portal, ou utilizando programáticamente o [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicação usando o portal Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal.
-1. Na lista de Favoritos ou **Todos os Diretórios,** escolha o inquilino do Diretório Ativo onde deseja registar a sua candidatura.
+1. Na lista de Favoritos ou **Todos os Diretórios,** escolha o inquilino do Diretório Ativo onde deseja registar a sua candidatura. **Favorites**
 1. No portal Azure, procure e selecione **Azure Ative Directory**.
 1. No painel **de Diretório Ativo Azure,** selecione registos de **Aplicações** para visualizar uma lista de todas as suas aplicações.
 1. Selecione a aplicação em que pretende definir as funções da aplicação. Em seguida, selecione **Manifesto**.
-1. Editar o manifesto da aplicação localizando a definição de `appRoles` e adicionando todas as suas Funções de Aplicação.
+1. Editar o manifesto da `appRoles` aplicação localizando a definição e adicionando todas as suas Funções de Aplicação.
 
      > [!NOTE]
-     > Cada definição de função da aplicação neste manifesto deve ter um GUID válido diferente no contexto do manifesto para a propriedade `id`.
+     > Cada definição de função da aplicação neste manifesto deve `id` ter um GUID válido diferente no contexto do manifesto para a propriedade.
      >
-     > A propriedade `value` de cada definição de função de aplicação deve corresponder exatamente às cordas que são usadas no código da aplicação. A propriedade `value` não pode conter espaços. Se isso acontecer, receberá um erro quando guardar o manifesto.
+     > A `value` propriedade de cada definição de função de aplicação deve corresponder exatamente às cordas que são usadas no código da aplicação. A `value` propriedade não pode conter espaços. Se isso acontecer, receberá um erro quando guardar o manifesto.
 
 1. Salve o manifesto.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo que se segue mostra o `appRoles` que pode atribuir a `users`.
+O exemplo que `appRoles` se segue mostra `users`o que pode atribuir a .
 
 > [!NOTE]
->O `id` deve ser um GUID único.
+>Deve `id` ser um GUID único.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -75,9 +75,9 @@ O exemplo que se segue mostra o `appRoles` que pode atribuir a `users`.
 ```
 
 > [!NOTE]
->A `displayName` não pode conter espaços.
+>O `displayName` não pode conter espaços.
 
-Pode definir funções de aplicativo saem para `users`, `applications`, ou ambos. Quando disponível para `applications`, as funções da aplicação aparecem como permissões de aplicação na lâmina **de Permissões Necessárias.** O exemplo seguinte mostra um papel de aplicação direcionado para um `Application`.
+Pode definir as funções `applications`da aplicação para o alvo, `users`ou ambos. Quando disponível para `applications`as funções da aplicação aparecem como permissões de aplicação na lâmina de **Permissões Necessárias.** O exemplo que se segue mostra `Application`um papel de aplicação direcionado para um .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -122,9 +122,9 @@ Depois de adicionar funções de aplicação na sua aplicação, pode atribuir u
 
 ## <a name="more-information"></a>Mais informações
 
-- [Adicionar autorização usando funções de aplicativos e pedidos de funções para uma aplicação web core ASP.NET](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Adicionar autorização usando funções de aplicação & funções reivindicações para uma aplicação web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Utilização de Grupos de Segurança e Funções de Aplicação nas suas apps (Vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Diretório Ativo Azure, agora com reivindicações de grupo e funções de candidatura](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto de aplicativo sony Azure Ative Diretório](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [Fichas de acesso AAD](access-tokens.md)
-- [`id_tokens` aD](id-tokens.md)
+- [AAD`id_tokens`](id-tokens.md)

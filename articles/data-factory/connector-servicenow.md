@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do ServiceNow
-description: Saiba como copiar dados do ServiceNow para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
+description: Saiba como copiar dados do ServiceNow para lojas de dados de sink suportadas utilizando uma atividade de cópia num pipeline azure Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,49 +12,49 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: dabcc5afe4a092e4919c854071a698c6e6ebf0b3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74926176"
 ---
-# <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiar dados do ServiceNow com o Azure Data Factory
+# <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiar dados do ServiceNow usando a Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do ServiceNow. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados do ServiceNow. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector do ServiceNow tem suporte para as seguintes atividades:
+Este conector ServiceNow é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
-Pode copiar dados de ServiceNow para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados do ServiceNow para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-O Azure Data Factory fornece um driver incorporado para permitir a conectividade, portanto não precisa de instalar manualmente a qualquer driver utilizar este conector.
+A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não necessita de instalar manualmente qualquer controlador utilizando este conector.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do ServiceNow.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades data Factory específicas do conector ServiceNow.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
-As seguintes propriedades são suportadas para o serviço ligado do ServiceNow:
+As seguintes propriedades são suportadas para o serviço ligado ServiceNow:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como: **ServiceNow** | Sim |
-| endpoint | O ponto final do servidor do ServiceNow (`http://<instance>.service-now.com`).  | Sim |
-| authenticationType | O tipo de autenticação a utilizar. <br/>Valores permitidos são: **básica**, **OAuth2** | Sim |
-| o nome de utilizador | O nome de utilizador utilizado para ligar ao servidor do ServiceNow para a autenticação básica e OAuth2.  | Sim |
-| palavra-passe | A palavra-passe correspondente ao nome de usuário para autenticação básica e OAuth2. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| clientId | O ID de cliente para a autenticação OAuth2.  | Não |
-| clientSecret | O segredo do cliente para a autenticação OAuth2. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
-| useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
-| useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
-| usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
+| tipo | A propriedade tipo deve ser definida para: **ServiceNow** | Sim |
+| endpoint | O ponto final do servidor`http://<instance>.service-now.com`ServiceNow ( ).  | Sim |
+| authenticationType | O tipo de autenticação a utilizar. <br/>Os valores permitidos são: **Básico,** **OAuth2** | Sim |
+| o nome de utilizador | O nome do utilizador usado para ligar ao servidor ServiceNow para autenticação Basic e OAuth2.  | Sim |
+| palavra-passe | A palavra-passe correspondente ao nome de utilizador para autenticação Basic e OAuth2. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
+| clientId | O ID do cliente para autenticação OAuth2.  | Não |
+| clienteSecret | O segredo do cliente para a autenticação OAuth2. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Não |
+| useEncryptedEndpoints | Especifica se os pontos finais da fonte de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
+| utilizaçãoVerificação de anfitriões | Especifica se deve exigir o nome de anfitrião no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar-se ao SSL. O valor predefinido é true.  | Não |
+| utilizaçãoPeerVerification | Especifica se deve verificar a identidade do servidor ao ligar-se através do SSL. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -76,16 +76,16 @@ As seguintes propriedades são suportadas para o serviço ligado do ServiceNow:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do ServiceNow.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados ServiceNow.
 
-Para copiar dados do ServiceNow, defina a propriedade de tipo de conjunto de dados para **ServiceNowObject**. São suportadas as seguintes propriedades:
+Para copiar dados do ServiceNow, detete a propriedade do tipo do conjunto de dados para **ServiceNowObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **ServiceNowObject** | Sim |
-| tableName | Nome da tabela. | Não (se for especificada "query" na origem de atividade) |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ServiceNowObject** | Sim |
+| tableName | Nome da mesa. | Não (se for especificada a "consulta" na fonte de atividade) |
 
 **Exemplo**
 
@@ -106,24 +106,24 @@ Para copiar dados do ServiceNow, defina a propriedade de tipo de conjunto de dad
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do ServiceNow.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte do ServiceNow.
 
-### <a name="servicenow-as-source"></a>ServiceNow como origem
+### <a name="servicenow-as-source"></a>ServiçoAgora como fonte
 
-Para copiar dados do ServiceNow, defina o tipo de origem na atividade de cópia para **ServiceNowSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do ServiceNow, delineie o tipo de origem na atividade de cópia para **ServiceNowSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **ServiceNowSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Actual.alm_asset"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **ServiceNowSource** | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Actual.alm_asset"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
-Tenha em atenção o seguinte ao especificar o esquema e na coluna do ServiceNow na consulta, e **consultar [sugestões de desempenho](#performance-tips) no implicação de desempenho de cópia**.
+Note o seguinte ao especificar o esquema e a coluna para o ServiceNow em consulta e **consulte [as dicas](#performance-tips) **de Desempenho sobre a implicação do desempenho da cópia .
 
-- **Esquema:** especifique o esquema `Actual` ou `Display` da consulta de ServiceNow, o que pode analisá-los como parâmetro da `sysparm_display_value` como VERDADEIRO ou falso quando chamar [APIs restful do ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Coluna:** o nome da coluna para o valor real sob `Actual` esquema é `[column name]_value`, enquanto para o valor de apresentação sob `Display` esquema é `[column name]_display_value`. Tenha em atenção o nome da coluna tem de mapear para o esquema a ser utilizado na consulta.
+- **Schema:** especifique `Actual` o `Display` esquema como ou na consulta ServiceNow, que pode `sysparm_display_value` encará-lo como o parâmetro de como verdadeiro ou falso quando chamar [AFIs repousantes](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET)de ServiceNow . 
+- **Coluna:** o nome da `Actual` coluna para `[column name]_value`o valor real `Display` em esquema `[column name]_display_value`é , enquanto para o valor de exibição em esquema é . Note que o nome da coluna precisa de mapa para o esquema que está a ser usado na consulta.
 
-**Consulta de exemplo:** 
- `SELECT col_value FROM Actual.alm_asset` ou 
+**Consulta da amostra:** 
+ `SELECT col_value FROM Actual.alm_asset` OR 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Exemplo:**
@@ -159,20 +159,20 @@ Tenha em atenção o seguinte ao especificar o esquema e na coluna do ServiceNow
 ```
 ## <a name="performance-tips"></a>Sugestões de desempenho
 
-### <a name="schema-to-use"></a>Esquema a utilizar
+### <a name="schema-to-use"></a>Schema para usar
 
-ServiceNow tem 2 esquemas diferentes, um é **"Real"** que retorna dados reais, o outro é **"Exibir"** que retorna os valores de apresentação de dados. 
+ServiceNow tem 2 esquemas diferentes, um é **"Real"** que devolve dados reais, o outro é **"Display"** que devolve os valores de visualização dos dados. 
 
-Se tiver um filtro na sua consulta, utilize o esquema de "Real" que tem copiar melhor o desempenho. Ao consultar em relação ao esquema de "Real", ServiceNow suportam nativamente o filtro ao obter os dados para devolver apenas o conjunto filtrado de resultados, ao passo que ao consultar o esquema de "Apresentação", o ADF recuperar todos os dados e aplicar filtro internamente.
+Se tiver um filtro na sua consulta, utilize um esquema "Real" que tenha um melhor desempenho de cópia. Ao consultar contra o esquema "Real", o ServiceNow suporta de forma nativa o filtro ao recolher os dados para apenas devolver o conjunto de resultados filtrado, enquanto quando consulta ndo esquema "Display", a ADF recupera todos os dados e aplica o filtro internamente.
 
 ### <a name="index"></a>Índice
 
-Índice de tabela do ServiceNow pode ajudar a melhorar o desempenho de consulta, consulte [criar um índice de tabela](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html).
+O índice de tabela ServiceNow pode ajudar a melhorar o desempenho da consulta, consulte criar [um índice](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html)de tabela .
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

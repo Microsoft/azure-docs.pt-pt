@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: enviar eventos personalizados para o ponto de extremidade da Web-grade de eventos, PowerShell'
-description: 'Início rápido: Use a grade de eventos do Azure e o PowerShell para publicar um tópico personalizado e assinar eventos para esse tópico. Os eventos são tratados por um aplicativo Web.'
+title: 'Quickstart: Envie eventos personalizados para web endpoint - Event Grid, PowerShell'
+description: 'Quickstart: Use Azure Event Grid e PowerShell para publicar um tópico personalizado e subscreva eventos para esse tópico. Os eventos são tratados por uma aplicação web.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73721428"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Início rápido: rotear eventos personalizados para o ponto de extremidade Web com o PowerShell e a grade de eventos
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Quickstart: Route eventos personalizados para web endpoint com PowerShell e Event Grid
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, o Azure PowerShell é utilizado para criar um tópico personalizado, subscrever o tópico e acionar o evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -28,13 +28,13 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-Este artigo requer a utilização da versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, veja [Instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
+Este artigo requer a utilização da versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, consulte [Instalar e configurar o PowerShell Azure](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) .
+Crie um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup)
 
 O exemplo seguinte cria um grupo de recursos com o nome *gridResourceGroup* na localização *westus2*.
 
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico deve ser exclusivo, porque faz parte da entrada DNS. Além disso, ele deve ter entre 3-50 caracteres e conter apenas os valores de a-z, A-Z, 0-9 e "-"
+Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico deve ser exclusivo, porque faz parte da entrada DNS. Além disso, deve ser entre 3-50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-"
 
 ```powershell-interactive
 $topicname="<your-topic-name>"

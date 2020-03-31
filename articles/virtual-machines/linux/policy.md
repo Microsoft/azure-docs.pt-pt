@@ -1,6 +1,6 @@
 ---
-title: Impor segurança com políticas em VMs do Linux no Azure
-description: Como aplicar uma política a uma máquina virtual Azure Resource Manager Linux
+title: Impor segurança com políticas sobre VMs Linux em Azure
+description: Como aplicar uma política a uma máquina virtual Do Gestor de Recursos Azure Linux
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
 ms.openlocfilehash: 7ab48430ae4d6585c908b53017122096175abac3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035326"
 ---
-# <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Aplicar políticas a VMs Linux com Azure Resource Manager
-Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco enquanto contribui para o sucesso da organização. Neste artigo, descrevemos como você pode usar as políticas de Azure Resource Manager para definir o comportamento desejado para as máquinas virtuais da sua organização.
+# <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Aplicar políticas aos VMs Linux com o Gestor de Recursos Azure
+Ao usar políticas, uma organização pode impor várias convenções e regras em toda a empresa. A aplicação do comportamento desejado pode ajudar a mitigar o risco, contribuindo para o sucesso da organização. Neste artigo, descrevemos como pode usar as políticas do Gestor de Recursos Azure para definir o comportamento desejado para as Máquinas Virtuais da sua organização.
 
-Para obter uma introdução às políticas, consulte [o que é Azure Policy?](../../governance/policy/overview.md).
+Para uma introdução às políticas, veja [o que é a Política Azure?](../../governance/policy/overview.md)
 
-## <a name="permitted-virtual-machines"></a>Máquinas virtuais permitidas
-Para garantir que as máquinas virtuais da sua organização sejam compatíveis com um aplicativo, você pode restringir os sistemas operacionais permitidos. No exemplo de política a seguir, você permite que somente máquinas virtuais Ubuntu 14.04.2-LTS sejam criadas.
+## <a name="permitted-virtual-machines"></a>Máquinas Virtuais Permitidas
+Para garantir que as máquinas virtuais para a sua organização são compatíveis com uma aplicação, pode restringir os sistemas operativos permitidos. No exemplo da política a seguir, permite a criação de apenas Máquinas Virtuais Ubuntu 14.04.2-LTS.
 
 ```json
 {
@@ -79,7 +79,7 @@ Para garantir que as máquinas virtuais da sua organização sejam compatíveis 
 }
 ```
 
-Use um curinga para modificar a política anterior para permitir qualquer imagem do Ubuntu LTS: 
+Utilize um wild card para modificar a política anterior para permitir qualquer imagem Ubuntu LTS: 
 
 ```json
 {
@@ -88,11 +88,11 @@ Use um curinga para modificar a política anterior para permitir qualquer imagem
 }
 ```
 
-Para obter informações sobre os campos de política, consulte [aliases de política](../../governance/policy/concepts/definition-structure.md#aliases).
+Para obter informações sobre os domínios políticos, consulte [pseudónimos políticos.](../../governance/policy/concepts/definition-structure.md#aliases)
 
 ## <a name="managed-disks"></a>Managed disks
 
-Para exigir o uso de discos gerenciados, use a seguinte política:
+Para exigir a utilização de discos geridos, utilize a seguinte política:
 
 ```json
 {
@@ -138,11 +138,11 @@ Para exigir o uso de discos gerenciados, use a seguinte política:
 }
 ```
 
-## <a name="images-for-virtual-machines"></a>Imagens para máquinas virtuais
+## <a name="images-for-virtual-machines"></a>Imagens para Máquinas Virtuais
 
-Por motivos de segurança, você pode exigir que apenas imagens personalizadas aprovadas sejam implantadas em seu ambiente. Você pode especificar o grupo de recursos que contém as imagens aprovadas ou as imagens aprovadas específicas.
+Por razões de segurança, pode exigir que apenas as imagens personalizadas aprovadas sejam implementadas no seu ambiente. Pode especificar o grupo de recursos que contém as imagens aprovadas ou as imagens aprovadas específicas.
 
-O exemplo a seguir requer imagens de um grupo de recursos aprovado:
+O exemplo que se segue requer imagens de um grupo de recursos aprovados:
 
 ```json
 {
@@ -169,7 +169,7 @@ O exemplo a seguir requer imagens de um grupo de recursos aprovado:
 } 
 ```
 
-O exemplo a seguir especifica as IDs de imagem aprovadas:
+O exemplo que se segue especifica as iDs de imagem aprovadas:
 
 ```json
 {
@@ -178,9 +178,9 @@ O exemplo a seguir especifica as IDs de imagem aprovadas:
 }
 ```
 
-## <a name="virtual-machine-extensions"></a>Extensões de máquina virtual
+## <a name="virtual-machine-extensions"></a>Extensões de Máquina Virtual
 
-Talvez você queira proibir o uso de determinados tipos de extensões. Por exemplo, uma extensão pode não ser compatível com determinadas imagens de máquina virtual personalizada. O exemplo a seguir mostra como bloquear uma extensão específica. Ele usa Publisher e Type para determinar qual extensão bloquear.
+Pode proibir o uso de certos tipos de extensões. Por exemplo, uma extensão pode não ser compatível com certas imagens de máquinas virtuais personalizadas. O exemplo que se segue mostra como bloquear uma extensão específica. Utiliza o editor e o tipo para determinar qual a extensão a bloquear.
 
 ```json
 {
@@ -209,6 +209,6 @@ Talvez você queira proibir o uso de determinados tipos de extensões. Por exemp
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Depois de definir uma regra de política (conforme mostrado nos exemplos anteriores), você precisa criar a definição de política e atribuí-la a um escopo. O escopo pode ser uma assinatura, um grupo de recursos ou um recurso. Para atribuir políticas, consulte [usar portal do Azure para atribuir e gerenciar políticas de recursos](../../governance/policy/assign-policy-portal.md), [usar o PowerShell para atribuir políticas](../../governance/policy/assign-policy-powershell.md)ou [usar CLI do Azure para atribuir políticas](../../governance/policy/assign-policy-azurecli.md).
-* Para obter uma introdução às políticas de recursos, consulte [o que é Azure Policy?](../../governance/policy/overview.md).
+* Depois de definir uma regra de política (como mostram os exemplos anteriores), é necessário criar a definição de política e atribuí-la a um âmbito. O âmbito pode ser uma subscrição, grupo de recursos ou recurso. Para atribuir políticas, consulte [o portal Use Azure para atribuir e gerir políticas](../../governance/policy/assign-policy-portal.md)de recursos , use [powerShell para atribuir políticas](../../governance/policy/assign-policy-powershell.md), ou use o [Azure CLI para atribuir políticas](../../governance/policy/assign-policy-azurecli.md).
+* Para uma introdução às políticas de recursos, veja o que é a [Política Azure?](../../governance/policy/overview.md)
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
