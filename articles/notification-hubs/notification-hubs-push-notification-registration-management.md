@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 03/17/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 6ddadcafd4f068f6516039017a3d491095c78e30
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 00de9c803ef796eda8da609a4009e0a8cfcb3664
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79280550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455372"
 ---
 # <a name="registration-management"></a>Gestão de registos
 
@@ -33,7 +33,7 @@ O registo do dispositivo com um Centro de Notificação é realizado através de
 
 ### <a name="registrations"></a>Registos
 
-Um registo associa o cabo do Serviço de Notificação da Plataforma (PNS) para um dispositivo com etiquetas e possivelmente um modelo. O cabo PNS pode ser um ChannelURI, um token do dispositivo ou um id de registo da FCM. As etiquetas são utilizadas para encaminhar notificações para o conjunto correto de pegas do dispositivo. Para mais informações, consulte [Routing e Tag Expressions](notification-hubs-tags-segment-push-message.md). Os modelos são usados para implementar a transformação por registo. Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
+Um registo associa o cabo do Serviço de Notificação da Plataforma (PNS) para um dispositivo com etiquetas e possivelmente um modelo. O cabo PNS pode ser um ChannelURI, um token do dispositivo ou identificação de registo da FCM. As etiquetas são utilizadas para encaminhar notificações para o conjunto correto de pegas do dispositivo. Para mais informações, consulte [Routing e Tag Expressions](notification-hubs-tags-segment-push-message.md). Os modelos são usados para implementar a transformação por registo. Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
 
 > [!NOTE]
 > O Azure Notification Hubs suporta um máximo de 60 tags por dispositivo.
@@ -45,7 +45,7 @@ Uma Instalação é um registo reforçado que inclui um saco de propriedades rel
 Seguem-se algumas vantagens fundamentais para a utilização de instalações:
 
 - Criar ou atualizar uma instalação é totalmente impotente. Para que possa voltar a experimentá-lo sem qualquer preocupação com as inscrições duplicadas.
-- O modelo de instalação suporta um formato de etiqueta especial (`$InstallationId:{INSTALLATION_ID}`) que permite enviar uma notificação diretamente para o dispositivo específico. Por exemplo, se o código da aplicação definir um ID de instalação de `joe93developer` para este dispositivo em particular, um desenvolvedor pode direcionar este dispositivo ao enviar uma notificação para a etiqueta `$InstallationId:{joe93developer}`. Isto permite-lhe direcionar um dispositivo específico sem ter de fazer qualquer codificação adicional.
+- O modelo de instalação suporta`$InstallationId:{INSTALLATION_ID}`um formato de etiqueta especial que permite enviar uma notificação diretamente para o dispositivo específico. Por exemplo, se o código da aplicação `joe93developer` definir um ID de instalação para este dispositivo `$InstallationId:{joe93developer}` em particular, um desenvolvedor pode direcionar este dispositivo ao enviar uma notificação para a etiqueta. Isto permite-lhe direcionar um dispositivo específico sem ter de fazer qualquer codificação adicional.
 - A utilização de instalações também permite fazer atualizações parciais de registo. A atualização parcial de uma instalação é solicitada com um método PATCH utilizando a [norma JSON-Patch](https://tools.ietf.org/html/rfc6902). Isto é útil quando pretende atualizar as etiquetas no registo. Não precisa retirar todo o registo e depois reenviar todas as etiquetas anteriores novamente.
 
 Uma instalação pode conter as seguintes propriedades. Para obter uma listagem completa das propriedades de instalação, consulte [Criar ou substituir uma Instalação com propriedades](/rest/api/notificationhubs/create-overwrite-installation) REST API ou [Instalação](/dotnet/api/microsoft.azure.notificationhubs.installation).
@@ -119,7 +119,7 @@ Neste caso, utiliza apenas os direitos de escuta para aceder aos seus centros de
 Registar-se a partir do dispositivo é o método mais simples, mas tem algumas desvantagens:
 
 - Uma aplicação de cliente só pode atualizar as suas tags quando a aplicação estiver ativa. Por exemplo, se um utilizador tiver dois dispositivos que registam tags relacionadas com equipas desportivas, quando o primeiro dispositivo se registar para uma etiqueta adicional (por exemplo, Seahawks), o segundo dispositivo não receberá as notificações sobre os Seahawks até que a aplicação no segundo dispositivo esteja executado uma segunda vez. De uma forma mais geral, quando as etiquetas são afetadas por vários dispositivos, gerir etiquetas a partir do backend é uma opção desejável.
-- Uma vez que as aplicações podem ser pirateadas, garantir o registo a etiquetas específicas requer cuidados extra, como explica do ponto de verificação "Segurança ao nível da etiqueta".
+- Uma vez que as aplicações podem ser pirateadas, garantir o registo a etiquetas específicas requer cuidados extra, como explica o artigo [Segurança](notification-hubs-push-notification-security.md).
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Código de exemplo para registar com um centro de notificação a partir de um dispositivo usando uma instalação
 
@@ -170,7 +170,7 @@ var channel = await PushNotificationChannelManager.CreatePushNotificationChannel
 string installationId = null;
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored an installation id in application data, create and store as application data.
+// If we have not stored an installation ID in application data, create and store as application data.
 if (!settings.ContainsKey("__NHInstallationId"))
 {
     installationId = Guid.NewGuid().ToString();
@@ -212,15 +212,15 @@ Estes métodos criam ou atualizam um registo para o dispositivo em que são cham
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-// The Device id from the PNS
+// The Device ID from the PNS
 var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-// If you are registering from the client itself, then store this registration id in device
-// storage. Then when the app starts, you can check if a registration id already exists or not before
+// If you are registering from the client itself, then store this registration ID in device
+// storage. Then when the app starts, you can check if a registration ID already exists or not before
 // creating.
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored a registration id in application data, store in application data.
+// If we have not stored a registration ID in application data, store in application data.
 if (!settings.ContainsKey("__NHRegistrationId"))
 {
     // make sure there are no existing registrations for this push handle (used for iOS and Android)    
@@ -328,7 +328,7 @@ var reg = new WindowsRegistrationDescription(channelUri, tags);
 // Create
 await hub.CreateRegistrationAsync(reg);
 
-// Get by id
+// Get by ID
 var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
 
 // update

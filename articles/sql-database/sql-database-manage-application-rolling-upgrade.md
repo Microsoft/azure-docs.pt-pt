@@ -1,6 +1,6 @@
 ---
-title: Atualizações de aplicativos sem interrupção
-description: Saiba como usar a replicação geográfica do banco de dados SQL do Azure para dar suporte a atualizações online do seu aplicativo de nuvem.
+title: Implementar atualizações de aplicações
+description: Saiba como utilizar a geo-replicação da Base de Dados Azure SQL para suportar atualizações online da sua aplicação na nuvem.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,96 +12,96 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 9c627c3e597fdcd3859ce02ea208fc7a8b5d612b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822863"
 ---
-# <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerenciar atualizações sem interrupção de aplicativos de nuvem usando a replicação geográfica ativa do banco de dados SQL
+# <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerir atualizações rolantes de aplicações em nuvem utilizando geo-replicação ativa sQL Database
 
-Saiba como usar a [replicação geográfica ativa](sql-database-auto-failover-group.md) no banco de dados SQL do Azure para habilitar atualizações sem interrupção do seu aplicativo de nuvem. Como as atualizações são operações de interrupção, elas devem fazer parte do planejamento e do design de continuidade de negócios. Neste artigo, examinamos dois métodos diferentes para orquestrar o processo de atualização e discutir os benefícios e as compensações de cada opção. Para os fins deste artigo, nos referimos a um aplicativo que consiste em um site que está conectado a um único banco de dados como sua camada de dado. Nosso objetivo é atualizar a versão 1 (v1) do aplicativo para a versão 2 (v2) sem nenhum impacto significativo na experiência do usuário.
+Aprenda a utilizar a [geo-replicação ativa](sql-database-auto-failover-group.md) na Base de Dados Azure SQL para permitir atualizações da sua aplicação em nuvem. Como as atualizações são operações disruptivas, devem fazer parte do planeamento e design de continuidade do negócio. Neste artigo, olhamos para dois métodos diferentes de orquestrar o processo de upgrade e discutir os benefícios e trocas de cada opção. Para efeitos deste artigo, referimo-nos a uma aplicação que consiste num website que está ligado a uma única base de dados como seu nível de dados. O nosso objetivo é atualizar a versão 1 (V1) da aplicação para a versão 2 (V2) sem qualquer impacto significativo na experiência do utilizador.
 
-Ao avaliar as opções de atualização, considere estes fatores:
+Ao avaliar as opções de upgrade, considere estes fatores:
 
-* Impacto na disponibilidade do aplicativo durante as atualizações, como quanto tempo as funções de aplicativo podem ser limitadas ou degradadas.
-* Capacidade de reverter se a atualização falhar.
-* Vulnerabilidade do aplicativo se uma falha catastrófica não relacionada ocorrer durante a atualização.
-* Custo total de dólar. Esse fator inclui redundância de banco de dados adicional e custos incrementais dos componentes temporários usados pelo processo de atualização.
+* Impacto na disponibilidade de aplicações durante as atualizações, tais como o tempo que as funções de aplicação podem ser limitadas ou degradadas.
+* Capacidade de retrocesso se a atualização falhar.
+* Vulnerabilidade da aplicação se ocorrer uma falha não relacionada e catastrófica durante a atualização.
+* Custo total do dólar. Este fator inclui redundância adicional na base de dados e custos incrementais dos componentes temporários utilizados pelo processo de atualização.
 
-## <a name="upgrade-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Atualizar aplicativos que dependem de backups de banco de dados para recuperação de desastre
+## <a name="upgrade-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Atualizar aplicações que dependem de backups de base de dados para recuperação de desastres
 
-Se seu aplicativo depender de backups automáticos de banco de dados e usar a restauração geográfica para recuperação de desastre, ele será implantado em uma única região do Azure. Para minimizar a interrupção do usuário, crie um ambiente de preparo nessa região com todos os componentes do aplicativo envolvidos na atualização. O primeiro diagrama ilustra o ambiente operacional antes do processo de atualização. O ponto de extremidade `contoso.azurewebsites.net` representa um ambiente de produção do aplicativo Web. Para poder reverter a atualização, você deve criar um ambiente de preparo com uma cópia totalmente sincronizada do banco de dados. Siga estas etapas para criar um ambiente de preparo para a atualização:
+Se a sua aplicação depender de cópias de dados automáticas e utilizar geo-restauro para recuperação de desastres, está implantada numa única região do Azure. Para minimizar a perturbação do utilizador, crie um ambiente de paragem naquela região com todos os componentes da aplicação envolvidos na atualização. O primeiro diagrama ilustra o ambiente operacional antes do processo de atualização. O ponto `contoso.azurewebsites.net` final representa um ambiente de produção da aplicação web. Para poder reverter a atualização, deve criar um ambiente de encenação com uma cópia totalmente sincronizada da base de dados. Siga estes passos para criar um ambiente de preparação para a atualização:
 
-1. Crie um banco de dados secundário na mesma região do Azure. Monitore o secundário para ver se o processo de propagação está concluído (1).
-2. Crie um novo ambiente para seu aplicativo Web e chame-o de ' preparo '. Ele será registrado no DNS do Azure com a URL `contoso-staging.azurewebsites.net` (2).
-
-> [!NOTE]
-> Essas etapas de preparação não afetarão o ambiente de produção, que pode funcionar no modo de acesso completo.
-
-![Configuração de replicação geográfica do banco de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-1.png)
-
-Quando as etapas de preparação forem concluídas, o aplicativo estará pronto para a atualização real. O próximo diagrama ilustra as etapas envolvidas no processo de atualização:
-
-1. Defina o banco de dados primário para o modo somente leitura (3). Esse modo garante que o ambiente de produção do aplicativo Web (v1) permaneça somente leitura durante a atualização, impedindo, assim, a divergência de dados entre as instâncias de banco de dado v1 e v2.
-2. Desconecte o banco de dados secundário usando o modo de encerramento planejado (4). Essa ação cria uma cópia independente e totalmente sincronizada do banco de dados primário. Este banco de dados será atualizado.
-3. Transforme o banco de dados secundário no modo de leitura/gravação e execute o script de atualização (5).
-
-![Configuração de replicação geográfica do banco de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
-
-Se a atualização for concluída com êxito, agora você estará pronto para alternar os usuários para a cópia atualizada do aplicativo, que se torna um ambiente de produção. A alternância envolve algumas outras etapas, conforme ilustrado no próximo diagrama:
-
-1. Ative uma operação de permuta entre ambientes de produção e de preparo do aplicativo Web (6). Essa operação alterna as URLs dos dois ambientes. Agora `contoso.azurewebsites.net` aponta para a versão v2 do site e do banco de dados (ambiente de produção). 
-2. Se você não precisar mais da versão v1, que se tornou uma cópia de preparo após a troca, você pode encerrar o ambiente de preparo (7).
-
-![Configuração de replicação geográfica do banco de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
-
-Se o processo de atualização não for bem-sucedido (por exemplo, devido a um erro no script de atualização), considere o ambiente de preparo a ser comprometido. Para reverter o aplicativo para o estado de pré-atualização, reverta o aplicativo no ambiente de produção para acesso completo. O próximo diagrama mostra as etapas de reversão:
-
-1. Defina a cópia do banco de dados para o modo de leitura/gravação (8). Essa ação restaura a funcionalidade completa de v1 da cópia de produção.
-2. Execute a análise de causa raiz e encerre o ambiente de preparo (9).
-
-Neste ponto, o aplicativo é totalmente funcional e você pode repetir as etapas de atualização.
+1. Crie uma base de dados secundária na mesma região de Azure. Monitorize o secundário para ver se o processo de sementeir está concluído (1).
+2. Crie um novo ambiente para a sua aplicação web e chame-a de 'Staging'. Será registado em Azure DNS `contoso-staging.azurewebsites.net` com o URL (2).
 
 > [!NOTE]
-> A reversão não exige alterações de DNS porque você ainda não executou uma operação de permuta.
+> Estes passos de preparação não afetarão o ambiente de produção, que pode funcionar em modo de acesso total.
 
-![Configuração de replicação geográfica do banco de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-4.png)
+![Configuração de geo-replicação de geo-replicação da Base de Dados SQL para recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-1.png)
 
-A principal vantagem dessa opção é que você pode atualizar um aplicativo em uma única região seguindo um conjunto de etapas simples. O custo de dólar da atualização é relativamente baixo. 
+Quando os passos de preparação estiverem completos, a aplicação está pronta para a atualização real. O diagrama seguinte ilustra os passos envolvidos no processo de atualização:
 
-A principal compensação é que, se ocorrer uma falha catastrófica durante a atualização, a recuperação para o estado de pré-atualização envolverá a reimplantação do aplicativo em uma região diferente e a restauração do banco de dados a partir do backup usando a restauração geográfica. Esse processo resulta em um tempo de inatividade significativo.
+1. Detete a base de dados primária para o modo de leitura (3). Este modo garante que o ambiente de produção da aplicação web (V1) permanece apenas lido durante a atualização, evitando assim a divergência de dados entre as instâncias de base de dados V1 e V2.
+2. Desligue a base de dados secundária utilizando o modo de terminação planeado (4). Esta ação cria uma cópia totalmente sincronizada e independente da base de dados primária. Esta base de dados será atualizada.
+3. Rode a base de dados secundária para o modo de leitura-escrita e execute o script de atualização (5).
 
-## <a name="upgrade-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Atualizar aplicativos que dependem da replicação geográfica do banco de dados para recuperação de desastre
+![Configuração de geo-replicação de geo-replicação da Base de Dados SQL para recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 
-Se seu aplicativo usar a replicação geográfica ativa ou grupos de failover automático para continuidade de negócios, ele será implantado em pelo menos duas regiões diferentes. Há um banco de dados ativo e primário em uma região primária e um banco de dados secundário somente leitura em uma região de backup. Junto com os fatores mencionados no início deste artigo, o processo de atualização também deve garantir que:
+Se a atualização terminar com sucesso, está agora pronto para mudar os utilizadores para a cópia atualizada da aplicação, que se torna um ambiente de produção. A comutação envolve mais alguns passos, como ilustrado no próximo diagrama:
 
-* O aplicativo permanece protegido contra falhas catastróficas em todos os momentos durante o processo de atualização.
-* Os componentes com redundância geográfica do aplicativo são atualizados em paralelo com os componentes ativos.
+1. Ativar uma operação de troca entre ambientes de produção e encenação da aplicação web (6). Esta operação comuta os URLs dos dois ambientes. Agora `contoso.azurewebsites.net` aponta para a versão V2 do web site e da base de dados (ambiente de produção). 
+2. Se já não precisar da versão V1, que se tornou uma cópia de encenação após a troca, pode desativar o ambiente de encenação (7).
 
-Para atingir essas metas, além de usar os ambientes de aplicativos Web, você aproveitará o Gerenciador de tráfego do Azure usando um perfil de failover com um ponto de extremidade ativo e um ponto de extremidade de backup. O próximo diagrama ilustra o ambiente operacional antes do processo de atualização. Os sites `contoso-1.azurewebsites.net` e `contoso-dr.azurewebsites.net` representam um ambiente de produção do aplicativo com redundância geográfica total. O ambiente de produção inclui os seguintes componentes:
+![Configuração de geo-replicação de geo-replicação da Base de Dados SQL para recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
 
-* O ambiente de produção do aplicativo Web `contoso-1.azurewebsites.net` na região primária (1)
-* O banco de dados primário na região primária (2)
-* Uma instância em espera do aplicativo Web na região de backup (3)
-* O banco de dados secundário replicado geograficamente na região de backup (4)
-* Um perfil de desempenho do Gerenciador de tráfego com um ponto de extremidade online chamado `contoso-1.azurewebsites.net` e um ponto de extremidade offline chamado `contoso-dr.azurewebsites.net`
+Se o processo de atualização não for bem sucedido (por exemplo, devido a um erro no script de atualização), considere o ambiente de preparação comprometido. Para reverter a aplicação para o estado de pré-actualização, reverta a aplicação no ambiente de produção para acesso total. O próximo diagrama mostra os passos de reversão:
 
-Para tornar possível reverter a atualização, você deve criar um ambiente de preparo com uma cópia totalmente sincronizada do aplicativo. Como você precisa garantir que o aplicativo possa se recuperar rapidamente caso ocorra uma falha catastrófica durante o processo de atualização, o ambiente de preparo também deve ser com redundância geográfica. As etapas a seguir são necessárias para criar um ambiente de preparo para a atualização:
+1. Detete a cópia da base de dados para o modo de leitura-escrita (8). Esta ação restaura a funcionalidade V1 completa da cópia de produção.
+2. Efetuar a análise da causa-raiz e desativar o ambiente de encenação (9).
 
-1. Implante um ambiente de preparo do aplicativo Web na região primária (6).
-2. Crie um banco de dados secundário na região primária do Azure (7). Configure o ambiente de preparo do aplicativo Web para se conectar a ele. 
-3. Crie outro banco de dados secundário com redundância geográfica na região de backup replicando o banco de dados secundário na região primária. (Esse método é chamado *de replicação geográfica encadeada*.) (8).
-4. Implante um ambiente de preparo da instância do aplicativo Web na região de backup (9) e configure-o para conectar o banco de dados secundário com redundância geográfica criado em (8).
+Neste ponto, a aplicação está totalmente funcional e pode repetir os passos de upgrade.
 
 > [!NOTE]
-> Essas etapas de preparação não afetarão o aplicativo no ambiente de produção. Ele permanecerá totalmente funcional no modo de leitura/gravação.
+> A reversão não requer alterações dNS porque ainda não executou uma operação de troca.
 
-![Configuração de replicação geográfica do banco de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-1.png)
+![Configuração de geo-replicação de geo-replicação da Base de Dados SQL para recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-4.png)
 
-Quando as etapas de preparação forem concluídas, o ambiente de preparo estará pronto para a atualização. O próximo diagrama ilustra essas etapas de atualização:
+A principal vantagem desta opção é que você pode atualizar uma aplicação em uma única região seguindo um conjunto de passos simples. O custo do dólar da atualização é relativamente baixo. 
 
-1. Defina o banco de dados primário no ambiente de produção para o modo somente leitura (10). Esse modo garante que o banco de dados de produção (v1) não será alterado durante a atualização, impedindo, assim, a divergência entre as instâncias de Database v1 e v2.
+A principal contrapartida é que, se ocorrer uma falha catastrófica durante a atualização, a recuperação para o estado de pré-actualização implica reimplantar a aplicação numa região diferente e restaurar a base de dados de backup utilizando o geo-restauro. Este processo resulta em tempo de inatividade significativo.
+
+## <a name="upgrade-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Atualizações de aplicações que dependem da geo-replicação da base de dados para recuperação de desastres
+
+Se a sua aplicação utilizar grupos de geo-replicação ou auto-failover ativos para continuidade de negócios, está implantado em pelo menos duas regiões diferentes. Há uma base de dados primária ativa numa região primária e uma base de dados secundária apenas para leitura numa região de reserva. Juntamente com os fatores mencionados no início deste artigo, o processo de atualização deve também garantir que:
+
+* A aplicação permanece protegida de falhas catastróficas em todos os momentos durante o processo de atualização.
+* Os componentes geo-redundantes da aplicação são atualizados em paralelo com os componentes ativos.
+
+Para atingir estes objetivos, além de utilizar os ambientes de Web Apps, irá aproveitar o Gestor de Tráfego do Azure utilizando um perfil de failover com um ponto final ativo e um ponto final de backup. O diagrama seguinte ilustra o ambiente operacional antes do processo de atualização. Os web `contoso-1.azurewebsites.net` `contoso-dr.azurewebsites.net` sites e representam um ambiente de produção da aplicação com total redundância geográfica. O ambiente de produção inclui os seguintes componentes:
+
+* O ambiente de produção `contoso-1.azurewebsites.net` da aplicação web na região primária (1)
+* A base de dados primária na região primária (2)
+* Uma instância de espera da aplicação web na região de backup (3)
+* A base de dados secundária geo-replicada na região de backup (4)
+* Um perfil de desempenho do Traffic `contoso-1.azurewebsites.net` Manager com um ponto final on-line chamado e um ponto final offline chamado`contoso-dr.azurewebsites.net`
+
+Para permitir a reversão da atualização, deve criar um ambiente de encenação com uma cópia totalmente sincronizada da aplicação. Uma vez que é necessário garantir que a aplicação possa recuperar rapidamente caso ocorra uma falha catastrófica durante o processo de atualização, o ambiente de preparação deve ser também geo-redundante. São necessários os seguintes passos para criar um ambiente de preparação para a atualização:
+
+1. Implementar um ambiente de encenação da aplicação web na região primária (6).
+2. Criar uma base de dados secundária na região primária de Azure (7). Configure o ambiente de encenação da aplicação web para se ligar a ela. 
+3. Criar outra base de dados geo-redundante e secundária na região de backup, replicando a base de dados secundária na região primária. (Este método *chama-se geo-replicação acorrentada*.) (8).
+4. Implementar um ambiente de encenação da instância da aplicação web na região de backup (9) e configurá-lo para ligar a base de dados secundária georedundante criada em (8).
+
+> [!NOTE]
+> Estes passos de preparação não afetarão a aplicação no ambiente de produção. Permanecerá totalmente funcional no modo de leitura-escrita.
+
+![Configuração de geo-replicação de geo-replicação da Base de Dados SQL para recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-1.png)
+
+Quando os passos de preparação estiverem completos, o ambiente de preparação está pronto para a atualização. O diagrama seguinte ilustra estes passos de atualização:
+
+1. Detete a base de dados primária no ambiente de produção para o modo de leitura (10). Este modo garante que a base de dados de produção (V1) não se altera durante a atualização, evitando assim a divergência de dados entre as instâncias de base de dados V1 e V2.
 
 ```sql
 -- Set the production database to read-only mode
@@ -109,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Termine a replicação geográfica desconectando o secundário (11). Essa ação cria uma cópia independente, mas totalmente sincronizada, do banco de dados de produção. Este banco de dados será atualizado. O exemplo a seguir usa o Transact-SQL, mas o [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) também está disponível. 
+2. Terminar a geo-replicação desligando o secundário (11). Esta ação cria uma cópia independente, mas totalmente sincronizada, da base de dados de produção. Esta base de dados será atualizada. O exemplo que se segue utiliza a Transact-SQL, mas a [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) também está disponível. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -117,41 +117,41 @@ ALTER DATABASE <Prod_DB>
 REMOVE SECONDARY ON SERVER <Partner-Server>
 ```
 
-3. Execute o script de atualização para `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`e o banco de dados primário de preparo (12). As alterações no banco de dados serão replicadas automaticamente para o secundário de preparo.
+3. Executar o script `contoso-1-staging.azurewebsites.net` `contoso-dr-staging.azurewebsites.net`de atualização contra , e a base de dados primária de encenação (12). As alterações na base de dados serão replicadas automaticamente para a encenação secundária.
 
-![Configuração de replicação geográfica do banco de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
+![Configuração de geo-replicação de geo-replicação da Base de Dados SQL para recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
 
-Se a atualização for concluída com êxito, agora você estará pronto para alternar os usuários para a versão v2 do aplicativo. O próximo diagrama ilustra as etapas envolvidas:
+Se a atualização terminar com sucesso, está agora pronto para mudar os utilizadores para a versão V2 da aplicação. O próximo diagrama ilustra os passos envolvidos:
 
-1. Ative uma operação de permuta entre os ambientes de produção e de preparo do aplicativo Web na região primária (13) e na região de backup (14). A v2 do aplicativo agora se torna um ambiente de produção, com uma cópia redundante na região de backup.
-2. Se você não precisar mais do aplicativo V1 (15 e 16), poderá encerrar o ambiente de preparo.
+1. Ativar uma operação de troca entre ambientes de produção e encenação da aplicação web na região primária (13) e na região de backup (14). A V2 da aplicação torna-se agora um ambiente de produção, com uma cópia redundante na região de backup.
+2. Se já não necessitar da aplicação V1 (15 e 16), pode desativar o ambiente de preparação.
 
-![Configuração de replicação geográfica do banco de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
+![Configuração de geo-replicação de geo-replicação da Base de Dados SQL para recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
 
-Se o processo de atualização não for bem-sucedido (por exemplo, devido a um erro no script de atualização), considere o ambiente de preparo para estar em um estado inconsistente. Para reverter o aplicativo para o estado de pré-atualização, reverta para usando v1 do aplicativo no ambiente de produção. As etapas necessárias são mostradas no diagrama a seguir:
+Se o processo de atualização não for bem sucedido (por exemplo, devido a um erro no script de atualização), considere o ambiente de preparação num estado inconsistente. Para reverter a aplicação para o estado de pré-actualização, volte a utilizar a V1 da aplicação no ambiente de produção. Os passos necessários são mostrados no próximo diagrama:
 
-1. Defina a cópia do banco de dados primário no ambiente de produção para o modo de leitura/gravação (17). Essa ação restaura a funcionalidade completa do v1 no ambiente de produção.
-2. Execute a análise de causa raiz e repare ou remova o ambiente de preparo (18 e 19).
+1. Detete a cópia da base de dados primária no ambiente de produção para o modo de leitura-escrita (17). Esta ação restaura a funcionalidade V1 completa no ambiente de produção.
+2. Efetuar a análise da causa da raiz e reparar ou remover o ambiente de paragem (18 e 19).
 
-Neste ponto, o aplicativo é totalmente funcional e você pode repetir as etapas de atualização.
+Neste ponto, a aplicação está totalmente funcional e pode repetir os passos de upgrade.
 
 > [!NOTE]
-> A reversão não exige alterações de DNS porque você não executou uma operação de permuta.
+> A reversão não requer alterações dNS porque não executou uma operação de troca.
 
-![Configuração de replicação geográfica do banco de dados SQL para recuperação de desastre na nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-4.png)
+![Configuração de geo-replicação de geo-replicação da Base de Dados SQL para recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-4.png)
 
-A principal vantagem dessa opção é que você pode atualizar o aplicativo e sua cópia com redundância geográfica em paralelo, sem comprometer sua continuidade de negócios durante a atualização.
+A principal vantagem desta opção é que pode atualizar a aplicação e a sua cópia georedundante paralelamente sem comprometer a continuidade do seu negócio durante a atualização.
 
-A principal desvantagem é que ele requer redundância dupla de cada componente de aplicativo e, portanto, incorre em um custo de dólar maior. Ele também envolve um fluxo de trabalho mais complicado.
+A principal contrapartida é que requer o dobro do despedimento de cada componente de aplicação e, por conseguinte, incorre num custo mais elevado do dólar. Envolve também um fluxo de trabalho mais complicado.
 
 ## <a name="summary"></a>Resumo
 
-Os dois métodos de atualização descritos no artigo diferem na complexidade e no custo de dólar, mas ambos se concentram na minimização de quanto tempo o usuário está limitado a operações somente leitura. Essa hora é definida diretamente pela duração do script de atualização. Ele não depende do tamanho do banco de dados, da camada de serviço escolhida, da configuração do site ou de outros fatores que você não pode controlar facilmente. Todas as etapas de preparação são dissociadas das etapas de atualização e não afetam o aplicativo de produção. A eficiência do script de atualização é um fator fundamental que determina a experiência do usuário durante as atualizações. Portanto, a melhor maneira de melhorar essa experiência é concentrar seus esforços em tornar o script de atualização o mais eficiente possível.
+Os dois métodos de atualização descritos no artigo diferem em complexidade e custo do dólar, mas ambos se concentram em minimizar o tempo que o utilizador está limitado a operações apenas de leitura. Esse tempo é definido diretamente pela duração do script de atualização. Não depende do tamanho da base de dados, do nível de serviço que escolheu, da configuração do site ou de outros fatores que não consegue controlar facilmente. Todas as etapas de preparação são dissociadas das etapas de upgrade e não impactam a aplicação de produção. A eficiência do script de upgrade é um fator chave que determina a experiência do utilizador durante as atualizações. Assim, a melhor maneira de melhorar essa experiência é concentrar os seus esforços em tornar o script de upgrade o mais eficiente possível.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
-* Para saber mais sobre a replicação geográfica ativa do banco de dados SQL do Azure, confira [criar bancos de dados secundários legíveis usando a replicação geográfica ativa](sql-database-active-geo-replication.md).
-* Para saber mais sobre grupos de failover automático do banco de dados SQL do Azure, confira [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md).
-* Para saber mais sobre ambientes de preparo no serviço Azure App, confira [configurar ambientes de preparo no serviço Azure app](../app-service/deploy-staging-slots.md).
-* Para saber mais sobre os perfis do Gerenciador de tráfego do Azure, consulte [gerenciar um perfil do Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-manage-profiles.md).
+* Para uma visão geral da continuidade do negócio e cenários, consulte a [visão geral da continuidade do Negócio.](sql-database-business-continuity.md)
+* Para saber sobre a geo-replicação ativa da Base de Dados Azure SQL, consulte Criar bases de [dados secundárias legíveis utilizando geo-replicação ativa](sql-database-active-geo-replication.md).
+* Para conhecer os grupos de falha automática da Base de Dados Azure SQL, consulte Utilize grupos de falha automática para permitir falhas [transparentes e coordenadas de várias bases de dados](sql-database-auto-failover-group.md).
+* Para aprender sobre ambientes de encenação no Serviço de Aplicações Azure, consulte [Configurar ambientes de encenação no Serviço de Aplicações Azure](../app-service/deploy-staging-slots.md).
+* Para saber sobre os perfis do Gestor de Tráfego Azure, consulte Gerir um perfil de Gestor de [Tráfego Azure](../traffic-manager/traffic-manager-manage-profiles.md).

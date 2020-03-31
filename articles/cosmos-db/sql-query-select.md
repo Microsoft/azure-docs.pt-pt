@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
 ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77469940"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT em Azure Cosmos DB
@@ -36,19 +36,19 @@ SELECT <select_specification>
   
 - `<select_specification>`  
 
-  Propriedades ou valor a ser selecionado para o conjunto de resultados.  
+  Propriedades ou valor a selecionar para o conjunto de resultados.  
   
 - `'*'`  
 
-  Especifica que o valor deve ser obtido sem fazer quaisquer alterações. Especificamente, se o valor processado é um objeto, serão possível obter todas as propriedades.  
+  Especifica que o valor deve ser recuperado sem fazer alterações. Especificamente se o valor processado for um objeto, todas as propriedades serão recuperadas.  
   
 - `<object_property_list>`  
   
-  Especifica a lista de propriedades a serem obtidas. Cada valor retornado será um objeto com as propriedades especificadas.  
+  Especifica a lista de propriedades a recuperar. Cada valor devolvido será um objeto com as propriedades especificadas.  
   
 - `VALUE`  
 
-  Especifica que o valor JSON deve ser obtido em vez do objeto JSON completo. Isto, ao contrário `<property_list>` não envolve o valor projetado num objeto.  
+  Especifica que o valor JSON deve ser recuperado em vez do objeto JSON completo. Isto, `<property_list>` ao contrário de não embrulhar o valor projetado num objeto.  
  
 - `DISTINCT`
   
@@ -56,13 +56,13 @@ SELECT <select_specification>
 
 - `<scalar_expression>`  
 
-  Expressão que representa o valor a ser calculada. Consulte a secção [de expressões Scalar](sql-query-scalar-expressions.md) para obter mais detalhes.  
+  Expressão que representa o valor a calcular. Consulte a secção [de expressões Scalar](sql-query-scalar-expressions.md) para obter mais detalhes.  
 
 ## <a name="remarks"></a>Observações
 
-A sintaxe `SELECT *` só é válida se a cláusula FROM tiver declarado exatamente um pseudónimo. `SELECT *` fornece uma projeção de identidade, que pode ser útil se não for necessária nenhuma projeção. SELECIONE * só é válido se for especificado cláusula FROM e introduziu apenas uma única origem de entrada.  
+A `SELECT *` sintaxe só é válida se a cláusula FROM tiver declarado exatamente um pseudónimo. `SELECT *`fornece uma projeção de identidade, que pode ser útil se não for necessária nenhuma projeção. SELECT * só é válido se a cláusula FROM for especificada e introduzida apenas uma única fonte de entrada.  
   
-Tanto `SELECT <select_list>` como `SELECT *` são "açúcar sintático" e podem ser expressos alternativamente usando simples declarações SELECT, como mostrado abaixo.  
+Ambos `SELECT <select_list>` `SELECT *` são "açúcar sintático" e podem ser expressos alternativamente usando simples declarações SELECT como mostrado abaixo.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -78,7 +78,7 @@ Tanto `SELECT <select_list>` como `SELECT *` são "açúcar sintático" e podem 
   
 ## <a name="examples"></a>Exemplos
 
-O exemplo de consulta SELECT seguinte devolve `address` de `Families` cujos `id` correspondem `AndersenFamily`:
+O exemplo de consulta `address` `Families` SELECT `id` `AndersenFamily`seguinte retorna de cujos fósforos:
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ Os resultados são:
 ```
 
 ### <a name="quoted-property-accessor"></a>Acessório de propriedade cotado
-Você pode aceder a propriedades usando o operador de propriedade citado []. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Esta sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais, ou tem o mesmo nome que uma palavra-chave SQL ou palavra reservada.
+Você pode aceder a propriedades usando o operador de propriedade citado []. Por `SELECT c.grade` exemplo, `SELECT c["grade"]` e são equivalentes. Esta sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais, ou tem o mesmo nome que uma palavra-chave SQL ou palavra reservada.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ Você pode aceder a propriedades usando o operador de propriedade citado []. Por
 
 ### <a name="nested-properties"></a>Propriedades aninhadas
 
-O exemplo seguinte projeta duas propriedades aninhadas, `f.address.state` e `f.address.city`.
+O exemplo seguinte projeta duas `f.address.state` `f.address.city`propriedades aninhadas, e .
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -147,7 +147,7 @@ Os resultados são:
     }]
 ```
 
-No exemplo anterior, a cláusula SELECT precisa de criar um objeto JSON, e uma vez que a amostra não fornece nenhuma chave, a cláusula utiliza o nome variável de argumento implícito `$1`. A seguinte consulta devolve duas variáveis implícitas de argumentos: `$1` e `$2`.
+No exemplo anterior, a cláusula SELECT precisa de criar um objeto JSON, e uma vez que `$1`a amostra não fornece nenhuma chave, a cláusula utiliza o nome variável de argumento implícito . A seguinte consulta devolve duas variáveis implícitas de argumentos: `$1` e `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -171,9 +171,9 @@ Os resultados são:
 ```
 ## <a name="reserved-keywords-and-special-characters"></a>Palavras-chave reservadas e caracteres especiais
 
-Se os seus dados contenham propriedades com os mesmos nomes que as palavras-chave reservadas, tais como "encomenda" ou "Grupo", então as consultas contra estes documentos resultarão em erros de sintaxe. Você deve explicitamente incluir a propriedade em `[]` personagem para executar a consulta com sucesso.
+Se os seus dados contenham propriedades com os mesmos nomes que as palavras-chave reservadas, tais como "encomenda" ou "Grupo", então as consultas contra estes documentos resultarão em erros de sintaxe. Você deve explicitamente `[]` incluir a propriedade em personagem para executar a consulta com sucesso.
 
-Por exemplo, aqui está um documento com uma propriedade chamada `order` e uma propriedade `price($)` que contém caracteres especiais:
+Por exemplo, aqui está um documento `order` com `price($)` uma propriedade nomeada e uma propriedade que contém caracteres especiais:
 
 ```json
 {
@@ -190,7 +190,7 @@ Por exemplo, aqui está um documento com uma propriedade chamada `order` e uma p
 }
 ```
 
-Se você executar uma consulta que inclui a propriedade `order` ou `price($)`, você receberá um erro de sintaxe.
+Se executar uma consulta que `order` inclua a propriedade ou `price($)` propriedade, receberá um erro de sintaxe.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -214,8 +214,8 @@ SELECT * FROM c WHERE c["order"].orderId = "12345"
 SELECT * FROM c WHERE c["order"]["price($)"] > 50
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução](sql-query-getting-started.md)
+- [Começar](sql-query-getting-started.md)
 - [Amostras Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [ONDE a cláusula](sql-query-where.md)

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 58da209c68449d3a28b08f52ec575f7db520f121
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 63a5cdbff79af52d9f96cf410a820c6cfc530066
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79244345"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454028"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrar eventos para grelha de eventos
 
@@ -22,9 +22,9 @@ Este artigo mostra como filtrar eventos ao criar uma subscrição da Rede de Eve
 
 ## <a name="filter-by-event-type"></a>Filtro por tipo de evento
 
-Ao criar uma subscrição da Grelha de Eventos, pode especificar quais os tipos de [eventos](event-schema.md) a enviar para o ponto final. Os exemplos desta secção criam subscrições de eventos para um grupo de recursos, mas limitam os eventos que são enviados para `Microsoft.Resources.ResourceWriteFailure` e `Microsoft.Resources.ResourceWriteSuccess`. Se precisar de mais flexibilidade ao filtrar eventos por tipos de eventos, consulte O Filtro por operadores avançados e campos de dados.
+Ao criar uma subscrição da Grelha de Eventos, pode especificar quais os tipos de [eventos](event-schema.md) a enviar para o ponto final. Os exemplos nesta secção criam subscrições de eventos para um `Microsoft.Resources.ResourceWriteFailure` `Microsoft.Resources.ResourceWriteSuccess`grupo de recursos, mas limitam os eventos que são enviados para e . Se precisar de mais flexibilidade ao filtrar eventos por tipos de eventos, consulte O Filtro por operadores avançados e campos de dados.
 
-Para o PowerShell, utilize o parâmetro `-IncludedEventType` ao criar a subscrição.
+Para o PowerShell, utilize o `-IncludedEventType` parâmetro ao criar a subscrição.
 
 ```powershell
 $includedEventTypes = "Microsoft.Resources.ResourceWriteFailure", "Microsoft.Resources.ResourceWriteSuccess"
@@ -36,7 +36,7 @@ New-AzEventGridSubscription `
   -IncludedEventType $includedEventTypes
 ```
 
-Para o Azure CLI, utilize o parâmetro `--included-event-types`. O exemplo seguinte utiliza o Azure CLI numa concha bash:
+Para o Azure CLI, utilize o `--included-event-types` parâmetro. O exemplo seguinte utiliza o Azure CLI numa concha bash:
 
 ```azurecli
 includedEventTypes="Microsoft.Resources.ResourceWriteFailure Microsoft.Resources.ResourceWriteSuccess"
@@ -48,7 +48,7 @@ az eventgrid event-subscription create \
   --included-event-types $includedEventTypes
 ```
 
-Para um modelo de Gestor de Recursos, use a propriedade `includedEventTypes`.
+Para um modelo de `includedEventTypes` Gestor de Recursos, use a propriedade.
 
 ```json
 "resources": [
@@ -81,7 +81,7 @@ Para um modelo de Gestor de Recursos, use a propriedade `includedEventTypes`.
 
 Pode filtrar eventos pelo sujeito nos dados do evento. Pode especificar um valor a combinar para o início ou o fim do sujeito. Se precisar de mais flexibilidade ao filtrar eventos por assunto, consulte Filter por operadores avançados e campos de dados.
 
-No exemplo seguinte da PowerShell, cria-se uma subscrição de evento que filtra até ao início do assunto. Usa o parâmetro `-SubjectBeginsWith` para limitar eventos a um recurso específico. Passas a identificação de recursos de um grupo de segurança da rede.
+No exemplo seguinte da PowerShell, cria-se uma subscrição de evento que filtra até ao início do assunto. Usa-se `-SubjectBeginsWith` o parâmetro para limitar os eventos a um recurso específico. Passas a identificação de recursos de um grupo de segurança da rede.
 
 ```powershell
 $resourceId = (Get-AzResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
@@ -93,7 +93,7 @@ New-AzEventGridSubscription `
   -SubjectBeginsWith $resourceId
 ```
 
-O próximo exemplo da PowerShell cria uma subscrição para um armazenamento de bolhas. Limita os acontecimentos a pessoas com um tema que termina em `.jpg`.
+O próximo exemplo da PowerShell cria uma subscrição para um armazenamento de bolhas. Limita os acontecimentos a pessoas com `.jpg`um tema que termina em .
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
@@ -105,7 +105,7 @@ New-AzEventGridSubscription `
   -SubjectEndsWith ".jpg"
 ```
 
-No exemplo do ClI Azure seguinte, cria-se uma subscrição de evento que filtra até ao início do assunto. Usa o parâmetro `--subject-begins-with` para limitar eventos a um recurso específico. Passas a identificação de recursos de um grupo de segurança da rede.
+No exemplo do ClI Azure seguinte, cria-se uma subscrição de evento que filtra até ao início do assunto. Usa-se `--subject-begins-with` o parâmetro para limitar os eventos a um recurso específico. Passas a identificação de recursos de um grupo de segurança da rede.
 
 ```azurecli
 resourceId=$(az resource show --name demoSecurityGroup --resource-group myResourceGroup --resource-type Microsoft.Network/networkSecurityGroups --query id --output tsv)
@@ -117,7 +117,7 @@ az eventgrid event-subscription create \
   --subject-begins-with $resourceId
 ```
 
-O próximo exemplo do Azure CLI cria uma subscrição para um armazenamento de bolhas. Limita os acontecimentos a pessoas com um tema que termina em `.jpg`.
+O próximo exemplo do Azure CLI cria uma subscrição para um armazenamento de bolhas. Limita os acontecimentos a pessoas com `.jpg`um tema que termina em .
 
 ```azurecli
 storageid=$(az storage account show --name $storageName --resource-group myResourceGroup --query id --output tsv)
@@ -129,7 +129,7 @@ az eventgrid event-subscription create \
   --subject-ends-with ".jpg"
 ```
 
-No exemplo do seguinte modelo de Gestor de Recursos, cria-se uma subscrição de evento que filtra até ao início do assunto. Você usa a propriedade `subjectBeginsWith` para limitar eventos a outros para um recurso específico. Passas a identificação de recursos de um grupo de segurança da rede.
+No exemplo do seguinte modelo de Gestor de Recursos, cria-se uma subscrição de evento que filtra até ao início do assunto. Você usa `subjectBeginsWith` a propriedade para limitar eventos a uns para um recurso específico. Passas a identificação de recursos de um grupo de segurança da rede.
 
 ```json
 "resources": [
@@ -155,7 +155,7 @@ No exemplo do seguinte modelo de Gestor de Recursos, cria-se uma subscrição de
 ]
 ```
 
-O próximo exemplo do modelo do Gestor de Recursos cria uma subscrição para um armazenamento de bolhas. Limita os acontecimentos a pessoas com um tema que termina em `.jpg`.
+O próximo exemplo do modelo do Gestor de Recursos cria uma subscrição para um armazenamento de bolhas. Limita os acontecimentos a pessoas com `.jpg`um tema que termina em .
 
 ```json
 "resources": [
@@ -193,7 +193,7 @@ Estes exemplos criam um tópico personalizado. Subscrevem o tópico personalizad
 
 Para a CLI do Azure, utilize:
 
-```azurecli-interactive
+```azurecli
 topicName=<your-topic-name>
 endpointURL=<endpoint-URL>
 
@@ -214,7 +214,7 @@ Observe que está definida uma [data de expiração](concepts.md#event-subscript
 
 Para o PowerShell, utilize:
 
-```azurepowershell-interactive
+```powershell
 $topicName = <your-topic-name>
 $endpointURL = <endpoint-URL>
 
@@ -240,7 +240,7 @@ Para testar o filtro, envie um evento com o campo de cores definido para verde. 
 
 Para a CLI do Azure, utilize:
 
-```azurecli-interactive
+```azurecli
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name $topicName -g gridResourceGroup --query "key1" --output tsv)
 
@@ -251,7 +251,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 
 Para o PowerShell, utilize:
 
-```azurepowershell-interactive
+```powershell
 $endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
 $keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
 
@@ -279,14 +279,14 @@ Para testar um cenário em que o evento não é enviado, envie um evento com o c
 
 Para a CLI do Azure, utilize:
 
-```azurecli-interactive
+```azurecli
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 Para o PowerShell, utilize:
 
-```azurepowershell-interactive
+```powershell
 $htbody = @{
     id= $eventID
     eventType="recordInserted"
@@ -304,7 +304,7 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a monitorização das entregas de eventos, consulte a entrega de [mensagens Monitor Event Grid](monitor-event-delivery.md).
 * Para mais informações sobre a chave de autenticação, consulte [a segurança e a autenticação da Rede de Eventos.](security-authentication.md)

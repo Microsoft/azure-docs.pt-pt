@@ -1,26 +1,26 @@
 ---
-title: Esquema de eventos de log de autoescala do Azure
-description: Formato de logs para monitoramento e solução de problemas de ações de dimensionamento automático
+title: Esquema de eventos de log de escala automática Azure
+description: Formato de registos para monitorização e resolução de ações de escala automática
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75395937"
 ---
-# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Azure Monitor esquema de log de recursos de ações de dimensionamento automático
+# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Azure Monitor ação slog schema de log
 
-A seguir estão os formatos gerais para os logs de recursos de dimensionamento automático com dados de exemplo incluídos. Nem todos os exemplos abaixo são JSON formados corretamente porque podem incluir vários valores que podem ser válidos para um determinado campo. 
+Seguem-se os formatos gerais para registos de recursos de escala automática com dados de exemplo incluídos. Nem todos os exemplos abaixo são devidamente formados JSON porque podem incluir múltiplos valores que podem ser válidos para um determinado campo. 
 
-Use eventos desse tipo para solucionar problemas que podem estar ocorrendo com o dimensionamento automático. Para obter mais informações, consulte [Solucionando problemas de dimensionamento automático](autoscale-troubleshoot.md).
+Utilize eventos deste tipo para resolver problemas que possa ter com a escala automática. Para mais informações, consulte problemas de [escala automática de resolução de problemas.](autoscale-troubleshoot.md)
 
 
 ## <a name="profile-evaluation"></a>Avaliação de perfil
 
-Registrado quando a autoescala examina primeiro um perfil de dimensionamento automático
+Gravado quando a escala automática olha pela primeira vez para um perfil de escala automática
 
 ```json
 {
@@ -37,9 +37,9 @@ Registrado quando a autoescala examina primeiro um perfil de dimensionamento aut
 }
 ```
 
-## <a name="profile-cooldown-evaluation"></a>Avaliação do perfil cooldown
+## <a name="profile-cooldown-evaluation"></a>Avaliação de arrefecimento do perfil
 
-Registrado quando a autoescala é avaliada se não deve fazer uma escala devido a um período de resfriamento. 
+Gravada quando a escala automática avalia se não deve fazer uma escala devido a um período de arrefecimento. 
 
 ```json
 {
@@ -60,9 +60,9 @@ Registrado quando a autoescala é avaliada se não deve fazer uma escala devido 
 }
 ```
 
-## <a name="rule-evaluation"></a>Avaliação de regra
+## <a name="rule-evaluation"></a>Avaliação de regras
 
-Registrado quando o dimensionamento automático inicia primeiro a avaliação de uma regra de escala específica. 
+Gravada quando a escala automática começa a avaliar uma regra de escala específica. 
 
 ```json
 {
@@ -87,9 +87,9 @@ Registrado quando o dimensionamento automático inicia primeiro a avaliação de
 }
 ```
 
-## <a name="metric-evaluation"></a>Avaliação da métrica
+## <a name="metric-evaluation"></a>Avaliação métrica
 
-Registrado quando o dimensionamento automático avaliou a métrica que está sendo usada para disparar uma ação de escala. 
+Gravada quando a escala automática avaliou a métrica que estava a ser usada para desencadear uma ação de escala. 
 
 ```json
 {
@@ -111,9 +111,9 @@ Registrado quando o dimensionamento automático avaliou a métrica que está sen
 }
 ```
 
-## <a name="instance-count-evaluation"></a>Avaliação de contagem de instâncias
+## <a name="instance-count-evaluation"></a>Avaliação da contagem de exemplos
 
-Registrado quando o dimensionamento automático avalia o número de instâncias já em execução na preparação para decidir se deve iniciar mais, desligar algumas ou não fazer nada. 
+Gravada quando a escala automática avalia o número de casos já em execução para decidir se deve começar mais, desligar alguns ou não fazer nada. 
 
 ```json
 {
@@ -132,9 +132,9 @@ Registrado quando o dimensionamento automático avalia o número de instâncias 
 }
 ```
 
-## <a name="scale-action-evaluation"></a>Avaliação de ação de escala
+## <a name="scale-action-evaluation"></a>Avaliação de ação em escala
 
-Registrado quando a autoescala inicia a avaliação se uma ação de escala deve ocorrer. 
+Gravada quando a escala automática iniciar a avaliação se uma ação de escala deve ocorrer. 
 
 ```json
 {
@@ -152,9 +152,9 @@ Registrado quando a autoescala inicia a avaliação se uma ação de escala deve
 }
 ```
 
-## <a name="instance-update-evaluation"></a>Avaliação de atualização da instância
+## <a name="instance-update-evaluation"></a>Avaliação da atualização de instâncias
 
-Registrado quando o dimensionamento automático atualiza o número de instâncias de computação em execução, seja para cima ou para baixo.
+Gravado quando a escala automática atualiza o número de instâncias computadas em execução, para cima ou para baixo.
 
 ```json
 {
@@ -173,9 +173,9 @@ Registrado quando o dimensionamento automático atualiza o número de instância
 }
 ```
 
-## <a name="scale-action"></a>Ação de escala
+## <a name="scale-action"></a>Ação à escala
 
-Registrado quando o dimensionamento automático inicia uma ação de escala, para cima ou para baixo. 
+Gravada quando a escala automática inicia uma ação de escala, para cima ou para baixo. 
 ```json
 {
   "time": "2018-09-10 18:12:00.6132593",
@@ -196,9 +196,9 @@ Registrado quando o dimensionamento automático inicia uma ação de escala, par
 }
 ```
 
-## <a name="scale-action-tracking"></a>Controle de ação de escala
+## <a name="scale-action-tracking"></a>Rastreio de ação em escala
 
-Registrado em intervalos diferentes de uma ação de escala de instância.
+Gravado em diferentes intervalos de uma ação de escala de instância.
 
 ```json
 {
@@ -217,4 +217,4 @@ Registrado em intervalos diferentes de uma ação de escala de instância.
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre o [dimensionamento automático](autoscale-overview.md)
+Saiba mais sobre [a escala automática](autoscale-overview.md)

@@ -9,17 +9,14 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: cd239106bfd3ac785cffbf1365f298da565179ec
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: d18fdee85bd0fbabe68fe9890c4a2dc74366041d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366092"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de conectividade Azure SQL
-> [!NOTE]
-> As funcionalidades só estão disponíveis em **US West 2, US East, US South Central** com outras regiões em breve a seguir
-
 > [!NOTE]
 > Este artigo aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como ao SQL Data Warehouse que são criados no servidor Azure SQL. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
@@ -51,7 +48,7 @@ An instance-specific error occurred while establishing a connection to SQL Serve
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
-O seguinte script PowerShell mostra como `Get` e `Set` a propriedade de Acesso à **Rede Pública** ao nível lógico do servidor:
+O seguinte script PowerShell `Get` `Set` mostra como e a propriedade de Acesso à **Rede Pública** ao nível lógico do servidor:
 
 ```powershell
 #Get the Public Network Access property

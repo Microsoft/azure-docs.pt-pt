@@ -7,28 +7,28 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
 ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77482348"
 ---
-# <a name="azure-app-service-plan-overview"></a>Visão geral do plano do serviço de aplicações azure
+# <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure
 
 No Serviço de Aplicações, as aplicações são executadas num _plano do Serviço de Aplicações_. Um plano do Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. Estes recursos computacionais são análogos à exploração de [_servidores_](https://wikipedia.org/wiki/Server_farm) em hospedagem web convencional. Uma ou mais aplicações podem ser configuradas para executar os mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicações).
 
-Quando se cria um plano de Serviço de Aplicações numa determinada região (por exemplo, na Europa Ocidental), é criado um conjunto de recursos computacionais para esse plano naquela região. Quaisquer aplicações que você colocou neste plano de App Service executado nestes recursos computacionais como definido pelo seu plano de Serviço de Aplicações. Cada plano de Serviço de Aplicações define:
+Quando se cria um plano de Serviço de Aplicações numa determinada região (por exemplo, na Europa Ocidental), é criado um conjunto de recursos computacionais para esse plano naquela região. Quaisquer aplicações que você colocou neste plano de App Service executado nestes recursos computacionais como definido pelo seu plano de Serviço de Aplicações. Cada Plano do Serviço de Aplicações define o seguinte:
 
-- Região (Oeste dos EUA, Leste dos EUA, etc.)
-- Número de casos vm
-- Tamanho das instâncias VM (Pequena, Média, Grande)
+- Região (E.U.A. Oeste, E.U.A. Leste, etc.)
+- Número de instâncias de VM
+- Tamanho das instâncias de VM (pequena, média, grande)
 - Nível de preços (Grátis, Partilhado, Básico, Standard, Premium, PremiumV2, Isolado)
 
-O _nível de preços_ de um plano de Serviço de Aplicações determina quais as funcionalidades do App Service que obtém e quanto paga pelo plano. Existem algumas categorias de níveis de preços:
+O _nível de preços_ de um plano de Serviço de Aplicações determina quais as funcionalidades do App Service que obtém e quanto paga pelo plano. Existem algumas categorias de escalões de preço:
 
-- **Computação partilhada**: **Grátis** e **Partilhados**, os dois níveis base, executa uma aplicação no mesmo Azure VM que outras aplicações do App Service, incluindo apps de outros clientes. Estes níveis atribuem quotas de CPU a cada aplicação que funciona com os recursos partilhados, e os recursos não podem ser dimensionados.
-- **Computação dedicada**: Os níveis **Basic**, **Standard,** **Premium**e **PremiumV2** executam aplicações em VMs Azure dedicados. Apenas aplicações no mesmo plano de App Service partilham os mesmos recursos de computação. Quanto mais alto for o nível, mais casos de VM estão disponíveis para si para escala-out.
-- **Isolado**: Este nível executa VMs Azure dedicados em redes virtuais azure dedicadas. Fornece isolamento de rede em cima do isolamento computacional para as suas apps. Fornece as capacidades máximas de escala.
+- **Computação partilhada**: **Grátis** e **Partilhados**, os dois níveis base, executa uma aplicação no mesmo Azure VM que outras aplicações do App Service, incluindo apps de outros clientes. Estes escalões alocam quotas de CPU a cada uma das aplicações que executam nos recursos partilhados e os recursos não podem ser aumentados horizontalmente.
+- **Computação dedicada**: Os níveis **Basic**, **Standard,** **Premium**e **PremiumV2** executam aplicações em VMs Azure dedicados. Apenas as aplicações no mesmo plano do Serviço de Aplicações partilham os mesmos recursos de computação. Quanto maior for o escalão, mais instâncias de VM estarão disponíveis para escalamento horizontal.
+- **Isolado**: Este nível executa VMs Azure dedicados em redes virtuais azure dedicadas. Fornece isolamento de rede em cima do isolamento computacional para as suas apps. Fornece as capacidades máximas de escalamento horizontal.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -84,7 +84,7 @@ Não é cobrado por utilizar as funcionalidades do Serviço de Aplicações que 
 
 ## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>E se a minha aplicação precisar de mais capacidades ou funcionalidades?
 
-O seu plano de Serviço de Aplicações pode ser dimensionado para cima e para baixo a qualquer momento. É tão simples como alterar o nível de preços do plano. Pode escolher um nível de preços mais baixo no início e aumentar mais tarde quando precisar de mais funcionalidades do Serviço de Aplicações.
+O seu plano do Serviço de Aplicações pode ser aumentado e reduzido verticalmente em qualquer altura. É tão simples como alterar o nível de preços do plano. Pode escolher um escalão de preço mais baixo inicialmente e aumentar verticalmente mais tarde quando precisar de mais funcionalidades do Serviço de Aplicações.
 
 Por exemplo, pode começar a testar a sua aplicação web num plano de Serviço de Aplicações **Gratuito** e não pagar nada. Quando quiser adicionar o seu [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) à aplicação web, basta escalar o seu plano até ao nível **De partilha.** Mais tarde, quando quiser [criar uma ligação SSL,](configure-ssl-bindings.md)dimensione o seu plano até ao nível **Básico.** Quando quiser ter ambientes de [encenação,](deploy-staging-slots.md)escale até o nível **Standard.** Quando você precisa de mais núcleos, memória ou armazenamento, escala até um tamanho VM maior no mesmo nível.
 
@@ -96,9 +96,9 @@ Se a sua aplicação estiver no mesmo plano de App Service com outras aplicaçõ
 
 ## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Devo colocar uma aplicação num novo plano ou num plano existente?
 
-Uma vez que paga os recursos de computação que o seu plano de Serviço de Aplicações atribui (ver [quanto custa o meu plano de Serviço de Aplicações?](#cost) Pode continuar a adicionar apps a um plano existente, desde que o plano tenha recursos suficientes para lidar com a carga. No entanto, tenha em mente que as aplicações no mesmo plano de App Service partilham todos os mesmos recursos computacionais. Para determinar se a nova aplicação tem os recursos necessários, precisa de compreender a capacidade do plano de Serviço de Aplicações existente e a carga esperada para a nova aplicação. Sobrecarregar um plano de Serviço de Aplicações pode potencialmente causar tempo de inatividade para as suas novas e existentes aplicações.
+Uma vez que paga os recursos de computação que o seu plano de Serviço de Aplicações atribui (ver [quanto custa o meu plano de Serviço de Aplicações?](#cost) Pode continuar a adicionar apps a um plano existente, desde que o plano tenha recursos suficientes para lidar com a carga. No entanto, tenha em mente que as aplicações no mesmo plano de App Service partilham todos os mesmos recursos computacionais. Para determinar se a nova aplicação tem os recursos necessários, terá de compreender a capacidade do plano do Serviço de Aplicações existente e a carga esperada para a nova aplicação. Sobrecarregar um plano do Serviço de Aplicações pode, potencialmente, levar a períodos de indisponibilidade para as suas aplicações novas e existentes.
 
-Isole a sua aplicação num novo plano de Serviço de Aplicações quando:
+Isole a sua aplicação num novo plano do Serviço de Aplicações quando:
 
 - A aplicação é intensiva em recursos.
 - Deseja escalar a aplicação de forma independente das outras aplicações do plano existente.

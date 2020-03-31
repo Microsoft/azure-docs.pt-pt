@@ -1,22 +1,22 @@
 ---
-title: Erros de nome de recurso reservado
+title: Erros de nome de recursos reservados
 description: Descreve como resolver erros ao fornecer um nome de recurso que inclui uma palavra reservada.
 ms.topic: troubleshooting
 ms.date: 11/08/2017
 ms.openlocfilehash: e76f4bf9bfee7de6e7523d69acf1388d2dd80e93
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75477632"
 ---
-# <a name="resolve-reserved-resource-name-errors"></a>Resolver erros de nome de recurso reservado
+# <a name="resolve-reserved-resource-name-errors"></a>Resolver erros de nome de recursos reservados
 
-Este artigo descreve o erro que você encontra ao implantar um recurso que inclui uma palavra reservada em seu nome.
+Este artigo descreve o erro que encontra ao implementar um recurso que inclui uma palavra reservada em seu nome.
 
 ## <a name="symptom"></a>Sintoma
 
-Ao implantar um recurso que está disponível por meio de um ponto de extremidade público, você pode receber o seguinte erro:
+Ao implementar um recurso disponível através de um ponto final público, poderá receber o seguinte erro:
 
 ```
 Code=ReservedResourceName;
@@ -25,47 +25,47 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 ## <a name="cause"></a>Causa
 
-Os recursos que têm um ponto de extremidade público não podem usar palavras reservadas ou marcas no nome.
+Os recursos que têm um ponto final público não podem usar palavras ou marcas reservadas no nome.
 
-As palavras a seguir são reservadas:
+As seguintes palavras são reservadas:
 
 * ACESSO
 * AZURE
 * BING
 * BIZSPARK
 * BIZTALK
-* Tana
-* DIRECTX
+* CORTANA
+* DIRETO
 * DOTNET
-* PINCEL
+* DINÂMICA
 * EXCEL
-* TRANSFERÊNCIA
-* FOREFRONT
-* GROOVE
+* TROCA
+* VANGUARDA
+* RANHURA
 * HOLOLENS
-* V
+* HYPERV
 * KINECT
 * LYNC
 * MSDN
 * O365
-* OFFICE
-* OFFICE365
-* FOR
-* ONENOTE
-* OUTLOOK
-* Point
+* ESCRITÓRIO
+* ESCRITÓRIO365
+* ONEDRIVE
+* NOTA ÚNICA
+* PERSPETIVA
+* POWERPOINT
 * SHAREPOINT
-* DO
+* SKYPE
 * VISIO
-* VISUALSTUDIO
+* ESTÚDIO VISUAL
 
-As palavras a seguir não podem ser usadas como uma palavra inteira ou uma subcadeia de caracteres no nome:
+As seguintes palavras não podem ser utilizadas como palavra inteira ou substring no nome:
 
-* ENTRAR
+* LOGIN
 * MICROSOFT
-* WINDOWS
+* JANELAS
 * XBOX
 
 ## <a name="solution"></a>Solução
 
-Forneça um nome que não use uma das palavras reservadas.
+Forneça um nome que não utilize uma das palavras reservadas.

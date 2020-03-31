@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77370070"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como: Ativar a reposição da palavra-passe a partir do ecrã de login do Windows
@@ -53,11 +53,11 @@ Para máquinas que executam o Windows 7, 8, 8.1 e 10, pode permitir que os utili
 - **Os utilizadores devem registar-se para o SSPR antes de utilizarem esta funcionalidade**
 - Requisitos de procuração de rede
    - Dispositivos Windows 10 
-       - Porto 443 para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
+       - Porto 443 `passwordreset.microsoftonline.com` para e`ajax.aspnetcdn.com`
        - Os dispositivos Windows 10 suportam apenas a configuração de proxy ao nível da máquina
 - Executar pelo menos o Windows 10, versão abril 2018 Update (v1803), e os dispositivos devem ser:
-    - Ingressado no Azure AD
-    - Ingressado no Azure AD híbrido
+    - Azure AD associado
+    - associado ao Azure AD Híbrido
 
 ### <a name="enable-for-windows-10-using-intune"></a>Ativar para windows 10 usando Intune
 
@@ -66,7 +66,7 @@ Implementar a alteração da configuração para ativar a reposição de palavra
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Criar uma política de configuração de dispositivos no Intune
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) e clique em **Intune**.
-1. Aceda a **Configuração de dispositivos** > **Perfis** > **Criar Perfil** para criar um perfil de configuração de dispositivos novo
+1. Criar um novo perfil de configuração do dispositivo indo para os**perfis** > de **configuração** > do dispositivo**Criar perfil**
    - Dê um nome relevante ao perfil
    - Opcionalmente, indique uma descrição relevante do perfil
    - Plataforma **Windows 10 e posterior**
@@ -78,9 +78,9 @@ Implementar a alteração da configuração para ativar a reposição de palavra
       - **OMA-URI** definido como `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
       - **Tipo de dados** definido como **Inteiro**
       - **Valor** definido como **1**
-      - Clique em **OK**
-   - Clique em **OK**
-1. Clique em **Criar**.
+      - Clique **OK**
+   - Clique **OK**
+1. Clique em **Criar**
 1. Esta política pode ser atribuída a utilizadores, dispositivos ou grupos específicos. Mais informações podem ser encontradas no artigo Atribuir perfis de [utilizador e dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 
 ### <a name="enable-for-windows-10-using-the-registry"></a>Ativar para windows 10 utilizando o Registo
@@ -97,7 +97,7 @@ O registo de auditoria do Azure AD irá incluir informações sobre o endereço 
 
 ![Exemplo: Reset de palavra-passe do Windows 7 no registo de auditoria da AD Azure](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Quando os utilizadores reiniciam a sua palavra-passe a partir do ecrã de login de um dispositivo Windows 10, é criada uma conta temporária de baixo privilégio chamada `defaultuser1`. Esta conta é utilizada para manter o processo de reset da palavra-passe seguro. A conta em si tem uma senha gerada aleatoriamente, não aparece para iniciar sessão do dispositivo e será automaticamente removida após o utilizador redefinir a sua palavra-passe. Vários perfis `defaultuser` podem existir, mas podem ser ignorados com segurança.
+Quando os utilizadores reiniciam a sua palavra-passe a partir do ecrã `defaultuser1` de login de um dispositivo Windows 10, é criada uma conta temporária de baixo privilégio chamada. Esta conta é utilizada para manter o processo de reset da palavra-passe seguro. A conta em si tem uma senha gerada aleatoriamente, não aparece para iniciar sessão do dispositivo e será automaticamente removida após o utilizador redefinir a sua palavra-passe. Vários `defaultuser` perfis podem existir, mas podem ser ignorados com segurança.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Reset de senha do Windows 7, 8 e 8.1
 
@@ -107,7 +107,7 @@ Quando os utilizadores reiniciam a sua palavra-passe a partir do ecrã de login 
 - **Os utilizadores devem registar-se para o SSPR antes de utilizarem esta funcionalidade**
 - Requisitos de procuração de rede
    - Dispositivos Windows 7, 8 e 8.1
-       - Porto 443 a `passwordreset.microsoftonline.com`
+       - Porto 443 para`passwordreset.microsoftonline.com`
 - Sistema operativo Remendado do Windows 7 ou Windows 8.1.
 - TLS 1.2 ativado utilizando as orientações encontradas nas definições de registo de Segurança da Camada de [Transporte (TLS).](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12)
 - Se mais de um terceiro fornecedor de credenciais estiver ativado na sua máquina, os utilizadores verão mais de um perfil de utilizador no ecrã de login.
@@ -118,7 +118,7 @@ Quando os utilizadores reiniciam a sua palavra-passe a partir do ecrã de login 
 ### <a name="install"></a>Instalar
 
 1. Descarregue o instalador apropriado para a versão do Windows que gostaria de ativar.
-   - O software está disponível no centro de descarregamento da Microsoft em [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+   - O software está disponível no centro de descarregamento da Microsoft em[https://aka.ms/sspraddin](https://aka.ms/sspraddin)
 1. Inscreva-se na máquina onde pretende instalar e execute o instalador.
 1. Após a instalação, é altamente recomendado um reboot.
 1. Após o reboot, no ecrã de login escolha um utilizador e clique em "Esqueci-me da palavra-passe?" para iniciar o fluxo de trabalho de reset da palavra-passe.
@@ -126,7 +126,7 @@ Quando os utilizadores reiniciam a sua palavra-passe a partir do ecrã de login 
 
 ![Exemplo do Windows 7 clicou "Esqueci-me da palavra-passe?" Fluxo de SSPR](media/howto-sspr-windows/windows-7-sspr.png)
 
-#### <a name="silent-installation"></a>Instalação silenciosa
+#### <a name="silent-installation"></a>Instalação automática
 
 - Para a instalação silenciosa, utilize o comando "msiexec /i SsprWindowsLogon.PROD.msi /qn"
 - Para desinstalar silenciosamente, utilize o comando "msiexec /x SsprWindowsLogon.PROD.msi /qn"
@@ -141,8 +141,8 @@ Se for necessário um registo adicional, pode ser alterada uma chave de registo 
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Para permitir a exploração madeireira verbosa, crie uma `REG_DWORD: “EnableLogging”`, e coloque-a em 1.
-- Para desativar a exploração madeireira verbosa, mude a `REG_DWORD: “EnableLogging”` para 0.
+- Para permitir a exploração `REG_DWORD: “EnableLogging”`verbosa, crie um , e coloque-o em 1.
+- Para desativar a `REG_DWORD: “EnableLogging”` exploração madeireira verbosa, altere o para 0.
 
 ## <a name="what-do-users-see"></a>O que os utilizadores veem
 

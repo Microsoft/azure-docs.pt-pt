@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 03ad504258dd9448753f37402067a0da3e0a2c00
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197645"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos do Cofre chave azure
@@ -35,7 +35,7 @@ Aqui estão outros termos importantes:
 
 - **Serviço principal**: Um serviço azure principal é uma identidade de segurança que aplicações, serviços e ferramentas de automação criadas pelo utilizador usam para aceder a recursos específicos do Azure. Pense nisso como uma "identidade de utilizador" (nome de utilizador e senha ou certificado) com uma função específica e permissões rigorosamente controladas. Um principal de serviço apenas precisa de fazer determinadas coisas, ao contrário das identidades de utilizador gerais. Melhora a segurança se lhe conceder apenas o nível mínimo de permissão que necessita para executar as suas tarefas de gestão.
 
-- [Azure Ative Directory (Azure AD)](../active-directory/active-directory-whatis.md): Azure AD é o serviço ative diretório para um inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino.
+- [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md): o Azure AD é o serviço do Active Directory para um inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino.
 
 - **ID do inquilino do Azure**: um ID do inquilino é uma forma exclusiva para identificar uma instância do Azure AD numa subscrição do Azure.
 

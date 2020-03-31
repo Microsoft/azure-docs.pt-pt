@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616694"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implemente SAP IDES EHP7 SP3 para SAP ERP 6.0 em Azure
@@ -86,7 +86,7 @@ Depois de iniciar sessão no SAP CAL, a primeira página normalmente leva-o à p
 
 Criou com sucesso uma conta SAP CAL capaz de:
 
-- Utilize o modelo de implementação do Gestor de Recursos.
+- Utilize o modelo de implementação Resource Manager.
 - Implemente sistemas SAP na sua subscrição Azure.
 
 > [!NOTE]

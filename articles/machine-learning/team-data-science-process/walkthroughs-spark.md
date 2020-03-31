@@ -1,6 +1,6 @@
 ---
-title: Análise no HDInsight Spark com PySpark, Scala - processo de ciência de dados de equipa
-description: Exemplos do processo de ciência de dados de equipe que percorrem o uso de PySpark e escalabilidade em um Azure HDInsight Spark.
+title: Analytics em HDInsight Spark com PySpark, Scala - Team Data Science Process
+description: Exemplos do Processo de Ciência de Dados da Equipa que passam pelo uso de PySpark e Scala numa Faísca Azure HDInsight.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,40 +12,40 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864150"
 ---
-# <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Instruções de ciência de dados HDInsight Spark com PySpark e Scala no Azure
+# <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>HDInsight Spark data science walkthroughs usando PySpark e Scala em Azure
 
-Esta instruções passo a passo usar PySpark e Scala num cluster do Spark do Azure para fazer a Análise Preditiva. Eles seguem as etapas descritas no processo de ciência de dados de equipa. Para uma descrição geral do processo de ciência de dados de equipa, consulte [processo de ciência de dados](overview.md). Para uma descrição geral do Spark no HDInsight, consulte [introdução ao Spark no HDInsight](../../hdinsight/spark/apache-spark-overview.md).
+Estes passadiços usam PySpark e Scala num aglomerado de Faíscas Azure para fazer análises preditivas. Seguem os passos delineados no Processo de Ciência de Dados da Equipa. Para uma visão geral do Processo de Ciência de Dados da Equipa, consulte o [Processo de Ciência](overview.md)de Dados . Para uma visão geral da Spark no HDInsight, consulte [Introdução à Faísca no HDInsight](../../hdinsight/spark/apache-spark-overview.md).
 
-Instruções de ciência de dados adicionais que executar o processo de ciência de dados de equipa estão agrupadas pela **plataforma** que utilizam. Ver [instruções passo a passo, executar o processo de ciência de dados de equipa](walkthroughs.md) para também uma itemização destes exemplos.
+Os walkthroughs adicionais de ciência de dados que executam o Processo de Ciência de Dados da Equipa são agrupados pela **plataforma** que utilizam. Consulte [walkthroughs executando o Processo](walkthroughs.md) de Ciência de Dados da Equipa para uma itemização destes exemplos.
 
-## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Prever gorjetas para táxis com PySpark no Spark do Azure
+## <a name="predict-taxi-tips-using-pyspark-on-azure-spark"></a>Preveja dicas de táxi usando PySpark em Azure Spark
 
-Com o uso de dados de táxi de Nova York, a instrução [use Spark no Azure HDInsight](spark-overview.md) prevê se uma gorjeta é paga e o intervalo de valores esperados. Este exemplo usa o processo de ciência de dados de equipe em um cenário usando um [cluster Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e recursos de engenharia de recurso do conjunto de dados publicamente disponível de corridas e tarifas de táxi de NYC. Este tópico de visão geral usa um cluster HDInsight Spark e notebooks Jupyter PySpark. Estes blocos de notas mostram-lhe como explorar os seus dados e, em seguida, como criar e consumir modelos. O bloco de notas do exploração e modelação avançada de dados mostra como incluir a validação cruzada, hyper varrimento, parâmetro e modelar a avaliação.
+Utilizando dados de táxi nova-iorquinos, o [passeio de Use Spark no Azure HDInsight](spark-overview.md) prevê se uma gorjeta é paga e a gama de valores esperados. Este exemplo utiliza o Processo de Ciência de Dados da Equipa num cenário que utiliza um [cluster Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e utilizar dados de engenheiros da viagem de táxi e datação de tarifas de NYC publicamente disponíveis. Este tópico de visão geral utiliza um cluster HDInsight Spark e cadernos Jupyter PySpark. Estes cadernos mostram-lhe como explorar os seus dados e, em seguida, como criar e consumir modelos. O caderno avançado de exploração de dados e modelação mostra como incluir validação cruzada, varredura de hiperparâmetros e avaliação de modelos.
 
-### <a name="data-exploration-and-modeling-with-spark"></a>Exploração de dados e modelação com o Spark 
-Explorar o conjunto de dados e criar, classificação e avaliar os modelos de machine learning ao trabalhar com o [criar modelos de classificação e regressão binários para dados com o Kit de ferramentas do Spark MLlib](spark-data-exploration-modeling.md) tópico.
+### <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com faísca 
+Explore o conjunto de dados e crie, marque e avalie os modelos de machine learning trabalhando através dos modelos de [classificação binária e regressão para dados com o tópico de toolkit Spark MLlib.](spark-data-exploration-modeling.md)
 
-### <a name="model-consumption"></a>Consumo de modelo
-Para saber como classificar modelos de classificação e regressão criados neste tópico, consulte [pontuação e avaliar modelos de aprendizagem automática criados com o Spark](spark-model-consumption.md).
+### <a name="model-consumption"></a>Consumo de modelos
+Para aprender a pontuar os modelos de classificação e regressão criados neste tópico, consulte [o Score e avalie os modelos de aprendizagem automática construídos pela Spark.](spark-model-consumption.md)
 
-### <a name="cross-validation-and-hyperparameter-sweeping"></a>A validação cruzada e varrimento de hiper-parâmetros
-Ver [avançada de exploração de dados e modelagem com o Spark](spark-advanced-data-exploration-modeling.md) na forma como os modelos podem ser treinado varrimento de validação cruzada e de hyper-parâmetro a utilizar.
+### <a name="cross-validation-and-hyperparameter-sweeping"></a>Validação cruzada e varredura de hiperparâmetro
+Consulte a [pesquisa e modelação avançada de dados com a Spark](spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando validação cruzada e varredura de hiperparâmetros.
 
 
-## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Prever gorjetas para táxis com o Scala Spark do Azure
+## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Preveja dicas de táxi usando Scala em Azure Spark
 
-A instrução [use escalar com Spark no Azure](scala-walkthrough.md) prevê se uma gorjeta é paga e o intervalo de valores esperado a ser pago. Ele mostra como utilizar o Scala para supervisionadas do machine learning tarefas com o Spark do machine learning biblioteca (MLlib) e pacotes de SparkML num cluster do Azure HDInsight Spark. Ele explica as tarefas que constituem a [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão de dados e exploração, visualização, engenharia de funcionalidades, modelação e consumo do modelo. Modelos construídos incluem regressão logística e linear, florestas aleatórias e árvores de elevada gradação.
+O [Use Scala com Faísca no](scala-walkthrough.md) passeio de Azure prevê se uma gorjeta é paga e o intervalo de valores que se espera que sejam pagos. Mostra como usar o Scala para tarefas de aprendizagem automática supervisionadas com a biblioteca de machine learning Spark (MLlib) e os pacotes SparkML num cluster Azure HDInsight Spark. Percorre-o através das tarefas que constituem o Processo de Ciência de [Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão e exploração de dados, visualização, engenharia de recursos, modelação e consumo de modelos. Os modelos construídos incluem regressão logística e linear, florestas aleatórias e árvores impulsionadas por gradientes.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma visão geral do processo de ciência de dados de equipe, consulte [visão geral do processo de ciência de dados de equipe](overview.md).
+Para uma visão geral do Processo de Ciência de Dados da Equipa, consulte a [visão geral](overview.md)do Processo de Ciência de Dados da Equipa .
 
-Para obter uma discussão sobre o ciclo de vida do processo de ciência de dados de equipe, consulte [ciclo de vida do processo de ciência de dados](lifecycle.md) Esse ciclo de vida descreve as etapas, do início ao fim, que os projetos geralmente seguem quando são executados. 
+Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados da Equipa, consulte o ciclo de vida do Processo de Ciência de Dados da [Equipa.](lifecycle.md) Este ciclo de vida descreve os passos, do início ao fim, que os projetos geralmente seguem quando são executados. 
 

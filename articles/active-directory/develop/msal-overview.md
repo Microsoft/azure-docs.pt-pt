@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: c20d93c70484dc7ea800898da4309af2699c718e
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085730"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Visão geral da Biblioteca de Autenticação da Microsoft (MSAL)
@@ -32,7 +32,7 @@ A MSAL dá-lhe muitas formas de obter fichas, com uma API consistente para vári
 * Ajuda-o a configurar a sua aplicação a partir de ficheiros de configuração.
 * Ajuda-o a resolver problemas com a aplicação expondo exceções atoladas, exploração madeireira e telemetria.
 
-## <a name="application-types-and-scenarios"></a>Tipos e cenários de aplicação
+## <a name="application-types-and-scenarios"></a>Tipos de aplicação e cenários
 Utilizando o MSAL, um símbolo pode ser adquirido a partir de vários tipos de aplicações: aplicações web, APIs web, aplicações de página única (JavaScript), aplicações móveis e nativas, e daemons e aplicações do lado do servidor.
 
 O MSAL pode ser utilizado em muitos cenários de aplicação, incluindo o seguinte:

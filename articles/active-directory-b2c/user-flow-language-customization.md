@@ -11,10 +11,10 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5b3af812b2b78c276b5345b9b19226e6e1dba80b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78185765"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização linguística no Diretório Ativo Azure B2C
@@ -23,12 +23,12 @@ A personalização linguística no Azure Ative Directory B2C (Azure AD B2C) perm
 
 ## <a name="how-language-customization-works"></a>Como funciona a personalização da linguagem
 
-Utiliza a personalização do idioma para selecionar em que idioma está disponível o fluxo do utilizador. Depois de ativada a funcionalidade, pode fornecer o parâmetro de corda de consulta, `ui_locales`, a partir da sua aplicação. Quando liga para o Azure AD B2C, a sua página é traduzida para o local que indicou. Este tipo de configuração dá-lhe controlo total sobre os idiomas no fluxo do utilizador e ignora as definições de idioma do navegador do cliente.
+Utiliza a personalização do idioma para selecionar em que idioma está disponível o fluxo do utilizador. Depois de ativada a funcionalidade, pode fornecer o `ui_locales`parâmetro de corda de consulta, a partir da sua aplicação. Quando liga para o Azure AD B2C, a sua página é traduzida para o local que indicou. Este tipo de configuração dá-lhe controlo total sobre os idiomas no fluxo do utilizador e ignora as definições de idioma do navegador do cliente.
 
-Pode não precisar desse nível de controlo sobre as línguas que o seu cliente vê. Se não fornecer um parâmetro `ui_locales`, a experiência do cliente é ditada pelas definições do seu navegador. Ainda pode controlar quais as línguas para as quais o fluxo do utilizador é traduzido adicionando-o como uma linguagem suportada. Se o navegador de um cliente está definido para mostrar um idioma que não quer suportar, então o idioma que selecionou como padrão em culturas suportadas é mostrado em vez disso.
+Pode não precisar desse nível de controlo sobre as línguas que o seu cliente vê. Se não fornecer um `ui_locales` parâmetro, a experiência do cliente é ditada pelas definições do seu navegador. Ainda pode controlar quais as línguas para as quais o fluxo do utilizador é traduzido adicionando-o como uma linguagem suportada. Se o navegador de um cliente está definido para mostrar um idioma que não quer suportar, então o idioma que selecionou como padrão em culturas suportadas é mostrado em vez disso.
 
 * **ui-locales especificado idioma**: Depois de ativar a personalização da linguagem, o fluxo do utilizador é traduzido para o idioma que é especificado aqui.
-* **Idioma solicitado pelo navegador**: Se não for especificado `ui_locales` parâmetro, o fluxo do utilizador é traduzido para o idioma solicitado pelo navegador, *se o idioma for suportado*.
+* **Idioma solicitado pelo**navegador `ui_locales` : Se nenhum parâmetro foi especificado, o fluxo do utilizador é traduzido para o idioma solicitado pelo navegador, *se o idioma for suportado*.
 * **Idioma padrão de política**: Se o navegador não especificar um idioma, ou especificar um que não é suportado, o fluxo do utilizador é traduzido para o idioma padrão do fluxo do utilizador.
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Pode não precisar desse nível de controlo sobre as línguas que o seu cliente 
 
 As políticas criadas antes da disponibilidade geral da personalização linguística precisam de ativar esta funcionalidade primeiro. Políticas e fluxos de utilizadores que foram criados após ter personalização de idioma ativado por padrão.
 
-Quando ativa a personalização do idioma num fluxo de utilizador, pode controlar o idioma do fluxo do utilizador adicionando o parâmetro `ui_locales`.
+Quando ativa a personalização do idioma num fluxo de utilizador, `ui_locales` pode controlar o idioma do fluxo do utilizador adicionando o parâmetro.
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
 1. Clique no fluxo de utilizador que pretende ativar para traduções.
@@ -47,7 +47,7 @@ Quando ativa a personalização do idioma num fluxo de utilizador, pode controla
 
 ## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>Selecione quais idiomas no fluxo do utilizador estão ativados
 
-Ative um conjunto de idiomas para o fluxo do utilizador para quando solicitado pelo navegador sem o parâmetro `ui_locales`.
+Ative um conjunto de idiomas para o fluxo do utilizador para `ui_locales` ser traduzido quando solicitado pelo navegador sem o parâmetro.
 
 1. Certifique-se de que o fluxo do utilizador tem personalização linguística ativada a partir de instruções anteriores.
 1. Na página **Idiomas** para o fluxo do utilizador, selecione um idioma que pretende suportar.
@@ -55,7 +55,7 @@ Ative um conjunto de idiomas para o fluxo do utilizador para quando solicitado p
 1. Selecione **Guardar** na parte superior do painel de propriedades.
 
 >[!NOTE]
->Se não for fornecido um parâmetro `ui_locales`, a página é traduzida apenas para o idioma do navegador do cliente se estiver ativada.
+>Se `ui_locales` não for fornecido um parâmetro, a página é traduzida apenas para o idioma do navegador do cliente se esta estiver ativada.
 >
 
 ## <a name="customize-your-strings"></a>Personalize as suas cordas
@@ -72,13 +72,13 @@ Estes passos dão-lhe um ficheiro JSON que pode usar para começar a editar as s
 ### <a name="change-any-string-on-the-page"></a>Alterar qualquer corda na página
 
 1. Abra o ficheiro JSON descarregado de instruções anteriores num editor da JSON.
-1. Encontre o elemento que quer mudar. Pode saqueá`StringId` para o fio que procura, ou procurar o atributo `Value` que quer mudar.
-1. Atualize o atributo `Value` com o que pretende exibido.
-1. Por cada corda que quiser mudar, mude `Override` para `true`.
+1. Encontre o elemento que quer mudar. Pode encontrar `StringId` o fio que procura, ou procurar `Value` o atributo que quer mudar.
+1. Atualize `Value` o atributo com o que pretende exibido.
+1. Por cada corda que quiser `Override` mudar, mude para. `true`
 1. Guarde o ficheiro e faça upload das suas alterações. (Pode encontrar o controlo de upload no mesmo local onde descarregou o ficheiro JSON.)
 
 > [!IMPORTANT]
-> Se precisar de anular uma corda, certifique-se de definir o valor `Override` para `true`. Se o valor não for alterado, a entrada é ignorada.
+> Se precisar de anular uma corda, certifique-se de definir o `Override` valor para `true`. Se o valor não for alterado, a entrada é ignorada.
 
 ### <a name="change-extension-attributes"></a>Alterar atributos de extensão
 
@@ -98,13 +98,13 @@ Se quiser alterar a cadeia para um atributo personalizado do utilizador, ou se q
 }
 ```
 
-Substitua `<ExtensionAttribute>` pelo nome do seu atributo personalizado do utilizador.
+Substitua-o `<ExtensionAttribute>` pelo nome do seu atributo de utilizador personalizado.
 
-Substitua `<ExtensionAttributeValue>` com a nova corda a exibir.
+Substitua-a `<ExtensionAttributeValue>` com a nova corda a exibir.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Forneça uma lista de valores utilizando Coleções Localizadas
 
-Se quiser fornecer uma lista de valores definidos para respostas, precisa criar um atributo `LocalizedCollections`. `LocalizedCollections` é uma variedade de pares de `Name` e `Value`. A encomenda dos itens será a ordem que são apresentadas. Para adicionar `LocalizedCollections`, utilize o seguinte formato:
+Se quiser fornecer uma lista de valores definidos para `LocalizedCollections` respostas, precisa criar um atributo. `LocalizedCollections`é uma `Name` variedade `Value` de e pares. A encomenda dos itens será a ordem que são apresentadas. Para `LocalizedCollections`adicionar, utilize o seguinte formato:
 
 ```JSON
 {
@@ -128,9 +128,9 @@ Se quiser fornecer uma lista de valores definidos para respostas, precisa criar 
 }
 ```
 
-* `ElementId` é o atributo do utilizador a que este atributo `LocalizedCollections` é uma resposta.
-* `Name` é o valor que é mostrado ao utilizador.
-* `Value` é o que é devolvido na reclamação quando esta opção é selecionada.
+* `ElementId`é o atributo `LocalizedCollections` do utilizador a que este atributo é uma resposta.
+* `Name`é o valor que é mostrado ao utilizador.
+* `Value`é o que é devolvido na reclamação quando esta opção é selecionada.
 
 ### <a name="upload-your-changes"></a>Faça upload das suas alterações
 
@@ -145,15 +145,15 @@ As alterações são guardadas automaticamente no fluxo do utilizador.
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>Personalize a página UI usando a personalização da linguagem
 
-Existem duas formas de localizar o seu conteúdo HTML. Uma maneira é ligar a [personalização da linguagem.](user-flow-language-customization.md) Ativar esta funcionalidade permite que o Azure AD B2C endere o parâmetro OpenID Connect, `ui-locales`, para o seu ponto final. O seu servidor de conteúdo pode usar este parâmetro para fornecer páginas HTML personalizadas que sejam específicas do idioma.
+Existem duas formas de localizar o seu conteúdo HTML. Uma maneira é ligar a [personalização da linguagem.](user-flow-language-customization.md) Ativar esta funcionalidade permite que o Azure AD B2C `ui-locales`endere o parâmetro OpenID Connect, até ao seu ponto final. O seu servidor de conteúdo pode usar este parâmetro para fornecer páginas HTML personalizadas que sejam específicas do idioma.
 
-Em alternativa, pode retirar conteúdo de diferentes lugares com base no local que é usado. No seu ponto final ativado pelo CORS, pode configurar uma estrutura de pasta para hospedar conteúdo para idiomas específicos. Chamará o certo se usar o valor wildcard `{Culture:RFC5646}`. Por exemplo, assuma que esta é a sua página personalizada URI:
+Em alternativa, pode retirar conteúdo de diferentes lugares com base no local que é usado. No seu ponto final ativado pelo CORS, pode configurar uma estrutura de pasta para hospedar conteúdo para idiomas específicos. Chamará o certo se usar o `{Culture:RFC5646}`valor wildcard. Por exemplo, assuma que esta é a sua página personalizada URI:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
 ```
 
-Pode carregar a página em `fr`. Quando a página puxa o conteúdo HTML e CSS, está a retirar de:
+Pode carregar a `fr`página em . Quando a página puxa o conteúdo HTML e CSS, está a retirar de:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
@@ -191,7 +191,7 @@ AMicrosoft atualmente não fornece suporte para idiomas da direita para a esquer
 
 ### <a name="social-identity-provider-translations"></a>Traduções de fornecedorde identidade social
 
-A Microsoft fornece o `ui_locales` parâmetro OIDC aos logins sociais. Mas alguns fornecedores de identidade social, incluindo o Facebook e o Google, não os honram.
+A Microsoft `ui_locales` fornece o parâmetro OIDC aos logins sociais. Mas alguns fornecedores de identidade social, incluindo o Facebook e o Google, não os honram.
 
 ### <a name="browser-behavior"></a>Comportamento do navegador
 
@@ -205,33 +205,33 @@ O Azure AD B2C inclui suporte para as seguintes línguas. Os idiomas de fluxo do
 |-----------------------| :-----------: | :----------------: | :----------------: |
 | Árabe                | ar            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Búlgaro             | bg            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Bangla                | bn            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
+| Rio Bangla                | bn            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
 | Catalão               | ca            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Checo                 | cs            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Dinamarquês                | da            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Alemão                | de            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Grego                 | el            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Português               | en            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
+| Inglês               | en            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Espanhol               | es            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Estónio              | et            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Basco (Basco)                | eu            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
+| Basco                | eu            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Finlandês               | fi            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Francês                | fr            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Galego              | gl            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Guzarate              | gu            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
+| Guzerate              | gu            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
 | Hebraico                | ele            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Hindi                 | Olá            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Croata              | hr            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Húngaro             | hu            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Indonésio            | ID            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Italiano               | it            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
+| Italiano               | lo            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Japonês              | ja            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Cazaque                | kk            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Canarim               | kn            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
+| Canarês               | kn            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
 | Coreano                | ko            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Lituano            | lt            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Letão               | lv            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Malayalam             | ml            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
+| Malaiala             | ml            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
 | Marata               | mr            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
 | Malaio                 | ms            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Norueguês Bokmal      | nb            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
@@ -239,8 +239,8 @@ O Azure AD B2C inclui suporte para as seguintes línguas. Os idiomas de fluxo do
 | Norueguês             | não            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Punjabi               | pa            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
 | Polaco                | pl            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Português - Brasil   | pt-br         | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Português - Portugal | pt-pt         | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
+| Português (Brasil)   | pt-br         | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
+| Português (Portugal) | pt-pt         | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Romeno              | ro            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Russo               | ru            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Eslovaco                | sk            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
@@ -248,11 +248,11 @@ O Azure AD B2C inclui suporte para as seguintes línguas. Os idiomas de fluxo do
 | Sérvio - Cirílico    | sr-cryl-cs    | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Sérvio - Latim       | sr-latn-cs    | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Sueco               | sv            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Tamil                 | ta            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
-| Télego                | te            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
+| Tâmil                 | ta            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
+| Telugu                | te            | ![sim](./media/user-flow-language-customization/yes.png) | ![não](./media/user-flow-language-customization/no.png) |
 | Tailandês                  | th            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Turco               | tr            | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
-| Ucraniano             | uk            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
+| Ucraniano             | Reino Unido            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Vietnamita            | vi            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Chinês - Simplificado  | zh-hans       | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Chinês - Tradicional | zh-hant       | ![sim](./media/user-flow-language-customization/yes.png) | ![sim](./media/user-flow-language-customization/yes.png) |

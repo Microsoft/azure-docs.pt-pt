@@ -1,68 +1,32 @@
 ---
-title: CLI do Azure Service Fabric – rede de malha sfctl
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter e excluir Service Fabric recursos de rede de malha.
+title: Rede de malha de malha de tecido de serviço Azure CLI- sfctl
+description: Conheça o sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter e apagar recursos de rede de malha de tecido de serviço.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905989"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
-Obter e excluir recursos de rede de malha.
+Obtenha e elimine os recursos da rede de malha.
 
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Exclui o recurso de rede. |
-| list | Lista todos os recursos de rede. |
-| mostrar | Obtém o recurso de rede com o nome fornecido. |
+| delete | Elimina o recurso da Rede. |
+| list | Lista todos os recursos da rede. |
+| Mostrar | Obtém o recurso da Rede com o nome dado. |
 
-## <a name="sfctl-mesh-network-delete"></a>exclusão de rede de malha sfctl
-Exclui o recurso de rede.
+## <a name="sfctl-mesh-network-delete"></a>rede de malha sfctl excluir
+Elimina o recurso da Rede.
 
-Exclui o recurso de rede identificado pelo nome.
-
-### <a name="arguments"></a>Argumentos
-
-|Argumento|Descrição|
-| --- | --- |
-| --nome -n [Obrigatório] | O nome da rede. |
-
-### <a name="global-arguments"></a>Argumentos globais
-
-|Argumento|Descrição|
-| --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
-
-## <a name="sfctl-mesh-network-list"></a>lista de redes de malha de sfctl
-Lista todos os recursos de rede.
-
-Obtém as informações sobre todos os recursos de rede em um determinado grupo de recursos. As informações incluem a descrição e outras propriedades da rede.
-
-### <a name="global-arguments"></a>Argumentos globais
-
-|Argumento|Descrição|
-| --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
-
-## <a name="sfctl-mesh-network-show"></a>exibição de rede de malha sfctl
-Obtém o recurso de rede com o nome fornecido.
-
-Obtém as informações sobre o recurso de rede com o nome fornecido. As informações incluem a descrição e outras propriedades da rede.
+Elimina o recurso rede identificado pelo nome.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -70,17 +34,53 @@ Obtém as informações sobre o recurso de rede com o nome fornecido. As informa
 | --- | --- |
 | --nome -n [Obrigatório] | O nome da rede. |
 
-### <a name="global-arguments"></a>Argumentos globais
+### <a name="global-arguments"></a>Argumentos Globais
 
 |Argumento|Descrição|
 | --- | --- |
-| --Depurar | Aumente o detalhamento de log para mostrar todos os logs de depuração. |
-| --ajuda-h | Mostrar esta mensagem de ajuda e sair. |
-| --saída-o | Formato de saída.  Valores permitidos\: JSON, jsonc, Table, TSV.  Padrão\: JSON. |
-| --consulta | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/para obter mais informações e exemplos. |
-| --Detalhado | Aumentar o detalhamento de log. Use--debug para logs de depuração completos. |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+
+## <a name="sfctl-mesh-network-list"></a>lista de rede de malha sfctl
+Lista todos os recursos da rede.
+
+Obtém a informação sobre todos os recursos da rede num determinado grupo de recursos. As informações incluem a descrição e outras propriedades da Rede.
+
+### <a name="global-arguments"></a>Argumentos Globais
+
+|Argumento|Descrição|
+| --- | --- |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
+
+## <a name="sfctl-mesh-network-show"></a>sfctl rede rede mostrar
+Obtém o recurso da Rede com o nome dado.
+
+Obtém a informação sobre o recurso da Rede com o nome dado. As informações incluem a descrição e outras propriedades da Rede.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Descrição|
+| --- | --- |
+| --nome -n [Obrigatório] | O nome da rede. |
+
+### <a name="global-arguments"></a>Argumentos Globais
+
+|Argumento|Descrição|
+| --- | --- |
+| --depuração | Aumente a verbosidade da exploração madeireira para mostrar todos os registos de depuração. |
+| --ajuda -h | Mostre esta mensagem de ajuda e saia. |
+| --saída -o | Formato de saída.  Valores\: permitidos json, jsonc, mesa, tsv.  Json padrão.\: |
+| -- consulta | Corda de consulta JMESPath. Consulte\:http //jmespath.org/ para obter mais informações e exemplos. |
+| -verbosa | Aumente a verbosidade da exploração madeireira. Utilize -depurar os registos completos de depuração. |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
-- Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Instale](service-fabric-cli.md) o CLI de tecido de serviço.
+- Aprenda a utilizar o CLI de tecido de serviço utilizando as [scripts de amostra](/azure/service-fabric/scripts/sfctl-upgrade-application).

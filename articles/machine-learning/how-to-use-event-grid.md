@@ -11,10 +11,10 @@ author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
 ms.openlocfilehash: fe6125682f669e453100488b7e0afc4c49409588
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79129727"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Criar fluxos de trabalho de aprendizagem automática orientados para eventos (Pré-visualização)
@@ -91,7 +91,7 @@ Ao configurar os seus eventos, pode aplicar filtros apenas para acionar dados es
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="eventos de filtro":::
 
-## <a name="sample-scenarios"></a>Cenários de amostra
+## <a name="sample-scenarios"></a>Cenários de exemplo
 
 ### <a name="use-a-logic-app-to-send-email-alerts"></a>Use uma App Lógica para enviar alertas de e-mail
 
@@ -177,7 +177,7 @@ Agora, o gasoduto da fábrica de dados é acionado quando ocorre deriva. Veja de
 
 Um objeto modelo de Aprendizagem automática Azure contém parâmetros que pode girar implementações em nome, versão, etiqueta e propriedade do modelo. O evento de registo do modelo pode desencadear um ponto final e pode utilizar uma Função Azure para implementar um modelo baseado no valor desses parâmetros.
 
-Por exemplo, consulte o [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repositório e siga os passos no ficheiro **readme.**
+Por exemplo, consulte [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) o repositório e siga os passos no ficheiro **readme.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

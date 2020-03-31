@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 09/05/2019
 ms.openlocfilehash: 9652b78674d6a6b905eb049564d1b17cdc7c17b7
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254918"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado dos cenários de migração apoiados pelo Serviço de Migração da Base de Dados Azure
@@ -47,18 +47,18 @@ A tabela que se segue mostra o apoio do Serviço de Migração de Bases de Dados
 
 | Destino  | Origem | Suporte | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | ✔ | GA |
+| **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |   |
-| **Azure SQL VM** | SQL Server | ✔ | GA |
+| **VM do Azure SQL** | SQL Server | ✔ | GA |
 |   | Oracle |   |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB para MySQL** | MySQL |   |   |
+| **BD do Azure para MySQL** | MySQL |   |   |
 |   | RDS MySQL |   |   |
-| **Azure DB para PostgreSQL** | PostgreSQL |  |
+| **BD do Azure para PostgreSQL** | PostgreSQL |  |
 |  | RDS PostgreSQL |   |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Suporte à migração online (sincronizado contínuo)
@@ -67,18 +67,18 @@ A tabela que se segue mostra o apoio do Serviço de Migração de Bases de Dados
 
 | Destino  | Origem | Suporte | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | ✔ | GA |
+| **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle |  |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle | ✔ | Pré-visualização privada |
-| **Azure SQL VM** | SQL Server |   |   |
+| **VM do Azure SQL** | SQL Server |   |   |
 |   | Oracle  |  |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB para MySQL** | MySQL | ✔ | GA |
+| **BD do Azure para MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
-| **Azure DB para PostgreSQL** | PostgreSQL | ✔ | GA |
+| **BD do Azure para PostgreSQL** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | Pré-visualização pública |
 

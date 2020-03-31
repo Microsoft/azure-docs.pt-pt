@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
 ms.openlocfilehash: 79a4e423f7a2b6570234c958ac833cdf5c6a75e4
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297922"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Sirva conteúdo do Azure Storage no Serviço de Aplicações em Linux
@@ -38,14 +38,14 @@ Este guia mostra como anexar o Azure Storage ao Serviço de Aplicações no Linu
 - O Azure Storage não está **incluído** na sua aplicação web e faturado separadamente. Saiba mais sobre os preços do [Armazenamento Azure.](https://azure.microsoft.com/pricing/details/storage)
 
 > [!WARNING]
-> As configurações do Serviço de Aplicações utilizando o Armazenamento De Blob Azure tornar-se-ão lidas apenas em fevereiro de 2020. [Saiba mais](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/mounting_azure_blob.md)
+> As configurações do Serviço de Aplicações utilizando o Armazenamento De Blob Azure tornar-se-ão lidas apenas em fevereiro de 2020. [Mais informações](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/mounting_azure_blob.md)
 >
 
 ## <a name="configure-your-app-with-azure-storage"></a>Configure a sua aplicação com armazenamento azure
 
 Depois de ter criado a sua conta De armazenamento, partilha de [ficheiros e diretório,](#prerequisites)agora pode configurar a sua aplicação com o Armazenamento Azure.
 
-Para montar uma conta de armazenamento num diretório na sua aplicação App Service, utiliza o comando [`az webapp config storage-account add`.](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) O Tipo de Armazenamento pode ser AzureBlob ou AzureFiles. O AzureFiles é utilizado neste exemplo.
+Para montar uma conta de armazenamento num diretório na [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) sua aplicação App Service, utiliza o comando. O Tipo de Armazenamento pode ser AzureBlob ou AzureFiles. O AzureFiles é utilizado neste exemplo.
 
 
 > [!CAUTION]
@@ -68,7 +68,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 ## <a name="use-azure-storage-in-docker-compose"></a>Use armazenamento azure em Docker Compose
 
-O Armazenamento Azure pode ser montado com aplicações multi-contentores utilizando o id personalizado. Para ver o nome de identificação personalizada, corra [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
+O Armazenamento Azure pode ser montado com aplicações multi-contentores utilizando o id personalizado. Para ver o nome de [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)identificação personalizada, corra .
 
 No seu ficheiro *docker-compose.yml,* mapeie a opção `volumes` para `custom-id`. Por exemplo:
 
@@ -79,7 +79,7 @@ wordpress:
   - <custom-id>:<path_in_container>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure aplicações web no Azure App Service](../configure-common.md).
 

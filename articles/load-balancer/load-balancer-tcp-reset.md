@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: eac7dc3b7188131685ef630c0dc01d248e1d6a6a
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: d3d836ddea8d07a25ad09e6f19d9f17a680decd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134788"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294409"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle"></a>Balancer de carga com Reset TCP em Idle
 
@@ -64,7 +64,7 @@ Utilizando a versão API 2018-07-01, pode permitir o envio de Resets Bidireciona
       ]
 ```
 
-## <a name="regions"></a>Disponibilidade da região
+## <a name="region-availability"></a><a name="regions"></a>Disponibilidade da região
 
 Disponível em todas as regiões.
 
@@ -76,3 +76,4 @@ Disponível em todas as regiões.
 
 - Saiba mais sobre o Equilíbrio de [Carga Padrão.](load-balancer-standard-overview.md)
 - Saiba mais sobre [as regras de saída.](load-balancer-outbound-rules-overview.md)
+- [Configure TCP RST no tempo de marcha lenta](load-balancer-tcp-idle-timeout.md)

@@ -4,10 +4,10 @@ description: Como excluir discos da replicação para Azure com recuperação do
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281850"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos da recuperação de desastres
@@ -30,15 +30,15 @@ Sim (usando powerShell) | Sim | Sim
 
 ## <a name="exclude-limitations"></a>Excluir limitações
 
-**Limitação** | **Azure VMs** | **VMware VMs** | **VMs de Hyper-V**
+**Limitação** | **VMs do Azure** | **VMs VMware** | **VMs de Hyper-V**
 --- | --- | ---
 **Tipos de disco** | Pode excluir discos básicos da replicação.<br/><br/> Não é possível excluir discos do sistema operativo ou discos dinâmicos. Os discos temporários são excluídos por defeito. | Pode excluir discos básicos da replicação.<br/><br/> Não é possível excluir discos do sistema operativo ou discos dinâmicos. | Pode excluir discos básicos da replicação.<br/><br/> Não é possível excluir discos do sistema operativo. Recomendamos que não exclua discos dinâmicos. A Recuperação do Site não consegue identificar qual vHS é básico ou dinâmico no VM convidado. Se todos os discos de volume dinâmico dependente não forem excluídos, o disco dinâmico protegido torna-se um disco falhado num VM failover, e os dados nesse disco não estão acessíveis.
 **Risque de risadis** | Não podeexcluir um disco que está a replicar-se.<br/><br/> Desative e reative a replicação para o VM. |  Não podeexcluir um disco que está a replicar-se. |  Não podeexcluir um disco que está a replicar-se.
-**Serviço de mobilidade (VMware)** | Não é relevante | Só é possível excluir discos em VMs que tenham o serviço mobility instalado.<br/><br/> Isto significa que tem de instalar manualmente o serviço mobility nos VMs para os quais pretende excluir discos. Não é possível utilizar o mecanismo de instalação do impulso porque instala o serviço mobility apenas após a replicação estar ativada. | Não é relevante.
+**Serviço de mobilidade (VMware)** | Não relevante | Só é possível excluir discos em VMs que tenham o serviço mobility instalado.<br/><br/> Isto significa que tem de instalar manualmente o serviço mobility nos VMs para os quais pretende excluir discos. Não é possível utilizar o mecanismo de instalação do impulso porque instala o serviço mobility apenas após a replicação estar ativada. | Não é relevante.
 **Adicionar/Remover** | Pode adicionar e remover discos em VMs Azure com discos geridos. | Não é possível adicionar ou remover discos depois de ativada a replicação. Desative e, em seguida, reative a replicação para adicionar um disco. | Não é possível adicionar ou remover discos depois de ativada a replicação. Desativar e, em seguida, reativar a replicação.
 **Ativação pós-falha** | Se uma aplicação precisar de um disco que tenha excluído, após a falha, terá de criar o disco manualmente para que a aplicação replicada possa ser executada.<br/><br/> Em alternativa, pode criar o disco durante a falha do VM, integrando a automação do Azure num plano de recuperação. | Se excluir um disco de que uma aplicação necessita, crie-o manualmente em Azure após a falha. | Se excluir um disco de que uma aplicação necessita, crie-o manualmente em Azure após a falha.
-**No local, os discos de backback criados manualmente** | Não é relevante | **Windows VMs**: Os discos criados manualmente em Azure não são reprovados. Por exemplo, se falhar em três discos e criar dois discos diretamente num VM Azure, apenas os três discos que foram falhados são então falhados.<br/><br/> **VMs Linux**: Os discos criados manualmente em Azure são falhados. Por exemplo, se falhar em três discos e criar dois discos num VM Azure, todos os cinco serão refalhados. Não pode excluir da reativação pós-falha os discos que foram criados manualmente. | Os discos criados manualmente em Azure não são falhados. Por exemplo, se falhar em três discos e criar dois discos diretamente num VM Azure, apenas três discos que foram falhados serão refalhados.
-**Discos excluídos do reinamento no local** | Não é relevante | Se não voltar à máquina original, a configuração do disco VM de reprovação não inclui os discos excluídos. Os discos que foram excluídos da VMware para a replicação do Azure não estão disponíveis no VM de backback. | Quando o failback é para a localização original do Hiper-V, a configuração do disco VM de recuo permanece a mesma do disco VM de origem original. Os discos que foram excluídos do site Hyper-V para a replicação do Azure estão disponíveis no VM de backback.
+**No local, os discos de backback criados manualmente** | Não relevante | **Windows VMs**: Os discos criados manualmente em Azure não são reprovados. Por exemplo, se falhar em três discos e criar dois discos diretamente num VM Azure, apenas os três discos que foram falhados são então falhados.<br/><br/> **VMs Linux**: Os discos criados manualmente em Azure são falhados. Por exemplo, se falhar em três discos e criar dois discos num VM Azure, todos os cinco serão refalhados. Não pode excluir da reativação pós-falha os discos que foram criados manualmente. | Os discos criados manualmente em Azure não são falhados. Por exemplo, se falhar em três discos e criar dois discos diretamente num VM Azure, apenas três discos que foram falhados serão refalhados.
+**Discos excluídos do reinamento no local** | Não relevante | Se não voltar à máquina original, a configuração do disco VM de reprovação não inclui os discos excluídos. Os discos que foram excluídos da VMware para a replicação do Azure não estão disponíveis no VM de backback. | Quando o failback é para a localização original do Hiper-V, a configuração do disco VM de recuo permanece a mesma do disco VM de origem original. Os discos que foram excluídos do site Hyper-V para a replicação do Azure estão disponíveis no VM de backback.
 
 
 
@@ -257,7 +257,7 @@ As nossas definições de ficheiros de paging no Azure VM são as seguintes:
 ![Definições de ficheiro de paginação na máquina virtual do Azure](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as diretrizes para o disco de armazenamento temporário:
     - [Saiba mais sobre](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) a utilização de SSDs em VMs Azure para armazenar extensões SQL Server TempDB e Buffer Pool

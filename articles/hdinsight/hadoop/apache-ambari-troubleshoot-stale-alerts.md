@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77539115"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Cenário: Apache Ambari alerta stale em Azure HDInsight
@@ -74,7 +74,7 @@ Para descartar um alerta velho, desative-o e, em seguida, reativa-o:
 
 Há um período de graça antes de um agente ambari relatar que um alerta configurado falhou a sua agenda. Se o alerta não tiver cumprido o tempo previsto, mas que decorreu dentro do período de carência, o alerta não é gerado.
 
-O valor de `alert_grace_period` por defeito é de 5 segundos. Pode configurar esta definição em /etc/ambari-agent/conf/ambari-agent.ini. Para os anfitriões em que ocorrem alertas em intervalos regulares, tente aumentar o valor para 10. Então, reinicie o agente Ambari.
+O `alert_grace_period` valor padrão é de 5 segundos. Pode configurar esta definição em /etc/ambari-agent/conf/ambari-agent.ini. Para os anfitriões em que ocorrem alertas em intervalos regulares, tente aumentar o valor para 10. Então, reinicie o agente Ambari.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -82,8 +82,8 @@ Se o seu problema não foi mencionado aqui ou se não for capaz de resolvê-lo, 
 
 * Obtenha respostas de especialistas do Azure no [Azure Community Support.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) no Twitter. Esta é a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Liga a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
+* Conecte-se no [@AzureSupport](https://twitter.com/azuresupport) Twitter. Esta é a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Liga a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, envie um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Para lá chegar, selecione Ajuda ( **?** ) a partir do menu do portal ou abra o painel de **suporte Ajuda +.** Para mais informações, consulte [Como criar um pedido de apoio Azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 
+* Se precisar de mais ajuda, envie um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Para lá chegar, selecione Ajuda (**?**) a partir do menu do portal ou abra o painel de **suporte Ajuda +.** Para mais informações, consulte [Como criar um pedido de apoio Azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 
 
   O suporte para gestão de subscrições e faturação está incluído na subscrição do Microsoft Azure. O suporte técnico está disponível através dos Planos de [Apoio ao Azure.](https://azure.microsoft.com/support/plans/)

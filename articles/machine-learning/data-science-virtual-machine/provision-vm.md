@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar uma máquina virtual de ciência de dados do Windows'
 titleSuffix: Azure Data Science Virtual Machine
-description: Configurar e criar uma máquina de Virtual de ciência de dados no Azure para análise e machine learning.
+description: Configure e crie uma Máquina Virtual de Ciência de Dados em Azure para análise e aprendizagem automática.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 1fdf8eae5d19a2d43499d1984f4dea834d8a61d8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: afcb676f68e7be9d3ebef11ea2c6876a86bbd062
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281787"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Quickstart: Configurar a máquina virtual de ciência de dados para windows
 
@@ -29,7 +29,7 @@ Por favor, note que as contas gratuitas do Azure não suportam a gpu ativada pel
 Para criar uma instância DSVM:
 
 1. Vá ao [portal Azure](https://portal.azure.com) Poderá ser solicitado a fazer sessão na sua conta Azure se ainda não tiver assinado.
-1. Encontre a listagem de máquinas virtuais digitando em "data science virtual machine" e selecionando "Data Science Virtual Machine - Win 2019 (Preview)."
+1. Encontre a listagem de máquinas virtuais digitando em "data science virtual machine" e selecionando "Data Science Virtual Machine - Windows 2019".
 
 1. Selecione o botão **Criar** na parte inferior.
 
@@ -46,7 +46,7 @@ Para criar uma instância DSVM:
       * **Palavra-passe**: Introduza a palavra-passe que utilizará para iniciar sessão na sua máquina virtual.    
 1. Selecione **Rever + criar**.
 1. **Review+criar**
-   * Certifique-se de que todas as informações que introduziu estão corretas. 
+   * Verifique se todas as informações que inseriu estão corretas. 
    * Selecione **Criar**.
 
 
@@ -58,7 +58,7 @@ Para criar uma instância DSVM:
 
 Depois de o VM ser criado e aprovisionado, siga os passos listados para [ligar à sua máquina virtual baseada em Azure.](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md) Utilize as credenciais de conta de administração que configurado no passo **Básico** de criação de uma máquina virtual. 
 
-Está pronto para começar a utilizar as ferramentas que são instaladas e configuradas na VM. Muitas das ferramentas podem ser acedidas através de azulejos de menu **Iniciar** e ícones de ambiente de trabalho.
+Está pronto para começar a utilizar as ferramentas instaladas e configuradas no VM. Muitas das ferramentas podem ser acedidas através de azulejos de menu **Iniciar** e ícones de ambiente de trabalho.
 
 Também pode anexar um DSVM aos Cadernos Azure para executar cadernos Jupyter no VM e contornar as limitações do nível de serviço gratuito. Para mais informações, consulte [Gerir e configurar projetos de Cadernos.](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects)
 
@@ -68,7 +68,7 @@ Também pode anexar um DSVM aos Cadernos Azure para executar cadernos Jupyter no
 ## <a name="next-steps"></a>Passos seguintes
 
 * Explore as ferramentas no DSVM abrindo o menu **Iniciar.**
-* Saiba mais sobre o Azure Machine Learning lendo o [](../index.yml) [que é Azure Machine Learning?](../overview-what-is-azure-ml.md)
+* Saiba mais sobre o Azure Machine Learning lendo o [tutorials](../index.yml) [que é Azure Machine Learning?](../overview-what-is-azure-ml.md)
 * Leia o artigo [dez coisas que pode fazer na Máquina Virtual da Ciência dos Dados](https://aka.ms/dsvmtenthings).
 * Visite a [Galeria Azure AI](https://gallery.cortanaintelligence.com) para obter amostras de machine learning e análise de dados que utilizam o Azure Machine Learning e serviços de dados relacionados no Azure. Também fornecemos um ícone para esta galeria no menu **Iniciar** e no ambiente de trabalho da máquina virtual.
 

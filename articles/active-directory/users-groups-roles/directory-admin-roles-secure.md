@@ -15,13 +15,13 @@ ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c46facb2d43137175730bf04fea0efec9c1ecbd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266276"
 ---
-# <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Garantir acesso privilegiado para implantações híbridas e em nuvem em Azure AD
+# <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
 A segurança da maioria ou de todos os ativos empresariais na organização moderna depende da integridade das contas privilegiadas que administram e gerem sistemas informáticos. Atores maliciosos, incluindo ciber-atacantes, muitas vezes visam contas de administração e outros elementos de acesso privilegiado para tentar rapidamente ter acesso a dados e sistemas sensíveis usando ataques de roubo de credenciais. Para os serviços na nuvem, a prevenção e a resposta são as responsabilidades conjuntas do prestador de serviços na nuvem e do cliente. Para obter mais informações sobre as mais recentes ameaças aos pontos finais e à nuvem, consulte o Relatório de [Inteligência de Segurança](https://www.microsoft.com/security/operations/security-intelligence-report)da Microsoft . Este artigo pode ajudá-lo a desenvolver um roteiro para colmatar as lacunas entre os seus planos atuais e as orientações aqui descritas.
 
@@ -44,7 +44,7 @@ A cyber-attack, if successful, can shut down operations not just for a few hours
 does the article really start here?-->
 Para a maioria das organizações, a segurança dos ativos empresariais depende da integridade das contas privilegiadas que administram e gerem sistemas informáticos. Os ciber-atacantes focam-se no acesso privilegiado a sistemas de infraestruturas (como o Ative Directory e o Azure Ative Directory) para ter acesso aos dados sensíveis de uma organização. 
 
-As abordagens tradicionais que se concentram em garantir os pontos de entrada e saída de uma rede, uma vez que o perímetro de segurança primário é menos eficaz devido ao aumento do uso de aplicações SaaS e dispositivos pessoais na Internet. A substituição natural do perímetro de segurança da rede numa empresa moderna complexa é a autenticação e controlos de autorização na camada de identidade de uma organização.
+As abordagens tradicionais que se concentram em garantir os pontos de entrada e saída de uma rede, uma vez que o perímetro de segurança primário é menos eficaz devido ao aumento do uso de aplicações SaaS e dispositivos pessoais na Internet. A substituição natural do perímetro de segurança de rede numa empresa moderna complexa são os controlos de autenticação e autorização numa camada de identidade da organização.
 
 As contas administrativas privilegiadas controlam efetivamente este novo "perímetro de segurança". É fundamental proteger o acesso privilegiado, independentemente de o ambiente estar no local, na nuvem ou nos serviços híbridos no local e nos serviços alojados em nuvem. Proteger o acesso administrativo contra adversários determinados requer que tome uma abordagem completa e ponderada para isolar os sistemas da sua organização de riscos. 
 
@@ -175,7 +175,7 @@ Se utilizar o Windows Hello for Business, o requisito do MFA pode ser cumprido u
 
 #### <a name="configure-identity-protection"></a>Configurar a Proteção de Identidade 
 
-A Azure AD Identity Protection é uma ferramenta de monitorização e reporte baseada em algoritmos que pode utilizar para detetar potenciais vulnerabilidades que afetam as identidades da sua organização. Pode configurar respostas automatizadas para as atividades suspeitas detetadas e tomar as medidas adequadas para as resolver. Para mais informações, consulte [Azure Ative Directory Identity Protection](../active-directory-identityprotection.md).
+A Azure AD Identity Protection é uma ferramenta de monitorização e reporte baseada em algoritmos que pode utilizar para detetar potenciais vulnerabilidades que afetam as identidades da sua organização. Pode configurar respostas automatizadas para as atividades suspeitas detetadas e tomar as medidas adequadas para as resolver. Para obter mas informações, veja [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Obtenha o seu Office 365 Secure Score (se utilizar o Office 365)
 
@@ -205,11 +205,11 @@ Utilize o portal Enterprise e o portal Azure para identificar as subscrições n
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>Remover as contas da Microsoft das funções de administrador
 
-As contas da Microsoft de outros programas, como Xbox, Live e Outlook não devem ser utilizadas como contas de administrador para subscrições organizacionais. Remova o estado de administração de todas as contas da Microsoft e substitua-o por Azure Ative Directory (por exemplo, chris@contoso.com) trabalho ou contas escolares.
+As contas da Microsoft de outros programas, como Xbox, Live e Outlook não devem ser utilizadas como contas de administrador para subscrições organizacionais. Remova o estado de administração de todas as contas da Microsoft chris@contoso.come substitua-o por Azure Ative Directory (por exemplo, ) trabalho ou contas escolares.
 
 #### <a name="monitor-azure-activity"></a>Monitorizar a atividade do Azure
 
-O Azure Activity Log fornece um histórico de eventos de nível de subscrição em Azure. Oferece informações sobre quem criou, atualizou e apagou quais os recursos, e quando estes eventos ocorreram. Para mais informações, consulte [Audit e receba notificações sobre ações importantes na sua subscrição Azure](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
+O Registo de Atividades do Azure disponibiliza um histórico de eventos ao nível da subscrição no Azure. Oferece informações sobre quem criou, atualizou e apagou quais os recursos, e quando estes eventos ocorreram. Para mais informações, consulte [Audit e receba notificações sobre ações importantes na sua subscrição Azure](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passos adicionais para organizações que gerem o acesso a outras aplicações na nuvem via Azure AD
 
@@ -241,7 +241,7 @@ Requerem executivos c-suite, gestores de alto nível, pessoal crítico de TI e s
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Utilize postos de trabalho dedicados para administração para a AD Azure
 
-Os atacantes podem tentar direcionar contas privilegiadas para ter acesso aos dados e sistemas de uma organização para que possam perturbar a integridade e autenticidade dos dados, através de código malicioso que altere a lógica do programa ou snoops o administrador entrando numa credencial. As Estações de Trabalho de Acesso Privilegiado (PAWs) fornecem um sistema operativo dedicado para tarefas sensíveis protegidas contra ataques de Internet e vetores de ameaças. Separar estas tarefas e contas sensíveis dos postos de trabalho e dispositivos de uso diário proporciona uma proteção muito forte contra ataques de phishing, vulnerabilidades de aplicação e osso, vários ataques de personificação e ataques de roubo de credenciais, como keystroke madeireira, Pass-the-Hash e Pass-The-Ticket. Ao implementar postos de trabalho privilegiados de acesso, pode reduzir o risco de os administradores entrarem em credenciais de administração, exceto num ambiente de trabalho que foi endurecido. Para mais informações, consulte Postos de Trabalho de [Acesso Privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+Os atacantes podem tentar direcionar contas privilegiadas para ter acesso aos dados e sistemas de uma organização para que possam perturbar a integridade e autenticidade dos dados, através de código malicioso que altere a lógica do programa ou snoops o administrador entrando numa credencial. As Estações de Trabalho de Acesso Privilegiado (PAWs) fornecem um sistema operativo dedicado para tarefas confidenciais protegidas contra ataques de Internet e vetores de ameaça. A separação destas contas e tarefas confidenciais e da utilização diária das estações de trabalho e dos dispositivos fornece uma proteção muito forte contra ataques de phishing, vulnerabilidades do SO e de aplicações, vários ataques de representação e ataques de roubo de credenciais, tal como registo de batimentos de tecla, PtH e PtT. Ao implementar postos de trabalho privilegiados de acesso, pode reduzir o risco de os administradores entrarem em credenciais de administração, exceto num ambiente de trabalho que foi endurecido. Para mais informações, consulte Postos de Trabalho de [Acesso Privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Rever recomendações do Instituto Nacional de Normalização e Tecnologia para lidar com incidentes 
 

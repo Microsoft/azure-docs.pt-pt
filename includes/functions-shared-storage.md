@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: glenga
 ms.openlocfilehash: 82d122ed236dc72ced7ebafe2301ef5f1143897f
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76963665"
 ---
-Para maximizar o desempenho, use uma conta de armazenamento separada para cada aplicativo de funções. Isso é particularmente importante quando você tem Durable Functions ou funções disparadas pelo hub de eventos, que geram um alto volume de transações de armazenamento. Quando a lógica do aplicativo interage com o armazenamento do Azure, seja diretamente (usando o SDK de armazenamento) ou por meio de uma das associações de armazenamento, você deve usar uma conta de armazenamento dedicada. Por exemplo, se você tiver uma função disparada por Hub de eventos gravando alguns dados no armazenamento de BLOBs, use duas contas de armazenamento&mdash;uma para o aplicativo de funções e outra para os blobs que estão sendo armazenados pela função.
+Para maximizar o desempenho, utilize uma conta de armazenamento separada para cada aplicação de função. Isto é particularmente importante quando se tem funções duradouras ou funções desencadeadas pelo Event Hub, que ambos geram um elevado volume de transações de armazenamento. Quando a sua lógica de aplicação interage com o Armazenamento Azure, quer diretamente (utilizando o SDK de Armazenamento) quer através de uma das encadernações de armazenamento, deverá utilizar uma conta de armazenamento dedicada. Por exemplo, se tiver uma função desencadeada pelo Event Hub escrevendo alguns&mdash;dados para o armazenamento de blob, utilize duas contas de armazenamento uma para a aplicação de função e outra para as bolhas que estão a ser armazenadas pela função.

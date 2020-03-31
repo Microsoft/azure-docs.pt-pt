@@ -1,36 +1,36 @@
 ---
-title: Restaurar chave de Key Vault & segredo para a VM criptografada
-description: Saiba como restaurar Key Vault chave e segredo no backup do Azure usando o PowerShell
+title: Restaurar chave chave cofre & segredo para VM encriptado
+description: Saiba como restaurar a chave do cofre e o segredo em Backup Azure usando powerShell
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 35bcb919cadd46c603b1f2ad49742c5435f873d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75450057"
 ---
-# <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar chave e segredo de Key Vault para VMs criptografadas usando o backup do Azure
+# <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar a chave do Key Vault e o segredo para VMs encriptadas utilizando o Azure Backup
 
-Este artigo fala sobre como usar o backup de VM do Azure para executar a restauração de VMs do Azure criptografadas, se a chave e o segredo não existirem no cofre de chaves. Essas etapas também podem ser usadas se você quiser manter uma cópia separada da chave (chave de criptografia de chave) e o segredo (chave de criptografia BitLocker) para a VM restaurada.
+Este artigo fala sobre a utilização de Backup Azure VM para realizar o restauro de VMs Azure encriptados, se a sua chave e segredo não existirem no cofre chave. Estes passos também podem ser usados se pretender manter uma cópia separada da chave (Chave de Encriptação) e secreto (Chave de Encriptação BitLocker) para o VM restaurado.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Backup de VMs criptografadas** -o backup de VMs do Azure criptografadas foi feito usando o backup do Azure. Consulte o artigo [gerenciar o backup e a restauração de VMs do Azure usando o PowerShell](backup-azure-vms-automation.md) para obter detalhes sobre como fazer backup de VMs do Azure criptografadas.
-* **Configurar Azure Key Vault** – Verifique se o cofre da chave para o qual as chaves e segredos precisam ser restaurados já está presente. Consulte o artigo [introdução à Azure Key Vault](../key-vault/key-vault-get-started.md) para obter detalhes sobre o gerenciamento do Key Vault.
-* **Restaurar disco** – Verifique se você disparou o trabalho de restauração para restaurar discos para a VM criptografada usando [as etapas do PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Isso ocorre porque esse trabalho gera um arquivo JSON em sua conta de armazenamento que contém chaves e segredos para a VM criptografada a ser restaurada.
+* **VMs encriptados** de backup - VMs Azure encriptados foram apoiados usando Backup Azure. Consulte o artigo Gerir a cópia de [segurança e restaurar os VMs Azure utilizando](backup-azure-vms-automation.md) o PowerShell para obter detalhes sobre como fazer backup de VMs Azure encriptados.
+* **Configure Cofre chave Azure** – Certifique-se de que o cofre chave para o qual as chaves e segredos precisam de ser restaurados já está presente. Consulte o artigo [Get Started with Azure Key Vault](../key-vault/key-vault-get-started.md) para mais detalhes sobre a gestão do cofre chave.
+* **Restaurar o disco** - Certifique-se de que desencadeou uma obra de restauro para restaurar os discos para vM encriptado utilizando [passos PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Isto porque este trabalho gera um ficheiro JSON na sua conta de armazenamento contendo chaves e segredos para o VM encriptado ser restaurado.
 
-## <a name="get-key-and-secret-from-azure-backup"></a>Obter chave e segredo do backup do Azure
+## <a name="get-key-and-secret-from-azure-backup"></a>Obtenha a chave e segredo do Azure Backup
 
 > [!NOTE]
-> Depois que o disco tiver sido restaurado para a VM criptografada, verifique se:
+> Uma vez restaurado o disco para o VM encriptado, certifique-se de que:
 >
-> * $details é preenchido com os detalhes do trabalho de restauração de disco, conforme mencionado nas [etapas do PowerShell na seção restaurar os discos](backup-azure-vms-automation.md#restore-an-azure-vm)
-> * A VM deve ser criada a partir de discos restaurados somente **após a chave e o segredo serem restaurados no cofre de chaves**.
+> * $details é povoada com detalhes de trabalho de restauro do disco, como mencionado nos [passos powerShell em Restaurar a secção Discos](backup-azure-vms-automation.md#restore-an-azure-vm)
+> * O VM só deve ser criado a partir de discos restaurados após a chave e o **segredo ser restaurado para o cofre da chave**.
 
-Consulte as propriedades do disco restaurado para obter os detalhes do trabalho.
+Consultar as propriedades restauradas do disco para os detalhes do trabalho.
 
 ```powershell
 $properties = $details.properties
@@ -39,7 +39,7 @@ $containerName = $properties["Config Blob Container Name"]
 $encryptedBlobName = $properties["Encryption Info Blob Name"]
 ```
 
-Defina o contexto de armazenamento do Azure e restaure o arquivo de configuração JSON contendo detalhes de chave e segredo para a VM criptografada.
+Delineie o contexto de armazenamento Azure e restaure o ficheiro de configuração JSON contendo detalhes chave e secretos para VM encriptado.
 
 ```powershell
 Set-AzCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
@@ -48,9 +48,9 @@ Get-AzStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Des
 $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
 
-## <a name="restore-key"></a>Restaurar chave
+## <a name="restore-key"></a>Restaurar a chave
 
-Depois que o arquivo JSON for gerado no caminho de destino mencionado acima, gere o arquivo de blob de chave do JSON e o ligue para o cmdlet Restore Key para colocar a chave (KEK) de volta no cofre de chaves.
+Uma vez que o ficheiro JSON é gerado no caminho de destino acima mencionado, gere o ficheiro blob chave do JSON e alimente-o para restaurar o cmdlet chave para colocar a chave (KEK) de volta no cofre chave.
 
 ```powershell
 $keyDestination = 'C:\keyDetails.blob'
@@ -60,9 +60,9 @@ Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDes
 
 ## <a name="restore-secret"></a>Restaurar segredo
 
-Use o arquivo JSON gerado acima para obter o nome e o valor do segredo e alimentar-o para definir o cmdlet secreto para colocar o segredo (BEK) de volta no cofre de chaves. Use esses cmdlets se sua **VM for criptografada usando Bek e Kek**.
+Use o ficheiro JSON gerado acima para obter nome e valor secretos e alimentá-lo para definir cmdlet secreto para colocar o segredo (BEK) de volta no cofre da chave.Utilize estes cmdlets se o seu **VM estiver encriptado utilizando BEK e KEK**.
 
-**Use esses cmdlets se sua VM do Windows for criptografada usando BEK e KEK.**
+**Utilize estes cmdlets se o seu Windows VM estiver encriptado utilizando BEK e KEK.**
 
 ```powershell
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -72,7 +72,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-**Use esses cmdlets se sua VM do Linux for criptografada usando BEK e KEK.**
+**Utilize estes cmdlets se o seu VM Linux estiver encriptado utilizando BEK e KEK.**
 
 ```powershell
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -82,7 +82,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Use o arquivo JSON gerado acima para obter o nome e o valor do segredo e alimentar-o para definir o cmdlet secreto para colocar o segredo (BEK) de volta no cofre de chaves. Use esses cmdlets se sua **VM for criptografada usando apenas Bek** .
+Use o ficheiro JSON gerado acima para obter nome e valor secretos e alimentá-lo para definir cmdlet secreto para colocar o segredo (BEK) de volta no cofre da chave.Utilize estes cmdlets se o seu **VM estiver encriptado usando** apenas BEK.
 
 ```powershell
 $secretDestination = 'C:\secret.blob'
@@ -92,22 +92,22 @@ Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $sec
 
 > [!NOTE]
 >
-> * O valor de $secretname pode ser obtido referindo-se à saída de $encryptionObject. OsDiskKeyAndSecretDetails. SecretUrl e usando o texto após os segredos/por exemplo, a URL secreta de saída é https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 e o nome do segredo é B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> * O valor da marca DiskEncryptionKeyFileName é o mesmo que o nome do segredo.
+> * O valor para $secretname pode ser obtido referindo-se à saída de $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl e usando https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 texto após segredos/ por exemplo, URL secreto de saída é e nome secreto é B3284AAA-DAAAA-B393-60CAA848AAAAAAAAAAAAA
+> * O valor da etiqueta DiskEncryptionKeyFileName é o mesmo que o nome secreto.
 >
 >
 
-## <a name="create-virtual-machine-from-restored-disk"></a>Criar máquina virtual do disco restaurado
+## <a name="create-virtual-machine-from-restored-disk"></a>Criar máquina virtual a partir de disco restaurado
 
-Se você tiver feito backup da VM criptografada usando o backup de VM do Azure, os cmdlets do PowerShell mencionados acima ajudarão a restaurar a chave e o segredo de volta para o cofre de chaves. Depois de restaurá-los, consulte o artigo [gerenciar o backup e a restauração de VMs do Azure usando o PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar VMs criptografadas de disco, chave e segredo restaurados.
+Se tiver apoiado o VM encriptado utilizando o Backup Azure VM, os cmdlets PowerShell mencionados acima ajudam-no a restaurar a chave e o segredo de volta ao cofre da chave. Depois de os restaurar, consulte o artigo Gerir a cópia de [segurança e restaurar os VMs Azure usando o PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar VMs encriptados a partir de discos, chaves e segredo restaurados.
 
-## <a name="legacy-approach"></a>Abordagem herdada
+## <a name="legacy-approach"></a>Abordagem do legado
 
-A abordagem mencionada acima funcionaria para todos os pontos de recuperação. No entanto, a abordagem mais antiga de obter informações de chave e segredo do ponto de recuperação seria válida para pontos de recuperação anteriores a 11 de julho de 2017 para VMs criptografadas usando BEK e KEK. Depois que o trabalho de restauração de disco for concluído para a VM criptografada usando [as etapas do PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm), verifique se $RP é populado com um valor válido.
+A abordagem acima referida funcionaria para todos os pontos de recuperação. No entanto, a abordagem mais antiga de obter informações fundamentais e secretas do ponto de recuperação, seria válida para pontos de recuperação mais antigos do que 11 de julho de 2017 para VMs encriptados usando BEK e KEK. Uma vez que o trabalho de restauro do disco esteja completo para VM encriptado utilizando [passos PowerShell,](backup-azure-vms-automation.md#restore-an-azure-vm)certifique-se de que $rp é povoada com um valor válido.
 
-### <a name="restore-key"></a>Restaurar chave
+### <a name="restore-key"></a>Restaurar a chave
 
-Use os cmdlets a seguir para obter informações de chave (KEK) do ponto de recuperação e alimentar-o para restaurar o cmdlet de chave para colocá-lo de volta no cofre de chaves.
+Utilize os seguintes cmdlets para obter informações chave (KEK) do ponto de recuperação e alimentá-la para restaurar o cmdlet chave para colocá-lo de volta no cofre da chave.
 
 ```powershell
 $rp1 = Get-AzRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
@@ -116,7 +116,7 @@ Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile 'C:\Use
 
 ### <a name="restore-secret"></a>Restaurar segredo
 
-Use os cmdlets a seguir para obter informações secretas (BEK) do ponto de recuperação e alimentar-o para definir o cmdlet secreto para colocá-lo de volta no cofre de chaves.
+Utilize os seguintes cmdlets para obter informações secretas (BEK) do ponto de recuperação e alimentá-las para definir cmdlet secreto para colocá-lo de volta no cofre chave.
 
 ```powershell
 $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
@@ -128,12 +128,12 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 
 > [!NOTE]
 >
-> * O valor de $secretname pode ser obtido referindo-se à saída de $rp 1. KeyAndSecretDetails. SecretUrl e usando o texto após os segredos/por exemplo, a URL secreta de saída é https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 e o nome do segredo é B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> * O valor da marca DiskEncryptionKeyFileName é o mesmo que o nome do segredo.
-> * O valor de DiskEncryptionKeyEncryptionKeyURL pode ser obtido do Key Vault após restaurar as chaves de volta e usar o cmdlet [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey)
+> * O valor para $secretname pode ser obtido referindo-se à saída de $rp1. KeyAndSecretDetails.SecretUrl e usando texto após segredos/ por https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 exemplo, URL secreto de saída é e nome secreto é B3284AAAA-DAAA-4AAA-B393-60CAA848AAAAAAAA
+> * O valor da etiqueta DiskEncryptionKeyFileName é o mesmo que o nome secreto.
+> * Valor para DiskEncryptionKeyEncryptionKeyURL pode ser obtido a partir do cofre da chave depois de restaurar as chaves de volta e usando o cmdlet [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey)
 >
 >
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de restaurar a chave e o segredo de volta ao cofre de chaves, consulte o artigo [gerenciar o backup e a restauração de VMs do Azure usando o PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar VMs criptografadas de disco, chave e segredo restaurados.
+Depois de restaurar a chave e o segredo de volta ao cofre chave, consulte o artigo Gerir a cópia de [segurança e restaurar os VMs Azure usando o PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar VMs encriptados a partir de discos restaurados, chave e segredo.

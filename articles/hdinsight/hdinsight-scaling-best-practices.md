@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/26/2020
-ms.openlocfilehash: a88682cd2217850e336afc2f9ef5af84c0d8cb82
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 96a72541255ad0059abe5ad280f1728518dbf68c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79272230"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234736"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Clusters Scale Azure HDInsight
 
 O HDInsight proporciona elasticidade, dando-lhe a opção de escalar e reduzir o número de nós dos trabalhadores nos seus clusters. Esta elasticidade permite-lhe encolher um cluster fora de horas ou aos fins de semana, e expandi-lo durante as exigências de negócios.
 
-Se tiver um processamento periódico de lote, o cluster HDInsight pode ser dimensionado alguns minutos antes dessa operação, de modo que o seu cluster tenha memória adequada e potência cpu.  Mais tarde, após o processamento e o uso descer novamente, pode reduzir o cluster HDInsight para menos nós de trabalhador.
+Se tiver um processamento periódico de lote, o cluster HDInsight pode ser dimensionado alguns minutos antes dessa operação, de modo que o seu cluster tenha memória adequada e potência cpu. Mais tarde, após o processamento e o uso descer novamente, pode reduzir o cluster HDInsight para menos nós de trabalhador.
 
 Pode escalar um cluster manualmente utilizando um dos métodos descritos abaixo, ou utilizar opções de [escala automática](hdinsight-autoscale-clusters.md) para ter o sistema automaticamente escalando para cima e para baixo em resposta a CPU, memória e outras métricas.
 
@@ -29,13 +29,13 @@ Pode escalar um cluster manualmente utilizando um dos métodos descritos abaixo,
 
 A Microsoft fornece os seguintes utilitários para escalar clusters:
 
-|Utilidade | Descrição|
+|Utility | Descrição|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight redimension --grupo](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) de recursos \<Resource group> --name \<Cluster Name> --workernode-count \<NewSize>|
-|[ClI clássico azure](hdinsight-administer-use-command-line.md)|cluster azure hdinsight redimensionar \<clusterName> \<Target Instance Count> |
-|[Portal do Azure](https://portal.azure.com)|Abra o painel de cluster HDInsight, selecione **o tamanho do Cluster** no menu à esquerda e, em seguida, no painel do tamanho do Cluster, digite o número de nós do trabalhador e selecione Guardar.|  
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Nome de clustername> -TargetInstanceCount \<NewSize>|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Nome de clusterName \<nome> -TargetInstanceCount NewSize>|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight redimensionar](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) \<--grupo de recursos \<grupo de recursos grupo de \<recursos> --nome do cluster nome> ---workernode-count NewSize>|
+|[CLI Clássica do Azure](hdinsight-administer-use-command-line.md)|cluster azure hdinsight \<redimensionar clusterName> \<Target Instance Count> |
+|[Portal Azure](https://portal.azure.com)|Abra o painel de cluster HDInsight, selecione **o tamanho do Cluster** no menu à esquerda e, em seguida, no painel do tamanho do Cluster, digite o número de nós do trabalhador e selecione Guardar.|  
 
 ![Opção de cluster de escala de portal Azure](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
@@ -88,7 +88,7 @@ O impacto da alteração do número de nós de dados varia para cada tipo de clu
 
     Aqui está um exemplo de comando CLI para reequilibrar a topologia da tempestade:
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
@@ -108,13 +108,13 @@ Para evitar que os seus trabalhos de corrida falhem durante uma operação de re
 Para ver uma lista de trabalhos pendentes e em execução, pode utilizar o **YARN Resource Manager UI,** seguindo estes passos:
 
 1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu cluster.  Consulte [a Lista e mostre](./hdinsight-administer-use-portal-linux.md#showClusters) os agrupamentos para obter as instruções. O cluster é aberto numa nova página do portal.
-2. Da vista principal, navegue até **aos dashboards do Cluster** > casa **ambari**. Insira as credenciais do seu cluster.
+2. Da vista principal, navegue até aos **dashboards** > **ambari.** Insira as credenciais do seu cluster.
 3. A partir do Ambari UI, selecione **YARN** na lista de serviços no menu à esquerda.  
 4. A partir da página YARN, selecione **Quick Links** e paire sobre o nó de cabeça ativo e, em seguida, selecione **ResourceManager UI**.
 
     ![Apache Ambari liga rapidamente RecursosManager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-Pode aceder diretamente ao UI do ResourceManager com `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
+Pode aceder diretamente ao UI `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`do ResourceManager com .
 
 Vê-se uma lista de empregos, juntamente com o seu estado atual. Na imagem, há um trabalho em andamento:
 
@@ -136,21 +136,21 @@ yarn application -kill "application_1499348398273_0003"
 
 Quando reduz um cluster, o HDInsight utiliza interfaces de gestão Apache Ambari para primeiro desativar os nós de trabalhadores extra, que replicam os seus blocos HDFS a outros nós de trabalhadores online. Depois disso, o HDInsight escala com segurança o cluster para baixo. O HDFS entra em modo de segurança durante a operação de escalagem, e é suposto sair assim que a escala estiver terminada. Em alguns casos, no entanto, o HDFS fica preso em modo de segurança durante uma operação de escala devido à sub-replicação do bloco de ficheiros.
 
-Por predefinição, o HDFS é configurado com uma definição `dfs.replication` de 1, que controla quantas cópias de cada bloco de ficheiros estão disponíveis. Cada cópia de um bloco de ficheiros é armazenada num nó diferente do cluster.
+Por predefinição, o HDFS é configurado com uma `dfs.replication` definição de 1, que controla quantas cópias de cada bloco de ficheiros estão disponíveis. Cada cópia de um bloco de ficheiros é armazenada num nó diferente do cluster.
 
 Quando o HDFS deteta que o número esperado de cópias de blocos não está disponível, o HDFS entra no modo de segurança e ambari gera alertas. Se o HDFS entrar no modo de segurança para uma operação de escala, mas não conseguir sair do modo de segurança porque o número necessário de nós não é detetado para replicação, o cluster pode ficar preso em modo de segurança.
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Erros de exemplo quando o modo de segurança é ligado
 
-```
+```output
 org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode.
 ```
 
-```
+```output
 org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.cloudapp.net:10001 [active-headnode-name.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-Pode rever os registos de nó do nome da pasta `/var/log/hadoop/hdfs/`, perto da altura em que o cluster foi dimensionado, para ver quando entrou no modo de segurança. Os ficheiros de registo são chamados `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
+Pode rever os registos de `/var/log/hadoop/hdfs/` nó do nome da pasta, perto da altura em que o cluster foi dimensionado, para ver quando entrou no modo de segurança. Os ficheiros `Hadoop-hdfs-namenode-<active-headnode-name>.*`de registo são nomeados.
 
 A causa principal dos erros anteriores é que a Hive depende de ficheiros temporários em HDFS enquanto executa consultas. Quando o HDFS entra no modo de segurança, a Hive não pode executar consultas porque não pode escrever para hDFS. Os ficheiros temporários em HDFS estão localizados na unidade local montada nas VMs individuais do nó operário, e replicados entre outros nós operários em três réplicas, no mínimo.
 
@@ -159,7 +159,7 @@ A causa principal dos erros anteriores é que a Hive depende de ficheiros tempor
 Existem várias formas de evitar que o HDInsight seja deixado em modo de segurança:
 
 * Pare todos os trabalhos da Colmeia antes de reduzir o HDInsight. Alternadamente, agende o processo de redução da escala para evitar conflitos com a gestão de postos de trabalho na Colmeia.
-* Limpe manualmente o risco da Hive `tmp` ficheiros de diretório no HDFS antes de reduzir.
+* Limpe manualmente os ficheiros de diretório de risco `tmp` da Hive no HDFS antes de reduzir.
 * Apenas reduza o HDInsight para três nós de trabalhador, no mínimo. Evite ir tão baixo como um nó de trabalhador.
 * Executar o comando para deixar o modo de segurança, se necessário.
 
@@ -175,7 +175,7 @@ Parar os trabalhos da Colmeia antes de escalonar, ajuda a minimizar o número de
 
 Se a Hive deixou ficheiros temporários, então pode limpar manualmente esses ficheiros antes de se escalonar para evitar o modo de segurança.
 
-1. Verifique qual a localização que está a ser usada para ficheiros temporários da Hive, olhando para a propriedade de configuração `hive.exec.scratchdir`. Este parâmetro está definido dentro `/etc/hive/conf/hive-site.xml`:
+1. Verifique qual a localização que está a ser `hive.exec.scratchdir` usada para ficheiros temporários da Hive, olhando para a propriedade de configuração. Este parâmetro está `/etc/hive/conf/hive-site.xml`definido dentro de:
 
     ```xml
     <property>
@@ -185,7 +185,7 @@ Se a Hive deixou ficheiros temporários, então pode limpar manualmente esses fi
     ```
 
 1. Pare os serviços da Hive e certifique-se de que todas as consultas e trabalhos estão concluídos.
-2. Enumerar o conteúdo do diretório de riscos acima encontrado, `hdfs://mycluster/tmp/hive/` para ver se contém ficheiros:
+2. Enumera rine o conteúdo do `hdfs://mycluster/tmp/hive/` diretório de risco acima encontrado, para ver se contém ficheiros:
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
@@ -233,7 +233,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 Os servidores da região são automaticamente equilibrados dentro de alguns minutos após completar uma operação de escala. Para equilibrar manualmente os servidores da região, complete os seguintes passos:
 
-1. Ligue-se ao cluster HDInsight utilizando O SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Ligue-se ao cluster HDInsight utilizando O SSH. Para mais informações, consulte [Use SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Inicie a concha HBase:
 

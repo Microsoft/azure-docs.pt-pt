@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: b25409c63806e203bd841b0373543b7cc2b96d9d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79212932"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Utilize o portal Azure para gerir ações no seu Azure Data Box Edge
@@ -153,7 +153,7 @@ Efetue os seguintes passos no portal do Azure para eliminar uma partilha.
 
     ![Selecionar partilha](media/data-box-edge-manage-shares/delete-share-1.png)
 
-2. Clique em **Eliminar**.
+2. Clique em **Apagar**.
 
     ![Clicar em eliminar](media/data-box-edge-manage-shares/delete-share-2.png)
 

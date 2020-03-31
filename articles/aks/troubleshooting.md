@@ -7,13 +7,13 @@ ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
 ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368337"
 ---
-# <a name="aks-troubleshooting"></a>Resolução de problemas da AKS
+# <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
 Quando cria ou gere os clusters do Serviço Azure Kubernetes (AKS), pode ocasionalmente encontrar problemas. Este artigo detalha alguns problemas comuns e passos de resolução de problemas.
 
@@ -29,13 +29,13 @@ Precisa [pedir núcleos.](https://docs.microsoft.com/azure/azure-portal/supporta
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Qual é a definição máxima de pods por nó para AKS?
 
 A definição máxima de pods por nó é de 30 por padrão se implementar um cluster AKS no portal Azure.
-A definição máxima de pods por nó é de 110 por padrão se implantar um cluster AKS no Azure CLI. (Certifique-se de que está a utilizar a versão mais recente do Azure CLI). Esta definição predefinida pode ser alterada utilizando a bandeira `–-max-pods` no comando `az aks create`.
+A definição máxima de pods por nó é de 110 por padrão se implantar um cluster AKS no Azure CLI. (Certifique-se de que está a utilizar a versão mais recente do Azure CLI). Esta definição predefinida pode `–-max-pods` ser `az aks create` alterada utilizando a bandeira no comando.
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou a ter um erro subnetSize insuficiente enquanto implanto um cluster AKS com networking avançado. O que devo fazer?
 
 Se o Azure CNI (rede avançada) for utilizado, o AKS atribui endereços IP baseados nos "max-pods" por nó configurado. Com base nas cápsulas max configuradas por nó, o tamanho da sub-rede deve ser maior do que o produto do número de nós e da vagem máxima por ajuste do nó. A seguinte equação descreve isto:
 
-Tamanho da sub-rede > número de nós no cluster (tendo em conta os requisitos futuros de escala) * cápsulas max por conjunto de nó.
+Tamanho da sub-rede > número de nós no cluster (tendo em conta os futuros requisitos de escala) * cápsulas max por conjunto de nó.
 
 Para mais informações, consulte o [Plano IP endereçando para o seu cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
@@ -43,8 +43,8 @@ Para mais informações, consulte o [Plano IP endereçando para o seu cluster](c
 
 Pode haver várias razões para a cápsula estar presa nesse modo. Pode investigar:
 
-* A vagem em si, utilizando `kubectl describe pod <pod-name>`.
-* Os registos, utilizando `kubectl logs <pod-name>`.
+* A vagem em `kubectl describe pod <pod-name>`si, utilizando .
+* Os registos, `kubectl logs <pod-name>`utilizando .
 
 Para obter mais informações sobre como resolver problemas com a cápsula, consulte [as aplicações Debug](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
@@ -56,15 +56,15 @@ Infelizmente, permitir o controlo de acesso baseado em papéis (RBAC) em cluster
 
 A razão para as advertências no painel de instrumentos é que o cluster está agora ativado com RBAC e o acesso ao mesmo foi desativado por padrão. Em geral, esta abordagem é uma boa prática porque a exposição padrão do painel de instrumentos a todos os utilizadores do cluster pode levar a ameaças à segurança. Se ainda quiser ativar o dashboard, siga os passos [nesta publicação de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não consigo ligar-me ao painel. O que devo fazer?
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não é possível ligar ao dashboard. O que devo fazer?
 
-A forma mais fácil de aceder ao seu serviço fora do cluster é executar `kubectl proxy`, que proxies solicitam enviados para o seu porto de acolhimento local 8001 para o servidor Kubernetes API. A partir daí, o servidor API pode proxy para o seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+A forma mais fácil de aceder ao `kubectl proxy`seu serviço fora do cluster é executar, quais os pedidos enviados para o seu porto de acolhimento local 8001 para o servidor Kubernetes API. A partir daí, o servidor API `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`pode proxy para o seu serviço: .
 
-Se não vir o painel kubernetes, verifique se a cápsula `kube-proxy` está a funcionar no espaço de `kube-system` nome. Se não estiver em estado de funcionamento, apague a cápsula e recomeçará.
+Se não vir o painel kubernetes, verifique `kube-proxy` se a `kube-system` cápsula está a funcionar no espaço de nome. Se não estiver em estado de funcionamento, apague a cápsula e recomeçará.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo registos usando registos de kubectl ou não consigo ligar-me ao servidor DaPI. Estou a receber "Error from server: error dial dial backend: dial tcp...". O que devo fazer?
 
-Certifique-se de que o grupo de segurança da rede padrão não é modificado e que tanto a porta 22 como 9000 estão abertas para ligação ao servidor API. Verifique se a cápsula `tunnelfront` está a funcionar no espaço de nome do *sistema kube* utilizando o comando `kubectl get pods --namespace kube-system`. Se não for, força a eliminação da cápsula e recomeçará.
+Certifique-se de que o grupo de segurança da rede padrão não é modificado e que tanto a porta 22 como 9000 estão abertas para ligação ao servidor API. Verifique se `tunnelfront` a cápsula está a funcionar no espaço `kubectl get pods --namespace kube-system` de nome do *sistema kube* utilizando o comando. Se não for, força a eliminação da cápsula e recomeçará.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estou a tentar atualizar ou escalar e estou a receber uma "mensagem: Mudar de propriedade 'imageReference' não é permitido". Como posso resolver este problema?
 
@@ -72,22 +72,22 @@ Podes estar a ter este erro porque modificaste as etiquetas nos nós do agente d
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou a receber erros de que o meu cluster está em estado falhado e que a modernização ou escalonamento não funcionará até que seja corrigido.
 
-*Esta assistência de resolução de problemas é dirigida a partir de https://aka.ms/aks-cluster-failed*
+*Esta assistência de resolução de problemas é direcionada a partir dehttps://aka.ms/aks-cluster-failed*
 
 Este erro ocorre quando os aglomerados entram num estado falhado por múltiplas razões. Siga os passos abaixo para resolver o seu estado falhado antes de voltar a tentar a operação anteriormente falhada:
 
-1. Até que o aglomerado esteja fora `failed` estado, `upgrade` e `scale` operações não terão sucesso. As questões e resoluções fundamentais comuns incluem:
+1. Até que o `failed` aglomerado `upgrade` esteja `scale` fora do estado, e as operações não vão ter sucesso. As questões e resoluções fundamentais comuns incluem:
     * Escalacom **quota de cálculo insuficiente (CRP).** Para resolver, primeiro escala o seu cluster de volta para um estado de meta estável dentro da quota. Em seguida, siga estas [medidas para solicitar um aumento](../azure-portal/supportability/resource-manager-core-quotas-request.md) da quota de cálculo antes de tentar escalar novamente para além dos limites iniciais de quota.
     * Dimensionar um cluster com redes avançadas e **recursos de sub-rede insuficientes (networking).** Para resolver, primeiro escala o seu cluster de volta para um estado de meta estável dentro da quota. Em seguida, siga [estas medidas para solicitar um aumento](../azure-resource-manager/templates/error-resource-quota.md#solution) da quota de recursos antes de tentar escalar novamente para além dos limites iniciais de quota.
 2. Uma vez resolvida a causa subjacente à falha de atualização, o seu cluster deve estar num estado bem sucedido. Uma vez verificado um estado bem sucedido, tente novamente a operação original.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou a receber erros ao tentar atualizar ou escalar esse estado, o meu cluster está a ser atualizado ou falhou na atualização.
 
-*Esta assistência de resolução de problemas é dirigida a partir de https://aka.ms/aks-pending-upgrade*
+*Esta assistência de resolução de problemas é direcionada a partir dehttps://aka.ms/aks-pending-upgrade*
 
 As operações de upgrade e escala num cluster com uma única piscina de nó ou um cluster com [piscinas de nó múltiplas](use-multiple-node-pools.md) são mutuamente exclusivas. Não é possível ter um cluster ou piscina de nó simultaneamente atualizado e escala. Em vez disso, cada tipo de funcionamento deve ser preenchido no recurso-alvo antes do próximo pedido sobre esse mesmo recurso. Como resultado, as operações são limitadas quando as operações de atualização ou escala ativas estão a ocorrer ou a tentar e subsequentemente falhadas. 
 
-Para ajudar a diagnosticar o problema, `az aks show -g myResourceGroup -n myAKSCluster -o table` para obter um estado detalhado no seu cluster. Com base no resultado:
+Para ajudar a `az aks show -g myResourceGroup -n myAKSCluster -o table` diagnosticar o problema corre para recuperar o estado detalhado no seu cluster. Com base no resultado:
 
 * Se o cluster estiver a atualizar ativamente, aguarde até que a operação termine. Se tiver sucesso, volte a tentar a operação anteriormente falhada.
 * Se o cluster tiver falhado na atualização, siga os passos delineados na secção anterior.
@@ -118,14 +118,14 @@ Siga os passos *antes de iniciar* os passos no doc apropriado para criar correta
 As restrições de nomeação são implementadas tanto pela plataforma Azure como pela AKS. Se um nome de recurso ou parâmetro quebrar uma destas restrições, é devolvido um erro que lhe pede fornecer uma entrada diferente. Aplicam-se as seguintes diretrizes comuns de nomeação:
 
 * Os nomes do cluster devem ser 1-63 caracteres. Os únicos caracteres permitidos são letras, números, traços e sublinhados. O primeiro e último personagem deve ser uma carta ou um número.
-* O nome do grupo de recursos *MC_* AKS combina nome de grupo de recursos e nome de recursos. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser superior a 80 chars. Se necessário, reduza o comprimento do nome do grupo de recursos ou o nome do cluster AKS.
+* O nome do grupo de recursos *MC_* AKS combina nome de grupo de recursos e nome de recursos. A sintaxe gerada `MC_resourceGroupName_resourceName_AzureRegion` automaticamente não deve ser superior a 80 chars. Se necessário, reduza o comprimento do nome do grupo de recursos ou o nome do cluster AKS.
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos e deve estar entre 1-54 caracteres. Os caracteres válidos incluem valores alfanuméricos e hífenes (-). O *dnsPrefix* não pode incluir caracteres especiais como um período (.).
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou a receber erros ao tentar criar, atualizar, escalar, eliminar ou atualizar o cluster, que a operação não é permitida, uma vez que outra operação está em curso.
 
 *Esta assistência de resolução de problemas é direcionada a partir de aka.ms/aks-pending-operation*
 
-As operações de cluster são limitadas quando uma operação anterior ainda está em curso. Para recuperar um estado detalhado do seu cluster, use o comando `az aks show -g myResourceGroup -n myAKSCluster -o table`. Use o seu próprio grupo de recursos e o nome do cluster AKS, conforme necessário.
+As operações de cluster são limitadas quando uma operação anterior ainda está em curso. Para recuperar um estado detalhado do `az aks show -g myResourceGroup -n myAKSCluster -o table` seu cluster, use o comando. Use o seu próprio grupo de recursos e o nome do cluster AKS, conforme necessário.
 
 Com base na saída do estado do cluster:
 
@@ -144,7 +144,7 @@ Utilize as seguintes suposições para o seguinte:
 
 ## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Estou a receber erros depois de restringir o meu tráfego de esgress.
 
-Ao restringir o tráfego de saída de um cluster AKS, são [necessárias e opcionais](limit-egress-traffic.md) portas/regras de rede recomendadas e regras de aplicação FQDN/aplicação para AKS. Se as suas definições estiverem em conflito com qualquer uma destas regras, poderá não ser capaz de executar determinados comandos `kubectl`. Também pode ver erros ao criar um cluster AKS.
+Ao restringir o tráfego de saída de um cluster AKS, são [necessárias e opcionais](limit-egress-traffic.md) portas/regras de rede recomendadas e regras de aplicação FQDN/aplicação para AKS. Se as suas definições estiverem em conflito com qualquer `kubectl` uma destas regras, poderá não ser capaz de executar determinados comandos. Também pode ver erros ao criar um cluster AKS.
 
 Verifique se as suas definições não estão em conflito com nenhuma das portas/regras de saída recomendadas recomendadas ou recomendadas ou opcionais e as regras de aplicação FQDN/aplicação.
 
@@ -223,9 +223,9 @@ spec:
 ```
 
   >[!NOTE]
-  > Uma vez que gid e uid são montados como raiz ou 0 por padrão. Se o gid ou o uid forem definidos como não-raiz, por exemplo 1000, kubernetes usarão `chown` para alterar todos os diretórios e ficheiros sob esse disco. Esta operação pode ser morosa e pode tornar a montagem do disco muito lenta.
+  > Uma vez que gid e uid são montados como raiz ou 0 por padrão. Se o gid ou o uid forem definidos como não-raiz, `chown` por exemplo 1000, kubernetes usarão para alterar todos os diretórios e ficheiros sob esse disco. Esta operação pode ser morosa e pode tornar a montagem do disco muito lenta.
 
-* Utilize `chown` initContainers para definir gid e uid. Por exemplo:
+* Utilize `chown` em recipientes initas para definir gid e uid. Por exemplo:
 
 ```yaml
 initContainers:
@@ -446,7 +446,7 @@ Pode mitigar o problema utilizando [o fornecimento estático com ficheiros Azure
 
 ### <a name="azure-files-fails-to-remount-in-windows-pod"></a>Ficheiros Azure falham na remontagem no Windows pod
 
-Se um pod Windows com uma montagem de Ficheiros Azure for eliminado e depois programado para ser recriado no mesmo nó, o monte falhará. Esta falha deve-se à falha do comando `New-SmbGlobalMapping`, uma vez que o suporte dos Ficheiros Azure já está montado no nó.
+Se um pod Windows com uma montagem de Ficheiros Azure for eliminado e depois programado para ser recriado no mesmo nó, o monte falhará. Esta falha deve-se à falha do `New-SmbGlobalMapping` comando, uma vez que o suporte dos Ficheiros Azure já está montado no nó.
 
 Por exemplo, pode ver um erro semelhante ao:
 
@@ -468,13 +468,13 @@ Se a chave da sua conta de armazenamento tiver mudado, poderá ver falhas de mon
 
 Pode atenuar o problema atualizando manualmente o campo *azurestorageaccountkey* manualmente em segredo de ficheiro Azure com a chave de conta de armazenamento codificada base64.
 
-Para codificar a chave da sua conta de armazenamento na base64, pode utilizar `base64`. Por exemplo:
+Para codificar a chave da sua conta `base64`de armazenamento no base64, pode utilizar . Por exemplo:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Para atualizar o seu ficheiro secreto Azure, utilize `kubectl edit secret`. Por exemplo:
+Para atualizar o seu ficheiro `kubectl edit secret`secreto Azure, utilize . Por exemplo:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

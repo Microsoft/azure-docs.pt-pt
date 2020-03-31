@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
 ms.openlocfilehash: 1e44a7e71858f028b798720c5505eacbfe8c2332
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77472048"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Tarefa Azure DevOps para o Explorador de Dados Azure
@@ -31,7 +31,7 @@ Este documento descreve um exemplo simples sobre a utilização da tarefa do **A
     * Conceda acesso à sua App AD Azure na sua base de dados do Azure Data [Explorer, gerindo permissões](/azure/data-explorer/manage-database-permissions)na base de dados do Azure Data Explorer.
 * Configuração Azure DevOps:
     * [Inscreva-se para uma organização gratuita](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)
-    * [Criar uma organização](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+    * [Criar uma nova organização](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
     * [Criar um projeto em Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
     * [Código com Git](/azure/devops/user-guide/code-with-git?view=azure-devops)
 
@@ -47,7 +47,7 @@ Crie as seguintes pastas de amostra *(Funções,* *Políticas,* *Tabelas)* no se
 ## <a name="create-a-release-pipeline"></a>Criar um pipeline de versão
 
 1. Inscreva-se na sua [organização Azure DevOps.](https://dev.azure.com/)
-1. Selecione **Pipelines** > **Desisco** do menu à esquerda e selecione **Novo pipeline**.
+1. Selecione **Pipelines** > **Desbloqueiodo** do menu à esquerda e selecione **Novo pipeline**.
 
     ![Novo pipeline](media/devops/new-pipeline.png)
 
@@ -67,7 +67,7 @@ Crie as seguintes pastas de amostra *(Funções,* *Políticas,* *Tabelas)* no se
 
     ![Criar variável](media/devops/create-variable.png)
 
-    Para encontrar o seu Endpoint_URL, a página geral do seu **Cluster de Exploradores** de Dados Azure no portal Azure contém o cluster Azure Data Explorer URI. Construa o URI no seguinte formato `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Por exemplo, https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Para encontrar o seu Endpoint_URL, a página geral do seu **Cluster de Exploradores** de Dados Azure no portal Azure contém o cluster Azure Data Explorer URI. Construa o URI `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`no seguinte formato .  Por exemplo,\/https: /kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![Cluster Uri do Explorador de Dados Azure](media/devops/adx-cluster-uri.png)
 
@@ -77,16 +77,16 @@ Crie as seguintes pastas de amostra *(Funções,* *Políticas,* *Tabelas)* no se
 
     ![Adicionar tarefas](media/devops/add-task.png)
 
-1. Criar três tarefas para implementar **Tabelas, Funções,** e **Políticas,** por esta ordem. 
+1. Criar três tarefas para implementar **Tabelas, Funções,** e **Políticas,** por esta ordem. **Tables** 
 
-1. No separador **Tarefas,** selecione **+** por **trabalho de agente**. Procure o **Azure Data Explorer**. No **Marketplace,** instale a extensão **Azure Data Explorer – Admin Commands.** Em seguida, **selecione Adicionar** no Comando de Explorador de **Dados Run Azure**.
+1. No separador **Tarefas,** selecione **+** por **função de Agente**. Procure o **Azure Data Explorer**. No **Marketplace,** instale a extensão **Azure Data Explorer – Admin Commands.** Em seguida, **selecione Adicionar** no Comando de Explorador de **Dados Run Azure**.
 
      ![Adicionar comandos de administração](media/devops/add-admin-commands.png)
 
 1. Clique no **Comando Kusto** à esquerda e atualize a tarefa com as seguintes informações:
     * **Nome**do display : Nome da tarefa
-    * **Caminho de ficheiro**: Na tarefa **tabelas,** especifique */Tabelas/* .csl uma vez que os ficheiros de criação de tabela saem na pasta *Tabela.*
-    * **URL do ponto final**: introduza a variável `EndPoint URL`criada em passo anterior.
+    * **Caminho de ficheiro**: Na tarefa **tabelas,** especifique */Tabelas/*.csl uma vez que os ficheiros de criação de tabela saem na pasta *Tabela.*
+    * **URL do ponto** `EndPoint URL`final : introduza a variável criada em passo anterior.
     * Selecione **Use o ponto final do serviço** e selecione + **Novo**.
 
     ![Atualizar a tarefa de comando kusto](media/devops/kusto-command-task.png)
@@ -95,7 +95,7 @@ Crie as seguintes pastas de amostra *(Funções,* *Políticas,* *Tabelas)* no se
 
     |Definição  |Valor sugerido  |
     |---------|---------|
-    |**Connection name** (Nome da ligação)     |    Insira um nome para identificar este ponto final do serviço     |
+    |**Nome da ligação**     |    Insira um nome para identificar este ponto final do serviço     |
     |**Cluster Url**    |    O valor pode ser encontrado na secção geral do seu Cluster de Exploradores de Dados Azure no portal Azure | 
     |**Id principal de serviço**    |    Introduza o ID da App AAD (criado como pré-requisito)     |
     |**Chave principal de aplicativo de serviço**     |    Introduza a chave da aplicação AAD (criada como pré-requisito)    |
@@ -109,7 +109,7 @@ Crie as seguintes pastas de amostra *(Funções,* *Políticas,* *Tabelas)* no se
 
     ![Implementar todas as pastas](media/devops/deploy-all-folders.png)
 
-1. Selecione **+ Desbloqueie** > Criar a **libertação** para criar uma versão.
+1. Selecione **+ Libertar** > **Criar lançamento** para criar uma libertação.
 
     ![Criar um lançamento](media/devops/create-release.png)
 

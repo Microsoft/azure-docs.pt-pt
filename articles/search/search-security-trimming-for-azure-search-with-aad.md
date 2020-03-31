@@ -1,7 +1,7 @@
 ---
-title: Filtros de segurança para cortar os resultados usando Active Directory
+title: Filtros de segurança para aparar resultados usando diretório ativo
 titleSuffix: Azure Cognitive Search
-description: Controle de acesso no Azure Pesquisa Cognitiva conteúdo usando as identidades do AAD (filtros de segurança e Azure Active Directory).
+description: Controlo de acesso ao conteúdo da Pesquisa Cognitiva Azure utilizando filtros de segurança e identidades azure Ative Directory (AAD).
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -9,61 +9,61 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794308"
 ---
-# <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de segurança para aparar os resultados de Pesquisa Cognitiva do Azure usando identidades Active Directory
+# <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de segurança para aparar resultados da Pesquisa Cognitiva Azure utilizando identidades de Diretório Ativo
 
-Este artigo demonstra como usar as identidades de segurança do AAD (Azure Active Directory) junto com filtros no Azure Pesquisa Cognitiva para cortar os resultados da pesquisa com base na associação do grupo de usuários.
+Este artigo demonstra como usar identidades de segurança do Azure Ative Directory (AAD) juntamente com filtros em Azure Cognitive Search para aparar resultados de pesquisa com base na adesão ao grupo de utilizadores.
 
 Este artigo abrange as seguintes tarefas:
 > [!div class="checklist"]
-> - Criar grupos e usuários do AAD
-> - Associar o usuário ao grupo que você criou
-> - Armazenar em cache os novos grupos
-> - Indexar documentos com grupos associados
-> - Emitir uma solicitação de pesquisa com o filtro de identificadores de grupo
+> - Criar grupos e utilizadores AAD
+> - Associe o utilizador ao grupo que criou
+> - Cache os novos grupos
+> - Documentos indexados com grupos associados
+> - Emita um pedido de pesquisa com filtro de identificadores de grupo
 > 
 > [!NOTE]
-> Os trechos de código de exemplo neste artigo são C#escritos em. Pode localizar o código de origem completo [no GitHub](https://aka.ms/search-dotnet-howto). 
+> Os fragmentos de código de amostra neste artigo estão escritos em C#. Pode localizar o código de origem completo [no GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Seu índice no Azure Pesquisa Cognitiva deve ter um [campo de segurança](search-security-trimming-for-azure-search.md) para armazenar a lista de identidades de grupo com acesso de leitura ao documento. Esse caso de uso pressupõe uma correspondência de um para um entre um item protegível (como o aplicativo de faculdade de um indivíduo) e um campo de segurança especificando quem tem acesso a esse item (equipe de admissão).
+O seu índice em Pesquisa Cognitiva Azure deve ter um campo de [segurança](search-security-trimming-for-azure-search.md) para armazenar a lista de identidades de grupo que têm lido o acesso ao documento. Este caso de utilização pressupõe uma correspondência de um para um entre um item titular (como o pedido de faculdade de um indivíduo) e um campo de segurança especificando quem tem acesso a esse item (pessoal de admissão).
 
-Você deve ter permissões de administrador do AAD, necessárias neste passo a passos para criar usuários, grupos e associações no AAD.
+Você deve ter permissões de administrador aAD, necessárias neste walkthrough para criar utilizadores, grupos e associações em AAD.
 
-Seu aplicativo também deve ser registrado com o AAD, conforme descrito no procedimento a seguir.
+O seu pedido também deve ser registado na AAD, conforme descrito no seguinte procedimento.
 
-### <a name="register-your-application-with-aad"></a>Registrar seu aplicativo com o AAD
+### <a name="register-your-application-with-aad"></a>Registe a sua candidatura na AAD
 
-Esta etapa integra seu aplicativo com o AAD com a finalidade de aceitar entradas de contas de usuário e de grupo. Se você não for um administrador do AAD em sua organização, talvez seja necessário [criar um novo locatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) para executar as etapas a seguir.
+Este passo integra a sua aplicação com a AAD com o objetivo de aceitar inscrições de contas de utilizador e grupo. Se não for administrador a AAD na sua organização, poderá precisar de [criar um novo inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) para realizar os seguintes passos.
 
-1. Vá para o [**portal de registro de aplicativos**](https://apps.dev.microsoft.com) >  **aplicativo convergido** > **Adicionar um aplicativo**.
-2. Insira um nome para seu aplicativo e clique em **criar**. 
-3. Selecione seu aplicativo recentemente registrado na página meus aplicativos.
-4. Na página de registro do aplicativo > **plataformas** > **Adicionar plataforma**, escolha **API Web**.
-5. Ainda na página de registro do aplicativo, vá para > **Microsoft Graph permissões** > **Adicionar**.
-6. Em selecionar permissões, adicione as seguintes permissões delegadas e clique em **OK**:
+1. Vá ao Portal >  de [**Inscrição**](https://apps.dev.microsoft.com)de Aplicações**App Converged** > **Adicionar uma aplicação**.
+2. Introduza um nome para a sua aplicação e, em seguida, clique em **Criar**. 
+3. Selecione a sua aplicação recém-registada na página Minhas Aplicações.
+4. Na página de registo de aplicações >**Plataforma de Adição**de **Plataformas,** > escolha **Web API**.
+5. Ainda na página de registo de aplicações, vá a > **Microsoft Graph Permissions** > **Add**.
+6. Em Permissões Selecionadas, adicione as seguintes permissões delegadas e, em seguida, clique em **OK:**
 
-   + **Directory. ReadWrite. All**
-   + **Group. ReadWrite. All**
-   + **User. ReadWrite. All**
+   + **Diretório.ReadWrite.All**
+   + **Group.ReadWrite.All**
+   + **User.readWrite.all**
 
-Microsoft Graph fornece uma API que permite o acesso programático ao AAD por meio de uma API REST. O exemplo de código para este passo a passos usa as permissões para chamar a API Microsoft Graph para criar grupos, usuários e associações. As APIs também são usadas para armazenar em cache identificadores de grupo para filtragem mais rápida.
+O Microsoft Graph fornece uma API que permite o acesso programático ao AAD através de uma API REST. A amostra de código para este walkthrough utiliza as permissões para chamar a API do Microsoft Graph para criar grupos, utilizadores e associações. As APIs também são usadas para cache identificadores de grupo para filtragem mais rápida.
 
-## <a name="create-users-and-groups"></a>Criar usuários e grupos
+## <a name="create-users-and-groups"></a>Criar utilizadores e grupos
 
-Se você estiver adicionando a pesquisa a um aplicativo estabelecido, você poderá ter identificadores de usuário e grupo existentes no AAD. Nesse caso, você pode ignorar as próximas três etapas. 
+Se estiver a adicionar pesquisa a uma aplicação estabelecida, poderá ter identificadores de utilizador e grupo existentes em AAD. Neste caso, pode saltar os próximos três passos. 
 
-No entanto, se você não tiver usuários existentes, poderá usar Microsoft Graph APIs para criar as entidades de segurança. Os trechos de código a seguir demonstram como gerar identificadores, que se tornam valores de dados para o campo de segurança no índice de Pesquisa Cognitiva do Azure. Em nosso aplicativo de admissões da faculdade hipotética, isso seria os identificadores de segurança para a equipe de admissão.
+No entanto, se não tiver utilizadores existentes, pode utilizar APIs do Microsoft Graph para criar os principais de segurança. Os seguintes fragmentos de código demonstram como gerar identificadores, que se tornam valores de dados para o campo de segurança no seu índice de Pesquisa Cognitiva Azure. No nosso hipotético pedido de admissão na faculdade, estes seriam os identificadores de segurança para o pessoal de admissão.
 
-A associação de usuários e grupos pode ser muito fluida, especialmente em grandes organizações. O código que cria identidades de usuário e de grupo deve ser executado com frequência suficiente para coletar alterações na associação da organização. Da mesma forma, seu índice de Pesquisa Cognitiva do Azure requer uma agenda de atualização semelhante para refletir o status atual de usuários e recursos permitidos.
+A adesão ao utilizador e ao grupo pode ser muito fluida, especialmente nas grandes organizações. O código que constrói identidades de utilizador e grupo deve ser executado com frequência o suficiente para detetar alterações na adesão à organização. Da mesma forma, o seu índice de Pesquisa Cognitiva Azure requer um calendário de atualização semelhante para refletir o estado atual dos utilizadores e recursos permitidos.
 
-### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>Etapa 1: criar um [grupo do AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-group"></a>Passo 1: Criar [grupo AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>Etapa 2: criar um [usuário do AAD](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-user"></a>Passo 2: Criar [utilizador ad](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -92,25 +92,25 @@ User user = new User()
 User newUser = await graph.Users.Request().AddAsync(user);
 ```
 
-### <a name="step-3-associate-user-and-group"></a>Etapa 3: associar o usuário e o grupo
+### <a name="step-3-associate-user-and-group"></a>Passo 3: Utilizador associado e grupo
 ```csharp
 await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
-### <a name="step-4-cache-the-groups-identifiers"></a>Etapa 4: armazenar em cache os identificadores de grupos
-Opcionalmente, para reduzir a latência de rede, você pode armazenar em cache as associações do grupo de usuários para que, quando uma solicitação de pesquisa for emitida, os grupos sejam retornados do cache, salvando uma viagem de ida e volta ao AAD. Você pode usar a [API do lote do AAD](https://developer.microsoft.com/graph/docs/concepts/json_batching) para enviar uma única solicitação HTTP com vários usuários e criar o cache.
+### <a name="step-4-cache-the-groups-identifiers"></a>Passo 4: Cache os identificadores de grupos
+Opcionalmente, para reduzir a latência da rede, pode cache as associações de grupos de utilizadores para que, quando um pedido de pesquisa é emitido, os grupos sejam devolvidos da cache, economizando uma ida e volta para a AAD. Pode utilizar a [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) para enviar um único pedido de Http com vários utilizadores e construir a cache.
 
-O Microsoft Graph foi projetado para lidar com um alto volume de solicitações. Se ocorrer um número enorme de solicitações, Microsoft Graph falhará na solicitação com o código de status HTTP 429. Para obter mais informações, consulte [limitação de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
+O Microsoft Graph foi concebido para lidar com um elevado volume de pedidos. Se ocorrer um número esmagador de pedidos, o Microsoft Graph falha o pedido com o código de estado HTTP 429. Para mais informações, consulte o microsoft [graph throttling](https://developer.microsoft.com/graph/docs/concepts/throttling).
 
-## <a name="index-document-with-their-permitted-groups"></a>Documento de índice com seus grupos permitidos
+## <a name="index-document-with-their-permitted-groups"></a>Documento de índice com os seus grupos permitidos
 
-As operações de consulta no Azure Pesquisa Cognitiva são executadas em um índice de Pesquisa Cognitiva do Azure. Nesta etapa, uma operação de indexação importa dados pesquisáveis para um índice, incluindo os identificadores usados como filtros de segurança. 
+As operações de consulta em Pesquisa Cognitiva Azure são executadas sobre um índice de pesquisa cognitiva Azure. Neste passo, uma operação de indexação importa dados pesquisáveis num índice, incluindo os identificadores utilizados como filtros de segurança. 
 
-O Azure Pesquisa Cognitiva não autentica identidades de usuário ou fornece lógica para estabelecer qual conteúdo um usuário tem permissão para exibir. O caso de uso de aparamento de segurança pressupõe que você forneça a associação entre um documento confidencial e o identificador de grupo que tem acesso a esse documento, importado intacto em um índice de pesquisa. 
+A Pesquisa Cognitiva Azure não autentica as identidades dos utilizadores, nem fornece lógica para estabelecer que conteúdo um utilizador tem permissão para visualizar. O caso de utilização para aparas de segurança pressupõe que fornece a associação entre um documento sensível e o identificador do grupo que tem acesso a esse documento, importado intacto num índice de pesquisa. 
 
-No exemplo hipotético, o corpo da solicitação PUT em um índice de Pesquisa Cognitiva do Azure incluiria uma dissertação de faculdade ou transcrição do candidato junto com o identificador de grupo com permissão para exibir esse conteúdo. 
+No exemplo hipotético, o corpo do pedido put sobre um índice de Pesquisa Cognitiva Azure incluiria o ensaio ou transcrição do candidato, juntamente com o identificador do grupo com permissão para visualizar esse conteúdo. 
 
-No exemplo genérico usado no exemplo de código para este passo a passos, a ação de índice pode ter a seguinte aparência:
+No exemplo genérico utilizado na amostra de código para esta passagem, a ação do índice pode parecer a seguinte:
 
 ```csharp
 var actions = new IndexAction<SecuredFiles>[]
@@ -130,15 +130,15 @@ var batch = IndexBatch.New(actions);
 _indexClient.Documents.Index(batch);  
 ```
 
-## <a name="issue-a-search-request"></a>Emitir uma solicitação de pesquisa
+## <a name="issue-a-search-request"></a>Emitir um pedido de pesquisa
 
-Para fins de remoção de segurança, os valores em seu campo de segurança no índice são valores estáticos usados para incluir ou excluir documentos nos resultados da pesquisa. Por exemplo, se o identificador de grupo para admissões for "A11B22C33D44-E55F66G77-H88I99JKK", todos os documentos em um índice de Pesquisa Cognitiva do Azure com esse identificador no arquivamento de segurança serão incluídos (ou excluídos) nos resultados da pesquisa enviados de volta ao solicitante.
+Para efeitos de aparação de segurança, os valores no seu campo de segurança no índice são valores estáticos utilizados para incluir ou excluir documentos nos resultados da pesquisa. Por exemplo, se o identificador de grupo para admissões for "A11B22C33D44-E55F66G77-H88I99JKK", quaisquer documentos num índice de Pesquisa Cognitiva Azure que tenham esse identificador na segurança arquivada estão incluídos (ou excluídos) nos resultados de pesquisa enviados ao solicitador.
 
-Para filtrar os documentos retornados nos resultados da pesquisa com base em grupos do usuário que emite a solicitação, examine as etapas a seguir.
+Para filtrar os documentos devolvidos nos resultados da pesquisa com base em grupos do utilizador que emitem o pedido, reveja as seguintes etapas.
 
-### <a name="step-1-retrieve-users-group-identifiers"></a>Etapa 1: recuperar os identificadores de grupo do usuário
+### <a name="step-1-retrieve-users-group-identifiers"></a>Passo 1: Recuperar identificadores de grupo do utilizador
 
-Se os grupos do usuário ainda não tiverem sido armazenados em cache ou se o cache tiver expirado, emita a solicitação de [grupos](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0)
+Se os grupos do utilizador ainda não estivessem em cache, ou se a cache expirou, emita o pedido dos [grupos](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0)
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {
@@ -164,9 +164,9 @@ private static async Task<List<string>> GetGroupIdsForUser(string userPrincipalN
 }
 ``` 
 
-### <a name="step-2-compose-the-search-request"></a>Etapa 2: compor a solicitação de pesquisa
+### <a name="step-2-compose-the-search-request"></a>Passo 2: Compor o pedido de pesquisa
 
-Supondo que você tenha a associação de grupos do usuário, você pode emitir a solicitação de pesquisa com os valores de filtro apropriados.
+Assumindo que tem a adesão aos grupos do utilizador, pode emitir o pedido de pesquisa com os valores de filtro apropriados.
 
 ```csharp
 string filter = String.Format("groupIds/any(p:search.in(p, '{0}'))", string.Join(",", groups.Select(g => g.ToString())));
@@ -178,16 +178,16 @@ SearchParameters parameters = new SearchParameters()
 
 DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<SecuredFiles>("*", parameters);
 ```
-### <a name="step-3-handle-the-results"></a>Etapa 3: manipular os resultados
+### <a name="step-3-handle-the-results"></a>Passo 3: Lidar com os resultados
 
-A resposta inclui uma lista filtrada de documentos, que consiste naqueles que o usuário tem permissão para exibir. Dependendo de como você constrói a página de resultados da pesquisa, talvez você queira incluir indicações visuais para refletir o conjunto de resultados filtrados.
+A resposta inclui uma lista filtrada de documentos, constituídopor aqueles que o utilizador tem permissão para visualizar. Dependendo da forma como constrói a página de resultados da pesquisa, é melhor incluir pistas visuais para refletir o conjunto de resultados filtrado.
 
 ## <a name="conclusion"></a>Conclusão
 
-Neste tutorial, você aprendeu técnicas para usar entradas do AAD para filtrar documentos nos resultados de Pesquisa Cognitiva do Azure, aparando os resultados de documentos que não correspondem ao filtro fornecido na solicitação.
+Neste passeio, aprendeu técnicas para utilizar inscrições aAD para filtrar documentos nos resultados da Pesquisa Cognitiva de Azure, aparando os resultados de documentos que não correspondem ao filtro fornecido no pedido.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Controle de acesso baseado em identidade usando filtros de Pesquisa Cognitiva do Azure](search-security-trimming-for-azure-search.md)
-+ [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
-+ [Segurança de dados e controle de acesso nas operações de Pesquisa Cognitiva do Azure](search-security-overview.md)
++ [Controlo de acesso baseado na identidade utilizando filtros de pesquisa cognitiva Azure](search-security-trimming-for-azure-search.md)
++ [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
++ [Segurança de dados e controlo de acesso em operações de Pesquisa Cognitiva Azure](search-security-overview.md)

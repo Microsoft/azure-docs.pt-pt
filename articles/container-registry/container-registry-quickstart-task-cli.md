@@ -1,13 +1,13 @@
 ---
-title: Quickstart - Construir e executar imagem de recipiente
+title: Quickstart - Construir & imagem de recipiente executar
 description: Execute rapidamente tarefas com o Registo de Contentores Azure para construir e executar uma imagem de contentor Docker a pedido, na nuvem.
 ms.topic: quickstart
 ms.date: 01/31/2020
 ms.openlocfilehash: f08f10dd170acaa8594ad5a47f5ef58e27288b10
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76986279"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Quickstart: Construa e execute uma imagem de contentor usando tarefas de registo de contentores Azure
@@ -16,11 +16,11 @@ Neste arranque rápido, utiliza-se tarefas de registo de contentores Azure para 
 
 Depois deste arranque rápido, explore características mais avançadas das Tarefas ACR. As Tarefas ACR podem automatizar as construções de imagem com base em códigos ou atualizações de imagem base, ou testar vários recipientes, em paralelo, entre outros cenários. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir este início rápido. Se quiser usá-lo localmente, recomenda-se a versão 2.0.58 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir este início rápido. Se quiser usá-lo localmente, recomenda-se a versão 2.0.58 ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -32,7 +32,7 @@ O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na loc
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Create a container registry (Criar um registo de contentores)
+## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
 Crie um registo de contentores utilizando o [az acr criar][az-acr-create] comando. O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado *o myContainerRegistry008.* Atualize para um valor exclusivo.
 
@@ -40,7 +40,7 @@ Crie um registo de contentores utilizando o [az acr criar][az-acr-create] comand
 az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
 ```
 
-Este exemplo cria um registo *básico,* uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para obter detalhes sobre as camadas de serviço disponíveis, consulte [SKUs de registro de contêiner][container-registry-skus].
+Este exemplo cria um registo *básico,* uma opção otimizada para os desenvolvedores que aprendem sobre o Registo de Contentores Azure. Para mais informações sobre os níveis de serviço disponíveis, consulte o [registo de contentores SKUs][container-registry-skus].
 
 ## <a name="build-an-image-from-a-dockerfile"></a>Construa uma imagem de um Dockerfile
 
@@ -50,7 +50,7 @@ Agora use o Registo de Contentores Azure para construir uma imagem. Primeiro, cr
 echo FROM hello-world > Dockerfile
 ```
 
-Executar o comando de [construção az acr][az-acr-build] para construir a imagem. Quando construída com sucesso, a imagem é empurrada para o seu registo. O exemplo que se segue empurra a imagem `sample/hello-world:v1`. O `.` no final do comando define a localização do Dockerfile, neste caso o atual diretório.
+Executar o comando de [construção az acr][az-acr-build] para construir a imagem. Quando construída com sucesso, a imagem é empurrada para o seu registo. O exemplo que `sample/hello-world:v1` se segue empurra a imagem. O `.` final do comando define a localização do Dockerfile, neste caso o atual diretório.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \
@@ -114,14 +114,14 @@ Run ID: ca8 was successful after 10s
 
 Agora, rapidamente, execute a imagem que construiu e empurrou para o seu registo. Aqui você usa [az acr run][az-acr-run] para executar o comando do contentor. No fluxo de trabalho de desenvolvimento do seu contentor, este pode ser um passo de validação antes de implementar a imagem, ou pode incluir o comando num [ficheiro YAML em várias etapas][container-registry-tasks-multi-step]. 
 
-O exemplo seguinte utiliza `$Registry` para especificar o registo onde executa o comando:
+O exemplo `$Registry` que se segue utiliza para especificar o registo onde executa o comando:
 
 ```azurecli-interactive
 az acr run --registry myContainerRegistry008 \
   --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
 
-O parâmetro `cmd` neste exemplo executa o recipiente na sua configuração padrão, mas `cmd` suporta parâmetros `docker run` adicionais ou mesmo outros comandos de `docker`.
+O `cmd` parâmetro neste exemplo executa o recipiente `cmd` na sua `docker run` configuração padrão, mas suporta parâmetros adicionais ou mesmo outros `docker` comandos.
 
 O resultado é semelhante ao seguinte:
 

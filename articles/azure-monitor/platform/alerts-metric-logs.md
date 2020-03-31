@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9f61c62bc4960cb8e5bff31f84bd73a14240b613
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6b21f228858954292e7a3bc5561d5e86fcfaaf41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274973"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055184"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas métricos para registos no Monitor Azure
 
@@ -19,11 +19,11 @@ ms.locfileid: "79274973"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-O Azure Monitor suporta o tipo de [alerta métrico](../../azure-monitor/platform/alerts-metric-near-real-time.md) que tem benefícios sobre os [alertas clássicos.](../../azure-monitor/platform/alerts-classic-portal.md) As métricas estão disponíveis para [uma grande lista de serviços Azure.](../../azure-monitor/platform/metrics-supported.md) Este artigo explica o uso de um subconjunto (isto é) para recursos - `Microsoft.OperationalInsights/workspaces`.
+O Azure Monitor suporta o tipo de [alerta métrico](../../azure-monitor/platform/alerts-metric-near-real-time.md) que tem benefícios sobre os [alertas clássicos.](../../azure-monitor/platform/alerts-classic-portal.md) As métricas estão disponíveis para [uma grande lista de serviços Azure.](../../azure-monitor/platform/metrics-supported.md) Este artigo explica o uso de um subconjunto `Microsoft.OperationalInsights/workspaces`(isto é) para o recurso - .
 
 Pode utilizar alertas métricos em registos populares de Log Analytics extraídos como métricas como parte de Métricas de Registos, incluindo recursos em Azure ou no local. As soluções de Log Analytics suportadas estão listadas abaixo:
 
-- [Contadores de desempenho](../../azure-monitor/platform/data-sources-performance-counters.md) para máquinas Windows & Linux
+- [Contadores de desempenho](../../azure-monitor/platform/data-sources-performance-counters.md) para máquinas Linux & Windows
 - [Registos de batimentos cardíacos para agente de saúde](../../azure-monitor/insights/solution-agenthealth.md)
 - [Registos de gestão de atualizações](../../automation/automation-update-management.md)
 - Registos de dados do [evento](../../azure-monitor/platform/data-sources-windows-events.md)
@@ -42,7 +42,7 @@ Existem muitos benefícios para a utilização **de Alertas Métricos para Regis
  Alertas métricos suportam alertamento para métricas que usam dimensões. Pode utilizar dimensões para filtrar a sua métrica para o nível certo. A lista completa de métricas suportadas para Registos de espaços de [trabalho de Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) está listada; através de soluções apoiadas.
 
 > [!NOTE]
-> Para ver métricas suportadas para ser extraído do espaço de trabalho Log Analytics via [Monitor Azure - Métricas;](../../azure-monitor/platform/metrics-charts.md) deve ser criado um alerta métrico para o log para a referida métrica. As dimensões escolhidas em Alerta Métrico para registos - só aparecerão para exploração via Monitor Azure - Métricas.
+> Para ver uma métrica suportada extraída de um espaço de trabalho log Analytics via [Azure Monitor - Métricas,](../../azure-monitor/platform/metrics-charts.md)deve ser criado um alerta métrico para o log nessa métrica específica. As dimensões escolhidas no alerta métrico para os registos - só aparecerão para exploração via Monitor Azure - Métricas.
 
 ## <a name="creating-metric-alert-for-log-analytics"></a>Criação de alerta métrico para Log Analytics
 
@@ -55,7 +55,7 @@ Antes de a Métrica de Registos recolhida nos dados do Log Analytics funcionar, 
 
 1. Espaço de **trabalho ative Log Analytics Workspace**: Deve estar presente um espaço de trabalho válido e ativo do Log Analytics. Para mais informações, consulte Criar um espaço de trabalho de [Log Analytics no portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
 2. **O agente está configurado para log analytics workspace**: O agente precisa de ser configurado para VMs Azure (e/ou) vMs no local para enviar dados para o Log Analytics Workspace usado em etapas anteriores. Para mais informações, consulte [Log Analytics - Agent Overview](../../azure-monitor/platform/agents-overview.md).
-3. **As soluções de Log Analytics suportadas estão instaladas**: A solução Log Analytics deve ser configurada e enviar dados para o espaço de trabalho do Log Analytics - as soluções suportadas são contadores de [desempenho para Windows & Linux,](../../azure-monitor/platform/data-sources-performance-counters.md) [registos heartbeat para a Saúde do Agente,](../../azure-monitor/insights/solution-agenthealth.md) [gestão](../../automation/automation-update-management.md)de atualizações e dados do [Evento.](../../azure-monitor/platform/data-sources-windows-events.md)
+3. **As soluções de Log Analytics suportadas estão instaladas**: A solução Log Analytics deve ser configurada e enviar dados para o espaço de trabalho do Log Analytics - as soluções suportadas são contadores de [desempenho para windows & Linux,](../../azure-monitor/platform/data-sources-performance-counters.md) [registos heartbeat para a Saúde](../../azure-monitor/insights/solution-agenthealth.md)do Agente, gestão de [atualizações](../../automation/automation-update-management.md)e dados do [Evento.](../../azure-monitor/platform/data-sources-windows-events.md)
 4. **Soluções de Log Analytics configuradas para enviar registos**: A solução Log Analytics deve ter os registos/dados [necessários correspondentes às métricas suportadas para espaços](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) de trabalho de Log Analytics ativados. Por exemplo, para o contador *de memória disponível %* deve ser configurado em primeiro lugar na solução de contadores de [desempenho.](../../azure-monitor/platform/data-sources-performance-counters.md)
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configuração de alerta métrico para registos

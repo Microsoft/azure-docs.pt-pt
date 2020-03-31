@@ -14,19 +14,19 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77138291"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Adicione atribuições de funções utilizando modelos azure RBAC e Azure Resource Manager
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Além de utilizar o Azure PowerShell ou o Azure CLI, pode atribuir funções utilizando [modelos de Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md). Os modelos podem ser úteis se precisar de implantar recursos de forma consistente e repetida. Este artigo descreve como atribuir funções usando modelos.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Além de utilizar o Azure PowerShell ou o Azure CLI, pode atribuir funções utilizando [modelos de Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md). Os modelos podem ser úteis se precisar de implantar recursos de forma consistente e repetida. Este artigo descreve como atribuir funções usando modelos.
 
 ## <a name="get-object-ids"></a>Obter iDs de objeto
 
-Para atribuir uma função, precisa especificar a identificação do utilizador, grupo ou aplicação a que pretende atribuir a função. O ID tem o formato: `11111111-1111-1111-1111-111111111111`. Pode obter o ID utilizando o portal Azure, Azure PowerShell ou Azure CLI.
+Para atribuir uma função, precisa especificar a identificação do utilizador, grupo ou aplicação a que pretende atribuir a função. O ID tem `11111111-1111-1111-1111-111111111111`o formato: . Pode obter o ID utilizando o portal Azure, Azure PowerShell ou Azure CLI.
 
 ### <a name="user"></a>Utilizador
 
@@ -64,7 +64,7 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de funções
+## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
 No RBAC, para conceder acesso, adiciona-se uma atribuição de funções.
 
@@ -77,7 +77,7 @@ O modelo seguinte mostra uma forma básica de adicionar uma atribuição de fun�
 Para utilizar o modelo, deve fazer o seguinte:
 
 - Crie um novo ficheiro JSON e copie o modelo
-- Substitua `<your-principal-id>` com a identificação de um utilizador, grupo ou aplicação para atribuir a função a
+- Substitua-a `<your-principal-id>` pela identificação de um utilizador, grupo ou aplicação para atribuir a função a
 
 ```json
 {
@@ -173,7 +173,7 @@ Para utilizar o modelo, deve especificar as seguintes inputs:
 ```
 
 > [!NOTE]
-> Este modelo não é idempotente a menos que o mesmo valor `roleNameGuid` seja fornecido como parâmetro para cada implantação do modelo. Se não for fornecida nenhuma `roleNameGuid`, por padrão, um novo GUID é gerado em cada implementação e as implementações subsequentes falharão com um erro `Conflict: RoleAssignmentExists`.
+> Este modelo não é idempotente a menos que o mesmo `roleNameGuid` valor seja fornecido como parâmetro para cada implantação do modelo. Se `roleNameGuid` não for fornecido, por padrão, um novo GUID é gerado `Conflict: RoleAssignmentExists` em cada implementação e as implementações subsequentes falharão com um erro.
 
 O âmbito da atribuição de funções é determinado a partir do nível da implantação. Aqui estão os exemplos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e a implementação do [grupo Az criar](/cli/azure/group/deployment#az-group-deployment-create) comandos para como iniciar a implementação num âmbito de grupo de recursos.
 
@@ -293,12 +293,12 @@ O seguinte mostra um exemplo da atribuição da função Do Colaborador a um uti
 
 ### <a name="new-service-principal"></a>Novo diretor de serviço
 
-Se criar um novo diretor de serviço e tentar imediatamente atribuir um papel a esse diretor de serviço, essa atribuição de funções pode falhar em alguns casos. Por exemplo, se criar uma nova identidade gerida e tentar atribuir uma função a esse diretor de serviço no mesmo modelo de Gestor de Recursos Azure, a atribuição de funções pode falhar. A razão para esta falha é provavelmente um atraso de replicação. O diretor de serviço é criado numa região; no entanto, a atribuição de funções pode ocorrer em uma região diferente que ainda não replicao o diretor de serviço. Para abordar este cenário, deverá definir a propriedade `principalType` para `ServicePrincipal` ao criar a atribuição de funções.
+Se criar um novo diretor de serviço e tentar imediatamente atribuir um papel a esse diretor de serviço, essa atribuição de funções pode falhar em alguns casos. Por exemplo, se criar uma nova identidade gerida e tentar atribuir uma função a esse diretor de serviço no mesmo modelo de Gestor de Recursos Azure, a atribuição de funções pode falhar. A razão para esta falha é provavelmente um atraso de replicação. O diretor de serviço é criado numa região; no entanto, a atribuição de funções pode ocorrer em uma região diferente que ainda não replicao o diretor de serviço. Para abordar este cenário, `principalType` deverá `ServicePrincipal` definir a propriedade para quando criar a atribuição de funções.
 
 O seguinte modelo demonstra:
 
 - Como criar um novo diretor de serviço de identidade gerido
-- Como especificar o `principalType`
+- Como especificar o`principalType`
 - Como atribuir o papel de Contribuinte a esse principal de serviço num âmbito de grupo de recursos
 
 Para utilizar o modelo, deve especificar as seguintes inputs:

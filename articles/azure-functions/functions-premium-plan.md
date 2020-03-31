@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
 ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276910"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium de Funções Azure
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` por um nome para o seu plano único no grupo de recursos. Especifique um [`<REGION>`suportado. ](https://azure.microsoft.com/global-infrastructure/services/?products=functions) Para criar um plano Premium que suporte o Linux, inclua a opção `--is-linux`.
+Neste exemplo, `<RESOURCE_GROUP>` substitua-o `<PLAN_NAME>` pelo seu grupo de recursos e por um nome para o seu plano que é único no grupo de recursos. Especifique [um `<REGION>` ](https://azure.microsoft.com/global-infrastructure/services/?products=functions)suporte . Para criar um plano Premium que suporte `--is-linux` o Linux, inclua a opção.
 
 Com o plano criado, pode utilizar o [az functionapp criar](/cli/azure/functionapp#az-functionapp-create) para criar a sua aplicação de função. No portal, tanto o plano como a app são criados ao mesmo tempo. Para um exemplo de um script Completo Do ClI Azure, consulte [Criar uma aplicação de função num plano Premium](scripts/functions-cli-create-premium-plan.md).
 
@@ -88,7 +88,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Ao criar ou escalar o seu plano, pode escolher entre três tamanhos de instância.  Será cobrado pelo número total de núcleos e memória consumidos por segundo.  A sua aplicação pode automaticamente dimensionar para várias instâncias, se necessário.  
 
-|SKU|Núcleos|Memória|Armazenamento|
+|SKU|Núcleos|Memória|Storage|
 |--|--|--|--|
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|
@@ -97,7 +97,7 @@ Ao criar ou escalar o seu plano, pode escolher entre três tamanhos de instânci
 ### <a name="memory-utilization-considerations"></a>Considerações de utilização da memória
 Correr numa máquina com mais memória nem sempre significa que a sua aplicação de funções utilizará toda a memória disponível.
 
-Por exemplo, uma aplicação de função JavaScript é limitada pelo limite de memória padrão no Node.js. Para aumentar este limite de memória fixo, adicione a definição da aplicação `languageWorkers:node:arguments` com um valor de `--max-old-space-size=<max memory in MB>`.
+Por exemplo, uma aplicação de função JavaScript é limitada pelo limite de memória padrão no Node.js. Para aumentar este limite de memória `languageWorkers:node:arguments` fixo, `--max-old-space-size=<max memory in MB>`adicione a definição da aplicação com um valor de .
 
 ## <a name="region-max-scale-out"></a>Região Max Scale out
 
@@ -107,8 +107,8 @@ Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](http
 
 |Região| Windows | Linux |
 |--| -- | -- |
-|Austrália Central| 20 | Não disponível |
-|Austrália Central 2| 20 | Não disponível |
+|Austrália Central| 20 | Não Disponível |
+|Austrália Central 2| 20 | Não Disponível |
 |Leste da Austrália| 100 | 20 |
 |Austrália Sudeste | 100 | 20 |
 |Sul do Brasil| 60 | 20 |
@@ -118,7 +118,7 @@ Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](http
 |E.U.A. Leste | 100 | 20 |
 |E.U.A. Leste 2| 100 | 20 |
 |França Central| 100 | 20 |
-|Alemanha West Central| 100 | Não disponível |
+|Alemanha West Central| 100 | Não Disponível |
 |Leste do Japão| 100 | 20 |
 |Oeste do Japão| 100 | 20 |
 |Coreia do Sul Central| 100 | 20 |
@@ -126,11 +126,11 @@ Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](http
 |Europa do Norte| 100 | 20 |
 |Noruega Leste| 20 | 20 |
 |E.U.A. Centro-Sul| 100 | 20 |
-|Sul da Índia | 100 | Não disponível |
+|Sul da Índia | 100 | Não Disponível |
 |Ásia Sudeste| 100 | 20 |
 |Sul do Reino Unido| 100 | 20 |
 |Oeste do Reino Unido| 100 | 20 |
-|Europa Ocidental| 100 | 20 |
+|Europa ocidental| 100 | 20 |
 |Oeste da Índia| 100 | 20 |
 |E.U.A. Centro-Oeste| 20 | 20 |
 |E.U.A. Oeste| 100 | 20 |

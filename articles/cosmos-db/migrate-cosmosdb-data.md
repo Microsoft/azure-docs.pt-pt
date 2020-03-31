@@ -1,6 +1,6 @@
 ---
 title: Migrar centenas de terabytes de dados para o Azure Cosmos DB
-description: Este documento descreve como você pode migrar centenas de terabytes de dados para Cosmos DB
+description: Este doc descreve como você pode migrar 100 s de terabytes de dados para Cosmos DB
 author: bharathsreenivas
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,49 +8,49 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: bharathb
 ms.openlocfilehash: 69b400eb7838c986ac6f275da58c7457179ebea6
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72880211"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
 
-O Azure Cosmos DB pode armazenar terabytes de dados. Pode realizar uma migração de dados de grande escala para mover a carga de trabalho de produção para o Azure Cosmos DB. Este artigo descreve os desafios envolvidos na movimentação de dados em larga escala para Azure Cosmos DB e apresenta a ferramenta que ajuda com os desafios e migra dados para Azure Cosmos DB. Nesse estudo de caso, o cliente usou a API do SQL Cosmos DB.  
+O Azure Cosmos DB pode armazenar terabytes de dados. Pode realizar uma migração de dados de grande escala para mover a carga de trabalho de produção para o Azure Cosmos DB. Este artigo descreve os desafios envolvidos na migração de dados de grande escala para o Azure Cosmos DB e apresenta-lhe a ferramenta que o ajuda com os desafios e que migra os dados para o Azure Cosmos DB. Neste caso prático, o cliente utilizou a API SQL do Cosmos DB.  
 
-Antes de migrar toda a carga de trabalho para Azure Cosmos DB, você pode migrar um subconjunto de dados para validar alguns dos aspectos, como escolha de chave de partição, desempenho de consulta e modelagem de dados. Depois de validar a prova de conceito, você pode mover toda a carga de trabalho para Azure Cosmos DB.  
+Antes de migrar toda a carga de trabalho para o Azure Cosmos DB, pode migrar um subconjunto de dados para validar alguns dos aspetos como a escolha da chave da partilha, o desempenho da consulta e a modelação de dados. Depois de validar a prova de conceito, pode mover toda a carga de trabalho para O BD Do MB.  
 
-## <a name="tools-for-data-migration"></a>Ferramentas para migração de dados 
+## <a name="tools-for-data-migration"></a>Ferramentas para a migração de dados 
 
-Atualmente, as estratégias de migração de Azure Cosmos DB são diferentes com base na escolha da API e no tamanho dos dados. Para migrar conjuntos de dados menores – para validar a modelagem, o desempenho da consulta, a opção de chave de partição etc. – você pode escolher a [ferramenta de migração de dados](import-data.md) ou o [conector de Azure Cosmos DB do Azure data Factory](../data-factory/connector-azure-cosmos-db.md). Se você estiver familiarizado com o Spark, também poderá optar por usar o [conector Azure Cosmos DB Spark](spark-connector.md) para migrar dados.
+As estratégias de migração da Azure Cosmos DB diferem atualmente com base na escolha da API e na dimensão dos dados. Para migrar conjuntos de dados mais pequenos – para validação de modelação de dados, desempenho de consulta, escolha chave de divisória, etc.– pode escolher a Ferramenta de [Migração](import-data.md) de Dados ou o [conector Azure Cosmos DB da Azure Data Factory.](../data-factory/connector-azure-cosmos-db.md) Se estiver familiarizado com a Spark, também pode optar por utilizar o [conector Azure Cosmos DB Spark](spark-connector.md) para migrar dados.
 
 ## <a name="challenges-for-large-scale-migrations"></a>Desafios para migrações em larga escala 
 
-As ferramentas existentes para migrar dados para Azure Cosmos DB têm algumas limitações que se tornam especialmente aparentes em grandes escalas:
+As ferramentas existentes para a migração de dados para o Azure Cosmos DB têm algumas limitações que se tornam especialmente evidentes em largaescala:
 
- * **Recursos limitados de scale out**: para migrar terabytes de dados para Azure Cosmos DB o mais rápido possível, e para consumir efetivamente a taxa de transferência provisionada inteira, os clientes de migração devem ter a capacidade de escalar horizontalmente indefinidamente.  
+ * **Capacidades limitadas**de escala para fora : Para migrar terabytes de dados para O BB Azure Cosmos o mais rapidamente possível, e para consumir eficazmente toda a provisão disponibilizada, os clientes migratórios devem ter a capacidade de escalar indefinidamente.  
 
-* **Falta de rastreamento de progresso e ponto de verificação**: é importante acompanhar o progresso da migração e ter o ponto de verificação durante a migração de grandes conjuntos de dados. Caso contrário, qualquer erro que ocorra durante a migração interromperá a migração e você precisará iniciar o processo do zero. Não seria produtivo reiniciar todo o processo de migração quando 99% de ti já tiver sido concluído.  
+* **Falta de progressos**no rastreio e no ponto de verificação : É importante acompanhar o progresso da migração e ter a verificação de pontos de verificação enquanto migra grandes conjuntos de dados. Caso contrário, qualquer erro que ocorra durante a migração irá parar a migração, e você tem que iniciar o processo do zero. Não seria produtivo reiniciar todo o processo de migração quando 99% do mesmo já estiver concluído.  
 
-* **Falta de fila de mensagens mortas**: em conjuntos de dados grandes, em alguns casos, pode haver problemas com partes dos dados de origem. Além disso, pode haver problemas transitórios com o cliente ou a rede. Qualquer um desses casos não deve fazer com que toda a migração falhe. Embora a maioria das ferramentas de migração tenha recursos robustos de repetição que protegem contra problemas intermitentes, nem sempre é suficiente. Por exemplo, se menos de 0, 1% dos documentos de dados de origem forem maiores que 2 MB de tamanho, isso fará com que a gravação do documento falhe em Azure Cosmos DB. Idealmente, é útil que a ferramenta de migração persista esses documentos ' com falha ' para outra fila de mensagens mortas, que pode ser processada após a migração. 
+* **Falta de fila de cartas mortas**: Dentro de grandes conjuntos de dados, em alguns casos pode haver problemas com partes dos dados de origem. Além disso, pode haver problemas transitórios com o cliente ou a rede. Qualquer um destes casos não deve fazer com que toda a migração falhe. Embora a maioria das ferramentas de migração tenham capacidades de retry robustas que se protegem de problemas intermitentes, nem sempre é suficiente. Por exemplo, se menos de 0,01% dos documentos de dados de origem forem superiores a 2 MB em tamanho, fará com que o documento escreva para falhar no Azure Cosmos DB. Idealmente, é útil que a ferramenta de migração persista estes documentos "falhados" a outra fila de cartas mortas, que pode ser processada após a migração. 
 
-Muitas dessas limitações estão sendo corrigidas para ferramentas como o Azure data Factory, serviços de migração de dados do Azure. 
+Muitas destas limitações estão a ser corrigidas para ferramentas como a fábrica de dados Azure, os serviços de migração de dados do Azure. 
 
-## <a name="custom-tool-with-bulk-executor-library"></a>Ferramenta personalizada com biblioteca de executor em massa 
+## <a name="custom-tool-with-bulk-executor-library"></a>Ferramenta personalizada com biblioteca de executor a granel 
 
-Os desafios descritos na seção acima podem ser resolvidos usando uma ferramenta personalizada que pode ser facilmente dimensionada em várias instâncias e é resiliente a falhas transitórias. Além disso, a ferramenta personalizada pode pausar e retomar a migração em vários pontos de verificação. O Azure Cosmos DB já fornece a [biblioteca de executores em massa](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) que incorpora alguns desses recursos. Por exemplo, a biblioteca de executores em massa já tem a funcionalidade para lidar com erros transitórios e pode expandir os threads em um único nó para consumir cerca de 500 K RUs por nó. A biblioteca de executores em massa também particiona o conjunto de fonte de origem em micro lotes que são operados de forma independente como uma forma de ponto de verificação.  
+Os desafios descritos na secção acima podem ser resolvidos usando uma ferramenta personalizada que pode ser facilmente dimensionada em várias instâncias e é resiliente a falhas transitórias. Além disso, a ferramenta personalizada pode parar e retomar a migração em vários pontos de verificação. A Azure Cosmos DB já fornece a biblioteca de [executores a granel](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) que incorpora algumas destas funcionalidades. Por exemplo, a biblioteca de executora a granel já tem a funcionalidade de lidar com erros transitórios e pode escalar fios num único nó para consumir cerca de 500 K RUs por nó. A biblioteca de executora a granel também divisora o conjunto de dados de origem em microlotes que são operados independentemente como uma forma de checkpoint.  
 
-A ferramenta personalizada usa a biblioteca de executores em massa e dá suporte à expansão em vários clientes e para rastrear erros durante o processo de ingestão. Para usar essa ferramenta, os dados de origem devem ser particionados em arquivos distintos no Azure Data Lake Storage (ADLS) para que os diferentes operadores de migração possam pegar cada arquivo e ingerir em Azure Cosmos DB. A ferramenta personalizada usa uma coleção separada, que armazena metadados sobre o progresso da migração para cada arquivo de origem individual no ADLS e rastreia os erros associados a eles.  
+A ferramenta personalizada utiliza a biblioteca de executora a granel e suporta a escala através de vários clientes e para rastrear erros durante o processo de ingestão. Para utilizar esta ferramenta, os dados de origem devem ser divididos em ficheiros distintos no Armazenamento de Lagos De Dados Azure (ADLS) para que diferentes trabalhadores migratórios possam pegar cada ficheiro e ingerir no Azure Cosmos DB. A ferramenta personalizada faz uso de uma coleção separada, que armazena metadados sobre o progresso da migração para cada ficheiro de origem individual em ADLS e rastreia quaisquer erros associados a eles.  
 
-A imagem a seguir descreve o processo de migração usando essa ferramenta personalizada. A ferramenta está em execução em um conjunto de máquinas virtuais, e cada máquina virtual consulta a coleção de rastreamento em Azure Cosmos DB para adquirir uma concessão em uma das partições de dados de origem. Quando isso for feito, a partição de dados de origem será lida pela ferramenta e ingerida no Azure Cosmos DB usando a biblioteca de executor em massa. Em seguida, a coleção de rastreamento é atualizada para registrar o progresso da ingestão de dados e todos os erros encontrados. Depois que uma partição de dados é processada, a ferramenta tenta consultar a próxima partição de origem disponível. Ele continua processando a próxima partição de origem até que todos os dados sejam migrados. O código-fonte da ferramenta está disponível [aqui](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
-
- 
-![Instalação da ferramenta de migração](./media/migrate-cosmosdb-data/migrationsetup.png)
- 
+A imagem seguinte descreve o processo de migração utilizando esta ferramenta personalizada. A ferramenta está a funcionar num conjunto de máquinas virtuais, e cada máquina virtual questiona a recolha de rastreio em Azure Cosmos DB para adquirir um arrendamento numa das divisórias de dados de origem. Uma vez feito, a partição de dados de origem é lida pela ferramenta e ingerida no Azure Cosmos DB utilizando a biblioteca de executora a granel. Em seguida, a recolha de rastreio é atualizada para registar o progresso da ingestão de dados e quaisquer erros encontrados. Depois de uma partilha de dados ser processada, a ferramenta tenta consultar a próxima partição de origem disponível. Continua a processar a próxima divisão de origem até que todos os dados sejam migrados. O código fonte da ferramenta está disponível [aqui](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
 
  
+![Configuração de ferramentas de migração](./media/migrate-cosmosdb-data/migrationsetup.png)
+ 
 
-A coleção de rastreamento contém documentos, conforme mostrado no exemplo a seguir. Você verá esses documentos como um para cada partição nos dados de origem.  Cada documento contém os metadados para a partição de dados de origem, como seu local, status de migração e erros (se houver):  
+ 
+
+A coleção de rastreio contém documentos, como mostra o seguinte exemplo. Você verá tais documentos um para cada partição nos dados de origem.  Cada documento contém os metadados para a partilha de dados de origem, tais como a sua localização, estado de migração e erros (se houver):  
 
 ```json
 { 
@@ -84,35 +84,35 @@ A coleção de rastreamento contém documentos, conforme mostrado no exemplo a s
 
 ## <a name="prerequisites-for-data-migration"></a>Pré-requisitos para a migração de dados 
 
-Antes de iniciar a migração de dados, há alguns pré-requisitos a serem considerados:  
+Antes do início da migração de dados, existem alguns pré-requisitos a considerar:  
 
 #### <a name="estimate-the-data-size"></a>Estimar o tamanho dos dados:  
 
-O tamanho dos dados de origem pode não ser exatamente mapeado para o tamanho dos dados em Azure Cosmos DB. Alguns documentos de exemplo da fonte podem ser inseridos para verificar o tamanho dos dados em Azure Cosmos DB. Dependendo do tamanho do documento de exemplo, o tamanho total dos dados em Azure Cosmos DB após a migração poderá ser estimado. 
+O tamanho dos dados de origem pode não ser exatamente mapa para o tamanho dos dados em Azure Cosmos DB. Alguns documentos de amostra da fonte podem ser inseridos para verificar o seu tamanho de dados em Azure Cosmos DB. Dependendo do tamanho do documento da amostra, o tamanho total de dados em Azure Cosmos DB pós-migração, pode ser estimado. 
 
-Por exemplo, se cada documento após a migração no Azure Cosmos DB estiver em cerca de 1 KB e se houver cerca de 60.000.000.000 documentos no conjunto de fonte de origem, isso significaria que o tamanho estimado em Azure Cosmos DB seria próximo de 60 TB. 
+Por exemplo, se cada documento após a migração em Azure Cosmos DB for de cerca de 1 KB e se houver cerca de 60 mil milhões de documentos no conjunto de dados de origem, isso significaria que o tamanho estimado em Azure Cosmos DB seria de cerca de 60 TB. 
 
  
 
-#### <a name="pre-create-containers-with-enough-rus"></a>Pré-criar contêineres com RUs suficiente: 
+#### <a name="pre-create-containers-with-enough-rus"></a>Pré-criar recipientes com RUs suficientes: 
 
-Embora Azure Cosmos DB Escale horizontalmente o armazenamento automaticamente, não é aconselhável iniciar a partir do menor tamanho de contêiner. Contêineres menores têm disponibilidade de taxa de transferência mais baixa, o que significa que a migração levará muito mais tempo para ser concluída. Em vez disso, é útil criar os contêineres com o tamanho final dos dados (conforme estimado na etapa anterior) e garantir que a carga de trabalho de migração esteja totalmente consumindo a taxa de transferência provisionada.  
+Embora o Azure Cosmos DB esforce o armazenamento automaticamente, não é aconselhável começar a partir do menor tamanho do contentor. Os contentores mais pequenos têm uma menor disponibilidade de entrada, o que significa que a migração demoraria muito mais tempo a ser concluída. Em vez disso, é útil criar os recipientes com o tamanho final dos dados (conforme estimado no passo anterior) e certificar-se de que a carga de trabalho de migração está a consumir totalmente a entrada prevista.  
 
-Na etapa anterior. como o tamanho dos dados foi estimado em cerca de 60 TB, um contêiner de pelo menos 2,4 M RUs é necessário para acomodar todo o conjunto.  
+No passo anterior. uma vez que se estimava que o tamanho dos dados rondasse os 60 TB, é necessário um contentor de pelo menos 2,4 M RUs para acomodar todo o conjunto de dados.  
 
  
 
 #### <a name="estimate-the-migration-speed"></a>Estimar a velocidade de migração: 
 
-Supondo que a carga de trabalho de migração possa consumir toda a taxa de transferência provisionada, o provisionamento em si forneceria uma estimativa da velocidade de migração. Continuando o exemplo anterior, 5 RUs são necessárias para escrever um documento de 1 KB para Azure Cosmos DB conta da API do SQL.  2,4 milhões RUs permitiria uma transferência de 480.000 documentos por segundo (ou 480 MB/s). Isso significa que a migração completa de 60 TB levará 125.000 segundos ou cerca de 34 horas.  
+Partindo do princípio de que a carga de trabalho de migração pode consumir toda a carga de trabalho prevista, o fornecimento em toda a sua parte proporcionaria uma estimativa da velocidade de migração. Continuando o exemplo anterior, são necessárias 5 RUs para escrever um documento de 1 KB para a conta API Da Azure Cosmos DB SQL.  2,4 milhões de RUs permitiriam a transferência de 480.000 documentos por segundo (ou 480 MB/s). Isto significa que a migração completa de 60 TB levará 125.000 segundos ou cerca de 34 horas.  
 
-Caso você queira que a migração seja concluída dentro de um dia, você deve aumentar a taxa de transferência provisionada para 5 milhões RUs. 
+Caso pretenda que a migração esteja concluída dentro de um dia, deverá aumentar a entrada prevista para 5 milhões de RUs. 
 
  
 
-#### <a name="turn-off-the-indexing"></a>Desative a indexação:  
+#### <a name="turn-off-the-indexing"></a>Desligue a indexação:  
 
-Como a migração deve ser concluída assim que possível, é aconselhável minimizar o tempo e o RUs gasto na criação de índices para cada um dos documentos ingeridos.  Azure Cosmos DB indexa automaticamente todas as propriedades, vale a pena minimizar a indexação para alguns termos selecionados ou desativá-la completamente para o curso de migração. Você pode desativar a política de indexação do contêiner alterando o indexingMode para nenhum, conforme mostrado abaixo:  
+Uma vez que a migração deve ser concluída o mais rapidamente possível, é aconselhável minimizar o tempo e as RUs gastas na criação de índices para cada um dos documentos ingeridos.  O Azure Cosmos DB indexa automaticamente todas as propriedades, vale a pena minimizar a indexação a alguns termos selecionados ou desligá-lo completamente para o curso da migração. Pode desligar a política de indexação do contentor alterando o indexanteMode para nenhum, como mostrado abaixo:  
 
  
 ```
@@ -122,34 +122,34 @@ Como a migração deve ser concluída assim que possível, é aconselhável mini
 ```
  
 
-Depois que a migração for concluída, você poderá atualizar a indexação.  
+Após a migração estar concluída, pode atualizar o indexante.  
 
 ## <a name="migration-process"></a>Processo de migração 
 
-Depois que os pré-requisitos forem concluídos, você poderá migrar dados com as seguintes etapas:  
+Após a conclusão dos pré-requisitos, pode migrar dados com os seguintes passos:  
 
-1. Primeiro, importe os dados da origem para o armazenamento de BLOBs do Azure. Para aumentar a velocidade da migração, é útil paralelizar entre partições de origem distintas. Antes de iniciar a migração, o conjunto de dados de origem deve ser particionado em arquivos com tamanho em tamanho de 200 MB.   
+1. Primeiro importe os dados da fonte para o Armazenamento de Blob Azure. Para aumentar a velocidade da migração, é útil paralelizar através de divisórias de origem distintas. Antes de iniciar a migração, o conjunto de dados de origem deve ser dividido em ficheiros com tamanho de cerca de 200 MB.   
 
-2. A biblioteca de executores em massa pode escalar verticalmente para consumir 500.000 RUs em uma única VM de cliente. Como a taxa de transferência disponível é 5 milhões RUs, as 10 VMs Ubuntu 16, 4 (Standard_D32_v3) devem ser provisionadas na mesma região em que o banco de dados Cosmos do Azure está localizado. Você deve preparar essas VMs com a ferramenta de migração e seu arquivo de configurações.  
+2. A biblioteca de executora a granel pode aumentar para consumir 500.000 RUs num único cliente VM. Uma vez que a entrada disponível é de 5 milhões de RUs, 10 Ubuntu 16.04 VMs (Standard_D32_v3) devem ser aprovisionados na mesma região onde está localizada a sua base de dados Azure Cosmos. Deve preparar estes VMs com a ferramenta de migração e o seu ficheiro de definições.  
 
-3. Execute a etapa de fila em uma das máquinas virtuais do cliente. Esta etapa cria a coleção de rastreamento, que examina o contêiner ADLS e cria um documento de acompanhamento de progresso para cada um dos arquivos de partição do conjunto de dados de origem.  
+3. Faça o passo da fila numa das máquinas virtuais do cliente. Este passo cria a recolha de rastreio, que digitaliza o recipiente ADLS e cria um documento de rastreamento de progresso para cada um dos ficheiros de partição do conjunto de dados de origem.  
 
-4. Em seguida, execute a etapa de importação em todas as VMs do cliente. Cada um dos clientes pode assumir a propriedade em uma partição de origem e ingerir seus dados em Azure Cosmos DB. Depois que ele for concluído e seu status for atualizado na coleção de rastreamento, os clientes poderão consultar a próxima partição de origem disponível na coleção de rastreamento.  
+4. Em seguida, corra o passo de importação em todos os VMs clientes. Cada um dos clientes pode apropriar-se de uma partição de origem e ingerir os seus dados no Azure Cosmos DB. Uma vez concluída e o seu estado é atualizado na coleção de rastreio, os clientes podem então consultar a próxima divisão de origem disponível na coleção de rastreio.  
 
-5. Esse processo continua até que todo o conjunto de partições de origem tenha sido ingerido. Depois que todas as partições de origem são processadas, a ferramenta deve ser executada novamente no modo de correção de erro na mesma coleção de controle. Essa etapa é necessária para identificar as partições de origem que devem ser processadas novamente devido a erros.  
+5. Este processo continua até que todo o conjunto de divisórias de origem foram ingeridos. Uma vez processadas todas as divisórias de origem, a ferramenta deve ser reexecutada no modo de correção de erros na mesma recolha de rastreio. Este passo é necessário para identificar as divisórias de origem que devem ser reprocessadas devido a erros.  
 
-6. Alguns desses erros podem ser devido a documentos incorretos nos dados de origem. Eles devem ser identificados e corrigidos. Em seguida, você deve executar novamente a etapa de importação nas partições com falha para ingerir. 
+6. Alguns destes erros podem dever-se a documentos incorretos nos dados de origem. Estes devem ser identificados e corrigidos. Em seguida, deve refazer o passo de importação sobre as divisórias falhadas para reinge-las. 
 
-Quando a migração for concluída, você poderá validar que a contagem de documentos em Azure Cosmos DB é igual à contagem de documentos no banco de dados de origem. Neste exemplo, o tamanho total em Azure Cosmos DB foi desativado para 65 terabytes. Após a migração, a indexação pode ser ativada seletivamente e o RUs pode ser reduzido para o nível exigido pelas operações da carga de trabalho.
+Uma vez concluída a migração, pode validar que a contagem de documentos em Azure Cosmos DB é a mesma que a contagem de documentos na base de dados de origem. Neste exemplo, o tamanho total em Azure Cosmos DB acabou por ser de 65 terabytes. Após a migração, a indexação pode ser ligada seletivamente e as RUs podem ser reduzidas para o nível exigido pelas operações da carga de trabalho.
 
-## <a name="contact-the-azure-cosmos-db-team"></a>Contate a equipe de Azure Cosmos DB
-Embora você possa seguir este guia para migrar com êxito grandes conjuntos de dados para Azure Cosmos DB, para migrações em larga escala, é recomendável que você acesse a equipe do Azure Cosmos DB produto para validar a modelagem de dados e uma revisão geral da arquitetura. Com base em seu conjunto de cargas de trabalho e carga, a equipe de produto também pode sugerir outras otimizações de desempenho e custo que podem ser aplicáveis a você. Para entrar em contato com a equipe de Azure Cosmos DB para obter assistência com migrações em larga escala, você pode abrir um tíquete de suporte no tipo de problema "consultoria geral" e "migrações de grande (TB +)", conforme mostrado abaixo.
+## <a name="contact-the-azure-cosmos-db-team"></a>Entrar em contato com a equipa Azure Cosmos DB
+Embora possa seguir este guia para migrar com sucesso grandes conjuntos de dados para o Azure Cosmos DB, para migrações em larga escala, recomenda-se que contacte a equipa de produtos Azure Cosmos DB para validar a modelação de dados e uma revisão geral da arquitetura. Com base no seu conjunto de dados e carga de trabalho, a equipa do produto também pode sugerir outras otimizações de desempenho e custos que possam ser aplicáveis a si. Para contactar a equipa da Azure Cosmos DB para assistência em migrações em larga escala, pode abrir um bilhete de apoio ao abrigo do tipo de problema "General Advisory" e do subtipo de problemas de migração "Grandes (TB+) como mostrado abaixo.
 
-![Tópico de suporte de migração](./media/migrate-cosmosdb-data/supporttopic.png)
+![Tópico de Apoio à Migração](./media/migrate-cosmosdb-data/supporttopic.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais experimentando os aplicativos de exemplo que consomem a biblioteca de executores em massa no [.net](bulk-executor-dot-net.md) e no [Java](bulk-executor-java.md). 
-* A biblioteca de executores em massa é integrada ao conector do Cosmos DB Spark, para saber mais, consulte o artigo [Azure Cosmos DB conector do Spark](spark-connector.md) .  
-* Entre em contato com a equipe de produto Azure Cosmos DB abrindo um tíquete de suporte no tipo de problema "consultoria geral" e no subtipo de problema "migrações grandes (TB +)" para obter ajuda adicional com migrações em larga escala. 
+* Saiba mais experimentando as aplicações de amostra que consomem a biblioteca de executora a granel em [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md). 
+* A biblioteca de executora a granel está integrada no conector Cosmos DB Spark, para saber mais, ver artigo de [conector Azure Cosmos DB Spark.](spark-connector.md)  
+* Contacte a equipa de produtos Azure Cosmos DB abrindo um bilhete de apoio ao abrigo do tipo de problema "General Advisory" e do subtipo de problemas de migração "Grandes (TB+) para obter ajuda adicional com migrações em larga escala. 

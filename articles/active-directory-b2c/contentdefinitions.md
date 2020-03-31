@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b55199ec2684ab7b95ce4e4988b19814c27b2cc3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246061"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051500"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -44,7 +44,7 @@ O exemplo que se segue mostra o identificador de definição de conteúdo e a de
     ...
 ```
 
-Os metadados do perfil técnico autoafirmado **LocalAccountSignUpWithLogonEmail** contém o conjunto de definição de conteúdo **ContentDefinitionReferenceId** para `api.localaccountsignup`
+Os metadados do perfil técnico autoafirmado **LocalAccountSignUpWithLogonEmail** contém o conjunto de definição de conteúdo **ContentDefinitionReferenceId** para`api.localaccountsignup`
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -57,7 +57,7 @@ Os metadados do perfil técnico autoafirmado **LocalAccountSignUpWithLogonEmail*
   ...
 ```
 
-## <a name="contentdefinition"></a>ContentDefinition
+## <a name="contentdefinition"></a>Definição de Conteúdo
 
 O elemento **Definição** de Conteúdo contém o seguinte atributo:
 
@@ -69,15 +69,15 @@ O elemento **Definição** de Conteúdo contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LoadUri | 1:1 | Uma cadeia que contém o URL da página HTML5 para a definição de conteúdo. |
-| RecoveryUri | 1:1 | Uma cadeia que contém o URL da página HTML para exibir um erro relacionado com a definição de conteúdo. |
-| DataUri | 1:1 | Uma cadeia que contém o URL relativo de um ficheiro HTML que fornece a experiência do utilizador para invocar para o passo. |
+| Rio Loaduri | 1:1 | Uma cadeia que contém o URL da página HTML5 para a definição de conteúdo. |
+| Recoveryuri | 1:1 | Uma cadeia que contém o URL da página HTML para exibir um erro relacionado com a definição de conteúdo. Não utilizado atualmente, o `~/common/default_page_error.html`valor deve ser . |
+| Datauri | 1:1 | Uma cadeia que contém o URL relativo de um ficheiro HTML que fornece a experiência do utilizador para invocar para o passo. |
 | Metadados | 0:1 | Uma coleção de pares chave/valor que contém os metadados utilizados pela definição de conteúdo. |
 | Referências de Recursos Localizados | 0:1 | Uma coleção de referências de recursos localizados. Utilize este elemento para personalizar a localização de uma interface de utilizador e atribuições de reclamações. |
 
-### <a name="datauri"></a>DataUri
+### <a name="datauri"></a>Datauri
 
-O elemento **DataUri** é utilizado para especificar o identificador da página. O Azure AD B2C utiliza o identificador de página para carregar e iniciar elementos ui e javaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`. A tabela seguinte lista os identificadores da página que pode utilizar.
+O elemento **DataUri** é utilizado para especificar o identificador da página. O Azure AD B2C utiliza o identificador de página para carregar e iniciar elementos ui e javaScript do lado do cliente. O formato do `urn:com:microsoft:aad:b2c:elements:page-name:version`valor é . A tabela seguinte lista os identificadores da página que pode utilizar.
 
 | Identificador de página | Descrição |
 | ----- | ----------- |
@@ -90,13 +90,13 @@ O elemento **DataUri** é utilizado para especificar o identificador da página.
 
 ### <a name="select-a-page-layout"></a>Selecione um layout de página
 
-Pode ativar o [código do lado do cliente JavaScript](javascript-samples.md) inserindo `contract` entre `elements` e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Pode ativar o código do lado `contract` `elements` do [cliente JavaScript](javascript-samples.md) inserindo entre e o tipo de página. Por exemplo, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-A [versão](page-layout.md) parte do `DataUri` especifica o pacote de conteúdo que contém HTML, CSS e JavaScript para os elementos da interface do utilizador na sua política. Se pretender ativar o código do lado do cliente JavaScript, os elementos em que baseia o seu JavaScript devem ser imutáveis. Se não forem imutáveis, quaisquer alterações podem causar comportamentos inesperados nas suas páginas de utilizador. Para prevenir estes problemas, aplique o uso de um layout de página e especifique uma versão de layout da página. Ao fazê-lo, garante que todas as definições de conteúdo em que baseou o seu JavaScript são imutáveis. Mesmo que não pretenda ativar o JavaScript, ainda precisa especificar a versão de layout da página para as suas páginas.
+A [version](page-layout.md) versão parte `DataUri` da versão especifica o pacote de conteúdo que contém HTML, CSS e JavaScript para os elementos da interface do utilizador na sua política. Se pretender ativar o código do lado do cliente JavaScript, os elementos em que baseia o seu JavaScript devem ser imutáveis. Se não forem imutáveis, quaisquer alterações podem causar comportamentos inesperados nas suas páginas de utilizador. Para prevenir estes problemas, aplique o uso de um layout de página e especifique uma versão de layout da página. Ao fazê-lo, garante que todas as definições de conteúdo em que baseou o seu JavaScript são imutáveis. Mesmo que não pretenda ativar o JavaScript, ainda precisa especificar a versão de layout da página para as suas páginas.
 
-O exemplo que se segue mostra os **DataUri** da versão `selfasserted` `1.2.0`:
+O exemplo seguinte mostra `selfasserted` os `1.2.0` **DataUri** da versão:
 
 ```xml
 <ContentDefinition Id="api.localaccountpasswordreset">
@@ -111,9 +111,9 @@ O exemplo que se segue mostra os **DataUri** da versão `selfasserted` `1.2.0`:
 
 #### <a name="migrating-to-page-layout"></a>Migrando para o layout da página
 
-O formato do valor deve conter a palavra `contract`: _urn:com:microsoft:aad:b2c:elementos:**contrair**:pnome de idade:versão_. Para especificar um layout de página nas suas políticas personalizadas que usam um valor **DataUri** antigo, use a seguinte tabela para migrar para o novo formato.
+O formato do valor `contract`deve conter a palavra : _urn:com:microsoft:aad:b2c:elementos:**contrair**:pnome de idade:versão_. Para especificar um layout de página nas suas políticas personalizadas que usam um valor **DataUri** antigo, use a seguinte tabela para migrar para o novo formato.
 
-| Valor do URI de dados antigo | Novo valor de URI de dados |
+| Valor DataUri antigo | Novo valor DataUri |
 | ----------------- | ----------------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
@@ -162,7 +162,7 @@ O elemento **LocalizadoResourcesReference** contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Idioma | Sim | Uma cadeia que contém uma linguagem apoiada para a política por RFC 5646 - Tags para identificar idiomas. |
-| LocalizedResourcesReferenceId | Sim | O identificador do elemento **Recursos Localizados.** |
+| Recursos LocalizadosReferenceId | Sim | O identificador do elemento **Recursos Localizados.** |
 
 O exemplo seguinte mostra uma definição de conteúdo de inscrição ou inscrição com referência à localização para inglês, francês e espanhol:
 

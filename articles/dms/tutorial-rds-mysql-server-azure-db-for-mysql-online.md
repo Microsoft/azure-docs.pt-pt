@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar RDS MySQL on-line para Azure Database para MySQL'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line de RDS MySQL para Azure Database for MySQL utilizando o Serviço de Migração de Bases de Dados Azure.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 27002d1fc861d49e083fc294bcfbc7f51f7c1a12
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255156"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar RDS MySQL para Azure Database para MySQL on-line usando DMS
@@ -27,7 +27,7 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > * Migrar o esquema da amostra usando os serviços de misqldump e mysql.
-> * Crie uma instância do Serviço de Migração de Bases de Dados Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração utilizando o Serviço de Migração de Bases de Dados Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
@@ -67,8 +67,8 @@ Para concluir este tutorial, precisa de:
 
 1. Para criar um novo grupo de parâmetros, siga as instruções fornecidas pela AWS no artigo [MySQL Database Log Files,](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html)na secção **Formato de Registo Binário.**
 2. Criar um novo grupo de parâmetros com a seguinte configuração:
-    * binlog_format = linha
-    * binlog_checksum = NONE
+    * binlog_format = row
+    * binlog_checksum = NENHUM
 3. Salve mato novo grupo de parâmetros.
 4. Associe o novo grupo de parâmetros com a instância RDS MySQL. Pode ser necessário reiniciar.
 

@@ -1,5 +1,5 @@
 ---
-title: Registrar aplicativos de daemon que chamam APIs da Web-plataforma de identidade da Microsoft | Azure
+title: Registe aplicações daemon que liguem para a web APIs - plataforma de identidade da Microsoft Azure
 description: Saiba como construir uma app daemon que chama APIs web - registo de aplicações
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,10 +16,10 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 922a484d111746e5073c08a64d7c92e2b6b4a7c4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773370"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>App Daemon que chama APIs web - registo de aplicativos
@@ -44,9 +44,9 @@ Um pedido de daemon só pode solicitar permissões de pedido de APIs (não permi
 ![Permissões de aplicativos e consentimento da administração](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> A API web que pretende ligar precisa de definir *permissões de aplicação (funções de aplicação)* , e não permissões delegadas. Para mais detalhes sobre como expor tal API, consulte [a Web API protegida: registo de aplicações - quando a sua Web API é chamada por uma aplicação daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
+> A API web que pretende ligar precisa de definir *permissões de aplicação (funções de aplicação)*, e não permissões delegadas. Para mais detalhes sobre como expor tal API, consulte [a Web API protegida: registo de aplicações - quando a sua Web API é chamada por uma aplicação daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
-As aplicações da Daemon exigem que um administrador inquilino concorde com a aplicação que chama a Web API. Os administradores dos inquilinos fornecem este consentimento na mesma página de **permissão da API,** selecionando o **consentimento do administrador grant para a nossa *organização***
+As aplicações da Daemon exigem que um administrador inquilino concorde com a aplicação que chama a Web API. Os administradores dos inquilinos fornecem este consentimento na mesma página de **permissão da API,** selecionando o **consentimento do administrador grant para a nossa *organização* **
 
 Se você é um ISV construindo uma aplicação multiarrendatária, você deve ler a secção [Deployment - caso de aplicações de daemon multiinquilino](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 

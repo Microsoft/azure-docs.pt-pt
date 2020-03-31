@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.openlocfilehash: 195a19ef881f235ad8e42f23b53da9e667ef88d0
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086751"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implementar VMs para anfitriões dedicados usando o portal
@@ -32,9 +32,9 @@ Este artigo guia-o através de como criar um [anfitrião dedicado](dedicated-hos
 
     ![Conta de administrador](./media/quick-create-portal/administrator-account.png)
 
-1. De acordo com **as regras** portuárias de entrada > portas de **entrada públicas,** escolha permitir portas **selecionadas** e, em seguida, selecione **SSH (22)** a partir da queda. 
+1. De acordo com **as regras** > de entrada nas portas de**entrada,** escolha **permitir portas selecionadas** e, em seguida, selecione **SSH (22)** a partir da queda. 
 1. No topo da página, selecione o separador **Avançado** e na secção **Anfitrião,** selecione *myHostGroup* para **host group** e *myHost* for the **Host**. 
-    ![Selecione grupo anfitrião e acolhe](./media/dedicated-hosts-portal/advanced.png)
+    ![Selecione grupo anfitrião e anfitrião](./media/dedicated-hosts-portal/advanced.png)
 1. Mantenha as restantes predefinições e, em seguida, selecione o botão **Rever + criar** na parte inferior da página.
 1. Quando vir a mensagem que a validação passou, selecione **Criar**.
 

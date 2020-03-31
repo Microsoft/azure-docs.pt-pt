@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5387daffcd3dd231aef5eade1c896db50947b386
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484864"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos powerShell e Graph para licenciamento em grupo em Azure AD
@@ -26,7 +26,7 @@ ms.locfileid: "77484864"
 A funcionalidade completa para licenciamento baseado em grupo está disponível através do [portal Azure](https://portal.azure.com), e atualmente o suporte powerShell e Microsoft Graph está limitado a operações apenas de leitura. No entanto, existem algumas tarefas úteis que podem ser executadas usando os [cmdlets MSOnline PowerShell existentes](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) e Microsoft Graph. Este documento fornece exemplos do que é possível.
 
 > [!NOTE]
-> Antes de começar a correr cmdlets, certifique-se de que se conecta primeiro à sua organização, executando a `Connect-MsolService` cmdlet.
+> Antes de começar a correr cmdlets, certifique-se de `Connect-MsolService`  que se conecta primeiro à sua organização, executando o cmdlet.
 
 > [!WARNING]
 > Este código é fornecido como um exemplo para fins de demonstração. Se pretende usá-lo no seu ambiente, considere testá-lo primeiro em pequena escala, ou num inquilino de teste separado. Pode ter de ajustar o código para satisfazer as necessidades específicas do seu ambiente.
@@ -617,9 +617,9 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> Por favor, atualize os valores das variáveis `$skuId` e `$groupId` que está a ser alvo de remoção de Licenças Diretas de acordo com o seu ambiente de teste antes de executar o script acima. 
+> Por favor, atualize `$skuId` os `$groupId`  valores para as variáveis e que está a ser direcionado para a remoção de Licenças Diretas de acordo com o seu ambiente de teste antes de executar o script acima. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o conjunto de funcionalidades para gestão de licenças através de grupos, consulte os seguintes artigos:
 

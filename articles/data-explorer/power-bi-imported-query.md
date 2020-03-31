@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: ff156ab3fe74115bce8f7d6bdd3ba47b514f5ff5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562484"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualizar dados usando uma consulta importada para o Power BI
@@ -36,7 +36,7 @@ Precisa do seguinte para completar este artigo:
 
 Em primeiro lugar, cria-se uma consulta na aplicação de desktop Do Azure Data Explorer e exporta-a para utilização no Power BI. Em seguida, ligue-se ao cluster de ajuda do Azure Data Explorer e traga um subconjunto dos dados da tabela *StormEvents.* [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-1. Num browser, vá a [https://help.kusto.windows.net/](https://help.kusto.windows.net/) para lançar a aplicação de desktop Do Azure Data Explorer.
+1. Num browser, vá [https://help.kusto.windows.net/](https://help.kusto.windows.net/) para o lançamento da aplicação de desktop Azure Data Explorer.
 
 1. Na aplicação de ambiente de trabalho, copie a seguinte consulta na janela de consulta superior direita e, em seguida, executá-la.
 
@@ -68,7 +68,7 @@ Em primeiro lugar, cria-se uma consulta na aplicação de desktop Do Azure Data 
 
     ![Editar credenciais](media/power-bi-imported-query/edit-credentials.png)
 
-1. No separador **Home,** selecione **Fechar e Aplicar**.
+1. No separador **Home,** selecione **Fechar & Aplicar**.
 
     ![Fechar e aplicar](media/power-bi-imported-query/close-apply.png)
 

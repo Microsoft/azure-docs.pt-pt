@@ -1,6 +1,6 @@
 ---
-title: Gerir o seu catálogo de cópia de segurança do StorSimple | Documentos da Microsoft
-description: Explica como utilizar a página de catálogo de cópia de segurança do serviço StorSimple Device Manager para a lista, selecione e eliminar conjuntos de cópia de segurança.
+title: Gerencie o seu catálogo de backup StorSimple / Microsoft Docs
+description: Explica como utilizar a página de catálogo de backup do serviço StorSimple Device Manager para listar, selecionar e eliminar conjuntos de backup.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,101 +15,101 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60319676"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Utilizar o serviço StorSimple Device Manager para gerir o seu catálogo de cópia de segurança
+# <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Utilize o serviço StorSimple Device Manager para gerir o seu catálogo de backup
 ## <a name="overview"></a>Descrição geral
-O serviço de Gestor de dispositivos do StorSimple **catálogo de cópia de segurança** painel apresenta todos os conjuntos de cópia de segurança que são criados quando são efetuadas cópias de segurança manuais ou agendadas. Pode utilizar esta página para listar todas as cópias de segurança para uma política de cópia de segurança ou um volume, selecione ou eliminar cópias de segurança ou utilizar uma cópia de segurança para restaurar ou clonar um volume.
+A lâmina de **backup** do serviço StorSimple Device Manager mostra todos os conjuntos de backup que são criados quando as cópias de segurança manual ou programada são tomadas. Pode utilizar esta página para listar todas as cópias de segurança para uma política de backup ou um volume, selecionar ou eliminar cópias de segurança, ou utilizar uma cópia de segurança para restaurar ou clonar um volume.
 
-Este tutorial explica como lista, selecione e eliminar um conjunto de cópia de segurança. Para saber como restaurar o seu dispositivo a partir de cópia de segurança, aceda a [restaurar o seu dispositivo a partir de um conjunto de cópias de segurança](storsimple-8000-restore-from-backup-set-u2.md). Para saber como clonar um volume, aceda a [clonar um volume StorSimple](storsimple-8000-clone-volume-u2.md).
+Este tutorial explica como listar, selecionar e eliminar um conjunto de backup. Para aprender a restaurar o seu dispositivo a partir de cópia seletiva, vá restaurar o seu dispositivo a partir de um conjunto de [cópias](storsimple-8000-restore-from-backup-set-u2.md)de segurança . Para aprender a clonar um volume, vá a [Clone a StorSimple volume](storsimple-8000-clone-volume-u2.md).
 
-![catálogo de cópia de segurança](./media/storsimple-8000-manage-backup-catalog/bucatalog.png) 
+![Catálogo de cópias de segurança](./media/storsimple-8000-manage-backup-catalog/bucatalog.png) 
 
-O **catálogo de cópia de segurança** painel fornece a seleção de definir uma consulta para restringir a cópia de segurança. Pode filtrar os conjuntos de cópia de segurança que são obtidos, com base nos parâmetros seguintes:
+A lâmina **de backup Catalog** fornece uma consulta para reduzir a sua seleção de conjunto de backup. Pode filtrar os conjuntos de backup que são recuperados, com base nos seguintes parâmetros:
 
-* **Dispositivo** – o dispositivo no qual o conjunto de cópia de segurança foi criado.
-* **Política de cópia de segurança ou Volume** – a política de cópia de segurança ou volume associado este conjunto de cópias de segurança.
-* **De e para** – o intervalo de data e hora quando o conjunto de cópia de segurança foi criado.
+* **Dispositivo** – O dispositivo no qual foi criado o conjunto de backup.
+* **Política de backup ou Volume** – A política de backup ou volume associado a este conjunto de backup.
+* **De e Para** – O intervalo de data e hora quando o conjunto de backup foi criado.
 
-Os conjuntos de cópia de segurança filtrados, em seguida, são apresentados com base nos seguintes atributos:
+Os conjuntos de backup filtrados são então tabulados com base nos seguintes atributos:
 
-* **Nome** – o nome da política de cópia de segurança ou volume associada ao conjunto de cópia de segurança.
-* **Tamanho** – o tamanho real do conjunto de cópia de segurança.
-* **Criado em** – a data e hora quando foram criadas as cópias de segurança. 
-* **Tipo de** – conjuntos de cópia de segurança podem ser os instantâneos locais ou instantâneos da cloud. Um instantâneo local é uma cópia de segurança de todos os seus dados de volume armazenados localmente no dispositivo, enquanto que um instantâneo de cloud refere-se para a cópia de segurança dos dados do volume que residem na cloud. Os instantâneos locais fornecem um acesso mais rápido, ao passo que os instantâneos de cloud são escolhidos para resiliência de dados.
-* **Iniciado por** – as cópias de segurança podem ser iniciadas automaticamente, uma agenda ou manualmente por um utilizador. Pode utilizar uma política de cópia de segurança para agendar cópias de segurança. Em alternativa, pode utilizar o **efetuar cópia de segurança** opção para efetuar uma cópia de segurança manual.
+* **Nome** – O nome da política de backup ou volume associado ao conjunto de backup.
+* **Tamanho** – O tamanho real do conjunto de backup.
+* **Criado on** – A data e a hora em que os backups foram criados. 
+* **Tipo** – Os conjuntos de backup podem ser instantâneos locais ou imagens em nuvem. Um instantâneo local é uma cópia de segurança de todos os seus dados de volume armazenados localmente no dispositivo, enquanto um instantâneo em nuvem refere-se à cópia de segurança dos dados de volume que residem na nuvem. Os instantâneos locais proporcionam um acesso mais rápido, enquanto os instantâneos em nuvem são escolhidos para a resiliência dos dados.
+* **Iniciado Por** – As cópias de segurança podem ser iniciadas automaticamente por um horário ou manualmente por um utilizador. Pode usar uma política de reserva para agendar backups. Em alternativa, pode utilizar a opção de cópia de **segurança Take** para obter uma cópia de segurança manual.
 
-## <a name="list-backup-sets-for-a-backup-policy"></a>Conjuntos de cópia de segurança de lista para uma política de cópia de segurança
-Conclua os passos seguintes para listar todas as cópias de segurança para uma política de cópia de segurança.
+## <a name="list-backup-sets-for-a-backup-policy"></a>Lista de conjuntos de backup para uma política de backup
+Complete os seguintes passos para listar todos os backups para uma política de backup.
 
-#### <a name="to-list-backup-sets"></a>Para conjuntos de cópia de segurança de lista
-1. Vá para o StorSimple Device Manager service e clique em **catálogo de cópia de segurança**.
+#### <a name="to-list-backup-sets"></a>Para listar conjuntos de backup
+1. Vá ao serviço StorSimple Device Manager e clique no **catálogo de backup**.
 
-2. Filtre as seleções da seguinte forma:
+2. Filtrar as seleções da seguinte forma:
    
    1. Especifique o intervalo de tempo.
    2. Selecione o dispositivo apropriado.
-   3. Filtrar por **política de cópia de segurança** para ver as cópias de segurança correspondente.
-   3. Na lista pendente de política de cópia de segurança, escolha **todos os** para ver todas as cópias de segurança no dispositivo selecionado.
-   4. Clique em **aplicar** para executar esta consulta.
+   3. Filtrar por **política de backup** para visualizar as cópias de segurança correspondentes.
+   3. A partir da lista de desativação da política de backup, escolha **All** para ver todas as cópias de segurança do dispositivo selecionado.
+   4. Clique **Em Aplicar** para executar esta consulta.
       
-      As cópias de segurança associadas com a política de cópia de segurança selecionada devem aparecer na lista de conjuntos de cópia de segurança.
+      Os backups associados à política de backup selecionada devem figurar na lista de conjuntos de backup.
 
-      ![Aceda ao catálogo de cópia de segurança](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Ir para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-## <a name="select-a-backup-set"></a>Selecione um conjunto de cópias de segurança
-Conclua os seguintes passos para selecionar uma cópia de segurança definido para um volume ou uma política de cópia de segurança.
+## <a name="select-a-backup-set"></a>Selecione um conjunto de backup
+Complete os seguintes passos para selecionar um conjunto de cópias de segurança para uma política de volume ou cópia de segurança.
 
-#### <a name="to-select-a-backup-set"></a>Para selecionar um conjunto de cópia de segurança
-1. Vá para o StorSimple Device Manager service e clique em **catálogo de cópia de segurança**.
-2. Filtre as seleções da seguinte forma:
+#### <a name="to-select-a-backup-set"></a>Para selecionar um conjunto de backup
+1. Vá ao serviço StorSimple Device Manager e clique no **catálogo de backup**.
+2. Filtrar as seleções da seguinte forma:
    
    1. Especifique o intervalo de tempo. 
    2. Selecione o dispositivo apropriado. 
-   3. Filtrar pela política de cópia de segurança ou de volume para a cópia de segurança que pretende selecionar.
-   4. Clique em **aplicar** para executar esta consulta.
+   3. Filtre por volume ou política de cópia de segurança para a cópia de segurança que pretende selecionar.
+   4. Clique **Em Aplicar** para executar esta consulta.
       
-      As cópias de segurança associadas com o volume selecionado ou política de cópia de segurança deverá aparecer na lista de conjuntos de cópia de segurança.
+      As cópias de segurança associadas à política de volume ou cópia de segurança selecionada devem figurar na lista de conjuntos de backup.
 
-      ![Aceda ao catálogo de cópia de segurança](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Ir para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Selecione e expanda um conjunto de cópias de segurança. Agora, pode ver os conjuntos de cópia de segurança divididos pelos volumes nele contidos. O **restaurar** e **eliminar** opções estão disponíveis através do menu de contexto (contexto) para o conjunto de cópia de segurança. Pode efetuar qualquer uma destas ações no conjunto de cópia de segurança que selecionou.
+3. Selecione e expanda um conjunto de backup. Agora pode ver os conjuntos de backup avariados pelos volumes que contém. As opções **de Restauro** e **Exclusão** estão disponíveis através do menu de contexto (clique à direita) para o conjunto de backup. Pode executar qualquer uma destas ações no conjunto de backup que selecionou.
 
-    ![Aceda ao catálogo de cópia de segurança](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
+    ![Ir para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
 
-## <a name="delete-a-backup-set"></a>Eliminar um conjunto de cópia de segurança
-Elimine uma cópia de segurança quando já não pretenda reter os dados associados a ele. Execute os seguintes passos para eliminar um conjunto de cópia de segurança.
+## <a name="delete-a-backup-set"></a>Eliminar um conjunto de backup
+Elimine uma cópia de segurança quando já não pretender reter os dados associados. Execute os seguintes passos para eliminar um conjunto de cópias de segurança.
 
-#### <a name="to-delete-a-backup-set"></a>Para eliminar um conjunto de cópia de segurança
- Vá para o StorSimple Device Manager service e clique em **catálogo de cópia de segurança**.
-1. Filtre as seleções da seguinte forma:
+#### <a name="to-delete-a-backup-set"></a>Para eliminar um conjunto de backup
+ Vá ao serviço StorSimple Device Manager e clique no **catálogo de backup**.
+1. Filtrar as seleções da seguinte forma:
    
    1. Especifique o intervalo de tempo. 
    2. Selecione o dispositivo apropriado. 
-   3. Filtrar pela política de cópia de segurança ou de volume para a cópia de segurança que pretende selecionar.
-   4. Clique em **aplicar** para executar esta consulta.
+   3. Filtre por volume ou política de cópia de segurança para a cópia de segurança que pretende selecionar.
+   4. Clique **Em Aplicar** para executar esta consulta.
       
-      As cópias de segurança associadas com o volume selecionado ou política de cópia de segurança deverá aparecer na lista de conjuntos de cópia de segurança.
+      As cópias de segurança associadas à política de volume ou cópia de segurança selecionada devem figurar na lista de conjuntos de backup.
 
-      ![Aceda ao catálogo de cópia de segurança](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Ir para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-1. Selecione e expanda um conjunto de cópias de segurança. Agora, pode ver os conjuntos de cópia de segurança divididos pelos volumes nele contidos. O **restaurar** e **eliminar** opções estão disponíveis através do menu de contexto (contexto) para o conjunto de cópia de segurança. Com o botão direito do conjunto de cópia de segurança selecionado e no menu de contexto, selecione **eliminar**.
+1. Selecione e expanda um conjunto de backup. Agora pode ver os conjuntos de backup avariados pelos volumes que contém. As opções **de Restauro** e **Exclusão** estão disponíveis através do menu de contexto (clique à direita) para o conjunto de backup. Clique no conjunto de backup selecionado e no menu de contexto, **selecione Delete**.
 
-    ![Aceda ao catálogo de cópia de segurança](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
+    ![Ir para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-1. Quando lhe for pedida confirmação, reveja as informações exibidas e clique em **eliminar**. A cópia de segurança selecionada é eliminada permanentemente.
+1. Quando solicitado para confirmação, reveja as informações apresentadas e clique em **Eliminar**. A cópia de segurança selecionada é eliminada permanentemente.
 
-    ![Aceda ao catálogo de cópia de segurança](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
+    ![Ir para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-1. Será notificado quando a eliminação está em progresso e quando foi concluída com êxito. Após a eliminação estiver concluída, atualize a consulta nesta página. O conjunto de cópias de segurança eliminado já não irá aparecer na lista de conjuntos de cópia de segurança.
+1. Será notificado quando a eliminação estiver em curso e quando tiver terminado com sucesso. Depois da eliminação, refresque a consulta nesta página. O conjunto de cópias de segurança eliminados deixará de figurar na lista de conjuntos de backup.
 
-    ![Aceda ao catálogo de cópia de segurança](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
+    ![Ir para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-* Saiba como [utilizar o catálogo de cópia de segurança para restaurar o seu dispositivo a partir de um conjunto de cópias de segurança](storsimple-8000-restore-from-backup-set-u2.md).
-* Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+## <a name="next-steps"></a>Passos seguintes
+* Aprenda a utilizar o catálogo de cópias de [segurança para restaurar o seu dispositivo a partir de um conjunto de backup](storsimple-8000-restore-from-backup-set-u2.md).
+* Aprenda a [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

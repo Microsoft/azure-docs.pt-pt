@@ -13,10 +13,10 @@ ms.custom:
 - seo-python-october2019
 - mvc
 ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77086038"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Quickstart: Use Python API para executar um trabalho de Lote Azure
@@ -35,19 +35,19 @@ Aqui você vai aprender conceitos-chave do serviço Batch e estar pronto para ex
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inscreva-se no portal [https://portal.azure.com](https://portal.azure.com)Azure em .
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-[Transfira ou clone a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-quickstart) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
+[Transfira ou clonar a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-quickstart) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
 
 ```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Vá ao diretório que contém o guião python `python_quickstart_client.py`.
+Vá ao diretório que contém `python_quickstart_client.py`o guião python.
 
 No ambiente de desenvolvimento do Python, instale os pacotes necessários através de `pip`.
 
@@ -230,7 +230,7 @@ for task in tasks:
 
 A aplicação elimina automaticamente o contentor de armazenamento criado e oferece-lhe a opção de eliminar o conjunto e o trabalho do Batch. É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar do conjunto, elimine-o. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. 
 
-Quando já não forem precisos, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para o fazer no portal Azure, selecione o grupo de recursos para a conta Batch e selecione **Eliminar o grupo de recursos**.
+Quando já não forem necessários, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para o fazer no portal Azure, selecione o grupo de recursos para a conta Batch e selecione **Eliminar o grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

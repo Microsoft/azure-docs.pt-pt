@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c24be648e4ca1433c7c2af3d659bf4520a7a188c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 53036a43cbb0fe3c3a1e61f7124fe7dcbef228f3
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79457292"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388938"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o cofre chave com ligação privada azure
 
@@ -57,7 +57,7 @@ Depois de configurar o básico do cofre chave, selecione o separador de rede e s
 1. Deixe inalterada a opção "integrar com a zona privada DNS".  
 1. Selecione "Ok".
 
-    ![Imagem](./media/private-link-service-2.png)
+    ![Imagem](./media/private-link-service-8.png)
  
 Agora poderá ver o ponto final privado configurado. Tem agora a opção de apagar e editar este ponto final privado. Selecione o botão "Rever + Criar" e criar o cofre da chave. Levará 5 a 10 minutos para a implantação ser concluída. 
 

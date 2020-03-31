@@ -3,7 +3,7 @@ title: Distribuições linux endossadas no Azure
 description: Conheça o Linux sobre as distribuições apoiadas pelo Azure, incluindo orientações para Ubuntu, CentOS, Oracle e SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
+author: gbowerman
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: mimckitt
-ms.openlocfilehash: 7318095dce77856087ad7dd949e91e0eb7936294
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.author: guybo
+ms.openlocfilehash: cc2fedcd4816b55aaed3573ce2593919770a4152
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251651"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062650"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuições de Linux endossadas no Azure
 Os parceiros fornecem imagens Linux no Mercado Azure. Estamos trabalhando com várias comunidades Linux para adicionar ainda mais sabores à lista de Distribuição Endossada. Entretanto, para distribuições que não estão disponíveis no Mercado, pode sempre trazer o seu próprio Linux seguindo as diretrizes da [Create e carregar um disco rígido virtual que contém o sistema operativo Linux.](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
@@ -41,7 +41,7 @@ O Agente Azure Linux já está pré-instalado nas imagens do Azure Marketplace e
 | Red Hat Enterprise Linux |RHEL 6.7+, 7.1+, 8.0+ |No núcleo |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Empresa SUSE Linux |SLES/SLES para SAP<br>11 SP4<br>12 SP1+<br>15|No núcleo |Pacote:<p> para 11 em [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>para 12 incluídos no Módulo "Nuvem Pública" em "python-azure-agent"<br/>Código fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |abre SUSE Leap 42.2+ |No núcleo |Pacote: Em [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo em "python-azure-agent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04+  **<sup>1</sup>** |No núcleo |Pacote: Em repo sob "walinuxagent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04+ ** <sup>1</sup>** |No núcleo |Pacote: Em repo sob "walinuxagent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
   - **<sup>1</sup>** Informações sobre o apoio alargado ao Ubuntu 12.04 e 14.04 podem ser consultadas aqui: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm).
 
@@ -73,7 +73,7 @@ Do site do CoreOS:
 
 *O CoreOS foi concebido para segurança, consistência e fiabilidade. Em vez de instalar pacotes via yum ou apt, o CoreOS utiliza contentores Linux para gerir os seus serviços a um nível mais elevado de abstração. Um único código de serviço e todas as dependências são embaladas dentro de um recipiente que pode ser executado em uma ou muitas máquinas CoreOS.*
 
-### <a name="credativ"></a>credativ
+### <a name="credativ"></a>Credativ
 [https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
 A Credativ é uma empresa independente de consultoria e serviços especializada no desenvolvimento e implementação de soluções profissionais através da utilização de software gratuito. Como principais especialistas em código aberto, a Credativ tem reconhecimento internacional com muitos departamentos de TI que usam o seu apoio. Em conjunto com a Microsoft, a Credativ está atualmente a preparar as correspondentes imagens de Debian para Debian 8 (Jessie) e Debian antes das 7 (Wheezy). Ambas as imagens são especialmente concebidas para serem executadas no Azure e podem ser facilmente geridas através da plataforma. A Credativ também apoiará a manutenção e atualização a longo prazo das imagens Debian para o Azure através dos seus Centros de Apoio a Fonte Aberta.

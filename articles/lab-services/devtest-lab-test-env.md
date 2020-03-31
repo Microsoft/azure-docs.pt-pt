@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Azure DevTest Labs para ambientes de teste de VM e PaaS | Documentos da Microsoft
-description: Saiba como utilizar o Azure DevTest Labs para cenários de ambiente de teste VM e PaaS.
+title: Utilize laboratórios Azure DevTest para ambientes de teste VM e PaaS [ Microsoft Docs
+description: Aprenda a utilizar os Laboratórios Azure DevTest para cenários de ambiente de teste VM e PaaS.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: c6b458091a8e5e22cca55d401e89e5e13bcf9de9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60623188"
 ---
-# <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Utilize o Azure DevTest Labs para VM e PaaS os ambientes de teste
+# <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Utilize laboratórios Azure DevTest para ambientes de teste VM e PaaS
 
 Pode utilizar o Azure DevTest Labs para implementar vários cenários-chave, mas apenas os cenários principais envolvem a utilização do DevTest Labs para alojar computadores para técnicos de teste. 
 
@@ -28,125 +28,125 @@ Neste cenário, o DevTest Labs fornece estas vantagens:
 
 - Os técnicos de teste podem testar a última versão da sua aplicação ao aprovisionar rapidamente ambientes do Windows e do Linux através de modelos e artefactos reutilizáveis.
 - Os técnicos de teste podem dimensionar o teste de carga ao aprovisionar múltiplos agentes de teste.
-- Os administradores podem controlar os custos, assegurando que:
-  - Os testadores não é possível obter as VMs de mais do que o necessário.
-  - As VMs são encerradas quando não está em utilização.
+- Os administradores podem controlar os custos garantindo que:
+  - Os testadores não podem ter mais VMs do que precisam.
+  - Os VMs são desligados quando não estão a ser utilizados.
 
-![Utilizar o DevTest Labs para formação](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
+![Use Laboratórios DevTest para treino](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
 
-Neste artigo, ficará a conhecer vários recursos do Azure DevTest Labs utilizados para atender aos requisitos de recurso de teste e os passos detalhados a seguir para configurar um laboratório.
+Neste artigo, você aprende sobre várias funcionalidades do Azure DevTest Labs usados para satisfazer os requisitos de teste e os passos detalhados a seguir para criar um laboratório.
 
-## <a name="implementing-test-environments-with-azure-devtest-labs"></a>Implementação de ambientes de teste com o Azure DevTest Labs
+## <a name="implementing-test-environments-with-azure-devtest-labs"></a>Implementação de ambientes de teste com laboratórios Azure DevTest
 1. **Criar o laboratório** 
    
-    Os laboratórios são o ponto de partida no Azure DevTest Labs. Depois de criar um laboratório, pode realizar tarefas como adicionar utilizadores (testadores) para o laboratório, definir políticas para controlar os custos, definindo as imagens VM que podem criar rapidamente e muito mais.  
+    Os laboratórios são o ponto de partida nos Laboratórios Azure DevTest. Uma vez criado um laboratório, pode executar tarefas como adicionar utilizadores (testadores) ao laboratório, definindo políticas para controlar custos, definindo imagens VM que podem criar rapidamente, e muito mais.  
    
-    Saiba mais ao clicar nos links na tabela a seguir:
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Criar um laboratório no Azure DevTest Labs](devtest-lab-create-lab.md) |Saiba como criar um laboratório no Azure DevTest Labs no portal do Azure. |
-2. **Criar VMs em minutos com imagens do marketplace prontas a utilizar e imagens personalizadas** 
+   | [Criar um laboratório no Azure DevTest Labs](devtest-lab-create-lab.md) |Aprenda a criar um laboratório em Azure DevTest Labs no portal Azure. |
+2. **Crie VMs em minutos usando imagens de mercado prontas e imagens personalizadas** 
    
-    Pode escolher prontas a utilizar imagens de uma ampla variedade de imagens no Azure Marketplace e disponibilizá-los no laboratório. Se as imagens prontas a utilizar não atenderem às suas necessidades, pode criar uma imagem personalizada através da criação de um laboratório de VM a utilizar uma imagem pronta a utilizar do Azure Marketplace, a instalação do software que precisa, e a guardar a VM como uma imagem personalizada no laboratório.
+    Você pode escolher imagens prontas a partir de uma grande variedade de imagens no Mercado Azure e disponibilizá-las em laboratório. Se as imagens prontas não cumprirem os seus requisitos, pode criar uma imagem personalizada criando um VM de laboratório utilizando uma imagem pronta do Azure Marketplace, instalando todo o software de que necessita e guardando o VM como uma imagem personalizada no laboratório.
 
-    Se utilizar imagens personalizadas, considere a utilização de uma fábrica de imagem para criar e distribuir as imagens. Uma fábrica de imagem é uma solução de configuração como código que regularmente cria e distribui as imagens configuradas automaticamente. Isso economiza o tempo necessário para configurar manualmente o sistema depois de uma VM tiver sido criada com o sistema operacional base.
+    Se estiver a utilizar imagens personalizadas, considere utilizar uma fábrica de imagens para criar e distribuir as suas imagens. Uma fábrica de imagem é uma solução de configuração como código que constrói e distribui regularmente as suas imagens configuradas automaticamente. Isto poupa o tempo necessário para configurar manualmente o sistema depois de um VM ter sido criado com o Sistema Base.
   
-    Saiba mais ao clicar nos links na tabela a seguir:
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como pode imagens do Azure Marketplace de lista aprovada, tornando disponíveis para seleção apenas as imagens desejadas para os testadores.|
-   | [Criar uma imagem personalizada](devtest-lab-create-template.md) |Crie uma imagem personalizada, pré-instalando o software que necessário para que os testadores podem criar rapidamente uma VM com a imagem personalizada.|
-   | [Saiba mais sobre a fábrica de imagem](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Ver um vídeo que descreve como configurar e utilizar uma fábrica de imagem.|
+   | [Configurar imagens do Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Saiba como pode whitelist Imagens do Azure Marketplace, disponibilizando para seleção apenas as imagens que deseja para os testadores.|
+   | [Criar uma imagem personalizada](devtest-lab-create-template.md) |Crie uma imagem personalizada pré-instalando o software de que necessita para que os testadores possam criar rapidamente um VM usando a imagem personalizada.|
+   | [Saiba mais sobre a fábrica de imagem](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Veja um vídeo que descreve como configurar e usar uma fábrica de imagem.|
 
 3. **Criar modelos reutilizáveis para máquinas de teste** 
    
-    Uma fórmula no Azure DevTest Labs é uma lista de valores da propriedade padrão usado para criar uma VM. Pode criar uma fórmula do laboratório ao escolher uma imagem, um tamanho de VM (uma combinação de CPU e RAM) e uma rede virtual. Cada testador pode ver a fórmula do laboratório e utilizá-lo para criar uma VM. 
+    Uma fórmula em Azure DevTest Labs é uma lista de valores de propriedade padrão usados para criar um VM. Você pode criar uma fórmula no laboratório escolhendo uma imagem, um tamanho VM (uma combinação de CPU e RAM) e uma rede virtual. Cada teste pode ver a fórmula no laboratório e usá-la para criar um VM. 
    
-    Saiba mais ao clicar nos links na tabela a seguir:
-   
-   | Tarefa | O que irá aprender |
-   | --- | --- |
-   | [Gerir fórmulas de DevTest Labs para criar VMs](devtest-lab-manage-formulas.md) |Saiba como pode criar uma fórmula, escolha de uma imagem, o tamanho VM (combinação de CPU e RAM) e uma rede virtual.|
-
-3. **Crie ambientes de teste de várias VMS** 
-   
-    Pode utilizar modelos Azure Resource Manager para definir a infraestrutura e a configuração da sua solução do Azure e implementar repetidamente o teste de várias VMs num estado consistente.
-
-    Recursos de PaaS do Azure podem ser aprovisionados num ambiente a partir de um modelo do Resource Manager e apresentados no rastreamento de custos. No entanto, o encerramento automático da VM não é aplicável a recursos de PaaS.
-
-    Saiba mais ao clicar nos links na tabela a seguir:
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md) |Saiba como pode implementar várias VMs num estado consistente para o seu ambiente de teste.|
+   | [Gerir fórmulas da DevTest Labs para criar VMs](devtest-lab-manage-formulas.md) |Saiba como pode criar uma fórmula captando uma imagem, tamanho VM (combinação de CPU e RAM) e uma rede virtual.|
 
-4. **Criar artefactos para possibilitar a personalização de VM flexível**
+3. **Criar ambientes de teste multi-VM** 
+   
+    Pode utilizar modelos do Gestor de Recursos Azure para definir a infraestrutura e configuração da sua solução Azure e implementar repetidamente vários VMs de teste num estado consistente.
 
-   Artefactos são utilizados para implementar e configurar a sua aplicação depois de aprovisionar uma VM. Os artefactos podem ser:
+    Os recursos Azure PaaS podem ser provisionados num ambiente a partir de um modelo de Gestor de Recursos e aparecem no rastreio de custos. No entanto, a paragem automática vM não se aplica aos recursos da PaaS.
 
-   - Ferramentas de que pretende instalar na VM - por exemplo, agentes, Fiddler e o Visual Studio.
-   - Ações que pretende executar na VM - por exemplo, a clonagem de um repositório.
-   - Aplicações que pretende testar.
-
-   Muitos artefatos já estão disponível out-of-the-box. Mas se quiser mais personalização para suas necessidades específicas, pode criar seu próprio artefactos personalizados.
-
-   Saiba mais ao clicar nos links na tabela a seguir:
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Criar artefactos personalizados para a sua VM de laboratórios DevTest](devtest-lab-artifact-author.md) |Crie seu próprio artefactos personalizados para as máquinas virtuais no seu laboratório.|
-   | [Adicionar um repositório de Git para armazenar artefactos personalizados e modelos do Azure Resource Manager para utilização no Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Saiba como armazenar os artefactos personalizados no seu próprio repositório de Git privado.|
+   | [Criar ambientes multi-VM e recursos PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md) |Saiba como pode implementar vários VMs num estado consistente para o seu ambiente de teste.|
 
-5. **Controlar os custos**
-   
-    Os laboratórios DevTest do Azure permite-lhe definir uma política no laboratório para especificar o número máximo de VMs que podem ser criadas por um testador no laboratório. 
-   
-    Se sua equipe de teste tem um conjunto de trabalho agenda e pretende parar todas as VMs num determinado momento do dia e, em seguida, automaticamente reiniciá-las do dia seguinte, pode realizar facilmente que ao definir políticas de encerramento automático e início automático no laboratório. 
-   
-    Por fim, quando o desenvolvimento de aplicações estiver concluído, pode eliminar todas as VMs ao mesmo tempo ao executar um único script do PowerShell. 
-   
-    Saiba mais ao clicar nos links na tabela a seguir:
+4. **Criar artefactos para permitir a personalização flexível de VM**
+
+   Os artefactos são usados para implantar e configurar a sua aplicação depois de um VM ser provisionado. Os artefactos podem ser:
+
+   - Ferramentas que pretende instalar no VM - como agentes, Fiddler e Visual Studio.
+   - Ações que pretende executar no VM - como clonar um repo.
+   - Aplicações que quer testar.
+
+   Muitos artefactos já estão disponíveis fora da caixa. Mas se quiser mais personalização para as suas necessidades específicas, pode criar os seus próprios artefactos personalizados.
+
+   Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) |Controlar os custos através da definição de políticas no laboratório. |
-   | [Eliminar todo o laboratório de VMs com um script do PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Elimine todos os laboratórios numa única operação quando o teste é concluído.|
+   | [Crie artefactos personalizados para o seu VM DevTest Labs](devtest-lab-artifact-author.md) |Crie os seus próprios artefactos personalizados para as máquinas virtuais do seu laboratório.|
+   | [Adicione um repositório Git para armazenar artefactos personalizados e modelos de Gestor de Recursos Azure para uso em Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Aprenda a armazenar os seus artefactos personalizados no seu próprio repo git privado.|
 
-1. **Adicionar uma rede virtual a um laboratório** 
+5. **Custos de controlo**
    
-    DevTest Labs cria uma nova rede virtual (VNET) sempre que for criado um laboratório. Se tiver configurado a sua própria VNET – por exemplo, ao utilizar o ExpressRoute ou VPN de site a site – pode adicionar esta VNET para definições de rede virtual do seu laboratório, de modo a que esteja disponível durante a criação de VMs.
-
-    Além disso, existe um Azure Active Directory domínio associação artefato disponível que junta-se a uma VM a um domínio quando a VM está a ser criada. 
+    A Azure DevTest Labs permite-lhe definir uma política no laboratório para especificar o número máximo de VMs que podem ser criados por um teste no laboratório. 
    
-    Saiba mais ao clicar nos links na tabela a seguir:
+    Se a sua equipa de teste tiver um horário de trabalho definido e quiser parar todos os VMs numa determinada hora do dia e, em seguida, reiniciá-los automaticamente no dia seguinte, pode facilmente fazê-lo definindo políticas de paragem automática e arranque automático no laboratório. 
+   
+    Finalmente, quando o desenvolvimento da aplicação estiver concluído, pode eliminar todos os VMs ao mesmo tempo executando um único script PowerShell. 
+   
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Configurar uma rede virtual no Azure DevTest Labs](devtest-lab-configure-vnet.md) |Saiba como configurar uma rede virtual no Azure DevTest Labs no portal do Azure.|
+   | [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) |Controle os custos definindo políticas no laboratório. |
+   | [Elimine todos os VMs de laboratório usando um script PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Elimine todos os laboratórios numa operação quando os testes estiverem completos.|
 
-6. **Partilhar o laboratório com cada testador**
+1. **Adicione uma rede virtual a um Laboratório** 
    
-    Laboratórios podem ser diretamente acessados usando um link que partilha com seus testadores. Até mesmo não têm de ter uma conta do Azure, desde que tenham um [conta Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Os testadores não é possível ver as VMs criadas por outros testadores.  
+    A DevTest Labs cria uma nova rede virtual (VNET) sempre que um laboratório é criado. Se configurar o seu próprio VNET – por exemplo, utilizando o ExpressRoute ou o site-to-site VPN – pode adicionar este VNET às definições de rede virtual do seu laboratório para que esteja disponível na criação de VMs.
+
+    Além disso, existe um domínio azure Ative Directory que une artefacto disponível que une um VM a um domínio quando o VM está sendo criado. 
    
-    Saiba mais ao clicar nos links na tabela a seguir:
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Adicionar um testador a um laboratório no Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Utilize o portal do Azure para adicionar testadores para seu laboratório.|
-   | [Adicionar testadores ao laboratório usando um script do PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Utilize o PowerShell para automatizar a adição testadores para seu laboratório. |
-   | [Obtenha uma ligação para o laboratório](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Saiba como testadores podem aceder diretamente a um laboratório através de um hiperlink.|
+   | [Configure uma rede virtual em Azure DevTest Labs](devtest-lab-configure-vnet.md) |Aprenda a configurar uma rede virtual em Azure DevTest Labs usando o portal Azure.|
 
-7. **Automatizar a criação de laboratório para mais equipas** 
+6. **Partilhe o laboratório com cada teste**
    
-    Pode automatizar a criação de laboratório, incluindo as configurações personalizadas, criando um modelo do Resource Manager e utilizá-lo para criar laboratórios idênticos e novamente. 
+    Os laboratórios podem ser diretamente acedidos usando um link que partilha com os seus testadores. Nem sequer têm de ter uma conta Azure, desde que tenham uma [conta Microsoft.](devtest-lab-faq.md#what-is-a-microsoft-account) Os testadores não conseguem ver VMs criados por outros testadores.  
    
-    Saiba mais ao clicar nos links na tabela a seguir:
+    Saiba mais clicando nos links na tabela seguinte:
    
    | Tarefa | O que irá aprender |
    | --- | --- |
-   | [Criar um laboratório com um modelo do Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Crie laboratórios no Azure DevTest Labs com modelos do Resource Manager. |
+   | [Adicione um teste a um laboratório em Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Use o portal Azure para adicionar testadores ao seu laboratório.|
+   | [Adicione testadores ao laboratório usando um script PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Utilize o PowerShell para automatizar a adição de testadores ao seu laboratório. |
+   | [Obter uma ligação para o laboratório](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Saiba como os testadores podem aceder diretamente a um laboratório através de uma hiperligação.|
+
+7. **Automate criação de laboratório para mais equipas** 
+   
+    Você pode automatizar a criação de laboratório, incluindo configurações personalizadas, criando um modelo de Gestor de Recursos e usando-o para criar laboratórios idênticos uma e outra vez. 
+   
+    Saiba mais clicando nos links na tabela seguinte:
+   
+   | Tarefa | O que irá aprender |
+   | --- | --- |
+   | [Crie um laboratório usando um modelo de Gestor de Recursos](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Crie laboratórios em Laboratórios Azure DevTest usando modelos de Gestor de Recursos. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

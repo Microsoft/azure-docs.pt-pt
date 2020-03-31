@@ -5,10 +5,10 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: chroyal
 ms.openlocfilehash: 78c93880007259267b26cf53e93de722be1c7323
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77209448"
 ---
 # <a name="what-is-blockchain-data-manager-for-azure-blockchain-service"></a>O que é o Blockchain Data Manager para o Azure Blockchain Service?
@@ -25,7 +25,7 @@ O Blockchain Data Manager desempenha três funções principais: capturar, trans
 
 Cada instância do Gestor de Dados blockchain liga-se a um nó de transação do Membro do Serviço Blockchain Azure. Apenas os utilizadores com acesso ao nó de transações podem criar uma ligação garantindo o controlo adequado do acesso aos dados dos clientes. Uma instância do Blockchain Data Manager captura de forma fiável todos os dados de bloqueio bruto e transação bruta do nó de transações e pode escalar para suportar as cargas de trabalho da empresa.
 
-## <a name="transform"></a>Transformar
+## <a name="transform"></a>Transformação
 
 Pode utilizar o Blockchain Data Manager para descodificar o estado de eventos e propriedades configurando aplicações de contratos inteligentes dentro do Blockchain Data Manager. Para adicionar um contrato inteligente, fornece o contrato ABI e bytecode. O Blockchain Data Manager utiliza os artefactos de contrato inteligente para descodificar e descobrir endereços de contrato. Depois de adicionar a aplicação blockchain à instância, o Blockchain Data Manager descobre dinamicamente o endereço de contrato inteligente quando o contrato inteligente é implementado para o consórcio e envia eventos descodificados e estado de propriedade para destinos configurados.
 

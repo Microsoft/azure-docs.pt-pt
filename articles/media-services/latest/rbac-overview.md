@@ -1,6 +1,6 @@
 ---
-title: Controlo de acesso baseado em funções para contas de serviços de multimédia - Azure | Documentos da Microsoft
-description: Este artigo aborda o controlo de acesso baseado em funções (RBAC) para contas de serviços de multimédia do Azure.
+title: Controlo de acesso baseado em papéis para contas de Serviços de Media - Azure Microsoft Docs
+description: Este artigo discute o controlo de acesso baseado em papéis (RBAC) para contas azure media services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,21 +13,21 @@ ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 93b2cd3a2565b14ea07d6db6b14dd146e4223528
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66236907"
 ---
-# <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções (RBAC) para contas de serviços de multimédia
+# <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções (RBAC) para contas de Serviços de Media
 
-Atualmente, os serviços de multimédia do Azure não define quaisquer funções personalizadas específicas para o serviço. Para obter acesso total à conta de Media Services, os clientes podem utilizar as funções incorporadas de **proprietário** ou **contribuinte**. A principal diferença entre estas funções é: o **proprietário** pode controlar quem tem acesso a um recurso e o **contribuinte** não é possível. O incorporado **leitor** também pode ser utilizada a função, mas o utilizador ou a aplicação apenas terá acesso de leitura para as APIs de serviços de multimédia. 
+Atualmente, a Azure Media Services não define quaisquer funções personalizadas específicas do serviço. Para ter acesso total à conta de Media Services, os clientes podem utilizar as funções incorporadas do **Proprietário** ou **Colaborador.** A principal diferença entre estas funções é: o **Proprietário** pode controlar quem tem acesso a um recurso e o **Contribuinte** não pode. A função **de Leitor** incorporado também pode ser utilizada, mas o utilizador ou aplicação só terá lido o acesso às APIs dos Serviços de Comunicação Social. 
 
 ## <a name="design-principles"></a>Princípios de conceção
 
-Um dos principais princípios de design da API v3 é tornar a API mais segura. v3 APIs não devolverem segredos ou as credenciais no **Obtenha** ou **lista** operações. As chaves são sempre nulas, vazias ou saneadas da resposta. O utilizador precisa para chamar um método de ação separada para obter segredos ou as credenciais. O **leitor** função não é possível chamar operações como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Ter ações separadas permite-lhe definir permissões de segurança mais granulares do RBAC numa função personalizada, se assim o desejar.
+Um dos principais princípios de design da API v3 é tornar a API mais segura. v3 APIs não devolvem segredos ou credenciais nas operações **de Get** ou **List.** As chaves são sempre nulas, vazias ou saneadas da resposta. O utilizador precisa de chamar um método de ação separado para obter segredos ou credenciais. A função **do Leitor** não pode chamar operações como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Ter ações separadas permite-lhe definir permissões de segurança RBAC mais granulares numa função personalizada, se desejar.
 
-Para listar as operações dos serviços de multimédia suporta, fazer:
+Para listar as operações suportes dos Media Services, faça:
 
 ```csharp
 foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operations.List())
@@ -36,16 +36,16 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 }
 ```
 
-O [definições de funções incorporadas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) artigo mostra-lhe exatamente o que a função concede. 
+O artigo [de definições de papéis incorporados diz-lhe](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) exatamente qual o papel que concede. 
 
-Veja os artigos seguintes para obter mais informações:
+Consulte os seguintes artigos para obter mais informações:
 
 - [Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
-- [O que é o RBAC para recursos do Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Utilizar o RBAC para gerir o acesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Operações de fornecedor de recursos de serviços de multimédia](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
+- [O que é RBAC para os recursos Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Use o RBAC para gerir o acesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
+- [Operações de prestadorde de serviços de mídia](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Desenvolvimento com os serviços de multimédia de v3 APIs](media-services-apis-overview.md)
-- [Obter política chave conteúda através do .NET de serviços de suporte de dados](get-content-key-policy-dotnet-howto.md)
+- [Desenvolvimento com Media Services v3 APIs](media-services-apis-overview.md)
+- [Obtenha a política chave de conteúdo usando Media Services .NET](get-content-key-policy-dotnet-howto.md)

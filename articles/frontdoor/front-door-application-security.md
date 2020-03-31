@@ -1,6 +1,6 @@
 ---
-title: Serviço de porta de entrada do Azure - segurança de camada de aplicativos | Documentos da Microsoft
-description: Este artigo ajuda-o a compreender como o serviço de porta de entrada do Azure permite proteger e proteger o seu back-ends de aplicação
+title: Porta da Frente Azure - Segurança da camada de aplicação / Microsoft Docs
+description: Este artigo ajuda-o a entender como a Porta Frontal Azure permite proteger e proteger os backends da sua aplicação
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,45 +11,45 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193922"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471800"
 ---
-# <a name="application-layer-security-with-front-door"></a>Segurança de camada de aplicação com a porta de entrada
-Serviço de porta de entrada do Azure fornece a capacidade de proteção de aplicações web para salvaguardar os seus aplicativos web de ataques de rede e explorações de vulnerabilidades web comuns, como Injeção de SQL ou Cross Site XSS (script). Ativada para http (s) front-ends, segurança de camada de aplicativos da porta de entrada é distribuída globalmente e sempre, ataques maliciosos de parar na rede do Azure de borda, longe do seu back-ends. Com maior segurança e a otimização de desempenho, desde início rápido fornece e experiências na web segura aos seus utilizadores finais.
+# <a name="application-layer-security-with-front-door"></a>Segurança da camada de aplicação com porta da frente
+O Azure Front Door fornece capacidade de proteção de aplicações web para proteger as suas aplicações web de ataques de rede e vulnerabilidades comuns da web explorações como A Injeção SQL ou Scripting Cross Site (XSS). Habilitada para http(s) front-ends, a segurança da camada de aplicação da Front Door é distribuída globalmente e sempre em, impedindo ataques maliciosos na borda da rede do Azure, longe dos seus backends. Com uma maior otimização de segurança e desempenho, a Porta Frontal oferece experiências web rápidas e seguras aos seus utilizadores finais.
 
 ## <a name="application-protection"></a>Proteção de aplicações
-Proteção de aplicações da porta de entrada está configurada em cada ambiente de borda em todo o mundo, de acordo com as aplicações e bloqueia automaticamente o não-tráfego HTTP (s) de chegar aos seus aplicativos web. Nossa arquitetura distribuída do multi-inquilino permite proteção global em escala, sem sacrificar o desempenho. Para cargas de trabalho do HTTP (s), serviço de proteção de aplicações da porta de entrada web fornece um mecanismo de regras avançadas para regras personalizadas, o conjunto de regras pré-configuradas contra ataques comuns, e detalhadas para todos os pedidos de registo que corresponde a uma regra. Ações flexíveis, incluindo permitir, bloquear ou registo apenas são suportadas.
+A proteção de aplicações da Front Door está configurada em cada ambiente de borda em todo o mundo, em consonância com as aplicações, e bloqueia automaticamente o tráfego não-http(s) de chegar às suas aplicações web. A nossa arquitetura distribuída multi-inquilino permite a proteção global em escala sem sacrificar o desempenho. Para http(s) cargas de trabalho, o serviço de proteção de aplicações web da Front Door fornece um motor de regras ricas para regras personalizadas, regras pré-configuradas contra ataques comuns, e registo detalhado para todos os pedidos que correspondam a uma regra. As ações flexíveis, incluindo permitir, bloquear ou registar apenas, são suportadas.
 
 ## <a name="custom-access-control-rules"></a>Regras de controlo de acesso personalizado
-- **As permissões de IP lista e a lista de bloqueios:** Só pode configurar regras personalizadas para controlar o acesso às suas aplicações web com base na lista de endereços IP do cliente. Endereço IP v4 e IP v6 são suportados
-- **Controlo de acesso baseado em geográfica:** Pode configurar regras personalizadas para controlar o acesso às suas aplicações web com base num IP de cliente é a partir de código de país
-- **Parâmetros HTTP de filtragem:** Pode configurar regras de acesso personalizado com base na correspondência de parâmetros de pedido de HTTP (s) incluindo cabeçalhos, URL e cadeias de consulta
+- **IP permitir lista e lista de blocos:** Pode configurar regras personalizadas para controlar o acesso às suas aplicações web com base na lista de endereços IP do cliente. Tanto ip v4 como IP v6 são suportados
+- **Controlo de acesso baseado em geográficos:** Pode configurar regras personalizadas para controlar o acesso às suas aplicações web com base no código do país de que um cliente IP é
+- **Filtragem de parâmetros HTTP:** Pode configurar regras de acesso personalizadas com base em parâmetros de pedido correspondentes http(s), incluindo cabeçalhos, URL e cordas de consulta
 
-## <a name="azure-managed-rules"></a>Regras de geridos pelo Azure
-- Um conjunto pré-configuradas de regras em relação a vulnerabilidades mais comuns da OWASP superior está ativado por predefinição. Na pré-visualização, o conjunto de regras inclui pedidos sqli e xss, a verificação. Regras adicionais serão adicionadas. Pode optar por começar com uma única ação de registo para validar o trabalho de regras pré-configuradas conforme esperado para as suas aplicações 
+## <a name="azure-managed-rules"></a>Regras geridas pelo Azure
+- Um conjunto de regras reconfiguradas contra vulnerabilidades owasp de topo comum é ativado por padrão. Na pré-visualização, o conjunto de regras inclui verificação de pedidos de sqli e xss. Serão adicionadas regras adicionais. Pode optar por iniciar apenas a ação de log para validar regras pré-configuradas funciona como esperado para as suas aplicações 
 
-## <a name="rate-limiting"></a>Limitação de velocidade
-- Uma regra de controlo de taxa é limitar o tráfego elevado anormal de qualquer IP de cliente.  Pode definir um limite no número de solicitações da web permitido por um IP de cliente durante um período de um minuto.
+## <a name="rate-limiting"></a>Rate limiting (Limitação de taxa)
+- Uma regra de controlo de tarifas é limitar o tráfego anormal de qualquer CLIENTE IP.  Pode estabelecer um limiar no número de pedidos web permitidos por um IP cliente durante um minuto de duração.
 
-## <a name="centralized-protection-policy"></a>Política de proteção centralizada
-- Pode definir várias regras de proteção e adicioná-los a uma política de ordem de prioridade. Regras personalizadas têm maior prioridade que ruleset gerida para permitir exceções. Uma única política está associada à sua aplicação web.  Mesma política de proteção de aplicações web é replicada para todos os servidores de borda em todos os locais, certifique-se a política de segurança consistente em todas as regiões
+## <a name="centralized-protection-policy"></a>Política centralizada de proteção
+- Pode definir várias regras de proteção e adicioná-las a uma Política em ordem prioritária. As regras personalizadas têm uma prioridade maior do que as regras geridas para permitir exceções. Uma única política está associada à sua aplicação web.  A mesma política de proteção de aplicações web é replicada para todos os servidores de borda em todos os locais, garantir uma política de segurança consistente em todas as regiões
 
 ## <a name="configuration"></a>Configuração
-- Durante a pré-visualização, pode utilizar as APIs REST, PowerShell ou CLI para criar e implementar políticas e regras de proteção de aplicações da porta de entrada. Acesso ao portal será suportado antes do serviço está disponível em geral. 
+- Durante a pré-visualização, pode utilizar APIs REST, PowerShell ou CLI para criar e implementar as regras e políticas de proteção de aplicações da Porta Frontal. O acesso ao portal será suportado antes de o serviço estar geralmente disponível. 
 
 
 ## <a name="monitoring"></a>Monitorização
-Porta de entrada fornece a capacidade de monitorizar as aplicações web contra ataques através de métricas em tempo real que estão integradas com o Azure Monitor para acompanhar os alertas e monitorizar tendências facilmente.
+A Porta Frontal fornece a capacidade de monitorizar aplicações web contra ataques usando métricas em tempo real que estão integradas com o Azure Monitor para rastrear alertas e monitorizar facilmente as tendências.
 
 ## <a name="pricing"></a>Preços
-Segurança de camada de aplicativos da porta de entrada é gratuita durante a pré-visualização.
+A segurança da camada de aplicação da Porta Frontal é gratuita durante a pré-visualização.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

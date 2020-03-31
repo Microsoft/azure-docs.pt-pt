@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 17be351d4af3d277242af70ea96e8735a5f68bc9
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78329090"
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada do runbook
@@ -100,22 +100,22 @@ Siga estes passos para configurar os parâmetros de entrada.
    * Parâmetro 1:
         * **Nome** -- **VMName**
         * **Tipo** - Corda
-        * **Obrigatório** -- **Não**
+        * **Não obrigatório** -- **No**
 
    * Parâmetro 2:
-        * **Nome** -- **recursoGroupName**
+        * **Nome de** -- **recursoGroupName**
         * **Tipo** - Corda
-        * **Obrigatório** -- **Não**
+        * **Não obrigatório** -- **No**
         * **Valor padrão** -- **Personalizado**
         * Valor padrão personalizado -- Nome do grupo de recursos que contém os VMs
 
 5. Ver os parâmetros no controlo de entrada e saída. 
-6. Clique ok novamente e, em seguida, clique em **Guardar**.
+6. Clique **OK** ok novamente e, em seguida, clique em **Guardar**.
 7. Clique em **Publicar** para publicar o seu livro de execução.
 
 ### <a name="configure-input-parameters-in-python-runbooks"></a>Configure parâmetros de entrada em livros de execução python
 
-Ao contrário da PowerShell, PowerShell Workflow e livros gráficos, os livros de execução python não têm parâmetros nomeados. O editor do livro de corridas analisa todos os parâmetros de entrada como uma variedade de valores de argumento. Você pode aceder à matriz importando o módulo **sys** no seu script Python e, em seguida, usando a matriz **sys.argv.** É importante notar que o primeiro elemento da matriz, `sys.argv[0]`, é o nome do script. Por conseguinte, o primeiro parâmetro de entrada real é *sys.argv[1]* .
+Ao contrário da PowerShell, PowerShell Workflow e livros gráficos, os livros de execução python não têm parâmetros nomeados. O editor do livro de corridas analisa todos os parâmetros de entrada como uma variedade de valores de argumento. Você pode aceder à matriz importando o módulo **sys** no seu script Python e, em seguida, usando a matriz **sys.argv.** É importante notar que o primeiro elemento `sys.argv[0]`da matriz, é o nome do script. Por conseguinte, o primeiro parâmetro de entrada real é *sys.argv[1]*.
 
 Para um exemplo de como usar parâmetros de entrada num livro python, consulte o meu primeiro livro python [em Automação Azure](automation-first-runbook-textual-python2.md).
 
@@ -126,7 +126,7 @@ Esta secção descreve várias formas de passar valores para os parâmetros de e
 * [Iniciar um runbook](#start-a-runbook-and-assign-parameters)
 * [Testar um runbook](#test-a-runbook-and-assign-parameters)
 * [Ligue um horário para o livro de corridas](#link-a-schedule-to-a-runbook-and-assign-parameters)
-* [Crie um webhook para o livro de corridas](#create-a-webhook-for-a-runbook-and-assign-parameters)
+* [Criar um webhook para o runbook](#create-a-webhook-for-a-runbook-and-assign-parameters)
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Inicie um livro de corridas e atribua parâmetros
 
@@ -167,7 +167,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
 
 #### <a name="start-a-runbook-using-an-sdk-and-assign-parameters"></a>Inicie um livro de corridas usando um SDK e atribua parâmetros
 
-* **Método de Gestor de Recursos Azure:** Pode iniciar um livro de execução utilizando o SDK de uma linguagem de programação. Abaixo está C# um código para iniciar um livro de execução na sua conta Deautomação. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)  
+* **Método de Gestor de Recursos Azure:** Pode iniciar um livro de execução utilizando o SDK de uma linguagem de programação. Abaixo está um snippet de código C# para iniciar um livro de execução na sua conta Deautomação. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)  
 
    ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -187,7 +187,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
       }
    ```
 
-* Método de modelo de **implantação clássico azure:** Pode iniciar um livro de recorrem utilizando o SDK de uma linguagem de programação. Abaixo está C# um código para iniciar um livro de execução na sua conta Deautomação. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)
+* Método de modelo de **implantação clássico azure:** Pode iniciar um livro de recorrem utilizando o SDK de uma linguagem de programação. Abaixo está um snippet de código C# para iniciar um livro de execução na sua conta Deautomação. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)
 
    ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -207,7 +207,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
     }
    ```
 
-   Para iniciar este método, crie um dicionário para armazenar os parâmetros *vMName* e *resourceGroupName* e os seus valores. Então comece o livro de corridas. Abaixo está C# o código para chamar o método que é definido acima.
+   Para iniciar este método, crie um dicionário para armazenar os parâmetros *vMName* e *resourceGroupName* e os seus valores. Então comece o livro de corridas. Abaixo está o snippet de código C# para chamar o método que é definido acima.
 
    ```csharp
    IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
@@ -222,14 +222,14 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
 
 #### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>Inicie um livro de corridas utilizando a API REST e atribua parâmetros
 
-Pode criar e iniciar um trabalho de livro com a API de automação azure, utilizando o método **PUT** com o seguinte pedido URI: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
+Pode criar e iniciar um trabalho de livro com a API de Automação Azure, utilizando o método **PUT** com o seguinte pedido URI:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobs/{jobName}?api-version=2017-05-15-preview`
 
 No pedido URI, substitua os seguintes parâmetros:
 
 * *subscriçãoId*: O seu ID de subscrição Azure.  
 * *recursosGroupName*: O nome do grupo de recursos para a conta Automation.
 * *automaçãoNome de conta*: O nome da conta Automation que está hospedado dentro do serviço de nuvem especificado.  
-* *nome do trabalho*: O GUID para o trabalho. GuiDs em PowerShell podem ser criados usando `[GUID]::NewGuid().ToString()*`.
+* *nome do trabalho*: O GUID para o trabalho. GuiDs em PowerShell podem `[GUID]::NewGuid().ToString()*`ser criados usando .
 
 Para passar os parâmetros para o trabalho do livro de corridas, use o corpo de pedido. Tem as seguintes informações, fornecidas no formato JSON:
 
@@ -282,7 +282,7 @@ Esta secção utiliza um exemplo no qual um script PowerShell chama [Start-AzAut
 
 ### <a name="create-the-json-file"></a>Criar o ficheiro JSON
 
-Digite o seguinte código num ficheiro de texto e guarde-o como `test.json` algures no seu computador local.
+Digite o seguinte código num ficheiro `test.json` de texto e guarde-o como em algum lugar do seu computador local.
 
 ```json
 {
@@ -330,13 +330,13 @@ Agora pode ligar para o livro de execução da sua máquina local utilizando o A
     >[!NOTE]
     >Para os livros de execução PowerShell, **Add-AzAccount** e **Add-AzureRMAccount** são pseudónimos de **Connect-AzAccount**. Note que estes pseudónimos não estão disponíveis para livros gráficos. Um livro de execução gráfico só pode usar o **próprio Connect-AzAccount.**
 
-1. Obtenha o conteúdo do ficheiro JSON guardado e converta-o numa corda. `JsonPath` é o caminho onde guardou o ficheiro JSON.
+1. Obtenha o conteúdo do ficheiro JSON guardado e converta-o numa corda. `JsonPath`é o caminho onde guardou o ficheiro JSON.
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
    ```
 
-1. Converta o conteúdo da cadeia de `$json` num objeto PowerShell.
+1. Converta o `$json` conteúdo da corda num objeto PowerShell.
 
    ```powershell
    $JsonParams = @{"json"=$json}

@@ -1,6 +1,6 @@
 ---
-title: Evento de falha de tarefa do lote do Azure
-description: Referência de evento de falha de tarefa em lote. Esse evento será emitido além de um evento de conclusão de tarefa e poderá ser usado para detectar quando uma tarefa falhou.
+title: Evento de falha de tarefa do Lote Azure
+description: Referência para evento de falha de tarefa de lote. Este evento será emitido para além de um evento completo de tarefas e pode ser usado para detetar quando uma tarefa falhou.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -12,18 +12,18 @@ ms.workload: big-compute
 ms.date: 08/15/2019
 ms.author: labrenne
 ms.openlocfilehash: 2bc958d6dca2b3caae665e6f9b080c651ace9ea0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022890"
 ---
 # <a name="task-fail-event"></a>Evento de falha de tarefa
 
- Esse evento é emitido quando uma tarefa é concluída com uma falha. Atualmente, todos os códigos de saída diferentes de zero são considerados falhas. Esse evento será emitido *além* de um evento de conclusão de tarefa e poderá ser usado para detectar quando uma tarefa falhou.
+ Este evento é emitido quando uma tarefa completa com uma falha. Atualmente, todos os códigos de saída não zero são considerados falhas. Este evento será emitido *para além* de um evento completo de tarefas e pode ser usado para detetar quando uma tarefa falhou.
 
 
- O exemplo a seguir mostra o corpo de um evento de falha de tarefa.
+ O exemplo que se segue mostra o corpo de um evento de falha de tarefa.
 
 ```
 {
@@ -53,41 +53,41 @@ ms.locfileid: "77022890"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`jobId`|Cadeia|A ID do trabalho que contém a tarefa.|
-|`id`|Cadeia|A ID da tarefa.|
-|`taskType`|Cadeia|O tipo da tarefa. Pode ser ' JobManager ' indicando que se trata de uma tarefa do Gerenciador de trabalho ou ' user ', indicando que ele não é uma tarefa do Gerenciador de trabalho. Esse evento não é emitido para tarefas de preparação de trabalho, tarefas de liberação de trabalho ou tarefas de inicialização.|
-|`systemTaskVersion`|Int32|Este é o contador de repetição interno em uma tarefa. Internamente, o serviço de lote pode repetir uma tarefa para considerar problemas transitórios. Esses problemas podem incluir erros de agendamento internos ou tentativas de recuperação de nós de computação em um estado inadequado.|
-|[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação no qual a tarefa foi executada.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa de várias instâncias que requer vários nós de computação.  Consulte [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
-|[`constraints`](#constraints)|Tipo complexo|As restrições de execução que se aplicam a essa tarefa.|
+|`jobId`|Cadeia|A identificação do trabalho que contém a tarefa.|
+|`id`|Cadeia|A identificação da tarefa.|
+|`taskType`|Cadeia|O tipo de tarefa. Isto pode ser 'JobManager' indicando que se trata de uma tarefa de gestor de emprego ou de 'Utilizador' indicando que não é uma tarefa de gestor de emprego. Este evento não é emitido para tarefas de preparação de emprego, tarefas de libertação de emprego ou tarefas de início.|
+|`systemTaskVersion`|Int32|Este é o contador de retry interno numa tarefa. Internamente, o serviço Batch pode voltar a tentar uma tarefa para responder a questões transitórias. Estas questões podem incluir erros de agendamento interno ou tentativas de recuperação de nóóis computacionais em mau estado.|
+|[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó computacional sobre o qual a tarefa funcionou.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma Tarefa multi-instância que requer vários nódosos de computação.  Veja [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) mais detalhes.|
+|[`constraints`](#constraints)|Tipo complexo|Os constrangimentos de execução que se aplicam a esta tarefa.|
 |[`executionInfo`](#executionInfo)|Tipo complexo|Contém informações sobre a execução da tarefa.|
 
-###  <a name="nodeInfo"></a>nodeInfo
+###  <a name="nodeinfo"></a><a name="nodeInfo"></a>nodeInfo
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|Cadeia|A ID do pool no qual a tarefa foi executada.|
-|`nodeId`|Cadeia|A ID do nó no qual a tarefa foi executada.|
+|`poolId`|Cadeia|A identificação da piscina em que a tarefa correu.|
+|`nodeId`|Cadeia|A identificação do nó em que a tarefa correu.|
 
-###  <a name="multiInstanceSettings"></a>multiInstanceSettings
-
-|Nome do elemento|Tipo|Notas|
-|------------------|----------|-----------|
-|`numberOfInstances`|Int32|O número de nós de computação exigidos pela tarefa.|
-
-###  <a name="constraints"></a>reflexiva
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstânciaSDefinições
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`maxTaskRetryCount`|Int32|O número máximo de vezes que a tarefa pode ser repetida. O serviço de lote repete uma tarefa se seu código de saída for diferente de zero.<br /><br /> Observe que esse valor controla especificamente o número de repetições. O serviço de lote tentará executar a tarefa uma vez e, em seguida, poderá tentar novamente até esse limite. Por exemplo, se a contagem máxima de repetições for 3, o lote tentará uma tarefa até quatro vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de repetições for 0, o serviço de lote não repetirá as tarefas.<br /><br /> Se a contagem máxima de repetições for-1, o serviço de lote tentará novamente as tarefas sem limite.<br /><br /> O valor padrão é 0 (sem repetições).|
+|`numberOfInstances`|Int32|O número de nós computacionais exigidos pela tarefa.|
 
-
-###  <a name="executionInfo"></a>executionInfo
+###  <a name="constraints"></a><a name="constraints"></a>constrangimentos
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`startTime`|DateTime|A hora em que a tarefa começou a ser executada. ' Running ' corresponde ao estado de **execução** , portanto, se a tarefa especificar arquivos de recursos ou pacotes de aplicativos, a hora de início refletirá a hora em que a tarefa começou a baixar ou a implantar.  Se a tarefa foi reiniciada ou tentada novamente, essa é a hora mais recente na qual a tarefa começou a ser executada.|
-|`endTime`|DateTime|A hora em que a tarefa foi concluída.|
+|`maxTaskRetryCount`|Int32|O número máximo de vezes que a tarefa pode ser novamente tentada. O serviço 'Lote' retenta uma tarefa se o seu código de saída não for zero.<br /><br /> Note que este valor controla especificamente o número de repetições. O serviço Batch tentará a tarefa uma vez e poderá, em seguida, voltar a tentar até este limite. Por exemplo, se a contagem máxima de repetição for de 3, o Lote tenta uma tarefa até 4 vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de retry for de 0, o serviço De lote não retry tarefas.<br /><br /> Se a contagem máxima de retry for -1, o serviço de lote retenta tarefas sem limite.<br /><br /> O valor predefinido é 0 (sem repetições).|
+
+
+###  <a name="executioninfo"></a><a name="executionInfo"></a>execuçãoInfo
+
+|Nome do elemento|Tipo|Notas|
+|------------------|----------|-----------|
+|`startTime`|DateTime|O tempo em que a tarefa começou a decorrer. 'Running' corresponde ao estado de **funcionamento,** pelo que se a tarefa especifica ficheiros de recursos ou pacotes de aplicações, então o tempo de início reflete o tempo em que a tarefa começou a descarregar ou a implantá-los.  Se a tarefa foi reiniciada ou novamente tentada, este é o momento mais recente em que a tarefa começou a decorrer.|
+|`endTime`|DateTime|O tempo em que a tarefa foi concluída.|
 |`exitCode`|Int32|O código de saída da tarefa.|
-|`retryCount`|Int32|O número de vezes que a tarefa foi repetida pelo serviço de lote. A tarefa será repetida se for encerrada com um código de saída diferente de zero, até o MaxTaskRetryCount especificado.|
-|`requeueCount`|Int32|O número de vezes que a tarefa foi recolocada na fila pelo serviço de lote como resultado de uma solicitação de usuário.<br /><br /> Quando o usuário remove nós de um pool (redimensionando ou reduzindo o pool) ou quando o trabalho está sendo desabilitado, o usuário pode especificar que as tarefas em execução nos nós sejam recolocadas na fila para execução. Essa contagem controla quantas vezes a tarefa foi recolocada em fila por esses motivos.|
+|`retryCount`|Int32|O número de vezes que a tarefa foi novamente tentada pelo serviço Batch. A tarefa é novamente tentada se sair com um código de saída não zero, até ao específico MaxTaskRetryCount.|
+|`requeueCount`|Int32|O número de vezes que a tarefa foi requeued pelo serviço Batch como resultado de um pedido do utilizador.<br /><br /> Quando o utilizador remove os nós de uma piscina (redimensionando ou diminuindo a piscina) ou quando o trabalho está a ser desativado, o utilizador pode especificar que as tarefas de execução nos nós são requeidas para execução. Esta contagem acompanha quantas vezes a tarefa foi ressonada por estas razões.|

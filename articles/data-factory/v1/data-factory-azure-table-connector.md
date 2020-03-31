@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260452"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados de e para a Tabela Azure utilizando a Azure Data Factory
@@ -50,13 +50,13 @@ Quando utiliza o assistente, as definições jSON para estas entidades da Fábri
 
 As seguintes secções fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades da Fábrica de Dados específicas do Armazenamento de Tabelas Azure: 
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 Existem dois tipos de serviços ligados que pode utilizar para ligar um armazenamento de blob Azure a uma fábrica de dados Azure. São eles: Serviço ligado ao **AzureStorage** e serviço ligado ao **AzureStorageSas.** O serviço ligado ao Armazenamento Azure fornece à fábrica de dados acesso global ao Armazenamento Azure. Considerando que o serviço ligado ao armazenamento Azure SAS (Assinatura de Acesso Partilhado) fornece à fábrica de dados um acesso restrito/limitado ao armazenamento do Azure. Não existem outras diferenças entre estes dois serviços ligados. Escolha o serviço vinculado que se adapte às suas necessidades. As seguintes secções fornecem mais detalhes sobre estes dois serviços ligados.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
+Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjuntos de dados (Azure SQL, Azure blob, tabela Azure, etc.).
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **typeProperties** para o conjunto de dados do tipo **AzureTable** tem as seguintes propriedades.
 
@@ -64,7 +64,7 @@ A secção typeProperties é diferente para cada tipo de conjunto de dados e for
 | --- | --- | --- |
 | tableName |Nome da tabela na instância de base de dados de mesa azure a que o serviço ligado se refere. |Sim. Quando um nome de mesa é especificado sem um azureTableSourceQuery, todos os registos da tabela são copiados para o destino. Se for também especificado um azureTableSourceQuery, os registos da tabela que satisfaz a consulta são copiados para o destino. |
 
-### <a name="schema-by-data-factory"></a>Esquema pelo Data Factory
+### <a name="schema-by-data-factory"></a>Schema by Data Factory
 Para lojas de dados sem esquemas, como a Tabela Azure, o serviço Data Factory infere o esquema de uma das seguintes formas:
 
 1. Se especificar a estrutura dos dados utilizando a propriedade da **estrutura** na definição de conjunto de dados, o serviço Data Factory honra esta estrutura como o esquema. Neste caso, se uma linha não contiver um valor para uma coluna, é-lhe previsto um valor nulo.
@@ -73,7 +73,7 @@ Para lojas de dados sem esquemas, como a Tabela Azure, o serviço Data Factory i
 Por conseguinte, para fontes de dados sem esquemas, a melhor prática é especificar a estrutura dos dados utilizando a propriedade da **estrutura.**
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, conjuntos de dados de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções & propriedades disponíveis para definir atividades, consulte o artigo [Creating Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, conjuntos de dados de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
 
 As propriedades disponíveis na secção tipoPropriedades da atividade por outro lado variam com cada tipo de atividade. Para a atividade de Cópia, variam dependendo dos tipos de fontes e pias.
 
@@ -82,7 +82,7 @@ As propriedades disponíveis na secção tipoPropriedades da atividade por outro
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Use a consulta personalizada para ler dados. |Corda de consulta de mesa azul. Veja exemplos na secção seguinte. |Não. Quando um nome de mesa é especificado sem um azureTableSourceQuery, todos os registos da tabela são copiados para o destino. Se for também especificado um azureTableSourceQuery, os registos da tabela que satisfaz a consulta são copiados para o destino. |
-| azureTableSourceIgnoreTableNotFound |Indique se não existe a exceção da mesa. |TRUE<br/>FALSO |Não |
+| azureTableSourceIgnoreTableNotFound |Indique se não existe a exceção da mesa. |TRUE<br/>FALSE |Não |
 
 ### <a name="azuretablesourcequery-examples"></a>exemplos azureTableSourceQuery
 Se a coluna da tabela azure for do tipo de corda:
@@ -103,10 +103,10 @@ Se a coluna Azure Table for do tipo data:
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Valor da chave da divisória padrão que pode ser usado pela pia. |Um valor de corda. |Não |
 | azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são utilizados como teclas de partição. Se não especificado, o AzureTableDefaultPartitionKeyValue é utilizado como chave de partição. |Um nome de coluna. |Não |
-| azureTableRowKeyName |Especifique o nome da coluna cujos valores de coluna são utilizados como chave de linha. Se não especificado, utilize um GUID para cada linha. |Um nome de coluna. |Não |
+| nome chave azureTableRow |Especifique o nome da coluna cujos valores de coluna são utilizados como chave de linha. Se não especificado, utilize um GUID para cada linha. |Um nome de coluna. |Não |
 | azureTableInsertType |O modo de inserir dados na tabela Azure.<br/><br/>Esta propriedade controla se as linhas existentes na tabela de saída com divisória seletiva e chaves de linha correspondentes têm os seus valores substituídos ou fundidos. <br/><br/>Para saber como funcionam estas definições (fundir e substituir), consulte [inserir ou fundir tópicos de Entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e Inserir ou Substituir tópicos da [Entidade.](https://msdn.microsoft.com/library/azure/hh452242.aspx) <br/><br> Esta definição aplica-se ao nível da linha, não ao nível da tabela, e nenhuma das opções elimina linhas no quadro de saída que não existam na entrada. |fusão (padrão)<br/>substituir |Não |
-| writeBatchSize |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout for atingido. |Inteiro (número de linhas) |Não (padrão: 10000) |
-| writeBatchTimeout |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout são atingidos |TimeSpan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (Predefinido para armazenar valor de tempo de saída do cliente 90 seg) |
+| escreverBatchSize |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout for atingido. |Inteiro (número de linhas) |Não (padrão: 10000) |
+| escreverBatchTimeout |Insere os dados na tabela Azure quando o writeBatchSize ou o writeBatchTimeout são atingidos |tempospan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (Predefinido para armazenar valor de tempo de saída do cliente 90 seg) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 Mapeie uma coluna de origem para uma coluna de destino utilizando a propriedade JSON do tradutor antes de poder utilizar a coluna de destino como o nome chave da tabela de divisórias azureTable.
@@ -135,7 +135,7 @@ Os exemplos seguintes fornecem definições JSON de amostra que pode usar para c
 ## <a name="example-copy-data-from-azure-table-to-azure-blob"></a>Exemplo: Copiar dados da tabela Azure para o Blob Azure
 A amostra que se segue mostra:
 
-1. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (utilizado tanto para mesa como para blob).
+1. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (utilizado para ambas as tabelas & bolha).
 2. Um conjunto de [dados](data-factory-create-datasets.md) de entrada do tipo [AzureTable](#dataset-properties).
 3. Um [conjunto](data-factory-create-datasets.md) de dados de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 4. O [gasoduto](data-factory-create-pipelines.md) com a atividade Copy que utiliza o AzureTableSource e o [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
@@ -302,14 +302,14 @@ O pipeline contém uma Atividade de Cópia que está configurada para utilizar o
 ## <a name="example-copy-data-from-azure-blob-to-azure-table"></a>Exemplo: Copiar dados de Azure Blob para Tabela Azure
 A amostra que se segue mostra:
 
-1. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (utilizado tanto para mesa como para blob)
+1. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (utilizado para ambas as tabelas & blob)
 2. Um conjunto de [dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 3. Um [conjunto](data-factory-create-datasets.md) de dados de saída do tipo [AzureTable](#dataset-properties).
 4. O [gasoduto](data-factory-create-pipelines.md) com a atividade Copy que utiliza [blobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e [AzureTableSink](#copy-activity-properties).
 
 A amostra copia dados da série temporal de uma bolha Azure para uma mesa Azure de hora a hora. As propriedades JSON utilizadas nestas amostras são descritas em secções que seguem as amostras.
 
-**Serviço ligado ao armazenamento Azure (tanto para a Tabela Azure como para a Blob):**
+**Serviço ligado ao armazenamento Azure (para ambos os serviços ligados à Mesa Azure & Blob):**
 
 ```JSON
 {
@@ -472,18 +472,18 @@ Conforme mencionado no artigo de atividades de movimento de [dados,](data-factor
 1. Converter de tipos de origem nativa para .NET tipo
 2. Converter do tipo .NET para o tipo de pia nativa
 
-Ao mover dados para & a partir da Tabela Azure, os [seguintes mapeamentos definidos pelo serviço Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) são utilizados desde os tipos OData de Tabela Azure para o tipo .NET e vice-versa.
+Ao mover dados para & da Tabela Azure, os [seguintes mapeamentos definidos pelo serviço Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) são utilizados desde os tipos oData de Tabela Azure para o tipo .NET e vice-versa.
 
-| Tipo de dados odados | Tipo .NET | Detalhes |
+| Tipo de Dados OData | Tipo .NET | Detalhes |
 | --- | --- | --- |
 | Edm.Binary |byte[] |Uma série de bytes até 64 KB. |
 | Edm.Boolean |bool |Um valor booleano. |
 | Edm.DateTime |DateTime |Um valor de 64 bits expresso como Tempo Universal Coordenado (UTC). A gama DateTime suportada começa a partir das 12:00, 1 de janeiro de 1601 d.A. (C.E.), UTC. A gama termina em 31 de dezembro de 9999. |
 | Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
-| Edm.Guid |Guid |Um identificador globalmente único de 128 bits. |
+| Edm.Guid |GUID |Um identificador globalmente único de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
-| Edm.String |String |Um valor codificado uTF-16. Os valores das cordas podem chegar a 64 KB. |
+| Edm.String |Cadeia |Um valor codificado uTF-16. Os valores das cordas podem chegar a 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Amostra de conversão de tipo
 A amostra que se segue destina-se a copiar dados de um Azure Blob para a Tabela Azure com conversões de tipo.
@@ -536,7 +536,7 @@ Dado o mapeamento do tipo de tipo do tipo OData de Tabela Azure para o tipo .NET
 
 | Nome da coluna | Tipo |
 | --- | --- |
-| ID de utilizador |Edm.Int64 |
+| usado |Edm.Int64 |
 | nome |Edm.String |
 | lastlogindate |Edm.DateTime |
 
@@ -565,4 +565,4 @@ Neste caso, a Data Factory faz automaticamente conversões de tipo, incluindo o 
 > Para mapear colunas desde o conjunto de dados de origem até colunas a partir de conjunto de dados de sumidouro, consulte [colunas de conjunto de dados de mapeamento na Fábrica](data-factory-map-columns.md)de Dados Azure .
 
 ## <a name="performance-and-tuning"></a>Desempenho e Afinação
-Para conhecer os factores-chave que impactam o desempenho do movimento de dados (Copy Activity) na Fábrica de Dados Do Azure e várias formas de o otimizar, consulte [o Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md).
+Para conhecer os factores-chave que impactam o desempenho do movimento de dados (Copy Activity) na Fábrica de Dados Do Azure e várias formas de o otimizar, consulte o [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md).

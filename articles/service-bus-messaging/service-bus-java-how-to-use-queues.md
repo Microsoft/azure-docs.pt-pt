@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 01/24/2020
+ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 25471f2cab4362d270638ee49ed8d1840aa5cdfa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ac6bc8f78bd3d526e68dba3e81825a28a9ac47f7
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79213031"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294134"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Quickstart: Use as filas de ônibus do Azure Service com a Java para enviar e receber mensagens
 
@@ -41,11 +41,14 @@ Neste tutorial, aprende-se a criar aplicações Java para enviar mensagens e rec
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configure a sua aplicação para utilizar o Service Bus
-Certifique-se de que instalou o [SDK Azure para Java][Azure SDK for Java] antes de construir esta amostra. Se estiver a utilizar o Eclipse, pode instalar o [Kit de Ferramentas Azure para eclipse][Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar as **Bibliotecas Microsoft Azure para Java** ao seu projeto:
+Certifique-se de que instalou o [SDK Azure para Java][Azure SDK for Java] antes de construir esta amostra. 
+
+Se estiver a utilizar o Eclipse, pode instalar o [Kit de Ferramentas Azure para eclipse][Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar as **Bibliotecas Microsoft Azure para Java** ao seu projeto. Se estiver a utilizar o IntelliJ, consulte [Instalar o Kit de Ferramentas Azure para IntelliJ](/azure/java/intellij/azure-toolkit-for-intellij-installation). 
 
 ![Adicione bibliotecas Microsoft Azure para Java ao seu projeto Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
-Adicione as seguintes declarações `import` ao topo do ficheiro Java:
+
+Adicione as `import` seguintes declarações ao topo do ficheiro Java:
 
 ```java
 // Include the following imports to use Service Bus APIs
@@ -126,7 +129,7 @@ Como o Service Bus marcou a mensagem como sendo consumida, então quando a aplic
 
 No modo **PeekLock,** o receive torna-se uma operação de duas fases, o que permite suportar aplicações que não podem tolerar mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Após a aplicação terminar de processar a mensagem (ou armazená-la de forma fiável para processamento futuro), completa a segunda fase do processo de receção, ligando **completa()** à mensagem recebida. Quando o Ônibus de Serviço vê a chamada **completa,** marca a mensagem como sendo consumida e retira-a da fila. 
 
-O exemplo que se segue demonstra como as mensagens podem ser recebidas e processadas utilizando o modo **PeekLock** (não o modo predefinido). O exemplo abaixo utiliza o modelo de callback com um manipulador de mensagens registado e processa mensagens à medida que chegam ao nosso `TestQueue`. Este modo **chama-se completo()** automaticamente à medida que o retorno de chamada regressa normalmente e chama **de abandono()** se a chamada for uma exceção. 
+O exemplo que se segue demonstra como as mensagens podem ser recebidas e processadas utilizando o modo **PeekLock** (não o modo predefinido). O exemplo abaixo utiliza o modelo de callback com um manipulador `TestQueue`de mensagens registado e processa mensagens à medida que chegam à nossa . Este modo **chama-se completo()** automaticamente à medida que o retorno de chamada regressa normalmente e chama **de abandono()** se a chamada for uma exceção. 
 
 ```java
     public void run() throws Exception {
@@ -179,7 +182,7 @@ O exemplo que se segue demonstra como as mensagens podem ser recebidas e process
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não conseguir processar a mensagem por alguma razão, então pode ligar para o método de **abandono()** sobre o objeto cliente com o sinal de bloqueio da mensagem recebida obtido através do **getLockToken()** . Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não conseguir processar a mensagem por alguma razão, então pode ligar para o método de **abandono()** sobre o objeto cliente com o sinal de bloqueio da mensagem recebida obtido através do **getLockToken()**. Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
 
 Há também um intervalo associado a uma mensagem bloqueada dentro da fila, e se a aplicação não processar a mensagem antes do prazo de bloqueio expirar (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia a mensagem automaticamente e fá-la disponível para ser recebido novamente.
 

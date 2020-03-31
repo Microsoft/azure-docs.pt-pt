@@ -5,54 +5,54 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67184337"
 ---
-## <a name="c-program-example"></a>C#exemplo de programa
+## <a name="c-program-example"></a>Exemplo do programa C#
 
-As próximas seções deste artigo presente um C# programa que utiliza o ADO.NET para enviar instruções Transact-SQL (T-SQL) para a base de dados SQL. O C# programa demonstra as seguintes ações:
+As próximas secções deste artigo apresentam um programa C# que usa ADO.NET para enviar declarações de Transact-SQL (T-SQL) para a base de dados SQL. O programa C# demonstra as seguintes ações:
 
-- [Ligar à base de dados do SQL usando o ADO.NET](#cs_1_connect)
-- [Métodos que retornam instruções T-SQL](#cs_2_return)
+- [Ligue-se à base de dados SQL utilizando ADO.NET](#cs_1_connect)
+- [Métodos que devolvem declarações T-SQL](#cs_2_return)
     - Criar tabelas
-    - Preencher tabelas com dados
-    - Atualizar, eliminar e selecione os dados
-- [Submeter o T-SQL na base de dados](#cs_3_submit)
+    - Povoar tabelas com dados
+    - Atualizar, excluir e selecionar dados
+- [Submeter T-SQL à base de dados](#cs_3_submit)
 
-### <a name="entity-relationship-diagram-erd"></a>Diagrama de relações de entidade (ERD)
+### <a name="entity-relationship-diagram-erd"></a>Diagrama de relação de entidade (ERD)
 
-O `CREATE TABLE` instruções envolvem a **referências** palavra-chave para criar um *chave estrangeira* relação (FK) entre duas tabelas. Se estiver a utilizar *tempdb*, comente o `--REFERENCES` usando dois travessões líderes de palavra-chave.
+As `CREATE TABLE` declarações envolvem a palavra-chave **de REFERÊNCIAs** para criar uma relação *chave estrangeira* (FK) entre duas tabelas. Se estiver a usar *tempdb,* comente a `--REFERENCES` palavra-chave usando um par de traços principais.
 
-O ERD mostra a relação entre as duas tabelas. Os valores a **tabEmployee.DepartmentCode** *subordinado* coluna estão limitados a valores do **tabDepartment.DepartmentCode** *principal*coluna.
+O ERD mostra a relação entre as duas mesas. Os valores na **coluna infantil tabEmployee.DepartmentCode** *child* estão limitados a valores da *coluna-mãe* **do TabDepartment.DepartmentCode.**
 
-![Chave estrangeira do ERD que mostra](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
+![ERD mostrando chave estrangeira](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 > [!NOTE]
-> Tem a opção de editar o T-SQL para adicionar um líder `#` aos nomes de tabela, que cria tabelas temporárias como no *tempdb*. Isto é útil para fins de demonstração, quando nenhuma base de dados de teste está disponível. Qualquer referência a chaves externas não são impostas durante seu uso e tabelas temporárias são eliminadas automaticamente quando a ligação será fechada após a conclusão do programa em execução.
+> Tem a opção de editar o T-SQL para adicionar um líder `#` aos nomes de mesa, o que os cria como mesas temporárias em *tempdb*. Isto é útil para fins de demonstração, quando não há base de dados de teste disponível. Qualquer referência a chaves estrangeiras não é aplicada durante a sua utilização e as tabelas temporárias são eliminadas automaticamente quando a ligação termina após o fim do programa.
 
-### <a name="to-compile-and-run"></a>Para compilar e executar
+### <a name="to-compile-and-run"></a>Para compilar e correr
 
-O C# programa é logicamente um arquivo. cs e fisicamente é dividido em vários blocos de código, para tornar mais fácil de entender a cada bloco. Para compilar e executar o programa, siga os passos abaixo:
+O programa C# é logicamente um ficheiro .cs, e está fisicamente dividido em vários blocos de código, para tornar cada bloco mais fácil de entender. Para compilar e executar o programa, faça os seguintes passos:
 
-1. Criar um C# projeto no Visual Studio. O tipo de projeto deve ser um *consola*, foi encontrado na **modelos** > **Visual C#**   >  **doambientedetrabalhodoWindows**  >  **Aplicação da consola (.NET Framework)** .
+1. Crie um projeto C# no Estúdio Visual. O tipo de projeto deve ser uma *Consola,* encontrada em **Modelos** > **Visuais C#** > **Windows Desktop** > **Console App (.NET Framework)**.
 
-1. No ficheiro *Program.cs*, substitua as linhas de arranque de código com os seguintes passos:
+1. No ficheiro *Program.cs,* substitua as linhas de início do código pelas seguintes etapas:
 
-    1. Copiar e colar o seguinte código blocos, na mesma sequência em que estão a ser apresentados, veja [ligar à base de dados](#cs_1_connect), [T-SQL gerar](#cs_2_return), e [submeter a base de dados](#cs_3_submit).
+    1. Copiar e colar os seguintes blocos de código, na mesma sequência que são apresentados, ver [Connect to database,](#cs_1_connect) [Generate T-SQL](#cs_2_return), e [Submeter-se à base](#cs_3_submit)de dados .
 
-    1. Alterar os valores seguintes no `Main` método:
+    1. Alterar os seguintes `Main` valores no método:
 
-        - *cb.DataSource*
-        - *cb.UserID*
-        - *cb.Password*
-        - *cb.InitialCatalog*
+        - *cb. DataSource*
+        - *cb. UserID*
+        - *cb. Senha*
+        - *cb. Catálogo Inicial*
 
-1. Verifique se o assembly *dll* é referenciado. Para verificar, expanda o **referências** nó a **Explorador de soluções** painel.
+1. Verifique se o Sistema de *Montagem.Data.dll* é referenciado. Para verificar, expanda o nó **de Referências** no painel **do Solution Explorer.**
 
-1. Para criar e executar o programa a partir do Visual Studio, selecione o **iniciar** botão. O resultado do relatório é apresentado numa janela do programa, embora os valores GUID varia entre as execuções de teste.
+1. Para construir e executar o programa a partir do Visual Studio, selecione o botão **Iniciar.** A saída do relatório é exibida numa janela do programa, embora os valores GUID variem entre os ensaios.
 
     ```Output
     =================================
@@ -82,7 +82,7 @@ O C# programa é logicamente um arquivo. cs e fisicamente é dividido em vários
 
 <a name="cs_1_connect"/>
 
-### <a name="connect-to-sql-database-using-adonet"></a>Ligar à base de dados do SQL usando o ADO.NET
+### <a name="connect-to-sql-database-using-adonet"></a>Ligue-se à base de dados SQL utilizando ADO.NET
 
 ```csharp
 using System;
@@ -132,7 +132,7 @@ namespace csharp_db_test
 
 <a name="cs_2_return"/>
 
-### <a name="methods-that-return-t-sql-statements"></a>Métodos que retornam instruções T-SQL
+### <a name="methods-that-return-t-sql-statements"></a>Métodos que devolvem declarações T-SQL
 
 ```csharp
 static string Build_2_Tsql_CreateTables()
@@ -240,7 +240,7 @@ static string Build_6_Tsql_SelectEmployees()
 
 <a name="cs_3_submit"/>
 
-### <a name="submit-t-sql-to-the-database"></a>Submeter o T-SQL na base de dados
+### <a name="submit-t-sql-to-the-database"></a>Submeter T-SQL à base de dados
 
 ```csharp
 static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)

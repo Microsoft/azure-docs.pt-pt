@@ -1,65 +1,65 @@
 ---
-title: Solucionar problemas de conexões-Citus (hiperescala)-banco de dados do Azure para PostgreSQL
-description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
-keywords: conexão do PostgreSQL, Cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
+title: Ligações de resolução de problemas - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
+description: Saiba como resolver problemas de ligação à Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
+keywords: conexão pós-gresql,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/8/2019
 ms.openlocfilehash: c064aca484f85c44dada9888012140784a96863f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74977510"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Problemas de ligação à Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
-Problemas de conexão podem ser causados por várias coisas, como:
+Os problemas de ligação podem ser causados por várias coisas, tais como:
 
 * Definições de firewall
-* Tempo limite da conexão
-* Informações de entrada incorretas
-* Limite de conexão atingido para o grupo de servidores
+* Tempo de ligação
+* Sinal incorreto na informação
+* Limite de ligação atingido para o grupo de servidores
 * Problemas com a infraestrutura do serviço
-* Manutenção do serviço
-* O nó do coordenador que está fazendo failover para um novo hardware
+* Manutenção de serviços
+* O nó coordenador falhando com novo hardware
 
-Geralmente, os problemas de conexão para o hiperescala podem ser classificados da seguinte maneira:
+Geralmente, as questões de ligação à Hiperescala podem ser classificadas da seguinte forma:
 
-* Erros transitórios (curta duração ou intermitente)
-* Erros persistentes ou não transitórios (erros que periodicamente são recorrentes)
+* Erros transitórios (de curta duração ou intermitentes)
+* Erros persistentes ou não transitórios (erros que se repetem regularmente)
 
-## <a name="troubleshoot-transient-errors"></a>Solucionar erros transitórios
+## <a name="troubleshoot-transient-errors"></a>Erros transitórios de resolução de problemas
 
-Os erros transitórios ocorrem por vários motivos. O mais comum é a manutenção do sistema, erro com hardware ou software e atualizações de vCore do nó de coordenador.
+Erros transitórios ocorrem por uma série de razões. O mais comum inclui manutenção do sistema, erro com hardware ou software, e upgrades vCore do nó coordenador.
 
-Habilitar a alta disponibilidade para nós de grupo de servidores de hiperescala pode mitigar esses tipos de problemas automaticamente. No entanto, seu aplicativo ainda deve estar preparado para perder sua conexão rapidamente. Outros eventos também podem levar mais tempo para serem mitigados, como quando uma transação grande causa uma recuperação de execução longa.
+Permitir uma elevada disponibilidade para nós de grupo de servidores hyperscale pode atenuar este tipo de problemas automaticamente. No entanto, a sua aplicação deve ainda estar preparada para perder a sua ligação brevemente. Também outros eventos podem demorar mais tempo a atenuar, como quando uma grande transação causa uma recuperação a longo prazo.
 
-### <a name="steps-to-resolve-transient-connectivity-issues"></a>Etapas para resolver problemas de conectividade transitórios
+### <a name="steps-to-resolve-transient-connectivity-issues"></a>Passos para resolver problemas transitórios de conectividade
 
-1. Verifique o [painel de serviço do Microsoft Azure](https://azure.microsoft.com/status) para qualquer interrupção conhecida que tenha ocorrido durante o tempo em que o aplicativo estava relatando erros.
-2. Os aplicativos que se conectam a um serviço de nuvem, como o Citus (subscale), devem esperar erros transitórios e reagir normalmente. Por exemplo, os aplicativos devem implementar a lógica de repetição para lidar com esses erros em vez de identificando-los como erros de aplicativo para os usuários.
-3. À medida que o grupo de servidores se aproxima de seus limites de recursos, os erros podem parecer problemas de conectividade transitórios. Aumentar a RAM do nó ou adicionar nós de trabalho e reequilibrar dados pode ajudar.
-4. Se os problemas de conectividade continuarem ou durar mais de 60 segundos ou ocorrerem mais de uma vez por dia, faça um arquivo de uma solicitação de suporte do Azure selecionando **obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options) .
+1. Verifique se o [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) está a verificar quaisquer falhas conhecidas que ocorreram durante o período em que a aplicação reportava erros.
+2. As aplicações que se ligam a um serviço na nuvem como o Hyperscale (Citus) devem esperar erros transitórios e reagir graciosamente. Por exemplo, as aplicações devem implementar a lógica de retry para lidar com estes erros em vez de os surcar como erros de aplicação para os utilizadores.
+3. À medida que o grupo de servidorse se aproxima dos seus limites de recursos, os erros podem parecer problemas de conectividade transitórios. Aumentar a RAM do nó, ou adicionar nós de trabalhador e reequilibrar dados pode ajudar.
+4. Se os problemas de conectividade continuarem, ou durarem mais de 60 segundos, ou acontecerem mais de uma vez por dia, preencha um pedido de suporte Azure selecionando **o Get Support** no site de Suporte Do [Azure.](https://azure.microsoft.com/support/options)
 
-## <a name="troubleshoot-persistent-errors"></a>Solucionar erros persistentes
+## <a name="troubleshoot-persistent-errors"></a>Erros persistentes de resolução de problemas
 
-Se o aplicativo falhar de forma persistente ao se conectar ao Citus (subdimensionamento), as causas mais comuns serão erros de erro de firewall ou de usuário.
+Se a aplicação não conseguir ligar persistentemente à Hiperescala (Citus), as causas mais comuns são a configuração errada da firewall ou o erro do utilizador.
 
-* Configuração de firewall do nó do Coordenador: Verifique se o Firewall do servidor de hiperescala está configurado para permitir conexões do seu cliente, incluindo servidores proxy e gateways.
-* Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Alguns firewalls exigem permitir não apenas aplicativos por nome, mas permitem os endereços IP e as portas do servidor.
-* Erro do usuário: Verifique a cadeia de conexão. Você pode ter parâmetros digitados informadamente, como o nome do servidor. Você pode encontrar cadeias de conexão para várias estruturas de linguagem e psql no portal do Azure. Vá para a página **cadeias de conexão** em seu grupo de servidores de hiperescala (Citus). Além disso, tenha em mente que os clusters de hiperescala (Citus) têm apenas um banco de dados e seu nome predefinido é **Citus**.
+* Configuração de firewall do nó coordenador: Certifique-se de que a firewall do servidor Hyperscale está configurada para permitir ligações do seu cliente, incluindo servidores proxy e gateways.
+* Configuração da firewall do cliente: A firewall do seu cliente deve permitir ligações ao seu servidor de base de dados. Algumas firewalls requerem permitir não só a aplicação pelo nome, mas permitir os endereços IP e portas do servidor.
+* Erro do utilizador: Verifique duas vezes a cadeia de ligação. Podeter ter enevoado parâmetros como o nome do servidor. Pode encontrar cordas de ligação para vários quadros linguísticos e psql no portal Azure. Vá à página de **cordas de Ligação** no seu grupo de servidores Hyperscale (Citus). Tenha também em mente que os clusters de Hiperescala (Citus) têm apenas uma base de dados e o seu nome predefinido é **citus**.
 
-### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver problemas de conectividade persistente
+### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passos para resolver problemas persistentes de conectividade
 
-1. Configure [as regras de firewall](howto-hyperscale-manage-firewall-using-portal.md) para permitir o endereço IP do cliente. Somente para fins de teste temporários, configure uma regra de firewall usando 0.0.0.0 como o endereço IP inicial e usando 255.255.255.255 como o endereço IP final. Essa regra abre o servidor para todos os endereços IP. Se a regra resolver o problema de conectividade, remova-a e crie uma regra de firewall para um endereço IP ou intervalo de endereços limitado apropriadamente.
-2. Em todos os firewalls entre o cliente e a Internet, verifique se a porta 5432 está aberta para conexões de saída.
-3. Verifique a cadeia de conexão e outras configurações de conexão.
-4. Verifique a integridade do serviço no painel.
+1. Configurar regras de [firewall](howto-hyperscale-manage-firewall-using-portal.md) para permitir o endereço IP do cliente. Apenas para efeitos de testes temporários, criar uma regra de firewall utilizando 0.0.0.0 como endereço IP inicial e utilizando 255.255.255.255 como endereço IP final. Esta regra abre o servidor a todos os endereços IP. Se a regra resolver o seu problema de conectividade, remova-o e crie uma regra de firewall para um endereço IP ou endereço adequadamente limitado.
+2. Em todas as firewalls entre o cliente e a internet, certifique-se de que a porta 5432 está aberta para ligações de saída.
+3. Verifique a sua cadeia de ligação e outras definições de ligação.
+4. Verifique a saúde do serviço no painel de instrumentos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Conheça os conceitos de [regras de firewall no banco de dados do Azure para PostgreSQL-Citus (hiperescala)](concepts-hyperscale-firewall-rules.md)
-* Consulte como [gerenciar regras de firewall para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)](howto-hyperscale-manage-firewall-using-portal.md)
+* Conheça os conceitos de regras de [Firewall na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)](concepts-hyperscale-firewall-rules.md)
+* Veja como gerir as regras de firewall para a Base de [Dados Azure para PostgreSQL - Hiperescala (Citus)](howto-hyperscale-manage-firewall-using-portal.md)

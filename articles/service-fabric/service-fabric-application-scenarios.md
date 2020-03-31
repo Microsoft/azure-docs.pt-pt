@@ -1,81 +1,81 @@
 ---
-title: Cenários e design de aplicativos
-description: Visão geral das categorias de aplicativos em nuvem no Service Fabric. Discute o design de aplicativos que usa serviços com e sem estado.
+title: Cenários de aplicação e design
+description: Visão geral das categorias de aplicações em nuvem em Tecido de Serviço. Discute o design de aplicações que utiliza serviços apátridas e apátridas.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
 ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76024738"
 ---
-# <a name="service-fabric-application-scenarios"></a>Cenários de aplicativo Service Fabric
+# <a name="service-fabric-application-scenarios"></a>Cenários de aplicação de tecido de serviço
 
-O Azure Service Fabric oferece uma plataforma confiável e flexível em que você pode escrever e executar vários tipos de aplicativos e serviços de negócios. Esses aplicativos e microserviços podem ser sem estado ou com estado e são balanceados por recursos entre máquinas virtuais para maximizar a eficiência.
+O Azure Service Fabric oferece uma plataforma fiável e flexível onde pode escrever e executar muitos tipos de aplicações e serviços de negócios. Estas aplicações e microserviços podem ser apátridas ou apátridas, e são equilibradas em recursos através de máquinas virtuais para maximizar a eficiência.
 
-A arquitetura exclusiva do Service Fabric permite que você execute análise de dados quase em tempo real, computação na memória, transações paralelas e processamento de eventos em seus aplicativos. Você pode facilmente dimensionar seus aplicativos de dentro ou de fora, dependendo de seus requisitos de recursos de alteração.
+A arquitetura única do Tecido de Serviço permite-lhe realizar análises de dados em tempo real, computação em memória, transações paralelas e processamento de eventos nas suas aplicações. Pode facilmente escalar as suas aplicações dentro ou fora, dependendo dos seus requisitos de recursos em mudança.
 
-Para obter diretrizes de design sobre a criação de aplicativos, leia a [arquitetura de microserviços no Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) e [as práticas recomendadas para o design de aplicativos usando Service Fabric](service-fabric-best-practices-applications.md).
+Para orientação de design sobre aplicações de construção, leia [arquitetura microservices em Tecido de Serviço Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) e boas práticas para design de [aplicações usando tecido de serviço.](service-fabric-best-practices-applications.md)
 
-Considere o uso da plataforma Service Fabric para os seguintes tipos de aplicativos:
+Considere utilizar a plataforma Service Fabric para os seguintes tipos de aplicações:
 
-* **Coleta de dados, processamento e IOT**: o Service Fabric lida com uma grande escala e tem baixa latência por meio de seus serviços com estado. Ele pode ajudar a processar dados em milhões de dispositivos em que os dados para o dispositivo e a computação estão colocalizados.
+* **Recolha de dados, processamento e IoT**: O Tecido de Serviço trata de grande escala e tem baixa latência através dos seus serviços imponentes. Pode ajudar a processar dados de milhões de dispositivos onde os dados do dispositivo e da computação estão colocalizados.
 
-    Os clientes que criaram serviços de IoT usando Service Fabric incluem [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), a [construção PCL](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure), [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)e [sistemas de malha](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
+    Os clientes que construíram serviços IoT utilizando o Service Fabric incluem [Honeywell,](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure) [PCL Construction](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron,](https://customers.microsoft.com/story/crestron-partner-professional-services-azure) [BMW,](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/) [Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)e [Mesh Systems.](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions)
 
-* **Jogos e aplicativos interativos baseados em sessão**: Service Fabric será útil se seu aplicativo exigir leituras e gravações de baixa latência, como em jogos online ou mensagens instantâneas. Service Fabric permite que você crie esses aplicativos interativos e com estado sem precisar criar um armazenamento ou cache separado. Visite as [soluções de jogos do Azure](https://azure.microsoft.com/solutions/gaming/) para obter diretrizes de design sobre como [usar Service Fabric em serviços de jogos](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
+* **Aplicações interativas baseadas**em jogos e sessões : O Tecido de Serviço é útil se a sua aplicação necessitar de leituras e escritos de baixa latência, como em jogos online ou mensagens instantâneas. O Service Fabric permite-lhe construir estas aplicações interativas e imponentes sem ter de criar uma loja ou cache separadas. Visite [soluções de jogo Azure](https://azure.microsoft.com/solutions/gaming/) para orientação de design sobre [a utilização de Tecido de Serviço nos serviços de jogos.](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf)
 
-    Os clientes que criaram serviços de jogos incluem os [próximos jogos](https://customers.microsoft.com/story/next-games-media-telecommunications-azure) e [Digamore](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/). Os clientes que criaram sessões interativas incluem [Honeywell com o Hololens](https://customers.microsoft.com/story/honeywell-manufacturing-hololens).
+    Os clientes que construíram serviços de jogo incluem [Next Games](https://customers.microsoft.com/story/next-games-media-telecommunications-azure) e [Digamore.](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/) Os clientes que construíram sessões interativas incluem [Honeywell com Hololens.](https://customers.microsoft.com/story/honeywell-manufacturing-hololens)
 
-* **Análise de dados e processamento de fluxo de trabalho**: aplicativos que precisam processar com confiança eventos ou fluxos de dados de benefício das leituras e gravações otimizadas em Service Fabric. O Service Fabric também dá suporte a pipelines de processamento de aplicativos, onde os resultados devem ser confiáveis e passados para o próximo estágio de processamento sem perda. Esses pipelines incluem sistemas transacionais e financeiros, em que a consistência de dados e as garantias de computação são essenciais.
+* **Análise de dados e processamento de fluxos**de trabalho : Aplicações que devem processar de forma fiável eventos ou fluxos de dados beneficiam das leituras e escritos otimizados no Tecido de Serviço. O Service Fabric também suporta os gasodutos de processamento de aplicações, onde os resultados devem ser fiáveis e transmitidos para a fase de processamento seguinte sem qualquer perda. Estes oleodutos incluem sistemas transacionais e financeiros, onde a consistência dos dados e as garantias de cálculo são essenciais.
 
-    Os clientes que criaram serviços de fluxo de trabalho de negócios incluem [Zeiss Group](https://customers.microsoft.com/story/zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform), [Quorum Business Solutions](https://customers.microsoft.com/en-us/story/quorum-business-solutions-expand-energy-managemant-solutions-using-azure-service-fabric)e [Société General](https://customers.microsoft.com/en-us/story/societe-generale-speeds-real-time-market-quotes-using-azure-service-fabric).
+    Os clientes que construíram serviços de fluxo de trabalho empresarial incluem o [Grupo Zeiss,](https://customers.microsoft.com/story/zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform) [quorum Business Solutions](https://customers.microsoft.com/en-us/story/quorum-business-solutions-expand-energy-managemant-solutions-using-azure-service-fabric)e [Société General.](https://customers.microsoft.com/en-us/story/societe-generale-speeds-real-time-market-quotes-using-azure-service-fabric)
 
-* **Computação de dados**: o Service Fabric permite que você crie aplicativos com estado que realizam computação intensiva de dados. Service Fabric permite a colocação de processamento (computação) e dados em aplicativos. 
+* **Cálculo de dados**: O Tecido de Serviço permite-lhe construir aplicações imponentes que fazem a putação intensiva de dados. O Tecido de Serviço permite a colocalização do processamento (cálculo) e os dados nas aplicações. 
 
-   Normalmente, quando seu aplicativo requer acesso a dados, a latência de rede associada a um cache de dados externo ou a uma camada de armazenamento limita o tempo de computação. Os serviços de Service Fabric com estado eliminam essa latência, permitindo leituras e gravações mais otimizadas.
+   Normalmente, quando a sua aplicação requer acesso a dados, a latência da rede associada a um cache de dados externo ou ao nível de armazenamento limita o tempo de cálculo. Os serviços de Tecido de Serviço Audais eliminam essa latência, permitindo leituras e escritos mais otimizados.
 
-   Por exemplo, considere um aplicativo que executa seleções de recomendação quase em tempo real para clientes, com um requisito de tempo de ida e volta de menos de 100 milissegundos. As características de latência e desempenho dos serviços de Service Fabric fornecem uma experiência responsiva ao usuário, em comparação com o modelo de implementação padrão de ter que buscar os dados necessários do armazenamento remoto. O sistema é mais responsivo porque o cálculo da seleção de recomendação é colocado com os dados e as regras.
+   Por exemplo, considere uma aplicação que execute seleções de recomendação em tempo real para os clientes, com um requisito de tempo de ida e volta inferior a 100 milissegundos. As características de latência e desempenho dos serviços de Tecido de Serviço proporcionam uma experiência responsiva ao utilizador, em comparação com o modelo de implementação padrão de ter de recolher os dados necessários a partir do armazenamento remoto. O sistema é mais reativo porque a computação da seleção de recomendações está colocalizada com os dados e regras.
 
-    Os clientes que criaram serviços de computação incluem [Solidsoft resposta](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals) e [infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura).
+    Os clientes que construíram serviços de computação incluem [a Solidsoft Answer](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals) e [infosupport.](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura)
 
-* **Serviços altamente disponíveis**: o Service Fabric fornece um failover rápido criando várias réplicas de serviço secundárias. Se um nó, processo ou serviço individual falhar devido a um hardware ou outra falha, uma das réplicas secundárias será promovida para uma réplica primária com perda mínima de serviço.
+* **Serviços altamente disponíveis**: O Service Fabric fornece uma falha rápida criando múltiplas réplicas de serviço secundário. Se um nó, processo ou serviço individual descer devido a hardware ou outra falha, uma das réplicas secundárias é promovida a uma réplica primária com perda mínima de serviço.
 
-* **Serviços escalonáveis**: serviços individuais podem ser particionados, permitindo que o estado seja escalado horizontalmente no cluster. Serviços individuais também podem ser criados e removidos em tempo real. Você pode escalar horizontalmente os serviços de algumas instâncias em alguns nós para milhares de instâncias em muitos nós e, em seguida, dimensioná-los novamente conforme necessário. Você pode usar Service Fabric para criar esses serviços e gerenciar seus ciclos de vida completos.
+* **Serviços escaláveis**: Os serviços individuais podem ser divididos, permitindo que o Estado seja escalado em todo o cluster. Os serviços individuais também podem ser criados e removidos no voo. Você pode escalar os serviços de alguns casos em alguns nós para milhares de casos em muitos nós, e depois escaloná-los novamente como necessário. Pode utilizar o Service Fabric para construir estes serviços e gerir os seus ciclos de vida completos.
 
-## <a name="application-design-case-studies"></a>Estudos de caso de design de aplicativo
+## <a name="application-design-case-studies"></a>Estudos de caso de conceção de aplicações
 
-Estudos de caso que mostram como Service Fabric é usado para projetar aplicativos são publicados nas [histórias do cliente](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) e nos [microserviços nos sites do Azure](https://azure.microsoft.com/solutions/microservice-applications/) .
+Estudos de caso que mostram como o Service Fabric é usado para projetar aplicações são publicados nas [histórias](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) do Cliente e Microservices em sites [Azure.](https://azure.microsoft.com/solutions/microservice-applications/)
 
-## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>Criando aplicativos compostos de microserviços com e sem estado
+## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>Conceber aplicações compostas por microserviços apátridas e apátridas
 
-A criação de aplicativos com as funções de trabalho dos serviços de nuvem do Azure é um exemplo de um serviço sem estado. Por outro lado, os microserviços com estado mantêm seu estado autoritativo além da solicitação e sua resposta. Essa funcionalidade fornece alta disponibilidade e consistência do estado por meio de APIs simples que fornecem garantias transacionais apoiadas pela replicação.
+A construção de aplicações com funções de trabalhador da Azure Cloud Services é um exemplo de um serviço apátrida. Em contrapartida, os microserviços estatais mantêm o seu estado autoritário para além do pedido e da sua resposta. Esta funcionalidade proporciona alta disponibilidade e consistência do Estado através de apis simples que fornecem garantias transacionais apoiadas pela replicação.
 
-Os serviços com estado no Service Fabric trazem alta disponibilidade para todos os tipos de aplicativos, não apenas para bancos de dados e outros armazenamentos. Essa é uma progressão natural. Os aplicativos já foram movidos do uso de bancos de dados unicamente relacionais para alta disponibilidade para bancos de dados NoSQL. Agora, os próprios aplicativos podem ter seu estado "quente" e os dados gerenciados neles para obter ganhos de desempenho adicionais, sem sacrificar a confiabilidade, a consistência ou a disponibilidade.
+Os serviços estatais em Tecido de Serviço trazem alta disponibilidade a todos os tipos de aplicações, não apenas bases de dados e outras lojas de dados. Esta é uma progressão natural. As aplicações já passaram da utilização de bases de dados puramente relacionais para alta disponibilidade para bases de dados NoSQL. Agora, as próprias aplicações podem ter o seu estado "quente" e os dados geridos dentro delas para ganhos adicionais de desempenho sem sacrificar a fiabilidade, consistência ou disponibilidade.
 
-Quando você estiver criando aplicativos que consistem em microservices, normalmente terá uma combinação de aplicativos Web sem estado (como ASP.NET e node. js) chamando em serviços de camada intermediária de negócios com e sem estado. Os aplicativos e serviços são todos implantados no mesmo cluster Service Fabric por meio dos comandos de implantação Service Fabric. Cada um desses serviços é independente em relação à escala, confiabilidade e uso de recursos. Essa independência melhora a agilidade e a flexibilidade no desenvolvimento e no gerenciamento do ciclo de vida.
+Quando você está construindo aplicações que consistem em microserviços, você normalmente tem uma combinação de aplicações web apátridas (como ASP.NET e Node.js) chamando para serviços apátridas e apátridas de negócios de nível médio. As aplicações e serviços são todos implantados no mesmo cluster service Fabric através dos comandos de implementação de Tecido de Serviço. Cada um destes serviços é independente no que diz respeito à escala, fiabilidade e utilização de recursos. Esta independência melhora a agilidade e flexibilidade no desenvolvimento e na gestão do ciclo de vida.
 
-Os microserviços com estado simplificam os designs de aplicativos porque eles eliminam a necessidade de filas e caches adicionais que tradicionalmente eram necessários para atender aos requisitos de disponibilidade e latência de aplicativos puramente sem estado. Como os serviços com estado têm alta disponibilidade e baixa latência, há menos detalhes a serem gerenciados em seu aplicativo.
+Os microserviços estatais simplificam os desenhos de aplicações porque eliminam a necessidade de filas e caches adicionais que tradicionalmente têm sido necessários para responder aos requisitos de disponibilidade e latência de aplicações puramente apátridas. Como os serviços estatais têm elevada disponibilidade e baixa latência, há menos detalhes para gerir na sua aplicação.
 
-Os diagramas a seguir ilustram as diferenças entre a criação de um aplicativo sem estado e um com estado. Aproveitando os modelos de programação [Reliable Services](service-fabric-reliable-services-introduction.md) e [Reliable Actors](service-fabric-reliable-actors-introduction.md) , os serviços com estado reduzem a complexidade do aplicativo enquanto alcançam alta taxa de transferência e baixa latência.
+Os seguintes diagramas ilustram as diferenças entre desenhar uma aplicação que é apátrida e uma que é imponente. Aproveitando os modelos de programação [de Serviços Fiáveis](service-fabric-reliable-services-introduction.md) e [Atores Fiáveis,](service-fabric-reliable-actors-introduction.md) os serviços estatais reduzem a complexidade da aplicação, ao mesmo tempo que alcançam alta supressão e baixa latência.
 
-Aqui está um aplicativo de exemplo que usa serviços sem estado: ![aplicativo que usa serviços sem estado][Image1]
+Aqui está uma aplicação de exemplo ![que usa serviços apátridas: Aplicação que usa serviços apátridas][Image1]
 
-Aqui está um exemplo de aplicativo que usa serviços com estado: ![aplicativo que usa serviços com estado][Image2]
+Aqui está uma aplicação de exemplo ![que usa serviços estatais: Aplicação que usa serviços estatais][Image2]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Comece a criar serviços com e sem estado com os modelos de programação Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) e [Reliable Actors](service-fabric-reliable-actors-get-started.md) .
-* Visite a Centro de Arquitetura do Azure para obter diretrizes sobre a [criação de microserviços no Azure](https://docs.microsoft.com/azure/architecture/microservices/).
-* Acesse o [Azure Service Fabric aplicativos e práticas recomendadas de cluster](service-fabric-best-practices-overview.md) para obter diretrizes de design de aplicativo.
+* Começar a construir serviços apátridas e apátridas com os modelos de programação de [Serviços Fiáveis e](service-fabric-reliable-services-quick-start.md) [Atores Fiáveis.](service-fabric-reliable-actors-get-started.md)
+* Visite o Centro de Arquitetura Azure para obter orientações sobre a construção de [microserviços no Azure.](https://docs.microsoft.com/azure/architecture/microservices/)
+* Vá à [aplicação Azure Service Fabric e ao cluster de boas práticas](service-fabric-best-practices-overview.md) para orientação de design de aplicações.
 
 * Veja também:
-  * [Compreendendo os microserviços](service-fabric-overview-microservices.md)
-  * [Definir e gerenciar o estado do serviço](service-fabric-concepts-state.md)
+  * [Compreender os microsserviços](service-fabric-overview-microservices.md)
+  * [Definir e gerir o estado de serviço](service-fabric-concepts-state.md)
   * [Disponibilidade dos serviços](service-fabric-availability-services.md)
-  * [Serviços de escala](service-fabric-concepts-scalability.md)
+  * [Serviços à escala](service-fabric-concepts-scalability.md)
   * [Serviços de partição](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png

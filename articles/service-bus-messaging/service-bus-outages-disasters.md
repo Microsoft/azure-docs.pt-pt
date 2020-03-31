@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 2a7f5d5eacb2d03e64ae95d34e1cf0bd37bbc7f2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259256"
 ---
-# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Boas práticas para isolar aplicações contra interrupções de autocarros de serviço e desastres
+# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para proteger aplicações de indisponibilidades e de desastres do Service Bus
 
 As aplicações críticas à missão devem funcionar continuamente, mesmo na presença de interrupções não planeadas ou catástrofes. Este artigo descreve técnicas que pode usar para proteger aplicações de ônibus de serviço contra uma possível interrupção de serviço ou desastre.
 
@@ -38,7 +38,7 @@ O Service Bus Premium SKU suporta zonas de [disponibilidade,](../availability-zo
 > [!NOTE]
 > O suporte das Zonas de Disponibilidade para o Azure Service Bus Premium só está disponível nas [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) onde estão presentes zonas de disponibilidade.
 
-Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com o portal do Azure. A Service Bus não suporta a migração de espaços de nome existentes. Não é possível desativar a redundância de zona após ativá-la no seu espaço de nomes.
+Só pode ativar Zonas de Disponibilidade em novos espaços de nome, utilizando o portal Azure. A Service Bus não suporta a migração de espaços de nome existentes. Não é possível desativar a redundância da zona depois de a ter habilitado para o seu espaço de nome.
 
 ![1][]
 

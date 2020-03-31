@@ -1,6 +1,6 @@
 ---
-title: Mapeamento de transformação classificação de fluxo de dados
-description: Transformação de classificação de dados de mapeamento Azure Data Factory
+title: Mapeando fluxo de dados ordenar transformação
+description: Fábrica de dados azure mapeia dados classificam a transformação
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/08/2018
 ms.openlocfilehash: c09439c5f54ae4b0884e9e25ae9a5a488f935bac
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930214"
 ---
-# <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory transformações de classificação de fluxo de dados
+# <a name="azure-data-factory-data-flow-sort-transformations"></a>Transformações de fluxo de dados da fábrica de dados azure
 
 
 
-![Configurações de classificação](media/data-flow/sort.png "Ordenar")
+![Ordenar configurações](media/data-flow/sort.png "Ordenar")
 
-A transformação classificação permite que você classifique as linhas de entrada no fluxo de dados atual. As linhas de saída da transformação classificação, subsequentemente, seguirão as regras de ordenação que você definiu. Você pode escolher colunas individuais e classificá-las ASC ou DEC, usando o indicador de seta ao lado de cada campo. Se você precisar modificar a coluna antes de aplicar a classificação, clique em "colunas computadas" para iniciar o editor de expressão. Isso fornecerá uma oportunidade para criar uma expressão para a operação de classificação em vez de simplesmente aplicar uma coluna para a classificação.
+A transformação do Sort permite-lhe classificar as linhas de entrada no fluxo de dados atual. As filas de saída da Transformação de Sort seguirão posteriormente as regras de encomenda que definiu. Pode escolher colunas individuais e selá-las ASC ou DEC, utilizando o indicador de seta ao lado de cada campo. Se precisar de modificar a coluna antes de aplicar o tipo, clique em "Colunas Computadas" para lançar o editor de expressão. Isto proporcionará uma oportunidade de construir uma expressão para a operação de tipo em vez de simplesmente aplicar uma coluna para o tipo.
 
 ## <a name="case-insensitive"></a>Não sensível a maiúsculas e minúsculas
-Você pode ativar "não diferencia maiúsculas de minúsculas" se desejar ignorar maiúsculas e minúsculas ao classificar campos de texto ou cadeia de caracteres.
+Pode ligar "Caso insensível" se desejar ignorar o caso ao classificar os campos de cordas ou texto.
 
-"Classificar somente dentro de partições" aproveita o particionamento de dados do Spark. Ao classificar os dados de entrada somente dentro de cada partição, os fluxos de dados podem classificar dados particionados em vez de classificar todo o fluxo de dados.
+"Ordenar apenas dentro das divisórias" alavanca a divisão de dados da Faísca. Ao classificar os dados de entrada apenas em cada divisória, os Fluxos de Dados podem classificar dados divididos em vez de classificar todo o fluxo de dados.
 
-Cada uma das condições de classificação na transformação classificação pode ser reorganizada. Portanto, se você precisar mover uma coluna para cima na precedência de classificação, pegue essa linha com o mouse e mova-a para mais ou para menos na lista de classificação.
+Cada uma das condições de tipo na Transformação de Classificação pode ser reorganizada. Por isso, se precisar de mover uma coluna mais alto na precedência do tipo, agarre essa linha com o rato e mova-a mais ou menos na lista de classificação.
 
-Efeitos de particionamento na classificação
+Efeitos de divisão no Sort
 
-O fluxo de dados do ADF é executado em Big Data clusters Spark com dados distribuídos em vários nós e partições. É importante ter isso em mente ao arquitetar seu fluxo de dados se você estiver dependendo da transformação de classificação para manter os dados na mesma ordem. Se você optar por reparticionar seus dados em uma transformação subsequente, poderá perder a classificação devido a esse embaralhando de dados.
+ADF Data Flow é executado em grandes dados Clusters Spark com dados distribuídos por vários nós e divisórias. É importante ter isso em mente quando se arquiteto o fluxo de dados se estiver dependente da transformação do Sort para manter os dados nessa mesma ordem. Se optar por repartipartição dos seus dados numa transformação subsequente, poderá perder a sua triagem devido a essa remodelação de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Após a classificação, talvez você queira usar a [transformação Agregação](data-flow-aggregate.md)
+Após a triagem, pode querer usar a [Transformação Agregada](data-flow-aggregate.md)

@@ -1,5 +1,5 @@
 ---
-title: Ligue-se a uma máquina virtual do Servidor SQL (Gestor de Recursos)  Microsoft Docs
+title: Ligue-se a uma máquina virtual do Servidor SQL (Gestor de Recursos) [ Microsoft Docs
 description: Aprenda a ligar-se ao SQL Server em execução numa máquina virtual em Azure. Este tópico usa o modelo de implantação clássico. Os cenários diferem consoante a configuração de rede e a localização do cliente.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: deb337d989a3658e909cefa7a9ab028e37792562
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243175"
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ligue-se a uma máquina virtual do Servidor SQL em Azure
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ligar a uma Máquina Virtual do SQL Server no Azure
 
 ## <a name="overview"></a>Descrição geral
 
@@ -59,7 +59,7 @@ Se pretender ligar-se ao seu motor de base de dados SQL Server a partir da Inter
 > [!IMPORTANT]
 > As imagens de máquinas virtuais para as edições SQL Server Developer e Express não permitem automaticamente o protocolo TCP/IP. Para edições de Desenvolvedor e Express, deve utilizar o SQL Server Configuration Manager para [ativar manualmente o protocolo TCP/IP](#manualtcp) após a criação do VM.
 
-Qualquer cliente com acesso à Internet pode ligar-se à instância do SQL Server especificando o endereço IP público da máquina virtual ou qualquer etiqueta DNS atribuída a esse endereço IP. Se a porta SQL Server for 1433, não precisa de especificar na cadeia de ligação. A seguinte cadeia de ligação liga-se a um VM SQL com uma etiqueta DNS de `sqlvmlabel.eastus.cloudapp.azure.com` utilizando a Autenticação SQL (também pode utilizar o endereço IP público).
+Qualquer cliente com acesso à Internet pode ligar-se à instância do SQL Server especificando o endereço IP público da máquina virtual ou qualquer etiqueta DNS atribuída a esse endereço IP. Se a porta SQL Server for 1433, não precisa de especificar na cadeia de ligação. A seguinte cadeia de ligação liga-se a um `sqlvmlabel.eastus.cloudapp.azure.com` VM SQL com uma etiqueta DNS de utilização da Autenticação SQL (pode também utilizar o endereço IP público).
 
 ```
 Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>
@@ -91,7 +91,7 @@ Assumindo que configuraram dNS na sua rede virtual, pode ligar-se à sua instân
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a id="change"></a>Alterar as definições de conectividade SQL
+## <a name="change-sql-connectivity-settings"></a><a id="change"></a>Alterar as definições de conectividade SQL
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -111,7 +111,7 @@ Pode alterar as definições de conectividade para a sua máquina virtual SQL Se
 
    ![Notificação de atualização De VM SQL](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## <a id="manualtcp"></a>Ativar as edições TCP/IP para Edições de Desenvolvimento e Expresso
+## <a name="enable-tcpip-for-developer-and-express-editions"></a><a id="manualtcp"></a>Ativar as edições TCP/IP para Edições de Desenvolvimento e Expresso
 
 Ao alterar as definições de conectividade do Servidor SQL, o Azure não ativa automaticamente o protocolo TCP/IP para as edições SQL Server Developer e Express. Os passos abaixo explicam como ativar manualmente o TCP/IP para que consiga ligar remotamente através de um endereço IP.
 
@@ -129,7 +129,7 @@ Os seguintes passos mostram como criar uma etiqueta DNS opcional para o seu VM A
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a id="manual"></a>Configuração manual e resolução de problemas
+## <a name="manual-configuration-and-troubleshooting"></a><a id="manual"></a>Configuração manual e resolução de problemas
 
 Embora o portal ofereça opções para configurar automaticamente a conectividade, é útil saber configurar manualmente a conectividade. Compreender os requisitos também pode ajudar a resolver problemas.
 

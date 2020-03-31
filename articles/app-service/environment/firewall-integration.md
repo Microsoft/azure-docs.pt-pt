@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 84fcb9076bbc1e75d46d9a6682c96035576ae09e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243864"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475447"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloquear um ambiente de serviço de aplicações
 
@@ -57,15 +57,15 @@ Os passos para travar a saída da sua ASE existente com firewall Azure são:
   
 1. Crie uma subnet chamada AzureFirewallSubnet no VNet onde a sua ASE existe. Siga as instruções na [documentação da Firewall Azure](https://docs.microsoft.com/azure/firewall/) para criar o seu Firewall Azure.
 
-1. A partir do Azure Firewall UI > Rules > Application rule collection, selecione Adicionar coleção de regras de aplicação. Forneça um nome, prioridade e definir permitir. Na secção de tags FQDN, forneça um nome, detete os endereços de origem para * e selecione a etiqueta FQDN do Serviço de Aplicações e a Atualização do Windows. 
+1. A partir do Azure Firewall UI > Regras > coleção de regras de aplicação, selecione Adicionar a recolha de regras de aplicação. Forneça um nome, prioridade e definir permitir. Na secção de tags FQDN, forneça um nome, detete os endereços de origem para * e selecione a etiqueta FQDN do Serviço de Aplicações e a Atualização do Windows. 
    
    ![Adicionar regra de aplicação][1]
    
-1. A partir do Azure Firewall UI > Rules > Coleção de regras de rede, selecione Adicionar coleção de regras de rede. Forneça um nome, prioridade e definir permitir. Na secção Regras sob endereços IP, forneça um nome, selecione um ptocol de **Qualquer,** conjunto * para endereços Fonte e Destino, e coloque as portas em 123. Esta regra permite que o sistema execute a sincronização do relógio utilizando o NTP. Crie outra regra da mesma forma para a porta 12000 para ajudar a triagem de quaisquer problemas do sistema. 
+1. A partir do Azure Firewall UI > Rules > Network rule collection, selecione Adicionar coleção de regras de rede. Forneça um nome, prioridade e definir permitir. Na secção Regras sob endereços IP, forneça um nome, selecione um ptocol de **Qualquer,** conjunto * para endereços Fonte e Destino, e coloque as portas em 123. Esta regra permite que o sistema execute a sincronização do relógio utilizando o NTP. Crie outra regra da mesma forma para a porta 12000 para ajudar a triagem de quaisquer problemas do sistema. 
 
    ![Adicionar regra de rede NTP][3]
    
-1. A partir do Azure Firewall UI > Rules > Coleção de regras de rede, selecione Adicionar coleção de regras de rede. Forneça um nome, prioridade e definir permitir. Na secção Regras sob etiquetas de serviço, forneça um nome, selecione um protocolo de **Qualquer,** set * para endereços Source, selecione uma etiqueta de serviço do AzureMonitor e coloque as portas em 80.443. Esta regra permite que o sistema forneça ao Monitor Azure informações sobre saúde e métricas.
+1. A partir do Azure Firewall UI > Rules > Network rule collection, selecione Adicionar coleção de regras de rede. Forneça um nome, prioridade e definir permitir. Na secção Regras sob etiquetas de serviço, forneça um nome, selecione um protocolo de **Qualquer,** set * para endereços Source, selecione uma etiqueta de serviço do AzureMonitor e coloque as portas em 80.443. Esta regra permite que o sistema forneça ao Monitor Azure informações sobre saúde e métricas.
 
    ![Adicionar regra de rede de etiquetas de serviço NTP][6]
    
@@ -94,7 +94,7 @@ Esta utilização do Gateway de Aplicação é apenas um exemplo de como configu
 
 ## <a name="logging"></a>Registo 
 
-A Firewall Azure pode enviar registos para registos de Armazenamento Azure, Hub de Eventos ou Monitor Estoque. Para integrar a sua aplicação com qualquer destino suportado, vá ao portal Azure Firewall > Registos de Diagnóstico e ative os registos para o seu destino pretendido. Se integrar os registos do Monitor Azure, poderá ver o registo de registos de qualquer tráfego enviado para o Azure Firewall. Para ver o tráfego que está a ser negado, abra o seu portal de espaço de trabalho Log Analytics > Logs e introduza uma consulta como 
+A Firewall Azure pode enviar registos para registos de Armazenamento Azure, Hub de Eventos ou Monitor Estoque. Para integrar a sua aplicação com qualquer destino suportado, vá ao portal Azure Firewall > Registos de Diagnóstico e ative os registos para o seu destino pretendido. Se integrar os registos do Monitor Azure, poderá ver o registo de registos de qualquer tráfego enviado para o Azure Firewall. Para ver o tráfego que está a ser negado, abra o seu portal de espaço de trabalho Log Analytics > Registos e introduza uma consulta como 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
@@ -139,7 +139,7 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 
 | Ponto Final |
 |----------|
-|graph.windows.net:443 |
+|graph.microsoft.com:443 |
 |login.live.com:443 |
 |login.windows.com:443 |
 |login.windows.net:443 |

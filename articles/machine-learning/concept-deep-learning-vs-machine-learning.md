@@ -1,7 +1,7 @@
 ---
 title: Aprendizagem profunda vs. aprendizagem automática
 titleSuffix: Azure
-description: Saiba como a aprendizagem profunda se relaciona com a aprendizagem automática e a inteligência artificial. A aprendizagem profunda é usada em cenários como deteção de fraudes, reconhecimento de voz e facial, análise de sentimentos e previsão de séries de tempo.
+description: Saiba como a aprendizagem profunda se relaciona com a aprendizagem automática e a inteligência artificial. A aprendizagem profunda é usada em cenários como deteção de fraudes, reconhecimento de voz & facial, análise de sentimentos e previsão de séries de tempo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: a930dc3974536047096912505b9a786cf53c41b8
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: bcacf4ff66e114f65ac75f0aadd1564875f15f62
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78328596"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501362"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática
 
@@ -120,4 +120,4 @@ Os seguintes artigos mostram-lhe como usar tecnologia de aprendizagem profunda e
 
 - [Classifique os dígitos manuscritos utilizando um modelo Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
 
-Além disso, utilize a Folha de Batota do [Algoritmo de Aprendizagem automática](algorithm-cheat-sheet.md) para escolher algoritmos para o seu modelo.
+Além disso, utilize a Folha de Batota do [Algoritmo de Aprendizagem automática](../synapse-analytics/sql-data-warehouse/cheat-sheet.md) para escolher algoritmos para o seu modelo.

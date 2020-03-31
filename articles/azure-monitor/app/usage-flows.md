@@ -1,5 +1,5 @@
 ---
-title: Analise os padrões de navegação dos utilizadores com fluxos de utilizadores em Insights de Aplicação Azure  Microsoft docs
+title: Analise os padrões de navegação dos utilizadores com fluxos de utilizadores em Insights de Aplicação Azure [ Microsoft docs
 description: Analise a forma como os utilizadores navegam entre as páginas e as funcionalidades da sua aplicação web.
 ms.topic: conceptual
 author: NumberByColors
@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: a4a81a3e4c5759e444836162319abb97d83a4c74
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671074"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do utilizador com fluxos de utilizador em Insights de Aplicação
@@ -37,7 +37,7 @@ A ferramenta User Flows começa a partir de uma visão inicial da página, event
 
 Para começar a responder a perguntas com a ferramenta User Flows, escolha uma visão inicial da página, evento personalizado ou exceção para servir como ponto de partida para a visualização:
 
-1. Clique no link no **what dos utilizadores fazerem depois...?**
+1. Clique no link no **what dos utilizadores fazerem depois...?** **Edit**
 2. Selecione uma vista de página, evento personalizado ou exceção do dropdown inicial do **evento.**
 3. Clique **em Criar gráfico**.
 

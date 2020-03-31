@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 71d595ecb3a6900da3df79651ee2dddda594b9de
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6c50e5892aca37bac47e68a9ae17435611c99817
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589420"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80157471"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
@@ -39,12 +39,10 @@ Este artigo descreve, para a IoT Central:
 - Os empregos não suportam tipos complexos.
 - Os tipos de esquemas matrizes não são suportados.
 - Apenas o dispositivo C SDK e o dispositivo Node.js e os SDKs de serviço são suportados.
-- Só está disponível nos estados unidos, Europa, Ásia-Pacífico e Austrália.
+- A IoT Central está atualmente disponível nas localizações dos Estados Unidos, Europa, Ásia-Pacífico, Austrália, Reino Unido e Japão.
+- Não é possível utilizar o modelo de **aplicação personalizado (legado)** nas localizações do Reino Unido e do Japão.
 - Os modelos de capacidade do dispositivo devem ter todas as interfaces definidas inline no mesmo ficheiro.
 - O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em pré-visualização e só é suportado em regiões selecionadas.
-
-    > [!NOTE]
-    > Contacte o suporte técnico para aceder à criação de uma aplicação preview com suporte para dispositivos IoT Plug e Play.
 
 ## <a name="personas"></a>Pessoas fictícias
 
@@ -76,7 +74,6 @@ Este modelo de dispositivo inclui:
 - Um modelo de capacidade de _dispositivo_ que descreve as capacidades que um dispositivo deve implementar, como a telemetria que envia e as propriedades que reporta.
 - Propriedades em nuvem que não estão armazenadas no dispositivo.
 - Personalizações, dashboards e formas que fazem parte da sua aplicação IoT Central.
-
 
 ### <a name="pricing"></a>Preços
 
@@ -128,7 +125,7 @@ A utilização de DPS permite:
 
 Para saber mais, consulte [Fique ligado à Central Azure IoT](./concepts-get-connected.md).
 
-### <a name="azure-iot-edge-devices"></a>Dispositivos do IoT Edge do Azure
+### <a name="azure-iot-edge-devices"></a>Dispositivos Azure IoT Edge
 
 Além de dispositivos criados com os [SDKs Azure IoT,](https://github.com/Azure/azure-iot-sdks)também pode ligar [os dispositivos Azure IoT Edge](../../iot-edge/about-iot-edge.md) a uma aplicação IoT Central. O Azure IoT Edge permite-lhe executar a inteligência em nuvem e a lógica personalizada diretamente em dispositivos IoT geridos pela IoT Central. O tempo de execução do IoT Edge permite::
 

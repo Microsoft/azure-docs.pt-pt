@@ -4,10 +4,10 @@ description: Este artigo apresenta informações sobre a resolução de problema
 ms.date: 08/20/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252392"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Resolução de problemas da cópia de segurança de Partilhas de Ficheiros do Azure
@@ -21,7 +21,7 @@ A cópia de segurança de Partilhas de ficheiros do Azure está em Pré-visualiz
 - Não há CLI disponível para proteger ficheiros Azure usando o Azure Backup.
 - O número máximo de cópias de segurança agendadas por dia é de um.
 - O número máximo de cópias de segurança a pedido por dia é de quatro.
-- Utilize os [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) da conta de armazenamento para impedir a eliminação acidental de cópias de segurança do seu cofre dos Serviços de Recuperação.
+- Utilize [bloqueios](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) de recursos na conta de armazenamento para evitar a eliminação acidental de cópias de segurança no cofre dos Serviços de Recuperação.
 - Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de pontos de recuperação e/ou falhas de restauro.
 - Não elimine as partilhas de ficheiros protegidas pela Azure Backup. A solução atual eliminará todos os instantâneos tirados pela Azure Backup assim que a parte do ficheiro for eliminada e, portanto, perdertodos os pontos de restauro
 
@@ -38,7 +38,7 @@ A tabela seguinte apresenta informações para a configuração da cópia de seg
 | Falha no registo ou na validação da Conta de Armazenamento selecionada.| Repita a operação. Se o problema persistir, contacte o suporte.|
 | Não foram listadas nem localizadas Partilhas de ficheiros na Conta de Armazenamento selecionada. | <ul><li> Verifique se a Conta de Armazenamento existe no Grupo de Recursos (e se não foi eliminada ou movida após o último registo/validação no cofre).<li>Verifique se a Partilha de ficheiros que procura proteger não foi eliminada. <li>Verifique se a Conta de Armazenamento é suportada para a cópia de segurança da Partilha de ficheiros.<li>Verifique se a partilha de Ficheiros já está protegida no mesmo cofre dos Serviços de Recuperação.|
 | A configuração da Partilha de ficheiros da cópia de segurança (ou a configuração da política de proteção) está a falhar. | <ul><li>Repita a operação para ver se o problema persiste. <li> Verifique se a Partilha de ficheiros que quer proteger não foi eliminada. <li> Se estiver a tentar proteger várias Partilhas de ficheiros em simultâneo e algumas das partilhas de ficheiros estiverem a falhar, repita a configuração da cópia de segurança para as Partilhas de ficheiros com falhas. |
-| Não é possível eliminar o cofre dos Serviços de Recuperação após desproteger uma Partilha de ficheiros. | No portal do Azure, abra o seu Cofre > **Infraestrutura de Cópia de Segurança** > **Contas de armazenamento** e clique em **Anular o Registo** para remover a conta de armazenamento do cofre dos Serviços de Recuperação.|
+| Não é possível eliminar o cofre dos Serviços de Recuperação após desproteger uma Partilha de ficheiros. | No portal Azure, abra o seu Cofre > contas de Armazenamento de > **Infraestruturas** de **Backup**e clique **em Unregister** para remover a conta de armazenamento do cofre dos Serviços de Recuperação.|
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensagens de erro para backup ou restabelecer falhas de trabalho
 
@@ -65,9 +65,9 @@ A tabela seguinte apresenta informações para a configuração da cópia de seg
 | Outra operação de proteção configurada está em curso para este item. | Por favor, aguarde que a operação política modificada anterior termine e retente após algum tempo.|
 | Outra operação está em curso no item selecionado. | Por favor, aguarde que a outra operação em curso complete e retente depois de algum tempo |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o backup de ações de ficheiros Azure, consulte:
 
-- [Fazer cópia de segurança das partilhas de ficheiros do Azure](backup-afs.md)
-- [FAQ sobre a cópia de segurança das partilhas de ficheiros do Azure](backup-azure-files-faq.md)
+- [Back up Ações de ficheiros Azure](backup-afs.md)
+- [Back up Azure partilha de ficheiros FAQ](backup-azure-files-faq.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Zscaler One para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
+title: 'Tutorial: Configure Zscaler One para fornecimento automático de utilizadores com Diretório Ativo Azure [ Microsoft Docs'
 description: Aprenda a configurar o Diretório Ativo Azure para fornecer e desfornecer automaticamente contas de utilizador ao Zscaler One.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 87413932acee576934ee50b59546371b03ceaf7e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064177"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configure Zscaler One para fornecimento automático de utilizadores
@@ -53,11 +53,11 @@ Para adicionar Zscaler One do Marketplace, siga estes passos.
 
 2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
 3. Para adicionar uma nova aplicação, selecione **Nova aplicação** na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicação](common/add-new-app.png)
 
 4. Na caixa de pesquisa, introduza **o Zscaler One** e selecione **Zscaler One** do painel de resultados. Para adicionar a aplicação, selecione **Adicionar**.
 
@@ -84,9 +84,9 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para zscaler One em Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Enterprise** > **Todas as aplicações** > **Zscaler One**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações** > Enterprise**Todas as aplicações** > **Zscaler One**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Zscaler One**.
 
@@ -102,7 +102,7 @@ Esta secção guia-o através dos passos para configurar o serviço de provision
 
 5. Sob a secção **de Credenciais de Administrador,** preencha as **caixas DE URL** do Inquilino e **secretas** com as definições para a sua conta Zscaler One, conforme descrito no Passo 6.
 
-6. Para obter o URL do inquilino e ficha secreta, vá à **Administração** > Definições de **Autenticação** no portal Zscaler One UI. No tipo de **autenticação,** selecione **SAML**.
+6. Para obter o URL do inquilino e ficha secreta, vá a Definições de**Autenticação** de **Administração** > no portal Zscaler One UI. No tipo de **autenticação,** selecione **SAML**.
 
     ![Definições de autenticação zscaler one](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 

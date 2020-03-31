@@ -12,10 +12,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: ac38adba4ca0d978dd48a546bed1b1faf4fe40fe
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79036962"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu ao meu projeto MVC (serviço conectado visual Studio Azure Ative Directory)?
@@ -34,44 +34,44 @@ Afeta o ficheiro do projeto (referências*.NET) e `packages.config` (referência
 
 | Tipo | Referência |
 | --- | --- |
-| .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
-| .NET; NuGet | Microsoft.Owin |
-| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
-| .NET; NuGet | Microsoft.Owin.Security |
-| .NET; NuGet | Microsoft.Owin.Security.Cookies |
-| .NET; NuGet | Microsoft.Owin.Security.OpenIdConnect |
-| .NET; NuGet | Rio Owin |
+| .net; Nuget | Microsoft.IdentityModel.Protocol.Extensions |
+| .net; Nuget | Microsoft.Owin |
+| .net; Nuget | Microsoft.Owin.Host.SystemWeb |
+| .net; Nuget | Microsoft.Owin.Security |
+| .net; Nuget | Microsoft.Owin.Security.Cookies |
+| .net; Nuget | Microsoft.Owin.Security.OpenIdConnect |
+| .net; Nuget | Rio Owin |
 | .NET        | System.IdentityModel |
-| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
+| .net; Nuget | System.IdentityModel.Tokens.Jwt |
 | .NET        | System.Runtime.Serialization |
 
 Referências adicionais se selecionou a opção de dados do **diretório Ler:**
 
 | Tipo | Referência |
 | --- | --- |
-| .NET; NuGet | EntityFramework |
+| .net; Nuget | Estrutura de Entidades |
 | .NET        | EntityFramework.SqlServer (apenas Visual Studio 2015) |
-| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
-| .NET; NuGet | Microsoft.Data.Edm |
-| .NET; NuGet | Microsoft.Data.OData |
-| .NET; NuGet | Microsoft.Data.Services.Client |
-| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .net; Nuget | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .net; Nuget | Microsoft.Data.Edm |
+| .net; Nuget | Microsoft.data.OData |
+| .net; Nuget | Microsoft.Data.Services.Client |
+| .net; Nuget | Microsoft.IdentityModel.Clients.ActiveDirectory |
 | .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (apenas Visual Studio 2015) |
-| .NET; NuGet | System.Spatial |
+| .net; Nuget | Sistema.Espacial |
 
 As seguintes referências são removidas (ASP.NET apenas 4 projetos, como no Visual Studio 2015):
 
 | Tipo | Referência |
 | --- | --- |
-| .NET; NuGet | Microsoft.AspNet.Identity.Core |
-| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
-| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
+| .net; Nuget | Microsoft.AspNet.Identity.Core |
+| .net; Nuget | Microsoft.AspNet.Identity.EntityFramework |
+| .net; Nuget | Microsoft.AspNet.Identity.Owin |
 
 ## <a name="project-file-changes"></a>Alterações no ficheiro do projeto
 
-- Deteto a propriedade `IISExpressSSLPort` para um número distinto.
-- Detete a propriedade `WebProject_DirectoryAccessLevelKey` a 0, ou 1 se tiver selecionado a opção de dados do **diretório Read.**
-- Detete a `IISUrl` da propriedade para `https://localhost:<port>/` onde `<port>` corresponda ao valor `IISExpressSSLPort`.
+- Coloque a `IISExpressSSLPort` propriedade num número distinto.
+- Desloque a propriedade `WebProject_DirectoryAccessLevelKey` para 0, ou 1 se tiver selecionado a opção de dados do **diretório Read.**
+- Detete `IISUrl` `https://localhost:<port>/` a `<port>` propriedade `IISExpressSSLPort` para onde corresponda ao valor.
 
 ## <a name="webconfig-or-appconfig-changes"></a>web.config ou app.config alterações
 
@@ -87,17 +87,17 @@ As seguintes referências são removidas (ASP.NET apenas 4 projetos, como no Vis
     </appSettings>
     ```
 
-- Adicione `<dependentAssembly>` elementos sob o nó `<runtime><assemblyBinding>` para `System.IdentityModel.Tokens.Jwt` e `Microsoft.IdentityModel.Protocol.Extensions`.
+- Elementos `<dependentAssembly>` adicionados `<runtime><assemblyBinding>` sob `System.IdentityModel.Tokens.Jwt` o `Microsoft.IdentityModel.Protocol.Extensions`nó para e .
 
 Alterações adicionais se selecionou a opção de dados do **diretório Ler:**
 
-- Acrescentou a seguinte entrada de configuração em `<appSettings>`:
+- Adicione a seguinte `<appSettings>`entrada de configuração em:
 
     ```xml
     <add key="ida:ClientSecret" value="<Azure AD app's new client secret>" />
     ```
 
-- Adicione os seguintes elementos sob `<configuration>`; Os valores para o project-mdf-file e project-catalog-id variarão:
+- Adicione os seguintes `<configuration>`elementos em ; Os valores para o project-mdf-file e project-catalog-id variarão:
 
     ```xml
     <configSections>
@@ -121,25 +121,25 @@ Alterações adicionais se selecionou a opção de dados do **diretório Ler:**
     </entityFramework>
     ```
 
-- Adicione `<dependentAssembly>` elementos sob o nó `<runtime><assemblyBinding>` para `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm`e `Microsoft.Data.OData`.
+- Elementos `<dependentAssembly>` adicionados `<runtime><assemblyBinding>` sob `Microsoft.Data.Services.Client`o `Microsoft.Data.Edm`nó `Microsoft.Data.OData`para, e .
 
 ## <a name="code-changes-and-additions"></a>Alterações e adições de código
 
-- Acrescentou o atributo `[Authorize]` à `Controllers/HomeController.cs` e a quaisquer outros controladores existentes.
+- Acrescentou `[Authorize]` o `Controllers/HomeController.cs` atributo e quaisquer outros controladores existentes.
 
-- Adicionou uma classe de startupde autenticação, `App_Start/Startup.Auth.cs`, contendo lógica de startup para autenticação AD Azure. Se selecionou a opção de dados do **diretório Read,** este ficheiro também contém código para receber um código OAuth e trocá-lo por um token de acesso.
+- Adicionou uma classe `App_Start/Startup.Auth.cs`de startupde autenticação, contendo lógica de arranque para autenticação ad. Se selecionou a opção de dados do **diretório Read,** este ficheiro também contém código para receber um código OAuth e trocá-lo por um token de acesso.
 
-- Acrescentou uma classe de controlador, `Controllers/AccountController.cs`, contendo métodos `SignIn` e `SignOut`.
+- Acrescentou uma `Controllers/AccountController.cs`classe `SignIn` de `SignOut` controlador, contendo e métodos.
 
-- Acrescentou uma visão parcial, `Views/Shared/_LoginPartial.cshtml`, contendo uma ligação de ação para `SignIn` e `SignOut`.
+- Acrescentou uma `Views/Shared/_LoginPartial.cshtml`visão parcial, contendo `SignIn` `SignOut`uma ligação de ação para e .
 
-- Acrescentou uma visão parcial, `Views/Account/SignoutCallback.cshtml`, contendo HTML para uI de inscrição.
+- Acrescentou uma `Views/Account/SignoutCallback.cshtml`visão parcial, contendo HTML para uI de inscrição.
 
-- Atualizou o método `Startup.Configuration` para incluir uma chamada para `ConfigureAuth(app)` se a classe já existisse; caso contrário, acrescentou uma aula `Startup` que inclui chamadas de método.
+- Atualizou `Startup.Configuration` o método para `ConfigureAuth(app)` incluir uma chamada para se a classe já existia; caso contrário, `Startup` acrescentou uma classe que inclui chamadas de método.
 
-- Acrescentou `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), contendo informações que o Visual Studio utiliza para acompanhar a adição do serviço conectado.
+- Adicionado `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), contendo informações que o Visual Studio usa para acompanhar a adição do serviço conectado.
 
-- Se selecionou a opção de dados do **diretório Read,** acrescentou `Models/ADALTokenCache.cs` e `Models/ApplicationDbContext.cs` para suportar o cacheto de token. Adicionou ainda um controlador adicional e uma visão para ilustrar o acesso à informação do perfil do utilizador através de APIs de gráfico sinuoso: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`e `Views/UserProfile/Relogin.cshtml`
+- Se selecionou a opção de `Models/ADALTokenCache.cs` `Models/ApplicationDbContext.cs` dados do **diretório Read,** adicionado e para suportar o cache token. Também adicionou um controlador adicional e vista para ilustrar o `Controllers/UserProfileController.cs`acesso `Views/UserProfile/Index.cshtml`à informação do perfil do utilizador usando APIs de gráfico Azure: , e`Views/UserProfile/Relogin.cshtml`
 
 ### <a name="file-backup-visual-studio-2015"></a>Backup de ficheiros (Estúdio Visual 2015)
 

@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação node. js do Azure Cosmos DB com API do Gremlin
+title: Construa uma aplicação Azure Cosmos DB Node.js utilizando a API Gremlin
 description: Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar o Azure Cosmos DB
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 7ab259886409610fc89c35f4c96c9babb977b44d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e6456c79dbce1f8bb874ce4c88b932e592235a82
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061866"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80244431"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construa uma aplicação Node.js utilizando a conta API Azure Cosmos DB Gremlin
 
@@ -21,8 +21,8 @@ ms.locfileid: "77061866"
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
-> * [python](create-graph-python.md)
+> * [Nó.js](create-graph-nodejs.md)
+> * [Pitão](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
@@ -31,7 +31,7 @@ Neste arranque rápido, cria-se e gere-se uma conta API Azure Cosmos DB Gremlin 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 
 - [Node.js 0.10.29+](https://nodejs.org/).
-- [Git](https://git-scm.com/downloads).
+- [Git.](https://git-scm.com/downloads)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -69,7 +69,7 @@ Agora vamos clonar uma aplicação da API do Gremlin a partir do GitHub, definir
 
 Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). 
 
-Os seguintes fragmentos são retirados do ficheiro *app.js*.
+Os seguintes cortes são todos retirados do ficheiro *app.js.*
 
 Esta aplicação de consola utiliza o controlador [Gremlin Node.js](https://www.npmjs.com/package/gremlin) de código aberto.
 
@@ -150,7 +150,7 @@ Esta aplicação de consola utiliza o controlador [Gremlin Node.js](https://www.
 
 1. Abra o ficheiro *config.js.* 
 
-2. Em *config.js,* preencha a chave `config.endpoint` com o valor **Gremlin Endpoint** a partir da página **de visão geral** da sua conta Cosmos DB no portal Azure. 
+2. Em *config.js,* preencha a `config.endpoint` chave com o valor **Gremlin Endpoint** a partir da página de visão **geral** da sua conta Cosmos DB no portal Azure. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
@@ -169,7 +169,7 @@ Aqui está um exemplo de como o seu ficheiro *config.js* completo deve ser:
 ```javascript
 var config = {}
 
-// Note that this must not have HTTPS or the port number
+// Note that this must include the protocol (HTTPS:// for .NET SDK URI or wss:// for Gremlin Endpoint) and the port number
 config.endpoint = "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"; 
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
@@ -180,7 +180,7 @@ module.exports = config;
 
 ## <a name="run-the-console-app"></a>Executar a aplicação de consola
 
-1. Abra uma janela de terminal e mude (via comando `cd`) para o diretório de instalação do ficheiro *package.json* que está incluído no projeto.
+1. Abra uma janela de `cd` terminal e mude (via comando) para o diretório de instalação do ficheiro *package.json* que está incluído no projeto.
 
 2. Execute `npm install` para instalar os módulos npm necessários, incluindo `gremlin`.
 

@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67184726"
 ---
-## <a name="repeatability-during-copy"></a>Capacidade de repetição durante a cópia
-Quando armazena a cópia de dados para o Azure SQL e do SQL Server de outros dados, é necessário ter a capacidade de repetição em mente para evitar resultados indesejados. 
+## <a name="repeatability-during-copy"></a>Repetibilidade durante a Cópia
+Ao copiar dados para o Servidor Azure SQL/SQL de outras lojas de dados é necessário ter em mente a repetível para evitar resultados não intencionais. 
 
-Quando se copiam dados para o banco de dados do Azure SQL/SQL Server, a atividade de cópia será por predefinição ACRESCENTAR o conjunto de dados para a tabela do sink por predefinição. Por exemplo, quando se copiam dados a partir de uma origem de ficheiro CSV (dados de valores separados por vírgulas) que contém dois registros à base de dados do Azure SQL/SQL Server, este é o que a tabela é semelhante a:
+Ao copiar dados para a Base de Dados do Servidor Azure SQL/SQL, a atividade de cópia será por padrão anexar o conjunto de dados à tabela do lavatório por padrão. Por exemplo, ao copiar dados de uma fonte de ficheiroCSV (comma separados) contendo dois registos para a Base de Dados de Servidores Azure SQL/SQL, é assim que a tabela se parece:
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -23,7 +23,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Suponha que encontrou erros no ficheiro de origem e atualizado a quantidade de baixo Tube de 2 a 4 no arquivo de origem. Se volte a executar o setor de dados durante esse período, encontrará dois novos registos anexados ao banco de dados do Azure SQL/SQL Server. A seguir pressupõe que nenhuma das colunas na tabela tenha a restrição de chave primária.
+Suponha que encontrou erros no ficheiro fonte e atualizou a quantidade de Down Tube de 2 a 4 no ficheiro fonte. Se reexecutar a fatia de dados durante esse período, encontrará dois novos registos anexados à Base de Dados do Servidor Azure SQL/SQL. A parte seguinte pressupõe que nenhuma das colunas da tabela tem a principal restrição de chave.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -34,15 +34,15 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Para evitar isto, terá de especificar a semântica UPSERT ao tirar partido de um do abaixo 2 mecanismos indicados abaixo.
+Para evitar isto, terá de especificar a semântica UPSERT, aproveitando um dos mecanismos abaixo de 2 indicados abaixo.
 
 > [!NOTE]
-> Um setor pode ser reexecutado automaticamente no Azure Data Factory de acordo com a política de repetição especificada.
+> Uma fatia pode ser reexecutada automaticamente na Azure Data Factory de acordo com a política de retry especificada.
 > 
 > 
 
-### <a name="mechanism-1"></a>Mecanismo de 1
-Pode tirar partido **sqlWriterCleanupScript** propriedade execute primeiramente a ação de limpeza quando um setor é executado. 
+### <a name="mechanism-1"></a>Mecanismo 1
+Pode aproveitar a propriedade **sqlWriterCleanupScript** para primeiro realizar a ação de limpeza quando uma fatia é executada. 
 
 ```json
 "sink":  
@@ -52,9 +52,9 @@ Pode tirar partido **sqlWriterCleanupScript** propriedade execute primeiramente 
 }
 ```
 
-Seria possível executar o script de limpeza primeiro durante a cópia de um determinado setor que teria de eliminar os dados da tabela de SQL correspondente a esse setor. A atividade, em seguida, irá inserir os dados para a tabela de SQL. 
+O script de limpeza seria executado primeiro durante a cópia para uma determinada fatia que eliminaria os dados da Tabela SQL correspondente a essa fatia. A atividade inserirá posteriormente os dados na Tabela SQL. 
 
-Se o setor está agora volte a executar, em seguida, encontrará que a quantidade é atualizada como pretendido.
+Se a fatia for agora reexecutada, verá que a quantidade está atualizada conforme desejado.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -63,25 +63,25 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Suponha que o registo de Washer simples é removido do original csv. Em seguida, voltar a executar o setor produziria o seguinte resultado: 
+Suponha que o registo da Máquina de Aresta Plana seja removido do csv original. Em seguida, a reexecução da fatia produziria o seguinte resultado: 
 
 ```
 ID    Product        Quantity    ModifiedDate
 ...    ...            ...            ...
 7     Down Tube    4            2015-05-01 00:00:00
 ```
-Nada de novo tinha que ser feito. A atividade de cópia foi executado o script de limpeza para eliminar os dados correspondentes para essas fatias. Em seguida, a entrada leem o csv (que, em seguida, contidos apenas 1 registo) e inseridos-lo na tabela. 
+Nada de novo tinha de ser feito. A atividade de cópia executou o script de limpeza para eliminar os dados correspondentes para essa fatia. Em seguida, leu a entrada do csv (que continha apenas 1 disco) e inseriu-a na Tabela. 
 
-### <a name="mechanism-2"></a>Mecanismo de 2
+### <a name="mechanism-2"></a>Mecanismo 2
 > [!IMPORTANT]
-> sliceIdentifierColumnName não é suportada para o Azure SQL Data Warehouse neste momento. 
+> fatiaIdentificarColumnName não é suportado para O Armazém de Dados Azure SQL neste momento. 
 
-Outro mecanismo para atingir a capacidade de repetição é ter uma coluna dedicada (**sliceIdentifierColumnName**) na tabela de destino. Esta coluna seria usada pelo Azure Data Factory para garantir que a origem e de destino ser mantidos em sincronia. Essa abordagem funciona quando houver flexibilidade para alterar ou definir o esquema de tabela SQL de destino. 
+Outro mecanismo para alcançar a repetível é ter uma coluna dedicada **(sliceIdentifierColumnName**) na tabela-alvo. Esta coluna seria utilizada pela Azure Data Factory para garantir que a fonte e o destino permanecem sincronizados. Esta abordagem funciona quando há flexibilidade na alteração ou definição do esquema de mesa SQL de destino. 
 
-Esta coluna vai ser utilizada pelo Azure Data Factory para fins de capacidade de repetição e o processo do Azure Data Factory irá não fazer quaisquer alterações de esquema para a tabela. Forma de usar essa abordagem:
+Esta coluna seria utilizada pela Azure Data Factory para efeitos de repetição e, no processo, a Azure Data Factory não fará alterações de esquema sinuosa à Tabela. Forma de utilizar esta abordagem:
 
-1. Defina uma coluna do tipo binário (32) no destino da tabela SQL. Não deve haver nenhuma restrição nesta coluna. Vamos dar o nome desta coluna como 'ColumnForADFuseOnly' para este exemplo.
-2. Utilizá-la na atividade de cópia da seguinte forma:
+1. Defina uma coluna de tipo binário (32) na tabela SQL de destino. Não deve haver constrangimentos nesta coluna. Vamos nomear esta coluna como 'ColumnForADFuseOnly' para este exemplo.
+2. Utilize-a na atividade da cópia da seguinte forma:
    
     ```json
     "sink":  
@@ -92,7 +92,7 @@ Esta coluna vai ser utilizada pelo Azure Data Factory para fins de capacidade de
     }
     ```
 
-O Azure Data Factory irá preencher nesta coluna, de acordo com a sua necessidade de garantir que a origem e de destino ser mantidos em sincronia. Os valores desta coluna não devem ser utilizados fora deste contexto pelo utilizador. 
+A Azure Data Factory irá povoar esta coluna de acordo com a sua necessidade de garantir que a fonte e o destino permaneçam sincronizados. Os valores desta coluna não devem ser utilizados fora deste contexto pelo utilizador. 
 
-Assim como o mecanismo de 1, atividade de cópia será automaticamente pela primeira vez, limpar os dados para o determinado setor de tabela SQL de destino e, em seguida, executar a atividade de cópia normalmente para inserir os dados de origem para destino para essas fatias. 
+Semelhante ao mecanismo 1, a Copy Activity limpará automaticamente os dados da fatia da dada a partir da Tabela SQL de destino e, em seguida, executará a atividade de cópia normalmente para inserir os dados de origem em destino para essa fatia. 
 

@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 696e14e75998ead04c99fab2b84fc4c742d5f54a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302666"
 ---
 # <a name="atn2-azure-cosmos-db"></a>ATN2 (Azure Cosmos DB)
- Devolve o valor principal do arco tangente de y / x, expressado em radianos.  
+ Devolve o valor principal da tangente do arco de y/x, expressa em radianos.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ ATN2(<numeric_expr>, <numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte calcula ATN2 especificado para x e y componentes.  
+  O exemplo seguinte calcula o ATN2 para os componentes especificados x e y.  
   
 ```sql
 SELECT ATN2(35.175643, 129.44) AS atn2  

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
 ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79300157"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança da rede para recursos da Rede de Eventos Azure
@@ -25,7 +25,7 @@ Este artigo descreve como usar as seguintes funcionalidades de segurança com a 
 ## <a name="service-tags"></a>Etiquetas de serviço
 Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereço sacados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede. Para mais informações sobre etiquetas de serviço, consulte a visão geral das [etiquetas](../virtual-network/service-tags-overview.md)de serviço .
 
-Pode utilizar etiquetas de serviço para definir controlos de acesso à rede em [grupos](../virtual-network/security-overview.md#security-rules) de segurança de rede ou [Firewall Azure](../firewall/service-tags.md). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Especificando o nome da etiqueta de serviço (por exemplo, **AzureEventGrid)** na *fonte* apropriada ou * * campo de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.
+Pode utilizar etiquetas de serviço para definir controlos de acesso à rede em [grupos](../virtual-network/security-overview.md#security-rules) de segurança de rede ou [firewall Azure](../firewall/service-tags.md). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Especificando o nome da etiqueta de serviço (por exemplo, **AzureEventGrid)** no campo de *origem* ou *destino* apropriado de uma regra, pode permitir ou negar o tráfego do serviço correspondente.
 
 | Etiqueta de serviço | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com firewall Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -54,14 +54,14 @@ Quando cria um ponto final privado para um tópico ou domínio no seu VNet, é e
 As editoras de um VNet que utilizem o ponto final privado devem utilizar a mesma cadeia de ligação para o tópico ou domínio que os clientes que se ligam ao ponto final público. A resolução dNS direciona automaticamente as ligações da VNet para o tópico ou domínio sobre um link privado. A Rede de Eventos cria uma [zona Privada de DNS](../dns/private-dns-overview.md) anexada ao VNet com a atualização necessária para os pontos finais privados, por padrão. No entanto, se estiver a utilizar o seu próprio servidor DNS, poderá ter de fazer alterações adicionais na configuração do DNS.
 
 ### <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos finais privados
-Quando se cria um ponto final privado, o registo DNS CNAME para o recurso é atualizado para um pseudónimo num subdomínio com o prefixo `privatelink`. Por padrão, é criada uma zona privada de DNS que corresponde ao subdomínio do link privado. 
+Quando se cria um ponto final privado, o registo DNS CNAME para o recurso `privatelink`é atualizado para um pseudónimo num subdomínio com prefixo . Por padrão, é criada uma zona privada de DNS que corresponde ao subdomínio do link privado. 
 
 Quando resolve o tópico ou o url final do ponto final de domínio de fora da VNet com o ponto final privado, resolve-se até ao ponto final público do serviço. Os registos de recursos dNS para 'topicA', quando resolvidos **de fora da VNet** que acolhe o ponto final privado, serão:
 
 | Nome                                          | Tipo      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \> de perfil do gestor de tráfego azul \<
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<perfil de gestor de tráfego azure\>
 
 Pode negar ou controlar o acesso a um cliente fora do VNet através do ponto final público utilizando a [firewall IP](#ip-firewall). 
 
@@ -70,23 +70,23 @@ Quando resolvido a partir do VNet que acolhe o ponto final privado, o URL de pon
 | Nome                                          | Tipo      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | Uma         | 10.0.0.5
+| `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
 
 Esta abordagem permite o acesso ao tópico ou domínio utilizando a mesma cadeia de ligação para clientes no VNet que acolhe os pontos finais privados, e clientes fora do VNet.
 
-Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes podem resolver o FQDN para o tópico ou ponto final de domínio para o endereço IP do ponto final privado. Configure o seu servidor DNS para delegar o seu subdomínio de ligação privada na zona privada de DNS para o VNet, ou configurar os registos A para `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` com o endereço IP final do ponto final privado.
+Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes podem resolver o FQDN para o tópico ou ponto final de domínio para o endereço IP do ponto final privado. Configure o seu servidor DNS para delegar o seu subdomínio de ligação privada `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` na zona privada de DNS para o VNet, ou configurar os registos A com o endereço IP final do ponto final privado.
 
-O nome de zona DNS recomendado é `privatelink.eventgrid.azure.net`.
+O nome de zona `privatelink.eventgrid.azure.net`DNS recomendado é .
 
 ### <a name="private-endpoints-and-publishing"></a>Pontos finais privados e publicação
 
 O quadro seguinte descreve os vários estados da ligação de ponto final privado e os efeitos na publicação:
 
-| Estado da ligação   |  Publicação com sucesso (Sim/Não) |
+| Estado de Ligação   |  Publicação com sucesso (Sim/Não) |
 | ------------------ | -------------------------------|
 | Aprovado           | Sim                            |
-| Rejeitado           | Não                             |
-| Pending            | Não                             |
+| Rejected           | Não                             |
+| Pendente            | Não                             |
 | Desligado       | Não                             |
 
 Para que a publicação seja bem sucedida, o estado de ligação de pontofinal privado deve ser **aprovado.** Se uma ligação for rejeitada, não pode ser aprovada através do portal Azure. A única possibilidade é eliminar a ligação e criar uma nova.
@@ -97,7 +97,7 @@ Para que a publicação seja bem sucedida, o estado de ligação de pontofinal p
 A funcionalidade **IP Firewall** está disponível tanto nos níveis básicos como premium da Grelha de Eventos. Permitimos que até 16 regras ip firewall sejam criadas por tópico ou domínio.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Pode configurar a firewall IP para o seu recurso Da Rede de Eventos para restringir o acesso através da internet pública a partir de apenas um conjunto selecionado de endereços IP ou intervalos ip Address. Para obter instruções passo a passo, consulte a [firewall IP configurar](configure-firewall.md).
 
 Pode configurar pontos finais privados para restringir o acesso a partir de redes virtuais selecionadas. Para obter instruções passo a passo, consulte [os pontos finais privados da Configuração](configure-private-endpoints.md).

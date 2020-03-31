@@ -8,10 +8,10 @@ ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 50ad9d57b24fab9ee57c2f9caae8f4c39d2681f0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669085"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Criar um grupo de ação com um modelo de Gestor de Recursos
@@ -27,7 +27,7 @@ Primeiro, descrevemos como criar um modelo de Gestor de Recursos para um grupo d
 
 ## <a name="resource-manager-templates-for-an-action-group"></a>Modelos de Gestor de Recursos para um grupo de ação
 
-Para criar um grupo de ação utilizando um modelo de Gestor de Recursos, cria-se um recurso do tipo `Microsoft.Insights/actionGroups`. Depois preenchetodas as propriedades relacionadas. Aqui estão dois modelos de amostra que criam um grupo de ação.
+Para criar um grupo de ação usando um modelo `Microsoft.Insights/actionGroups`de Gestor de Recursos, você cria um recurso do tipo . Depois preenchetodas as propriedades relacionadas. Aqui estão dois modelos de amostra que criam um grupo de ação.
 
 ```json
 {

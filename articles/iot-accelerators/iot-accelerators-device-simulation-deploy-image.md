@@ -1,6 +1,6 @@
 ---
-title: Implementar uma imagem de simulação de dispositivo personalizada - Azure | Documentos da Microsoft
-description: Este guia de procedimentos, irá aprender a implementar uma imagem personalizada do Docker da solução de simulação do dispositivo no Azure.
+title: Implemente uma imagem de simulação de dispositivo personalizada - Azure/ Microsoft Docs
+description: Neste guia de como guiar, aprende a implementar uma imagem personalizada do Docker da solução de Simulação de Dispositivos para o Azure.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,52 +10,52 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c1f321f452b65016c11cb66d08ebab108509cc62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61448416"
 ---
-# <a name="deploy-a-custom-device-simulation-docker-image"></a>Implementar uma imagem personalizada do docker de simulação do dispositivo
+# <a name="deploy-a-custom-device-simulation-docker-image"></a>Implementar uma imagem personalizada de estivador de simulação de dispositivo
 
-É possível modificar a solução de simulação do dispositivo para adicionar recursos personalizados. Por exemplo, o [serializar telemetria com Protocol Buffers](iot-accelerators-device-simulation-protobuf.md) artigo mostra-lhe como adicionar um dispositivo personalizado para a solução que utiliza Protocol Buffers (Protobuf) para enviar telemetria. Depois de o testar as suas alterações localmente, a próxima etapa é implantar as alterações à sua instância de simulação do dispositivo no Azure. Para concluir essa tarefa, terá de criar e implementar uma imagem do Docker que contém o serviço modificado.
+Pode modificar a solução de Simulação de Dispositivo para adicionar funcionalidades personalizadas. Por exemplo, a [telemetria Serialize utilizando](iot-accelerators-device-simulation-protobuf.md) o artigo protocolar buffers mostra-lhe como adicionar um dispositivo personalizado à solução que utiliza buffers protocolar (Protobuf) para enviar telemetria. Depois de ter testado as suas alterações localmente, o próximo passo é implementar as suas alterações na sua instância de Simulação de Dispositivos em Azure. Para completar esta tarefa, precisa de criar e implementar uma imagem do Docker que contenha o seu serviço modificado.
 
-Os passos neste procedimentos-to-guia mostram como para:
+Os passos neste como-guia mostram-lhe como:
 
 1. Preparar um ambiente de desenvolvimento
-1. Gerar uma nova imagem de Docker
-1. Configurar a simulação do dispositivo para utilizar a nova imagem do Docker
+1. Gerar uma nova imagem do Docker
+1. Configure a simulação do dispositivo para usar a sua nova imagem do Docker
 1. Executar uma simulação usando a nova imagem
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir os passos neste guia de procedimentos, terá de:
+Para completar os passos neste guia de como guiar, você precisa:
 
-* Um implementado [simulação do dispositivo](quickstart-device-simulation-deploy.md) instância.
-* Docker. Transfira o [Docker Community Edition](https://www.docker.com/products/docker-engine#/download) para a sua plataforma.
-* R [conta do Docker Hub](https://hub.docker.com/) onde pode carregar as imagens do Docker. Na sua conta do Docker Hub, criar um repositório público chamado **simulação do dispositivo**.
-* A modificação e testado [solução de simulação do dispositivo](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) no seu computador local. Por exemplo, pode modificar a solução para [serializar telemetria com Protocol Buffers](iot-accelerators-device-simulation-protobuf.md).
-* Um shell que pode ser executadas SSH. Se instalar o Git para Windows, pode utilizar o **bash** shell que faz parte da instalação de th. Também pode utilizar o seu [Azure Cloud Shell](https://shell.azure.com/).
+* Uma instância de [simulação](quickstart-device-simulation-deploy.md) de dispositivo implantado.
+* Docker. Descarregue a [Edição Comunitária do Docker](https://www.docker.com/products/docker-engine#/download) para a sua plataforma.
+* Uma [conta do Docker Hub](https://hub.docker.com/) onde podes carregar as tuas imagens do Docker. Na sua conta Do Docker Hub, crie um repositório público chamado **simulação de dispositivos.**
+* Uma solução modificada e testada de simulação de [dispositivo solução](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) na sua máquina local. Por exemplo, pode modificar a solução para serializar a [telemetria utilizando tampões protocolares](iot-accelerators-device-simulation-protobuf.md).
+* Uma concha que pode executar SSH. Se instalar o Git Para windows, pode utilizar a concha de **batida** que faz parte da instalação. Também pode utilizar a sua [Concha de Nuvem Azure.](https://shell.azure.com/)
 
-As instruções neste artigo partem do princípio de que está a utilizar o Windows. Se estiver a utilizar outro sistema operacional, poderá ter de ajustar alguns dos caminhos de ficheiro e comandos de acordo com seu ambiente.
+As instruções deste artigo assumem que está a usar o Windows. Se estiver a utilizar outro sistema operativo, poderá ter de ajustar alguns dos caminhos e comandos de ficheiros para se adequar ao seu ambiente.
 
-## <a name="create-a-new-docker-image"></a>Criar uma nova imagem de Docker
+## <a name="create-a-new-docker-image"></a>Criar uma nova imagem do Docker
 
-Para implementar as suas próprias alterações no serviço de simulação do dispositivo, tem de editar os scripts de compilação e implementação na **scripts\docker** pasta para carregar os contentores à sua conta do docker hub
+Para implementar as suas próprias alterações no serviço de Simulação de Dispositivos, precisa de editar os scripts de construção e implementação em **scripts\docker** folder para carregar os recipientes para a sua conta de docker-hub
 
-### <a name="modify-the-docker-scripts"></a>Modificar os scripts de docker
+### <a name="modify-the-docker-scripts"></a>Modificar os scripts de estivador
 
-Modificar o Docker **build.cmd**, **publish.cmd**, e **run.cmd** scripts no **scripts\docker** pasta com o seu Hub do Docker informações do repositório. Estes passos partem do princípio de que criou um repositório público chamado **simulação do dispositivo**:
+Modifique a **construção Do Docker.cmd,** **publique.cmd,** e execute scripts **de dispôs** nos **scripts\docker** pasta com a sua informação de repositório Docker Hub. Estes passos assumem que criou um repositório público chamado **simulação de dispositivos:**
 
 `DOCKER_IMAGE={your-docker-hub-username}/device-simulation`
 
-Atualização do **docker-Compose** ficheiros da seguinte forma:
+Atualize o ficheiro **docker-compose.yml** da seguinte forma:
 
 `image: {your-docker-hub-username}/device-simulation`
 
-### <a name="configure-the-solution-to-include-any-new-files"></a>Configurar a solução para incluir todos os novos ficheiros
+### <a name="configure-the-solution-to-include-any-new-files"></a>Configure a solução para incluir quaisquer novos ficheiros
 
-Se tiver adicionado quaisquer novos ficheiros de modelo do dispositivo, terá de explicitamente incluídos na solução. Adicionar uma entrada para o **services/services.csproj** para cada ficheiro adicional incluir. Por exemplo, se concluiu a [serializar telemetria com Protocol Buffers](iot-accelerators-device-simulation-protobuf.md) procedimentos, adicione as seguintes entradas:
+Se adicionou novos ficheiros de modelos de dispositivos, tem de os incluir explicitamente na solução. Adicione uma entrada nos **serviços/serviços.csproj** para cada ficheiro adicional a incluir. Por exemplo, se tiver concluído a [telemetria Serialize utilizando](iot-accelerators-device-simulation-protobuf.md) o Protocolo Buffers how-to, adicione as seguintes entradas:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -66,25 +66,25 @@ Se tiver adicionado quaisquer novos ficheiros de modelo do dispositivo, terá de
 </None>
 ```
 
-### <a name="generate-new-docker-images-and-push-to-docker-hub"></a>Gerar novas imagens do Docker e enviar por push para o Docker Hub
+### <a name="generate-new-docker-images-and-push-to-docker-hub"></a>Gere novas imagens do Docker e empurre para o Docker Hub
 
-Publicar a nova imagem do Docker para o Docker Hub com a sua conta do docker hub:
+Publique a nova imagem do Docker no Docker Hub usando a sua conta de docker-hub:
 
-1. Abra uma linha de comandos e navegue para a sua cópia local do repositório de simulação do dispositivo.
+1. Abra um pedido de comando e navegue para a sua cópia local do repositório de simulação do dispositivo.
 
-1. Navegue para o **docker** pasta:
+1. Navegue para a pasta do **estivador:**
 
     ```cmd
     cd scripts\docker
     ```
 
-1. Execute o seguinte comando para criar a imagem do Docker:
+1. Executar o seguinte comando para construir a imagem do Docker:
 
     ```cmd
     build.cmd
     ```
 
-1. Execute o seguinte comando para publicar a imagem do Docker para o seu repositório do Docker Hub. Inicie sessão no Docker com as suas credenciais do Docker Hub:
+1. Execute o seguinte comando para publicar a imagem do Docker no seu repositório Docker Hub. Inscreva-se no Docker com as suas credenciais do Docker Hub:
 
     ```cmd
     docker login
@@ -95,29 +95,29 @@ Publicar a nova imagem do Docker para o Docker Hub com a sua conta do docker hub
 
 [!INCLUDE [iot-solution-accelerators-access-vm](../../includes/iot-solution-accelerators-access-vm.md)]
 
-## <a name="update-the-service"></a>Atualize o serviço
+## <a name="update-the-service"></a>Atualizar o serviço
 
-Para atualizar o contentor de simulação do dispositivo ao utilizar a sua imagem personalizada, conclua os seguintes passos:
+Para atualizar o recipiente de simulação de dispositivo para utilizar a sua imagem personalizada, complete os seguintes passos:
 
-* Utilize SSH para ligar à máquina virtual que aloja a instância de simulação do dispositivo. Utilize o endereço IP e a palavra-passe que anotou na secção anterior:
+* Utilize o SSH para se ligar à máquina virtual que acolhe a sua instância de Simulação de Dispositivos. Utilize o endereço IP e a palavra-passe de que tomou nota na secção anterior:
 
     ```sh
     ssh azureuser@{your vm ip address}
     ```
 
-* Navegue para o **/app** diretório:
+* Navegue para o diretório **/app:**
 
     ```sh
     cd /app
     ```
 
-* Editar a **docker-Compose** ficheiro:
+* Editar o ficheiro **docker-compose.yml:**
 
     ```sh
     sudo nano docker-compose.yml
     ```
 
-    Modificar a **imagem** para apontar o personalizado **simulação do dispositivo** imagem carregada para o seu repositório de Hub do Docker:
+    Modifique a **imagem** para indicar a imagem **de simulação de dispositivo** personalizada que carregou para o seu repositório Docker Hub:
 
     ```yml
     image: {your-docker-hub-username}/device-simulation
@@ -125,20 +125,20 @@ Para atualizar o contentor de simulação do dispositivo ao utilizar a sua image
 
     Guarde as alterações.
 
-* Execute o seguinte comando para reiniciar os microsserviços:
+* Executar o seguinte comando para reiniciar os microserviços:
 
     ```sh
     sudo start.sh
     ```
 
-## <a name="run-your-simulation"></a>Executar a simulação
+## <a name="run-your-simulation"></a>Executar a sua Simulação
 
-Agora, pode executar uma simulação usando sua solução de simulação de dispositivo personalizada:
+Agora pode executar uma simulação utilizando a sua solução de simulação de dispositivo personalizada:
 
-1. Lançamento da interface do Usuário da web a simulação do dispositivo [Aceleradores de soluções do Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#dashboard).
+1. Lance o uI web de simulação de dispositivo a partir de aceleradores de [soluções Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#dashboard).
 
-1. Utilize a IU da web para configurar e executar uma simulação. Se concluiu anteriormente [serializar telemetria com Protocol Buffers](iot-accelerators-device-simulation-protobuf.md), pode usar o modelo do dispositivo personalizada.
+1. Utilize a UI web para configurar e executar uma simulação. Se já tiver concluído a [telemetria Serialize utilizando buffers protocolar,](iot-accelerators-device-simulation-protobuf.md)pode utilizar o seu modelo de dispositivo personalizado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu como implementar uma imagem de simulação de dispositivo personalizada, pode querer saber como [utilizar um hub IoT com o solution accelerator de simulação do dispositivo](iot-accelerators-device-simulation-choose-hub.md).
+Agora que aprendeu a implementar uma imagem de Simulação de Dispositivo personalizada, talvez queira aprender a [utilizar um hub IoT existente com o acelerador de solução](iot-accelerators-device-simulation-choose-hub.md)de simulação de dispositivo .

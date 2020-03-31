@@ -5,31 +5,31 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
 ms.openlocfilehash: d88d166e001e71cabdabc3a3d344adc4da19aa8c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75453722"
 ---
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você planeja continuar com artigos adicionais de Plug and Play IoT, poderá manter e reutilizar os recursos usados neste guia de início rápido. Caso contrário, você pode excluir os recursos criados neste guia de início rápido para evitar encargos adicionais.
+Se planeia continuar com artigos adicionais ioT Plug e Play, pode guardar e reutilizar os recursos utilizados neste arranque rápido. Caso contrário, pode eliminar os recursos que criou neste arranque rápido para evitar encargos adicionais.
 
-Você pode excluir o Hub e o dispositivo registrado ao mesmo tempo excluindo o grupo de recursos inteiro com o comando a seguir para CLI do Azure. (No entanto, não use isso se esses recursos estiverem compartilhando um grupo de recursos com outros recursos que você tem para finalidades diferentes.)
+Pode eliminar o hub e o dispositivo registado de uma só vez, eliminando todo o grupo de recursos com o seguinte comando para o Azure CLI. (Não use isto, no entanto, se estes recursos estão partilhando um grupo de recursos com outros recursos que você tem para diferentes propósitos.)
 
 ```azurecli-interactive
 az group delete --name <YourResourceGroupName>
 ```
-Para excluir apenas o Hub IoT, execute o seguinte comando usando CLI do Azure:
+Para eliminar apenas o hub IoT, execute o seguinte comando utilizando o Azure CLI:
 
 ```azurecli-interactive
 az iot hub delete --name <YourIoTHubName>
 ```
 
-Para excluir apenas a identidade do dispositivo que você registrou com o Hub IoT, execute o seguinte comando usando CLI do Azure:
+Para eliminar apenas a identidade do dispositivo registada no seu hub IoT, execute o seguinte comando utilizando o Azure CLI:
 
 ```azurecli-interactive
 az iot hub device-identity delete --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-Talvez você também queira remover os arquivos de exemplo clonados de seu computador de desenvolvimento.
+Também pode querer remover os ficheiros de amostraclonados da sua máquina de desenvolvimento.

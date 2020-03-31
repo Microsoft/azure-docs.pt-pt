@@ -1,6 +1,6 @@
 ---
-title: Excluir usuários em massa (visualização) no portal de Azure Active Directory | Microsoft Docs
-description: Excluir usuários em massa no centro de administração do Azure no Azure Active Directory
+title: A granel apaga os utilizadores (pré-visualização) no portal de Diretório Ativo Azure [ Microsoft Docs
+description: Eliminar utilizadores a granel no centro de administração Azure em Azure Ative Directory
 services: active-directory
 author: curtand
 ms.author: curtand
@@ -14,51 +14,51 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7c47887c12c8bf9be7a0c5b11dfb3f099965cb7
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72174394"
 ---
-# <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Excluir usuários em massa (visualização) no Azure Active Directory
+# <a name="bulk-delete-users-preview-in-azure-active-directory"></a>A granel, apague os utilizadores (pré-visualização) no Diretório Ativo do Azure
 
-Usando o portal do Azure Active Directory (AD do Azure), você pode remover um grande número de membros para um grupo usando um arquivo CSV (valores separados por vírgula) para excluir usuários em massa.
+Utilizando o portal Azure Ative Directory (Azure AD), pode remover um grande número de membros para um grupo utilizando um ficheiro de valores separados de vírem (CSV) para eliminar os utilizadores em massa.
 
-## <a name="to-bulk-delete-users"></a>Para excluir usuários em massa
+## <a name="to-bulk-delete-users"></a>Para eliminar a granel os utilizadores
 
-1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador de usuário na organização.
-1. No Azure AD, selecione **usuários** > **exclusão em massa**.
-1. Na página **usuário de exclusão em massa** , selecione **baixar** para receber um arquivo CSV válido de propriedades do usuário.
+1. [Inscreva-se na sua organização Azure AD](https://aad.portal.azure.com) com uma conta que é administradora de utilizador na organização.
+1. No Azure AD, selecione **Users** > **Bulk delete**.
+1. Na página **de eliminação** a granel, selecione **Download** para receber um ficheiro CSV válido das propriedades do utilizador.
 
-   ![Selecione um arquivo CSV local no qual você lista os usuários que deseja excluir](./media/users-bulk-delete/bulk-delete.png)
+   ![Selecione um ficheiro CSV local no qual lista os utilizadores que pretende eliminar](./media/users-bulk-delete/bulk-delete.png)
 
-1. Abra o arquivo CSV e adicione uma linha para cada usuário que você deseja excluir. O único valor necessário é **nome principal do usuário**. Em seguida, guarde o ficheiro.
+1. Abra o ficheiro CSV e adicione uma linha para cada utilizador que pretenda eliminar. O único valor exigido é o nome principal do **Utilizador.** Em seguida, guarde o ficheiro.
 
-   ![O arquivo CSV contém nomes e IDs dos usuários a serem excluídos](./media/users-bulk-delete/delete-csv-file.png)
+   ![O ficheiro CSV contém nomes e IDs dos utilizadores para eliminar](./media/users-bulk-delete/delete-csv-file.png)
 
-1. Na página **excluir usuário em massa (versão prévia)** , em **carregar o arquivo CSV**, navegue até o arquivo. Quando você seleciona o arquivo e clica em enviar, a validação do arquivo CSV é iniciada.
-1. Quando o conteúdo do arquivo for validado, você verá o **arquivo carregado com êxito**. Se houver erros, você deverá corrigi-los antes de poder enviar o trabalho.
-1. Quando o arquivo passar na validação, selecione **Enviar** para iniciar a operação em massa do Azure que exclui os usuários.
-1. Quando a operação de exclusão for concluída, você verá uma notificação de que a operação em massa foi bem-sucedida.
+1. Na página de apagar o **utilizador (Pré-visualização)** a granel, sob o **upload do ficheiro CSV,** navegue para o ficheiro. Quando selecionar o ficheiro e clicar em submeter, a validação do ficheiro CSV começa.
+1. Quando o conteúdo do ficheiro for validado, verá o **Ficheiro carregado com sucesso**. Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
+1. Quando o seu ficheiro passar a validação, selecione **Enviar** para iniciar a operação a granel Azure que elimina os utilizadores.
+1. Quando a operação de eliminação estiver concluída, verá uma notificação de que a operação a granel foi bem sucedida.
 
-Se houver erros, você poderá baixar e exibir o arquivo de resultados na página **resultados da operação em massa** . O arquivo contém o motivo de cada erro.
+Se houver erros, pode descarregar e ver o ficheiro de resultados na página de resultados da **operação Bulk.** O ficheiro contém a razão de cada erro.
 
 ## <a name="check-status"></a>Verificar o estado
 
-Você pode ver o status de todas as suas solicitações em massa pendentes na página **resultados da operação em massa (versão prévia)** .
+Pode ver o estado de todos os seus pedidos a granel pendentes na página de resultados da **operação Bulk (pré-visualização).**
 
-   ![Verificar o status do carregamento na página de resultados de operações em massa](./media/users-bulk-delete/bulk-center.png)
+   ![Verifique o estado de upload na página resultados das operações a granel](./media/users-bulk-delete/bulk-center.png)
 
-Em seguida, você pode verificar para ver se os usuários que você excluiu existem na organização do Azure AD na portal do Azure ou usando o PowerShell.
+Em seguida, pode verificar se os utilizadores que eliminou existem na organização Azure AD, quer no portal Azure, quer através da utilização do PowerShell.
 
-## <a name="verify-deleted-users-in-the-azure-portal"></a>Verificar usuários excluídos no portal do Azure
+## <a name="verify-deleted-users-in-the-azure-portal"></a>Verificar utilizadores eliminados no portal Azure
 
-1. Entre no portal do Azure com uma conta que seja um administrador de usuário na organização.
-1. No painel de navegação, selecione **Azure Active Directory**.
+1. Inscreva-se no portal Azure com uma conta que é administradora do Utilizador na organização.
+1. No painel de navegação, selecione **Azure Ative Directory**.
 1. Em **Gerir**, selecione **Utilizadores**.
-1. Em **Mostrar**, selecione somente **todos os usuários** e verifique se os usuários que você excluiu não estão mais listados.
+1. No **Show**Programa , selecione **apenas todos os utilizadores** e verifique se os utilizadores que eliminou já não estão listados.
 
-### <a name="verify-deleted-users-with-powershell"></a>Verificar usuários excluídos com o PowerShell
+### <a name="verify-deleted-users-with-powershell"></a>Verifique utilizadores eliminados com powerShell
 
 Execute o seguinte comando:
 
@@ -66,10 +66,10 @@ Execute o seguinte comando:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-Verifique se os usuários que você excluiu não estão mais listados.
+Verifique se os utilizadores que apagou já não estão listados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar usuários em massa](users-bulk-add.md)
-- [Baixar lista de usuários](users-bulk-download.md)
-- [Usuários de restauração em massa](users-bulk-restore.md)
+- [A granel adicionar utilizadores](users-bulk-add.md)
+- [Lista de descarregamento de utilizadores](users-bulk-download.md)
+- [A granel restaura utentes](users-bulk-restore.md)

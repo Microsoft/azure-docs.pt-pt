@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/05/2020
 ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399709"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escala automaticamente os clusters Azure HDInsight
@@ -35,7 +35,7 @@ A tabela seguinte descreve os tipos de cluster e versões compatíveis com a fun
 | HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 | HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 
-\* os clusters HBase só podem ser configurados para escalas baseadas em horários e não baseadas em carga.
+\*Os clusters HBase só podem ser configurados para escalas baseadas em horários, não baseadas em carga.
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -123,7 +123,7 @@ Para obter mais informações sobre a criação de clusterS HDInsight utilizando
 
 #### <a name="load-based-autoscaling"></a>Autoscalcificação baseada em carga
 
-Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure baseado em carga, adicionando um nó de `autoscale` à secção `computeProfile` > `workernode` com as propriedades `minInstanceCount` e `maxInstanceCount` como mostrado no snippet json abaixo.
+Pode criar um cluster HDInsight com autoscalcificação baseado em carga `autoscale` num modelo `computeProfile`  >  `workernode` de Gestor `minInstanceCount` de Recursos Azure, adicionando um nó à secção com as propriedades e `maxInstanceCount` como mostrado no snippet json abaixo.
 
 ```json
 {
@@ -153,7 +153,7 @@ Para obter mais informações sobre a criação de clusters com modelos de Gesto
 
 #### <a name="schedule-based-autoscaling"></a>Autoscalcificação baseada em horários
 
-Pode criar um cluster HDInsight com um modelo de Gestor de Recursos Azure baseado em horários, adicionando um nó de `autoscale` à secção `computeProfile` > `workernode`. O nó `autoscale` contém uma `recurrence` que tem um `timezone` e `schedule` que descreve quando a mudança vai ocorrer.
+Pode criar um cluster HDInsight com um modelo de Gestor de Recursos `autoscale` Azure baseado `computeProfile`  >  `workernode` em horários, adicionando um nó à secção. O `autoscale` nó contém `recurrence` um `timezone` que `schedule` tem um e que descreve quando a mudança vai ocorrer.
 
 ```json
 {
@@ -199,7 +199,7 @@ Para ativar ou desativar a escala automática num cluster de funcionamento utili
 https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
 ```
 
-Utilize os parâmetros adequados na carga útil do pedido. A carga útil json abaixo poderia ser usada para ativar a escala automática. Utilize a carga útil `{autoscale: null}` para desativar a escala automática.
+Utilize os parâmetros adequados na carga útil do pedido. A carga útil json abaixo poderia ser usada para ativar a escala automática. Utilize a `{autoscale: null}` carga útil para desativar a escala automática.
 
 ```json
 { autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }

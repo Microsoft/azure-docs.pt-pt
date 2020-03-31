@@ -1,6 +1,6 @@
 ---
-title: Desempenho de tamanho VM de série HC - máquinas virtuais do Azure | Documentos da Microsoft
-description: Saiba mais sobre o desempenho resultados dos testes de tamanhos VM da série HC no Azure.
+title: Desempenho do tamanho da série HC VM - Máquinas Virtuais Azure / Microsoft Docs
+description: Conheça os resultados dos testes de desempenho para os tamanhos vm da série HC em Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,25 +13,25 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67707689"
 ---
-# <a name="hc-series-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais de série HC
+# <a name="hc-series-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais da série HC
 
-Vários testes de desempenho foi executados em tamanhos de série HC. Seguem-se alguns dos resultados deste teste de desempenho.
+Vários testes de desempenho foram executados em tamanhos de série HC. Seguem-se alguns dos resultados deste teste de desempenho.
 
 | Carga de trabalho                                        | HB                    |
 |-------------------------------------------------|-----------------------|
-| STREAM Triad                                    | ~ 190 GB/s (Intel MLC AVX-512)  |
-| Linpack de alto desempenho (HPL)                  | ~ 3520 GigaFLOPS (Rpeak), ~ 2970 GigaFLOPS (Rmax) |
-| Latência RDMA & largura de banda                        | 1.80 microssegundos, 96.3 Gb/s   |
-| FIO num local NVMe SSD                           | Leituras de GB/s de ~1.3, ~ 900 MB/s escreve |  
-| IOR no Premium do Azure 4 SSD (P30 os discos geridos, RAID0) * *  | ~ 780 MB/s lê, MB ~ 780/escreve |
+| Tríade STREAM                                    | ~190 GB/s (Intel MLC AVX-512)  |
+| Linpack de alto desempenho (HPL)                  | ~3520 GigaFLOPS (Rpeak), ~2970 GigaFLOPS (Rmax) |
+| Latência RDMA & largura de banda                        | 1,80 microsegundos, 96.3 Gb/s   |
+| FIO em NVMe SSD local                           | ~1,3 GB/s lê, ~900 MB/s escreve |  
+| IOR em 4 SSD Premium Azure (P30 Discos Geridos, RAID0)**  | ~780 MB/s lê, ~780 MB/escreve |
 
-## <a name="infiniband-send-latency"></a>Latência de envio de InfiniBand
+## <a name="infiniband-send-latency"></a>InfiniBand enviar latência
 
 Mellanox Perftest.
 
@@ -39,30 +39,30 @@ Mellanox Perftest.
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
-|  #bytes         | #iterations     | t_min[microsecond]     | t_max[microsecond]     | t_typical[microsecond] | t_avg[microsecond]     | t_stdev[microsecond]   |
+|  #bytes         | #iterations     | t_min[microsegundo]     | t_max[microsegundo]     | t_typical[microsegundo] | t_avg[microsegundo]     | t_stdev[microsegundo]   |
 |-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-| 2               | 1000            | 1.80            | 7.50            | 1.85            | 1.86            | 0.20            |
-| 4               | 1000            | 1.79            | 6.06            | 1.83            | 1.84            | 0.20            |
+| 2               | 1000            | 1.80            | 7.50            | 1.85            | 1.86            | 0,20            |
+| 4               | 1000            | 1.79            | 6.06            | 1.83            | 1.84            | 0,20            |
 | 8               | 1000            | 1.78            | 5.26            | 1.83            | 1.84            | 0.19            |
 | 16              | 1000            | 1.79            | 6.21            | 1.83            | 1.84            | 0.22            |
 | 32              | 1000            | 1.80            | 6.82            | 1.84            | 1.85            | 0.24            |
-| 64              | 1000            | 1.85            | 5.47            | 1.88            | 1.86            | 0.12            |
-| 128             | 1000            | 1.88            | 5.61            | 1.93            | 1.89            | 0.25            |
+| 64              | 1000            | 1.85            | 5.47            | 1.88            | 1.86            | 0,12            |
+| 128             | 1000            | 1.88            | 5.61            | 1.93            | 1.89            | 0,25            |
 | 256             | 1000            | 2.24            | 6.39            | 2.28            | 2.02            | 0.18            |
 | 512             | 1000            | 2.32            | 5.42            | 2.36            | 2.30            | 0.17            |
 | 1024            | 1000            | 2.43            | 6.22            | 2.48            | 2.38            | 0.21            |
-| 2048            | 1000            | 2.68            | 6.14            | 2.75            | 2.52            | 0.20            |
+| 2048            | 1000            | 2.68            | 6.14            | 2.75            | 2.52            | 0,20            |
 | 4096            | 1000            | 3.17            | 7.02            | 3.26            | 2.81            | 0.24            |
 
-## <a name="osu-mpi-latency-test"></a>Teste de latência de OSU MPI
+## <a name="osu-mpi-latency-test"></a>Teste de Latência MPI da OSU
 
-Testar a latência OSU MPI v5.4.3.
+Teste de latência MPI v5.4.3.
 
 ```azure-cli
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
-| #bytes  | Latência [microssegundo] (MPICH 3.3 + CH4) | Latência [microssegundo] (OpenMPI 4.0.0) | Latência [microssegundo] (MVAPICH2 2.3) |
+| #bytes  | Latência [microsegundo] (MPICH 3.3 + CH4) | Latência [microsegundo] (OpenMPI 4.0.0) | Latência [microsegundo] (MVAPICH2 2.3) |
 |------|----------|----------|----------|
 | 2    | 1.84     | 1.78     | 2.08     |
 | 4    | 1.84     | 1.79     | 2.08     |
@@ -79,7 +79,7 @@ Testar a latência OSU MPI v5.4.3.
 
 ## <a name="mpi-bandwidth"></a>Largura de banda MPI
 
-Largura de banda de OSU MPI v5.4.3 de teste.
+TESTE DE Largura de Banda MPI V5.4.3.
 
 ```azure-cli
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
