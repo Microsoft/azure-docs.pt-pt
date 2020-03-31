@@ -24,6 +24,8 @@
           href: cloud-governed-management-for-on-premises.md
         - name: Quatro passos para garantir uma base de identidade forte
           href: four-steps.md
+        - name: Escolher um método de autenticação de identidade híbrido
+          href: choose-ad-authn.md
     - name: Azure AD Connect e Connect Health
       items:
         - name: O que são o Azure AD Connect e o Connect Health?
@@ -312,6 +314,8 @@
           href: tshoot-connect-attribute-not-syncing.md
         - name: Problemas de instalação
           href: tshoot-connect-install-issues.md
+        - name: Alterações de UPN
+          href: howto-troubleshoot-upn-changes.md
 - name: Referência
   items:
     - name: Portas e Protocolos Necessários para a Identidade Híbrida

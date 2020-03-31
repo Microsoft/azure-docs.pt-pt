@@ -64,6 +64,14 @@
       href: load-balancer-security-controls.md
 - name: Procedimento
   items:
+    - name: Conjuntos de dimensionamento de máquinas virtuais
+      items:
+        - name: Utilizar com um Balanceador de Carga do Azure existente - Portal
+          href: configure-vm-scale-set-portal.md
+        - name: Utilizar com um Balanceador de Carga do Azure existente - PowerShell
+          href: configure-vm-scale-set-powershell.md
+        - name: Utilizar com um Balanceador de Carga do Azure existente - CLI
+          href: configure-vm-scale-set-cli.md
     - name: Atualizar um Balanceador de Carga Básico para um Balanceador de Carga Standard
       items:
         - name: Atualizar um Balanceador de Carga Público Básico

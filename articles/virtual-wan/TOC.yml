@@ -10,6 +10,8 @@
           href: migrate-from-hub-spoke-topology.md
         - name: Arquitetura de rede de trânsito global
           href: virtual-wan-global-transit-network-architecture.md
+        - name: Interligação com a China
+          href: interconnect-china.md
 - name: Tutoriais
   items:
     - name: Criar uma ligação site a site
@@ -20,6 +22,8 @@
       href: virtual-wan-expressroute-portal.md
 - name: Conceitos
   items:
+    - name: Trabalhar remotamente
+      href: work-remotely-support.md
     - name: Localizações e parceiros
       items:
         - name: Localizações do hub e parceiros
@@ -28,8 +32,6 @@
           href: virtual-wan-configure-automation-providers.md
     - name: Políticas de IPsec
       href: virtual-wan-ipsec.md
-    - name: Descrição geral da VPN Ponto a Site
-      href: ../vpn-gateway/point-to-site-about.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: Guias de procedimentos
   items:
     - name: Ligar um gateway de rede virtual a uma WAN Virtual
@@ -52,25 +54,31 @@
           href: virtual-wan-site-to-site-portal.md
     - name: VPN de Utilizador (ponto a site)
       items:
-        - name: Criar ligações VPN de Utilizador (ponto a site)
+        - name: Criar uma ligação VPN de Utilizador
           href: virtual-wan-point-to-site-portal.md
-        - name: Configurar certificados para a VPN de Utilizador
+        - name: Gerar certificados
           href: certificates-point-to-site.md
-        - name: Configurar o inquilino do Azure AD para a VPN de Utilizador
+        - name: Configurar um inquilino do Azure AD
           href: openvpn-azure-ad-tenant.md
-        - name: Configurar um túnel de utilizador VPN AlwaysOn
-          href: ../vpn-gateway/vpn-gateway-howto-always-on-user-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-        - name: Configurar um túnel de dispositivo VPN AlwaysOn
-          href: ../vpn-gateway/vpn-gateway-howto-always-on-device-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-        - name: Ativar o Multi-Factor Authentication (MFA) para a VPN de Utilizador
-          href: openvpn-azure-ad-mfa.md
-        - name: Configurar a autenticação do Azure AD para uma VPN de Utilizador
-          href: virtual-wan-point-to-site-azure-ad.md
-        - name: Configurar a autenticação multiaplicações do Azure AD para uma VPN de Utilizador
-          href: openvpn-azure-ad-tenant-multi-app.md
-        - name: Transferir perfis de VPN de Utilizador globais e baseados em hub
+        - name: Perfil de cliente
+          href: about-vpn-profile-download.md
+        - name: Perfil global e baseado em hub
           href: global-hub-profile.md
-    - name: Configurar o encaminhamento
+        - name: Configurar clientes do OpenVPN
+          href: howto-openvpn-clients.md?
+        - name: Configurar um túnel de utilizador VPN AlwaysOn
+          href: howto-always-on-user-tunnel.md
+        - name: Configurar um túnel de dispositivo VPN AlwaysOn
+          href: howto-always-on-device-tunnel.md
+        - name: Ativar o Multi-Factor Authentication (MFA)
+          href: openvpn-azure-ad-mfa.md
+        - name: Configurar a autenticação do Azure AD
+          href: virtual-wan-point-to-site-azure-ad.md
+        - name: Configurar o Azure VPN Client para Windows 10
+          href: openvpn-azure-ad-client.md
+        - name: Configurar a autenticação multiaplicações do Azure AD
+          href: openvpn-azure-ad-tenant-multi-app.md
+    - name: Encaminhamento
       items:
         - name: Encaminhar o tráfego de um hub virtual para NVA
           items:

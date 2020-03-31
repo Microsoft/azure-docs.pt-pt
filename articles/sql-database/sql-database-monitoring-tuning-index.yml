@@ -3,7 +3,7 @@ title: Monitorização e otimização do desempenho da Base de Dados SQL do Azur
 summary: A Base de Dados SQL do Azure fornece ferramentas para o ajudar a recolher métricas e informações de diagnóstico para monitorizar a sua base de dados e melhorar o desempenho desta.
 metadata:
   title: Documentação de monitorização e otimização da Base de Dados SQL do Azure
-  description: A Base de Dados SQL do Azure fornece ferramentas para o ajudar a recolher métricas e informações de diagnóstico para monitorizar a sua base de dados e melhorar o desempenho desta.
+  description: Saiba mais sobre as ferramentas de otimização da monitorização e do desempenho da Base de Dados SQL do Azure que o ajudam a recolher métricas e diagnósticos e a melhorar o desempenho da base de dados.
   ms.service: sql-database
   ms.subservice: performance
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: CarlRabeler
   ms.author: carlrab
   ms.date: 03/10/2020
-  ms.openlocfilehash: 43f74ea126ab7e028b39a86e2eb1edad4cae41a2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: bc2c2a64cfce8bde6f04835bf090b632b8839a6f
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79208899"
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80373104"
 landingContent:
 - title: Sobre a monitorização e a otimização do desempenho
   linkLists:

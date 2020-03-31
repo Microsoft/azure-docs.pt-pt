@@ -43,6 +43,8 @@
       href: compliance-certifications.md
     - name: Gestão central
       href: central-management.md
+    - name: Suporte de trabalho remoto
+      href: remote-work-support.md
 - name: Guias de procedimentos
   items:
     - name: Implementar com o Azure PowerShell

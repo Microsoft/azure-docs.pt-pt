@@ -58,22 +58,24 @@
       href: best-practices.md
     - name: Políticas de Acesso Condicional comuns
       items:
+        - name: Bloquear a autenticação legada
+          href: howto-conditional-access-policy-block-legacy.md
         - name: Exigir MFA aos administradores
           href: howto-conditional-access-policy-admin-mfa.md
         - name: Exigir MFA para a gestão do Azure
           href: howto-conditional-access-policy-azure-management.md
         - name: Pedir MFA para todos os utilizadores
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: Bloquear a autenticação legada
-          href: howto-conditional-access-policy-block-legacy.md
         - name: Acesso Condicional baseado no risco
           href: howto-conditional-access-policy-risk.md
-        - name: Exigir localização fidedigna para o registo com MFA
+        - name: Proteger o registo de informações de segurança
           href: howto-conditional-access-policy-registration.md
         - name: Bloquear acesso por localização
           href: howto-conditional-access-policy-location.md
         - name: Exigir dispositivos em conformidade
           href: howto-conditional-access-policy-compliant-device.md
+        - name: Bloquear o acesso
+          href: howto-conditional-access-policy-block-access.md
     - name: Bloquear a autenticação legada
       href: block-legacy-authentication.md
     - name: Exigir aplicações aprovados do cliente
@@ -94,6 +96,8 @@
       href: policy-migration-mfa.md
     - name: Resolução de problemas
       items:
+        - name: Resolver problemas de início de sessão
+          href: troubleshoot-conditional-access.md
         - name: Resolução de problemas com a ferramenta What If
           href: troubleshoot-conditional-access-what-if.md
 - name: Recursos

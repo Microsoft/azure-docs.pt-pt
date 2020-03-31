@@ -21,6 +21,8 @@
           href: cognitive-search-quickstart-blob.md
         - name: Criar um arquivo de conhecimento
           href: knowledge-store-create-portal.md
+        - name: Consultar com o Explorador de procura
+          href: search-explorer.md
     - name: 'C#'
       href: search-get-started-dotnet.md
     - name: Java
@@ -231,10 +233,10 @@
           href: search-query-simple-examples.md
         - name: Utilizar sintaxe Lucene completo
           href: search-query-lucene-examples.md
-        - name: Utilizar o Explorador de Procura (portal)
-          href: search-explorer.md
         - name: Carateres especiais e termos parciais
           href: search-query-partial-matching.md
+        - name: Consultar a partir do Power Apps
+          href: search-howto-powerapps.md
         - name: Referência de sintaxe
           items:
             - name: Sintaxe de consulta simples

@@ -3,7 +3,7 @@ title: Documentação da Base de Dados SQL do Azure
 summary: A Base de Dados SQL do Azure é um serviço de base de dados como serviço (DBaaS) relacional baseado na versão estável mais recente do Microsoft SQL Server.
 metadata:
   title: Documentação
-  meta.description: Learn how to use Azure SQL databases.
+  description: Encontre documentação sobre a Base de Dados SQL do Azure, um serviço de base de dados como serviço (DBaaS) relacional baseado na versão estável mais recente do Microsoft SQL Server.
   services: sql-database
   ms.service: sql-database
   ms.subservice: service
@@ -13,12 +13,12 @@ metadata:
   author: stevestein
   ms.author: sstein
   ms.date: 10/30/2019
-  ms.openlocfilehash: c327873d3b122a60239cabc4534e2feec31b9091
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: ca825eb87e39dcc66e0cff56577849be6fa8c702
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73820581"
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80369357"
 landingContent:
 - title: Sobre a Base de Dados SQL
   linkLists:

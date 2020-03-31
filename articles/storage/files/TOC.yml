@@ -39,8 +39,11 @@
       href: storage-files-scale-targets.md
     - name: Autenticação e autorização baseadas em identidade
       href: storage-files-active-directory-overview.md
-    - name: Encriptação em inatividade
+    - name: Encriptação do Armazenamento do Azure em repouso
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      items:
+        - name: Chaves geridas pelo cliente com o Azure Key Vault
+          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Ofertas de conformidade
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Desenvolvimento
@@ -93,6 +96,10 @@
           href: storage-how-to-use-files-mac.md
     - name: Rede
       items:
+        - name: Configurar pontos finais de rede dos Ficheiros do Azure
+          href: storage-files-networking-endpoints.md
+        - name: Configurar o reencaminhamento de DNS para Ficheiros do Azure
+          href: storage-files-networking-dns.md
         - name: Configurar uma VPN Site a Site
           href: storage-files-configure-s2s-vpn.md
         - name: Configurar uma VPN Ponto a Site no Windows
@@ -117,12 +124,22 @@
           href: storage-sync-files-monitoring.md
     - name: Migrar
       items:
-        - name: Migrar para o Azure File Sync
-          href: storage-sync-offline-data-transfer.md
-        - name: Guia de migração do StorSimple 8100 e 8600
-          href: storage-files-migration-storsimple-8000.md
-        - name: Guia de migração do StorSimple 1200
-          href: storage-files-migration-storsimple-1200.md
+        - name: Migrar para partilhas de ficheiros do Azure
+          href: storage-files-migration-overview.md
+        - name: Definir o destino de uma implementação híbrida
+          items:
+            - name: Migrar dados em massa para o Azure File Sync com o Azure DataBox
+              href: storage-sync-offline-data-transfer.md
+            - name: Migrar do Linux para um servidor de ficheiros híbrido com o Azure File Sync
+              href: storage-files-migration-linux-hybrid.md
+            - name: Migrar de um NAS no local para um servidor de ficheiros híbrido com o Azure File Sync
+              href: storage-files-migration-nas-hybrid.md
+        - name: A partir do StorSimple
+          items:
+            - name: Guia de migração do StorSimple 8100 e 8600
+              href: storage-files-migration-storsimple-8000.md
+            - name: Guia de migração do StorSimple 1200
+              href: storage-files-migration-storsimple-1200.md
     - name: Programar
       items:
         - name: Configurar cadeias de ligação

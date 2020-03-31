@@ -8,7 +8,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Inícios Rápidos da API REST
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: API REST
@@ -27,14 +27,8 @@
           href: quickstarts/ruby.md
     - name: SDK
       items:
-        - name: 'Utilizar C#'
-          href: quickstarts/sdk-csharp-quickstart.md
-        - name: Com Node.js
-          href: quickstarts/sdk-node-quickstart.md
-        - name: Utilizar o Python
-          href: quickstarts/sdk-python-quickstart.md
-        - name: Utilizar o Java
-          href: quickstarts/sdk-java-quickstart.md
+        - name: Bibliotecas de cliente da Pesquisa de Vídeos do Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
     - name: Criar uma aplicação web de página única
@@ -81,7 +75,7 @@
           href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-videosearch/?view=azure-node-latest'
         - name: Ir
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch'
-    - name: Requisitos de apresentação e utilização
+    - name: Requisitos de utilização e de apresentação
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true
 - name: Recursos
