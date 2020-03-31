@@ -16,10 +16,10 @@ ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: 1f681a9a8d8547589873cff055d9f59973c27355
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78295790"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Quickstart: Criar um Balancer de carga para carregar VMs de equilíbrio utilizando o modelo de Gestor de Recursos Azure
@@ -28,9 +28,9 @@ O balanceamento de carga oferece um nível mais elevado de disponibilidade e dim
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-load-balancer"></a>Criar um Balancer de Carga
+## <a name="create-a-load-balancer"></a>Criar um Balanceador de Carga
 
 Balancer de carga e IP Público SKUs devem corresponder. Quando criar um Balancer de Carga Padrão, também deve criar um novo endereço IP público padrão que esteja configurado como o frontend para o equilíbrio de carga Standard. Se quiser criar um Balancer de Carga Básico, utilize [este modelo](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). A Microsoft recomenda a utilização do Standard SKU para cargas de trabalho de produção.
 
@@ -91,7 +91,7 @@ O Azure PowerShell é usado para implantar o modelo. Além do Azure PowerShell, 
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione **Grupos de Recursos** a partir do painel esquerdo.
 

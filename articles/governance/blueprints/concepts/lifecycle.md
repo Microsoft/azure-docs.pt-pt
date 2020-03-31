@@ -1,109 +1,109 @@
 ---
-title: Compreender o ciclo de vida de um esquema
-description: Saiba mais sobre o ciclo de vida que uma definição do plano gráfico passa e detalhes sobre cada estágio, incluindo a atualização e a remoção de atribuições de plano gráfico.
+title: Compreender o ciclo de vida de uma planta
+description: Saiba mais sobre o ciclo de vida que uma definição de planta passa e detalhes sobre cada etapa, incluindo atualizar e remover atribuições de plantas.
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74404580"
 ---
-# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Azure Blueprint
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreenda o ciclo de vida de um Projeto Azure
 
-Como muitos recursos no Azure, um plano gráfico nas plantas do Azure tem um ciclo de vida típico e natural. Eles são criados, implantados e, por fim, excluídos quando não forem mais necessários ou relevantes.
-Os planos gráficos oferecem suporte a operações de ciclo de vida padrão. Em seguida, ele se baseia neles para fornecer níveis adicionais de status que dão suporte a integração contínua comum e a pipelines de implantação contínua para organizações que gerenciam sua infraestrutura como código – um elemento-chave no DevOps.
+Como muitos recursos dentro do Azure, uma planta em Azure Blueprints tem um ciclo de vida típico e natural. São criados, implantados e finalmente apagados quando já não são necessários ou relevantes.
+As plantas suportam operações padrão de ciclo de vida. Em seguida, baseia-se neles para fornecer níveis adicionais de estado que suportam a integração contínua comum e os gasodutos de implantação contínua para organizações que gerem a sua Infraestrutura como Código – um elemento-chave na DevOps.
 
-Para entender totalmente um plano gráfico e os estágios, abordaremos um ciclo de vida padrão:
+Para entender completamente uma planta e as etapas, cobriremos um ciclo de vida padrão:
 
 > [!div class="checklist"]
-> - Criando e editando um plano gráfico
-> - Publicando o Blueprint
-> - Criando e editando uma nova versão do Blueprint
-> - Publicando uma nova versão do Blueprint
-> - Excluindo uma versão específica do Blueprint
-> - Excluindo o plano gráfico
+> - Criar e editar uma planta
+> - Publicação da planta
+> - Criar e editar uma nova versão do projeto
+> - Publicação de uma nova versão do projeto
+> - Apagar uma versão específica da planta
+> - Apagar a planta
 
-## <a name="creating-and-editing-a-blueprint"></a>Criando e editando um plano gráfico
+## <a name="creating-and-editing-a-blueprint"></a>Criar e editar uma planta
 
-Ao criar um plano gráfico, adicione artefatos a ele, salve em um grupo de gerenciamento ou assinatura e forneceu um nome exclusivo e uma versão exclusiva. O plano gráfico agora está em um modo de **rascunho** e ainda não pode ser atribuído. No modo de **rascunho** , ele pode continuar a ser atualizado e alterado.
+Ao criar uma planta, adicione artefactos, guarde para um grupo de gestão ou subscrição, e forneceu um nome único e uma versão única. A planta está agora em modo **Draft** e ainda não pode ser atribuída. Enquanto está no modo **Draft,** pode continuar a ser atualizado e alterado.
 
-Um plano gráfico nunca publicado no modo de **rascunho** exibe um ícone diferente na página **definições do plano gráfico** do que os que foram **publicados**. A **versão mais recente** é exibida como **rascunho** para essas nunca publicadas.
+Uma planta nunca publicada no modo **Draft** apresenta um ícone diferente na página **Definições** de Plantas do que as que foram **publicadas**. A **versão mais recente** é apresentada como **Draft** para estas plantas nunca publicadas.
 
-Crie e edite um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#create-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
+Crie e edite uma planta com o [portal Azure](../create-blueprint-portal.md#create-a-blueprint) ou [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
 
-## <a name="publishing-a-blueprint"></a>Publicando um plano gráfico
+## <a name="publishing-a-blueprint"></a>Publicar uma planta
 
-Depois que todas as alterações planejadas forem feitas em um plano gráfico no modo de **rascunho** , elas poderão ser **publicadas** e disponibilizadas para atribuição. A versão **publicada** do Blueprint não pode ser alterada. Depois de **publicado**, o plano gráfico é exibido com um ícone diferente de planos gráficos de **rascunho** e exibe o número de versão fornecido na coluna **versão mais recente** .
+Uma vez feitas todas as alterações planeadas para uma planta no modo **Draft,** pode ser **publicado** e disponibilizado para atribuição. A versão **publicada** da planta não pode ser alterada. Uma vez **publicado,** a planta exibe um ícone diferente do **Projeto** de Plantas e exibe o número de versão fornecido na coluna **Versão Mais Recente.**
 
-Publicar um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#publish-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
+Publique uma planta com o [portal Azure](../create-blueprint-portal.md#publish-a-blueprint) ou [REST API](../create-blueprint-rest-api.md#publish-a-blueprint).
 
-## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Criando e editando uma nova versão do Blueprint
+## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Criar e editar uma nova versão do projeto
 
-Uma versão **publicada** de um plano gráfico não pode ser alterada. No entanto, uma nova versão do Blueprint pode ser adicionada ao plano gráfico existente e modificada conforme necessário. Faça alterações em um plano gráfico existente editando-o. Quando as novas alterações são salvas, o plano gráfico agora tem **alterações não publicadas**. Essas alterações são uma nova versão de **rascunho** do plano gráfico.
+Uma versão **publicada** de uma planta não pode ser alterada. No entanto, uma nova versão da planta pode ser adicionada ao plano existente e modificada conforme necessário. Faça alterações numa planta existente editando-a. Quando as novas alterações são guardadas, o projeto tem agora **Alterações Inéditas**. Estas alterações são uma nova versão **do Projeto** da planta.
 
-Edite um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#edit-a-blueprint).
+Editar uma planta com o [portal Azure.](../create-blueprint-portal.md#edit-a-blueprint)
 
-## <a name="publishing-a-new-version-of-the-blueprint"></a>Publicando uma nova versão do Blueprint
+## <a name="publishing-a-new-version-of-the-blueprint"></a>Publicação de uma nova versão do projeto
 
-Cada versão editada de um plano gráfico deve ser **publicada** antes que possa ser atribuída. Quando foram feitas **alterações não publicadas** em um plano gráfico, mas não **publicadas**, o botão **publicar Blueprint** está disponível na página Editar Blueprint. Se o botão não estiver visível, o plano gráfico já foi **publicado** e não tem **alterações não publicadas**.
-
-> [!NOTE]
-> Um único Blueprint pode ter várias versões **publicadas** que podem ser atribuídas a assinaturas.
-
-Para publicar um plano gráfico com **alterações não publicadas**, use as mesmas etapas para publicar um novo plano gráfico.
-
-## <a name="deleting-a-specific-version-of-the-blueprint"></a>Excluindo uma versão específica do Blueprint
-
-Cada versão de um plano gráfico é um objeto exclusivo e pode ser **publicada**individualmente. Assim, cada versão de um plano gráfico também pode ser excluída. A exclusão de uma versão de um plano gráfico não tem nenhum impacto sobre outras versões do plano gráfico.
+Cada versão editada de uma planta deve ser **publicada** antes de poder ser atribuída. Quando foram feitas **alterações inéditas** numa planta mas não **publicadas,** o botão **Publicar Blueprint** está disponível na página de plantas de edição. Se o botão não estiver visível, a planta já foi **publicada** e não tem **Alterações Inéditas**.
 
 > [!NOTE]
-> Não é possível excluir um plano gráfico com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
+> Uma única planta pode ter várias versões **publicadas** que podem ser atribuídas a subscrições.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+Para publicar um projeto com **Alterações Não Publicadas,** use os mesmos passos para publicar um novo projeto.
 
-1. Selecione **definições de plano gráfico** na página à esquerda e use as opções de filtro para localizar o plano gráfico para o qual você deseja excluir uma versão. Selecione-o para abrir a página Editar.
+## <a name="deleting-a-specific-version-of-the-blueprint"></a>Apagar uma versão específica da planta
 
-1. Selecione a guia **versões publicadas** e localize a versão que você deseja excluir.
-
-1. Clique com o botão direito do mouse na versão a ser excluída e selecione **excluir esta versão**.
-
-## <a name="deleting-the-blueprint"></a>Excluindo o plano gráfico
-
-O plano gráfico principal também pode ser excluído. A exclusão do principal Blueprint também exclui todas as versões do Blueprint do plano gráfico, incluindo plantas de **rascunho** e **publicadas** . Assim como a exclusão de uma versão de um plano gráfico, a exclusão do plano gráfico principal não remove as atribuições existentes de nenhuma das versões do Blueprint.
+Cada versão de uma planta é um objeto único e pode ser **publicado**individualmente. Como tal, cada versão de uma planta também pode ser eliminada. Apagar uma versão de uma planta não tem qualquer impacto noutras versões dessa planta.
 
 > [!NOTE]
-> Não é possível excluir um plano gráfico com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
+> Não é possível apagar uma planta que tem missões ativas. Elimine as atribuições primeiro e, em seguida, elimine a versão que pretende remover.
 
-Exclua um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#delete-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#delete-a-blueprint).
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas**.
+
+1. Selecione **definições** de Blueprint a partir da página à esquerda e utilize as opções de filtro para localizar a planta de que pretende eliminar uma versão. Selecione-o para abrir a página de edição.
+
+1. Selecione o separador **de versões Publicados** e localize a versão que pretende eliminar.
+
+1. Clique à direita na versão para eliminar e selecionar **Eliminar esta versão**.
+
+## <a name="deleting-the-blueprint"></a>Apagar a planta
+
+A planta principal também pode ser eliminada. A eliminação da planta principal também elimina quaisquer versões de plantas dessa planta, incluindo as plantas **Draft** e **Published.** Tal como com a eliminação de uma versão de uma planta, a eliminação da planta principal não remove as atribuições existentes de nenhuma das versões da planta.
+
+> [!NOTE]
+> Não é possível apagar uma planta que tem missões ativas. Elimine as atribuições primeiro e, em seguida, elimine a versão que pretende remover.
+
+Elimine uma planta com o [portal Azure](../create-blueprint-portal.md#delete-a-blueprint) ou [REST API](../create-blueprint-rest-api.md#delete-a-blueprint).
 
 ## <a name="assignments"></a>Atribuições
 
-Há vários pontos durante o ciclo de vida em que um plano gráfico pode ser atribuído a uma assinatura. Quando o modo de uma versão do plano gráfico é **publicado**, essa versão pode ser atribuída a uma assinatura. Esse ciclo de vida permite que versões de um plano gráfico sejam usadas e atribuídas ativamente enquanto uma versão mais recente está sendo desenvolvida.
+Há vários pontos durante o ciclo de vida que uma planta pode ser atribuída a uma subscrição. Quando o modo de uma versão da planta for **publicado,** então essa versão pode ser atribuída a uma subscrição. Este ciclo de vida permite que as versões de uma planta sejam usadas e ativamente atribuídas enquanto uma versão mais recente está sendo desenvolvida.
 
-À medida que as versões de plantas são atribuídas, é importante entender onde elas são atribuídas e com quais parâmetros elas foram atribuídas. Os parâmetros podem ser estáticos ou dinâmicos. Para saber mais, confira [parâmetros estáticos e dinâmicos](parameters.md).
+À medida que as versões das plantas são atribuídas, é importante entender onde são atribuídos e com que parâmetros foram atribuídos. Os parâmetros podem ser estáticos ou dinâmicos. Para saber mais, consulte [parâmetros estáticos e dinâmicos.](parameters.md)
 
-### <a name="updating-assignments"></a>Atualizando atribuições
+### <a name="updating-assignments"></a>Atribuição de atribuições
 
-Quando um plano gráfico é atribuído, a atribuição pode ser atualizada. Há várias razões para atualizar uma atribuição existente, incluindo:
+Quando uma planta é atribuída, a atribuição pode ser atualizada. Existem várias razões para atualizar uma atribuição existente, incluindo:
 
-- Adicionar ou remover [bloqueio de recursos](resource-locking.md)
-- Alterar o valor de [parâmetros dinâmicos](parameters.md#dynamic-parameters)
-- Atualizar a atribuição para uma versão **publicada** mais recente do Blueprint
+- Adicionar ou remover [o bloqueio de recursos](resource-locking.md)
+- Alterar o valor dos [parâmetros dinâmicos](parameters.md#dynamic-parameters)
+- Atualize a atribuição para uma versão mais recente **publicada** do projeto
 
-Para saber como, consulte [Atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+Para saber como, consulte a atualização das [atribuições existentes.](../how-to/update-existing-assignments.md)
 
-### <a name="unassigning-assignments"></a>Cancelando atribuição de atribuições
+### <a name="unassigning-assignments"></a>Tarefas não atribuídas
 
-Se o plano gráfico não for mais necessário, ele poderá não ser atribuído do grupo de gerenciamento ou da assinatura. Durante a desatribuição do plano gráfico, ocorre o seguinte:
+Se o projeto já não for necessário, pode não ser atribuído ao grupo de gestão ou à subscrição. Durante a desatribuição da planta, ocorre o seguinte:
 
-- Remoção do [bloqueio de recursos do Blueprint](resource-locking.md)
-- Exclusão do objeto de atribuição Blueprint
-- Condiciona Se uma **identidade gerenciada atribuída pelo sistema** foi usada, ela também será excluída
+- Remoção do bloqueio de recursos de [plantas](resource-locking.md)
+- Eliminação do objeto de atribuição de plantas
+- (Condicional) Se uma **identidade gerida atribuída** ao sistema foi usada, também é eliminada
 
 > [!NOTE]
-> Todos os recursos implantados pela atribuição Blueprint permanecem em vigor, mas não são mais protegidos pelas plantas do Azure.
+> Todos os recursos utilizados pela atribuição do projeto permanecem no local, mas já não estão protegidos pela Azure Blueprints.
 
 ## <a name="next-steps"></a>Passos seguintes
 

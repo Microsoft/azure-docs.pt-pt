@@ -1,52 +1,52 @@
 ---
-title: Serviço DNS do Azure Service Fabric
-description: Use o serviço DNS do Service Fabric para descobrir os microserviços de dentro do cluster.
+title: Serviço Azure Fabric DNS
+description: Utilize o serviço dns da Service Fabric para descobrir microserviços de dentro do cluster.
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458023"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
-O serviço DNS é um serviço de sistema opcional que você pode habilitar em seu cluster para descobrir outros serviços usando o protocolo DNS. 
+O Serviço DNS é um serviço de sistema opcional que pode permitir no seu cluster descobrir outros serviços utilizando o protocolo DNS. 
 
-Muitos serviços, especialmente serviços em contêineres, são endereçáveis por meio de uma URL pré-existente. A capacidade de resolver esses serviços usando o protocolo DNS padrão, em vez do protocolo Service Fabric Serviço de Nomenclatura, é desejável. O serviço DNS permite mapear nomes DNS para um nome de serviço e, portanto, resolver endereços IP de ponto de extremidade. Essa funcionalidade mantém a portabilidade de serviços em contêineres em diferentes plataformas e pode facilitar os cenários de "deslocamento e mudança", permitindo que você use URLs de serviço existentes em vez de ter que reescrever o código para aproveitar o Serviço de Nomenclatura. 
+Muitos serviços, especialmente serviços contentorizados, são endereçados através de um URL pré-existente. É desejável a resolução destes serviços utilizando o protocolo DNS padrão, em vez do protocolo service Fabric Naming Service. O serviço DNS permite-lhe mapear os nomes dNS para um nome de serviço e, portanto, resolver endereços IP do ponto final. Esta funcionalidade mantém a portabilidade dos serviços contentorizados em diferentes plataformas e pode facilitar cenários de "levantar e mudar", permitindo-lhe utilizar URLs de serviço existentes em vez de ter de reescrever código para alavancar o Serviço de Naming. 
 
-O serviço DNS mapeia nomes DNS para nomes de serviço que, por sua vez, são resolvidos pelo Serviço de Nomenclatura para retornar o ponto de extremidade de serviço. O nome DNS para o serviço é fornecido no momento da criação. O diagrama a seguir mostra como o serviço DNS funciona para serviços sem estado.
+O serviço DNS mapeia os nomes do DNS para nomes de serviço, que por sua vez são resolvidos pelo Serviço de Nomeação para devolver o ponto final do serviço. O nome DNS para o serviço é fornecido no momento da criação. O diagrama seguinte mostra como o serviço DNS funciona para serviços apátridas.
 
-![pontos de extremidade de serviço](./media/service-fabric-dnsservice/stateless-dns.png)
+![pontos finais de serviço](./media/service-fabric-dnsservice/stateless-dns.png)
 
-A partir do Service Fabric versão 6,3, o protocolo DNS Service Fabric foi estendido para incluir um esquema para endereçar serviços com estado particionados. Essas extensões possibilitam a resolução de endereços IP de partição específicos usando uma combinação de nome DNS de serviço com estado e o nome da partição. Há suporte para todos os três esquemas de particionamento:
+Começando com a versão 6.3 do Service Fabric, o protocolo DNS de Tecido de Serviço foi alargado para incluir um esquema de endereçamento de serviços estatais divididos. Estas extensões tornam possível a resolução de endereços IP específicos de partição utilizando uma combinação de nome dNS de serviço e o nome da partição. Os três regimes de partilha são apoiados:
 
-- Particionamento nomeado
-- Particionamento de intervalo
-- Particionamento singleton
+- Partição nomeada
+- Divisória variada
+- Partição singleton
 
-O diagrama a seguir mostra como o serviço DNS funciona para serviços com estado particionados.
+O diagrama seguinte mostra como o serviço DNS funciona para serviços estatais divididos.
 
-![pontos de extremidade de serviço com estado](./media/service-fabric-dnsservice/stateful-dns.png)
+![pontos finais de serviço apátridas](./media/service-fabric-dnsservice/stateful-dns.png)
 
-Não há suporte para portas dinâmicas no serviço DNS. Para resolver os serviços expostos em portas dinâmicas, use o [serviço de proxy reverso](./service-fabric-reverseproxy.md).
+As portas dinâmicas não são suportadas pelo serviço DNS. Para resolver os serviços expostos em portas dinâmicas, utilize o serviço de [procuração inversa](./service-fabric-reverseproxy.md).
 
-## <a name="enabling-the-dns-service"></a>Habilitando o serviço DNS
+## <a name="enabling-the-dns-service"></a>Habilitar o serviço DNS
 > [!NOTE]
-> O serviço DNS para serviços de Service Fabric ainda não tem suporte no Linux.
+> O serviço DNS para serviços de Tecido de Serviço ainda não é suportado no Linux.
 
-Quando você cria um cluster usando o portal, o serviço DNS é habilitado por padrão na caixa de seleção **incluir serviço DNS** no menu **configuração do cluster** :
+Quando cria um cluster utilizando o portal, o serviço DNS é ativado por padrão na caixa de verificação de **serviço SNS incluída** no menu de **configuração do Cluster:**
 
-![Habilitando o serviço DNS por meio do portal](./media/service-fabric-dnsservice/enable-dns-service.png)
+![Habilitar o serviço DNS através do portal](./media/service-fabric-dnsservice/enable-dns-service.png)
 
-Se você não estiver usando o portal para criar o cluster ou se estiver atualizando um cluster existente, será necessário habilitar o serviço DNS em um modelo:
+Se não estiver a usar o portal para criar o seu cluster ou se estiver a atualizar um cluster existente, terá de ativar o serviço DNS num modelo:
 
-- Para implantar um novo cluster, você pode usar os [modelos de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) ou criar seu próprio modelo do Resource Manager. 
-- Para atualizar um cluster existente, você pode navegar até o grupo de recursos do cluster no portal e clicar em **script de automação** para trabalhar com um modelo que reflete o estado atual do cluster e outros recursos no grupo. Para saber mais, consulte [exportar o modelo do grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
+- Para implementar um novo cluster, pode utilizar os [modelos](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) de amostra ou criar o seu próprio modelo de Gestor de Recursos. 
+- Para atualizar um cluster existente, pode navegar para o grupo de recursos do cluster no portal e clicar no **Script de Automação** para trabalhar com um modelo que reflete o estado atual do cluster e outros recursos no grupo. Para saber mais, consulte [Exportar o modelo do grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
-Depois de ter um modelo, você pode habilitar o serviço DNS com as seguintes etapas:
+Depois de ter um modelo, pode ativar o serviço DNS com os seguintes passos:
 
-1. Verifique se o `apiversion` está definido como `2017-07-01-preview` ou posterior para o recurso de `Microsoft.ServiceFabric/clusters` e, se não, atualize-o conforme mostrado no exemplo a seguir:
+1. Verifique se `apiversion` o `2017-07-01-preview` recurso está `Microsoft.ServiceFabric/clusters` definido para ou mais tarde e, se não, atualizá-lo como mostrado no seguinte exemplo:
 
     ```json
     {
@@ -58,9 +58,9 @@ Depois de ter um modelo, você pode habilitar o serviço DNS com as seguintes et
     }
     ```
 
-2. Agora, habilite o serviço DNS de uma das seguintes maneiras:
+2. Agora, ative o serviço DNS de uma das seguintes formas:
 
-   - Para habilitar o serviço DNS com as configurações padrão, adicione-o à seção `addonFeatures` dentro da seção `properties`, conforme mostrado no exemplo a seguir:
+   - Para ativar o serviço DNS com `addonFeatures` definições `properties` predefinidas, adicione-o à secção dentro da secção, como mostra o seguinte exemplo:
 
         ```json
           "properties": {
@@ -72,7 +72,7 @@ Depois de ter um modelo, você pode habilitar o serviço DNS com as seguintes et
           }
         ```
 
-   - Para habilitar o serviço com outras configurações padrão, adicione uma seção `DnsService` à seção `fabricSettings` dentro da seção `properties`. Nesse caso, você não precisa adicionar o DnsService ao `addonFeatures`. Para saber mais sobre as propriedades que podem ser definidas para o serviço DNS, consulte [configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+   - Para ativar o serviço com outras definições que não o padrão, adicione uma `DnsService` secção à `fabricSettings` secção dentro da `properties` secção. Neste caso, não precisa de adicionar o DnsService a `addonFeatures`. Para saber mais sobre as propriedades que podem ser definidas para o Serviço DNS, consulte [as definições do Serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
            "properties": {
@@ -100,23 +100,23 @@ Depois de ter um modelo, você pode habilitar o serviço DNS com as seguintes et
               ]
             }
        ```
-3. Depois de atualizar o modelo de cluster com suas alterações, aplique-as e permita que a atualização seja concluída. Quando a atualização for concluída, o serviço do sistema DNS começará a ser executado no cluster. O nome do serviço é `fabric:/System/DnsService`e você pode encontrá-lo na seção serviço do **sistema** no Service Fabric Explorer. 
+3. Depois de atualizar o modelo de cluster com as suas alterações, aplique-as e deixe a atualização completa. Quando a atualização estiver concluída, o sistema DNS começa a funcionar no seu cluster. O nome `fabric:/System/DnsService`do serviço é , e você pode encontrá-lo sob a secção de serviço **sistema** no explorador de tecido de serviço. 
 
 > [!NOTE]
-> Ao atualizar o DNS de desabilitado para habilitado, Service Fabric Explorer pode não refletir o novo estado. Para resolver, reinicie os nós modificando o UpgradePolicy em seu modelo de Azure Resource Manager. Consulte a [referência do modelo de Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) para obter mais informações.
+> Ao atualizar o DNS de deficientes para ativados, o Service Fabric Explorer pode não refletir o novo estado. Para resolver, reinicie os nós modificando a Política de Upgrade no seu modelo de Gestor de Recursos Azure. Consulte a referência do modelo de [tecido de serviço](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) para mais informações.
 
 > [!NOTE]
-> Habilitar o serviço DNS ao desenvolver em um computador local substituirá algumas configurações de DNS. Se você tiver problemas para se conectar à Internet, verifique as configurações de DNS.
+> Ativar o serviço DNS ao desenvolver-se numa máquina local irá sobrepor-se a algumas definições de DNS. Se tiver problemas de ligação à internet, verifique as definições de DNS.
 
-## <a name="setting-the-dns-name-for-your-service"></a>Configurando o nome DNS para seu serviço
-Você pode definir um nome DNS para seus serviços de forma declarativa para serviços padrão no arquivo ApplicationManifest. xml ou por meio de comandos do PowerShell.
+## <a name="setting-the-dns-name-for-your-service"></a>Definição do nome DNS para o seu serviço
+Pode definir um nome DNS para os seus serviços, quer declarativamente para serviços predefinidos no ficheiro ApplicationManifest.xml, quer através dos comandos PowerShell.
 
-O nome DNS do serviço é resolvível em todo o cluster, portanto, é importante garantir a exclusividade do nome DNS no cluster. 
+O nome DNS para o seu serviço é resolúvel em todo o cluster, pelo que é importante garantir a singularidade do nome DNS em todo o cluster. 
 
-É altamente recomendável que você use um esquema de nomenclatura de `<ServiceDnsName>.<AppInstanceName>`; por exemplo, `service1.application1`. Se um aplicativo for implantado usando o Docker Compose, os serviços serão atribuídos automaticamente a nomes DNS usando esse esquema de nomenclatura.
+É altamente recomendável que utilize `<ServiceDnsName>.<AppInstanceName>`um esquema de nomeação de; por exemplo, `service1.application1`. Se uma aplicação for implementada utilizando a composição do Docker, os serviços são automaticamente atribuídos aos nomes dNS utilizando este esquema de nomeação.
 
-### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Definindo o nome DNS para um serviço padrão no ApplicationManifest. xml
-Abra o projeto no Visual Studio ou seu editor favorito e abra o arquivo ApplicationManifest. xml. Vá para a seção serviços padrão e, para cada serviço, adicione o atributo `ServiceDnsName`. O exemplo a seguir mostra como definir o nome DNS do serviço como `service1.application1`
+### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Definição do nome DNS para um serviço predefinido no ApplicationManifest.xml
+Abra o seu projeto no Visual Studio, ou no seu editor favorito, e abra o ficheiro ApplicationManifest.xml. Vá à secção de serviços predefinidos e para cada serviço adicione o `ServiceDnsName` atributo. O exemplo seguinte mostra como definir o nome DNS do serviço para`service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -125,11 +125,11 @@ Abra o projeto no Visual Studio ou seu editor favorito e abra o arquivo Applicat
       </StatelessService>
     </Service>
 ```
-Depois que o aplicativo for implantado, a instância de serviço no Service Fabric Explorer mostrará o nome DNS dessa instância, conforme mostrado na figura a seguir: 
+Uma vez implementada a aplicação, a instância de serviço no explorador de Tecido de Serviço mostra o nome DNS para esta instância, como mostra a seguinte figura: 
 
-![pontos de extremidade de serviço](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
+![pontos finais de serviço](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-O exemplo a seguir define o nome DNS para um serviço com estado como `statefulsvc.app`. O serviço usa um esquema de particionamento nomeado. Observe que os nomes de partição são letras minúsculas. Esse é um requisito para partições que serão destinadas a consultas DNS; para obter mais informações, consulte [fazendo consultas DNS em uma partição de serviço com estado](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+O exemplo que se segue define o nome `statefulsvc.app`DNS para um serviço imponente para . O serviço usa um esquema de partição nomeado. Note que os nomes da partição são minúsculos. Esta é uma exigência para divisórias que serão direcionadas em consultas de DNS; para mais informações, consulte [fazer consultas de DNS numa partição de serviço sinuoso.](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition)
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -142,8 +142,8 @@ O exemplo a seguir define o nome DNS para um serviço com estado como `statefuls
     </Service>
 ```
 
-### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Definindo o nome DNS para um serviço usando o PowerShell
-Você pode definir o nome DNS para um serviço ao criá-lo usando o comando `New-ServiceFabricService` PowerShell. O exemplo a seguir cria um novo serviço sem estado com o nome DNS `service1.application1`
+### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Definição do nome DNS para um serviço utilizando powershell
+Pode definir o nome DNS para um `New-ServiceFabricService` serviço ao criá-lo utilizando o comando Powershell. O exemplo seguinte cria um novo serviço apátrida com o nome DNS`service1.application1`
 
 ```powershell
     New-ServiceFabricService `
@@ -156,41 +156,41 @@ Você pode definir o nome DNS para um serviço ao criá-lo usando o comando `New
     -ServiceDnsName service1.application1
 ```
 
-## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>Apresentação Fazendo consultas DNS em uma partição de serviço com estado
-A partir do Service Fabric versão 6,3, o serviço DNS Service Fabric dá suporte a consultas para partições de serviço.
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[Pré-visualização] Fazer consultas de DNS numa partição de serviço sinuoso
+Começando com a versão 6.3 do Tecido de Serviço, o serviço De serviço Fabric DNS suporta consultas para partições de serviço.
 
-Para partições que serão usadas em consultas DNS, as seguintes restrições de nomenclatura se aplicam:
+Para divisórias que serão utilizadas em consultas de DNS, aplicam-se as seguintes restrições de nomeação:
 
-   - Os nomes de partição devem estar em conformidade com o DNS.
-   - Nomes de partição com vários rótulos (que incluem ponto, '. ', no nome) não devem ser usados.
-   - Os nomes de partição devem estar em letras minúsculas.
+   - Os nomes da partição devem ser compatíveis com o DNS.
+   - Não devem ser utilizados nomes de divisórias multi-etiquetas (que incluam ponto, '.', no nome).
+   - Os nomes da partição devem ser minúsculos.
 
-As consultas DNS direcionadas a uma partição são formatadas da seguinte maneira:
+As consultas dNS que visam uma partição são formatadas da seguinte forma:
 
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-Onde:
+Em que:
 
-- O *primeiro rótulo de-serviço-particionado-Service-DnsName* é a primeira parte do nome DNS do serviço.
-- *PartitionPrefix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão é "--". Para saber mais, consulte [configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
-- *Target-Partition-Name* é o nome da partição. 
-- *PartitionSuffix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão é uma cadeia de caracteres vazia. Para saber mais, consulte [configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
-- *Restante-partitiond-Service-DnsName* é a parte restante do seu nome DNS do serviço.
+- O nome DNSName de Serviço De Serviço De primeira *etiqueta-divisória* é a primeira parte do seu nome dNS de serviço.
+- *PartitionPrefix* é um valor que pode ser definido na secção DnsService do manifesto do cluster ou através do modelo de Gestor de Recursos do cluster. O valor padrão é "--". Para saber mais, consulte [as definições do Serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *Nome de partição-alvo* é o nome da partição. 
+- *PartitionSSuffix* é um valor que pode ser definido na secção DnsService do manifesto do cluster ou através do modelo de Gestor de Recursos do cluster. O valor padrão é a corda vazia. Para saber mais, consulte [as definições do Serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *O DNSName de Serviço-DNS* restante é a parte restante do seu nome dNS de serviço.
 
-Os exemplos a seguir mostram as consultas DNS para serviços particionados em execução em um cluster com configurações padrão para `PartitionPrefix` e `PartitionSuffix`: 
+Os seguintes exemplos mostram consultas de DNS para serviços `PartitionPrefix` divididos em funcionamento num cluster que tem definições padrão para e: `PartitionSuffix` 
 
-- Para resolver a partição "0" de um serviço com o nome DNS `backendrangedschemesvc.application` que usa um esquema de particionamento de intervalo, use `backendrangedschemesvc-0.application`.
-- Para resolver a partição "primeiro" de um serviço com o nome DNS `backendnamedschemesvc.application` que usa um esquema de particionamento nomeado, use `backendnamedschemesvc-first.application`.
+- Para resolver a partilha "0" de `backendrangedschemesvc.application` um serviço com o `backendrangedschemesvc-0.application`nome DNS que utiliza um esquema de partilha variado, utilize .
+- Para resolver a partilha "primeiro" de `backendnamedschemesvc.application` um serviço com o `backendnamedschemesvc-first.application`nome DNS que utiliza um esquema de partição nomeado, utilize .
 
-O serviço DNS retorna o endereço IP da réplica primária da partição. Se nenhuma partição for especificada, o serviço retornará o endereço IP da réplica primária de uma partição selecionada aleatoriamente.
+O serviço DNS devolve o endereço IP da réplica primária da divisória. Se não for especificada qualquer partição, o serviço devolve o endereço IP da réplica primária de uma divisória selecionada aleatoriamente.
 
-## <a name="using-dns-in-your-services"></a>Usando o DNS em seus serviços
-Se você implantar mais de um serviço, poderá encontrar os pontos de extremidade de outros serviços com os quais se comunicar usando um nome DNS. O serviço DNS funciona para serviços sem estado e, no Service Fabric versão 6,3 e posterior, para serviços com estado. Para serviços com estado em execução em versões do Service Fabric anteriores a 6,3, você pode usar o [serviço de proxy reverso](./service-fabric-reverseproxy.md) interno para chamadas http para chamar uma partição de serviço específica. 
+## <a name="using-dns-in-your-services"></a>Utilização de DNS nos seus serviços
+Se implementar mais do que um serviço, poderá encontrar os pontos finais de outros serviços com os quais comunicar utilizando um nome DNS. O serviço DNS funciona para serviços apátridas, e, na versão 6.3 e posterior, do Service Fabric para serviços audais. Para serviços estatais que executam em versões de Tecido de Serviço antes de 6.3, você pode usar o serviço de [procuração inversa](./service-fabric-reverseproxy.md) incorporado para chamadas http para chamar uma partição de serviço particular. 
 
-Não há suporte para portas dinâmicas no serviço DNS. Você pode usar o serviço de proxy reverso para resolver serviços que usam portas dinâmicas.
+As portas dinâmicas não são suportadas pelo serviço DNS. Pode utilizar o serviço de procuração inversa para resolver serviços que utilizem portas dinâmicas.
 
-O código a seguir mostra como chamar um serviço sem estado por meio do DNS. É simplesmente uma chamada http regular em que você fornece o nome DNS, a porta e qualquer caminho opcional como parte da URL.
+O código que se segue mostra como chamar um serviço apátrida através do DNS. É simplesmente uma chamada regular em http onde fornece o nome DNS, a porta e qualquer caminho opcional como parte do URL.
 
 ```csharp
 public class ValuesController : Controller
@@ -218,7 +218,7 @@ public class ValuesController : Controller
 }
 ```
 
-O código a seguir mostra uma chamada em uma partição específica de um serviço com estado. Nesse caso, o nome DNS contém o nome da partição (Partition1). A chamada pressupõe um cluster com valores padrão para `PartitionPrefix` e `PartitionSuffix`.
+O seguinte código mostra uma chamada numa partição específica de um serviço imponente. Neste caso, o nome DNS contém o nome da partição (partição1). A chamada assume um cluster `PartitionPrefix` com `PartitionSuffix`valores padrão para e .
 
 ```csharp
 public class ValuesController : Controller
@@ -247,10 +247,10 @@ public class ValuesController : Controller
 ```
 
 ## <a name="known-issues"></a>Problemas Conhecidos
-* Para Service Fabric versões 6,3 e superiores, há um problema com as pesquisas de DNS para nomes de serviço que contêm um hífen no nome DNS. Para obter mais informações sobre esse problema, acompanhe o seguinte [problema do GitHub](https://github.com/Azure/service-fabric-issues/issues/1197). Uma correção para isso está disponível na próxima atualização 6,3. 
+* Para as versões De Tecido de Serviço 6.3 ou superior, existe um problema com as procurações de DNS para nomes de serviço que contenham um hífen no nome DNS. Para mais informações sobre este assunto, por favor, acompanhe o seguinte [Problema gitHub](https://github.com/Azure/service-fabric-issues/issues/1197). Uma correção para isto está a chegar na próxima atualização 6.3. 
 
-* O serviço DNS para serviços de Service Fabric ainda não tem suporte no Linux. O serviço DNS tem suporte para contêineres no Linux. A resolução manual usando o Fabric Client/ServicePartitionResolver é a alternativa disponível.
+* O serviço DNS para serviços de Tecido de Serviço ainda não é suportado no Linux. O serviço DNS é suportado para contentores em Linux. Resolução manual utilizando o Cliente de Tecido/ServiçoPartitionResolver é a alternativa disponível.
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre a comunicação de serviço no cluster com [conectar e se comunicar com os serviços](service-fabric-connect-and-communicate-with-services.md)
+Saiba mais sobre a comunicação de serviço dentro do cluster com [a ligação e comunicação com os serviços](service-fabric-connect-and-communicate-with-services.md)
 

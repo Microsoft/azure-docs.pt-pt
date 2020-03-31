@@ -1,5 +1,5 @@
 ---
-title: Desative o hóspede OS Firewall em Azure VM  Microsoft Docs
+title: Desative o hóspede OS Firewall em Azure VM [ Microsoft Docs
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dbb9b0f865c7ec5d9d29e2310ae41abbec287bd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718876"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79464967"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
 
@@ -58,7 +58,7 @@ Se tiver um agente Azure a funcionar, pode utilizar a [extensão do script perso
 
 1.  Ligue-se a um VM que está localizado na mesma rede virtual que o VM que não pode alcançar utilizando a ligação RDP.
 
-2.  Abra uma janela de consola do PowerShell.
+2.  Abra uma janela de consola PowerShell.
 
 3.  Execute os seguintes comandos:
 
@@ -90,7 +90,7 @@ Se tiver um agente Azure a funcionar, pode utilizar a [extensão do script perso
 
 Siga estes passos para utilizar o [Registo Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  No vM de resolução de problemas, inicie o editor de registo e, em seguida, vá ao Registo de **Rede Connect** > **File** .
+1.  No vM de resolução de problemas, inicie o editor de registo, e depois vá ao Registo de Rede de**Rede De Conecteção** **de Ficheiros** > .
 
 2.  Abra o ramo TARGET *MACHINE*\SYSTEM e especifique os seguintes valores:
 
@@ -100,11 +100,11 @@ Siga estes passos para utilizar o [Registo Remoto](https://support.microsoft.com
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Reinicie o serviço. Como não pode fazê-lo utilizando o registo remoto, tem de utilizar a Consola de Serviço remover.
+3.  Reinicie o serviço. Como não pode fazê-lo utilizando o registo remoto, deve utilizar a Consola de Serviço Remoto.
 
 4.  Abra uma instância de **Services.msc**.
 
-5.  Clique em **Serviços (Local)** .
+5.  Clique em **Serviços (Local)**.
 
 6.  Selecione **Ligar a outro computador**.
 
@@ -120,7 +120,7 @@ Se tiver uma situação em que não possa chegar ao VM por qualquer método, a e
 
 1.  [Fixe o disco do sistema a um VM](troubleshoot-recovery-disks-portal-windows.md)de recuperação .
 
-2.  Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
+2.  Inicie uma ligação remote Desktop ao VM de recuperação.
 
 3.  Certifique-se de que o disco está sinalizado como Online na consola de Gestão de Discos. Repare na carta de unidade atribuída ao disco do sistema anexo.
 
@@ -130,7 +130,7 @@ Se tiver uma situação em que não possa chegar ao VM por qualquer método, a e
 
 6.  Para este procedimento de resolução de problemas, estamos a montar as colmeias como BROKENSYSTEM e BROKENSOFTWARE.
 
-7.  Realce a chave HKEY_LOCAL_MACHINE e, em seguida, selecione File > Carregue a Colmeia no menu.
+7.  Realce a chave HKEY_LOCAL_MACHINE e, em seguida, selecione File > Load Hive do menu.
 
 8.  Localize o ficheiro \windows\system32\config\SYSTEM no disco do sistema anexo.
 

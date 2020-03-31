@@ -7,15 +7,15 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: fasttrack-edit
+ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 2b83fc6231f590b3c0765ec647101b22920058da
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77581672"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067683"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Quickstart: Comece com Azure Sentinel
 
@@ -30,7 +30,7 @@ Para visualizar e obter uma análise do que está a acontecer no seu ambiente, p
 
 - No portal Azure, selecione O Sentinel a pino e, em seguida, selecione o espaço de trabalho que pretende monitorizar.
 
-  ![Visão geral do Sentinela Azure](./media/qs-get-visibility/overview.png)
+  ![Descrição Geral do Azure Sentinel](./media/qs-get-visibility/overview.png)
 
 - A barra de ferramentas em cima diz-lhe quantos eventos obteve ao longo do período de tempo selecionado, e compara-o com as 24 horas anteriores. A barra de ferramentas conta-lhe destes eventos, os alertas que foram desencadeados (o pequeno número representa a mudança nas últimas 24 horas), e depois diz-lhe para esses eventos, quantos estão abertos, em andamento e fechados. Verifique se não há um aumento dramático ou uma queda no número de eventos. Se houver uma queda, pode ser que uma ligação pare de reportar ao Azure Sentinel. Se houver um aumento, algo suspeito pode ter acontecido. Verifique se tem novos alertas.
 
@@ -51,7 +51,7 @@ O corpo principal da página geral dá uma visão sobre o estado de segurança d
 
    ![Mapa do Sentinela Azure](./media/qs-get-visibility/anomolies.png)
 
-## Utilize livros embutidos<a name="dashboards"></a>
+## <a name="use-built-in-workbooks"></a>Utilize livros embutidos<a name="dashboards"></a>
 
 Os livros incorporados fornecem dados integrados a partir das suas fontes de dados conectadas para permitir que você mergulhe profundamente nos eventos gerados nesses serviços. Os livros embutidos incluem azure AD, eventos de atividade azure e no local, que podem ser dados do Windows Events a partir de servidores, a partir de alertas de primeira parte, de qualquer terceiro, incluindo registos de tráfego de firewall, Office 365, e protocolos inseguros baseados no Windows eventos. Os livros baseiam-se em livros de trabalho do Monitor Azure para lhe proporcionar uma maior personalizabilidade e flexibilidade na conceção do seu próprio livro. Para mais informações, consulte [Livros de Trabalho.](../azure-monitor/app/usage-workbooks.md)
 
@@ -67,7 +67,7 @@ Os livros incorporados fornecem dados integrados a partir das suas fontes de dad
       ![Painel de pal Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Pode personalizar os livros de trabalho ou editando a consulta principal ![botão](./media/qs-get-visibility/edit-query-button.png). Pode clicar no botão ![botão](./media/qs-get-visibility/go-to-la-button.png) para ir ao [Log Analytics para editar a consulta lá](../azure-monitor/log-query/get-started-portal.md), e pode selecionar a elipse (...) e selecionar dados de **azulejos Personalizados,** que lhe permite editar o filtro de tempo principal, ou remover os azulejos específicos do livro.
+Pode personalizar os livros de trabalho ou ![editando o botão](./media/qs-get-visibility/edit-query-button.png)de consulta principal . Pode clicar no ![](./media/qs-get-visibility/go-to-la-button.png) botão botão para ir ao [Log Analytics para editar a consulta lá](../azure-monitor/log-query/get-started-portal.md), e pode selecionar a elipse (...) e selecionar dados de **azulejos Personalizados,** que lhe permite editar o filtro de tempo principal, ou remover os azulejos específicos do livro.
 
 Para obter mais informações sobre o trabalho com consultas, consulte [Tutorial: Dados visuais em Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -87,7 +87,7 @@ Pode criar um novo livro de raiz ou usar um livro incorporado como base para o s
 1. Utilize as **atribuições** **de acesso** ao Cheque e Role como faria para qualquer outro recurso Azure. Para mais informações, consulte os livros de [trabalho Share Azure utilizando o RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
-## <a name="new-workbook-examples"></a>Novos exemplos de livro
+## <a name="new-workbook-examples"></a>Novos exemplos de livros
 
 A seguinte consulta de amostra permite comparar tendências de tráfego ao longo de semanas. Pode facilmente mudar o fornecedor do dispositivo e a fonte de dados em que executa a consulta. Este exemplo utiliza o SecurityEvent a partir do Windows, pode trocá-lo para executar em AzureActivity ou CommonSecurityLog em qualquer outra firewall.
 
@@ -109,7 +109,7 @@ Pode querer criar uma consulta que incorpore dados de múltiplas fontes. Pode cr
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
     | project-away user1
 
-Pode criar diferentes livros baseados no papel da pessoa que olha para os dados e o que procura. Por exemplo, pode criar um livro de trabalho para a sua administração de rede que inclua os dados de firewall. Você também pode criar livros baseados na frequência com que você quer olhar para eles, se há coisas que você quer rever diariamente, e outros itens que você quer verificar uma vez por hora, por exemplo, você pode querer olhar para os seus sign-ins Azure AD a cada hora para procurar a anomalina s. 
+Pode criar diferentes livros baseados no papel da pessoa que olha para os dados e o que procura. Por exemplo, pode criar um livro de trabalho para a sua administração de rede que inclua os dados de firewall. Você também pode criar livros baseados na frequência com que você quer olhar para eles, se há coisas que você quer rever diariamente, e outros itens que você quer verificar uma vez por hora, por exemplo, você pode querer olhar para os seus sign-ins Azure AD a cada hora para procurar anomalias . 
 
 ## <a name="create-new-detections"></a>Criar novas deteções
 

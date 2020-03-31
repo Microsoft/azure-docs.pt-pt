@@ -8,41 +8,41 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1fc63dc53d61a8b2e26f97cc09a359b3f2c7665c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d1402bcc0c46003429e1809e8d09e9662218cd82
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901812"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335106"
 ---
-| Recurso | Limite máximo/padrão |
+| Recurso | Limite |
 | --- | --- |
-| Circuitos de ExpressRoute por assinatura |10 |
-| Circuitos de ExpressRoute por região por assinatura, com Azure Resource Manager |10 |
-| Número máximo de rotas anunciadas para o emparelhamento privado do Azure com o padrão de ExpressRoute |4,000 |
-| Número máximo de rotas anunciadas para o emparelhamento privado do Azure com o complemento Premium do ExpressRoute |10,000 |
-| Número máximo de rotas anunciadas do emparelhamento privado do Azure do espaço de endereço da VNet para uma conexão do ExpressRoute |200 |
-| Número máximo de rotas anunciadas para o emparelhamento da Microsoft com o padrão de ExpressRoute |200 |
-| Número máximo de rotas anunciadas para o emparelhamento da Microsoft com o complemento Premium do ExpressRoute |200 |
-| Número máximo de circuitos do ExpressRoute vinculados à mesma rede virtual no mesmo local de emparelhamento |4 |
-| Número máximo de circuitos do ExpressRoute vinculados à mesma rede virtual em locais de emparelhamento diferentes |4 |
-| Número de links de rede virtual permitidos por circuito de ExpressRoute |Consulte o [número de redes virtuais por tabela de circuito do ExpressRoute](#vnetpercircuit) .  |
+| Circuitos ExpressRoute por subscrição |10 |
+| Circuitos ExpressRoute por região por subscrição, com Gestor de Recursos Azure |10 |
+| Número máximo de rotas anunciadas para o azure private peering com ExpressRoute Standard |4000 |
+| Número máximo de rotas anunciadas para o azure private peering com add-on ExpressRoute Premium |10,000 |
+| Número máximo de rotas anunciadas a partir do espaço de endereçoS VNet para uma ligação ExpressRoute |200 |
+| Número máximo de rotas anunciadas para a Microsoft a espreitar com o ExpressRoute Standard |200 |
+| Número máximo de rotas anunciadas para a Microsoft peering com add-on ExpressRoute Premium |200 |
+| Número máximo de circuitos ExpressRoute ligados à mesma rede virtual no mesmo local de observação |4 |
+| Número máximo de circuitos ExpressRoute ligados à mesma rede virtual em diferentes locais de observação |4 |
+| Número de ligações de rede virtual permitidas por circuito ExpressRoute |Consulte o Número de redes virtuais por tabela de [circuitos ExpressRoute.](#vnetpercircuit)  |
 
-#### <a name="vnetpercircuit"></a>Número de redes virtuais por circuito de ExpressRoute
-| **Tamanho do circuito** | **Número de links de rede virtual para Standard** | **Número de links de rede virtual com complemento Premium** |
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a>Número de redes virtuais por circuito ExpressRoute
+| **Tamanho do circuito** | **Número de ligações de rede virtual para Standard** | **Número de ligações de rede virtual com add-on Premium** |
 | --- | --- | --- |
-| 50 Mbps |10 |20 |
-| 100 Mbps |10 |25 |
-| 200 Mbps |10 |25 |
-| 500 Mbps |10 |40 |
-| 1 Gbps |10 |50 |
+| 50 Mbps |10 |20 |
+| 100 Mbps |10 |25 |
+| 200 Mbps |10 |25 |
+| 500 Mbps |10 |40 |
+| 1 Gbps |10 |50 |
 | 2 Gbps |10 |60 |
 | 5 Gbps |10 |75 |
-| 10 Gbps |10 |100 |
-| 40 Gbps * |10 |100 |
-| 100 Gbps * |10 |100 |
+| 10 Gbps |10 |100 |
+| 40 Gbps* |10 |100 |
+| 100 Gbps* |10 |100 |
 
-*de *100 Gbps de ExpressRoute somente direto*
+**100 Gbps ExpressRoute Direct Apenas*
 
 > [!NOTE]
-> Alcance Global as conexões contam com o limite de conexões de rede virtual por circuito de ExpressRoute. Por exemplo, um circuito Premium de 10 Gbps permitiria conexões de 5 Alcance Global e 95 para os gateways de ExpressRoute ou 95 conexões de Alcance Global e 5 conexões com os gateways de ExpressRoute ou qualquer outra combinação até o limite de 100 conexões para o circuito.
+> As ligações Global Reach contam contra o limite de ligações de rede virtual por Circuito ExpressRoute. Por exemplo, um Circuito Premium de 10 Gbps permitiria 5 ligações Global Reach e 95 ligações às Ligações ExpressRoute Gateways ou 95 ligações Global Reach e 5 ligações aos Gateways ExpressRoute ou qualquer outra combinação até ao limite de 100 ligações para o circuito.

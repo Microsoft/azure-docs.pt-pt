@@ -1,88 +1,88 @@
 ---
-title: Adicionar instruções condicionais a fluxos de trabalho
-description: Como criar condições que controlam ações em fluxos de trabalho em aplicativos lógicos do Azure
+title: Adicionar declarações condicionais aos fluxos de trabalho
+description: Como criar condições que controlam ações em fluxos de trabalho em Aplicações Lógicas Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74793247"
 ---
-# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Criar instruções condicionais que controlam ações de fluxo de trabalho em aplicativos lógicos do Azure
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Criar declarações condicionais que controlam ações de fluxo de trabalho em Aplicações Lógicas Azure
 
-Para executar ações específicas em seu aplicativo lógico somente após passar uma condição especificada, adicione uma *instrução condicional*. Essa estrutura de controle compara os dados em seu fluxo de trabalho com valores ou campos específicos. Em seguida, você pode especificar ações diferentes que são executadas com base em se os dados atendem ou não à condição. Você pode aninhar condições dentro das outras.
+Para executar ações específicas na sua aplicação lógica apenas depois de passar uma condição especificada, adicione uma *declaração condicional*. Esta estrutura de controlo compara os dados do seu fluxo de trabalho com valores ou campos específicos. Pode então especificar diferentes ações que são executadas com base no facto de os dados cumprirem ou não a condição. Podem nidificar as condições dentro umas das outras.
 
-Por exemplo, suponha que você tenha um aplicativo lógico que envia emails demais quando novos itens aparecem no RSS feed de um site. Você pode adicionar uma instrução condicional para enviar email somente quando o novo item incluir uma cadeia de caracteres específica. 
+Por exemplo, suponha que tenha uma aplicação lógica que envia demasiados e-mails quando novos itens aparecem no feed RSS de um site. Só pode adicionar uma declaração condicional para enviar e-mail quando o novo item incluir uma cadeia específica. 
 
 > [!TIP]
-> Para executar etapas diferentes com base em valores específicos diferentes, use uma [*instrução switch*](../logic-apps/logic-apps-control-flow-switch-statement.md) em vez disso.
+> Para executar diferentes passos com base em diferentes valores específicos, utilize uma declaração de [*comutação.*](../logic-apps/logic-apps-control-flow-switch-statement.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Para seguir o exemplo neste artigo, [crie este aplicativo lógico de exemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta do Outlook Outlook.com ou Office 365.
+* Para seguir o exemplo neste artigo, [crie esta aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) de amostra com uma conta Outlook.com ou Office 365 Outlook.
 
 ## <a name="add-condition"></a>Adicionar condição
 
-1. No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, abra seu aplicativo lógico no designer de aplicativo lógico.
+1. No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>abra a sua aplicação lógica no Logic App Designer.
 
-1. Adicione uma condição no local desejado. 
+1. Adicione uma condição no local que quiser. 
 
-   Para adicionar uma condição entre etapas, mova o ponteiro sobre a seta onde você deseja adicionar a condição. Escolha o **sinal de adição** ( **+** ) que aparece e, em seguida, escolha **Adicionar uma ação**. Por exemplo:
+   Para adicionar uma condição entre passos, mova o ponteiro sobre a seta onde pretende adicionar a condição. Escolha o sinal**+** de **mais** () que aparece e, em seguida, escolha Adicionar uma **ação**. Por exemplo:
 
-   ![Adicionar ação entre etapas](./media/logic-apps-control-flow-conditional-statement/add-action.png)
+   ![Adicionar ação entre passos](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   Quando desejar adicionar uma condição no final do fluxo de trabalho, na parte inferior do aplicativo lógico, escolha **nova etapa** > **Adicionar uma ação**.
+   Quando quiser adicionar uma condição no final do seu fluxo de trabalho, na parte inferior da sua aplicação lógica, escolha **novo passo** > **Adicione uma ação**.
 
-1. Na caixa de pesquisa, digite "Condition" como filtro. Selecione esta ação: **controle de condição**
+1. Na caixa de pesquisa, introduza "condição" como filtro. Selecione esta ação: **Condição - Controlo**
 
    ![Adicionar condição](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
-1. Na caixa **condição** , crie sua condição. 
+1. Na caixa da **Condição,** construa a sua condição. 
 
-   1. Na caixa à esquerda, especifique os dados ou o campo que você deseja comparar.
+   1. Na caixa esquerda, especifique os dados ou campo que pretende comparar.
 
-      Quando você clica dentro da caixa à esquerda, a lista de conteúdo dinâmico é exibida para que você possa selecionar saídas de etapas anteriores em seu aplicativo lógico. 
-      Para este exemplo, selecione o resumo do RSS feed.
+      Quando clica dentro da caixa esquerda, aparece a lista de conteúdos dinâmicos para que possa selecionar saídas a partir de passos anteriores na sua aplicação lógica. 
+      Para este exemplo, selecione o resumo do feed RSS.
 
-      ![Crie sua condição](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
+      ![Construa a sua condição](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
-   1. Na caixa do meio, selecione a operação a ser executada. 
-   Para este exemplo, selecione "**Contains**". 
+   1. Na caixa intermédia, selecione a operação para executar. 
+   Para este exemplo, selecione "**contém**". 
 
-   1. Na caixa à direita, especifique um valor ou campo como critério. 
-   Para este exemplo, especifique esta cadeia de caracteres: **Microsoft**
+   1. Na caixa certa, especifique um valor ou campo como critérios. 
+   Para este exemplo, especifique esta cadeia: **Microsoft**
 
    Aqui está a condição completa:
 
    ![Concluir condição](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   Para adicionar outra linha à sua condição, escolha **adicionar** > **Adicionar linha**. 
-   Para adicionar um grupo com subcondições, escolha **adicionar** > **Adicionar grupo**. 
-   Para agrupar linhas existentes, marque as caixas de seleção para essas linhas, escolha o botão de reticências (...) para qualquer linha e escolha **Criar grupo**.
+   Para adicionar outra linha à sua condição, escolha **Adicionar** > **a linha**. 
+   Para adicionar um grupo com subcondições, escolha **Adicionar** > **grupo**. 
+   Para agrupar as linhas existentes, selecione as caixas de verificação para essas linhas, escolha o botão elipses (...) para qualquer linha e, em seguida, escolha **grupo Fazer**.
 
-1. Em **se verdadeiro** e **se falso**, adicione as etapas a serem executadas com base em se a condição é atendida. Por exemplo:
+1. Em **se for verdade** e se for **falso,** adicione os passos a executar com base no facto de a condição estar reunida. Por exemplo:
 
-   ![Condição com caminhos "If true" e "If false"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
+   ![Condição com caminhos "Se verdadeiro" e "Se falso"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Você pode arrastar ações existentes para os caminhos **If true** e **If false** .
+   > Pode arrastar as ações existentes para o **"Se verdadeiro"** e **"Se caminhos** falsos".
 
 1. Guarde a aplicação lógica.
 
-Esse aplicativo lógico agora envia email somente quando os novos itens no feed RSS atendem à sua condição.
+Esta aplicação lógica envia agora correio apenas quando os novos itens no feed RSS satisfazem a sua condição.
 
-## <a name="json-definition"></a>Definição de JSON
+## <a name="json-definition"></a>Definição JSON
 
-Aqui está a definição de código de alto nível por trás de uma instrução condicional:
+Aqui está a definição de código de alto nível por trás de uma declaração condicional:
 
 ``` json
 "actions": {
@@ -111,11 +111,11 @@ Aqui está a definição de código de alto nível por trás de uma instrução 
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário dos aplicativos lógicos do Azure](https://aka.ms/logicapps-wish).
+* Para submeter ou votar em funcionalidades e sugestões, visite o site de feedback do utilizador das [Aplicações Lógicas Azure.](https://aka.ms/logicapps-wish)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Executar etapas com base em valores diferentes (instruções switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Executar e repetir etapas (loops)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Executar ou mesclar etapas paralelas (branches)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Executar etapas com base no status da ação agrupada (escopos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Executar passos com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Executar e repetir passos (loops)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Executar ou fundir passos paralelos (ramos)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Passos de execução baseados no estado de ação agruparado (âmbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

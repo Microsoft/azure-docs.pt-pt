@@ -1,6 +1,6 @@
 ---
-title: Monitorizar o seu dispositivo de Gateway de caixa de dados do Azure | Documentos da Microsoft
-description: Descreve como utilizar o portal do Azure e a IU web local para monitorizar o Gateway de caixa de dados do Azure.
+title: Monitorize o seu dispositivo Gateway de Caixa de Dados Azure [ Microsoft Docs
+description: Descreve como usar o portal Azure e a UI web local para monitorizar o seu Portal de Dados Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,24 +9,24 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 61da2454d6a72d43a7b4600d7ea85e6a3f82958f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60755041"
 ---
-# <a name="monitor-your-azure-data-box-gateway"></a>Monitorizar o seu Gateway de caixa de dados do Azure
+# <a name="monitor-your-azure-data-box-gateway"></a>Monitorize o seu Portal de Dados Azure
 
-Este artigo descreve como monitorizar o Gateway de caixa de dados do Azure. Para monitorizar o seu dispositivo, pode utilizar o portal do Azure ou da web local da interface do Usuário. Utilize o portal do Azure para ver eventos de dispositivos, configurar e gerir alertas e ver métricas.
+Este artigo descreve como monitorizar o seu Portal de Dados Azure. Para monitorizar o seu dispositivo, pode utilizar o portal Azure ou a UI web local. Utilize o portal Azure para visualizar eventos de dispositivos, configurar e gerir alertas e ver métricas.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Ver eventos de dispositivo e os alertas correspondentes
-> * Ver as métricas de capacidade e a transação para o seu dispositivo
+> * Ver eventos de dispositivos e os alertas correspondentes
+> * Ver métricas de capacidade e transação para o seu dispositivo
 > * Configurar e gerir alertas
 
-## <a name="view-device-events"></a>Ver eventos do dispositivo
+## <a name="view-device-events"></a>Ver eventos de dispositivos
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
 
@@ -38,6 +38,6 @@ Neste artigo, vai aprender a:
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-manage-alerts.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [Gerir a largura de banda](data-box-gateway-manage-bandwidth-schedules.md).

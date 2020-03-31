@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
 ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79202149"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Esquema de evento de azure event para azure machine learning
@@ -195,14 +195,14 @@ Um evento tem os seguintes dados de alto nível:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | Cadeia de caracteres | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. A Grelha de Eventos fornece este valor. |
-| subject | Cadeia de caracteres | Caminho definido pela editora para o assunto do evento. |
-| eventType | Cadeia de caracteres | Um dos tipos de eventos registados para esta fonte do evento. |
-| eventoTime | Cadeia de caracteres | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
-| ID | Cadeia de caracteres | Identificador único para o evento. |
-| data | object | Dados do evento de armazenamento blob. |
-| dataVersion | Cadeia de caracteres | A versão esquema do objeto de dados. A editora define a versão do esquema. |
-| metadataVersion | Cadeia de caracteres | A versão de esquema dos metadados do evento. A Grelha de Eventos define o esquema das propriedades de alto nível. A Grelha de Eventos fornece este valor. |
+| tópico | string | Caminho de recursos completos para a fonte do evento. Este campo não é repreensível. O Event Grid fornece este valor. |
+| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | string | Identificador único para o evento. |
+| data | objeto | Dados do evento de armazenamento blob. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
@@ -210,41 +210,41 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Nome do modelo | Cadeia de caracteres | O nome do modelo que estava registado. |
-| ModelVersion | Cadeia de caracteres | A versão do modelo que foi registada. |
-| ModelTags | object | As etiquetas do modelo que estava registada. |
-| ModelProperties | object | As propriedades do modelo que foi registado. |
+| ModelName | string | O nome do modelo que estava registado. |
+| ModelVersion | string | A versão do modelo que foi registada. |
+| ModelTags | objeto | As etiquetas do modelo que estava registada. |
+| ModelProperties | objeto | As propriedades do modelo que foi registado. |
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft.MachineLearningServices.ModelDeployed
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| serviceName | Cadeia de caracteres | O nome do serviço destacado. |
-| ServiceComputeType | Cadeia de caracteres | O tipo de computação (por exemplo, ACI, AKS) do serviço implantado. |
-  | ModelIds | Cadeia de caracteres | Uma vírem separada lista de identificações modelo. As iDs dos modelos implantados no serviço. |
-| ServiceTags | object | As etiquetas do serviço implantado. |
-| ServiceProperties | object | As propriedades do serviço implantado. |
+| ServiceName | string | O nome do serviço destacado. |
+| ServiceComputeType | string | O tipo de computação (por exemplo, ACI, AKS) do serviço implantado. |
+  | ModelIds | string | Uma vírem separada lista de identificações modelo. As iDs dos modelos implantados no serviço. |
+| ServiceTags | objeto | As etiquetas do serviço implantado. |
+| ServiceProperties | objeto | As propriedades do serviço implantado. |
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft.MachineLearningServices.RunCompleted
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Experimentóide | Cadeia de caracteres | A identificação da experiência a que a corrida pertence. |
-| Nome da experiência | Cadeia de caracteres | O nome da experiência a que a corrida pertence. |
-| Runid | Cadeia de caracteres | A identificação da corrida que foi concluída. |
-| Tipo de execução | Cadeia de caracteres | O Tipo de Execução da execução completada. |
-| RunTags | object | As etiquetas da Corrida completa. |
-| Propriedades RunProperties | object | As propriedades da Run concluída. |
+| Experimentóide | string | A identificação da experiência a que a corrida pertence. |
+| Nome da experiência | string | O nome da experiência a que a corrida pertence. |
+| Runid | string | A identificação da corrida que foi concluída. |
+| Tipo de execução | string | O Tipo de Execução da execução completada. |
+| RunTags | objeto | As etiquetas da Corrida completa. |
+| Propriedades RunProperties | objeto | As propriedades da Run concluída. |
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft.MachineLearningServices.DatasetDriftDetected
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| DataDriftid | Cadeia de caracteres | A identificação do monitor de deriva de dados que desencadeou o evento. |
-| DataDriftName | Cadeia de caracteres | O nome do monitor de deriva de dados que desencadeou o evento. |
-| Runid | Cadeia de caracteres | A identificação da Corrida que detetou a deriva de dados. |
-| BaseDatasetId | Cadeia de caracteres | A identificação do conjunto de dados base usado para detetar deriva. |
-| TargetDatasetId | Cadeia de caracteres | A identificação do conjunto de dados do alvo usado para detetar deriva. |
+| DataDriftid | string | A identificação do monitor de deriva de dados que desencadeou o evento. |
+| DataDriftName | string | O nome do monitor de deriva de dados que desencadeou o evento. |
+| Runid | string | A identificação da Corrida que detetou a deriva de dados. |
+| BaseDatasetId | string | A identificação do conjunto de dados base usado para detetar deriva. |
+| TargetDatasetId | string | A identificação do conjunto de dados do alvo usado para detetar deriva. |
 | DriftCoeficiente | double | O resultado do coeficiente que desencadeou o evento. |
 | StartTime | datetime | O tempo de início da série de tempo de conjunto de dados-alvo que resultou na deteção de deriva.  |
 | EndTime | datetime | O tempo final da série de tempo de conjunto de dados-alvo que resultou na deteção de deriva. |
@@ -253,15 +253,15 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Experimentóide | Cadeia de caracteres | A identificação da experiência a que a corrida pertence. |
-| Nome da experiência | Cadeia de caracteres | O nome da experiência a que a corrida pertence. |
-| Runid | Cadeia de caracteres | A identificação da corrida que foi concluída. |
-| Tipo de execução | Cadeia de caracteres | O Tipo de Execução da execução completada. |
-| RunTags | object | As etiquetas da Corrida completa. |
-| Propriedades RunProperties | object | As propriedades da Run concluída. |
-| Estatuto de execução | Cadeia de caracteres | O estado da Corrida. |
+| Experimentóide | string | A identificação da experiência a que a corrida pertence. |
+| Nome da experiência | string | O nome da experiência a que a corrida pertence. |
+| Runid | string | A identificação da corrida que foi concluída. |
+| Tipo de execução | string | O Tipo de Execução da execução completada. |
+| RunTags | objeto | As etiquetas da Corrida completa. |
+| Propriedades RunProperties | objeto | As propriedades da Run concluída. |
+| Estatuto de execução | string | O estado da Corrida. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grelha de Eventos?](overview.md)
 * Para mais informações sobre a criação de uma subscrição da Rede de Eventos Do Evento, consulte o esquema de [subscrição](subscription-creation-schema.md) da Event Grid

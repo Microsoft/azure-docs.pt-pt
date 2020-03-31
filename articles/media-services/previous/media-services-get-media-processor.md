@@ -1,6 +1,6 @@
 ---
-title: Como criar um processador de multimédia com o SDK de serviços de multimédia do Azure para .NET | Documentos da Microsoft
-description: Saiba como criar um componente de processador de multimédia para codificar, converter formato, encriptar ou desencriptar o conteúdo de mídia para serviços de multimédia do Azure. Exemplos de código são escritos em C# e utilizar o SDK de Media Services para .NET.
+title: Como criar um processador de mídia utilizando o Azure Media Services SDK para .NET; Microsoft Docs
+description: Saiba como criar um componente de processador de mídia para codificar, converter formato, encriptar ou desencriptar conteúdos de mídia para o Azure Media Services. As amostras de código são escritas em C# e utilizam o SDK de Serviços de Media para .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463853"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Como: Obter uma instância de processador de multimédia
+# <a name="how-to-get-a-media-processor-instance"></a>Como: Obter uma instância de Processador de Mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -29,18 +29,18 @@ ms.locfileid: "61463853"
 > 
 
 ## <a name="overview"></a>Descrição geral
-Nos serviços de multimédia, que um processador de multimédia é um componente que processa uma tarefa de processamento específico, como codificação, formato de conversão, encriptar ou desencriptar o conteúdo de mídia. Normalmente, criar um processador de multimédia quando cria uma tarefa para codificar, encriptar ou converter o formato do conteúdo de mídia.
+Nos Serviços de Media, um processador de media é um componente que lida com uma tarefa de processamento específica, como codificação, conversão de formato, encriptação ou desencriptação de conteúdos de mídia. Normalmente cria um processador de mídia quando está a criar uma tarefa para codificar, encriptar ou converter o formato de conteúdo dos media.
 
-## <a name="azure-media-processors"></a>Processadores de multimédia do Azure 
+## <a name="azure-media-processors"></a>Processadores de mídia Azure 
 
-O tópico seguinte fornece listas de processadores de multimédia:
+O seguinte tópico fornece listas de processadores de mídia:
 
 * [Processadores de multimédia de codificação](scenarios-and-availability.md#encoding-media-processors)
 * [Processadores de multimédia de análise](scenarios-and-availability.md#analytics-media-processors)
 
-## <a name="get-media-processor"></a>Obter o processador de multimédia
+## <a name="get-media-processor"></a>Obtenha processador de mídia
 
-O método a seguir mostra como obter uma instância de processador de multimédia. O exemplo de código pressupõe que a utilização de uma variável de nível de módulo com o nome **_context** para referenciar o contexto de servidor, conforme descrito na secção [como: Ligar a serviços de multimédia através de programação](media-services-use-aad-auth-to-access-ams-api.md).
+O método seguinte mostra como obter uma instância de processador de mídia. O exemplo do código pressupõe a utilização de uma variável de nível de módulo, nomeada **_context** para referenciar o contexto do servidor como descrito na secção [Como: Ligar aos Serviços de Media Programmaticamente](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -60,6 +60,6 @@ O método a seguir mostra como obter uma instância de processador de multimédi
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Próximos Passos
-Agora que sabe como obter uma instância de processador de multimédia, vá para o [como codificar um recurso](media-services-dotnet-encode-with-media-encoder-standard.md) tópico que mostrará a como usar o Media Encoder Standard para codificar um recurso.
+## <a name="next-steps"></a>Passos Seguintes
+Agora que sabe como obter uma instância de processador de mídia, vá ao tópico [Como Codificar um Tópico de Ativo](media-services-dotnet-encode-with-media-encoder-standard.md) que lhe mostrará como usar o Media Encoder Standard para codificar um ativo.
 

@@ -1,6 +1,6 @@
 ---
-title: Início rápido-exibir grupos & Membros – Azure AD
-description: Instruções sobre como pesquisar e ver os grupos da sua organização e seus membros atribuídos.
+title: Quickstart - Ver grupos & membros - Azure AD
+description: Instruções sobre como procurar e ver os grupos da sua organização e os seus membros designados.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75423019"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
@@ -27,7 +27,7 @@ Pode ver os grupos e membros de grupos da sua organização com o portal do Azur
 
 Neste início rápido, irá ver todos os grupos existentes da sua organização e ver os membros atribuídos.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, precisará de:
@@ -53,7 +53,7 @@ Crie um novo grupo, com o nome _Política MDM - Oeste_. Para obter mais informa�
 3. Selecione **Criar**.
 
 ## <a name="create-a-new-user"></a>Criar um novo utilizador
-Crie um novo utilizador, com o nome _Alain Charon_. O utilizador tem de existir antes de ser adicionado como membro do grupo. Marque a guia "nomes de domínio personalizados" primeiro para obter o nome de domínio verificado no qual os usuários serão criados. Para obter mais informações sobre a criação de um utilizador, veja [Como adicionar ou eliminar utilizadores](add-users-azure-active-directory.md).
+Crie um novo utilizador, com o nome _Alain Charon_. O utilizador tem de existir antes de ser adicionado como membro do grupo. Verifique primeiro o separador "Nomes de domínio personalizados" para obter o nome de domínio verificado para criar utilizadores. Para obter mais informações sobre a criação de um utilizador, veja [Como adicionar ou eliminar utilizadores](add-users-azure-active-directory.md).
 
 1. Selecione **Azure Active Directory**, **Utilizadores** e, em seguida, selecione **Novo utilizador**.
 
@@ -61,14 +61,14 @@ Crie um novo utilizador, com o nome _Alain Charon_. O utilizador tem de existir 
 
     - **Nome:** escreva _Alain Charon_.
 
-    - **Nome de usuário:** Digite *alain\@contoso.com*.
+    - **Nome do utilizador:** Digite *contoso.com\@alain*.
 
 3. Copie a palavra-passe gerada automaticamente,fornecida na caixa **Palavra-passe** e, em seguida, selecione **Criar**.
 
 ## <a name="add-a-group-member"></a>Adicionar um membro ao grupo
 Agora que tem um grupo e um utilizador, pode adicionar _Alain Charon_ como membro ao grupo _Política MDM - Oeste_. Para obter mais informações sobre a adição de membros a grupos, veja [Como adicionar ou remover membros de um grupo](active-directory-groups-members-azure-portal.md).
 
-1. Selecione **Azure Active Directory** > **Grupos**.
+1. Selecione > **Grupos** **de DirectórioActivo Azure**.
 
 2. Na página **Grupos - Todos os grupos**, procure e selecione o grupo **Política MDM - Oeste**.
 
@@ -81,7 +81,7 @@ Agora que tem um grupo e um utilizador, pode adicionar _Alain Charon_ como membr
 ## <a name="view-all-groups"></a>Ver todos os grupos
 Pode ver todos os grupos da sua organização na página **Grupos – Todos os grupos** do portal do Azure.
 
-- Selecione Azure **Active Directory** > **Grupos**.
+- Selecione**Grupos** **de DirectórioActivo** > Azure .
 
     A página **Grupos – Todos os grupos** é apresentada, mostrando todos os grupos ativos.
 

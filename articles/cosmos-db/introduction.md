@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
 ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240395"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
@@ -26,7 +26,7 @@ Você pode [Experimentar Azure Cosmos DB gratuitamente](https://azure.microsoft.
 
 ![O Azure Cosmos DB é um serviço de base de dados de distribuição global da Microsoft com aumento horizontal elástico, baixa latência garantida, cinco modelos de consistência e SLAs abrangentes garantidos](./media/introduction/azure-cosmos-db.png)
 
-## <a name="key-benefits"></a>Principais Vantagens
+## <a name="key-benefits"></a>Principais vantagens
 
 ### <a name="turnkey-global-distribution"></a>Distribuição global chave na mão
 
@@ -48,7 +48,7 @@ Usando cosmos DB, você pode construir aplicações altamente responsivas, à es
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Escolhas de consistência múltipla seleção precisamente definidas
 
-Ao construir aplicações distribuídas globalmente no Cosmos DB, já não é necessário fazer [trocas extremas entre consistência, disponibilidade, latência e produção.](consistency-levels-tradeoffs.md) O protocolo de replicação multi-master da Cosmos DB foi cuidadosamente concebido para oferecer [cinco opções de consistência bem definidas](consistency-levels.md) - *forte,* *estagnação limitada,* *sessão,* *prefixo consistente,* e *eventualmente* – para um modelo de programação intuitivo com baixa latência e elevada disponibilidade para a sua aplicação distribuída globalmente.
+Ao construir aplicações distribuídas globalmente no Cosmos DB, já não é necessário fazer [trocas extremas entre consistência, disponibilidade, latência e produção.](consistency-levels-tradeoffs.md) O protocolo de replicação multi-master da Cosmos DB foi cuidadosamente concebido para oferecer [cinco opções](consistency-levels.md) - de consistência bem definidas*fortes,* *delimitados,* *sessão,* *prefixo consistente,* e *eventualmente* – para um modelo de programação intuitivo com baixa latência e elevada disponibilidade para a sua aplicação distribuída globalmente.
 
 ### <a name="no-schema-or-index-management"></a>Sem esquemaou gestão de índices
 
@@ -91,7 +91,7 @@ Cosmos DB oferece uma escolha de APIs para trabalhar com os seus dados armazenad
 
 Qualquer [aplicação web, móvel, gaming e IoT](use-cases.md) que precise lidar com quantidades massivas de dados, lê e escreve à [escala global](distribute-data-globally.md) com tempos de resposta quase reais para uma variedade de dados beneficiará da elevada disponibilidade [garantida](https://azure.microsoft.com/support/legal/sla/cosmos-db/)da Cosmos DB, alta produção, baixa latência e consistência insugável. Saiba como o Azure Cosmos DB pode ser usado para construir [IoT e telemática,](use-cases.md#iot-and-telematics) [retalho e marketing,](use-cases.md#retail-and-marketing) [jogos](use-cases.md#gaming) e [aplicações web e móveis.](use-cases.md#web-and-mobile-applications)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre os conceitos fundamentais da Cosmos DB [distribuição](distribute-data-globally.md) global e [partição](partitioning-overview.md) e [produção aprovisionada.](request-units.md)
 
@@ -104,4 +104,4 @@ Introdução ao Azure Cosmos DB com um dos nossos manuais de introdução:
 * [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
+> [Experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)

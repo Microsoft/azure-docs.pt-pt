@@ -5,16 +5,17 @@ description: Configure a proteção avançada contra ameaças para o Armazenamen
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: common
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: d97b63aa87bfd8cf8ca1a3f5b213d6b16ca066df
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 27860b8761c565c45a604253efdff5f77606606e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616852"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061306"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configure proteção avançada contra ameaças para armazenamento azure
 
@@ -46,7 +47,7 @@ Pode configurar a proteção avançada contra ameaças de várias formas, descri
 Quando subscreve o nível Standard no Azure Security Center, a proteção avançada de ameaças é automaticamente configurada em todas as suas contas de armazenamento. Pode ativar ou desativar a proteção avançada de ameaças para as suas contas de armazenamento sob uma subscrição específica da seguinte forma:
 
 1. Lance o **Azure Security Center** no [portal Azure.](https://portal.azure.com)
-1. A partir do menu principal, clique em **Preços e Definições**.
+1. A partir do menu principal, clique em **Definições de Preços &**.
 1. Clique na subscrição que pretende ativar ou desativar a proteção contra ameaças para as suas contas de armazenamento.
 
     ![Selecionar subscrição](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
@@ -79,7 +80,7 @@ Utilize uma Política Azure para permitir uma proteção avançada contra ameaç
 
     ![Página definições de políticas](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[API REST](#tab/rest-api)
+### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Utilize comandos Rest API para criar, atualizar ou obter a definição avançada de proteção contra ameaças para uma conta de armazenamento específica.
 

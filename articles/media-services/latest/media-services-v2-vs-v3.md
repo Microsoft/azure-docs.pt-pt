@@ -16,10 +16,10 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.openlocfilehash: fd094e35ceaa718ec1b258d74106b39744cbd16f
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79087826"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de Media v2 vs. v3
@@ -52,7 +52,7 @@ Este artigo descreve as alterações introduzidas no Azure Media Services v3 e m
     string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
     ```
 
-    por
+    com o
 
     ``` 
     public static byte[] HexStringToByteArray(string hex)
@@ -64,12 +64,12 @@ Este artigo descreve as alterações introduzidas no Azure Media Services v3 e m
     }
     ```
 
-    Para mais informações, consulte o [código funções Do Azure para C# serviços de mídia v3 em modo híbrido para operações ao vivo e vod](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3).
+    Para mais informações, consulte o [código Azure Functions C# para Media Services v3 em modo híbrido para operações ao vivo e vod](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3).
  
 > [!NOTE]
 > Reveja as convenções de nomeação que são aplicadas aos [recursos v3 dos Media Services.](media-services-apis-overview.md#naming-conventions) Também reveja [as bolhas de nome.](assets-concept.md#naming)
 
-## <a name="feature-gaps-with-respect-to-v2-apis"></a>Lacunas de recurso no que diz respeito a APIs v2
+## <a name="feature-gaps-with-respect-to-v2-apis"></a>Feature gaps with respect to v2 APIs (Diferenças de funcionalidades em relação a APIs v2)
 
 A V3 API tem as seguintes lacunas de características no que diz respeito à API v2. Colmatar as lacunas está a decorrer.
 
@@ -92,24 +92,24 @@ A tabela seguinte mostra como as propriedades do [Ativo](https://docs.microsoft.
 
 |propriedades v3|propriedades v2|
 |---|---|
-|`id` - (único) o caminho completo do Gestor de Recursos Azure, veja exemplos em [Ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
-|`name` - (único) ver convenções de [nomeação](media-services-apis-overview.md#naming-conventions) ||
+|`id`- (único) o caminho completo do Gestor de Recursos Azure, ver exemplos em [Ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|`name`- (único) ver convenções de [nomeação](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
-|`assetId`|`Id` - valor (único) começa com o prefixo `nb:cid:UUID:`.|
+|`assetId`|`Id`- o valor (único) começa com o `nb:cid:UUID:` prefixo.|
 |`created`|`Created`|
 |`description`|`Name`|
 |`lastModified`|`LastModified`|
 |`storageAccountName`|`StorageAccountName`|
-|`storageEncryptionFormat`| `Options` (opções de criação)|
+|`storageEncryptionFormat`| `Options`(opções de criação)|
 |`type`||
 
 ### <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
 
-Para proteger os seus ativos inativos, os recursos devem ser encriptados pela encriptação do lado do armazenamento. A tabela seguinte mostra como a encriptação do lado do armazenamento funciona nos serviços de multimédia:
+Para proteger os seus Ativos em repouso, os ativos devem ser encriptados pela encriptação do lado do armazenamento. A tabela que se segue mostra como funciona a encriptação do lado do armazenamento nos Serviços de Media:
 
 |Opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
 |---|---|---|---|
-|Encriptação de armazenamento dos serviços de multimédia|Encriptação AES-256, chave gerida pela Media Services.|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
+|Encriptação de armazenamento de serviços de mídia|Encriptação AES-256, chave gerida pela Media Services.|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
 |[Encriptação do serviço de armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente.|Suportado|Suportado|
 |[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault.|Não suportado|Não suportado|
 

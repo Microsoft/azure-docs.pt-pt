@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273062"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de arranque do Serviço Comum cloud
@@ -25,7 +25,7 @@ Veja [este artigo](cloud-services-startup-tasks.md) para entender como funcionam
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definir variáveis ambientais antes do início de um papel
-Se necessitar de variáveis ambientais definidas para uma tarefa específica, utilize o elemento [Ambiente] dentro do elemento [Tarefa]
+Se necessitar de variáveis ambientais definidas para uma tarefa específica, utilize o elemento [Ambiente] dentro do elemento [Tarefa.]
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -42,7 +42,7 @@ Se necessitar de variáveis ambientais definidas para uma tarefa específica, ut
 </ServiceDefinition>
 ```
 
-As variáveis também podem usar um [valor Azure XPath válido](cloud-services-role-config-xpath.md) para referência algo sobre a implementação. Em vez de utilizar o atributo `value`, defina um elemento infantil [RoleInstanceValue]
+As variáveis também podem usar um [valor Azure XPath válido](cloud-services-role-config-xpath.md) para referência algo sobre a implementação. Em vez `value` de utilizar o atributo, defina um elemento infantil [RoleInstanceValue.]
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -67,7 +67,7 @@ O nível de erro devolvido por *AppCmd.exe* está listado no ficheiro winerror.h
 ### <a name="example-of-managing-the-error-level"></a>Exemplo de gestão do nível de erro
 Este exemplo adiciona uma secção de compressão e uma entrada de compressão para jSON ao ficheiro *Web.config,* com manuseamento de erros e registo.
 
-As secções relevantes do ficheiro [ServiceDefinition.csdef] são mostradas aqui, que incluem a definição do atributo [de execuçãoContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) a `elevated` para dar permissões suficientes para *appCmd.exe* suficientes para alterar as definições no ficheiro *Web.config:*
+As secções relevantes do ficheiro [ServiceDefinition.csdef] são mostradas aqui, `elevated` que incluem a definição do atributo de [execução Context](/previous-versions/azure/reference/gg557552(v=azure.100)#task) para dar permissões suficientes para *appCmd.exe* suficientes para alterar as definições no ficheiro *Web.config:*
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -119,13 +119,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Adicione regras de firewall
-Em Azure, existem efetivamente duas firewalls. A primeira firewall controla as ligações entre a máquina virtual e o mundo exterior. Esta firewall é controlada pelo elemento [Pontos finais] no ficheiro [ServiceDefinition.csdef]
+Em Azure, existem efetivamente duas firewalls. A primeira firewall controla as ligações entre a máquina virtual e o mundo exterior. Esta firewall é controlada pelo elemento [EndPoints] no ficheiro [ServiceDefinition.csdef.]
 
-A segunda firewall controla as ligações entre a máquina virtual e os processos dentro dessa máquina virtual. Esta firewall pode ser controlada pela ferramenta de linha de comando `netsh advfirewall firewall`.
+A segunda firewall controla as ligações entre a máquina virtual e os processos dentro dessa máquina virtual. Esta firewall pode ser `netsh advfirewall firewall` controlada pela ferramenta de linha de comando.
 
 O Azure cria regras de firewall para os processos iniciados dentro das suas funções. Por exemplo, quando inicia um serviço ou programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que esse serviço se comunique com a Internet. No entanto, se criar um serviço que seja iniciado por um processo fora da sua função (como um serviço COM+ ou uma Tarefa Agendada do Windows), precisa de criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Estas regras de firewall podem ser criadas utilizando uma tarefa de arranque.
 
-Uma tarefa de arranque que crie uma regra de firewall deve ter uma[tarefa] de [execução Context]task de **elevado**. Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef]
+Uma tarefa de arranque que crie uma regra de firewall deve ter uma[tarefa] de [execução Context]task de **elevado**. Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef.]
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -138,7 +138,7 @@ Uma tarefa de arranque que crie uma regra de firewall deve ter uma[tarefa] de [e
 </ServiceDefinition>
 ```
 
-Para adicionar a regra da firewall, deve utilizar os comandos de `netsh advfirewall firewall` adequados no ficheiro de lote de arranque. Neste exemplo, a tarefa de arranque requer segurança e encriptação para a porta TCP 80.
+Para adicionar a regra da firewall, deve utilizar os comandos apropriados `netsh advfirewall firewall` no ficheiro de lote de arranque. Neste exemplo, a tarefa de arranque requer segurança e encriptação para a porta TCP 80.
 
 ```cmd
 REM   Add a firewall rule in a startup task.
@@ -155,7 +155,7 @@ Pode restringir o acesso de uma função web Azure a um conjunto de endereços I
 
 Para desbloquear a secção **ipSecurity** do ficheiro **ApplicationHost.config,** crie um ficheiro de comando que seja executado no início da função. Crie uma pasta ao nível raiz da sua função web chamada **startup** e, dentro desta pasta, crie um ficheiro de lote chamado **startup.cmd**. Adicione este ficheiro ao seu projeto Visual Studio e detete as propriedades para **Copiar Sempre** para garantir que está incluído no seu pacote.
 
-Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef]
+Adicione a seguinte tarefa de arranque ao ficheiro [ServiceDefinition.csdef.]
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -213,7 +213,7 @@ Esta amostra **config nega** que todos os IPs acedam ao servidor, exceto os dois
 ```
 
 ## <a name="create-a-powershell-startup-task"></a>Criar uma tarefa de arranque powerShell
-Os scripts Do Windows PowerShell não podem ser chamados diretamente a partir do ficheiro [ServiceDefinition.csdef] mas podem ser invocados a partir de um ficheiro de lote de arranque.
+Os scripts Do Windows PowerShell não podem ser chamados diretamente a partir do ficheiro [ServiceDefinition.csdef,] mas podem ser invocados a partir de um ficheiro de lote de arranque.
 
 PowerShell (por padrão) não executa scripts não assinados. A menos que assine o seu script, precisa configurar o PowerShell para executar scripts não assinados. Para executar scripts não assinados, a Política de **Execução** deve ser definida para **Sem Restrições**. A definição **De Execução Política** que utiliza baseia-se na versão do Windows PowerShell.
 
@@ -244,7 +244,7 @@ EXIT /B %errorlevel%
 ## <a name="create-files-in-local-storage-from-a-startup-task"></a>Criar ficheiros no armazenamento local a partir de uma tarefa de arranque
 Pode utilizar um recurso de armazenamento local para armazenar ficheiros criados pela sua tarefa de arranque que é acedido posteriormente pela sua aplicação.
 
-Para criar o recurso de armazenamento local, adicione uma secção [Recursos Locais] ao ficheiro [ServiceDefinition.csdef] e, em seguida, adicione o elemento infantil [Armazenamento Local] Dê ao recurso de armazenamento local um nome único e um tamanho adequado para a sua tarefa de arranque.
+Para criar o recurso de armazenamento local, adicione uma secção [LocalResources] ao ficheiro [ServiceDefinition.csdef] e, em seguida, adicione o elemento infantil [LocalStorage.] Dê ao recurso de armazenamento local um nome único e um tamanho adequado para a sua tarefa de arranque.
 
 Para utilizar um recurso de armazenamento local na sua tarefa de arranque, precisa criar uma variável ambiental para fazer referência à localização local do recurso de armazenamento. Em seguida, a tarefa de arranque e a aplicação são capazes de ler e escrever ficheiros para o recurso de armazenamento local.
 
@@ -298,9 +298,9 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 ## <a name="run-in-the-emulator-or-cloud"></a>Corra no emulador ou nuvem
 Pode ter a sua tarefa de arranque a executar diferentes passos quando está a funcionar na nuvem em comparação com quando está no emulador de cálculo. Por exemplo, é melhor utilizar uma cópia nova dos seus dados SQL apenas quando estiver em execução no emulador. Ou talvez queira fazer algumas otimizações de desempenho para a nuvem que não precisa fazer ao correr no emulador.
 
-Esta capacidade de realizar diferentes ações no emulador de computação e na nuvem pode ser realizada através da criação de uma variável ambiental no ficheiro [ServiceDefinition.csdef] Em seguida, testa essa variável ambiental por um valor na sua tarefa de arranque.
+Esta capacidade de realizar diferentes ações no emulador de computação e na nuvem pode ser realizada através da criação de uma variável ambiental no ficheiro [ServiceDefinition.csdef.] Em seguida, testa essa variável ambiental por um valor na sua tarefa de arranque.
 
-Para criar a variável ambiental, adicione o elemento [Variável]/[RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated`. O valor da variável ambiente **%ComputeEmulatorRunning%** é `true` quando se executa no emulador de computação, e `false` quando se corre na nuvem.
+Para criar a variável ambiental, adicione o elemento [Variable]/ `/RoleEnvironment/Deployment/@emulated`[RoleInstanceValue] e crie um valor XPath de . O valor da variável ambiente **%ComputeEmulatorRunning%** é `true` quando se `false` corre no emulador de computação, e quando corre na nuvem.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -377,17 +377,17 @@ EXIT /B 0
 Aqui estão algumas das melhores práticas que deve seguir ao configurar a tarefa para a sua função web ou trabalhador.
 
 ### <a name="always-log-startup-activities"></a>Sempre registre atividades de startups
-O Visual Studio não fornece um debugger para passar por ficheiros de lote, por isso é bom obter o máximo de dados sobre o funcionamento dos ficheiros de lote. Registar a saída de ficheiros de lote, tanto **stdout** como **stderr,** pode dar-lhe informações importantes ao tentar depurar e corrigir ficheiros de lote. Para registar tanto o **stdout** como o **stderr** para o ficheiro StartupLog.txt no diretório apontado pela variável ambiente **%TEMP%,** adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao fim das linhas específicas que pretende registar. Por exemplo, executar configuração.exe no diretório **%PathToApp1Install%** :
+O Visual Studio não fornece um debugger para passar por ficheiros de lote, por isso é bom obter o máximo de dados sobre o funcionamento dos ficheiros de lote. Registar a saída de ficheiros de lote, tanto **stdout** como **stderr,** pode dar-lhe informações importantes ao tentar depurar e corrigir ficheiros de lote. Para registar tanto o **stdout** como o **stderr** para o ficheiro StartupLog.txt no diretório `>>  "%TEMP%\\StartupLog.txt" 2>&1` apontado pela variável ambiente **%TEMP%,** adicione o texto ao fim das linhas específicas que pretende registar. Por exemplo, executar configuração.exe no diretório **%PathToApp1Install%** :
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
 Para simplificar o seu xml, pode criar um ficheiro *de cmd* de invólucro que ligue todas as suas tarefas de arranque juntamente com a exploração madeireira e garanta que cada tarefa infantil partilha as mesmas variáveis ambientais.
 
-Pode achar irritante, no entanto, usá`>> "%TEMP%\StartupLog.txt" 2>&1` no final de cada tarefa de arranque. Pode impor o registo de tarefas criando um invólucro que manuseie o registo para si. Este invólucro chama o verdadeiro ficheiro de lote que quer executar. Qualquer saída do ficheiro de lote alvo será redirecionada para o ficheiro *Startuplog.txt.*
+Pode achar irritante usar `>> "%TEMP%\StartupLog.txt" 2>&1` no final de cada tarefa de arranque. Pode impor o registo de tarefas criando um invólucro que manuseie o registo para si. Este invólucro chama o verdadeiro ficheiro de lote que quer executar. Qualquer saída do ficheiro de lote alvo será redirecionada para o ficheiro *Startuplog.txt.*
 
 O exemplo que se segue mostra como redirecionar toda a produção de um ficheiro de lote de arranque. Neste exemplo, o ficheiro ServerDefinition.csdef cria uma tarefa de arranque que chama *logwrap.cmd*. *logwrap.cmd* chama *Startup2.cmd,* redirecionando toda a produção para **%TEMP%\\StartupLog.txt**.
 
-ServiceDefinition.cmd:
+Definição de serviço.cmd:
 
 ```xml
 <Startup>
@@ -466,24 +466,24 @@ Saída da amostra no ficheiro **StartupLog.txt:**
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Definir execuçãoContexto adequadamente para tarefas de arranque
 Detete privilégios adequadamente para a tarefa de arranque. Por vezes, as tarefas de arranque devem funcionar com privilégios elevados, mesmo que o papel seja executado com privilégios normais.
 
-O atributo [de execuçãoContext][tarefa] define o nível de privilégio da tarefa de arranque. Usar `executionContext="limited"` significa que a tarefa de arranque tem o mesmo nível de privilégio que o papel. Usar `executionContext="elevated"` significa que a tarefa de arranque tem privilégios de administrador, o que permite que a tarefa de arranque execute tarefas de administrador sem dar privilégios ao administrador para o seu papel.
+O atributo [de execuçãoContext][Task] define o nível de privilégio da tarefa de arranque. Usar `executionContext="limited"` significa que a tarefa de arranque tem o mesmo nível de privilégio que o papel. A `executionContext="elevated"` utilização significa que a tarefa de arranque tem privilégios de administrador, o que permite que a tarefa de arranque execute tarefas de administrador sem dar privilégios ao administrador para o seu papel.
 
 Um exemplo de uma tarefa de arranque que requer privilégios elevados é uma tarefa de arranque que utiliza **appCmd.exe** para configurar o IIS. **AppCmd.exe** requer `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Utilize o tipo de tarefa apropriado
-O atributo [taskType][tarefa] determina a forma como a tarefa de arranque é executada. Existem três valores: **simples,** **fundo,** e **primeiro plano.** As tarefas de fundo e primeiro plano são iniciadas assincronicamente, e então as tarefas simples são executadas sincronizadamente uma de cada vez.
+O atributo [taskType][Task] determina a forma como a tarefa de arranque é executada. Existem três valores: **simples,** **fundo,** e **primeiro plano.** As tarefas de fundo e primeiro plano são iniciadas assincronicamente, e então as tarefas simples são executadas sincronizadamente uma de cada vez.
 
 Com **tarefas simples** de arranque, pode definir a ordem na qual as tarefas executadas pela ordem em que as tarefas estão listadas no ficheiro ServiceDefinition.csdef. Se uma tarefa **simples** terminar com um código de saída não zero, então o procedimento de arranque para e a função não começa.
 
 A diferença entre as tarefas de arranque de **fundo** e as tarefas de arranque em **primeiro plano** é que as tarefas de primeiro **plano** mantêm o papel em funcionamento até que a tarefa de **primeiro plano** termine. Isto significa também que, se a tarefa de **primeiro plano** se der ou falhar, o papel não reciclará até que a tarefa de **primeiro plano** seja forçada a ser encerrada. Por esta razão, são recomendadas tarefas de **fundo** para tarefas de arranque assíncronas, a menos que necessite dessa funcionalidade da tarefa de **primeiro plano.**
 
 ### <a name="end-batch-files-with-exit-b-0"></a>Fim dos ficheiros do lote com SAÍDA /B 0
-A função só começará se o **nível** de erro de cada uma das suas simples tarefas de arranque for zero. Nem todos os programas configuram corretamente o **nível de erro** (código de saída), pelo que o ficheiro do lote deve terminar com uma `EXIT /B 0` se tudo correr corretamente.
+A função só começará se o **nível** de erro de cada uma das suas simples tarefas de arranque for zero. Nem todos os programas configuram corretamente o **nível de erro** (código de saída), pelo que o ficheiro do lote deve terminar com um `EXIT /B 0` se tudo correr corretamente.
 
-Uma `EXIT /B 0` em falta no final de um ficheiro de lote de startups é uma causa comum de papéis que não começam.
+Um `EXIT /B 0` desaparecimento no final de um ficheiro de lote de startupé uma causa comum de papéis que não começam.
 
 > [!NOTE]
-> Reparei que os ficheiros de lotes aninhados às vezes penduram-se quando se usa o parâmetro `/B`. É dever certificar-se de que este problema de espera não acontece se outro ficheiro de lote ligar para o ficheiro atual do lote, como se utilizar o invólucro de [registo](#always-log-startup-activities). Pode omiti-lo o parâmetro `/B` neste caso.
+> Reparei que os ficheiros de lotes `/B` aninhados às vezes penduram-se quando se usa o parâmetro. É dever certificar-se de que este problema de espera não acontece se outro ficheiro de lote ligar para o ficheiro atual do lote, como se utilizar o invólucro de [registo](#always-log-startup-activities). Pode omiti-lo `/B` neste caso.
 > 
 > 
 
@@ -508,7 +508,7 @@ Saiba mais sobre como funcionam [as Tarefas.](cloud-services-startup-tasks.md)
 [Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Pontos finais]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Pontos Finais]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [Armazenamento Local]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [Recursos Locais]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

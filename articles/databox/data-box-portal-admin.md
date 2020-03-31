@@ -1,5 +1,5 @@
 ---
-title: Gerir a Caixa de Dados Azure, caixa de dados Azure Pesada via portal Azure  Microsoft Docs
+title: Gerir a Caixa de Dados Azure, caixa de dados Azure Pesada via portal Azure [ Microsoft Docs
 description: Descreve como usar o portal Azure para administrar a sua Caixa de Dados Azure e a Caixa de Dados Azure Heavy.
 services: databox
 author: alkohli
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259997"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utilize o portal Azure para administrar a sua Caixa de Dados Azure e caixa de dados Azure Heavy
 
 Este artigo aplica-se tanto à Caixa de Dados Azure como à Caixa de Dados Azure Heavy. Este artigo descreve alguns dos complexos fluxos de trabalho e tarefas de gestão que podem ser realizadas no dispositivo Azure Data Box. Pode gerir o dispositivo Data Box através do portal Azure ou através da UI web local.
 
-Este artigo aborda em especial as tarefas que pode efetuar com o portal do Azure. Utilize o portal Azure para gerir encomendas, gerir o dispositivo Data Box e acompanhar o estado da encomenda à medida que avança para a conclusão.
+Este artigo foca as tarefas que pode efetuar com o portal do Azure. Utilize o portal Azure para gerir encomendas, gerir o dispositivo Data Box e acompanhar o estado da encomenda à medida que avança para a conclusão.
 
 
 ## <a name="cancel-an-order"></a>Cancelar uma encomenda
@@ -65,7 +65,7 @@ Só pode eliminar as encomendas que foram concluídas ou canceladas. Execute os 
 
     ![Eliminar a encomenda do Data Box 1](media/data-box-portal-admin/delete-order1.png)
 
-3. Introduza o nome da encomenda quando lhe for pedido para confirmar a eliminação da encomenda. Clique em **Eliminar**.
+3. Introduza o nome da encomenda quando lhe for pedido para confirmar a eliminação da encomenda. Clique em **Apagar**.
 
 ## <a name="download-shipping-label"></a>Transferir etiqueta de envio
 
@@ -73,13 +73,13 @@ Terá de descarregar a etiqueta de envio caso o visor E-ink do Data Box não est
 
 Execute os seguintes passos para transferir uma etiqueta de envio.
 
-1.  Aceda a **Descrição Geral > Transferir etiqueta de envio**. Esta opção só fica disponível após o dispositivo ser enviado. 
+1.  Aceda a **Descrição geral > Transferir etiqueta de envio**. Esta opção só fica disponível após o dispositivo ser enviado. 
 
     ![Transferir etiqueta de envio](media/data-box-portal-admin/download-shipping-label.png)
 
 2.  Esta ação transfere a seguinte etiqueta de envio para devolução. Guarde a etiqueta e imprima-a. Dobre e insira a etiqueta na manga clara do dispositivo. Certifique-se de que a etiqueta está visível. Remova quaisquer etiquetas de envios anteriores existentes no dispositivo.
 
-    ![Etiqueta de envio de exemplo](media/data-box-portal-admin/example-shipping-label.png)
+    ![Examinar a etiqueta de envio](media/data-box-portal-admin/example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Editar o endereço de envio
 

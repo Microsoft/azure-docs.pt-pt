@@ -1,5 +1,5 @@
 ---
-title: Ver e gerir empregos para a série StorSimple 8000  Microsoft Docs
+title: Ver e gerir empregos para a série StorSimple 8000 [ Microsoft Docs
 description: Descreve o serviço StorSimple Device Manager Jobs blade e como usá-lo para rastrear trabalhos de backup recentes, atuais e programados.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254875"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Utilize o serviço StorSimple Device Manager para visualizar e gerir postos de trabalho (Atualização 3 e mais tarde)
@@ -49,7 +49,7 @@ A lista de empregos é refrescada a cada 30 segundos.
 Pode realizar as seguintes ações relacionadas com o trabalho nesta página:
 
 * Ver detalhes da tarefa
-* Cancelar uma tarefa
+* Cancelar um trabalho
 
 ## <a name="view-job-details"></a>Ver detalhes da tarefa
 Execute os seguintes passos para ver os detalhes de qualquer trabalho.
@@ -69,7 +69,7 @@ Execute os seguintes passos para ver os detalhes de qualquer trabalho.
    
     ![Detalhes da tarefa](./media/storsimple-8000-manage-jobs-u2/jobs4.png)
 
-## <a name="cancel-a-job"></a>Cancelar uma tarefa
+## <a name="cancel-a-job"></a>Cancelar um trabalho
 Execute os seguintes passos para cancelar um trabalho de corrida.
 
 > [!NOTE]

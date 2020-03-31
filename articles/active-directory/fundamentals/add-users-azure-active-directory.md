@@ -1,6 +1,6 @@
 ---
-title: Adicionar ou eliminar utilizadores - Azure Active Directory | Documentos da Microsoft
-description: Instruções sobre como adicionar novos utilizadores ou eliminar os utilizadores existentes com o Azure Active Directory.
+title: Adicionar ou excluir utilizadores - Diretório Ativo Azure [ Azure Ative Diretório ] Microsoft Docs
+description: Instruções sobre como adicionar novos utilizadores ou eliminar utilizadores existentes usando o Diretório Ativo Do Azure.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,19 +14,19 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262116"
 ---
-# <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar os utilizadores que utilizam o Azure Active Directory
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir utilizadores usando o Diretório Ativo Do Azure
 
 Adicione novos utilizadores ou elimine os utilizadores existentes da sua organização Azure Ative Directory (Azure AD). Para adicionar ou excluir utilizadores, tem de ser administrador de utilizador ou administrador global.
 
 ## <a name="add-a-new-user"></a>Adicionar um novo utilizador
 
-Pode criar um novo utilizador com o portal do Azure Active Directory.
+Pode criar um novo utilizador utilizando o portal Azure Ative Diretório.
 
 Para adicionar um novo utilizador, siga estes passos:
 
@@ -40,13 +40,13 @@ Para adicionar um novo utilizador, siga estes passos:
 
 1. Na página **utilizador,** introduza informações para este utilizador:
 
-   - **Nome**. Necessário. O nome próprio e apelido do utilizador novo. Por exemplo, *Mary Parker.*
+   - **Nome.** Necessário. O primeiro e último nome do novo utilizador. Por exemplo, *Mary Parker.*
 
-   - **Nome do utilizador**. Necessário. O nome de utilizador do utilizador novo. Por exemplo, `mary@contoso.com`.
+   - **Nome do utilizador**. Necessário. O nome de utilizador do novo utilizador. Por exemplo, `mary@contoso.com`.
 
-     A parte de domínio do nome de utilizador deve utilizar o nome de domínio padrão inicial, *\<yourdomainname>.onmicrosoft.com*, ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte Adicionar o seu nome de [domínio personalizado usando o portal Azure Ative Directory](add-custom-domain.md).
+     A parte de domínio do nome de utilizador deve utilizar o nome de domínio padrão inicial, * \<o seu nome de domínio>.onmicrosoft.com,* ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte Adicionar o seu nome de [domínio personalizado usando o portal Azure Ative Directory](add-custom-domain.md).
 
-   - **Grupos**. Opcionalmente, pode adicionar o utilizador a um ou mais grupos existentes. Também pode adicionar o utilizador a grupos num momento posterior. Para obter mais informações sobre a adição de utilizadores a grupos, consulte [Criar um grupo básico e adicionar membros usando o Diretório Ativo Azure](active-directory-groups-create-azure-portal.md).
+   - **Grupos**. Opcionalmente, pode adicionar o utilizador a um ou mais grupos existentes. Também pode adicionar o utilizador a grupos posteriormente. Para obter mais informações sobre a adição de utilizadores a grupos, consulte [Criar um grupo básico e adicionar membros usando o Diretório Ativo Azure](active-directory-groups-create-azure-portal.md).
 
    - **Função de diretório**: Se necessitar de permissões administrativas da AD Azure para o utilizador, pode adicioná-las a uma função Azure AD. Pode atribuir ao utilizador um administrador global ou uma ou mais das funções de administrador limitado no Azure AD. Para obter mais informações sobre a atribuição de funções, consulte [como atribuir funções aos utilizadores.](active-directory-users-assign-role-azure-portal.md)
 
@@ -66,13 +66,13 @@ Também pode convidar um novo utilizador convidado a colaborar com a sua organiz
 
 Pode haver cenários em que pretende criar manualmente contas de consumo no seu diretório Azure Ative Directory B2C (Azure AD B2C). Para obter mais informações sobre a criação de contas de consumo, consulte [Criar e eliminar utilizadores de consumidores no Azure AD B2C](../../active-directory-b2c/manage-users-portal.md).
 
-## <a name="add-a-new-user-within-a-hybrid-environment"></a>Adicionar um novo utilizador dentro de um ambiente híbrido
+## <a name="add-a-new-user-within-a-hybrid-environment"></a>Adicione um novo utilizador dentro de um ambiente híbrido
 
-Se tiver um ambiente com o Azure Active Directory (cloud) e o Windows Server Active Directory (no local), pode adicionar novos utilizadores ao sincronizar os dados da conta de utilizador existente. Para obter mais informações sobre ambientes híbridos e utilizadores, consulte [Integrar os seus diretórios no local com o Diretório Ativo Azure.](../hybrid/whatis-hybrid-identity.md)
+Se tiver um ambiente com o Diretório Ativo Do Azure (cloud) e o Windows Server Ative Directory (no local), pode adicionar novos utilizadores sincronizando os dados da conta de utilizador existentes. Para obter mais informações sobre ambientes híbridos e utilizadores, consulte [Integrar os seus diretórios no local com o Diretório Ativo Azure.](../hybrid/whatis-hybrid-identity.md)
 
 ## <a name="delete-a-user"></a>Eliminar um utilizador
 
-Pode eliminar um utilizador existente através do portal do Azure Active Directory.
+Pode eliminar um utilizador existente utilizando o portal Azure Ative Directory.
 
 Para eliminar um utilizador, siga estes passos:
 
@@ -82,16 +82,16 @@ Para eliminar um utilizador, siga estes passos:
 
 1. Procure e selecione o utilizador que pretende eliminar do seu inquilino Azure AD. Por exemplo, _Mary Parker._
 
-1. **Selecione Eliminar o utilizador**.
+1. Selecione **Eliminar utilizador**.
 
-    ![Utilizadores - página de todos os utilizadores com a eliminação do utilizador realçada](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
+    ![Utilizadores - Página de todos os utilizadores com utilizador Excluir destacado](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
 O utilizador é eliminado e já não aparece na página **Utilizadores - Todos os utilizadores.** O utilizador pode ser visto na página de **utilizadores Apagados** durante os próximos 30 dias e pode ser restaurado durante esse período. Para obter mais informações sobre a restauração de um utilizador, consulte [Restaurar ou remover um utilizador recentemente eliminado utilizando o Diretório Ativo Azure](active-directory-users-restore.md).
 
 Quando um utilizador é eliminado, quaisquer licenças consumidas pelo utilizador são disponibilizadas para outros utilizadores.
 
 >[!Note]
->Deve utilizar o Diretório Ativo do Windows Server para atualizar a identidade, informações de contacto ou informações de trabalho para utilizadores cuja fonte de autoridade é o Diretório Ativo do Servidor do Windows. Depois de concluir a atualização, tem de aguardar o próximo ciclo de sincronização seja concluída antes de verá as alterações.
+>Deve utilizar o Diretório Ativo do Windows Server para atualizar a identidade, informações de contacto ou informações de trabalho para utilizadores cuja fonte de autoridade é o Diretório Ativo do Servidor do Windows. Depois de completar a atualização, deve esperar que o próximo ciclo de sincronização termine antes de ver as alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 

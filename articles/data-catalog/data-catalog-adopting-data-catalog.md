@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72801874"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
@@ -54,7 +54,7 @@ Eis algumas sugestões para ajudá-lo a definir a visão:
 
 Eis um exemplo de declaração de visão para um plano de adoção típico do Catálogo de Dados para a empresa fictícia com o nome Adventure Works:
 
-O **Catálogo de dados do Azure** capacita a equipe de finanças da Adventure Works a colaborar com as principais fontes de dados, para que cada membro da equipe possa localizar e usar facilmente os dados de que precisam e pode compartilhar seu conhecimento com a equipe como um todo.
+O **Azure Data Catalog** capacita a equipa de Financiamento de Obras de Aventura para colaborar em fontes de dados fundamentais, para que cada membro da equipa possa facilmente encontrar e utilizar os dados de que necessita e possa partilhar os seus conhecimentos com a equipa como um todo.
 
 Assim que tiver uma declaração de visão nítida, deve identificar um projeto piloto adequado ao Catálogo de Dados. Geralmente, existem vários cenários para o Catálogo de Dados, pelo que a secção seguinte fornece algumas sugestões para identificar casos de utilização relevantes.
 
@@ -69,7 +69,7 @@ Eis algumas sugestões para identificar casos de utilização:
 * **Defina os objetivos da equipa** -De que modo a equipa atinge os objetivos? Não se foque ainda no Catálogo de Dados, pois pretende ser objetivo nesta fase. Lembre-se de que se trata dos resultados de negócios, não da tecnologia.
 * **Defina o problema empresarial** - Quais são os problemas que a equipa enfrenta relativamente a localizar e saber mais sobre os recursos de dados? Por exemplo, poderão encontrar informações sobre origens de dados importantes nos livros do Excel numa pasta de rede, e a equipa pode passar muito tempo a localizar os livros.
 * **Compreenda a cultura de equipa relacionada com a mudança** - Muitos desafios de adoção estão relacionados com a resistência a mudanças, e não com a implementação de uma nova ferramenta. A forma como uma equipa responde à mudança é importante ao identificar casos de utilização, uma vez que o processo existente pode estar implementado porque "Fizemos sempre assim" ou "se funciona, porquê mudar?". A adoção de qualquer nova ferramenta ou processo é sempre mais fácil quando as pessoas afetadas compreendem o valor que irá ser alcançado com a mudança e apreciam a importância de resolver os problemas.
-* **Mantenha o foco relacionado aos ativos de dados** – ao discutir os problemas de negócios enfrentados por uma equipe, você precisa "Recortar as eliminações" e se concentrar no que é relevante para aproveitar os ativos de dados corporativos com mais eficiência.
+* **Mantenha o foco relacionado com os ativos** de dados - Ao discutir os problemas de negócio que uma equipa enfrenta, é preciso "cortar as mãos", e focar-se no que é relevante para alavancar os ativos de dados da empresa de forma mais eficaz.
 
 Eis alguns casos de utilização de exemplo relacionados com o Catálogo de Dados:
 
@@ -91,7 +91,7 @@ O plano piloto deve fasear-se nos objetivos empresariais que pretende alcançar 
 
 ### <a name="target-the-right-team"></a>Escolha a equipa certa
 
-Ao escolher o projeto piloto, selecione uma equipa com os cenários mais apelativos para resolver um problema empresarial existente. Por exemplo, um analista de negócios cria relatórios a partir de uma base de dados SQL Server. O problema é que eles se tornaram cientes da fonte de dados somente depois de conversar com vários colegas. Finalmente, depois de perder tempo tentando encontrar as fontes de dados a serem usadas, elas descobriram sobre uma pasta de trabalho do Excel, que contém uma descrição de cada fonte de dados. Embora a pasta de trabalho do Excel Descreva adequadamente as tabelas de que precisam, elas teriam encontrado rapidamente essas fontes de dados se elas fossem registradas e anotadas no **Catálogo de dados do Azure**.
+Ao escolher o projeto piloto, selecione uma equipa com os cenários mais apelativos para resolver um problema empresarial existente. Por exemplo, um analista de negócios cria relatórios a partir de uma base de dados SQL Server. O problema é que só tomaram conhecimento da fonte de dados depois de falarem com vários colegas. Finalmente, depois de perder tempo a tentar descobrir quais as fontes de dados a utilizar, descobriram sobre um livro do Excel, que contém uma descrição de cada fonte de dados. Embora o livro excel descreva adequadamente as tabelas de que necessitam, teriam rapidamente encontrado estas fontes de dados se fossem registadas e anotadas no Catálogo de **Dados Do Azure.**
 
 ### <a name="identify-data-heroes"></a>Identificar heróis de dados
 
@@ -101,7 +101,7 @@ Os **Produtores de Dados** são os utilizadores com conhecimentos sobre origens 
 
 Os **Consumidores de Dados** são as pessoas com conhecimentos sobre a utilização dos dados para resolver problemas empresariais. Por exemplo, a Teresa é uma analista de negócios que utiliza origens de dados SQL Server do Adventure Works para analisar os dados.
 
-Um dos problemas empresariais que o **Catálogo de Dados do Azure** aborda é ligar **Produtores de Dados** a **Consumidores de Dados**. Consegue-o servindo como um repositório central para informações sobre origens de dados empresariais. Com o Catálogo de Dados, o David regista origens de dados do Adventure Works e do SQL Server. Usando o crowdsourcing, qualquer usuário que descobre essa fonte de dados pode compartilhar suas opiniões sobre os dados, além de usar os dados que eles descobriram. Por exemplo, a Teresa deteta as origens de dados ao pesquisar o catálogo e partilha os conhecimentos especializados sobre os dados.  Agora, as outras pessoas na organização beneficiam do conhecimento partilhado ao pesquisarem o catálogo de dados.
+Um dos problemas empresariais que o **Catálogo de Dados do Azure** aborda é ligar **Produtores de Dados** a **Consumidores de Dados**. Consegue-o servindo como um repositório central para informações sobre origens de dados empresariais. Com o Catálogo de Dados, o David regista origens de dados do Adventure Works e do SQL Server. A utilização de crowdsourcing qualquer utilizador que descubra esta fonte de dados pode partilhar as suas opiniões sobre os dados, além de usar os dados que descobriram. Por exemplo, a Teresa deteta as origens de dados ao pesquisar o catálogo e partilha os conhecimentos especializados sobre os dados.  Agora, as outras pessoas na organização beneficiam do conhecimento partilhado ao pesquisarem o catálogo de dados.
 
 * Para saber mais sobre como registar origens de dados, veja [Registar origens de dados](data-catalog-get-started.md).
 * Para saber mais sobre como detetar origens de dados, veja [Pesquisar origens de dados](data-catalog-get-started.md).
@@ -116,7 +116,7 @@ A secção seguinte descreve um projeto de exemplo da empresa Adventure Works.
 
 ### <a name="an-example-project"></a>Um projeto de exemplo
 
-Para este exemplo, Teresa, a analista de negócio, cria relatórios para a equipa dela, utilizando os dados de uma base de dados SQL Server. O problema é que eles se tornaram cientes da fonte de dados somente depois de conversar com vários colegas. Eles teriam encontrado rapidamente essas fontes de dados se fossem registradas e anotadas em um local central, como o **Catálogo de dados do Azure**.
+Para este exemplo, Teresa, a analista de negócio, cria relatórios para a equipa dela, utilizando os dados de uma base de dados SQL Server. O problema é que só tomaram conhecimento da fonte de dados depois de falarem com vários colegas. Teriam rapidamente encontrado estas fontes de dados se fossem registadas e anotadas num local central, como o Catálogo de **Dados Azure.**
 
 Para ilustrar como a Teresa e a equipa dela podem facilmente encontrar dados de elevado valor, utilize a ferramenta de registo de origens de dados para povoar o catálogo com informações (metadados) sobre as origens de dados. Desta forma, as informações sobre a base de dados ficam disponível para a equipa e a empresa, não apenas para alguns indivíduos. Depois de as origens de dados serem registadas no Catálogo de Dados, a Nancy e a sua equipa podem utilizá-las facilmente. O resultado é um catálogo de dados mais abrangente e relevante para a equipa e a empresa. À medida que mais equipas adotam o Catálogo de Dados, as origens de dados empresariais ficam mais fáceis de encontrar e utilizar, permitindo desta forma uma cultura mais centrada em dados, para conseguir mais com os seus dados.
 
@@ -165,4 +165,4 @@ Este artigo informou-o sobre como introduzir o **Catálogo de Dados do Azure** n
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Criar um catálogo de dados do Azure](data-catalog-get-started.md)
+[Criar um Catálogo de Dados do Azure](data-catalog-get-started.md)

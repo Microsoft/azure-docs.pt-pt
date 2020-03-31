@@ -1,5 +1,5 @@
 ---
-title: Questões conhecidas e resolução de problemas
+title: Questões conhecidas & resolução de problemas
 titleSuffix: Azure Machine Learning
 description: Obtenha uma lista dos problemas conhecidos, saroundaround sques e resolução de problemas para Azure Machine Learning.
 services: machine-learning
@@ -10,28 +10,28 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2522b31788df294c37db4326985edd6c85774561
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d5525c02edb30eff0ee8971a382f2acb8f2e57ee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191848"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455728"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Questões conhecidas e resolução de problemas Azure Machine Learning
 
 Este artigo ajuda-o a encontrar e corrigir erros ou falhas encontrados ao utilizar o Azure Machine Learning.
 
-## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
+## <a name="sdk-installation-issues"></a>Problemas de instalação sdk
 
 **Mensagem de erro: Não pode desinstalar 'PyYAML'**
 
-SDK de Aprendizado de máquina do Azure para Python: PyYAML é um projeto de distutils instalado. Portanto, não podemos determinar com precisão quais os ficheiros que lhe pertencem se existe uma desinstalação parcial. Para continuar a instalação do SDK ao ignorar este erro, utilize:
+Azure Machine Learning SDK para Python: PyYAML é um projeto instalado de distutils. Portanto, não podemos determinar com precisão quais os ficheiros que lhe pertencem se existe uma desinstalação parcial. Para continuar a instalar o SDK ignorando este erro, utilize:
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
-**Mensagem de erro: `ERROR: No matching distribution found for azureml-dataprep-native`**
+**Mensagem de erro:`ERROR: No matching distribution found for azureml-dataprep-native`**
 
 A distribuição Python 3.7.4 da Anaconda tem um bug que quebra a instalação azureml-sdk. Esta questão é discutida nesta edição do [GitHub](https://github.com/ContinuumIO/anaconda-issues/issues/11195) Esta pode ser trabalhada através da criação de um novo Conda Environment usando este comando:
 ```bash
@@ -54,7 +54,7 @@ Internamente, o Azure ML concatena os blocos com o mesmo nome métrico numa list
 ### <a name="moduleerrors-no-module-named"></a>MóduloErros (Nenhum módulo nomeado)
 Se estiver a encontrar MóduloSErrors enquanto submete experiências no Azure ML, significa que o script de treino está à espera de um pacote para ser instalado, mas não é adicionado. Assim que fornecer o nome do pacote, o Azure ML instalará o pacote no ambiente utilizado para o seu treino. 
 
-Se estiver a utilizar estimadores para submeter [experiências,](concept-azure-machine-learning-architecture.md#estimators) pode especificar um nome de pacote através de `pip_packages` ou `conda_packages` parâmetro no estimador com base na fonte que pretende instalar a embalagem. Também pode especificar um ficheiro yml com todas as suas dependências usando `conda_dependencies_file`ou listar todos os seus requisitos de pip num ficheiro txt usando `pip_requirements_file` parâmetro. Se tiver o seu próprio objeto De Ambiente Azure ML que pretenda anular a imagem predefinida utilizada pelo estimador, pode especificar esse ambiente através do parâmetro `environment` do construtor estimador.
+Se estiver a utilizar os Estimadores para submeter [experiências,](concept-azure-machine-learning-architecture.md#estimators) pode especificar um nome de pacote através `pip_packages` ou `conda_packages` parâmetro no estimador com base na fonte que pretende instalar a embalagem. Também pode especificar um ficheiro yml com `conda_dependencies_file`todas as suas dependências usando ou `pip_requirements_file` listando todos os seus requisitos de pip num ficheiro txt usando parâmetro. Se tiver o seu próprio objeto De Ambiente Azure ML que pretenda anular a imagem predefinida utilizada pelo estimador, pode especificar esse ambiente através do `environment` parâmetro do construtor estimador.
 
 O Azure ML também fornece estimativas específicas para a tensorflow, pyTorch, chainer e SKLearn. A utilização destes estimadores certificar-se-á de que as dependências do núcleo do quadro são instaladas em seu nome no ambiente utilizado para a formação. Tem a opção de especificar dependências extras acima descritas. 
  
@@ -65,10 +65,10 @@ As dependências específicas do quadro estão listadas na respetiva documentaç
 > Se você acha que um pacote específico é comum o suficiente para ser adicionado em Imagens e ambientes mantidos Azure ML, por favor levante uma edição GitHub em [contentores AzureML](https://github.com/Azure/AzureML-Containers). 
  
 ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>Error de nome (Nome não definido), AttributeError (Objeto não tem atributo)
-Esta exceção deve vir dos seus guiões de treino. Pode ver os ficheiros de registo do portal Azure para obter mais informações sobre o nome específico não definido ou erro de atributo. A partir do SDK, pode utilizar `run.get_details()` para ver a mensagem de erro. Isto também listará todos os ficheiros de registo gerados para a sua execução. Por favor, certifique-se de dar uma olhada no seu script de treino e corrigir o erro antes de reenviar a sua execução. 
+Esta exceção deve vir dos seus guiões de treino. Pode ver os ficheiros de registo do portal Azure para obter mais informações sobre o nome específico não definido ou erro de atributo. A partir do SDK, pode usar `run.get_details()` para ver a mensagem de erro. Isto também listará todos os ficheiros de registo gerados para a sua execução. Por favor, certifique-se de dar uma olhada no seu script de treino e corrigir o erro antes de reenviar a sua execução. 
 
 ### <a name="horovod-has-been-shut-down"></a>Horovod foi encerrado.
-Na maioria dos casos, se encontrar "AbortedError: Horovod was shut down" esta exceção significa que houve uma exceção subjacente num dos processos que fez com que Horovod fosse encerrado. Cada posto no trabalho de MPI obtém o seu próprio ficheiro de log dedicado no Azure ML. Estes registos são chamados `70_driver_logs`. Em caso de treino distribuído, os nomes de registo são sufixos com `_rank` para facilitar a diferenciação dos registos. Para encontrar o erro exato que fez com que horovod desligasse, veja todos os ficheiros de registo e procure `Traceback` no final dos ficheiros driver_log. Um destes ficheiros vai dar-lhe a exceção subjacente real. 
+Na maioria dos casos, se encontrar "AbortedError: Horovod was shut down" esta exceção significa que houve uma exceção subjacente num dos processos que fez com que Horovod fosse encerrado. Cada posto no trabalho de MPI obtém o seu próprio ficheiro de log dedicado no Azure ML. Estes registos `70_driver_logs`são nomeados. Em caso de treino distribuído, os nomes `_rank` de registo são sufixos para facilitar a diferenciação dos registos. Para encontrar o erro exato que fez com que horovod desligasse, veja todos os ficheiros de registo e procure `Traceback` no final dos ficheiros driver_log. Um destes ficheiros vai dar-lhe a exceção subjacente real. 
 
 ### <a name="sr-iov-availability-on-ncv3-machines-in-amlcompute-for-distributed-training"></a>Disponibilidade SR-IOV em máquinas NCv3 em AmlCompute para formação distribuída
 A Azure Compute tem vindo a lançar um [upgrade SR-IOV](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku/) de máquinas NCv3, que os clientes podem alavancar com a oferta de cálculo gerida pela Azure ML (AmlCompute). As atualizações permitirão o suporte de toda a pilha de MPI e a utilização da rede RDMA Infiniband para um melhor desempenho de formação distribuído por vários nóesos, nomeadamente para aprendizagem profunda.
@@ -108,23 +108,23 @@ Pode querer executar uma experiência apenas contém conjunto de dados para visu
  
 Antes da correção, pode ligar o conjunto de dados a qualquer módulo de transformação de dados (Selecione Colunas em Dataset, Editar Metadados, Dados Divididos, etc.) e executar a experiência. Depois pode visualizar o conjunto de dados. 
 
-Abaixo a imagem mostra como: ![](./media/resource-known-issues/aml-visualize-data.png) de dados visulize
+Abaixo a imagem ![mostra como: dados de visulização](./media/resource-known-issues/aml-visualize-data.png)
 
-## <a name="image-building-failure"></a>Falha de criação de imagem
+## <a name="image-building-failure"></a>Falha na construção de imagem
 
-Imagem de criação Falha ao implementar o serviço web. Solução alternativa é adicionar "pynacl = = 1.2.1" como uma dependência de pip Conda ficheiro para a configuração de imagem.
+Falha na construção de imagem ao implementar o serviço web. A suver é adicionar "pynacl==1.2.1" como dependência do pip ao ficheiro Conda para configuração de imagem.
 
 ## <a name="deployment-failure"></a>Falha de implantação
 
-Se observar `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, mude o SKU para VMs utilizado na sua implantação para um que tenha mais memória.
+Se observar, `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`altere o SKU para VMs utilizado na sua implantação para um que tenha mais memória.
 
 ## <a name="fpgas"></a>FPGAs
 
-Não será capaz de implementar os modelos no FPGAs até que tiver solicitado e foi aprovada para a quota FPGA. Para solicitar acesso, preencha o formulário de pedido de quota: https://aka.ms/aml-real-time-ai
+Não poderá implementar modelos em FPGAs até que tenha solicitado e sido aprovado para a quota FPGA. Para solicitar o acesso, preencha o formulário de pedido de quota:https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Aprendizagem automática automatizada
 
-Tensor Flow A aprendizagem automática de máquinas não suporta atualmente a versão de fluxo de tensores 1.13. A instalação desta versão fará com que as dependências dos pacotes deixem de funcionar. Estamos a trabalhar para resolver esta questão num futuro lançamento. 
+Tensor Flow A aprendizagem automática de máquinas não suporta atualmente a versão de fluxo de tensores 1.13. A instalação desta versão fará com que as dependências dos pacotes deixem de funcionar. Estamos a trabalhar para resolver esta questão num futuro lançamento.
 
 ### <a name="experiment-charts"></a>Gráficos de experiências
 
@@ -136,7 +136,7 @@ Estas são questões conhecidas para conjuntos de dados de aprendizagem automát
 
 ### <a name="typeerror-filenotfound-no-such-file-or-directory"></a>Erro de tipo: FileNotFound: Nenhum ficheiro ou diretório deste tipo
 
-Este erro ocorre se o caminho de ficheiro que fornece não estiver onde o ficheiro está localizado. Tem de se certificar de que a forma como se refere ao ficheiro é consistente com a forma como montou o seu conjunto de dados no seu alvo de cálculo. Para garantir um estado determinista, recomendamos a utilização do caminho abstrato ao montar um conjunto de dados para um alvo de cálculo. Por exemplo, no seguinte código montamos o conjunto de dados sob a raiz do sistema de ficheiros do alvo da computação, `/tmp`. 
+Este erro ocorre se o caminho de ficheiro que fornece não estiver onde o ficheiro está localizado. Tem de se certificar de que a forma como se refere ao ficheiro é consistente com a forma como montou o seu conjunto de dados no seu alvo de cálculo. Para garantir um estado determinista, recomendamos a utilização do caminho abstrato ao montar um conjunto de dados para um alvo de cálculo. Por exemplo, no seguinte código montamos o conjunto de dados sob `/tmp`a raiz do sistema de ficheiros do alvo computacional, . 
 
 ```python
 # Note the leading / in '/tmp/dataset'
@@ -145,11 +145,11 @@ script_params = {
 } 
 ```
 
-Se não incluir o principal corte dianteiro, '/', terá de pré-fixar o diretório de trabalho, por exemplo, `/mnt/batch/.../tmp/dataset` no alvo do cálculo para indicar onde pretende que o conjunto de dados seja montado. 
+Se não incluir o principal corte dianteiro, '/', terá de pré-fixar o `/mnt/batch/.../tmp/dataset` diretório de trabalho, por exemplo, no alvo do cálculo para indicar onde pretende que o conjunto de dados seja montado.
 
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Não ler ficheiro Parquet do HTTP ou DaALS Gen 2
 
-Existe um problema conhecido na versão 1.1.25 do AzureML DataPrep SDK que causa uma falha ao criar um conjunto de dados lendo ficheiros Parquet a partir de HTTP ou ADLS Gen 2. Falhará com `Cannot seek once reading started.`. Para corrigir este problema, por favor atualize `azureml-dataprep` para uma versão superior a 1.1.26, ou desagrade para uma versão inferior a 1.1.24.
+Existe um problema conhecido na versão 1.1.25 do AzureML DataPrep SDK que causa uma falha ao criar um conjunto de dados lendo ficheiros Parquet a partir de HTTP ou ADLS Gen 2. Vai falhar `Cannot seek once reading started.`com. Para corrigir este problema, por favor atualize `azureml-dataprep` para uma versão superior a 1.1.26, ou desabaixe para uma versão inferior a 1.1.24.
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -157,7 +157,7 @@ pip install --upgrade azureml-dataprep
 
 ### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: mount() tem um argumento inesperado de palavra-chave 'invocation_id'
 
-Este erro ocorre se tiver uma versão incompatível entre `azureml-core` e `azureml-dataprep`. Se vir este erro, atualize `azureml-dataprep` pacote para uma versão mais recente (maior ou igual a 1.1.29).
+Este erro ocorre se tiver uma versão `azureml-core` `azureml-dataprep`incompatível entre e . Se vir este erro, atualize `azureml-dataprep` o pacote para uma versão mais recente (maior ou igual a 1.1.29).
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -165,11 +165,11 @@ pip install --upgrade azureml-dataprep
 
 ## <a name="databricks"></a>Databricks
 
-Problemas de Databricks e o Azure Machine Learning.
+Databricks e problemas de Aprendizagem automática Azure.
 
 ### <a name="failure-when-installing-packages"></a>Falha na instalação de pacotes
 
-A instalação SDK de Aprendizagem automática Azure falha nos Tijolos de Dados Azure quando mais pacotes são instalados. Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esta questão está relacionada com os Databricks e não com o Azure Machine Learning SDK. Pode experimentar este problema com outras bibliotecas, também. Exemplo:
+A instalação SDK de Aprendizagem automática Azure falha nos Tijolos de Dados Azure quando mais pacotes são instalados. Alguns pacotes, `psutil`como, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esta questão está relacionada com os Databricks e não com o Azure Machine Learning SDK. Pode experimentar este problema com outras bibliotecas, também. Exemplo:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -183,7 +183,7 @@ Quando utilizar capacidades automatizadas de aprendizagem automática em Pinos d
 
 ### <a name="10-iterations-for-automated-machine-learning"></a>>10 iterações para aprendizagem automática de máquinas
 
-Em configurações automatizadas de aprendizagem automática, se tiver mais de 10 iterações, detete `show_output` para `False` quando submeter a execução.
+Em configurações automatizadas de aprendizagem automática, se `show_output` `False` tiver mais de 10 iterações, ajuste para quando submeter a execução.
 
 ### <a name="widget-for-the-azure-machine-learning-sdk-and-automated-machine-learning"></a>Widget para o Azure Machine Learning SDK e machine learning automatizado
 
@@ -205,32 +205,32 @@ Se vir este erro quando utilizar machine learning automatizado, execute as duas 
 
 Se vir este erro quando utilizar machine learning automatizado:
 
-1. Execute este comando para instalar dois pacotes no seu cluster De Tijolos De Dados Azure: 
+1. Execute este comando para instalar dois pacotes no seu cluster De Tijolos De Dados Azure:
 
-   ```
+   ```bash
    scikit-learn==0.19.1
    pandas==0.22.0
    ```
 
-1. Desaque e, em seguida, recoloque o cluster ao seu caderno. 
+1. Desaque e, em seguida, recoloque o cluster ao seu caderno.
 
 Se estes passos não resolverem o problema, tente reiniciar o cluster.
 
 ### <a name="failtosendfeather"></a>FalhatoEnviarpena
 
-Se vir um erro `FailToSendFeather` ao ler dados sobre o cluster Azure Databricks, consulte as seguintes soluções:
+Se vir `FailToSendFeather` um erro ao ler dados sobre o cluster Azure Databricks, consulte as seguintes soluções:
 
-* Atualize `azureml-sdk[automl]` pacote para a versão mais recente.
-* Adicione `azureml-dataprep` versão 1.1.8 ou superior.
-* Adicione `pyarrow` versão 0.11 ou superior.
+* Atualizar `azureml-sdk[automl]` pacote para a versão mais recente.
+* Adicione `azureml-dataprep` a versão 1.1.8 ou superior.
+* Adicione `pyarrow` a versão 0.11 ou superior.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Se vá diretamente para ver a sua área de trabalho a partir de uma ligação de partilha do SDK ou o portal, não será capaz de exibir a página de descrição geral normal com informações de subscrição na extensão. Também não será capaz de alternar para outra área de trabalho. Se precisar de ver outro espaço de trabalho, a soposição é ir diretamente ao [estúdio Azure Machine Learning](https://ml.azure.com) e procurar o nome do espaço de trabalho.
+Se for diretamente ver o seu espaço de trabalho a partir de um link de partilha do SDK ou do portal, não poderá ver a página normal de visão geral com informações de subscrição na extensão. Também não poderá mudar para outro espaço de trabalho. Se precisar de ver outro espaço de trabalho, a soposição é ir diretamente ao [estúdio Azure Machine Learning](https://ml.azure.com) e procurar o nome do espaço de trabalho.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 
-Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. Para ver alguns registos, visite o [estúdio Azure Machine Learning](https://ml.azure.com) e vá ao seu espaço de trabalho e selecione **Workspace > Experiment > Run > Logs**.  
+Às vezes pode ser útil se puder fornecer informações de diagnóstico ao pedir ajuda. Para ver alguns registos, visite o [estúdio Azure Machine Learning](https://ml.azure.com) e vá ao seu espaço de trabalho e selecione **Workspace > Experiment > Executar > Logs**.  
 
 > [!NOTE]
 > O Azure Machine Learning regista informações de várias fontes durante o treino, como o AutoML ou o contentor Docker que executa o trabalho de formação. Muitos destes troncos não estão documentados. Se encontrar problemas e contactar o suporte da Microsoft, poderão utilizar estes registos durante a resolução de problemas.
@@ -261,15 +261,15 @@ Por exemplo, receberá um erro se tentar criar ou anexar um alvo de cálculo a p
 
 ## <a name="overloaded-azurefile-storage"></a>Armazenamento AzureFile sobrecarregado
 
-Se receber um erro `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, aplique as seguintes sintetções.
+Se receber um `Unable to upload project files to working directory in AzureFile because the storage is overloaded`erro, aplique as seguintes suposições.
 
 Se estiver a utilizar a partilha de ficheiros para outras cargas de trabalho, como a transferência de dados, a recomendação é utilizar bolhas para que a partilha de ficheiros seja livre de ser utilizada para a apresentação de execuções. Também pode dividir a carga de trabalho entre dois espaços de trabalho diferentes.
 
-## <a name="webservices-in-azure-kubernetes-service-failures"></a>Webservices in Azure Kubernetes Service falha 
+## <a name="webservices-in-azure-kubernetes-service-failures"></a>Webservices in Azure Kubernetes Service falha
 
-Muitas falhas de serviço web no Serviço Azure Kubernetes podem ser depuradas ligando-se ao cluster usando `kubectl`. Você pode obter o `kubeconfig.json` para um Cluster de Serviço Azure Kubernetes executando
+Muitas falhas de serviço web no Serviço Azure Kubernetes podem `kubectl`ser depuradas ligando-se ao cluster utilizando . Você pode `kubeconfig.json` obter o para um Cluster de Serviço Azure Kubernetes executando
 
-```bash
+```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
 ```
 
@@ -298,14 +298,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Se já não tiver o certificado SSL e a chave privada, ou estiver a utilizar um certificado gerado pelo Azure Machine Learning, pode recuperar os ficheiros antes de desmontar o cluster ligando-se ao cluster utilizando `kubectl` e recuperando o `azuremlfessl`secreto .
+Se já não tiver o certificado SSL e a chave privada, ou estiver a utilizar um certificado gerado pelo Azure Machine Learning, pode recuperar os ficheiros antes de desmontar o cluster ligando-se ao cluster utilizando `kubectl` e recuperando o segredo `azuremlfessl`.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes armazena os segredos em formato codificado base-64. Terá de descodificar os componentes `cert.pem` e `key.pem` dos segredos antes de os fornecer para `attach_config.enable_ssl`. 
+>Kubernetes armazena os segredos em formato codificado base-64. Terá de descodificar os `cert.pem` componentes `key.pem` e componentes dos segredos antes `attach_config.enable_ssl`de os fornecer. 
 
 ## <a name="labeling-projects-issues"></a>Questões de projetos de rotulagem
 
@@ -313,7 +313,7 @@ Questões conhecidas com projetos de rotulagem.
 
 ### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>Apenas conjuntos de dados criados em lojas de dados blob podem ser usados
 
-Esta é uma limitação conhecida da versão atual. 
+Esta é uma limitação conhecida da versão atual.
 
 ### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>Após a criação, o projeto mostra "Inicialização" por muito tempo
 

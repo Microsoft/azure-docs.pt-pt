@@ -7,22 +7,22 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: 028ed1a632016fcbdf29bb47ab81a36f659785da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 687c33e50a986cf8af08d0201fe0159a79cf02a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279315"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80123324"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conecte gateways VPN Azure a vários dispositivos VPN baseados em políticas no local usando powerShell
 
 Este artigo ajuda-o a configurar uma porta VPN baseada em rotas Azure para se conectar a vários dispositivos VPN baseados em políticas no local, alavancando políticas personalizadas de IPsec/IKE nas ligações VPN S2S.
 
-## <a name="about"></a>Sobre gateways VPN baseados em políticas e baseados em rotas
+## <a name="about-policy-based-and-route-based-vpn-gateways"></a><a name="about"></a>Sobre gateways VPN baseados em políticas e baseados em rotas
 
 Os dispositivos VPN baseados em políticas *vs.* rota diferem na forma como os selecionadores de tráfego iPsec são definidos numa ligação:
 
-* **Baseado em políticas** Os dispositivos VPN utilizam as combinações de prefixos de ambas as redes para definir como o tráfego é encriptado/desencriptado através de túneis IPsec. É tipicamente construído em dispositivos de firewall que executam a filtragem do pacote. A encriptação e a desencriptação do túnel IPsec são adicionadas ao motor de filtragem e processamento do pacote.
+* **Baseado em políticas** Os dispositivos VPN utilizam as combinações de prefixos de ambas as redes para definir como o tráfego é encriptado/desencriptado através de túneis IPsec. É tipicamente construído em dispositivos de firewall que executam a filtragem do pacote. A encriptação e desencriptação de túnel IPsec são adicionadas à filtragem de pacotes e ao motor de processamento.
 * **Baseado em rota** Os dispositivos VPN utilizam selecionadores de tráfego (wildcard) e permitem que as tabelas de encaminhamento/encaminhamento direcionem as tabelas para diferentes túneis IPsec. É tipicamente construído em plataformas de router onde cada túnel IPsec é modelado como uma interface de rede ou VTI (interface de túnel virtual).
 
 Os seguintes diagramas destacam os dois modelos:
@@ -38,9 +38,9 @@ Atualmente, o Azure suporta ambos os modos de gateways VPN: gateways VPN baseado
 
 |                          | **Gateway VPN baseado em políticas** | **Gateway VPN baseado em rotas**       |**Gateway VPN baseado em rotas**                          |
 | ---                      | ---                         | ---                              |---                                                 |
-| **Azure Gateway SKU**    | Básica                       | Básica                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
-| **Versão IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                                    |
-| **Max, max. Ligações S2S** | **1**                       | 10                               |Padrão: 10<br> Outros SKUs: 30                     |
+| **Azure Gateway SKU**    | Básico                       | Básico                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| **Versão IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                         |
+| **Max, max. Ligações S2S** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
 
 Com a política personalizada IPsec/IKE, pode agora configurar gateways VPN baseados em rotas Azure para utilizar selecionadores de tráfego baseados em prefixo com opção "**PolicyBasedTrafficSelectors",** para ligar a dispositivos VPN baseados em políticas no local. Esta capacidade permite-lhe ligar-se de uma rede virtual Azure e porta de entrada VPN a múltiplos dispositivos VPN/firewall baseados em políticas no local, removendo o limite único de ligação dos atuais gateways VPN baseados na política do Azure.
@@ -56,7 +56,7 @@ O diagrama que se segue mostra porque é que o encaminhamento de trânsito atrav
 
 Como mostra o diagrama, o gateway Azure VPN tem selecionadores de tráfego da rede virtual para cada um dos prefixos da rede no local, mas não os prefixos de ligação cruzada. Por exemplo, o local no local 2, o local 3 e o local 4 podem comunicar cada um com vNet1 respectivamente, mas não podem ligar-se através da porta de entrada Azure VPN entre si. O diagrama mostra os seletores de tráfego de ligação cruzada que não estão disponíveis no gateway VPN Azure sob esta configuração.
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
 
 As instruções deste artigo seguem o mesmo exemplo descrito na [política Configure IPsec/IKE para ligações S2S ou VNet-to-VNet](vpn-gateway-ipsecikepolicy-rm-powershell.md) para estabelecer uma ligação VPN S2S. Isto é mostrado no seguinte diagrama:
 
@@ -74,7 +74,7 @@ O fluxo de trabalho para permitir esta conectividade:
 
 * [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="enablepolicybased"></a>Ativar os selecionadores de tráfego baseados em políticas
+## <a name="enable-policy-based-traffic-selectors"></a><a name="enablepolicybased"></a>Ativar os selecionadores de tráfego baseados em políticas
 
 Esta secção mostra-lhe como ativar os selecionadores de tráfego baseados em políticas numa ligação. Certifique-se de que concluiu a [Parte 3 do artigo de política Configure IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md). Os passos deste artigo usam os mesmos parâmetros.
 
@@ -160,7 +160,7 @@ Esta secção mostra-lhe como ativar os selecionadores de tráfego baseados em p
    ```
 1. Após a conclusão dos passos, a ligação VPN S2S utilizará a política IPsec/IKE definida e permitirá os selecionadores de tráfego baseados em políticas na ligação. Pode repetir os mesmos passos para adicionar mais ligações a dispositivos VPN baseados em políticas adicionais no local a partir do mesmo gateway VPN Azure.
 
-## <a name="update"></a>Para atualizar os selecionadores de tráfego baseados em políticas
+## <a name="to-update-policy-based-traffic-selectors"></a><a name="update"></a>Para atualizar os selecionadores de tráfego baseados em políticas
 Esta secção mostra-lhe como atualizar a opção de selecionadores de tráfego baseado em políticas para uma ligação VPN S2S existente.
 
 1. Pegue o recurso de ligação.

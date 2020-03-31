@@ -1,6 +1,6 @@
 ---
-title: Avaliar grandes números de servidores físicos para migração para o Azure com migrações para Azure | Microsoft Docs
-description: Descreve como avaliar grandes números de servidores físicos para migração para o Azure usando o serviço migrações para Azure.
+title: Avaliar um grande número de servidores físicos para migração para Azure com o Azure Migrate Microsoft Docs
+description: Descreve como avaliar um grande número de servidores físicos para migração para Azure usando o serviço Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
@@ -8,79 +8,79 @@ ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
 ms.openlocfilehash: a19a1b6e7416667079ab07fc5440ee8828c26bf4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76294373"
 ---
-# <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Avaliar grandes números de servidores físicos para migração para o Azure
+# <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Avaliar um grande número de servidores físicos para migração para OTe
 
-Este artigo descreve como avaliar grandes números de servidores físicos locais para migração para o Azure, usando a ferramenta de avaliação de servidor migrações para Azure.
+Este artigo descreve como avaliar um grande número de servidores físicos no local para migração para Azure, utilizando a ferramenta de avaliação do servidor migratório Azure.
 
-As [migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros. 
+[A Azure Migrate](migrate-services-overview.md) fornece um centro de ferramentas que o ajudam a descobrir, avaliar e migrar apps, infraestruturas e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas Azure Migrate e ofertas de fornecedores de software independentes de terceiros (ISV). 
 
 
 Neste artigo, vai aprender a:
 > [!div class="checklist"]
-> * Planeje a avaliação em escala.
+> * Plano de avaliação à escala.
 > * Configure as permissões do Azure e prepare servidores físicos para avaliação.
-> * Crie um projeto de migrações para Azure e crie uma avaliação.
-> * Examine a avaliação conforme planeja a migração.
+> * Crie um projeto Azure Migrate e crie uma avaliação.
+> * Reveja a avaliação como planeia para a migração.
 
 
 > [!NOTE]
-> Se você quiser experimentar uma prova de conceito para avaliar alguns servidores antes de avaliar em escala, siga nossa [série de tutoriais](tutorial-prepare-physical.md).
+> Se quiser experimentar uma prova de conceito para avaliar alguns servidores antes de avaliar em escala, siga a nossa [série tutorial](tutorial-prepare-physical.md).
 
-## <a name="plan-for-assessment"></a>Planejar a avaliação
+## <a name="plan-for-assessment"></a>Plano de avaliação
 
-Ao planejar a avaliação de um grande número de servidores físicos, há algumas coisas a considerar:
+Ao planear a avaliação de um grande número de servidores físicos, há algumas coisas em que pensar:
 
-- **Planejar projetos de migrações para Azure**: Descubra como implantar projetos de migrações para Azure. Por exemplo, se seus data centers estiverem em geografias diferentes, ou se você precisar armazenar metadados relacionados à migração, à avaliação ou ao migrar em uma geografia diferente, talvez precise de vários projetos.
-- **Dispositivos de plano**: as migrações para Azure usam um dispositivo de migrações do Azure local, implantado em um computador Windows, para descobrir continuamente os servidores para avaliação e migração. O dispositivo monitora as alterações de ambiente, como adicionar VMs, discos ou adaptadores de rede. Ele também envia metadados e dados de desempenho sobre eles para o Azure. Você precisa descobrir quantos dispositivos implantar.
+- **Projetos de Migração Do Plano Azure**: Descubra como implementar projetos de migração Azure. Por exemplo, se os seus centros de dados estiverem em geografias diferentes, ou precisar de armazenar metadados de descoberta, avaliação ou migração numa geografia diferente, poderá necessitar de vários projetos.
+- **Aparelhos de plano**: O Azure Migrate utiliza um aparelho azure migrate no local, implantado numa máquina Windows, para descobrir continuamente servidores para avaliação e migração. O aparelho monitoriza alterações ambientais, tais como a adição de VMs, discos ou adaptadores de rede. Também envia metadados e dados de desempenho sobre eles para o Azure. Tens de descobrir quantos aparelhos devem ser acionados.
 
 
-## <a name="planning-limits"></a>Limites de planejamento
+## <a name="planning-limits"></a>Limites de planeamento
  
-Use os limites resumidos nesta tabela para planejamento.
+Utilize os limites resumidos nesta tabela para planear.
 
 **Planeamento** | **Limites**
 --- | --- 
-**Projetos de migrações para Azure** | Avalie até 35.000 servidores em um projeto.
-**Dispositivo de migrações para Azure** | Um dispositivo pode descobrir até 250 servidores.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/> Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Grupo** | Você pode adicionar até 35.000 servidores em um único grupo.
-**Avaliação de migrações para Azure** | Você pode avaliar até 35.000 servidores em uma única avaliação.
+**Projetos azure migrate** | Avalie até 35.000 servidores num projeto.
+**Aplicação do Azure Migrate** | Um aparelho pode descobrir até 250 servidores.<br/> Um aparelho só pode ser associado a um único projeto Azure Migrate.<br/> Qualquer número de aparelhos pode ser associado a um único projeto Azure Migrate. <br/><br/> 
+**Grupo** | Pode adicionar até 35.000 servidores num único grupo.
+**Avaliação de Migração Azure** | Pode avaliar até 35.000 servidores numa única avaliação.
 
 
-## <a name="other-planning-considerations"></a>Outras considerações de planejamento
+## <a name="other-planning-considerations"></a>Outras considerações de planeamento
 
-- Para iniciar a descoberta do dispositivo, você precisa selecionar cada servidor físico. 
+- Para iniciar a descoberta a partir do aparelho, tem de selecionar cada servidor físico. 
 
 ## <a name="prepare-for-assessment"></a>Preparar para avaliação
 
-Prepare servidores físicos e do Azure para avaliação do servidor. 
+Prepare o Azure e os servidores físicos para avaliação do servidor. 
 
-1. Verifique [os requisitos de suporte do servidor físico e as limitações](migrate-support-matrix-physical.md).
-2. Configure as permissões para sua conta do Azure para interagir com as migrações para Azure.
+1. Verifique [os requisitos e limitações de suporte físico](migrate-support-matrix-physical.md)do servidor .
+2. Estabeleça permissões para que a sua conta Azure interaja com a Azure Migrate.
 3. Prepare os servidores físicos.
 
-Siga as instruções neste [tutorial](tutorial-prepare-physical.md) para definir essas configurações.
+Siga as instruções [deste tutorial](tutorial-prepare-physical.md) para configurar estas definições.
 
 ## <a name="create-a-project"></a>Criar um projeto
 
-De acordo com seus requisitos de planejamento, faça o seguinte:
+De acordo com os seus requisitos de planeamento, faça o seguinte:
 
 1. Criar um projeto do Azure Migrate.
-2. Adicione a ferramenta de avaliação do servidor de migrações para projetos.
+2. Adicione a ferramenta de avaliação do servidor de migração Azure aos projetos.
 
-[Saiba mais](how-to-add-tool-first-time.md)
+[Mais informações](how-to-add-tool-first-time.md)
 
-## <a name="create-and-review-an-assessment"></a>Criar e examinar uma avaliação
+## <a name="create-and-review-an-assessment"></a>Criar e rever uma avaliação
 
-1. Crie Avaliações para servidores físicos.
-1. Examine as avaliações em preparação para o planejamento de migração.
+1. Crie avaliações para servidores físicos.
+1. Reveja as avaliações em preparação para o planeamento migratório.
 
-[Saiba mais](tutorial-assess-physical.md) sobre como criar e revisar avaliações.
+[Saiba mais](tutorial-assess-physical.md) sobre a criação e revisão de avaliações.
     
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -88,9 +88,9 @@ De acordo com seus requisitos de planejamento, faça o seguinte:
 Neste artigo, irá:
  
 > [!div class="checklist"] 
-> * Planejado para dimensionar as avaliações de migração do Azure para servidores físicos.
-> * Servidores físicos e Azure preparados para avaliação.
-> * Criou um projeto de migrações para Azure e executou avaliações.
-> * Avaliações revisadas em preparação para a migração.
+> * Planejado escalar avaliações de Migração Azure para servidores físicos.
+> * Azure preparado e servidores físicos para avaliação.
+> * Criou um projeto Azure Migrate e realizou avaliações.
+> * Avaliações revistas na preparação para a migração.
 
-Agora, [saiba como](concepts-assessment-calculation.md) as avaliações são calculadas e como [modificar as avaliações](how-to-modify-assessment.md).
+Agora, [saiba como](concepts-assessment-calculation.md) as avaliações são calculadas e como modificar as [avaliações.](how-to-modify-assessment.md)

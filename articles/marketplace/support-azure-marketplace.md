@@ -1,20 +1,18 @@
 ---
-title: Suporte para Azure Marketplace e AppSource  Azure
+title: Suporte para Azure Marketplace e AppSource [ Azure
 description: Informações e links de suporte para Azure Marketplace e AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: MaggiePucciEvans
-manager: evansma
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 3/11/2020
-ms.author: evansma
-ms.openlocfilehash: 80911ce7858308302b1736328b6c7954c0e05a86
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.topic: conceptual
+ms.date: 3/19/2020
+ms.author: dsindona
+ms.openlocfilehash: 6cb08e11910bc0afdd4b2f454582612395cbd50f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79095522"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284930"
 ---
 # <a name="support-for-the-marketplace"></a>Apoio ao Mercado  
 Aqui está uma lista de opções de suporte para o Marketplace.  
@@ -27,27 +25,29 @@ Abra um bilhete com o suporte da [editora do mercado](https://aka.ms/marketplace
 
 ## <a name="partner-center-or-cloud-partner-portal"></a>Partner Center ou Cloud Partner Portal  
 
-| Canal de apoio | Descrição | Disponibilidade |  
+| Canal de suporte | Descrição | Disponibilidade |  
 |:--- |:--- |:--- |  
 | Para assistência, visite a página Criar uma página de incidentes localizada no [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Suporte para Partner Center ou Cloud Partner Portal. | O suporte é fornecido 24x5. |  
 
-## <a name="technical"></a>Técnico  
+## <a name="technical"></a>Parte Técnica  
 
-| Canal de apoio | Descrição |  
+| Canal de suporte | Descrição |  
 |:--- |:--- |  
 | Fóruns da MSDN: Marketplace localizado em [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Fórum da Microsoft Developer Network. |  
 | Stack Overflow: Azure localizado em [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow ambiente para obter soluções e fazer perguntas sobre tudo o que está relacionado com o Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace localizado em [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Gestor de recursos azure localizado em [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Máquinas virtuais em Azure localizadas em [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Transbordo de pilhas: Contentores em Azure localizados em [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Recursos de marketing  
 
-| Canal de apoio | Descrição | Disponibilidade |  
+| Canal de suporte | Descrição | Disponibilidade |  
 |:--- |:--- |:--- |  
-| E-mail: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Suporte para processos de embarque e questões relacionadas com o programa Co-Sell. | Baseado no fuso horário do Pacífico. |  
-| E-mail: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Suporte para benefícios GTM e questões de programa. | O horário comercial está no fuso horário do Pacífico. |  
-| E-mail: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Respostas a perguntas sobre utilização para logótipos Azure e marca. |  |  
+| E-mail:[cosell@microsoft.com](mailto:cosell@microsoft.com) | Suporte para processos de embarque e questões relacionadas com o programa Co-Sell. | Baseado no fuso horário do Pacífico. |  
+| E-mail:[gtm@microsoft.com](mailto:gtm@microsoft.com) | Suporte para benefícios GTM e questões de programa. | O horário comercial está no fuso horário do Pacífico. |  
+| E-mail:[cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Respostas a perguntas sobre utilização para logótipos Azure e marca. |  |  
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Visite a página do Guia da [Editora Azure Marketplace e AppSource.](./marketplace-publishers-guide.md)  
- 
+
+* Visite a página do Guia da [Editora Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/).
+* Saiba mais sobre [o programa De apoio ao Mercado Comercial no Partner Center.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
+
 ---

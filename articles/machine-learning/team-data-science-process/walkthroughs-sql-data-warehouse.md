@@ -1,6 +1,6 @@
 ---
-title: Análise no SQL Data Warehouse com T-SQL, Python – o processo de ciência de dados de equipa
-description: Exemplos que o orientam por meio do uso no SQL Data Warehouse para realizar a Análise Preditiva.
+title: Analytics no Armazém de Dados SQL com T-SQL, Python - Processo de Ciência de Dados da Equipa
+description: Exemplos que passam pelo uso do SQL Data Warehouse para fazer análises preditivas.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,27 +11,27 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4c8be715391f71e281ca41cc68428a2d29d78783
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: f657f02a39a023f6cb620895549105e7fd1eb233
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864133"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128174"
 ---
-# <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>O SQL Data Warehouse dados ciência orientações passo a passo com o T-SQL e Python no Azure
+# <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>SQL Data Warehouse data science walkthroughs usando T-SQL e Python em Azure
 
-Utilize esta instruções passo a passo do SQL Data Warehouse para realizar a Análise Preditiva. Eles seguem as etapas descritas no processo de ciência de dados de equipa. Para uma descrição geral do processo de ciência de dados de equipa, consulte [processo de ciência de dados](overview.md). Para obter uma introdução ao SQL Data Warehouse, consulte [o que é o Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Estes walkthroughs usam o SQL Data Warehouse para fazer análises preditivas. Seguem os passos delineados no Processo de Ciência de Dados da Equipa. Para uma visão geral do Processo de Ciência de Dados da Equipa, consulte o [Processo de Ciência](overview.md)de Dados . Para uma introdução ao Armazém de Dados SQL, veja [o que é o Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-Instruções de ciência de dados adicionais que executar o processo de ciência de dados de equipa estão agrupadas pela **plataforma** que utilizam. Ver [instruções passo a passo, executar o processo de ciência de dados de equipa](walkthroughs.md) para também uma itemização destes exemplos.
+Os walkthroughs adicionais de ciência de dados que executam o Processo de Ciência de Dados da Equipa são agrupados pela **plataforma** que utilizam. Consulte [walkthroughs executando o Processo](walkthroughs.md) de Ciência de Dados da Equipa para uma itemização destes exemplos.
 
 
-## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Prever gorjetas para táxis com o T-SQL e IPython notebooks com o SQL Data Warehouse
+## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Preveja dicas de táxi usando cadernos T-SQL e IPython com Armazém de Dados SQL
 
-O [Guia de uso SQL data warehouse](sqldw-walkthrough.md) mostra como criar e implantar modelos de regressão e classificação do Machine Learning usando o SQL data warehouse (SQL DW).  Os dados são um conjunto de NYC de corridas e tarifas de táxi disponível publicamente.
+O [walkthrough do Use SQL Data Warehouse](sqldw-walkthrough.md) mostra-lhe como construir e implementar modelos de classificação de aprendizagem automática e de regressão utilizando o SQL Data Warehouse (SQL DW).  Os dados são uma viagem de táxi de NYC e dataset de tarifas disponíveis publicamente.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para uma discussão sobre os principais componentes que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
+Para uma discussão sobre os componentes-chave que compõem o Processo de Ciência de Dados da Equipa, consulte a visão geral do Processo de Ciência de Dados da [Equipa.](overview.md)
 
-Para obter uma discussão sobre o ciclo de vida do processo de ciência de dados de equipe, consulte [ciclo de vida do processo de ciência de dados](lifecycle.md) Esse ciclo de vida descreve as etapas, do início ao fim, que os projetos geralmente seguem quando são executados. 
+Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados da Equipa, consulte o ciclo de vida do Processo de Ciência de Dados da [Equipa.](lifecycle.md) Este ciclo de vida descreve os passos, do início ao fim, que os projetos geralmente seguem quando são executados. 

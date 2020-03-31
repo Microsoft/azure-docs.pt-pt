@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370479"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto final de armazenamento de Blob Azure
@@ -23,7 +23,7 @@ Você pode mapear um domínio personalizado para um ponto final de serviço blob
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> Este mapeamento funciona apenas para subdomínios (por exemplo: `www.contoso.com`). Se quiser que o seu ponto final da web esteja disponível no domínio raiz (por exemplo: `contoso.com`), então terá de utilizar o Azure CDN. Para obter orientação, consulte o Mapa um domínio personalizado com secção [ativada](#enable-https) por HTTPS deste artigo. Porque se vai a essa secção deste artigo para ativar o domínio raiz do seu domínio personalizado, o passo dentro dessa secção para ativar https é opcional. 
+> Este mapeamento funciona apenas para `www.contoso.com`subdomínios (por exemplo: ). Se quiser que o seu ponto final da web `contoso.com`esteja disponível no domínio raiz (por exemplo: ), então terá de utilizar o Azure CDN. Para obter orientação, consulte o Mapa um domínio personalizado com secção [ativada](#enable-https) por HTTPS deste artigo. Porque se vai a essa secção deste artigo para ativar o domínio raiz do seu domínio personalizado, o passo dentro dessa secção para ativar https é opcional. 
 
 <a id="enable-http" />
 
@@ -67,7 +67,7 @@ O nome do hospedeiro é o URL final de ponto de armazenamento sem o identificado
    | Tipo de ponto final |  endpoint | nome anfitrião |
    |------------|-----------------|-------------------|
    |serviço blob  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
-   |site estática  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
+   |Web site estático  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
   
    Reserve este valor para mais tarde.
 
@@ -87,7 +87,7 @@ Crie um disco CNAME para apontar para o seu nome de anfitrião. Um registo CNAME
 
 3. Crie um disco CNAME. Como parte desse registo, forneça os seguintes itens: 
 
-   - O pseudónimo de subdomínio, como `www` ou `photos`. O subdomínio é necessário, os domínios radiculares não são suportados. 
+   - Os pseudónimos do `www` subdomínio, tais como ou `photos`. O subdomínio é necessário, os domínios radiculares não são suportados. 
       
    - O nome de anfitrião que obteve na secção [Get the host name of your storage endpoint](#endpoint) no início deste artigo. 
 
@@ -105,7 +105,7 @@ Crie um disco CNAME para apontar para o seu nome de anfitrião. Um registo CNAME
 
 3. Na caixa de **texto de nome domínio,** introduza o nome do seu domínio personalizado, incluindo o subdomínio  
    
-   Por exemplo, se o seu domínio for *contoso.com* e o seu pseudónimo de subdomínio for *www,* insira `www.contoso.com`. Se o seu subdomínio for *em fotos,* introduza `photos.contoso.com`.
+   Por exemplo, se o seu domínio for *contoso.com* e `www.contoso.com`o seu pseudónimo de subdomínio for *www,* insira . Se o seu subdomínio `photos.contoso.com`for *em fotos,* introduza .
 
 4. Para registar o domínio personalizado, escolha o botão **Guardar.**
 
@@ -113,9 +113,9 @@ Crie um disco CNAME para apontar para o seu nome de anfitrião. Um registo CNAME
 
 #### <a name="step-4-test-your-custom-domain"></a>Passo 4: Teste o seu domínio personalizado
 
-Para confirmar que o seu domínio personalizado está mapeado para o seu ponto final de serviço blob, crie uma bolha num contentor público dentro da sua conta de armazenamento. Em seguida, num navegador web, aceda à bolha utilizando um URI no seguinte formato: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
+Para confirmar que o seu domínio personalizado está mapeado para o seu ponto final de serviço blob, crie uma bolha num contentor público dentro da sua conta de armazenamento. Em seguida, num navegador web, aceda à bolha utilizando um URI no seguinte formato:`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Por exemplo, para aceder a um formulário web no recipiente *myforms* no subdomínio *personalizado photos.contoso.com,* pode utilizar o seguinte URI: `http://photos.contoso.com/myforms/applicationform.htm`
+Por exemplo, para aceder a um formulário web no recipiente *myforms* no subdomínio *personalizado photos.contoso.com,* pode utilizar o seguinte URI:`http://photos.contoso.com/myforms/applicationform.htm`
 
 <a id="zero-down-time" />
 
@@ -153,7 +153,7 @@ O nome do hospedeiro é o URL final de ponto de armazenamento sem o identificado
    | Tipo de ponto final |  endpoint | nome anfitrião |
    |------------|-----------------|-------------------|
    |serviço blob  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
-   |site estática  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
+   |Web site estático  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
   
    Reserve este valor para mais tarde.
 
@@ -171,13 +171,13 @@ Crie um registo cname temporário para apontar para o seu nome de anfitrião. Um
 
 3. Crie um disco CNAME. Como parte desse registo, forneça os seguintes itens: 
 
-   - O pseudónimo de subdomínio, como `www` ou `photos`. O subdomínio é necessário, os domínios radiculares não são suportados.
+   - Os pseudónimos do `www` subdomínio, tais como ou `photos`. O subdomínio é necessário, os domínios radiculares não são suportados.
 
-     Adicione o subdomínio `asverify` ao pseudónimo. Por exemplo: `asverify.www` ou `asverify.photos`.
+     Adicione `asverify` o subdomínio ao pseudónimo. Por `asverify.www` exemplo: `asverify.photos`ou .
        
    - O nome de anfitrião que obteve na secção [Get the host name of your storage endpoint](#endpoint) no início deste artigo. 
 
-     Adicione o subdomínio `asverify` ao nome do anfitrião. Por exemplo: `asverify.mystorageaccount.blob.core.windows.net`.
+     Adicione o `asverify` subdomínio ao nome do anfitrião. Por exemplo: `asverify.mystorageaccount.blob.core.windows.net`.
 
 4. Para registar o domínio personalizado, escolha o botão **Guardar.**
 
@@ -197,7 +197,7 @@ Ao registar o seu domínio personalizado com o Azure, permite que o Azure reconh
 
 3. Na caixa de **texto de nome domínio,** introduza o nome do seu domínio personalizado, incluindo o subdomínio  
    
-   Por exemplo, se o seu domínio for *contoso.com* e o seu pseudónimo de subdomínio for *www,* insira `www.contoso.com`. Se o seu subdomínio for *em fotos,* introduza `photos.contoso.com`.
+   Por exemplo, se o seu domínio for *contoso.com* e `www.contoso.com`o seu pseudónimo de subdomínio for *www,* insira . Se o seu subdomínio `photos.contoso.com`for *em fotos,* introduza .
 
 4. Selecione a caixa de **verificação de validação Indireta CNAME.**
 
@@ -219,15 +219,15 @@ Crie um registo cname temporário para apontar para o seu nome de anfitrião.
 
 3. Crie um disco CNAME. Como parte desse registo, forneça os seguintes itens: 
 
-   - O pseudónimo de subdomínio, como `www` ou `photos`. O subdomínio é necessário, os domínios radiculares não são suportados.
+   - Os pseudónimos do `www` subdomínio, tais como ou `photos`. O subdomínio é necessário, os domínios radiculares não são suportados.
       
    - O nome de anfitrião que obteve na secção [Get the host name of your storage endpoint](#endpoint-2) no início deste artigo. 
 
 #### <a name="step-5-test-your-custom-domain"></a>Passo 5: Teste o seu domínio personalizado
 
-Para confirmar que o seu domínio personalizado está mapeado para o seu ponto final de serviço blob, crie uma bolha num contentor público dentro da sua conta de armazenamento. Em seguida, num navegador web, aceda à bolha utilizando um URI no seguinte formato: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
+Para confirmar que o seu domínio personalizado está mapeado para o seu ponto final de serviço blob, crie uma bolha num contentor público dentro da sua conta de armazenamento. Em seguida, num navegador web, aceda à bolha utilizando um URI no seguinte formato:`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Por exemplo, para aceder a um formulário web no recipiente *myforms* no subdomínio *personalizado photos.contoso.com,* pode utilizar o seguinte URI: `http://photos.contoso.com/myforms/applicationform.htm`
+Por exemplo, para aceder a um formulário web no recipiente *myforms* no subdomínio *personalizado photos.contoso.com,* pode utilizar o seguinte URI:`http://photos.contoso.com/myforms/applicationform.htm`
 
 ### <a name="remove-a-custom-domain-mapping"></a>Remova um mapeamento de domínio personalizado
 
@@ -248,9 +248,9 @@ Para remover a definição de domínio personalizado, faça o seguinte:
 
 Depois de o domínio personalizado ter sido removido com sucesso, verá uma notificação do portal de que a sua conta de armazenamento foi atualizada com sucesso
 
-#### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Para remover um registo de domínio personalizado, utilize o comando CLI de atualização da conta de [armazenamento az](https://docs.microsoft.com/cli/azure/storage/account) e, em seguida, especifique uma cadeia vazia (`""`) para o valor de argumento `--custom-domain`.
+Para remover um registo de domínio personalizado, utilize o comando CLI de`""`atualização `--custom-domain` da conta de [armazenamento az](https://docs.microsoft.com/cli/azure/storage/account) e, em seguida, especifique uma cadeia vazia () para o valor do argumento.
 
 * Formato de comando:
 
@@ -274,7 +274,7 @@ Para remover um registo de domínio personalizado, utilize o comando CLI de atua
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para remover um registo de domínio personalizado, utilize o cmdlet [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) PowerShell e, em seguida, especifique uma cadeia vazia (`""`) para o valor de argumento `-CustomDomainName`.
+Para remover um registo de domínio personalizado, utilize o cmdlet [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) PowerShell e, em seguida, especifique uma corda vazia ()`""`para o valor do `-CustomDomainName` argumento.
 
 * Formato de comando:
 

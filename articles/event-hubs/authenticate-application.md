@@ -8,20 +8,20 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 4256cebe44b732b190ef1666d0438d17e058b820
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: a242da8cc98a21248c48a1b3981fa713706028ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169296"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064947"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma aplicação com o Diretório Ativo Azure para aceder aos recursos do Event Hubs
-O Microsoft Azure fornece gestão de controlo de acesso integrada para os recursos e aplicações com base no Azure Active Directory (Azure AD). Uma vantagem fundamental de usar o Azure AD com o Azure Event Hubs é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um sinal de acesso OAuth 2.0 da plataforma Microsoft Identity. O nome do recurso para solicitar um símbolo é `https://eventhubs.azure.net/`. O Azure AD autentica a entidade de segurança (um usuário, grupo ou entidade de serviço) que executa o aplicativo. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, podendo então utilizar o sinal de acesso para autorizar o pedido aos recursos do Azure Event Hubs.
+O Microsoft Azure fornece uma gestão integrada do controlo de acesso para recursos e aplicações com base no Azure Ative Directory (Azure AD). Uma vantagem fundamental de usar o Azure AD com o Azure Event Hubs é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um sinal de acesso OAuth 2.0 da plataforma Microsoft Identity. O nome do recurso para `https://eventhubs.azure.net/` solicitar um símbolo é (Para os `https://<namespace>.servicebus.windows.net`clientes Kafka, o recurso para solicitar um símbolo é). A Azure AD autentica o diretor de segurança (utilizador, grupo ou diretor de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, podendo então utilizar o sinal de acesso para autorizar o pedido aos recursos do Azure Event Hubs.
 
 Quando uma função é atribuída a um diretor de segurança da AD Azure, o Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser consultado ao nível de subscrição, ao grupo de recursos, ao espaço de nome sem nome do Event Hubs ou a qualquer recurso que lhe seja imputado. Uma segurança azure AD pode atribuir funções a um utilizador, a um grupo, a um diretor de serviço de aplicação ou a uma [identidade gerida para os recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md) 
 
 > [!NOTE]
-> Uma definição de papel é uma coleção de permissões. O controlo de acesso baseado em funções (RBAC) controla a forma como estas permissões são aplicadas através da atribuição de funções. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito. Para mais informações, consulte [Compreender os diferentes papéis.](../role-based-access-control/overview.md)
+> Uma definição de função é uma coleção de permissões. O controlo de acesso baseado em funções (RBAC) controla a forma como estas permissões são aplicadas através da atribuição de funções. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito. Para mais informações, consulte [Compreender os diferentes papéis.](../role-based-access-control/overview.md)
 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Papéis integrados para hubs de eventos azure
 A Azure fornece as seguintes funções de RBAC incorporadopara autorizar o acesso aos dados do Event Hubs utilizando a Azure AD e a OAuth:
@@ -48,7 +48,7 @@ Depois de ter determinado a margem adequada para uma atribuição de funções, 
 1. Selecione **Control de Acesso (IAM)** para visualizar as definições de controlo de acesso para o centro de eventos. 
 1. Selecione o separador de **atribuições de funções** para ver a lista de atribuições de papéis. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **adicionar a atribuição de funções**. 
 
-    ![Botão Adicionar na barra de ferramentas](./media/authenticate-application/role-assignments-add-button.png)
+    ![Adicione o botão na barra de ferramentas](./media/authenticate-application/role-assignments-add-button.png)
 1. Na página de atribuição de **funções Adicionar,** faça os seguintes passos:
     1. Selecione a **função De Centro de Eventos** que pretende atribuir. 
     1. Procure localizar o diretor de **segurança** (utilizador, grupo, diretor de serviço) ao qual pretende atribuir a função.
@@ -69,7 +69,7 @@ As seguintes secções mostram-lhe como configurar a sua aplicação nativa ou a
 
 Para uma visão geral do fluxo de concessão de código OAuth 2.0, consulte [Autorizar o acesso às aplicações web do Azure Ative Directory utilizando o fluxo de subvenção de código OAuth 2.0](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-### <a name="register-your-application-with-an-azure-ad-tenant"></a>Registar a aplicação com um inquilino do Azure AD
+### <a name="register-your-application-with-an-azure-ad-tenant"></a>Registe a sua candidatura com um inquilino da AD Azure
 O primeiro passo na utilização da Azure AD para autorizar os recursos do Event Hubs é registar a sua aplicação de cliente com um inquilino Azure AD do [portal Azure.](https://portal.azure.com/) Ao registar a sua aplicação de cliente, fornece informações sobre a aplicação à AD. A Azure AD fornece então um ID do cliente (também chamado de ID de aplicação) que pode utilizar para associar a sua aplicação ao tempo de execução da AD Azure. Para saber mais sobre o ID do cliente, consulte [os objetos principais de aplicação e serviço no Diretório Ativo Azure](../active-directory/develop/app-objects-and-service-principals.md). 
 
 As seguintes imagens mostram passos para registar uma aplicação web:
@@ -77,7 +77,7 @@ As seguintes imagens mostram passos para registar uma aplicação web:
 ![Registar uma aplicação](./media/authenticate-application/app-registrations-register.png)
 
 > [!Note]
-> Se registar a sua candidatura como uma aplicação nativa, pode especificar qualquer URI válido para o Redirect URI. Para aplicativos nativos, esse valor não precisa ser uma URL real. Para aplicativos Web, o URI de redirecionamento deve ser um URI válido, pois ele especifica a URL para a qual os tokens são fornecidos.
+> Se registar a sua candidatura como uma aplicação nativa, pode especificar qualquer URI válido para o Redirect URI. Para aplicações nativas, este valor não tem de ser um URL real. Para aplicações web, o URI redirecionado deve ser um URI válido, porque especifica o URL a que são fornecidos tokens.
 
 Depois de ter registado o seu pedido, verá o ID de **Aplicação (cliente)** em **Definições:**
 
@@ -87,10 +87,10 @@ Para obter mais informações sobre o registo de uma aplicação com a Azure AD,
 
 
 ### <a name="create-a-client-secret"></a>Criar um segredo de cliente   
-O aplicativo precisa de um segredo do cliente para provar sua identidade ao solicitar um token. Para adicionar o segredo do cliente, siga estes passos.
+O pedido precisa de um segredo de cliente para provar a sua identidade ao solicitar um símbolo. Para adicionar o segredo do cliente, siga estes passos.
 
-1. Navegue até o registro do aplicativo no portal do Azure.
-1. Selecione a definição de **Certificados e segredos.**
+1. Navegue para o registo da sua aplicação no portal Azure.
+1. Selecione a definição **de segredos & Certificados.**
 1. Sob **os segredos do Cliente,** selecione **novo segredo de cliente** para criar um novo segredo.
 1. Forneça uma descrição para o segredo e escolha o intervalo de validade desejado.
 1. Copie imediatamente o valor do novo segredo para um local seguro. O valor de preenchimento é-lhe apresentado apenas uma vez.
@@ -98,7 +98,7 @@ O aplicativo precisa de um segredo do cliente para provar sua identidade ao soli
     ![Segredo do cliente](./media/authenticate-application/client-secret.png)
 
 
-### <a name="client-libraries-for-token-acquisition"></a>Bibliotecas de cliente para aquisição de token  
+### <a name="client-libraries-for-token-acquisition"></a>Bibliotecas de clientes para aquisição simbólica  
 Uma vez registado o seu pedido e concedido permissão para enviar/receber dados em Hubs de Eventos Azure, pode adicionar código à sua aplicação para autenticar um diretor de segurança e adquirir o Token OAuth 2.0. Para autenticar e adquirir o símbolo, pode utilizar uma das bibliotecas de [autenticação](../active-directory/develop/reference-v2-libraries.md) da plataforma de identidade microsoft ou outra biblioteca de código aberto que suporta o OpenID ou o Connect 1.0. A sua aplicação pode então utilizar o sinal de acesso para autorizar um pedido contra o Azure Event Hubs.
 
 Para obter uma lista de cenários para os quais é suportado o suporte para a aquisição de fichas, consulte a secção [Cenários](https://aka.ms/msal-net-scenarios) da Biblioteca de Autenticação da [Microsoft (MSAL) para o](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) repositório .NET GitHub.

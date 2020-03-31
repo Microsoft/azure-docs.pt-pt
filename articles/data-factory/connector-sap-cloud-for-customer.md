@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de/para o SAP Cloud for Customer
-description: Saiba como copiar dados do SAP Cloud for Customer para armazenamentos de dados de coletor com suporte (ou) de armazenamentos de dados de origem com suporte para o SAP Cloud for Customer usando Data Factory.
+title: Copiar dados de/para SAP Cloud para Cliente
+description: Saiba como copiar dados do SAP Cloud para o Cliente para suportar lojas de dados (ou) de lojas de dados de origem suportada para SAP Cloud para Cliente utilizando data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,50 +13,50 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
 ms.openlocfilehash: 0b0352632491dbfc46ed4819653c6cb902eee4ce
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74923727"
 ---
-# <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados do SAP Cloud for Customer (C4C) usando o Azure Data Factory
+# <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados da Nuvem SAP para Cliente (C4C) utilizando a Azure Data Factory
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de/para o SAP Cloud for Customer (C4C). Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de/para SAP Cloud para Cliente (C4C). Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 >[!TIP]
->Para aprender o suporte geral do ADF no cenário de integração de dados do SAP, consulte [integração de dados SAP usando Azure data Factory White Paper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução, análise e diretrizes detalhadas.
+>Para conhecer o suporte global da ADF no cenário de integração de dados DoSAP, consulte a integração de [dados do SAP utilizando o livro branco da Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução detalhada, comparação e orientação.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Esse conector do SAP Cloud for Customer tem suporte para as seguintes atividades:
+Este conector SAP Cloud para cliente é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procura](control-flow-lookup-activity.md)
 
-Você pode copiar dados do SAP Cloud for Customer para qualquer armazenamento de dados de coletor com suporte ou copiar dados de qualquer armazenamento de dados de origem com suporte para o SAP Cloud for Customer. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados do SAP Cloud para o Cliente para qualquer loja de dados de sink suportado, ou copiar dados de qualquer loja de dados de origem suportada para sap Cloud para Cliente. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, esse conector permite que o Azure Data Factory Copie dados de/para o SAP Cloud for Customer, incluindo a nuvem do SAP para vendas, o SAP Cloud for Service e as soluções de engajamento do SAP Cloud for social.
+Especificamente, este conector permite à Azure Data Factory copiar dados de/para SAP Cloud para Cliente, incluindo a Nuvem SAP para Vendas, Nuvem SAP para Serviço e SAP Cloud para soluções de envolvimento social.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas do SAP Cloud for Customer Connector.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do SAP Cloud para o conector do Cliente.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+## <a name="linked-service-properties"></a>Propriedades de serviço seletos
 
-As propriedades a seguir têm suporte para o serviço vinculado do SAP Cloud for Customer:
+As seguintes propriedades são suportadas para o Serviço SAP Cloud para o serviço ligado ao Cliente:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type deve ser definida como: **SapCloudForCustomer**. | Sim |
-| url | A URL do serviço do SAP C4C OData. | Sim |
-| o nome de utilizador | Especifique o nome de usuário para se conectar ao SAP C4C. | Sim |
-| palavra-passe | Especifique a senha da conta de usuário que você especificou para o username. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para o sink |
+| tipo | A propriedade do tipo deve ser definida para: **SapCloudForCustomer**. | Sim |
+| url | O URL do serviço SAP C4C OData. | Sim |
+| o nome de utilizador | Especifique o nome do utilizador para ligar ao SAP C4C. | Sim |
+| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Se não especificado, utiliza o tempo de funcionar de integração azure padrão. | Não para a fonte, sim para afundar |
 
 >[!IMPORTANT]
->Para copiar dados para o SAP Cloud for Customer, [crie explicitamente um Azure ir](create-azure-integration-runtime.md#create-azure-ir) com um local perto de seu SAP Cloud for Customer e associe-se ao serviço vinculado como o exemplo a seguir:
+>Para copiar dados no SAP Cloud para cliente, crie explicitamente [um IR Azure](create-azure-integration-runtime.md#create-azure-ir) com uma localização perto da sua Nuvem SAP para Cliente, e associe no serviço ligado como o seguinte exemplo:
 
 **Exemplo:**
 
@@ -81,16 +81,16 @@ As propriedades a seguir têm suporte para o serviço vinculado do SAP Cloud for
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades do conjunto de dados
+## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de clientes do SAP Cloud for Customer.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pela SAP Cloud para dataset do Cliente.
 
-Para copiar dados do SAP Cloud for Customer, defina a propriedade Type do conjunto de dado como **SapCloudForCustomerResource**. São suportadas as seguintes propriedades:
+Para copiar dados da SAP Cloud para o Cliente, detete a propriedade do tipo do conjunto de dados para **SapCloudForCustomerResource**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **SapCloudForCustomerResource** |Sim |
-| Caminho | Especifique o caminho da entidade do SAP C4C OData. |Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SapCloudForCustomerResource** |Sim |
+| path | Especifique o caminho da entidade SAP C4C OData. |Sim |
 
 **Exemplo:**
 
@@ -113,18 +113,18 @@ Para copiar dados do SAP Cloud for Customer, defina a propriedade Type do conjun
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem do SAP Cloud for Customer.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela SAP Cloud para fonte do Cliente.
 
 ### <a name="sap-c4c-as-source"></a>SAP C4C como fonte
 
-Para copiar dados do SAP Cloud for Customer, defina o tipo de fonte na atividade de cópia como **SapCloudForCustomerSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados da Nuvem SAP para cliente, delineie o tipo de origem na atividade de cópia para **SapCloudForCustomerSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type deve ser definida como: **SapCloudForCustomerSource**  | Sim |
-| consulta | Especifique a consulta OData personalizada para ler os dados. | Não |
+| tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomerSource**  | Sim |
+| consulta | Especifique a consulta personalizada do OData para ler dados. | Não |
 
-Exemplo de consulta para obter dados de um dia específico: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
+Amostra de consulta para obter dados para um dia específico:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
 **Exemplo:**
 
@@ -158,15 +158,15 @@ Exemplo de consulta para obter dados de um dia específico: `"query": "$filter=C
 ]
 ```
 
-### <a name="sap-c4c-as-sink"></a>SAP C4C como coletor
+### <a name="sap-c4c-as-sink"></a>SAP C4C como pia
 
-Para copiar dados para o SAP Cloud for Customer, defina o tipo de coletor na atividade de cópia como **sapcloudforcustomersource**. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
+Para copiar dados para SAP Cloud para Cliente, delineie o tipo de pia na atividade de cópia para **SapCloudForCustomerSink**. As seguintes propriedades são suportadas na secção de **sumidouro** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type deve ser definida como: **sapcloudforcustomersource**  | Sim |
-| writeBehavior | O comportamento de gravação da operação. Poderia ser "Insert", "Update". | Não. "Insert" padrão. |
-| writeBatchSize | O tamanho do lote da operação de gravação. O tamanho do lote para obter o melhor desempenho pode ser diferente para uma tabela ou servidor diferente. | Não. Padrão 10. |
+| tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomerSink**  | Sim |
+| escreverComportamento | O comportamento de escrita da operação. Pode ser "Inserir", "Atualização". | Não. "Inserir". |
+| escreverBatchSize | O tamanho do lote da operação de escrita. O tamanho do lote para obter o melhor desempenho pode ser diferente para diferentes tabelas ou servidores. | Não. Padrão 10. |
 
 **Exemplo:**
 
@@ -207,14 +207,14 @@ Para copiar dados para o SAP Cloud for Customer, defina o tipo de coletor na ati
 ]
 ```
 
-## <a name="data-type-mapping-for-sap-cloud-for-customer"></a>Mapeamento de tipo de dados para o SAP Cloud for Customer
+## <a name="data-type-mapping-for-sap-cloud-for-customer"></a>Mapeamento de tipo de dados para Nuvem SAP para Cliente
 
-Ao copiar dados do SAP Cloud for Customer, os seguintes mapeamentos são usados de tipos de dados do SAP Cloud for Customer para Azure Data Factory tipos de dados provisórios. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Ao copiar dados da SAP Cloud para o Cliente, os seguintes mapeamentos são utilizados a partir de SAP Cloud para tipos de dados do Cliente para tipos de dados provisórios da Azure Data Factory. Consulte [schema e mapeamentos](copy-activity-schema-and-type-mapping.md) de tipo de dados para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para a pia.
 
-| Tipo de dados do SAP C4C OData | Tipo de dados intermediárias de fábrica de dados |
+| Tipo de dados de dados sap C4C Odata | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | Bool |
+| Edm.Boolean | Booleano |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
@@ -225,14 +225,14 @@ Ao copiar dados do SAP Cloud for Customer, os seguintes mapeamentos são usados 
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | String |
-| EDM.Time | TimeSpan |
-| Edm.DateTimeOffset | DateTimeOffset |
+| Edm.String | Cadeia |
+| Edm.Tempo | TimeSpan |
+| Edm.DateTimeOffset | DataTimeOffset |
 
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

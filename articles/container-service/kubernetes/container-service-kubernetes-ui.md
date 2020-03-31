@@ -8,10 +8,10 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 01abcc961d1c2ad9d3e2cf35f82e62929bc2fb89
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371142"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(DEPRECIADO) Utilização da UI web kubernetes com serviço de contentores Azure
@@ -25,17 +25,17 @@ ms.locfileid: "79371142"
 Este walkthrough pressupõe que [criou um cluster Kubernetes usando](container-service-kubernetes-walkthrough.md)o Serviço de Contentores Azure .
 
 
-Também assume que tem as ferramentas Azure CLI e `kubectl` instaladas.
+Também assume que tem o AZURE `kubectl` CLI e ferramentas instaladas.
 
-Pode testar se tiver a ferramenta `az` instalada executando:
+Pode testar se tiver `az` a ferramenta instalada executando:
 
 ```azurecli
 az --version
 ```
 
-Se não tiver a ferramenta `az` instalada, existem instruções [aqui.](https://github.com/azure/azure-cli#installation)
+Se não tiver a `az` ferramenta instalada, existem instruções [aqui.](https://github.com/azure/azure-cli#installation)
 
-Pode testar se tiver a ferramenta `kubectl` instalada executando:
+Pode testar se tiver `kubectl` a ferramenta instalada executando:
 
 ```console
 kubectl version
@@ -65,7 +65,7 @@ Isto deve abrir um navegador web configurado para falar com um representante seg
 
     Abre-se uma caixa de diálogo onde pode começar a criar a sua aplicação.
 
-2. Dê-lhe o nome `hello-nginx`. Utilize o [`nginx` recipiente do Docker](https://hub.docker.com/_/nginx/) e implante três réplicas deste serviço web.
+2. Dê-lhe `hello-nginx`o nome. Utilize [ `nginx` ](https://hub.docker.com/_/nginx/) o recipiente do Docker e implante três réplicas deste serviço web.
 
     ![Kubernetes Pod Criar Diálogo](./media/container-service-kubernetes-ui/nginx.png)
 
@@ -103,7 +103,7 @@ Para ver os registos do seu recipiente, clique em **Ver registos**.
 ![Diários de Kubernetes](./media/container-service-kubernetes-ui/logs.png)
 
 ### <a name="viewing-your-service"></a>Visualização do seu serviço
-Além de executar os seus contentores, o Kubernetes UI criou um `Service` externo que prevê um equilibrador de carga para levar o tráfego para os contentores do seu cluster.
+Além de executar os seus contentores, o Kubernetes UI criou um equilíbrio externo `Service` que prevê um equilíbrio de carga para levar o tráfego para os contentores do seu cluster.
 
 No painel de navegação à esquerda, clique em **Serviços** para ver todos os serviços (deve haver apenas um).
 
@@ -123,7 +123,7 @@ Assim que estiver nessa vista, clique no conjunto de réplicas e clique em **Edi
 
 ![Edição kubernetes](./media/container-service-kubernetes-ui/edit.png)
 
-Editar o campo `spec.replicas` para ser `2`, e clique em **Atualizar**.
+Editar `spec.replicas` o campo `2`para ser, e clicar em **Atualizar**.
 
 Isto faz com que o número de réplicas baixe para dois, apagando uma das suas cápsulas.
 

@@ -8,10 +8,10 @@ ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 03/05/2020
 ms.openlocfilehash: d843b942702d335065a5f3798572e34c71b4cd0e
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943972"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Cenário: Os registos da Apache Hive estão a preencher o espaço do disco nos nódosos da Cabeça em Azure HDInsight
@@ -25,7 +25,7 @@ Num aglomerado Apache Hive/LLAP, troncos indesejados estão ocupando todo o espa
 1. O acesso sSH falha por não ter espaço no nó da cabeça.
 2. Ambari dá *ERRO HTTP: 503 Serviço Indisponível*.
 
-Os registos `ambari-agent` mostrariam o seguinte quando o assunto acontecesse.
+Os `ambari-agent` registos mostrariam o seguinte quando o problema acontecesse.
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -39,13 +39,13 @@ Em configurações avançadas de Hive-log4j, o parâmetro *log4j.appender.RFA.Ma
 
 ## <a name="resolution"></a>Resolução
 
-1. Navegue para o resumo do componente Hive no portal Ambari e clique no separador `Configs`.
+1. Navegue para o resumo do componente Hive no `Configs` portal Ambari e clique no separador.
 
-2. Vá à secção `Advanced hive-log4j` dentro das definições avançadas.
+2. Vá para `Advanced hive-log4j` a secção dentro das definições avançadas.
 
-3. Defina `log4j.appender.RFA` parâmetro como RollingFileAppender. 
+3. Defina `log4j.appender.RFA` o parâmetro como RollingFileAppender. 
 
-4. Desloque `log4j.appender.RFA.MaxFileSize` e `log4j.appender.RFA.MaxBackupIndex` da seguinte forma.
+4. Definir `log4j.appender.RFA.MaxFileSize` `log4j.appender.RFA.MaxBackupIndex` e os seguintes.
 
 ```
 log4jhive.log.maxfilesize=1024MB
@@ -58,7 +58,7 @@ log4j.appender.RFA.MaxBackupIndex=${log4jhive.log.maxbackupindex}
 log4j.appender.RFA.layout=org.apache.log4j.PatternLayout
 log4j.appender.RFA.layout.ConversionPattern=%d{ISO8601} %-5p [%t] %c{2}: %m%n
 ```
-5. Coloque `hive.root.logger` para `INFO,RFA` da seguinte forma. A definição predefinida é DEBUG, o que faz com que os registos se tornem muito grandes.
+5. Definir `hive.root.logger` `INFO,RFA` para o seguinte. A definição predefinida é DEBUG, o que faz com que os registos se tornem muito grandes.
 
 ```
 # Define some default values that can be overridden by system properties
@@ -70,7 +70,7 @@ hive.log.file=hive.log
 
 6. Guarde os configs e reinicie os componentes necessários.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

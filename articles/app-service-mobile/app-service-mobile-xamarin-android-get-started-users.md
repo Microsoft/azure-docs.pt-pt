@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: fa70b7419e1877ab2daba49ad154cdfd5a8d2cba
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458958"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicione a autenticação à sua aplicação Xamarin.Android
@@ -19,12 +19,12 @@ ms.locfileid: "77458958"
 ## <a name="overview"></a>Descrição geral
 Este tópico mostra como autenticar os utilizadores de uma Aplicação Móvel a partir da sua aplicação cliente. Neste tutorial, adiciona-se autenticação ao projeto quickstart utilizando um fornecedor de identidade que é apoiado pela Azure Mobile Apps. Depois de ter sido autenticado e autorizado com sucesso na Aplicação Móvel, o valor de ID do utilizador é apresentado.
 
-Este tutorial baseia-se no arranque rápido da Mobile App. Você também deve completar primeiro o tutorial [Crie uma aplicação Xamarin.Android]. Se não utilizar o projeto de servidor de arranque rápido descarregado, tem de adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre os pacotes de extensão do servidor, consulte [Trabalhar com o servidor de backend .NET SDK para Aplicações Móveis Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Este tutorial baseia-se no arranque rápido da Mobile App. Você também deve completar primeiro o tutorial [Criar uma aplicação Xamarin.Android]. Se não utilizar o projeto de servidor de arranque rápido descarregado, tem de adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre os pacotes de extensão do servidor, consulte [Trabalhar com o servidor de backend .NET SDK para Aplicações Móveis Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="register"></a>Registe a sua aplicação para autenticação e configure serviços de aplicações
+## <a name="register-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>Registe a sua aplicação para autenticação e configure serviços de aplicações
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adicione a sua aplicação aos URLs De Redirecionamento Externo Permitidos
 
 A autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isto permite que o sistema de autenticação redirecione para a sua aplicação uma vez concluído o processo de autenticação. Neste tutorial, usamos o _nome_ de aplicativo do esquema URL em toda a parte. No entanto, pode utilizar qualquer esquema de URL que escolha. Deve ser exclusivo da sua aplicação móvel. Para ativar a reorientação do lado do servidor:
 
@@ -38,14 +38,14 @@ A autenticação segura requer que defina um novo esquema de URL para a sua apli
 
 5. Clique em **Guardar**.
 
-## <a name="permissions"></a>Restringir permissões a utilizadores autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a utilizadores autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 No Visual Studio ou no Xamarin Studio, execute o projeto do cliente num dispositivo ou emulador. Verifique se uma exceção não tratada com um código de estado de 401 (Não autorizado) é levantada após o início da aplicação. Isto acontece porque a aplicação tenta aceder ao seu backend da Aplicação Móvel como um utilizador não autenticado. A tabela *TodoItem* requer agora a autenticação.
 
 Em seguida, irá atualizar a app do cliente para solicitar recursos do backend da Aplicação Móvel com um utilizador autenticado.
 
-## <a name="add-authentication"></a>Adicionar autenticação à app
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Adicionar autenticação à app
 A aplicação é atualizada para exigir que os utilizadores toquem no botão **'Sinal'** e autenticam antes de os dados forem apresentados.
 
 1. Adicione o seguinte código à classe **TodoActividade:**
@@ -106,7 +106,7 @@ A aplicação é atualizada para exigir que os utilizadores toquem no botão **'
 4. Adicione o seguinte elemento ao ficheiro de recursos Strings.xml:
    
         <string name="login_button_text">Sign in</string>
-5. Abra o ficheiro AndroidManifest.xml, adicione o seguinte código dentro `<application>` elemento XML:
+5. Abra o ficheiro AndroidManifest.xml, adicione `<application>` o seguinte código dentro do elemento XML:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
           <intent-filter>
@@ -121,7 +121,7 @@ A aplicação é atualizada para exigir que os utilizadores toquem no botão **'
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-**A aplicação despenhou-se com `Java.Lang.NoSuchMethodError: No static method startActivity`**
+**A aplicação bateu com`Java.Lang.NoSuchMethodError: No static method startActivity`**
 
 Em alguns casos, os conflitos nos pacotes de suporte apresentados como apenas um aviso no estúdio Visual, mas a aplicação falha com esta exceção no tempo de execução. Neste caso, tem de se certificar de que todos os pacotes de suporte referenciados no seu projeto têm a mesma versão. O [pacote NuGet de Aplicações Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tem dependência `Xamarin.Android.Support.CustomTabs` para a plataforma Android. Portanto, se o seu projeto utilizar os pacotes de suporte mais recentes, precisará de instalar diretamente este pacote com a versão necessária para evitar conflitos.
 

@@ -1,72 +1,71 @@
 ---
-title: Conectar-se à sua máquina virtual baseada em Microsoft Azure | Azure Marketplace
+title: Ligue-se à sua máquina virtual baseada no Microsoft Azure [ Mercado Azure
 description: Explica como se conectar à nova máquina virtual criada no Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
-ms.openlocfilehash: 3256115821abf5e81d04268ffd2eb310d213ab06
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: dsindona
+ms.openlocfilehash: 2b7eb6d321a64835254b684c8faeedc53645dffe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432012"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278063"
 ---
-# <a name="connect-to-your-azure-based-virtual-machine"></a>Conectar-se à sua máquina virtual baseada no Azure
+# <a name="connect-to-your-azure-based-virtual-machine"></a>Ligue-se à sua máquina virtual baseada em Azure
 
-Este artigo explica como se conectar e entrar nas máquinas virtuais (VMs) que você criou no Azure.  Depois de se conectar com êxito, você poderá trabalhar com a VM como se você tivesse feito logon localmente em seu servidor host. 
+Este artigo explica como se conectar e assinar nas máquinas virtuais (VMs) que criou no Azure.  Uma vez conectado com sucesso, pode trabalhar com o VM como se estivesse ligado localmente ao seu servidor anfitrião. 
 
-## <a name="connect-to-a-windows-based-vm"></a>Conectar-se a uma VM baseada no Windows
+## <a name="connect-to-a-windows-based-vm"></a>Ligue-se a um VM baseado no Windows
 
-Você usará o cliente de área de trabalho remota para se conectar à VM baseada em Windows hospedada no Azure.  A maioria das versões do Windows nativamente contêm suporte para o protocolo RDP (área de trabalho remota).  Para outros computadores, você pode encontrar mais informações sobre clientes em [clientes área de trabalho remota](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
+Utilizará o cliente remoto de desktop para se ligar ao VM baseado no Windows hospedado no Azure.  A maioria das versões do Windows contêm suporte para o protocolo remoto de desktop (RDP).  Para outras máquinas, pode encontrar mais informações sobre clientes em [clientes do Remote Desktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-O artigo a seguir fornece detalhes sobre como usar o suporte interno do Windows RDP para se conectar à sua VM: [como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](../../../virtual-machines/windows/connect-logon.md).  
+O seguinte artigo detalha como utilizar o suporte rdp do Windows incorporado para se ligar ao seu VM: [Como ligar e iniciar sessão a uma máquina virtual Azure que executa](../../../virtual-machines/windows/connect-logon.md)o Windows .  
 
 >[!TIP]
-> Você pode receber avisos de segurança durante o processo, por exemplo, que o arquivo. rdp é de um editor desconhecido ou que suas credenciais de usuário não podem ser verificadas.  É seguro ignorar esses avisos.
+> Pode obter avisos de segurança durante o processo, por exemplo, que o ficheiro .rdp é de um editor desconhecido ou que as suas credenciais de utilizador não podem ser verificadas.  É seguro ignorar estes avisos.
 
 
-## <a name="connect-to-a-linux-based-vm"></a>Conectar-se a uma VM baseada em Linux
+## <a name="connect-to-a-linux-based-vm"></a>Ligue-se a um VM baseado em Linux
 
-Para conectar a VM baseada em Linux, você precisa de um cliente SSH (Secure Shell Protocol).  Esta discussão usará o terminal [shh de](https://www.ssh.com/ssh/putty/) saída gratuito.
+Para ligar o VM baseado em Linux, precisa de um cliente seguro de protocolo de concha (SSH).  Esta discussão utilizará o terminal [PuTTY](https://www.ssh.com/ssh/putty/) SHH gratuito.
 
-1. Aceda ao [Portal do Azure](https://ms.portal.azure.com). Pesquise e selecione **máquinas virtuais**. 
-2. Selecione a VM à qual você deseja se conectar.  
-3. **Inicie** a VM se ela ainda não estiver em execução.
-4. Clique no nome da VM para abrir sua página de **visão geral** .
-5. Anote o endereço IP público e o nome DNS da sua VM.  (Se esses valores não estiverem definidos, você deverá [criar uma interface de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
+1. Vá ao [portal Azure.](https://ms.portal.azure.com) Procure e selecione **máquinas Virtuais**. 
+2. Selecione o VM a que pretende ligar.  
+3. **Inicie** o VM se ainda não estiver em funcionamento.
+4. Clique no nome do VM para abrir a sua página **de visão geral.**
+5. Note o endereço IP público e o nome DNS do seu VM.  (Se estes valores não estiverem definidos, então deve [criar uma interface de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
 
-   ![Configurações de visão geral da VM](./media/publishvm_019.png)
+   ![Definições de visão geral vm](./media/publishvm_019.png)
  
-6. Abra o aplicativo de saída.  
-7. Na caixa de diálogo configuração de saída, insira o endereço IP ou o nome DNS da sua VM. 
+6. Abra a aplicação PuTTY.  
+7. No diálogo de configuração PuTTY, introduza o endereço IP ou o nome DNS do seu VM. 
 
-   ![Configurações de terminal de saída](./media/publishvm_020.png)
+   ![Definições de terminais PuTTY](./media/publishvm_020.png)
  
-8. Clique em **abrir** para abrir um terminal de reemitida.  
-9. Quando for solicitado, insira o nome da conta e a senha da sua conta da VM do Linux. 
+8. Clique **em Abrir** para abrir um terminal PuTTY.  
+9. Quando for solicitado, introduza o nome da conta e a palavra-passe da sua conta VM Linux. 
 
-Se você estiver tendo problemas de conexão, consulte a documentação do cliente SSH, por exemplo, [capítulo 10: mensagens de erro comuns](https://www.ssh.com/ssh/putty/putty-manuals).
+Se tiver problemas de ligação, consulte a documentação para o seu cliente SSH, por exemplo [capítulo 10: Mensagens](https://www.ssh.com/ssh/putty/putty-manuals)de erro comuns .
 
-Para obter mais informações, incluindo como adicionar uma área de trabalho a uma VM do Linux provisionada, consulte [instalar e configurar o área de trabalho remota para se conectar a uma VM do Linux no Azure](../../../virtual-machines/linux/use-remote-desktop.md).
+Para mais informações, incluindo como adicionar um ambiente de trabalho a um VM Linux provisionado, consulte Instalar e configurar o [Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 
 
-## <a name="stop-unused-vms"></a>Parar VMs não utilizadas
-O Azure cobra pela hospedagem de VM quando uma VM está em execução *ou ociosa*.  Como tal, é uma prática recomendada parar as VMs que não estão sendo usadas no momento.  Por exemplo, as VMs de teste, backup ou desativadas são candidatas para desligamento. Para desligar uma VM, conclua as seguintes etapas:
+## <a name="stop-unused-vms"></a>Parem vMs não utilizados
+Contas azure para vm hospedagem quando um VM está em execução *ou inativo*.  Como tal, é melhor parar vMs que não estão sendo usados atualmente.  Por exemplo, os VMs de teste, de reserva ou aposentados são candidatos à paralisação. Para desligar um VM, complete os seguintes passos:
 
-1. Na folha **máquinas virtuais** , selecione a VM que você deseja parar. 
-2. Na barra de ferramentas próxima à parte superior da página, clique no botão **parar** .
+1. Na lâmina das **máquinas Virtuais,** selecione o VM que pretende parar. 
+2. Na barra de ferramentas perto da parte superior da página, clique no botão **Stop.**
 
    ![Parar uma VM](./media/publishvm_018.png)
 
-O Azure interrompe rapidamente a VM em um processo chamado *desalocação*, que não apenas desliga o sistema operacional na VM, mas também libera os recursos de hardware e rede provisionados anteriormente para ele.
+O Azure rapidamente para o VM num processo chamado *dedelocação*, que não só desliga o sistema operativo no VM, como também liberta os recursos de hardware e rede anteriormente previstos para o mesmo.
 
-Se você quiser reativar mais tarde uma VM parada, selecione-a e clique no botão **Iniciar** .
+Se pretender reativar mais tarde um VM parado, selecione-o e clique no botão **Iniciar.**
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois que você estiver conectado remotamente, você estará pronto para [configurar sua VM](./cpp-configure-vm.md).
+Depois de estar ligado remotamente, está pronto para [configurar o seu VM](./cpp-configure-vm.md).

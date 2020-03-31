@@ -1,6 +1,6 @@
 ---
-title: Mapeamentos de espaço de trabalho de automação e Log Analytics do Azure
-description: Este artigo descreve os mapeamentos permitidos entre uma conta de automação e um Log Analytics espaço de trabalho para dar suporte à solução
+title: Mapeamentos do espaço de trabalho Azure Automation e Log Analytics
+description: Este artigo descreve os mapeamentos permitidos entre uma Conta de Automação e um Espaço de Trabalho de Log Analytics para apoiar a solução
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -10,83 +10,83 @@ ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 965d6b206bb64e90fe59798ce0c37ccf029117f5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849518"
 ---
-# <a name="workspace-mappings"></a>Mapeamentos de espaço de trabalho
+# <a name="workspace-mappings"></a>Mapeamentos de áreas de trabalho
 
-Ao habilitar soluções como Gerenciamento de Atualizações, Controle de Alterações e inventário ou a solução de Iniciar/Parar VMs fora do horário comercial, somente determinadas regiões têm suporte para vincular um espaço de trabalho Log Analytics e uma conta de automação. Esse mapeamento só se aplica à conta de automação e ao espaço de trabalho Log Analytics. Os recursos que se reportam à sua conta de automação ou Log Analytics espaço de trabalho podem residir em outras regiões.
+Ao permitir soluções como Gestão de Atualizações, Rastreio de Alterações e Inventário, ou os VMs de início/paragem durante a solução off-hours, apenas certas regiões são suportadas para ligar um espaço de trabalho de Log Analytics e uma Conta de Automação. Este mapeamento aplica-se apenas à Conta de Automação e ao espaço de trabalho do Log Analytics. Os recursos que reportam à sua Conta de Automação ou log Analytics podem residir noutras regiões.
 
-## <a name="supported-mappings"></a>Mapeamentos com suporte
+## <a name="supported-mappings"></a>Mapeamentos suportados
 
-A tabela a seguir mostra os mapeamentos com suporte:
+A tabela seguinte mostra os mapeamentos suportados:
 
-|**Região do espaço de trabalho Log Analytics**|**Região de automação do Azure**|
+|**Região do Espaço de Trabalho de Log Analytics**|**Região de Automação Azure**|
 |---|---|
 |**EUA**||
 |EastUS<sup>1</sup>|EastUS2|
 |WestUS2|WestUS2|
 |WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |**Canadá**||
-|CanadaCentral|CanadaCentral|
+|CanadáCentral|CanadáCentral|
 |**Ásia-Pacífico**||
-|AustraliaSoutheast|AustraliaSoutheast|
-|SoutheastAsia|SoutheastAsia|
-|CentralIndia|CentralIndia|
-|JapanEast|JapanEast|
+|AustráliaSoutheast|AustráliaSoutheast|
+|Sudeste asiático|Sudeste asiático|
+|Índia Central|Índia Central|
+|JapãoEast|JapãoEast|
 |**Europa**||
 |UKSouth|UKSouth|
 |Europa Ocidental|Europa Ocidental|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 
-<sup>1</sup> o mapeamento de lesteus para log Analytics espaços de trabalho a contas de automação não é uma região exata para o mapeamento de região, mas é o mapeamento correto.
+<sup>1 O</sup> mapeamento eastus para espaços de trabalho de Log Analytics para Contas de Automação não é uma região exata para mapeamento da região, mas é o mapeamento correto.
 
-<sup>2</sup> devido a restrições de capacidade, a região não está disponível durante a criação de novos recursos. Isso inclui contas de automação e espaços de trabalho do Log Analytics. No entanto, os recursos vinculados preexistentes na região devem continuar funcionando.
+<sup>2</sup> Devido às restrições de capacidade, a região não está disponível na criação de novos recursos. Isto inclui Contas de Automação e espaços de trabalho de Log Analytics. No entanto, os recursos pré-existentes ligados na região devem continuar a funcionar.
 
-## <a name="unlink-workspace"></a>Desvincular espaço de trabalho
+## <a name="unlink-workspace"></a>Unlink workspace (Desassociar a área de trabalho)
 
-Se você decidir que não deseja mais integrar sua conta de automação a um espaço de trabalho Log Analytics, você poderá desvincular sua conta diretamente da portal do Azure. Antes de prosseguir, primeiro você precisa remover as Gerenciamento de Atualizações, Controle de Alterações e inventário, ou as soluções de Iniciar/Parar VMs fora do horário comercial se você as estiver usando. Se você não removê-los, esse processo será impedido de continuar. Examine o artigo para a solução específica que você importou para entender as etapas necessárias para removê-lo.
+Se decidir que já não pretende integrar a sua conta de Automação com um espaço de trabalho de Log Analytics, pode desvincular a sua conta diretamente do portal Azure. Antes de prosseguir, primeiro tem de remover a Gestão de Atualizações, o Rastreio de Alterações e o Inventário, ou os VMs de início/paragem durante as soluções fora de horas, se estiver a utilizá-los. Se não os retirar, este processo será impedido de prosseguir. Reveja o artigo para a solução específica que importou para compreender os passos necessários para removê-lo.
 
-Depois de remover essas soluções, você pode executar as etapas a seguir para desvincular sua conta de automação.
+Depois de remover estas soluções, pode executar os seguintes passos para desligar a sua conta Desvinculação da Automatização.
 
 > [!NOTE]
-> Algumas soluções que incluem versões anteriores da solução de monitoramento do SQL Azure podem ter criado ativos de automação e também podem precisar ser removidas antes de desvincular o espaço de trabalho.
+> Algumas soluções, incluindo versões anteriores da solução de monitorização Azure SQL, podem ter criado ativos de automação e podem também ter de ser removidas antes de desvincular o espaço de trabalho.
 
-1. No portal do Azure, abra sua conta de automação e, na página conta de automação, selecione **espaço de trabalho vinculado** na seção **recursos relacionados** à esquerda.
+1. A partir do portal Azure, abra a sua conta de Automação e na página da conta Automation selecione **Linked workspace** sob a secção **Recursos Relacionados** à esquerda.
 
-2. Na página desvincular espaço de trabalho, clique em **desvincular espaço de trabalho**. Você receberá uma solicitação verificando se deseja continuar.
+2. Na página de espaço de trabalho Unlink, clique em **Unlink espaço de trabalho**. Receberá uma solicitação de verificação que deseja continuar.
 
-3. Embora a automação do Azure tente desvincular a conta do seu espaço de trabalho Log Analytics, você pode acompanhar o progresso em **notificações** no menu.
+3. Enquanto a Azure Automation tenta desvincular a conta do seu espaço de trabalho Log Analytics, pode acompanhar o progresso em **Notificações** do menu.
 
-Se você usou a solução Gerenciamento de Atualizações, opcionalmente, talvez queira remover os itens a seguir que não são mais necessários após a remoção da solução.
+Se utilizou a solução De Gestão de Atualizações, opcionalmente poderá querer remover os seguintes itens que já não são necessários depois de remover a solução.
 
-* Atualizar agendas-cada uma terá nomes que correspondam às implantações de atualização que você criou)
+* Horários de atualização - Cada um terá nomes que correspondam às implementações de atualizações que criou)
 
-* Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`).
+* Grupos de trabalhadores híbridos criados para `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`a solução - Cada um será nomeado da mesma forma).
 
-Se você usou a solução Iniciar/Parar VMs fora do horário comercial, opcionalmente, talvez queira remover os itens a seguir que não são mais necessários após a remoção da solução.
+Se utilizou os VMs iniciar/parar durante a solução off-hours, opcionalmente poderá querer remover os seguintes itens que já não são necessários depois de remover a solução.
 
-* Iniciar e parar agendas de runbook de VM
-* Iniciar e parar runbooks de VM
+* Iniciar e parar os horários do livro de corridas vM
+* Iniciar e parar livros de execução VM
 * Variáveis
 
-Como alternativa, você também pode desvincular seu espaço de trabalho de sua conta de automação de seu espaço de trabalho Log Analytics. Em seu espaço de trabalho, selecione **conta de automação** em **recursos relacionados**. Na página conta de automação, selecione **desvincular conta**.
+Em alternativa, também pode desligar o seu espaço de trabalho a partir da sua Conta de Automação a partir do seu espaço de trabalho Log Analytics. No seu espaço de trabalho, selecione **Conta de Automação** em **Recursos Relacionados.** Na página da Conta de Automação, selecione **Conta Unlink**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como carregar as seguintes soluções:
+Saiba como embarcar nas seguintes soluções:
 
-Gerenciamento de Atualizações e Controle de Alterações e inventário:
+Gestão de Atualizações e Rastreio de Alterações e Inventário:
 
 * De uma [máquina virtual](../automation-onboard-solutions-from-vm.md)
-* Da sua [conta de automação](../automation-onboard-solutions-from-automation-account.md)
-* Ao [procurar vários computadores](../automation-onboard-solutions-from-browse.md)
-* De um [runbook](../automation-onboard-solutions.md)
+* Da sua [conta de Automação](../automation-onboard-solutions-from-automation-account.md)
+* Ao [navegar em várias máquinas](../automation-onboard-solutions-from-browse.md)
+* De um [livro de corridas](../automation-onboard-solutions.md)
 
 Iniciar/Parar VMs durante horas de inatividade
 
-* [Implantar Iniciar/Parar VMs fora do horário comercial](../automation-solution-vm-management.md)
+* [Implementar VMs start/stop durante o horário de folga](../automation-solution-vm-management.md)

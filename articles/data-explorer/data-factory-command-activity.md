@@ -1,6 +1,6 @@
 ---
-title: Usar os comandos do controle de Data Explorer do Azure no Azure Data Factory
-description: Neste tópico, use os comandos do controle de Data Explorer do Azure no Azure Data Factory
+title: Utilize comandos de controlo do Explorador de Dados Azure na Fábrica de Dados Azure
+description: Neste tópico, utilize comandos de controlo do Azure Data Explorer na Azure Data Factory
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -9,89 +9,89 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72264484"
 ---
-# <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Usar Azure Data Factory atividade de comando para executar comandos do controle de Data Explorer do Azure
+# <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Utilize a atividade de comando da Azure Data Factory para executar comandos de controlo do Explorador de Dados Do Azure
 
-[Azure data Factory](/azure/data-factory/) (ADF) é um serviço de integração de dados baseado em nuvem que permite executar uma combinação de atividades nos dados. Use o ADF para criar fluxos de trabalho orientados a dados para orquestrar e automatizar a movimentação de dados e a transformação de dados. A atividade de **comando do data Explorer do Azure** no Azure data Factory permite que você execute [comandos do controle de data Explorer do Azure](/azure/kusto/concepts/#control-commands) em um fluxo de trabalho do ADF. Este artigo ensina como criar um pipeline com uma atividade de pesquisa e uma atividade ForEach que contém uma atividade de comando do Azure Data Explorer.
+[A Azure Data Factory](/azure/data-factory/) (ADF) é um serviço de integração de dados baseado na nuvem que permite realizar uma combinação de atividades nos dados. Utilize a ADF para criar fluxos de trabalho baseados em dados para orquestrar e automatizar o movimento de dados e a transformação de dados. A atividade do Comando do Explorador de **Dados Azure** na Azure Data Factory permite-lhe executar comandos de controlo do Explorador de [Dados Azure](/azure/kusto/concepts/#control-commands) dentro de um fluxo de trabalho ADF. Este artigo ensina-o a criar um pipeline com uma atividade de procuração e atividade ForEach contendo uma atividade de comando Azure Data Explorer.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Um cluster de Data Explorer do Azure e um banco de dados](create-cluster-database-portal.md)
+* [Um cluster azure data explorer e base de dados](create-cluster-database-portal.md)
 * Uma fonte de dados.
-* [Um data factory](data-factory-load-data.md#create-a-data-factory)
+* [Uma fábrica de dados](data-factory-load-data.md#create-a-data-factory)
 
-## <a name="create-a-new-pipeline"></a>Criar um novo pipeline
+## <a name="create-a-new-pipeline"></a>Criar um novo oleoduto
 
-1. Selecione a ferramenta **criar** lápis. 
-1. Crie um novo pipeline selecionando **+** e, em seguida, selecione **pipeline** na lista suspensa.
+1. Selecione a ferramenta de lápis **Autor.** 
+1. Crie um novo **+** oleoduto selecionando e selecione **pipeline** a partir da queda para baixo.
 
-   ![criar novo pipeline](media/data-factory-command-activity/create-pipeline.png)
+   ![criar novo oleoduto](media/data-factory-command-activity/create-pipeline.png)
 
-## <a name="create-a-lookup-activity"></a>Criar uma atividade de pesquisa
+## <a name="create-a-lookup-activity"></a>Criar uma atividade de lookup
 
-Uma [atividade de pesquisa](/azure/data-factory/control-flow-lookup-activity) pode recuperar um conjunto de dados de qualquer fonte de dado com suporte Azure data Factory. A saída da atividade de pesquisa pode ser usada em um ForEach ou outra atividade.
+Uma [atividade de procuração](/azure/data-factory/control-flow-lookup-activity) pode recuperar um conjunto de dados de quaisquer fontes de dados apoiadas pela Azure Data Factory. A saída da atividade lookup pode ser usada numa atividade ForEach ou outra.
 
-1. No painel **atividades** , em **geral**, selecione a atividade de **pesquisa** . Arraste e solte-o na tela principal à direita.
+1. No painel **de Atividades,** em **Geral,** selecione a atividade **de Lookup.** Arraste e jogue na tela principal à direita.
  
-    ![selecionar atividade de pesquisa](media/data-factory-command-activity/select-activity.png)
+    ![selecionar atividade de procura](media/data-factory-command-activity/select-activity.png)
 
-1. A tela agora contém a atividade de pesquisa que você criou. Use as guias abaixo da tela para alterar os parâmetros relevantes. Em **geral**, renomeie a atividade. 
+1. A tela agora contém a atividade de procuração que criou. Utilize os separadores abaixo da lona para alterar os parâmetros relevantes. Em **geral,** mude o nome da atividade. 
 
-    ![editar atividade de pesquisa](media/data-factory-command-activity/edit-lookup-activity.PNG)
+    ![editar atividade de lookup](media/data-factory-command-activity/edit-lookup-activity.PNG)
 
     > [!TIP]
-    > Clique na área de tela vazia para exibir as propriedades do pipeline. Use a guia **geral** para renomear o pipeline. Nosso pipeline é denominado *pipeline-4-docs*.
+    > Clique na área de lona vazia para ver as propriedades do gasoduto. Utilize o separador **Geral** para renomear o gasoduto. O nosso oleoduto *chama-se pipeline-4-docs.*
 
-### <a name="create-an-azure-data-explorer-dataset-in-lookup-activity"></a>Criar um conjunto de Data Explorer do Azure na atividade de pesquisa
+### <a name="create-an-azure-data-explorer-dataset-in-lookup-activity"></a>Criar um conjunto de dados do Azure Data Explorer na atividade de procuração
 
-1. Em **configurações**, selecione o conjunto de data Explorer de **origem**do Azure criado previamente ou selecione **+ novo** para criar um novo conjunto de um.
+1. Em **Definições,** selecione o conjunto de **dados**de Origem do Explorador de Dados do Azure pré-criado, ou selecione **+ Novo** para criar um novo conjunto de dados.
  
-    ![Adicionar conjunto de conjuntos nas configurações de pesquisa](media/data-factory-command-activity/lookup-settings.png)
+    ![adicionar conjunto de dados em definições de procuração](media/data-factory-command-activity/lookup-settings.png)
 
-1. Selecione o conjunto de **Kusto (Azure data Explorer)** DataSet na **nova janela DataSet** . Selecione **continuar** para adicionar o novo conjunto de um.
+1. Selecione o conjunto de dados **do Azure Data Explorer (Kusto)** a partir da nova janela **dataset.** Selecione **Continuar** a adicionar o novo conjunto de dados.
 
-   ![Selecionar novo conjunto de novos](media/data-factory-command-activity/select-new-dataset.png) 
+   ![selecionar novo conjunto de dados](media/data-factory-command-activity/select-new-dataset.png) 
 
-1. Os novos parâmetros do conjunto de Data Explorer do Azure são visíveis nas **configurações**. Para atualizar os parâmetros, selecione **Editar**.
+1. Os novos parâmetros de conjunto de dados do Explorador de Dados Azure são visíveis em **Definições**. Para atualizar os parâmetros, **selecione Editar**.
 
-    ![configurações de pesquisa com o conjunto de Data Explorer do Azure](media/data-factory-command-activity/lookup-settings-with-adx-dataset.png)
+    ![configurações de procura com conjunto de dados do Explorador de Dados Do Azure](media/data-factory-command-activity/lookup-settings-with-adx-dataset.png)
 
-1. A nova guia **AzureDataExplorerTable** é aberta na tela principal. 
-    * Selecione **geral** e edite o nome do conjunto de um. 
-    * Selecione **conexão** para editar as propriedades do conjunto de os. 
-    * Selecione o **serviço vinculado** na lista suspensa ou selecione **+ novo** para criar um novo serviço vinculado.
+1. O novo separador **AzureDataExplorerTable** abre na tela principal. 
+    * Selecione **General** e edite o nome do conjunto de dados. 
+    * Selecione **Ligação** para editar as propriedades do conjunto de dados. 
+    * Selecione o **serviço Linked** a partir do drop-down, ou selecione **+ Novo** para criar um novo serviço ligado.
 
-    ![Editar propriedades do conjunto de Data Explorer do Azure](media/data-factory-command-activity/adx-dataset-properties-edit-connections.png)
+    ![Editar propriedades do dataset do Explorador de Dados do Azure](media/data-factory-command-activity/adx-dataset-properties-edit-connections.png)
 
-1. Ao criar um novo serviço vinculado, a página **novo serviço vinculado (Azure data Explorer)** é aberta:
+1. Ao criar um novo serviço ligado, abre a página New **Linked Service (Azure Data Explorer):**
 
-    ![ADX novo serviço vinculado](media/data-factory-command-activity/adx-new-linked-service.png)
+    ![Novo serviço ligado a ADX](media/data-factory-command-activity/adx-new-linked-service.png)
 
-   * Selecione o **nome** do serviço vinculado do Azure data Explorer. Adicione uma **Descrição** , se necessário.
-   * Em **conectar por meio do Integration Runtime**, altere as configurações atuais, se necessário. 
-   * Em **método de seleção de conta** , selecione o cluster usando um dos dois métodos: 
-        * Selecione o botão **de opção assinatura do Azure** e selecione sua conta de **assinatura do Azure** . Em seguida, selecione o **cluster**. Observe que o menu suspenso listará apenas os clusters que pertencem ao usuário.
-        * Em vez disso, selecione Inserir botão de opção **manualmente** e insira seu **ponto de extremidade** (URL do cluster).
-    * Especifique o **locatário**.
-    * Insira a **ID da entidade de serviço**. A ID da entidade de segurança deve ter as permissões adequadas, de acordo com o nível de permissão exigido pelo comando que está sendo usado.
-    * Selecione o botão **chave da entidade de serviço** e insira a chave da entidade de **serviço**.
-    * Selecione seu **banco de dados** no menu suspenso. Como alternativa, marque a caixa de seleção **Editar** e insira o nome do banco de dados.
-    * Selecione **testar conexão** para testar a conexão de serviço vinculado que você criou. Se você puder se conectar à sua configuração, uma marca de seleção verde **com êxito** será exibida.
-    * Selecione **concluir** para concluir a criação do serviço vinculado.
+   * Selecione **Nome** para serviço ligado ao Explorador de Dados Azure. Adicione **descrição,** se necessário.
+   * No Connect através do tempo de execução da **integração,** altere as definições atuais, se necessário. 
+   * No método de **seleção de Conta** selecione o seu cluster utilizando um de dois métodos: 
+        * Selecione o botão de rádio de **subscrição Da Azure** e selecione a sua conta de **subscrição Azure.** Em seguida, selecione o seu **Cluster**. Note que a queda apenas listará clusters que pertencem ao utilizador.
+        * Em vez disso, selecione **Introduza manualmente** o botão de rádio e introduza o seu **ponto final** (URL de cluster).
+    * Especifique o **Inquilino**.
+    * Introduza **o ID principal do serviço**. O ID principal deve ter as permissões adequadas, de acordo com o nível de permissão exigido pelo comando que está a ser utilizado.
+    * Selecione o botão principal do **serviço** e introduza **a chave principal do serviço**.
+    * Selecione a sua **Base de Dados** no menu suspenso. Em alternativa, selecione **Editar** caixa de verificação e insira o nome da sua base de dados.
+    * Selecione **Test Connection** para testar a ligação de serviço ligada que criou. Se conseguir ligar-se à sua configuração, aparecerá uma **ligação** de marca verde de marca de verificação.
+    * Selecione **Terminar** para completar a criação de serviço ligado.
 
-1. Depois de configurar um serviço vinculado, na**conexão**do **AzureDataExplorerTable** > , adicione o nome da **tabela** . Selecione **Visualizar dados**para certificar-se de que os dados são apresentados corretamente.
+1. Assim que tiver configurado um serviço ligado, in **AzureDataExplorerTable** > **Connection,** adicione o nome da **tabela.** Selecione **dados de Pré-visualização,** para se certificar de que os dados são apresentados corretamente.
 
-   O conjunto de seus conjuntos de seus agora está pronto e você pode continuar editando seu pipeline.
+   O seu conjunto de dados está agora pronto e pode continuar a editar o seu pipeline.
 
-### <a name="add-a-query-to-your-lookup-activity"></a>Adicionar uma consulta à sua atividade de pesquisa
+### <a name="add-a-query-to-your-lookup-activity"></a>Adicione uma consulta à sua atividade de procuração
 
-1. No **pipeline-4-docs** > **configurações** , adicione uma consulta na caixa de texto de **consulta** , por exemplo:
+1. Em **pipeline-4-docs** > **As definições** adicionam uma consulta na caixa de texto **Consulta,** por exemplo:
 
     ```kusto
     ClusterQueries
@@ -99,39 +99,39 @@ Uma [atividade de pesquisa](/azure/data-factory/control-flow-lookup-activity) po
     | summarize count() by Database
     ```
 
-1. Altere as propriedades **tempo limite da consulta** ou **nenhuma truncamento** e **primeira linha** , conforme necessário. Nesse fluxo, mantemos o **tempo limite de consulta** padrão e desmarcamos as caixas de seleção. 
+1. Altere o tempo de intervalo de **consulta** ou **Sem truncação** e propriedades apenas de **primeira linha,** conforme necessário. Neste fluxo, mantemos o tempo de **consulta** padrão e desverificamos as caixas de verificação. 
 
-    ![Configurações finais da atividade de pesquisa](media/data-factory-command-activity/lookup-activity-final-settings.png)
+    ![Configurações finais da atividade de lookup](media/data-factory-command-activity/lookup-activity-final-settings.png)
 
-## <a name="create-a-for-each-activity"></a>Criar uma atividade for-each 
+## <a name="create-a-for-each-activity"></a>Criar uma atividade For-Each 
 
-A atividade [for-each](/azure/data-factory/control-flow-for-each-activity) é usada para iterar em uma coleção e executar atividades especificadas em um loop. 
+A atividade [For-Each](/azure/data-factory/control-flow-for-each-activity) é utilizada para iterar sobre uma coleção e executar atividades especificadas em loop. 
 
-1. Agora você adiciona uma atividade for-each ao pipeline. Essa atividade processará os dados retornados da atividade de pesquisa. 
-    * No painel **atividades** , em **iteração & condicionais**, selecione a atividade **foreach** e arraste-a e solte-a na tela.
-    * Desenhe uma linha entre a saída da atividade de pesquisa e a entrada da atividade ForEach na tela para conectá-las.
+1. Agora adicione uma atividade For-Each ao oleoduto. Esta atividade irá processar os dados devolvidos da atividade de Lookup. 
+    * No painel **de Atividades,** sob **iteração & Condicionales,** selecione a atividade **ForEach** e arraste-a e deixe-a cair na tela.
+    * Desenhe uma linha entre a saída da atividade Lookup e a entrada da atividade ForEach na tela para as ligar.
 
         ![Atividade ForEach](media/data-factory-command-activity/for-each-activity.png)
 
-1.  Selecione a atividade ForEach na tela. Na guia **configurações** abaixo:
-    * Marque a caixa de seleção **sequencial** para um processamento sequencial dos resultados da pesquisa ou deixe-a desmarcada para criar processamento paralelo.
-    * Definir **contagem de lote**.
-    * Em **itens**, forneça a seguinte referência para o valor de saída: *@activity (' Lookup1 '). Output. Value*
+1.  Selecione a atividade ForEach na tela. No separador **Definições** abaixo:
+    * Verifique a caixa de verificação **sequencial** para obter um processamento sequencial dos resultados do Lookup ou deixe-a desmarcada para criar um processamento paralelo.
+    * Definir **a contagem de lote**.
+    * Em **itens,** forneça a seguinte referência ao valor de saída: * @activity('Lookup1').output.value*
 
        ![Definições da atividade ForEach](media/data-factory-command-activity/for-each-activity-settings.png)
 
-## <a name="create-an-azure-data-explorer-command-activity-within-the-foreach-activity"></a>Criar uma atividade de comando de Data Explorer do Azure dentro da atividade ForEach
+## <a name="create-an-azure-data-explorer-command-activity-within-the-foreach-activity"></a>Criar uma atividade de Comando do Explorador de Dados Azure dentro da atividade ForEach
 
-1. Clique duas vezes na atividade ForEach na tela para abri-la em uma nova tela para especificar as atividades em ForEach.
-1. No painel **atividades** , em **Data Explorer do Azure**, selecione a atividade de **comando do data Explorer do Azure** e arraste-a e solte-a na tela.
+1. Clique duas vezes na atividade ForEach na tela para abri-la numa nova tela para especificar as atividades dentro do ForEach.
+1. No painel **de Atividades,** no **Azure Data Explorer,** selecione a atividade do Comando do Explorador de **Dados Azure** e arraste-a e deixe-a cair na tela.
 
-    ![Atividade de comando do Data Explorer do Azure](media/data-factory-command-activity/adx-command-activity.png)
+    ![Atividade de comando do Explorador de Dados Azure](media/data-factory-command-activity/adx-command-activity.png)
 
-1.  Na guia **conexão** , selecione o mesmo serviço vinculado criado anteriormente.
+1.  No separador **Ligação,** selecione o mesmo Serviço Linked anteriormente criado.
 
-    ![guia conexão de atividade de comando do Azure data Explorer](media/data-factory-command-activity/adx-command-activity-connection-tab.png)
+    ![separador de ligação de atividade de comando do explorador de dados azure](media/data-factory-command-activity/adx-command-activity-connection-tab.png)
 
-1. Na guia **comando** , forneça o seguinte comando:
+1. No separador **Comando,** forneça o seguinte comando:
 
     ```kusto
     .export
@@ -143,34 +143,34 @@ A atividade [for-each](/azure/data-factory/control-flow-for-each-activity) é us
     <| ClusterQueries | where Database == "@{item().Database}"
     ```
 
-    O **comando** instrui o Azure data Explorer a exportar os resultados de uma determinada consulta para um armazenamento de BLOBs, em um formato compactado. Ele é executado de forma assíncrona (usando o modificador assíncrono).
-    A consulta aborda a coluna de banco de dados de cada linha no resultado da atividade de pesquisa. O **tempo limite do comando** pode ser deixado inalterado.
+    O **Comando** instrui o Azure Data Explorer a exportar os resultados de uma determinada consulta para um armazenamento de bolhas, num formato comprimido. Funciona assíncronamente (utilizando o modificador assinizador).
+    A consulta aborda a coluna de base de dados de cada linha no resultado da atividade do Lookup. O **tempo de tempo** do Comando pode ficar inalterado.
 
     ![atividade de comando](media/data-factory-command-activity/command.png)   
 
     > [!NOTE]
     > A atividade de comando tem os seguintes limites:
-    > * Limite de tamanho: tamanho de resposta de 1 MB
-    > * Limite de tempo: 20 minutos (padrão), 1 hora (máximo).
-    > * Se necessário, você pode acrescentar uma consulta ao resultado usando [AdminThenQuery](/azure/kusto/management/index#combining-queries-and-control-commands)para reduzir o tamanho/tempo resultante.
+    > * Limite de tamanho: 1 TAMANHO DE Resposta MB
+    > * Limite de tempo: 20 minutos (predefinido), 1 hora (máximo).
+    > * Se necessário, pode anexar uma consulta ao resultado utilizando [a AdminThenQuery,](/azure/kusto/management/index#combining-queries-and-control-commands)para reduzir o tamanho/tempo resultantes.
 
-1.  Agora o pipeline está pronto. Você pode voltar para o modo de exibição de pipeline principal clicando no nome do pipeline.
+1.  Agora o oleoduto está pronto. Pode voltar à vista principal do oleoduto clicando no nome do pipeline.
 
-    ![Pipeline de comando do Azure Data Explorer](media/data-factory-command-activity/adx-command-pipeline.png)
+    ![Oleoduto de comando Azure Data Explorer](media/data-factory-command-activity/adx-command-pipeline.png)
 
-1. Selecione **depurar** antes de publicar o pipeline. O progresso do pipeline pode ser monitorado na guia **saída** .
+1. Selecione **Debug** antes de publicar o gasoduto. O progresso do gasoduto pode ser monitorizado no separador **Saída.**
 
-    ![saída da atividade de comando do Azure data Explorer](media/data-factory-command-activity/command-activity-output.png)
+    ![saída de atividade de comando explorador de dados azure](media/data-factory-command-activity/command-activity-output.png)
 
-1. Você pode **publicar tudo** e, em seguida, **Adicionar o gatilho** para executar o pipeline. 
+1. Pode **publicar Tudo** **e,** em seguida, adicionar gatilho para executar o gasoduto. 
 
-## <a name="control-command-outputs"></a>Saídas de comando de controle
+## <a name="control-command-outputs"></a>Controlar saídas de comando
 
-A estrutura da saída da atividade de comando é detalhada abaixo. Essa saída pode ser usada pela próxima atividade no pipeline.
+A estrutura da saída da atividade de comando é detalhada abaixo. Esta saída pode ser utilizada pela próxima atividade no gasoduto.
 
-### <a name="returned-value-of-a-non-async-control-command"></a>Valor retornado de um comando de controle não assíncrono
+### <a name="returned-value-of-a-non-async-control-command"></a>Valor devolvido de um comando de controlo não assinásino
 
-Em um comando de controle não assíncrono, a estrutura do valor retornado é semelhante à estrutura do resultado da atividade de pesquisa. O campo `count` indica o número de registros retornados. Um campo de matriz fixo `value` contém uma lista de registros. 
+Num comando de controlo não assinizado, a estrutura do valor devolvido é semelhante à estrutura do resultado da atividade de Lookup. O `count` campo indica o número de registos devolvidos. Um campo `value` de matriz fixo contém uma lista de registos. 
 
 ```json
 { 
@@ -190,9 +190,9 @@ Em um comando de controle não assíncrono, a estrutura do valor retornado é se
 } 
 ```
  
-### <a name="returned-value-of-an-async-control-command"></a>Valor retornado de um comando de controle assíncrono
+### <a name="returned-value-of-an-async-control-command"></a>Valor devolvido de um comando de controlo assinásino
 
-Em um comando de controle assíncrono, a atividade sonda a tabela de operações nos bastidores até que a operação assíncrona seja concluída ou o tempo limite seja excedido. Portanto, o valor retornado conterá o resultado de `.show operations OperationId` para essa propriedade **operationId** fornecida. Verifique os valores das propriedades **State** e **status** para verificar a conclusão bem-sucedida da operação.
+Num comando de controlo de sincronização, a atividade faz sondagens à mesa de operações nos bastidores, até que a operação de asincronização esteja concluída ou sem horário. Portanto, o valor devolvido conterá `.show operations OperationId` o resultado desse **imóvel OperationId.** Verifique os valores das propriedades **do Estado** e do **Estado,** para verificar a conclusão bem sucedida da operação.
 
 ```json
 { 
@@ -219,5 +219,5 @@ Em um comando de controle assíncrono, a atividade sonda a tabela de operações
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como [copiar dados para o Azure data Explorer usando Azure data Factory](data-factory-load-data.md).
-* Saiba como usar o [modelo Azure data Factory para cópia em massa do banco de dados para o Azure data Explorer](data-factory-template.md).
+* Saiba como [copiar dados para o Azure Data Explorer utilizando](data-factory-load-data.md)a Azure Data Factory .
+* Saiba mais sobre a utilização do [modelo azure data factory para cópia a granel da base de dados para o Azure Data Explorer](data-factory-template.md).

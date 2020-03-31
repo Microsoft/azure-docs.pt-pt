@@ -1,6 +1,6 @@
 ---
-title: H264 taxa de bits única 4K Media Encoder Standard predefinida – Azure | Microsoft Docs
-description: O artigo fornece uma visão geral da predefinição de tarefa Media Encoder Standard "H264 taxa de bits única 4K".
+title: H264 Single Bitrate 4K Media Encoder Preset - Azure [ Microsoft Docs
+description: O artigo dá uma visão geral da tarefa padrão "H264 Single Bitrate 4K" do Media Encoder.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: c1ba173f97353a5ffdd4a9b58f99f6f817f963ff
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74895900"
 ---
 # <a name="h264-single-bitrate-4k"></a>H264 Taxa de Bits Única 4K
-`Media Encoder Standard` define um conjunto de predefinições de codificação que você pode usar ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou você pode criar suas próprias predefinições de JSON ou baseadas em XML (usando a codificação UTF-8 ou UTF-16. Em seguida, você passaria a predefinição personalizada para o codificador. Para obter a lista de todos os nomes predefinidos com suporte por este codificador de `Media Encoder Standard`, consulte [predefinições de tarefa para Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`define um conjunto de predefinições de codificação que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato pretende codificar o seu ficheiro de mídia. Ou, pode criar os seus próprios presets baseados em JSON ou XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, passaria o predefinido personalizado para o codificador. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte predefinições de tarefa para Media [Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra a predefinição de `H264 Single Bitrate 4K` no formato XML e JSON.  
+ Este tópico `H264 Single Bitrate 4K` mostra o predefinido no formato XML e JSON.  
   
- Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 18000 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre perfil, taxa de bits, taxa de amostragem, etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o que cada elemento nessas predefinições significa e os valores válidos para cada elemento, consulte o tópico [Media Encoder Standard Schema](media-services-mes-schema.md) .  
+ Este preset produz um único ficheiro MP4 com uma bitrate de 18000 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, bitrate, taxa de amostragem, etc. deste predefinido, examine o XML ou JSON definidos abaixo. Para explicações sobre o que cada elemento nestas predefinições significa, e os valores válidos para cada elemento, consulte o tópico [de esquema sema media Encoder Standard.](media-services-mes-schema.md)  
   
 > [!NOTE]
->  Você deve obter o tipo de unidade reservada Premium com codificações de 4K. Para obter mais informações, consulte [como dimensionar a codificação](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Deve obter o tipo de unidade premium reservado com códigos 4K. Para mais informações, consulte [Como Escalar a Codificação](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
  XML  
   

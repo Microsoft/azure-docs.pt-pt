@@ -1,5 +1,5 @@
 ---
-title: Adicione uma aplicação de cliente nativo - Azure Ative Directory B2C  Microsoft Docs
+title: Adicione uma aplicação de cliente nativo - Azure Ative Directory B2C [ Microsoft Docs
 description: Saiba como adicionar uma aplicação de cliente nativo ao seu inquilino Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: b05e2eaa71b99db1979f9575d59580238e8fe093
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190250"
 ---
 # <a name="add-a-native-client-application-to-your-azure-active-directory-b2c-tenant"></a>Adicione uma aplicação de cliente nativo ao seu inquilino Azure Ative Directory B2C

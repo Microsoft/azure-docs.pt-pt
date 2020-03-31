@@ -11,10 +11,10 @@ ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246048"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Diretório Ativo Azure B2C
@@ -29,9 +29,9 @@ As políticas personalizadas são ficheiros de configuração que definem o comp
 |-|-------------------|-----------------|
 | Utilizadores-alvo | Todos os desenvolvedores de aplicações com ou sem conhecimentos de identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipas de identidade interna. Eles são confortáveis com os fluxos OpenID Connect e compreendem fornecedores de identidade e autenticação baseada em sinistros. |
 | Método de configuração | Portal Azure com uma interface de utilizador amigável (UI). | Editar diretamente ficheiros XML e, em seguida, fazer o upload para o portal Azure. |
-| Personalização da UI | Personalização completa de UI incluindo HTML, CSS e JavaScript.<br><br>Suporte multilingmístico com cordas personalizadas. | mesmo |
-| Personalização de atributos | Atributos padrão e personalizados. | mesmo |
-| Token e gestão de sessões | Token personalizado e várias opções de sessão. | mesmo |
+| Personalização da UI | Personalização completa de UI incluindo HTML, CSS e JavaScript.<br><br>Suporte multilingmístico com cordas personalizadas. | Mesma |
+| Personalização de atributos | Atributos padrão e personalizados. | Mesma |
+| Token e gestão de sessões | Token personalizado e várias opções de sessão. | Mesma |
 | Fornecedores de Identidade | Prestador local ou social predefinido e a maioria dos fornecedores de identidade da OIDC, como a federação com inquilinos do Diretório Ativo Azure. | OIDC, OAUTH e SAML.  A autenticação também é possível através da integração com APIs REST. |
 | Tarefas de Identidade | Inscreva-se ou inscreva-se com contas sociais locais ou muitas.<br><br>Reset de senha de autosserviço.<br><br>Edição de perfil.<br><br>Autenticação multi-factor.<br><br>Personalize fichas e sessões.<br><br>Fluxos de fichas de acesso. | Complete as mesmas tarefas que os fluxos do utilizador utilizando fornecedores de identidade personalizados ou utilize âmbitos personalizados.<br><br>Fornecer uma conta de utilizador noutro sistema no momento do registo.<br><br>Envie um e-mail de boas-vindas usando o seu próprio fornecedor de serviços de e-mail.<br><br>Utilize uma loja de utilizadores fora do Azure AD B2C.<br><br>Validar o utilizador forneceu informações com um sistema fidedigno utilizando uma API. |
 
@@ -66,4 +66,4 @@ Quando uma aplicação chama o ficheiro de política de RP, o Quadro de Experiê
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Começar com políticas personalizadas](custom-policy-get-started.md)
+> [Introdução às políticas personalizadas](custom-policy-get-started.md)

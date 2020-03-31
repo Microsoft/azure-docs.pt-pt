@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
 ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023655"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do Batch para Node.js
@@ -43,7 +43,7 @@ O cliente de Node.js implementa uma tarefa de lote com uma tarefa de preparaçã
 
 > [!TIP]
 > O cliente Node.js na ligação especificada não contém código específico para implementação como uma aplicação de função das Funções do Azure. Para saber como criar uma aplicação destas, pode ver as ligações seguintes:
-> - [Criar aplicação de função](../azure-functions/functions-create-first-azure-function.md)
+> - [Criar a aplicação de funções](../azure-functions/functions-create-first-azure-function.md)
 > - [Create timer trigger function](../azure-functions/functions-bindings-timer.md) (Criar função de acionador de temporizador)
 >
 >

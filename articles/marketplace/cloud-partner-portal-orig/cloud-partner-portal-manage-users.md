@@ -1,62 +1,60 @@
 ---
-title: Gerenciando usuários no portal de parceiros de nuvem | Azure Marketplace
-description: Gerenciando usuários no portal de parceiros de nuvem
-services: Azure, Marketplace, Cloud Partner Portal,
+title: Gerir utilizadores no portal do parceiro da nuvem [ Mercado Azure
+description: Gerir utilizadores no portal do parceiro da nuvem
 author: qianw211
-manager: pbutlerm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b14d40e9b3a2aa1ca71335b60e97f15b3782698f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 441f466fcbeb05d06d565dbe1af237d01554d844
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823270"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280223"
 ---
-<a name="managing-users-on-cloud-partner-portal"></a>Gerenciando usuários no portal de parceiros de nuvem
+<a name="managing-users-on-cloud-partner-portal"></a>Gerir utilizadores no portal do parceiro da nuvem
 ======================================
 
-O Portal do Cloud Partner permite que você adicione usuários com acesso baseado em função a ofertas de máquina virtual. Ele ajuda a gerenciar o acesso e as permissões enquanto várias pessoas estão trabalhando em ofertas.
+O Portal do Parceiro cloud permite-lhe adicionar aos utilizadores o acesso baseado em papéis às ofertas de máquinas virtuais. Ajuda a gerir o acesso e as permissões enquanto várias pessoas estão a trabalhar em ofertas.
 
-Para **Adicionar usuários e atribuir funções** para publicação de oferta, siga as etapas abaixo:
+Para **adicionar aos utilizadores e atribuir funções** para a publicação de ofertas, siga os passos abaixo:
 
-<a name="step-1-to-add-users-and-assign-roles-click-the-users-tab-on-the-left-side-navigation-pane"></a>Passo 1. Para adicionar usuários e atribuir funções, clique na guia usuários no painel de navegação do lado esquerdo.
+<a name="step-1-to-add-users-and-assign-roles-click-the-users-tab-on-the-left-side-navigation-pane"></a>Passo 1. Para adicionar aos utilizadores e atribuir funções, clique no separador Utilizadores no painel de navegação do lado esquerdo.
 --------------------------------------------------------------------------------------------
 
-![Guia usuários](./media/cloud-partner-portal-how-to-manage-users/userstab.png)
+![Separador de utilizadores](./media/cloud-partner-portal-how-to-manage-users/userstab.png)
 
-<a name="step-2-click-add-user"></a>Passo 2. Clique em Adicionar usuário.
+<a name="step-2-click-add-user"></a>Passo 2. Clique em Adicionar Utilizador.
 -----------------------
 
-![Selecione Adicionar usuário](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
+![Selecione Adicionar utilizador](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
-<a name="step-3-type-email-address-and-select-a-role-assignment"></a>Passo 3. Digite endereço de email e selecione uma atribuição de função.
+<a name="step-3-type-email-address-and-select-a-role-assignment"></a>Passo 3. Digite o endereço de e-mail e selecione uma atribuição de funções.
 --------------------------------------------------------
 
-Você pode adicionar o novo usuário como um ' proprietário ' ou ' colaborador '.
+Pode adicionar o novo utilizador como 'proprietário' ou 'contribuinte'.
 
-**Email**: Adicione os endereços de email dos colegas de equipe que estarão trabalhando na publicação da oferta. Há suporte para as contas da Microsoft (Outlook, hotmail e Live) e as IDs da organização.
+**Email**: Adicione os endereços de e-mail dos colegas de equipa que estarão a trabalhar na publicação da oferta. As contas da Microsoft (Outlook, Hotmail e Live) e Org IDs são suportadas.
 
-o adicionar um ' grupo de segurança/alias de email de grupo/equipe ' no caso de o indivíduo trabalhando na oferta sair da organização.
+o Adicione um 'nome/grupo de e-mail/grupo de segurança' caso o indivíduo que trabalha na oferta deixe a organização.
 
-o garante que as IDs de email fornecidas no Portal do Cloud Partner sejam monitoradas para qualquer comunicação da Microsoft.
+o Certifique-se de que as iDs de e-mail fornecidas no Portal do Parceiro cloud são monitorizadas para qualquer comunicação da Microsoft.
 
-**Função**: consulte a tabela abaixo para identificar o tipo de função de usuário apropriado.
+**Função**: Consulte a tabela abaixo para identificar o tipo de função do utilizador apropriado.
 
-![atribuir função](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
-![nível de funções](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
+![Atribuir nível de papéis](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
+![](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
 
-Atualmente, somente os proprietários podem acessar as guias pagamento do Azure e cliente do Azure no insights.
+Atualmente, apenas os proprietários podem aceder aos separadores Azure Payouts e Azure Customer em Insights.
 
-<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Passo 4. Selecione o nome do editor que você deseja adicionar ao novo usuário e clique em Adicionar para concluir a adição do usuário.
+<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Passo 4. Selecione o Nome da Editora que pretende adicionar ao novo utilizador e, em seguida, clique em Adicionar para completar a adição do utilizador.
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> Os ' nomes de publicador ' para os quais seu email é adicionado como proprietário ou colaborador serão exibidos na lista suspensa do Publicador para seleção. '
+> Os 'nomes dos editores' para os quais o seu e-mail é adicionado como proprietário ou colaborador aparecerão na lista de seleção da Editora.
 
-![Atribuir função-selecionar Publicador](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
+![Designar Função - selecione editor](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 
-Se você precisar remover um usuário que foi adicionado, tudo o que você precisa fazer é Pesquisar por email na guia usuários e, em seguida, pressionar o botão excluir no lado direito.
+Se precisar de remover um utilizador que tenha sido adicionado, basta pesquisar o seu e-mail no separador Utilizadores e, em seguida, premir o botão de apagar no lado direito.

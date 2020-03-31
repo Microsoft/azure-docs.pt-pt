@@ -1,6 +1,6 @@
 ---
-title: Simulando as detecções de risco no Azure AD Identity Protection
-description: Saiba como simular as detecções de riscos na proteção de identidade
+title: Simulação de deteções de risco na Proteção de Identidade da AD Azure
+description: Saiba como simular deteções de risco na Proteção de Identidade
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -12,123 +12,123 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e50e406e74c0b78f41830c4ea7c5b10830002ed3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72886938"
 ---
-# <a name="simulating-risk-detections-in-identity-protection"></a>Simulando detecções de riscos na proteção de identidades
+# <a name="simulating-risk-detections-in-identity-protection"></a>Simulação de deteções de risco na Proteção de Identidade
 
-Os administradores podem querer simular riscos em seu ambiente para realizar os seguintes itens:
+Os administradores podem querer simular riscos no seu ambiente, a fim de realizar os seguintes itens:
 
-- Preencha os dados no ambiente de proteção de identidade, simulando as detecções e as vulnerabilidades de risco.
-- Configure políticas de acesso condicional com base em risco e teste o impacto dessas políticas.
+- Povoeia dados no ambiente de Proteção de Identidade simulando deteções e vulnerabilidades de risco.
+- Criar políticas de acesso condicional baseadas no risco e testar o impacto destas políticas.
 
-Este artigo fornece etapas para simular os seguintes tipos de detecção de risco:
+Este artigo fornece-lhe passos para simular os seguintes tipos de deteção de risco:
 
-- Endereço IP anônimo (fácil)
-- Propriedades de entrada desconhecidas (moderada)
-- Viagem atípicos (difícil)
+- Endereço IP anónimo (fácil)
+- Propriedades de inscrição desconhecidas (moderada)
+- Viagem atípica (difícil)
 
-Outras detecções de risco não podem ser simuladas de maneira segura.
+Outras deteções de risco não podem ser simuladas de forma segura.
 
-Mais informações sobre cada detecção de risco podem ser encontradas no artigo [o que é risco](concept-identity-protection-risks.md).
+Mais informações sobre cada deteção de risco podem ser encontradas no artigo, [O que é risco.](concept-identity-protection-risks.md)
 
-## <a name="anonymous-ip-address"></a>Endereço IP anônimo
+## <a name="anonymous-ip-address"></a>Endereço IP anónimo
 
-A conclusão do procedimento a seguir exige que você use:
+A conclusão do seguinte procedimento requer que utilize:
 
-- O [navegador Tor](https://www.torproject.org/projects/torbrowser.html.en) para simular endereços IP anônimos. Talvez seja necessário usar uma máquina virtual se sua organização restringir o uso do navegador Tor.
-- Uma conta de teste que ainda não está registrada para a autenticação multifator do Azure.
+- O [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) para simular endereços IP anónimos. Poderá precisar de utilizar uma máquina virtual se a sua organização restringir o uso do navegador Tor.
+- Uma conta de teste que ainda não está registada para autenticação multi-factor Azure.
 
-**Para simular uma entrada de um IP anônimo, execute as seguintes etapas**:
+**Para simular um sessão a partir de um IP anónimo, execute os seguintes passos:**
 
-1. Usando o [navegador Tor](https://www.torproject.org/projects/torbrowser.html.en), navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).   
-2. Insira as credenciais da conta que você deseja exibir no relatório **entradas de endereços IP anônimos** .
+1. Utilizando o [Tor Browser,](https://www.torproject.org/projects/torbrowser.html.en)navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+2. Introduza as credenciais da conta que pretende aparecer nos **Sign-ins a partir de endereços IP anónimos.**
 
-A entrada aparece no painel do Identity Protection dentro de 10-15 minutos. 
+O sinal de inscrição aparece no painel de proteção de identidade dentro de 10 a 15 minutos. 
 
-## <a name="unfamiliar-sign-in-properties"></a>Propriedades de entrada desconhecidas
+## <a name="unfamiliar-sign-in-properties"></a>Propriedades de inscrição desconhecidas
 
-Para simular locais desconhecidos, você precisa entrar de um local e dispositivo no qual sua conta de teste não tenha se conectado antes.
+Para simular locais desconhecidos, tem de iniciar sessão a partir de um local e dispositivo que a sua conta de teste não assinou antes.
 
-O procedimento a seguir usa um recém-criado:
+O procedimento abaixo utiliza um recém-criado:
 
-- Conexão VPN, para simular novo local.
+- Ligação VPN, para simular nova localização.
 - Máquina virtual, para simular um novo dispositivo.
 
-A conclusão do procedimento a seguir exige que você use uma conta de usuário que tenha:
+A conclusão do seguinte procedimento requer que utilize uma conta de utilizador que tenha:
 
-- Pelo menos um histórico de entrada de 30 dias.
-- Autenticação multifator do Azure habilitada.
+- Pelo menos um registo de 30 dias.
+- Autenticação azure multi-factor ativada.
 
-**Para simular uma entrada de um local desconhecido, execute as seguintes etapas**:
+**Para simular um sessão de um local desconhecido, execute os seguintes passos:**
 
-1. Ao entrar com sua conta de teste, reprovar o desafio da autenticação multifator (MFA) não passando o desafio de MFA.
-2. Usando sua nova VPN, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com) e insira as credenciais da sua conta de teste.
+1. Ao iniciar sessão com a sua conta de teste, falhe no desafio de autenticação de vários fatores (MFA) ao não passar o desafio mfa.
+2. Utilizando a sua nova [https://myapps.microsoft.com](https://myapps.microsoft.com) VPN, navegue para e introduza as credenciais da sua conta de teste.
 
-A entrada aparece no painel do Identity Protection dentro de 10-15 minutos.
+O sinal de inscrição aparece no painel de proteção de identidade dentro de 10 a 15 minutos.
 
-## <a name="atypical-travel"></a>Viagem de atípicos
+## <a name="atypical-travel"></a>Viagem atípica
 
-A simulação da condição de viagem atípicos é difícil porque o algoritmo usa o aprendizado de máquina para eliminar falsos positivos, como o atípicos Travel de dispositivos conhecidos, ou entradas de VPNs que são usadas por outros usuários no diretório. Além disso, o algoritmo requer um histórico de entrada de 14 dias e 10 logons do usuário antes de começar a gerar as detecções de risco. Devido aos modelos complexos de aprendizado de máquina e às regras acima, há a possibilidade de que as etapas a seguir não levem a uma detecção de risco. Talvez você queira replicar essas etapas para várias contas do Azure AD para simular essa detecção.
+Simular a condição de viagem atípica é difícil porque o algoritmo usa machine learning para eliminar falsos positivos, como viagens atípicas de dispositivos familiares, ou inscrições de VPNs que são usadas por outros utilizadores no diretório. Além disso, o algoritmo requer um histórico de login de 14 dias e 10 logins do utilizador antes de começar a gerar deteções de risco. Devido aos complexos modelos de aprendizagem automática e acima das regras, existe a possibilidade de que os seguintes passos não conduzam a uma deteção de riscos. É melhor replicar estes passos para várias contas da AD Azure para simular esta deteção.
 
-**Para simular uma detecção de risco do atípicos Travel, execute as seguintes etapas**:
+**Para simular uma deteção atípica do risco de viagem, execute os seguintes passos:**
 
-1. Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).  
-2. Insira as credenciais da conta para a qual você deseja gerar uma detecção de risco de viagem de atípicos.
-3. Altere o agente do usuário. Você pode alterar o agente do usuário no Microsoft Edge de Ferramentas para Desenvolvedores (F12).
-4. Altere seu endereço IP. Você pode alterar seu endereço IP usando uma VPN, um complemento do Tor ou criando uma nova máquina virtual no Azure em um data center diferente.
-5. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com) usando as mesmas credenciais de antes e dentro de alguns minutos após a entrada anterior.
+1. Usando o seu navegador [https://myapps.microsoft.com](https://myapps.microsoft.com)padrão, navegue para .  
+2. Introduza as credenciais da conta para a que pretende gerar uma deteção atípica de risco de viagem.
+3. Mude o seu agente de utilizador. Pode alterar o agente de utilizador no Microsoft Edge a partir de Ferramentas de Desenvolvimento (F12).
+4. Altere o seu endereço IP. Pode alterar o seu endereço IP utilizando uma VPN, um addon Tor ou criando uma nova máquina virtual em Azure num centro de dados diferente.
+5. Iniciar sessão [https://myapps.microsoft.com](https://myapps.microsoft.com) para utilizar as mesmas credenciais de antes e dentro de alguns minutos após o anterior inessão.
 
-A entrada aparece no painel do Identity Protection dentro de 2-4 horas.
+O sinal de inscrição aparece no painel de proteção de identidade dentro de 2 a 4 horas.
 
-## <a name="testing-risk-policies"></a>Testando políticas de risco
+## <a name="testing-risk-policies"></a>Testar políticas de risco
 
-Esta seção fornece etapas para testar o usuário e as políticas de risco de entrada criadas no artigo [como: configurar e habilitar políticas de risco](howto-identity-protection-configure-risk-policies.md).
+Esta secção fornece-lhe passos para testar o utilizador e as políticas de risco de entrada criadas no artigo, [Como Configurar e ativar políticas](howto-identity-protection-configure-risk-policies.md)de risco .
 
-### <a name="user-risk-policy"></a>Política de risco do usuário
+### <a name="user-risk-policy"></a>Política de risco do utilizador
 
-Para testar uma política de segurança de risco do usuário, execute as seguintes etapas:
+Para testar uma política de segurança de risco do utilizador, execute os seguintes passos:
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **segurança** > **visão geral**.
-1. Selecione **Configurar política de risco do usuário**.
-   1. Em **atribuições**
-      1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
-         1. Opcionalmente, você pode optar por excluir usuários da política.
-      1. **Condições** - o **risco do usuário** que a recomendação da Microsoft é definir essa opção como **alta**.
-   1. Em **controles**
-      1. **Acesso** -a recomendação da Microsoft é **permitir o acesso** e **exigir alteração de senha**.
-   1. **Impor** - de política **desativado**
-   1. **Salvar** – esta ação retornará à página **visão geral** .
-1. Eleve o risco do usuário de uma conta de teste, por exemplo, simulando uma das detecções de risco algumas vezes.
-1. Aguarde alguns minutos e verifique se o risco foi elevado para o usuário. Caso contrário, simule mais detecções de risco para o usuário.
-1. Retorne à sua política de risco e defina **aplicar política** como **ativado** e **salve** a alteração da política.
-1. Agora você pode testar o acesso condicional baseado em risco do usuário entrando usando um usuário com um nível de risco elevado.
+1. Navegue para o [portal Azure.](https://portal.azure.com)
+1. Navegue na**visão geral**de**segurança** > do **diretório** > ativo do Azure.
+1. **Selecione Configure a política**de risco do utilizador .
+   1. Em **Atribuições**
+      1. **Utilizadores** - Escolha **todos os utilizadores** ou **Selecione indivíduos e grupos** se limitar o seu lançamento.
+         1. Opcionalmente pode optar por excluir os utilizadores da apólice.
+      1. **Condições** - **O risco** do utilizador a recomendação da Microsoft é definir esta opção para **High**.
+   1. Sob **controlos**
+      1. **Acesso** - A recomendação da Microsoft é **permitir o acesso** e exigir a alteração da **palavra-passe.**
+   1. **Impor a política** - **fora**
+   1. **Save** - Esta ação irá devolvê-lo à página **de visão geral.**
+1. Elevar o risco de utilizador de uma conta de teste, por exemplo, simulando uma das deteções de risco algumas vezes.
+1. Aguarde alguns minutos e verifique se o risco aumentou para o utilizador. Caso contrário, simule mais deteções de risco para o utilizador.
+1. Volte à sua política de risco e desemque a Política de **Aplicação** para **On** e **Salve** a sua mudança de política.
+1. Agora pode testar o Acesso Condicional baseado no risco do utilizador, assinando um utilizador com um nível de risco elevado.
 
-### <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de entrada
+### <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de insarisco
 
-Para testar uma política de risco de entrada, execute as seguintes etapas:
+Para testar um sinal na política de risco, execute os seguintes passos:
 
-1. Navegue para o [portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **segurança** > **visão geral**.
-1. Selecione **Configurar política de risco de entrada**.
-   1. Em **atribuições**
-      1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
-         1. Opcionalmente, você pode optar por excluir usuários da política.
-      1. **Condições** - **risco de entrada** a recomendação da Microsoft é definir essa opção como **média e superior**.
-   1. Em **controles**
-      1. **Acesso** -a recomendação da Microsoft é **permitir o acesso** e **exigir a autenticação multifator**.
-   1. **Impor** - **de política em**
-   1. **Salvar** – esta ação retornará à página **visão geral** .
-1. Agora você pode testar o acesso condicional com base em risco de entrada, entrando usando uma sessão arriscada (por exemplo, usando o navegador Tor). 
+1. Navegue para o [portal Azure.](https://portal.azure.com)
+1. Navegue na**visão geral**de**segurança** > do **diretório** > ativo do Azure.
+1. **Selecione Configure política de risco de entrada**.
+   1. Em **Atribuições**
+      1. **Utilizadores** - Escolha **todos os utilizadores** ou **Selecione indivíduos e grupos** se limitar o seu lançamento.
+         1. Opcionalmente pode optar por excluir os utilizadores da apólice.
+      1. **Condições** - **O risco de inscrição** a recomendação da Microsoft é definir esta opção para Médio e **superior**.
+   1. Sob **controlos**
+      1. **Acesso** - A recomendação da Microsoft é **permitir o acesso** e exigir a **autenticação de vários fatores.**
+   1. **Impor a política** - **On**
+   1. **Save** - Esta ação irá devolvê-lo à página **de visão geral.**
+1. Agora pode testar o Acesso Condicional baseado em Risco de Acesso baseado em Risco, assinando uma sessão de risco (por exemplo, utilizando o navegador Tor). 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é risco?](concept-identity-protection-risks.md)
+- [O que é o risco?](concept-identity-protection-risks.md)
 
-- [Como configurar e habilitar políticas de risco](howto-identity-protection-configure-risk-policies.md)
+- [Como: Configurar e ativar políticas de risco](howto-identity-protection-configure-risk-policies.md)
 
-- [Azure Active Directory Identity Protection](overview-identity-protection.md)
+- [Proteção de Identidade do Diretório Ativo Azure](overview-identity-protection.md)

@@ -1,34 +1,34 @@
 ---
-title: Acesso de instâncias de contêiner
-description: Saiba como fornecer acesso a imagens em seu registro de contêiner privado de instâncias de contêiner do Azure usando uma entidade de serviço Azure Active Directory.
+title: Acesso a partir de Instâncias de Contentores
+description: Saiba como fornecer acesso a imagens no seu registo de contentores privados a partir de Casos de Contentores Azure utilizando um diretor de serviço de Diretório Ativo Azure.
 ms.topic: article
 ms.date: 04/23/2018
 ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456514"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com o registro de contêiner do Azure de instâncias de contêiner do Azure
+# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com registo de contentores Azure de instâncias de contentores azure
 
-Você pode usar uma entidade de serviço do Azure Active Directory (AD do Azure) para fornecer acesso aos seus registros de contêiner privado no registro de contêiner do Azure.
+Pode utilizar um diretor de serviço azure Ative Directory (Azure AD) para fornecer acesso aos seus registos de contentores privados no Registo de Contentores Azure.
 
-Neste artigo, você aprende a criar e configurar uma entidade de serviço do Azure AD com permissões de *pull* para o registro. Em seguida, você inicia um contêiner em ACI (instâncias de contêiner do Azure) que efetua pull de sua imagem do registro particular, usando a entidade de serviço para autenticação.
+Neste artigo, aprende a criar e configurar um diretor de serviço azure AD com permissões de *pull* para o seu registo. Em seguida, inicia um contentor em Casos de Contentores Azure (ACI) que retira a sua imagem do seu registo privado, utilizando o principal de serviço para autenticação.
 
-## <a name="when-to-use-a-service-principal"></a>Quando usar uma entidade de serviço
+## <a name="when-to-use-a-service-principal"></a>Quando utilizar um diretor de serviço
 
-Você deve usar uma entidade de serviço para autenticação de ACI em **cenários sem periféricos**, como em aplicativos ou serviços que criam instâncias de contêiner de maneira automatizada ou autônoma.
+Deve utilizar um diretor de serviço para autenticação a partir de ACI em **cenários sem cabeça**, como em aplicações ou serviços que criam instâncias de contentores de forma automatizada ou de outra forma sem vigilância.
 
-Por exemplo, se você tiver um script automatizado que é executado à noite e cria uma [instância de contêiner baseada em tarefa](../container-instances/container-instances-restart-policy.md) para processar alguns dados, ele pode usar uma entidade de serviço com permissões somente de pull para autenticar no registro. Em seguida, você pode girar as credenciais da entidade de serviço ou revogar seu acesso completamente sem afetar outros serviços e aplicativos.
+Por exemplo, se tiver um script automatizado que funciona todas as noites e cria uma [instância de contentores baseada em tarefas](../container-instances/container-instances-restart-policy.md) para processar alguns dados, pode usar um diretor de serviço com permissões apenas para autenticar o registo. Em seguida, pode rodar as credenciais do diretor de serviço ou revogar completamente o seu acesso sem afetar outros serviços e aplicações.
 
-As entidades de serviço também devem ser usadas quando o [usuário administrador](container-registry-authentication.md#admin-account) do registro estiver desabilitado.
+Os diretores de serviço também devem ser utilizados quando o [utilizador administrativo](container-registry-authentication.md#admin-account) do registo estiver desativado.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="authenticate-using-the-service-principal"></a>Autenticar usando a entidade de serviço
+## <a name="authenticate-using-the-service-principal"></a>Autenticar usando o diretor de serviço
 
-Para iniciar um contêiner em instâncias de contêiner do Azure usando uma entidade de serviço, especifique sua ID para `--registry-username`e sua senha para `--registry-password`.
+Para lançar um contentor em Casos de Contentores Azure utilizando um diretor de serviço, especifique o seu ID para `--registry-username`. e a sua palavra-passe para `--registry-password`.
 
 ```azurecli-interactive
 az container create \
@@ -42,17 +42,17 @@ az container create \
 
 ## <a name="sample-scripts"></a>Scripts de exemplo
 
-Você pode encontrar os scripts de exemplo anteriores para CLI do Azure no GitHub, bem como versões para Azure PowerShell:
+Pode encontrar os scripts de amostra anteriores para o Azure CLI no GitHub, bem como versões para o Azure PowerShell:
 
-* [CLI do Azure][acr-scripts-cli]
+* [Azure CLI][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os artigos a seguir contêm detalhes adicionais sobre como trabalhar com entidades de serviço e ACR:
+Os seguintes artigos contêm detalhes adicionais sobre o trabalho com os diretores de serviço e a ACR:
 
-* [Autenticação do registro de contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md)
-* [Autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure (AKS)](../aks/cluster-container-registry-integration.md)
+* [Autenticação do Registo de Contentores Azure com diretores de serviço](container-registry-auth-service-principal.md)
+* [Autenticação com Registo de Contentores Azure do Serviço Azure Kubernetes (AKS)](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: juliako
 ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245853"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
@@ -34,7 +34,7 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
    > [!Important]
    > * Tem de utilizar o mesmo fornecedor que utilizou quando se inscreveu no Video Indexer.
    > * As contas pessoais do Google e da Microsoft (Outlook/Live) só podem ser utilizadas para contas de teste. As contas ligadas ao Azure necessitam do Azure AD.
-   > * Só pode haver uma conta ativa por e-mail. Se um utilizador tentar iniciar sessão com user@gmail.com para o LinkedIn e mais tarde com user@gmail.com para a Google, este apresentará uma página de erro, dizendo que o utilizador já existe.
+   > * Só pode haver uma conta ativa por e-mail. Se um utilizador tentar user@gmail.com iniciar sessão com user@gmail.com o LinkedIn e mais tarde com o Google, este apresentará uma página de erro, dizendo que o utilizador já existe.
 
 2. Subscreva.
 

@@ -4,12 +4,12 @@ description: Aprenda a criar dinamicamente um volume persistente com Ficheiros A
 services: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.openlocfilehash: ef9ef10a5523bd91b346e16e105c5ff5cd9cb669
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 3628a9243d849cdb2f3143209dc239be5ac846b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78897714"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297785"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Criar e utilizar de forma dinâmica um volume persistente com ficheiros Azure no Serviço Azure Kubernetes (AKS)
 
@@ -21,7 +21,7 @@ Para obter mais informações sobre os volumes kubernetes, consulte as opções 
 
 Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Criar uma classe de armazenamento
 
@@ -29,7 +29,7 @@ Uma classe de armazenamento é usada para definir como uma partilha de ficheiros
 
 * *Standard_LRS* - armazenamento localmente redundante (LRS)
 * *Standard_GRS* - armazenamento geo-redundante padrão (GRS)
-* *Standard_ZRS* - armazenamento redundante da zona padrão (GRS)
+* *Standard_ZRS* - armazenamento redundante da zona padrão (ZRS)
 * *Standard_RAGRS* - armazenamento geo-redundante de acesso de leitura padrão (RA-GRS)
 * *Premium_LRS* - armazenamento localmente redundante premium (LRS)
 * *Premium_ZRS* - armazenamento redundante da zona premium (GRS)
@@ -39,7 +39,7 @@ Uma classe de armazenamento é usada para definir como uma partilha de ficheiros
 
 Para obter mais informações sobre as aulas de armazenamento da Kubernetes para Ficheiros Azure, consulte as Aulas de [Armazenamento kubernetes][kubernetes-storage-classes].
 
-Crie um ficheiro chamado `azure-file-sc.yaml` e copie no seguinte manifesto exemplo. Para mais informações sobre o *mountOptions,* consulte a secção de opções do [Monte.][mount-options]
+Crie um `azure-file-sc.yaml` ficheiro nomeado e copie no seguinte manifesto exemplo. Para mais informações sobre o *mountOptions,* consulte a secção de opções do [Monte.][mount-options]
 
 ```yaml
 kind: StorageClass
@@ -68,7 +68,7 @@ kubectl apply -f azure-file-sc.yaml
 
 Uma reivindicação de volume persistente (PVC) utiliza o objeto da classe de armazenamento para fornecer dinamicamente uma parte de ficheiro Azure. O YAML seguinte pode ser usado para criar uma reivindicação de volume persistente *de 5 GB* de tamanho com acesso *ReadWriteMany.* Para obter mais informações sobre os modos de acesso, consulte a documentação persistente do [volume kubernetes.][access-modes]
 
-Agora crie um ficheiro chamado `azure-file-pvc.yaml` e copie no seguinte YAML. Certifique-se de que o *storageClassName* corresponde à classe de armazenamento criada no último passo:
+Agora crie `azure-file-pvc.yaml` um ficheiro nomeado e copie no seguinte YAML. Certifique-se de que o *storageClassName* corresponde à classe de armazenamento criada no último passo:
 
 ```yaml
 apiVersion: v1
@@ -104,9 +104,9 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>Use o volume persistente
 
-O Seguinte YAML cria uma cápsula que utiliza o *ficheiro de* reivindicação de volume persistente para montar a partilha de ficheiros Azure no caminho */mnt/azure.* Para os recipientes do Windows Server (atualmente em pré-visualização no AKS), especifique um *mountPath* utilizando a convenção de caminhos windows, como *'D:'* .
+O Seguinte YAML cria uma cápsula que utiliza o *ficheiro de* reivindicação de volume persistente para montar a partilha de ficheiros Azure no caminho */mnt/azure.* Para os recipientes do Windows Server (atualmente em pré-visualização no AKS), especifique um *mountPath* utilizando a convenção de caminhos windows, como *'D:'*.
 
-Crie um ficheiro chamado `azure-pvc-files.yaml`e copie no seguinte YAML. Certifique-se de que o nome de *reclamação* corresponde ao PVC criado no último passo.
+Crie um `azure-pvc-files.yaml`ficheiro chamado e copie no seguinte YAML. Certifique-se de que o nome de *reclamação* corresponde ao PVC criado no último passo.
 
 ```yaml
 kind: Pod
@@ -139,7 +139,7 @@ Crie a cápsula com o [kubectl apply][kubectl-apply] comando.
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Tem agora uma cápsula de corrida com a partilha dos Ficheiros Azure montada no diretório */mnt/azure.* Esta configuração pode ser vista ao inspecionar a sua cápsula através de `kubectl describe pod mypod`. A saída de exemplo condensado seguinte mostra o volume montado no recipiente:
+Tem agora uma cápsula de corrida com a partilha dos Ficheiros Azure montada no diretório */mnt/azure.* Esta configuração pode ser vista `kubectl describe pod mypod`ao inspecionar a sua cápsula via . A saída de exemplo condensado seguinte mostra o volume montado no recipiente:
 
 ```
 Containers:

@@ -1,46 +1,46 @@
 ---
-title: Visão geral do Azure e clusters de Service Fabric autônomos
-description: Você pode criar clusters Service Fabric em qualquer VM ou computadores que executam o Windows Server ou o Linux. Isso significa que você pode implantar e executar Service Fabric aplicativos em qualquer ambiente em que tenha um conjunto de computadores Windows Server ou Linux interconectados, Microsoft Azure ou com qualquer provedor de nuvem.
+title: Visão geral dos clusters Azure e selfalone Service Fabric
+description: Pode criar clusters de Tecido de Serviço em quaisquer VMs ou computadores que executem o Windows Server ou o Linux. Isto significa que é capaz de implementar e executar aplicações de Tecido de Serviço em qualquer ambiente onde tenha um conjunto de computadores Windows Server ou Linux que estejam interligados no local, Microsoft Azure ou com qualquer fornecedor de nuvem.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: dekapur
 ms.custom: sfrev
 ms.openlocfilehash: a3627effe10039ded5007f9dd060bf1865929040
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75751156"
 ---
-# <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparando clusters Service Fabric do Azure e autônomos no Windows Server e no Linux
+# <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparando clusters de tecido de serviço azure e autónomo sintetizados no Windows Server e Linux
 
-Um Cluster Service Fabric é um conjunto de máquinas físicas ou virtuais conectadas à rede em que seus microserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adicionar novos nós ao cluster, Service Fabric reequilibrará as réplicas e instâncias de partição de serviço em um número maior de nós. O desempenho geral do aplicativo melhora e a contenção de acesso à memória diminui. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. Service Fabric novamente reequilibra as réplicas e instâncias de partição em todo o número de nós reduzido para fazer melhor uso do hardware em cada nó.
+Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede, nas quais os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um cluster é chamado de nó de cluster. Os aglomerados podem escalar para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric reequilibra as réplicas e instâncias de partição de serviços em todo o número aumentado de nós. O desempenho global da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Service Fabric reequilibra novamente as réplicas e instâncias da partição através do número reduzido de nós para fazer melhor uso do hardware em cada nó.
 
-Service Fabric permite a criação de clusters de Service Fabric em qualquer VM ou computadores que executam o Windows Server ou o Linux. Isso significa que você pode implantar e executar Service Fabric aplicativos em qualquer ambiente em que você tenha um conjunto de computadores Windows Server ou Linux interconectados, seja no local, Microsoft Azure ou com qualquer provedor de nuvem.
+O Service Fabric permite a criação de clusters de Tecido de Serviço em quaisquer VMs ou computadores que executem o Windows Server ou o Linux. Isto significa que é capaz de implementar e executar aplicações de Tecido de Serviço em qualquer ambiente onde tenha um conjunto de computadores Windows Server ou Linux que estejam interligados, seja no local, Microsoft Azure ou com qualquer fornecedor de nuvem.
 
-## <a name="benefits-of-clusters-on-azure"></a>Benefícios dos clusters no Azure
+## <a name="benefits-of-clusters-on-azure"></a>Benefícios dos clusters em Azure
 
-No Azure, fornecemos integração com outros recursos e serviços do Azure, o que torna as operações e o gerenciamento do cluster mais fáceis e confiáveis.
+No Azure, proporcionamos integração com outras funcionalidades e serviços do Azure, o que torna as operações e a gestão do cluster mais fáceis e fiáveis.
 
-* **Portal do Azure:** Portal do Azure facilita a criação e o gerenciamento de clusters.
-* **Azure Resource Manager:** O uso de Azure Resource Manager permite o gerenciamento fácil de todos os recursos usados pelo cluster como uma unidade e simplifica o controle de custos e a cobrança.
-* **Service Fabric cluster como um recurso do Azure** Um Cluster Service Fabric é um recurso do Azure, para que você possa modelá-lo da mesma forma que faz com outros recursos no Azure.
-* **Integração com a infraestrutura do Azure** Service Fabric coordena com a infraestrutura subjacente do Azure para sistema operacional, rede e outras atualizações para melhorar a disponibilidade e a confiabilidade de seus aplicativos.  
-* **Diagnóstico:** No Azure, fornecemos integração com o diagnóstico do Azure e logs de Azure Monitor.
-* **Dimensionamento automático:** Para clusters no Azure, fornecemos a funcionalidade de dimensionamento automático interna devido a conjuntos de escala de máquina virtual. No local e em outros ambientes de nuvem, você precisa criar seu próprio recurso de dimensionamento automático ou dimensionar manualmente usando as APIs que o Service Fabric expõe para dimensionar clusters.
+* **Portal Azure:** O portal Azure facilita a criação e gestão de clusters.
+* **Gestor de Recursos Azure:** A utilização do Gestor de Recursos Azure permite uma gestão fácil de todos os recursos utilizados pelo cluster como uma unidade e simplifica o rastreio e faturação de custos.
+* **Cluster de tecido de serviço como recurso Azure** Um cluster de tecido de serviço é um recurso Azure, para que você possa modelá-lo como você faz outros recursos em Azure.
+* **Integração com infraestrutura azure** O Service Fabric coordena com a infraestrutura Azure subjacente para OS, rede e outras atualizações para melhorar a disponibilidade e fiabilidade das suas aplicações.  
+* **Diagnósticos:** No Azure, proporcionamos integração com diagnósticos Azure e registos Do Monitor Azure.
+* **Auto-escala:** Para clusters no Azure, fornecemos uma funcionalidade de escala automática incorporada devido a conjuntos de escala de Máquina Virtual. No local e noutros ambientes em nuvem, tem de construir a sua própria funcionalidade de escala automática ou escalar manualmente utilizando as APIs que o Tecido de Serviço expõe para agrupamentos de escala.
 
-## <a name="benefits-of-standalone-clusters"></a>Benefícios de clusters autônomos
+## <a name="benefits-of-standalone-clusters"></a>Benefícios de clusters autónomos
 
-* Você tem a liberdade de escolher qualquer provedor de nuvem para hospedar o cluster.
-* Service Fabric aplicativos, uma vez gravados, podem ser executados em vários ambientes de hospedagem com pouca ou nenhuma alteração.
-* O conhecimento da criação de aplicativos Service Fabric é transmitido de um ambiente de hospedagem para outro.
-* A experiência operacional de executar e gerenciar clusters Service Fabric é transferida de um ambiente para outro.
-* O alcance do cliente amplo não é limitado por restrições de ambiente de hospedagem.
-* Existe uma camada extra de confiabilidade e proteção contra interrupções generalizadas porque você pode mover os serviços para outro ambiente de implantação se um data center ou um provedor de nuvem tiver um blecaute.
+* Você é livre de escolher qualquer fornecedor de nuvem para hospedar o seu cluster.
+* As aplicações de tecido de serviço, uma vez escritas, podem ser executadas em vários ambientes de hospedagem com mínimas ou sem alterações.
+* O conhecimento das aplicações de construção de Tecidos de Serviço transporta-se de um ambiente de hospedagem para outro.
+* A experiência operacional de executar e gerir clusters de tecidos de serviço transporta de um ambiente para outro.
+* O alcance amplo do cliente é ilimitado através do acolhimento de restrições ambientais.
+* Existe uma camada extra de fiabilidade e proteção contra interrupções generalizadas porque pode mover os serviços para outro ambiente de implantação se um centro de dados ou fornecedor de nuvem tiver um apagão.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Leia a visão geral dos [clusters Service Fabric no Azure](service-fabric-azure-clusters-overview.md)
-* Leia a visão geral de [Service Fabric clusters autônomos](service-fabric-standalone-clusters-overview.md)
+* Leia a visão geral dos [clusters de tecido de serviço no Azure](service-fabric-azure-clusters-overview.md)
+* Leia a visão geral dos [clusters autónomos do Tecido de Serviço](service-fabric-standalone-clusters-overview.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)

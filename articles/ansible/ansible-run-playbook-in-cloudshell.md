@@ -5,15 +5,15 @@ keywords: ansible, azure, devops, bash, cloudshell, manual de procedimentos, bas
 ms.topic: quickstart
 ms.date: 04/30/2019
 ms.openlocfilehash: 2a938179cf2e07a61749042db32ef9e1c9d843ba
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78247883"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Quickstart: Executar playbooks ansible via Bash in Azure Cloud Shell
 
-A Azure Cloud Shell é uma concha interativa e acessível ao navegador para gerir os recursos do Azure. A Cloud Shell fornece-lhe que utilize uma linha de comando Bash ou PowerShell. Neste artigo, você usa Bash dentro de Azure Cloud Shell para executar um livro de ansible.
+O Azure Cloud Shell é uma shell interativa e compatível com o browser para gerir recursos do Azure. A Cloud Shell fornece-lhe que utilize uma linha de comando Bash ou PowerShell. Neste artigo, você usa Bash dentro de Azure Cloud Shell para executar um livro de ansible.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ A Azure Cloud Shell é uma concha interativa e acessível ao navegador para geri
 
 Quando assinado na Cloud Shell, ansible autentica com Azure para gerir a infraestrutura sem qualquer configuração adicional. 
 
-Ao trabalhar com várias subscrições, especifique a subscrição Utilizações Ansible exportando a variável ambiente `AZURE_SUBSCRIPTION_ID`. 
+Ao trabalhar com várias subscrições, especifique `AZURE_SUBSCRIPTION_ID` a subscrição Utilizações Ansible exportando a variável ambiental. 
 
 Para listar todas as suas subscrições Do Azure, execute o seguinte comando:
 
@@ -33,7 +33,7 @@ Para listar todas as suas subscrições Do Azure, execute o seguinte comando:
 az account list
 ```
 
-Utilizando o seu ID de subscrição Azure, detete a `AZURE_SUBSCRIPTION_ID` da seguinte forma:
+Utilizando o seu ID de `AZURE_SUBSCRIPTION_ID` subscrição Azure, detete o seguinte:
 
 ```console
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>

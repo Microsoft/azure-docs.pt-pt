@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: a2619293bf3641cdca370ff528a87ae879460a3b
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 11123ee04dd02a60dff0b88e2e6e85fcd613a7d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086790"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067998"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Media v3 frequentemente questionados
 
@@ -60,6 +60,21 @@ Para mais detalhes, consulte [Mover uma conta de Media Services entre subscriç�
 
 ## <a name="live-streaming"></a>Transmissão em direto 
 
+### <a name="how-to-stop-the-live-stream-after-the-broadcast-is-done"></a>Como parar a transmissão ao vivo depois da emissão estar feita?
+
+Pode abordá-lo do lado do cliente ou do lado do servidor.
+
+#### <a name="client-side"></a>Lado do cliente
+
+A sua aplicação web deve solicitar ao utilizador se pretende terminar a transmissão se estiver a fechar o navegador. Este é um evento de navegador que a sua aplicação web pode lidar.
+
+#### <a name="server-side"></a>Lado do servidor
+
+Você pode monitorizar eventos ao vivo subscrevendo eventos da Grelha de Eventos. Para mais informações, consulte o [eventgrid event schema](media-services-event-schemas.md#live-event-types).
+
+* Pode [subscrever](reacting-to-media-services-events.md) o nível de streaming [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) e monitorizar que não entram reconexões durante algum tempo para parar e eliminar o seu evento ao vivo.
+* Ou, pode [subscrever](reacting-to-media-services-events.md) os eventos de [batimentocardíaco](media-services-event-schemas.md#liveeventingestheartbeat) ao nível da pista. Se todas as faixas tiverem bitrate de entrada caindo para 0; ou a última marca não está mais a aumentar, então também pode encerrar com segurança o evento ao vivo. Os eventos de batimentos cardíacos chegam a cada 20 segundos para cada pista para que possa ser um pouco verboso.
+
 ###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>Como inserir quebras/vídeos e ardósias de imagem durante o live stream?
 
 A codificação ao vivo do Media Services v3 ainda não suporta a inserção de imagens de vídeo ou imagem durante o live stream. 
@@ -70,9 +85,9 @@ Pode utilizar um [codificador ao vivo no local](recommended-on-premises-live-enc
 
 ### <a name="should-i-use-an-aes-128-clear-key-encryption-or-a-drm-system"></a>Devo usar uma encriptação de chave aES-128 ou um sistema DEDRM?
 
-Os clientes freqüentemente se questionam sobre se deve utilizar encriptação AES ou um sistema DRM. A principal diferença entre os dois sistemas é que com a encriptação AES a chave de conteúdo é transmitida ao cliente através de TLS para que a chave seja encriptada em trânsito, mas sem qualquer encriptação adicional ("na clara"). Como resultado, a chave usada para desencriptar o conteúdo é acessível ao leitor cliente e pode ser visualizada num traço de rede no cliente em texto simples. Uma encriptação clara da chave AES-128 é adequada para casos de utilização em que o espectador é uma parte de confiança (por exemplo, encriptar vídeos corporativos distribuídos dentro de uma empresa para ser visto pelos colaboradores).
+Os clientes muitas vezes perguntam-se se devem usar encriptação AES ou um sistema DEDRM. A principal diferença entre os dois sistemas é que com a encriptação AES a chave de conteúdo é transmitida ao cliente através de TLS para que a chave seja encriptada em trânsito, mas sem qualquer encriptação adicional ("na clara"). Como resultado, a chave usada para desencriptar o conteúdo é acessível ao leitor cliente e pode ser visualizada num traço de rede no cliente em texto simples. Uma encriptação clara da chave AES-128 é adequada para casos de utilização em que o espectador é uma parte de confiança (por exemplo, encriptar vídeos corporativos distribuídos dentro de uma empresa para ser visto pelos colaboradores).
 
-Sistemas DRM como PlayReady, Widevine e FairPlay fornecem um nível adicional de encriptação na chave usada para desencriptar o conteúdo em comparação com uma chave clara AES-128. A chave de conteúdo é encriptada para uma chave protegida pelo tempo de execução da DRM em adicional a qualquer encriptação de nível de transporte fornecida pelo TLS. Além disso, a desencriptação é tratada num ambiente seguro ao nível do sistema operativo, onde é mais difícil para um utilizador mal intencionado a ataques. Para casos de utilização em que o Visualizador pode não ser um confiável e requerem o nível mais elevado de segurança, recomenda-se DRM.
+Sistemas DRM como PlayReady, Widevine e FairPlay fornecem um nível adicional de encriptação na chave usada para desencriptar o conteúdo em comparação com uma chave clara AES-128. A chave de conteúdo é encriptada para uma chave protegida pelo tempo de execução da DRM em adicional a qualquer encriptação de nível de transporte fornecida pelo TLS. Além disso, a desencriptação é tratada num ambiente seguro ao nível do sistema operativo, onde é mais difícil para um utilizador malicioso atacar. A DRM é recomendada para casos de utilização em que o espectador pode não ser uma parte de confiança e você requer o mais alto nível de segurança.
 
 ### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>Como mostrar um vídeo apenas a utilizadores que tenham uma permissão específica, sem utilizar o Azure AD?
 
@@ -82,50 +97,50 @@ Certifique-se de que o emitente, o público e as alegações correspondem exatam
 
 Para mais informações, consulte [Proteja o seu conteúdo utilizando encriptação dinâmica dos Media Services](content-protection-overview.md).
 
-### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Como e onde obter JWT token antes de o utilizar para a licença de pedido ou a chave?
+### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Como e onde obter o símbolo JWT antes de usá-lo para solicitar licença ou chave?
 
 1. Para produção, é necessário ter um Serviço De Token Seguro (STS) (serviço web) que emite um símbolo JWT a quando um pedido HTTPS. Para o teste, pode utilizar o código mostrado no método **GetTokenAsync** definido em [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
-2. Leitor terá de fazer um pedido, após um utilizador é autenticado, para o STS para esse token e atribua-a como o valor do token. Pode utilizar a API do [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
+2. O jogador terá de fazer um pedido, depois de um utilizador ser autenticado, ao STS para tal token e atribuí-lo como o valor do símbolo. Pode utilizar a API do [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
 
 * Para um exemplo de execução de STS, com chave simétrica e assimétrica, consulte [https://aka.ms/jwt](https://aka.ms/jwt). 
-* Para um exemplo de um jogador baseado no Azure Media Player usando tal token JWT, consulte [https://aka.ms/amtest](https://aka.ms/amtest) (expandir a ligação "player_settings" para ver a entrada simbólica).
+* Para um exemplo de um jogador baseado no Azure Media [https://aka.ms/amtest](https://aka.ms/amtest) Player usando tal token JWT, consulte (expanda a ligação "player_settings" para ver a entrada simbólica).
 
-### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Como autorizar pedidos para transmitir vídeos em fluxo com encriptação AES?
+### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Como autoriza pedidos para transmitir vídeos com encriptação AES?
 
-A abordagem correta é tirar partido do STS (serviço Token seguro):
+A abordagem correta é alavancar o STS (Secure Token Service):
 
-No STS, dependendo do perfil do utilizador, adicione diferentes reclamações (como "Utilizador Premium", "Utilizador Básico", "Utilizador de EnsaioGratuito"). Com afirmações diferentes num JWT, o utilizador pode ver o conteúdo diferente. Obviamente, para conteúdo diferente/recurso, o ContentKeyPolicyRestriction terá o RequiredClaims correspondente.
+No STS, dependendo do perfil do utilizador, adicione diferentes reclamações (como "Utilizador Premium", "Utilizador Básico", "Utilizador de EnsaioGratuito"). Com diferentes reclamações num JWT, o utilizador pode ver conteúdos diferentes. Claro que, para diferentes conteúdos/ativos, a ContentKeyPolicyRestriction terá as correspondentes Reclamações Exigidas.
 
 Utilize apIs de Serviços de Mídia Azure para configurar a entrega de licença/chave e encriptar os seus ativos (como mostrado [nesta amostra).](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)
 
 Para obter mais informações, consulte:
 
-- [Descrição geral da proteção de conteúdo](content-protection-overview.md)
-- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md) (Design de um sistema de proteção de conteúdo multi-DRM com controlo de acesso)
+- [Visão geral da proteção de conteúdos](content-protection-overview.md)
+- [Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
 
 ### <a name="http-or-https"></a>HTTP ou HTTPS?
-A aplicação de leitor de ASP.NET MVC tem de suportar o seguinte:
+A aplicação ASP.NET do leitor de MVC deve suportar o seguinte:
 
-* Autenticação de utilizador através do Azure AD, o que está sob a HTTPS.
-* Troca JWT entre o cliente e o Azure AD, que está abaixo do HTTPS.
-* Aquisição de licença DRM pelo cliente, que tem de estar sob HTTPS se a entrega de licenças é fornecida pelos serviços de multimédia. O conjunto de produtos do PlayReady não exige o HTTPS para entrega de licenças. Se o seu servidor de licenças do PlayReady está fora dos serviços de multimédia, pode utilizar HTTP ou HTTPS.
+* Autenticação do utilizador através do Azure AD, que se encontra em HTTPS.
+* Troca de JWT entre o cliente e a Azure AD, que está em HTTPS.
+* Aquisição de licença DRM pelo cliente, que deve estar em HTTPS se a entrega de licença for fornecida pela Media Services. A suíte de produto PlayReady não manda HTTPS para entrega de licença. Se o seu servidor de licença PlayReady estiver fora dos Serviços de Media, pode utilizar http ou HTTPS.
 
-A aplicação de leitor ASP.NET utiliza HTTPS como melhor prática, para que o leitor de multimédia é uma página em HTTPS. No entanto, o HTTP é preferido para a transmissão em fluxo, para que precisa considerar o problema de conteúdo misto.
+A aplicação ASP.NET jogador utiliza HTTPS como uma melhor prática, pelo que o Media Player está numa página em HTTPS. No entanto, http é preferido para streaming, por isso você precisa considerar a questão dos conteúdos mistos.
 
-* O browser não permite que conteúdo misto. Mas o plug-ins como Silverlight e OSMF Plug-in para suavizar e travessão permiti-lo. Conteúdo misto é uma preocupação de segurança por causa da ameaça da capacidade para injetar JavaScript malicioso, que pode fazer com que os dados do cliente estar em risco. Browsers bloquear esta capacidade, por predefinição. É a única maneira de contorná-la no lado do servidor (origem), permitindo que todos os domínios (independentemente do HTTPS ou HTTP). Isto é provavelmente não é uma boa idéia.
-* Evite conteúdo misto. A aplicação de leitor e o Media Player, devem utilizar HTTP ou HTTPS. Quando a reprodução de conteúdo misto, é a tecnologia de silverlightSS necessário desmarcar um aviso de conteúdo misto. O tech flashSS processa conteúdo misto sem um aviso de conteúdo misto.
-* Se o ponto final de transmissão em fluxo foi criado antes de Agosto de 2014, ele não suporta HTTPS. Neste caso, crie e utilize um novo ponto de final de transmissão em fluxo para HTTPS.
+* O navegador não permite conteúdo misto. Mas plug-ins como Silverlight e o OSMF plug-in para suave e DASH permitem. O conteúdo misto é uma preocupação de segurança devido à ameaça da capacidade de injetar JavaScript malicioso, o que pode fazer com que os dados dos clientes estejam em risco. Os navegadores bloqueiam esta capacidade por padrão. A única forma de trabalhar em torno dele é do lado do servidor (origem), permitindo que todos os domínios (independentemente de HTTPS ou HTTP). Provavelmente também não é uma boa ideia.
+* Evite conteúdo misto. Tanto a aplicação do jogador como o Media Player devem utilizar HTTP ou HTTPS. Ao reproduzir conteúdo misto, a tecnologia silverlightSS requer a desobstrução de um aviso de conteúdo misto. A tecnologia flashSS lida com conteúdo misto sem um aviso de conteúdo misto.
+* Se o seu ponto final de streaming foi criado antes de agosto de 2014, não apoiará HTTPS. Neste caso, crie e use um novo ponto final de streaming para HTTPS.
 
-### <a name="what-about-live-streaming"></a>E quanto ao vivo de transmissão em fluxo?
+### <a name="what-about-live-streaming"></a>E o streaming ao vivo?
 
-Pode utilizar exatamente o mesmo design e implementação para proteger a transmissão em fluxo em direto nos serviços de multimédia ao tratar o elemento associado um programa como um ativo VOD. Para fornecer uma proteção multi-DRM do conteúdo ao vivo, aplique a mesma configuração/processamento ao Ativo como se fosse um ativo VOD antes de associar o Ativo à Saída Ao Vivo.
+Você pode usar exatamente o mesmo design e implementação para proteger o streaming ao vivo em Media Services, tratando o ativo associado a um programa como um ativo VOD. Para fornecer uma proteção multi-DRM do conteúdo ao vivo, aplique a mesma configuração/processamento ao Ativo como se fosse um ativo VOD antes de associar o Ativo à Saída Ao Vivo.
 
-### <a name="what-about-license-servers-outside-media-services"></a>E os servidores de licença fora dos serviços de multimédia?
+### <a name="what-about-license-servers-outside-media-services"></a>E os servidores de licença fora dos Serviços de Media?
 
-Muitas vezes, os clientes investiram num farm de servidores de licença em seu próprio Centro de dados ou hospedado por fornecedores de serviços DRM. Com a proteção de conteúdo de serviços de multimédia, pode operar no modo híbrido. Conteúdo pode ser hospedado e dinamicamente protegido nos serviços de multimédia, enquanto as licenças DRM são fornecidas por servidores fora dos serviços de multimédia. Neste caso, considere as seguintes alterações:
+Muitas vezes, os clientes investiram numa exploração de servidores de licenças, quer no seu próprio centro de dados, quer numa hospedada por prestadores de serviços drm. Com a proteção de conteúdos dos Media Services, pode operar em modo híbrido. Os conteúdos podem ser hospedados e protegidos dinamicamente nos Serviços de Media, enquanto as licenças de DRM são entregues por servidores fora dos Serviços de Media. Neste caso, considere as seguintes alterações:
 
-* STS deve emitir tokens que são aceitáveis e podem ser verificados pelo farm de servidores de licença. Por exemplo, os servidores de licença do Widevine fornecidos pelo Axinom requerem um JWT específico que contém uma mensagem de elegibilidade. Por conseguinte, tem de ter um STS para emitir um JWT desse tipo. 
-* Já não terá de configurar o serviço de entrega de licença nos serviços de multimédia. Tem de fornecer a licença de aquisição URLs (para o PlayReady, Widevine e FairPlay) ao configurar ContentKeyPolicies.
+* O STS precisa de emitir fichas aceitáveis e podem ser verificadas pela exploração do servidor de licenças. Por exemplo, os servidores de licença Widevine fornecidos pela Axinom requerem um JWT específico que contém uma mensagem de direito. Portanto, é preciso ter um STS para emitir tal JWT. 
+* Já não precisa de configurar o serviço de entrega de licenças nos Serviços de Media. Você precisa fornecer os URLs de aquisição de licença (para PlayReady, Widevine e FairPlay) quando configurar ContentKeyPolicies.
 
 > [!NOTE]
 > A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
@@ -140,7 +155,7 @@ Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para:
 * vista (não gerir) [v3 Ativos,](assets-concept.md) 
 * [obtenha informações sobre o acesso a APIs.](access-api-portal.md) 
 
-Para todas as outras tarefas de gestão (por exemplo, [Transforms and Jobs](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados.
+Para todas as outras tarefas de gestão (por exemplo, [Transforms and Jobs](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API,](https://docs.microsoft.com/rest/api/media/) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)suportados.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito AssetFile em v3?
 

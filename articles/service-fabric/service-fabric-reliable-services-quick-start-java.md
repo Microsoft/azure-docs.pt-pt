@@ -1,46 +1,46 @@
 ---
-title: Crie seu primeiro serviço confiável em Java
-description: Introdução à criação de um aplicativo Microsoft Azure Service Fabric com serviços com e sem estado.
+title: Crie o seu primeiro serviço confiável em Java
+description: Introdução à criação de uma aplicação Microsoft Azure Service Fabric com serviços apátridas e apátridas.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614218"
 ---
-# <a name="get-started-with-reliable-services-in-java"></a>Introdução ao Reliable Services em Java
+# <a name="get-started-with-reliable-services-in-java"></a>Começar com Serviços Fiáveis em Java
 > [!div class="op_single_selector"]
 > * [C# no Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java em Linux](service-fabric-reliable-services-quick-start-java.md)
 >
 >
 
-Este artigo explica as noções básicas do Azure Service Fabric Reliable Services e orienta você pela criação e implantação de um simples aplicativo de serviço confiável escrito em Java. 
+Este artigo explica os fundamentos dos Serviços Fiáveis de Tecido de Serviço Azure e percorre-o através da criação e implementação de uma simples aplicação de Serviço Fiável escrita em Java. 
 
 ## <a name="installation-and-setup"></a>Instalação e configuração
-Antes de começar, verifique se você tem o ambiente de desenvolvimento Service Fabric configurado em seu computador.
-Se você precisar configurá-lo, acesse [introdução ao Mac](service-fabric-get-started-mac.md) ou [introdução no Linux](service-fabric-get-started-linux.md).
+Antes de começar, certifique-se de que tem o ambiente de desenvolvimento do Tecido de Serviço configurado na sua máquina.
+Se precisar de preparar, vá [começar no Mac](service-fabric-get-started-mac.md) ou começar no [Linux.](service-fabric-get-started-linux.md)
 
 ## <a name="basic-concepts"></a>Conceitos básicos
-Para começar a usar o Reliable Services, você só precisa entender alguns conceitos básicos:
+Para começar com serviços fiáveis, basta compreender alguns conceitos básicos:
 
-* **Tipo de serviço**: esta é a implementação do seu serviço. Ele é definido pela classe que você escreve que estende `StatelessService` e quaisquer outros códigos ou dependências usados nele, juntamente com um nome e um número de versão.
-* **Instância de serviço nomeada**: para executar o serviço, você cria instâncias nomeadas do seu tipo de serviço, de forma semelhante a criar instâncias de objeto de um tipo de classe. As instâncias de serviço são, na verdade, instanciações de objeto de sua classe de serviço que você escreve.
-* **Host de serviço**: as instâncias de serviço nomeadas que você cria precisam ser executadas dentro de um host. O host de serviço é apenas um processo em que as instâncias do serviço podem ser executadas.
-* **Registro de serviço**: o registro reúne tudo juntos. O tipo de serviço deve ser registrado com o tempo de execução de Service Fabric em um host de serviço para permitir que Service Fabric criem instâncias dele para serem executados.  
+* **Tipo**de serviço : Esta é a sua implementação de serviço. É definido pela classe que escreve `StatelessService` que se estende e qualquer outro código ou dependências nele utilizados, juntamente com um nome e um número de versão.
+* **Caso de serviço nomeado**: Para executar o seu serviço, cria instâncias nomeadas do seu tipo de serviço, tal como cria situações de objetos de tipo de classe. As instâncias de serviço são, de facto, instantâneas objetivas da sua classe de serviço que escreve.
+* **Anfitrião de serviço**: As instâncias de serviço nomeadas que cria precisam de ser executadas dentro de um hospedeiro. O anfitrião do serviço é apenas um processo onde as instâncias do seu serviço podem ser executadas.
+* **Inscrição de serviço:** O registo reúne tudo. O tipo de serviço deve ser registado com o tempo de funcionar do Tecido de Serviço num hospedeiro de serviço para permitir que o Tecido de Serviço crie instâncias do mesmo.  
 
-## <a name="create-a-stateless-service"></a>Criar um serviço sem estado
-Comece criando um aplicativo Service Fabric. O SDK do Service Fabric para Linux inclui um gerador de Yeoman para fornecer o scaffolding para um aplicativo Service Fabric com um serviço sem estado. Comece executando o seguinte comando Yeoman:
+## <a name="create-a-stateless-service"></a>Criar um serviço apátrida
+Comece por criar uma aplicação De Tecido de Serviço. O SDK de Tecido de Serviço para Linux inclui um gerador Yeoman para fornecer o andaime para uma aplicação de Tecido de Serviço com um serviço apátrida. Comece por executar o seguinte comando Yeoman:
 
 ```bash
 $ yo azuresfjava
 ```
 
-Siga as instruções para criar um **serviço confiável sem estado**. Para este tutorial, nomeie o aplicativo "HelloWorldApplication" e o serviço "HelloWorld". O resultado inclui diretórios para o `HelloWorldApplication` e `HelloWorld`.
+Siga as instruções para criar um **Serviço Fiável Apátrida**. Para este tutorial, nomeie a aplicação "HelloWorldApplication" e o serviço "HelloWorld". O resultado inclui diretórios para e `HelloWorldApplication` . `HelloWorld`
 
 ```bash
 HelloWorldApplication/
@@ -66,8 +66,8 @@ HelloWorldApplication/
 ├── settings.gradle
 └── uninstall.sh
 ```
-### <a name="service-registration"></a>Registro de serviço
-Os tipos de serviço devem ser registrados com o tempo de execução Service Fabric. O tipo de serviço é definido no `ServiceManifest.xml` e sua classe de serviço que implementa `StatelessService`. O registro de serviço é executado no ponto de entrada principal do processo. Neste exemplo, o ponto de entrada principal do processo é `HelloWorldServiceHost.java`:
+### <a name="service-registration"></a>Registo de serviço
+Os tipos de serviço devem ser registados no tempo de execução do Tecido de Serviço. O tipo de serviço `ServiceManifest.xml` é definido na `StatelessService`classe de serviço e na sua classe de serviço que implementa . A inscrição de serviço é realizada no ponto de entrada principal do processo. Neste exemplo, o ponto de `HelloWorldServiceHost.java`entrada principal do processo é:
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -85,9 +85,9 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="implement-the-service"></a>Implementar o serviço
 
-Abra **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService. java**. Essa classe define o tipo de serviço e pode executar qualquer código. A API de serviço fornece dois pontos de entrada para seu código:
+Abra **helloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Esta classe define o tipo de serviço, e pode executar qualquer código. O serviço API fornece dois pontos de entrada para o seu código:
 
-* Um método de ponto de entrada aberto, chamado `runAsync()`, no qual você pode começar a executar qualquer carga de trabalho, incluindo cargas de trabalho de computação de longa execução.
+* Um método de ponto de `runAsync()`entrada aberto, chamado , onde você pode começar a executar qualquer carga de trabalho, incluindo cargas de trabalho de computação de longa duração.
 
 ```java
 @Override
@@ -96,7 +96,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 }
 ```
 
-* Um ponto de entrada de comunicação no qual você pode conectar sua pilha de comunicação de sua escolha. É aí que você pode começar a receber solicitações de usuários e outros serviços.
+* Um ponto de entrada de comunicação onde pode ligar a sua pilha de comunicação de eleição. É aqui que pode começar a receber pedidos de utilizadores e outros serviços.
 
 ```java
 @Override
@@ -105,22 +105,22 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Este tutorial se concentra no `runAsync()` método de ponto de entrada. É aí que você pode iniciar imediatamente a execução do código.
+Este tutorial centra-se no método do `runAsync()` ponto de entrada. É aqui que pode começar imediatamente a executar o seu código.
 
 ### <a name="runasync"></a>RunAsync
-A plataforma chama esse método quando uma instância de um serviço é colocada e está pronta para ser executada. Para um serviço sem estado, isso significa que quando a instância do serviço é aberta. Um token de cancelamento é fornecido para coordenar quando sua instância de serviço precisa ser fechada. Em Service Fabric, esse ciclo de abertura/fechamento de uma instância de serviço pode ocorrer muitas vezes durante o tempo de vida do serviço como um todo. Isso pode ocorrer por vários motivos, incluindo:
+A plataforma chama a este método quando uma instância de um serviço é colocada e pronta a ser executada. Para um serviço apátrida, isso significa que quando a instância de serviço é aberta. É fornecido um símbolo de cancelamento para coordenar quando a sua instância de serviço precisa de ser fechada. No Tecido de Serviço, este ciclo aberto/próximo de uma instância de serviço pode ocorrer muitas vezes ao longo da vida do serviço como um todo. Isto pode acontecer por várias razões, incluindo:
 
-* O sistema move as instâncias de serviço para o balanceamento de recursos.
-* As falhas ocorrem em seu código.
-* O aplicativo ou o sistema é atualizado.
-* O hardware subjacente passa por uma interrupção.
+* O sistema move as suas instâncias de serviço para o equilíbrio de recursos.
+* As falhas ocorrem no seu código.
+* A aplicação ou sistema é atualizado.
+* O hardware subjacente experimenta uma paragem.
 
-Essa orquestração é gerenciada pelo Service Fabric para manter seu serviço altamente disponível e equilibrado corretamente.
+Esta orquestração é gerida pela Service Fabric para manter o seu serviço altamente disponível e devidamente equilibrado.
 
-`runAsync()` não deve bloquear de forma síncrona. Sua implementação de runAsync deve retornar um CompletableFuture para permitir que o tempo de execução continue. Se sua carga de trabalho precisar implementar uma tarefa de execução longa que deve ser feita dentro do CompletableFuture.
+`runAsync()`não deve bloquear sincronizadamente. A sua implementação do runAsync deve devolver um CompletableFuture para permitir que o tempo de execução continue. Se a sua carga de trabalho precisar de implementar uma tarefa de longo prazo que deve ser feita dentro do CompletableFuture.
 
 #### <a name="cancellation"></a>Cancelamento
-O cancelamento de sua carga de trabalho é um esforço cooperativo orquestrado pelo token de cancelamento fornecido. O sistema aguarda que a tarefa seja encerrada (com êxito na conclusão, cancelamento ou falha) antes de se mover. É importante honrar o token de cancelamento, concluir qualquer trabalho e sair `runAsync()` o mais rápido possível quando o sistema solicita o cancelamento. O exemplo a seguir demonstra como manipular um evento de cancelamento:
+O cancelamento da sua carga de trabalho é um esforço de cooperação orquestrado pelo símbolo de cancelamento fornecido. O sistema aguarda que a sua tarefa termine (por conclusão, cancelamento ou falha com sucesso) antes de seguir em frente. É importante honrar o sinal de cancelamento, terminar `runAsync()` qualquer trabalho e sair o mais rápido possível quando o sistema solicitar o cancelamento. O exemplo que se segue demonstra como lidar com um evento de cancelamento:
 
 ```java
 @Override
@@ -144,20 +144,20 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 }
 ```
 
-Neste exemplo de serviço sem estado, a contagem é armazenada em uma variável local. Mas como esse é um serviço sem estado, o valor armazenado só existe para o ciclo de vida atual de sua instância de serviço. Quando o serviço é movido ou reiniciado, o valor é perdido.
+Neste exemplo de serviço apátrida, a contagem é armazenada numa variável local. Mas como este é um serviço apátrida, o valor armazenado só existe para o ciclo de vida atual da sua instância de serviço. Quando o serviço se move ou reinicia, o valor perde-se.
 
-## <a name="create-a-stateful-service"></a>Criar um serviço com estado
-Service Fabric introduz um novo tipo de serviço com estado. Um serviço com estado pode manter o estado de forma confiável no próprio serviço, localizado em conjunto com o código que o está usando. O estado se torna altamente disponível por Service Fabric sem a necessidade de persistir o estado para um repositório externo.
+## <a name="create-a-stateful-service"></a>Criar um serviço imponente
+A Service Fabric introduz um novo tipo de serviço que é imponente. Um serviço imponente pode manter o estado de forma fiável dentro do próprio serviço, co-localizado com o código que o está a usar. O Estado é altamente disponibilizado pela Service Fabric sem a necessidade de persistir em estado para uma loja externa.
 
-Para converter um valor de contador de sem estado para altamente disponível e persistente, mesmo quando o serviço é movido ou reiniciado, você precisa de um serviço com estado.
+Para converter um contra-valor de apátrida para altamente disponível e persistente, mesmo quando o serviço se move ou reinicia, precisa de um serviço imponente.
 
-No mesmo diretório que o aplicativo HelloWorld, você pode adicionar um novo serviço executando o comando `yo azuresfjava:AddService`. Escolha o "serviço com estado confiável" para sua estrutura e nomeie o serviço "HelloWorldStateful". 
+No mesmo diretório que a aplicação HelloWorld, pode `yo azuresfjava:AddService` adicionar um novo serviço executando o comando. Escolha o "Reliable Stateful Service" para a sua estrutura e nomeie o serviço "HelloWorldStateful". 
 
-Seu aplicativo agora deve ter dois serviços: o serviço sem estado HelloWorld e o serviço com estado HelloWorldStateful.
+A sua aplicação deverá agora ter dois serviços: o serviço apátrida HelloWorld e o serviço imponente HelloWorldStateful.
 
-Um serviço com estado tem os mesmos pontos de entrada que um serviço sem estado. A principal diferença é a disponibilidade de um provedor de estado que pode armazenar o estado de forma confiável. Service Fabric vem com uma implementação de provedor de estado chamada coleções confiáveis, que permite criar estruturas de dados replicadas por meio do Gerenciador de estado confiável. Um serviço confiável com estado usa esse provedor de estado por padrão.
+Um serviço imponente tem os mesmos pontos de entrada que um serviço apátrida. A principal diferença é a disponibilidade de um provedor do Estado que possa armazenar o Estado de forma fiável. O Service Fabric vem com uma implementação do fornecedor estatal chamada Reliable Collections, que permite criar estruturas de dados replicadas através do Reliable State Manager. Um serviço fiável e audato utiliza este fornecedor estatal por defeito.
 
-Abra HelloWorldStateful. Java em **HelloWorldStateful-> src**, que contém o seguinte método RunAsync:
+Abra HelloWorldStateful.java em **HelloWorldStateful -> src,** que contém o seguinte método RunAsync:
 
 ```java
 @Override
@@ -183,23 +183,23 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()` funciona de forma semelhante em serviços com e sem estado. No entanto, em um serviço com estado, a plataforma executa um trabalho adicional em seu nome antes de executar `RunAsync()`. Esse trabalho pode incluir garantir que o Gerenciador de estado confiável e as coleções confiáveis estejam prontos para uso.
+`RunAsync()`opera da mesma forma em serviços apátridas e apátridas. No entanto, num serviço imponente, a plataforma realiza trabalhoadicional `RunAsync()`em seu nome antes de ser executada. Este trabalho pode incluir garantir que o Gestor de Estado Fiável e Coleções Fiáveis estão prontos a ser utilizados.
 
-### <a name="reliable-collections-and-the-reliable-state-manager"></a>Coleções confiáveis e o Gerenciador de estado confiável
+### <a name="reliable-collections-and-the-reliable-state-manager"></a>Coleções fiáveis e o Gestor de Estado Confiável
 ```java
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) é uma implementação de dicionário que você pode usar para armazenar o estado de forma confiável no serviço. Com Service Fabric e HashMaps confiáveis, você pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. HashMaps confiáveis tornam seus dados altamente disponíveis. Service Fabric realiza isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e suas transições de estado.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) é uma implementação de dicionário que pode usar para armazenar o estado de forma fiável no serviço. Com tecido de serviço e HashMaps fiáveis, pode armazenar dados diretamente no seu serviço sem a necessidade de uma loja externa persistente. O HashMaps fiável disponibiliza os seus dados. O Service Fabric consegue isso criando e gerindo *múltiplas réplicas* do seu serviço para si. Também fornece uma API que abstrata as complexidades da gestão dessas réplicas e as suas transições estatais.
 
-As coleções confiáveis podem armazenar qualquer tipo de Java, incluindo seus tipos personalizados, com algumas limitações:
+As Coleções Fiáveis podem armazenar qualquer tipo Java, incluindo os seus tipos personalizados, com um par de ressalvas:
 
-* Service Fabric torna seu estado altamente disponível ao *replicar* o estado entre os nós e o HashMap confiável armazena seus dados no disco local em cada réplica. Isso significa que tudo que é armazenado em HashMaps confiáveis deve ser *serializável*. 
-* Os objetos são replicados para alta disponibilidade quando você confirma transações em HashMaps confiáveis. Os objetos armazenados em HashMaps confiáveis são mantidos na memória local em seu serviço. Isso significa que você tem uma referência local para o objeto.
+* O Service Fabric disponibiliza o seu estado *replicando* o estado através de nós, e o Reliable HashMap armazena os seus dados em disco local em cada réplica. Isto significa que tudo o que está armazenado em HashMaps fiável deve ser *serializável.* 
+* Os objetos são replicados para alta disponibilidade quando comete transações em HashMaps fiáveis. Os objetos armazenados em HashMaps fiáveis são mantidos na memória local ao seu serviço. Isto significa que tem uma referência local ao objeto.
   
-   É importante que você não faça mutação de instâncias locais desses objetos sem executar uma operação de atualização na coleção confiável em uma transação. Isso ocorre porque as alterações em instâncias locais de objetos não serão replicadas automaticamente. Você deve reinserir o objeto de volta no dicionário ou usar um dos métodos de *atualização* no dicionário.
+   É importante que não sofram mutações locais desses objetos sem realizar uma operação de atualização sobre a recolha fiável numa transação. Isto porque as alterações às instâncias locais dos objetos não serão replicadas automaticamente. Deve voltar a inserir o objeto no dicionário ou utilizar um dos métodos de *atualização* do dicionário.
 
-O Gerenciador de estado confiável gerencia HashMaps confiáveis para você. Você pode pedir ao Gerenciador de estado confiável uma coleção confiável por nome a qualquer momento e em qualquer lugar em seu serviço. O Gerenciador de estado confiável garante que você obtenha uma referência de volta. Não recomendamos que você salve referências a instâncias de coleções confiáveis em Propriedades ou variáveis de membro de classe. Deve-se tomar cuidado especial para garantir que a referência seja definida para uma instância em todos os momentos no ciclo de vida do serviço. O Gerenciador de estado confiável manipula esse trabalho para você e é otimizado para visitas repetidas.
+O Gestor de Estado Confiável gere hashMaps fiáveis para si. Você pode pedir ao Gestor de Estado fiável uma coleção fiável pelo nome a qualquer momento e em qualquer lugar ao seu serviço. O Gestor de Estado confiável garante que obtém uma referência de volta. Não recomendamos que guarde referências a casos de recolha fiáveis em variáveis ou propriedades de membros da classe. Há que ter especial cuidado para garantir que a referência seja definida em todos os momentos do ciclo de vida de serviço. O Gestor de Estado confiável lida com este trabalho para si, e está otimizado para visitas repetidas.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>Operações transacionais e assíncronas
@@ -220,20 +220,20 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-As operações em HashMaps confiáveis são assíncronas. Isso ocorre porque as operações de gravação com coleções confiáveis executam operações de e/s para replicar e manter os dados no disco.
+As operações em HashMaps fiáveis são assíncronas. Isto porque as operações de escrita com Coleções Fiáveis realizam operações de I/S para replicar e persistir dados em disco.
 
-As operações confiáveis do HashMap são *transacionais*, para que você possa manter o estado consistente entre várias HashMaps e operações confiáveis. Por exemplo, você pode obter um item de trabalho de um dicionário confiável, executar uma operação nele e salvar o resultado em outro HashMap confiável, tudo em uma única transação. Isso é tratado como uma operação atômica e garante que toda a operação seja realizada com sucesso ou que toda a operação seja revertida. Se ocorrer um erro depois que você remover a fila do item, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
+As operações de HashMap fiáveis são *transacionais,* para que possa manter o estado consistente em vários HashMaps e operações fiáveis. Por exemplo, pode obter um item de trabalho de um Dicionário Fiável, executar uma operação nele e guardar o resultado em outro HashMap fiável, tudo dentro de uma única transação. Isto é tratado como uma operação atómica, e garante que ou toda a operação terá sucesso ou toda a operação irá reverter. Se ocorrer um erro após a desfilar o item, mas antes de guardar o resultado, toda a transação é relançada e o item permanece na fila para processamento.
 
 
 ## <a name="build-the-application"></a>Criar a aplicação
 
-O Yeoman scaffolding inclui um script gradle para compilar o aplicativo e scripts bash para implantar e remover o aplicativo. Para executar o aplicativo, primeiro compile o aplicativo com gradle:
+O andaime Yeoman inclui um roteiro de gradle para construir a aplicação e bater scripts para implementar e remover a aplicação. Para executar a aplicação, construa primeiro a aplicação com gradle:
 
 ```bash
 $ gradle
 ```
 
-Isso produz um pacote de aplicativo Service Fabric que pode ser implantado usando Service Fabric CLI.
+Isto produz um pacote de aplicações Service Fabric que pode ser implantado usando o ClI de Tecido de Serviço.
 
 ## <a name="deploy-the-application"></a>Implementar a aplicação
 
@@ -258,7 +258,7 @@ Os parâmetros desses comandos encontram-se nos manifestos gerados dentro do pac
 Após a implementação da aplicação, abra um browser e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
-> Para implantar o aplicativo em um cluster do Linux seguro no Azure, você precisa configurar um certificado para validar seu aplicativo com o tempo de execução de Service Fabric. Isso permite que seus serviços de Reliable Services se comuniquem com as APIs de tempo de execução de Service Fabric subjacentes. Para saber mais, confira [configurar um aplicativo Reliable Services para ser executado em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implementar a aplicação num cluster Linux seguro em Azure, é necessário configurar um certificado para validar a sua aplicação com o tempo de execução do Tecido de Serviço. Ao fazê-lo, os seus serviços fiáveis comunicam com as APIs de tempo de execução do Tecido de Serviço subjacentes. Para saber mais, consulte [a Configure uma aplicação De serviços fiáveis para executar em clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 95f7d4d03fbac6ec7c27630f1210ef999ddc776c
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: a68d812a044c776819d169d5bf179f011d06390f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79369272"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472950"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verifique se há erros na piscina e nonóio
 
@@ -64,17 +64,17 @@ O lote define o estado da [piscina](https://docs.microsoft.com/rest/api/batchser
 
 ## <a name="pool-compute-node-errors"></a>Erros no nó da computação de piscina
 
-Mesmo quando o Batch aloca com sucesso nós numa piscina, várias questões podem fazer com que alguns dos nós não sejam saudáveis e incapazes de executar tarefas. Estes nós ainda incorrem em encargos, por isso é importante detetar problemas para evitar pagar por nós que não podem ser usados. Além de erros comuns do nó, saber que o [estado de trabalho](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate) atual é útil para resolução de problemas.
+Mesmo quando o Batch aloca com sucesso nós numa piscina, várias questões podem fazer com que alguns dos nós não sejam saudáveis e incapazes de executar tarefas. Estes nós ainda incorrem em encargos, por isso é importante detetar problemas para evitar pagar por nós que não podem ser usados. Além de erros comuns do nó, saber que o [estado de trabalho](/rest/api/batchservice/job/get#jobstate) atual é útil para resolução de problemas.
 
 ### <a name="start-task-failures"></a>Iniciar falhas de tarefa
 
-Você deve especificar uma tarefa de [início](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) opcional para uma piscina. Como em qualquer tarefa, pode utilizar uma linha de comando e ficheiros de recursos para descarregar a partir do armazenamento. A tarefa inicial é executada para cada nó depois de ter sido iniciada. A propriedade **waitForSuccess** especifica se o Lote aguarda até que a tarefa de início complete com sucesso antes de agendar quaisquer tarefas para um nó.
+Você deve especificar uma tarefa de [início](/rest/api/batchservice/pool/add#starttask) opcional para uma piscina. Como em qualquer tarefa, pode utilizar uma linha de comando e ficheiros de recursos para descarregar a partir do armazenamento. A tarefa inicial é executada para cada nó depois de ter sido iniciada. A propriedade **waitForSuccess** especifica se o Lote aguarda até que a tarefa de início complete com sucesso antes de agendar quaisquer tarefas para um nó.
 
 E se configurasse o nó para esperar pela conclusão da tarefa de início, mas a tarefa inicial falhar? Nesse caso, o nó não será utilizável, mas continuará a incorrer em acusações.
 
-Pode detetar falhas de tarefa inicial utilizando as propriedades [de resultados](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) e [falhasInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) da propriedade do nó [de início taskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) de alto nível.
+Pode detetar falhas de tarefa inicial utilizando as propriedades [de resultados](/rest/api/batchservice/computenode/get#taskexecutionresult) e [falhasInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) da propriedade do nó [de início taskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) de alto nível.
 
-Uma tarefa de arranque falhada também faz com que o Batch desloque o [estado](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) do nó para **iniciar as tarefas falhadas** se a **esperaForSuccess** for definida como **verdadeira**.
+Uma tarefa de arranque falhada também faz com que o Batch desloque o [estado](/rest/api/batchservice/computenode/get#computenodestate) do nó para **iniciar as tarefas falhadas** se a **esperaForSuccess** for definida como **verdadeira**.
 
 Como em qualquer tarefa, pode haver muitas causas para a falha na tarefa inicial.  Para resolver problemas, verifique o stdout, o stderr e quaisquer ficheiros de registo específicos da tarefa.
 
@@ -84,19 +84,19 @@ As tarefas de arranque devem ser recandidatadas, pois é possível que a tarefa 
 
 Pode especificar um ou mais pacotes de aplicação para uma piscina. O lote descarrega os ficheiros de pacote especificados para cada nó e descomprime os ficheiros após o início do nó, mas antes de as tarefas estarem agendadas. É comum usar uma linha de comando de tarefa inicial em conjunto com pacotes de aplicação. Por exemplo, copiar ficheiros para um local diferente ou executar configuração.
 
-A propriedade [de erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) do nó relata uma falha no download e descomprime um pacote de aplicação; o estado do nó está definido para **inutilizável**.
+A propriedade [de erros](/rest/api/batchservice/computenode/get#computenodeerror) do nó relata uma falha no download e descomprime um pacote de aplicação; o estado do nó está definido para **inutilizável**.
 
 ### <a name="container-download-failure"></a>Falha no descarregamento de contentores
 
-Pode especificar uma ou mais referências de contentores numa piscina. O lote transfere os recipientes especificados para cada nó. O nó [falha](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) a propriedade relata uma falha no descarregamento de um recipiente e define o estado do nó como **inutilizável**.
+Pode especificar uma ou mais referências de contentores numa piscina. O lote transfere os recipientes especificados para cada nó. O nó [falha](/rest/api/batchservice/computenode/get#computenodeerror) a propriedade relata uma falha no descarregamento de um recipiente e define o estado do nó como **inutilizável**.
 
 ### <a name="node-in-unusable-state"></a>Nó em estado inutilizável
 
-O Lote Azure pode definir o estado do [nó](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) **inutilizável** por muitas razões. Com o estado do nó definido para **inutilizável,** as tarefas não podem ser agendadas para o nó, mas ainda incorre em acusações.
+O Lote Azure pode definir o estado do [nó](/rest/api/batchservice/computenode/get#computenodestate) **inutilizável** por muitas razões. Com o estado do nó definido para **inutilizável,** as tarefas não podem ser agendadas para o nó, mas ainda incorre em acusações.
 
-Nós em estado **inutilizável,** mas sem [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) significa que o Batch é incapaz de comunicar com o VM. Neste caso, Batch tenta sempre recuperar o VM. O lote não tentará automaticamente recuperar VMs que não tenham instalado pacotes de aplicação ou contentores, mesmo que o seu estado não **seja utilizável**.
+Nós em estado **inutilizável,** mas sem [erros](/rest/api/batchservice/computenode/get#computenodeerror) significa que o Batch é incapaz de comunicar com o VM. Neste caso, Batch tenta sempre recuperar o VM. O lote não tentará automaticamente recuperar VMs que não tenham instalado pacotes de aplicação ou contentores, mesmo que o seu estado não **seja utilizável**.
 
-Se o Batch conseguir determinar a causa, o nó [falha](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) a propriedade.
+Se o Batch conseguir determinar a causa, o nó [falha](/rest/api/batchservice/computenode/get#computenodeerror) a propriedade.
 
 Exemplos adicionais de causas para nós **inutilizáveis** incluem:
 
@@ -114,7 +114,7 @@ Exemplos adicionais de causas para nós **inutilizáveis** incluem:
 
 ### <a name="node-agent-log-files"></a>Ficheiros de registo do agente do nó
 
-O processo do agente Batch que funciona em cada nó de piscina pode fornecer ficheiros de registo que podem ser úteis se precisar de contactar suporte sobre um problema no nó da piscina. Os ficheiros de registo de um nó podem ser enviados através do portal Azure, do Batch Explorer ou de um [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). É útil carregar e guardar os ficheiros de registo. Depois, pode eliminar o nó ou a piscina para poupar o custo dos nós de corrida.
+O processo do agente Batch que funciona em cada nó de piscina pode fornecer ficheiros de registo que podem ser úteis se precisar de contactar suporte sobre um problema no nó da piscina. Os ficheiros de registo de um nó podem ser enviados através do portal Azure, do Batch Explorer ou de um [API](/rest/api/batchservice/computenode/uploadbatchservicelogs). É útil carregar e guardar os ficheiros de registo. Depois, pode eliminar o nó ou a piscina para poupar o custo dos nós de corrida.
 
 ### <a name="node-disk-full"></a>Disco de nó cheio
 
@@ -133,11 +133,12 @@ Outros ficheiros são escritos para cada tarefa que é executada num nó, como s
 O tamanho da unidade temporária depende do tamanho vm. Uma consideração ao escolher um tamanho VM é garantir que a unidade temporária tem espaço suficiente.
 
 - No portal Azure ao adicionar uma piscina, a lista completa de tamanhos vm pode ser exibida e há uma coluna 'Tamanho do Disco de Recursos'.
-- Os artigos que descrevem todos os tamanhos vm têm tabelas com uma coluna 'Armazenamento Temporário'; por exemplo [Compute Tamanhos VM otimizados](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
+- Os artigos que descrevem todos os tamanhos vm têm tabelas com uma coluna 'Armazenamento Temporário'; por exemplo [Compute Tamanhos VM otimizados](/azure/virtual-machines/windows/sizes-compute)
 
 Para ficheiros escritos por cada tarefa, pode ser especificado um tempo de retenção para cada tarefa que determina quanto tempo os ficheiros de tarefas são mantidos antes de serem automaticamente limpos. O tempo de retenção pode ser reduzido para reduzir os requisitos de armazenamento.
 
-Se o disco temporário ficar sem espaço (ou estiver muito perto de ficar sem espaço), o nó deslocar-se-á para o estado [inutilizável](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) e um erro de nó (use o link já lá) será relatado dizendo que o disco está cheio.
+
+Se o disco temporário ficar sem espaço (ou estiver muito perto de ficar sem espaço), o nó deslocar-se-á para o estado [inutilizável](/rest/api/batchservice/computenode/get#computenodestate) e será relatado um erro no nó dizendo que o disco está cheio.
 
 ### <a name="what-to-do-when-a-disk-is-full"></a>O que fazer quando um disco está cheio
 

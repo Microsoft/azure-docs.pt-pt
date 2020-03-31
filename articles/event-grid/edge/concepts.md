@@ -1,6 +1,6 @@
 ---
-title: Conceitos-IoT Edge de grade de eventos do Azure | Microsoft Docs
-description: Conceitos na grade de eventos em IoT Edge.
+title: Conceitos - Azure Event Grid IoT Edge [ Microsoft Docs
+description: Conceitos em Grelha de Eventos na Borda IoT.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,56 +10,56 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 73309e10e88c11e639e6ac6fd3bb061e1b5c685b
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72992551"
 ---
 # <a name="event-grid-concepts"></a>Conceitos do Event Grid
 
-Este artigo descreve os principais conceitos na grade de eventos do Azure.
+Este artigo descreve os principais conceitos na Grelha de Eventos Azure.
 
 ## <a name="events"></a>Eventos
 
-Um evento é a menor quantidade de informações que descreve totalmente algo que aconteceu no sistema. Cada evento tem informações comuns como: origem do evento, hora em que o evento ocorreu e identificador exclusivo. Cada evento também tem informações específicas que só são relevantes para o tipo específico de evento. O suporte para um evento de tamanho de até 1 MB está atualmente em visualização.
+Um evento é a menor quantidade de informação que descreve totalmente algo que aconteceu no sistema. Cada evento tem informações comuns como: fonte do evento, hora do evento, e identificador único. Cada evento também tem informações específicas que só são relevantes para o tipo específico de evento. O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização.
 
-Para as propriedades incluídas em um evento, consulte esquema de [eventos da grade de eventos do Azure](event-schemas.md).
+Para as propriedades que estão incluídas num evento, consulte [o evento Azure Event Grid schema](event-schemas.md).
 
 ## <a name="publishers"></a>Editores
 
-Um Publicador é o usuário ou a organização que decide enviar eventos para a grade de eventos. Você pode publicar eventos de seu próprio aplicativo.
+Uma editora é o utilizador ou organização que decide enviar eventos para a Event Grid. Pode publicar eventos a partir da sua própria aplicação.
 
 ## <a name="event-sources"></a>Origens de eventos
 
-Uma origem do evento é onde o evento acontece. Cada origem do evento está relacionada a um ou mais tipos de evento. Por exemplo, o armazenamento do Azure é a origem do evento para eventos de blob criados. Seu aplicativo é a origem do evento para eventos personalizados que você definir. Origens de evento são responsáveis por enviar eventos para a grade de eventos.
+Uma fonte de evento é onde o evento acontece. Cada origem de evento está relacionada com um ou mais tipos de evento. Por exemplo, o Armazenamento do Azure é a origem de evento para eventos criados por blobs. A sua aplicação é a origem de evento para os eventos personalizados que definir. As origens de eventos são responsáveis pelo envio de eventos para o Event Grid.
 
 ## <a name="topics"></a>Tópicos
 
-O tópico da grade de eventos fornece um ponto de extremidade onde a origem envia eventos. O Publicador cria o tópico da grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para responder a determinados tipos de eventos, os assinantes decidem quais tópicos assinar.
+O tópico da grelha de eventos fornece um ponto final onde a fonte envia eventos. A editora cria o tópico da grelha do evento e decide se uma fonte de evento precisa de um tópico ou mais do que um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para responder a certos tipos de eventos, os subscritores decidem quais os tópicos a subscrever.
 
-Ao projetar seu aplicativo, você tem a flexibilidade de decidir quantos tópicos devem ser criados. Para soluções grandes, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuário e pedidos de processamento. É improvável que qualquer manipulador de eventos queira as duas categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem aquele que os interessa. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Os assinantes de eventos podem filtrar os tipos de eventos que desejam.
+Ao desenhar a sua aplicação, tem a flexibilidade para decidir quantos tópicos criar. Para grandes soluções, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere uma aplicação que envia eventos relacionados com a modificação de contas de utilizador e com o processamento de encomendas. É pouco provável que qualquer processador de eventos queira as duas categorias de eventos. Crie dois tópicos personalizados e deixe que os processadores de eventos subscrevam aquele que for do seu interesse. Para soluções pequenas, talvez prefira enviar todos os eventos para um único tópico. Os subscritores do evento podem filtrar os tipos de eventos que querem.
 
-Consulte a [documentação da API REST](api.md) sobre como gerenciar tópicos na grade de eventos.
+Consulte a documentação da [Rest API](api.md) sobre como gerir tópicos na Grelha de Eventos.
 
 ## <a name="event-subscriptions"></a>Subscrições de eventos
 
-Uma assinatura informa à grade de eventos quais eventos em um tópico você está interessado em receber. Ao criar a assinatura, você fornece um ponto de extremidade para manipular o evento. Você pode filtrar os eventos que são enviados para o ponto de extremidade. 
+Uma subscrição diz ao Event Grid quais os eventos sobre um tópico que está interessado em receber. Ao criar a subscrição, fornece um ponto final para lidar com o evento. Pode filtrar os eventos enviados para o ponto final. 
 
-Consulte a [documentação da API REST](api.md) sobre como gerenciar assinaturas na grade de eventos.
+Consulte a documentação rest [API](api.md) sobre como gerir as subscrições em Event Grid.
 
 ## <a name="event-handlers"></a>Processadores de eventos
 
-De uma perspectiva da grade de eventos, um manipulador de eventos é o local onde o evento é enviado. O manipulador executa uma ação adicional para processar o evento. A grade de eventos dá suporte a vários tipos de manipulador. Você pode usar um serviço do Azure com suporte ou seu próprio gancho da Web como o manipulador. Dependendo do tipo de manipulador, a grade de eventos segue diferentes mecanismos para garantir a entrega do evento. Se o manipulador de eventos de destino for um gancho da Web HTTP, o evento será repetido quando o manipulador retornar um código de status `200 – OK`. Para o Hub do Edge, se o evento for entregue sem nenhuma exceção, ele será considerado com êxito.
+Do ponto de vista da Grelha de Eventos, um manipulador de eventos é o local onde o evento é enviado. O manipulador toma mais medidas para processar o evento. A Grelha de Eventos suporta vários tipos de manipuladores. Pode utilizar um serviço Azure suportado ou o seu próprio gancho web como manipulador. Dependendo do tipo de manipulador, a Rede de Eventos segue diferentes mecanismos para garantir a entrega do evento. Se o manipulador de eventos de destino for um gancho web HTTP, o evento é novamente experimentado quando o manipulador devolve um código de estado de `200 – OK`. Para o Edge Hub, se o evento for entregue sem qualquer exceção, é considerado bem sucedido.
 
 ## <a name="security"></a>Segurança
 
-A grade de eventos fornece segurança para assinar tópicos e publicar tópicos. Para obter mais informações, consulte [segurança e autenticação da grade de eventos](security-authentication.md).
+A Event Grid oferece segurança para subscrever tópicos e temas editoriais. Para mais informações, consulte [a segurança e a autenticação da Rede de Eventos.](security-authentication.md)
 
 ## <a name="event-delivery"></a>Entrega de eventos
 
-Se a grade de eventos não puder confirmar que um evento foi recebido pelo ponto de extremidade do Assinante, ele reentregará o evento. Para obter mais informações, consulte [entrega de mensagem de grade de eventos e tentar novamente](delivery-retry.md).
+Se a Event Grid não puder confirmar que um evento foi recebido pelo ponto final do assinante, reentrega o evento. Para mais informações, consulte a [entrega e a retentação da mensagem da Rede de Eventos.](delivery-retry.md)
 
 ## <a name="batching"></a>Lotes
 
-Ao usar um tópico personalizado, os eventos sempre devem ser publicados em uma matriz. Para cenários de baixa taxa de transferência, a matriz terá apenas um valor. Para casos de uso de alto volume, é recomendável que você execute vários eventos em lote por publicação para obter maior eficiência. Os lotes podem ter até 1 MB. Cada evento ainda deve ser maior que 1 MB (versão prévia).
+Ao utilizar um tópico personalizado, os eventos devem ser sempre publicados numa matriz. Para cenários de baixa pontuação, a matriz terá apenas um valor. Para casos de uso de grande volume, recomendamos que emlota vários eventos por publicação para obter uma maior eficiência. Os lotes podem chegar a 1 MB. Cada evento ainda não deve ser superior a 1 MB (pré-visualização).

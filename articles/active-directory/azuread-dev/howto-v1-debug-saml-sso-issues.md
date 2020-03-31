@@ -12,12 +12,13 @@ ms.date: 02/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: ad948521a376dc8bdb3d868de643ce103f56735d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d92b43b47a20a75d2c8b6becb69cfee5829e80f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164607"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154853"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Debug SAML com base em assinaturaúnica para aplicações no Diretório Ativo Azure
 
@@ -85,7 +86,7 @@ Se não for prevista qualquer resolução para o erro de entrada, sugerimos que 
 
 Pode iniciar sessão com sucesso e depois ver um erro na página da aplicação. Isto ocorre quando a Azure AD emitiu um sinal para o pedido, mas o pedido não aceita a resposta.
 
-Para resolver o problema, siga estes passos:
+Para resolver o erro, siga estes passos:
 
 1. Se a aplicação estiver na Galeria AD Azure, verifique se seguiu todas as etapas para integrar a aplicação com a Azure AD. Para encontrar as instruções de integração da sua candidatura, consulte a [lista de tutoriais de integração de aplicações SaaS.](../saas-apps/tutorial-list.md)
 1. Recupere a resposta SAML.

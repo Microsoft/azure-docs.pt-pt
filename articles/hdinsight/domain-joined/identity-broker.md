@@ -1,6 +1,6 @@
 ---
-title: Usar o agente de ID (versão prévia) para o gerenciamento de credenciais-Azure HDInsight
-description: Saiba mais sobre o agente de ID do HDInsight para simplificar a autenticação para clusters de Apache Hadoop ingressados no domínio.
+title: Utilize o ID Broker (pré-visualização) para gestão credencial- Azure HDInsight
+description: Saiba mais sobre o HDInsight ID Broker para simplificar a autenticação para clusters Apache Hadoop unidos pelo domínio.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,56 +8,56 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: f14cbef2ab568962601b3a407fa979e8f982598d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75483014"
 ---
-# <a name="use-id-broker-preview-for-credential-management"></a>Usar o agente de ID (versão prévia) para o gerenciamento de credenciais
+# <a name="use-id-broker-preview-for-credential-management"></a>Utilize o ID Broker (pré-visualização) para gestão da credencial
 
-Este artigo descreve como configurar e usar o recurso de agente de ID no Azure HDInsight. Você pode usar esse recurso para entrar no Apache Ambari por meio da autenticação multifator do Azure e obter os tíquetes Kerberos necessários sem precisar de hashes de senha no Azure Active Directory Domain Services (AD DS do Azure).
+Este artigo descreve como configurar e utilizar a funcionalidade ID Broker no Azure HDInsight. Pode utilizar esta funcionalidade para iniciar sessão no Apache Ambari através da Autenticação Multi-Factor Azure e obter os bilhetes kerberos necessários sem precisar de hashes de senha nos Serviços de Domínio do Diretório Ativo azure (Azure AD DS).
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-O agente de ID simplifica as configurações de autenticação complexas nos seguintes cenários:
+O ID Broker simplifica configurações complexas de autenticação nos seguintes cenários:
 
-* Sua organização depende da Federação para autenticar usuários para acessar recursos de nuvem. Anteriormente, para usar clusters do Enterprise Security Package do HDInsight (ESP), era necessário habilitar a sincronização de hash de senha do seu ambiente local para Azure Active Directory. Esse requisito pode ser difícil ou indesejável para algumas organizações.
+* A sua organização conta com a federação para autenticar os utilizadores para aceder em recursos na nuvem. Anteriormente, para utilizar os clusters do Pacote de Segurança Empresarial HDInsight (ESP), teve de ativar a sincronização de hash de palavra-passe do seu ambiente no local para o Diretório Ativo Azure. Esta exigência pode ser difícil ou indesejável para algumas organizações.
 
-* Você está criando soluções que usam tecnologias que dependem de mecanismos de autenticação diferentes. Por exemplo, Apache Hadoop e Apache Ranger dependem do Kerberos, enquanto Azure Data Lake Storage se baseia no OAuth.
+* Está a construir soluções que utilizam tecnologias que dependem de diferentes mecanismos de autenticação. Por exemplo, Apache Hadoop e Apache Ranger dependem de Kerberos, enquanto o Armazenamento do Lago De Dados Azure depende da OAuth.
 
-O agente de ID fornece uma infraestrutura de autenticação unificada e remove o requisito de sincronização de hashes de senha para o Azure AD DS. O agente de ID consiste em componentes em execução em uma VM do Windows Server (nó do agente de ID), juntamente com nós de gateway de cluster. 
+O ID Broker fornece uma infraestrutura de autenticação unificada e remove a exigência de sincronizar hashes de senha para O DS Azure. O ID Broker consiste em componentes em execução num VM do Windows Server (nó id broker), juntamente com nós de gateway de cluster. 
 
-O diagrama a seguir mostra o fluxo de autenticação para todos os usuários, incluindo usuários federados, depois que o agente de ID está habilitado:
+O diagrama seguinte mostra o fluxo de autenticação para todos os utilizadores, incluindo utilizadores federados, após a ativação do ID Broker:
 
-![Fluxo de autenticação com o agente de ID](./media/identity-broker/identity-broker-architecture.png)
+![Fluxo de autenticação com corretor de ID](./media/identity-broker/identity-broker-architecture.png)
 
-O agente de ID permite que você entre em clusters ESP usando a autenticação multifator, sem fornecer nenhuma senha. Se você já tiver entrado em outros serviços do Azure, como o portal do Azure, você pode entrar em seu cluster HDInsight com uma experiência de logon único (SSO).
+O ID Broker permite-lhe iniciar sessão nos clusters ESP utilizando a Autenticação Multi-Factor, sem fornecer quaisquer palavras-passe. Se já assinou outros serviços do Azure, como o portal Azure, pode iniciar sessão no seu cluster HDInsight com uma única experiência de inscrição (SSO).
 
-## <a name="enable-hdinsight-id-broker"></a>Habilitar agente de ID do HDInsight
+## <a name="enable-hdinsight-id-broker"></a>Ativar o HDInsight ID Broker
 
-Para criar um cluster ESP com o agente de ID habilitado, execute as seguintes etapas:
+Para criar um cluster ESP com id broker habilitado, tome os seguintes passos:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Siga as etapas de criação básicas para um cluster ESP. Para obter mais informações, consulte [criar um cluster HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Selecione **habilitar agente de ID do HDInsight**.
+1. Siga os passos básicos de criação para um cluster ESP. Para mais informações, consulte [Criar um cluster HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
+1. Selecione Ativar o corretor de **ID HDInsight**.
 
-O recurso do agente de ID adicionará uma VM extra ao cluster. Essa VM é o nó do agente de ID e inclui componentes de servidor para dar suporte à autenticação. O nó do agente de ID é ingressado no domínio do Azure AD DS domínio.
+A função ID Broker adicionará um VM extra ao cluster. Este VM é o nó de ID Broker e inclui componentes do servidor para suportar a autenticação. O nó id broker é domínio unido ao domínio Azure AD DS.
 
-![Opção para habilitar o agente de ID](./media/identity-broker/identity-broker-enable.png)
+![Opção para ativar corretor de ID](./media/identity-broker/identity-broker-enable.png)
 
 ## <a name="tool-integration"></a>Integração de ferramentas
 
-O [plug-in HDInsight IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) é atualizado para dar suporte ao OAuth. Você pode usar esse plug-in para se conectar ao cluster e enviar trabalhos.
+O plug-in HDInsight [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) é atualizado para suportar o OAuth. Pode utilizar este plug-in para se ligar ao cluster e apresentar trabalhos.
 
-## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Acesso SSH sem um hash de senha no Azure AD DS
+## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Acesso SSH sem senha hash em Azure AD DS
 
-Depois que o agente de ID estiver habilitado, você ainda precisará de um hash de senha armazenado no Azure AD DS para cenários SSH com contas de domínio. Para realizar o SSH em uma VM ingressada no domínio ou para executar o comando `kinit`, você precisa fornecer uma senha. 
+Depois de ativado o ID Broker, ainda vai precisar de um hash de senha armazenado em DS Azure AD para cenários SSH com contas de domínio. Para o SSH a um VM de `kinit` domínio, ou para executar o comando, precisa de fornecer uma senha. 
 
-A autenticação SSH requer que o hash esteja disponível no Azure AD DS. Se você quiser usar o SSH somente para cenários administrativos, poderá criar uma conta somente em nuvem e usá-la para SSH para o cluster. Outros usuários ainda podem usar as ferramentas Ambari ou HDInsight (como o plug-in IntelliJ) sem ter o hash de senha disponível no Azure AD DS.
+A autenticação SSH requer que o hash esteja disponível em Azure AD DS. Se quiser utilizar o SSH apenas para cenários administrativos, pode criar uma conta apenas na nuvem e usá-lo para SSH para o cluster. Outros utilizadores ainda podem utilizar ferramentas Ambari ou HDInsight (como o plug-in IntelliJ) sem ter o hash de senha disponível no Azure AD DS.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Configurar um cluster HDInsight com Enterprise Security Package usando Azure Active Directory Domain Services](apache-domain-joined-configure-using-azure-adds.md)
-* [Sincronizar Azure Active Directory usuários com um cluster HDInsight](../hdinsight-sync-aad-users-to-cluster.md)
+* [Configure um cluster HDInsight com pacote de segurança empresarial utilizando serviços de domínio de diretório ativo Azure](apache-domain-joined-configure-using-azure-adds.md)
+* [Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)
 * [Monitorizar o desempenho do cluster](../hdinsight-key-scenarios-to-monitor.md)

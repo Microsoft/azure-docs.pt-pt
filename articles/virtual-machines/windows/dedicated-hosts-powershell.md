@@ -7,18 +7,18 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 30d15970b00a81ab85cdb85d2c0a27ee23ed1b92
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: a228a83d711c84d2aa994e6de7d90af48cca7f28
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79130321"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530942"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementar VMs para anfitriões dedicados usando o Azure PowerShell
 
 Este artigo guia-o através de como criar um [anfitrião dedicado](dedicated-hosts.md) azure para hospedar as suas máquinas virtuais (VMs). 
 
-Certifique-se de que instalou a versão 2.8.0 do Azure PowerShell ou mais tarde, e está inscrito numa conta Azure com `Connect-AzAccount`. 
+Certifique-se de que instalou a versão 2.8.0 do Azure PowerShell ou posteriormente, e está inscrito numa conta Azure com `Connect-AzAccount`. 
 
 ## <a name="limitations"></a>Limitações
 
@@ -36,9 +36,9 @@ Em qualquer dos casos, é necessário fornecer a contagem de domínio de avaria 
 Também pode decidir utilizar ambas as zonas de disponibilidade e domínios de avaria. Este exemplo cria um grupo de anfitriões na zona 1, com 2 domínios de falha. 
 
 
-```powershell
+```azurepowershell-interactive
 $rgName = "myDHResourceGroup"
-$location = "East US"
+$location = "EastUS"
 
 New-AzResourceGroup -Location $location -Name $rgName
 $hostGroup = New-AzHostGroup `
@@ -58,7 +58,7 @@ Para obter mais informações sobre o anfitrião SKUs e preços, consulte [o pre
 Se definir uma contagem de domínio de avaria para o seu grupo anfitrião, será-lhe pedido que especifique o domínio de avaria para o seu anfitrião. Neste exemplo, definimos o domínio de avaria para o anfitrião para 1.
 
 
-```powershell
+```azurepowershell-interactive
 $dHost = New-AzHost `
    -HostGroupName $hostGroup.Name `
    -Location $location -Name myHost `
@@ -75,7 +75,7 @@ Crie uma máquina virtual no hospedeiro dedicado.
 Se especificou uma zona de disponibilidade ao criar o seu grupo de anfitriões, é-lhe exigido que utilize a mesma zona ao criar a máquina virtual. Para este exemplo, como o nosso grupo anfitrião está na zona 1, precisamos criar o VM na zona 1.  
 
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 New-AzVM `
    -Credential $cred `
@@ -93,9 +93,9 @@ New-AzVM `
 
 ## <a name="check-the-status-of-the-host"></a>Verifique o estado do anfitrião
 
-Pode verificar o estado de saúde do hospedeiro e quantas máquinas virtuais ainda pode implementar para o hospedeiro utilizando o [GetAzHost](/powershell/module/az.compute/get-azhost) com o parâmetro `-InstanceView`.
+Pode verificar o estado de saúde do hospedeiro e quantas máquinas virtuais ainda `-InstanceView` pode implementar para o anfitrião usando o [GetAzHost](/powershell/module/az.compute/get-azhost) com o parâmetro.
 
-```
+```azurepowershell-interactive
 Get-AzHost `
    -ResourceGroupName $rgName `
    -Name myHost `
@@ -164,25 +164,71 @@ Location               : eastus
 Tags                   : {}
 ```
 
+## <a name="add-an-existing-vm"></a>Adicione um VM existente 
+
+Você pode adicionar um VM existente a um anfitrião dedicado, mas o VM deve primeiro ser Stop\Deallocated. Antes de mover um VM para um anfitrião dedicado, certifique-se de que a configuração VM é suportada:
+
+- O tamanho VM deve ser do mesmo tamanho que o hospedeiro dedicado. Por exemplo, se o seu anfitrião dedicado for DSv3, então o tamanho VM pode ser Standard_D4s_v3, mas não poderia ser um Standard_A4_v2. 
+- O VM precisa de ser localizado na mesma região que o anfitrião dedicado.
+- O VM não pode fazer parte de um grupo de colocação de proximidade. Retire o VM do grupo de colocação de proximidade antes de o transferir para um hospedeiro dedicado. Para mais informações, consulte [Move a VM de um grupo de colocação de proximidade](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- O VM não pode estar num conjunto de disponibilidade.
+- Se o VM estiver numa zona de disponibilidade, deve ser a mesma zona de disponibilidade que o grupo anfitrião. As definições da zona de disponibilidade para o VM e o grupo anfitrião devem corresponder.
+
+Substitua os valores das variáveis pela sua própria informação.
+
+```azurepowershell-interactive
+$vmRGName = "movetohost"
+$vmName = "myVMtoHost"
+$dhRGName = "myDHResourceGroup"
+$dhGroupName = "myHostGroup"
+$dhName = "myHost"
+
+$myDH = Get-AzHost `
+   -HostGroupName $dhGroupName `
+   -ResourceGroupName $dhRGName `
+   -Name $dhName
+   
+$myVM = Get-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+   
+$myVM.Host = New-Object Microsoft.Azure.Management.Compute.Models.SubResource
+
+$myVM.Host.Id = "$myDH.Id"
+
+Stop-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName -Force
+   
+Update-AzVM `
+   -ResourceGroupName $vmRGName `
+   -VM $myVM -Debug
+   
+Start-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+```
+
+
 ## <a name="clean-up"></a>Limpeza
 
 Está a ser cobrado pelos seus anfitriões dedicados mesmo quando não são implementadas máquinas virtuais. Deve eliminar quaisquer anfitriões que não esteja a utilizar para poupar custos.  
 
 Só é possível eliminar um hospedeiro quando já não existem máquinas virtuais que o utilizem. Elimine os VMs utilizando [remove-AzVM](/powershell/module/az.compute/remove-azvm).
 
-```powershell
+```azurepowershell-interactive
 Remove-AzVM -ResourceGroupName $rgName -Name myVM
 ```
 
 Depois de eliminar os VMs, pode eliminar o hospedeiro utilizando [o Remove-AzHost](/powershell/module/az.compute/remove-azhost).
 
-```powershell
+```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
 Uma vez eliminado todos os seus anfitriões, pode eliminar o grupo anfitrião utilizando [o Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 

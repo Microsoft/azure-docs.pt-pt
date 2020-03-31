@@ -1,5 +1,5 @@
 ---
-title: Implementar sincronização de ficheiros Azure  Microsoft Docs
+title: Implementar sincronização de ficheiros Azure [ Microsoft Docs
 description: Saiba como implementar o Azure File Sync, do início ao fim.
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: f2c4e762ebf10a5ca2120c13a52750a7781d60b9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268070"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
@@ -24,13 +24,13 @@ Recomendamos vivamente que leia planeamento para uma implementação de [Ficheir
     - [Disponibilidade da região](storage-sync-files-planning.md#azure-file-sync-region-availability) para O Sincronizado de Ficheiros Azure.
     - [Crie uma partilha](storage-how-to-create-file-share.md) de ficheiros para uma descrição passo a passo de como criar uma partilha de ficheiros.
 * Pelo menos uma instância suportada do Windows Server ou do Windows Server para sincronizar com o Sync de Ficheiros Azure. Para obter mais informações sobre as versões suportadas do Windows Server, consulte [interoperabilidade com o Windows Server](storage-sync-files-planning.md#windows-file-server-considerations).
-* O módulo Az PowerShell pode ser utilizado com powerShell 5.1 ou PowerShell 6+. Pode utilizar o módulo Az PowerShell para o Azure File Sync em qualquer sistema suportado, incluindo sistemas não Windows, no entanto o cmdlet de registo do servidor deve ser sempre executado na instância do Servidor do Windows que está a registar (isto pode ser feito diretamente ou via PowerShell remoting). No Windows Server 2012 R2, pode verificar se está a executar pelo menos o PowerShell 5.1.\* olhando para o valor da propriedade **PSVersion** **do** $PSVersionTable objeto:
+* O módulo Az PowerShell pode ser utilizado com powerShell 5.1 ou PowerShell 6+. Pode utilizar o módulo Az PowerShell para o Azure File Sync em qualquer sistema suportado, incluindo sistemas não Windows, no entanto o cmdlet de registo do servidor deve ser sempre executado na instância do Servidor do Windows que está a registar (isto pode ser feito diretamente ou via PowerShell remoting). No Windows Server 2012 R2, pode verificar se está a executar pelo menos o PowerShell 5.1. \* olhando para o valor da propriedade **PSVersion** do objeto **$PSVersionTable:**
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    Se o seu valor DE PSVersion for inferior a 5.1.\*, como será o caso da maioria das instalações recentes do Windows Server 2012 R2, pode facilmente fazer o upgrade descarregando e instalando o [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). O pacote apropriado para descarregar e instalar para o Windows Server 2012 R2 é **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
+    Se o seu valor DE PSVersion for inferior a 5.1. \*Como será o caso da maioria das instalações recentes do Windows Server 2012 R2, pode facilmente fazer o upgrade descarregando e instalando o [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). O pacote apropriado para descarregar e instalar para o Windows Server 2012 R2 é **\*\*\*\*\*\*\*Win8.1AndW2K12R2-KB -x64.msu**. 
 
     O PowerShell 6+ pode ser utilizado com qualquer sistema suportado e pode ser descarregado através da sua [página GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -40,7 +40,7 @@ Recomendamos vivamente que leia planeamento para uma implementação de [Ficheir
 * Se optou por utilizar o PowerShell 5.1, certifique-se de que está instalado pelo menos .NET 4.7.2. Saiba mais sobre [versões e dependências .NET Framework](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) no seu sistema.
 
     > [!Important]  
-    > Se estiver a instalar .NET 4.7.2+ no Núcleo do Servidor do Windows, tem de instalar com as bandeiras `quiet` e `norestart` ou a instalação falhará. Por exemplo, se instalar .NET 4.8, o comando seria o seguinte:
+    > Se estiver a instalar .NET 4.7.2+ no Windows Server `quiet` `norestart` Core, tem de instalar com as bandeiras e a instalação falhará. Por exemplo, se instalar .NET 4.8, o comando seria o seguinte:
     > ```PowerShell
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
@@ -57,13 +57,13 @@ Para cada servidor que pretende utilizar com o Azure File Sync, incluindo cada n
 > [!Note]  
 > Pode saltar este passo se estiver a implementar o Sync de Ficheiros Azure no Windows Server Core.
 
-1. Gestor de servidoraberto.
+1. Abra o Gestor de Servidores.
 2. Clique no **Servidor Local:**  
-    !["Servidor Local" no lado esquerdo do Gestor de Servidores UI](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
+    ![“Servidor Local” no lado esquerdo da IU do Gestor de Servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
 3. No subpainel **Propriedades**, selecione a ligação para **Configuração de Segurança Avançada do IE**.  
-    ![o painel "IE Enhanced Security Configuration" no](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG) do Gestor de Servidores
+    ![Painel “Configuração de Segurança Avançada do IE”, na IU do Gestor de Servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
 4. Na caixa de diálogo **de configuração de segurança melhorada** do Internet Explorer, selecione **Off** para **Administradores** e **Utilizadores:**  
-    ![A janela pop de configuração de segurança melhorada do Internet Explorer com "Off" selecionado](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
+    ![Janela pop-up da Configuração de Segurança Avançada do Internet Explorer com “Desativado” selecionado](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para desativar a configuração de segurança melhorada do Internet Explorer, execute o seguinte de uma sessão elevada powerShell:
@@ -109,7 +109,7 @@ No painel que se abre, introduza as informações seguintes:
 Quando terminar, selecione **Criar** para implementar o Serviço de Sincronização de Armazenamento.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Substitua `<Az_Region>`, `<RG_Name>`e `<my_storage_sync_service>` com os seus próprios valores, em seguida, use os seguintes comandos para criar e implementar um Serviço de Sincronização de Armazenamento:
+Substitua, `<Az_Region>` `<RG_Name>` `<my_storage_sync_service>` e com os seus próprios valores, em seguida, use os seguintes comandos para criar e implementar um Serviço de Sincronização de Armazenamento:
 
 ```powershell
 $hostType = (Get-Host).Name
@@ -257,14 +257,14 @@ No painel que se abre, introduza as informações seguintes para criar um grupo 
 - **Partilha de ficheiros Azure**: O nome da partilha de ficheiros Azure com o qual pretende sincronizar.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Para criar o grupo de sincronização, execute o seguinte PowerShell. Lembre-se de substituir `<my-sync-group>` pelo nome desejado do grupo de sincronização.
+Para criar o grupo de sincronização, execute o seguinte PowerShell. Lembre-se `<my-sync-group>` de substituir pelo nome desejado do grupo de sincronização.
 
 ```powershell
 $syncGroupName = "<my-sync-group>"
 $syncGroup = New-AzStorageSyncGroup -ParentObject $storageSync -Name $syncGroupName
 ```
 
-Uma vez criado o grupo de sincronização com sucesso, pode criar o seu ponto final em nuvem. Certifique-se de substituir `<my-storage-account>` e `<my-file-share>` com os valores esperados.
+Uma vez criado o grupo de sincronização com sucesso, pode criar o seu ponto final em nuvem. Certifique-se `<my-storage-account>` de `<my-file-share>` substituir e com os valores esperados.
 
 ```powershell
 # Get or create a storage account with desired name
@@ -321,7 +321,7 @@ No painel **Adicionar ponto final de servidor**, introduza as informações segu
 Para adicionar o ponto final do servidor, selecione **Criar**. Os seus ficheiros são agora mantidos em sincronização através da sua partilha de ficheiros Azure e do Windows Server. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Execute os seguintes comandos PowerShell para criar o ponto final do servidor e certifique-se de substituir `<your-server-endpoint-path>` e `<your-volume-free-space>` com os valores desejados.
+Execute os seguintes comandos PowerShell para criar o `<your-server-endpoint-path>` ponto `<your-volume-free-space>` final do servidor, e certifique-se de substituir e com os valores desejados.
 
 ```powershell
 $serverEndpointPath = "<your-server-endpoint-path>"

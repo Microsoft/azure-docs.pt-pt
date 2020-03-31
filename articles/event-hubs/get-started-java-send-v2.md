@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 44f57f52be512924e228d6488a786d117c6444e7
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79370598"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-messaging-eventhubs)
@@ -28,13 +28,13 @@ Se você é novo em Azure Event Hubs, consulte a visão geral do [Event Hubs](ev
 Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure.** Para utilizar os serviços Azure, incluindo o Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os seus benefícios de subscrição MSDN quando [criar uma conta](https://azure.microsoft.com).
-- Um ambiente de desenvolvimento do Java. Este quickstart usa [Eclipse](https://www.eclipse.org/). É necessário o Java Development Kit (JDK) com a versão 8 ou superior. 
+- Um ambiente de desenvolvimento de Java. Este quickstart usa [Eclipse](https://www.eclipse.org/). É necessário o Java Development Kit (JDK) com a versão 8 ou superior. 
 - **Crie um espaço de nome sinuoso do Event Hubs e um centro de eventos.** O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo.](event-hubs-create.md) Em seguida, obtenha a cadeia de **ligação para o espaço** de nome do Event Hubs seguindo as instruções do artigo: Obtenha a corda de [ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Usa a corda de ligação mais tarde neste arranque rápido.
 
 ## <a name="send-events"></a>Enviar eventos 
 Esta secção mostra-lhe como criar uma aplicação Java para enviar eventos um centro de eventos. 
 
-### <a name="add-reference-to-azure-event-hubs-library"></a>Adicionar a referência à biblioteca dos Hubs de eventos do Azure
+### <a name="add-reference-to-azure-event-hubs-library"></a>Adicione referência à biblioteca Azure Event Hubs
 
 A biblioteca de clientes Java para Centros de Eventos está disponível para uso em projetos [Maven do Repositório Central de Maven.](https://search.maven.org/search?q=a:azure-messaging-eventhubs) Pode fazer referência a esta biblioteca utilizando a seguinte declaração de dependência dentro do seu ficheiro de projeto Maven:
 
@@ -48,7 +48,7 @@ A biblioteca de clientes Java para Centros de Eventos está disponível para uso
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Escrever códigos para enviar mensagens ao hub de eventos
 
-Para o exemplo que se segue, comece por criar um novo projeto Maven para uma consola/aplicação shell no seu ambiente de desenvolvimento Java favorito. Adicione uma classe com o nome `SimpleSend`, e adicione o seguinte código à classe:
+Para o exemplo que se segue, comece por criar um novo projeto Maven para uma consola/aplicação shell no seu ambiente de desenvolvimento Java favorito. Adicione uma `SimpleSend`classe com o nome e adicione o seguinte código à classe:
 
 ```java
 import com.azure.messaging.eventhubs.*;
@@ -154,7 +154,7 @@ A biblioteca de clientes Java para Centros de Eventos está disponível para uti
 </dependencies>
 ```
 
-1. Utilize o seguinte código para criar uma nova classe designada `Receiver`. Substitua os marcadores de posição pelos valores utilizados quando criou a conta de armazenamento e do hub de eventos:
+1. Utilize o seguinte código para criar uma nova classe designada `Receiver`. Substitua os espaços reservados pelos valores utilizados quando criou o centro de eventos e a conta de armazenamento:
    
    ```java
      import com.azure.messaging.eventhubs.*;

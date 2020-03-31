@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: b2871ec87e4d7f337c26b3ff3de83c1c3c88aea2
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268798"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365393"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Azure SQL Base de dados gerido limites de recursos de instância
 
@@ -65,20 +65,20 @@ A instância gerida tem dois níveis de serviço: [General Purpose](sql-database
 
 | **Funcionalidade** | **Propósito Geral** | **Business Critical** |
 | --- | --- | --- |
-| Número de\* vCores | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Mesmo número de vCores é dedicado a consultas apenas para leitura. |
+| Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*O mesmo número de vCores é dedicado a consultas apenas de leitura. |
 | Memória máxima | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore) para consultas de leitura<br/>+ 20,4 GB adicionais - 408 GB (5.1GB/vCore) para consultas apenas de leitura.<br/>Adicione mais vCores para obter mais memória. |
 | Tamanho máximo de armazenamento de instância (reservado) | - 2 TB para 4 vCores (apenas Gen5)<br/>- 8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB para 4, 8, 16 vCores<br/>- 2 TB para 24 vCores<br/>- 4 TB para 32, 40, 64, 80 vCores |
 | Tamanho máx. da base de dados | Até ao tamanho da instância atualmente disponível (máx 2 TB - 8 TB dependendo do número de vCores). | Até ao tamanho da instância atualmente disponível (máx 1 TB - 4 TB dependendo do número de vCores). |
 | Tamanho máximo tempDB | Limitado a 24 GB/vCore (96 - 1.920 GB) e atualmente disponível tamanho de armazenamento de instâncias.<br/>Adicione mais vCores para obter mais espaço TempDB.<br/> O tamanho do ficheiro de registo está limitado a 120 GB.| Até o tamanho de armazenamento de instâncias atualmente disponível. |
 | Número máximo de bases de dados por instância | 100, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. | 100, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. |
-| Número máximo de ficheiros de base de dados por instância | Até 280, a menos que tenha sido atingido o tamanho do armazenamento da instância ou o limite de espaço de alocação de [armazenamento do Disco Premium Azure.](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) | 32.767 ficheiros por base de dados, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. |
-| Tamanho máximo do ficheiro de dados | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (máx 2 TB - 8 TB) e espaço de alocação de [armazenamento de Disco Premium Azure.](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (até 1 TB - 4 TB). |
+| Número máximo de ficheiros de base de dados por instância | Até 280, a menos que tenha sido atingido o tamanho do armazenamento da instância ou o limite de espaço de alocação de [armazenamento do Disco Premium Azure.](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files) | 32.767 ficheiros por base de dados, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. |
+| Tamanho máximo do ficheiro de dados | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (máx 2 TB - 8 TB) e espaço de alocação de [armazenamento de Disco Premium Azure.](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files) | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (até 1 TB - 4 TB). |
 | Tamanho máximo do ficheiro de registo | Limitado a 2 TB e atualmente disponível tamanho de armazenamento de instância. | Limitado a 2 TB e atualmente disponível tamanho de armazenamento de instância. |
 | IOPS de dados/registo (aproximação) | Até 30-40 K IOPS por instância*, 500 - 7500 por ficheiro<br/>\*[Aumentar o tamanho dos ficheiros para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 K - 200 K (2500 IOPS/vCore)<br/>Adicione mais vCores para obter um melhor desempenho iO. |
 | Limite de entrada de escrita de registo (por exemplo) | 3 MB/s por vCore<br/>Max 22 MB/s | 4 MB/s por vCore<br/>Max 48 MB/s |
-| Entrada de dados (aproximada) | 100 - 250 MB/s por ficheiro<br/>\*[Aumentar o tamanho do ficheiro para obter um melhor desempenho de IO](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
+| Entrada de dados (aproximada) | 100 - 250 MB/s por ficheiro<br/>\*[Aumente o tamanho do ficheiro para obter um melhor desempenho de IO](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência IO de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
-| OLTP dentro da memória | Não suportado | Disponível, [o tamanho depende do número de vCore](#in-memory-oltp-available-space) |
+| OLTP em memória | Não suportado | Disponível, [o tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Sessões max | 30000 | 30000 |
 | [Réplicas só de leitura](sql-database-read-scale-out.md) | 0 | 1 (incluído no preço) |
 
@@ -96,7 +96,7 @@ A instância gerida tem dois níveis de serviço: [General Purpose](sql-database
 
 No nível de serviço General Purpose, todos os ficheiros de base de dados estão a receber IOPS dedicados e a uma entrada que depende do tamanho do ficheiro. Ficheiros maiores estão a receber mais IOPS e entrada. As características iO dos ficheiros da base de dados são mostradas no quadro seguinte:
 
-| Tamanho dos ficheiros | >=0 e <=128 GiB | >128 e <=256 GiB | >256 e <= 512 GiB | >0.5 e <=1 TiB    | >1 e <=2 TiB    | >2 e <=4 TiB | >4 e <=8 TiB |
+| Tamanho dos ficheiros | >=0 e <=128 GiB | >128 e <=256 GiB | >256 e <= 512 GiB | >0,5 e <=1 TiB    | >1 e <=2 TiB    | >2 e <=4 TiB | >4 e <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | IOPS por ficheiro       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500   |
 | Entrada por ficheiro | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
@@ -134,7 +134,7 @@ O quadro seguinte mostra os **limites regionais predefinidos** para os tipos de 
 
 |Tipo de subscrição| Número máximo de subredes de instância gerida | Número máximo de unidades vCore* |
 | :---| :--- | :--- |
-|Pay as you go|3|320|
+|Pay-as-you-go|3|320|
 |CSP |8 (15 em algumas regiões**)|960 (1440 em algumas regiões**)|
 |Pay-as-you-go Dev/Test|3|320|
 |Enterprise Dev/Test|3|320|
@@ -142,9 +142,9 @@ O quadro seguinte mostra os **limites regionais predefinidos** para os tipos de 
 |Visual Studio Enterprise|2 |64|
 |Plataformas Visual Studio Professional e MSDN|2|32|
 
-\* No planeamento de implementações, tenha em consideração que o nível de serviço Business Critical (BC) requer quatro (4) vezes mais capacidade vCore do que o nível de serviço de Propósito Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a sua análise de consumo com os limites de predefinição, resumir as unidades vCore em todas as subredes da região onde são implementadas instâncias geridas e comparar os resultados com os limites unitários da instância para o seu tipo de subscrição. **O número máximo de unidades vCore** aplica-se a cada subscrição numa região. Não existe um limite por sub-redes individual, exceto que a soma de todos os vCores implantados em várias subredes deve ser inferior ou igual ao **número máximo de unidades vCore**.
+\*No planeamento de implementações, tenha em consideração que o nível de serviço Business Critical (BC) requer quatro (4) vezes mais capacidade vCore do que o nível de serviço de Propósito Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a sua análise de consumo com os limites de predefinição, resumir as unidades vCore em todas as subredes da região onde são implementadas instâncias geridas e comparar os resultados com os limites unitários da instância para o seu tipo de subscrição. **O número máximo de unidades vCore** aplica-se a cada subscrição numa região. Não existe um limite por sub-redes individual, exceto que a soma de todos os vCores implantados em várias subredes deve ser inferior ou igual ao **número máximo de unidades vCore**.
 
-\*\* maiores limites de subnet e vCore estão disponíveis nas seguintes regiões: Austrália Leste, Leste dos EUA, Leste dos EUA 2, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Reino Unido Sul, Europa Ocidental, Oeste DOS EUA 2.
+\*\*Os maiores limites de subnet e vCore estão disponíveis nas seguintes regiões: Austrália Leste, Leste dos EUA, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Reino Unido Sul, Europa Ocidental, Oeste DOS EUA 2.
 
 ## <a name="request-a-quota-increase-for-sql-managed-instance"></a>Solicitar um aumento de quota para a instância gerida pela SQL
 

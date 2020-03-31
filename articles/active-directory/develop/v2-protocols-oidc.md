@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 0ed1cb6a080a35fa81c6a859f88d987020c8504c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262298"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e protocolo OpenID Connect
@@ -47,16 +47,16 @@ O OpenID Connect descreve um documento de metadados que contém a maioria das in
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> Experimente! Clique [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) para ver a configuração dos inquilinos `common`.
+> Experimente! Clique [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) para `common` ver a configuração dos inquilinos.
 
-O `{tenant}` pode ter um de quatro valores:
+A `{tenant}` lata pode tomar um de quatro valores:
 
 | Valor | Descrição |
 | --- | --- |
 | `common` |Os utilizadores com uma conta pessoal da Microsoft e uma conta de trabalho ou escola a partir do Azure AD podem iniciar sessão na aplicação. |
 | `organizations` |Apenas os utilizadores com contas de trabalho ou de escola da Azure AD podem inscrever-se na aplicação. |
 | `consumers` |Apenas os utilizadores com uma conta pessoal da Microsoft podem iniciar sessão na aplicação. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Apenas os utilizadores de um inquilino da AD Azure específico (sejam membros do diretório com uma conta de trabalho ou de escola, ou são hóspedes do diretório com uma conta pessoal da Microsoft) podem inscrever-se na aplicação. Ou pode ser usado o nome de domínio amigável do inquilino Azure AD ou o identificador GUID do inquilino. Você também pode usar o inquilino de consumo, `9188040d-6c67-4c5b-b112-36a304b66dad`, no lugar do inquilino `consumers`.  |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Apenas os utilizadores de um inquilino da AD Azure específico (sejam membros do diretório com uma conta de trabalho ou de escola, ou são hóspedes do diretório com uma conta pessoal da Microsoft) podem inscrever-se na aplicação. Ou pode ser usado o nome de domínio amigável do inquilino Azure AD ou o identificador GUID do inquilino. Você também pode usar `9188040d-6c67-4c5b-b112-36a304b66dad`o inquilino do `consumers` consumidor, no lugar do inquilino.  |
 
 Os metadados são um simples documento de Notação de Objetos JavaScript (JSON). Consulte o seguinte corte, por exemplo. O conteúdo do snippet está totalmente descrito na [especificação OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
@@ -75,20 +75,20 @@ Os metadados são um simples documento de Notação de Objetos JavaScript (JSON)
 }
 ```
 
-Se a sua aplicação tiver chaves de assinatura personalizadas como resultado da utilização da funcionalidade [de mapeamento de sinistros,](active-directory-claims-mapping.md) deve anexar um parâmetro de consulta de `appid` contendo o ID da aplicação, a fim de obter um `jwks_uri` apontando para as informações chave de assinatura da sua aplicação. Por exemplo: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém um `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Se a sua aplicação tiver chaves de assinatura personalizadas como resultado `appid` da utilização da funcionalidade [de mapeamento de reclamações,](active-directory-claims-mapping.md) deve anexar um parâmetro de consulta contendo o ID da aplicação para obter um `jwks_uri` ponto de atenção para as informações chave de assinatura da sua aplicação. Por exemplo: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` `jwks_uri` contém `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`um de .
 
 Normalmente, utilizaria este documento de metadados para configurar uma biblioteca OpenID Connect ou SDK; a biblioteca usaria os metadados para fazer o seu trabalho. No entanto, se não estiver a utilizar uma biblioteca OpenID Connect pré-construída, pode seguir os passos no restante deste artigo para fazer o início de sessão numa aplicação web utilizando o ponto final da plataforma de identidade da Microsoft.
 
 ## <a name="send-the-sign-in-request"></a>Envie o pedido de inscrição
 
-Quando a sua aplicação web precisa de autenticar o utilizador, pode direcionar o utilizador para o `/authorize` ponto final. Este pedido é semelhante à primeira etapa do fluxo de código de [autorização OAuth 2.0,](v2-oauth2-auth-code-flow.md)com estas distinções importantes:
+Quando a sua aplicação web precisa de autenticar o `/authorize` utilizador, pode direcionar o utilizador para o ponto final. Este pedido é semelhante à primeira etapa do fluxo de código de [autorização OAuth 2.0,](v2-oauth2-auth-code-flow.md)com estas distinções importantes:
 
-* O pedido deve incluir o âmbito `openid` no parâmetro `scope`.
-* O parâmetro `response_type` deve incluir `id_token`.
-* O pedido deve incluir o parâmetro `nonce`.
+* O pedido deve `openid` incluir `scope` o âmbito do parâmetro.
+* O `response_type` parâmetro deve `id_token`incluir .
+* O pedido deve `nonce` incluir o parâmetro.
 
 > [!IMPORTANT]
-> Para solicitar com sucesso um símbolo de identificação do ponto final/autorização, o registo da aplicação no portal de [registo](https://portal.azure.com) deve ter a concessão implícita de id_tokens habilitada no separador Autenticação (que define a bandeira `oauth2AllowIdTokenImplicitFlow` no manifesto de [aplicação](reference-app-manifest.md) para `true`). Se não estiver ativado, será devolvido um erro `unsupported_response`: "O valor previsto para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'código'"
+> Para solicitar com sucesso um símbolo de identificação do ponto final/autorização, o registo da aplicação no [portal](https://portal.azure.com) de registo `oauth2AllowIdTokenImplicitFlow` deve ter a concessão implícita de id_tokens ativada no separador Autenticação (que define a bandeira no manifesto de [aplicação](reference-app-manifest.md) para). `true` Se não estiver ativado, `unsupported_response` será devolvido um erro: "O valor previsto para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'código'"
 
 Por exemplo:
 
@@ -106,30 +106,30 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Clique no seguinte link para executar este pedido. Depois de iniciar sessão, o seu navegador será redirecionado para `https://localhost/myapp/`, com um token de identificação na barra de endereços. Note que este pedido utiliza `response_mode=fragment` (apenas para efeitos de demonstração). Recomendamos que utilize `response_mode=form_post`.
+> Clique no seguinte link para executar este pedido. Depois de iniciar sessão, o seu `https://localhost/myapp/`navegador será redirecionado para, com um token de identificação na barra de endereços. Note que este `response_mode=fragment` pedido utiliza (apenas para efeitos de demonstração). Recomendamos que `response_mode=form_post`utilize.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parâmetro | condição | Descrição |
+| Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Required | Pode utilizar o valor `{tenant}` no caminho do pedido de controlo de quem pode iniciar sessão na aplicação. Os valores permitidos são `common`, `organizations`, `consumers`, e identificadores de inquilinos. Para mais informações, consulte o [protocolo básico](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | Required | O ID de **Aplicação (cliente)** que o [portal Azure – App registra](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua app. |
-| `response_type` | Required | Deve incluir `id_token` para o acesso ao OpenID Connect. Pode também incluir outros valores `response_type`, como `code`. |
+| `tenant` | Necessário | Pode utilizar `{tenant}` o valor no caminho do pedido de controlo de quem pode iniciar sessão na aplicação. Os valores `common` `organizations`permitidos são, e `consumers`identificadores de inquilinos. Para mais informações, consulte o [protocolo básico](active-directory-v2-protocols.md#endpoints). |
+| `client_id` | Necessário | O ID de **Aplicação (cliente)** que o [portal Azure – App registra](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua app. |
+| `response_type` | Necessário | Deve `id_token` incluir o acesso ao OpenID Connect. Pode também incluir `response_type` outros valores, como. `code` |
 | `redirect_uri` | Recomendado | O URI redirecionado da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua app. Deve corresponder exatamente a um dos URIs redirecionados registados no portal, exceto que deve ser codificado por URL. Se não estiver presente, o ponto final escolherá um redirect_uri registado aleatoriamente para enviar o utilizador de volta. |
-| `scope` | Required | Uma lista de âmbitos separados pelo espaço. Para o OpenID Connect, deve incluir o âmbito `openid`, que se traduz na permissão "Inscreva-o" na UI de consentimento. Pode também incluir outros âmbitos neste pedido de solicitação de consentimento. |
-| `nonce` | Required | Um valor incluído no pedido, gerado pela app, que será incluído no valor id_token resultante como reclamação. A aplicação pode verificar este valor para mitigar ataques de repetição de tokens. O valor tipicamente é uma cadeia aleatória e única que pode ser usada para identificar a origem do pedido. |
-| `response_mode` | Recomendado | Especifica o método que deve ser usado para enviar o código de autorização resultante de volta para a sua aplicação. Pode ser `form_post` ou `fragment`. Para aplicações web, recomendamos a utilização de `response_mode=form_post`, para garantir a transferência mais segura de fichas para a sua aplicação. |
+| `scope` | Necessário | Uma lista de âmbitos separados pelo espaço. Para o OpenID Connect, `openid`deve incluir o âmbito, que se traduz na permissão "Iniciar sessão" na UI de consentimento. Pode também incluir outros âmbitos neste pedido de solicitação de consentimento. |
+| `nonce` | Necessário | Um valor incluído no pedido, gerado pela app, que será incluído no valor id_token resultante como reclamação. A aplicação pode verificar este valor para mitigar ataques de repetição de tokens. O valor tipicamente é uma cadeia aleatória e única que pode ser usada para identificar a origem do pedido. |
+| `response_mode` | Recomendado | Especifica o método que deve ser usado para enviar o código de autorização resultante de volta para a sua aplicação. Pode ser `form_post` ou `fragment`. Para aplicações web, `response_mode=form_post`recomendamos a utilização, para garantir a transferência mais segura de fichas para a sua aplicação. |
 | `state` | Recomendado | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de qualquer conteúdo que queiras. Um valor único gerado aleatoriamente é normalmente usado para [evitar ataques de falsificação de](https://tools.ietf.org/html/rfc6749#section-10.12)pedidos de local. O Estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou visualização em que o utilizador estava ligado. |
-| `prompt` | Opcional | Indica o tipo de interação do utilizador que é necessária. Os únicos valores válidos neste momento são `login`, `none`e `consent`. A alegação `prompt=login` obriga o utilizador a introduzir as suas credenciais nesse pedido, o que nega a inscrição única. A `prompt=none` afirmação é o oposto. Esta alegação garante que o utilizador não é apresentado com qualquer solicitação interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, o ponto final da plataforma de identidade da Microsoft devolve um erro. A alegação `prompt=consent` aciona o diálogo de consentimento da OAuth após a assinatura do utilizador. O diálogo pede ao utilizador que conceda permissões à aplicação. |
-| `login_hint` | Opcional | Pode utilizar este parâmetro para pré-preencher o nome de utilizador e o campo de endereços de e-mail da página de início de sessão para o utilizador, se souber o nome de utilizador com antecedência. Muitas vezes, as aplicações utilizam este parâmetro durante a reautenticação, depois de já terem extraído o nome de utilizador de um início de sessão anterior, utilizando a `preferred_username` reivindicação. |
+| `prompt` | Opcional | Indica o tipo de interação do utilizador que é necessária. Os únicos valores válidos `none`neste `consent`momento são, `login`e . A `prompt=login` reclamação obriga o utilizador a introduzir as suas credenciais nesse pedido, o que nega a inscrição individual. A `prompt=none` reivindicação é o oposto. Esta alegação garante que o utilizador não é apresentado com qualquer solicitação interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, o ponto final da plataforma de identidade da Microsoft devolve um erro. A `prompt=consent` alegação aciona o diálogo de consentimento da OAuth após a assinatura do utilizador. O diálogo pede ao utilizador que conceda permissões à aplicação. |
+| `login_hint` | Opcional | Pode utilizar este parâmetro para pré-preencher o nome de utilizador e o campo de endereços de e-mail da página de início de sessão para o utilizador, se souber o nome de utilizador com antecedência. Muitas vezes, as aplicações utilizam este parâmetro durante a reautenticação, depois `preferred_username` de já terem extraído o nome de utilizador de um início de sessão anterior, utilizando a alegação. |
 | `domain_hint` | Opcional | O reino do utilizador num diretório federado.  Isto ignora o processo de descoberta baseado em e-mail que o utilizador passa na página de entrada, para uma experiência de utilizador um pouco mais simplificada. Para os inquilinos que são federados através de um diretório no local como a AD FS, isso resulta frequentemente num insessão sem emenda devido à sessão de login existente. |
 
-Neste ponto, o utilizador é solicitado a introduzir as suas credenciais e a completar a autenticação. O ponto final da plataforma de identidade da Microsoft verifica que o utilizador consentiu nas permissões indicadas no parâmetro de consulta `scope`. Se o utilizador não tiver consentido com nenhuma dessas permissões, o ponto final da plataforma de identidade da Microsoft leva o utilizador a consentir com as permissões necessárias. Você pode ler mais sobre [permissões, consentimento e aplicativos multi-inquilinos.](v2-permissions-and-consent.md)
+Neste ponto, o utilizador é solicitado a introduzir as suas credenciais e a completar a autenticação. O ponto final da plataforma de identidade da Microsoft verifica que `scope` o utilizador consentiu nas permissões indicadas no parâmetro de consulta. Se o utilizador não tiver consentido com nenhuma dessas permissões, o ponto final da plataforma de identidade da Microsoft leva o utilizador a consentir com as permissões necessárias. Você pode ler mais sobre [permissões, consentimento e aplicativos multi-inquilinos.](v2-permissions-and-consent.md)
 
-Após o utilizador autenticar e conceder o consentimento, o ponto final da plataforma de identidade da Microsoft devolve uma resposta à sua aplicação no URI de redirecionamento indicado utilizando o método especificado no parâmetro `response_mode`.
+Após o utilizador autenticar e conceder o consentimento, o ponto final da plataforma de identidade da Microsoft `response_mode` devolve uma resposta à sua aplicação no URI de redirecionamento indicado utilizando o método especificado no parâmetro.
 
 ### <a name="successful-response"></a>Resposta bem sucedida
 
-Uma resposta bem sucedida quando se usa `response_mode=form_post` se parece com isto:
+Uma resposta bem `response_mode=form_post` sucedida quando se usa é assim:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -141,8 +141,8 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `id_token` | O símbolo de identificação que a aplicação solicitou. Pode utilizar o parâmetro `id_token` para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. Para obter mais informações sobre fichas de identificação e seus conteúdos, consulte a [referência`id_tokens`](id-tokens.md). |
-| `state` | Se um parâmetro `state` estiver incluído no pedido, o mesmo valor deve figurar na resposta. A aplicação deve verificar se os valores do Estado no pedido e resposta são idênticos. |
+| `id_token` | O símbolo de identificação que a aplicação solicitou. Pode utilizar `id_token` o parâmetro para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. Para obter mais informações sobre fichas [ `id_tokens` ](id-tokens.md)de identificação e seus conteúdos, consulte a referência . |
+| `state` | Se `state` um parâmetro estiver incluído no pedido, o mesmo valor deve figurar na resposta. A aplicação deve verificar se os valores do Estado no pedido e resposta são idênticos. |
 
 ### <a name="error-response"></a>Resposta de erro
 
@@ -163,7 +163,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 ### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto final de autorização
 
-A tabela seguinte descreve códigos de erro que podem ser devolvidos no parâmetro `error` da resposta ao erro:
+A tabela seguinte descreve códigos de `error` erro que podem ser devolvidos no parâmetro da resposta ao erro:
 
 | Código de erro | Descrição | Ação do cliente |
 | --- | --- | --- |
@@ -179,7 +179,7 @@ A tabela seguinte descreve códigos de erro que podem ser devolvidos no parâmet
 
 Receber apenas uma id_token não é suficiente para autenticar o utilizador; deve validar a assinatura do id_token e verificar as reclamações no token de acordo com os requisitos da sua aplicação. O ponto final da plataforma de identidade da Microsoft utiliza [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chaves públicas para assinar fichas e verificar se são válidas.
 
-Pode optar por validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de backend e fazer a validação lá. Uma vez validado a assinatura do id_token, existem algumas reclamações que terá de verificar. Consulte a [referência`id_token`](id-tokens.md) para mais informações, incluindo [Validação de Fichas](id-tokens.md#validating-an-id_token) e [Informações Importantes sobre A Assinatura](active-directory-signing-key-rollover.md)de Capotamento de Chaves . Recomendamos a utilização de uma biblioteca para analisar e validar fichas - há pelo menos uma disponível para a maioria das línguas e plataformas.
+Pode optar por `id_token` validar o código do cliente, `id_token` mas uma prática comum é enviar o para um servidor de backend e fazer a validação lá. Uma vez validado a assinatura do id_token, existem algumas reclamações que terá de verificar. Consulte [ `id_token` ](id-tokens.md) a referência para mais informações, incluindo [Validação de Fichas](id-tokens.md#validating-an-id_token) e [Informações Importantes sobre A Assinatura](active-directory-signing-key-rollover.md)de Capotamento de Chaves . Recomendamos a utilização de uma biblioteca para analisar e validar fichas - há pelo menos uma disponível para a maioria das línguas e plataformas.
 
 Também pode querer validar reclamações adicionais dependendo do seu cenário. Algumas validações comuns incluem:
 
@@ -193,20 +193,20 @@ Uma vez validado o id_token, pode iniciar uma sessão com o utilizador e utiliza
 
 Quando pretende assinar o utilizador a partir da sua aplicação, não basta limpar os cookies da sua aplicação ou terminar a sessão do utilizador. Também deve redirecionar o utilizador para o ponto final da plataforma de identidade da Microsoft para assinar. Se não o fizer, o utilizador reautentica a sua aplicação sem voltar a introduzir as suas credenciais, pois terá uma sessão de entrada única válida com o ponto final da plataforma de identidade da Microsoft.
 
-Pode redirecionar o utilizador para o `end_session_endpoint` listado no documento de metadados OpenID Connect:
+Pode redirecionar o utilizador `end_session_endpoint` para a lista lista da lista no documento de metadados OpenID Connect:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parâmetro | condição | Descrição |
+| Parâmetro | Condição | Descrição |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Recomendado | O URL para o que o utilizador é redirecionado depois de assinar com sucesso. Se o parâmetro não estiver incluído, o utilizador é mostrado uma mensagem genérica que é gerada pelo ponto final da plataforma de identidade da Microsoft. Este URL deve corresponder a um dos URIs redirecionados registados para a sua aplicação no portal de registo da aplicação. |
 
 ## <a name="single-sign-out"></a>Fim de sessão único
 
-Quando redireciona o utilizador para o `end_session_endpoint`, o ponto final da plataforma de identidade da Microsoft iliba a sessão do utilizador a partir do navegador. No entanto, o utilizador poderá ainda ser inscrito noutras aplicações que utilizem as contas da Microsoft para autenticação. Para permitir que essas aplicações assinem o utilizador em simultâneo, o ponto final da plataforma de identidade da Microsoft envia um pedido HTTP GET para o `LogoutUrl` registado de todas as aplicações em que o utilizador está atualmente inscrito. As aplicações devem responder a este pedido, limpando qualquer sessão que identifique o utilizador e devolvendo uma resposta `200`. Se pretender apoiar uma única inscrição na sua aplicação, deve implementar esse `LogoutUrl` no código da sua aplicação. Pode definir o `LogoutUrl` a partir do portal de registo da aplicação.
+Quando redireciona `end_session_endpoint`o utilizador para o ponto final da plataforma de identidade da Microsoft, a plataforma de identidade da Microsoft iliba a sessão do utilizador a partir do navegador. No entanto, o utilizador poderá ainda ser inscrito noutras aplicações que utilizem as contas da Microsoft para autenticação. Para permitir que essas aplicações assinem o utilizador em simultâneo, o `LogoutUrl` ponto final da plataforma de identidade da Microsoft envia um pedido HTTP GET ao registo de todas as aplicações em que o utilizador está atualmente inscrito. As aplicações devem responder a este pedido, limpando `200` qualquer sessão que identifique o utilizador e devolvendo uma resposta. Se desejar apoiar uma única inscrição na sua aplicação, deve implementar tal `LogoutUrl` no código da sua aplicação. Pode definir `LogoutUrl` o a partir do portal de registo da aplicação.
 
 ## <a name="protocol-diagram-access-token-acquisition"></a>Diagrama de protocolo: Aquisição de fichas de acesso
 
@@ -235,14 +235,14 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 ```
 
 > [!TIP]
-> Clique no seguinte link para executar este pedido. Depois de iniciar sessão, o seu navegador é redirecionado para `https://localhost/myapp/`, com um token de identificação e um código na barra de endereços. Note que este pedido utiliza `response_mode=fragment` apenas para fins de demonstração. Recomendamos que utilize `response_mode=form_post`.
+> Clique no seguinte link para executar este pedido. Depois de iniciar sessão, o `https://localhost/myapp/`seu navegador é redirecionado para, com um token de identificação e um código na barra de endereços. Note que este `response_mode=fragment` pedido utiliza apenas para fins de demonstração. Recomendamos que `response_mode=form_post`utilize.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-Ao incluir os âmbitos de permissão no pedido e utilizando `response_type=id_token code`, o ponto final da plataforma de identidade da Microsoft garante que o utilizador consentiu nas permissões indicadas no parâmetro de consulta `scope`. Devolve um código de autorização à sua aplicação para trocar por um token de acesso.
+Ao incluir os âmbitos de `response_type=id_token code`permissão no pedido e utilizando, o ponto final da plataforma `scope` de identidade da Microsoft garante que o utilizador consentiu nas permissões indicadas no parâmetro de consulta. Devolve um código de autorização à sua aplicação para trocar por um token de acesso.
 
 ### <a name="successful-response"></a>Resposta bem sucedida
 
-Uma resposta bem sucedida ao usar `response_mode=form_post` se parece com isto:
+Uma resposta bem `response_mode=form_post` sucedida de usar parece assim:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -254,7 +254,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `id_token` | O símbolo de identificação que a aplicação solicitou. Pode utilizar o símbolo de identificação para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. Encontrará mais detalhes sobre fichas de identificação e seus conteúdos na [referência`id_tokens`.](id-tokens.md) |
+| `id_token` | O símbolo de identificação que a aplicação solicitou. Pode utilizar o símbolo de identificação para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. Encontrará mais detalhes sobre fichas de identificação e seus conteúdos na [ `id_tokens` referência](id-tokens.md). |
 | `code` | O código de autorização que a aplicação solicitou. A aplicação pode usar o código de autorização para solicitar um sinal de acesso para o recurso alvo. Um código de autorização é de curta duração. Normalmente, um código de autorização expira em cerca de 10 minutos. |
 | `state` | Se um parâmetro estatal estiver incluído no pedido, o mesmo valor deve figurar na resposta. A aplicação deve verificar se os valores do Estado no pedido e resposta são idênticos. |
 

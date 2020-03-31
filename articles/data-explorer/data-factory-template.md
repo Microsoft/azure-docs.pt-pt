@@ -1,6 +1,6 @@
 ---
-title: Copiar em massa de um banco de dados para o Azure Data Explorer usando o modelo de Azure Data Factory
-description: Neste artigo, você aprenderá a usar um modelo de Azure Data Factory para copiar em massa de um banco de dados para o Azure Data Explorer
+title: Copiar a granel de uma base de dados para o Azure Data Explorer utilizando o modelo azure data factory
+description: Neste artigo, aprende-se a usar um modelo de Fábrica de Dados Azure para copiar a granel de uma base de dados para o Azure Data Explorer
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -9,39 +9,39 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
 ms.openlocfilehash: 884f4e956b37c2def6c25d0acdf20f15eddf7767
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76293560"
 ---
-# <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>Copiar em massa de um banco de dados para o Azure Data Explorer usando o modelo de Azure Data Factory 
+# <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>Copiar a granel de uma base de dados para o Azure Data Explorer utilizando o modelo azure data factory 
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado. Ele oferece análise em tempo real sobre grandes volumes de dados que transmitem de várias fontes, como aplicativos, sites e dispositivos IoT. 
+O Azure Data Explorer é um serviço rápido, totalmente gerido, de análise de dados. Oferece análiseem em tempo real sobre grandes volumes de dados que fluem de muitas fontes, tais como aplicações, websites e dispositivos IoT. 
 
-Para copiar dados de um banco de dado no servidor Oracle, Netezza, Teradata ou SQL Server para o Azure Data Explorer, você precisa carregar enormes quantidades de dados de várias tabelas. Normalmente, os dados têm que ser particionados em cada tabela para que você possa carregar linhas com vários threads em paralelo a partir de uma única tabela. Este artigo descreve um modelo a ser usado nesses cenários.
+Para copiar dados de uma base de dados no Oracle Server, Netezza, Teradata ou SQL Server para o Azure Data Explorer, tem de carregar enormes quantidades de dados a partir de várias tabelas. Normalmente, os dados têm de ser divididos em cada tabela para que possa carregar linhas com vários fios em paralelo a partir de uma única tabela. Este artigo descreve um modelo para usar nestes cenários.
 
-Os [modelos de Azure data Factory](/azure/data-factory/solution-templates-introduction) são pipelines de data Factory predefinidos. Esses modelos podem ajudá-lo a começar rapidamente com Data Factory e reduzir o tempo de desenvolvimento em projetos de integração de dados. 
+[Os modelos](/azure/data-factory/solution-templates-introduction) da Fábrica de Dados Azure são oleodutos predefinidos da Fábrica de Dados. Estes modelos podem ajudá-lo a começar rapidamente com data factory e reduzir o tempo de desenvolvimento em projetos de integração de dados. 
 
-Você cria a *cópia em massa do banco de dados para o modelo de data Explorer do Azure* usando atividades de *pesquisa* e *foreach* . Para uma cópia de dados mais rápida, você pode usar o modelo para criar vários pipelines por banco de dado ou por tabela. 
+Cria a cópia a granel da Base de Dados para o modelo de Explorador de *Dados Azure* utilizando as atividades *de Lookup* e *ForEach.* Para uma cópia de dados mais rápida, pode utilizar o modelo para criar muitos oleodutos por base de dados ou por tabela. 
 
 > [!IMPORTANT]
-> Certifique-se de usar a ferramenta apropriada para a quantidade de dados que você deseja copiar.
-> * Use o modelo *cópia em massa do banco de dados para o Azure data Explorer* para copiar grandes volumes de bancos de dados, como o SQL Server e o Google BigQuery para o Azure data Explorer. 
-> * Use a [*ferramenta Data Factory copiar dados*](data-factory-load-data.md) para copiar algumas tabelas com pequenas ou moderadas quantidades de dados para o Azure data Explorer. 
+> Certifique-se de que utiliza a ferramenta adequada para a quantidade de dados que pretende copiar.
+> * Utilize a cópia a granel da base de dados para o modelo Do Explorador de *Dados Azure* para copiar grandes quantidades de dados de bases de dados como o servidor SQL e o Google BigQuery para o Azure Data Explorer. 
+> * Utilize a [*ferramenta Data Copy Data*](data-factory-load-data.md) da Data para copiar algumas tabelas com pequenas ou moderadas quantidades de dados no Azure Data Explorer. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-portal.md).
-* [Crie um data Factory](data-factory-load-data.md#create-a-data-factory).
-* Uma fonte de dados em um banco de dado.
+* [Um cluster azure Data Explorer e base de dados.](create-cluster-database-portal.md)
+* [Criar uma fábrica de dados.](data-factory-load-data.md#create-a-data-factory)
+* Uma fonte de dados numa base de dados.
 
-## <a name="create-controltabledataset"></a>Criar ControlTableDataset
+## <a name="create-controltabledataset"></a>Criar Conjunto de Datação de ControloTable
 
-*ControlTableDataset* indica quais dados serão copiados da origem para o destino no pipeline. O número de linhas indica o número total de pipelines necessários para copiar os dados. Você deve definir ControlTableDataset como parte do banco de dados de origem.
+*ControlTableDataset* indica quais os dados que serão copiados da fonte para o destino no oleoduto. O número de linhas indica o número total de gasodutos necessários para copiar os dados. Deve definir o Conjunto de Dados do ControlTable como parte da base de dados de origem.
 
-Um exemplo de formato de tabela de origem SQL Server é mostrado no código a seguir:
+Um exemplo do formato de tabela de fonte sQL Server é mostrado no seguinte código:
     
 ```sql   
 CREATE TABLE control_table (
@@ -51,69 +51,69 @@ ADXTableName varchar(255)
 );
 ```
 
-Os elementos de código são descritos na tabela a seguir:
+Os elementos de código são descritos na tabela seguinte:
 
 |Propriedade  |Descrição  | Exemplo
 |---------|---------| ---------|
-|PartitionId   |  A ordem de cópia | 1  |  
-|SourceQuery   |  A consulta que indica quais dados serão copiados durante o tempo de execução do pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
-|ADXTableName  |  O nome da tabela de destino | MyAdxTable       |  
+|Partida   |  A cópia | 1  |  
+|FonteQuery   |  A consulta que indica quais os dados que serão copiados durante o tempo de execução do gasoduto | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
+|Nome ADXTable  |  O nome da tabela de destino | MyAdxTable       |  
 
-Se o seu ControlTableDataset estiver em um formato diferente, crie um ControlTableDataset comparável para seu formato.
+Se o seu ControlTableDataset estiver num formato diferente, crie um Conjunto de Dados De Controlo comparável para o seu formato.
 
-## <a name="use-the-bulk-copy-from-database-to-azure-data-explorer-template"></a>Usar o modelo cópia em massa do banco de dados para o Azure Data Explorer
+## <a name="use-the-bulk-copy-from-database-to-azure-data-explorer-template"></a>Utilize a cópia a granel da base de dados para o modelo de Explorador de Dados Azure
 
-1. No painel **introdução** , selecione **criar pipeline de modelo** para abrir o painel **Galeria de modelos** .
+1. No **Let's start** pane, **selecione Criar o oleoduto do modelo** para abrir o painel da galeria **Modelo.**
 
-    ![O painel de Azure Data Factory "Vamos começar"](media/data-factory-template/adf-get-started.png)
+    ![O painel da Azure Data Factory "Vamos começar"](media/data-factory-template/adf-get-started.png)
 
-1. Selecione o modelo **cópia em massa do banco de dados para o Azure data Explorer** .
+1. Selecione a cópia a granel da base de dados para o modelo do Explorador de **Dados Azure.**
  
-    ![O modelo "cópia em massa do banco de dados para o Azure Data Explorer"](media/data-factory-template/pipeline-from-template.png)
+    ![O modelo "Copy Bulk from Database to Azure Data Explorer"](media/data-factory-template/pipeline-from-template.png)
 
-1.  No painel **cópia em massa do banco de dados para o Azure data Explorer** , em **entradas do usuário**, especifique os conjuntos de dados fazendo o seguinte: 
+1.  Na cópia a granel da base de dados para o painel do Explorador de **Dados Azure,** em função das **Inputs do Utilizador,** especifique os seus conjuntos de dados fazendo o seguinte: 
 
-    a. Na lista suspensa **ControlTableDataset** , selecione o serviço vinculado à tabela de controle que indica quais dados são copiados da origem para o destino e onde eles serão colocados no destino. 
+    a. Na lista de drop-down **do ControlTableDataset,** selecione o serviço ligado à tabela de controlo que indique quais os dados copiados da fonte para o destino e onde será colocado no destino. 
 
-    b. Na lista suspensa **SourceDataset** , selecione o serviço vinculado para o banco de dados de origem. 
+    b. Na lista de drop-down **SourceDataset,** selecione o serviço ligado à base de dados de origem. 
 
-    c. Na lista suspensa **AzureDataExplorerTable** , selecione a tabela de data Explorer do Azure. Se o conjunto de um não existir, [crie o serviço vinculado do Azure data Explorer](data-factory-load-data.md#create-the-azure-data-explorer-linked-service) para adicionar o conjunto de um.
+    c. Na lista de lançamentos **do AzureDataExplorerTable,** selecione a tabela Azure Data Explorer. Se o conjunto de dados não existir, [crie o serviço ligado ao Azure Data Explorer](data-factory-load-data.md#create-the-azure-data-explorer-linked-service) para adicionar o conjunto de dados.
 
-    d. Selecione **Utilizar este modelo**.
+    d. Selecione **Utilize este modelo**.
 
-    ![O painel "cópia em massa do banco de dados para o Azure Data Explorer"](media/data-factory-template/configure-bulk-copy-adx-template.png)
+    ![O painel "Copy Bulk from Database to Azure Data Explorer"](media/data-factory-template/configure-bulk-copy-adx-template.png)
 
-1. Selecione uma área na tela, fora das atividades, para acessar o pipeline de modelo. Selecione a guia **parâmetros** para inserir os parâmetros da tabela, incluindo **nome** (nome da tabela de controle) e **valor padrão** (nomes de coluna).
+1. Selecione uma área na tela, fora das atividades, para aceder ao pipeline do modelo. Selecione o separador **Parâmetros** para introduzir os parâmetros para a tabela, incluindo **nome** (nome da tabela de controlo) e **valor predefinido** (nomes de coluna).
 
     ![Parâmetros do pipeline](media/data-factory-template/pipeline-parameters.png)
 
-1.  Em **pesquisa**, selecione **getparticionalist** para exibir as configurações padrão. A consulta é criada automaticamente.
-1.  Selecione a atividade de comando, **ForEachPartition**, selecione a guia **configurações** e, em seguida, faça o seguinte:
+1.  Em **'Lookup', selecione** **GetPartitionList** para visualizar as definições predefinidas. A consulta é automaticamente criada.
+1.  Selecione a atividade de Comando, **ForEachPartition,** selecione o separador **Definições** e, em seguida, faça o seguinte:
 
-    a. Na caixa **contagem de lote** , insira um número de 1 a 50. Essa seleção determina o número de pipelines que são executados em paralelo até que o número de linhas *ControlTableDataset* seja atingido. 
+    a. Na caixa de contagem de **lote,** introduza um número de 1 a 50. Esta seleção determina o número de gasodutos que funcionam em paralelo até que o número de linhas *DeConjuntoDataset* do ControlTable seja atingido. 
 
-    b. Para garantir que os lotes de pipeline sejam executados em paralelo *, não* marque a caixa de seleção **sequencial** .
+    b. Para garantir que os lotes do gasoduto funcionam em paralelo, *não* selecione a caixa de verificação **sequencial.**
 
-    ![Configurações de ForEachPartition](media/data-factory-template/foreach-partition-settings.png)
+    ![Definições para APartilha de Divisórias](media/data-factory-template/foreach-partition-settings.png)
 
     > [!TIP]
-    > A prática recomendada é executar vários pipelines em paralelo para que os dados possam ser copiados mais rapidamente. Para aumentar a eficiência, Particione os dados na tabela de origem e aloque uma partição por pipeline, de acordo com a data e a tabela.
+    > A melhor prática é executar muitos oleodutos em paralelo para que os seus dados possam ser copiados mais rapidamente. Para aumentar a eficiência, partiparta os dados na tabela de origem e alocar uma divisória por pipeline, de acordo com a data e a tabela.
 
-1. Selecione **validar tudo** para validar o pipeline de Azure data Factory e, em seguida, exiba o resultado no painel **saída de validação de pipeline** .
+1. Selecione **Validar Tudo** para validar o gasoduto Azure Data Factory e, em seguida, ver o resultado no painel de saída de validação do **gasoduto.**
 
-    ![Validar pipelines de modelo](media/data-factory-template/validate-template-pipelines.png)
+    ![Validar gasodutos de modelo](media/data-factory-template/validate-template-pipelines.png)
 
-1. Se necessário, selecione **depurar**e, em seguida, selecione **Adicionar gatilho** para executar o pipeline.
+1. Se necessário, selecione **Debug**, e, em seguida, **selecione Adicionar gatilho** para executar o gasoduto.
 
-    ![Os botões "depurar" e "executar pipeline"](media/data-factory-template/trigger-run-of-pipeline.png)    
+    ![Os botões "Debug" e "Executar pipeline"](media/data-factory-template/trigger-run-of-pipeline.png)    
 
-Agora você pode usar o modelo para copiar com eficiência grandes quantidades de dados de seus bancos de dados e tabelas.
+Agora pode utilizar o modelo para copiar eficientemente grandes quantidades de dados das suas bases de dados e tabelas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [copiar dados para o Azure data Explorer usando Azure data Factory](data-factory-load-data.md).
-* Saiba mais sobre o [conector de data Explorer do Azure](/azure/data-factory/connector-azure-data-explorer) no Azure data Factory.
-* Saiba mais sobre as [consultas do Azure data Explorer](/azure/data-explorer/web-query-data) para consulta de dados.
+* Saiba como [copiar dados para o Azure Data Explorer utilizando](data-factory-load-data.md)a Azure Data Factory .
+* Conheça o [conector Azure Data Explorer](/azure/data-factory/connector-azure-data-explorer) na Azure Data Factory.
+* Saiba mais sobre as consultas do [Azure Data Explorer](/azure/data-explorer/web-query-data) para consulta de dados.
 
 
 

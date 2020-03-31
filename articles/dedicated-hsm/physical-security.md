@@ -1,6 +1,6 @@
 ---
-title: Segurança física do HSM - HSM dedicada do Azure | Documentos da Microsoft
-description: Informações sobre a segurança física dos dispositivos de HSM dedicados do Azure nos centros de dados
+title: Segurança física hSM - Azure Dedicado HSM [ Microsoft Docs
+description: Informação sobre a segurança física dos dispositivos HSM dedicados do Azure nos centros de dados
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,50 +13,50 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70881020"
 ---
-# <a name="azure-dedicated-hsm-physical-security"></a>Segurança física de HSM dedicados do Azure
+# <a name="azure-dedicated-hsm-physical-security"></a>Segurança física dedicada ao HSM azure
 
-HSM dedicada do Azure ajuda-o a cumprir os requisitos de segurança avançadas para o armazenamento de chaves. É gerenciado seguintes práticas de segurança rigorosas em todo o ciclo completo para atender às necessidades dos clientes.
+O Azure Dedicado HSM ajuda-o a cumprir os requisitos avançados de segurança para o armazenamento de chaves. É gerido seguindo práticas de segurança rigorosas ao longo de todo o seu ciclo de vida para atender às necessidades dos clientes.
 
-## <a name="security-through-procurement"></a>Segurança através de aprovisionamento
+## <a name="security-through-procurement"></a>Segurança através de aquisições
 
-Microsoft segue um processo de aprovisionamento seguro. Podemos gerir a cadeia de custódia e certifique-se de que o dispositivo específico ordenadas e fornecido é o dispositivo que chegam ao nosso centros de dados. Os dispositivos estão em faz uma cópia de plástico do evento de adulteração. Eles são armazenados numa área de armazenamento seguro até que empregasse na Galeria de dados do Centro de dados.  Os racks que contém os dispositivos HSM são considerados impact(HBI) comerciais altos. Os dispositivos estão bloqueados e em vigilância de vídeo, o tempo todo front-end e back.
+A Microsoft segue um processo de aquisição seguro. Gerimos a cadeia de custódia e garantimos que o dispositivo específico encomendado e enviado é o dispositivo que chega aos nossos centros de dados. Os dispositivos estão em plástico de eventos de adulteração. São armazenados numa área de armazenamento segura até serem encomendados na galeria de dados do centro de dados.  As prateleiras que contêm os dispositivos HSM são consideradas de elevado impacto empresarial (HBI). Os dispositivos estão bloqueados e sob videovigilância a todo o momento, na frente e atrás.
 
-## <a name="security-through-deployment"></a>Segurança por meio da implantação
+## <a name="security-through-deployment"></a>Segurança através da implantação
 
-HSMs são instalados em racks, juntamente com os componentes de rede associados. Uma vez instalado, têm de ser configuradas antes de estar disponíveis como parte integrante do serviço de HSM do Azure dedicado. Esta atividade de configuração é realizada por funcionários da Microsoft que já passaram por uma verificação de segundo plano. "Just-In-Time" administração (JIT) é utilizada para limitar o acesso aos funcionários apenas certos e apenas o tempo que for necessário acesso. Os procedimentos e sistemas utilizados também garantem que todas as atividades relacionadas com os dispositivos HSM está registada.
+Os HSMs são instalados em prateleiras juntamente com componentes de rede associados. Uma vez instalados, devem ser configurados antes de serem disponibilizados como parte do Serviço HSM dedicado ao Azure. Esta atividade de configuração é realizada por funcionários da Microsoft que foram submetidos a uma verificação de antecedentes. A administração "Just In Time" (JIT) é utilizada para limitar o acesso apenas aos trabalhadores certos e apenas pelo tempo que é necessário aceder. Os procedimentos e sistemas utilizados também asseguram que toda a atividade relacionada com os dispositivos HSM está registada.
 
-## <a name="security-in-operations"></a>Segurança em operações
+## <a name="security-in-operations"></a>Segurança nas operações
 
-HSMs são dispositivos de hardware (o HSM real que está a ser um cartão PCI dentro da aplicação), portanto, é possível que possam surgir problemas de nível de componente. Problemas potenciais incluem, mas não estão limitados a ventoinha e power falhas de fonte de alimentação. Este tipo de evento será exigem manutenção ou reparação e atividades para substituir quaisquer componentes-swap.
+Os HSMs são aparelhos de hardware (sendo o HSM atual um cartão PCI dentro do aparelho) pelo que é possível que surjam problemas de nível de componente. As questões potenciais incluem, mas não se limitam a falhas de alimentação de ventiladores e de alimentação. Este tipo de evento exigirá atividades de manutenção ou rutura/correção para substituir quaisquer componentes permutáveis.
 
-### <a name="component-replacement"></a>Substituição de componente
+### <a name="component-replacement"></a>Substituição de componentes
 
-Depois de um dispositivo é aprovisionado e sob a gestão de clientes, a fontes de alimentação é apenas componentes que teriam de ser substituídos. Este componente está fora do limite de segurança e não faz com que um evento de adulteração. Um sistema de permissões é utilizado para autorizar um engenheiro da Microsoft para aceder a atrás do HBI rack. Quando o pedido de suporte é processado uma chave temporária de física é emitida. Esta chave permite o acesso de engenheiro no dispositivo e permite-lhes trocar o componente afetado. Qualquer outro tipo de acesso (ou seja, adulteração evento causar) teria de ser feito quando um dispositivo não está atribuído a um cliente, portanto, minimizando o risco de segurança e a disponibilidade.  
+Depois de um dispositivo ser provisionado e sob gestão do cliente, a fonte de alimentação permutável a quente é o único componente que seria substituído. Este componente está fora do limite de segurança e não causa um incidente de adulteração. Um sistema de bilhética é usado para autorizar um engenheiro da Microsoft a aceder à parte traseira da cremalheira HBI. Quando o bilhete é processado é emitida uma chave física temporária. Esta chave dá ao engenheiro acesso ao dispositivo e permite-lhes trocar o componente afetado. Qualquer outro acesso (isto é, adulteração de eventos) seria feito quando um dispositivo não é atribuído a um cliente, minimizando assim o risco de segurança e disponibilidade.  
 
-### <a name="device-replacement"></a>Substituição de dispositivo
+### <a name="device-replacement"></a>Substituição do dispositivo
 
-Em caso de falha total de dispositivos, é seguido um processo semelhante à utilizada durante uma falha de componente. Se um cliente não é capaz de zeroize o dispositivo ou o dispositivo está num Estado desconhecido, os dados tendo dispositivos serão removidos e colocados numa posição de destruição em rack. Serão destruídos colocados no contentor de dispositivos de forma controlada e segura. Não existem dados tendo dispositivos a partir de um HBI rack deixar um datacenter da Microsoft.
+Em caso de falha total do dispositivo, segue-se um processo semelhante ao utilizado durante a falha do componente. Se um cliente não conseguir zeroizar o dispositivo, ou se o dispositivo estiver num estado desconhecido, os dispositivos de suporte de dados serão removidos e colocados num contentor de destruição no cesto. Os dispositivos colocados no caixote do lixo serão destruídos de forma controlada e segura. Nenhum dispositivo de suporte de dados de um rack HBI deixará um datacenter da Microsoft.
 
-### <a name="other-rack-access-activities"></a>Outras atividades de acesso de bastidor
+### <a name="other-rack-access-activities"></a>Outras atividades de acesso ao rack
 
-Se o bastidor utilizado pelos dispositivos HSM (por exemplo, manutenção funcionamento em rede do dispositivo) têm de aceder a um engenheiro da Microsoft, procedimentos de segurança padrão serão utilizados para obter acesso ao HBI rack seguro. Todos os acessos encontrar-se-irão em vídeo vigilância. Os dispositivos HSM sejam validados [FIPS 140-2 nível 3](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf) para que qualquer acesso não autorizado aos dispositivos HSM irão ser indicado para o cliente e irão ser zeroized dados.
+Se um engenheiro da Microsoft tiver acesso à cremalheira utilizada pelos dispositivos HSM (por exemplo, manutenção de dispositivos de rede), serão utilizados procedimentos de segurança padrão para aceder à cremalheira segura HBI. Todos os acessos estarão sob videovigilância. Os dispositivos HSM são validados para [o Nível 3 140-2 FIPS](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf) para que qualquer acesso não autorizado aos Dispositivos HSM seja sinalizado ao cliente e os dados serão zeroizados.
 
-## <a name="logical-level-security-considerations"></a>Considerações de segurança de nível lógico
+## <a name="logical-level-security-considerations"></a>Considerações lógicas de segurança a nível
 
-HSMs são aprovisionados para uma rede virtual criada pelo cliente. Este é o espaço de endereços de IUP privado de um cliente.  Esta configuração fornece um isolamento em nível de rede lógica valiosas e garante que apenas o acesso do cliente. Isso implica que todos os controles de segurança ao nível lógico são de responsabilidade do cliente.
+Os HSMs são provisionados para uma rede virtual criada pelo cliente. Este é o espaço privado iUP Address de um cliente.  Esta configuração proporciona um valioso isolamento lógico ao nível da rede e garante o acesso apenas pelo cliente. Isto implica que todos os controlos de segurança de nível lógico são da responsabilidade do cliente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Recomenda-se que todos os principais conceitos do serviço, como elevada disponibilidade e a segurança e a capacidade de suporte por exemplo, são bem compreendidos antes de aprovisionamento de dispositivos, design do aplicativo ou a implementação.
+Recomenda-se que todos os conceitos-chave do serviço, tais como alta disponibilidade e segurança e capacidade de apoio, por exemplo, sejam bem compreendidos antes do fornecimento, conceção ou implementação de dispositivos.
 
-* [Elevada disponibilidade](high-availability.md)
+* [Alta Disponibilidade](high-availability.md)
 * [Redes](networking.md)
-* [Capacidade de suporte](supportability.md)
+* [Suportabilidade](supportability.md)
 * [Monitorização](monitoring.md)
 * [Arquitetura de implantação](deployment-architecture.md)

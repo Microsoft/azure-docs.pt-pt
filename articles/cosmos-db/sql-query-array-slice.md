@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a98cb17d22f41776ff788d12ced6aa988ad0b10e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303329"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
- Devolve a parte de uma expressão de matriz.
+ Devolve parte de uma expressão de matriz.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,7 +29,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
    É qualquer expressão de matriz.  
   
 *num_expr*  
-   Índice numérico baseado em zero na qual deve começar a matriz. Valores negativos podem ser utilizados para especificar o índice de início em relação ao último elemento de matriz, ou seja, -1 referencia o último elemento na matriz.  
+   Índice numérico de base zero para iniciar a matriz. Os valores negativos podem ser utilizados para especificar o índice de partida em relação ao último elemento da matriz, ou seja, -1 refere o último elemento da matriz.  
 
 *num_expr* Expressão numérica opcional que define o número máximo de elementos na matriz resultante.    
 
@@ -39,7 +39,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo que se segue mostra como obter diferentes fatias de uma matriz usando `ARRAY_SLICE`.  
+  O exemplo que se segue mostra como `ARRAY_SLICE`obter diferentes fatias de uma matriz usando .  
   
 ```sql
 SELECT

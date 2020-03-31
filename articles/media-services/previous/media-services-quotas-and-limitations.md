@@ -1,6 +1,6 @@
 ---
-title: Quotas de serviços de multimédia e limitação | Documentos da Microsoft
-description: Este tópico descreve as quotas e limitações associadas com os serviços de multimédia do Microsoft Azure.
+title: Quotas e limitação dos Serviços de Media Microsoft Docs
+description: Este tópico descreve quotas e limitações associadas aos Serviços de Media Microsoft Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: dc0d41457729bf5fd78adb88d683ab4fbe23a148
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60557150"
 ---
 # <a name="quotas-and-limitations"></a>Quotas e Limitações
 
-Este artigo descreve as quotas e limitações associadas com os serviços de multimédia do Microsoft Azure.
+Este artigo descreve quotas e limitações associadas aos Serviços de Media Microsoft Azure.
 
 [!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
 
-## <a name="open-a-support-ticket-to-request-changes-to-the-default-quotas"></a>Abra um pedido de suporte para pedir alterações para as quotas predefinidas
-Para pedir alterações para as quotas predefinidas fornecidas, pode abrir um pedido de suporte. Inclua informações detalhadas no pedido de alterações de quota pretendida, cenários de casos de utilização e regiões necessários.
+## <a name="open-a-support-ticket-to-request-changes-to-the-default-quotas"></a>Abra um Bilhete de Apoio para solicitar alterações às quotas de incumprimento
+Para solicitar alterações às quotas predefinidas fornecidas, pode abrir um bilhete de apoio. Por favor, inclua informações detalhadas no pedido sobre as alterações de quota desejadas, cenários de caso de utilização e regiões necessárias.
 
-### <a name="how-to-open-a-support-ticket"></a>Como abrir um pedido de suporte
-No portal do Azure, aceda a [ajuda + suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se não estiver conectado para o Azure, será solicitado que introduza as credenciais.
+### <a name="how-to-open-a-support-ticket"></a>Como abrir um bilhete de apoio
+No portal Azure, vá a [Ajuda + suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se não estiver ligado ao Azure, será solicitado que introduza as suas credenciais.
 
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

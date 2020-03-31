@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 7e4586a5fba91fbc7432aa352b9608be728e8654
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: dc47afe9cb6eca1b10f8caca7b85087023c5eadf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267030"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060138"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Pré-visualização: As atualizações de controlo de controlo de controlo de manutenção com o Controlo de Manutenção e a PowerShell Azure
 
@@ -28,7 +28,7 @@ Com controlo de manutenção, pode:
 
 > [!IMPORTANT]
 > O Controlo de Manutenção encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
 > 
 
 ## <a name="limitations"></a>Limitações
@@ -46,7 +46,7 @@ Certifique-se de que `PowerShellGet` está atualizado.
 Install-Module -Name PowerShellGet -Repository PSGallery -Force
 ```
 
-Os cmdlets Az.Maintenance PowerShell estão em pré-visualização, pelo que é necessário instalar o módulo com o `AllowPrerelease` parâmetro na Cloud Shell ou na instalação local da PowerShell.   
+Os cmdlets Az.Maintenance PowerShell estão em pré-visualização, `AllowPrerelease` pelo que é necessário instalar o módulo com o parâmetro na Cloud Shell ou na instalação local da PowerShell.   
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Maintenance -AllowPrerelease
@@ -54,7 +54,7 @@ Install-Module -Name Az.Maintenance -AllowPrerelease
 
 Se estiver a instalar-se localmente, certifique-se de que abre o seu pedido PowerShell como administrador.
 
-Também lhe é pedido que confirme que pretende instalar a partir de um *repositório não confiável*. Escreva `Y` ou **selecione Sim a Todos** para instalar o módulo.
+Também lhe é pedido que confirme que pretende instalar a partir de um *repositório não confiável*. Escreva `Y` ou selecione **Sim a Todos** para instalar o módulo.
 
 
 
@@ -78,7 +78,7 @@ $config = New-AzMaintenanceConfiguration `
    -Location  eastus
 ```
 
-A utilização `-MaintenanceScope host` garante que a configuração de manutenção é utilizada para controlar as atualizações do hospedeiro.
+A `-MaintenanceScope host` utilização garante que a configuração de manutenção é utilizada para controlar as atualizações do hospedeiro.
 
 Se tentar criar uma configuração com o mesmo nome, mas num local diferente, terá um erro. Os nomes de configuração devem ser exclusivos da sua subscrição.
 
@@ -94,7 +94,7 @@ Utilize a [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/
 
 ### <a name="isolated-vm"></a>VM isolado
 
-Aplique a configuração num VM utilizando o ID da configuração. Especifique `-ResourceType VirtualMachines` e forneça o nome do VM para `-ResourceName`, e o grupo de recursos do VM para `-ResourceGroupName`. 
+Aplique a configuração num VM utilizando o ID da configuração. Especifique `-ResourceType VirtualMachines` e forneça o `-ResourceName`nome do VM para `-ResourceGroupName`, e o grupo de recursos do VM para . 
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -109,7 +109,7 @@ New-AzConfigurationAssignment `
 
 ### <a name="dedicated-host"></a>Anfitrião dedicado
 
-Para aplicar uma configuração a um anfitrião dedicado, também precisa de incluir `-ResourceType hosts`, `-ResourceParentName` com o nome do grupo anfitrião, e `-ResourceParentType hostGroups`. 
+Para aplicar uma configuração a um anfitrião `-ResourceType hosts` `-ResourceParentName` dedicado, também precisa incluir, `-ResourceParentType hostGroups`com o nome do grupo anfitrião, e . 
 
 
 ```azurepowershell-interactive
@@ -187,7 +187,7 @@ New-AzApplyUpdate `
    -ProviderName Microsoft.Compute
 ```
 
-No sucesso, este comando devolverá um objeto `PSApplyUpdate`. Pode utilizar o atributo nome no comando `Get-AzApplyUpdate` para verificar o estado da atualização. Consulte o [estado da atualização](#check-update-status).
+No sucesso, este comando `PSApplyUpdate` devolverá um objeto. Pode utilizar o atributo `Get-AzApplyUpdate` nome no comando para verificar o estado da atualização. Consulte o [estado da atualização](#check-update-status).
 
 ### <a name="dedicated-host"></a>Anfitrião dedicado
 
@@ -204,7 +204,7 @@ New-AzApplyUpdate `
 ```
 
 ## <a name="check-update-status"></a>Verifique o estado da atualização
-Utilize [o Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) para verificar o estado de uma atualização. Os comandos abaixo mostrados mostram o estado da última atualização utilizando `default` para o parâmetro `-ApplyUpdateName`. Pode substituir o nome da atualização (devolvido pelo comando [New-AzApplyUpdate)](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) para obter o estado de uma atualização específica.
+Utilize [o Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) para verificar o estado de uma atualização. Os comandos abaixo mostrados mostram o estado `default` da `-ApplyUpdateName` última atualização utilizando para o parâmetro. Pode substituir o nome da atualização (devolvido pelo comando [New-AzApplyUpdate)](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) para obter o estado de uma atualização específica.
 
 ```text
 Status         : Completed
@@ -250,7 +250,7 @@ Get-AzApplyUpdate `
 
 Utilize a [Configuração de Eliminação-AzManutenção](https://docs.microsoft.com/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) para eliminar uma configuração de manutenção.
 
-```azurecli-interactive
+```azurepowershell-interactive
 Remove-AzMaintenanceConfiguration `
    -ResourceGroupName myResourceGroup `
    -Name $config.Name

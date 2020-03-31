@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 40d277ff38691e2cb74bd4d5d78a666c304acfcd
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304026"
 ---
 # <a name="cos-azure-cosmos-db"></a>COS (Azure Cosmos DB)
- Devolve o cosseno trigonométricos do ângulo especificado, em radianos, a expressão especificada.  
+ Devolve a cosina trigonométrica do ângulo especificado, em radianos, na expressão especificada.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ COS(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo seguinte calcula o `COS` do ângulo especificado.  
+  O exemplo seguinte `COS` calcula o ângulo especificado.  
   
 ```sql
 SELECT COS(14.78) AS cos  
